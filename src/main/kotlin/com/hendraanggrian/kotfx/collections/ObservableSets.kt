@@ -12,7 +12,7 @@ inline fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObser
 
 inline fun <T> observableSetOf(): ObservableSet<T> = emptyObservableSet()
 
-// inline fun <T> observableSetOf(vararg elements: T): ObservableSet<T> = FXCollections.unmodifiableObservableSet()
+inline fun <T> observableSetOf(vararg elements: T): ObservableSet<T> = if (elements.isNotEmpty()) FXCollections.unmodifiableObservableSet(mutableObservableSetOf(*elements)) else emptyObservableSet()
 
 inline fun <T> Set<T>.toObservableSet(): ObservableSet<T> = FXCollections.unmodifiableObservableSet(toMutableObservableSet())
 

@@ -9,21 +9,6 @@ import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
 
 /**
- * Show an alert with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- */
-@JvmOverloads
-inline fun alert(
-        init: Alert.() -> Unit,
-        noinline action: ((ButtonType) -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.NONE)
-    dialog.init()
-    dialog.showOrWait(action)
-    return dialog
-}
-
-/**
  * Show an alert with specified title and buttons.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */
@@ -39,15 +24,15 @@ inline fun alert(
 }
 
 /**
- * Show an information alert with custom initialization block.
+ * Show an alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */
 @JvmOverloads
-inline fun infoAlert(
+inline fun alert(
         init: Alert.() -> Unit,
         noinline action: ((ButtonType) -> Unit)? = null
 ): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.INFORMATION)
+    val dialog = Alert(Alert.AlertType.NONE)
     dialog.init()
     dialog.showOrWait(action)
     return dialog
@@ -69,15 +54,15 @@ inline fun infoAlert(
 }
 
 /**
- * Show a warning alert with custom initialization block.
+ * Show an information alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */
 @JvmOverloads
-inline fun warningAlert(
+inline fun infoAlert(
         init: Alert.() -> Unit,
         noinline action: ((ButtonType) -> Unit)? = null
 ): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.WARNING)
+    val dialog = Alert(Alert.AlertType.INFORMATION)
     dialog.init()
     dialog.showOrWait(action)
     return dialog
@@ -99,15 +84,15 @@ inline fun warningAlert(
 }
 
 /**
- * Show a confirmation alert with custom initialization block.
+ * Show a warning alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */
 @JvmOverloads
-inline fun confirmAlert(
+inline fun warningAlert(
         init: Alert.() -> Unit,
         noinline action: ((ButtonType) -> Unit)? = null
 ): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.CONFIRMATION)
+    val dialog = Alert(Alert.AlertType.WARNING)
     dialog.init()
     dialog.showOrWait(action)
     return dialog
@@ -129,15 +114,15 @@ inline fun confirmAlert(
 }
 
 /**
- * Show an error alert with custom initialization block.
+ * Show a confirmation alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */
 @JvmOverloads
-inline fun errorAlert(
+inline fun confirmAlert(
         init: Alert.() -> Unit,
         noinline action: ((ButtonType) -> Unit)? = null
 ): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.ERROR)
+    val dialog = Alert(Alert.AlertType.CONFIRMATION)
     dialog.init()
     dialog.showOrWait(action)
     return dialog
@@ -154,6 +139,21 @@ inline fun errorAlert(
         noinline action: ((ButtonType) -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
+    dialog.showOrWait(action)
+    return dialog
+}
+
+/**
+ * Show an error alert with custom initialization block.
+ * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ */
+@JvmOverloads
+inline fun errorAlert(
+        init: Alert.() -> Unit,
+        noinline action: ((ButtonType) -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.ERROR)
+    dialog.init()
     dialog.showOrWait(action)
     return dialog
 }

@@ -17,21 +17,6 @@ internal inline fun <T> Dialog<T>.showOrWait(
 }
 
 /**
- * Show a base dialog with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- */
-@JvmOverloads
-inline fun <R> dialog(
-        init: Dialog<R>.() -> Unit,
-        noinline action: ((R) -> Unit)? = null
-): Dialog<R> {
-    val dialog = Dialog<R>()
-    dialog.init()
-    dialog.showOrWait(action)
-    return dialog
-}
-
-/**
  * Show a choice dialog with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */
@@ -47,16 +32,16 @@ inline fun <T> choiceDialog(
 }
 
 /**
- * Show a choice dialog with specified choices and default choice.
+ * Show a base dialog with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */
 @JvmOverloads
-inline fun <T> choiceDialog(
-        defaultChoice: T,
-        choices: Collection<T>,
-        noinline action: ((T) -> Unit)? = null
-): Dialog<T> {
-    val dialog = ChoiceDialog<T>(defaultChoice, choices)
+inline fun <R> dialog(
+        init: Dialog<R>.() -> Unit,
+        noinline action: ((R) -> Unit)? = null
+): Dialog<R> {
+    val dialog = Dialog<R>()
+    dialog.init()
     dialog.showOrWait(action)
     return dialog
 }
@@ -77,16 +62,16 @@ inline fun <T> choiceDialog(
 }
 
 /**
- * Show a text input dialog with custom initialization block.
+ * Show a choice dialog with specified choices and default choice.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */
 @JvmOverloads
-inline fun inputDialog(
-        init: TextInputDialog.() -> Unit,
-        noinline action: ((String) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog()
-    dialog.init()
+inline fun <T> choiceDialog(
+        defaultChoice: T,
+        choices: Collection<T>,
+        noinline action: ((T) -> Unit)? = null
+): Dialog<T> {
+    val dialog = ChoiceDialog<T>(defaultChoice, choices)
     dialog.showOrWait(action)
     return dialog
 }
@@ -101,6 +86,21 @@ inline fun inputDialog(
         noinline action: ((String) -> Unit)? = null
 ): Dialog<String> {
     val dialog = TextInputDialog(defaultValue)
+    dialog.showOrWait(action)
+    return dialog
+}
+
+/**
+ * Show a text input dialog with custom initialization block.
+ * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ */
+@JvmOverloads
+inline fun inputDialog(
+        init: TextInputDialog.() -> Unit,
+        noinline action: ((String) -> Unit)? = null
+): Dialog<String> {
+    val dialog = TextInputDialog()
+    dialog.init()
     dialog.showOrWait(action)
     return dialog
 }

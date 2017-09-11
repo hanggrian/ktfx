@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("FxCollectionsKt")
+@file:JvmName("FXCollectionsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package com.hendraanggrian.kotfx.collections
@@ -20,6 +20,6 @@ inline fun <T> Collection<T>.toObservableList(): ObservableList<T> = FXCollectio
 
 inline fun <T> mutableObservableListOf(): ObservableList<T> = FXCollections.observableArrayList()
 
-inline fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> = FXCollections.observableArrayList(elements.asList())
+inline fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> = FXCollections.observableArrayList(*elements)
 
 inline fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> = FXCollections.observableArrayList(this)

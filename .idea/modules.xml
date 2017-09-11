@@ -3,10 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx_main.iml" group="kotfx" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx_main.iml" group="kotfx" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx_test.iml" group="kotfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx_test.iml" group="kotfx" />
     </modules>
   </component>

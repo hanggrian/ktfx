@@ -17,6 +17,21 @@ internal inline fun <T> Dialog<T>.showOrWait(
 }
 
 /**
+ * Show a base dialog with custom initialization block.
+ * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ */
+@JvmOverloads
+inline fun <R> dialog(
+        init: Dialog<R>.() -> Unit,
+        noinline action: ((R) -> Unit)? = null
+): Dialog<R> {
+    val dialog = Dialog<R>()
+    dialog.init()
+    dialog.showOrWait(action)
+    return dialog
+}
+
+/**
  * Show a choice dialog with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
  */

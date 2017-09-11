@@ -9,7 +9,10 @@ import javafx.stage.FileChooser
 import javafx.stage.Window
 import java.io.File
 
-/** Show file chooser expecting to open single file with specified title and extension filters. */
+/**
+ * Show file chooser expecting to open single file with specified title and extension filters.
+ * [action] will only execute if result is present.
+ */
 inline fun fileChooser(
         owner: Window,
         title: String,
@@ -19,10 +22,13 @@ inline fun fileChooser(
     val chooser = FileChooser()
     chooser.title = title
     chooser.extensionFilters.addAll(*filters)
-    action(chooser.showOpenDialog(owner))
+    chooser.showOpenDialog(owner)?.let(action)
 }
 
-/** Show file chooser expecting to open single file with custom initialization block. */
+/**
+ * Show file chooser expecting to open single file with custom initialization block.
+ * [action] will only execute if result is present.
+ */
 inline fun fileChooser(
         owner: Window,
         init: FileChooser.() -> Unit,
@@ -30,10 +36,13 @@ inline fun fileChooser(
 ) {
     val chooser = FileChooser()
     chooser.init()
-    action(chooser.showOpenDialog(owner))
+    chooser.showOpenDialog(owner)?.let(action)
 }
 
-/** Show file chooser expecting to open multiple files with specified title and extension filters. */
+/**
+ * Show file chooser expecting to open multiple files with specified title and extension filters.
+ * [action] will only execute if result is present.
+ */
 inline fun multipleFileChooser(
         owner: Window,
         title: String,
@@ -43,10 +52,13 @@ inline fun multipleFileChooser(
     val chooser = FileChooser()
     chooser.title = title
     chooser.extensionFilters.addAll(*filters)
-    action(chooser.showOpenMultipleDialog(owner))
+    chooser.showOpenMultipleDialog(owner)?.let(action)
 }
 
-/** Show file chooser expecting to open multiple files with custom initialization block. */
+/**
+ * Show file chooser expecting to open multiple files with custom initialization block.
+ * [action] will only execute if result is present.
+ */
 inline fun multipleFileChooser(
         owner: Window,
         init: FileChooser.() -> Unit,
@@ -54,10 +66,13 @@ inline fun multipleFileChooser(
 ) {
     val chooser = FileChooser()
     chooser.init()
-    action(chooser.showOpenMultipleDialog(owner))
+    chooser.showOpenMultipleDialog(owner)?.let(action)
 }
 
-/** Show file chooser expecting to save single file with specified title and extension filters. */
+/**
+ * Show file chooser expecting to save single file with specified title and extension filters.
+ * [action] will only execute if result is present.
+ */
 inline fun saveFileChooser(
         owner: Window,
         title: String,
@@ -67,10 +82,13 @@ inline fun saveFileChooser(
     val chooser = FileChooser()
     chooser.title = title
     chooser.extensionFilters.addAll(*filters)
-    action(chooser.showSaveDialog(owner))
+    chooser.showSaveDialog(owner)?.let(action)
 }
 
-/** Show file chooser expecting to save single file with custom initialization block. */
+/**
+ * Show file chooser expecting to save single file with custom initialization block.
+ * [action] will only execute if result is present.
+ */
 inline fun saveFileChooser(
         owner: Window,
         init: FileChooser.() -> Unit,
@@ -78,10 +96,13 @@ inline fun saveFileChooser(
 ) {
     val chooser = FileChooser()
     chooser.init()
-    action(chooser.showSaveDialog(owner))
+    chooser.showSaveDialog(owner)?.let(action)
 }
 
-/** Show file chooser expecting to open single directory with specified title. */
+/**
+ * Show file chooser expecting to open single directory with specified title.
+ * [action] will only execute if result is present.
+ */
 inline fun directoryChooser(
         owner: Window,
         title: String,
@@ -89,10 +110,13 @@ inline fun directoryChooser(
 ) {
     val chooser = DirectoryChooser()
     chooser.title = title
-    action(chooser.showDialog(owner))
+    chooser.showDialog(owner)?.let(action)
 }
 
-/** Show file chooser expecting to open single directory with custom initialization block. */
+/**
+ * Show file chooser expecting to open single directory with custom initialization block.
+ * [action] will only execute if result is present.
+ */
 inline fun directoryChooser(
         owner: Window,
         init: DirectoryChooser.() -> Unit,
@@ -100,5 +124,5 @@ inline fun directoryChooser(
 ) {
     val chooser = DirectoryChooser()
     chooser.init()
-    action(chooser.showDialog(owner))
+    chooser.showDialog(owner)?.let(action)
 }

@@ -11,7 +11,7 @@ import java.io.File
 
 /**
  * Show file chooser expecting to open single file with specified title and extension filters.
- * [action] will only execute if result is present.
+ * [action] will only execute if result is present and not null.
  */
 inline fun fileChooser(
         owner: Window,
@@ -27,7 +27,7 @@ inline fun fileChooser(
 
 /**
  * Show file chooser expecting to open single file with custom initialization block.
- * [action] will only execute if result is present.
+ * [action] will only execute if result is present and not null.
  */
 inline fun fileChooser(
         owner: Window,
@@ -41,7 +41,7 @@ inline fun fileChooser(
 
 /**
  * Show file chooser expecting to open multiple files with specified title and extension filters.
- * [action] will only execute if result is present.
+ * [action] will only execute if result is present and not null.
  */
 inline fun multipleFileChooser(
         owner: Window,
@@ -57,7 +57,7 @@ inline fun multipleFileChooser(
 
 /**
  * Show file chooser expecting to open multiple files with custom initialization block.
- * [action] will only execute if result is present.
+ * [action] will only execute if result is present and not null.
  */
 inline fun multipleFileChooser(
         owner: Window,
@@ -71,7 +71,7 @@ inline fun multipleFileChooser(
 
 /**
  * Show file chooser expecting to save single file with specified title and extension filters.
- * [action] will only execute if result is present.
+ * [action] will only execute if result is present and not null.
  */
 inline fun saveFileChooser(
         owner: Window,
@@ -87,7 +87,7 @@ inline fun saveFileChooser(
 
 /**
  * Show file chooser expecting to save single file with custom initialization block.
- * [action] will only execute if result is present.
+ * [action] will only execute if result is present and not null.
  */
 inline fun saveFileChooser(
         owner: Window,
@@ -101,7 +101,7 @@ inline fun saveFileChooser(
 
 /**
  * Show file chooser expecting to open single directory with specified title.
- * [action] will only execute if result is present.
+ * [action] will only execute if result is present and not null.
  */
 inline fun directoryChooser(
         owner: Window,
@@ -115,7 +115,7 @@ inline fun directoryChooser(
 
 /**
  * Show file chooser expecting to open single directory with custom initialization block.
- * [action] will only execute if result is present.
+ * [action] will only execute if result is present and not null.
  */
 inline fun directoryChooser(
         owner: Window,

@@ -11,6 +11,7 @@ import javafx.scene.control.Dialog
 /**
  * Show an alert with specified title and buttons.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun alert(
@@ -26,6 +27,7 @@ inline fun alert(
 /**
  * Show an alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun alert(
@@ -41,6 +43,7 @@ inline fun alert(
 /**
  * Show an information alert with specified title and buttons.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun infoAlert(
@@ -56,6 +59,7 @@ inline fun infoAlert(
 /**
  * Show an information alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun infoAlert(
@@ -71,6 +75,7 @@ inline fun infoAlert(
 /**
  * Show a warning alert with specified title and buttons.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun warningAlert(
@@ -86,6 +91,7 @@ inline fun warningAlert(
 /**
  * Show a warning alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun warningAlert(
@@ -101,6 +107,7 @@ inline fun warningAlert(
 /**
  * Show a confirmation alert with specified title and buttons.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun confirmAlert(
@@ -116,6 +123,7 @@ inline fun confirmAlert(
 /**
  * Show a confirmation alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun confirmAlert(
@@ -131,6 +139,7 @@ inline fun confirmAlert(
 /**
  * Show an error alert with specified title and buttons.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun errorAlert(
@@ -146,6 +155,7 @@ inline fun errorAlert(
 /**
  * Show an error alert with custom initialization block.
  * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
+ * [action] will only execute if result is present and not null.
  */
 @JvmOverloads
 inline fun errorAlert(

@@ -41,7 +41,7 @@ class DialogsTest {
         fileChooser(window) {
 
         }
-        fileChooser(window, "With title", FileChooser.ExtensionFilter("")) {
+        fileChooser(window, FileChooser.ExtensionFilter("")) {
 
         }
         fileChooser(window, {}) {

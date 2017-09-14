@@ -1,6 +1,8 @@
 package com.hendraanggrian.kotfx.dialogs
 
 import com.hendraanggrian.kotfx.JavaFXThreadingRule
+import javafx.stage.FileChooser
+import javafx.stage.Window
 import org.junit.Assert.assertEquals
 import org.junit.Rule
 
@@ -35,7 +37,15 @@ class DialogsTest {
     }
 
     // @Test
-    fun chooser() {
+    fun chooser(window: Window) {
+        fileChooser(window) {
 
+        }
+        fileChooser(window, "With title", FileChooser.ExtensionFilter("")) {
+
+        }
+        fileChooser(window, {}) {
+
+        }
     }
 }

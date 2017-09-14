@@ -13,14 +13,15 @@ import java.io.File
  * Show file chooser expecting to open single file with specified title and extension filters.
  * [action] will only execute if result is present and not null.
  */
+@JvmOverloads
 inline fun fileChooser(
         owner: Window,
-        title: String,
+        title: String? = null,
         vararg filters: FileChooser.ExtensionFilter,
         action: (File) -> Unit
 ) {
     val chooser = FileChooser()
-    chooser.title = title
+    title?.let { chooser.title = it }
     chooser.extensionFilters.addAll(*filters)
     chooser.showOpenDialog(owner)?.let(action)
 }
@@ -43,14 +44,15 @@ inline fun fileChooser(
  * Show file chooser expecting to open multiple files with specified title and extension filters.
  * [action] will only execute if result is present and not null.
  */
+@JvmOverloads
 inline fun multipleFileChooser(
         owner: Window,
-        title: String,
+        title: String? = null,
         vararg filters: FileChooser.ExtensionFilter,
         action: (List<File>) -> Unit
 ) {
     val chooser = FileChooser()
-    chooser.title = title
+    title?.let { chooser.title = it }
     chooser.extensionFilters.addAll(*filters)
     chooser.showOpenMultipleDialog(owner)?.let(action)
 }
@@ -73,14 +75,15 @@ inline fun multipleFileChooser(
  * Show file chooser expecting to save single file with specified title and extension filters.
  * [action] will only execute if result is present and not null.
  */
+@JvmOverloads
 inline fun saveFileChooser(
         owner: Window,
-        title: String,
+        title: String? = null,
         vararg filters: FileChooser.ExtensionFilter,
         action: (File) -> Unit
 ) {
     val chooser = FileChooser()
-    chooser.title = title
+    title?.let { chooser.title = it }
     chooser.extensionFilters.addAll(*filters)
     chooser.showSaveDialog(owner)?.let(action)
 }
@@ -103,13 +106,14 @@ inline fun saveFileChooser(
  * Show file chooser expecting to open single directory with specified title.
  * [action] will only execute if result is present and not null.
  */
+@JvmOverloads
 inline fun directoryChooser(
         owner: Window,
-        title: String,
+        title: String? = null,
         action: (File) -> Unit
 ) {
     val chooser = DirectoryChooser()
-    chooser.title = title
+    title?.let { chooser.title = it }
     chooser.showDialog(owner)?.let(action)
 }
 

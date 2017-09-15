@@ -1,7 +1,7 @@
 @file:JvmName("PlatformsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package com.hendraanggrian.kotfx
+package kotfx
 
 import javafx.application.ConditionalFeature
 import javafx.application.Platform

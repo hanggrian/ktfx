@@ -1,12 +1,10 @@
 buildscript {
     ext.versions = [
+            release: '0.2.2',
             // main
             kotlin : '1.1.4-3',
-            java   : JavaVersion.VERSION_1_8,
             // test
-            junit  : '4.12',
-
-            release: '0.2.1'
+            junit  : '4.12'
     ]
     repositories {
         jcenter()
@@ -18,6 +16,7 @@ buildscript {
 }
 
 apply plugin: 'kotlin'
+apply plugin: 'java-library'
 apply plugin: 'com.novoda.bintray-release'
 apply from: 'https://raw.githubusercontent.com/HendraAnggrian/hendraanggrian.github.io/master/bintray.gradle'
 
@@ -31,10 +30,10 @@ dependencies {
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = versions.java
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = versions.java
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
 }
 
 publish {

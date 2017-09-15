@@ -2,7 +2,7 @@
 @file:JvmName("FXCollectionsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package com.hendraanggrian.kotfx.collections
+package kotfx.collections
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList

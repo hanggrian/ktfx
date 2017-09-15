@@ -1,7 +1,7 @@
 @file:JvmName("PairsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package com.hendraanggrian.kotfx
+package kotfx
 
 /** Converts JavaFX's pair to Kotlin's. */
 inline fun <K, V> javafx.util.Pair<K, V>.toKotlinPair(): Pair<K, V> = Pair(key, value)

@@ -1,4 +1,4 @@
-package com.hendraanggrian.kotfx
+package kotfx
 
 import org.junit.Assert.assertEquals
 

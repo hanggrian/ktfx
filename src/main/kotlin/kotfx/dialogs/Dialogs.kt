@@ -2,7 +2,7 @@
 @file:JvmName("DialogsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package com.hendraanggrian.kotfx.dialogs
+package kotfx.dialogs
 
 import javafx.scene.control.ChoiceDialog
 import javafx.scene.control.Dialog

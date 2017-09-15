@@ -1,4 +1,4 @@
-package com.hendraanggrian.kotfx;
+package kotfx;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;

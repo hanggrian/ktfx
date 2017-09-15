@@ -1,6 +1,6 @@
-package com.hendraanggrian.kotfx.dialogs
+package kotfx.dialogs
 
-import com.hendraanggrian.kotfx.JavaFXThreadingRule
+import kotfx.JavaFXThreadingRule
 import javafx.stage.FileChooser
 import javafx.stage.Window
 import org.junit.Assert.assertEquals
@@ -16,11 +16,11 @@ class DialogsTest {
 
     // @Test
     fun alert() {
-        val alert1 = alert("Here's an alert.")
+        val alert1 = kotfx.dialogs.alert("Here's an alert.")
         assertEquals(alert1.contentText, "Here's an alert.")
         alert1.close()
 
-        val alert2 = alert({
+        val alert2 = kotfx.dialogs.alert({
             title = "Title"
             headerText = "Title"
             contentText = "Here's another"

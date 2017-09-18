@@ -7,6 +7,7 @@ package kotfx.dialogs
 import javafx.scene.control.*
 import javafx.scene.image.Image
 import javafx.stage.Stage
+import javafx.util.Callback
 
 @PublishedApi
 internal inline var Dialog<*>.icon: Image
@@ -20,12 +21,12 @@ internal inline var Dialog<*>.icon: Image
 inline fun <R> dialog(
         icon: Image,
         title: String,
-        noinline init: (DialogPane.() -> ((ButtonType) -> R))? = null
+        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
 ): Dialog<R> {
     val dialog = Dialog<R>()
     dialog.icon = icon
     dialog.title = title
-    init?.let { dialog.setResultConverter(dialog.dialogPane.it()) }
+    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
     return dialog
 }
 
@@ -33,21 +34,21 @@ inline fun <R> dialog(
 @JvmOverloads
 inline fun <R> dialog(
         title: String,
-        noinline init: (DialogPane.() -> ((ButtonType) -> R))? = null
+        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
 ): Dialog<R> {
     val dialog = Dialog<R>()
     dialog.title = title
-    init?.let { dialog.setResultConverter(dialog.dialogPane.it()) }
+    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
     return dialog
 }
 
 /** Creates a base dialog with optional initialization block. */
 @JvmOverloads
 inline fun <R> dialog(
-        noinline init: (DialogPane.() -> ((ButtonType) -> R))? = null
+        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
 ): Dialog<R> {
     val dialog = Dialog<R>()
-    init?.let { dialog.setResultConverter(dialog.dialogPane.it()) }
+    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
     return dialog
 }
 

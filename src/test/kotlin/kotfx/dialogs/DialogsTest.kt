@@ -1,9 +1,7 @@
 package kotfx.dialogs
 
-import kotfx.JavaFXThreadingRule
-import javafx.stage.FileChooser
 import javafx.stage.Window
-import org.junit.Assert.assertEquals
+import kotfx.JavaFXThreadingRule
 import org.junit.Rule
 
 /**
@@ -16,19 +14,11 @@ class DialogsTest {
 
     // @Test
     fun alert() {
-        val alert1 = kotfx.dialogs.alert("Here's an alert.")
-        assertEquals(alert1.contentText, "Here's an alert.")
-        alert1.close()
+        alert("")
+        alert("") {}
 
-        val alert2 = kotfx.dialogs.alert({
-            title = "Title"
-            headerText = "Title"
-            contentText = "Here's another"
-        })
-        assertEquals(alert2.title, "Title")
-        assertEquals(alert2.headerText, "Title")
-        assertEquals(alert2.contentText, "Here's another")
-        alert2.close()
+        alert("", "")
+        alert("", "") {}
     }
 
     // @Test
@@ -38,14 +28,7 @@ class DialogsTest {
 
     // @Test
     fun chooser(window: Window) {
-        fileChooser(window) {
-
-        }
-        fileChooser(window, FileChooser.ExtensionFilter("")) {
-
-        }
-        fileChooser(window, {}) {
-
-        }
+        fileChooser().showSaveDialog(window)
+        fileChooser("Hello world!").showOpenDialog(window)
     }
 }

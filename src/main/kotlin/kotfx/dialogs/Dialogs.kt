@@ -4,110 +4,130 @@
 
 package kotfx.dialogs
 
-import javafx.scene.control.ChoiceDialog
-import javafx.scene.control.Dialog
-import javafx.scene.control.TextInputDialog
+import javafx.scene.control.*
+import javafx.scene.image.Image
+import javafx.stage.Stage
 
-/** Show a dialog and wait if [action] is supplied, will only emit result if it is present and not null. */
 @PublishedApi
-internal inline fun <T> Dialog<T>.showOrWait(
-        noinline action: ((T) -> Unit)? = null
-): Unit = when (action) {
-    null -> show()
-    else -> showAndWait().ifPresent { it?.let(action) }
-}
+internal inline var Dialog<*>.icon: Image
+    get() = throw UnsupportedOperationException()
+    set(value) {
+        (dialogPane.scene.window as Stage).icons.add(value)
+    }
 
-/**
- * Show a base dialog with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a base dialog with icon, title and optional initialization block. */
 @JvmOverloads
 inline fun <R> dialog(
-        init: Dialog<R>.() -> Unit,
-        noinline action: ((R) -> Unit)? = null
+        icon: Image,
+        title: String,
+        noinline init: (DialogPane.() -> ((ButtonType) -> R))? = null
 ): Dialog<R> {
     val dialog = Dialog<R>()
-    dialog.init()
-    dialog.showOrWait(action)
+    dialog.icon = icon
+    dialog.title = title
+    init?.let { dialog.setResultConverter(dialog.dialogPane.it()) }
     return dialog
 }
 
-/**
- * Show a choice dialog with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a base dialog with title and optional initialization block. */
+@JvmOverloads
+inline fun <R> dialog(
+        title: String,
+        noinline init: (DialogPane.() -> ((ButtonType) -> R))? = null
+): Dialog<R> {
+    val dialog = Dialog<R>()
+    dialog.title = title
+    init?.let { dialog.setResultConverter(dialog.dialogPane.it()) }
+    return dialog
+}
+
+/** Creates a base dialog with optional initialization block. */
+@JvmOverloads
+inline fun <R> dialog(
+        noinline init: (DialogPane.() -> ((ButtonType) -> R))? = null
+): Dialog<R> {
+    val dialog = Dialog<R>()
+    init?.let { dialog.setResultConverter(dialog.dialogPane.it()) }
+    return dialog
+}
+
+/** Creates a choice dialog with icon, title, default choice, choices, and optional initialization block. */
 @JvmOverloads
 inline fun <T> choiceDialog(
-        init: ChoiceDialog<T>.() -> Unit,
-        noinline action: ((T) -> Unit)? = null
+        icon: Image,
+        title: String,
+        defaultChoice: T,
+        vararg choices: T,
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<T> {
-    val dialog = ChoiceDialog<T>()
-    dialog.init()
-    dialog.showOrWait(action)
+    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
+    dialog.icon = icon
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show a choice dialog with specified choices and default choice.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a choice dialog with title, default choice, choices, and optional initialization block. */
+@JvmOverloads
+inline fun <T> choiceDialog(
+        title: String,
+        defaultChoice: T,
+        vararg choices: T,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<T> {
+    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
+    return dialog
+}
+
+/** Creates a choice dialog with default choice, choices, and optional initialization block. */
 @JvmOverloads
 inline fun <T> choiceDialog(
         defaultChoice: T,
         vararg choices: T,
-        noinline action: ((T) -> Unit)? = null
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<T> {
     val dialog = ChoiceDialog<T>(defaultChoice, *choices)
-    dialog.showOrWait(action)
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show a choice dialog with specified choices and default choice.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a text input dialog with icon, title, default value and optional initialization block. */
 @JvmOverloads
-inline fun <T> choiceDialog(
-        defaultChoice: T,
-        choices: Collection<T>,
-        noinline action: ((T) -> Unit)? = null
-): Dialog<T> {
-    val dialog = ChoiceDialog<T>(defaultChoice, choices)
-    dialog.showOrWait(action)
+inline fun inputDialog(
+        icon: Image,
+        title: String,
+        defaultValue: String,
+        noinline init: (DialogPane.(TextField) -> Unit)? = null
+): Dialog<String> {
+    val dialog = TextInputDialog(defaultValue)
+    dialog.icon = icon
+    dialog.title = title
+    init?.let { dialog.dialogPane.it(dialog.editor) }
     return dialog
 }
 
-/**
- * Show a text input dialog with specified title and buttons.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a text input dialog with title, default value and optional initialization block. */
+@JvmOverloads
+inline fun inputDialog(
+        title: String,
+        defaultValue: String,
+        noinline init: (DialogPane.(TextField) -> Unit)? = null
+): Dialog<String> {
+    val dialog = TextInputDialog(defaultValue)
+    dialog.title = title
+    init?.let { dialog.dialogPane.it(dialog.editor) }
+    return dialog
+}
+
+/** Creates a text input dialog with default value and optional initialization block. */
 @JvmOverloads
 inline fun inputDialog(
         defaultValue: String,
-        noinline action: ((String) -> Unit)? = null
+        noinline init: (DialogPane.(TextField) -> Unit)? = null
 ): Dialog<String> {
     val dialog = TextInputDialog(defaultValue)
-    dialog.showOrWait(action)
-    return dialog
-}
-
-/**
- * Show a text input dialog with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
-@JvmOverloads
-inline fun inputDialog(
-        init: TextInputDialog.() -> Unit,
-        noinline action: ((String) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog()
-    dialog.init()
-    dialog.showOrWait(action)
+    init?.let { dialog.dialogPane.it(dialog.editor) }
     return dialog
 }

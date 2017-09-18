@@ -7,163 +7,215 @@ package kotfx.dialogs
 import javafx.scene.control.Alert
 import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
+import javafx.scene.control.DialogPane
+import javafx.scene.image.Image
 
-/**
- * Show an alert with specified title and buttons.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates an alert with icon, title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun alert(
+        icon: Image,
+        title: String,
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline action: ((ButtonType) -> Unit)? = null
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
-    dialog.showOrWait(action)
+    dialog.icon = icon
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show an alert with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates an alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun alert(
-        init: Alert.() -> Unit,
-        noinline action: ((ButtonType) -> Unit)? = null
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.NONE)
-    dialog.init()
-    dialog.showOrWait(action)
+    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show an information alert with specified title and buttons.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates an alert with content, buttons, and optional initialization block. */
 @JvmOverloads
-inline fun infoAlert(
+inline fun alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline action: ((ButtonType) -> Unit)? = null
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
+    init?.let { dialog.dialogPane.it() }
+    return dialog
+}
+
+/** Creates an information alert with icon, title, content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun infoAlert(
+        icon: Image,
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
-    dialog.showOrWait(action)
+    dialog.icon = icon
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show an information alert with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates an information alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun infoAlert(
-        init: Alert.() -> Unit,
-        noinline action: ((ButtonType) -> Unit)? = null
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.INFORMATION)
-    dialog.init()
-    dialog.showOrWait(action)
+    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show a warning alert with specified title and buttons.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates an information alert with content, buttons, and optional initialization block. */
 @JvmOverloads
-inline fun warningAlert(
+inline fun infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline action: ((ButtonType) -> Unit)? = null
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
+    init?.let { dialog.dialogPane.it() }
+    return dialog
+}
+
+/** Creates a warning alert with icon, title, content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun warningAlert(
+        icon: Image,
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
-    dialog.showOrWait(action)
+    dialog.icon = icon
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show a warning alert with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a warning alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun warningAlert(
-        init: Alert.() -> Unit,
-        noinline action: ((ButtonType) -> Unit)? = null
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.WARNING)
-    dialog.init()
-    dialog.showOrWait(action)
+    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show a confirmation alert with specified title and buttons.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a warning alert with content, buttons, and optional initialization block. */
 @JvmOverloads
-inline fun confirmAlert(
+inline fun warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline action: ((ButtonType) -> Unit)? = null
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
+    init?.let { dialog.dialogPane.it() }
+    return dialog
+}
+
+/** Creates a confirmation alert with icon, title, content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun confirmAlert(
+        icon: Image,
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
-    dialog.showOrWait(action)
+    dialog.icon = icon
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show a confirmation alert with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a confirmation alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun confirmAlert(
-        init: Alert.() -> Unit,
-        noinline action: ((ButtonType) -> Unit)? = null
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.CONFIRMATION)
-    dialog.init()
-    dialog.showOrWait(action)
+    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }
 
-/**
- * Show an error alert with specified title and buttons.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
+/** Creates a confirmation alert with content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun confirmAlert(
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
+    init?.let { dialog.dialogPane.it() }
+    return dialog
+}
+
+/** Creates an error alert with icon, title, content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun errorAlert(
+        icon: Image,
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
+    dialog.icon = icon
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
+    return dialog
+}
+
+/** Creates an error alert with title, content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun errorAlert(
+        title: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
+    dialog.title = title
+    init?.let { dialog.dialogPane.it() }
+    return dialog
+}
+
+/** Creates an error alert with content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline action: ((ButtonType) -> Unit)? = null
+        noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
-    dialog.showOrWait(action)
-    return dialog
-}
-
-/**
- * Show an error alert with custom initialization block.
- * If [action] is supplied, dialog shown will wait for input and execute [action] block if result is present.
- * [action] will only execute if result is present and not null.
- */
-@JvmOverloads
-inline fun errorAlert(
-        init: Alert.() -> Unit,
-        noinline action: ((ButtonType) -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.ERROR)
-    dialog.init()
-    dialog.showOrWait(action)
+    init?.let { dialog.dialogPane.it() }
     return dialog
 }

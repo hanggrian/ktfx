@@ -1,7 +1,7 @@
 @file:JvmName("SelectionModelsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package kotfx
+package kotfx.controls
 
 import javafx.scene.control.SelectionModel
 

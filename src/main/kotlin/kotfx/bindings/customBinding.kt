@@ -8,23 +8,23 @@ import javafx.beans.Observable
 import javafx.beans.binding.*
 import java.util.concurrent.Callable
 
-/** Helper function to create a custom boolean binding. */
+/** Helper function to create a custom [BooleanBinding]. */
 inline fun customBooleanBinding(vararg dependencies: Observable, noinline func: () -> Boolean): BooleanBinding = Bindings.createBooleanBinding(Callable { func() }, *dependencies)
 
-/** Helper function to create a custom double binding. */
+/** Helper function to create a custom [DoubleBinding]. */
 inline fun customDoubleBinding(vararg dependencies: Observable, noinline func: () -> Double): DoubleBinding = Bindings.createDoubleBinding(Callable { func() }, *dependencies)
 
-/** Helper function to create a custom float binding. */
+/** Helper function to create a custom [FloatBinding]. */
 inline fun customFloatBinding(vararg dependencies: Observable, noinline func: () -> Float): FloatBinding = Bindings.createFloatBinding(Callable { func() }, *dependencies)
 
-/** Helper function to create a custom integer binding. */
+/** Helper function to create a custom [IntegerBinding]. */
 inline fun customIntBinding(vararg dependencies: Observable, noinline func: () -> Int): IntegerBinding = Bindings.createIntegerBinding(Callable { func() }, *dependencies)
 
-/** Helper function to create a custom long binding. */
+/** Helper function to create a custom [LongBinding]. */
 inline fun customLongBinding(vararg dependencies: Observable, noinline func: () -> Long): LongBinding = Bindings.createLongBinding(Callable { func() }, *dependencies)
 
-/** Helper function to create a custom object binding. */
+/** Helper function to create a custom [ObjectBinding]. */
 inline fun <T> customBinding(vararg dependencies: Observable, noinline func: () -> T): ObjectBinding<T> = Bindings.createObjectBinding(Callable { func() }, *dependencies)
 
-/** Helper function to create a custom string binding. */
+/** Helper function to create a custom [StringBinding]. */
 inline fun customStringBinding(vararg dependencies: Observable, noinline func: () -> String): StringBinding = Bindings.createStringBinding(Callable { func() }, *dependencies)

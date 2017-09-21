@@ -7,6 +7,5 @@ public class PlatformsTest2 {
 
     //@Test
     public void test() {
-
     }
 }

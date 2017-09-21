@@ -2,6 +2,31 @@ kotfx
 =====
 Lightweight library full of Kotlin extension functions for JavaFX.
 
+Bindings
+--------
+JavaFX bindings has easy fluent API, here's a button that disables itself if text field is empty.
+```java
+button.disableProperty().bind(textField.textProperty().isEmpty());
+```
+
+As it gets more complicated, its syntax can get messy. Here's a button for password and confirm password field.
+```java
+button.disableProperty().bind(passwordField.textProperty().isEmpty()
+    .or(passwordConfirmField.textProperty().isEmpty())
+    .or(passwordField.textProperty().length().lessThan(4))
+    .or(passwordConfirmField.textProperty().length().lessThan(4))
+    .or(passwordField.textProperty().isNotEqualTo(passwordConfirmField.textProperty())));
+```
+
+`kotfx.bindings` simplifies the process using kotlin infix and operator functions.
+```kotlin
+button.disableProperty().bind(passwordField.textProperty().isEmpty
+    or passwordConfirmField.textProperty().isEmpty
+    or (passwordField.textProperty().length() lessEq 4)
+    or (passwordConfirmField.textProperty().length() lessEq 4)
+    or (passwordField.textProperty() neq passwordConfirmField.textProperty()))
+```
+
 Collections
 -----------
 In JavaFX, collections are wrapped into observable version of themselves.

@@ -14,6 +14,9 @@ inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): Bool
 /** Creates a [BooleanBinding] that calculates the conditional-OR operation on the value of two instance of [ObservableBooleanValue]. */
 inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): BooleanBinding = Bindings.or(this, other)
 
+/** Creates a {@link BooleanBinding} that calculates the inverse of the value of a [ObservableBooleanValue]. */
+inline fun not(what: ObservableBooleanValue) = Bindings.not(what)
+
 /** Creates a new [BooleanBinding] that holds {@code true} if the values of two instances of [ObservableBooleanValue] are equal. */
 inline infix fun ObservableBooleanValue.eq(other: ObservableBooleanValue): BooleanBinding = Bindings.equal(this, other)
 

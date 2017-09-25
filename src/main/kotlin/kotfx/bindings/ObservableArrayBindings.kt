@@ -19,6 +19,6 @@ inline fun ObservableFloatArray.floatValueAt(index: Int): FloatBinding = Binding
 inline fun ObservableFloatArray.floatValueAt(index: ObservableIntegerValue): FloatBinding = Bindings.floatValueAt(this, index)
 inline fun ObservableFloatArray.floatValueAt(index: ObservableNumberValue): FloatBinding = Bindings.floatValueAt(this, index)
 
-inline fun ObservableIntegerArray.integerValueAt(index: Int): IntegerBinding = Bindings.integerValueAt(this, index)
-inline fun ObservableIntegerArray.integerValueAt(index: ObservableIntegerValue): IntegerBinding = Bindings.integerValueAt(this, index)
-inline fun ObservableIntegerArray.integerValueAt(index: ObservableNumberValue): IntegerBinding = Bindings.integerValueAt(this, index)
+inline fun ObservableIntegerArray.intValueAt(index: Int): IntegerBinding = Bindings.integerValueAt(this, index)
+inline fun ObservableIntegerArray.intValueAt(index: ObservableIntegerValue): IntegerBinding = Bindings.integerValueAt(this, index)
+inline fun ObservableIntegerArray.intValueAt(index: ObservableNumberValue): IntegerBinding = Bindings.integerValueAt(this, index)

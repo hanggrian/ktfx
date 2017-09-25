@@ -45,7 +45,7 @@ class ObservableMapBindingsTest {
 
     fun integerValueAt(map: ObservableMap<Int, Int>) {
         Bindings.integerValueAt(map, 0)
-        map.integerValueAt(0)
+        map.intValueAt(0)
     }
 
     fun longValueAt(map: ObservableMap<Int, Long>) {

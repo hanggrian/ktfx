@@ -38,7 +38,7 @@ inline fun Any.selectDouble(vararg steps: String): DoubleBinding = Bindings.sele
 inline fun Any.selectFloat(vararg steps: String): FloatBinding = Bindings.selectFloat(this, *steps)
 
 /** Creates an integer binding used to get a member. */
-inline fun Any.selectInteger(vararg steps: String): IntegerBinding = Bindings.selectInteger(this, *steps)
+inline fun Any.selectInt(vararg steps: String): IntegerBinding = Bindings.selectInteger(this, *steps)
 
 /** Creates a long binding used to get a member. */
 inline fun Any.selectLong(vararg steps: String): LongBinding = Bindings.selectLong(this, *steps)

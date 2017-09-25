@@ -45,7 +45,7 @@ class ObservableListBindingsTest {
 
     fun integerValueAt(list: ObservableList<Int>) {
         Bindings.integerValueAt(list, 0)
-        list.integerValueAt(0)
+        list.intValueAt(0)
     }
 
     fun longValueAt(list: ObservableList<Long>) {

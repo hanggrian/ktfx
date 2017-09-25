@@ -34,8 +34,8 @@ inline fun <K> ObservableMap<K, Double>.doubleValueAt(key: ObservableValue<K>): 
 inline fun <K> ObservableMap<K, Float>.floatValueAt(key: K): FloatBinding = Bindings.floatValueAt(this, key)
 inline fun <K> ObservableMap<K, Float>.floatValueAt(key: ObservableValue<K>): FloatBinding = Bindings.floatValueAt(this, key)
 
-inline fun <K> ObservableMap<K, Int>.integerValueAt(key: K): IntegerBinding = Bindings.integerValueAt(this, key)
-inline fun <K> ObservableMap<K, Int>.integerValueAt(key: ObservableValue<K>): IntegerBinding = Bindings.integerValueAt(this, key)
+inline fun <K> ObservableMap<K, Int>.intValueAt(key: K): IntegerBinding = Bindings.integerValueAt(this, key)
+inline fun <K> ObservableMap<K, Int>.intValueAt(key: ObservableValue<K>): IntegerBinding = Bindings.integerValueAt(this, key)
 
 inline fun <K> ObservableMap<K, Long>.longValueAt(key: K): LongBinding = Bindings.longValueAt(this, key)
 inline fun <K> ObservableMap<K, Long>.longValueAt(key: ObservableValue<K>): LongBinding = Bindings.longValueAt(this, key)

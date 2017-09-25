@@ -22,6 +22,6 @@ class ObservableArrayBindingsTest {
 
     fun integerValueAt(array: ObservableIntegerArray) {
         Bindings.integerValueAt(array, 0)
-        array.integerValueAt(0)
+        array.intValueAt(0)
     }
 }

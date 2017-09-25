@@ -39,9 +39,9 @@ inline fun ObservableList<Float>.floatValueAt(index: Int): FloatBinding = Bindin
 inline fun ObservableList<Float>.floatValueAt(index: ObservableIntegerValue): FloatBinding = Bindings.floatValueAt(this, index)
 inline fun ObservableList<Float>.floatValueAt(index: ObservableNumberValue): FloatBinding = Bindings.floatValueAt(this, index)
 
-inline fun ObservableList<Int>.integerValueAt(index: Int): IntegerBinding = Bindings.integerValueAt(this, index)
-inline fun ObservableList<Int>.integerValueAt(index: ObservableIntegerValue): IntegerBinding = Bindings.integerValueAt(this, index)
-inline fun ObservableList<Int>.integerValueAt(index: ObservableNumberValue): IntegerBinding = Bindings.integerValueAt(this, index)
+inline fun ObservableList<Int>.intValueAt(index: Int): IntegerBinding = Bindings.integerValueAt(this, index)
+inline fun ObservableList<Int>.intValueAt(index: ObservableIntegerValue): IntegerBinding = Bindings.integerValueAt(this, index)
+inline fun ObservableList<Int>.intValueAt(index: ObservableNumberValue): IntegerBinding = Bindings.integerValueAt(this, index)
 
 inline fun ObservableList<Long>.longValueAt(index: Int): LongBinding = Bindings.longValueAt(this, index)
 inline fun ObservableList<Long>.longValueAt(index: ObservableIntegerValue): LongBinding = Bindings.longValueAt(this, index)

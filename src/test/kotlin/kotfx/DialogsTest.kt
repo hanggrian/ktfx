@@ -1,20 +1,22 @@
 package kotfx
 
+import kotfx.dialogs.alert
+import org.junit.Assert.assertEquals
+
 /**
  * @author Hendra Anggrian (hendraanggrian@gmail.com)
  */
 class DialogsTest {
 
-    // @get:Rule
-    val rule
-        get() = JavaFXThreadingRule()
+    // @Rule
+    // @JvmField
+    val rule = JavaFXThreadingRule()
 
     // @Test
     fun alert() {
-        kotfx.dialogs.alert("")
-        kotfx.dialogs.alert("") {}
-
-        kotfx.dialogs.alert("", "")
-        kotfx.dialogs.alert("", "") {}
+        alert("contentText").let {
+            assertEquals(it.headerText, "")
+            assertEquals(it.dialogPane.buttonTypes.size, 0)
+        }
     }
 }

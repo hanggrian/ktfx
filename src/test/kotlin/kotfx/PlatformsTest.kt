@@ -7,7 +7,11 @@ import org.junit.Assert.assertEquals
  */
 class PlatformsTest {
 
-    //@Test
+    // @Rule
+    // @JvmField
+    val rule = JavaFXThreadingRule()
+
+    // @Test
     fun test() {
         assertEquals(FEATURE_CONTROLS.isSupported, true)
         assertEquals(isSupported(FEATURE_CONTROLS, FEATURE_GRAPHICS), true)

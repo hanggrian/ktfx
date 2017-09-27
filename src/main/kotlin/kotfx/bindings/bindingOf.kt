@@ -24,7 +24,7 @@ inline fun intBindingOf(vararg dependencies: Observable, noinline func: () -> In
 inline fun longBindingOf(vararg dependencies: Observable, noinline func: () -> Long): LongBinding = Bindings.createLongBinding(Callable { func() }, *dependencies)
 
 /** Helper function to create a custom [ObjectBinding]. */
-inline fun <T> bindingOf(vararg dependencies: Observable, noinline func: () -> T): ObjectBinding<T> = Bindings.createObjectBinding(Callable { func() }, *dependencies)
+inline fun <T> bindingOf(vararg dependencies: Observable, noinline func: () -> T?): ObjectBinding<T?> = Bindings.createObjectBinding(Callable { func() }, *dependencies)
 
 /** Helper function to create a custom [StringBinding]. */
 inline fun stringBindingOf(vararg dependencies: Observable, noinline func: () -> String): StringBinding = Bindings.createStringBinding(Callable { func() }, *dependencies)

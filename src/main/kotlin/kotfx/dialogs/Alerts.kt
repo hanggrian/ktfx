@@ -4,43 +4,57 @@
 
 package kotfx.dialogs
 
+import javafx.scene.Node
 import javafx.scene.control.Alert
 import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
 import javafx.scene.control.DialogPane
-import javafx.scene.image.Image
 
-/** Creates an alert with icon, title, content, buttons, and optional initialization block. */
-@JvmOverloads
-inline fun alert(
-        icon: Image,
-        title: String,
-        contentText: String,
-        vararg buttonTypes: ButtonType,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
-    dialog.icon = icon
-    dialog.title = title
-    init?.let { dialog.dialogPane.it() }
-    return dialog
-}
-
-/** Creates an alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun alert(
         title: String,
+        graphic: Node,
+        headerText: String,
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
     dialog.title = title
-    init?.let { dialog.dialogPane.it() }
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates an alert with content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun alert(
+        graphic: Node,
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
+@JvmOverloads
+inline fun alert(
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
 @JvmOverloads
 inline fun alert(
         contentText: String,
@@ -48,41 +62,55 @@ inline fun alert(
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
-    init?.let { dialog.dialogPane.it() }
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates an information alert with icon, title, content, buttons, and optional initialization block. */
-@JvmOverloads
-inline fun infoAlert(
-        icon: Image,
-        title: String,
-        contentText: String,
-        vararg buttonTypes: ButtonType,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
-    dialog.icon = icon
-    dialog.title = title
-    init?.let { dialog.dialogPane.it() }
-    return dialog
-}
-
-/** Creates an information alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun infoAlert(
         title: String,
+        graphic: Node,
+        headerText: String,
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
     dialog.title = title
-    init?.let { dialog.dialogPane.it() }
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates an information alert with content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun infoAlert(
+        graphic: Node,
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
+@JvmOverloads
+inline fun infoAlert(
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
 @JvmOverloads
 inline fun infoAlert(
         contentText: String,
@@ -90,41 +118,55 @@ inline fun infoAlert(
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
-    init?.let { dialog.dialogPane.it() }
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates a warning alert with icon, title, content, buttons, and optional initialization block. */
-@JvmOverloads
-inline fun warningAlert(
-        icon: Image,
-        title: String,
-        contentText: String,
-        vararg buttonTypes: ButtonType,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
-    dialog.icon = icon
-    dialog.title = title
-    init?.let { dialog.dialogPane.it() }
-    return dialog
-}
-
-/** Creates a warning alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun warningAlert(
         title: String,
+        graphic: Node,
+        headerText: String,
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
     dialog.title = title
-    init?.let { dialog.dialogPane.it() }
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates a warning alert with content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun warningAlert(
+        graphic: Node,
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
+@JvmOverloads
+inline fun warningAlert(
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
 @JvmOverloads
 inline fun warningAlert(
         contentText: String,
@@ -132,41 +174,55 @@ inline fun warningAlert(
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
-    init?.let { dialog.dialogPane.it() }
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates a confirmation alert with icon, title, content, buttons, and optional initialization block. */
-@JvmOverloads
-inline fun confirmAlert(
-        icon: Image,
-        title: String,
-        contentText: String,
-        vararg buttonTypes: ButtonType,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
-    dialog.icon = icon
-    dialog.title = title
-    init?.let { dialog.dialogPane.it() }
-    return dialog
-}
-
-/** Creates a confirmation alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun confirmAlert(
         title: String,
+        graphic: Node,
+        headerText: String,
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
     dialog.title = title
-    init?.let { dialog.dialogPane.it() }
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates a confirmation alert with content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun confirmAlert(
+        graphic: Node,
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
+@JvmOverloads
+inline fun confirmAlert(
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
 @JvmOverloads
 inline fun confirmAlert(
         contentText: String,
@@ -174,41 +230,55 @@ inline fun confirmAlert(
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
-    init?.let { dialog.dialogPane.it() }
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates an error alert with icon, title, content, buttons, and optional initialization block. */
-@JvmOverloads
-inline fun errorAlert(
-        icon: Image,
-        title: String,
-        contentText: String,
-        vararg buttonTypes: ButtonType,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
-    dialog.icon = icon
-    dialog.title = title
-    init?.let { dialog.dialogPane.it() }
-    return dialog
-}
-
-/** Creates an error alert with title, content, buttons, and optional initialization block. */
 @JvmOverloads
 inline fun errorAlert(
         title: String,
+        graphic: Node,
+        headerText: String,
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
     dialog.title = title
-    init?.let { dialog.dialogPane.it() }
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates an error alert with content, buttons, and optional initialization block. */
+@JvmOverloads
+inline fun errorAlert(
+        graphic: Node,
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
+@JvmOverloads
+inline fun errorAlert(
+        headerText: String,
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<ButtonType> {
+    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
+    dialog.headerText = headerText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
 @JvmOverloads
 inline fun errorAlert(
         contentText: String,
@@ -216,6 +286,6 @@ inline fun errorAlert(
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<ButtonType> {
     val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
-    init?.let { dialog.dialogPane.it() }
+    init?.invoke(dialog.dialogPane)
     return dialog
 }

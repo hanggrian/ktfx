@@ -4,45 +4,49 @@
 
 package kotfx.dialogs
 
+import javafx.scene.Node
 import javafx.scene.control.*
-import javafx.scene.image.Image
-import javafx.stage.Stage
 import javafx.util.Callback
 
-@PublishedApi
-internal inline var Dialog<*>.icon: Image
-    get() = throw UnsupportedOperationException()
-    set(value) {
-        (dialogPane.scene.window as Stage).icons.add(value)
-    }
-
-/** Creates a base dialog with icon, title and optional initialization block. */
-@JvmOverloads
-inline fun <R> dialog(
-        icon: Image,
-        title: String,
-        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> {
-    val dialog = Dialog<R>()
-    dialog.icon = icon
-    dialog.title = title
-    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
-    return dialog
-}
-
-/** Creates a base dialog with title and optional initialization block. */
 @JvmOverloads
 inline fun <R> dialog(
         title: String,
+        graphic: Node,
+        headerText: String,
         noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
 ): Dialog<R> {
     val dialog = Dialog<R>()
     dialog.title = title
+    dialog.graphic = graphic
+    dialog.headerText = headerText
     init?.let { dialog.resultConverter = dialog.dialogPane.it() }
     return dialog
 }
 
-/** Creates a base dialog with optional initialization block. */
+@JvmOverloads
+inline fun <R> dialog(
+        graphic: Node,
+        headerText: String,
+        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
+): Dialog<R> {
+    val dialog = Dialog<R>()
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
+    return dialog
+}
+
+@JvmOverloads
+inline fun <R> dialog(
+        headerText: String,
+        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
+): Dialog<R> {
+    val dialog = Dialog<R>()
+    dialog.headerText = headerText
+    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
+    return dialog
+}
+
 @JvmOverloads
 inline fun <R> dialog(
         noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
@@ -52,37 +56,70 @@ inline fun <R> dialog(
     return dialog
 }
 
-/** Creates a choice dialog with icon, title, default choice, choices, and optional initialization block. */
-@JvmOverloads
-inline fun <T> choiceDialog(
-        icon: Image,
-        title: String,
-        defaultChoice: T,
-        vararg choices: T,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> {
-    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
-    dialog.icon = icon
-    dialog.title = title
-    init?.let { dialog.dialogPane.it() }
-    return dialog
-}
-
-/** Creates a choice dialog with title, default choice, choices, and optional initialization block. */
 @JvmOverloads
 inline fun <T> choiceDialog(
         title: String,
+        graphic: Node,
+        headerText: String,
+        contentText: String,
         defaultChoice: T,
         vararg choices: T,
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<T> {
     val dialog = ChoiceDialog<T>(defaultChoice, *choices)
     dialog.title = title
-    init?.let { dialog.dialogPane.it() }
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    dialog.contentText = contentText
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates a choice dialog with default choice, choices, and optional initialization block. */
+@JvmOverloads
+inline fun <T> choiceDialog(
+        graphic: Node,
+        headerText: String,
+        contentText: String,
+        defaultChoice: T,
+        vararg choices: T,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<T> {
+    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    dialog.contentText = contentText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
+@JvmOverloads
+inline fun <T> choiceDialog(
+        headerText: String,
+        contentText: String,
+        defaultChoice: T,
+        vararg choices: T,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<T> {
+    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
+    dialog.headerText = headerText
+    dialog.contentText = contentText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
+@JvmOverloads
+inline fun <T> choiceDialog(
+        contentText: String,
+        defaultChoice: T,
+        vararg choices: T,
+        noinline init: (DialogPane.() -> Unit)? = null
+): Dialog<T> {
+    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
+    dialog.contentText = contentText
+    init?.invoke(dialog.dialogPane)
+    return dialog
+}
+
 @JvmOverloads
 inline fun <T> choiceDialog(
         defaultChoice: T,
@@ -90,45 +127,85 @@ inline fun <T> choiceDialog(
         noinline init: (DialogPane.() -> Unit)? = null
 ): Dialog<T> {
     val dialog = ChoiceDialog<T>(defaultChoice, *choices)
-    init?.let { dialog.dialogPane.it() }
+    init?.invoke(dialog.dialogPane)
     return dialog
 }
 
-/** Creates a text input dialog with icon, title, default value and optional initialization block. */
-@JvmOverloads
-inline fun inputDialog(
-        icon: Image,
-        title: String,
-        defaultValue: String,
-        noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog(defaultValue)
-    dialog.icon = icon
-    dialog.title = title
-    init?.let { dialog.dialogPane.it(dialog.editor) }
-    return dialog
-}
-
-/** Creates a text input dialog with title, default value and optional initialization block. */
 @JvmOverloads
 inline fun inputDialog(
         title: String,
+        graphic: Node,
+        headerText: String,
+        contentText: String,
         defaultValue: String,
         noinline init: (DialogPane.(TextField) -> Unit)? = null
 ): Dialog<String> {
     val dialog = TextInputDialog(defaultValue)
     dialog.title = title
-    init?.let { dialog.dialogPane.it(dialog.editor) }
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    dialog.contentText = contentText
+    init?.invoke(dialog.dialogPane, dialog.editor)
     return dialog
 }
 
-/** Creates a text input dialog with default value and optional initialization block. */
+@JvmOverloads
+inline fun inputDialog(
+        graphic: Node,
+        headerText: String,
+        contentText: String,
+        defaultValue: String,
+        noinline init: (DialogPane.(TextField) -> Unit)? = null
+): Dialog<String> {
+    val dialog = TextInputDialog(defaultValue)
+    dialog.graphic = graphic
+    dialog.headerText = headerText
+    dialog.contentText = contentText
+    init?.invoke(dialog.dialogPane, dialog.editor)
+    return dialog
+}
+
+@JvmOverloads
+inline fun inputDialog(
+        headerText: String,
+        contentText: String,
+        defaultValue: String,
+        noinline init: (DialogPane.(TextField) -> Unit)? = null
+): Dialog<String> {
+    val dialog = TextInputDialog(defaultValue)
+    dialog.headerText = headerText
+    dialog.contentText = contentText
+    init?.invoke(dialog.dialogPane, dialog.editor)
+    return dialog
+}
+
+@JvmOverloads
+inline fun inputDialog(
+        contentText: String,
+        defaultValue: String,
+        noinline init: (DialogPane.(TextField) -> Unit)? = null
+): Dialog<String> {
+    val dialog = TextInputDialog(defaultValue)
+    dialog.contentText = contentText
+    init?.invoke(dialog.dialogPane, dialog.editor)
+    return dialog
+}
+
 @JvmOverloads
 inline fun inputDialog(
         defaultValue: String,
         noinline init: (DialogPane.(TextField) -> Unit)? = null
 ): Dialog<String> {
     val dialog = TextInputDialog(defaultValue)
-    init?.let { dialog.dialogPane.it(dialog.editor) }
+    init?.invoke(dialog.dialogPane, dialog.editor)
+    return dialog
+}
+
+@JvmOverloads
+inline fun inputDialog(
+        noinline init: (DialogPane.(TextField) -> Unit)? = null
+): Dialog<String> {
+    val dialog = TextInputDialog()
+    init?.invoke(dialog.dialogPane, dialog.editor)
     return dialog
 }

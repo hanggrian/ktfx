@@ -17,7 +17,7 @@ inline fun ObservableValue<*>.selectDouble(vararg steps: String): DoubleBinding 
 inline fun ObservableValue<*>.selectFloat(vararg steps: String): FloatBinding = Bindings.selectFloat(this, *steps)
 
 /** Creates an integer binding used to get a member. */
-inline fun ObservableValue<*>.selectInteger(vararg steps: String): IntegerBinding = Bindings.selectInteger(this, *steps)
+inline fun ObservableValue<*>.selectInt(vararg steps: String): IntegerBinding = Bindings.selectInteger(this, *steps)
 
 /** Creates a long binding used to get a member. */
 inline fun ObservableValue<*>.selectLong(vararg steps: String): LongBinding = Bindings.selectLong(this, *steps)

@@ -88,20 +88,19 @@ Others
 ------
 #### Platforms
 ```kotlin
-isFXApplicationThread() // checks if this is executed in main thread
+isFXThread() // checks if this is executed in main thread
 
-FEATURE_INPUT_TOUCH.isSupported // checks if this device has touchscreen
-isSupported(FEATURE_INPUT_TOUCH, FEATURE_INPUT_MULTITOUCH) // multiple features check
+isSupported(INPUT_TOUCH, INPUT_MULTITOUCH) // checks if this device has touchscreen
 
 runLater {
     // executes in main thread
 }
 
-runLaterIfSupported(FEATURE_INPUT_TOUCH) {
+runLaterIfSupported(INPUT_TOUCH) {
     // executes in main thread if touchscreen is supported
 }
 
-exitFXApplication() // quit app
+exitFX() // quit app
 ```
 
 Download
@@ -112,7 +111,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.4.3'
+    compile 'com.hendraanggrian:kotfx:0.5'
 }
 ```
 

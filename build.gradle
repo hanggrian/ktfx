@@ -1,8 +1,8 @@
 buildscript {
     ext.versions = [
-            release: '0.4.4',
+            release: '0.5',
             // main
-            kotlin : '1.1.50',
+            kotlin : '1.1.51',
             // test
             junit  : '4.12'
     ]
@@ -29,13 +29,8 @@ dependencies {
     testImplementation "junit:junit:$versions.junit"
 }
 
-compileKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
-}
-
-compileTestKotlin {
-    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
-}
+compileKotlin { kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8 }
+compileTestKotlin { kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8 }
 
 publish {
     userOrg = bintray.user

@@ -6,37 +6,10 @@ package kotfx
 import javafx.application.ConditionalFeature
 import javafx.application.Platform
 
-inline val FEATURE_GRAPHICS get() = ConditionalFeature.GRAPHICS
-inline val FEATURE_CONTROLS get() = ConditionalFeature.CONTROLS
-inline val FEATURE_MEDIA get() = ConditionalFeature.MEDIA
-inline val FEATURE_WEB get() = ConditionalFeature.WEB
-inline val FEATURE_SWT get() = ConditionalFeature.SWT
-inline val FEATURE_SWING get() = ConditionalFeature.SWING
-inline val FEATURE_FXML get() = ConditionalFeature.FXML
-inline val FEATURE_SCENE3D get() = ConditionalFeature.SCENE3D
-inline val FEATURE_EFFECT get() = ConditionalFeature.EFFECT
-inline val FEATURE_SHAPE_CLIP get() = ConditionalFeature.SHAPE_CLIP
-inline val FEATURE_INPUT_METHOD get() = ConditionalFeature.INPUT_METHOD
-inline val FEATURE_TRANSPARENT_WINDOW get() = ConditionalFeature.TRANSPARENT_WINDOW
-inline val FEATURE_UNIFIED_WINDOW get() = ConditionalFeature.UNIFIED_WINDOW
-inline val FEATURE_TWO_LEVEL_FOCUS get() = ConditionalFeature.TWO_LEVEL_FOCUS
-inline val FEATURE_VIRTUAL_KEYBOARD get() = ConditionalFeature.VIRTUAL_KEYBOARD
-inline val FEATURE_INPUT_TOUCH get() = ConditionalFeature.INPUT_TOUCH
-inline val FEATURE_INPUT_MULTITOUCH get() = ConditionalFeature.INPUT_MULTITOUCH
-inline val FEATURE_INPUT_POINTER get() = ConditionalFeature.INPUT_POINTER
-
-/** Returns true if this feature is supported. */
-inline val ConditionalFeature.isSupported: Boolean
-    get() = try {
-        Platform.isSupported(this)
-    } catch (e: Exception) {
-        false
-    }
-
 /** Returns true if [features] are all supported. */
 inline fun isSupported(vararg features: ConditionalFeature): Boolean {
     require(features.isNotEmpty(), { "Features can't be empty!" })
-    return features.all { it.isSupported }
+    return features.all { Platform.isSupported(it) }
 }
 
 /** Executes [block] in JavaFX Application Thread. */
@@ -89,7 +62,7 @@ inline fun <T, R> T.getIfSupported(vararg features: ConditionalFeature, block: T
 }
 
 /** Returns true if calling thread is JavaFX Application Thread. */
-inline fun isFXApplicationThread(): Boolean = Platform.isFxApplicationThread()
+inline fun isFXThread(): Boolean = Platform.isFxApplicationThread()
 
 /** Causes the JavaFX application to terminate. */
-inline fun exitFXApplication() = Platform.exit()
+inline fun exitFX() = Platform.exit()

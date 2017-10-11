@@ -13,7 +13,7 @@ inline fun <K, V> Pair<K, V>.toFXPair(): javafx.util.Pair<K, V> = javafx.util.Pa
 
 /** Creates a new string converter using [fromString] and optional [toString]. */
 @JvmOverloads
-inline fun <T> stringConverter(
+inline fun <T> stringConverterOf(
         noinline toString: (T) -> String = { it.toString() },
         noinline fromString: (String) -> T
 ): StringConverter<T> = object : StringConverter<T>() {

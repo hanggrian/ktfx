@@ -1,5 +1,6 @@
 package kotfx
 
+import javafx.application.ConditionalFeature.*
 import org.junit.Assert.assertEquals
 
 /**
@@ -13,8 +14,8 @@ class PlatformsTest {
 
     // @Test
     fun test() {
-        assertEquals(FEATURE_CONTROLS.isSupported, true)
-        assertEquals(isSupported(FEATURE_CONTROLS, FEATURE_GRAPHICS), true)
-        assertEquals(FEATURE_INPUT_TOUCH.isSupported, false)
+        assertEquals(isSupported(CONTROLS), true)
+        assertEquals(isSupported(CONTROLS, GRAPHICS), true)
+        assertEquals(isSupported(INPUT_TOUCH), false)
     }
 }

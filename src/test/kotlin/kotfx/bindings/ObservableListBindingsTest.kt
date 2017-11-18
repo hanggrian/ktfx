@@ -3,9 +3,6 @@ package kotfx.bindings
 import javafx.beans.binding.Bindings
 import javafx.collections.ObservableList
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 class ObservableListBindingsTest {
 
     fun size2(list: ObservableList<*>) {

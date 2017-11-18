@@ -3,9 +3,6 @@ package kotfx.bindings
 import javafx.beans.binding.Bindings
 import javafx.collections.ObservableMap
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 class ObservableMapBindingsTest {
 
     fun size2(map: ObservableMap<*, *>) {

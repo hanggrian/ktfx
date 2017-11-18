@@ -1,11 +1,12 @@
 @file:JvmMultifileClass
 @file:JvmName("DialogsKt")
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx.dialogs
 
 import javafx.scene.Node
 import javafx.scene.control.Alert
+import javafx.scene.control.Alert.AlertType.*
 import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
 import javafx.scene.control.DialogPane
@@ -18,13 +19,11 @@ inline fun alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
-    dialog.title = title
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(NONE, contentText, *buttonTypes).apply {
+    this.title = title
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -34,12 +33,10 @@ inline fun alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(NONE, contentText, *buttonTypes).apply {
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -48,11 +45,9 @@ inline fun alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(NONE, contentText, *buttonTypes).apply {
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -60,10 +55,8 @@ inline fun alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.NONE, contentText, *buttonTypes)
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(NONE, contentText, *buttonTypes).apply {
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -74,13 +67,11 @@ inline fun infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
-    dialog.title = title
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(INFORMATION, contentText, *buttonTypes).apply {
+    this.title = title
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -90,12 +81,10 @@ inline fun infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(INFORMATION, contentText, *buttonTypes).apply {
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -104,11 +93,9 @@ inline fun infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(INFORMATION, contentText, *buttonTypes).apply {
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -116,10 +103,8 @@ inline fun infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.INFORMATION, contentText, *buttonTypes)
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(INFORMATION, contentText, *buttonTypes).apply {
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -130,13 +115,11 @@ inline fun warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
-    dialog.title = title
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(WARNING, contentText, *buttonTypes).apply {
+    this.title = title
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -146,12 +129,10 @@ inline fun warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(WARNING, contentText, *buttonTypes).apply {
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -160,11 +141,9 @@ inline fun warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(WARNING, contentText, *buttonTypes).apply {
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -172,10 +151,8 @@ inline fun warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.WARNING, contentText, *buttonTypes)
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(WARNING, contentText, *buttonTypes).apply {
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -186,13 +163,11 @@ inline fun confirmAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
-    dialog.title = title
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
+    this.title = title
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -202,12 +177,10 @@ inline fun confirmAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -216,11 +189,9 @@ inline fun confirmAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -228,10 +199,8 @@ inline fun confirmAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.CONFIRMATION, contentText, *buttonTypes)
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -242,13 +211,11 @@ inline fun errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
-    dialog.title = title
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(ERROR, contentText, *buttonTypes).apply {
+    this.title = title
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -258,12 +225,10 @@ inline fun errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(ERROR, contentText, *buttonTypes).apply {
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -272,11 +237,9 @@ inline fun errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
-    dialog.headerText = headerText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(ERROR, contentText, *buttonTypes).apply {
+    this.headerText = headerText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -284,8 +247,6 @@ inline fun errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<ButtonType> {
-    val dialog = Alert(Alert.AlertType.ERROR, contentText, *buttonTypes)
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<ButtonType> = Alert(ERROR, contentText, *buttonTypes).apply {
+    init?.invoke(dialogPane)
 }

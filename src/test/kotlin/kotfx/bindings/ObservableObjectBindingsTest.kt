@@ -1,11 +1,7 @@
 package kotfx.bindings
 
-import javafx.beans.value.ObservableObjectValue
 import javafx.scene.control.Label
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 class ObservableObjectBindingsTest {
 
     private val label = Label()

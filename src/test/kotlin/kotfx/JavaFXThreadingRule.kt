@@ -1,5 +1,6 @@
 package kotfx
 
+import javafx.application.Platform.runLater
 import javafx.embed.swing.JFXPanel
 import org.junit.rules.TestRule
 import org.junit.runner.Description

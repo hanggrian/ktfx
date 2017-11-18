@@ -3,9 +3,6 @@ package kotfx
 import kotfx.dialogs.alert
 import org.junit.Assert.assertEquals
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 class DialogsTest {
 
     // @Rule

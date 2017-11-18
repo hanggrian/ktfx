@@ -1,5 +1,4 @@
-@file:JvmName("UtilsKt")
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx
 

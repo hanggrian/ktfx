@@ -84,25 +84,6 @@ dialog({
 })
 ```
 
-Others
-------
-#### Platforms
-```kotlin
-isFXThread() // checks if this is executed in main thread
-
-isSupported(INPUT_TOUCH, INPUT_MULTITOUCH) // checks if this device has touchscreen
-
-runLater {
-    // executes in main thread
-}
-
-runLaterIfSupported(INPUT_TOUCH) {
-    // executes in main thread if touchscreen is supported
-}
-
-exitFX() // quit app
-```
-
 Download
 --------
 ```gradle
@@ -111,7 +92,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.5'
+    compile 'com.hendraanggrian:kotfx:0.6'
 }
 ```
 

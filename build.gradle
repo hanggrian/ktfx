@@ -1,44 +1,33 @@
 buildscript {
-    ext.versions = [
-            release: '0.5',
-            // main
-            kotlin : '1.1.51',
-            // test
-            junit  : '4.12'
-    ]
     repositories {
         jcenter()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-        classpath 'com.novoda:bintray-release:0.5.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin"
+        classpath 'com.novoda:bintray-release:0.7.0'
     }
 }
 
 apply plugin: 'java-library'
 apply plugin: 'kotlin'
 apply plugin: 'com.novoda.bintray-release'
-apply from: 'https://raw.githubusercontent.com/HendraAnggrian/hendraanggrian.github.io/master/bintray.gradle'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
-    testImplementation "junit:junit:$versions.junit"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin"
+    testImplementation "junit:junit:$junit"
 }
 
-compileKotlin { kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8 }
-compileTestKotlin { kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8 }
-
 publish {
-    userOrg = bintray.user
-    groupId = bintray.group
-    artifactId = bintray.artifact.kotfx.id
-    publishVersion = versions.release
-    desc = bintray.artifact.kotfx.desc
-    website = bintray.artifact.kotfx.website
+    userOrg bintray_user
+    groupId bintray_group
+    artifactId bintray_artifact
+    publishVersion bintray_publish
+    desc bintray_desc
+    website bintray_web
 }
 
 /** QUICK LINT CHECK BEFORE UPLOAD

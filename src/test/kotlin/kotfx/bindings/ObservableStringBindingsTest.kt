@@ -2,9 +2,6 @@ package kotfx.bindings
 
 import javafx.scene.control.Label
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 class ObservableStringBindingsTest {
 
     private val label = Label()

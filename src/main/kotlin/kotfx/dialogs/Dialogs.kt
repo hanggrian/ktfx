@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("DialogsKt")
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx.dialogs
 
@@ -14,13 +14,11 @@ inline fun <R> dialog(
         graphic: Node,
         headerText: String,
         noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> {
-    val dialog = Dialog<R>()
-    dialog.title = title
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
-    return dialog
+): Dialog<R> = Dialog<R>().apply {
+    this.title = title
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.let { resultConverter = dialogPane.it() }
 }
 
 @JvmOverloads
@@ -28,32 +26,26 @@ inline fun <R> dialog(
         graphic: Node,
         headerText: String,
         noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> {
-    val dialog = Dialog<R>()
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
-    return dialog
+): Dialog<R> = Dialog<R>().apply {
+    this.graphic = graphic
+    this.headerText = headerText
+    init?.let { resultConverter = dialogPane.it() }
 }
 
 @JvmOverloads
 inline fun <R> dialog(
         headerText: String,
         noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> {
-    val dialog = Dialog<R>()
-    dialog.headerText = headerText
-    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
-    return dialog
+): Dialog<R> = Dialog<R>().apply {
+    this.headerText = headerText
+    init?.let { resultConverter = dialogPane.it() }
 }
 
 @JvmOverloads
 inline fun <R> dialog(
         noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> {
-    val dialog = Dialog<R>()
-    init?.let { dialog.resultConverter = dialog.dialogPane.it() }
-    return dialog
+): Dialog<R> = Dialog<R>().apply {
+    init?.let { resultConverter = dialogPane.it() }
 }
 
 @JvmOverloads
@@ -65,14 +57,12 @@ inline fun <T> choiceDialog(
         defaultChoice: T,
         vararg choices: T,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> {
-    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
-    dialog.title = title
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    dialog.contentText = contentText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
+    this.title = title
+    this.graphic = graphic
+    this.headerText = headerText
+    this.contentText = contentText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -83,13 +73,11 @@ inline fun <T> choiceDialog(
         defaultChoice: T,
         vararg choices: T,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> {
-    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    dialog.contentText = contentText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
+    this.graphic = graphic
+    this.headerText = headerText
+    this.contentText = contentText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -99,12 +87,10 @@ inline fun <T> choiceDialog(
         defaultChoice: T,
         vararg choices: T,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> {
-    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
-    dialog.headerText = headerText
-    dialog.contentText = contentText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
+    this.headerText = headerText
+    this.contentText = contentText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -113,11 +99,9 @@ inline fun <T> choiceDialog(
         defaultChoice: T,
         vararg choices: T,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> {
-    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
-    dialog.contentText = contentText
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
+    this.contentText = contentText
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -125,10 +109,8 @@ inline fun <T> choiceDialog(
         defaultChoice: T,
         vararg choices: T,
         noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> {
-    val dialog = ChoiceDialog<T>(defaultChoice, *choices)
-    init?.invoke(dialog.dialogPane)
-    return dialog
+): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
+    init?.invoke(dialogPane)
 }
 
 @JvmOverloads
@@ -139,14 +121,12 @@ inline fun inputDialog(
         contentText: String,
         defaultValue: String,
         noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog(defaultValue)
-    dialog.title = title
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    dialog.contentText = contentText
-    init?.invoke(dialog.dialogPane, dialog.editor)
-    return dialog
+): Dialog<String> = TextInputDialog(defaultValue).apply {
+    this.title = title
+    this.graphic = graphic
+    this.headerText = headerText
+    this.contentText = contentText
+    init?.invoke(dialogPane, editor)
 }
 
 @JvmOverloads
@@ -156,13 +136,11 @@ inline fun inputDialog(
         contentText: String,
         defaultValue: String,
         noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog(defaultValue)
-    dialog.graphic = graphic
-    dialog.headerText = headerText
-    dialog.contentText = contentText
-    init?.invoke(dialog.dialogPane, dialog.editor)
-    return dialog
+): Dialog<String> = TextInputDialog(defaultValue).apply {
+    this.graphic = graphic
+    this.headerText = headerText
+    this.contentText = contentText
+    init?.invoke(dialogPane, editor)
 }
 
 @JvmOverloads
@@ -171,12 +149,10 @@ inline fun inputDialog(
         contentText: String,
         defaultValue: String,
         noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog(defaultValue)
-    dialog.headerText = headerText
-    dialog.contentText = contentText
-    init?.invoke(dialog.dialogPane, dialog.editor)
-    return dialog
+): Dialog<String> = TextInputDialog(defaultValue).apply {
+    this.headerText = headerText
+    this.contentText = contentText
+    init?.invoke(dialogPane, editor)
 }
 
 @JvmOverloads
@@ -184,28 +160,22 @@ inline fun inputDialog(
         contentText: String,
         defaultValue: String,
         noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog(defaultValue)
-    dialog.contentText = contentText
-    init?.invoke(dialog.dialogPane, dialog.editor)
-    return dialog
+): Dialog<String> = TextInputDialog(defaultValue).apply {
+    this.contentText = contentText
+    init?.invoke(dialogPane, editor)
 }
 
 @JvmOverloads
 inline fun inputDialog(
         defaultValue: String,
         noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog(defaultValue)
-    init?.invoke(dialog.dialogPane, dialog.editor)
-    return dialog
+): Dialog<String> = TextInputDialog(defaultValue).apply {
+    init?.invoke(dialogPane, editor)
 }
 
 @JvmOverloads
 inline fun inputDialog(
         noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> {
-    val dialog = TextInputDialog()
-    init?.invoke(dialog.dialogPane, dialog.editor)
-    return dialog
+): Dialog<String> = TextInputDialog().apply {
+    init?.invoke(dialogPane, editor)
 }

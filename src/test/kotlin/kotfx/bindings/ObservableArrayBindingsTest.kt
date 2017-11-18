@@ -5,9 +5,6 @@ import javafx.collections.ObservableArray
 import javafx.collections.ObservableFloatArray
 import javafx.collections.ObservableIntegerArray
 
-/**
- * @author Hendra Anggrian (hendraanggrian@gmail.com)
- */
 class ObservableArrayBindingsTest {
 
     fun size2(array: ObservableArray<*>) {

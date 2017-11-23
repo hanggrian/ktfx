@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc_main.iml" group="buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc_test.iml" group="buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx_main.iml" group="kotfx" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx_test.iml" group="kotfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx.iml" group="kotfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_main.iml" group="kotfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_test.iml" group="kotfx" />
     </modules>
   </component>
 </project>

@@ -6,7 +6,7 @@ plugins {
 
 dependencies {
     compile(kotlin("stdlib", kotlinVersion))
-    testImplementation("junit:junit:$junitVersion")
+    testImplementation(junit(junitVersion))
 }
 
 publish {

@@ -3,7 +3,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 const val bintrayUser = "hendraanggrian"
 const val bintrayGroup = "com.hendraanggrian"
 const val bintrayArtifact = "kotfx"
-const val bintrayPublish = "0.7"
+const val bintrayPublish = "0.8"
 const val bintrayDesc = "Lightweight library full of Kotlin extension functions for JavaFX"
 const val bintrayWeb = "https://github.com/hendraanggrian/kotfx"
 

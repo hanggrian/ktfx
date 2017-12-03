@@ -92,7 +92,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.7'
+    compile 'com.hendraanggrian:kotfx:0.8'
 }
 ```
 

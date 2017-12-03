@@ -3,6 +3,11 @@
 package kotfx
 
 import javafx.beans.property.*
+import javafx.beans.value.ObservableValue
+
+inline infix fun <T> Property<T>.bind(observable: ObservableValue<out T>) = bind(observable)
+inline infix fun <T> Property<T>.bindBidirectional(other: Property<T>) = bindBidirectional(other)
+inline infix fun <T> Property<T>.unbindBidirectional(other: Property<T>) = unbindBidirectional(other)
 
 inline fun Boolean.toMutableProperty(): BooleanProperty = SimpleBooleanProperty(this)
 inline fun Boolean.toProperty(): BooleanProperty = ReadOnlyBooleanWrapper(this)

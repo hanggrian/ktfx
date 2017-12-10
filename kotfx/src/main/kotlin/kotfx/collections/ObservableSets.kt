@@ -1,11 +1,12 @@
 @file:JvmMultifileClass
-@file:JvmName("FXCollectionsKt")
+@file:JvmName("CollectionsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx.collections
 
 import javafx.collections.FXCollections
-import javafx.collections.FXCollections.*
+import javafx.collections.FXCollections.observableSet
+import javafx.collections.FXCollections.unmodifiableObservableSet
 import javafx.collections.ObservableSet
 
 /** Returns an empty read-only observable set. */

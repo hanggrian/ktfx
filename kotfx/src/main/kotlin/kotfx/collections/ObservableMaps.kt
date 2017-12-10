@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("FXCollectionsKt")
+@file:JvmName("CollectionsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx.collections

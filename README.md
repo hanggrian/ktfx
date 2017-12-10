@@ -20,7 +20,7 @@ button.disableProperty().bind(passwordField.textProperty().isEmpty()
 
 `kotfx.bindings` simplifies the process using kotlin infix and operator functions.
 ```kotlin
-button.disableProperty().bind(passwordField.textProperty().isEmpty
+button.disableProperty bind (passwordField.textProperty().isEmpty
     or passwordConfirmField.textProperty().isEmpty
     or (passwordField.textProperty().length() lessEq 4)
     or (passwordConfirmField.textProperty().length() lessEq 4)

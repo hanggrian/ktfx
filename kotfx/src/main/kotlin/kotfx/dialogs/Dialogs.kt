@@ -18,7 +18,7 @@ inline fun <R> dialog(
     this.title = title
     this.graphic = graphic
     this.headerText = headerText
-    init?.let { resultConverter = dialogPane.it() }
+    if (init != null) resultConverter = dialogPane.init()
 }
 
 @JvmOverloads
@@ -29,7 +29,7 @@ inline fun <R> dialog(
 ): Dialog<R> = Dialog<R>().apply {
     this.graphic = graphic
     this.headerText = headerText
-    init?.let { resultConverter = dialogPane.it() }
+    if (init != null) resultConverter = dialogPane.init()
 }
 
 @JvmOverloads
@@ -38,14 +38,14 @@ inline fun <R> dialog(
         noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
 ): Dialog<R> = Dialog<R>().apply {
     this.headerText = headerText
-    init?.let { resultConverter = dialogPane.it() }
+    if (init != null) resultConverter = dialogPane.init()
 }
 
 @JvmOverloads
 inline fun <R> dialog(
         noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
 ): Dialog<R> = Dialog<R>().apply {
-    init?.let { resultConverter = dialogPane.it() }
+    if (init != null) resultConverter = dialogPane.init()
 }
 
 @JvmOverloads

@@ -1,13 +1,18 @@
 package kotfx.layouts.nodes
 
 import javafx.beans.property.*
+import javafx.collections.ObservableList
 import javafx.event.EventHandler
+import javafx.geometry.Bounds
 import javafx.geometry.Orientation
+import javafx.geometry.Point2D
+import javafx.geometry.Point3D
 import javafx.scene.*
 import javafx.scene.effect.BlendMode
 import javafx.scene.effect.Effect
 import javafx.scene.input.DragEvent
 import javafx.scene.input.TransferMode
+import javafx.scene.transform.Transform
 import kotfx.internal.Instanced
 
 interface NodeBuilder<out T : Node> : Instanced<T> {
@@ -119,12 +124,12 @@ interface NodeBuilder<out T : Node> : Instanced<T> {
         get() = t.isManaged
         set(value) = t.setManaged(value)
 
-    val layoutXProperty: ReadOnlyDoubleProperty get() = t.layoutXProperty()
+    val layoutXProperty: DoubleProperty get() = t.layoutXProperty()
     var layoutX: Double
         get() = t.layoutX
         set(value) = t.setLayoutX(value)
 
-    val layoutYProperty: ReadOnlyDoubleProperty get() = t.layoutYProperty()
+    val layoutYProperty: DoubleProperty get() = t.layoutYProperty()
     var layoutY: Double
         get() = t.layoutY
         set(value) = t.setLayoutY(value)
@@ -151,6 +156,112 @@ interface NodeBuilder<out T : Node> : Instanced<T> {
 
     fun resizeRelocate(x: Double, y: Double, width: Double, height: Double) = t.resizeRelocate(x, y, width, height)
     val baselineOffset: Double get() = t.baselineOffset
+    fun computeAreaInScreen() = t.computeAreaInScreen()
+
+    val boundsInParentProperty: ReadOnlyObjectProperty<Bounds> get() = t.boundsInParentProperty()
+    val boundsInParent: Bounds get() = t.boundsInParent
+
+    val boundsInLocalProperty: ReadOnlyObjectProperty<Bounds> get() = t.boundsInLocalProperty()
+    val boundsInLocal: Bounds get() = t.boundsInLocal
+
+    val layoutBoundsProperty: ReadOnlyObjectProperty<Bounds> get() = t.layoutBoundsProperty()
+    val layoutBounds: Bounds get() = t.layoutBounds
+
+    fun contains(localPoint: Point2D): Boolean = t.contains(localPoint)
+
+    fun intersects(localX: Double, localY: Double, localWidth: Double, localHeight: Double): Boolean = t.intersects(localX, localY, localWidth, localHeight)
+    fun intersects(localBounds: Bounds): Boolean = t.intersects(localBounds)
+
+    fun screenToLocal(screenX: Double, screenY: Double): Point2D = t.screenToLocal(screenX, screenY)
+    fun screenToLocal(screenPoint: Point2D): Point2D = t.screenToLocal(screenPoint)
+    fun screenToLocal(screenBounds: Bounds): Bounds = t.screenToLocal(screenBounds)
+
+    fun sceneToLocal(x: Double, y: Double, rootScene: Boolean): Point2D = t.sceneToLocal(x, y, rootScene)
+    fun sceneToLocal(point: Point2D, rootScene: Boolean): Point2D = t.sceneToLocal(point, rootScene)
+    fun sceneToLocal(bounds: Bounds, rootScene: Boolean): Bounds = t.sceneToLocal(bounds, rootScene)
+    fun sceneToLocal(sceneX: Double, sceneY: Double): Point2D = t.sceneToLocal(sceneX, sceneY)
+    fun sceneToLocal(scenePoint: Point2D): Point2D = t.sceneToLocal(scenePoint)
+    fun sceneToLocal(scenePoint: Point3D): Point3D = t.sceneToLocal(scenePoint)
+    fun sceneToLocal(sceneX: Double, sceneY: Double, sceneZ: Double): Point3D = t.sceneToLocal(sceneX, sceneY, sceneZ)
+    fun sceneToLocal(bounds: Bounds): Bounds = t.sceneToLocal(bounds)
+
+    fun localToScreen(localX: Double, localY: Double): Point2D = t.localToScreen(localX, localY)
+    fun localToScreen(localPoint: Point2D): Point2D = t.localToScreen(localPoint)
+    fun localToScreen(localX: Double, localY: Double, localZ: Double): Point2D = t.localToScreen(localX, localY, localZ)
+    fun localToScreen(localPoint: Point3D): Point2D = t.localToScreen(localPoint)
+    fun localToScreen(localBounds: Bounds): Bounds = t.localToScreen(localBounds)
+
+    fun localToScene(localX: Double, localY: Double): Point2D = t.localToScene(localX, localY)
+    fun localToScene(localPoint: Point2D): Point2D = t.localToScene(localPoint)
+    fun localToScene(localPoint: Point3D): Point3D = t.localToScene(localPoint)
+    fun localToScene(x: Double, y: Double, z: Double): Point3D = t.localToScene(x, y, z)
+    fun localToScene(localPoint: Point3D, rootScene: Boolean): Point3D = t.localToScene(localPoint, rootScene)
+    fun localToScene(x: Double, y: Double, z: Double, rootScene: Boolean): Point3D = t.localToScene(x, y, z, rootScene)
+    fun localToScene(localPoint: Point2D, rootScene: Boolean): Point2D = t.localToScene(localPoint, rootScene)
+    fun localToScene(x: Double, y: Double, rootScene: Boolean): Point2D = t.localToScene(x, y, rootScene)
+    fun localToScene(localBounds: Bounds, rootScene: Boolean): Bounds = t.localToScene(localBounds, rootScene)
+    fun localToScene(localBounds: Bounds): Bounds = t.localToScene(localBounds)
+
+    fun parentToLocal(parentX: Double, parentY: Double): Point2D = t.parentToLocal(parentX, parentY)
+    fun parentToLocal(parentPoint: Point2D): Point2D = t.parentToLocal(parentPoint)
+    fun parentToLocal(parentPoint: Point3D): Point3D = t.parentToLocal(parentPoint)
+    fun parentToLocal(parentX: Double, parentY: Double, parentZ: Double): Point3D = t.parentToLocal(parentX, parentY, parentZ)
+    fun parentToLocal(parentBounds: Bounds): Bounds = t.parentToLocal(parentBounds)
+
+    fun localToParent(localX: Double, localY: Double): Point2D = t.localToParent(localX, localY)
+    fun localToParent(localPoint: Point2D): Point2D = t.localToParent(localPoint)
+    fun localToParent(localPoint: Point3D): Point3D = t.localToParent(localPoint)
+    fun localToParent(x: Double, y: Double, z: Double): Point3D = t.localToParent(x, y, z)
+    fun localToParent(localBounds: Bounds): Bounds = t.localToParent(localBounds)
+
+    val transforms: ObservableList<Transform> get() = t.transforms
+
+    val translateXProperty: DoubleProperty get() = t.translateXProperty()
+    var translateX: Double
+        get() = t.translateX
+        set(value) = t.setTranslateX(value)
+
+    val translateYProperty: DoubleProperty get() = t.translateYProperty()
+    var translateY: Double
+        get() = t.translateY
+        set(value) = t.setTranslateY(value)
+
+    val translateZProperty: DoubleProperty get() = t.translateZProperty()
+    var translateZ: Double
+        get() = t.translateZ
+        set(value) = t.setTranslateZ(value)
+
+    val scaleXProperty: DoubleProperty get() = t.scaleXProperty()
+    var scaleX: Double
+        get() = t.scaleX
+        set(value) = t.setScaleX(value)
+
+    val scaleYProperty: DoubleProperty get() = t.scaleYProperty()
+    var scaleY: Double
+        get() = t.scaleY
+        set(value) = t.setScaleY(value)
+
+    val scaleZProperty: DoubleProperty get() = t.scaleZProperty()
+    var scaleZ: Double
+        get() = t.scaleZ
+        set(value) = t.setScaleZ(value)
+
+    val rotateProperty: DoubleProperty get() = t.rotateProperty()
+    var rotate: Double
+        get() = t.rotate
+        set(value) = t.setRotate(value)
+
+    val rotationAxisProperty: ObjectProperty<Point3D> get() = t.rotationAxisProperty()
+    var rotationAxis: Point3D
+        get() = t.rotationAxis
+        set(value) = t.setRotationAxis(value)
+
+    val localToParentTransformProperty: ReadOnlyObjectProperty<Transform> get() = t.localToParentTransformProperty()
+    val localToParentTransform: Transform get() = t.localToParentTransform
+
+    val localToSceneTransformProperty: ReadOnlyObjectProperty<Transform> get() = t.localToSceneTransformProperty()
+    val localToSceneTransform: Transform get() = t.localToSceneTransform
+
 
 
 }

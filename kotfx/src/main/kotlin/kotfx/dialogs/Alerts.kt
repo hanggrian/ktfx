@@ -14,52 +14,52 @@ inline fun alert(
         title: String,
         icon: Image? = null,
         noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertBuilder(NONE).apply {
+): Dialog<ButtonType> = FXAlertDialogBuilder(NONE).apply {
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.build()
+}.t
 
 @JvmOverloads
 inline fun infoAlert(
         title: String,
         icon: Image? = null,
         noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertBuilder(INFORMATION).apply {
+): Dialog<ButtonType> = FXAlertDialogBuilder(INFORMATION).apply {
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.build()
+}.t
 
 @JvmOverloads
 inline fun warningAlert(
         title: String,
         icon: Image? = null,
         noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertBuilder(WARNING).apply {
+): Dialog<ButtonType> = FXAlertDialogBuilder(WARNING).apply {
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.build()
+}.t
 
 @JvmOverloads
 inline fun confirmAlert(
         title: String,
         icon: Image? = null,
         noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertBuilder(CONFIRMATION).apply {
+): Dialog<ButtonType> = FXAlertDialogBuilder(CONFIRMATION).apply {
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.build()
+}.t
 
 @JvmOverloads
 inline fun errorAlert(
         title: String,
         icon: Image? = null,
         noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertBuilder(ERROR).apply {
+): Dialog<ButtonType> = FXAlertDialogBuilder(ERROR).apply {
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.build()
+}.t

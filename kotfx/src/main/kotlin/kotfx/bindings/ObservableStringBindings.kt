@@ -4,9 +4,15 @@
 
 package kotfx.bindings
 
+import javafx.beans.Observable
 import javafx.beans.binding.Bindings.*
 import javafx.beans.binding.BooleanBinding
+import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableStringValue
+import java.util.concurrent.Callable
+
+/** Helper function to create a custom [StringBinding]. */
+inline fun stringBindingOf(vararg dependencies: Observable, noinline func: () -> String): StringBinding = createStringBinding(Callable { func() }, *dependencies)
 
 inline infix fun ObservableStringValue.eq(other: ObservableStringValue): BooleanBinding = equal(this, other)
 inline infix fun ObservableStringValue.eq(other: String): BooleanBinding = equal(this, other)

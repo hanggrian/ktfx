@@ -4,178 +4,81 @@
 
 package kotfx.dialogs
 
-import javafx.scene.Node
-import javafx.scene.control.*
-import javafx.util.Callback
+import javafx.scene.control.Dialog
+import javafx.scene.image.Image
+import javafx.stage.Window
 
 @JvmOverloads
 inline fun <R> dialog(
         title: String,
-        graphic: Node,
-        headerText: String,
-        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> = Dialog<R>().apply {
+        icon: Image? = null,
+        noinline init: (DialogBuilder<R>.() -> Unit)? = null
+): Dialog<R> = FXDialogBuilder<R>().apply {
     this.title = title
-    this.graphic = graphic
-    this.headerText = headerText
-    if (init != null) resultConverter = dialogPane.init()
-}
+    if (icon != null) this.icon = icon
+    if (init != null) init()
+}.build()
 
 @JvmOverloads
-inline fun <R> dialog(
-        graphic: Node,
-        headerText: String,
-        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> = Dialog<R>().apply {
-    this.graphic = graphic
-    this.headerText = headerText
-    if (init != null) resultConverter = dialogPane.init()
-}
-
-@JvmOverloads
-inline fun <R> dialog(
-        headerText: String,
-        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> = Dialog<R>().apply {
-    this.headerText = headerText
-    if (init != null) resultConverter = dialogPane.init()
-}
-
-@JvmOverloads
-inline fun <R> dialog(
-        noinline init: (DialogPane.() -> Callback<ButtonType, R>)? = null
-): Dialog<R> = Dialog<R>().apply {
-    if (init != null) resultConverter = dialogPane.init()
-}
-
-@JvmOverloads
-inline fun <T> choiceDialog(
+inline fun <R> Window.dialog(
         title: String,
-        graphic: Node,
-        headerText: String,
-        contentText: String,
-        defaultChoice: T,
-        vararg choices: T,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
+        icon: Image? = null,
+        noinline init: (DialogBuilder<R>.() -> Unit)? = null
+): Dialog<R> = FXDialogBuilder<R>().apply {
+    this.owner = this@dialog
     this.title = title
-    this.graphic = graphic
-    this.headerText = headerText
-    this.contentText = contentText
-    init?.invoke(dialogPane)
-}
-
-@JvmOverloads
-inline fun <T> choiceDialog(
-        graphic: Node,
-        headerText: String,
-        contentText: String,
-        defaultChoice: T,
-        vararg choices: T,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
-    this.graphic = graphic
-    this.headerText = headerText
-    this.contentText = contentText
-    init?.invoke(dialogPane)
-}
-
-@JvmOverloads
-inline fun <T> choiceDialog(
-        headerText: String,
-        contentText: String,
-        defaultChoice: T,
-        vararg choices: T,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
-    this.headerText = headerText
-    this.contentText = contentText
-    init?.invoke(dialogPane)
-}
-
-@JvmOverloads
-inline fun <T> choiceDialog(
-        contentText: String,
-        defaultChoice: T,
-        vararg choices: T,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
-    this.contentText = contentText
-    init?.invoke(dialogPane)
-}
-
-@JvmOverloads
-inline fun <T> choiceDialog(
-        defaultChoice: T,
-        vararg choices: T,
-        noinline init: (DialogPane.() -> Unit)? = null
-): Dialog<T> = ChoiceDialog<T>(defaultChoice, *choices).apply {
-    init?.invoke(dialogPane)
-}
+    if (icon != null) this.icon = icon
+    if (init != null) init()
+}.build()
 
 @JvmOverloads
 inline fun inputDialog(
         title: String,
-        graphic: Node,
-        headerText: String,
-        contentText: String,
-        defaultValue: String,
-        noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> = TextInputDialog(defaultValue).apply {
+        prefill: String? = null,
+        icon: Image? = null,
+        noinline init: (InputDialogBuilder.() -> Unit)? = null
+): Dialog<String> = FXInputDialogBuilder(prefill).apply {
     this.title = title
-    this.graphic = graphic
-    this.headerText = headerText
-    this.contentText = contentText
-    init?.invoke(dialogPane, editor)
-}
+    if (icon != null) this.icon = icon
+    if (init != null) init()
+}.build()
 
 @JvmOverloads
-inline fun inputDialog(
-        graphic: Node,
-        headerText: String,
-        contentText: String,
-        defaultValue: String,
-        noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> = TextInputDialog(defaultValue).apply {
-    this.graphic = graphic
-    this.headerText = headerText
-    this.contentText = contentText
-    init?.invoke(dialogPane, editor)
-}
+inline fun Window.inputDialog(
+        title: String,
+        prefill: String? = null,
+        icon: Image? = null,
+        noinline init: (InputDialogBuilder.() -> Unit)? = null
+): Dialog<String> = FXInputDialogBuilder(prefill).apply {
+    this.owner = this@inputDialog
+    this.title = title
+    if (icon != null) this.icon = icon
+    if (init != null) init()
+}.build()
 
 @JvmOverloads
-inline fun inputDialog(
-        headerText: String,
-        contentText: String,
-        defaultValue: String,
-        noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> = TextInputDialog(defaultValue).apply {
-    this.headerText = headerText
-    this.contentText = contentText
-    init?.invoke(dialogPane, editor)
-}
+inline fun <T> choiceDialog(
+        title: String,
+        items: Collection<T>? = null,
+        prefill: T? = null,
+        icon: Image? = null,
+        noinline init: (ChoiceDialogBuilder<T>.() -> Unit)? = null
+): Dialog<T> = FXChoiceDialogBuilder(items, prefill).apply {
+    this.title = title
+    if (icon != null) this.icon = icon
+    if (init != null) init()
+}.build()
 
 @JvmOverloads
-inline fun inputDialog(
-        contentText: String,
-        defaultValue: String,
-        noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> = TextInputDialog(defaultValue).apply {
-    this.contentText = contentText
-    init?.invoke(dialogPane, editor)
-}
-
-@JvmOverloads
-inline fun inputDialog(
-        defaultValue: String,
-        noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> = TextInputDialog(defaultValue).apply {
-    init?.invoke(dialogPane, editor)
-}
-
-@JvmOverloads
-inline fun inputDialog(
-        noinline init: (DialogPane.(TextField) -> Unit)? = null
-): Dialog<String> = TextInputDialog().apply {
-    init?.invoke(dialogPane, editor)
-}
+inline fun <T> Window.choiceDialog(
+        title: String,
+        items: Collection<T>? = null,
+        prefill: T? = null,
+        icon: Image? = null,
+        noinline init: (ChoiceDialogBuilder<T>.() -> Unit)? = null
+): Dialog<T> = FXChoiceDialogBuilder(items, prefill).apply {
+    this.owner = this@choiceDialog
+    this.title = title
+    if (icon != null) this.icon = icon
+    if (init != null) init()
+}.build()

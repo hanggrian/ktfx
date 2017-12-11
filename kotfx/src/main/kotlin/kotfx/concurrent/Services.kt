@@ -4,4 +4,4 @@ package kotfx.concurrent
 
 import javafx.concurrent.Service
 
-inline fun <V> service(init: ServiceBuilder<V>.() -> Unit): Service<V> = FXServiceBuilder<V>().apply { init() }.service
+inline fun <V> service(init: ServiceBuilder<V>.() -> Unit): Service<V> = FXServiceBuilder<V>().apply { init() }.build()

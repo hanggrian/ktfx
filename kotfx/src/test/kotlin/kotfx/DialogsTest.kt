@@ -11,9 +11,8 @@ class DialogsTest {
 
     // @Test
     fun alert() {
-        alert("contentText").let {
-            assertEquals(it.headerText, "")
-            assertEquals(it.dialogPane.buttonTypes.size, 0)
+        alert("yo") {
+            assertEquals(title, "")
         }
     }
 }

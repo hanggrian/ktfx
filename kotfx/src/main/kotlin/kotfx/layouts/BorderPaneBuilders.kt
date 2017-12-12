@@ -1,21 +1,21 @@
 package kotfx.layouts
 
 import javafx.geometry.Insets
+import javafx.geometry.Pos
 import javafx.scene.Node
-import javafx.scene.layout.Priority
-import javafx.scene.layout.VBox
-import javafx.scene.layout.VBox.*
+import javafx.scene.layout.BorderPane
+import javafx.scene.layout.BorderPane.*
 
 @PublishedApi
-internal class FXVBoxBuilder : VBoxBuilder {
+internal class FXBorderPaneBuilder : BorderPaneBuilder {
 
-    override val t: VBox = VBox()
+    override val t: BorderPane = BorderPane()
 }
 
-interface VBoxBuilder : PaneBuilder<VBox> {
+interface BorderPaneBuilder : PaneBuilder<BorderPane> {
 
-    infix fun Node.vgrow(priority: Priority) = setVgrow(this, priority)
-    val Node.vgrow: Priority get() = getVgrow(this)
+    infix fun Node.alignment(alignment: Pos) = setAlignment(this, alignment)
+    val Node.alignment: Pos get() = getAlignment(this)
 
     infix fun Node.margin(insets: Insets) = setMargin(this, insets)
     fun Node.margin(top: Double, right: Double, bottom: Double, left: Double) = setMargin(this, Insets(top, right, bottom, left))
@@ -26,5 +26,5 @@ interface VBoxBuilder : PaneBuilder<VBox> {
     infix fun Node.bottomMargin(margin: Double) = margin(0.0, 0.0, 8.0, 0.0)
     infix fun Node.leftMargin(margin: Double) = margin(0.0, 0.0, 0.0, 8.0)
 
-    fun Node.clearConstraints() = VBox.clearConstraints(this)
+    fun Node.clearConstraints() = clearConstraints(this)
 }

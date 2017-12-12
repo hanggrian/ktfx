@@ -3,24 +3,21 @@ package kotfx.dialogs
 import javafx.beans.property.ReadOnlyObjectProperty
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceDialog
-import javafx.scene.control.Dialog
 
 @PublishedApi
-internal class FXChoiceDialogBuilder<T>(items: Collection<T>?, prefill: T?) : FXDialogBuilder<T>(), ChoiceDialogBuilder<T> {
+internal class FXChoiceDialogBuilder<T>(items: Collection<T>?, prefill: T?) : ChoiceDialogBuilder<T> {
 
-    override val t: Dialog<T> = ChoiceDialog(prefill, items)
+    override val t: ChoiceDialog<T> = ChoiceDialog<T>(prefill, items)
 }
 
-interface ChoiceDialogBuilder<T> : DialogBuilder<T> {
+interface ChoiceDialogBuilder<T> : DialogBuilder<ChoiceDialog<T>, T> {
 
-    val items: ObservableList<T> get() = (t as ChoiceDialog).items
+    val items: ObservableList<T> get() = t.items
 
-    val selectedItemProperty: ReadOnlyObjectProperty<T> get() = (t as ChoiceDialog).selectedItemProperty()
-    val selected: T get() = (t as ChoiceDialog).selectedItem
+    val selectedItemProperty: ReadOnlyObjectProperty<T> get() = t.selectedItemProperty()
+    val selected: T get() = t.selectedItem
 
-    fun select(item: T) {
-        (t as ChoiceDialog).selectedItem = item
-    }
+    fun select(item: T) = t.setSelectedItem(item)
 
-    val prefill: T get() = (t as ChoiceDialog).defaultChoice
+    val prefill: T get() = t.defaultChoice
 }

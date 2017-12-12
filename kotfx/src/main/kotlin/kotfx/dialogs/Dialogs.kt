@@ -12,7 +12,7 @@ import javafx.stage.Window
 inline fun <R> dialog(
         title: String,
         icon: Image? = null,
-        noinline init: (DialogBuilder<R>.() -> Unit)? = null
+        noinline init: (DialogBuilder<Dialog<R>, R>.() -> Unit)? = null
 ): Dialog<R> = FXDialogBuilder<R>().apply {
     this.title = title
     if (icon != null) this.icon = icon
@@ -23,7 +23,7 @@ inline fun <R> dialog(
 inline fun <R> Window.dialog(
         title: String,
         icon: Image? = null,
-        noinline init: (DialogBuilder<R>.() -> Unit)? = null
+        noinline init: (DialogBuilder<Dialog<R>, R>.() -> Unit)? = null
 ): Dialog<R> = FXDialogBuilder<R>().apply {
     this.owner = this@dialog
     this.title = title

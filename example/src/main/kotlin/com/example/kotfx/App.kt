@@ -1,9 +1,11 @@
 package com.example.kotfx
 
 import javafx.application.Application
+import javafx.geometry.Insets
 import javafx.scene.Scene
 import javafx.stage.Stage
-import kotfx.layouts.nodes.button
+import kotfx.layouts.anchorPane
+import kotfx.layouts.controls.button
 import kotfx.layouts.vBox
 
 class App : Application() {
@@ -13,16 +15,17 @@ class App : Application() {
     }
 
     override fun start(primaryStage: Stage) {
-        primaryStage.scene = Scene(vBox {
-            button("you") {
-                onAction {
-                    println("fuck you 1")
+        primaryStage.scene = Scene(anchorPane {
+            vBox {
+                padding = Insets(20.0)
+                button("you") {
+                    onAction {
+                    }
                 }
-            }
-            button("motherfucker") {
-                onAction {
-                    println("fuck you 2")
-                }
+                button("motherfucker") {
+                    onAction {
+                    }
+                } topMargin 20.0
             }
         })
         primaryStage.show()

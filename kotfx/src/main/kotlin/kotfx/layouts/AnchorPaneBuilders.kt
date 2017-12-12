@@ -5,7 +5,7 @@ import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.AnchorPane.*
 
 @PublishedApi
-internal class FXAnchorPaneBuilder : FXPaneBuilder<AnchorPane>(), AnchorPaneBuilder {
+internal class FXAnchorPaneBuilder : AnchorPaneBuilder {
 
     override val t: AnchorPane = AnchorPane()
 }

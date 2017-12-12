@@ -16,12 +16,12 @@ import javafx.util.Callback
 import kotfx.internal.Instanced
 
 @PublishedApi
-internal open class FXDialogBuilder<R> : DialogBuilder<R> {
+internal class FXDialogBuilder<R> : DialogBuilder<Dialog<R>, R> {
 
     override val t: Dialog<R> = Dialog()
 }
 
-interface DialogBuilder<R> : Instanced<Dialog<R>> {
+interface DialogBuilder<out T : Dialog<R>, R> : Instanced<T> {
 
     var owner: Window
         get() = t.owner
@@ -147,52 +147,52 @@ interface DialogBuilder<R> : Instanced<Dialog<R>> {
 }
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.leftButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, LEFT, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.leftButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, LEFT, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.rightButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, RIGHT, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.rightButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, RIGHT, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.helpButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, HELP, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.helpButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, HELP, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.help2Button(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, HELP_2, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.help2Button(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, HELP_2, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.yesButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, YES, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.yesButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, YES, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.noButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, NO, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.noButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, NO, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.nextButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, NEXT_FORWARD, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.nextButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, NEXT_FORWARD, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.backButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, BACK_PREVIOUS, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.backButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, BACK_PREVIOUS, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.finishButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, FINISH, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.finishButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, FINISH, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.applyButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, APPLY, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.applyButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, APPLY, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.cancelButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, CANCEL_CLOSE, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.cancelButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, CANCEL_CLOSE, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.okButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, OK_DONE, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.okButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, OK_DONE, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.bigButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, BIG_GAP, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.bigButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, BIG_GAP, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.smallButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, SMALL_GAP, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.smallButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, SMALL_GAP, action)
 
 @JvmOverloads
-inline fun <R> DialogBuilder<R>.otherButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, OTHER, action)
+inline fun <T : Dialog<R>, R> DialogBuilder<T, R>.otherButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, OTHER, action)
 
 @PublishedApi
-internal inline fun DialogBuilder<*>.buttonTypeOf(
+internal inline fun DialogBuilder<*, *>.buttonTypeOf(
         text: String,
         data: ButtonBar.ButtonData,
         noinline action: (() -> Unit)?

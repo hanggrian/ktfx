@@ -3,18 +3,17 @@ package kotfx.dialogs
 import javafx.beans.property.ObjectProperty
 import javafx.scene.control.Alert
 import javafx.scene.control.ButtonType
-import javafx.scene.control.Dialog
 
 @PublishedApi
-internal class FXAlertDialogBuilder(type: Alert.AlertType) : FXDialogBuilder<ButtonType>(), AlertBuilder {
+internal class FXAlertDialogBuilder(type: Alert.AlertType) : AlertBuilder {
 
-    override val t: Dialog<ButtonType> = Alert(type)
+    override val t: Alert = Alert(type)
 }
 
-interface AlertBuilder : DialogBuilder<ButtonType> {
+interface AlertBuilder : DialogBuilder<Alert, ButtonType> {
 
-    val typeProperty: ObjectProperty<Alert.AlertType> get() = (t as Alert).alertTypeProperty()
+    val typeProperty: ObjectProperty<Alert.AlertType> get() = t.alertTypeProperty()
     var type: Alert.AlertType
-        get() = (t as Alert).alertType
-        set(value) = (t as Alert).setAlertType(value)
+        get() = t.alertType
+        set(value) = t.setAlertType(value)
 }

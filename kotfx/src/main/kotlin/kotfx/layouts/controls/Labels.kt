@@ -5,7 +5,7 @@ package kotfx.layouts.controls
 import javafx.scene.Node
 import javafx.scene.control.Label
 import kotfx.internal.LayoutDsl
-import kotfx.layouts.Noded
+import kotfx.internal.Noded
 
 class _Label(text: String?, graphic: Node?) : Label(text, graphic) {
 
@@ -23,4 +23,4 @@ inline fun Noded.label(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@LayoutDsl _Label).() -> Unit)? = null
-): Label = addChild(_Label(text, graphic).apply { if (init != null) init() })
+): Label = _Label(text, graphic).apply { if (init != null) init() }.add()

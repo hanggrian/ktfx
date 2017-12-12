@@ -1,15 +1,11 @@
 package com.example.kotfx
 
 import javafx.application.Application
-import javafx.geometry.Insets
-import javafx.scene.Scene
 import javafx.stage.Stage
-import kotfx.dialogs.infoAlert
-import kotfx.layouts.anchorPane
 import kotfx.layouts.controls.button
 import kotfx.layouts.controls.label
-import kotfx.layouts.controls.textField
-import kotfx.layouts.vBox
+import kotfx.layouts.gridPane
+import kotfx.layouts.toScene
 
 class App : Application() {
 
@@ -18,18 +14,17 @@ class App : Application() {
     }
 
     override fun start(primaryStage: Stage) {
-        primaryStage.scene = Scene(anchorPane {
-            vBox {
-                padding = Insets(20.0)
-                label("Try me, bitch.")
-                val field = textField()
-                button("Try") {
-                    setOnAction {
-                        infoAlert(field.text).show()
-                    }
-                }
-            }
-        })
+        primaryStage.scene = gridPane {
+            padding(20)
+
+            label("Animations") row 0 col 0
+            label("Interpolators, Timelines, and Transitions.") row 1 col 0
+            button("Try") row 0 col 1 rowSpan 2
+
+            label("Bindings") row 2 col 0
+            label("True power of JavaFX.") row 3 col 0
+            button("Try") row 2 col 1 rowSpan 2
+        }.toScene()
         primaryStage.show()
     }
 }

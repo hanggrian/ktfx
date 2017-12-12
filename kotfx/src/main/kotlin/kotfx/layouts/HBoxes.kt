@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("LayoutsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx.layouts
@@ -6,16 +8,26 @@ import javafx.geometry.Insets
 import javafx.geometry.Insets.EMPTY
 import javafx.scene.Node
 import javafx.scene.layout.HBox
+import javafx.scene.layout.Pane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
+import kotfx.internal.HGrowable
+import kotfx.internal.LayoutDsl
+import kotfx.internal.Marginable
+import kotfx.internal.Noded
 
 class _HBox : HBox(), HGrowable, Marginable {
 
-    override infix fun Node.hgrow(priority: Priority) = setHgrow(this, priority)
+    override val instance: Pane get() = this
+
+    override infix fun <T : Node> T.hgrow(priority: Priority): T = apply { setHgrow(this, priority) }
     override val Node.hgrow2: Priority get() = getHgrow(this) ?: NEVER
 
-    override infix fun Node.margin(insets: Insets) = setMargin(this, insets)
+    override infix fun <T : Node> T.margin(insets: Insets): T = apply { setMargin(this, insets) }
     override val Node.margin2: Insets get() = getMargin(this) ?: EMPTY
 
-    override fun Node.removeConstraints() = clearConstraints(this)
+    override fun <T : Node> T.clearConstraints(): T = apply { clearConstraints(this) }
 }
+
+inline fun hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
+inline fun Noded.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init).add()

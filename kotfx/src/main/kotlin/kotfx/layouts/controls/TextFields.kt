@@ -4,7 +4,7 @@ package kotfx.layouts.controls
 
 import javafx.scene.control.TextField
 import kotfx.internal.LayoutDsl
-import kotfx.layouts.Noded
+import kotfx.internal.Noded
 
 class _TextField(text: String?) : TextField(text) {
 
@@ -20,4 +20,4 @@ inline fun textField(
 inline fun Noded.textField(
         text: String? = null,
         noinline init: ((@LayoutDsl _TextField).() -> Unit)? = null
-): TextField = addChild(_TextField(text).apply { if (init != null) init() })
+): TextField = _TextField(text).apply { if (init != null) init() }.add()

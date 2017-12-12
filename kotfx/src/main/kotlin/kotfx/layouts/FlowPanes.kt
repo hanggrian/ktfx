@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("LayoutsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx.layouts
@@ -6,11 +8,20 @@ import javafx.geometry.Insets
 import javafx.geometry.Insets.EMPTY
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
+import javafx.scene.layout.Pane
+import kotfx.internal.LayoutDsl
+import kotfx.internal.Marginable
+import kotfx.internal.Noded
 
 class _FlowPane : FlowPane(), Marginable {
 
-    override infix fun Node.margin(insets: Insets) = setMargin(this, insets)
+    override val instance: Pane get() = this
+
+    override infix fun <T : Node> T.margin(insets: Insets): T = apply { setMargin(this, insets) }
     override val Node.margin2: Insets get() = getMargin(this) ?: EMPTY
 
-    override fun Node.removeConstraints() = clearConstraints(this)
+    override fun <T : Node> T.clearConstraints(): T = apply { clearConstraints(this) }
 }
+
+inline fun flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init)
+inline fun Noded.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init).add()

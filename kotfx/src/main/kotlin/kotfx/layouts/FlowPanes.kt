@@ -9,11 +9,10 @@ import javafx.geometry.Insets.EMPTY
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
 import javafx.scene.layout.Pane
+import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
-import kotfx.internal.Marginable
-import kotfx.internal.Noded
 
-class _FlowPane : FlowPane(), Marginable {
+class _FlowPane : FlowPane(), _Marginable {
 
     override val instance: Pane get() = this
 
@@ -24,4 +23,4 @@ class _FlowPane : FlowPane(), Marginable {
 }
 
 inline fun flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init)
-inline fun Noded.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init).add()
+inline fun ChildManager.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init).add()

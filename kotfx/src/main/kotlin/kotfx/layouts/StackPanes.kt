@@ -11,17 +11,15 @@ import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
-import kotfx.internal.Alignable
+import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
-import kotfx.internal.Marginable
-import kotfx.internal.Noded
 
-class _StackPane : StackPane(), Alignable, Marginable {
+class _StackPane : StackPane(), _Alignable, _Marginable {
 
     override val instance: Pane get() = this
 
-    override infix fun <T : Node> T.align(pos: Pos): T = apply { setAlignment(this, pos) }
-    override val Node.align: Pos get() = getAlignment(this) ?: TOP_LEFT
+    override infix fun <T : Node> T.pos(pos: Pos): T = apply { setAlignment(this, pos) }
+    override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
 
     override infix fun <T : Node> T.margin(insets: Insets): T = apply { setMargin(this, insets) }
     override val Node.margin2: Insets get() = getMargin(this) ?: EMPTY
@@ -30,4 +28,4 @@ class _StackPane : StackPane(), Alignable, Marginable {
 }
 
 inline fun stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init)
-inline fun Noded.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init).add()
+inline fun ChildManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init).add()

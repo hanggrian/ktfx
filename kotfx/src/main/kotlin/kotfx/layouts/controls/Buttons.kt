@@ -4,10 +4,12 @@ package kotfx.layouts.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Button
+import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
-import kotfx.internal.Noded
 
-class _Button(text: String?, graphic: Node?) : Button(text, graphic) {
+class _Button(text: String?, graphic: Node?) : Button(text, graphic), _Labeled<Button> {
+
+    override val instance: Button get() = this
 
 }
 
@@ -19,7 +21,7 @@ inline fun button(
 ): Button = _Button(text, graphic).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun Noded.button(
+inline fun ChildManager.button(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@LayoutDsl _Button).() -> Unit)? = null

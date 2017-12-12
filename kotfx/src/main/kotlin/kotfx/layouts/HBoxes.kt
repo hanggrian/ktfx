@@ -11,12 +11,10 @@ import javafx.scene.layout.HBox
 import javafx.scene.layout.Pane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
-import kotfx.internal.HGrowable
+import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
-import kotfx.internal.Marginable
-import kotfx.internal.Noded
 
-class _HBox : HBox(), HGrowable, Marginable {
+class _HBox : HBox(), _HGrowable, _Marginable {
 
     override val instance: Pane get() = this
 
@@ -30,4 +28,4 @@ class _HBox : HBox(), HGrowable, Marginable {
 }
 
 inline fun hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
-inline fun Noded.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init).add()
+inline fun ChildManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init).add()

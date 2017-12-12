@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.layouts
+package kotfx
 
 import javafx.scene.Parent
 import javafx.scene.Scene

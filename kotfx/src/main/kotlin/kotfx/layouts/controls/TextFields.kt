@@ -3,10 +3,12 @@
 package kotfx.layouts.controls
 
 import javafx.scene.control.TextField
+import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
-import kotfx.internal.Noded
 
-class _TextField(text: String?) : TextField(text) {
+class _TextField(text: String?) : TextField(text), _Region<TextField> {
+
+    override val instance: TextField get() = this
 
 }
 
@@ -17,7 +19,7 @@ inline fun textField(
 ): TextField = _TextField(text).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun Noded.textField(
+inline fun ChildManager.textField(
         text: String? = null,
         noinline init: ((@LayoutDsl _TextField).() -> Unit)? = null
 ): TextField = _TextField(text).apply { if (init != null) init() }.add()

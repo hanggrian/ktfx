@@ -11,12 +11,10 @@ import javafx.scene.layout.Pane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
 import javafx.scene.layout.VBox
+import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
-import kotfx.internal.Marginable
-import kotfx.internal.Noded
-import kotfx.internal.VGrowable
 
-class _VBox : VBox(), VGrowable, Marginable {
+class _VBox : VBox(), _VGrowable, _Marginable {
 
     override val instance: Pane get() = this
 
@@ -30,4 +28,4 @@ class _VBox : VBox(), VGrowable, Marginable {
 }
 
 inline fun vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = _VBox().apply(init)
-inline fun Noded.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = _VBox().apply(init).add()
+inline fun ChildManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = _VBox().apply(init).add()

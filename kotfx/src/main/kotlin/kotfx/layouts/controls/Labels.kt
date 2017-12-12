@@ -4,10 +4,12 @@ package kotfx.layouts.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Label
+import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
-import kotfx.internal.Noded
 
-class _Label(text: String?, graphic: Node?) : Label(text, graphic) {
+class _Label(text: String?, graphic: Node?) : Label(text, graphic), _Labeled<Label> {
+
+    override val instance: Label get() = this
 
 }
 
@@ -19,7 +21,7 @@ inline fun label(
 ): Label = _Label(text, graphic).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun Noded.label(
+inline fun ChildManager.label(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@LayoutDsl _Label).() -> Unit)? = null

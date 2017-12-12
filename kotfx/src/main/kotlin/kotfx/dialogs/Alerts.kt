@@ -18,7 +18,7 @@ inline fun alert(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance
 
 @JvmOverloads
 inline fun infoAlert(
@@ -29,7 +29,7 @@ inline fun infoAlert(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance
 
 @JvmOverloads
 inline fun warningAlert(
@@ -40,7 +40,7 @@ inline fun warningAlert(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance
 
 @JvmOverloads
 inline fun confirmAlert(
@@ -51,7 +51,7 @@ inline fun confirmAlert(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance
 
 @JvmOverloads
 inline fun errorAlert(
@@ -62,4 +62,4 @@ inline fun errorAlert(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance

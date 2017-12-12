@@ -19,7 +19,7 @@ inline fun <T> choiceDialog(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance
 
 @JvmOverloads
 inline fun <T> Window.choiceDialog(
@@ -33,4 +33,4 @@ inline fun <T> Window.choiceDialog(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance

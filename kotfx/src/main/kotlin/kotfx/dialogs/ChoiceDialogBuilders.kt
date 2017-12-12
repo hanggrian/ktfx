@@ -7,17 +7,17 @@ import javafx.scene.control.ChoiceDialog
 @PublishedApi
 internal class FXChoiceDialogBuilder<T>(items: Collection<T>?, prefill: T?) : ChoiceDialogBuilder<T> {
 
-    override val t: ChoiceDialog<T> = ChoiceDialog<T>(prefill, items)
+    override val instance: ChoiceDialog<T> = ChoiceDialog<T>(prefill, items)
 }
 
 interface ChoiceDialogBuilder<T> : DialogBuilder<ChoiceDialog<T>, T> {
 
-    val items: ObservableList<T> get() = t.items
+    val items: ObservableList<T> get() = instance.items
 
-    val selectedItemProperty: ReadOnlyObjectProperty<T> get() = t.selectedItemProperty()
-    val selected: T get() = t.selectedItem
+    val selectedItemProperty: ReadOnlyObjectProperty<T> get() = instance.selectedItemProperty()
+    val selected: T get() = instance.selectedItem
 
-    fun select(item: T) = t.setSelectedItem(item)
+    fun select(item: T) = instance.setSelectedItem(item)
 
-    val prefill: T get() = t.defaultChoice
+    val prefill: T get() = instance.defaultChoice
 }

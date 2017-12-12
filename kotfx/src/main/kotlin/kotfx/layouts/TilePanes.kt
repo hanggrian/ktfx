@@ -7,10 +7,9 @@ import javafx.geometry.Insets.EMPTY
 import javafx.geometry.Pos
 import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
-import javafx.scene.layout.BorderPane
-import kotfx.internal.LayoutDsl
+import javafx.scene.layout.TilePane
 
-class _BorderPane : BorderPane(), Alignable, Marginable {
+class _TilePane : TilePane(), Alignable, Marginable {
 
     override infix fun Node.align(pos: Pos) = setAlignment(this, pos)
     override val Node.align: Pos get() = getAlignment(this) ?: TOP_LEFT
@@ -20,7 +19,3 @@ class _BorderPane : BorderPane(), Alignable, Marginable {
 
     override fun Node.removeConstraints() = clearConstraints(this)
 }
-
-inline fun borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init)
-
-inline fun Noded.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init).add()

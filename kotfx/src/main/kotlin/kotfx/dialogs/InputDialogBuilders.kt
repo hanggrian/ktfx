@@ -6,12 +6,12 @@ import javafx.scene.control.TextInputDialog
 @PublishedApi
 internal class FXInputDialogBuilder(prefill: String?) : InputDialogBuilder {
 
-    override val t: TextInputDialog = TextInputDialog(prefill ?: "")
+    override val instance: TextInputDialog = TextInputDialog(prefill ?: "")
 }
 
 interface InputDialogBuilder : DialogBuilder<TextInputDialog, String> {
 
-    val editor: TextField get() = t.editor
+    val editor: TextField get() = instance.editor
 
-    val prefill: String get() = t.defaultValue
+    val prefill: String get() = instance.defaultValue
 }

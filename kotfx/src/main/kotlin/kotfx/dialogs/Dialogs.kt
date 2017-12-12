@@ -17,7 +17,7 @@ inline fun <R> dialog(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance
 
 @JvmOverloads
 inline fun <R> Window.dialog(
@@ -29,4 +29,4 @@ inline fun <R> Window.dialog(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance

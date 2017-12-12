@@ -18,7 +18,7 @@ inline fun inputDialog(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance
 
 @JvmOverloads
 inline fun Window.inputDialog(
@@ -31,4 +31,4 @@ inline fun Window.inputDialog(
     this.title = title
     if (icon != null) this.icon = icon
     if (init != null) init()
-}.t
+}.instance

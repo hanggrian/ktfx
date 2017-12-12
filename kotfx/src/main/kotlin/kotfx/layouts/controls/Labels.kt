@@ -2,17 +2,25 @@
 
 package kotfx.layouts.controls
 
+import javafx.scene.Node
 import javafx.scene.control.Label
-import kotfx.layouts.PaneBuilder
+import kotfx.internal.LayoutDsl
+import kotfx.layouts.Noded
+
+class _Label(text: String?, graphic: Node?) : Label(text, graphic) {
+
+}
 
 @JvmOverloads
 inline fun label(
         text: String? = null,
-        noinline init: (LabelBuilder.() -> Unit)? = null
-): Label = FXLabelBuilder(text).apply { if (init != null) init() }.t
+        graphic: Node? = null,
+        noinline init: ((@LayoutDsl _Label).() -> Unit)? = null
+): Label = _Label(text, graphic).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun PaneBuilder<*>.label(
+inline fun Noded.label(
         text: String? = null,
-        noinline init: (LabelBuilder.() -> Unit)? = null
-): Label = FXLabelBuilder(text).apply { if (init != null) init() }.t.apply { children.add(this) }
+        graphic: Node? = null,
+        noinline init: ((@LayoutDsl _Label).() -> Unit)? = null
+): Label = addChild(_Label(text, graphic).apply { if (init != null) init() })

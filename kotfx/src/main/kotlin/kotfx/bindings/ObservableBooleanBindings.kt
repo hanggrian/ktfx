@@ -14,10 +14,10 @@ import java.util.concurrent.Callable
 /** Helper function to create a custom [BooleanBinding]. */
 inline fun booleanBindingOf(vararg dependencies: Observable, noinline func: () -> Boolean): BooleanBinding = createBooleanBinding(Callable { func() }, *dependencies)
 
-/** Creates a [BooleanBinding] that calculates the conditional-AND operation on the value of two t of [ObservableBooleanValue]. */
+/** Creates a [BooleanBinding] that calculates the conditional-AND operation on the value of two instance of [ObservableBooleanValue]. */
 inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): BooleanBinding = and(this, other)
 
-/** Creates a [BooleanBinding] that calculates the conditional-OR operation on the value of two t of [ObservableBooleanValue]. */
+/** Creates a [BooleanBinding] that calculates the conditional-OR operation on the value of two instance of [ObservableBooleanValue]. */
 inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): BooleanBinding = or(this, other)
 
 /** Creates a {@link BooleanBinding} that calculates the inverse of the value of a [ObservableBooleanValue]. */

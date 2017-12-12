@@ -7,13 +7,13 @@ import javafx.scene.control.ButtonType
 @PublishedApi
 internal class FXAlertDialogBuilder(type: Alert.AlertType) : AlertBuilder {
 
-    override val t: Alert = Alert(type)
+    override val instance: Alert = Alert(type)
 }
 
 interface AlertBuilder : DialogBuilder<Alert, ButtonType> {
 
-    val typeProperty: ObjectProperty<Alert.AlertType> get() = t.alertTypeProperty()
+    val typeProperty: ObjectProperty<Alert.AlertType> get() = instance.alertTypeProperty()
     var type: Alert.AlertType
-        get() = t.alertType
-        set(value) = t.setAlertType(value)
+        get() = instance.alertType
+        set(value) = instance.setAlertType(value)
 }

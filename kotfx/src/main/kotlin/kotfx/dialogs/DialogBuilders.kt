@@ -18,62 +18,62 @@ import kotfx.internal.Instanced
 @PublishedApi
 internal class FXDialogBuilder<R> : DialogBuilder<Dialog<R>, R> {
 
-    override val t: Dialog<R> = Dialog()
+    override val instance: Dialog<R> = Dialog()
 }
 
 interface DialogBuilder<out T : Dialog<R>, R> : Instanced<T> {
 
     var owner: Window
-        get() = t.owner
-        set(value) = t.initOwner(value)
+        get() = instance.owner
+        set(value) = instance.initOwner(value)
 
-    val resizableProperty: BooleanProperty get() = t.resizableProperty()
+    val resizableProperty: BooleanProperty get() = instance.resizableProperty()
     var isResizable: Boolean
-        get() = t.isResizable
-        set(value) = t.setResizable(value)
+        get() = instance.isResizable
+        set(value) = instance.setResizable(value)
 
-    val showingProperty: ReadOnlyBooleanProperty get() = t.showingProperty()
-    val isShowing: Boolean get() = t.isShowing
+    val showingProperty: ReadOnlyBooleanProperty get() = instance.showingProperty()
+    val isShowing: Boolean get() = instance.isShowing
 
-    val heightProperty: ReadOnlyDoubleProperty get() = t.heightProperty()
+    val heightProperty: ReadOnlyDoubleProperty get() = instance.heightProperty()
     var height: Double
-        get() = t.height
-        set(value) = t.setHeight(value)
+        get() = instance.height
+        set(value) = instance.setHeight(value)
 
-    val widthProperty: ReadOnlyDoubleProperty get() = t.widthProperty()
+    val widthProperty: ReadOnlyDoubleProperty get() = instance.widthProperty()
     var width: Double
-        get() = t.width
-        set(value) = t.setWidth(value)
+        get() = instance.width
+        set(value) = instance.setWidth(value)
 
     fun size(h: Double, w: Double) {
         height = h
         width = w
     }
 
-    val xProperty: ReadOnlyDoubleProperty get() = t.xProperty()
+    val xProperty: ReadOnlyDoubleProperty get() = instance.xProperty()
     var x: Double
-        get() = t.x
-        set(value) = t.setX(value)
+        get() = instance.x
+        set(value) = instance.setX(value)
 
-    val yProperty: ReadOnlyDoubleProperty get() = t.yProperty()
+    val yProperty: ReadOnlyDoubleProperty get() = instance.yProperty()
     var y: Double
-        get() = t.y
-        set(value) = t.setY(value)
+        get() = instance.y
+        set(value) = instance.setY(value)
 
     fun position(x: Double, y: Double) {
         this.x = x
         this.y = y
     }
 
-    val titleProperty: StringProperty get() = t.titleProperty()
+    val titleProperty: StringProperty get() = instance.titleProperty()
     var title: String
-        get() = t.title
-        set(value) = t.setTitle(value)
+        get() = instance.title
+        set(value) = instance.setTitle(value)
 
-    val paneProperty: ObjectProperty<DialogPane> get() = t.dialogPaneProperty()
+    val paneProperty: ObjectProperty<DialogPane> get() = instance.dialogPaneProperty()
     var pane: DialogPane
-        get() = t.dialogPane
-        set(value) = t.setDialogPane(value)
+        get() = instance.dialogPane
+        set(value) = instance.setDialogPane(value)
 
     var icon: Image?
         get() = (pane.scene.window as Stage).icons.let { icons ->
@@ -84,20 +84,20 @@ interface DialogBuilder<out T : Dialog<R>, R> : Instanced<T> {
             icons.add(icon)
         }
 
-    val graphicProperty: ObjectProperty<Node> get() = t.graphicProperty()
+    val graphicProperty: ObjectProperty<Node> get() = instance.graphicProperty()
     var graphic: Node
-        get() = t.graphic
-        set(value) = t.setGraphic(value)
+        get() = instance.graphic
+        set(value) = instance.setGraphic(value)
 
-    val headerTextProperty: StringProperty get() = t.headerTextProperty()
+    val headerTextProperty: StringProperty get() = instance.headerTextProperty()
     var headerText: String
-        get() = t.headerText
-        set(value) = t.setHeaderText(value)
+        get() = instance.headerText
+        set(value) = instance.setHeaderText(value)
 
-    val contentTextProperty: StringProperty get() = t.contentTextProperty()
+    val contentTextProperty: StringProperty get() = instance.contentTextProperty()
     var contentText: String
-        get() = t.contentText
-        set(value) = t.setContentText(value)
+        get() = instance.contentText
+        set(value) = instance.setContentText(value)
 
     val contentProperty: ObjectProperty<Node> get() = pane.contentProperty()
     var content: Node
@@ -122,28 +122,28 @@ interface DialogBuilder<out T : Dialog<R>, R> : Instanced<T> {
 
     fun ButtonType.asNode(): Node = pane.lookupButton(this)
 
-    val resultProperty: ObjectProperty<R> get() = t.resultProperty()
+    val resultProperty: ObjectProperty<R> get() = instance.resultProperty()
     var result: R
-        get() = t.result
-        set(value) = t.setResult(value)
+        get() = instance.result
+        set(value) = instance.setResult(value)
 
-    val resultConverterProperty: ObjectProperty<Callback<ButtonType, R>> get() = t.resultConverterProperty()
-    fun resultConverter(converter: (ButtonType) -> R) = t.setResultConverter(converter)
+    val resultConverterProperty: ObjectProperty<Callback<ButtonType, R>> get() = instance.resultConverterProperty()
+    fun resultConverter(converter: (ButtonType) -> R) = instance.setResultConverter(converter)
 
-    val onShowingProperty: ObjectProperty<EventHandler<DialogEvent>> get() = t.onShowingProperty()
-    fun onShowing(onShowing: (DialogEvent) -> Unit) = t.setOnShowing(onShowing)
+    val onShowingProperty: ObjectProperty<EventHandler<DialogEvent>> get() = instance.onShowingProperty()
+    fun onShowing(onShowing: (DialogEvent) -> Unit) = instance.setOnShowing(onShowing)
 
-    val onShownProperty: ObjectProperty<EventHandler<DialogEvent>> get() = t.onShownProperty()
-    fun onShown(onShown: (DialogEvent) -> Unit) = t.setOnShown(onShown)
+    val onShownProperty: ObjectProperty<EventHandler<DialogEvent>> get() = instance.onShownProperty()
+    fun onShown(onShown: (DialogEvent) -> Unit) = instance.setOnShown(onShown)
 
-    val onHidingProperty: ObjectProperty<EventHandler<DialogEvent>> get() = t.onHidingProperty()
-    fun onHiding(onHiding: (DialogEvent) -> Unit) = t.setOnHiding(onHiding)
+    val onHidingProperty: ObjectProperty<EventHandler<DialogEvent>> get() = instance.onHidingProperty()
+    fun onHiding(onHiding: (DialogEvent) -> Unit) = instance.setOnHiding(onHiding)
 
-    val onHiddenProperty: ObjectProperty<EventHandler<DialogEvent>> get() = t.onHiddenProperty()
-    fun onHidden(onHidden: (DialogEvent) -> Unit) = t.setOnHidden(onHidden)
+    val onHiddenProperty: ObjectProperty<EventHandler<DialogEvent>> get() = instance.onHiddenProperty()
+    fun onHidden(onHidden: (DialogEvent) -> Unit) = instance.setOnHidden(onHidden)
 
-    val onCloseRequestProperty: ObjectProperty<EventHandler<DialogEvent>> get() = t.onCloseRequestProperty()
-    fun onCloseRequest(onCloseRequest: (DialogEvent) -> Unit) = t.setOnCloseRequest(onCloseRequest)
+    val onCloseRequestProperty: ObjectProperty<EventHandler<DialogEvent>> get() = instance.onCloseRequestProperty()
+    fun onCloseRequest(onCloseRequest: (DialogEvent) -> Unit) = instance.setOnCloseRequest(onCloseRequest)
 }
 
 @JvmOverloads

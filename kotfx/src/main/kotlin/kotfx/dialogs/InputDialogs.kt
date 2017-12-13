@@ -11,7 +11,7 @@ import javafx.stage.Window
 import kotfx.controls._TextInputControl
 import kotfx.internal.DialogDsl
 
-class _InputDialog(prefill: String?) : TextInputDialog(prefill), Dialoggable<TextInputDialog, String>, _TextInputControl<TextField> {
+class _InputDialog(prefill: String?) : TextInputDialog(prefill), Dialoggable<TextInputDialog>, _TextInputControl<TextField> {
     override val dialog: TextInputDialog get() = this
     override val control: TextField get() = editor
 }

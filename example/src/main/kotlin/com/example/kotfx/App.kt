@@ -7,6 +7,9 @@ import javafx.stage.Stage
 import kotfx.bindings.stringBindingOf
 import kotfx.controls.button
 import kotfx.controls.label
+import kotfx.dialogs.dialog
+import kotfx.dialogs.leftButton
+import kotfx.dialogs.rightButton
 import kotfx.layouts.gridPane
 import kotfx.layouts.vbox
 import kotfx.properties.bind
@@ -116,7 +119,7 @@ class App : Application() {
 
             button("C") {
                 forceSize(80, 40)
-                isCancelButton = true
+                cancel(true)
                 setOnAction {
                     calculationLabel.text = ""
                 }
@@ -150,7 +153,7 @@ class App : Application() {
             } row 3 col 4
             button("=") {
                 forceSize(40)
-                isDefaultButton = true
+                default(true)
                 setOnAction {
 
                 }

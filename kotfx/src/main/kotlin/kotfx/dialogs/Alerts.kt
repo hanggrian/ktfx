@@ -9,7 +9,7 @@ import javafx.scene.control.Alert.AlertType.*
 import javafx.scene.control.ButtonType
 import kotfx.internal.DialogDsl
 
-class _Alert(type: Alert.AlertType, contentText: String, vararg buttonTypes: ButtonType) : Alert(type, contentText, *buttonTypes), Dialoggable<Alert, ButtonType> {
+class _Alert(type: Alert.AlertType, contentText: String, vararg buttonTypes: ButtonType) : Alert(type, contentText, *buttonTypes), Dialoggable<Alert> {
     override val dialog: Alert get() = this
 }
 

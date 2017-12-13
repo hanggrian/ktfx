@@ -1,3 +1,7 @@
+@file:JvmMultifileClass
+@file:JvmName("LayoutsKt")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package kotfx.layouts
 
 import javafx.geometry.HPos

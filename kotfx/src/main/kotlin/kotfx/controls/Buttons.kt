@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("ControlsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx.controls
@@ -9,6 +11,8 @@ import kotfx.internal.ControlDsl
 
 class _Button(text: String?, graphic: Node?) : Button(text, graphic), _Labeled<Button> {
     override val control: Button get() = this
+    fun default(default: Boolean) = control.setDefaultButton(default)
+    fun cancel(cancel: Boolean) = control.setCancelButton(cancel)
 }
 
 @JvmOverloads

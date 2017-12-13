@@ -8,7 +8,7 @@ import javafx.scene.control.ChoiceDialog
 import javafx.stage.Window
 import kotfx.internal.DialogDsl
 
-class _ChoiceDialog<T>(items: Collection<T>?, defaultItem: T?) : ChoiceDialog<T>(defaultItem, items), Dialoggable<ChoiceDialog<T>, T> {
+class _ChoiceDialog<T>(items: Collection<T>?, defaultItem: T?) : ChoiceDialog<T>(defaultItem, items), Dialoggable<ChoiceDialog<T>> {
     override val dialog: ChoiceDialog<T> get() = this
     fun select(item: T) = setSelectedItem(item)
 }

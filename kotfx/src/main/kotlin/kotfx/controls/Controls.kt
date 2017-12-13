@@ -1,3 +1,7 @@
+@file:JvmMultifileClass
+@file:JvmName("ControlsKt")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package kotfx.controls
 
 import javafx.geometry.Insets
@@ -11,11 +15,11 @@ import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 import javafx.scene.text.TextAlignment
 
-interface Controlled<out T> {
-    val control: T
+interface Controlled<out C> {
+    val control: C
 }
 
-interface _Region<out T : Region> : Controlled<T> {
+interface _Region<out C : Region> : Controlled<C> {
     fun minWidth(width: Number) = control.setMinWidth(width.toDouble())
     fun minHeight(height: Number) = control.setMinHeight(height.toDouble())
     fun minSize(width: Number, height: Number) = control.setMinSize(width.toDouble(), height.toDouble())
@@ -58,13 +62,19 @@ interface _Region<out T : Region> : Controlled<T> {
     fun paddingLeft(padding: Number) = control.padding.let { padding(Insets(it.top, it.right, it.bottom, padding.toDouble())) }
 }
 
-internal interface _Control<out T : Control> : _Region<T> {
+internal interface _Control<out C : Control> : _Region<C> {
     fun skin(skin: Skin<*>) = control.setSkin(skin)
     fun tooltip(tooltip: Tooltip) = control.setTooltip(tooltip)
     fun contextMenu(menu: ContextMenu) = control.setContextMenu(menu)
 }
 
-internal interface _Labeled<out T : Labeled> : _Control<T>, Fontable {
+internal interface _ComboBoxBase<out C : ComboBoxBase<T>, T> : _Control<C> {
+    fun value(value: T) = control.setValue(value)
+    fun editable(editable: Boolean) = control.setEditable(editable)
+    fun prompt(prompt: String) = control.setPromptText(prompt)
+}
+
+internal interface _Labeled<out C : Labeled> : _Control<C>, Fontable {
     override fun font(font: Font) = control.setFont(font)
     fun text(text: String) = control.setText(text)
     fun align(pos: Pos) = control.setAlignment(pos)
@@ -81,7 +91,7 @@ internal interface _Labeled<out T : Labeled> : _Control<T>, Fontable {
     fun mnemonic(mnemonic: Boolean) = control.setMnemonicParsing(mnemonic)
 }
 
-internal interface _TextInputControl<out T : TextInputControl> : _Control<T>, Fontable {
+internal interface _TextInputControl<out C : TextInputControl> : _Control<C>, Fontable {
     override fun font(font: Font) = control.setFont(font)
     fun prompt(prompt: String) = control.setPromptText(prompt)
     fun textFormatter(formatter: TextFormatter<*>) = control.setTextFormatter(formatter)

@@ -14,9 +14,8 @@ import javafx.scene.layout.VBox
 import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
 
-class _VBox : VBox(), _VGrowable, _Marginable {
-
-    override val instance: Pane get() = this
+class _VBox : VBox(), VGrowable, Marginable {
+    override val control: Pane get() = this
 
     override infix fun <T : Node> T.vgrow(priority: Priority): T = apply { setVgrow(this, priority) }
     override val Node.vgrow2: Priority get() = getVgrow(this) ?: NEVER

@@ -6,10 +6,8 @@ import javafx.scene.control.TextField
 import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
 
-class _TextField(text: String?) : TextField(text), _Region<TextField> {
-
-    override val instance: TextField get() = this
-
+class _TextField(text: String?) : TextField(text), _TextInputControl<TextField> {
+    override val control: TextField get() = this
 }
 
 @JvmOverloads

@@ -11,8 +11,7 @@ import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _AnchorPane : AnchorPane(), ChildManager {
-
-    override val instance: Pane get() = this
+    override val control: Pane get() = this
 
     inline infix fun <T : Node> T.anchorTop(value: Number?): T = apply { setTopAnchor(this, value?.toDouble()) }
     inline infix fun <T : Node> T.anchorLeft(value: Number?): T = apply { setLeftAnchor(this, value?.toDouble()) }

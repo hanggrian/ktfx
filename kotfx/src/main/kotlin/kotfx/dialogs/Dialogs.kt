@@ -9,9 +9,8 @@ import javafx.scene.image.Image
 import javafx.stage.Window
 import kotfx.internal.DialogDsl
 
-class _Dialog<R> : Dialog<R>(), _Dialogable<Dialog<R>, R> {
-
-    override val instance: Dialog<R> get() = this
+class _Dialog<R> : Dialog<R>(), Dialoggable<Dialog<R>, R> {
+    override val dialog: Dialog<R> get() = this
 }
 
 @JvmOverloads
@@ -20,8 +19,8 @@ inline fun <R> dialog(
         icon: Image? = null,
         noinline init: ((@DialogDsl _Dialog<R>).() -> Unit)? = null
 ): Dialog<R> = _Dialog<R>().apply {
-    this.title = title
-    if (icon != null) this.icon = icon
+    title(title)
+    if (icon != null) icon(icon)
     if (init != null) init()
 }
 
@@ -32,7 +31,7 @@ inline fun <R> Window.dialog(
         noinline init: ((@DialogDsl _Dialog<R>).() -> Unit)? = null
 ): Dialog<R> = _Dialog<R>().apply {
     initOwner(this@dialog)
-    this.title = title
-    if (icon != null) this.icon = icon
+    title(title)
+    if (icon != null) icon(icon)
     if (init != null) init()
 }

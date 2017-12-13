@@ -2,3 +2,8 @@
 
 package kotfx.controls
 
+import javafx.scene.control.ButtonBar
+
+class _ButtonBar : ButtonBar(), _Control<ButtonBar> {
+    override val control: ButtonBar get() = this
+}

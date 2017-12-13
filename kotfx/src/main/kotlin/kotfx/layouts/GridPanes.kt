@@ -19,9 +19,8 @@ import javafx.scene.layout.Priority.NEVER
 import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
 
-class _GridPane : GridPane(), _Marginable, _Alignable, _HGrowable, _VGrowable {
-
-    override val instance: Pane get() = this
+class _GridPane : GridPane(), Marginable, Alignable, HGrowable, VGrowable {
+    override val control: Pane get() = this
 
     inline infix fun <T : Node> T.row(index: Int): T = apply { setRowIndex(this, index) }
     inline val Node.row: Int get() = getRowIndex(this) ?: -1

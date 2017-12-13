@@ -14,9 +14,8 @@ import javafx.scene.layout.Priority.NEVER
 import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
 
-class _HBox : HBox(), _HGrowable, _Marginable {
-
-    override val instance: Pane get() = this
+class _HBox : HBox(), HGrowable, Marginable {
+    override val control: Pane get() = this
 
     override infix fun <T : Node> T.hgrow(priority: Priority): T = apply { setHgrow(this, priority) }
     override val Node.hgrow2: Priority get() = getHgrow(this) ?: NEVER

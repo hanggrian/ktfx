@@ -8,9 +8,7 @@ import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _Label(text: String?, graphic: Node?) : Label(text, graphic), _Labeled<Label> {
-
-    override val instance: Label get() = this
-
+    override val control: Label get() = this
 }
 
 @JvmOverloads

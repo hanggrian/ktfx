@@ -9,71 +9,72 @@ import javafx.concurrent.Worker
 import javafx.concurrent.WorkerStateEvent
 import javafx.event.EventHandler
 import kotfx.internal.ServiceDsl
-import kotfx.internal.Instanced
 
-interface _Service<V> : Instanced<Service<V>> {
+interface _Service<V> {
+
+    val service: Service<V>
 
     fun call(action: Task<V>.() -> V)
 
-    val stateProperty: ReadOnlyObjectProperty<Worker.State> get() = instance.stateProperty()
-    val state: Worker.State get() = instance.state
+    val stateProperty: ReadOnlyObjectProperty<Worker.State> get() = service.stateProperty()
+    val state: Worker.State get() = service.state
 
-    val valueProperty: ReadOnlyObjectProperty<V> get() = instance.valueProperty()
-    val value: V get() = instance.value
+    val valueProperty: ReadOnlyObjectProperty<V> get() = service.valueProperty()
+    val value: V get() = service.value
 
-    val exceptionProperty: ReadOnlyObjectProperty<Throwable> get() = instance.exceptionProperty()
-    val exception: Throwable get() = instance.exception
+    val exceptionProperty: ReadOnlyObjectProperty<Throwable> get() = service.exceptionProperty()
+    val exception: Throwable get() = service.exception
 
-    val totalProperty: ReadOnlyDoubleProperty get() = instance.totalWorkProperty()
-    val total: Double get() = instance.totalWork
+    val totalProperty: ReadOnlyDoubleProperty get() = service.totalWorkProperty()
+    val total: Double get() = service.totalWork
 
-    val progressProperty: ReadOnlyDoubleProperty get() = instance.progressProperty()
-    val progress: Double get() = instance.progress
+    val progressProperty: ReadOnlyDoubleProperty get() = service.progressProperty()
+    val progress: Double get() = service.progress
 
-    val runningProperty: ReadOnlyBooleanProperty get() = instance.runningProperty()
-    val isRunning: Boolean get() = instance.isRunning
+    val runningProperty: ReadOnlyBooleanProperty get() = service.runningProperty()
+    val isRunning: Boolean get() = service.isRunning
 
-    val messageProperty: ReadOnlyStringProperty get() = instance.messageProperty()
-    val message: String get() = instance.message
+    val messageProperty: ReadOnlyStringProperty get() = service.messageProperty()
+    val message: String get() = service.message
 
-    val titleProperty: ReadOnlyStringProperty get() = instance.titleProperty()
-    val title: String get() = instance.title
+    val titleProperty: ReadOnlyStringProperty get() = service.titleProperty()
+    val title: String get() = service.title
 
-    val onReadyProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = instance.onReadyProperty()
-    val onReady: EventHandler<WorkerStateEvent> get() = instance.onReady
-    fun onReady(action: (WorkerStateEvent) -> Unit) = instance.setOnReady(action)
+    val onReadyProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onReadyProperty()
+    val onReady: EventHandler<WorkerStateEvent> get() = service.onReady
+    fun onReady(action: (WorkerStateEvent) -> Unit) = service.setOnReady(action)
 
-    val onScheduledProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = instance.onScheduledProperty()
-    val onScheduled: EventHandler<WorkerStateEvent> get() = instance.onScheduled
-    fun onScheduled(action: (WorkerStateEvent) -> Unit) = instance.setOnScheduled(action)
+    val onScheduledProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onScheduledProperty()
+    val onScheduled: EventHandler<WorkerStateEvent> get() = service.onScheduled
+    fun onScheduled(action: (WorkerStateEvent) -> Unit) = service.setOnScheduled(action)
 
-    val onRunningProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = instance.onRunningProperty()
-    val onRunning: EventHandler<WorkerStateEvent> get() = instance.onRunning
-    fun onRunning(action: (WorkerStateEvent) -> Unit) = instance.setOnRunning(action)
+    val onRunningProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onRunningProperty()
+    val onRunning: EventHandler<WorkerStateEvent> get() = service.onRunning
+    fun onRunning(action: (WorkerStateEvent) -> Unit) = service.setOnRunning(action)
 
-    val onSucceededProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = instance.onSucceededProperty()
-    val onSucceeded: EventHandler<WorkerStateEvent> get() = instance.onSucceeded
-    fun onSucceeded(action: (WorkerStateEvent) -> Unit) = instance.setOnSucceeded(action)
+    val onSucceededProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onSucceededProperty()
+    val onSucceeded: EventHandler<WorkerStateEvent> get() = service.onSucceeded
+    fun onSucceeded(action: (WorkerStateEvent) -> Unit) = service.setOnSucceeded(action)
 
-    val onCancelledProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = instance.onCancelledProperty()
-    val onCancelled: EventHandler<WorkerStateEvent> get() = instance.onCancelled
-    fun onCancelled(action: (WorkerStateEvent) -> Unit) = instance.setOnCancelled(action)
+    val onCancelledProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onCancelledProperty()
+    val onCancelled: EventHandler<WorkerStateEvent> get() = service.onCancelled
+    fun onCancelled(action: (WorkerStateEvent) -> Unit) = service.setOnCancelled(action)
 
-    val onFailedProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = instance.onFailedProperty()
-    val onFailed: EventHandler<WorkerStateEvent> get() = instance.onFailed
-    fun onFailed(action: (WorkerStateEvent) -> Unit) = instance.setOnFailed(action)
+    val onFailedProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onFailedProperty()
+    val onFailed: EventHandler<WorkerStateEvent> get() = service.onFailed
+    fun onFailed(action: (WorkerStateEvent) -> Unit) = service.setOnFailed(action)
 }
 
 inline fun <V> service(init: (@ServiceDsl _Service<V>).() -> Unit): Service<V> = object : _Service<V> {
-    private var service: Service<V>? = null
+    private var mService: Service<V>? = null
 
-    override val instance: Service<V> get() = checkNotNull(service) { "Service unavailable before configuring call." }
+    override val service: Service<V> get() = checkNotNull(mService) { "Service unavailable before configuring call." }
 
     override fun call(action: Task<V>.() -> V) {
-        service = object : Service<V>() {
+        mService = object : Service<V>() {
             override fun createTask(): Task<V> = object : Task<V>() {
                 override fun call(): V = action()
             }
         }
     }
-}.apply { init() }.instance
+}.apply { init() }.service

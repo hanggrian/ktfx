@@ -4,17 +4,16 @@
 
 package kotfx.dialogs
 
+import javafx.scene.control.TextField
 import javafx.scene.control.TextInputDialog
 import javafx.scene.image.Image
 import javafx.stage.Window
+import kotfx.controls._TextInputControl
 import kotfx.internal.DialogDsl
 
-class _InputDialog(prefill: String?) : TextInputDialog(prefill), _Dialogable<TextInputDialog, String> {
-
-    override val instance: TextInputDialog get() = this
-
-    fun text(text: String) = instance.editor.setText(text)
-    fun prompt(prompt: String) = instance.editor.setPromptText(prompt)
+class _InputDialog(prefill: String?) : TextInputDialog(prefill), Dialoggable<TextInputDialog, String>, _TextInputControl<TextField> {
+    override val dialog: TextInputDialog get() = this
+    override val control: TextField get() = editor
 }
 
 @JvmOverloads
@@ -24,8 +23,8 @@ inline fun inputDialog(
         icon: Image? = null,
         noinline init: ((@DialogDsl _InputDialog).() -> Unit)? = null
 ): TextInputDialog = _InputDialog(prefill).apply {
-    this.title = title
-    if (icon != null) this.icon = icon
+    title(title)
+    if (icon != null) icon(icon)
     if (init != null) init()
 }
 
@@ -37,7 +36,7 @@ inline fun Window.inputDialog(
         noinline init: ((@DialogDsl _InputDialog).() -> Unit)? = null
 ): TextInputDialog = _InputDialog(prefill).apply {
     initOwner(this@inputDialog)
-    this.title = title
-    if (icon != null) this.icon = icon
+    title(title)
+    if (icon != null) icon(icon)
     if (init != null) init()
 }

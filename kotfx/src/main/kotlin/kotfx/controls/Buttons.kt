@@ -8,9 +8,7 @@ import kotfx.internal.ChildManager
 import kotfx.internal.ControlDsl
 
 class _Button(text: String?, graphic: Node?) : Button(text, graphic), _Labeled<Button> {
-
-    override val instance: Button get() = this
-
+    override val control: Button get() = this
 }
 
 @JvmOverloads

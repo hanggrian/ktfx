@@ -12,9 +12,8 @@ import javafx.scene.layout.Pane
 import kotfx.internal.ChildManager
 import kotfx.internal.LayoutDsl
 
-class _FlowPane : FlowPane(), _Marginable {
-
-    override val instance: Pane get() = this
+class _FlowPane : FlowPane(), Marginable {
+    override val control: Pane get() = this
 
     override infix fun <T : Node> T.margin(insets: Insets): T = apply { setMargin(this, insets) }
     override val Node.margin2: Insets get() = getMargin(this) ?: EMPTY

@@ -4,62 +4,58 @@
 
 package kotfx.dialogs
 
+import javafx.scene.control.Alert
 import javafx.scene.control.Alert.AlertType.*
 import javafx.scene.control.ButtonType
-import javafx.scene.control.Dialog
-import javafx.scene.image.Image
+import kotfx.internal.DialogDsl
+
+class _Alert(type: Alert.AlertType, contentText: String, vararg buttonTypes: ButtonType) : Alert(type, contentText, *buttonTypes), _Dialogable<Alert, ButtonType> {
+
+    override val instance: Alert get() = this
+
+}
 
 @JvmOverloads
 inline fun alert(
-        title: String,
-        icon: Image? = null,
-        noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertDialogBuilder(NONE).apply {
-    this.title = title
-    if (icon != null) this.icon = icon
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
+): Alert = _Alert(NONE, contentText, *buttonTypes).apply {
     if (init != null) init()
-}.instance
+}
 
 @JvmOverloads
 inline fun infoAlert(
-        title: String,
-        icon: Image? = null,
-        noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertDialogBuilder(INFORMATION).apply {
-    this.title = title
-    if (icon != null) this.icon = icon
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
+): Alert = _Alert(INFORMATION, contentText, *buttonTypes).apply {
     if (init != null) init()
-}.instance
+}
 
 @JvmOverloads
 inline fun warningAlert(
-        title: String,
-        icon: Image? = null,
-        noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertDialogBuilder(WARNING).apply {
-    this.title = title
-    if (icon != null) this.icon = icon
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
+): Alert = _Alert(WARNING, contentText, *buttonTypes).apply {
     if (init != null) init()
-}.instance
+}
 
 @JvmOverloads
 inline fun confirmAlert(
-        title: String,
-        icon: Image? = null,
-        noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertDialogBuilder(CONFIRMATION).apply {
-    this.title = title
-    if (icon != null) this.icon = icon
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
+): Alert = _Alert(CONFIRMATION, contentText, *buttonTypes).apply {
     if (init != null) init()
-}.instance
+}
 
 @JvmOverloads
 inline fun errorAlert(
-        title: String,
-        icon: Image? = null,
-        noinline init: (AlertBuilder.() -> Unit)? = null
-): Dialog<ButtonType> = FXAlertDialogBuilder(ERROR).apply {
-    this.title = title
-    if (icon != null) this.icon = icon
+        contentText: String,
+        vararg buttonTypes: ButtonType,
+        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
+): Alert = _Alert(ERROR, contentText, *buttonTypes).apply {
     if (init != null) init()
-}.instance
+}

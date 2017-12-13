@@ -3,7 +3,7 @@ package kotfx.internal
 import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.layout.Pane
-import kotfx.layouts.controls._Region
+import kotfx.controls._Region
 
 /** Equivalent to Android's ViewManager. */
 interface ChildManager : _Region<Pane> {

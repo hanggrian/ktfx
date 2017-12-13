@@ -4,33 +4,35 @@
 
 package kotfx.dialogs
 
-import javafx.scene.control.Dialog
-import javafx.scene.image.Image
+import javafx.scene.control.ChoiceDialog
 import javafx.stage.Window
+import kotfx.internal.DialogDsl
+
+class _ChoiceDialog<T>(items: Collection<T>?, defaultItem: T?) : ChoiceDialog<T>(defaultItem, items), _Dialogable<ChoiceDialog<T>, T> {
+
+    override val instance: ChoiceDialog<T> get() = this
+
+}
 
 @JvmOverloads
 inline fun <T> choiceDialog(
         title: String,
         items: Collection<T>? = null,
         prefill: T? = null,
-        icon: Image? = null,
-        noinline init: (ChoiceDialogBuilder<T>.() -> Unit)? = null
-): Dialog<T> = FXChoiceDialogBuilder(items, prefill).apply {
+        noinline init: ((@DialogDsl _ChoiceDialog<T>).() -> Unit)? = null
+): ChoiceDialog<T> = _ChoiceDialog(items, prefill).apply {
     this.title = title
-    if (icon != null) this.icon = icon
     if (init != null) init()
-}.instance
+}
 
 @JvmOverloads
 inline fun <T> Window.choiceDialog(
         title: String,
         items: Collection<T>? = null,
         prefill: T? = null,
-        icon: Image? = null,
-        noinline init: (ChoiceDialogBuilder<T>.() -> Unit)? = null
-): Dialog<T> = FXChoiceDialogBuilder(items, prefill).apply {
-    this.owner = this@choiceDialog
+        noinline init: ((@DialogDsl _ChoiceDialog<T>).() -> Unit)? = null
+): ChoiceDialog<T> = _ChoiceDialog(items, prefill).apply {
+    initOwner(this@choiceDialog)
     this.title = title
-    if (icon != null) this.icon = icon
     if (init != null) init()
-}.instance
+}

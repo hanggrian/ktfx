@@ -11,7 +11,7 @@ import kotfx.internal.ControlDsl
 
 class _Accordion(vararg panes: TitledPane) : Accordion(*panes), _Control<Accordion> {
     override val control: Accordion get() = this
-    fun expand(pane: TitledPane) = control.setExpandedPane(pane)
+    fun expand(pane: TitledPane) = setExpandedPane(pane)
 }
 
 @JvmOverloads

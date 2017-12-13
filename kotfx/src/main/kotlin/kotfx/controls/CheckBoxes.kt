@@ -10,9 +10,9 @@ import kotfx.internal.ControlDsl
 
 class _CheckBox(text: String?) : CheckBox(text), _Labeled<CheckBox> {
     override val control: CheckBox get() = this
-    fun indeterminate(indeterminate: Boolean) = control.setIndeterminate(indeterminate)
-    fun selected(selected: Boolean) = control.setSelected(selected)
-    fun allowIndeterminate(indeterminate: Boolean) = control.setAllowIndeterminate(indeterminate)
+    fun indeterminate(indeterminate: Boolean) = setIndeterminate(indeterminate)
+    fun selected(selected: Boolean) = setSelected(selected)
+    fun allowIndeterminate(indeterminate: Boolean) = setAllowIndeterminate(indeterminate)
 }
 
 @JvmOverloads

@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
-@file:JvmName("ControlsKt")
+@file:JvmName("MenusKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls
+package kotfx.controls.menu
 

@@ -11,8 +11,8 @@ import kotfx.internal.ControlDsl
 
 class _Button(text: String?, graphic: Node?) : Button(text, graphic), _Labeled<Button> {
     override val control: Button get() = this
-    fun default(default: Boolean) = control.setDefaultButton(default)
-    fun cancel(cancel: Boolean) = control.setCancelButton(cancel)
+    fun default(default: Boolean) = setDefaultButton(default)
+    fun cancel(cancel: Boolean) = setCancelButton(cancel)
 }
 
 @JvmOverloads

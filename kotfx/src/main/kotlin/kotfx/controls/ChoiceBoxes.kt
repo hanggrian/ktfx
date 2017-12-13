@@ -12,9 +12,10 @@ import kotfx.internal.ControlDsl
 
 class _ChoiceBox<T>(items: ObservableList<T>) : ChoiceBox<T>(items), _Control<ChoiceBox<T>> {
     override val control: ChoiceBox<T> get() = this
-    fun selectionModel(model: SingleSelectionModel<T>) = control.setSelectionModel(model)
-    fun items(items: ObservableList<T>) = control.setItems(items)
-    fun value(value: T) = control.setValue(value)
+
+    fun selectionModel(model: SingleSelectionModel<T>) = setSelectionModel(model)
+    fun items(items: ObservableList<T>) = setItems(items)
+    fun value(value: T) = setValue(value)
 }
 
 @JvmOverloads

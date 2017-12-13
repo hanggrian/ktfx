@@ -5,21 +5,21 @@
 package kotfx.controls
 
 import javafx.scene.control.TextField
-import kotfx.internal.ChildManager
-import kotfx.internal.LayoutDsl
+import kotfx.ChildManager
+import kotfx.internal.ControlDsl
 
 class _TextField(text: String?) : TextField(text), _TextInputControl<TextField> {
-    override val control: TextField get() = this
+    override val node: TextField get() = this
 }
 
 @JvmOverloads
-inline fun textField(
+inline fun textFieldOf(
         text: String? = null,
-        noinline init: ((@LayoutDsl _TextField).() -> Unit)? = null
+        noinline init: ((@ControlDsl _TextField).() -> Unit)? = null
 ): TextField = _TextField(text).apply { if (init != null) init() }
 
 @JvmOverloads
 inline fun ChildManager.textField(
         text: String? = null,
-        noinline init: ((@LayoutDsl _TextField).() -> Unit)? = null
+        noinline init: ((@ControlDsl _TextField).() -> Unit)? = null
 ): TextField = _TextField(text).apply { if (init != null) init() }.add()

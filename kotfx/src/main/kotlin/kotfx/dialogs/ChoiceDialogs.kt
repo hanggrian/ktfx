@@ -5,12 +5,23 @@
 package kotfx.dialogs
 
 import javafx.scene.control.ChoiceDialog
-import javafx.stage.Window
 import kotfx.internal.DialogDsl
 
 class _ChoiceDialog<T>(items: Collection<T>?, defaultItem: T?) : ChoiceDialog<T>(defaultItem, items), Dialoggable<ChoiceDialog<T>> {
     override val dialog: ChoiceDialog<T> get() = this
-    fun select(item: T) = setSelectedItem(item)
+
+    fun select(value: T) = setSelectedItem(value)
+}
+
+@JvmOverloads
+inline fun <T> choiceDialogOf(
+        title: String,
+        items: Collection<T>? = null,
+        prefill: T? = null,
+        noinline init: ((@DialogDsl _ChoiceDialog<T>).() -> Unit)? = null
+): ChoiceDialog<T> = _ChoiceDialog(items, prefill).apply {
+    title(title)
+    if (init != null) init()
 }
 
 @JvmOverloads
@@ -19,19 +30,12 @@ inline fun <T> choiceDialog(
         items: Collection<T>? = null,
         prefill: T? = null,
         noinline init: ((@DialogDsl _ChoiceDialog<T>).() -> Unit)? = null
-): ChoiceDialog<T> = _ChoiceDialog(items, prefill).apply {
-    title(title)
-    if (init != null) init()
-}
+): ChoiceDialog<T> = choiceDialogOf(title, items, prefill, init).apply { show() }
 
 @JvmOverloads
-inline fun <T> Window.choiceDialog(
+inline fun <T> choiceDialogWait(
         title: String,
         items: Collection<T>? = null,
         prefill: T? = null,
         noinline init: ((@DialogDsl _ChoiceDialog<T>).() -> Unit)? = null
-): ChoiceDialog<T> = _ChoiceDialog(items, prefill).apply {
-    initOwner(this@choiceDialog)
-    title(title)
-    if (init != null) init()
-}
+): ChoiceDialog<T> = choiceDialogOf(title, items, prefill, init).apply { showAndWait() }

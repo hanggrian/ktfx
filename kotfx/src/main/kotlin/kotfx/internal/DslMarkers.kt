@@ -4,6 +4,10 @@ import kotlin.annotation.AnnotationTarget.TYPE
 
 @DslMarker
 @Target(TYPE)
+annotation class AnimationDsl
+
+@DslMarker
+@Target(TYPE)
 annotation class ControlDsl
 
 @DslMarker

@@ -5,11 +5,11 @@
 package kotfx.controls
 
 import javafx.scene.web.WebView
-import kotfx.internal.ChildManager
+import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 @JvmOverloads
-inline fun webView(
+inline fun webViewOf(
         noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
 ): WebView = WebView().apply { if (init != null) init() }
 

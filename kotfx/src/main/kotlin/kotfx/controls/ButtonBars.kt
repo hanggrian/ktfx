@@ -6,27 +6,27 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.ButtonBar
-import kotfx.internal.ChildManager
+import kotfx.ChildManager
 import kotfx.internal.ControlDsl
 
 class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), _Control<ButtonBar> {
-    override val control: ButtonBar get() = this
+    override val node: ButtonBar get() = this
 
-    infix fun Node.buttonData(data: ButtonData) = setButtonData(this, data)
-    infix fun Node.uniformSize(uniformSize: Boolean) = setButtonUniformSize(this, uniformSize)
+    infix fun Node.buttonData(value: ButtonData) = setButtonData(this, value)
+    infix fun Node.uniformSize(value: Boolean) = setButtonUniformSize(this, value)
 
-    fun buttonOrder(order: String) = setButtonOrder(order)
-    fun buttonMinSize(width: Number) = setButtonMinWidth(width.toDouble())
+    fun buttonOrder(value: String) = setButtonOrder(value)
+    fun buttonMinSize(value: Number) = setButtonMinWidth(value.toDouble())
 }
 
 @JvmOverloads
-inline fun accordion(
-        buttonOrder: String?,
+inline fun buttonBarOf(
+        buttonOrder: String? = null,
         noinline init: ((@ControlDsl _ButtonBar).() -> Unit)? = null
 ): ButtonBar = _ButtonBar(buttonOrder).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.accordion(
-        buttonOrder: String?,
+inline fun ChildManager.buttonBar(
+        buttonOrder: String? = null,
         noinline init: ((@ControlDsl _ButtonBar).() -> Unit)? = null
-): ButtonBar = _ButtonBar(buttonOrder).apply { if (init != null) init() }.add()
+): ButtonBar = buttonBarOf(buttonOrder, init).add()

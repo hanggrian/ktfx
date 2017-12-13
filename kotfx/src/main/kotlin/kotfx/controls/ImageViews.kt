@@ -4,13 +4,34 @@
 
 package kotfx.controls
 
-import javafx.scene.Node
-import javafx.scene.control.Hyperlink
+import javafx.geometry.Rectangle2D
+import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import kotfx.ChildManager
+import kotfx._Node
+import kotfx.internal.ControlDsl
 
-/*
-class _ImageView(text: String?, graphic: Node?) : ImageView(text, graphic), _Labeled<Hyperlink> {
-    override val control: Hyperlink get() = this
+class _ImageView(image: Image?) : ImageView(image), _Node<ImageView> {
+    override val node: ImageView get() = this
 
-    fun visited(visited: Boolean) = setVisited(visited)
-}*/
+    fun image(value: Image) = setImage(value)
+    fun x(value: Number) = setX(value.toDouble())
+    fun y(value: Number) = setY(value.toDouble())
+    fun fitWidth(value: Number) = setFitWidth(value.toDouble())
+    fun fitHeight(value: Number) = setFitWidth(value.toDouble())
+    fun preserveRatio(value: Boolean) = setPreserveRatio(value)
+    fun smooth(value: Boolean) = setSmooth(value)
+    fun viewport(value: Rectangle2D) = setViewport(value)
+}
+
+@JvmOverloads
+inline fun imageViewOf(
+        image: Image? = null,
+        noinline init: ((@ControlDsl _ImageView).() -> Unit)? = null
+): ImageView = _ImageView(image).apply { if (init != null) init() }
+
+@JvmOverloads
+inline fun ChildManager.imageView(
+        image: Image? = null,
+        noinline init: ((@ControlDsl _ImageView).() -> Unit)? = null
+): ImageView = imageViewOf(image, init).add()

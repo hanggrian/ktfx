@@ -3,8 +3,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-        classpath("com.novoda:bintray-release:0.7.0")
+        classpath(kotlin("gradle-plugin", kotlinVersion))
+        classpath(bintrayRelease(bintrayReleaseVersion))
     }
 }
 

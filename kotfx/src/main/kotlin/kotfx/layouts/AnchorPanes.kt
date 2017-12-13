@@ -7,16 +7,16 @@ package kotfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.Pane
-import kotfx.internal.ChildManager
+import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _AnchorPane : AnchorPane(), ChildManager {
-    override val control: Pane get() = this
+    override val node: Pane get() = this
 
-    inline infix fun <T : Node> T.anchorTop(value: Number?): T = apply { setTopAnchor(this, value?.toDouble()) }
-    inline infix fun <T : Node> T.anchorLeft(value: Number?): T = apply { setLeftAnchor(this, value?.toDouble()) }
-    inline infix fun <T : Node> T.anchorBottom(value: Number?): T = apply { setBottomAnchor(this, value?.toDouble()) }
-    inline infix fun <T : Node> T.anchorRight(value: Number?): T = apply { setRightAnchor(this, value?.toDouble()) }
+    inline infix fun <N : Node> N.anchorTop(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
+    inline infix fun <N : Node> N.anchorLeft(value: Number?): N = apply { setLeftAnchor(this, value?.toDouble()) }
+    inline infix fun <N : Node> N.anchorBottom(value: Number?): N = apply { setBottomAnchor(this, value?.toDouble()) }
+    inline infix fun <N : Node> N.anchorRight(value: Number?): N = apply { setRightAnchor(this, value?.toDouble()) }
 
     inline val Node.anchorTop: Double get() = getTopAnchor(this) ?: 0.0
     inline val Node.anchorLeft: Double get() = getLeftAnchor(this) ?: 0.0
@@ -26,5 +26,5 @@ class _AnchorPane : AnchorPane(), ChildManager {
     override fun <T : Node> T.clearConstraints(): T = apply { clearConstraints(this) }
 }
 
-inline fun anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
-inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()
+inline fun anchorPaneOf(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
+inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = anchorPaneOf(init).add()

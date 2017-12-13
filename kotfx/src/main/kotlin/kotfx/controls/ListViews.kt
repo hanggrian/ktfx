@@ -10,29 +10,30 @@ import javafx.scene.Node
 import javafx.scene.control.FocusModel
 import javafx.scene.control.ListView
 import javafx.scene.control.MultipleSelectionModel
-import kotfx.internal.ChildManager
+import kotfx.ChildManager
+import kotfx.collections.mutableObservableListOf
 import kotfx.internal.ControlDsl
 
 class _ListView<T>(items: ObservableList<T>) : ListView<T>(items), _Control<ListView<T>> {
-    override val control: ListView<T> get() = this
+    override val node: ListView<T> get() = this
 
-    fun selectionModel(model: MultipleSelectionModel<T>) = setSelectionModel(model)
-    fun items(items: ObservableList<T>) = setItems(items)
-    fun placeholder(placeholder: Node) = setPlaceholder(placeholder)
-    fun focusModel(model: FocusModel<T>) = setFocusModel(model)
-    fun orientation(orientation: Orientation) = setOrientation(orientation)
-    fun cellFixedSize(size: Number) = setFixedCellSize(size.toDouble())
-    fun editable(editable: Boolean) = setEditable(editable)
+    fun selectionModel(value: MultipleSelectionModel<T>) = setSelectionModel(value)
+    fun items(value: ObservableList<T>) = setItems(value)
+    fun placeholder(value: Node) = setPlaceholder(value)
+    fun focusModel(value: FocusModel<T>) = setFocusModel(value)
+    fun orientation(value: Orientation) = setOrientation(value)
+    fun cellFixedSize(value: Number) = setFixedCellSize(value.toDouble())
+    fun editable(value: Boolean) = setEditable(value)
 }
 
 @JvmOverloads
-inline fun <T> listView(
-        items: ObservableList<T>,
+inline fun <T> listViewOf(
+        items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@ControlDsl _ListView<T>).() -> Unit)? = null
 ): ListView<T> = _ListView(items).apply { if (init != null) init() }
 
 @JvmOverloads
 inline fun <T> ChildManager.listView(
-        items: ObservableList<T>,
+        items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@ControlDsl _ListView<T>).() -> Unit)? = null
-): ListView<T> = _ListView(items).apply { if (init != null) init() }.add()
+): ListView<T> = listViewOf(items, init).add()

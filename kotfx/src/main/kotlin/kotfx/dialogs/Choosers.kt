@@ -4,10 +4,11 @@ package kotfx.dialogs
 
 import javafx.stage.DirectoryChooser
 import javafx.stage.FileChooser
+import javafx.stage.Window
 
 /** Creates a file chooser dialog with title, extension filters and optional initialization block. */
 @JvmOverloads
-inline fun fileChooser(
+inline fun fileChooserOf(
         title: String,
         vararg filters: FileChooser.ExtensionFilter,
         noinline init: (FileChooser.() -> Unit)? = null
@@ -17,19 +18,30 @@ inline fun fileChooser(
     init?.invoke(this)
 }
 
-/** Creates a file chooser dialog with extension filters and optional initialization block. */
 @JvmOverloads
-inline fun fileChooser(
+inline fun Window.fileChooser(
+        title: String,
         vararg filters: FileChooser.ExtensionFilter,
         noinline init: (FileChooser.() -> Unit)? = null
-): FileChooser = FileChooser().apply {
-    extensionFilters.addAll(*filters)
-    init?.invoke(this)
-}
+): FileChooser = fileChooserOf(title, *filters, init = init).apply { showOpenDialog(this@fileChooser) }
+
+@JvmOverloads
+inline fun Window.multipleFileChooser(
+        title: String,
+        vararg filters: FileChooser.ExtensionFilter,
+        noinline init: (FileChooser.() -> Unit)? = null
+): FileChooser = fileChooserOf(title, *filters, init = init).apply { showOpenMultipleDialog(this@multipleFileChooser) }
+
+@JvmOverloads
+inline fun Window.saveFileChooser(
+        title: String,
+        vararg filters: FileChooser.ExtensionFilter,
+        noinline init: (FileChooser.() -> Unit)? = null
+): FileChooser = fileChooserOf(title, *filters, init = init).apply { showSaveDialog(this@saveFileChooser) }
 
 /** Creates a directory chooser dialog with title and optional initialization block. */
 @JvmOverloads
-inline fun directoryChooser(
+inline fun directoryChooserOf(
         title: String,
         noinline init: (DirectoryChooser.() -> Unit)? = null
 ): DirectoryChooser = DirectoryChooser().apply {
@@ -37,10 +49,8 @@ inline fun directoryChooser(
     init?.invoke(this)
 }
 
-/** Creates a directory chooser dialog with optional initialization block. */
 @JvmOverloads
-inline fun directoryChooser(
+inline fun Window.directoryChooser(
+        title: String,
         noinline init: (DirectoryChooser.() -> Unit)? = null
-): DirectoryChooser = DirectoryChooser().apply {
-    init?.invoke(this)
-}
+): DirectoryChooser = directoryChooserOf(title, init).apply { showDialog(this@directoryChooser) }

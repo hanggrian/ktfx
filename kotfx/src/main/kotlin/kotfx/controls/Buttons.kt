@@ -6,17 +6,18 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Button
-import kotfx.internal.ChildManager
+import kotfx.ChildManager
 import kotfx.internal.ControlDsl
 
 class _Button(text: String?, graphic: Node?) : Button(text, graphic), _Labeled<Button> {
-    override val control: Button get() = this
-    fun default(default: Boolean) = setDefaultButton(default)
-    fun cancel(cancel: Boolean) = setCancelButton(cancel)
+    override val node: Button get() = this
+
+    fun default(value: Boolean) = setDefaultButton(value)
+    fun cancel(value: Boolean) = setCancelButton(value)
 }
 
 @JvmOverloads
-inline fun button(
+inline fun buttonOf(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@ControlDsl _Button).() -> Unit)? = null
@@ -27,4 +28,4 @@ inline fun ChildManager.button(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@ControlDsl _Button).() -> Unit)? = null
-): Button = _Button(text, graphic).apply { if (init != null) init() }.add()
+): Button = buttonOf(text, graphic, init).add()

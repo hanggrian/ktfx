@@ -4,3 +4,8 @@
 
 package kotfx.controls
 
+import javafx.scene.control.SplitMenuButton
+
+class _SplitMenuButton : SplitMenuButton() {
+
+}

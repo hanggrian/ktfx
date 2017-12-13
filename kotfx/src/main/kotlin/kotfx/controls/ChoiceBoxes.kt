@@ -7,25 +7,26 @@ package kotfx.controls
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
 import javafx.scene.control.SingleSelectionModel
-import kotfx.internal.ChildManager
+import kotfx.ChildManager
+import kotfx.collections.mutableObservableListOf
 import kotfx.internal.ControlDsl
 
 class _ChoiceBox<T>(items: ObservableList<T>) : ChoiceBox<T>(items), _Control<ChoiceBox<T>> {
-    override val control: ChoiceBox<T> get() = this
+    override val node: ChoiceBox<T> get() = this
 
-    fun selectionModel(model: SingleSelectionModel<T>) = setSelectionModel(model)
-    fun items(items: ObservableList<T>) = setItems(items)
+    fun selectionModel(value: SingleSelectionModel<T>) = setSelectionModel(value)
+    fun items(value: ObservableList<T>) = setItems(value)
     fun value(value: T) = setValue(value)
 }
 
 @JvmOverloads
-inline fun <T> choiceBox(
-        items: ObservableList<T>,
+inline fun <T> choiceBoxOf(
+        items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@ControlDsl _ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = _ChoiceBox(items).apply { if (init != null) init() }
 
 @JvmOverloads
 inline fun <T> ChildManager.choiceBox(
-        items: ObservableList<T>,
+        items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@ControlDsl _ChoiceBox<T>).() -> Unit)? = null
-): ChoiceBox<T> = _ChoiceBox(items).apply { if (init != null) init() }.add()
+): ChoiceBox<T> = choiceBoxOf(items, init).add()

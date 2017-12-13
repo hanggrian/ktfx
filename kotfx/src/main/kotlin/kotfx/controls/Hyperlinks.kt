@@ -6,17 +6,17 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
-import kotfx.internal.ChildManager
+import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _Hyperlink(text: String?, graphic: Node?) : Hyperlink(text, graphic), _Labeled<Hyperlink> {
-    override val control: Hyperlink get() = this
+    override val node: Hyperlink get() = this
 
-    fun visited(visited: Boolean) = setVisited(visited)
+    fun visited(value: Boolean) = setVisited(value)
 }
 
 @JvmOverloads
-inline fun hyperlink(
+inline fun hyperlinkOf(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@LayoutDsl _Hyperlink).() -> Unit)? = null
@@ -27,4 +27,4 @@ inline fun ChildManager.hyperlink(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@LayoutDsl _Hyperlink).() -> Unit)? = null
-): Hyperlink = _Hyperlink(text, graphic).apply { if (init != null) init() }.add()
+): Hyperlink = hyperlinkOf(text, graphic, init).add()

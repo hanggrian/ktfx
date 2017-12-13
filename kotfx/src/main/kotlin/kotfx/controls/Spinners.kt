@@ -4,3 +4,9 @@
 
 package kotfx.controls
 
+import javafx.scene.control.Spinner
+
+class _Spinner<T> : Spinner<T>(), _Control<Spinner<T>> {
+    override val node: Spinner<T> get() = this
+
+}

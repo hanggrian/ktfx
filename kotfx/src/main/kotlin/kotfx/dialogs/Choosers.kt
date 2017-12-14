@@ -5,52 +5,63 @@ package kotfx.dialogs
 import javafx.stage.DirectoryChooser
 import javafx.stage.FileChooser
 import javafx.stage.Window
+import kotfx.internal.DialogDsl
 
-/** Creates a file chooser dialog with title, extension filters and optional initialization block. */
 @JvmOverloads
-inline fun fileChooserOf(
-        title: String,
+inline fun Window.fileChooser(
         vararg filters: FileChooser.ExtensionFilter,
-        noinline init: (FileChooser.() -> Unit)? = null
+        noinline init: ((@DialogDsl FileChooser).() -> Unit)? = null
 ): FileChooser = FileChooser().apply {
-    this.title = title
     extensionFilters.addAll(*filters)
     init?.invoke(this)
+    showOpenDialog(this@fileChooser)
 }
 
 @JvmOverloads
 inline fun Window.fileChooser(
-        title: String,
-        vararg filters: FileChooser.ExtensionFilter,
-        noinline init: (FileChooser.() -> Unit)? = null
-): FileChooser = fileChooserOf(title, *filters, init = init).apply { showOpenDialog(this@fileChooser) }
+        description: String,
+        vararg extensions: String,
+        noinline init: ((@DialogDsl FileChooser).() -> Unit)? = null
+): FileChooser = fileChooser(FileChooser.ExtensionFilter(description, *extensions), init = init)
 
 @JvmOverloads
 inline fun Window.multipleFileChooser(
-        title: String,
         vararg filters: FileChooser.ExtensionFilter,
-        noinline init: (FileChooser.() -> Unit)? = null
-): FileChooser = fileChooserOf(title, *filters, init = init).apply { showOpenMultipleDialog(this@multipleFileChooser) }
-
-@JvmOverloads
-inline fun Window.saveFileChooser(
-        title: String,
-        vararg filters: FileChooser.ExtensionFilter,
-        noinline init: (FileChooser.() -> Unit)? = null
-): FileChooser = fileChooserOf(title, *filters, init = init).apply { showSaveDialog(this@saveFileChooser) }
-
-/** Creates a directory chooser dialog with title and optional initialization block. */
-@JvmOverloads
-inline fun directoryChooserOf(
-        title: String,
-        noinline init: (DirectoryChooser.() -> Unit)? = null
-): DirectoryChooser = DirectoryChooser().apply {
-    this.title = title
+        noinline init: ((@DialogDsl FileChooser).() -> Unit)? = null
+): FileChooser = FileChooser().apply {
+    extensionFilters.addAll(*filters)
     init?.invoke(this)
+    showOpenMultipleDialog(this@multipleFileChooser)
 }
 
 @JvmOverloads
+inline fun Window.multipleFileChooser(
+        description: String,
+        vararg extensions: String,
+        noinline init: ((@DialogDsl FileChooser).() -> Unit)? = null
+): FileChooser = multipleFileChooser(FileChooser.ExtensionFilter(description, *extensions), init = init)
+
+@JvmOverloads
+inline fun Window.saveFileChooser(
+        vararg filters: FileChooser.ExtensionFilter,
+        noinline init: ((@DialogDsl FileChooser).() -> Unit)? = null
+): FileChooser = FileChooser().apply {
+    extensionFilters.addAll(*filters)
+    init?.invoke(this)
+    showSaveDialog(this@saveFileChooser)
+}
+
+@JvmOverloads
+inline fun Window.saveFileChooser(
+        description: String,
+        vararg extensions: String,
+        noinline init: ((@DialogDsl FileChooser).() -> Unit)? = null
+): FileChooser = saveFileChooser(FileChooser.ExtensionFilter(description, *extensions), init = init)
+
+@JvmOverloads
 inline fun Window.directoryChooser(
-        title: String,
-        noinline init: (DirectoryChooser.() -> Unit)? = null
-): DirectoryChooser = directoryChooserOf(title, init).apply { showDialog(this@directoryChooser) }
+        noinline init: ((@DialogDsl DirectoryChooser).() -> Unit)? = null
+): DirectoryChooser = DirectoryChooser().apply {
+    init?.invoke(this)
+    showDialog(this@directoryChooser)
+}

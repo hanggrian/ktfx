@@ -13,15 +13,12 @@ import javafx.geometry.VPos
 import javafx.geometry.VPos.TOP
 import javafx.scene.Node
 import javafx.scene.layout.GridPane
-import javafx.scene.layout.Pane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
-class _GridPane : GridPane(), _MarginablePane, _AlignablePane, _HGrowablePane, _VGrowablePane {
-    override val node: Pane get() = this
-
+class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VGrowable {
     inline infix fun <N : Node> N.row(value: Int): N = apply { setRowIndex(this, value) }
     inline val Node.row: Int get() = getRowIndex(this) ?: -1
 
@@ -71,5 +68,5 @@ class _GridPane : GridPane(), _MarginablePane, _AlignablePane, _HGrowablePane, _
     override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
 }
 
-inline fun gridPaneOf(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)
-inline fun _Pane.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = gridPaneOf(init).add()
+inline fun gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)
+inline fun ChildManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init).add()

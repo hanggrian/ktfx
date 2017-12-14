@@ -6,23 +6,17 @@ package kotfx.controls
 
 import javafx.scene.control.ProgressIndicator
 import javafx.scene.control.ProgressIndicator.INDETERMINATE_PROGRESS
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.ControlDsl
 
-class _ProgressedIndicator(progress: Double) : ProgressIndicator(progress), _Progressed<ProgressIndicator> {
-    override val node: ProgressIndicator get() = this
-
-    override fun progress(value: Number) = setProgress(value.toDouble())
-}
+@JvmOverloads
+inline fun progressIndicator(
+        progress: Number = INDETERMINATE_PROGRESS,
+        noinline init: ((@ControlDsl ProgressIndicator).() -> Unit)? = null
+): ProgressIndicator = ProgressIndicator(progress.toDouble()).apply { init?.invoke(this) }
 
 @JvmOverloads
-inline fun progressIndicatorOf(
+inline fun ChildManager.progressIndicator(
         progress: Number = INDETERMINATE_PROGRESS,
-        noinline init: ((@ControlDsl _ProgressedIndicator).() -> Unit)? = null
-): ProgressIndicator = _ProgressedIndicator(progress.toDouble()).apply { if (init != null) init() }
-
-@JvmOverloads
-inline fun _Pane.progressIndicator(
-        progress: Number = INDETERMINATE_PROGRESS,
-        noinline init: ((@ControlDsl _ProgressedIndicator).() -> Unit)? = null
-): ProgressIndicator = progressIndicatorOf(progress, init).add()
+        noinline init: ((@ControlDsl ProgressIndicator).() -> Unit)? = null
+): ProgressIndicator = ProgressIndicator(progress.toDouble()).apply { init?.invoke(this) }.add()

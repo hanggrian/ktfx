@@ -15,6 +15,5 @@ allprojects {
 }
 
 /** QUICK LINT CHECK BEFORE UPLOAD
-./gradlew clean build
 ./gradlew bintrayUpload -PdryRun=false -PbintrayUser=hendraanggrian -PbintrayKey=
  */

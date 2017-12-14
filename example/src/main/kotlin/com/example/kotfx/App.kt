@@ -1,7 +1,9 @@
 package com.example.kotfx
 
 import javafx.application.Application
+import javafx.geometry.Insets
 import javafx.scene.control.Label
+import javafx.scene.text.Font.font
 import javafx.scene.text.FontWeight.BOLD
 import javafx.stage.Stage
 import kotfx.bindings.booleanBindingOf
@@ -10,9 +12,8 @@ import kotfx.controls.button
 import kotfx.controls.label
 import kotfx.dialogs.errorAlert
 import kotfx.dialogs.infoAlertWait
-import kotfx.layouts.gridPaneOf
+import kotfx.layouts.gridPane
 import kotfx.layouts.vbox
-import kotfx.layouts.vboxOf
 import kotfx.properties.bind
 import kotfx.toScene
 
@@ -28,10 +29,9 @@ class App : Application() {
     private lateinit var resultLabel: Label
 
     override fun start(primaryStage: Stage) {
-        primaryStage.scene = gridPaneOf {
+        primaryStage.scene = gridPane {
             vbox {
-                paddingLeft(20)
-                paddingRight(20)
+                padding = Insets(0.0, 20.0, 0.0, 20.0)
                 calculationLabel = label("")
                 resultLabel = label("") {
                     textProperty() bind stringBindingOf(calculationLabel.textProperty()) {
@@ -61,81 +61,81 @@ class App : Application() {
             } row 0 col 0 colSpan 5 fillWidth true
 
             button("1") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("1")
                 }
             } row 1 col 0
             button("2") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("2")
                 }
             } row 1 col 1
             button("3") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("3")
                 }
             } row 1 col 2
 
             button("4") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("4")
                 }
             } row 2 col 0
             button("5") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("5")
                 }
             } row 2 col 1
             button("6") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("6")
                 }
             } row 2 col 2
 
             button("7") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("7")
                 }
             } row 3 col 0
             button("8") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("8")
                 }
             } row 3 col 1
             button("9") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("9")
                 }
             } row 3 col 2
 
             button("0") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("0")
                 }
             } row 4 col 0
             button("00") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("00")
                 }
             } row 4 col 1
             button(".") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     errorAlert("Not yet supported.") {
                         title(":(")
-                        expandableContent(vboxOf {
-                            label("Suggestion") { font("Arial", BOLD, null) }
+                        expandableContent(vbox {
+                            label("Suggestion") { font = font("Arial", BOLD, 14.0) }
                             label("Use an actual calculator.") marginTop 4
                         })
                     }
@@ -143,40 +143,40 @@ class App : Application() {
             } row 4 col 2
 
             button("C") {
-                forceSize(80, 40)
-                cancel(true)
+                setMinSize(80.0, 40.0)
+                isCancelButton = true
                 setOnAction {
                     calculationLabel.text = ""
                 }
             } row 1 col 3 colSpan 2
             button("*") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("*")
                 }
             } row 2 col 3
             button("/") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("/")
                 }
             } row 2 col 4
             button("+") {
-                forceSize(40, 80)
+                setMinSize(40.0, 80.0)
                 setOnAction {
                     appendText("+")
                 }
 
             } row 3 col 3 rowSpan 2
             button("-") {
-                forceSize(40)
+                setMinSize(40.0, 40.0)
                 setOnAction {
                     appendText("-")
                 }
             } row 3 col 4
             button("=") {
-                forceSize(40)
-                default(true)
+                setMinSize(40.0, 40.0)
+                isDefaultButton = true
                 disableProperty() bind booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator }
                 setOnAction {
                     infoAlertWait(resultLabel.text) {

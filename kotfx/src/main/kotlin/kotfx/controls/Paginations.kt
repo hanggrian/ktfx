@@ -6,27 +6,19 @@ package kotfx.controls
 
 import javafx.scene.control.Pagination
 import javafx.scene.control.Pagination.INDETERMINATE
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.ControlDsl
 
-class _Pagination(count: Int, index: Int) : Pagination(count, index), _Control<Pagination> {
-    override val node: Pagination get() = this
-
-    fun maxPageIndicatorCount(value: Int) = setMaxPageIndicatorCount(value)
-    fun pageCount(value: Int) = setPageCount(value)
-    fun currentPage(value: Int) = setCurrentPageIndex(value)
-}
-
 @JvmOverloads
-inline fun paginationOf(
+inline fun pagination(
         count: Int = INDETERMINATE,
         index: Int = 0,
-        noinline init: ((@ControlDsl _Pagination).() -> Unit)? = null
-): Pagination = _Pagination(count, index).apply { if (init != null) init() }
+        noinline init: ((@ControlDsl Pagination).() -> Unit)? = null
+): Pagination = Pagination(count, index).apply { init?.invoke(this) }
 
 @JvmOverloads
-inline fun _Pane.pagination(
+inline fun ChildManager.pagination(
         count: Int = INDETERMINATE,
         index: Int = 0,
-        noinline init: ((@ControlDsl _Pagination).() -> Unit)? = null
-): Pagination = paginationOf(count, index, init).add()
+        noinline init: ((@ControlDsl Pagination).() -> Unit)? = null
+): Pagination = Pagination(count, index).apply { init?.invoke(this) }.add()

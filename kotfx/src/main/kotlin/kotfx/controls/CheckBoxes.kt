@@ -5,25 +5,17 @@
 package kotfx.controls
 
 import javafx.scene.control.CheckBox
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.ControlDsl
 
-class _CheckBox(text: String?) : CheckBox(text), _Labeled<CheckBox> {
-    override val node: CheckBox get() = this
-
-    fun indeterminate(value: Boolean) = setIndeterminate(value)
-    fun selected(value: Boolean) = setSelected(value)
-    fun allowIndeterminate(value: Boolean) = setAllowIndeterminate(value)
-}
+@JvmOverloads
+inline fun checkBox(
+        text: String? = null,
+        noinline init: ((@ControlDsl CheckBox).() -> Unit)? = null
+): CheckBox = CheckBox(text).apply { init?.invoke(this) }
 
 @JvmOverloads
-inline fun checkBoxOf(
+inline fun ChildManager.checkBox(
         text: String? = null,
-        noinline init: ((@ControlDsl _CheckBox).() -> Unit)? = null
-): CheckBox = _CheckBox(text).apply { if (init != null) init() }
-
-@JvmOverloads
-inline fun _Pane.checkBox(
-        text: String? = null,
-        noinline init: ((@ControlDsl _CheckBox).() -> Unit)? = null
-): CheckBox = checkBoxOf(text, init).add()
+        noinline init: ((@ControlDsl CheckBox).() -> Unit)? = null
+): CheckBox = CheckBox(text).apply { init?.invoke(this) }.add()

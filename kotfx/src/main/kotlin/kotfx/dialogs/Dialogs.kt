@@ -14,7 +14,7 @@ import javafx.scene.image.Image
 import javafx.stage.Stage
 import kotfx.internal.DialogDsl
 
-interface _DialogBase<out D : Dialog<*>> {
+interface DialogBuilder<out D : Dialog<*>> {
     val dialog: D
 
     fun header(value: String) = dialog.setHeaderText(value)
@@ -48,24 +48,24 @@ interface _DialogBase<out D : Dialog<*>> {
     }
 }
 
-@JvmOverloads inline fun _DialogBase<*>.leftButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, LEFT, action)
-@JvmOverloads inline fun _DialogBase<*>.rightButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, RIGHT, action)
-@JvmOverloads inline fun _DialogBase<*>.helpButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, HELP, action)
-@JvmOverloads inline fun _DialogBase<*>.help2Button(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, HELP_2, action)
-@JvmOverloads inline fun _DialogBase<*>.yesButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, YES, action)
-@JvmOverloads inline fun _DialogBase<*>.noButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, NO, action)
-@JvmOverloads inline fun _DialogBase<*>.nextButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, NEXT_FORWARD, action)
-@JvmOverloads inline fun _DialogBase<*>.backButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, BACK_PREVIOUS, action)
-@JvmOverloads inline fun _DialogBase<*>.finishButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, FINISH, action)
-@JvmOverloads inline fun _DialogBase<*>.applyButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, APPLY, action)
-@JvmOverloads inline fun _DialogBase<*>.cancelButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, CANCEL_CLOSE, action)
-@JvmOverloads inline fun _DialogBase<*>.okButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, OK_DONE, action)
-@JvmOverloads inline fun _DialogBase<*>.bigButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, BIG_GAP, action)
-@JvmOverloads inline fun _DialogBase<*>.smallButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, SMALL_GAP, action)
-@JvmOverloads inline fun _DialogBase<*>.otherButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, OTHER, action)
+@JvmOverloads inline fun DialogBuilder<*>.leftButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, LEFT, action)
+@JvmOverloads inline fun DialogBuilder<*>.rightButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, RIGHT, action)
+@JvmOverloads inline fun DialogBuilder<*>.helpButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, HELP, action)
+@JvmOverloads inline fun DialogBuilder<*>.help2Button(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, HELP_2, action)
+@JvmOverloads inline fun DialogBuilder<*>.yesButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, YES, action)
+@JvmOverloads inline fun DialogBuilder<*>.noButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, NO, action)
+@JvmOverloads inline fun DialogBuilder<*>.nextButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, NEXT_FORWARD, action)
+@JvmOverloads inline fun DialogBuilder<*>.backButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, BACK_PREVIOUS, action)
+@JvmOverloads inline fun DialogBuilder<*>.finishButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, FINISH, action)
+@JvmOverloads inline fun DialogBuilder<*>.applyButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, APPLY, action)
+@JvmOverloads inline fun DialogBuilder<*>.cancelButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, CANCEL_CLOSE, action)
+@JvmOverloads inline fun DialogBuilder<*>.okButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, OK_DONE, action)
+@JvmOverloads inline fun DialogBuilder<*>.bigButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, BIG_GAP, action)
+@JvmOverloads inline fun DialogBuilder<*>.smallButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, SMALL_GAP, action)
+@JvmOverloads inline fun DialogBuilder<*>.otherButton(text: String, noinline action: (() -> Unit)? = null): ButtonType = buttonTypeOf(text, OTHER, action)
 
 @PublishedApi
-internal inline fun _DialogBase<*>.buttonTypeOf(
+internal inline fun DialogBuilder<*>.buttonTypeOf(
         text: String,
         data: ButtonBar.ButtonData,
         noinline action: (() -> Unit)?
@@ -77,31 +77,30 @@ internal inline fun _DialogBase<*>.buttonTypeOf(
     }
 }
 
-class _Dialog<R> : Dialog<R>(), _DialogBase<Dialog<R>> {
+class _Dialog<R> : Dialog<R>(), DialogBuilder<Dialog<R>> {
     override val dialog: Dialog<R> get() = this
 }
 
 @JvmOverloads
-inline fun <R> dialogOf(
-        title: String,
+inline fun <R> dialog(
+        title: String? = null,
         icon: Image? = null,
         noinline init: ((@DialogDsl _Dialog<R>).() -> Unit)? = null
 ): Dialog<R> = _Dialog<R>().apply {
-    title(title)
+    if (title != null) title(title)
     if (icon != null) icon(icon)
-    if (init != null) init()
+    init?.invoke(this)
+    show()
 }
 
 @JvmOverloads
-inline fun <R> dialog(
-        title: String,
-        icon: Image? = null,
-        noinline init: ((@DialogDsl _Dialog<R>).() -> Unit)? = null
-): Dialog<R> = dialogOf(title, icon, init).apply { show() }
-
-@JvmOverloads
 inline fun <R> dialogWait(
-        title: String,
+        title: String? = null,
         icon: Image? = null,
         noinline init: ((@DialogDsl _Dialog<R>).() -> Unit)? = null
-): Dialog<R> = dialogOf(title, icon, init).apply { showAndWait() }
+): Dialog<R> = _Dialog<R>().apply {
+    if (title != null) title(title)
+    if (icon != null) icon(icon)
+    init?.invoke(this)
+    showAndWait()
+}

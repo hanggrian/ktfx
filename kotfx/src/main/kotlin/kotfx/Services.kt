@@ -11,7 +11,6 @@ import javafx.event.EventHandler
 import kotfx.internal.ServiceDsl
 
 interface _Service<V> {
-
     val service: Service<V>
 
     fun call(action: Task<V>.() -> V)

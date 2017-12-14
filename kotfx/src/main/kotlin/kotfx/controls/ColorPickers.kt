@@ -7,21 +7,17 @@ package kotfx.controls
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.ControlDsl
 
-class _ColorPicker(color: Color) : ColorPicker(color), _ComboBoxBase<ColorPicker, Color> {
-    override val node: ColorPicker get() = this
-}
+@JvmOverloads
+inline fun colorPicker(
+        color: Color = WHITE,
+        noinline init: ((@ControlDsl ColorPicker).() -> Unit)? = null
+): ColorPicker = ColorPicker(color).apply { init?.invoke(this) }
 
 @JvmOverloads
-inline fun colorPickerOf(
+inline fun ChildManager.colorPicker(
         color: Color = WHITE,
-        noinline init: ((@ControlDsl _ColorPicker).() -> Unit)? = null
-): ColorPicker = _ColorPicker(color).apply { if (init != null) init() }
-
-@JvmOverloads
-inline fun _Pane.colorPicker(
-        color: Color = WHITE,
-        noinline init: ((@ControlDsl _ColorPicker).() -> Unit)? = null
-): ColorPicker = colorPickerOf(color, init).add()
+        noinline init: ((@ControlDsl ColorPicker).() -> Unit)? = null
+): ColorPicker = ColorPicker(color).apply { init?.invoke(this) }.add()

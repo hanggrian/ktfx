@@ -6,13 +6,10 @@ package kotfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
-import javafx.scene.layout.Pane
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
-class _AnchorPane : AnchorPane(), _Pane {
-    override val node: Pane get() = this
-
+class _AnchorPane : AnchorPane(), ChildManager, Constrained {
     inline infix fun <N : Node> N.anchorTop(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
     inline infix fun <N : Node> N.anchorLeft(value: Number?): N = apply { setLeftAnchor(this, value?.toDouble()) }
     inline infix fun <N : Node> N.anchorBottom(value: Number?): N = apply { setBottomAnchor(this, value?.toDouble()) }
@@ -26,5 +23,5 @@ class _AnchorPane : AnchorPane(), _Pane {
     override fun <T : Node> T.clearConstraints(): T = apply { clearConstraints(this) }
 }
 
-inline fun anchorPaneOf(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
-inline fun _Pane.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = anchorPaneOf(init).add()
+inline fun anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
+inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()

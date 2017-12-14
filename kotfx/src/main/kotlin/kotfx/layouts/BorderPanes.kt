@@ -10,13 +10,10 @@ import javafx.geometry.Pos
 import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
-import javafx.scene.layout.Pane
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
-class _BorderPane : BorderPane(), _AlignablePane, _MarginablePane {
-    override val node: Pane get() = this
-
+class _BorderPane : BorderPane(), ChildManager, Alignable, Marginable {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
     override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
 
@@ -26,5 +23,5 @@ class _BorderPane : BorderPane(), _AlignablePane, _MarginablePane {
     override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
 }
 
-inline fun borderPaneOf(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init)
-inline fun _Pane.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = borderPaneOf(init).add()
+inline fun borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init)
+inline fun ChildManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init).add()

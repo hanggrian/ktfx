@@ -4,13 +4,19 @@
 
 package kotfx.controls
 
-import javafx.geometry.Orientation
 import javafx.scene.Node
 import javafx.scene.control.SplitPane
+import kotfx.ChildManager
+import kotfx.internal.ControlDsl
 
-class _SplitPane(vararg items: Node) : SplitPane(*items), _Control<SplitPane> {
-    override val node: SplitPane get() = this
+@JvmOverloads
+inline fun splitPane(
+        vararg items: Node,
+        noinline init: ((@ControlDsl SplitPane).() -> Unit)? = null
+): SplitPane = SplitPane(*items).apply { init?.invoke(this) }
 
-    fun orientation(value:Orientation)=setOrientation(value)
-    //fun dividerPosition()
-}
+@JvmOverloads
+inline fun ChildManager.splitPane(
+        vararg items: Node,
+        noinline init: ((@ControlDsl SplitPane).() -> Unit)? = null
+): SplitPane = SplitPane(*items).apply { init?.invoke(this) }.add()

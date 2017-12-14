@@ -10,9 +10,8 @@ import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.Priority
-import kotfx._Pane
 
-internal interface _AlignablePane : _Pane {
+internal interface Alignable : Constrained {
     infix fun <N : Node> N.pos(value: Pos): N
     infix fun <N : Node> N.hpos(value: HPos): N = pos(posOf(vpos, value))
     infix fun <N : Node> N.vpos(value: VPos): N = pos(posOf(value, hpos))
@@ -26,7 +25,7 @@ internal interface _AlignablePane : _Pane {
     }
 }
 
-internal interface _MarginablePane : _Pane {
+internal interface Marginable : Constrained {
     infix fun <N : Node> N.margin(value: Insets): N
     fun <N : Node> N.margin(top: Number, right: Number, bottom: Number, left: Number): N = margin(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
     infix fun <N : Node> N.marginTop(value: Number): N = margin(value, marginRight, marginBottom, marginLeft)
@@ -41,12 +40,16 @@ internal interface _MarginablePane : _Pane {
     val Node.marginLeft: Double get() = margin2.left
 }
 
-internal interface _HGrowablePane : _Pane {
+internal interface HGrowable : Constrained {
     infix fun <N : Node> N.hgrow(value: Priority): N
     val Node.hgrow2: Priority
 }
 
-internal interface _VGrowablePane : _Pane {
+internal interface VGrowable : Constrained {
     infix fun <N : Node> N.vgrow(value: Priority): N
     val Node.vgrow2: Priority
+}
+
+internal interface Constrained {
+    fun <N : Node> N.clearConstraints(): N
 }

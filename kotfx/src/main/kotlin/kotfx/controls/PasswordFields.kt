@@ -5,19 +5,15 @@
 package kotfx.controls
 
 import javafx.scene.control.PasswordField
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.ControlDsl
 
-class _PasswordField : PasswordField(), _TextInputControl<PasswordField> {
-    override val node: PasswordField get() = this
-}
+@JvmOverloads
+inline fun passwordField(
+        noinline init: ((@ControlDsl PasswordField).() -> Unit)? = null
+): PasswordField = PasswordField().apply { init?.invoke(this) }
 
 @JvmOverloads
-inline fun passwordFieldOf(
-        noinline init: ((@ControlDsl _PasswordField).() -> Unit)? = null
-): PasswordField = _PasswordField().apply { if (init != null) init() }
-
-@JvmOverloads
-inline fun _Pane.passwordField(
-        noinline init: ((@ControlDsl _PasswordField).() -> Unit)? = null
-): PasswordField = passwordFieldOf(init).add()
+inline fun ChildManager.passwordField(
+        noinline init: ((@ControlDsl PasswordField).() -> Unit)? = null
+): PasswordField = PasswordField().apply { init?.invoke(this) }.add()

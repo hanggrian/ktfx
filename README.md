@@ -1,6 +1,6 @@
 kotfx
 =====
-Kotlin DSL and extension functions to achieve lowest amount of code possible for JavaFX
+Kotlin DSL and extension functions for minimalist JavaFX development.
 
 Bindings
 --------
@@ -52,30 +52,22 @@ Create `Dialog`, `ChoiceDialog`, `TextInputDialog`, and `Alert` with Kotlin DSL.
 
 ```kotlin
 // show an alert
-alert("Here's an alert").show()
+alert("Here's an alert")
 
 // show a confirmation alert and wait for input
-confirmAlert("Are you sure?").showAndWait().ifPresent {
-    if (buttonType == ButtonType.BUTTON_OK) {
-        // do something
-    }
-}
+confirmAlertWait("Are you sure?")
 
 // custom init a text input dialog
 inputDialog("Question") {
     headerText = "Question #1"
     contentText = "Why does the chicken cross the road?"
     editor.promptText = "Hint"
-}.showAndWait().ifPresent {
-    // do something
 }
 
 // a choice dialog
 choiceDialog("Pick an item", items, defaultItem) {
     graphic = ImageView("/my/image.png")
     expandableContent = Label("Just an image")
-}.showAndWait().ifPresent {
-
 }
 
 // show a custom dialog
@@ -100,7 +92,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.8'
+    compile 'com.hendraanggrian:kotfx:0.9'
 }
 ```
 

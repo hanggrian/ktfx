@@ -5,15 +5,15 @@
 package kotfx.controls
 
 import javafx.scene.web.WebView
-import kotfx._Pane
+import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 @JvmOverloads
-inline fun webViewOf(
+inline fun webView(
         noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
-): WebView = WebView().apply { if (init != null) init() }
+): WebView = WebView().apply { init?.invoke(this) }
 
 @JvmOverloads
-inline fun _Pane.webView(
+inline fun ChildManager.webView(
         noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
-): WebView = WebView().apply { if (init != null) init() }.add()
+): WebView = WebView().apply { init?.invoke(this) }.add()

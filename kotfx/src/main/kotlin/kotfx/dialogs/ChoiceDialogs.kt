@@ -6,6 +6,7 @@ package kotfx.dialogs
 
 import javafx.scene.control.ChoiceDialog
 import kotfx.internal.DialogDsl
+import java.util.*
 
 class _ChoiceDialog<T>(items: Collection<T>?, defaultItem: T?) : ChoiceDialog<T>(defaultItem, items), DialogBuilder<ChoiceDialog<T>> {
     override val dialog: ChoiceDialog<T> get() = this
@@ -31,8 +32,7 @@ inline fun <T> choiceDialogWait(
         items: Collection<T>? = null,
         prefill: T? = null,
         noinline init: ((@DialogDsl _ChoiceDialog<T>).() -> Unit)? = null
-): ChoiceDialog<T> = _ChoiceDialog(items, prefill).apply {
+): Optional<T> = _ChoiceDialog(items, prefill).apply {
     if (title != null) title(title)
     init?.invoke(this)
-    showAndWait()
-}
+}.showAndWait()

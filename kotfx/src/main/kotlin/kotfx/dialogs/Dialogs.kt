@@ -13,6 +13,7 @@ import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.stage.Stage
 import kotfx.internal.DialogDsl
+import java.util.*
 
 interface DialogBuilder<out D : Dialog<*>> {
     val dialog: D
@@ -98,9 +99,8 @@ inline fun <R> dialogWait(
         title: String? = null,
         icon: Image? = null,
         noinline init: ((@DialogDsl _Dialog<R>).() -> Unit)? = null
-): Dialog<R> = _Dialog<R>().apply {
+): Optional<R> = _Dialog<R>().apply {
     if (title != null) title(title)
     if (icon != null) icon(icon)
     init?.invoke(this)
-    showAndWait()
-}
+}.showAndWait()

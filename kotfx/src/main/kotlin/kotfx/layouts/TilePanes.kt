@@ -11,10 +11,10 @@ import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 import javafx.scene.layout.TilePane
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.LayoutDsl
 
-class _TilePane : TilePane(), Alignable, Marginable {
+class _TilePane : TilePane(), _AlignablePane, _MarginablePane {
     override val node: Pane get() = this
 
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
@@ -27,4 +27,4 @@ class _TilePane : TilePane(), Alignable, Marginable {
 }
 
 inline fun tilePaneOf(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init)
-inline fun ChildManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = tilePaneOf(init).add()
+inline fun _Pane.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = tilePaneOf(init).add()

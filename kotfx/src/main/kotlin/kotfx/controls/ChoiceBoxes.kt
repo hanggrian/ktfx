@@ -7,7 +7,7 @@ package kotfx.controls
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
 import javafx.scene.control.SingleSelectionModel
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.collections.mutableObservableListOf
 import kotfx.internal.ControlDsl
 
@@ -26,7 +26,7 @@ inline fun <T> choiceBoxOf(
 ): ChoiceBox<T> = _ChoiceBox(items).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun <T> ChildManager.choiceBox(
+inline fun <T> _Pane.choiceBox(
         items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@ControlDsl _ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = choiceBoxOf(items, init).add()

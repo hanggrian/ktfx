@@ -11,10 +11,10 @@ import javafx.scene.layout.HBox
 import javafx.scene.layout.Pane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.LayoutDsl
 
-class _HBox : HBox(), HGrowable, Marginable {
+class _HBoxPane : HBox(), _HGrowablePane, _MarginablePane {
     override val node: Pane get() = this
 
     override infix fun <N : Node> N.hgrow(value: Priority): N = apply { setHgrow(this, value) }
@@ -26,5 +26,5 @@ class _HBox : HBox(), HGrowable, Marginable {
     override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
 }
 
-inline fun hboxOf(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
-inline fun ChildManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = hboxOf(init).add()
+inline fun hboxOf(init: (@LayoutDsl _HBoxPane).() -> Unit): HBox = _HBoxPane().apply(init)
+inline fun _Pane.hbox(init: (@LayoutDsl _HBoxPane).() -> Unit): HBox = hboxOf(init).add()

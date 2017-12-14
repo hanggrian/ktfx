@@ -6,7 +6,7 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.LayoutDsl
 
 class _Hyperlink(text: String?, graphic: Node?) : Hyperlink(text, graphic), _Labeled<Hyperlink> {
@@ -23,7 +23,7 @@ inline fun hyperlinkOf(
 ): Hyperlink = _Hyperlink(text, graphic).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.hyperlink(
+inline fun _Pane.hyperlink(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@LayoutDsl _Hyperlink).() -> Unit)? = null

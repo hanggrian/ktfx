@@ -6,7 +6,7 @@ package kotfx.controls
 
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _Accordion(vararg panes: TitledPane) : Accordion(*panes), _Control<Accordion> {
@@ -22,7 +22,7 @@ inline fun accordionOf(
 ): Accordion = _Accordion(*panes).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.accordion(
+inline fun _Pane.accordion(
         vararg panes: TitledPane,
         noinline init: ((@ControlDsl _Accordion).() -> Unit)? = null
 ): Accordion = accordionOf(*panes, init = init).add()

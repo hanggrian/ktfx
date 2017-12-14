@@ -8,7 +8,7 @@ import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ComboBox
 import javafx.scene.control.SingleSelectionModel
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.collections.mutableObservableListOf
 import kotfx.internal.ControlDsl
 
@@ -28,7 +28,7 @@ inline fun <T> comboBoxOf(
 ): ComboBox<T> = _ComboBox(items).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun <T> ChildManager.comboBox(
+inline fun <T> _Pane.comboBox(
         items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@ControlDsl _ComboBox<T>).() -> Unit)? = null
 ): ComboBox<T> = comboBoxOf(items, init).add()

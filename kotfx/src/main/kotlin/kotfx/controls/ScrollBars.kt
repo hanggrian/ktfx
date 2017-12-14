@@ -6,7 +6,7 @@ package kotfx.controls
 
 import javafx.geometry.Orientation
 import javafx.scene.control.ScrollBar
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _ScrollBar : ScrollBar(), _Control<ScrollBar> {
@@ -27,6 +27,6 @@ inline fun scrollBarOf(
 ): ScrollBar = _ScrollBar().apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.scrollBar(
+inline fun _Pane.scrollBar(
         noinline init: ((@ControlDsl _ScrollBar).() -> Unit)? = null
 ): ScrollBar = scrollBarOf(init).add()

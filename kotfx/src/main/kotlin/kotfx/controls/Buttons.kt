@@ -6,7 +6,7 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Button
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _Button(text: String?, graphic: Node?) : Button(text, graphic), _Labeled<Button> {
@@ -24,7 +24,7 @@ inline fun buttonOf(
 ): Button = _Button(text, graphic).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.button(
+inline fun _Pane.button(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@ControlDsl _Button).() -> Unit)? = null

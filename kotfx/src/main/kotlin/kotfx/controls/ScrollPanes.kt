@@ -7,7 +7,7 @@ package kotfx.controls
 import javafx.geometry.Bounds
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _ScrollPane(content: Node?) : ScrollPane(content), _Control<ScrollPane> {
@@ -39,7 +39,7 @@ inline fun scrollPaneOf(
 ): ScrollPane = _ScrollPane(content).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.scrollPane(
+inline fun _Pane.scrollPane(
         content: Node? = null,
         noinline init: ((@ControlDsl _ScrollPane).() -> Unit)? = null
 ): ScrollPane = scrollPaneOf(content, init).add()

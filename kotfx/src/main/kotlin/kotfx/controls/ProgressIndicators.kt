@@ -6,7 +6,7 @@ package kotfx.controls
 
 import javafx.scene.control.ProgressIndicator
 import javafx.scene.control.ProgressIndicator.INDETERMINATE_PROGRESS
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _ProgressedIndicator(progress: Double) : ProgressIndicator(progress), _Progressed<ProgressIndicator> {
@@ -22,7 +22,7 @@ inline fun progressIndicatorOf(
 ): ProgressIndicator = _ProgressedIndicator(progress.toDouble()).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.progressIndicator(
+inline fun _Pane.progressIndicator(
         progress: Number = INDETERMINATE_PROGRESS,
         noinline init: ((@ControlDsl _ProgressedIndicator).() -> Unit)? = null
 ): ProgressIndicator = progressIndicatorOf(progress, init).add()

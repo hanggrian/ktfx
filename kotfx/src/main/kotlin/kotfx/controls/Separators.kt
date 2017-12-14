@@ -8,7 +8,7 @@ import javafx.geometry.HPos
 import javafx.geometry.Orientation
 import javafx.geometry.VPos
 import javafx.scene.control.Separator
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _Separator : Separator(), _Control<Separator> {
@@ -25,6 +25,6 @@ inline fun separatorOf(
 ): Separator = _Separator().apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.separator(
+inline fun _Pane.separator(
         noinline init: ((@ControlDsl _Separator).() -> Unit)? = null
 ): Separator = separatorOf(init).add()

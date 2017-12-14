@@ -10,7 +10,7 @@ import javafx.scene.Node
 import javafx.scene.control.FocusModel
 import javafx.scene.control.ListView
 import javafx.scene.control.MultipleSelectionModel
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.collections.mutableObservableListOf
 import kotfx.internal.ControlDsl
 
@@ -33,7 +33,7 @@ inline fun <T> listViewOf(
 ): ListView<T> = _ListView(items).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun <T> ChildManager.listView(
+inline fun <T> _Pane.listView(
         items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@ControlDsl _ListView<T>).() -> Unit)? = null
 ): ListView<T> = listViewOf(items, init).add()

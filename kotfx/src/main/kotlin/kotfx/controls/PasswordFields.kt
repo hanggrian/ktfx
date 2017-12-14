@@ -5,7 +5,7 @@
 package kotfx.controls
 
 import javafx.scene.control.PasswordField
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _PasswordField : PasswordField(), _TextInputControl<PasswordField> {
@@ -18,6 +18,6 @@ inline fun passwordFieldOf(
 ): PasswordField = _PasswordField().apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.passwordField(
+inline fun _Pane.passwordField(
         noinline init: ((@ControlDsl _PasswordField).() -> Unit)? = null
 ): PasswordField = passwordFieldOf(init).add()

@@ -7,7 +7,7 @@ package kotfx.controls
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _ColorPicker(color: Color) : ColorPicker(color), _ComboBoxBase<ColorPicker, Color> {
@@ -21,7 +21,7 @@ inline fun colorPickerOf(
 ): ColorPicker = _ColorPicker(color).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.colorPicker(
+inline fun _Pane.colorPicker(
         color: Color = WHITE,
         noinline init: ((@ControlDsl _ColorPicker).() -> Unit)? = null
 ): ColorPicker = colorPickerOf(color, init).add()

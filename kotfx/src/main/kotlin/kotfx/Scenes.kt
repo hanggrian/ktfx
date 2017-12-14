@@ -13,11 +13,9 @@ import javafx.scene.layout.Region
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
 
-interface Noded<out N : Node> {
+interface _Node<out N : Node> {
     val node: N
-}
 
-interface _Node<out N : Node> : Noded<N> {
     fun data(value: Any) = node.setUserData(value)
     fun id(value: String) = node.setId(value)
     fun style(value: String) = node.setStyle(value)
@@ -107,8 +105,7 @@ interface _Region<out N : Region> : _Node<N> {
     fun paddingLeft(value: Number) = node.padding.let { padding(Insets(it.top, it.right, it.bottom, value.toDouble())) }
 }
 
-/** Equivalent to Android's ViewManager. */
-interface ChildManager : _Region<Pane> {
+interface _Pane : _Region<Pane> {
     fun <N : Node> N.add(): N = apply { node.children.add(this) }
     fun <N : Node> N.clearConstraints(): N
 }

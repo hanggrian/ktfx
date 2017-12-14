@@ -11,10 +11,10 @@ import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.Pane
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.LayoutDsl
 
-class _BorderPane : BorderPane(), Alignable, Marginable {
+class _BorderPane : BorderPane(), _AlignablePane, _MarginablePane {
     override val node: Pane get() = this
 
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
@@ -27,4 +27,4 @@ class _BorderPane : BorderPane(), Alignable, Marginable {
 }
 
 inline fun borderPaneOf(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init)
-inline fun ChildManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = borderPaneOf(init).add()
+inline fun _Pane.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = borderPaneOf(init).add()

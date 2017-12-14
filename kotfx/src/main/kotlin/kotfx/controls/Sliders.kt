@@ -6,7 +6,7 @@ package kotfx.controls
 
 import javafx.geometry.Orientation
 import javafx.scene.control.Slider
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _Slider(min: Double, max: Double, value: Double) : Slider(min, max, value), _Control<Slider> {
@@ -34,7 +34,7 @@ inline fun sliderOf(
 ): Slider = _Slider(min.toDouble(), max.toDouble(), value.toDouble()).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.slider(
+inline fun _Pane.slider(
         min: Number,
         max: Number,
         value: Number,

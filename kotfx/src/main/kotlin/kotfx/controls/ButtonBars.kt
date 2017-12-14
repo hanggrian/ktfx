@@ -6,7 +6,7 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.ButtonBar
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), _Control<ButtonBar> {
@@ -26,7 +26,7 @@ inline fun buttonBarOf(
 ): ButtonBar = _ButtonBar(buttonOrder).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.buttonBar(
+inline fun _Pane.buttonBar(
         buttonOrder: String? = null,
         noinline init: ((@ControlDsl _ButtonBar).() -> Unit)? = null
 ): ButtonBar = buttonBarOf(buttonOrder, init).add()

@@ -10,7 +10,7 @@ import javafx.scene.image.Image
 import kotfx.controls._TextInputControl
 import kotfx.internal.DialogDsl
 
-class _InputDialog(prefill: String?) : TextInputDialog(prefill), Dialoggable<TextInputDialog>, _TextInputControl<TextField> {
+class _InputDialog(prefill: String?) : TextInputDialog(prefill), _DialogBase<TextInputDialog>, _TextInputControl<TextField> {
     override val dialog: TextInputDialog get() = this
     override val node: TextField get() = editor
 }

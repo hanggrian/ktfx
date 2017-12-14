@@ -7,10 +7,10 @@ package kotfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.Pane
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.LayoutDsl
 
-class _AnchorPane : AnchorPane(), ChildManager {
+class _AnchorPane : AnchorPane(), _Pane {
     override val node: Pane get() = this
 
     inline infix fun <N : Node> N.anchorTop(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
@@ -27,4 +27,4 @@ class _AnchorPane : AnchorPane(), ChildManager {
 }
 
 inline fun anchorPaneOf(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
-inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = anchorPaneOf(init).add()
+inline fun _Pane.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = anchorPaneOf(init).add()

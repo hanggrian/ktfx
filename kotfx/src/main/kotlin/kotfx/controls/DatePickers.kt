@@ -5,7 +5,7 @@
 package kotfx.controls
 
 import javafx.scene.control.DatePicker
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 import java.time.LocalDate
 import java.time.chrono.Chronology
@@ -24,7 +24,7 @@ inline fun datePickerOf(
 ): DatePicker = _DatePicker(date).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.datePicker(
+inline fun _Pane.datePicker(
         date: LocalDate? = null,
         noinline init: ((@ControlDsl _DatePicker).() -> Unit)? = null
 ): DatePicker = datePickerOf(date, init).add()

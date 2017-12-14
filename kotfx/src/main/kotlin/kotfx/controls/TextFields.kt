@@ -5,7 +5,7 @@
 package kotfx.controls
 
 import javafx.scene.control.TextField
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _TextField(text: String?) : TextField(text), _TextInputControl<TextField> {
@@ -19,7 +19,7 @@ inline fun textFieldOf(
 ): TextField = _TextField(text).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.textField(
+inline fun _Pane.textField(
         text: String? = null,
         noinline init: ((@ControlDsl _TextField).() -> Unit)? = null
 ): TextField = _TextField(text).apply { if (init != null) init() }.add()

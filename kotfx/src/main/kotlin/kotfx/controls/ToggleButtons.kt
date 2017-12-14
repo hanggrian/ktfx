@@ -6,7 +6,7 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
-import kotfx.ChildManager
+import kotfx._Pane
 import kotfx.internal.ControlDsl
 
 class _ToggleButton(text: String?, graphic: Node?) : ToggleButton(text, graphic), _Labeled<ToggleButton>, _Toggled<ToggleButton> {
@@ -21,7 +21,7 @@ inline fun toggleButtonOf(
 ): ToggleButton = _ToggleButton(text, graphic).apply { if (init != null) init() }
 
 @JvmOverloads
-inline fun ChildManager.toggleButton(
+inline fun _Pane.toggleButton(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@ControlDsl _ToggleButton).() -> Unit)? = null

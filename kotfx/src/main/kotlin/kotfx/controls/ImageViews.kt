@@ -6,8 +6,8 @@ package kotfx.controls
 
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import kotfx.ChildManager
 import kotfx.internal.ControlDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun imageView(

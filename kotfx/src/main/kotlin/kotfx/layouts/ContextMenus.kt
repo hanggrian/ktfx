@@ -1,12 +1,14 @@
 @file:JvmMultifileClass
-@file:JvmName("PopupsKt")
+@file:JvmName("LayoutsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls.popups
+package kotfx.layouts
 
 import javafx.scene.control.ContextMenu
 import javafx.scene.control.MenuItem
 import kotfx.internal.ControlDsl
+
+class _ContextMenu : ContextMenu(), PopupManager
 
 @JvmOverloads
 inline fun contextMenu(

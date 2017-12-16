@@ -2,6 +2,7 @@ package com.example.kotfx
 
 import javafx.application.Application
 import javafx.geometry.Insets
+import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.scene.text.Font.font
 import javafx.scene.text.FontWeight.BOLD
@@ -15,7 +16,6 @@ import kotfx.dialogs.infoAlertWait
 import kotfx.layouts.gridPane
 import kotfx.layouts.vbox
 import kotfx.properties.bind
-import kotfx.toScene
 
 class App : Application() {
 
@@ -29,7 +29,7 @@ class App : Application() {
     private lateinit var resultLabel: Label
 
     override fun start(primaryStage: Stage) {
-        primaryStage.scene = gridPane {
+        primaryStage.scene = Scene(gridPane {
             vbox {
                 padding = Insets(0.0, 20.0, 0.0, 20.0)
                 calculationLabel = label("")
@@ -184,7 +184,7 @@ class App : Application() {
                     }
                 }
             } row 4 col 4
-        }.toScene()
+        })
         primaryStage.show()
     }
 

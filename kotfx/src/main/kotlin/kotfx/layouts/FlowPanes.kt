@@ -8,7 +8,6 @@ import javafx.geometry.Insets
 import javafx.geometry.Insets.EMPTY
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _FlowPane : FlowPane(), ChildManager, Marginable {

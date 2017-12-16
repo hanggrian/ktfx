@@ -10,7 +10,6 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
 import javafx.scene.layout.VBox
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _VBox : VBox(), ChildManager, VGrowable, Marginable {

@@ -6,8 +6,8 @@ package kotfx.controls
 
 import javafx.scene.control.ProgressIndicator
 import javafx.scene.control.ProgressIndicator.INDETERMINATE_PROGRESS
-import kotfx.ChildManager
 import kotfx.internal.ControlDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun progressIndicator(

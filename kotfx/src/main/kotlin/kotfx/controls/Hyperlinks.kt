@@ -6,8 +6,8 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun hyperlink(

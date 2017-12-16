@@ -6,8 +6,8 @@ package kotfx.controls
 
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
-import kotfx.ChildManager
 import kotfx.internal.ControlDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun progressBar(

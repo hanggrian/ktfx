@@ -10,7 +10,6 @@ import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _HBox : HBox(), ChildManager, HGrowable, Marginable {

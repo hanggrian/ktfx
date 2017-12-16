@@ -6,9 +6,9 @@ package kotfx.controls
 
 import javafx.collections.ObservableList
 import javafx.scene.control.ComboBox
-import kotfx.ChildManager
 import kotfx.collections.mutableObservableListOf
 import kotfx.internal.ControlDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun <T> comboBox(

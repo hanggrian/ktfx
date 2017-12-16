@@ -5,8 +5,8 @@
 package kotfx.controls
 
 import javafx.scene.web.WebView
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun webView(

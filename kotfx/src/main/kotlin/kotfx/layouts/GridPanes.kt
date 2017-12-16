@@ -15,7 +15,6 @@ import javafx.scene.Node
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VGrowable {

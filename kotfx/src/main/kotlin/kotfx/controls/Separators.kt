@@ -7,8 +7,8 @@ package kotfx.controls
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.control.Separator
-import kotfx.ChildManager
 import kotfx.internal.ControlDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun separator(

@@ -6,8 +6,8 @@ package kotfx.controls
 
 import javafx.scene.control.Pagination
 import javafx.scene.control.Pagination.INDETERMINATE
-import kotfx.ChildManager
 import kotfx.internal.ControlDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun pagination(

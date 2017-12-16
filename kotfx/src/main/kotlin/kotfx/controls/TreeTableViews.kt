@@ -6,8 +6,8 @@ package kotfx.controls
 
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeTableView
-import kotfx.ChildManager
 import kotfx.internal.ControlDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun <S> treeTableView(

@@ -6,7 +6,6 @@ package kotfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _AnchorPane : AnchorPane(), ChildManager, Constrained {

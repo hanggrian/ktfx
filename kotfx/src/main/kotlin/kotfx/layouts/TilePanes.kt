@@ -10,7 +10,6 @@ import javafx.geometry.Pos
 import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _TilePane : TilePane(), ChildManager, Alignable, Marginable {

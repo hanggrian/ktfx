@@ -1,7 +1,10 @@
+@file:JvmMultifileClass
+@file:JvmName("LayoutsKt")
+@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
+
 package kotfx.layouts
 
 import javafx.scene.text.TextFlow
-import kotfx.ChildManager
 import kotfx.internal.LayoutDsl
 
 class _TextFlow : TextFlow(), ChildManager

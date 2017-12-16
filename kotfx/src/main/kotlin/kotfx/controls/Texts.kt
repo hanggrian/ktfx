@@ -5,8 +5,8 @@
 package kotfx.controls
 
 import javafx.scene.text.Text
-import kotfx.ChildManager
 import kotfx.internal.ControlDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun text(

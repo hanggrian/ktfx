@@ -4,12 +4,32 @@
 
 package kotfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.geometry.HPos
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
+import javafx.scene.control.MenuItem
 import javafx.scene.layout.Priority
+
+interface PopupManager {
+
+    /** Shadowed when being implemented in [javafx.scene.control.ContextMenu]. */
+    fun getItems(): ObservableList<MenuItem>
+
+    /** Convenient method to add child to this [javafx.scene.control.ContextMenu]. */
+    fun <M : MenuItem> M.add(): M = apply { getItems().add(this) }
+}
+
+interface ChildManager {
+
+    /** Shadowed when being implemented in pane. */
+    fun getChildren(): ObservableList<Node>
+
+    /** Convenient method to add child to this pane. */
+    fun <N : Node> N.add(): N = apply { getChildren().add(this) }
+}
 
 internal interface Alignable : Constrained {
     infix fun <N : Node> N.pos(value: Pos): N

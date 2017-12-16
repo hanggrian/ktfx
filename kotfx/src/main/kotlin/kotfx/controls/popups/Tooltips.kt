@@ -4,6 +4,7 @@
 
 package kotfx.controls.popups
 
+import javafx.scene.control.Control
 import javafx.scene.control.Tooltip
 import kotfx.internal.ControlDsl
 
@@ -12,3 +13,12 @@ inline fun tooltip(
         text: String? = null,
         noinline init: ((@ControlDsl Tooltip).() -> Unit)? = null
 ): Tooltip = Tooltip(text).apply { init?.invoke(this) }
+
+@JvmOverloads
+inline fun Control.tooltip(
+        text: String? = null,
+        noinline init: ((@ControlDsl Tooltip).() -> Unit)? = null
+): Tooltip = Tooltip(text).apply {
+    init?.invoke(this)
+    tooltip = this
+}

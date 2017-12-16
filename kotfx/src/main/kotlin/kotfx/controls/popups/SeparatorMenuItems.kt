@@ -6,7 +6,6 @@ package kotfx.controls.popups
 
 import javafx.scene.control.SeparatorMenuItem
 import kotfx.internal.ControlDsl
-import kotfx.layouts.PopupManager
 
 @JvmOverloads
 inline fun separatorMenuItem(

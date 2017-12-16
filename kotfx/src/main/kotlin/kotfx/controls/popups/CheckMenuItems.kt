@@ -7,7 +7,6 @@ package kotfx.controls.popups
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
 import kotfx.internal.ControlDsl
-import kotfx.layouts.PopupManager
 
 @JvmOverloads
 inline fun checkMenuItem(

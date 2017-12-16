@@ -2,11 +2,7 @@
 
 package kotfx
 
-import javafx.util.Callback
 import javafx.util.StringConverter
-
-/** Creates a new callback using Kotlin's function types. */
-inline fun <P, R> callbackOf(noinline converter: (P) -> R): Callback<P, R> = Callback(converter)
 
 /** Creates a new string converter using [convertFromString] and optional [convertToString]. */
 @JvmOverloads

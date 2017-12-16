@@ -28,8 +28,8 @@ class App : Application() {
     private lateinit var calculationLabel: Label
     private lateinit var resultLabel: Label
 
-    override fun start(primaryStage: Stage) {
-        primaryStage.scene = Scene(gridPaneOf {
+    override fun start(stage: Stage) {
+        stage.scene = Scene(gridPaneOf {
             vbox {
                 padding = Insets(0.0, 20.0, 0.0, 20.0)
                 calculationLabel = label("")
@@ -185,7 +185,7 @@ class App : Application() {
                 }
             } row 4 col 4
         })
-        primaryStage.show()
+        stage.show()
     }
 
     fun appendText(text: String) {

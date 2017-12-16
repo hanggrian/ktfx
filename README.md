@@ -2,6 +2,20 @@ kotfx
 =====
 Kotlin DSL and extension functions for minimalist JavaFX development.
 
+Layouts and Controls
+--------------------
+Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
+```kotlin
+vboxOf {
+    val name = textField()
+    button("Say Hello") {
+        setOnAction { alert("Hello, ${name.text}!") }
+    }
+}
+```
+
+[Demo][demo_layoutsandcontrols]
+
 Bindings
 --------
 JavaFX bindings has easy fluent API, here's a button that disables itself if text field is empty.
@@ -31,7 +45,7 @@ Collections
 -----------
 In JavaFX, collections are wrapped into observable version of themselves.
 `CollectionsKt` provides static functions to create new or convert existing into observable collections,
-`collections` package aims to extend those functions with Kotlin's extension functions.
+`kotfx.collections` aims to extend those functions with Kotlin's extension functions.
 
 ```kotlin
 // create unmodifiable observable collection
@@ -111,3 +125,5 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    
+[demo_layoutsandcontrols]: /art/demo_layoutsandcontrols.png

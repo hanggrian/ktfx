@@ -6,11 +6,12 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Label
+import kotfx.internal.ChildManager
 import kotfx.internal.ControlDsl
-import kotfx.layouts.ChildManager
+import kotfx.internal.ItemManager
 
 @JvmOverloads
-inline fun label(
+inline fun labelOf(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@ControlDsl Label).() -> Unit)? = null
@@ -18,6 +19,13 @@ inline fun label(
 
 @JvmOverloads
 inline fun ChildManager.label(
+        text: String? = null,
+        graphic: Node? = null,
+        noinline init: ((@ControlDsl Label).() -> Unit)? = null
+): Label = Label(text, graphic).apply { init?.invoke(this) }.add()
+
+@JvmOverloads
+inline fun ItemManager.label(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@ControlDsl Label).() -> Unit)? = null

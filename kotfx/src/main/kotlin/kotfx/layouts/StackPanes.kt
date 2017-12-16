@@ -10,6 +10,8 @@ import javafx.geometry.Pos
 import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
+import kotfx.internal.ChildManager
+import kotfx.internal.ItemManager
 import kotfx.internal.LayoutDsl
 
 class _StackPane : StackPane(), ChildManager, Alignable, Marginable {
@@ -22,5 +24,6 @@ class _StackPane : StackPane(), ChildManager, Alignable, Marginable {
     override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
 }
 
-inline fun stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init)
+inline fun stackPaneOf(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init)
 inline fun ChildManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init).add()
+inline fun ItemManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init).add()

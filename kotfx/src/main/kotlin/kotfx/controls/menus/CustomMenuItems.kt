@@ -2,14 +2,15 @@
 @file:JvmName("PopupsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls.popups
+package kotfx.controls.menus
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
 import kotfx.internal.ControlDsl
+import kotfx.internal.PopupManager
 
 @JvmOverloads
-inline fun customMenuItem(
+inline fun customMenuItemOf(
         node: Node? = null,
         hideOnClick: Boolean = true,
         noinline init: ((@ControlDsl CustomMenuItem).() -> Unit)? = null

@@ -2,13 +2,14 @@
 @file:JvmName("PopupsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls.popups
+package kotfx.controls.menus
 
 import javafx.scene.control.SeparatorMenuItem
 import kotfx.internal.ControlDsl
+import kotfx.internal.PopupManager
 
 @JvmOverloads
-inline fun separatorMenuItem(
+inline fun separatorMenuItemOf(
         noinline init: ((@ControlDsl SeparatorMenuItem).() -> Unit)? = null
 ): SeparatorMenuItem = SeparatorMenuItem().apply { init?.invoke(this) }
 

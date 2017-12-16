@@ -6,6 +6,8 @@ package kotfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
+import kotfx.internal.ChildManager
+import kotfx.internal.ItemManager
 import kotfx.internal.LayoutDsl
 
 class _AnchorPane : AnchorPane(), ChildManager, Constrained {
@@ -22,5 +24,6 @@ class _AnchorPane : AnchorPane(), ChildManager, Constrained {
     override fun <T : Node> T.clearConstraints(): T = apply { clearConstraints(this) }
 }
 
-inline fun anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
+inline fun anchorPaneOf(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
 inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()
+inline fun ItemManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()

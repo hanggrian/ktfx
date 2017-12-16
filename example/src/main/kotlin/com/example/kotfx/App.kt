@@ -13,7 +13,7 @@ import kotfx.controls.button
 import kotfx.controls.label
 import kotfx.dialogs.errorAlert
 import kotfx.dialogs.infoAlertWait
-import kotfx.layouts.gridPane
+import kotfx.layouts.gridPaneOf
 import kotfx.layouts.vbox
 import kotfx.properties.bind
 
@@ -29,7 +29,7 @@ class App : Application() {
     private lateinit var resultLabel: Label
 
     override fun start(primaryStage: Stage) {
-        primaryStage.scene = Scene(gridPane {
+        primaryStage.scene = Scene(gridPaneOf {
             vbox {
                 padding = Insets(0.0, 20.0, 0.0, 20.0)
                 calculationLabel = label("")

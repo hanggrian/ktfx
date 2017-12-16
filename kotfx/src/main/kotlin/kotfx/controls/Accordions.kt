@@ -6,17 +6,24 @@ package kotfx.controls
 
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
+import kotfx.internal.ChildManager
 import kotfx.internal.ControlDsl
-import kotfx.layouts.ChildManager
+import kotfx.internal.ItemManager
 
 @JvmOverloads
-inline fun accordion(
-        vararg panes: TitledPane,
+inline fun accordionOf(
+        vararg titledPanes: TitledPane,
         noinline init: ((@ControlDsl Accordion).() -> Unit)? = null
-): Accordion = Accordion(*panes).apply { init?.invoke(this) }
+): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun ChildManager.accordion(
-        vararg panes: TitledPane,
+        vararg titledPanes: TitledPane,
         noinline init: ((@ControlDsl Accordion).() -> Unit)? = null
-): Accordion = Accordion(*panes).apply { init?.invoke(this) }.add()
+): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }.add()
+
+@JvmOverloads
+inline fun ItemManager.accordion(
+        vararg titledPanes: TitledPane,
+        noinline init: ((@ControlDsl Accordion).() -> Unit)? = null
+): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }.add()

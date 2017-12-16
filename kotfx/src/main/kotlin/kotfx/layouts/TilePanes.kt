@@ -10,6 +10,8 @@ import javafx.geometry.Pos
 import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
+import kotfx.internal.ChildManager
+import kotfx.internal.ItemManager
 import kotfx.internal.LayoutDsl
 
 class _TilePane : TilePane(), ChildManager, Alignable, Marginable {
@@ -22,5 +24,6 @@ class _TilePane : TilePane(), ChildManager, Alignable, Marginable {
     override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
 }
 
-inline fun tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init)
+inline fun tilePaneOf(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init)
 inline fun ChildManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init).add()
+inline fun ItemManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init).add()

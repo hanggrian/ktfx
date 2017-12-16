@@ -15,6 +15,8 @@ import javafx.scene.Node
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
+import kotfx.internal.ChildManager
+import kotfx.internal.ItemManager
 import kotfx.internal.LayoutDsl
 
 class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VGrowable {
@@ -67,5 +69,6 @@ class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VG
     override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
 }
 
-inline fun gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)
+inline fun gridPaneOf(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)
 inline fun ChildManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init).add()
+inline fun ItemManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init).add()

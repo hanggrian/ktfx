@@ -6,19 +6,27 @@ package kotfx.controls
 
 import javafx.scene.Node
 import javafx.scene.control.Tab
+import kotfx.internal.ChildManager
 import kotfx.internal.ControlDsl
-import kotfx.layouts.ChildManager
+import kotfx.internal.ItemManager
 
 @JvmOverloads
-inline fun tab(
+inline fun tabOf(
         text: String? = null,
-        graphic: Node? = null,
+        content: Node? = null,
         noinline init: ((@ControlDsl Tab).() -> Unit)? = null
-): Tab = Tab(text, graphic).apply { init?.invoke(this) }
+): Tab = Tab(text, content).apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun ChildManager.tab(
         text: String? = null,
-        graphic: Node? = null,
+        content: Node? = null,
         noinline init: ((@ControlDsl Tab).() -> Unit)? = null
-): Tab = Tab(text, graphic).apply { init?.invoke(this) }
+): Tab = Tab(text, content).apply { init?.invoke(this) }
+
+@JvmOverloads
+inline fun ItemManager.tab(
+        text: String? = null,
+        content: Node? = null,
+        noinline init: ((@ControlDsl Tab).() -> Unit)? = null
+): Tab = Tab(text, content).apply { init?.invoke(this) }

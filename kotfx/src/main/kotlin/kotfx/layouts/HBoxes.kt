@@ -10,6 +10,8 @@ import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
+import kotfx.internal.ChildManager
+import kotfx.internal.ItemManager
 import kotfx.internal.LayoutDsl
 
 class _HBox : HBox(), ChildManager, HGrowable, Marginable {
@@ -22,5 +24,6 @@ class _HBox : HBox(), ChildManager, HGrowable, Marginable {
     override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
 }
 
-inline fun hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
+inline fun hboxOf(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
 inline fun ChildManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init).add()
+inline fun ItemManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init).add()

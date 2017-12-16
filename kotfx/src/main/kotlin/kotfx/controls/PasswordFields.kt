@@ -5,15 +5,21 @@
 package kotfx.controls
 
 import javafx.scene.control.PasswordField
+import kotfx.internal.ChildManager
 import kotfx.internal.ControlDsl
-import kotfx.layouts.ChildManager
+import kotfx.internal.ItemManager
 
 @JvmOverloads
-inline fun passwordField(
+inline fun passwordFieldOf(
         noinline init: ((@ControlDsl PasswordField).() -> Unit)? = null
 ): PasswordField = PasswordField().apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun ChildManager.passwordField(
+        noinline init: ((@ControlDsl PasswordField).() -> Unit)? = null
+): PasswordField = PasswordField().apply { init?.invoke(this) }.add()
+
+@JvmOverloads
+inline fun ItemManager.passwordField(
         noinline init: ((@ControlDsl PasswordField).() -> Unit)? = null
 ): PasswordField = PasswordField().apply { init?.invoke(this) }.add()

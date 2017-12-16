@@ -2,11 +2,12 @@
 @file:JvmName("PopupsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls.popups
+package kotfx.controls.menus
 
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
 import kotfx.internal.ControlDsl
+import kotfx.internal.PopupManager
 
 @JvmOverloads
 inline fun checkMenuItem(

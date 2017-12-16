@@ -4,22 +4,12 @@
 
 package kotfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.geometry.HPos
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.Priority
-
-interface ChildManager {
-
-    /** Shadowed when being implemented in pane. */
-    fun getChildren(): ObservableList<Node>
-
-    /** Convenient method to add child to this pane. */
-    fun <N : Node> N.add(): N = apply { getChildren().add(this) }
-}
 
 internal interface Alignable : Constrained {
     infix fun <N : Node> N.pos(value: Pos): N

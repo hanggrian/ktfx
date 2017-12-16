@@ -14,7 +14,7 @@ vboxOf {
 }
 ```
 
-[Demo][demo_layoutsandcontrols]
+![Demo][demo_layoutsandcontrols]
 
 Bindings
 --------

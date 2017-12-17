@@ -6,13 +6,12 @@ package kotfx
 
 import javafx.scene.control.ChoiceDialog
 import javafx.stage.Window
-import kotfx.internal.DialogDsl
 
 @JvmOverloads
 inline fun <T> choiceDialog(
         items: Collection<T>? = null,
         prefill: T? = null,
-        noinline init: ((@DialogDsl ChoiceDialog<T>).() -> Unit)? = null
+        noinline init: (ChoiceDialog<T>.() -> Unit)? = null
 ): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
     init?.invoke(this)
 }
@@ -21,7 +20,7 @@ inline fun <T> choiceDialog(
 inline fun <T> Window.choiceDialog(
         items: Collection<T>? = null,
         prefill: T? = null,
-        noinline init: ((@DialogDsl ChoiceDialog<T>).() -> Unit)? = null
+        noinline init: (ChoiceDialog<T>.() -> Unit)? = null
 ): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
     initOwner(this@choiceDialog)
     init?.invoke(this)

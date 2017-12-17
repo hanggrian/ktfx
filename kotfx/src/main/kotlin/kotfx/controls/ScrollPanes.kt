@@ -7,23 +7,23 @@ package kotfx
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 import kotfx.internal.ChildManager
-import kotfx.internal.ControlDsl
+import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
 
 @JvmOverloads
 inline fun scrollPaneOf(
         content: Node? = null,
-        noinline init: ((@ControlDsl ScrollPane).() -> Unit)? = null
+        noinline init: ((@KotfxDsl ScrollPane).() -> Unit)? = null
 ): ScrollPane = ScrollPane(content).apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun ChildManager.scrollPane(
         content: Node? = null,
-        noinline init: ((@ControlDsl ScrollPane).() -> Unit)? = null
+        noinline init: ((@KotfxDsl ScrollPane).() -> Unit)? = null
 ): ScrollPane = ScrollPane(content).apply { init?.invoke(this) }.add()
 
 @JvmOverloads
 inline fun ItemManager.scrollPane(
         content: Node? = null,
-        noinline init: ((@ControlDsl ScrollPane).() -> Unit)? = null
+        noinline init: ((@KotfxDsl ScrollPane).() -> Unit)? = null
 ): ScrollPane = ScrollPane(content).apply { init?.invoke(this) }.add()

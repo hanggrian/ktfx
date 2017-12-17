@@ -8,7 +8,6 @@ import javafx.animation.*
 import javafx.scene.Node
 import javafx.scene.shape.Shape
 import javafx.util.Duration
-import kotfx.internal.AnimationDsl
 
 inline fun parallelTransitionOf(vararg animations: Animation): ParallelTransition = ParallelTransition(*animations)
 
@@ -19,7 +18,7 @@ inline fun Node.fadeTransition(
         duration: Duration,
         from: Double,
         to: Double,
-        noinline init: ((@AnimationDsl FadeTransition).() -> Unit)? = null
+        noinline init: (FadeTransition.() -> Unit)? = null
 ): Transition = FadeTransition(duration, this).apply {
     fromValue = from
     toValue = to
@@ -30,7 +29,7 @@ inline fun Node.fadeTransition(
 inline fun Node.pathTransition(
         duration: Duration,
         path: Shape,
-        noinline init: ((@AnimationDsl PathTransition).() -> Unit)? = null
+        noinline init: (PathTransition.() -> Unit)? = null
 ): Transition = PathTransition(duration, path, this).apply {
     init?.invoke(this)
 }
@@ -38,7 +37,7 @@ inline fun Node.pathTransition(
 @JvmOverloads
 inline fun Node.parallelTransition(
         vararg animations: Animation,
-        noinline init: ((@AnimationDsl ParallelTransition).() -> Unit)? = null
+        noinline init: (ParallelTransition.() -> Unit)? = null
 ): Transition = ParallelTransition(this, *animations).apply {
     init?.invoke(this)
 }
@@ -46,7 +45,7 @@ inline fun Node.parallelTransition(
 @JvmOverloads
 inline fun Node.sequentialTransition(
         vararg animations: Animation,
-        noinline init: ((@AnimationDsl SequentialTransition).() -> Unit)? = null
+        noinline init: (SequentialTransition.() -> Unit)? = null
 ): Transition = SequentialTransition(this).apply {
     children.addAll(*animations)
     init?.invoke(this)

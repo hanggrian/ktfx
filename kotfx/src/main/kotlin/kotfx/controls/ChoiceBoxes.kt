@@ -7,23 +7,23 @@ package kotfx
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
 import kotfx.internal.ChildManager
-import kotfx.internal.ControlDsl
+import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
 
 @JvmOverloads
 inline fun <T> choiceBoxOf(
         items: ObservableList<T> = mutableObservableListOf(),
-        noinline init: ((@ControlDsl ChoiceBox<T>).() -> Unit)? = null
+        noinline init: ((@KotfxDsl ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = ChoiceBox(items).apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun <T> ChildManager.choiceBox(
         items: ObservableList<T> = mutableObservableListOf(),
-        noinline init: ((@ControlDsl ChoiceBox<T>).() -> Unit)? = null
+        noinline init: ((@KotfxDsl ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = ChoiceBox(items).apply { init?.invoke(this) }.add()
 
 @JvmOverloads
 inline fun <T> ItemManager.choiceBox(
         items: ObservableList<T> = mutableObservableListOf(),
-        noinline init: ((@ControlDsl ChoiceBox<T>).() -> Unit)? = null
+        noinline init: ((@KotfxDsl ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = ChoiceBox(items).apply { init?.invoke(this) }.add()

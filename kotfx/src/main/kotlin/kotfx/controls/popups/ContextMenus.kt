@@ -7,9 +7,9 @@ package kotfx
 import javafx.scene.control.ContextMenu
 import javafx.scene.control.MenuItem
 import kotfx.controls._ContextMenu
-import kotfx.internal.LayoutDsl
+import kotfx.internal.KotfxDsl
 
 inline fun contextMenuOf(
         vararg items: MenuItem,
-        noinline init: (@LayoutDsl _ContextMenu).() -> Unit
+        noinline init: (@KotfxDsl _ContextMenu).() -> Unit
 ): ContextMenu = _ContextMenu(*items).apply(init)

@@ -3,12 +3,16 @@
 package kotfx.layouts
 
 import javafx.geometry.HPos
+import javafx.geometry.HPos.LEFT
 import javafx.geometry.Insets
+import javafx.geometry.Insets.EMPTY
 import javafx.geometry.Pos
 import javafx.geometry.VPos
+import javafx.geometry.VPos.TOP
 import javafx.scene.Node
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
+import javafx.scene.layout.Priority.NEVER
 import kotfx.internal.ChildManager
 
 class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VGrowable {
@@ -25,38 +29,38 @@ class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VG
     inline val Node.colSpan: Int get() = getColumnSpan(this) ?: -1
 
     override fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.pos(value: Pos): N = apply {
         setHalignment(this, value.hpos)
         setValignment(this, value.vpos)
     }
 
-    override infix fun <N : Node> N.hPos(value: HPos): N = apply { setHalignment(this, value) }
-    override infix fun <N : Node> N.vPos(value: VPos): N = apply { setValignment(this, value) }
+    override infix fun <N : Node> N.hpos(value: HPos): N = apply { setHalignment(this, value) }
+    override infix fun <N : Node> N.vpos(value: VPos): N = apply { setValignment(this, value) }
 
-    override val Node.pos: Pos get() = posOf(vPos, hPos)
-    override val Node.vPos: VPos get() = getValignment(this) ?: VPos.TOP
-    override val Node.hPos: HPos get() = getHalignment(this) ?: HPos.LEFT
+    override val Node.pos: Pos get() = posOf(vpos, hpos)
+    override val Node.vpos: VPos get() = getValignment(this) ?: TOP
+    override val Node.hpos: HPos get() = getHalignment(this) ?: LEFT
 
-    inline infix fun <N : Node> N.fillWidth(value: Boolean): N = apply { setFillWidth(this, value) }
-    inline val Node.isFillWidth: Boolean get() = isFillWidth(this)
+    inline infix fun <N : Node> N.hfill(value: Boolean): N = apply { setFillWidth(this, value) }
+    inline val Node.hfill: Boolean get() = isFillWidth(this)
 
-    inline infix fun <N : Node> N.fillHeight(value: Boolean): N = apply { setFillHeight(this, value) }
-    inline val Node.isFillHeight: Boolean get() = isFillHeight(this)
+    inline infix fun <N : Node> N.vfill(value: Boolean): N = apply { setFillHeight(this, value) }
+    inline val Node.vfill: Boolean get() = isFillHeight(this)
 
-    inline infix fun <N : Node> N.fillSize(value: Boolean): N = apply {
+    inline infix fun <N : Node> N.fill(value: Boolean): N = apply {
         setFillWidth(this, value)
         setFillHeight(this, value)
     }
 
-    inline val Node.isFillSize: Boolean get() = isFillWidth && isFillHeight
+    inline val Node.fill: Boolean get() = hfill && vfill
 
-    override infix fun <N : Node> N.hGrow(value: Priority): N = apply { setVgrow(this, value) }
-    override val Node.hGrow: Priority get() = getHgrow(this) ?: Priority.NEVER
+    override infix fun <N : Node> N.hpriority(value: Priority): N = apply { setVgrow(this, value) }
+    override val Node.hpriority: Priority get() = getHgrow(this) ?: NEVER
 
-    override infix fun <N : Node> N.vGrow(value: Priority): N = apply { setVgrow(this, value) }
-    override val Node.vGrow: Priority get() = getVgrow(this) ?: Priority.NEVER
+    override infix fun <N : Node> N.vpriority(value: Priority): N = apply { setVgrow(this, value) }
+    override val Node.vpriority: Priority get() = getVgrow(this) ?: NEVER
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }

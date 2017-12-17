@@ -50,7 +50,7 @@ class App : Application() {
                         }
                     }
                 }
-            } row 0 col 0 colSpan 5 fillWidth true
+            } row 0 col 0 colSpan 5 hfill true
 
             button("1") {
                 setMinSize(40.0, 40.0)
@@ -158,7 +158,6 @@ class App : Application() {
                 setOnAction {
                     appendText("+")
                 }
-
             } row 3 col 3 rowSpan 2
             button("-") {
                 setMinSize(40.0, 40.0)

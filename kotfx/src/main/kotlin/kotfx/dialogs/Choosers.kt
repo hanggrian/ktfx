@@ -4,13 +4,12 @@ package kotfx
 
 import javafx.stage.DirectoryChooser
 import javafx.stage.FileChooser
-import kotfx.internal.DialogDsl
 import java.io.File
 
 @JvmOverloads
 inline fun fileChooser(
         vararg filters: FileChooser.ExtensionFilter,
-        noinline init: ((@DialogDsl FileChooser).() -> Unit)? = null
+        noinline init: (FileChooser.() -> Unit)? = null
 ): FileChooser = FileChooser().apply {
     extensionFilters.addAll(*filters)
     init?.invoke(this)
@@ -20,13 +19,13 @@ inline fun fileChooser(
 inline fun fileChooser(
         description: String,
         vararg extensions: String,
-        noinline init: ((@DialogDsl FileChooser).() -> Unit)? = null
+        noinline init: (FileChooser.() -> Unit)? = null
 ): FileChooser = fileChooser(FileChooser.ExtensionFilter(description, *extensions), init = init)
 
 @JvmOverloads
 inline fun directoryChooser(
         initialDirectory: File? = null,
-        noinline init: ((@DialogDsl DirectoryChooser).() -> Unit)? = null
+        noinline init: (DirectoryChooser.() -> Unit)? = null
 ): DirectoryChooser = DirectoryChooser().apply {
     initialDirectory?.let { setInitialDirectory(it) }
     init?.invoke(this)

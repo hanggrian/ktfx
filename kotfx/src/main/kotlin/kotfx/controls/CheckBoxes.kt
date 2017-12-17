@@ -6,23 +6,23 @@ package kotfx
 
 import javafx.scene.control.CheckBox
 import kotfx.internal.ChildManager
-import kotfx.internal.ControlDsl
+import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
 
 @JvmOverloads
 inline fun checkBoxOf(
         text: String? = null,
-        noinline init: ((@ControlDsl CheckBox).() -> Unit)? = null
+        noinline init: ((@KotfxDsl CheckBox).() -> Unit)? = null
 ): CheckBox = CheckBox(text).apply { init?.invoke(this) }
 
 @JvmOverloads
 inline fun ChildManager.checkBox(
         text: String? = null,
-        noinline init: ((@ControlDsl CheckBox).() -> Unit)? = null
+        noinline init: ((@KotfxDsl CheckBox).() -> Unit)? = null
 ): CheckBox = CheckBox(text).apply { init?.invoke(this) }.add()
 
 @JvmOverloads
 inline fun ItemManager.checkBox(
         text: String? = null,
-        noinline init: ((@ControlDsl CheckBox).() -> Unit)? = null
+        noinline init: ((@KotfxDsl CheckBox).() -> Unit)? = null
 ): CheckBox = CheckBox(text).apply { init?.invoke(this) }.add()

@@ -8,13 +8,12 @@ import javafx.scene.control.Alert
 import javafx.scene.control.Alert.AlertType.*
 import javafx.scene.control.ButtonType
 import javafx.stage.Window
-import kotfx.internal.DialogDsl
 
 @JvmOverloads
 inline fun alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(NONE, contentText, *buttonTypes).apply {
     init?.invoke(this)
 }
@@ -23,7 +22,7 @@ inline fun alert(
 inline fun Window.alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(NONE, contentText, *buttonTypes).apply {
     initOwner(this@alert)
     init?.invoke(this)
@@ -33,7 +32,7 @@ inline fun Window.alert(
 inline fun infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(INFORMATION, contentText, *buttonTypes).apply {
     init?.invoke(this)
 }
@@ -42,7 +41,7 @@ inline fun infoAlert(
 inline fun Window.infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(INFORMATION, contentText, *buttonTypes).apply {
     initOwner(this@infoAlert)
     init?.invoke(this)
@@ -52,7 +51,7 @@ inline fun Window.infoAlert(
 inline fun warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(WARNING, contentText, *buttonTypes).apply {
     init?.invoke(this)
 }
@@ -61,7 +60,7 @@ inline fun warningAlert(
 inline fun Window.warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(WARNING, contentText, *buttonTypes).apply {
     initOwner(this@warningAlert)
     init?.invoke(this)
@@ -71,7 +70,7 @@ inline fun Window.warningAlert(
 inline fun confirmAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
     init?.invoke(this)
 }
@@ -80,7 +79,7 @@ inline fun confirmAlert(
 inline fun Window.confirmAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
     initOwner(this@confirmAlert)
     init?.invoke(this)
@@ -90,7 +89,7 @@ inline fun Window.confirmAlert(
 inline fun errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(ERROR, contentText, *buttonTypes).apply {
     init?.invoke(this)
 }
@@ -99,7 +98,7 @@ inline fun errorAlert(
 inline fun Window.errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+        noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(ERROR, contentText, *buttonTypes).apply {
     initOwner(this@errorAlert)
     init?.invoke(this)

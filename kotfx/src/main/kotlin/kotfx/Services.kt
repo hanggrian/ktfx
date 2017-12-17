@@ -4,7 +4,6 @@ package kotfx
 
 import javafx.concurrent.Service
 import javafx.concurrent.Task
-import kotfx.internal.ServiceDsl
 
 abstract class _Task<V> : Task<V>() {
     fun progress(workDone: Number, max: Number) = updateProgress(workDone.toDouble(), max.toDouble())
@@ -16,7 +15,7 @@ abstract class _Task<V> : Task<V>() {
 @JvmOverloads
 inline fun <V> service(
         noinline onCall: _Task<V>.() -> V,
-        noinline init: ((@ServiceDsl Service<V>).() -> Unit)? = null
+        noinline init: (Service<V>.() -> Unit)? = null
 ): Service<V> = object : Service<V>() {
     override fun createTask(): Task<V> = object : _Task<V>() {
         override fun call(): V = onCall(this)

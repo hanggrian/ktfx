@@ -6,12 +6,11 @@ package kotfx
 
 import javafx.scene.control.TextInputDialog
 import javafx.stage.Window
-import kotfx.internal.DialogDsl
 
 @JvmOverloads
 inline fun inputDialog(
         prefill: String = "",
-        noinline init: ((@DialogDsl TextInputDialog).() -> Unit)? = null
+        noinline init: (TextInputDialog.() -> Unit)? = null
 ): TextInputDialog = TextInputDialog(prefill).apply {
     init?.invoke(this)
 }
@@ -19,7 +18,7 @@ inline fun inputDialog(
 @JvmOverloads
 inline fun Window.inputDialog(
         prefill: String = "",
-        noinline init: ((@DialogDsl TextInputDialog).() -> Unit)? = null
+        noinline init: (TextInputDialog.() -> Unit)? = null
 ): TextInputDialog = TextInputDialog(prefill).apply {
     initOwner(this@inputDialog)
     init?.invoke(this)

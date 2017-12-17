@@ -12,7 +12,6 @@ import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.stage.Stage
 import javafx.stage.Window
-import kotfx.internal.DialogDsl
 
 inline var Dialog<*>.header: Node
     get() = dialogPane.header
@@ -57,7 +56,7 @@ inline fun <R> dialog(
         title: String,
         headerText: String? = null,
         graphic: Node? = null,
-        noinline init: ((@DialogDsl Dialog<R>).() -> Unit)? = null
+        noinline init: (Dialog<R>.() -> Unit)? = null
 ): Dialog<R> = Dialog<R>().apply {
     setTitle(title)
     headerText?.let { setHeaderText(it) }
@@ -70,7 +69,7 @@ inline fun <R> Window.dialog(
         title: String,
         headerText: String? = null,
         graphic: Node? = null,
-        noinline init: ((@DialogDsl Dialog<R>).() -> Unit)? = null
+        noinline init: (Dialog<R>.() -> Unit)? = null
 ): Dialog<R> = Dialog<R>().apply {
     initOwner(this@dialog)
     setTitle(title)

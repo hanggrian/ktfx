@@ -7,16 +7,7 @@ import javafx.scene.control.Label
 import javafx.scene.text.Font.font
 import javafx.scene.text.FontWeight.BOLD
 import javafx.stage.Stage
-import kotfx.bindings.booleanBindingOf
-import kotfx.bindings.stringBindingOf
-import kotfx.controls.button
-import kotfx.controls.label
-import kotfx.dialogs.errorAlert
-import kotfx.dialogs.infoAlert
-import kotfx.layouts.gridPaneOf
-import kotfx.layouts.vbox
-import kotfx.layouts.vboxOf
-import kotfx.properties.bind
+import kotfx.*
 
 class App : Application() {
 

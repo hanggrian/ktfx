@@ -1,8 +1,8 @@
 @file:JvmMultifileClass
-@file:JvmName("PopupsKt")
+@file:JvmName("ControlsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls.menus
+package kotfx
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem

@@ -2,16 +2,14 @@
 @file:JvmName("ControlsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls
+package kotfx
 
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
+import kotfx.controls._MenuBar
 import kotfx.internal.ChildManager
 import kotfx.internal.ControlDsl
 import kotfx.internal.ItemManager
-import kotfx.internal.MenuManager
-
-class _MenuBar(vararg menus: Menu) : MenuBar(*menus), MenuManager
 
 @JvmOverloads
 inline fun menuBarOf(

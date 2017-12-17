@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.dialogs
+package kotfx
 
 import javafx.stage.DirectoryChooser
 import javafx.stage.FileChooser

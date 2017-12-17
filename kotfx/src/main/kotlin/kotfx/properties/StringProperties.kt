@@ -2,7 +2,7 @@
 @file:JvmName("PropertiesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.properties
+package kotfx
 
 import javafx.beans.property.ReadOnlyStringWrapper
 import javafx.beans.property.SimpleStringProperty

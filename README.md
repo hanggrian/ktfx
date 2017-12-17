@@ -32,7 +32,7 @@ button.disableProperty().bind(passwordField.textProperty().isEmpty()
     .or(passwordField.textProperty().isNotEqualTo(passwordConfirmField.textProperty())));
 ```
 
-`kotfx.bindings` simplifies the process using kotlin infix and operator functions.
+`BindingsKt` simplifies the process using kotlin infix and operator functions.
 ```kotlin
 button.disableProperty bind (passwordField.textProperty().isEmpty
     or passwordConfirmField.textProperty().isEmpty
@@ -45,7 +45,7 @@ Collections
 -----------
 In JavaFX, collections are wrapped into observable version of themselves.
 `CollectionsKt` provides static functions to create new or convert existing into observable collections,
-`kotfx.collections` aims to extend those functions with Kotlin's extension functions.
+`CollectionsKt` aims to extend those functions with Kotlin's extension functions.
 
 ```kotlin
 // create unmodifiable observable collection
@@ -107,7 +107,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.10'
+    compile 'com.hendraanggrian:kotfx:0.11'
 }
 ```
 

@@ -1,7 +1,5 @@
 package kotfx
 
-import kotfx.properties.asObservable
-import kotfx.properties.asProperty
 import org.junit.Assert.assertTrue
 import org.junit.Test
 

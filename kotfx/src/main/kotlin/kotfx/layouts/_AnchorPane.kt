@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
 package kotfx.layouts
@@ -7,8 +5,6 @@ package kotfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import kotfx.internal.ChildManager
-import kotfx.internal.ItemManager
-import kotfx.internal.LayoutDsl
 
 class _AnchorPane : AnchorPane(), ChildManager, Constrained {
     inline infix fun <N : Node> N.anchorTop(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
@@ -23,7 +19,3 @@ class _AnchorPane : AnchorPane(), ChildManager, Constrained {
 
     override fun <T : Node> T.reset(): T = apply { clearConstraints(this) }
 }
-
-inline fun anchorPaneOf(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
-inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()
-inline fun ItemManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()

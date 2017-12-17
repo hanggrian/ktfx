@@ -2,7 +2,7 @@
 @file:JvmName("DialogsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.dialogs
+package kotfx
 
 import javafx.scene.Node
 import javafx.scene.control.ButtonBar

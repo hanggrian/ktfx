@@ -1,6 +1,7 @@
 package kotfx.bindings
 
 import javafx.scene.control.Label
+import kotfx.*
 
 class ObservableStringBindingsTest {
 

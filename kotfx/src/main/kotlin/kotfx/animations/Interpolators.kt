@@ -1,6 +1,8 @@
+@file:JvmMultifileClass
+@file:JvmName("AnimationsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.animations
+package kotfx
 
 import javafx.animation.Interpolator
 

@@ -2,6 +2,7 @@ package kotfx.bindings
 
 import javafx.beans.binding.Bindings
 import javafx.collections.ObservableList
+import kotfx.*
 
 class ObservableListBindingsTest {
 

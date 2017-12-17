@@ -2,11 +2,10 @@
 @file:JvmName("ControlsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls
+package kotfx
 
 import javafx.collections.ObservableList
 import javafx.scene.control.ListView
-import kotfx.collections.mutableObservableListOf
 import kotfx.internal.ChildManager
 import kotfx.internal.ControlDsl
 import kotfx.internal.ItemManager

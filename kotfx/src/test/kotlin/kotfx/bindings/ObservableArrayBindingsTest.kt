@@ -4,6 +4,9 @@ import javafx.beans.binding.Bindings
 import javafx.collections.ObservableArray
 import javafx.collections.ObservableFloatArray
 import javafx.collections.ObservableIntegerArray
+import kotfx.floatValueAt
+import kotfx.intValueAt
+import kotfx.sizeBinding
 
 class ObservableArrayBindingsTest {
 

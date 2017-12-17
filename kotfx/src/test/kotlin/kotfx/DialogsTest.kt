@@ -1,6 +1,5 @@
 package kotfx
 
-import kotfx.dialogs.alert
 import org.junit.Assert.assertEquals
 
 class DialogsTest {
@@ -10,7 +9,7 @@ class DialogsTest {
     val rule = JavaFXThreadingRule()
 
     // @Test
-    fun alert() {
+    fun simpleAlert() {
         alert("yo") {
             assertEquals(title, "")
         }

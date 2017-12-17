@@ -2,7 +2,7 @@
 @file:JvmName("CollectionsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.collections
+package kotfx
 
 import javafx.collections.FXCollections
 import javafx.collections.FXCollections.*

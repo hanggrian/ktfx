@@ -1,15 +1,13 @@
 @file:JvmMultifileClass
-@file:JvmName("PopupsKt")
+@file:JvmName("ControlsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls.menus
+package kotfx
 
 import javafx.scene.control.ContextMenu
 import javafx.scene.control.MenuItem
+import kotfx.controls._ContextMenu
 import kotfx.internal.LayoutDsl
-import kotfx.internal.PopupManager
-
-class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupManager
 
 inline fun contextMenuOf(
         vararg items: MenuItem,

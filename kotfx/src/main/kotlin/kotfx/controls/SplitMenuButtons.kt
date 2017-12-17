@@ -2,7 +2,7 @@
 @file:JvmName("ControlsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package kotfx.controls
+package kotfx
 
 import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton

@@ -5,19 +5,19 @@ import javafx.collections.ObservableList
 
 class ObservableListBindingsTest {
 
-    fun size2(list: ObservableList<*>) {
+    fun sizeBinding(list: ObservableList<*>) {
         Bindings.size(list)
-        list.size2
+        list.sizeBinding
     }
 
-    fun isEmpty(list: ObservableList<*>) {
+    fun emptyBinding(list: ObservableList<*>) {
         Bindings.isEmpty(list)
-        list.isEmpty
+        list.emptyBinding
     }
 
-    fun isNotEmpty(list: ObservableList<*>) {
+    fun notEmptyBinding(list: ObservableList<*>) {
         Bindings.isNotEmpty(list)
-        list.isNotEmpty
+        list.notEmptyBinding
     }
 
     fun valueAt(list: ObservableList<*>) {

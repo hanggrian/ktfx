@@ -15,13 +15,13 @@ import kotfx.internal.ItemManager
 import kotfx.internal.LayoutDsl
 
 class _VBox : VBox(), ChildManager, VGrowable, Marginable {
-    override infix fun <N : Node> N.vgrow(value: Priority): N = apply { setVgrow(this, value) }
-    override val Node.vgrow2: Priority get() = getVgrow(this) ?: NEVER
+    override infix fun <N : Node> N.vGrow(value: Priority): N = apply { setVgrow(this, value) }
+    override val Node.vGrow: Priority get() = getVgrow(this) ?: NEVER
 
-    override infix fun <N : Node> N.margin(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margin2: Insets get() = getMargin(this) ?: EMPTY
+    override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
-    override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
+    override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
 inline fun vboxOf(init: (@LayoutDsl _VBox).() -> Unit): VBox = _VBox().apply(init)

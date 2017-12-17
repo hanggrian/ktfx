@@ -13,10 +13,10 @@ import kotfx.internal.ItemManager
 import kotfx.internal.LayoutDsl
 
 class _FlowPane : FlowPane(), ChildManager, Marginable {
-    override infix fun <N : Node> N.margin(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margin2: Insets get() = getMargin(this) ?: EMPTY
+    override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
-    override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
+    override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
 inline fun flowPaneOf(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init)

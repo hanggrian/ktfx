@@ -5,34 +5,24 @@
 package kotfx.dialogs
 
 import javafx.scene.control.ChoiceDialog
+import javafx.stage.Window
 import kotfx.internal.DialogDsl
-import java.util.*
-
-class _ChoiceDialog<T>(items: Collection<T>?, defaultItem: T?) : ChoiceDialog<T>(defaultItem, items), DialogBuilder<ChoiceDialog<T>> {
-    override val dialog: ChoiceDialog<T> get() = this
-
-    fun select(value: T) = setSelectedItem(value)
-}
 
 @JvmOverloads
 inline fun <T> choiceDialog(
-        title: String? = null,
         items: Collection<T>? = null,
         prefill: T? = null,
-        noinline init: ((@DialogDsl _ChoiceDialog<T>).() -> Unit)? = null
-): ChoiceDialog<T> = _ChoiceDialog(items, prefill).apply {
-    if (title != null) title(title)
+        noinline init: ((@DialogDsl ChoiceDialog<T>).() -> Unit)? = null
+): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
     init?.invoke(this)
-    show()
 }
 
 @JvmOverloads
-inline fun <T> choiceDialogWait(
-        title: String? = null,
+inline fun <T> Window.choiceDialog(
         items: Collection<T>? = null,
         prefill: T? = null,
-        noinline init: ((@DialogDsl _ChoiceDialog<T>).() -> Unit)? = null
-): Optional<T> = _ChoiceDialog(items, prefill).apply {
-    if (title != null) title(title)
+        noinline init: ((@DialogDsl ChoiceDialog<T>).() -> Unit)? = null
+): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
+    initOwner(this@choiceDialog)
     init?.invoke(this)
-}.showAndWait()
+}

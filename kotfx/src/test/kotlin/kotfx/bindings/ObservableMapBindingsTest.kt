@@ -5,19 +5,19 @@ import javafx.collections.ObservableMap
 
 class ObservableMapBindingsTest {
 
-    fun size2(map: ObservableMap<*, *>) {
+    fun sizeBinding(map: ObservableMap<*, *>) {
         Bindings.size(map)
-        map.size2
+        map.sizeBinding
     }
 
-    fun isEmpty(map: ObservableMap<*, *>) {
+    fun emptyBinding(map: ObservableMap<*, *>) {
         Bindings.isEmpty(map)
-        map.isEmpty
+        map.emptyBinding
     }
 
-    fun isNotEmpty(map: ObservableMap<*, *>) {
+    fun notEmptyBinding(map: ObservableMap<*, *>) {
         Bindings.isNotEmpty(map)
-        map.isNotEmpty
+        map.notEmptyBinding
     }
 
     fun valueAt(map: ObservableMap<Int, *>) {

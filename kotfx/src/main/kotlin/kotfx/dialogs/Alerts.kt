@@ -7,106 +7,100 @@ package kotfx.dialogs
 import javafx.scene.control.Alert
 import javafx.scene.control.Alert.AlertType.*
 import javafx.scene.control.ButtonType
+import javafx.stage.Window
 import kotfx.internal.DialogDsl
-import java.util.*
-
-class _Alert(type: Alert.AlertType, contentText: String, vararg buttonTypes: ButtonType) : Alert(type, contentText, *buttonTypes), DialogBuilder<Alert> {
-    override val dialog: Alert get() = this
-
-    fun type(value: Alert.AlertType) = setAlertType(value)
-}
 
 @JvmOverloads
 inline fun alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Alert = _Alert(NONE, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(NONE, contentText, *buttonTypes).apply {
     init?.invoke(this)
-    show()
 }
 
 @JvmOverloads
-inline fun alertWait(
+inline fun Window.alert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Optional<ButtonType> = _Alert(NONE, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(NONE, contentText, *buttonTypes).apply {
+    initOwner(this@alert)
     init?.invoke(this)
-}.showAndWait()
+}
 
 @JvmOverloads
 inline fun infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Alert = _Alert(INFORMATION, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(INFORMATION, contentText, *buttonTypes).apply {
     init?.invoke(this)
-    show()
 }
 
 @JvmOverloads
-inline fun infoAlertWait(
+inline fun Window.infoAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Optional<ButtonType> = _Alert(INFORMATION, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(INFORMATION, contentText, *buttonTypes).apply {
+    initOwner(this@infoAlert)
     init?.invoke(this)
-}.showAndWait()
+}
 
 @JvmOverloads
 inline fun warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Alert = _Alert(WARNING, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(WARNING, contentText, *buttonTypes).apply {
     init?.invoke(this)
-    show()
 }
 
 @JvmOverloads
-inline fun warningAlertWait(
+inline fun Window.warningAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Optional<ButtonType> = _Alert(WARNING, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(WARNING, contentText, *buttonTypes).apply {
+    initOwner(this@warningAlert)
     init?.invoke(this)
-}.showAndWait()
+}
 
 @JvmOverloads
 inline fun confirmAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Alert = _Alert(CONFIRMATION, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
     init?.invoke(this)
-    show()
 }
 
 @JvmOverloads
-inline fun confirmAlertWait(
+inline fun Window.confirmAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Optional<ButtonType> = _Alert(CONFIRMATION, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
+    initOwner(this@confirmAlert)
     init?.invoke(this)
-}.showAndWait()
+}
 
 @JvmOverloads
 inline fun errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Alert = _Alert(ERROR, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(ERROR, contentText, *buttonTypes).apply {
     init?.invoke(this)
-    show()
 }
 
 @JvmOverloads
-inline fun errorAlertWait(
+inline fun Window.errorAlert(
         contentText: String,
         vararg buttonTypes: ButtonType,
-        noinline init: ((@DialogDsl _Alert).() -> Unit)? = null
-): Optional<ButtonType> = _Alert(ERROR, contentText, *buttonTypes).apply {
+        noinline init: ((@DialogDsl Alert).() -> Unit)? = null
+): Alert = Alert(ERROR, contentText, *buttonTypes).apply {
+    initOwner(this@errorAlert)
     init?.invoke(this)
-}.showAndWait()
+}

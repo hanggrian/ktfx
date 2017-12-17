@@ -5,35 +5,22 @@
 package kotfx.dialogs
 
 import javafx.scene.control.TextInputDialog
-import javafx.scene.image.Image
+import javafx.stage.Window
 import kotfx.internal.DialogDsl
-import java.util.*
-
-class _InputDialog(prefill: String?) : TextInputDialog(prefill), DialogBuilder<TextInputDialog> {
-    override val dialog: TextInputDialog get() = this
-}
 
 @JvmOverloads
 inline fun inputDialog(
-        title: String? = null,
-        prefill: String? = null,
-        icon: Image? = null,
-        noinline init: ((@DialogDsl _InputDialog).() -> Unit)? = null
-): TextInputDialog = _InputDialog(prefill).apply {
-    if (title != null) title(title)
-    if (icon != null) icon(icon)
+        prefill: String = "",
+        noinline init: ((@DialogDsl TextInputDialog).() -> Unit)? = null
+): TextInputDialog = TextInputDialog(prefill).apply {
     init?.invoke(this)
-    show()
 }
 
 @JvmOverloads
-inline fun inputDialogWait(
-        title: String? = null,
-        prefill: String? = null,
-        icon: Image? = null,
-        noinline init: ((@DialogDsl _InputDialog).() -> Unit)? = null
-): Optional<String> = _InputDialog(prefill).apply {
-    if (title != null) title(title)
-    if (icon != null) icon(icon)
+inline fun Window.inputDialog(
+        prefill: String = "",
+        noinline init: ((@DialogDsl TextInputDialog).() -> Unit)? = null
+): TextInputDialog = TextInputDialog(prefill).apply {
+    initOwner(this@inputDialog)
     init?.invoke(this)
-}.showAndWait()
+}

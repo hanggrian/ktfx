@@ -17,8 +17,8 @@ inline fun <E> Set<E>.bindContent(other: ObservableSet<E>) = bindContent(this, o
 
 inline fun <E> Set<E>.unbindContent(other: ObservableSet<E>) = unbindContent(this, other)
 
-inline val <E> ObservableSet<E>.size2: IntegerBinding get() = size(this)
+inline val <E> ObservableSet<E>.sizeBinding: IntegerBinding get() = size(this)
 
-inline val <E> ObservableSet<E>.isEmpty: BooleanBinding get() = isEmpty(this)
+inline val <E> ObservableSet<E>.emptyBinding: BooleanBinding get() = isEmpty(this)
 
-inline val <E> ObservableSet<E>.isNotEmpty: BooleanBinding get() = isNotEmpty(this)
+inline val <E> ObservableSet<E>.notEmptyBinding: BooleanBinding get() = isNotEmpty(this)

@@ -13,7 +13,7 @@ import javafx.collections.ObservableArray
 import javafx.collections.ObservableFloatArray
 import javafx.collections.ObservableIntegerArray
 
-inline val ObservableArray<*>.size2: IntegerBinding get() = size(this)
+inline val ObservableArray<*>.sizeBinding: IntegerBinding get() = size(this)
 
 inline fun ObservableFloatArray.floatValueAt(index: Int): FloatBinding = floatValueAt(this, index)
 inline fun ObservableFloatArray.floatValueAt(index: ObservableIntegerValue): FloatBinding = floatValueAt(this, index)

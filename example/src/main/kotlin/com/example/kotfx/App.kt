@@ -12,9 +12,10 @@ import kotfx.bindings.stringBindingOf
 import kotfx.controls.button
 import kotfx.controls.label
 import kotfx.dialogs.errorAlert
-import kotfx.dialogs.infoAlertWait
+import kotfx.dialogs.infoAlert
 import kotfx.layouts.gridPaneOf
 import kotfx.layouts.vbox
+import kotfx.layouts.vboxOf
 import kotfx.properties.bind
 
 class App : Application() {
@@ -133,12 +134,12 @@ class App : Application() {
                 setMinSize(40.0, 40.0)
                 setOnAction {
                     errorAlert("Not yet supported.") {
-                        title(":(")
-                        expandableContent(vbox {
+                        title = ":("
+                        dialogPane.expandableContent = vboxOf {
                             label("Suggestion") { font = font("Arial", BOLD, 14.0) }
                             label("Use an actual calculator.") marginTop 4
-                        })
-                    }
+                        }
+                    }.show()
                 }
             } row 4 col 2
 
@@ -179,9 +180,7 @@ class App : Application() {
                 isDefaultButton = true
                 disableProperty() bind booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator }
                 setOnAction {
-                    infoAlertWait(resultLabel.text) {
-                        header("Result")
-                    }
+                    infoAlert(resultLabel.text) { headerText = "Result" }.showAndWait()
                 }
             } row 4 col 4
         })

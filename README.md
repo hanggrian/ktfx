@@ -66,23 +66,24 @@ Create `Dialog`, `ChoiceDialog`, `TextInputDialog`, and `Alert` with Kotlin DSL.
 
 ```kotlin
 // show an alert
-alert("Here's an alert")
+alert("Here's an alert").show()
 
 // show a confirmation alert and wait for input
-confirmAlertWait("Are you sure?")
+confirmAlert("Are you sure?").showAndWait()
 
 // custom init a text input dialog
-inputDialog("Question") {
+inputDialog() {
     headerText = "Question #1"
     contentText = "Why does the chicken cross the road?"
     editor.promptText = "Hint"
-}
+}.showAndWait()
 
 // a choice dialog
-choiceDialog("Pick an item", items, defaultItem) {
+choiceDialog(items, defaultItem) {
+    headerText = "Pick an item"
     graphic = ImageView("/my/image.png")
     expandableContent = Label("Just an image")
-}
+}.showAndWait()
 
 // show a custom dialog
 dialog<String>("Who's a little piggy?") {
@@ -95,7 +96,7 @@ dialog<String>("Who's a little piggy?") {
     resultConverter {
         if(it == button1)  "Me" else null  
     }
-}
+}.showAndWait()
 ```
 
 Download
@@ -106,7 +107,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.9'
+    compile 'com.hendraanggrian:kotfx:0.10'
 }
 ```
 

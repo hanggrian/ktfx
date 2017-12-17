@@ -21,7 +21,7 @@ class _AnchorPane : AnchorPane(), ChildManager, Constrained {
     inline val Node.anchorBottom: Double get() = getBottomAnchor(this) ?: 0.0
     inline val Node.anchorRight: Double get() = getRightAnchor(this) ?: 0.0
 
-    override fun <T : Node> T.clearConstraints(): T = apply { clearConstraints(this) }
+    override fun <T : Node> T.reset(): T = apply { clearConstraints(this) }
 }
 
 inline fun anchorPaneOf(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)

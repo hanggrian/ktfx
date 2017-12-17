@@ -32,20 +32,20 @@ class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VG
     inline infix fun <N : Node> N.colSpan(value: Int): N = apply { setColumnSpan(this, value) }
     inline val Node.colSpan: Int get() = getColumnSpan(this) ?: -1
 
-    override fun <N : Node> N.margin(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margin2: Insets get() = getMargin(this) ?: EMPTY
+    override fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.pos(value: Pos): N = apply {
         setHalignment(this, value.hpos)
         setValignment(this, value.vpos)
     }
 
-    override infix fun <N : Node> N.hpos(value: HPos): N = apply { setHalignment(this, value) }
-    override infix fun <N : Node> N.vpos(value: VPos): N = apply { setValignment(this, value) }
+    override infix fun <N : Node> N.hPos(value: HPos): N = apply { setHalignment(this, value) }
+    override infix fun <N : Node> N.vPos(value: VPos): N = apply { setValignment(this, value) }
 
-    override val Node.pos: Pos get() = posOf(vpos, hpos)
-    override val Node.vpos: VPos get() = getValignment(this) ?: TOP
-    override val Node.hpos: HPos get() = getHalignment(this) ?: LEFT
+    override val Node.pos: Pos get() = posOf(vPos, hPos)
+    override val Node.vPos: VPos get() = getValignment(this) ?: TOP
+    override val Node.hPos: HPos get() = getHalignment(this) ?: LEFT
 
     inline infix fun <N : Node> N.fillWidth(value: Boolean): N = apply { setFillWidth(this, value) }
     inline val Node.isFillWidth: Boolean get() = isFillWidth(this)
@@ -60,13 +60,13 @@ class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VG
 
     inline val Node.isFillSize: Boolean get() = isFillWidth && isFillHeight
 
-    override infix fun <N : Node> N.hgrow(value: Priority): N = apply { setVgrow(this, value) }
-    override val Node.hgrow2: Priority get() = getHgrow(this) ?: NEVER
+    override infix fun <N : Node> N.hGrow(value: Priority): N = apply { setVgrow(this, value) }
+    override val Node.hGrow: Priority get() = getHgrow(this) ?: NEVER
 
-    override infix fun <N : Node> N.vgrow(value: Priority): N = apply { setVgrow(this, value) }
-    override val Node.vgrow2: Priority get() = getVgrow(this) ?: NEVER
+    override infix fun <N : Node> N.vGrow(value: Priority): N = apply { setVgrow(this, value) }
+    override val Node.vGrow: Priority get() = getVgrow(this) ?: NEVER
 
-    override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
+    override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
 inline fun gridPaneOf(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)

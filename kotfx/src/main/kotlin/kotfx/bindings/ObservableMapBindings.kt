@@ -17,11 +17,11 @@ inline fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>) = bindConten
 
 inline fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>) = unbindContent(this, other)
 
-inline val <K, V> ObservableMap<K, V>.size2: IntegerBinding get() = size(this)
+inline val <K, V> ObservableMap<K, V>.sizeBinding: IntegerBinding get() = size(this)
 
-inline val <K, V> ObservableMap<K, V>.isEmpty: BooleanBinding get() = isEmpty(this)
+inline val <K, V> ObservableMap<K, V>.emptyBinding: BooleanBinding get() = isEmpty(this)
 
-inline val <K, V> ObservableMap<K, V>.isNotEmpty: BooleanBinding get() = isNotEmpty(this)
+inline val <K, V> ObservableMap<K, V>.notEmptyBinding: BooleanBinding get() = isNotEmpty(this)
 
 inline fun <K, V> ObservableMap<K, V>.valueAt(key: K): ObjectBinding<V> = valueAt(this, key)
 inline fun <K, V> ObservableMap<K, V>.valueAt(key: ObservableValue<K>): ObjectBinding<V> = valueAt(this, key)

@@ -18,10 +18,10 @@ class _BorderPane : BorderPane(), ChildManager, Alignable, Marginable {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
     override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
 
-    override infix fun <N : Node> N.margin(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margin2: Insets get() = getMargin(this) ?: EMPTY
+    override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
-    override fun <N : Node> N.clearConstraints(): N = apply { clearConstraints(this) }
+    override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
 inline fun borderPaneOf(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init)

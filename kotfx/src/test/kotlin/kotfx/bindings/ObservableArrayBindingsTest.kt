@@ -7,9 +7,9 @@ import javafx.collections.ObservableIntegerArray
 
 class ObservableArrayBindingsTest {
 
-    fun size2(array: ObservableArray<*>) {
+    fun sizeBinding(array: ObservableArray<*>) {
         Bindings.size(array)
-        array.size2
+        array.sizeBinding
     }
 
     fun floatValueAt(array: ObservableFloatArray) {

@@ -2,78 +2,76 @@
 
 package kotfx
 
-import javafx.beans.property.*
 import javafx.concurrent.Service
 import javafx.concurrent.Task
-import javafx.concurrent.Worker
 import javafx.concurrent.WorkerStateEvent
-import javafx.event.EventHandler
+import javafx.util.Builder
 import kotfx.internal.ServiceDsl
 
-interface _Service<V> {
-    val service: Service<V>
+interface ServiceBuilder<V> : Builder<Service<V>> {
+    fun onCall(action: Task<V>.() -> V)
+    fun onReady(action: (WorkerStateEvent) -> Unit)
+    fun onScheduled(action: (WorkerStateEvent) -> Unit)
+    fun onRunning(action: (WorkerStateEvent) -> Unit)
+    fun onSucceeded(action: (WorkerStateEvent) -> Unit)
+    fun onCancelled(action: (WorkerStateEvent) -> Unit)
+    fun onFailed(action: (WorkerStateEvent) -> Unit)
 
-    fun call(action: Task<V>.() -> V)
-
-    val stateProperty: ReadOnlyObjectProperty<Worker.State> get() = service.stateProperty()
-    val state: Worker.State get() = service.state
-
-    val valueProperty: ReadOnlyObjectProperty<V> get() = service.valueProperty()
-    val value: V get() = service.value
-
-    val exceptionProperty: ReadOnlyObjectProperty<Throwable> get() = service.exceptionProperty()
-    val exception: Throwable get() = service.exception
-
-    val totalProperty: ReadOnlyDoubleProperty get() = service.totalWorkProperty()
-    val total: Double get() = service.totalWork
-
-    val progressProperty: ReadOnlyDoubleProperty get() = service.progressProperty()
-    val progress: Double get() = service.progress
-
-    val runningProperty: ReadOnlyBooleanProperty get() = service.runningProperty()
-    val isRunning: Boolean get() = service.isRunning
-
-    val messageProperty: ReadOnlyStringProperty get() = service.messageProperty()
-    val message: String get() = service.message
-
-    val titleProperty: ReadOnlyStringProperty get() = service.titleProperty()
-    val title: String get() = service.title
-
-    val onReadyProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onReadyProperty()
-    val onReady: EventHandler<WorkerStateEvent> get() = service.onReady
-    fun onReady(action: (WorkerStateEvent) -> Unit) = service.setOnReady(action)
-
-    val onScheduledProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onScheduledProperty()
-    val onScheduled: EventHandler<WorkerStateEvent> get() = service.onScheduled
-    fun onScheduled(action: (WorkerStateEvent) -> Unit) = service.setOnScheduled(action)
-
-    val onRunningProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onRunningProperty()
-    val onRunning: EventHandler<WorkerStateEvent> get() = service.onRunning
-    fun onRunning(action: (WorkerStateEvent) -> Unit) = service.setOnRunning(action)
-
-    val onSucceededProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onSucceededProperty()
-    val onSucceeded: EventHandler<WorkerStateEvent> get() = service.onSucceeded
-    fun onSucceeded(action: (WorkerStateEvent) -> Unit) = service.setOnSucceeded(action)
-
-    val onCancelledProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onCancelledProperty()
-    val onCancelled: EventHandler<WorkerStateEvent> get() = service.onCancelled
-    fun onCancelled(action: (WorkerStateEvent) -> Unit) = service.setOnCancelled(action)
-
-    val onFailedProperty: ObjectProperty<EventHandler<WorkerStateEvent>> get() = service.onFailedProperty()
-    val onFailed: EventHandler<WorkerStateEvent> get() = service.onFailed
-    fun onFailed(action: (WorkerStateEvent) -> Unit) = service.setOnFailed(action)
+    fun start(): Service<V>
 }
 
-inline fun <V> service(init: (@ServiceDsl _Service<V>).() -> Unit): Service<V> = object : _Service<V> {
-    private var mService: Service<V>? = null
+@PublishedApi
+internal class FXServiceBuilder<V> : ServiceBuilder<V> {
+    private var mOnCall: (Task<V>.() -> V)? = null
+    private var mOnReady: ((WorkerStateEvent) -> Unit)? = null
+    private var mOnScheduled: ((WorkerStateEvent) -> Unit)? = null
+    private var mOnRunning: ((WorkerStateEvent) -> Unit)? = null
+    private var mOnSucceeded: ((WorkerStateEvent) -> Unit)? = null
+    private var mOnCancelled: ((WorkerStateEvent) -> Unit)? = null
+    private var mOnFailed: ((WorkerStateEvent) -> Unit)? = null
 
-    override val service: Service<V> get() = checkNotNull(mService) { "Service unavailable before configuring call." }
-
-    override fun call(action: Task<V>.() -> V) {
-        mService = object : Service<V>() {
-            override fun createTask(): Task<V> = object : Task<V>() {
-                override fun call(): V = action()
-            }
-        }
+    override fun onCall(action: Task<V>.() -> V) {
+        mOnCall = action
     }
-}.apply { init() }.service
+
+    override fun onReady(action: (WorkerStateEvent) -> Unit) {
+        mOnReady = action
+    }
+
+    override fun onScheduled(action: (WorkerStateEvent) -> Unit) {
+        mOnScheduled = action
+    }
+
+    override fun onRunning(action: (WorkerStateEvent) -> Unit) {
+        mOnRunning = action
+    }
+
+    override fun onSucceeded(action: (WorkerStateEvent) -> Unit) {
+        mOnSucceeded = action
+    }
+
+    override fun onCancelled(action: (WorkerStateEvent) -> Unit) {
+        mOnCancelled = action
+    }
+
+    override fun onFailed(action: (WorkerStateEvent) -> Unit) {
+        mOnFailed = action
+    }
+
+    override fun build(): Service<V> = object : Service<V>() {
+        override fun createTask(): Task<V> = object : Task<V>() {
+            override fun call(): V = checkNotNull(mOnCall) { "Service unavailable before configuring onCall." }(this)
+        }
+    }.apply {
+        mOnReady?.let { setOnReady(it) }
+        mOnScheduled?.let { setOnScheduled(it) }
+        mOnRunning?.let { setOnRunning(it) }
+        mOnSucceeded?.let { setOnSucceeded(it) }
+        mOnCancelled?.let { setOnCancelled(it) }
+        mOnFailed?.let { setOnFailed(it) }
+    }
+
+    override fun start(): Service<V> = build().apply { start() }
+}
+
+inline fun <V> service(init: (@ServiceDsl ServiceBuilder<V>).() -> Unit): ServiceBuilder<V> = FXServiceBuilder<V>().apply(init)

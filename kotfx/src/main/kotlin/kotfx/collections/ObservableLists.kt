@@ -60,4 +60,4 @@ inline fun ObservableList<*>.shuffle(rnd: Random? = null) = if (rnd == null) shu
 inline fun <T : Comparable<T>> ObservableList<T>.sort() = sort(this)
 
 /** Sorts the provided observable list using the c comparator, firing change notification once. */
-inline fun <T> ObservableList<T>.sort2(c: Comparator<T>) = sort(this, c)
+inline infix fun <T> ObservableList<T>.sort(c: Comparator<T>) = sort(this, c)

@@ -5,18 +5,18 @@ import javafx.collections.ObservableSet
 
 class ObservableSetBindingsTest {
 
-    fun size2(set: ObservableSet<*>) {
+    fun sizeBinding(set: ObservableSet<*>) {
         Bindings.size(set)
-        set.size2
+        set.sizeBinding
     }
 
-    fun isEmpty(set: ObservableSet<*>) {
+    fun emptyBinding(set: ObservableSet<*>) {
         Bindings.isEmpty(set)
-        set.isEmpty
+        set.emptyBinding
     }
 
-    fun isNotEmpty(set: ObservableSet<*>) {
+    fun notEmptyBinding(set: ObservableSet<*>) {
         Bindings.isNotEmpty(set)
-        set.isNotEmpty
+        set.notEmptyBinding
     }
 }

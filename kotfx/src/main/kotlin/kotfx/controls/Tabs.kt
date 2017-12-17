@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun tabOf(
+inline fun tab(
         text: String? = null,
         content: Node? = null,
         noinline init: ((@KotfxDsl Tab).() -> Unit)? = null

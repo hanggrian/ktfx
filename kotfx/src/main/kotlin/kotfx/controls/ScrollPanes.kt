@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun scrollPaneOf(
+inline fun scrollPane(
         content: Node? = null,
         noinline init: ((@KotfxDsl ScrollPane).() -> Unit)? = null
 ): ScrollPane = ScrollPane(content).apply { init?.invoke(this) }

@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeTableView
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun <S> treeTableViewOf(
+inline fun <S> treeTableView(
         root: TreeItem<S>? = null,
         noinline init: ((@KotfxDsl TreeTableView<S>).() -> Unit)? = null
 ): TreeTableView<S> = TreeTableView<S>(root).apply { init?.invoke(this) }

@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.Spinner
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun <T> spinnerOf(
+inline fun <T> spinner(
         noinline init: ((@KotfxDsl Spinner<T>).() -> Unit)? = null
 ): Spinner<T> = Spinner<T>().apply { init?.invoke(this) }
 

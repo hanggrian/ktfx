@@ -11,7 +11,7 @@ import kotfx.internal.ItemManager
 import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun hyperlinkOf(
+inline fun hyperlink(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@KotfxDsl Hyperlink).() -> Unit)? = null

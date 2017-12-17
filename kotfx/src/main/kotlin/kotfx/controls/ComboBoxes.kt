@@ -7,11 +7,11 @@ package kotfx
 import javafx.collections.ObservableList
 import javafx.scene.control.ComboBox
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun <T> comboBoxOf(
+inline fun <T> comboBox(
         items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@KotfxDsl ComboBox<T>).() -> Unit)? = null
 ): ComboBox<T> = ComboBox(items).apply { init?.invoke(this) }

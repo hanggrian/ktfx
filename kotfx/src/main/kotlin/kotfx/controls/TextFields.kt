@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.TextField
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun textFieldOf(
+inline fun textField(
         text: String = "",
         noinline init: ((@KotfxDsl TextField).() -> Unit)? = null
 ): TextField = TextField(text).apply { init?.invoke(this) }

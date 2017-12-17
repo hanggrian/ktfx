@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.ScrollBar
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun scrollBarOf(
+inline fun scrollBar(
         noinline init: ((@KotfxDsl ScrollBar).() -> Unit)? = null
 ): ScrollBar = ScrollBar().apply { init?.invoke(this) }
 

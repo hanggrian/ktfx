@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun toggleButtonOf(
+inline fun toggleButton(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@KotfxDsl ToggleButton).() -> Unit)? = null

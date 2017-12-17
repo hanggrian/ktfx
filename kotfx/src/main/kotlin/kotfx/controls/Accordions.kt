@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun accordionOf(
+inline fun accordion(
         vararg titledPanes: TitledPane,
         noinline init: ((@KotfxDsl Accordion).() -> Unit)? = null
 ): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }

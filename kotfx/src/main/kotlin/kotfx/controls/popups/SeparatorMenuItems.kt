@@ -9,7 +9,7 @@ import kotfx.internal.KotfxDsl
 import kotfx.internal.PopupManager
 
 @JvmOverloads
-inline fun separatorMenuItemOf(
+inline fun separatorMenuItem(
         noinline init: ((@KotfxDsl SeparatorMenuItem).() -> Unit)? = null
 ): SeparatorMenuItem = SeparatorMenuItem().apply { init?.invoke(this) }
 

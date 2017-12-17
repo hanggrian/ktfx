@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.PasswordField
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun passwordFieldOf(
+inline fun passwordField(
         noinline init: ((@KotfxDsl PasswordField).() -> Unit)? = null
 ): PasswordField = PasswordField().apply { init?.invoke(this) }
 

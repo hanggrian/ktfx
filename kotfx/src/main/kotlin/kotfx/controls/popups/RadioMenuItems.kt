@@ -10,7 +10,7 @@ import kotfx.internal.KotfxDsl
 import kotfx.internal.PopupManager
 
 @JvmOverloads
-inline fun radioMenuItemOf(
+inline fun radioMenuItem(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@KotfxDsl RadioMenuItem).() -> Unit)? = null

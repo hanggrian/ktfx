@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.Slider
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun sliderOf(
+inline fun slider(
         min: Number,
         max: Number,
         value: Number,

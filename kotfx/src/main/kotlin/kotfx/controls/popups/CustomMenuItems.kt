@@ -10,7 +10,7 @@ import kotfx.internal.KotfxDsl
 import kotfx.internal.PopupManager
 
 @JvmOverloads
-inline fun customMenuItemOf(
+inline fun customMenuItem(
         node: Node? = null,
         hideOnClick: Boolean = true,
         noinline init: ((@KotfxDsl CustomMenuItem).() -> Unit)? = null

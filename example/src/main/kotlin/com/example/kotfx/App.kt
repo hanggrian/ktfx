@@ -21,7 +21,7 @@ class App : Application() {
     private lateinit var resultLabel: Label
 
     override fun start(stage: Stage) {
-        stage.scene = Scene(gridPaneOf {
+        stage.scene = Scene(gridPane {
             vbox {
                 padding = Insets(0.0, 20.0, 0.0, 20.0)
                 calculationLabel = label("")
@@ -126,7 +126,7 @@ class App : Application() {
                 setOnAction {
                     errorAlert("Not yet supported.") {
                         title = ":("
-                        dialogPane.expandableContent = vboxOf {
+                        dialogPane.expandableContent = kotfx.vbox {
                             label("Suggestion") { font = font("Arial", BOLD, 14.0) }
                             label("Use an actual calculator.") marginTop 4
                         }

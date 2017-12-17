@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun tabPaneOf(
+inline fun tabPane(
         vararg tabs: Tab,
         noinline init: ((@KotfxDsl TabPane).() -> Unit)? = null
 ): TabPane = TabPane(*tabs).apply { init?.invoke(this) }

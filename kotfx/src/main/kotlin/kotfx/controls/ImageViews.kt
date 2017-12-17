@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun imageViewOf(
+inline fun imageView(
         image: Image? = null,
         noinline init: ((@KotfxDsl ImageView).() -> Unit)? = null
 ): ImageView = ImageView(image).apply { init?.invoke(this) }

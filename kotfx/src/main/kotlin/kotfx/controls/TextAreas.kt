@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.TextArea
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun textAreaOf(
+inline fun textArea(
         noinline init: ((@KotfxDsl TextArea).() -> Unit)? = null
 ): TextArea = TextArea().apply { init?.invoke(this) }
 

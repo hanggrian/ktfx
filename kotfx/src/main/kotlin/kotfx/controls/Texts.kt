@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.text.Text
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun textOf(
+inline fun text(
         text: String? = null,
         noinline init: ((@KotfxDsl Text).() -> Unit)? = null
 ): Text = Text(text).apply { init?.invoke(this) }

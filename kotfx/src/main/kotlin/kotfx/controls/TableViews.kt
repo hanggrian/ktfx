@@ -7,11 +7,11 @@ package kotfx
 import javafx.collections.ObservableList
 import javafx.scene.control.TableView
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun <S> tableViewOf(
+inline fun <S> tableView(
         items: ObservableList<S> = mutableObservableListOf(),
         noinline init: ((@KotfxDsl TableView<S>).() -> Unit)? = null
 ): TableView<S> = TableView<S>(items).apply { init?.invoke(this) }

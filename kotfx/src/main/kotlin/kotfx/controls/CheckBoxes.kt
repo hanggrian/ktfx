@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.CheckBox
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun checkBoxOf(
+inline fun checkBox(
         text: String? = null,
         noinline init: ((@KotfxDsl CheckBox).() -> Unit)? = null
 ): CheckBox = CheckBox(text).apply { init?.invoke(this) }

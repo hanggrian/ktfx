@@ -8,11 +8,11 @@ import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun colorPickerOf(
+inline fun colorPicker(
         color: Color = WHITE,
         noinline init: ((@KotfxDsl ColorPicker).() -> Unit)? = null
 ): ColorPicker = ColorPicker(color).apply { init?.invoke(this) }

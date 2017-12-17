@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.Node
 import javafx.scene.control.Button
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun buttonOf(
+inline fun button(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@KotfxDsl Button).() -> Unit)? = null

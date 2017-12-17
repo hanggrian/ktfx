@@ -6,12 +6,12 @@ package kotfx
 
 import javafx.scene.control.DatePicker
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 import java.time.LocalDate
 
 @JvmOverloads
-inline fun datePickerOf(
+inline fun datePicker(
         date: LocalDate? = null,
         noinline init: ((@KotfxDsl DatePicker).() -> Unit)? = null
 ): DatePicker = DatePicker(date).apply { init?.invoke(this) }

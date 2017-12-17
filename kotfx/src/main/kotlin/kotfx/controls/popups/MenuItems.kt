@@ -10,7 +10,7 @@ import kotfx.internal.KotfxDsl
 import kotfx.internal.PopupManager
 
 @JvmOverloads
-inline fun menuItemOf(
+inline fun menuItem(
         text: String? = null,
         graphic: Node? = null,
         noinline init: ((@KotfxDsl MenuItem).() -> Unit)? = null

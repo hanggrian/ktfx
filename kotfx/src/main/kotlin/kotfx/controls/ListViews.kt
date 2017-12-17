@@ -7,11 +7,11 @@ package kotfx
 import javafx.collections.ObservableList
 import javafx.scene.control.ListView
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun <T> listViewOf(
+inline fun <T> listView(
         items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@KotfxDsl ListView<T>).() -> Unit)? = null
 ): ListView<T> = ListView(items).apply { init?.invoke(this) }

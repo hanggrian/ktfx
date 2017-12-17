@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.Node
 import javafx.scene.control.TitledPane
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun titledPaneOf(
+inline fun titledPane(
         text: String? = null,
         content: Node? = null,
         noinline init: ((@KotfxDsl TitledPane).() -> Unit)? = null

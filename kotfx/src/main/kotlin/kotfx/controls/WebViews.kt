@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.web.WebView
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun webViewOf(
+inline fun webView(
         noinline init: ((@KotfxDsl WebView).() -> Unit)? = null
 ): WebView = WebView().apply { init?.invoke(this) }
 

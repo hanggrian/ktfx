@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.control.ProgressIndicator
 import javafx.scene.control.ProgressIndicator.INDETERMINATE_PROGRESS
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun progressIndicatorOf(
+inline fun progressIndicator(
         progress: Number = INDETERMINATE_PROGRESS,
         noinline init: ((@KotfxDsl ProgressIndicator).() -> Unit)? = null
 ): ProgressIndicator = ProgressIndicator(progress.toDouble()).apply { init?.invoke(this) }

@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.Node
 import javafx.scene.control.SplitPane
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun splitPaneOf(
+inline fun splitPane(
         vararg items: Node,
         noinline init: ((@KotfxDsl SplitPane).() -> Unit)? = null
 ): SplitPane = SplitPane(*items).apply { init?.invoke(this) }

@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.RadioButton
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun radioButtonOf(
+inline fun radioButton(
         text: String? = null,
         noinline init: ((@KotfxDsl RadioButton).() -> Unit)? = null
 ): RadioButton = RadioButton(text).apply { init?.invoke(this) }

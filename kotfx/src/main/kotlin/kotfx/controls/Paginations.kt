@@ -7,11 +7,11 @@ package kotfx
 import javafx.scene.control.Pagination
 import javafx.scene.control.Pagination.INDETERMINATE
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun paginationOf(
+inline fun pagination(
         count: Int = INDETERMINATE,
         index: Int = 0,
         noinline init: ((@KotfxDsl Pagination).() -> Unit)? = null

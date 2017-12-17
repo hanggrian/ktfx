@@ -6,11 +6,11 @@ package kotfx
 
 import javafx.scene.control.ButtonBar
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun buttonBarOf(
+inline fun buttonBar(
         buttonOrder: String? = null,
         noinline init: ((@KotfxDsl ButtonBar).() -> Unit)? = null
 ): ButtonBar = ButtonBar(buttonOrder).apply { init?.invoke(this) }

@@ -8,11 +8,11 @@ import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
 import kotfx.controls._MenuBar
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun menuBarOf(
+inline fun menuBar(
         vararg menus: Menu,
         noinline init: ((@KotfxDsl _MenuBar).() -> Unit)? = null
 ): MenuBar = _MenuBar(*menus).apply { init?.invoke(this) }

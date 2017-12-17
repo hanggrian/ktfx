@@ -7,11 +7,11 @@ package kotfx
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
 import kotfx.internal.ChildManager
-import kotfx.internal.KotfxDsl
 import kotfx.internal.ItemManager
+import kotfx.internal.KotfxDsl
 
 @JvmOverloads
-inline fun <T> choiceBoxOf(
+inline fun <T> choiceBox(
         items: ObservableList<T> = mutableObservableListOf(),
         noinline init: ((@KotfxDsl ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = ChoiceBox(items).apply { init?.invoke(this) }

@@ -6,9 +6,9 @@ package kotfx
 
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import kotfx.internal.ChildManager
-import kotfx.internal.ItemManager
+import kotfx.controls.ItemManager
 import kotfx.internal.KotfxDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun imageView(

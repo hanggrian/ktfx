@@ -6,9 +6,9 @@ package kotfx
 
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
-import kotfx.internal.ChildManager
-import kotfx.internal.ItemManager
+import kotfx.controls.ItemManager
 import kotfx.internal.KotfxDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun <T> choiceBox(

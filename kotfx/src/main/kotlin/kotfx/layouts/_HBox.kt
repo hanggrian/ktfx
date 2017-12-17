@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
-
 package kotfx.layouts
 
 import javafx.geometry.Insets
@@ -8,7 +6,6 @@ import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
-import kotfx.internal.ChildManager
 
 class _HBox : HBox(), ChildManager, HGrowable, Marginable {
     override infix fun <N : Node> N.hpriority(value: Priority): N = apply { setHgrow(this, value) }

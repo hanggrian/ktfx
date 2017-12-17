@@ -4,8 +4,7 @@ package kotfx
 
 import javafx.scene.layout.*
 import javafx.scene.text.TextFlow
-import kotfx.internal.ChildManager
-import kotfx.internal.ItemManager
+import kotfx.controls.ItemManager
 import kotfx.internal.KotfxDsl
 import kotfx.layouts.*
 

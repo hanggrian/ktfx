@@ -5,9 +5,9 @@
 package kotfx
 
 import javafx.scene.control.DatePicker
-import kotfx.internal.ChildManager
-import kotfx.internal.ItemManager
+import kotfx.controls.ItemManager
 import kotfx.internal.KotfxDsl
+import kotfx.layouts.ChildManager
 import java.time.LocalDate
 
 @JvmOverloads

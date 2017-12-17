@@ -6,9 +6,9 @@ package kotfx
 
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
-import kotfx.internal.ChildManager
-import kotfx.internal.ItemManager
+import kotfx.controls.ItemManager
 import kotfx.internal.KotfxDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun tabPane(

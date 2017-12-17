@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
-
 package kotfx.layouts
 
 import javafx.geometry.Insets
@@ -8,7 +6,6 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
 import javafx.scene.layout.VBox
-import kotfx.internal.ChildManager
 
 class _VBox : VBox(), ChildManager, VGrowable, Marginable {
     override infix fun <N : Node> N.vpriority(value: Priority): N = apply { setVgrow(this, value) }

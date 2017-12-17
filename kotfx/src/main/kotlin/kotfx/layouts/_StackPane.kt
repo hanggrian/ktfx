@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE", "UNUSED")
-
 package kotfx.layouts
 
 import javafx.geometry.Insets
@@ -8,7 +6,6 @@ import javafx.geometry.Pos
 import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
-import kotfx.internal.ChildManager
 
 class _StackPane : StackPane(), ChildManager, Alignable, Marginable {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }

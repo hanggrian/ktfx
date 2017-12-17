@@ -6,9 +6,9 @@ package kotfx
 
 import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton
-import kotfx.internal.ChildManager
-import kotfx.internal.ItemManager
+import kotfx.controls.ItemManager
 import kotfx.internal.KotfxDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun splitMenuButton(

@@ -6,8 +6,8 @@ package kotfx
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
+import kotfx.controls.PopupManager
 import kotfx.internal.KotfxDsl
-import kotfx.internal.PopupManager
 
 @JvmOverloads
 inline fun customMenuItem(

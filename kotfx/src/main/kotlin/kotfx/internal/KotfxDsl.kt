@@ -1,7 +1,5 @@
 package kotfx.internal
 
-import kotlin.annotation.AnnotationTarget.TYPE
-
 @DslMarker
-@Target(TYPE)
+@Target(AnnotationTarget.TYPE)
 annotation class KotfxDsl

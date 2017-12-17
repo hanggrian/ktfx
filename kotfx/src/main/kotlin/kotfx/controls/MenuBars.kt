@@ -6,10 +6,10 @@ package kotfx
 
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
+import kotfx.controls.ItemManager
 import kotfx.controls._MenuBar
-import kotfx.internal.ChildManager
-import kotfx.internal.ItemManager
 import kotfx.internal.KotfxDsl
+import kotfx.layouts.ChildManager
 
 @JvmOverloads
 inline fun menuBar(

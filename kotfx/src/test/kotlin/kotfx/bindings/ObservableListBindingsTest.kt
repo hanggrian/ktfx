@@ -10,14 +10,14 @@ class ObservableListBindingsTest {
         list.sizeBinding
     }
 
-    fun emptyBinding(list: ObservableList<*>) {
+    fun isEmpty(list: ObservableList<*>) {
         Bindings.isEmpty(list)
-        list.emptyBinding
+        list.isEmpty
     }
 
-    fun notEmptyBinding(list: ObservableList<*>) {
+    fun isNotEmpty(list: ObservableList<*>) {
         Bindings.isNotEmpty(list)
-        list.notEmptyBinding
+        list.isNotEmpty
     }
 
     fun valueAt(list: ObservableList<*>) {

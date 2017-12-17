@@ -10,14 +10,14 @@ class ObservableMapBindingsTest {
         map.sizeBinding
     }
 
-    fun emptyBinding(map: ObservableMap<*, *>) {
+    fun isEmpty(map: ObservableMap<*, *>) {
         Bindings.isEmpty(map)
-        map.emptyBinding
+        map.isEmpty
     }
 
-    fun notEmptyBinding(map: ObservableMap<*, *>) {
+    fun isNotEmpty(map: ObservableMap<*, *>) {
         Bindings.isNotEmpty(map)
-        map.notEmptyBinding
+        map.isNotEmpty
     }
 
     fun valueAt(map: ObservableMap<Int, *>) {

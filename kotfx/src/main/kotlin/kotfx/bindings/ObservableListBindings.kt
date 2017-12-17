@@ -20,9 +20,9 @@ inline fun <E> List<E>.unbindContent(other: ObservableList<E>) = unbindContent(t
 
 inline val <E> ObservableList<E>.sizeBinding: IntegerBinding get() = size(this)
 
-inline val <E> ObservableList<E>.emptyBinding: BooleanBinding get() = isEmpty(this)
+inline val <E> ObservableList<E>.isEmpty: BooleanBinding get() = isEmpty(this)
 
-inline val <E> ObservableList<E>.notEmptyBinding: BooleanBinding get() = isNotEmpty(this)
+inline val <E> ObservableList<E>.isNotEmpty: BooleanBinding get() = isNotEmpty(this)
 
 inline fun <E> ObservableList<E>.valueAt(index: Int): ObjectBinding<E> = valueAt(this, index)
 inline fun <E> ObservableList<E>.valueAt(index: ObservableIntegerValue): ObjectBinding<E> = valueAt(this, index)

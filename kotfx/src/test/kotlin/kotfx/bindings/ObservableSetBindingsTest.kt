@@ -10,13 +10,13 @@ class ObservableSetBindingsTest {
         set.sizeBinding
     }
 
-    fun emptyBinding(set: ObservableSet<*>) {
+    fun isEmpty(set: ObservableSet<*>) {
         Bindings.isEmpty(set)
-        set.emptyBinding
+        set.isEmpty
     }
 
-    fun notEmptyBinding(set: ObservableSet<*>) {
+    fun isNotEmpty(set: ObservableSet<*>) {
         Bindings.isNotEmpty(set)
-        set.notEmptyBinding
+        set.isNotEmpty
     }
 }

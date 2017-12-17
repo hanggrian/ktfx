@@ -5,9 +5,52 @@
 package kotfx.dialogs
 
 import javafx.scene.Node
+import javafx.scene.control.ButtonBar
+import javafx.scene.control.ButtonBar.ButtonData.OTHER
+import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
+import javafx.scene.image.Image
+import javafx.stage.Stage
 import javafx.stage.Window
 import kotfx.internal.DialogDsl
+
+inline var Dialog<*>.header: Node
+    get() = dialogPane.header
+    set(value) = dialogPane.setHeader(value)
+
+inline var Dialog<*>.content: Node
+    get() = dialogPane.content
+    set(value) = dialogPane.setContent(value)
+
+inline var Dialog<*>.expandableContent: Node
+    get() = dialogPane.expandableContent
+    set(value) = dialogPane.setExpandableContent(value)
+
+inline var Dialog<*>.isExpanded: Boolean
+    get() = dialogPane.isExpanded
+    set(value) = dialogPane.setExpanded(value)
+
+inline var Dialog<*>.icon: Image?
+    get() = (dialogPane.scene.window as Stage).icons[0]
+    set(value) = (dialogPane.scene.window as Stage).icons.let { icons ->
+        if (!icons.isEmpty()) icons.clear()
+        value?.let { icons.add(it) }
+    }
+
+/** Add button to this dialog and return it as a node. */
+inline fun Dialog<*>.addButton(buttonType: ButtonType): Node {
+    dialogPane.buttonTypes.add(buttonType)
+    return dialogPane.lookupButton(buttonType)
+}
+
+/** Add custom button to this dialog and return it as a node. */
+inline fun Dialog<*>.addButton(text: String, buttonData: ButtonBar.ButtonData = OTHER): Node = addButton(ButtonType(text, buttonData))
+
+/** Add multiple buttons to this dialog. */
+inline fun Dialog<*>.addButtons(vararg buttonTypes: ButtonType) = dialogPane.buttonTypes.addAll(*buttonTypes)
+
+/** Clear buttons in this dialog. */
+inline fun Dialog<*>.clearButtons() = dialogPane.buttonTypes.clear()
 
 @JvmOverloads
 inline fun <R> dialog(

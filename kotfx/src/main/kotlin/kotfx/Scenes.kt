@@ -3,6 +3,7 @@
 package kotfx
 
 import javafx.fxml.FXMLLoader
+import javafx.fxml.FXMLLoader.DEFAULT_CHARSET_NAME
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.scene.SceneAntialiasing
@@ -13,6 +14,7 @@ import javafx.util.BuilderFactory
 import javafx.util.Callback
 import java.net.URL
 import java.nio.charset.Charset
+import java.nio.charset.Charset.forName
 import java.util.*
 
 @JvmOverloads
@@ -20,7 +22,7 @@ inline fun URL.loadFXML(
         resources: ResourceBundle? = null,
         builderFactory: BuilderFactory? = null,
         controllerFactory: Callback<Class<*>, Any>? = null,
-        charset: Charset
+        charset: Charset = forName(DEFAULT_CHARSET_NAME)
 ): Parent = FXMLLoader.load<Parent>(this, resources, builderFactory, controllerFactory, charset)
 
 @JvmOverloads

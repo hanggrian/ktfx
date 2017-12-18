@@ -6,7 +6,7 @@ Layouts and Controls
 --------------------
 Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
 ```kotlin
-vboxOf {
+vbox {
     val name = textField()
     button("Say Hello") {
         setOnAction { alert("Hello, ${name.text}!") }
@@ -107,7 +107,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.11'
+    compile 'com.hendraanggrian:kotfx:0.12'
 }
 ```
 

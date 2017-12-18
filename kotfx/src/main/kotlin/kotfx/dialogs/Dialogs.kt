@@ -30,10 +30,9 @@ inline var Dialog<*>.isExpanded: Boolean
     set(value) = dialogPane.setExpanded(value)
 
 inline var Dialog<*>.icon: Image?
-    get() = (dialogPane.scene.window as Stage).icons[0]
-    set(value) = (dialogPane.scene.window as Stage).icons.let { icons ->
-        if (!icons.isEmpty()) icons.clear()
-        value?.let { icons.add(it) }
+    get() = (dialogPane.scene.window as Stage).icon
+    set(value) {
+        (dialogPane.scene.window as Stage).icon = value
     }
 
 /** Add button to this dialog and return it as a node. */
@@ -45,8 +44,11 @@ inline fun Dialog<*>.addButton(buttonType: ButtonType): Node {
 /** Add custom button to this dialog and return it as a node. */
 inline fun Dialog<*>.addButton(text: String, buttonData: ButtonBar.ButtonData = OTHER): Node = addButton(ButtonType(text, buttonData))
 
-/** Add multiple buttons to this dialog. */
-inline fun Dialog<*>.addButtons(vararg buttonTypes: ButtonType) = dialogPane.buttonTypes.addAll(*buttonTypes)
+/** Add multiple buttons to this dialog, returning the last added as a node. */
+inline fun Dialog<*>.addButtons(vararg buttonTypes: ButtonType): Node {
+    dialogPane.buttonTypes.addAll(*buttonTypes)
+    return dialogPane.lookupButton(buttonTypes.last())
+}
 
 /** Clear buttons in this dialog. */
 inline fun Dialog<*>.clearButtons() = dialogPane.buttonTypes.clear()

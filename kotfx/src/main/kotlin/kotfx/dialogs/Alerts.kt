@@ -11,7 +11,7 @@ import javafx.stage.Window
 
 @JvmOverloads
 inline fun alert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(NONE, contentText, *buttonTypes).apply {
@@ -20,7 +20,7 @@ inline fun alert(
 
 @JvmOverloads
 inline fun Window.alert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(NONE, contentText, *buttonTypes).apply {
@@ -30,7 +30,7 @@ inline fun Window.alert(
 
 @JvmOverloads
 inline fun infoAlert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(INFORMATION, contentText, *buttonTypes).apply {
@@ -39,7 +39,7 @@ inline fun infoAlert(
 
 @JvmOverloads
 inline fun Window.infoAlert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(INFORMATION, contentText, *buttonTypes).apply {
@@ -49,7 +49,7 @@ inline fun Window.infoAlert(
 
 @JvmOverloads
 inline fun warningAlert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(WARNING, contentText, *buttonTypes).apply {
@@ -58,7 +58,7 @@ inline fun warningAlert(
 
 @JvmOverloads
 inline fun Window.warningAlert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(WARNING, contentText, *buttonTypes).apply {
@@ -68,7 +68,7 @@ inline fun Window.warningAlert(
 
 @JvmOverloads
 inline fun confirmAlert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
@@ -77,7 +77,7 @@ inline fun confirmAlert(
 
 @JvmOverloads
 inline fun Window.confirmAlert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
@@ -87,7 +87,7 @@ inline fun Window.confirmAlert(
 
 @JvmOverloads
 inline fun errorAlert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(ERROR, contentText, *buttonTypes).apply {
@@ -96,7 +96,7 @@ inline fun errorAlert(
 
 @JvmOverloads
 inline fun Window.errorAlert(
-        contentText: String,
+        contentText: String = "",
         vararg buttonTypes: ButtonType,
         noinline init: (Alert.() -> Unit)? = null
 ): Alert = Alert(ERROR, contentText, *buttonTypes).apply {

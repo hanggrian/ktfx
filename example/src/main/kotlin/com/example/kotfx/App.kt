@@ -2,7 +2,6 @@ package com.example.kotfx
 
 import javafx.application.Application
 import javafx.geometry.Insets
-import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.scene.text.Font.font
 import javafx.scene.text.FontWeight.BOLD
@@ -21,7 +20,7 @@ class App : Application() {
     private lateinit var resultLabel: Label
 
     override fun start(stage: Stage) {
-        stage.scene = Scene(gridPane {
+        stage.scene = gridPane {
             vbox {
                 padding = Insets(0.0, 20.0, 0.0, 20.0)
                 calculationLabel = label("")
@@ -30,23 +29,23 @@ class App : Application() {
                         if (endsWithOperator) "..." else {
                             val operators = calculationLabel.text.split("\\d".toRegex()).filter { it.isNotEmpty() }.toMutableList()
                             val values = calculationLabel.text.split("[+\\-/*]".toRegex()).toMutableList()
-                            var heldValue: Double? = null
+                            var total: Double? = null
                             while (!values.isEmpty() && !operators.isEmpty()) {
                                 val value = values[0].toDouble()
-                                if (heldValue != null) {
-                                    heldValue = when (operators[0]) {
-                                        "+" -> heldValue + value
-                                        "-" -> heldValue - value
-                                        "/" -> heldValue / value
-                                        else -> heldValue * value
+                                if (total != null) {
+                                    total = when (operators[0]) {
+                                        "+" -> total + value
+                                        "-" -> total - value
+                                        "/" -> total / value
+                                        else -> total * value
                                     }
                                     operators.removeAt(0)
                                 } else {
-                                    heldValue = value
+                                    total = value
                                 }
                                 values.removeAt(0)
                             }
-                            heldValue?.toString() ?: "0"
+                            total?.toString() ?: "0"
                         }
                     }
                 }
@@ -173,7 +172,7 @@ class App : Application() {
                     infoAlert(resultLabel.text) { headerText = "Result" }.showAndWait()
                 }
             } row 4 col 4
-        })
+        }.toScene()
         stage.show()
     }
 

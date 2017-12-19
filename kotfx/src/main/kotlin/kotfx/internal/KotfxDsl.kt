@@ -1,4 +1,4 @@
-package kotfx.internal
+package kotfx
 
 @DslMarker
 @Target(AnnotationTarget.TYPE)

@@ -1,4 +1,4 @@
-package kotfx.controls
+package kotfx
 
 import javafx.collections.ObservableList
 import javafx.scene.control.Menu

@@ -1,4 +1,4 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.geometry.HPos
 import javafx.geometry.HPos.LEFT
@@ -12,7 +12,7 @@ import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
 
-class _GridPane : GridPane(), ChildManager, Marginable, Alignable, HGrowable, VGrowable {
+class _GridPane : GridPane(), ChildManager, MarginablePane, AlignablePane, HGrowablePane, VGrowablePane {
     infix fun <N : Node> N.row(value: Int): N = apply { setRowIndex(this, value) }
     val Node.row: Int get() = getRowIndex(this) ?: -1
 

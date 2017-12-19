@@ -1,4 +1,4 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.geometry.Insets
 import javafx.geometry.Insets.EMPTY
@@ -7,7 +7,7 @@ import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
 
-class _BorderPane : BorderPane(), ChildManager, Alignable, Marginable {
+class _BorderPane : BorderPane(), ChildManager, AlignablePane, MarginablePane {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
     override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
 

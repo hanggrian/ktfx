@@ -1,4 +1,4 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.geometry.HPos
 import javafx.geometry.Pos
@@ -7,7 +7,7 @@ import javafx.geometry.Pos.valueOf
 import javafx.geometry.VPos
 import javafx.scene.Node
 
-internal interface Alignable : Constrained {
+internal interface AlignablePane : ConstrainedPane {
     infix fun <N : Node> N.pos(value: Pos): N
     infix fun <N : Node> N.hpos(value: HPos): N = pos(posOf(vpos, value))
     infix fun <N : Node> N.vpos(value: VPos): N = pos(posOf(value, hpos))

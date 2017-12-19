@@ -1,7 +1,7 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.scene.Node
 
-internal interface Constrained {
+internal interface ConstrainedPane {
     fun <N : Node> N.reset(): N
 }

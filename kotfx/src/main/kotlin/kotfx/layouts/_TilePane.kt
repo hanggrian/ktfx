@@ -1,4 +1,4 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.geometry.Insets
 import javafx.geometry.Insets.EMPTY
@@ -7,7 +7,7 @@ import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
 
-class _TilePane : TilePane(), ChildManager, Alignable, Marginable {
+class _TilePane : TilePane(), ChildManager, AlignablePane, MarginablePane {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
     override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
 

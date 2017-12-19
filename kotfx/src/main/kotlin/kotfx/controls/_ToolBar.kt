@@ -1,4 +1,4 @@
-package kotfx.controls
+package kotfx
 
 import javafx.scene.Node
 import javafx.scene.control.ToolBar

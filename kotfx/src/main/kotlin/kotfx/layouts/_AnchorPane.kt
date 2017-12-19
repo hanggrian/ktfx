@@ -1,9 +1,9 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 
-class _AnchorPane : AnchorPane(), ChildManager, Constrained {
+class _AnchorPane : AnchorPane(), ChildManager, ConstrainedPane {
     infix fun <N : Node> N.anchorTop(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
     infix fun <N : Node> N.anchorLeft(value: Number?): N = apply { setLeftAnchor(this, value?.toDouble()) }
     infix fun <N : Node> N.anchorBottom(value: Number?): N = apply { setBottomAnchor(this, value?.toDouble()) }

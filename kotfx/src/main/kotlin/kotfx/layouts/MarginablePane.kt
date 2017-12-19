@@ -1,9 +1,9 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.geometry.Insets
 import javafx.scene.Node
 
-internal interface Marginable : Constrained {
+internal interface MarginablePane : ConstrainedPane {
     infix fun <N : Node> N.margins(value: Insets): N
     fun <N : Node> N.margins(top: Number, right: Number, bottom: Number, left: Number): N = margins(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
     infix fun <N : Node> N.marginTop(value: Number): N = margins(value, marginRight, marginBottom, marginLeft)

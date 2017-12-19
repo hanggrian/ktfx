@@ -1,4 +1,4 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.geometry.Insets
 import javafx.geometry.Insets.EMPTY
@@ -7,7 +7,7 @@ import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
 
-class _HBox : HBox(), ChildManager, HGrowable, Marginable {
+class _HBox : HBox(), ChildManager, HGrowablePane, MarginablePane {
     override infix fun <N : Node> N.hpriority(value: Priority): N = apply { setHgrow(this, value) }
     override val Node.hpriority: Priority get() = getHgrow(this) ?: NEVER
 

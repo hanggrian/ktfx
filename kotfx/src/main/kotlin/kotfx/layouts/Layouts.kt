@@ -4,9 +4,6 @@ package kotfx
 
 import javafx.scene.layout.*
 import javafx.scene.text.TextFlow
-import kotfx.controls.ItemManager
-import kotfx.internal.KotfxDsl
-import kotfx.layouts.*
 
 inline fun anchorPane(init: (@KotfxDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
 inline fun ChildManager.anchorPane(init: (@KotfxDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()

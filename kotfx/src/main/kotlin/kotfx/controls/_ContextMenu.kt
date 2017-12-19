@@ -1,4 +1,4 @@
-package kotfx.controls
+package kotfx
 
 import javafx.scene.control.ContextMenu
 import javafx.scene.control.MenuItem

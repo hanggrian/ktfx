@@ -1,4 +1,4 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.scene.text.TextFlow
 

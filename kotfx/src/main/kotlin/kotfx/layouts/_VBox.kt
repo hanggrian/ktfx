@@ -1,4 +1,4 @@
-package kotfx.layouts
+package kotfx
 
 import javafx.geometry.Insets
 import javafx.geometry.Insets.EMPTY
@@ -7,7 +7,7 @@ import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
 import javafx.scene.layout.VBox
 
-class _VBox : VBox(), ChildManager, VGrowable, Marginable {
+class _VBox : VBox(), ChildManager, VGrowablePane, MarginablePane {
     override infix fun <N : Node> N.vpriority(value: Priority): N = apply { setVgrow(this, value) }
     override val Node.vpriority: Priority get() = getVgrow(this) ?: NEVER
 

@@ -13,12 +13,53 @@ import javafx.scene.control.Pagination.INDETERMINATE
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import javafx.scene.layout.*
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.text.Text
+import javafx.scene.text.TextFlow
 import javafx.scene.web.WebView
 import java.time.LocalDate
 
+//region Layout
+inline fun anchorPane(init: (@KotfxDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
+inline fun ChildManager.anchorPane(init: (@KotfxDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()
+inline fun ItemManager.anchorPane(init: (@KotfxDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()
+
+inline fun borderPane(init: (@KotfxDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init)
+inline fun ChildManager.borderPane(init: (@KotfxDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init).add()
+inline fun ItemManager.borderPane(init: (@KotfxDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init).add()
+
+inline fun flowPane(init: (@KotfxDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init)
+inline fun ChildManager.flowPane(init: (@KotfxDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init).add()
+inline fun ItemManager.flowPane(init: (@KotfxDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init).add()
+
+inline fun gridPane(init: (@KotfxDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)
+inline fun ChildManager.gridPane(init: (@KotfxDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init).add()
+inline fun ItemManager.gridPane(init: (@KotfxDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init).add()
+
+inline fun hbox(init: (@KotfxDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
+inline fun ChildManager.hbox(init: (@KotfxDsl _HBox).() -> Unit): HBox = _HBox().apply(init).add()
+inline fun ItemManager.hbox(init: (@KotfxDsl _HBox).() -> Unit): HBox = _HBox().apply(init).add()
+
+inline fun stackPane(init: (@KotfxDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init)
+inline fun ChildManager.stackPane(init: (@KotfxDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init).add()
+inline fun ItemManager.stackPane(init: (@KotfxDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init).add()
+
+inline fun textFlow(init: (@KotfxDsl _TextFlow).() -> Unit): TextFlow = _TextFlow().apply(init)
+inline fun ChildManager.textFlow(init: (@KotfxDsl _TextFlow).() -> Unit): TextFlow = _TextFlow().apply(init).add()
+inline fun ItemManager.textFlow(init: (@KotfxDsl _TextFlow).() -> Unit): TextFlow = _TextFlow().apply(init).add()
+
+inline fun tilePane(init: (@KotfxDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init)
+inline fun ChildManager.tilePane(init: (@KotfxDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init).add()
+inline fun ItemManager.tilePane(init: (@KotfxDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init).add()
+
+inline fun vbox(init: (@KotfxDsl _VBox).() -> Unit): VBox = _VBox().apply(init)
+inline fun ChildManager.vbox(init: (@KotfxDsl _VBox).() -> Unit): VBox = _VBox().apply(init).add()
+inline fun ItemManager.vbox(init: (@KotfxDsl _VBox).() -> Unit): VBox = _VBox().apply(init).add()
+//endregion
+
+//region Control
 @JvmOverloads inline fun accordion(vararg titledPanes: TitledPane, noinline init: ((@KotfxDsl Accordion).() -> Unit)? = null): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildManager.accordion(vararg titledPanes: TitledPane, noinline init: ((@KotfxDsl Accordion).() -> Unit)? = null): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemManager.accordion(vararg titledPanes: TitledPane, noinline init: ((@KotfxDsl Accordion).() -> Unit)? = null): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }.add()
@@ -174,3 +215,25 @@ import java.time.LocalDate
 @JvmOverloads inline fun webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildManager.webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemManager.webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }.add()
+//endregion
+
+//region Popup
+inline fun contextMenu(vararg items: MenuItem, noinline init: (@KotfxDsl _ContextMenu).() -> Unit): ContextMenu = _ContextMenu(*items).apply(init)
+
+@JvmOverloads inline fun checkMenuItem(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl CheckMenuItem).() -> Unit)? = null): CheckMenuItem = CheckMenuItem(text, graphic).apply { init?.invoke(this) }
+@JvmOverloads inline fun PopupManager.checkMenuItem(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl CheckMenuItem).() -> Unit)? = null): CheckMenuItem = CheckMenuItem(text, graphic).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun customMenuItem(node: Node? = null, hideOnClick: Boolean = true, noinline init: ((@KotfxDsl CustomMenuItem).() -> Unit)? = null): CustomMenuItem = CustomMenuItem(node, hideOnClick).apply { init?.invoke(this) }
+@JvmOverloads inline fun PopupManager.customMenuItem(node: Node? = null, hideOnClick: Boolean = true, noinline init: ((@KotfxDsl CustomMenuItem).() -> Unit)? = null): CustomMenuItem = CustomMenuItem(node, hideOnClick).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun menuItem(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl MenuItem).() -> Unit)? = null): MenuItem = MenuItem(text, graphic).apply { init?.invoke(this) }
+@JvmOverloads inline fun PopupManager.menuItem(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl MenuItem).() -> Unit)? = null): MenuItem = MenuItem(text, graphic).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun radioMenuItem(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl RadioMenuItem).() -> Unit)? = null): RadioMenuItem = RadioMenuItem(text, graphic).apply { init?.invoke(this) }
+@JvmOverloads inline fun PopupManager.radioMenuItem(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl RadioMenuItem).() -> Unit)? = null): RadioMenuItem = RadioMenuItem(text, graphic).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun separatorMenuItem(noinline init: ((@KotfxDsl SeparatorMenuItem).() -> Unit)? = null): SeparatorMenuItem = SeparatorMenuItem().apply { init?.invoke(this) }
+@JvmOverloads inline fun PopupManager.separatorMenuItem(noinline init: ((@KotfxDsl SeparatorMenuItem).() -> Unit)? = null): SeparatorMenuItem = SeparatorMenuItem().apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun tooltip(text: String? = null, noinline init: ((@KotfxDsl Tooltip).() -> Unit)? = null): Tooltip = Tooltip(text).apply { init?.invoke(this) }
+//endregion

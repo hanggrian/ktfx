@@ -10,8 +10,8 @@ import javafx.scene.control.*
 import javafx.scene.layout.*
 import javafx.scene.text.TextFlow
 
-//region ChildrenManager
-interface ChildManager {
+//region ChildRoot
+interface ChildRoot {
     /** Shadowed when being implemented in [javafx.scene.layout.Pane]. */
     fun getChildren(): ObservableList<Node>
 
@@ -60,7 +60,7 @@ internal interface VGrowablePane : ConstrainedPane {
     val Node.vpriority: Priority
 }
 
-class _AnchorPane : AnchorPane(), ChildManager, ConstrainedPane {
+class _AnchorPane : AnchorPane(), ChildRoot, ConstrainedPane {
     infix fun <N : Node> N.anchorTop(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
     infix fun <N : Node> N.anchorLeft(value: Number?): N = apply { setLeftAnchor(this, value?.toDouble()) }
     infix fun <N : Node> N.anchorBottom(value: Number?): N = apply { setBottomAnchor(this, value?.toDouble()) }
@@ -74,7 +74,7 @@ class _AnchorPane : AnchorPane(), ChildManager, ConstrainedPane {
     override fun <T : Node> T.reset(): T = apply { clearConstraints(this) }
 }
 
-class _BorderPane : BorderPane(), ChildManager, AlignablePane, MarginablePane {
+class _BorderPane : BorderPane(), ChildRoot, AlignablePane, MarginablePane {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
     override val Node.pos: Pos get() = getAlignment(this) ?: Pos.TOP_LEFT
 
@@ -84,14 +84,14 @@ class _BorderPane : BorderPane(), ChildManager, AlignablePane, MarginablePane {
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
-class _FlowPane : FlowPane(), ChildManager, MarginablePane {
+class _FlowPane : FlowPane(), ChildRoot, MarginablePane {
     override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
     override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
-class _GridPane : GridPane(), ChildManager, MarginablePane, AlignablePane, HGrowablePane, VGrowablePane {
+class _GridPane : GridPane(), ChildRoot, MarginablePane, AlignablePane, HGrowablePane, VGrowablePane {
     infix fun <N : Node> N.row(value: Int): N = apply { setRowIndex(this, value) }
     val Node.row: Int get() = getRowIndex(this) ?: -1
 
@@ -141,7 +141,7 @@ class _GridPane : GridPane(), ChildManager, MarginablePane, AlignablePane, HGrow
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
-class _HBox : HBox(), ChildManager, HGrowablePane, MarginablePane {
+class _HBox : HBox(), ChildRoot, HGrowablePane, MarginablePane {
     override infix fun <N : Node> N.hpriority(value: Priority): N = apply { setHgrow(this, value) }
     override val Node.hpriority: Priority get() = getHgrow(this) ?: Priority.NEVER
 
@@ -151,7 +151,7 @@ class _HBox : HBox(), ChildManager, HGrowablePane, MarginablePane {
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
-class _StackPane : StackPane(), ChildManager, AlignablePane, MarginablePane {
+class _StackPane : StackPane(), ChildRoot, AlignablePane, MarginablePane {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
     override val Node.pos: Pos get() = getAlignment(this) ?: Pos.TOP_LEFT
 
@@ -161,9 +161,9 @@ class _StackPane : StackPane(), ChildManager, AlignablePane, MarginablePane {
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
-class _TextFlow : TextFlow(), ChildManager
+class _TextFlow : TextFlow(), ChildRoot
 
-class _TilePane : TilePane(), ChildManager, AlignablePane, MarginablePane {
+class _TilePane : TilePane(), ChildRoot, AlignablePane, MarginablePane {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
     override val Node.pos: Pos get() = getAlignment(this) ?: Pos.TOP_LEFT
 
@@ -173,7 +173,7 @@ class _TilePane : TilePane(), ChildManager, AlignablePane, MarginablePane {
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
-class _VBox : VBox(), ChildManager, VGrowablePane, MarginablePane {
+class _VBox : VBox(), ChildRoot, VGrowablePane, MarginablePane {
     override infix fun <N : Node> N.vpriority(value: Priority): N = apply { setVgrow(this, value) }
     override val Node.vpriority: Priority get() = getVgrow(this) ?: Priority.NEVER
 
@@ -184,8 +184,8 @@ class _VBox : VBox(), ChildManager, VGrowablePane, MarginablePane {
 }
 //endregion
 
-//region ItemManager
-interface ItemManager {
+//region ItemRoot
+interface ItemRoot {
     /** Shadowed when being implemented in [javafx.scene.control.ToolBar]. */
     fun getItems(): ObservableList<Node>
 
@@ -193,11 +193,11 @@ interface ItemManager {
     fun <T : Node> T.add(): T = apply { getItems().add(this) }
 }
 
-class _ToolBar(vararg items: Node) : ToolBar(*items), ItemManager
+class _ToolBar(vararg items: Node) : ToolBar(*items), ItemRoot
 //endregion
 
-//region MenuManager
-interface MenuManager {
+//region MenuRoot
+interface MenuRoot {
     /** Shadowed when being implemented in [javafx.scene.control.MenuBar]. */
     fun getMenus(): ObservableList<Menu>
 
@@ -205,11 +205,11 @@ interface MenuManager {
     fun <T : Menu> T.add(): T = apply { getMenus().add(this) }
 }
 
-class _MenuBar(vararg menus: Menu) : MenuBar(*menus), MenuManager
+class _MenuBar(vararg menus: Menu) : MenuBar(*menus), MenuRoot
 //endregion
 
-//region PopupManager
-interface PopupManager {
+//region PopupRoot
+interface PopupRoot {
     /** Shadowed when being implemented in [javafx.scene.control.ContextMenu]. */
     fun getItems(): ObservableList<MenuItem>
 
@@ -217,5 +217,5 @@ interface PopupManager {
     fun <T : MenuItem> T.add(): T = apply { getItems().add(this) }
 }
 
-class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupManager
+class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupRoot
 //endregion

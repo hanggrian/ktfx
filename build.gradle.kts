@@ -4,6 +4,7 @@ buildscript {
     }
     dependencies {
         classpath(kotlin("gradle-plugin", kotlinVersion))
+        classpath(dokka(dokkaVersion))
         classpath(bintrayRelease(bintrayReleaseVersion))
     }
 }

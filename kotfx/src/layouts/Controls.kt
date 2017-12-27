@@ -14,6 +14,9 @@ import javafx.scene.image.ImageView
 import javafx.scene.layout.*
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
+import javafx.scene.paint.Paint
+import javafx.scene.shape.*
+import javafx.scene.shape.Box.DEFAULT_SIZE
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
 import javafx.scene.web.WebView
@@ -215,6 +218,69 @@ inline fun ItemRoot.vbox(init: (@KotfxDsl _VBox).() -> Unit): VBox = _VBox().app
 @JvmOverloads inline fun webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildRoot.webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemRoot.webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }.add()
+//endregion
+
+//region Shapes
+
+@JvmOverloads inline fun arc(centerX: Number = 0, centerY: Number = 0, radiusX: Number = 0, radiusY: Number = 0, startAngle: Number = 0, length: Number = 0, noinline init: ((@KotfxDsl Arc).() -> Unit)? = null): Arc = Arc(centerX.toDouble(), centerY.toDouble(), radiusX.toDouble(), radiusY.toDouble(), startAngle.toDouble(), length.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.arc(centerX: Number = 0, centerY: Number = 0, radiusX: Number = 0, radiusY: Number = 0, startAngle: Number = 0, length: Number = 0, noinline init: ((@KotfxDsl Arc).() -> Unit)? = null): Arc = Arc(centerX.toDouble(), centerY.toDouble(), radiusX.toDouble(), radiusY.toDouble(), startAngle.toDouble(), length.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.arc(centerX: Number = 0, centerY: Number = 0, radiusX: Number = 0, radiusY: Number = 0, startAngle: Number = 0, length: Number = 0, noinline init: ((@KotfxDsl Arc).() -> Unit)? = null): Arc = Arc(centerX.toDouble(), centerY.toDouble(), radiusX.toDouble(), radiusY.toDouble(), startAngle.toDouble(), length.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun box(width: Number = DEFAULT_SIZE, height: Number = DEFAULT_SIZE, depth: Number = DEFAULT_SIZE, noinline init: ((@KotfxDsl Box).() -> Unit)? = null): Box = Box(width.toDouble(), height.toDouble(), depth.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.box(width: Number = DEFAULT_SIZE, height: Number = DEFAULT_SIZE, depth: Number = DEFAULT_SIZE, noinline init: ((@KotfxDsl Box).() -> Unit)? = null): Box = Box(width.toDouble(), height.toDouble(), depth.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.box(width: Number = DEFAULT_SIZE, height: Number = DEFAULT_SIZE, depth: Number = DEFAULT_SIZE, noinline init: ((@KotfxDsl Box).() -> Unit)? = null): Box = Box(width.toDouble(), height.toDouble(), depth.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun circle(centerX: Number = 0, centerY: Number = 0, radius: Number = 0, fill: Paint? = null, noinline init: ((@KotfxDsl Circle).() -> Unit)? = null): Circle = Circle(centerX.toDouble(), centerY.toDouble(), radius.toDouble(), fill).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.circle(centerX: Number = 0, centerY: Number = 0, radius: Number = 0, fill: Paint? = null, noinline init: ((@KotfxDsl Circle).() -> Unit)? = null): Circle = Circle(centerX.toDouble(), centerY.toDouble(), radius.toDouble(), fill).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.circle(centerX: Number = 0, centerY: Number = 0, radius: Number = 0, fill: Paint? = null, noinline init: ((@KotfxDsl Circle).() -> Unit)? = null): Circle = Circle(centerX.toDouble(), centerY.toDouble(), radius.toDouble(), fill).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun cubicCurve(startX: Number = 0, startY: Number = 0, controlX1: Number = 0, controlY1: Number = 0, controlX2: Number = 0, controlY2: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl CubicCurve).() -> Unit)? = null): CubicCurve = CubicCurve(startX.toDouble(), startY.toDouble(), controlX1.toDouble(), controlY1.toDouble(), controlX2.toDouble(), controlY2.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.cubicCurve(startX: Number = 0, startY: Number = 0, controlX1: Number = 0, controlY1: Number = 0, controlX2: Number = 0, controlY2: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl CubicCurve).() -> Unit)? = null): CubicCurve = CubicCurve(startX.toDouble(), startY.toDouble(), controlX1.toDouble(), controlY1.toDouble(), controlX2.toDouble(), controlY2.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.cubicCurve(startX: Number = 0, startY: Number = 0, controlX1: Number = 0, controlY1: Number = 0, controlX2: Number = 0, controlY2: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl CubicCurve).() -> Unit)? = null): CubicCurve = CubicCurve(startX.toDouble(), startY.toDouble(), controlX1.toDouble(), controlY1.toDouble(), controlX2.toDouble(), controlY2.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun cylinder(radius: Number = 1, height: Number = 2, division: Int = 64, noinline init: ((@KotfxDsl Cylinder).() -> Unit)? = null): Cylinder = Cylinder(radius.toDouble(), height.toDouble(), division).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.cylinder(radius: Number = 1, height: Number = 2, division: Int = 64, noinline init: ((@KotfxDsl Cylinder).() -> Unit)? = null): Cylinder = Cylinder(radius.toDouble(), height.toDouble(), division).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.cylinder(radius: Number = 1, height: Number = 2, division: Int = 64, noinline init: ((@KotfxDsl Cylinder).() -> Unit)? = null): Cylinder = Cylinder(radius.toDouble(), height.toDouble(), division).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun ellipse(centerX: Number = 0, centerY: Number = 0, radiusX: Number = 0, radiusY: Number = 0, noinline init: ((@KotfxDsl Ellipse).() -> Unit)? = null): Ellipse = Ellipse(centerX.toDouble(), centerY.toDouble(), radiusX.toDouble(), radiusY.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.ellipse(centerX: Number = 0, centerY: Number = 0, radiusX: Number = 0, radiusY: Number = 0, noinline init: ((@KotfxDsl Ellipse).() -> Unit)? = null): Ellipse = Ellipse(centerX.toDouble(), centerY.toDouble(), radiusX.toDouble(), radiusY.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.ellipse(centerX: Number = 0, centerY: Number = 0, radiusX: Number = 0, radiusY: Number = 0, noinline init: ((@KotfxDsl Ellipse).() -> Unit)? = null): Ellipse = Ellipse(centerX.toDouble(), centerY.toDouble(), radiusX.toDouble(), radiusY.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun line(centerX: Number = 0, centerY: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl Line).() -> Unit)? = null): Line = Line(centerX.toDouble(), centerY.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.line(centerX: Number = 0, centerY: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl Line).() -> Unit)? = null): Line = Line(centerX.toDouble(), centerY.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.line(centerX: Number = 0, centerY: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl Line).() -> Unit)? = null): Line = Line(centerX.toDouble(), centerY.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun meshView(mesh: Mesh? = null, noinline init: ((@KotfxDsl MeshView).() -> Unit)? = null): MeshView = MeshView(mesh).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.meshView(mesh: Mesh? = null, noinline init: ((@KotfxDsl MeshView).() -> Unit)? = null): MeshView = MeshView(mesh).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.meshView(mesh: Mesh? = null, noinline init: ((@KotfxDsl MeshView).() -> Unit)? = null): MeshView = MeshView(mesh).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun path(vararg elements: PathElement, noinline init: ((@KotfxDsl Path).() -> Unit)? = null): Path = Path(*elements).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.path(vararg elements: PathElement, noinline init: ((@KotfxDsl Path).() -> Unit)? = null): Path = Path(*elements).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.path(vararg elements: PathElement, noinline init: ((@KotfxDsl Path).() -> Unit)? = null): Path = Path(*elements).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun polygon(vararg points: Number, noinline init: ((@KotfxDsl Polygon).() -> Unit)? = null): Polygon = Polygon(*points.map { it.toDouble() }.toDoubleArray()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.polygon(vararg points: Number, noinline init: ((@KotfxDsl Polygon).() -> Unit)? = null): Polygon = Polygon(*points.map { it.toDouble() }.toDoubleArray()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.polygon(vararg points: Number, noinline init: ((@KotfxDsl Polygon).() -> Unit)? = null): Polygon = Polygon(*points.map { it.toDouble() }.toDoubleArray()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun polyline(vararg points: Number, noinline init: ((@KotfxDsl Polyline).() -> Unit)? = null): Polyline = Polyline(*points.map { it.toDouble() }.toDoubleArray()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.polyline(vararg points: Number, noinline init: ((@KotfxDsl Polyline).() -> Unit)? = null): Polyline = Polyline(*points.map { it.toDouble() }.toDoubleArray()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.polyline(vararg points: Number, noinline init: ((@KotfxDsl Polyline).() -> Unit)? = null): Polyline = Polyline(*points.map { it.toDouble() }.toDoubleArray()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun quadCurve(startX: Number = 0, startY: Number = 0, controlX: Number = 0, controlY: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl QuadCurve).() -> Unit)? = null): QuadCurve = QuadCurve(startX.toDouble(), startY.toDouble(), controlX.toDouble(), controlY.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.quadCurve(startX: Number = 0, startY: Number = 0, controlX: Number = 0, controlY: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl QuadCurve).() -> Unit)? = null): QuadCurve = QuadCurve(startX.toDouble(), startY.toDouble(), controlX.toDouble(), controlY.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.quadCurve(startX: Number = 0, startY: Number = 0, controlX: Number = 0, controlY: Number = 0, endX: Number = 0, endY: Number = 0, noinline init: ((@KotfxDsl QuadCurve).() -> Unit)? = null): QuadCurve = QuadCurve(startX.toDouble(), startY.toDouble(), controlX.toDouble(), controlY.toDouble(), endX.toDouble(), endY.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun rectangle(x: Number = 0, y: Number = 0, width: Number = 0, height: Number = 0, noinline init: ((@KotfxDsl Rectangle).() -> Unit)? = null): Rectangle = Rectangle(x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.rectangle(x: Number = 0, y: Number = 0, width: Number = 0, height: Number = 0, noinline init: ((@KotfxDsl Rectangle).() -> Unit)? = null): Rectangle = Rectangle(x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.rectangle(x: Number = 0, y: Number = 0, width: Number = 0, height: Number = 0, noinline init: ((@KotfxDsl Rectangle).() -> Unit)? = null): Rectangle = Rectangle(x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun sphere(radius: Number = 1, division: Int = 64, noinline init: ((@KotfxDsl Sphere).() -> Unit)? = null): Sphere = Sphere(radius.toDouble(), division).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.sphere(radius: Number = 1, division: Int = 64, noinline init: ((@KotfxDsl Sphere).() -> Unit)? = null): Sphere = Sphere(radius.toDouble(), division).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.sphere(radius: Number = 1, division: Int = 64, noinline init: ((@KotfxDsl Sphere).() -> Unit)? = null): Sphere = Sphere(radius.toDouble(), division).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun svgPath(noinline init: ((@KotfxDsl SVGPath).() -> Unit)? = null): SVGPath = SVGPath().apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.svgPath(noinline init: ((@KotfxDsl SVGPath).() -> Unit)? = null): SVGPath = SVGPath().apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.svgPath(noinline init: ((@KotfxDsl SVGPath).() -> Unit)? = null): SVGPath = SVGPath().apply { init?.invoke(this) }.add()
 //endregion
 
 //region Popups

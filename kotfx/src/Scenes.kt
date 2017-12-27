@@ -23,7 +23,7 @@ inline fun URL.loadFXML(
         builderFactory: BuilderFactory? = null,
         controllerFactory: Callback<Class<*>, Any>? = null,
         charset: Charset = forName(DEFAULT_CHARSET_NAME)
-): Parent = FXMLLoader.load<Parent>(this, resources, builderFactory, controllerFactory, charset)
+): FXMLLoader = FXMLLoader(this, resources, builderFactory, controllerFactory, charset)
 
 @JvmOverloads
 inline fun Parent.toScene(

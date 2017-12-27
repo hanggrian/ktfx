@@ -3,12 +3,13 @@ import org.gradle.kotlin.dsl.kotlin
 plugins {
     `java-library`
     kotlin("jvm")
-    id("com.novoda.bintray-release")
+    dokka()
+    bintrayRelease()
 }
 
 java.sourceSets {
-    getByName("main").java.srcDirs("src")
-    getByName("test").java.srcDirs("tests/src")
+    getByName("main").java.srcDir("src")
+    getByName("test").java.srcDir("tests/src")
 }
 
 dependencies {

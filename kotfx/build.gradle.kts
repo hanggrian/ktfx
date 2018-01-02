@@ -3,8 +3,8 @@ import org.gradle.kotlin.dsl.kotlin
 plugins {
     `java-library`
     kotlin("jvm")
-    dokka()
-    bintrayRelease()
+    dokka
+    `bintray-release`
 }
 
 java.sourceSets {

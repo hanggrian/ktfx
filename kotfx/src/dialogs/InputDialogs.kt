@@ -5,21 +5,11 @@
 package kotfx
 
 import javafx.scene.control.TextInputDialog
-import javafx.stage.Window
 
 @JvmOverloads
 inline fun inputDialog(
         prefill: String = "",
         noinline init: (TextInputDialog.() -> Unit)? = null
 ): TextInputDialog = TextInputDialog(prefill).apply {
-    init?.invoke(this)
-}
-
-@JvmOverloads
-inline fun Window.inputDialog(
-        prefill: String = "",
-        noinline init: (TextInputDialog.() -> Unit)? = null
-): TextInputDialog = TextInputDialog(prefill).apply {
-    initOwner(this@inputDialog)
     init?.invoke(this)
 }

@@ -19,7 +19,7 @@ inline fun <T> observableSetOf(): ObservableSet<T> = emptyObservableSet()
 inline fun <T> observableSetOf(vararg elements: T): ObservableSet<T> = if (elements.isNotEmpty()) unmodifiableObservableSet(mutableObservableSetOf(*elements)) else emptyObservableSet()
 
 /** Converts this set to read-only observable set. */
-inline fun <T> Set<T>.toObservableSet(): ObservableSet<T> = unmodifiableObservableSet(toMutableObservableSet())
+inline fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> = unmodifiableObservableSet(toMutableObservableSet())
 
 /** Returns an empty observable set. */
 inline fun <T> mutableObservableSetOf(): ObservableSet<T> = observableSet()
@@ -28,4 +28,4 @@ inline fun <T> mutableObservableSetOf(): ObservableSet<T> = observableSet()
 inline fun <T> mutableObservableSetOf(vararg elements: T): ObservableSet<T> = observableSet(*elements)
 
 /** Converts this set to observable set. */
-inline fun <T> Set<T>.toMutableObservableSet(): ObservableSet<T> = observableSet(this)
+inline fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> = observableSet(this as? Set ?: toCollection(LinkedHashSet()))

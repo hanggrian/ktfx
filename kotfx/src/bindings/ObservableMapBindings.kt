@@ -9,13 +9,13 @@ import javafx.beans.binding.Bindings.*
 import javafx.beans.value.ObservableValue
 import javafx.collections.ObservableMap
 
-inline fun <K, V> ObservableMap<K, V>.bindContentBidirectional(other: ObservableMap<K, V>) = bindContentBidirectional(this, other)
+inline infix fun <K, V> ObservableMap<K, V>.bindContentBidirectional(other: ObservableMap<K, V>) = bindContentBidirectional(this, other)
 
-inline fun <K, V> ObservableMap<K, V>.unbindContentBidirectional(other: ObservableMap<K, V>) = unbindContentBidirectional(this, other)
+inline infix fun <K, V> ObservableMap<K, V>.unbindContentBidirectional(other: ObservableMap<K, V>) = unbindContentBidirectional(this, other)
 
-inline fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>) = bindContent(this, other)
+inline infix fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>) = bindContent(this, other)
 
-inline fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>) = unbindContent(this, other)
+inline infix fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>) = unbindContent(this, other)
 
 inline val <K, V> ObservableMap<K, V>.sizeBinding: IntegerBinding get() = size(this)
 

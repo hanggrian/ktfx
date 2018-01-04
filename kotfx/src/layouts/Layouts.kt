@@ -2,12 +2,18 @@ package kotfx
 
 import javafx.collections.ObservableList
 import javafx.geometry.HPos
+import javafx.geometry.HPos.LEFT
 import javafx.geometry.Insets
+import javafx.geometry.Insets.EMPTY
 import javafx.geometry.Pos
+import javafx.geometry.Pos.CENTER
+import javafx.geometry.Pos.TOP_LEFT
 import javafx.geometry.VPos
+import javafx.geometry.VPos.TOP
 import javafx.scene.Node
 import javafx.scene.control.*
 import javafx.scene.layout.*
+import javafx.scene.layout.Priority.NEVER
 import javafx.scene.text.TextFlow
 
 //region ChildRoot
@@ -47,7 +53,7 @@ interface AlignablePane : ConstrainedPane {
     val Node.hpos: HPos get() = pos.hpos
     val Node.vpos: VPos get() = pos.vpos
 
-    fun posOf(v: VPos, h: HPos): Pos = "${v}_$h".let { if (it == "CENTER_CENTER") Pos.CENTER else Pos.valueOf(it) }
+    fun posOf(v: VPos, h: HPos): Pos = "${v}_$h".let { if (it == "CENTER_CENTER") CENTER else Pos.valueOf(it) }
 }
 
 interface HGrowablePane : ConstrainedPane {
@@ -61,6 +67,13 @@ interface VGrowablePane : ConstrainedPane {
 }
 
 open class _AnchorPane : AnchorPane(), ChildRoot, ConstrainedPane {
+    infix fun <N : Node> N.anchor(value: Number?): N = apply {
+        anchorTop(value)
+        anchorLeft(value)
+        anchorBottom(value)
+        anchorRight(value)
+    }
+
     infix fun <N : Node> N.anchorTop(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
     infix fun <N : Node> N.anchorLeft(value: Number?): N = apply { setLeftAnchor(this, value?.toDouble()) }
     infix fun <N : Node> N.anchorBottom(value: Number?): N = apply { setBottomAnchor(this, value?.toDouble()) }
@@ -76,17 +89,17 @@ open class _AnchorPane : AnchorPane(), ChildRoot, ConstrainedPane {
 
 open class _BorderPane : BorderPane(), ChildRoot, AlignablePane, MarginablePane {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
-    override val Node.pos: Pos get() = getAlignment(this) ?: Pos.TOP_LEFT
+    override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
 
     override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
 open class _FlowPane : FlowPane(), ChildRoot, MarginablePane {
     override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
@@ -105,7 +118,7 @@ open class _GridPane : GridPane(), ChildRoot, MarginablePane, AlignablePane, HGr
     val Node.colSpan: Int get() = getColumnSpan(this) ?: -1
 
     override fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.pos(value: Pos): N = apply {
         setHalignment(this, value.hpos)
@@ -116,8 +129,8 @@ open class _GridPane : GridPane(), ChildRoot, MarginablePane, AlignablePane, HGr
     override infix fun <N : Node> N.vpos(value: VPos): N = apply { setValignment(this, value) }
 
     override val Node.pos: Pos get() = posOf(vpos, hpos)
-    override val Node.vpos: VPos get() = getValignment(this) ?: VPos.TOP
-    override val Node.hpos: HPos get() = getHalignment(this) ?: HPos.LEFT
+    override val Node.vpos: VPos get() = getValignment(this) ?: TOP
+    override val Node.hpos: HPos get() = getHalignment(this) ?: LEFT
 
     infix fun <N : Node> N.hfill(value: Boolean): N = apply { setFillWidth(this, value) }
     val Node.hfill: Boolean get() = isFillWidth(this)
@@ -133,30 +146,30 @@ open class _GridPane : GridPane(), ChildRoot, MarginablePane, AlignablePane, HGr
     val Node.fill: Boolean get() = hfill && vfill
 
     override infix fun <N : Node> N.hpriority(value: Priority): N = apply { setVgrow(this, value) }
-    override val Node.hpriority: Priority get() = getHgrow(this) ?: Priority.NEVER
+    override val Node.hpriority: Priority get() = getHgrow(this) ?: NEVER
 
     override infix fun <N : Node> N.vpriority(value: Priority): N = apply { setVgrow(this, value) }
-    override val Node.vpriority: Priority get() = getVgrow(this) ?: Priority.NEVER
+    override val Node.vpriority: Priority get() = getVgrow(this) ?: NEVER
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
 open class _HBox : HBox(), ChildRoot, HGrowablePane, MarginablePane {
     override infix fun <N : Node> N.hpriority(value: Priority): N = apply { setHgrow(this, value) }
-    override val Node.hpriority: Priority get() = getHgrow(this) ?: Priority.NEVER
+    override val Node.hpriority: Priority get() = getHgrow(this) ?: NEVER
 
     override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
 open class _StackPane : StackPane(), ChildRoot, AlignablePane, MarginablePane {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
-    override val Node.pos: Pos get() = getAlignment(this) ?: Pos.TOP_LEFT
+    override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
 
     override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
@@ -165,20 +178,20 @@ open class _TextFlow : TextFlow(), ChildRoot
 
 open class _TilePane : TilePane(), ChildRoot, AlignablePane, MarginablePane {
     override infix fun <N : Node> N.pos(value: Pos): N = apply { setAlignment(this, value) }
-    override val Node.pos: Pos get() = getAlignment(this) ?: Pos.TOP_LEFT
+    override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
 
     override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
 
 open class _VBox : VBox(), ChildRoot, VGrowablePane, MarginablePane {
     override infix fun <N : Node> N.vpriority(value: Priority): N = apply { setVgrow(this, value) }
-    override val Node.vpriority: Priority get() = getVgrow(this) ?: Priority.NEVER
+    override val Node.vpriority: Priority get() = getVgrow(this) ?: NEVER
 
     override infix fun <N : Node> N.margins(value: Insets): N = apply { setMargin(this, value) }
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }

@@ -6,12 +6,18 @@ import javafx.collections.ObservableList
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
+import javafx.scene.canvas.Canvas
+import javafx.scene.chart.*
+import javafx.scene.chart.PieChart.Data
+import javafx.scene.chart.XYChart.Series
 import javafx.scene.control.*
 import javafx.scene.control.Pagination.INDETERMINATE
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.layout.*
+import javafx.scene.media.MediaPlayer
+import javafx.scene.media.MediaView
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
@@ -98,10 +104,6 @@ inline fun ItemRoot.vbox(init: (@KotfxDsl _VBox).() -> Unit): VBox = _VBox().app
 @JvmOverloads inline fun hyperlink(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl Hyperlink).() -> Unit)? = null): Hyperlink = Hyperlink(text, graphic).apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildRoot.hyperlink(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl Hyperlink).() -> Unit)? = null): Hyperlink = Hyperlink(text, graphic).apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemRoot.hyperlink(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl Hyperlink).() -> Unit)? = null): Hyperlink = Hyperlink(text, graphic).apply { init?.invoke(this) }.add()
-
-@JvmOverloads inline fun imageView(image: Image? = null, noinline init: ((@KotfxDsl ImageView).() -> Unit)? = null): ImageView = ImageView(image).apply { init?.invoke(this) }
-@JvmOverloads inline fun ChildRoot.imageView(image: Image? = null, noinline init: ((@KotfxDsl ImageView).() -> Unit)? = null): ImageView = ImageView(image).apply { init?.invoke(this) }.add()
-@JvmOverloads inline fun ItemRoot.imageView(image: Image? = null, noinline init: ((@KotfxDsl ImageView).() -> Unit)? = null): ImageView = ImageView(image).apply { init?.invoke(this) }.add()
 
 @JvmOverloads inline fun label(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl Label).() -> Unit)? = null): Label = Label(text, graphic).apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildRoot.label(text: String? = null, graphic: Node? = null, noinline init: ((@KotfxDsl Label).() -> Unit)? = null): Label = Label(text, graphic).apply { init?.invoke(this) }.add()
@@ -191,10 +193,6 @@ inline fun ItemRoot.vbox(init: (@KotfxDsl _VBox).() -> Unit): VBox = _VBox().app
 @JvmOverloads inline fun ChildRoot.textField(text: String = "", noinline init: ((@KotfxDsl TextField).() -> Unit)? = null): TextField = TextField(text).apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemRoot.textField(text: String = "", noinline init: ((@KotfxDsl TextField).() -> Unit)? = null): TextField = TextField(text).apply { init?.invoke(this) }.add()
 
-@JvmOverloads inline fun text(text: String? = null, noinline init: ((@KotfxDsl Text).() -> Unit)? = null): Text = Text(text).apply { init?.invoke(this) }
-@JvmOverloads inline fun ChildRoot.text(text: String? = null, noinline init: ((@KotfxDsl Text).() -> Unit)? = null): Text = Text(text).apply { init?.invoke(this) }.add()
-@JvmOverloads inline fun ItemRoot.text(text: String? = null, noinline init: ((@KotfxDsl Text).() -> Unit)? = null): Text = Text(text).apply { init?.invoke(this) }.add()
-
 @JvmOverloads inline fun titledPane(text: String? = null, content: Node? = null, noinline init: ((@KotfxDsl TitledPane).() -> Unit)? = null): TitledPane = TitledPane(text, content).apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildRoot.titledPane(text: String? = null, content: Node? = null, noinline init: ((@KotfxDsl TitledPane).() -> Unit)? = null): TitledPane = TitledPane(text, content).apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemRoot.titledPane(text: String? = null, content: Node? = null, noinline init: ((@KotfxDsl TitledPane).() -> Unit)? = null): TitledPane = TitledPane(text, content).apply { init?.invoke(this) }.add()
@@ -214,10 +212,60 @@ inline fun ItemRoot.vbox(init: (@KotfxDsl _VBox).() -> Unit): VBox = _VBox().app
 @JvmOverloads inline fun <T> treeView(root: TreeItem<T>? = null, noinline init: ((@KotfxDsl TreeView<T>).() -> Unit)? = null): TreeView<T> = TreeView<T>(root).apply { init?.invoke(this) }
 @JvmOverloads inline fun <T> ChildRoot.treeView(root: TreeItem<T>? = null, noinline init: ((@KotfxDsl TreeView<T>).() -> Unit)? = null): TreeView<T> = TreeView<T>(root).apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun <T> ItemRoot.treeView(root: TreeItem<T>? = null, noinline init: ((@KotfxDsl TreeView<T>).() -> Unit)? = null): TreeView<T> = TreeView<T>(root).apply { init?.invoke(this) }.add()
+//endregion
+
+//region Other controls from scene package
+
+@JvmOverloads inline fun canvas(width: Number = 0, height: Number = 0, noinline init: ((@KotfxDsl Canvas).() -> Unit)? = null): Canvas = Canvas(width.toDouble(), height.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.canvas(width: Number = 0, height: Number = 0, noinline init: ((@KotfxDsl Canvas).() -> Unit)? = null): Canvas = Canvas(width.toDouble(), height.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.canvas(width: Number = 0, height: Number = 0, noinline init: ((@KotfxDsl Canvas).() -> Unit)? = null): Canvas = Canvas(width.toDouble(), height.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun imageView(image: Image? = null, noinline init: ((@KotfxDsl ImageView).() -> Unit)? = null): ImageView = ImageView(image).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.imageView(image: Image? = null, noinline init: ((@KotfxDsl ImageView).() -> Unit)? = null): ImageView = ImageView(image).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.imageView(image: Image? = null, noinline init: ((@KotfxDsl ImageView).() -> Unit)? = null): ImageView = ImageView(image).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun mediaView(player: MediaPlayer? = null, noinline init: ((@KotfxDsl MediaView).() -> Unit)? = null): MediaView = MediaView(player).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.mediaView(player: MediaPlayer? = null, noinline init: ((@KotfxDsl MediaView).() -> Unit)? = null): MediaView = MediaView(player).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.mediaView(player: MediaPlayer? = null, noinline init: ((@KotfxDsl MediaView).() -> Unit)? = null): MediaView = MediaView(player).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun text(text: String? = null, noinline init: ((@KotfxDsl Text).() -> Unit)? = null): Text = Text(text).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.text(text: String? = null, noinline init: ((@KotfxDsl Text).() -> Unit)? = null): Text = Text(text).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.text(text: String? = null, noinline init: ((@KotfxDsl Text).() -> Unit)? = null): Text = Text(text).apply { init?.invoke(this) }.add()
 
 @JvmOverloads inline fun webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildRoot.webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemRoot.webView(noinline init: ((@KotfxDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }.add()
+//endregion
+
+//region Charts
+
+@JvmOverloads inline fun <X, Y> areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }
+@JvmOverloads inline fun <X, Y> ChildRoot.areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun <X, Y> ItemRoot.areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun <X, Y> barChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), gap: Number = 10, noinline init: ((@KotfxDsl BarChart<X, Y>).() -> Unit)? = null): BarChart<X, Y> = BarChart(x, y, data, gap.toDouble()).apply { init?.invoke(this) }
+@JvmOverloads inline fun <X, Y> ChildRoot.barChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), gap: Number = 10, noinline init: ((@KotfxDsl BarChart<X, Y>).() -> Unit)? = null): BarChart<X, Y> = BarChart(x, y, data, gap.toDouble()).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun <X, Y> ItemRoot.barChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), gap: Number = 10, noinline init: ((@KotfxDsl BarChart<X, Y>).() -> Unit)? = null): BarChart<X, Y> = BarChart(x, y, data, gap.toDouble()).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun <X, Y> bubbleChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl BubbleChart<X, Y>).() -> Unit)? = null): BubbleChart<X, Y> = BubbleChart(x, y, data).apply { init?.invoke(this) }
+@JvmOverloads inline fun <X, Y> ChildRoot.bubbleChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl BubbleChart<X, Y>).() -> Unit)? = null): BubbleChart<X, Y> = BubbleChart(x, y, data).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun <X, Y> ItemRoot.bubbleChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl BubbleChart<X, Y>).() -> Unit)? = null): BubbleChart<X, Y> = BubbleChart(x, y, data).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun pieChart(data: ObservableList<Data> = mutableObservableListOf(), noinline init: ((@KotfxDsl PieChart).() -> Unit)? = null): PieChart = PieChart(data).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.pieChart(data: ObservableList<Data> = mutableObservableListOf(), noinline init: ((@KotfxDsl PieChart).() -> Unit)? = null): PieChart = PieChart(data).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.pieChart(data: ObservableList<Data> = mutableObservableListOf(), noinline init: ((@KotfxDsl PieChart).() -> Unit)? = null): PieChart = PieChart(data).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun <X, Y> scatterChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl ScatterChart<X, Y>).() -> Unit)? = null): ScatterChart<X, Y> = ScatterChart(x, y, data).apply { init?.invoke(this) }
+@JvmOverloads inline fun <X, Y> ChildRoot.scatterChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl ScatterChart<X, Y>).() -> Unit)? = null): ScatterChart<X, Y> = ScatterChart(x, y, data).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun <X, Y> ItemRoot.scatterChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl ScatterChart<X, Y>).() -> Unit)? = null): ScatterChart<X, Y> = ScatterChart(x, y, data).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun <X, Y> stackedAreaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl StackedAreaChart<X, Y>).() -> Unit)? = null): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply { init?.invoke(this) }
+@JvmOverloads inline fun <X, Y> ChildRoot.stackedAreaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl StackedAreaChart<X, Y>).() -> Unit)? = null): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun <X, Y> ItemRoot.stackedAreaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl StackedAreaChart<X, Y>).() -> Unit)? = null): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply { init?.invoke(this) }.add()
+
+@JvmOverloads inline fun <X, Y> stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }
+@JvmOverloads inline fun <X, Y> ChildRoot.stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun <X, Y> ItemRoot.stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@KotfxDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }.add()
 //endregion
 
 //region Shapes

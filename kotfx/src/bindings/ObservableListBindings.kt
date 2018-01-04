@@ -10,13 +10,13 @@ import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableNumberValue
 import javafx.collections.ObservableList
 
-inline fun <E> ObservableList<E>.bindContentBidirectional(other: ObservableList<E>) = bindContentBidirectional(this, other)
+inline infix fun <E> ObservableList<E>.bindContentBidirectional(other: ObservableList<E>) = bindContentBidirectional(this, other)
 
-inline fun <E> ObservableList<E>.unbindContentBidirectional(other: ObservableList<E>) = unbindContentBidirectional(this, other)
+inline infix fun <E> ObservableList<E>.unbindContentBidirectional(other: ObservableList<E>) = unbindContentBidirectional(this, other)
 
-inline fun <E> List<E>.bindContent(other: ObservableList<E>) = bindContent(this, other)
+inline infix fun <E> List<E>.bindContent(other: ObservableList<E>) = bindContent(this, other)
 
-inline fun <E> List<E>.unbindContent(other: ObservableList<E>) = unbindContent(this, other)
+inline infix fun <E> List<E>.unbindContent(other: ObservableList<E>) = unbindContent(this, other)
 
 inline val <E> ObservableList<E>.sizeBinding: IntegerBinding get() = size(this)
 

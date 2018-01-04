@@ -8,6 +8,7 @@ import javafx.collections.FXCollections
 import javafx.collections.FXCollections.*
 import javafx.collections.ObservableList
 import java.util.*
+import kotlin.collections.ArrayList
 
 /** Returns an empty read-only observable list. */
 inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
@@ -26,7 +27,7 @@ inline fun <T> observableListOf(vararg elements: T): ObservableList<T> = when (e
 }
 
 /** Converts this collection to read-only observable list. */
-inline fun <T> Collection<T>.toObservableList(): ObservableList<T> = unmodifiableObservableList(toMutableObservableList())
+inline fun <T> Iterable<T>.toObservableList(): ObservableList<T> = unmodifiableObservableList(toMutableObservableList())
 
 /** Returns an empty observable list. */
 inline fun <T> mutableObservableListOf(): ObservableList<T> = observableArrayList()
@@ -35,7 +36,7 @@ inline fun <T> mutableObservableListOf(): ObservableList<T> = observableArrayLis
 inline fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> = observableArrayList(*elements)
 
 /** Converts this collection to observable list. */
-inline fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> = observableArrayList(this)
+inline fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> = observableArrayList(this as? Collection ?: toCollection(ArrayList()))
 
 /** Copies elements from src to list, firing change notification once. */
 inline fun <T> ObservableList<T>.copy(src: List<T>) = copy(this, src)

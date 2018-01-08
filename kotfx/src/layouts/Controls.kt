@@ -185,9 +185,9 @@ inline fun ItemRoot.vbox(init: (@KotfxDsl _VBox).() -> Unit): VBox = _VBox().app
 @JvmOverloads inline fun ChildRoot.tab(text: String? = null, content: Node? = null, noinline init: ((@KotfxDsl Tab).() -> Unit)? = null): Tab = Tab(text, content).apply { init?.invoke(this) }
 @JvmOverloads inline fun ItemRoot.tab(text: String? = null, content: Node? = null, noinline init: ((@KotfxDsl Tab).() -> Unit)? = null): Tab = Tab(text, content).apply { init?.invoke(this) }
 
-@JvmOverloads inline fun textArea(noinline init: ((@KotfxDsl TextArea).() -> Unit)? = null): TextArea = TextArea().apply { init?.invoke(this) }
-@JvmOverloads inline fun ChildRoot.textArea(noinline init: ((@KotfxDsl TextArea).() -> Unit)? = null): TextArea = TextArea().apply { init?.invoke(this) }.add()
-@JvmOverloads inline fun ItemRoot.textArea(noinline init: ((@KotfxDsl TextArea).() -> Unit)? = null): TextArea = TextArea().apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun textArea(text: String = "", noinline init: ((@KotfxDsl TextArea).() -> Unit)? = null): TextArea = TextArea(text).apply { init?.invoke(this) }
+@JvmOverloads inline fun ChildRoot.textArea(text: String = "", noinline init: ((@KotfxDsl TextArea).() -> Unit)? = null): TextArea = TextArea(text).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun ItemRoot.textArea(text: String = "", noinline init: ((@KotfxDsl TextArea).() -> Unit)? = null): TextArea = TextArea(text).apply { init?.invoke(this) }.add()
 
 @JvmOverloads inline fun textField(text: String = "", noinline init: ((@KotfxDsl TextField).() -> Unit)? = null): TextField = TextField(text).apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildRoot.textField(text: String = "", noinline init: ((@KotfxDsl TextField).() -> Unit)? = null): TextField = TextField(text).apply { init?.invoke(this) }.add()

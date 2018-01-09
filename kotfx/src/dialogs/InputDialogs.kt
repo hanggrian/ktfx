@@ -10,6 +10,4 @@ import javafx.scene.control.TextInputDialog
 inline fun inputDialog(
         prefill: String = "",
         noinline init: (TextInputDialog.() -> Unit)? = null
-): TextInputDialog = TextInputDialog(prefill).apply {
-    init?.invoke(this)
-}
+): TextInputDialog = TextInputDialog(prefill).apply { init?.invoke(this) }

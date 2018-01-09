@@ -11,6 +11,4 @@ inline fun <T> choiceDialog(
         items: Collection<T>? = null,
         prefill: T? = null,
         noinline init: (ChoiceDialog<T>.() -> Unit)? = null
-): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
-    init?.invoke(this)
-}
+): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply { init?.invoke(this) }

@@ -2,7 +2,7 @@
 @file:JvmName("BindingsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UNUSED")
 
-package bindings
+package kotfx
 
 import javafx.beans.binding.*
 import javafx.beans.binding.Bindings.`when`

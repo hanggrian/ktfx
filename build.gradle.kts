@@ -16,6 +16,13 @@ allprojects {
     repositories {
         jcenter()
     }
+    tasks.withType(Delete::class.java) {
+        delete(File(projectDir, "out"))
+    }
+}
+
+task<Delete>("clean") {
+    delete(rootProject.buildDir)
 }
 
 /** QUICK UPLOAD

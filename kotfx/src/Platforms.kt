@@ -3,10 +3,12 @@
 package kotfx
 
 import javafx.application.ConditionalFeature
-import javafx.application.Platform.*
+import javafx.application.Platform
+import javafx.application.Platform.isFxApplicationThread
+import javafx.application.Platform.isSupported
 
 /** Run the specified block on the JavaFX thread. */
-inline fun runFX(noinline block: () -> Unit) = runLater(block)
+inline fun runLater(noinline block: () -> Unit) = Platform.runLater(block)
 
 /** Returns true if the calling thread is the JavaFX thread. */
 inline val isFXThread: Boolean get() = isFxApplicationThread()

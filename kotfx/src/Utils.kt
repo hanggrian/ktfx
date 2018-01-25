@@ -2,21 +2,17 @@
 
 package kotfx
 
-import javafx.util.Callback
 import javafx.util.Duration
 import javafx.util.StringConverter
 
-/** Creates a new callback using Kotlin's function types. */
-inline fun <P, R> callback(noinline converter: (P) -> R): Callback<P, R> = Callback(converter)
-
-/** Creates a new string converter using [convertFromString] and optional [convertToString]. */
+/** Creates a new string converter using [_fromString] and optional [_toString]. */
 @JvmOverloads
-inline fun <T> stringConverter(
-        noinline convertFromString: (String) -> T,
-        noinline convertToString: (T) -> String = { it.toString() }
+inline fun <T> stringConverterOf(
+        noinline _fromString: (String) -> T?,
+        noinline _toString: (T?) -> String = { it.toString() }
 ): StringConverter<T> = object : StringConverter<T>() {
-    override fun toString(t: T): String = convertToString(t)
-    override fun fromString(s: String): T = convertFromString(s)
+    override fun toString(t: T?): String = _toString(t)
+    override fun fromString(s: String): T? = _fromString(s)
 }
 
 /** Converts JavaFX's pair to Kotlin's. */

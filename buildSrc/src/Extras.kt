@@ -1,11 +1,11 @@
 const val bintrayUser = "hendraanggrian"
 const val bintrayGroup = "com.hendraanggrian"
 const val bintrayArtifact = "kotfx"
-const val bintrayPublish = "0.18"
+const val bintrayPublish = "0.19"
 const val bintrayDesc = "Minimalist JavaFX development"
 const val bintrayWeb = "https://github.com/hendraanggrian/kotfx"
 
-const val kotlinVersion = "1.2.20"
+const val kotlinVersion = "1.2.21"
 
 val Dependency.dokka get() = "org.jetbrains.dokka:dokka-gradle-plugin:0.9.15"
 val Plugin.dokka get() = id("org.jetbrains.dokka")

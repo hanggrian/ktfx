@@ -10,33 +10,40 @@ import javafx.collections.ObservableList
 import java.util.*
 import kotlin.collections.ArrayList
 
-/** Returns an empty read-only observable list. */
+/** Returns an empty immutable [ObservableList]. */
 inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
 
-/** Returns an empty read-only observable list. */
+/** Returns an empty immutable [ObservableList]. */
 inline fun <T> observableListOf(): ObservableList<T> = emptyObservableList()
 
-/** Returns a read-only observable list of one element. */
+/** Returns an immutable [ObservableList] of one [element]. */
 inline fun <T> observableListOf(element: T): ObservableList<T> = singletonObservableList(element)
 
-/** Returns a read-only observable list of [elements]. */
+/** Returns an immutable [ObservableList] containing all [elements]. */
 inline fun <T> observableListOf(vararg elements: T): ObservableList<T> = when (elements.size) {
-    0 -> observableListOf()
+    0 -> emptyObservableList()
     1 -> observableListOf(elements[0])
-    else -> unmodifiableObservableList(mutableObservableListOf(*elements))
+    else -> unmodifiableObservableList(elements.toMutableObservableList())
 }
 
-/** Converts this collection to read-only observable list. */
+/** Converts this array to immutable [ObservableList]. */
+inline fun <T> Array<out T>.toObservableList(): ObservableList<T> = observableListOf(*this)
+
+/** Converts this collection to immutable [ObservableList]. */
 inline fun <T> Iterable<T>.toObservableList(): ObservableList<T> = unmodifiableObservableList(toMutableObservableList())
 
-/** Returns an empty observable list. */
+/** Returns an empty [ObservableList]. */
 inline fun <T> mutableObservableListOf(): ObservableList<T> = observableArrayList()
 
-/** Returns an empty observable list of [elements]. */
+/** Returns an [ObservableList] containing all [elements]. */
 inline fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> = observableArrayList(*elements)
 
-/** Converts this collection to observable list. */
-inline fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> = observableArrayList(this as? Collection ?: toCollection(ArrayList()))
+/** Converts this array to [ObservableList]. */
+inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> = mutableObservableListOf(*this)
+
+/** Converts this collection to [ObservableList]. */
+inline fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> = observableArrayList(this as? Collection
+        ?: toCollection(ArrayList()))
 
 /** Copies elements from src to list, firing change notification once. */
 inline fun <T> ObservableList<T>.copy(src: List<T>) = copy(this, src)

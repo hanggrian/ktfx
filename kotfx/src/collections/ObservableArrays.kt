@@ -9,26 +9,26 @@ import javafx.collections.FXCollections.observableIntegerArray
 import javafx.collections.ObservableFloatArray
 import javafx.collections.ObservableIntegerArray
 
-/** Returns an empty observable integer array. */
+/** Returns an empty [ObservableIntegerArray]. */
 inline fun observableIntArrayOf(): ObservableIntegerArray = observableIntegerArray()
 
-/** Returns an observable integer array of [elements]. */
+/** Returns an [ObservableIntegerArray] of [elements]. */
 inline fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray = observableIntegerArray(*elements)
 
-/** Converts this integer array to observable integer array. */
+/** Converts this [IntArray] to [ObservableIntegerArray]. */
 inline fun IntArray.toObservableArray(): ObservableIntegerArray = observableIntegerArray(*this)
 
-/** Creates a copy of this observable integer array. */
+/** Creates a copy of this [ObservableIntegerArray]. */
 inline fun ObservableIntegerArray.toObservableArray(): ObservableIntegerArray = observableIntegerArray(this)
 
-/** Returns an empty observable float array. */
+/** Returns an empty [ObservableFloatArray]. */
 inline fun observableFloatArrayOf(): ObservableFloatArray = observableFloatArray()
 
-/** Returns an observable float array of [elements]. */
+/** Returns an [ObservableFloatArray] of [elements]. */
 inline fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray = observableFloatArray(*elements)
 
-/** Converts this float array to observable float array. */
+/** Converts this [FloatArray] to [ObservableFloatArray]. */
 inline fun FloatArray.toObservableArray(): ObservableFloatArray = observableFloatArray(*this)
 
-/** Creates a copy of this observable float array. */
+/** Creates a copy of this [ObservableFloatArray]. */
 inline fun ObservableFloatArray.toObservableArray(): ObservableFloatArray = observableFloatArray(this)

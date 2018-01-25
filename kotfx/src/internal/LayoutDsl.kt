@@ -2,4 +2,4 @@ package kotfx
 
 @DslMarker
 @Target(AnnotationTarget.TYPE)
-annotation class KotfxDsl
+annotation class LayoutDsl

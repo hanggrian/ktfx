@@ -8,7 +8,7 @@ import org.junit.runner.RunWith
 import kotlin.test.assertEquals
 
 @RunWith(JUnitPlatform::class)
-class CollectionsSpec : Spek({
+object CollectionsSpec : Spek({
 
     given("an empty iterable") {
         val iterable = listOf<String>()

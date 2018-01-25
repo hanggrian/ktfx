@@ -64,12 +64,12 @@ inline fun Dialog<*>.buttons(vararg buttons: ButtonType): List<Node> {
 
 @JvmOverloads
 inline fun <R> dialog(
-        title: String,
+        title: String? = null,
         headerText: String? = null,
         graphic: Node? = null,
         noinline init: (Dialog<R>.() -> Unit)? = null
 ): Dialog<R> = Dialog<R>().apply {
-    setTitle(title)
+    title?.let { setTitle(it) }
     headerText?.let { setHeaderText(it) }
     graphic?.let { setGraphic(it) }
     init?.invoke(this)

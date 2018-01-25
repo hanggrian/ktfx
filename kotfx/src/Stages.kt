@@ -15,10 +15,10 @@ inline var Stage.icon: Image?
     }
 
 inline fun stage(
-        title: String,
+        title: String? = null,
         style: StageStyle = DECORATED,
         noinline init: (Stage.() -> Unit)? = null
 ): Stage = Stage(style).apply {
-    setTitle(title)
+    title?.let { setTitle(it) }
     init?.invoke(this)
 }

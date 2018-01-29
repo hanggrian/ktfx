@@ -25,7 +25,7 @@ class App : Application() {
                 padding = Insets(0.0, 20.0, 0.0, 20.0)
                 calculationLabel = label("")
                 resultLabel = label("") {
-                    textProperty() bind stringBindingOf(calculationLabel.textProperty()) {
+                    textProperty().bind(stringBindingOf(calculationLabel.textProperty()) {
                         if (endsWithOperator) "..." else {
                             val operators = calculationLabel.text.split("\\d".toRegex()).filter { it.isNotEmpty() }.toMutableList()
                             val values = calculationLabel.text.split("[+\\-/*]".toRegex()).toMutableList()
@@ -47,7 +47,7 @@ class App : Application() {
                             }
                             total?.toString() ?: "0"
                         }
-                    }
+                    })
                 }
             } row 0 col 0 colSpan 5 hfill true
 
@@ -167,7 +167,7 @@ class App : Application() {
             button("=") {
                 setMinSize(40.0, 40.0)
                 isDefaultButton = true
-                disableProperty() bind booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator }
+                disableProperty().bind(booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator })
                 setOnAction {
                     infoAlert(resultLabel.text) { headerText = "Result" }.showAndWait()
                 }

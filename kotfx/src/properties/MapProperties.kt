@@ -11,10 +11,10 @@ import javafx.beans.value.ObservableValue
 import javafx.collections.ObservableMap
 
 /** Wrap this map in modifiable property. */
-inline fun <K, V> ObservableMap<K, V>?.asMutableProperty(): MapProperty<K, V> = SimpleMapProperty(this)
+inline fun <K, V> ObservableMap<K, V>?.toMutableProperty(): MapProperty<K, V> = SimpleMapProperty(this)
 
 /** Wrap this map in unmodifiable property. */
-inline fun <K, V> ObservableMap<K, V>?.asProperty(): MapProperty<K, V> = ReadOnlyMapWrapper(this)
+inline fun <K, V> ObservableMap<K, V>?.toProperty(): MapProperty<K, V> = ReadOnlyMapWrapper(this)
 
 /** Returns this map property as an observable. */
 inline fun <K, V> MapProperty<K, V>.asObservable(): ObservableValue<ObservableMap<K, V>> = this

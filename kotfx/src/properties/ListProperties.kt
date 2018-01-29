@@ -11,10 +11,10 @@ import javafx.beans.value.ObservableValue
 import javafx.collections.ObservableList
 
 /** Wrap this list in modifiable property. */
-inline fun <E> ObservableList<E>?.asMutableProperty(): ListProperty<E> = SimpleListProperty(this)
+inline fun <E> ObservableList<E>?.toMutableProperty(): ListProperty<E> = SimpleListProperty(this)
 
 /** Wrap this list in unmodifiable property. */
-inline fun <E> ObservableList<E>?.asProperty(): ListProperty<E> = ReadOnlyListWrapper(this)
+inline fun <E> ObservableList<E>?.toProperty(): ListProperty<E> = ReadOnlyListWrapper(this)
 
 /** Returns this list property as an observable. */
 inline fun <E> ListProperty<E>.asObservable(): ObservableValue<ObservableList<E>> = this

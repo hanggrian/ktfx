@@ -1,7 +1,7 @@
 const val bintrayUser = "hendraanggrian"
 const val bintrayGroup = "com.hendraanggrian"
 const val bintrayArtifact = "kotfx"
-const val bintrayPublish = "0.19"
+const val bintrayPublish = "0.20"
 const val bintrayDesc = "Minimalist JavaFX development"
 const val bintrayWeb = "https://github.com/hendraanggrian/kotfx"
 

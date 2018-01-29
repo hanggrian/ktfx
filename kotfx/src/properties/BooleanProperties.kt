@@ -10,10 +10,10 @@ import javafx.beans.property.SimpleBooleanProperty
 import javafx.beans.value.ObservableValue
 
 /** Wrap this boolean in modifiable property. */
-inline fun Boolean?.asMutableProperty(): BooleanProperty = SimpleBooleanProperty(this ?: false)
+inline fun Boolean?.toMutableProperty(): BooleanProperty = SimpleBooleanProperty(this ?: false)
 
 /** Wrap this boolean in unmodifiable property. */
-inline fun Boolean?.asProperty(): BooleanProperty = ReadOnlyBooleanWrapper(this ?: false)
+inline fun Boolean?.toProperty(): BooleanProperty = ReadOnlyBooleanWrapper(this ?: false)
 
 /** Returns this boolean property as an observable. */
 inline fun BooleanProperty.asObservable(): ObservableValue<Boolean> = this

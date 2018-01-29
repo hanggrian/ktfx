@@ -51,16 +51,12 @@ publish {
     website = bintrayWeb
 }
 
-fun JUnitPlatformExtension.filters(setup: FiltersExtension.() -> Unit) {
-    when (this) {
-        is ExtensionAware -> extensions.getByType(FiltersExtension::class.java).setup()
-        else -> throw Exception("${this::class} must be an instance of ExtensionAware")
-    }
+fun JUnitPlatformExtension.filters(setup: FiltersExtension.() -> Unit) = when (this) {
+    is ExtensionAware -> extensions.getByType(FiltersExtension::class.java).setup()
+    else -> error("${this::class} must be an instance of ExtensionAware")
 }
 
-fun FiltersExtension.engines(setup: EnginesExtension.() -> Unit) {
-    when (this) {
-        is ExtensionAware -> extensions.getByType(EnginesExtension::class.java).setup()
-        else -> throw Exception("${this::class} must be an instance of ExtensionAware")
-    }
+fun FiltersExtension.engines(setup: EnginesExtension.() -> Unit) = when (this) {
+    is ExtensionAware -> extensions.getByType(EnginesExtension::class.java).setup()
+    else -> error("${this::class} must be an instance of ExtensionAware")
 }

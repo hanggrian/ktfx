@@ -1,10 +1,6 @@
 package kotfx.bindings
 
 import javafx.scene.control.Label
-import kotfx.and
-import kotfx.eq
-import kotfx.neq
-import kotfx.or
 
 class ObservableBooleanBindingsTest {
 

@@ -1,8 +1,6 @@
 package kotfx.bindings
 
 import javafx.scene.control.Label
-import kotfx.eq
-import kotfx.neq
 
 class ObservableObjectBindingsTest {
 

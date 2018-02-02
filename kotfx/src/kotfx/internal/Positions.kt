@@ -1,0 +1,9 @@
+package kotfx.internal
+
+import javafx.geometry.HPos
+import javafx.geometry.Pos
+import javafx.geometry.Pos.CENTER
+import javafx.geometry.Pos.valueOf
+import javafx.geometry.VPos
+
+internal fun posOf(v: VPos, h: HPos): Pos = "${v}_$h".let { if (it == "CENTER_CENTER") CENTER else valueOf(it) }

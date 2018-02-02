@@ -6,8 +6,8 @@ buildscript {
     }
     dependencies {
         classpath(kotlin("gradle-plugin", kotlinVersion))
-        classpath(dokka)
-        classpath(`bintray-release`)
+        classpath(dokka())
+        classpath(bintrayRelease())
         classpath(junitPlatform("gradle-plugin", junitPlatformVersion))
     }
 }

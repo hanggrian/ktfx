@@ -2,7 +2,6 @@ package kotfx.bindings
 
 import javafx.beans.binding.Bindings
 import javafx.collections.ObservableMap
-import kotfx.*
 
 class ObservableMapBindingsTest {
 

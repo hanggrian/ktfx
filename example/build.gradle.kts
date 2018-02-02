@@ -5,6 +5,10 @@ plugins {
     kotlin("jvm")
 }
 
+java.sourceSets {
+    getByName("main").java.srcDir("src")
+}
+
 dependencies {
     implementation(kotlin("stdlib", kotlinVersion))
     implementation(project(":kotfx"))

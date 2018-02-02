@@ -1,0 +1,30 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
+package kotfx
+
+import javafx.scene.image.Image
+import javafx.stage.Stage
+import javafx.stage.StageStyle
+import javafx.stage.StageStyle.DECORATED
+
+var Stage.icon: Image?
+    get() = icons.firstOrNull()
+    set(value) {
+        if (value != null) when (icons.size) {
+            0 -> icons.add(value)
+            1 -> icons[0] = value
+            else -> {
+                icons.clear()
+                icons.add(value)
+            }
+        }
+    }
+
+fun stage(
+        title: String? = null,
+        style: StageStyle = DECORATED,
+        init: (Stage.() -> Unit)? = null
+): Stage = Stage(style).apply {
+    title?.let { setTitle(it) }
+    init?.invoke(this)
+}

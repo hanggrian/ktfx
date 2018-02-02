@@ -1,5 +1,7 @@
 package kotfx
 
+import kotfx.collections.toMutableObservableList
+import kotfx.collections.toObservableList
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.it
@@ -11,16 +13,17 @@ import kotlin.test.assertEquals
 object CollectionsSpec : Spek({
 
     given("an empty iterable") {
-        val iterable = listOf<String>()
-
-        val mutableList = iterable.toObservableList()
+        val iterable = listOf<Int>()
         it("should be unmodifiable list") {
-            assertEquals(mutableList.size, 0)
-        }
-
-        val list = iterable.toMutableObservableList()
-        it("should be modifiable list") {
+            val list = iterable.toObservableList()
             assertEquals(list.size, 0)
+        }
+        it("should be modifiable list") {
+            val list = iterable.toMutableObservableList()
+            list.add(1)
+            list.add(2)
+            list.add(3)
+            assertEquals(list.size, 3)
         }
     }
 })

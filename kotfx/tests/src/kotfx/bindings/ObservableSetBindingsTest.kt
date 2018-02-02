@@ -2,9 +2,6 @@ package kotfx.bindings
 
 import javafx.beans.binding.Bindings
 import javafx.collections.ObservableSet
-import kotfx.isEmpty
-import kotfx.isNotEmpty
-import kotfx.sizeBinding
 
 class ObservableSetBindingsTest {
 

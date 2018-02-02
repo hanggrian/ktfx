@@ -1,11 +1,21 @@
-kotfx
+KotFX
 =====
 Kotlin DSL and extension functions for minimalist JavaFX development.
 
-Showcase
+Download
 --------
+```gradle
+repositories {
+    jcenter()
+}
 
-#### Layouts and Controls
+dependencies {
+    compile 'com.hendraanggrian:kotfx:0.21'
+}
+```
+
+Scene DSL
+---------
 Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
 ```kotlin
 vbox {
@@ -16,9 +26,10 @@ vbox {
 }
 ```
 
-![Demo][demo_layoutsandcontrols]
+![Demo][demo_scenedsl]
 
-#### Bindings
+Bindings
+--------
 JavaFX bindings has easy fluent API, here's a button that disables itself if text field is empty.
 ```java
 button.disableProperty().bind(textField.textProperty().isEmpty());
@@ -33,19 +44,20 @@ button.disableProperty().bind(passwordField.textProperty().isEmpty()
     .or(passwordField.textProperty().isNotEqualTo(passwordConfirmField.textProperty())));
 ```
 
-`BindingsKt` simplifies the process using kotlin infix and operator functions.
+`kotfx.bindings` simplifies the process using kotlin infix and operator functions.
 ```kotlin
-button.disableProperty bind (passwordField.textProperty().isEmpty
+button.disableProperty.bind(passwordField.textProperty().isEmpty
     or passwordConfirmField.textProperty().isEmpty
-    or (passwordField.textProperty().length() lessEq 4)
-    or (passwordConfirmField.textProperty().length() lessEq 4)
+    or (passwordField.textProperty().length() less 4)
+    or (passwordConfirmField.textProperty().length() less 4)
     or (passwordField.textProperty() neq passwordConfirmField.textProperty()))
 ```
 
-#### Collections
+Collections
+-----------
 In JavaFX, collections are wrapped into observable version of themselves.
-`CollectionsKt` provides static functions to create new or convert existing into observable collections,
-`CollectionsKt` aims to extend those functions with Kotlin's extension functions.
+`kotfx.collections` provides static functions to create new or convert existing into observable collections,
+`kotfx.collections` aims to extend those functions with Kotlin's extension functions.
 
 ```kotlin
 // create unmodifiable observable collection
@@ -60,7 +72,8 @@ val modifiableList = mutableObservableListOf(1, 2, 3)
 val list = myList.toObservableList() // or toMutableObservableList() for modifiable version
 ```
 
-#### Dialogs
+Dialogs
+-------
 Create `Dialog`, `ChoiceDialog`, `TextInputDialog`, and `Alert` with Kotlin DSL.
 
 ```kotlin
@@ -98,18 +111,6 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-Download
---------
-```gradle
-repositories {
-    jcenter()
-}
-
-dependencies {
-    compile 'com.hendraanggrian:kotfx:0.20'
-}
-```
-
 License
 -------
     Copyright 2017 Hendra Anggrian
@@ -126,4 +127,4 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
     
-[demo_layoutsandcontrols]: /art/demo_layoutsandcontrols.png
+[demo_scenedsl]: /art/demo_scenedsl.png

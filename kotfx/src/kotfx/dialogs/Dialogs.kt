@@ -11,9 +11,14 @@ import javafx.scene.control.ButtonBar.ButtonData.OTHER
 import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
+import javafx.scene.image.ImageView
 import javafx.stage.Stage
 import kotfx.icon
+import kotfx.internal.KotFXInternals.NO_GETTER
+import kotfx.internal.KotFXInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
 
+//region direct access to dialogPane properties
 inline var Dialog<*>.icon: Image?
     get() = (dialogPane.scene.window as Stage).icon
     set(value) {
@@ -46,6 +51,23 @@ inline val Dialog<*>.buttons: ObservableList<ButtonType>
     get() = dialogPane.buttonTypes
 
 inline fun Dialog<*>.lookupButton(button: ButtonType): Node = dialogPane.lookupButton(button) as Node
+//endregion
+
+/** Apply [imageView] as graphic and icon of this dialog. */
+var Dialog<*>.graphicIcon: ImageView
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        graphic = value
+        icon = value.image
+    }
+
+/** Apply [header] as header text and title of this dialog. */
+var Dialog<*>.headerTitle: String
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        headerText = value
+        title = value
+    }
 
 /** Add custom button to this dialog and return it as a node. */
 inline fun Dialog<*>.button(text: String, data: ButtonData = OTHER): Node = button(ButtonType(text, data))

@@ -23,13 +23,10 @@ fun alert(
         vararg buttonTypes: ButtonType,
         init: (Alert.() -> Unit)? = null
 ): Alert = Alert(NONE, contentText, *buttonTypes).apply {
-    if (title != null) {
-        setTitle(title)
-        setHeaderText(title)
-    }
-    if (graphic != null) {
-        if (graphic is ImageView) icon = graphic.image
-        setGraphic(graphic)
+    if (title != null) setHeaderTitle(title)
+    if (graphic != null) when (graphic) {
+        is ImageView -> setGraphicIcon(graphic)
+        else -> setGraphic(graphic)
     }
     init?.invoke(this)
 }
@@ -49,13 +46,10 @@ fun infoAlert(
         vararg buttonTypes: ButtonType,
         init: (Alert.() -> Unit)? = null
 ): Alert = Alert(INFORMATION, contentText, *buttonTypes).apply {
-    if (title != null) {
-        setTitle(title)
-        setHeaderText(title)
-    }
-    if (graphic != null) {
-        if (graphic is ImageView) icon = graphic.image
-        setGraphic(graphic)
+    if (title != null) setHeaderTitle(title)
+    if (graphic != null) when (graphic) {
+        is ImageView -> setGraphicIcon(graphic)
+        else -> setGraphic(graphic)
     }
     init?.invoke(this)
 }
@@ -75,13 +69,10 @@ fun warningAlert(
         vararg buttonTypes: ButtonType,
         init: (Alert.() -> Unit)? = null
 ): Alert = Alert(WARNING, contentText, *buttonTypes).apply {
-    if (title != null) {
-        setTitle(title)
-        setHeaderText(title)
-    }
-    if (graphic != null) {
-        if (graphic is ImageView) icon = graphic.image
-        setGraphic(graphic)
+    if (title != null) setHeaderTitle(title)
+    if (graphic != null) when (graphic) {
+        is ImageView -> setGraphicIcon(graphic)
+        else -> setGraphic(graphic)
     }
     init?.invoke(this)
 }
@@ -101,13 +92,10 @@ fun confirmAlert(
         vararg buttonTypes: ButtonType,
         init: (Alert.() -> Unit)? = null
 ): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
-    if (title != null) {
-        setTitle(title)
-        setHeaderText(title)
-    }
-    if (graphic != null) {
-        if (graphic is ImageView) icon = graphic.image
-        setGraphic(graphic)
+    if (title != null) setHeaderTitle(title)
+    if (graphic != null) when (graphic) {
+        is ImageView -> setGraphicIcon(graphic)
+        else -> setGraphic(graphic)
     }
     init?.invoke(this)
 }
@@ -127,13 +115,10 @@ fun errorAlert(
         vararg buttonTypes: ButtonType,
         init: (Alert.() -> Unit)? = null
 ): Alert = Alert(ERROR, contentText, *buttonTypes).apply {
-    if (title != null) {
-        setTitle(title)
-        setHeaderText(title)
-    }
-    if (graphic != null) {
-        if (graphic is ImageView) icon = graphic.image
-        setGraphic(graphic)
+    if (title != null) setHeaderTitle(title)
+    if (graphic != null) when (graphic) {
+        is ImageView -> setGraphicIcon(graphic)
+        else -> setGraphic(graphic)
     }
     init?.invoke(this)
 }

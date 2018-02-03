@@ -19,13 +19,10 @@ fun inputDialog(
         prefill: String = "",
         init: (TextInputDialog.() -> Unit)? = null
 ): TextInputDialog = TextInputDialog(prefill).apply {
-    if (title != null) {
-        setTitle(title)
-        setHeaderText(title)
-    }
-    if (graphic != null) {
-        if (graphic is ImageView) icon = graphic.image
-        setGraphic(graphic)
+    if (title != null) setHeaderTitle(title)
+    if (graphic != null) when (graphic) {
+        is ImageView -> setGraphicIcon(graphic)
+        else -> setGraphic(graphic)
     }
     init?.invoke(this)
 }

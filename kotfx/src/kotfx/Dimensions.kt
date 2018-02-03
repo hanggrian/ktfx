@@ -33,19 +33,19 @@ inline fun Region.padding(
 ) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 
 @JvmOverloads
-inline fun FlowPane.gap(horizontal: Number, vertical: Number = horizontal) {
-    hgap = horizontal.toDouble()
+inline fun FlowPane.gap(vertical: Number, horizontal: Number = vertical) {
     vgap = vertical.toDouble()
+    hgap = horizontal.toDouble()
 }
 
 @JvmOverloads
-inline fun GridPane.gap(horizontal: Number, vertical: Number = horizontal) {
-    hgap = horizontal.toDouble()
+inline fun GridPane.gap(vertical: Number, horizontal: Number = vertical) {
     vgap = vertical.toDouble()
+    hgap = horizontal.toDouble()
 }
 
 @JvmOverloads
-inline fun TilePane.gap(horizontal: Number, vertical: Number = horizontal) {
-    hgap = horizontal.toDouble()
+inline fun TilePane.gap(vertical: Number, horizontal: Number = vertical) {
     vgap = vertical.toDouble()
+    hgap = horizontal.toDouble()
 }

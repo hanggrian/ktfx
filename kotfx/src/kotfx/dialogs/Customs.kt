@@ -13,10 +13,10 @@ fun <R> dialog(
         init: (Dialog<R>.() -> Unit)? = null
 ): Dialog<R> = Dialog<R>().apply {
     if (title != null) setTitle(title)
-    if (graphic != null) {
-        if (graphic is ImageView) icon = graphic.image
-        setGraphic(graphic)
+    if (graphic != null) when (graphic) {
+        is ImageView -> setGraphicIcon(graphic)
+        else -> setGraphic(graphic)
     }
-    if (title != null && graphic != null) setHeaderText(title)
+    if (title != null && graphic != null) headerText = title
     init?.invoke(this)
 }

@@ -18,12 +18,28 @@ import kotfx.properties.MutableAnyProperty
 import kotfx.properties.MutableBooleanProperty
 import kotlin.DeprecationLevel.ERROR
 
-//region direct access to dialogPane properties
+//region direct access to dialogPane's properties and more
 inline var Dialog<*>.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         listOf(1)
         (dialogPane.scene.window as Stage).icon = value
+    }
+
+/** Apply [ImageView] as graphic and icon of this dialog. */
+var Dialog<*>.graphicIcon: ImageView
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        graphic = value
+        icon = value.image
+    }
+
+/** Apply string as header text and title of this dialog. */
+var Dialog<*>.headerTitle: String
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        headerText = value
+        title = value
     }
 
 inline var Dialog<*>.header: Node
@@ -48,23 +64,6 @@ inline val Dialog<*>.buttons: ObservableList<ButtonType>
     get() = dialogPane.buttonTypes
 
 inline fun Dialog<*>.lookupButton(button: ButtonType): Node = dialogPane.lookupButton(button) as Node
-//endregion
-
-/** Apply [imageView] as graphic and icon of this dialog. */
-var Dialog<*>.graphicIcon: ImageView
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) {
-        graphic = value
-        icon = value.image
-    }
-
-/** Apply [header] as header text and title of this dialog. */
-var Dialog<*>.headerTitle: String
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) {
-        headerText = value
-        title = value
-    }
 
 /** Add custom button to this dialog and return it as a node. */
 inline fun Dialog<*>.addButton(text: String, data: ButtonData = OTHER): Node = addButton(ButtonType(text, data))
@@ -83,6 +82,7 @@ fun Dialog<*>.addButtons(vararg buttons: ButtonType): List<Node> {
     this.buttons.addAll(*buttons)
     return buttons.map { button -> lookupButton(button) }
 }
+//endregion
 
 @JvmOverloads
 fun <R> dialog(

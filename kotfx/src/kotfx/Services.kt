@@ -15,8 +15,6 @@ interface ServiceBuilder<V> : Builder<Service<V>> {
     fun onSucceeded(action: (WorkerStateEvent) -> Unit)
     fun onCancelled(action: (WorkerStateEvent) -> Unit)
     fun onFailed(action: (WorkerStateEvent) -> Unit)
-
-    fun start(): Service<V>
 }
 
 @PublishedApi
@@ -69,8 +67,6 @@ internal class _ServiceBuilder<V> : ServiceBuilder<V> {
         if (_onCancelled != null) setOnCancelled(_onCancelled)
         if (_onFailed != null) setOnFailed(_onFailed)
     }
-
-    override fun start(): Service<V> = build().apply { start() }
 }
 
-inline fun <V> service(init: ServiceBuilder<V>.() -> Unit): ServiceBuilder<V> = _ServiceBuilder<V>().apply(init)
+inline fun <V> service(init: ServiceBuilder<V>.() -> Unit): Service<V> = _ServiceBuilder<V>().apply(init).build()

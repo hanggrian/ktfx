@@ -8,8 +8,12 @@ import javafx.scene.control.TextFormatter
 import javafx.scene.control.TextInputDialog
 import javafx.scene.image.ImageView
 import javafx.scene.text.Font
+import kotfx.internal.NO_GETTER
+import kotfx.internal.noGetter
 import kotfx.properties.*
+import kotlin.DeprecationLevel.ERROR
 
+//region direct access to editor's properties
 inline val TextInputDialog.fontProperty: MutableAnyProperty<Font> get() = editor.fontProperty()
 inline var TextInputDialog.font: Font
     get() = editor.font
@@ -60,20 +64,58 @@ inline val TextInputDialog.isRedoable: Boolean
     get() = editor.isRedoable
 
 inline fun TextInputDialog.getText(start: Int, end: Int): String = editor.getText(start, end)
-
 inline fun TextInputDialog.appendText(text: String) = editor.appendText(text)
-
 inline fun TextInputDialog.insertText(index: Int, text: String) = editor.insertText(index, text)
-
 inline fun TextInputDialog.deleteText(range: IndexRange) = editor.deleteText(range)
 inline fun TextInputDialog.deleteText(start: Int, end: Int) = editor.deleteText(start, end)
-
 inline fun TextInputDialog.replaceText(range: IndexRange, text: String) = editor.replaceText(range, text)
 inline fun TextInputDialog.replaceText(start: Int, end: Int, text: String) = editor.replaceText(start, end, text)
 
 inline fun TextInputDialog.cut() = editor.cut()
 inline fun TextInputDialog.copy() = editor.copy()
 inline fun TextInputDialog.paste() = editor.paste()
+
+inline fun TextInputDialog.selectBackward() = editor.selectBackward()
+inline fun TextInputDialog.selectForward() = editor.selectForward()
+
+inline fun TextInputDialog.previousWord() = editor.previousWord()
+inline fun TextInputDialog.nextWord() = editor.previousWord()
+inline fun TextInputDialog.endOfNextWord() = editor.endOfNextWord()
+inline fun TextInputDialog.selectPreviousWord() = editor.selectPreviousWord()
+inline fun TextInputDialog.selectNextWord() = editor.selectNextWord()
+inline fun TextInputDialog.selectEndOfNextWord() = editor.selectEndOfNextWord()
+
+inline fun TextInputDialog.selectAll() = editor.selectAll()
+inline fun TextInputDialog.home() = editor.home()
+inline fun TextInputDialog.end() = editor.end()
+inline fun TextInputDialog.selectHome() = editor.selectHome()
+inline fun TextInputDialog.selectEnd() = editor.selectEnd()
+
+inline fun TextInputDialog.deletePreviousChar() = editor.deletePreviousChar()
+inline fun TextInputDialog.deleteNextChar() = editor.deleteNextChar()
+
+inline fun TextInputDialog.forward() = editor.forward()
+inline fun TextInputDialog.backward() = editor.backward()
+
+inline var TextInputDialog.positionCaret: Int
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = editor.positionCaret(value)
+
+inline fun TextInputDialog.selectPositionCaret(pos: Int) = editor.selectPositionCaret(pos)
+inline fun TextInputDialog.selectRange(anchor: Int, caretPosition: Int) = editor.selectRange(anchor, caretPosition)
+
+inline fun TextInputDialog.extendSelection(pos: Int) = editor.extendSelection(pos)
+
+inline fun TextInputDialog.clear() = editor.clear()
+inline fun TextInputDialog.deselect() = editor.deselect()
+inline fun TextInputDialog.replaceSelection(replacement: String) = editor.replaceSelection(replacement)
+
+inline fun TextInputDialog.undo() = editor.undo()
+inline fun TextInputDialog.redo() = editor.redo()
+
+inline fun TextInputDialog.commitValue() = editor.commitValue()
+inline fun TextInputDialog.cancelEdit() = editor.cancelEdit()
+//endregion
 
 @JvmOverloads
 inline fun inputDialog(

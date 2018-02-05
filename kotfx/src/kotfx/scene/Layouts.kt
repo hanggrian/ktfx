@@ -31,11 +31,13 @@ interface ConstrainedPane {
 
 interface MarginablePane : ConstrainedPane {
     infix fun <N : Node> N.margins(value: Insets?): N
-    fun <N : Node> N.margins(top: Number, right: Number, bottom: Number, left: Number): N = margins(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
-    infix fun <N : Node> N.marginTop(value: Number): N = margins(value, marginRight, marginBottom, marginLeft)
-    infix fun <N : Node> N.marginRight(value: Number): N = margins(marginTop, value, marginBottom, marginLeft)
-    infix fun <N : Node> N.marginBottom(value: Number): N = margins(marginTop, marginRight, value, marginLeft)
-    infix fun <N : Node> N.marginLeft(value: Number): N = margins(marginTop, marginRight, marginBottom, value)
+    fun <N : Node> N.margins(top: Double, right: Double, bottom: Double, left: Double): N =
+            margins(Insets(top, right, bottom, left))
+
+    infix fun <N : Node> N.marginTop(value: Double): N = margins(value, marginRight, marginBottom, marginLeft)
+    infix fun <N : Node> N.marginRight(value: Double): N = margins(marginTop, value, marginBottom, marginLeft)
+    infix fun <N : Node> N.marginBottom(value: Double): N = margins(marginTop, marginRight, value, marginLeft)
+    infix fun <N : Node> N.marginLeft(value: Double): N = margins(marginTop, marginRight, marginBottom, value)
 
     val Node.margins: Insets
     val Node.marginTop: Double get() = margins.top
@@ -65,17 +67,17 @@ interface VGrowablePane : ConstrainedPane {
 }
 
 open class _AnchorPane : AnchorPane(), ChildRoot, ConstrainedPane {
-    infix fun <N : Node> N.anchor(value: Number?): N = apply {
+    infix fun <N : Node> N.anchor(value: Double?): N = apply {
         anchorTop(value)
         anchorLeft(value)
         anchorBottom(value)
         anchorRight(value)
     }
 
-    infix fun <N : Node> N.anchorTop(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
-    infix fun <N : Node> N.anchorLeft(value: Number?): N = apply { setLeftAnchor(this, value?.toDouble()) }
-    infix fun <N : Node> N.anchorBottom(value: Number?): N = apply { setBottomAnchor(this, value?.toDouble()) }
-    infix fun <N : Node> N.anchorRight(value: Number?): N = apply { setRightAnchor(this, value?.toDouble()) }
+    infix fun <N : Node> N.anchorTop(value: Double?): N = apply { setTopAnchor(this, value) }
+    infix fun <N : Node> N.anchorLeft(value: Double?): N = apply { setLeftAnchor(this, value) }
+    infix fun <N : Node> N.anchorBottom(value: Double?): N = apply { setBottomAnchor(this, value) }
+    infix fun <N : Node> N.anchorRight(value: Double?): N = apply { setRightAnchor(this, value) }
 
     val Node.anchorTop: Double get() = getTopAnchor(this) ?: 0.0
     val Node.anchorLeft: Double get() = getLeftAnchor(this) ?: 0.0

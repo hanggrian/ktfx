@@ -6,11 +6,14 @@ import javafx.scene.image.Image
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.stage.StageStyle.DECORATED
+import kotfx.internal.NO_GETTER
+import kotfx.internal.noGetter
+import kotlin.DeprecationLevel.ERROR
 
-var Stage.icon: Image?
-    get() = icons.firstOrNull()
+var Stage.icon: Image
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        if (value != null) when (icons.size) {
+        when (icons.size) {
             0 -> icons.add(value)
             1 -> icons[0] = value
             else -> {

@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
 package kotfx
 
@@ -7,45 +7,71 @@ import javafx.scene.layout.FlowPane
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Region
 import javafx.scene.layout.TilePane
+import kotfx.internal.NO_GETTER
+import kotfx.internal.noGetter
+import kotlin.DeprecationLevel.ERROR
+
+inline var Region.minSize: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setMinSize(value, value)
+
+inline var Region.prefSize: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setPrefSize(value, value)
+
+inline var Region.maxSize: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setMaxSize(value, value)
+
+inline var Region.size: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        minSize = value
+        prefSize = value
+        maxSize = value
+    }
+
+inline var Region.width: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        minWidth = value
+        prefWidth = value
+        maxWidth = value
+    }
+
+inline var Region.height: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        minHeight = value
+        prefHeight = value
+        maxHeight = value
+    }
 
 @JvmOverloads
-inline fun Region.minSize(width: Number, height: Number = width) = setMinSize(width.toDouble(), height.toDouble())
+inline fun Region.setPadding(
+        top: Double = padding.top,
+        right: Double = padding.right,
+        bottom: Double = padding.bottom,
+        left: Double = padding.left
+) = setPadding(Insets(top, right, bottom, left))
 
-@JvmOverloads
-inline fun Region.prefSize(width: Number, height: Number = width) = setPrefSize(width.toDouble(), height.toDouble())
+inline var FlowPane.gap: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        vgap = value
+        hgap = value
+    }
 
-@JvmOverloads
-inline fun Region.maxSize(width: Number, height: Number = width) = setMaxSize(width.toDouble(), height.toDouble())
+inline var GridPane.gap: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        vgap = value
+        hgap = value
+    }
 
-@JvmOverloads
-inline fun Region.size(width: Number, height: Number = width) {
-    minSize(width, height)
-    prefSize(width, height)
-    maxSize(width, height)
-}
-
-@JvmOverloads
-inline fun Region.padding(
-        top: Number = padding.top,
-        right: Number = padding.right,
-        bottom: Number = padding.bottom,
-        left: Number = padding.left
-) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
-
-@JvmOverloads
-inline fun FlowPane.gap(vertical: Number, horizontal: Number = vertical) {
-    vgap = vertical.toDouble()
-    hgap = horizontal.toDouble()
-}
-
-@JvmOverloads
-inline fun GridPane.gap(vertical: Number, horizontal: Number = vertical) {
-    vgap = vertical.toDouble()
-    hgap = horizontal.toDouble()
-}
-
-@JvmOverloads
-inline fun TilePane.gap(vertical: Number, horizontal: Number = vertical) {
-    vgap = vertical.toDouble()
-    hgap = horizontal.toDouble()
-}
+inline var TilePane.gap: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) {
+        vgap = value
+        hgap = value
+    }

@@ -21,9 +21,9 @@ fun <T> choiceDialog(
         prefill: T? = null,
         init: (ChoiceDialog<T>.() -> Unit)? = null
 ): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
-    if (title != null) setHeaderTitle(title)
+    if (title != null) headerTitle = title
     if (graphic != null) when (graphic) {
-        is ImageView -> setGraphicIcon(graphic)
+        is ImageView -> graphicIcon = graphic
         else -> setGraphic(graphic)
     }
     init?.invoke(this)

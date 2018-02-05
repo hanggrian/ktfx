@@ -8,8 +8,8 @@ import javafx.util.StringConverter
 /** Creates a new string converter using [_fromString] and optional [_toString]. */
 @JvmOverloads
 inline fun <T> stringConverterOf(
-        noinline _fromString: (String) -> T?,
-        noinline _toString: (T?) -> String = { it.toString() }
+        noinline _toString: (T?) -> String = { it.toString() },
+        noinline _fromString: (String) -> T?
 ): StringConverter<T> = object : StringConverter<T>() {
     override fun toString(t: T?): String = _toString(t)
     override fun fromString(s: String): T? = _fromString(s)

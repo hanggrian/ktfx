@@ -19,14 +19,6 @@ java.sourceSets {
     getByName("test").java.srcDir("tests/src")
 }
 
-configure<JUnitPlatformExtension> {
-    filters {
-        engines {
-            include("spek")
-        }
-    }
-}
-
 dependencies {
     compile(kotlin("stdlib", kotlinVersion))
 
@@ -49,6 +41,14 @@ publish {
     publishVersion = bintrayPublish
     desc = bintrayDesc
     website = bintrayWeb
+}
+
+configure<JUnitPlatformExtension> {
+    filters {
+        engines {
+            include("spek")
+        }
+    }
 }
 
 fun JUnitPlatformExtension.filters(setup: FiltersExtension.() -> Unit) = when (this) {

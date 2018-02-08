@@ -17,7 +17,7 @@ inline fun Region.setPadding(
         right: Double = padding.right,
         bottom: Double = padding.bottom,
         left: Double = padding.left
-): Unit = setPadding(Insets(top, right, bottom, left))
+) = setPadding(Insets(top, right, bottom, left))
 
 inline var Region.minSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
@@ -30,30 +30,6 @@ inline var Region.prefSize: Double
 inline var Region.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMaxSize(value, value)
-
-inline var Region.forcedSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) {
-        minSize = value
-        prefSize = value
-        maxSize = value
-    }
-
-inline var Region.forcedWidth: Int
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) {
-        minWidth = value.toDouble()
-        prefWidth = value.toDouble()
-        maxWidth = value.toDouble()
-    }
-
-inline var Region.forcedHeight: Int
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) {
-        minHeight = value.toDouble()
-        prefHeight = value.toDouble()
-        maxHeight = value.toDouble()
-    }
 
 inline var FlowPane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()

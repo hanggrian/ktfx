@@ -6,7 +6,7 @@ import javafx.application.ConditionalFeature
 import javafx.application.Platform
 
 /** Run the specified block on the JavaFX thread. */
-inline fun runLater(noinline block: () -> Unit): Unit = Platform.runLater(block)
+inline fun runLater(noinline block: () -> Unit) = Platform.runLater(block)
 
 /** Returns true if the calling thread is the JavaFX thread. */
 inline val isFXThread: Boolean get() = Platform.isFxApplicationThread()

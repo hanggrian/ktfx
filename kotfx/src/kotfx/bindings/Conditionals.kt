@@ -2,9 +2,15 @@
 
 package kotfx.bindings
 
-import javafx.beans.binding.*
 import javafx.beans.binding.Bindings.`when`
-import javafx.beans.binding.When.*
+import javafx.beans.binding.BooleanBinding
+import javafx.beans.binding.DoubleBinding
+import javafx.beans.binding.NumberBinding
+import javafx.beans.binding.StringBinding
+import javafx.beans.binding.When
+import javafx.beans.binding.When.BooleanConditionBuilder
+import javafx.beans.binding.When.NumberConditionBuilder
+import javafx.beans.binding.When.StringConditionBuilder
 import javafx.beans.value.ObservableBooleanValue
 import javafx.beans.value.ObservableNumberValue
 import javafx.beans.value.ObservableStringValue

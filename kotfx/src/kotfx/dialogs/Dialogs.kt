@@ -86,9 +86,9 @@ fun Dialog<*>.addButtons(vararg buttons: ButtonType): List<Node> {
 
 @JvmOverloads
 fun <R> dialog(
-        title: String? = null,
-        graphic: Node? = null,
-        init: (Dialog<R>.() -> Unit)? = null
+    title: String? = null,
+    graphic: Node? = null,
+    init: (Dialog<R>.() -> Unit)? = null
 ): Dialog<R> = Dialog<R>().apply {
     if (title != null) setTitle(title)
     if (graphic != null) when (graphic) {

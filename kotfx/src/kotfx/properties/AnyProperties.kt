@@ -10,7 +10,7 @@ import javafx.beans.value.ObservableValue
 inline fun <T> T?.toMutableProperty(): MutableAnyProperty<T> = SimpleAnyProperty(this)
 
 /** Wrap this object in unmodifiable property. */
-inline fun <T> T?.toProperty(): MutableAnyProperty<T> = AnyWrapper(this)
+inline fun <T> T?.toProperty(): AnyProperty<T> = AnyWrapper(this)
 
 /** Returns this property as an observable. */
 inline fun <T> Property<T>.asObservable(): ObservableValue<T> = this

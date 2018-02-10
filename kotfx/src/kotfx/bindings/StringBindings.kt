@@ -5,7 +5,15 @@
 package kotfx.bindings
 
 import javafx.beans.Observable
-import javafx.beans.binding.Bindings.*
+import javafx.beans.binding.Bindings.createStringBinding
+import javafx.beans.binding.Bindings.equal
+import javafx.beans.binding.Bindings.equalIgnoreCase
+import javafx.beans.binding.Bindings.greaterThan
+import javafx.beans.binding.Bindings.greaterThanOrEqual
+import javafx.beans.binding.Bindings.lessThan
+import javafx.beans.binding.Bindings.lessThanOrEqual
+import javafx.beans.binding.Bindings.notEqual
+import javafx.beans.binding.Bindings.notEqualIgnoreCase
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableStringValue

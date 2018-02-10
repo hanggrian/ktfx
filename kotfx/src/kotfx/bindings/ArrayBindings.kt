@@ -4,7 +4,9 @@
 
 package kotfx.bindings
 
-import javafx.beans.binding.Bindings.*
+import javafx.beans.binding.Bindings.floatValueAt
+import javafx.beans.binding.Bindings.integerValueAt
+import javafx.beans.binding.Bindings.size
 import javafx.beans.binding.FloatBinding
 import javafx.beans.value.ObservableNumberValue
 import javafx.collections.ObservableArray

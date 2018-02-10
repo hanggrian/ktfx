@@ -8,18 +8,18 @@ import javafx.scene.image.ImageView
 
 @JvmOverloads
 inline fun <T> choiceDialog(
-        items: Collection<T>? = null,
-        prefill: T? = null,
-        noinline init: (ChoiceDialog<T>.() -> Unit)? = null
+    items: Collection<T>? = null,
+    prefill: T? = null,
+    noinline init: (ChoiceDialog<T>.() -> Unit)? = null
 ): ChoiceDialog<T> = choiceDialog(null, null, items, prefill, init)
 
 @JvmOverloads
 fun <T> choiceDialog(
-        title: String?,
-        graphic: Node?,
-        items: Collection<T>? = null,
-        prefill: T? = null,
-        init: (ChoiceDialog<T>.() -> Unit)? = null
+    title: String?,
+    graphic: Node?,
+    items: Collection<T>? = null,
+    prefill: T? = null,
+    init: (ChoiceDialog<T>.() -> Unit)? = null
 ): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
     if (title != null) headerTitle = title
     if (graphic != null) when (graphic) {

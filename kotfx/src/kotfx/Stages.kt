@@ -24,10 +24,10 @@ var Stage.icon: Image
     }
 
 fun stage(
-        title: String? = null,
-        style: StageStyle = DECORATED,
-        init: (Stage.() -> Unit)? = null
+    title: String? = null,
+    style: StageStyle = DECORATED,
+    init: (Stage.() -> Unit)? = null
 ): Stage = Stage(style).apply {
-    title?.let { setTitle(it) }
+    if (title != null) setTitle(title)
     init?.invoke(this)
 }

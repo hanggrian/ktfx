@@ -4,8 +4,18 @@
 
 package kotfx.bindings
 
-import javafx.beans.binding.*
-import javafx.beans.binding.Bindings.*
+import javafx.beans.binding.Bindings.select
+import javafx.beans.binding.Bindings.selectBoolean
+import javafx.beans.binding.Bindings.selectDouble
+import javafx.beans.binding.Bindings.selectFloat
+import javafx.beans.binding.Bindings.selectInteger
+import javafx.beans.binding.Bindings.selectLong
+import javafx.beans.binding.Bindings.selectString
+import javafx.beans.binding.BooleanBinding
+import javafx.beans.binding.DoubleBinding
+import javafx.beans.binding.FloatBinding
+import javafx.beans.binding.LongBinding
+import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableValue
 
 /** Creates an object binding used to get a member. */

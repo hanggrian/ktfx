@@ -27,7 +27,7 @@ task<Delete>("clean") {
     delete(rootProject.buildDir)
 }
 
-task<Wrapper>("wrapper"){
+task<Wrapper>("wrapper") {
     gradleVersion = "4.5.1"
 }
 

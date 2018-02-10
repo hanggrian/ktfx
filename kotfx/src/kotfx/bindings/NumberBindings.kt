@@ -5,8 +5,30 @@
 package kotfx.bindings
 
 import javafx.beans.Observable
-import javafx.beans.binding.*
-import javafx.beans.binding.Bindings.*
+import javafx.beans.binding.Bindings.add
+import javafx.beans.binding.Bindings.createDoubleBinding
+import javafx.beans.binding.Bindings.createFloatBinding
+import javafx.beans.binding.Bindings.createIntegerBinding
+import javafx.beans.binding.Bindings.createLongBinding
+import javafx.beans.binding.Bindings.divide
+import javafx.beans.binding.Bindings.equal
+import javafx.beans.binding.Bindings.greaterThan
+import javafx.beans.binding.Bindings.greaterThanOrEqual
+import javafx.beans.binding.Bindings.lessThan
+import javafx.beans.binding.Bindings.lessThanOrEqual
+import javafx.beans.binding.Bindings.max
+import javafx.beans.binding.Bindings.min
+import javafx.beans.binding.Bindings.multiply
+import javafx.beans.binding.Bindings.notEqual
+import javafx.beans.binding.Bindings.subtract
+import javafx.beans.binding.BooleanBinding
+import javafx.beans.binding.DoubleBinding
+import javafx.beans.binding.DoubleExpression
+import javafx.beans.binding.FloatBinding
+import javafx.beans.binding.FloatExpression
+import javafx.beans.binding.LongBinding
+import javafx.beans.binding.LongExpression
+import javafx.beans.binding.NumberBinding
 import javafx.beans.value.ObservableNumberValue
 import java.util.concurrent.Callable
 

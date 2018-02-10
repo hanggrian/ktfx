@@ -13,74 +13,74 @@ import java.io.InputStream
 
 //region search and set font with appropriate options
 inline fun Labeled.setFont(
-        family: String? = null,
-        weight: FontWeight? = null,
-        posture: FontPosture? = null,
-        size: Number = -1
-): Unit = setFont(Font.font(family, weight, posture, size.toDouble()))
+    family: String? = null,
+    weight: FontWeight? = null,
+    posture: FontPosture? = null,
+    size: Number = -1
+) = setFont(Font.font(family, weight, posture, size.toDouble()))
 
 inline fun Text.setFont(
-        family: String? = null,
-        weight: FontWeight? = null,
-        posture: FontPosture? = null,
-        size: Number = -1
-): Unit = setFont(Font.font(family, weight, posture, size.toDouble()))
+    family: String? = null,
+    weight: FontWeight? = null,
+    posture: FontPosture? = null,
+    size: Number = -1
+) = setFont(Font.font(family, weight, posture, size.toDouble()))
 
 inline fun TextInputControl.setFont(
-        family: String? = null,
-        weight: FontWeight? = null,
-        posture: FontPosture? = null,
-        size: Number = -1
-): Unit = setFont(Font.font(family, weight, posture, size.toDouble()))
+    family: String? = null,
+    weight: FontWeight? = null,
+    posture: FontPosture? = null,
+    size: Number = -1
+) = setFont(Font.font(family, weight, posture, size.toDouble()))
 
 inline fun Tooltip.setFont(
-        family: String? = null,
-        weight: FontWeight? = null,
-        posture: FontPosture? = null,
-        size: Number = -1
-): Unit = setFont(Font.font(family, weight, posture, size.toDouble()))
+    family: String? = null,
+    weight: FontWeight? = null,
+    posture: FontPosture? = null,
+    size: Number = -1
+) = setFont(Font.font(family, weight, posture, size.toDouble()))
 //endregion
 
 //region load font from url string
 inline fun Labeled.loadFont(
-        url: String,
-        size: Number
-): Unit = setFont(Font.loadFont(url, size.toDouble()))
+    url: String,
+    size: Number
+) = setFont(Font.loadFont(url, size.toDouble()))
 
 inline fun Text.loadFont(
-        url: String,
-        size: Number
-): Unit = setFont(Font.loadFont(url, size.toDouble()))
+    url: String,
+    size: Number
+) = setFont(Font.loadFont(url, size.toDouble()))
 
 inline fun TextInputControl.loadFont(
-        url: String,
-        size: Number
-): Unit = setFont(Font.loadFont(url, size.toDouble()))
+    url: String,
+    size: Number
+) = setFont(Font.loadFont(url, size.toDouble()))
 
 inline fun Tooltip.loadFont(
-        url: String,
-        size: Number
-): Unit = setFont(Font.loadFont(url, size.toDouble()))
+    url: String,
+    size: Number
+) = setFont(Font.loadFont(url, size.toDouble()))
 //endregion
 
 //region load font from input stream
 inline fun Labeled.loadFont(
-        stream: InputStream,
-        size: Number
-): Unit = setFont(Font.loadFont(stream, size.toDouble()))
+    stream: InputStream,
+    size: Number
+) = setFont(Font.loadFont(stream, size.toDouble()))
 
 inline fun Text.loadFont(
-        stream: InputStream,
-        size: Number
-): Unit = setFont(Font.loadFont(stream, size.toDouble()))
+    stream: InputStream,
+    size: Number
+) = setFont(Font.loadFont(stream, size.toDouble()))
 
 inline fun TextInputControl.loadFont(
-        stream: InputStream,
-        size: Number
-): Unit = setFont(Font.loadFont(stream, size.toDouble()))
+    stream: InputStream,
+    size: Number
+) = setFont(Font.loadFont(stream, size.toDouble()))
 
 inline fun Tooltip.loadFont(
-        stream: InputStream,
-        size: Number
-): Unit = setFont(Font.loadFont(stream, size.toDouble()))
+    stream: InputStream,
+    size: Number
+) = setFont(Font.loadFont(stream, size.toDouble()))
 //endregion

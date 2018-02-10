@@ -3,7 +3,9 @@
 package kotfx.collections
 
 import javafx.collections.FXCollections
-import javafx.collections.FXCollections.*
+import javafx.collections.FXCollections.observableHashMap
+import javafx.collections.FXCollections.observableMap
+import javafx.collections.FXCollections.unmodifiableObservableMap
 import javafx.collections.ObservableMap
 
 /** Returns an empty immutable [ObservableMap]. */

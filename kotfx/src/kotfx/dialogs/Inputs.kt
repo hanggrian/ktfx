@@ -10,7 +10,12 @@ import javafx.scene.image.ImageView
 import javafx.scene.text.Font
 import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
-import kotfx.properties.*
+import kotfx.properties.AnyProperty
+import kotfx.properties.BooleanProperty
+import kotfx.properties.IntProperty
+import kotfx.properties.MutableAnyProperty
+import kotfx.properties.MutableBooleanProperty
+import kotfx.properties.MutableStringProperty
 import kotlin.DeprecationLevel.ERROR
 
 //region direct access to editor's properties
@@ -119,16 +124,16 @@ inline fun TextInputDialog.cancelEdit() = editor.cancelEdit()
 
 @JvmOverloads
 inline fun inputDialog(
-        prefill: String = "",
-        noinline init: (TextInputDialog.() -> Unit)? = null
+    prefill: String = "",
+    noinline init: (TextInputDialog.() -> Unit)? = null
 ): TextInputDialog = inputDialog(null, null, prefill, init)
 
 @JvmOverloads
 fun inputDialog(
-        title: String?,
-        graphic: Node?,
-        prefill: String = "",
-        init: (TextInputDialog.() -> Unit)? = null
+    title: String?,
+    graphic: Node?,
+    prefill: String = "",
+    init: (TextInputDialog.() -> Unit)? = null
 ): TextInputDialog = TextInputDialog(prefill).apply {
     if (title != null) headerTitle = title
     if (graphic != null) when (graphic) {

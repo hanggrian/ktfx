@@ -3,11 +3,23 @@
 package kotfx.collections
 
 import javafx.collections.FXCollections
-import javafx.collections.FXCollections.*
+import javafx.collections.FXCollections.copy
+import javafx.collections.FXCollections.fill
+import javafx.collections.FXCollections.observableArrayList
+import javafx.collections.FXCollections.observableSet
+import javafx.collections.FXCollections.replaceAll
+import javafx.collections.FXCollections.reverse
+import javafx.collections.FXCollections.rotate
+import javafx.collections.FXCollections.shuffle
+import javafx.collections.FXCollections.singletonObservableList
+import javafx.collections.FXCollections.sort
+import javafx.collections.FXCollections.unmodifiableObservableList
+import javafx.collections.FXCollections.unmodifiableObservableSet
 import javafx.collections.ObservableList
 import javafx.collections.ObservableSet
-import java.util.*
-import kotlin.collections.ArrayList
+import java.util.Comparator
+import java.util.LinkedHashSet
+import java.util.Random
 
 /** Returns an empty immutable [ObservableList]. */
 inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
@@ -32,14 +44,14 @@ inline fun <T> Iterable<T>.toObservableList(): ObservableList<T> = unmodifiableO
 
 /** Converts this collection to [ObservableList]. */
 fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> = observableArrayList(this as? Collection
-        ?: toCollection(ArrayList()))
+    ?: toCollection(ArrayList()))
 
 /** Converts this collection to immutable [ObservableSet]. */
 inline fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> = unmodifiableObservableSet(toMutableObservableSet())
 
 /** Converts this collection to [ObservableSet]. */
 fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> = observableSet(this as? Set
-        ?: toCollection(LinkedHashSet()))
+    ?: toCollection(LinkedHashSet()))
 
 /** Copies elements from src to list, firing change notification once. */
 inline fun <T> ObservableList<T>.copy(src: List<T>) = copy(this, src)

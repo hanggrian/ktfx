@@ -196,9 +196,9 @@ inline fun ItemRoot.vbox(init: (@SceneDsl _VBox).() -> Unit): VBox = _VBox().app
 @JvmOverloads inline fun ChildRoot.menuButton(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl MenuButton).() -> Unit)? = null): MenuButton = MenuButton(text, graphic).apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemRoot.menuButton(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl MenuButton).() -> Unit)? = null): MenuButton = MenuButton(text, graphic).apply { init?.invoke(this) }.add()
 
-@JvmOverloads inline fun menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic).apply { init?.invoke(this) }
-@JvmOverloads inline fun PopupRoot.menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic).apply { init?.invoke(this) }.add()
-@JvmOverloads inline fun MenuRoot.menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun menu(text: String = "", graphic: Node? = null, vararg items: MenuItem, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic, *items).apply { init?.invoke(this) }
+@JvmOverloads inline fun PopupRoot.menu(text: String = "", graphic: Node? = null, vararg items: MenuItem, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic, *items).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun MenuRoot.menu(text: String = "", graphic: Node? = null, vararg items: MenuItem, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic, *items).apply { init?.invoke(this) }.add()
 
 @JvmOverloads inline fun pagination(count: Int = INDETERMINATE, index: Int = 0, noinline init: ((@SceneDsl Pagination).() -> Unit)? = null): Pagination = Pagination(count, index).apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildRoot.pagination(count: Int = INDETERMINATE, index: Int = 0, noinline init: ((@SceneDsl Pagination).() -> Unit)? = null): Pagination = Pagination(count, index).apply { init?.invoke(this) }.add()

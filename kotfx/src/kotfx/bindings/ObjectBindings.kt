@@ -5,7 +5,9 @@
 package kotfx.bindings
 
 import javafx.beans.Observable
-import javafx.beans.binding.Bindings.*
+import javafx.beans.binding.Bindings.createObjectBinding
+import javafx.beans.binding.Bindings.equal
+import javafx.beans.binding.Bindings.notEqual
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.ObjectBinding
 import javafx.beans.value.ObservableObjectValue

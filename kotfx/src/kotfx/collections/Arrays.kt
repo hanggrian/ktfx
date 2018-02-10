@@ -2,7 +2,12 @@
 
 package kotfx.collections
 
-import javafx.collections.FXCollections.*
+import javafx.collections.FXCollections.observableArrayList
+import javafx.collections.FXCollections.observableFloatArray
+import javafx.collections.FXCollections.observableIntegerArray
+import javafx.collections.FXCollections.observableSet
+import javafx.collections.FXCollections.unmodifiableObservableList
+import javafx.collections.FXCollections.unmodifiableObservableSet
 import javafx.collections.ObservableFloatArray
 import javafx.collections.ObservableIntegerArray
 import javafx.collections.ObservableList

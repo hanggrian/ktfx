@@ -22,7 +22,7 @@ vbox {
     val name = textField()
     button("Say Hello") {
         setOnAction { alert("Hello, ${name.text}!") }
-    }
+    } marginTop 8
 }
 ```
 

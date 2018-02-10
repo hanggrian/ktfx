@@ -10,9 +10,21 @@ import javafx.geometry.Pos.TOP_LEFT
 import javafx.geometry.VPos
 import javafx.geometry.VPos.TOP
 import javafx.scene.Node
-import javafx.scene.control.*
-import javafx.scene.layout.*
+import javafx.scene.control.ContextMenu
+import javafx.scene.control.Menu
+import javafx.scene.control.MenuBar
+import javafx.scene.control.MenuItem
+import javafx.scene.control.ToolBar
+import javafx.scene.layout.AnchorPane
+import javafx.scene.layout.BorderPane
+import javafx.scene.layout.FlowPane
+import javafx.scene.layout.GridPane
+import javafx.scene.layout.HBox
+import javafx.scene.layout.Priority
 import javafx.scene.layout.Priority.NEVER
+import javafx.scene.layout.StackPane
+import javafx.scene.layout.TilePane
+import javafx.scene.layout.VBox
 import javafx.scene.text.TextFlow
 import kotfx.internal.posOf
 
@@ -32,7 +44,7 @@ interface ConstrainedPane {
 interface MarginablePane : ConstrainedPane {
     infix fun <N : Node> N.margins(value: Insets?): N
     fun <N : Node> N.margins(top: Number, right: Number, bottom: Number, left: Number): N =
-            margins(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
+        margins(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 
     infix fun <N : Node> N.marginTop(value: Number): N = margins(value, marginRight, marginBottom, marginLeft)
     infix fun <N : Node> N.marginRight(value: Number): N = margins(marginTop, value, marginBottom, marginLeft)
@@ -145,7 +157,7 @@ open class _GridPane : GridPane(), ChildRoot, MarginablePane, AlignablePane, HGr
 
     val Node.fill: Boolean get() = hfill && vfill
 
-    override infix fun <N : Node> N.hpriority(value: Priority?): N = apply { setVgrow(this, value) }
+    override infix fun <N : Node> N.hpriority(value: Priority?): N = apply { setHgrow(this, value) }
     override val Node.hpriority: Priority get() = getHgrow(this) ?: NEVER
 
     override infix fun <N : Node> N.vpriority(value: Priority?): N = apply { setVgrow(this, value) }
@@ -229,6 +241,8 @@ interface PopupRoot {
     /** Convenient method to add child to this [javafx.scene.control.ContextMenu]. */
     fun <T : MenuItem> T.add(): T = apply { getItems().add(this) }
 }
+
+class _Menu(text: String = "", graphic: Node? = null, vararg items: MenuItem) : Menu(text, graphic, *items), PopupRoot
 
 class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupRoot
 //endregion

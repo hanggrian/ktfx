@@ -7,27 +7,100 @@ import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.canvas.Canvas
-import javafx.scene.chart.*
+import javafx.scene.chart.AreaChart
+import javafx.scene.chart.Axis
+import javafx.scene.chart.BarChart
+import javafx.scene.chart.BubbleChart
+import javafx.scene.chart.PieChart
 import javafx.scene.chart.PieChart.Data
+import javafx.scene.chart.ScatterChart
+import javafx.scene.chart.StackedAreaChart
+import javafx.scene.chart.StackedBarChart
 import javafx.scene.chart.XYChart.Series
-import javafx.scene.control.*
+import javafx.scene.control.Accordion
+import javafx.scene.control.Button
+import javafx.scene.control.ButtonBar
+import javafx.scene.control.CheckBox
+import javafx.scene.control.CheckMenuItem
+import javafx.scene.control.ChoiceBox
+import javafx.scene.control.ColorPicker
+import javafx.scene.control.ComboBox
+import javafx.scene.control.ContextMenu
+import javafx.scene.control.CustomMenuItem
+import javafx.scene.control.DatePicker
+import javafx.scene.control.Hyperlink
+import javafx.scene.control.Label
+import javafx.scene.control.ListView
+import javafx.scene.control.Menu
+import javafx.scene.control.MenuBar
+import javafx.scene.control.MenuButton
+import javafx.scene.control.MenuItem
+import javafx.scene.control.Pagination
 import javafx.scene.control.Pagination.INDETERMINATE
+import javafx.scene.control.PasswordField
+import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
+import javafx.scene.control.ProgressIndicator
+import javafx.scene.control.RadioButton
+import javafx.scene.control.RadioMenuItem
+import javafx.scene.control.ScrollBar
+import javafx.scene.control.ScrollPane
+import javafx.scene.control.Separator
+import javafx.scene.control.SeparatorMenuItem
+import javafx.scene.control.Slider
+import javafx.scene.control.Spinner
+import javafx.scene.control.SplitMenuButton
+import javafx.scene.control.SplitPane
+import javafx.scene.control.Tab
+import javafx.scene.control.TabPane
+import javafx.scene.control.TableView
+import javafx.scene.control.TextArea
+import javafx.scene.control.TextField
+import javafx.scene.control.TitledPane
+import javafx.scene.control.ToggleButton
+import javafx.scene.control.ToolBar
+import javafx.scene.control.Tooltip
+import javafx.scene.control.TreeItem
+import javafx.scene.control.TreeTableView
+import javafx.scene.control.TreeView
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import javafx.scene.layout.*
+import javafx.scene.layout.AnchorPane
+import javafx.scene.layout.BorderPane
+import javafx.scene.layout.FlowPane
+import javafx.scene.layout.GridPane
+import javafx.scene.layout.HBox
+import javafx.scene.layout.StackPane
+import javafx.scene.layout.TilePane
+import javafx.scene.layout.VBox
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
-import javafx.scene.shape.*
+import javafx.scene.shape.Arc
+import javafx.scene.shape.Box
 import javafx.scene.shape.Box.DEFAULT_SIZE
+import javafx.scene.shape.Circle
+import javafx.scene.shape.CubicCurve
+import javafx.scene.shape.Cylinder
+import javafx.scene.shape.Ellipse
+import javafx.scene.shape.Line
+import javafx.scene.shape.Mesh
+import javafx.scene.shape.MeshView
+import javafx.scene.shape.Path
+import javafx.scene.shape.PathElement
+import javafx.scene.shape.Polygon
+import javafx.scene.shape.Polyline
+import javafx.scene.shape.QuadCurve
+import javafx.scene.shape.Rectangle
+import javafx.scene.shape.SVGPath
+import javafx.scene.shape.Sphere
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
 import javafx.scene.web.WebView
-import kotfx.collections.mutableObservableListOf
 import kotfx.annotations.SceneDsl
+import kotfx.collections.mutableObservableListOf
 import java.time.LocalDate
 
 //region Layouts
@@ -123,9 +196,9 @@ inline fun ItemRoot.vbox(init: (@SceneDsl _VBox).() -> Unit): VBox = _VBox().app
 @JvmOverloads inline fun ChildRoot.menuButton(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl MenuButton).() -> Unit)? = null): MenuButton = MenuButton(text, graphic).apply { init?.invoke(this) }.add()
 @JvmOverloads inline fun ItemRoot.menuButton(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl MenuButton).() -> Unit)? = null): MenuButton = MenuButton(text, graphic).apply { init?.invoke(this) }.add()
 
-@JvmOverloads inline fun menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl Menu).() -> Unit)? = null): Menu = Menu(text, graphic).apply { init?.invoke(this) }
-@JvmOverloads inline fun PopupRoot.menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl Menu).() -> Unit)? = null): Menu = Menu(text, graphic).apply { init?.invoke(this) }.add()
-@JvmOverloads inline fun MenuRoot.menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl Menu).() -> Unit)? = null): Menu = Menu(text, graphic).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic).apply { init?.invoke(this) }
+@JvmOverloads inline fun PopupRoot.menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic).apply { init?.invoke(this) }.add()
+@JvmOverloads inline fun MenuRoot.menu(text: String? = null, graphic: Node? = null, noinline init: ((@SceneDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic).apply { init?.invoke(this) }.add()
 
 @JvmOverloads inline fun pagination(count: Int = INDETERMINATE, index: Int = 0, noinline init: ((@SceneDsl Pagination).() -> Unit)? = null): Pagination = Pagination(count, index).apply { init?.invoke(this) }
 @JvmOverloads inline fun ChildRoot.pagination(count: Int = INDETERMINATE, index: Int = 0, noinline init: ((@SceneDsl Pagination).() -> Unit)? = null): Pagination = Pagination(count, index).apply { init?.invoke(this) }.add()

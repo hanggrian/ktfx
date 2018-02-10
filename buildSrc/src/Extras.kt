@@ -1,9 +1,9 @@
-const val bintrayUser = "hendraanggrian"
-const val bintrayGroup = "com.hendraanggrian"
-const val bintrayArtifact = "kotfx"
-const val bintrayPublish = "0.22"
-const val bintrayDesc = "Minimalist JavaFX development"
-const val bintrayWeb = "https://github.com/$bintrayUser/$bintrayArtifact"
+const val releaseUser = "hendraanggrian"
+const val releaseGroup = "com.hendraanggrian"
+const val releaseArtifact = "kotfx"
+const val releaseVersion = "0.22"
+const val releaseDesc = "Minimalist JavaFX development"
+const val releaseWeb = "https://github.com/$releaseUser/$releaseArtifact"
 
 const val kotlinVersion = "1.2.21"
 
@@ -12,6 +12,8 @@ val Plugin.dokka get() = id("org.jetbrains.dokka")
 
 fun Dependency.bintrayRelease() = "com.novoda:bintray-release:0.8.0"
 val Plugin.`bintray-release` get() = id("com.novoda.bintray-release")
+
+fun Dependency.ktlint(): org.gradle.api.artifacts.Dependency = add("ktlint", "com.github.shyiko:ktlint:0.15.0")
 
 fun Dependency.junitPlatform(module: String, version: String) = "org.junit.platform:junit-platform-$module:$version"
 val Plugin.`junit-platform` get() = id("org.junit.platform.gradle.plugin")

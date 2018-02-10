@@ -10,7 +10,7 @@ import kotfx.dialogs.errorAlert
 import kotfx.dialogs.infoAlert
 import kotfx.minSize
 import kotfx.scene.*
-import kotfx.setPadding
+import kotfx.updatePadding
 
 class App : Application() {
 
@@ -27,7 +27,7 @@ class App : Application() {
         stage.scene = scene {
             gridPane {
                 vbox {
-                    setPadding(right = 20.0, left = 20.0)
+                    updatePadding(right = 20.0, left = 20.0)
                     calculationLabel = label("")
                     resultLabel = label {
                         textProperty().bind(stringBindingOf(calculationLabel.textProperty()) {

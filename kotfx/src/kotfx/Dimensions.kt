@@ -12,7 +12,7 @@ import kotfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 @JvmOverloads
-inline fun Region.setPadding(
+inline fun Region.updatePadding(
         top: Double = padding.top,
         right: Double = padding.right,
         bottom: Double = padding.bottom,

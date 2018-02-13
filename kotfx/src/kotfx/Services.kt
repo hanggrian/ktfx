@@ -69,4 +69,5 @@ internal class _ServiceBuilder<V> : ServiceBuilder<V> {
     }
 }
 
+/** Creates a service DSL-style builder. */
 inline fun <V> service(init: ServiceBuilder<V>.() -> Unit): Service<V> = _ServiceBuilder<V>().apply(init).build()

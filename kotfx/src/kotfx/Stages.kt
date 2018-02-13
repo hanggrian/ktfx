@@ -10,6 +10,7 @@ import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
+/** Removes old icons and set a new one to this stage. */
 var Stage.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
@@ -23,14 +24,22 @@ var Stage.icon: Image
         }
     }
 
-inline fun Stage.setMinSize(minWidth: Number, minHeight: Number = minWidth) {
-    setMinWidth(minWidth.toDouble())
-    setMinHeight(minHeight.toDouble())
+inline var Stage.minSize: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setMinSize(value, value)
+
+inline fun Stage.setMinSize(minWidth: Double, minHeight: Double) {
+    setMinWidth(minWidth)
+    setMinHeight(minHeight)
 }
 
-inline fun Stage.setMaxSize(maxWidth: Number, maxHeight: Number = maxWidth) {
-    setMaxWidth(maxWidth.toDouble())
-    setMaxHeight(maxHeight.toDouble())
+inline var Stage.maxSize: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setMaxSize(value, value)
+
+inline fun Stage.setMaxSize(maxWidth: Double, maxHeight: Double) {
+    setMaxWidth(maxWidth)
+    setMaxHeight(maxHeight)
 }
 
 fun stage(

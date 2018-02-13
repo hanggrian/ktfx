@@ -103,7 +103,7 @@ import kotfx.annotations.SceneDsl
 import kotfx.collections.mutableObservableListOf
 import java.time.LocalDate
 
-//region Layouts
+//<editor-fold desc="Layouts">
 
 inline fun anchorPane(init: (@SceneDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
 inline fun ChildManager.anchorPane(init: (@SceneDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init).add()
@@ -140,9 +140,9 @@ inline fun ItemManager.tilePane(init: (@SceneDsl _TilePane).() -> Unit): TilePan
 inline fun vbox(init: (@SceneDsl _VBox).() -> Unit): VBox = _VBox().apply(init)
 inline fun ChildManager.vbox(init: (@SceneDsl _VBox).() -> Unit): VBox = _VBox().apply(init).add()
 inline fun ItemManager.vbox(init: (@SceneDsl _VBox).() -> Unit): VBox = _VBox().apply(init).add()
-//endregion
+//</editor-fold>
 
-//region Controls
+//<editor-fold desc="Controls">
 
 inline fun accordion(vararg titledPanes: TitledPane, noinline init: ((@SceneDsl Accordion).() -> Unit)? = null): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }
 inline fun ChildManager.accordion(vararg titledPanes: TitledPane, noinline init: ((@SceneDsl Accordion).() -> Unit)? = null): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }.add()
@@ -287,9 +287,9 @@ inline fun <S> ItemManager.treeTableView(root: TreeItem<S>? = null, noinline ini
 inline fun <T> treeView(root: TreeItem<T>? = null, noinline init: ((@SceneDsl TreeView<T>).() -> Unit)? = null): TreeView<T> = TreeView<T>(root).apply { init?.invoke(this) }
 inline fun <T> ChildManager.treeView(root: TreeItem<T>? = null, noinline init: ((@SceneDsl TreeView<T>).() -> Unit)? = null): TreeView<T> = TreeView<T>(root).apply { init?.invoke(this) }.add()
 inline fun <T> ItemManager.treeView(root: TreeItem<T>? = null, noinline init: ((@SceneDsl TreeView<T>).() -> Unit)? = null): TreeView<T> = TreeView<T>(root).apply { init?.invoke(this) }.add()
-//endregion
+//</editor-fold>
 
-//region Other controls from scene package
+//<editor-fold desc="Other controls from scene package">
 
 inline fun canvas(width: Double = 0.0, height: Double = 0.0, noinline init: ((@SceneDsl Canvas).() -> Unit)? = null): Canvas = Canvas(width, height).apply { init?.invoke(this) }
 inline fun ChildManager.canvas(width: Double = 0.0, height: Double = 0.0, noinline init: ((@SceneDsl Canvas).() -> Unit)? = null): Canvas = Canvas(width, height).apply { init?.invoke(this) }.add()
@@ -310,9 +310,9 @@ inline fun ItemManager.text(text: String? = null, noinline init: ((@SceneDsl Tex
 inline fun webView(noinline init: ((@SceneDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }
 inline fun ChildManager.webView(noinline init: ((@SceneDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }.add()
 inline fun ItemManager.webView(noinline init: ((@SceneDsl WebView).() -> Unit)? = null): WebView = WebView().apply { init?.invoke(this) }.add()
-//endregion
+//</editor-fold>
 
-//region Charts
+//<editor-fold desc="Charts">
 
 inline fun <X, Y> areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }
 inline fun <X, Y> ChildManager.areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }.add()
@@ -341,9 +341,9 @@ inline fun <X, Y> ItemManager.stackedAreaChart(x: Axis<X>, y: Axis<Y>, data: Obs
 inline fun <X, Y> stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }
 inline fun <X, Y> ChildManager.stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }.add()
 inline fun <X, Y> ItemManager.stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }.add()
-//endregion
+//</editor-fold>
 
-//region Shapes
+//<editor-fold desc="Shapes">
 
 inline fun arc(centerX: Double = 0.0, centerY: Double = 0.0, radiusX: Double = 0.0, radiusY: Double = 0.0, startAngle: Double = 0.0, length: Double = 0.0, noinline init: ((@SceneDsl Arc).() -> Unit)? = null): Arc = Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply { init?.invoke(this) }
 inline fun ChildManager.arc(centerX: Double = 0.0, centerY: Double = 0.0, radiusX: Double = 0.0, radiusY: Double = 0.0, startAngle: Double = 0.0, length: Double = 0.0, noinline init: ((@SceneDsl Arc).() -> Unit)? = null): Arc = Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply { init?.invoke(this) }.add()
@@ -404,9 +404,9 @@ inline fun ItemManager.sphere(radius: Double = 1.0, division: Int = 64, noinline
 inline fun svgPath(noinline init: ((@SceneDsl SVGPath).() -> Unit)? = null): SVGPath = SVGPath().apply { init?.invoke(this) }
 inline fun ChildManager.svgPath(noinline init: ((@SceneDsl SVGPath).() -> Unit)? = null): SVGPath = SVGPath().apply { init?.invoke(this) }.add()
 inline fun ItemManager.svgPath(noinline init: ((@SceneDsl SVGPath).() -> Unit)? = null): SVGPath = SVGPath().apply { init?.invoke(this) }.add()
-//endregion
+//</editor-fold>
 
-//region Popups
+//<editor-fold desc="Popups">
 
 inline fun contextMenu(vararg items: MenuItem, noinline init: ((@SceneDsl _ContextMenu).() -> Unit)? = null): ContextMenu = _ContextMenu(*items).apply { init?.invoke(this) }
 
@@ -426,4 +426,4 @@ inline fun separatorMenuItem(noinline init: ((@SceneDsl SeparatorMenuItem).() ->
 inline fun PopupManager.separatorMenuItem(noinline init: ((@SceneDsl SeparatorMenuItem).() -> Unit)? = null): SeparatorMenuItem = SeparatorMenuItem().apply { init?.invoke(this) }.add()
 
 inline fun tooltip(text: String? = null, noinline init: ((@SceneDsl Tooltip).() -> Unit)? = null): Tooltip = Tooltip(text).apply { init?.invoke(this) }
-//endregion
+//</editor-fold>

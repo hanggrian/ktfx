@@ -15,7 +15,7 @@ import kotfx.scene.gridPane
 import kotfx.scene.label
 import kotfx.scene.setFont
 import kotfx.scene.vbox
-import kotfx.updatePadding
+import kotfx.setPadding
 
 class App : Application() {
 
@@ -31,7 +31,7 @@ class App : Application() {
     override fun start(stage: Stage) {
         stage.scene = Scene(gridPane {
             vbox {
-                updatePadding(right = 20.0, left = 20.0)
+                setPadding(right = 20.0, left = 20.0)
                 calculationLabel = label("")
                 resultLabel = label {
                     textProperty().bind(stringBindingOf(calculationLabel.textProperty()) {

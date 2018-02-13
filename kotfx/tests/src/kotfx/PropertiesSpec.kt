@@ -1,6 +1,6 @@
 package kotfx
 
-import kotfx.properties.toMutableProperty
+import kotfx.properties.toProperty
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.it
@@ -14,9 +14,9 @@ import kotlin.test.assertTrue
 object PropertiesSpec : Spek({
 
     given("2 properties") {
-        val textProperty = "".toMutableProperty()
-        val intProperty1 = 0.toMutableProperty()
-        val intProperty2 = 10.toMutableProperty()
+        val textProperty = "".toProperty()
+        val intProperty1 = 0.toProperty()
+        val intProperty2 = 10.toProperty()
 
 
         it("has binded value") {

@@ -28,7 +28,7 @@ import javafx.scene.layout.VBox
 import javafx.scene.text.TextFlow
 import kotfx.internal.posOf
 
-//region ChildManager
+//<editor-fold desc="ChildManager">
 interface ChildManager {
     /** Shadowed when being implemented in [javafx.scene.layout.Pane]. */
     fun getChildren(): ObservableList<Node>
@@ -207,9 +207,9 @@ open class _VBox : VBox(), ChildManager, VGrowablePane, MarginablePane {
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
-//endregion
+//</editor-fold>
 
-//region ItemManager
+//<editor-fold desc="ItemManager">
 interface ItemManager {
     /** Shadowed when being implemented in [javafx.scene.control.ToolBar]. */
     fun getItems(): ObservableList<Node>
@@ -219,9 +219,9 @@ interface ItemManager {
 }
 
 class _ToolBar(vararg items: Node) : ToolBar(*items), ItemManager
-//endregion
+//</editor-fold>
 
-//region MenuManager
+//<editor-fold desc="MenuManager">
 interface MenuManager {
     /** Shadowed when being implemented in [javafx.scene.control.MenuBar]. */
     fun getMenus(): ObservableList<Menu>
@@ -231,9 +231,9 @@ interface MenuManager {
 }
 
 class _MenuBar(vararg menus: Menu) : MenuBar(*menus), MenuManager
-//endregion
+//</editor-fold>
 
-//region PopupManager
+//<editor-fold desc="PopupManager">
 interface PopupManager {
     /** Shadowed when being implemented in [javafx.scene.control.ContextMenu]. */
     fun getItems(): ObservableList<MenuItem>
@@ -245,4 +245,4 @@ interface PopupManager {
 class _Menu(text: String = "", graphic: Node? = null, vararg items: MenuItem) : Menu(text, graphic, *items), PopupManager
 
 class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupManager
-//endregion
+//</editor-fold>

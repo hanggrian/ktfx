@@ -18,11 +18,10 @@ import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-//region direct access to dialogPane's properties and more
+/** Removes old icons and set a new one to this dialog. */
 inline var Dialog<*>.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        listOf(1)
         (dialogPane.scene.window as Stage).icon = value
     }
 
@@ -42,23 +41,36 @@ var Dialog<*>.headerTitle: String
         title = value
     }
 
+/** Property representing the header area of this dialog. */
+inline val Dialog<*>.headerProperty: ObjectProperty<Node> get() = dialogPane.headerProperty()
+
+/** Header area of this dialog. */
 inline var Dialog<*>.header: Node
     get() = dialogPane.header
     set(value) = dialogPane.setHeader(value)
 
+/** Property representing the content area of this dialog. */
+inline val Dialog<*>.contentProperty: ObjectProperty<Node> get() = dialogPane.contentProperty()
+
+/** Content area of this dialog. */
 inline var Dialog<*>.content: Node
     get() = dialogPane.content
     set(value) = dialogPane.setContent(value)
 
+/** Property representing the expandable content area of this dialog. */
 inline val Dialog<*>.expandableContentProperty: ObjectProperty<Node> get() = dialogPane.expandableContentProperty()
-inline var Dialog<*>.expandableContent: Node
-    get() = expandableContentProperty.get()
-    set(value) = expandableContentProperty.set(value)
 
+/** Expandable content area of this dialog. */
+inline var Dialog<*>.expandableContent: Node
+    get() = dialogPane.expandableContent
+    set(value) = dialogPane.setExpandableContent(value)
+
+/** Property representing whether or not this dialog is expandable. */
 inline val Dialog<*>.expandedProperty: BooleanProperty get() = dialogPane.expandedProperty()
+
 inline var Dialog<*>.isExpanded: Boolean
-    get() = expandedProperty.get()
-    set(value) = expandedProperty.set(value)
+    get() = dialogPane.isExpanded
+    set(value) = dialogPane.setExpanded(value)
 
 inline val Dialog<*>.buttons: ObservableList<ButtonType>
     get() = dialogPane.buttonTypes
@@ -82,7 +94,6 @@ fun Dialog<*>.addButtons(vararg buttons: ButtonType): List<Node> {
     this.buttons.addAll(*buttons)
     return buttons.map { button -> lookupButton(button) }
 }
-//endregion
 
 fun <R> dialog(
     title: String? = null,

@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.21'
+    compile 'com.hendraanggrian:kotfx:0.23'
 }
 ```
 
@@ -99,7 +99,7 @@ choiceDialog(items, defaultItem) {
 
 // show a custom dialog
 dialog<String>("Who's a little piggy?") {
-    content = GridPane()
+    content = gridPane { }
     val button1 = yesButton("Me")
     noButton("Not me")
     helpButton("What's a piggy?") {

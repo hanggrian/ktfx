@@ -23,6 +23,18 @@ var Stage.icon: Image
         }
     }
 
+@JvmOverloads
+inline fun Stage.setMinSize(minWidth: Number, minHeight: Number = minWidth) {
+    setMinWidth(minWidth.toDouble())
+    setMinHeight(minHeight.toDouble())
+}
+
+@JvmOverloads
+inline fun Stage.setMaxSize(maxWidth: Number, maxHeight: Number = maxWidth) {
+    setMaxWidth(maxWidth.toDouble())
+    setMaxHeight(maxHeight.toDouble())
+}
+
 fun stage(
     title: String? = null,
     style: StageStyle = DECORATED,

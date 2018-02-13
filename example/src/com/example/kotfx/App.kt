@@ -15,6 +15,7 @@ import kotfx.scene.gridPane
 import kotfx.scene.label
 import kotfx.scene.setFont
 import kotfx.scene.vbox
+import kotfx.setMinSize
 import kotfx.updatePadding
 
 class App : Application() {
@@ -182,6 +183,7 @@ class App : Application() {
                 }
             } row 4 col 4
         })
+        stage.isResizable = false
         stage.show()
     }
 

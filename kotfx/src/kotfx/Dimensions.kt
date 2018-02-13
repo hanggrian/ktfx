@@ -13,15 +13,15 @@ import kotlin.DeprecationLevel.ERROR
 
 @JvmOverloads
 inline fun Region.updatePadding(
-    top: Double = padding.top,
-    right: Double = padding.right,
-    bottom: Double = padding.bottom,
-    left: Double = padding.left
-) = setPadding(Insets(top, right, bottom, left))
+    top: Number = padding.top,
+    right: Number= padding.right,
+    bottom: Number= padding.bottom,
+    left: Number= padding.left
+) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 
-inline var Region.minSize: Double
+inline var Region.minSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value, value)
+    set(value) = setMinSize(value.toDouble(), value.toDouble())
 
 inline var Region.prefSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()

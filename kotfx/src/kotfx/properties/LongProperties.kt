@@ -4,14 +4,17 @@
 
 package kotfx.properties
 
+import javafx.beans.property.LongProperty
+import javafx.beans.property.ReadOnlyLongProperty
+import javafx.beans.property.ReadOnlyLongWrapper
 import javafx.beans.property.SimpleLongProperty
 import javafx.beans.value.ObservableValue
 
 /** Wrap this long in modifiable property. */
-inline fun Long?.toMutableProperty(): MutableLongProperty = SimpleLongProperty(this ?: 0)
+inline fun Long?.toProperty(): LongProperty = SimpleLongProperty(this ?: 0)
 
 /** Wrap this long in unmodifiable property. */
-inline fun Long?.toProperty(): LongProperty = LongWrapper(this ?: 0)
+inline fun Long?.toReadOnlyProperty(): ReadOnlyLongProperty = ReadOnlyLongWrapper(this ?: 0)
 
 /** Returns this long property as an observable. */
 @Suppress("UNCHECKED_CAST")

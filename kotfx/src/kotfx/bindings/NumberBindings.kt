@@ -26,6 +26,8 @@ import javafx.beans.binding.DoubleBinding
 import javafx.beans.binding.DoubleExpression
 import javafx.beans.binding.FloatBinding
 import javafx.beans.binding.FloatExpression
+import javafx.beans.binding.IntegerBinding
+import javafx.beans.binding.IntegerExpression
 import javafx.beans.binding.LongBinding
 import javafx.beans.binding.LongExpression
 import javafx.beans.binding.NumberBinding
@@ -38,8 +40,8 @@ inline fun doubleBindingOf(vararg dependencies: Observable, noinline func: () ->
 /** Helper function to create a custom [FloatBinding]. */
 inline fun floatBindingOf(vararg dependencies: Observable, noinline func: () -> Float): FloatBinding = createFloatBinding(Callable(func), *dependencies)
 
-/** Helper function to create a custom [IntBinding]. */
-inline fun intBindingOf(vararg dependencies: Observable, noinline func: () -> Int): IntBinding = createIntegerBinding(Callable(func), *dependencies)
+/** Helper function to create a custom [IntegerBinding]. */
+inline fun IntegerBindingOf(vararg dependencies: Observable, noinline func: () -> Int): IntegerBinding = createIntegerBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [LongBinding]. */
 inline fun longBindingOf(vararg dependencies: Observable, noinline func: () -> Long): LongBinding = createLongBinding(Callable(func), *dependencies)
@@ -65,12 +67,12 @@ inline operator fun LongExpression.plus(other: Float): FloatBinding = this.add(o
 inline operator fun LongExpression.plus(other: Long): LongBinding = this.add(other)
 inline operator fun LongExpression.plus(other: Int): LongBinding = this.add(other)
 
-inline operator fun Int.plus(other: ObservableNumberValue): IntBinding = add(this, other) as IntBinding
-inline operator fun IntExpression.plus(other: ObservableNumberValue): NumberBinding = this.add(other)
-inline operator fun IntExpression.plus(other: Double): DoubleBinding = this.add(other)
-inline operator fun IntExpression.plus(other: Float): FloatBinding = this.add(other)
-inline operator fun IntExpression.plus(other: Long): LongBinding = this.add(other)
-inline operator fun IntExpression.plus(other: Int): IntBinding = this.add(other)
+inline operator fun Int.plus(other: ObservableNumberValue): IntegerBinding = add(this, other) as IntegerBinding
+inline operator fun IntegerExpression.plus(other: ObservableNumberValue): NumberBinding = this.add(other)
+inline operator fun IntegerExpression.plus(other: Double): DoubleBinding = this.add(other)
+inline operator fun IntegerExpression.plus(other: Float): FloatBinding = this.add(other)
+inline operator fun IntegerExpression.plus(other: Long): LongBinding = this.add(other)
+inline operator fun IntegerExpression.plus(other: Int): IntegerBinding = this.add(other)
 
 inline operator fun Double.minus(other: ObservableNumberValue): DoubleBinding = subtract(this, other)
 inline operator fun DoubleExpression.minus(other: ObservableNumberValue): DoubleBinding = this.subtract(other)
@@ -93,12 +95,12 @@ inline operator fun LongExpression.minus(other: Float): FloatBinding = this.subt
 inline operator fun LongExpression.minus(other: Long): LongBinding = this.subtract(other)
 inline operator fun LongExpression.minus(other: Int): LongBinding = this.subtract(other)
 
-inline operator fun Int.minus(other: ObservableNumberValue): IntBinding = subtract(this, other) as IntBinding
-inline operator fun IntExpression.minus(other: ObservableNumberValue): NumberBinding = this.subtract(other)
-inline operator fun IntExpression.minus(other: Double): DoubleBinding = this.subtract(other)
-inline operator fun IntExpression.minus(other: Float): FloatBinding = this.subtract(other)
-inline operator fun IntExpression.minus(other: Long): LongBinding = this.subtract(other)
-inline operator fun IntExpression.minus(other: Int): IntBinding = this.subtract(other)
+inline operator fun Int.minus(other: ObservableNumberValue): IntegerBinding = subtract(this, other) as IntegerBinding
+inline operator fun IntegerExpression.minus(other: ObservableNumberValue): NumberBinding = this.subtract(other)
+inline operator fun IntegerExpression.minus(other: Double): DoubleBinding = this.subtract(other)
+inline operator fun IntegerExpression.minus(other: Float): FloatBinding = this.subtract(other)
+inline operator fun IntegerExpression.minus(other: Long): LongBinding = this.subtract(other)
+inline operator fun IntegerExpression.minus(other: Int): IntegerBinding = this.subtract(other)
 
 inline operator fun Double.times(other: ObservableNumberValue): DoubleBinding = multiply(this, other)
 inline operator fun DoubleExpression.times(other: ObservableNumberValue): DoubleBinding = this.multiply(other)
@@ -121,12 +123,12 @@ inline operator fun LongExpression.times(other: Float): FloatBinding = this.mult
 inline operator fun LongExpression.times(other: Long): LongBinding = this.multiply(other)
 inline operator fun LongExpression.times(other: Int): LongBinding = this.multiply(other)
 
-inline operator fun Int.times(other: ObservableNumberValue): IntBinding = multiply(this, other) as IntBinding
-inline operator fun IntExpression.times(other: ObservableNumberValue): NumberBinding = this.multiply(other)
-inline operator fun IntExpression.times(other: Double): DoubleBinding = this.multiply(other)
-inline operator fun IntExpression.times(other: Float): FloatBinding = this.multiply(other)
-inline operator fun IntExpression.times(other: Long): LongBinding = this.multiply(other)
-inline operator fun IntExpression.times(other: Int): IntBinding = this.multiply(other)
+inline operator fun Int.times(other: ObservableNumberValue): IntegerBinding = multiply(this, other) as IntegerBinding
+inline operator fun IntegerExpression.times(other: ObservableNumberValue): NumberBinding = this.multiply(other)
+inline operator fun IntegerExpression.times(other: Double): DoubleBinding = this.multiply(other)
+inline operator fun IntegerExpression.times(other: Float): FloatBinding = this.multiply(other)
+inline operator fun IntegerExpression.times(other: Long): LongBinding = this.multiply(other)
+inline operator fun IntegerExpression.times(other: Int): IntegerBinding = this.multiply(other)
 
 inline operator fun Double.div(other: ObservableNumberValue): DoubleBinding = divide(this, other)
 inline operator fun DoubleExpression.div(other: ObservableNumberValue): DoubleBinding = this.divide(other)
@@ -149,12 +151,12 @@ inline operator fun LongExpression.div(other: Float): FloatBinding = this.divide
 inline operator fun LongExpression.div(other: Long): LongBinding = this.divide(other)
 inline operator fun LongExpression.div(other: Int): LongBinding = this.divide(other)
 
-inline operator fun Int.div(other: ObservableNumberValue): IntBinding = divide(this, other) as IntBinding
-inline operator fun IntExpression.div(other: ObservableNumberValue): NumberBinding = this.divide(other)
-inline operator fun IntExpression.div(other: Double): DoubleBinding = this.divide(other)
-inline operator fun IntExpression.div(other: Float): FloatBinding = this.divide(other)
-inline operator fun IntExpression.div(other: Long): LongBinding = this.divide(other)
-inline operator fun IntExpression.div(other: Int): IntBinding = this.divide(other)
+inline operator fun Int.div(other: ObservableNumberValue): IntegerBinding = divide(this, other) as IntegerBinding
+inline operator fun IntegerExpression.div(other: ObservableNumberValue): NumberBinding = this.divide(other)
+inline operator fun IntegerExpression.div(other: Double): DoubleBinding = this.divide(other)
+inline operator fun IntegerExpression.div(other: Float): FloatBinding = this.divide(other)
+inline operator fun IntegerExpression.div(other: Long): LongBinding = this.divide(other)
+inline operator fun IntegerExpression.div(other: Int): IntegerBinding = this.divide(other)
 
 inline infix fun ObservableNumberValue.eq(other: ObservableNumberValue): BooleanBinding = equal(this, other)
 inline infix fun ObservableNumberValue.eq(other: Double): BooleanBinding = equal(this, other, 0.0)
@@ -223,8 +225,8 @@ inline infix fun ObservableNumberValue.min(other: Float): FloatBinding = min(thi
 inline infix fun Float.min(other: ObservableNumberValue): FloatBinding = min(this, other) as FloatBinding
 inline infix fun ObservableNumberValue.min(other: Long): LongBinding = min(this, other) as LongBinding
 inline infix fun Long.min(other: ObservableNumberValue): LongBinding = min(this, other) as LongBinding
-inline infix fun ObservableNumberValue.min(other: Int): IntBinding = min(this, other) as IntBinding
-inline infix fun Int.min(other: ObservableNumberValue): IntBinding = min(this, other) as IntBinding
+inline infix fun ObservableNumberValue.min(other: Int): IntegerBinding = min(this, other) as IntegerBinding
+inline infix fun Int.min(other: ObservableNumberValue): IntegerBinding = min(this, other) as IntegerBinding
 
 inline infix fun ObservableNumberValue.max(other: ObservableNumberValue): NumberBinding = max(this, other)
 inline infix fun ObservableNumberValue.max(other: Double): DoubleBinding = max(this, other)
@@ -233,5 +235,5 @@ inline infix fun ObservableNumberValue.max(other: Float): FloatBinding = max(thi
 inline infix fun Float.max(other: ObservableNumberValue): FloatBinding = max(this, other) as FloatBinding
 inline infix fun ObservableNumberValue.max(other: Long): LongBinding = max(this, other) as LongBinding
 inline infix fun Long.max(other: ObservableNumberValue): LongBinding = max(this, other) as LongBinding
-inline infix fun ObservableNumberValue.max(other: Int): IntBinding = max(this, other) as IntBinding
-inline infix fun Int.max(other: ObservableNumberValue): IntBinding = max(this, other) as IntBinding
+inline infix fun ObservableNumberValue.max(other: Int): IntegerBinding = max(this, other) as IntegerBinding
+inline infix fun Int.max(other: ObservableNumberValue): IntegerBinding = max(this, other) as IntegerBinding

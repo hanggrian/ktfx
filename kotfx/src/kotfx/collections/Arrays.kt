@@ -14,16 +14,16 @@ import javafx.collections.ObservableList
 import javafx.collections.ObservableSet
 
 /** Returns an empty [ObservableIntArray]. */
-inline fun observableIntArrayOf(): ObservableIntArray = observableIntegerArray()
+inline fun observableIntArrayOf(): ObservableIntegerArray = observableIntegerArray()
 
 /** Returns an [ObservableIntArray] of [elements]. */
-inline fun observableIntArrayOf(vararg elements: Int): ObservableIntArray = observableIntegerArray(*elements)
+inline fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray = observableIntegerArray(*elements)
 
 /** Converts this [IntArray] to [ObservableIntArray]. */
-inline fun IntArray.toObservableArray(): ObservableIntArray = observableIntegerArray(*this)
+inline fun IntArray.toObservableArray(): ObservableIntegerArray = observableIntegerArray(*this)
 
 /** Creates a copy of this [ObservableIntArray]. */
-inline fun ObservableIntArray.toObservableArray(): ObservableIntegerArray = observableIntegerArray(this)
+inline fun ObservableIntegerArray.toObservableArray(): ObservableIntegerArray = observableIntegerArray(this)
 
 /** Returns an empty [ObservableFloatArray]. */
 inline fun observableFloatArrayOf(): ObservableFloatArray = observableFloatArray()

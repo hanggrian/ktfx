@@ -2,6 +2,8 @@
 
 package kotfx.dialogs
 
+import javafx.beans.property.BooleanProperty
+import javafx.beans.property.ObjectProperty
 import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ButtonBar.ButtonData
@@ -14,8 +16,6 @@ import javafx.stage.Stage
 import kotfx.icon
 import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
-import kotfx.properties.MutableAnyProperty
-import kotfx.properties.MutableBooleanProperty
 import kotlin.DeprecationLevel.ERROR
 
 //region direct access to dialogPane's properties and more
@@ -50,12 +50,12 @@ inline var Dialog<*>.content: Node
     get() = dialogPane.content
     set(value) = dialogPane.setContent(value)
 
-inline val Dialog<*>.expandableContentProperty: MutableAnyProperty<Node> get() = dialogPane.expandableContentProperty()
+inline val Dialog<*>.expandableContentProperty: ObjectProperty<Node> get() = dialogPane.expandableContentProperty()
 inline var Dialog<*>.expandableContent: Node
     get() = expandableContentProperty.get()
     set(value) = expandableContentProperty.set(value)
 
-inline val Dialog<*>.expandedProperty: MutableBooleanProperty get() = dialogPane.expandedProperty()
+inline val Dialog<*>.expandedProperty: BooleanProperty get() = dialogPane.expandedProperty()
 inline var Dialog<*>.isExpanded: Boolean
     get() = expandedProperty.get()
     set(value) = expandedProperty.set(value)
@@ -84,7 +84,6 @@ fun Dialog<*>.addButtons(vararg buttons: ButtonType): List<Node> {
 }
 //endregion
 
-@JvmOverloads
 fun <R> dialog(
     title: String? = null,
     graphic: Node? = null,

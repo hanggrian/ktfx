@@ -12,6 +12,7 @@ import javafx.beans.binding.Bindings.size
 import javafx.beans.binding.Bindings.unbindContent
 import javafx.beans.binding.Bindings.unbindContentBidirectional
 import javafx.beans.binding.BooleanBinding
+import javafx.beans.binding.IntegerBinding
 import javafx.collections.ObservableSet
 
 inline fun <E> ObservableSet<E>.bindContentBidirectional(other: ObservableSet<E>) = bindContentBidirectional(this, other)
@@ -22,7 +23,7 @@ inline fun <E> Set<E>.bindContent(other: ObservableSet<E>) = bindContent(this, o
 
 inline fun <E> Set<E>.unbindContent(other: ObservableSet<E>) = unbindContent(this, other)
 
-inline val <E> ObservableSet<E>.sizeBinding: IntBinding get() = size(this)
+inline val <E> ObservableSet<E>.sizeBinding: IntegerBinding get() = size(this)
 
 inline val <E> ObservableSet<E>.isEmpty: BooleanBinding get() = isEmpty(this)
 

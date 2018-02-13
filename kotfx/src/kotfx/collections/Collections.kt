@@ -69,7 +69,6 @@ inline fun ObservableList<*>.reverse() = reverse(this)
 inline fun ObservableList<*>.rotate(distance: Int) = rotate(this, distance)
 
 /** Shuffles all elements in the observable list, firing change notification once. */
-@JvmOverloads
 inline fun ObservableList<*>.shuffle(rnd: Random? = null) = if (rnd == null) shuffle(this) else shuffle(this, rnd)
 
 /** Sorts the provided observable list, firing change notification once. */

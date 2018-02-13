@@ -6,7 +6,6 @@ import javafx.util.Duration
 import javafx.util.StringConverter
 
 /** Creates a new string converter using [_fromString] and optional [_toString]. */
-@JvmOverloads
 inline fun <T> stringConverterOf(
     noinline _toString: (T?) -> String = { it.toString() },
     noinline _fromString: (String) -> T?

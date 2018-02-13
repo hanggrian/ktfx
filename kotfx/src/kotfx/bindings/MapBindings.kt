@@ -21,6 +21,7 @@ import javafx.beans.binding.Bindings.valueAt
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.DoubleBinding
 import javafx.beans.binding.FloatBinding
+import javafx.beans.binding.IntegerBinding
 import javafx.beans.binding.LongBinding
 import javafx.beans.binding.ObjectBinding
 import javafx.beans.binding.StringBinding
@@ -35,7 +36,7 @@ inline fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>) = bindConten
 
 inline fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>) = unbindContent(this, other)
 
-inline val <K, V> ObservableMap<K, V>.sizeBinding: IntBinding get() = size(this)
+inline val <K, V> ObservableMap<K, V>.sizeBinding: IntegerBinding get() = size(this)
 
 inline val <K, V> ObservableMap<K, V>.isEmpty: BooleanBinding get() = isEmpty(this)
 
@@ -53,8 +54,8 @@ inline fun <K> ObservableMap<K, Double>.doubleValueAt(key: ObservableValue<K>): 
 inline fun <K> ObservableMap<K, Float>.floatValueAt(key: K): FloatBinding = floatValueAt(this, key)
 inline fun <K> ObservableMap<K, Float>.floatValueAt(key: ObservableValue<K>): FloatBinding = floatValueAt(this, key)
 
-inline fun <K> ObservableMap<K, Int>.intValueAt(key: K): IntBinding = integerValueAt(this, key)
-inline fun <K> ObservableMap<K, Int>.intValueAt(key: ObservableValue<K>): IntBinding = integerValueAt(this, key)
+inline fun <K> ObservableMap<K, Int>.intValueAt(key: K): IntegerBinding = integerValueAt(this, key)
+inline fun <K> ObservableMap<K, Int>.intValueAt(key: ObservableValue<K>): IntegerBinding = integerValueAt(this, key)
 
 inline fun <K> ObservableMap<K, Long>.longValueAt(key: K): LongBinding = longValueAt(this, key)
 inline fun <K> ObservableMap<K, Long>.longValueAt(key: ObservableValue<K>): LongBinding = longValueAt(this, key)

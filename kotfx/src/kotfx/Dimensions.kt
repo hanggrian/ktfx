@@ -11,17 +11,16 @@ import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-@JvmOverloads
 inline fun Region.updatePadding(
-    top: Number = padding.top,
-    right: Number= padding.right,
-    bottom: Number= padding.bottom,
-    left: Number= padding.left
-) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
+    top: Double = padding.top,
+    right: Double = padding.right,
+    bottom: Double = padding.bottom,
+    left: Double = padding.left
+) = setPadding(Insets(top, right, bottom, left))
 
-inline var Region.minSize: Number
+inline var Region.minSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value.toDouble(), value.toDouble())
+    set(value) = setMinSize(value, value)
 
 inline var Region.prefSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()

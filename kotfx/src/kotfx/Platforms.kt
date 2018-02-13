@@ -11,7 +11,6 @@ inline fun runLater(noinline block: () -> Unit) = Platform.runLater(block)
 /** Returns true if the calling thread is the JavaFX thread. */
 inline val isFXThread: Boolean get() = Platform.isFxApplicationThread()
 
-@JvmOverloads
 inline fun exit(status: Int = 0) {
     Platform.exit()
     System.exit(status)

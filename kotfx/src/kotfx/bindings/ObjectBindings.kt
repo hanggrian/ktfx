@@ -11,16 +11,15 @@ import javafx.beans.binding.Bindings.notEqual
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.ObjectBinding
 import javafx.beans.value.ObservableObjectValue
-import kotfx.properties.ObservableAnyValue
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [ObjectBinding]. */
 inline fun <T> bindingOf(vararg dependencies: Observable, noinline func: () -> T?): ObjectBinding<T?> = createObjectBinding(Callable(func), *dependencies)
 
-inline infix fun ObservableAnyValue<*>.eq(other: ObservableAnyValue<*>): BooleanBinding = equal(this, other)
-inline infix fun ObservableAnyValue<*>.eq(other: Any): BooleanBinding = equal(this, other)
+inline infix fun ObservableObjectValue<*>.eq(other: ObservableObjectValue<*>): BooleanBinding = equal(this, other)
+inline infix fun ObservableObjectValue<*>.eq(other: Any): BooleanBinding = equal(this, other)
 inline infix fun Any.eq(other: ObservableObjectValue<*>): BooleanBinding = equal(this, other)
 
-inline infix fun ObservableAnyValue<*>.neq(other: ObservableAnyValue<*>): BooleanBinding = notEqual(this, other)
-inline infix fun ObservableAnyValue<*>.neq(other: Any): BooleanBinding = notEqual(this, other)
-inline infix fun Any.neq(other: ObservableAnyValue<*>): BooleanBinding = notEqual(this, other)
+inline infix fun ObservableObjectValue<*>.neq(other: ObservableObjectValue<*>): BooleanBinding = notEqual(this, other)
+inline infix fun ObservableObjectValue<*>.neq(other: Any): BooleanBinding = notEqual(this, other)
+inline infix fun Any.neq(other: ObservableObjectValue<*>): BooleanBinding = notEqual(this, other)

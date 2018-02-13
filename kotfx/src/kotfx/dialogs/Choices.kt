@@ -6,14 +6,12 @@ import javafx.scene.Node
 import javafx.scene.control.ChoiceDialog
 import javafx.scene.image.ImageView
 
-@JvmOverloads
 inline fun <T> choiceDialog(
     items: Collection<T>? = null,
     prefill: T? = null,
     noinline init: (ChoiceDialog<T>.() -> Unit)? = null
 ): ChoiceDialog<T> = choiceDialog(null, null, items, prefill, init)
 
-@JvmOverloads
 fun <T> choiceDialog(
     title: String?,
     graphic: Node?,

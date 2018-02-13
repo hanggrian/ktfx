@@ -16,7 +16,6 @@ inline fun parallelTransitionOf(vararg animations: Animation): ParallelTransitio
 
 inline fun sequentialTransitionOf(vararg animations: Animation): SequentialTransition = SequentialTransition().apply { children.addAll(*animations) }
 
-@JvmOverloads
 inline fun Node.fadeTransition(
     duration: Duration,
     from: Double,
@@ -28,7 +27,6 @@ inline fun Node.fadeTransition(
     init?.invoke(this)
 }
 
-@JvmOverloads
 inline fun Node.pathTransition(
     duration: Duration,
     path: Shape,
@@ -37,7 +35,6 @@ inline fun Node.pathTransition(
     init?.invoke(this)
 }
 
-@JvmOverloads
 inline fun Node.parallelTransition(
     vararg animations: Animation,
     noinline init: (ParallelTransition.() -> Unit)? = null
@@ -45,7 +42,6 @@ inline fun Node.parallelTransition(
     init?.invoke(this)
 }
 
-@JvmOverloads
 inline fun Node.sequentialTransition(
     vararg animations: Animation,
     noinline init: (SequentialTransition.() -> Unit)? = null

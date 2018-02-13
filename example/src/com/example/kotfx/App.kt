@@ -15,7 +15,6 @@ import kotfx.scene.gridPane
 import kotfx.scene.label
 import kotfx.scene.setFont
 import kotfx.scene.vbox
-import kotfx.setMinSize
 import kotfx.updatePadding
 
 class App : Application() {

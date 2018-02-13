@@ -135,7 +135,7 @@ class App : Application() {
                     errorAlert("Not yet supported.") {
                         title = ":("
                         dialogPane.expandableContent = kotfx.scene.vbox {
-                            label("Suggestion") { setFont("Arial", BOLD, size = 14) }
+                            label("Suggestion") { setFont("Arial", BOLD, size = 14.0) }
                             label("Use an actual calculator.") marginTop 4
                         }
                     }.show()

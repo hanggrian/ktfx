@@ -17,82 +17,82 @@ inline fun Labeled.setFont(
     family: String? = null,
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Number = -1
-) = setFont(Font.font(family, weight, posture, size.toDouble()))
+    size: Double = -1.0
+) = setFont(Font.font(family, weight, posture, size))
 
 /** Search appropriate font with options and set it to this [Text]. */
 inline fun Text.setFont(
     family: String? = null,
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Number = -1
-) = setFont(Font.font(family, weight, posture, size.toDouble()))
+    size: Double = -1.0
+) = setFont(Font.font(family, weight, posture, size))
 
 /** Search appropriate font with options and set it to this [TextInputControl]. */
 inline fun TextInputControl.setFont(
     family: String? = null,
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Number = -1
-) = setFont(Font.font(family, weight, posture, size.toDouble()))
+    size: Double = -1.0
+) = setFont(Font.font(family, weight, posture, size))
 
 /** Search appropriate font with options and set it to this [Tooltip]. */
 inline fun Tooltip.setFont(
     family: String? = null,
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Number = -1
-) = setFont(Font.font(family, weight, posture, size.toDouble()))
+    size: Double = -1.0
+) = setFont(Font.font(family, weight, posture, size))
 //</editor-fold>
 
 //<editor-fold desc="Load font from url string">
 /** Load font from url string and set it to this [Labeled]. */
 inline fun Labeled.loadFont(
     url: String,
-    size: Number
-) = setFont(Font.loadFont(url, size.toDouble()))
+    size: Double
+) = setFont(Font.loadFont(url, size))
 
 /** Load font from url string and set it to this [Text]. */
 inline fun Text.loadFont(
     url: String,
-    size: Number
-) = setFont(Font.loadFont(url, size.toDouble()))
+    size: Double
+) = setFont(Font.loadFont(url, size))
 
 /** Load font from url string and set it to this [TextInputControl]. */
 inline fun TextInputControl.loadFont(
     url: String,
-    size: Number
-) = setFont(Font.loadFont(url, size.toDouble()))
+    size: Double
+) = setFont(Font.loadFont(url, size))
 
 /** Load font from url string and set it to this [Tooltip]. */
 inline fun Tooltip.loadFont(
     url: String,
-    size: Number
-) = setFont(Font.loadFont(url, size.toDouble()))
+    size: Double
+) = setFont(Font.loadFont(url, size))
 //</editor-fold>
 
 //<editor-fold desc="Load font from input stream">
 /** Load font from input stream and set it to this [Labeled]. */
 inline fun Labeled.loadFont(
     stream: InputStream,
-    size: Number
-) = setFont(Font.loadFont(stream, size.toDouble()))
+    size: Double
+) = setFont(Font.loadFont(stream, size))
 
 /** Load font from input stream and set it to this [Text]. */
 inline fun Text.loadFont(
     stream: InputStream,
-    size: Number
-) = setFont(Font.loadFont(stream, size.toDouble()))
+    size: Double
+) = setFont(Font.loadFont(stream, size))
 
 /** Load font from input stream and set it to this [TextInputControl]. */
 inline fun TextInputControl.loadFont(
     stream: InputStream,
-    size: Number
-) = setFont(Font.loadFont(stream, size.toDouble()))
+    size: Double
+) = setFont(Font.loadFont(stream, size))
 
 /** Load font from input stream and set it to this [Tooltip]. */
 inline fun Tooltip.loadFont(
     stream: InputStream,
-    size: Number
-) = setFont(Font.loadFont(stream, size.toDouble()))
+    size: Double
+) = setFont(Font.loadFont(stream, size))
 //</editor-fold>

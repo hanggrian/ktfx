@@ -10,6 +10,7 @@ import javafx.geometry.Pos.TOP_LEFT
 import javafx.geometry.VPos
 import javafx.geometry.VPos.TOP
 import javafx.scene.Node
+import javafx.scene.control.ButtonBar
 import javafx.scene.control.ContextMenu
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
@@ -245,4 +246,14 @@ interface PopupManager {
 class _Menu(text: String = "", graphic: Node? = null, vararg items: MenuItem) : Menu(text, graphic, *items), PopupManager
 
 class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupManager
+//</editor-fold>
+
+//<editor-fold desc="Others">
+interface ButtonManager {
+    fun getButtons(): ObservableList<Node>
+
+    fun <T : Node> T.add(): T = apply { getButtons().add(this) }
+}
+
+class _ButtonBar(buttonOrder: String? = null) : ButtonBar(buttonOrder), ButtonManager
 //</editor-fold>

@@ -41,7 +41,7 @@ inline fun doubleBindingOf(vararg dependencies: Observable, noinline func: () ->
 inline fun floatBindingOf(vararg dependencies: Observable, noinline func: () -> Float): FloatBinding = createFloatBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [IntegerBinding]. */
-inline fun IntegerBindingOf(vararg dependencies: Observable, noinline func: () -> Int): IntegerBinding = createIntegerBinding(Callable(func), *dependencies)
+inline fun intBindingOf(vararg dependencies: Observable, noinline func: () -> Int): IntegerBinding = createIntegerBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [LongBinding]. */
 inline fun longBindingOf(vararg dependencies: Observable, noinline func: () -> Long): LongBinding = createLongBinding(Callable(func), *dependencies)

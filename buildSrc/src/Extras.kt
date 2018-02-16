@@ -1,11 +1,13 @@
 const val releaseUser = "hendraanggrian"
 const val releaseGroup = "com.hendraanggrian"
 const val releaseArtifact = "kotfx"
-const val releaseVersion = "0.24"
+const val releaseVersion = "0.25"
 const val releaseDesc = "Minimalist JavaFX development"
 const val releaseWeb = "https://github.com/$releaseUser/$releaseArtifact"
 
 const val kotlinVersion = "1.2.21"
+const val spekVersion = "1.1.5"
+const val junitPlatformVersion = "1.0.0"
 
 fun Dependency.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:0.9.15"
 val Plugin.dokka get() = id("org.jetbrains.dokka")
@@ -17,10 +19,8 @@ fun Dependency.ktlint(): org.gradle.api.artifacts.Dependency = add("ktlint", "co
 
 fun Dependency.junitPlatform(module: String, version: String) = "org.junit.platform:junit-platform-$module:$version"
 val Plugin.`junit-platform` get() = id("org.junit.platform.gradle.plugin")
-const val junitPlatformVersion = "1.0.0"
 
 fun Dependency.spek(module: String, version: String) = "org.jetbrains.spek:spek-$module:$version"
-const val spekVersion = "1.1.5"
 
 private typealias Dependency = org.gradle.api.artifacts.dsl.DependencyHandler
 private typealias Plugin = org.gradle.plugin.use.PluginDependenciesSpec

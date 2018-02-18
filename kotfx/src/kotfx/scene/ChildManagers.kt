@@ -1,3 +1,6 @@
+@file:JvmMultifileClass
+@file:JvmName("ManagersKt")
+
 package kotfx.scene
 
 import javafx.collections.ObservableList
@@ -10,12 +13,6 @@ import javafx.geometry.Pos.TOP_LEFT
 import javafx.geometry.VPos
 import javafx.geometry.VPos.TOP
 import javafx.scene.Node
-import javafx.scene.control.ButtonBar
-import javafx.scene.control.ContextMenu
-import javafx.scene.control.Menu
-import javafx.scene.control.MenuBar
-import javafx.scene.control.MenuItem
-import javafx.scene.control.ToolBar
 import javafx.scene.layout.AnchorPane
 import javafx.scene.layout.BorderPane
 import javafx.scene.layout.FlowPane
@@ -29,12 +26,10 @@ import javafx.scene.layout.VBox
 import javafx.scene.text.TextFlow
 import kotfx.internal.posOf
 
-//<editor-fold desc="ChildManager">
 interface ChildManager {
-    /** Shadowed when being implemented in [javafx.scene.layout.Pane]. */
+
     fun getChildren(): ObservableList<Node>
 
-    /** Convenient method to add child to this [javafx.scene.layout.Pane]. */
     fun <T : Node> T.add(): T = apply { getChildren().add(this) }
 }
 
@@ -208,52 +203,3 @@ open class _VBox : VBox(), ChildManager, VGrowablePane, MarginablePane {
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
-//</editor-fold>
-
-//<editor-fold desc="ItemManager">
-interface ItemManager {
-    /** Shadowed when being implemented in [javafx.scene.control.ToolBar]. */
-    fun getItems(): ObservableList<Node>
-
-    /** Convenient method to add child to this [javafx.scene.control.ToolBar]. */
-    fun <T : Node> T.add(): T = apply { getItems().add(this) }
-}
-
-class _ToolBar(vararg items: Node) : ToolBar(*items), ItemManager
-//</editor-fold>
-
-//<editor-fold desc="MenuManager">
-interface MenuManager {
-    /** Shadowed when being implemented in [javafx.scene.control.MenuBar]. */
-    fun getMenus(): ObservableList<Menu>
-
-    /** Convenient method to add child to this [javafx.scene.control.MenuBar]. */
-    fun <T : Menu> T.add(): T = apply { getMenus().add(this) }
-}
-
-class _MenuBar(vararg menus: Menu) : MenuBar(*menus), MenuManager
-//</editor-fold>
-
-//<editor-fold desc="PopupManager">
-interface PopupManager {
-    /** Shadowed when being implemented in [javafx.scene.control.ContextMenu]. */
-    fun getItems(): ObservableList<MenuItem>
-
-    /** Convenient method to add child to this [javafx.scene.control.ContextMenu]. */
-    fun <T : MenuItem> T.add(): T = apply { getItems().add(this) }
-}
-
-class _Menu(text: String = "", graphic: Node? = null, vararg items: MenuItem) : Menu(text, graphic, *items), PopupManager
-
-class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupManager
-//</editor-fold>
-
-//<editor-fold desc="Others">
-interface ButtonManager {
-    fun getButtons(): ObservableList<Node>
-
-    fun <T : Node> T.add(): T = apply { getButtons().add(this) }
-}
-
-class _ButtonBar(buttonOrder: String? = null) : ButtonBar(buttonOrder), ButtonManager
-//</editor-fold>

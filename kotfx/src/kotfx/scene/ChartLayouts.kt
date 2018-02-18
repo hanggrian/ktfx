@@ -1,0 +1,53 @@
+@file:JvmMultifileClass
+@file:JvmName("LayoutsKt")
+@file:Suppress("NOTHING_TO_INLINE")
+
+package kotfx.scene
+
+import javafx.collections.ObservableList
+import javafx.scene.chart.AreaChart
+import javafx.scene.chart.Axis
+import javafx.scene.chart.BarChart
+import javafx.scene.chart.BubbleChart
+import javafx.scene.chart.PieChart
+import javafx.scene.chart.ScatterChart
+import javafx.scene.chart.StackedAreaChart
+import javafx.scene.chart.StackedBarChart
+import javafx.scene.chart.XYChart
+import kotfx.annotations.SceneDsl
+import kotfx.collections.mutableObservableListOf
+
+inline fun <X, Y> areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }
+inline fun <X, Y> ChildManager.areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ItemManager.areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ButtonManager.areaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl AreaChart<X, Y>).() -> Unit)? = null): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }.add()
+
+inline fun <X, Y> barChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), gap: Double = 10.0, noinline init: ((@SceneDsl BarChart<X, Y>).() -> Unit)? = null): BarChart<X, Y> = BarChart(x, y, data, gap).apply { init?.invoke(this) }
+inline fun <X, Y> ChildManager.barChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), gap: Double = 10.0, noinline init: ((@SceneDsl BarChart<X, Y>).() -> Unit)? = null): BarChart<X, Y> = BarChart(x, y, data, gap).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ItemManager.barChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), gap: Double = 10.0, noinline init: ((@SceneDsl BarChart<X, Y>).() -> Unit)? = null): BarChart<X, Y> = BarChart(x, y, data, gap).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ButtonManager.barChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), gap: Double = 10.0, noinline init: ((@SceneDsl BarChart<X, Y>).() -> Unit)? = null): BarChart<X, Y> = BarChart(x, y, data, gap).apply { init?.invoke(this) }.add()
+
+inline fun <X, Y> bubbleChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl BubbleChart<X, Y>).() -> Unit)? = null): BubbleChart<X, Y> = BubbleChart(x, y, data).apply { init?.invoke(this) }
+inline fun <X, Y> ChildManager.bubbleChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl BubbleChart<X, Y>).() -> Unit)? = null): BubbleChart<X, Y> = BubbleChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ItemManager.bubbleChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl BubbleChart<X, Y>).() -> Unit)? = null): BubbleChart<X, Y> = BubbleChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ButtonManager.bubbleChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl BubbleChart<X, Y>).() -> Unit)? = null): BubbleChart<X, Y> = BubbleChart(x, y, data).apply { init?.invoke(this) }.add()
+
+inline fun pieChart(data: ObservableList<PieChart.Data> = mutableObservableListOf(), noinline init: ((@SceneDsl PieChart).() -> Unit)? = null): PieChart = PieChart(data).apply { init?.invoke(this) }
+inline fun ChildManager.pieChart(data: ObservableList<PieChart.Data> = mutableObservableListOf(), noinline init: ((@SceneDsl PieChart).() -> Unit)? = null): PieChart = PieChart(data).apply { init?.invoke(this) }.add()
+inline fun ItemManager.pieChart(data: ObservableList<PieChart.Data> = mutableObservableListOf(), noinline init: ((@SceneDsl PieChart).() -> Unit)? = null): PieChart = PieChart(data).apply { init?.invoke(this) }.add()
+inline fun ButtonManager.pieChart(data: ObservableList<PieChart.Data> = mutableObservableListOf(), noinline init: ((@SceneDsl PieChart).() -> Unit)? = null): PieChart = PieChart(data).apply { init?.invoke(this) }.add()
+
+inline fun <X, Y> scatterChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl ScatterChart<X, Y>).() -> Unit)? = null): ScatterChart<X, Y> = ScatterChart(x, y, data).apply { init?.invoke(this) }
+inline fun <X, Y> ChildManager.scatterChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl ScatterChart<X, Y>).() -> Unit)? = null): ScatterChart<X, Y> = ScatterChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ItemManager.scatterChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl ScatterChart<X, Y>).() -> Unit)? = null): ScatterChart<X, Y> = ScatterChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ButtonManager.scatterChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl ScatterChart<X, Y>).() -> Unit)? = null): ScatterChart<X, Y> = ScatterChart(x, y, data).apply { init?.invoke(this) }.add()
+
+inline fun <X, Y> stackedAreaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedAreaChart<X, Y>).() -> Unit)? = null): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply { init?.invoke(this) }
+inline fun <X, Y> ChildManager.stackedAreaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedAreaChart<X, Y>).() -> Unit)? = null): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ItemManager.stackedAreaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedAreaChart<X, Y>).() -> Unit)? = null): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ButtonManager.stackedAreaChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedAreaChart<X, Y>).() -> Unit)? = null): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply { init?.invoke(this) }.add()
+
+inline fun <X, Y> stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }
+inline fun <X, Y> ChildManager.stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ItemManager.stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }.add()
+inline fun <X, Y> ButtonManager.stackedBarChart(x: Axis<X>, y: Axis<Y>, data: ObservableList<XYChart.Series<X, Y>> = mutableObservableListOf(), noinline init: ((@SceneDsl StackedBarChart<X, Y>).() -> Unit)? = null): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }.add()

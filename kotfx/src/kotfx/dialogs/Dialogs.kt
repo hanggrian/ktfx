@@ -75,7 +75,7 @@ inline var Dialog<*>.isExpanded: Boolean
 inline val Dialog<*>.buttons: ObservableList<ButtonType>
     get() = dialogPane.buttonTypes
 
-inline fun Dialog<*>.lookupButton(button: ButtonType): Node = dialogPane.lookupButton(button) as Node
+inline fun Dialog<*>.lookupButton(button: ButtonType): Node = dialogPane.lookupButton(button)
 
 /** Add custom button to this dialog and return it as a node. */
 inline fun Dialog<*>.addButton(text: String, data: ButtonData = OTHER): Node = addButton(ButtonType(text, data))

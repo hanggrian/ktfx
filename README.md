@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.25'
+    compile 'com.hendraanggrian:kotfx:0.26'
 }
 ```
 

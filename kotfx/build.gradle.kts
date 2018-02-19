@@ -22,8 +22,8 @@ plugins {
 }
 
 java.sourceSets {
-    getByName("main").java.srcDir("src")
-    getByName("test").java.srcDir("tests/src")
+    get("main").java.srcDir("src")
+    get("test").java.srcDir("tests/src")
 }
 
 val ktlint by configurations.creating
@@ -66,13 +66,18 @@ tasks {
 
     val dokka by getting(DokkaTask::class) {
         outputDirectory = "$buildDir/docs"
-        doFirst { file(outputDirectory).deleteRecursively() }
+        jdkVersion = 8
+        impliedPlatforms = mutableListOf("JVM")
+        doFirst {
+            file(outputDirectory).deleteRecursively()
+            file("$buildDir/gitPublish").deleteRecursively()
+        }
     }
 
     gitPublish {
+        repoUri = releaseWeb
         branch = "gh-pages"
-        contents.from("${dokka.outputDirectory}/kotfx")
-        commitMessage = "Updating gh-pages"
+        contents.from(dokka.outputDirectory)
     }
 }
 

@@ -1,8 +1,10 @@
 import org.gradle.api.plugins.ExtensionAware
 import org.gradle.api.tasks.JavaExec
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.creating
 import org.gradle.kotlin.dsl.kotlin
-
+import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
+import org.jetbrains.dokka.gradle.DokkaTask
 import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
@@ -14,6 +16,7 @@ plugins {
     `java-library`
     kotlin("jvm")
     dokka
+    `git-publish`
     `bintray-release`
     `junit-platform`
 }
@@ -23,11 +26,11 @@ java.sourceSets {
     getByName("test").java.srcDir("tests/src")
 }
 
-configurations.create("ktlint")
+val ktlint by configurations.creating
 
 dependencies {
     compile(kotlin("stdlib", kotlinVersion))
-    ktlint()
+    ktlint(ktlint())
     testCompile(kotlin("test", kotlinVersion))
     testCompile(kotlin("reflect", kotlinVersion))
     testCompile(spek("api", spekVersion)) {
@@ -40,24 +43,37 @@ dependencies {
     testCompile(junitPlatform("runner", junitPlatformVersion))
 }
 
-task<JavaExec>("ktlint") {
-    group = "verification"
-    inputs.dir("src")
-    outputs.dir("src")
-    description = "Check Kotlin code style."
-    classpath = configurations["ktlint"]
-    main = "com.github.shyiko.ktlint.Main"
-    args("src/**/*.kt")
-}
-tasks["check"].dependsOn(tasks["ktlint"])
-task<JavaExec>("ktlintFormat") {
-    group = "formatting"
-    inputs.dir("src")
-    outputs.dir("src")
-    description = "Fix Kotlin code style deviations."
-    classpath = configurations["ktlint"]
-    main = "com.github.shyiko.ktlint.Main"
-    args("-F", "src/**/*.kt")
+tasks {
+    val ktlint by creating(JavaExec::class) {
+        group = "verification"
+        inputs.dir("src")
+        outputs.dir("src")
+        description = "Check Kotlin code style."
+        classpath = configurations["ktlint"]
+        main = "com.github.shyiko.ktlint.Main"
+        args("src/**/*.kt")
+    }
+    get("check").dependsOn(ktlint)
+    "ktlintFormat"(JavaExec::class) {
+        group = "formatting"
+        inputs.dir("src")
+        outputs.dir("src")
+        description = "Fix Kotlin code style deviations."
+        classpath = configurations["ktlint"]
+        main = "com.github.shyiko.ktlint.Main"
+        args("-F", "src/**/*.kt")
+    }
+
+    val dokka by getting(DokkaTask::class) {
+        outputDirectory = "$buildDir/docs"
+        doFirst { file(outputDirectory).deleteRecursively() }
+    }
+
+    gitPublish {
+        branch = "gh-pages"
+        contents.from("${dokka.outputDirectory}/kotfx")
+        commitMessage = "Updating gh-pages"
+    }
 }
 
 publish {

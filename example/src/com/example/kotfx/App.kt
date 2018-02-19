@@ -11,7 +11,6 @@ import kotfx.dialogs.errorAlert
 import kotfx.dialogs.infoAlert
 import kotfx.minSize
 import kotfx.scene.button
-import kotfx.scene.columnConstraints
 import kotfx.scene.gridPane
 import kotfx.scene.label
 import kotfx.scene.setFont

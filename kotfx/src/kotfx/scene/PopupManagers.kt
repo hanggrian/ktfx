@@ -1,6 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("ManagersKt")
-
 package kotfx.scene
 
 import javafx.collections.ObservableList

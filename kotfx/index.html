@@ -1,156 +1,74 @@
 <HTML>
 <HEAD>
 <meta charset="UTF-8">
-<title>kotfx - kotfx</title>
-<link rel="stylesheet" href="../../style.css">
+<title>kotfx</title>
+<link rel="stylesheet" href="../style.css">
 </HEAD>
 <BODY>
-<a href="../index.html">kotfx</a>&nbsp;/&nbsp;<a href=".">kotfx</a><br/>
+<a href=".">kotfx</a><br/>
 <br/>
-<h2>Package kotfx</h2>
-<h3>Types</h3>
+<h3>Packages</h3>
 <table>
 <tbody>
 <tr>
 <td>
-<p><a href="-service-builder/index.html">ServiceBuilder</a></p>
-</td>
-<td>
-<code><span class="keyword">interface </span><span class="identifier">ServiceBuilder</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Builder</span><span class="symbol">&lt;</span><span class="identifier">Service</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
-</tr>
-</tbody>
-</table>
-<h3>Extensions for External Classes</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="javafx.application.-conditional-feature/index.html">javafx.application.ConditionalFeature</a></p>
+<p><a href="kotfx/index.html">kotfx</a></p>
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="javafx.scene.layout.-flow-pane/index.html">javafx.scene.layout.FlowPane</a></p>
+<p><a href="kotfx.annotations/index.html">kotfx.annotations</a></p>
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="javafx.scene.layout.-grid-pane/index.html">javafx.scene.layout.GridPane</a></p>
+<p><a href="kotfx.bindings/index.html">kotfx.bindings</a></p>
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="javafx.scene.layout.-region/index.html">javafx.scene.layout.Region</a></p>
+<p><a href="kotfx.collections/index.html">kotfx.collections</a></p>
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="javafx.scene.layout.-tile-pane/index.html">javafx.scene.layout.TilePane</a></p>
+<p><a href="kotfx.dialogs/index.html">kotfx.dialogs</a></p>
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="javafx.stage.-stage/index.html">javafx.stage.Stage</a></p>
+<p><a href="kotfx.experimental.animations/index.html">kotfx.experimental.animations</a></p>
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="javafx.util.-duration/index.html">javafx.util.Duration</a></p>
+<p><a href="kotfx.properties/index.html">kotfx.properties</a></p>
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="javafx.util.-pair/index.html">javafx.util.Pair</a></p>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="kotlin.-pair/index.html">kotlin.Pair</a></p>
+<p><a href="kotfx.scene/index.html">kotfx.scene</a></p>
 </td>
 <td>
 </td>
 </tr>
 </tbody>
 </table>
-<h3>Properties</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="is-f-x-thread.html">isFXThread</a></p>
-</td>
-<td>
-<code><span class="keyword">val </span><span class="identifier">isFXThread</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
-<p>Returns true if the calling thread is the JavaFX thread.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Functions</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="exit.html">exit</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">exit</span><span class="symbol">(</span><span class="identifier" id="kotfx$exit(kotlin.Int)/status">status</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Causes JavaFX application and JVM to terminate immediately.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="run-later.html">runLater</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">runLater</span><span class="symbol">(</span><span class="identifier" id="kotfx$runLater(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Run the specified block on the JavaFX thread.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="service.html">service</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">service</span><span class="symbol">(</span><span class="identifier" id="kotfx$service(kotlin.Function1((kotfx.ServiceBuilder((kotfx.service.V)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="-service-builder/index.html"><span class="identifier">ServiceBuilder</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Service</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code>
-<p>Creates a service DSL-style builder.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="stage.html">stage</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">stage</span><span class="symbol">(</span><span class="identifier" id="kotfx$stage(kotlin.String, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="kotfx$stage(kotlin.String, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/style">style</span><span class="symbol">:</span>&nbsp;<span class="identifier">StageStyle</span>&nbsp;<span class="symbol">=</span>&nbsp;DECORATED<span class="symbol">, </span><span class="identifier" id="kotfx$stage(kotlin.String, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Stage</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Stage</span></code>
-<p>Creates a stage with options.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="string-converter-of.html">stringConverterOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">stringConverterOf</span><span class="symbol">(</span><span class="identifier" id="kotfx$stringConverterOf(kotlin.Function1((kotfx.stringConverterOf.T, kotlin.String)), kotlin.Function1((kotlin.String, kotfx.stringConverterOf.T)))/_toString">_toString</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ it.toString() }<span class="symbol">, </span><span class="identifier" id="kotfx$stringConverterOf(kotlin.Function1((kotfx.stringConverterOf.T, kotlin.String)), kotlin.Function1((kotlin.String, kotfx.stringConverterOf.T)))/_fromString">_fromString</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringConverter</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
-<p>Creates a new string converter using <a href="string-converter-of.html#kotfx$stringConverterOf(kotlin.Function1((kotfx.stringConverterOf.T, kotlin.String)), kotlin.Function1((kotlin.String, kotfx.stringConverterOf.T)))/_fromString">_fromString</a> and optional <a href="string-converter-of.html#kotfx$stringConverterOf(kotlin.Function1((kotfx.stringConverterOf.T, kotlin.String)), kotlin.Function1((kotlin.String, kotfx.stringConverterOf.T)))/_toString">_toString</a>.</p>
-</td>
-</tr>
-</tbody>
-</table>
+<h3>Index</h3>
+<a href="alltypes/index.html">All Types</a>
 </BODY>
 </HTML>

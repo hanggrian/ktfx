@@ -9,9 +9,15 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_main.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_main.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_test.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_test.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines.iml" group="kotfx-coroutines" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines_main.iml" group="kotfx-coroutines" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines_test.iml" group="kotfx-coroutines" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx.iml" group="kotfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_main.iml" group="kotfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_test.iml" group="kotfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout.iml" group="kotfx-layout" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout_main.iml" group="kotfx-layout" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout_test.iml" group="kotfx-layout" />
     </modules>
   </component>
 </project>

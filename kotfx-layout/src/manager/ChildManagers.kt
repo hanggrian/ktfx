@@ -1,4 +1,4 @@
-package kotfx.scene
+package kotfx.layout
 
 import javafx.collections.ObservableList
 import javafx.geometry.HPos
@@ -21,7 +21,6 @@ import javafx.scene.layout.StackPane
 import javafx.scene.layout.TilePane
 import javafx.scene.layout.VBox
 import javafx.scene.text.TextFlow
-import kotfx.internal.posOf
 
 interface ChildManager {
 
@@ -200,3 +199,6 @@ open class _VBox : VBox(), ChildManager, VGrowablePane, MarginablePane {
 
     override fun <N : Node> N.reset(): N = apply { clearConstraints(this) }
 }
+
+@Suppress("NOTHING_TO_INLINE")
+internal inline fun posOf(vpos: VPos, hpos: HPos): Pos = "${vpos}_$hpos".let { if (it == "CENTER_CENTER") Pos.CENTER else Pos.valueOf(it) }

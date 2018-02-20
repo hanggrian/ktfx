@@ -2,7 +2,7 @@
 @file:JvmName("LayoutsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package kotfx.scene
+package kotfx.layout
 
 import javafx.scene.canvas.Canvas
 import javafx.scene.image.Image

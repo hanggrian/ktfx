@@ -1,4 +1,4 @@
-package kotfx.scene
+package kotfx
 
 import javafx.scene.layout.ColumnConstraints
 import javafx.scene.layout.ConstraintsBase

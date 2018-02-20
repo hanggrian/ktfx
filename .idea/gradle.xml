@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/example" />
             <option value="$PROJECT_DIR$/kotfx" />
+            <option value="$PROJECT_DIR$/kotfx-coroutines" />
+            <option value="$PROJECT_DIR$/kotfx-layout" />
           </set>
         </option>
       </GradleProjectSettings>

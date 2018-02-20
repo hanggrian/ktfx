@@ -2,7 +2,7 @@
 @file:JvmName("LayoutsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
-package kotfx.scene
+package kotfx.layout
 
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem

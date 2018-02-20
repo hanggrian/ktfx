@@ -3,11 +3,11 @@ import org.gradle.api.tasks.JavaExec
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.creating
 import org.gradle.kotlin.dsl.kotlin
-import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
+import org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
 
 group = "$releaseGroup.$releaseArtifact"
 version = releaseVersion
@@ -26,10 +26,14 @@ java.sourceSets {
     get("test").java.srcDir("tests/src")
 }
 
+kotlin.experimental.coroutines = ENABLE
+
 val ktlint by configurations.creating
 
 dependencies {
+    compile(project(":kotfx"))
     compile(kotlin("stdlib", kotlinVersion))
+    compile(kotlinx("coroutines-javafx", coroutinesVersion))
     ktlint(ktlint())
     testCompile(kotlin("test", kotlinVersion))
     testCompile(kotlin("reflect", kotlinVersion))

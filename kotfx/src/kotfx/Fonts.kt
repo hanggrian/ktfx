@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
-package kotfx.scene
+package kotfx
 
 import javafx.scene.control.Labeled
 import javafx.scene.control.TextInputControl

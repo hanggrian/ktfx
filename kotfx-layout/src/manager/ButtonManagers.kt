@@ -1,4 +1,4 @@
-package kotfx.scene
+package kotfx.layout
 
 import javafx.collections.ObservableList
 import javafx.scene.Node

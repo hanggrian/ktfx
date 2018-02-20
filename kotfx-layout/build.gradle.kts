@@ -29,6 +29,7 @@ java.sourceSets {
 val ktlint by configurations.creating
 
 dependencies {
+    compile(project(":kotfx"))
     compile(kotlin("stdlib", kotlinVersion))
     ktlint(ktlint())
     testCompile(kotlin("test", kotlinVersion))

@@ -1,5 +1,9 @@
 $dokka.format:html
 $dokka.linkExtension:html
 $dokka.location:kotfx.layout$contextMenu(javafx.scene.control.Control, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((kotfx.layout._ContextMenu, kotlin.Unit)))kotfx.layout/javafx.scene.control.-control/context-menu.html
+$dokka.location:kotfx.layout$contextMenu(javafx.scene.control.Tab, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((kotfx.layout._ContextMenu, kotlin.Unit)))kotfx.layout/javafx.scene.control.-tab/context-menu.html
+$dokka.location:kotfx.layout$contextMenu(javafx.scene.control.TableColumnBase((kotfx.layout.contextMenu.S, kotfx.layout.contextMenu.T)), kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((kotfx.layout._ContextMenu, kotlin.Unit)))kotfx.layout/javafx.scene.control.-table-column-base/context-menu.html
+$dokka.location:kotfx.layout$tooltip(javafx.scene.Node, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))kotfx.layout/javafx.scene.-node/tooltip.html
 $dokka.location:kotfx.layout$tooltip(javafx.scene.control.Control, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))kotfx.layout/javafx.scene.control.-control/tooltip.html
+$dokka.location:kotfx.layout$tooltip(javafx.scene.control.Tab, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))kotfx.layout/javafx.scene.control.-tab/tooltip.html
 kotfx.layout

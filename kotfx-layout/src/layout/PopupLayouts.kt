@@ -12,11 +12,16 @@ import javafx.scene.control.CustomMenuItem
 import javafx.scene.control.MenuItem
 import javafx.scene.control.RadioMenuItem
 import javafx.scene.control.SeparatorMenuItem
+import javafx.scene.control.Tab
+import javafx.scene.control.TableColumnBase
 import javafx.scene.control.Tooltip
+import javafx.scene.control.Tooltip.install
 import kotfx.annotations.LayoutDsl
 
 inline fun contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null): ContextMenu = _ContextMenu(*items).apply { init?.invoke(this) }
 inline fun Control.contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null) = setContextMenu(_ContextMenu(*items).apply { init?.invoke(this) })
+inline fun Tab.contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null) = setContextMenu(_ContextMenu(*items).apply { init?.invoke(this) })
+inline fun <S, T> TableColumnBase<S, T>.contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null) = setContextMenu(_ContextMenu(*items).apply { init?.invoke(this) })
 
 inline fun checkMenuItem(text: String? = null, graphic: Node? = null, noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null): CheckMenuItem = CheckMenuItem(text, graphic).apply { init?.invoke(this) }
 inline fun PopupManager.checkMenuItem(text: String? = null, graphic: Node? = null, noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null): CheckMenuItem = CheckMenuItem(text, graphic).apply { init?.invoke(this) }.add()
@@ -34,4 +39,6 @@ inline fun separatorMenuItem(noinline init: ((@LayoutDsl SeparatorMenuItem).() -
 inline fun PopupManager.separatorMenuItem(noinline init: ((@LayoutDsl SeparatorMenuItem).() -> Unit)? = null): SeparatorMenuItem = SeparatorMenuItem().apply { init?.invoke(this) }.add()
 
 inline fun tooltip(text: String? = null, noinline init: ((@LayoutDsl Tooltip).() -> Unit)? = null): Tooltip = Tooltip(text).apply { init?.invoke(this) }
+inline fun Node.tooltip(text: String? = null, noinline init: ((@LayoutDsl Tooltip).() -> Unit)? = null) = install(this, Tooltip(text).apply { init?.invoke(this) })
 inline fun Control.tooltip(text: String? = null, noinline init: ((@LayoutDsl Tooltip).() -> Unit)? = null) = setTooltip(Tooltip(text).apply { init?.invoke(this) })
+inline fun Tab.tooltip(text: String? = null, noinline init: ((@LayoutDsl Tooltip).() -> Unit)? = null) = setTooltip(Tooltip(text).apply { init?.invoke(this) })

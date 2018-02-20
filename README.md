@@ -3,13 +3,13 @@ KotFX
 Kotlin DSL and extension functions for minimalist JavaFX development.
 
 Kotfx consists of several parts:
- * *Kotfx Core*: full of helpers for bindings, collections, dialogs, and so on.
- * *Kotfx Layout*: write JavaFX layouts dynamically with Kotlin DSL.
- * *Kotfx Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
+ * *KotFX Core*: full of helpers for bindings, collections, dialogs, and so on.
+ * *KotFX Layout*: write JavaFX layouts dynamically with Kotlin DSL.
+ * *KotFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
   
 Download
 --------
-*Kotfx Layout* and *Kotfx Coroutines* are based on *Kotfx Core* library.
+*KotFX Layout* and *KotFX Coroutines* are based on *KotFX Core* library.
 
 ```gradle
 repositories {
@@ -17,13 +17,13 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.27'
-    compile 'com.hendraanggrian:kotfx-layout:0.27'
-    compile 'com.hendraanggrian:kotfx-coroutines:0.27'
+    compile 'com.hendraanggrian:kotfx:0.28'
+    compile 'com.hendraanggrian:kotfx-layout:0.28'
+    compile 'com.hendraanggrian:kotfx-coroutines:0.28'
 }
 ```
 
-Kotfx Core
+KotFX Core
 ----------
 #### Bindings
 `kotfx.bindings` simplifies the process using kotlin infix and operator functions.
@@ -91,7 +91,7 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-Kotfx Layout
+KotFX Layout
 ------------
 Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
 ```kotlin
@@ -105,9 +105,9 @@ vbox {
 
 ![Demo][demo_scenedsl]
 
-Kotfx Coroutines
+KotFX Coroutines
 ----------------
-*Kotfx Coroutines* is based on the experimental [kotlinx.coroutines] library,
+*KotFX Coroutines* is based on the experimental [kotlinx.coroutines] library,
 it allows invoking JavaFX listeners the coroutine way:
  * `EventHandler`: button action, window showing, animation finished, etc.
  * `Callback`: list cell factory, table row factory, dialog result converter, etc.

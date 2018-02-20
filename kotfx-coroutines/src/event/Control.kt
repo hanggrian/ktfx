@@ -214,19 +214,19 @@ fun <S, T, E : Event> TableColumnBase<S, T>.eventHandler(
     action: suspend CoroutineScope.(Event) -> Unit
 ) = addEventHandler(type) { event -> launch(context) { action(event) } }
 
-fun <T> TableView<T>.onScrollTo(
+fun <S> TableView<S>.onScrollTo(
     context: CoroutineContext = JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
 ) = setOnScrollTo { event -> launch(context) { action(event) } }
 
-fun <T> TableView<T>.onScrollToColumn(
+fun <S> TableView<S>.onScrollToColumn(
     context: CoroutineContext = JavaFx,
-    action: suspend CoroutineScope.(ScrollToEvent<TableColumn<T, *>>) -> Unit
+    action: suspend CoroutineScope.(ScrollToEvent<TableColumn<S, *>>) -> Unit
 ) = setOnScrollToColumn { event -> launch(context) { action(event) } }
 
-fun <T> TableView<T>.onSort(
+fun <S> TableView<S>.onSort(
     context: CoroutineContext = JavaFx,
-    action: suspend CoroutineScope.(SortEvent<TableView<T>>) -> Unit
+    action: suspend CoroutineScope.(SortEvent<TableView<S>>) -> Unit
 ) = setOnSort { event -> launch(context) { action(event) } }
 
 fun TextField.onAction(

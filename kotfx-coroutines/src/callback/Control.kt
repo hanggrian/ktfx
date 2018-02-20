@@ -40,7 +40,7 @@ fun DatePicker.dayCellFactory(
 
 fun <R> Dialog<R>.resultConverter(
     context: CoroutineContext = JavaFx,
-    action: suspend CoroutineScope.(ButtonType) -> R
+    action: suspend CoroutineScope.(ButtonType) -> R?
 ) = setResultConverter { param -> runBlocking(context) { action(param) } }
 
 fun <T> ListView<T>.cellFactory(

@@ -1,5 +1,6 @@
 $dokka.format:html
 $dokka.linkExtension:html
+$dokka.location:kotfx$columnConstraints(javafx.scene.layout.GridPane, kotlin.Function1((kotfx.ColumnConstrained, kotlin.Unit)))kotfx/javafx.scene.layout.-grid-pane/column-constraints.html
 $dokka.location:kotfx$div(javafx.util.Duration, javafx.util.Duration)kotfx/javafx.util.-duration/div.html
 $dokka.location:kotfx$div(javafx.util.Duration, kotlin.Double)kotfx/javafx.util.-duration/div.html
 $dokka.location:kotfx$gap#javafx.scene.layout.FlowPanekotfx/javafx.scene.layout.-flow-pane/gap.html
@@ -7,6 +8,14 @@ $dokka.location:kotfx$gap#javafx.scene.layout.GridPanekotfx/javafx.scene.layout
 $dokka.location:kotfx$gap#javafx.scene.layout.TilePanekotfx/javafx.scene.layout.-tile-pane/gap.html
 $dokka.location:kotfx$icon#javafx.stage.Stagekotfx/javafx.stage.-stage/icon.html
 $dokka.location:kotfx$isSupported#javafx.application.ConditionalFeaturekotfx/javafx.application.-conditional-feature/is-supported.html
+$dokka.location:kotfx$loadFont(javafx.scene.control.Labeled, java.io.InputStream, kotlin.Double)kotfx/javafx.scene.control.-labeled/load-font.html
+$dokka.location:kotfx$loadFont(javafx.scene.control.Labeled, kotlin.String, kotlin.Double)kotfx/javafx.scene.control.-labeled/load-font.html
+$dokka.location:kotfx$loadFont(javafx.scene.control.TextInputControl, java.io.InputStream, kotlin.Double)kotfx/javafx.scene.control.-text-input-control/load-font.html
+$dokka.location:kotfx$loadFont(javafx.scene.control.TextInputControl, kotlin.String, kotlin.Double)kotfx/javafx.scene.control.-text-input-control/load-font.html
+$dokka.location:kotfx$loadFont(javafx.scene.control.Tooltip, java.io.InputStream, kotlin.Double)kotfx/javafx.scene.control.-tooltip/load-font.html
+$dokka.location:kotfx$loadFont(javafx.scene.control.Tooltip, kotlin.String, kotlin.Double)kotfx/javafx.scene.control.-tooltip/load-font.html
+$dokka.location:kotfx$loadFont(javafx.scene.text.Text, java.io.InputStream, kotlin.Double)kotfx/javafx.scene.text.-text/load-font.html
+$dokka.location:kotfx$loadFont(javafx.scene.text.Text, kotlin.String, kotlin.Double)kotfx/javafx.scene.text.-text/load-font.html
 $dokka.location:kotfx$maxSize#javafx.scene.layout.Regionkotfx/javafx.scene.layout.-region/max-size.html
 $dokka.location:kotfx$maxSize#javafx.stage.Stagekotfx/javafx.stage.-stage/max-size.html
 $dokka.location:kotfx$minSize#javafx.scene.layout.Regionkotfx/javafx.scene.layout.-region/min-size.html
@@ -14,6 +23,11 @@ $dokka.location:kotfx$minSize#javafx.stage.Stagekotfx/javafx.stage.-stage/min-s
 $dokka.location:kotfx$minus(javafx.util.Duration, javafx.util.Duration)kotfx/javafx.util.-duration/minus.html
 $dokka.location:kotfx$plus(javafx.util.Duration, javafx.util.Duration)kotfx/javafx.util.-duration/plus.html
 $dokka.location:kotfx$prefSize#javafx.scene.layout.Regionkotfx/javafx.scene.layout.-region/pref-size.html
+$dokka.location:kotfx$rowConstraints(javafx.scene.layout.GridPane, kotlin.Function1((kotfx.RowConstrained, kotlin.Unit)))kotfx/javafx.scene.layout.-grid-pane/row-constraints.html
+$dokka.location:kotfx$setFont(javafx.scene.control.Labeled, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)kotfx/javafx.scene.control.-labeled/set-font.html
+$dokka.location:kotfx$setFont(javafx.scene.control.TextInputControl, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)kotfx/javafx.scene.control.-text-input-control/set-font.html
+$dokka.location:kotfx$setFont(javafx.scene.control.Tooltip, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)kotfx/javafx.scene.control.-tooltip/set-font.html
+$dokka.location:kotfx$setFont(javafx.scene.text.Text, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)kotfx/javafx.scene.text.-text/set-font.html
 $dokka.location:kotfx$setMaxSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)kotfx/javafx.stage.-stage/set-max-size.html
 $dokka.location:kotfx$setMinSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)kotfx/javafx.stage.-stage/set-min-size.html
 $dokka.location:kotfx$setPadding(javafx.scene.layout.Region, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)kotfx/javafx.scene.layout.-region/set-padding.html
@@ -395,22 +409,6 @@ $dokka.location:kotfx.properties$toReadOnlyProperty(kotlin.Float)kotfx.properti
 $dokka.location:kotfx.properties$toReadOnlyProperty(kotlin.Int)kotfx.properties/kotlin.-int/to-read-only-property.html
 $dokka.location:kotfx.properties$toReadOnlyProperty(kotlin.Long)kotfx.properties/kotlin.-long/to-read-only-property.html
 $dokka.location:kotfx.properties$toReadOnlyProperty(kotlin.String)kotfx.properties/kotlin.-string/to-read-only-property.html
-$dokka.location:kotfx.scene$columnConstraints(javafx.scene.layout.GridPane, kotlin.Function1((kotfx.scene.ColumnConstrained, kotlin.Unit)))kotfx.scene/javafx.scene.layout.-grid-pane/column-constraints.html
-$dokka.location:kotfx.scene$contextMenu(javafx.scene.control.Control, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((kotfx.scene._ContextMenu, kotlin.Unit)))kotfx.scene/javafx.scene.control.-control/context-menu.html
-$dokka.location:kotfx.scene$loadFont(javafx.scene.control.Labeled, java.io.InputStream, kotlin.Double)kotfx.scene/javafx.scene.control.-labeled/load-font.html
-$dokka.location:kotfx.scene$loadFont(javafx.scene.control.Labeled, kotlin.String, kotlin.Double)kotfx.scene/javafx.scene.control.-labeled/load-font.html
-$dokka.location:kotfx.scene$loadFont(javafx.scene.control.TextInputControl, java.io.InputStream, kotlin.Double)kotfx.scene/javafx.scene.control.-text-input-control/load-font.html
-$dokka.location:kotfx.scene$loadFont(javafx.scene.control.TextInputControl, kotlin.String, kotlin.Double)kotfx.scene/javafx.scene.control.-text-input-control/load-font.html
-$dokka.location:kotfx.scene$loadFont(javafx.scene.control.Tooltip, java.io.InputStream, kotlin.Double)kotfx.scene/javafx.scene.control.-tooltip/load-font.html
-$dokka.location:kotfx.scene$loadFont(javafx.scene.control.Tooltip, kotlin.String, kotlin.Double)kotfx.scene/javafx.scene.control.-tooltip/load-font.html
-$dokka.location:kotfx.scene$loadFont(javafx.scene.text.Text, java.io.InputStream, kotlin.Double)kotfx.scene/javafx.scene.text.-text/load-font.html
-$dokka.location:kotfx.scene$loadFont(javafx.scene.text.Text, kotlin.String, kotlin.Double)kotfx.scene/javafx.scene.text.-text/load-font.html
-$dokka.location:kotfx.scene$rowConstraints(javafx.scene.layout.GridPane, kotlin.Function1((kotfx.scene.RowConstrained, kotlin.Unit)))kotfx.scene/javafx.scene.layout.-grid-pane/row-constraints.html
-$dokka.location:kotfx.scene$setFont(javafx.scene.control.Labeled, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)kotfx.scene/javafx.scene.control.-labeled/set-font.html
-$dokka.location:kotfx.scene$setFont(javafx.scene.control.TextInputControl, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)kotfx.scene/javafx.scene.control.-text-input-control/set-font.html
-$dokka.location:kotfx.scene$setFont(javafx.scene.control.Tooltip, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)kotfx.scene/javafx.scene.control.-tooltip/set-font.html
-$dokka.location:kotfx.scene$setFont(javafx.scene.text.Text, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)kotfx.scene/javafx.scene.text.-text/set-font.html
-$dokka.location:kotfx.scene$tooltip(javafx.scene.control.Control, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))kotfx.scene/javafx.scene.control.-control/tooltip.html
 kotfx
 kotfx.annotations
 kotfx.bindings
@@ -418,4 +416,3 @@ kotfx.collections
 kotfx.dialogs
 kotfx.experimental.animations
 kotfx.properties
-kotfx.scene

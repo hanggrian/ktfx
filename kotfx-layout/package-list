@@ -1,0 +1,5 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:kotfx.layout$contextMenu(javafx.scene.control.Control, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((kotfx.layout._ContextMenu, kotlin.Unit)))kotfx.layout/javafx.scene.control.-control/context-menu.html
+$dokka.location:kotfx.layout$tooltip(javafx.scene.control.Control, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))kotfx.layout/javafx.scene.control.-control/tooltip.html
+kotfx.layout

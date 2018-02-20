@@ -9,14 +9,13 @@ import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 import org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
 
-group = "$releaseGroup.$releaseArtifact"
+group = "$releaseArtifact.coroutines"
 version = releaseVersion
 
 plugins {
     `java-library`
     kotlin("jvm")
     dokka
-    `git-publish`
     `bintray-release`
     `junit-platform`
 }
@@ -70,23 +69,14 @@ tasks {
 
     val dokka by getting(DokkaTask::class) {
         outputDirectory = "$buildDir/docs"
-        doFirst {
-            file(outputDirectory).deleteRecursively()
-            file("$buildDir/gitPublish").deleteRecursively()
-        }
-    }
-
-    gitPublish {
-        repoUri = releaseWeb
-        branch = "gh-pages"
-        contents.from(dokka.outputDirectory)
+        doFirst { file(outputDirectory).deleteRecursively() }
     }
 }
 
 publish {
     userOrg = releaseUser
     groupId = releaseGroup
-    artifactId = releaseArtifact
+    artifactId = "$releaseArtifact-coroutines"
     publishVersion = releaseVersion
     desc = releaseDesc
     website = releaseWeb

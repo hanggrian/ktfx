@@ -11,7 +11,7 @@ import kotlinx.coroutines.experimental.javafx.JavaFx
 import kotlinx.coroutines.experimental.runBlocking
 import kotlin.coroutines.experimental.CoroutineContext
 
-fun WebEngine.confirmHadler(
+fun WebEngine.confirmHandler(
     context: CoroutineContext = JavaFx,
     action: suspend CoroutineScope.(String) -> Boolean
 ) = setConfirmHandler { param -> runBlocking(context) { action(param) } }

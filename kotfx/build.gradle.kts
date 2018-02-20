@@ -9,7 +9,7 @@ import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 
-group = "$releaseGroup.$releaseArtifact"
+group = releaseArtifact
 version = releaseVersion
 
 plugins {
@@ -75,7 +75,12 @@ tasks {
     gitPublish {
         repoUri = releaseWeb
         branch = "gh-pages"
-        contents.from(dokka.outputDirectory)
+        contents.from(
+            "pages",
+            dokka.outputDirectory,
+            "../kotfx-coroutines/build/docs",
+            "../kotfx-layout/build/docs"
+        )
     }
 }
 

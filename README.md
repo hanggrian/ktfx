@@ -2,48 +2,30 @@ KotFX
 =====
 Kotlin DSL and extension functions for minimalist JavaFX development.
 
+Kotfx consists of several parts:
+ * *Kotfx Core*: full of helpers for bindings, collections, dialogs, and so on.
+ * *Kotfx Layout*: write JavaFX layouts dynamically with Kotlin DSL.
+ * *Kotfx Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
+  
 Download
 --------
+*Kotfx Layout* and *Kotfx Coroutines* are based on *Kotfx Core* library.
+
 ```gradle
 repositories {
     jcenter()
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.26'
+    compile 'com.hendraanggrian:kotfx:0.27'
+    compile 'com.hendraanggrian:kotfx-layout:0.27'
+    compile 'com.hendraanggrian:kotfx-coroutines:0.27'
 }
 ```
 
-Scene DSL
----------
-Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
-```kotlin
-vbox {
-    val name = textField()
-    button("Say Hello") {
-        setOnAction { alert("Hello, ${name.text}!") }
-    } marginTop 8
-}
-```
-
-![Demo][demo_scenedsl]
-
-Bindings
---------
-JavaFX bindings has easy fluent API, here's a button that disables itself if text field is empty.
-```java
-button.disableProperty().bind(textField.textProperty().isEmpty());
-```
-
-As it gets more complicated, its syntax can get messy. Here's a button for password and confirm password field.
-```java
-button.disableProperty().bind(passwordField.textProperty().isEmpty()
-    .or(passwordConfirmField.textProperty().isEmpty())
-    .or(passwordField.textProperty().length().lessThan(4))
-    .or(passwordConfirmField.textProperty().length().lessThan(4))
-    .or(passwordField.textProperty().isNotEqualTo(passwordConfirmField.textProperty())));
-```
-
+Kotfx Core
+----------
+#### Bindings
 `kotfx.bindings` simplifies the process using kotlin infix and operator functions.
 ```kotlin
 button.disableProperty.bind(passwordField.textProperty().isEmpty
@@ -53,8 +35,7 @@ button.disableProperty.bind(passwordField.textProperty().isEmpty
     or (passwordField.textProperty() neq passwordConfirmField.textProperty()))
 ```
 
-Collections
------------
+#### Collections
 In JavaFX, collections are wrapped into observable version of themselves.
 `kotfx.collections` provides static functions to create new or convert existing into observable collections,
 `kotfx.collections` aims to extend those functions with Kotlin's extension functions.
@@ -72,8 +53,7 @@ val modifiableList = mutableObservableListOf(1, 2, 3)
 val list = myList.toObservableList() // or toMutableObservableList() for modifiable version
 ```
 
-Dialogs
--------
+#### Dialogs
 Create `Dialog`, `ChoiceDialog`, `TextInputDialog`, and `Alert` with Kotlin DSL.
 
 ```kotlin
@@ -111,6 +91,28 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
+Kotfx Layout
+------------
+Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
+```kotlin
+vbox {
+    val name = textField()
+    button("Say Hello") {
+        setOnAction { alert("Hello, ${name.text}!") }
+    } marginTop 8
+}
+```
+
+![Demo][demo_scenedsl]
+
+Kotfx Coroutines
+----------------
+*Kotfx Coroutines* is based on the experimental [kotlinx.coroutines] library,
+it allows invoking JavaFX listeners the coroutine way:
+ * `EventHandler`: button action, window showing, animation finished, etc.
+ * `Callback`: list cell factory, table row factory, dialog result converter, etc.
+ * `StringConverter`: choice converter, binding `StringProperty` bidirectionally, etc.
+
 License
 -------
     Copyright 2017 Hendra Anggrian
@@ -127,4 +129,5 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
     
+[kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
 [demo_scenedsl]: /art/demo_scenedsl.png

@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+@file:Suppress("UsePropertyAccessSyntax")
 
 package kotfx
 
@@ -7,53 +7,108 @@ import javafx.scene.layout.FlowPane
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Region
 import javafx.scene.layout.TilePane
+import javafx.stage.Stage
 import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-/** Sets padding based on each optional sides. */
-inline fun Region.setPadding(
-    top: Double = padding.top,
-    right: Double = padding.right,
-    bottom: Double = padding.bottom,
-    left: Double = padding.left
-) = setPadding(Insets(top, right, bottom, left))
+/** Sets min width and height to this stage. */
+fun Stage.minSize(width: Number, height: Number) {
+    setMinWidth(width.toDouble())
+    setMinHeight(height.toDouble())
+}
+
+/** Sets width and height to this stage. */
+fun Stage.size(width: Number, height: Number) {
+    setWidth(width.toDouble())
+    setHeight(height.toDouble())
+}
+
+/** Sets max width and height to this stage. */
+fun Stage.maxSize(width: Number, height: Number) {
+    setMaxWidth(width.toDouble())
+    setMaxHeight(height.toDouble())
+}
+
+/** Sets min width and height to this stage. */
+inline var Stage.minSize: Number
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = minSize(value, value)
+
+/** Sets width and height to this stage. */
+inline var Stage.size: Number
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = size(value, value)
+
+/** Sets max width and height to this stage. */
+inline var Stage.maxSize: Number
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = maxSize(value, value)
+
+/** Sets min width and height to this region. */
+fun Region.minSize(width: Number, height: Number) {
+    setMinWidth(width.toDouble())
+    setMinHeight(height.toDouble())
+}
+
+/** Sets width and height to this region. */
+fun Region.prefSize(width: Number, height: Number) {
+    setPrefWidth(width.toDouble())
+    setPrefHeight(height.toDouble())
+}
+
+/** Sets max width and height to this region. */
+fun Region.maxSize(width: Number, height: Number) {
+    setMaxWidth(width.toDouble())
+    setMaxHeight(height.toDouble())
+}
 
 /** Sets min width and height. */
-inline var Region.minSize: Double
+inline var Region.minSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value, value)
+    set(value) = minSize(value, value)
 
 /** Sets pref width and height. */
-inline var Region.prefSize: Double
+inline var Region.prefSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setPrefSize(value, value)
+    set(value) = prefSize(value, value)
 
 /** Sets max width and height. */
-inline var Region.maxSize: Double
+inline var Region.maxSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMaxSize(value, value)
+    set(value) = maxSize(value, value)
+
+/** Sets padding on each side. */
+fun Region.padding(
+    top: Number = padding.top,
+    right: Number = padding.right,
+    bottom: Number = padding.bottom,
+    left: Number = padding.left
+) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
+
+/** Sets padding on all sides. */
+fun Region.padding(all: Number) = setPadding(Insets(all.toDouble()))
 
 /** Sets a horizontal and vertical gap. */
-inline var FlowPane.gap: Double
+var FlowPane.gap: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value
-        hgap = value
+        vgap = value.toDouble()
+        hgap = value.toDouble()
     }
 
 /** Sets a horizontal and vertical gap. */
-inline var GridPane.gap: Double
+var GridPane.gap: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value
-        hgap = value
+        vgap = value.toDouble()
+        hgap = value.toDouble()
     }
 
 /** Sets a horizontal and vertical gap. */
-inline var TilePane.gap: Double
+var TilePane.gap: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value
-        hgap = value
+        vgap = value.toDouble()
+        hgap = value.toDouble()
     }

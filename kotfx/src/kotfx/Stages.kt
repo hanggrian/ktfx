@@ -24,39 +24,6 @@ var Stage.icon: Image
         }
     }
 
-/** Sets width and height to this stage. */
-inline var Stage.size: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setSize(value, value)
-
-/** Sets width and height to this stage. */
-inline fun Stage.setSize(width: Double, height: Double) {
-    setWidth(width)
-    setHeight(height)
-}
-
-/** Sets min width and height to this stage. */
-inline var Stage.minSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value, value)
-
-/** Sets min width and height to this stage. */
-inline fun Stage.setMinSize(minWidth: Double, minHeight: Double) {
-    setMinWidth(minWidth)
-    setMinHeight(minHeight)
-}
-
-/** Sets max width and height to this stage. */
-inline var Stage.maxSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMaxSize(value, value)
-
-/** Sets max width and height to this stage. */
-inline fun Stage.setMaxSize(maxWidth: Double, maxHeight: Double) {
-    setMaxWidth(maxWidth)
-    setMaxHeight(maxHeight)
-}
-
 /** Creates a stage with options. */
 fun stage(
     title: String? = null,

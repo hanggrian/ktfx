@@ -44,10 +44,10 @@ class _RowConstrained(override val constraints: MutableList<RowConstraints> = mu
 
 class _ColumnConstrained(override val constraints: MutableList<ColumnConstraints> = mutableListOf()) : ColumnConstrained
 
-inline fun GridPane.rowConstraints(init: RowConstrained.() -> Unit) {
+inline fun GridPane.row(init: RowConstrained.() -> Unit) {
     rowConstraints.addAll(_RowConstrained().apply(init).constraints)
 }
 
-inline fun GridPane.columnConstraints(init: ColumnConstrained.() -> Unit) {
+inline fun GridPane.column(init: ColumnConstrained.() -> Unit) {
     columnConstraints.addAll(_ColumnConstrained().apply(init).constraints)
 }

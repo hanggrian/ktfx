@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+@file:Suppress("UsePropertyAccessSyntax")
 
 package kotfx
 
@@ -10,83 +10,84 @@ import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 import javafx.scene.text.Text
 import java.io.InputStream
+import java.net.URL
 
 /** Search appropriate font with options and set it to this [Labeled]. */
-inline fun Labeled.setFont(
+fun Labeled.font(
     family: String? = null,
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Double = -1.0
-) = setFont(Font.font(family, weight, posture, size))
+    size: Number = -1
+) = setFont(Font.font(family, weight, posture, size.toDouble()))
 
 /** Search appropriate font with options and set it to this [Text]. */
-inline fun Text.setFont(
+fun Text.font(
     family: String? = null,
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Double = -1.0
-) = setFont(Font.font(family, weight, posture, size))
+    size: Number = -1
+) = setFont(Font.font(family, weight, posture, size.toDouble()))
 
 /** Search appropriate font with options and set it to this [TextInputControl]. */
-inline fun TextInputControl.setFont(
+fun TextInputControl.font(
     family: String? = null,
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Double = -1.0
-) = setFont(Font.font(family, weight, posture, size))
+    size: Number = -1
+) = setFont(Font.font(family, weight, posture, size.toDouble()))
 
 /** Search appropriate font with options and set it to this [Tooltip]. */
-inline fun Tooltip.setFont(
+fun Tooltip.font(
     family: String? = null,
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Double = -1.0
-) = setFont(Font.font(family, weight, posture, size))
+    size: Number = -1
+) = setFont(Font.font(family, weight, posture, size.toDouble()))
 
 /** Load font from url string and set it to this [Labeled]. */
-inline fun Labeled.loadFont(
-    url: String,
-    size: Double
-) = setFont(Font.loadFont(url, size))
+fun Labeled.font(
+    url: URL,
+    size: Number
+) = setFont(Font.loadFont(url.toExternalForm(), size.toDouble()))
 
 /** Load font from url string and set it to this [Text]. */
-inline fun Text.loadFont(
-    url: String,
-    size: Double
-) = setFont(Font.loadFont(url, size))
+fun Text.font(
+    url: URL,
+    size: Number
+) = setFont(Font.loadFont(url.toExternalForm(), size.toDouble()))
 
 /** Load font from url string and set it to this [TextInputControl]. */
-inline fun TextInputControl.loadFont(
-    url: String,
-    size: Double
-) = setFont(Font.loadFont(url, size))
+fun TextInputControl.font(
+    url: URL,
+    size: Number
+) = setFont(Font.loadFont(url.toExternalForm(), size.toDouble()))
 
 /** Load font from url string and set it to this [Tooltip]. */
-inline fun Tooltip.loadFont(
-    url: String,
-    size: Double
-) = setFont(Font.loadFont(url, size))
+fun Tooltip.font(
+    url: URL,
+    size: Number
+) = setFont(Font.loadFont(url.toExternalForm(), size.toDouble()))
 
 /** Load font from input stream and set it to this [Labeled]. */
-inline fun Labeled.loadFont(
+fun Labeled.font(
     stream: InputStream,
-    size: Double
-) = setFont(Font.loadFont(stream, size))
+    size: Number
+) = setFont(Font.loadFont(stream, size.toDouble()))
 
 /** Load font from input stream and set it to this [Text]. */
-inline fun Text.loadFont(
+fun Text.font(
     stream: InputStream,
-    size: Double
-) = setFont(Font.loadFont(stream, size))
+    size: Number
+) = setFont(Font.loadFont(stream, size.toDouble()))
 
 /** Load font from input stream and set it to this [TextInputControl]. */
-inline fun TextInputControl.loadFont(
+fun TextInputControl.loadFont(
     stream: InputStream,
-    size: Double
-) = setFont(Font.loadFont(stream, size))
+    size: Number
+) = setFont(Font.loadFont(stream, size.toDouble()))
 
 /** Load font from input stream and set it to this [Tooltip]. */
-inline fun Tooltip.loadFont(
+fun Tooltip.font(
     stream: InputStream,
-    size: Double
-) = setFont(Font.loadFont(stream, size))
+    size: Number
+) = setFont(Font.loadFont(stream, size.toDouble()))

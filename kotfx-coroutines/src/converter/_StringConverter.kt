@@ -11,7 +11,7 @@ class _StringConverter<T>(private val context: CoroutineContext) : StringConvert
     private var _fromString: (suspend CoroutineScope.(String?) -> T?)? = null
 
     override fun toString(any: T?): String? {
-        val handler = _toString ?: return it?.toString ?: null
+        val handler = _toString ?: return null
         return runBlocking(context) { handler(any) }
     }
 

@@ -32,7 +32,6 @@ class App : Application() {
     override fun start(stage: Stage) {
         stage.scene = Scene(gridPane {
             vbox {
-                App::class.java.getResource("").toExternalForm()
                 padding(right = 20, left = 20)
                 calculationLabel = label("")
                 resultLabel = label {
@@ -195,5 +194,5 @@ class App : Application() {
         calculationLabel.text += text
     }
 
-    private val endsWithOperator: Boolean get() = OPERATORS.any { calculationLabel.text.endsWith(it) }
+    private inline val endsWithOperator: Boolean get() = OPERATORS.any { calculationLabel.text.endsWith(it) }
 }

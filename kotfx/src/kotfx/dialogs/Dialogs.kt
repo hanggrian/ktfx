@@ -78,21 +78,38 @@ inline val Dialog<*>.buttons: ObservableList<ButtonType>
 inline fun Dialog<*>.lookupButton(button: ButtonType): Node = dialogPane.lookupButton(button)
 
 /** Add custom button to this dialog and return it as a node. */
-inline fun Dialog<*>.addButton(text: String, data: ButtonData = OTHER): Node = addButton(ButtonType(text, data))
+inline fun Dialog<*>.addButton(
+    text: String,
+    data: ButtonData = OTHER,
+    noinline init: (Node.() -> Unit)? = null
+): Node = addButton(ButtonType(text, data), init)
 
 /** Add button to this dialog and return it as a node. */
-fun Dialog<*>.addButton(button: ButtonType): Node {
-    buttons.add(button)
-    return lookupButton(button)
+fun Dialog<*>.addButton(
+    type: ButtonType,
+    init: (Node.() -> Unit)? = null
+): Node {
+    buttons.add(type)
+    val button = lookupButton(type)
+    if (init != null) button.init()
+    return button
 }
 
 /** Add multiple custom buttons to this dialog, returning them as list of nodes. */
-inline fun Dialog<*>.addButtons(vararg buttons: Pair<String, ButtonData>): List<Node> = addButtons(*buttons.map { ButtonType(it.first, it.second) }.toTypedArray())
+inline fun Dialog<*>.addButtons(
+    vararg buttons: Pair<String, ButtonData>,
+    noinline init: (List<Node>.() -> Unit)? = null
+): List<Node> = addButtons(*buttons.map { ButtonType(it.first, it.second) }.toTypedArray(), init = init)
 
 /** Add multiple buttons to this dialog, returning them as list of nodes. */
-fun Dialog<*>.addButtons(vararg buttons: ButtonType): List<Node> {
-    this.buttons.addAll(*buttons)
-    return buttons.map { button -> lookupButton(button) }
+fun Dialog<*>.addButtons(
+    vararg types: ButtonType,
+    init: (List<Node>.() -> Unit)? = null
+): List<Node> {
+    buttons.addAll(*types)
+    val buttons = buttons.map { button -> lookupButton(button) }
+    if (init != null) buttons.init()
+    return buttons
 }
 
 fun <R> dialog(

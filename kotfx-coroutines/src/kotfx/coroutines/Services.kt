@@ -1,6 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("UtilsKt")
-
 package kotfx.coroutines
 
 import javafx.concurrent.ScheduledService

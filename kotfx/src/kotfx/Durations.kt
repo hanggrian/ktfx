@@ -3,22 +3,6 @@
 package kotfx
 
 import javafx.util.Duration
-import javafx.util.StringConverter
-
-/** Creates a new string converter using [_fromString] and optional [_toString]. */
-inline fun <T> stringConverterOf(
-    noinline _toString: (T?) -> String = { it.toString() },
-    noinline _fromString: (String) -> T?
-): StringConverter<T> = object : StringConverter<T>() {
-    override fun toString(t: T?): String = _toString(t)
-    override fun fromString(s: String): T? = _fromString(s)
-}
-
-/** Converts JavaFX's pair to Kotlin's. */
-inline fun <K, V> javafx.util.Pair<K, V>.toKotlinPair(): Pair<K, V> = Pair(key, value)
-
-/** Converts Kotlin's pair to JavaFX's. */
-inline fun <K, V> Pair<K, V>.toFXPair(): javafx.util.Pair<K, V> = javafx.util.Pair(first, second)
 
 /** Convenient method to add duration with `+` operator. */
 inline operator fun Duration.plus(other: Duration): Duration = add(other)

@@ -13,8 +13,6 @@ java.sourceSets {
 kotlin.experimental.coroutines = ENABLE
 
 dependencies {
-    implementation(kotlin("stdlib", kotlinVersion))
-    implementation(kotlinx("coroutines-javafx", coroutinesVersion))
     implementation(project(":kotfx"))
     implementation(project(":kotfx-layout"))
     implementation(project(":kotfx-coroutines"))

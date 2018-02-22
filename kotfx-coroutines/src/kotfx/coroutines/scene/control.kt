@@ -1,12 +1,12 @@
 @file:JvmMultifileClass
-@file:JvmName("UtilsKt")
+@file:JvmName("ScenesKt")
+@file:Suppress("UsePropertyAccessSyntax")
 
 package kotfx.coroutines
 
 import javafx.beans.value.ObservableValue
 import javafx.scene.Node
 import javafx.scene.control.ButtonType
-import javafx.scene.control.ChoiceBox
 import javafx.scene.control.ComboBox
 import javafx.scene.control.DateCell
 import javafx.scene.control.DatePicker
@@ -14,8 +14,6 @@ import javafx.scene.control.Dialog
 import javafx.scene.control.ListCell
 import javafx.scene.control.ListView
 import javafx.scene.control.Pagination
-import javafx.scene.control.Slider
-import javafx.scene.control.SpinnerValueFactory
 import javafx.scene.control.TableCell
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableRow
@@ -28,7 +26,6 @@ import javafx.scene.control.TreeTableView
 import javafx.scene.control.TreeView
 import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.runBlocking
-import java.time.LocalDate
 import kotlin.coroutines.experimental.CoroutineContext
 
 fun <T> ComboBox<T>.cellFactory(
@@ -110,28 +107,3 @@ fun <T> TreeView<T>.cellFactory(
     context: CoroutineContext = FX,
     callback: suspend CoroutineScope.(TreeView<T>) -> TreeCell<T>
 ) = setCellFactory { param -> runBlocking(context) { callback(param) } }
-
-fun <T> ChoiceBox<T>.converter(
-    context: CoroutineContext = FX,
-    converter: _StringConverter<T>.() -> Unit
-) = setConverter(_StringConverter<T>(context).apply(converter))
-
-fun <T> ComboBox<T>.converter(
-    context: CoroutineContext = FX,
-    converter: _StringConverter<T>.() -> Unit
-) = setConverter(_StringConverter<T>(context).apply(converter))
-
-fun DatePicker.converter(
-    context: CoroutineContext = FX,
-    converter: _StringConverter<LocalDate>.() -> Unit
-) = setConverter(_StringConverter<LocalDate>(context).apply(converter))
-
-fun Slider.labelFormatter(
-    context: CoroutineContext = FX,
-    converter: _StringConverter<Double>.() -> Unit
-) = setLabelFormatter(_StringConverter<Double>(context).apply(converter))
-
-fun <T> SpinnerValueFactory<T>.converter(
-    context: CoroutineContext = FX,
-    converter: _StringConverter<T>.() -> Unit
-) = setConverter(_StringConverter<T>(context).apply(converter))

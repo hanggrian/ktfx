@@ -1,3 +1,6 @@
+@file:JvmMultifileClass
+@file:JvmName("ScenesKt")
+
 package kotfx
 
 import javafx.scene.layout.ColumnConstraints

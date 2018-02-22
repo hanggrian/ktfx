@@ -1,4 +1,3 @@
-@file:JvmMultifileClass
 @file:JvmName("CellsKt")
 @file:Suppress("UsePropertyAccessSyntax")
 
@@ -24,12 +23,6 @@ fun <T> ListView<T>.checkBoxCellFactory(
     callback: suspend CoroutineScope.(T) -> ObservableValue<Boolean>
 ) = checkBoxCellFactory({ param -> runBlocking(context) { callback(param) } })
 
-fun <T> ListView<T>.checkBoxCellFactory(
-    context: CoroutineContext = FX,
-    callback: suspend CoroutineScope.(T) -> ObservableValue<Boolean>,
-    converter: _StringConverter<T>.() -> Unit
-) = checkBoxCellFactory({ param -> runBlocking(context) { callback(param) } }, _StringConverter<T>(context).apply(converter))
-
 fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(
     context: CoroutineContext = FX,
     callback: suspend CoroutineScope.(Int) -> ObservableValue<Boolean>
@@ -41,22 +34,10 @@ fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     callback: suspend CoroutineScope.(Int) -> ObservableValue<Boolean>
 ) = checkBoxCellFactory(showLabel, { param -> runBlocking(context) { callback(param) } })
 
-fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
-    context: CoroutineContext = FX,
-    callback: suspend CoroutineScope.(Int) -> ObservableValue<Boolean>,
-    converter: _StringConverter<T>.() -> Unit
-) = checkBoxCellFactory({ param -> runBlocking(context) { callback(param) } }, _StringConverter<T>(context).apply(converter))
-
 fun <T> TreeView<T>.checkBoxCellFactory(
     context: CoroutineContext = FX,
     callback: suspend CoroutineScope.(TreeItem<T>) -> ObservableValue<Boolean>
 ) = checkBoxCellFactory({ param -> runBlocking(context) { callback(param) } })
-
-fun <T> TreeView<T>.checkBoxCellFactory(
-    context: CoroutineContext = FX,
-    callback: suspend CoroutineScope.(TreeItem<T>) -> ObservableValue<Boolean>,
-    converter: _StringConverter<TreeItem<T>>.() -> Unit
-) = checkBoxCellFactory({ param -> runBlocking(context) { callback(param) } }, _StringConverter<TreeItem<T>>(context).apply(converter))
 
 fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(
     context: CoroutineContext = FX,
@@ -68,12 +49,6 @@ fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
     callback: suspend CoroutineScope.(Int) -> ObservableValue<Boolean>
 ) = checkBoxCellFactory(showLabel, { param -> runBlocking(context) { callback(param) } })
-
-fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
-    context: CoroutineContext = FX,
-    callback: suspend CoroutineScope.(Int) -> ObservableValue<Boolean>,
-    converter: _StringConverter<T>.() -> Unit
-) = checkBoxCellFactory({ param -> runBlocking(context) { callback(param) } }, _StringConverter<T>(context).apply(converter))
 
 fun <T> CheckBoxListCell<T>.selectedStateCallback(
     context: CoroutineContext = FX,

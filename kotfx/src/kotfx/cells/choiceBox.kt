@@ -13,7 +13,7 @@ import javafx.scene.control.cell.ChoiceBoxListCell
 import javafx.scene.control.cell.ChoiceBoxTableCell
 import javafx.scene.control.cell.ChoiceBoxTreeCell
 import javafx.scene.control.cell.ChoiceBoxTreeTableCell
-import javafx.util.StringConverter
+import kotfx.internal.asConverter
 
 inline fun <T> ListView<T>.choiceBoxCellFactory(
     vararg items: T
@@ -21,8 +21,8 @@ inline fun <T> ListView<T>.choiceBoxCellFactory(
 
 inline fun <T> ListView<T>.choiceBoxCellFactory(
     vararg items: T,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxListCell.forListView(converter, *items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxListCell.forListView(converter.asConverter(), *items))
 
 inline fun <T> ListView<T>.choiceBoxCellFactory(
     items: ObservableList<T>
@@ -30,8 +30,8 @@ inline fun <T> ListView<T>.choiceBoxCellFactory(
 
 inline fun <T> ListView<T>.choiceBoxCellFactory(
     items: ObservableList<T>,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxListCell.forListView(converter, items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxListCell.forListView(converter.asConverter(), items))
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     vararg items: T
@@ -39,8 +39,8 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     vararg items: T,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, *items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), *items))
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     items: ObservableList<T>
@@ -48,8 +48,8 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     items: ObservableList<T>,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), items))
 
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
     vararg items: T
@@ -57,8 +57,8 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(
 
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
     vararg items: T,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter, *items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter.asConverter(), *items))
 
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
     items: ObservableList<T>
@@ -66,8 +66,8 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(
 
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
     items: ObservableList<T>,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter, items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter.asConverter(), items))
 
 inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     vararg items: T
@@ -75,8 +75,8 @@ inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
 
 inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     vararg items: T,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter, *items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), *items))
 
 inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     items: ObservableList<T>
@@ -84,5 +84,5 @@ inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
 
 inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     items: ObservableList<T>,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter, items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), items))

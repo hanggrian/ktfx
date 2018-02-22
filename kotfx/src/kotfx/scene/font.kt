@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("ScenesKt")
 @file:Suppress("UsePropertyAccessSyntax")
 
 package kotfx

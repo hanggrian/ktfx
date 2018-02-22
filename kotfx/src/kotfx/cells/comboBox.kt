@@ -13,7 +13,7 @@ import javafx.scene.control.cell.ChoiceBoxTableCell
 import javafx.scene.control.cell.ChoiceBoxTreeCell
 import javafx.scene.control.cell.ChoiceBoxTreeTableCell
 import javafx.scene.control.cell.ComboBoxListCell
-import javafx.util.StringConverter
+import kotfx.internal.asConverter
 
 inline fun <T> ListView<T>.comboBoxCellFactory(
     vararg items: T
@@ -21,8 +21,8 @@ inline fun <T> ListView<T>.comboBoxCellFactory(
 
 inline fun <T> ListView<T>.comboBoxCellFactory(
     vararg items: T,
-    converter: StringConverter<T>
-) = setCellFactory(ComboBoxListCell.forListView(converter, *items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ComboBoxListCell.forListView(converter.asConverter(), *items))
 
 inline fun <T> ListView<T>.comboBoxCellFactory(
     items: ObservableList<T>
@@ -30,8 +30,8 @@ inline fun <T> ListView<T>.comboBoxCellFactory(
 
 inline fun <T> ListView<T>.comboBoxCellFactory(
     items: ObservableList<T>,
-    converter: StringConverter<T>
-) = setCellFactory(ComboBoxListCell.forListView(converter, items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ComboBoxListCell.forListView(converter.asConverter(), items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     vararg items: T
@@ -39,8 +39,8 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     vararg items: T,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, *items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), *items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>
@@ -48,8 +48,8 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), items))
 
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     vararg items: T
@@ -57,8 +57,8 @@ inline fun <T> TreeView<T>.comboBoxCellFactory(
 
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     vararg items: T,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter, *items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter.asConverter(), *items))
 
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     items: ObservableList<T>
@@ -66,8 +66,8 @@ inline fun <T> TreeView<T>.comboBoxCellFactory(
 
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     items: ObservableList<T>,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter, items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter.asConverter(), items))
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     vararg items: T
@@ -75,8 +75,8 @@ inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     vararg items: T,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter, *items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), *items))
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>
@@ -84,5 +84,5 @@ inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>,
-    converter: StringConverter<T>
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter, items))
+    converter: _StringConverter<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), items))

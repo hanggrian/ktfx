@@ -2,7 +2,7 @@
 @file:JvmName("PropertiesKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package kotfx.properties
+package kotfx
 
 import javafx.beans.property.BooleanProperty
 import javafx.beans.property.ReadOnlyBooleanProperty

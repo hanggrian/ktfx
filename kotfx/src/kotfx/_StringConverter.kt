@@ -8,7 +8,7 @@ class _StringConverter<T> : StringConverter<T>() {
     private var _fromString: ((String) -> T?)? = null
 
     override fun toString(any: T?): String {
-        val handler = _toString ?: return ""
+        val handler = _toString ?: return any?.toString() ?: ""
         return handler(any)
     }
 

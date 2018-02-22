@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package kotfx
 
 import javafx.concurrent.Service

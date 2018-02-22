@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("CallbacksKt")
+@file:JvmName("UtilsKt")
 
 package kotfx.coroutines
 
@@ -9,19 +9,18 @@ import javafx.scene.SnapshotParameters
 import javafx.scene.SnapshotResult
 import javafx.scene.image.WritableImage
 import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.javafx.JavaFx
 import kotlinx.coroutines.experimental.runBlocking
 import kotlin.coroutines.experimental.CoroutineContext
 
 fun Node.snapshot(
-    context: CoroutineContext = JavaFx,
+    context: CoroutineContext = FX,
     params: SnapshotParameters,
     image: WritableImage,
-    action: suspend CoroutineScope.(SnapshotResult) -> Void
-) = snapshot({ param -> runBlocking(context) { action(param) } }, params, image)
+    callback: suspend CoroutineScope.(SnapshotResult) -> Void
+) = snapshot({ param -> runBlocking(context) { callback(param) } }, params, image)
 
 fun Scene.snapshot(
-    context: CoroutineContext = JavaFx,
+    context: CoroutineContext = FX,
     image: WritableImage,
-    action: suspend CoroutineScope.(SnapshotResult) -> Void
-) = snapshot({ param -> runBlocking(context) { action(param) } }, image)
+    callback: suspend CoroutineScope.(SnapshotResult) -> Void
+) = snapshot({ param -> runBlocking(context) { callback(param) } }, image)

@@ -32,8 +32,8 @@ inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(
 ) = setCellFactory(CheckBoxTableCell.forTableColumn(callback))
 
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
-    noinline callback: (Int) -> ObservableValue<Boolean>,
-    showLabel: Boolean
+    showLabel: Boolean,
+    noinline callback: (Int) -> ObservableValue<Boolean>
 ) = setCellFactory(CheckBoxTableCell.forTableColumn(callback, showLabel))
 
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
@@ -59,8 +59,8 @@ inline fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(
 ) = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback))
 
 inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
-    noinline callback: (Int) -> ObservableValue<Boolean>,
-    showLabel: Boolean
+    showLabel: Boolean,
+    noinline callback: (Int) -> ObservableValue<Boolean>
 ) = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, showLabel))
 
 inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(

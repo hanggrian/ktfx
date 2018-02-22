@@ -31,17 +31,17 @@ fun Stage.maxSize(width: Number, height: Number) {
 }
 
 /** Sets min width and height to this stage. */
-inline var Stage.minSize: Number
+var Stage.minSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = minSize(value, value)
 
 /** Sets width and height to this stage. */
-inline var Stage.size: Number
+var Stage.size: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = size(value, value)
 
 /** Sets max width and height to this stage. */
-inline var Stage.maxSize: Number
+var Stage.maxSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = maxSize(value, value)
 
@@ -64,17 +64,17 @@ fun Region.maxSize(width: Number, height: Number) {
 }
 
 /** Sets min width and height. */
-inline var Region.minSize: Number
+var Region.minSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = minSize(value, value)
 
 /** Sets pref width and height. */
-inline var Region.prefSize: Number
+var Region.prefSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = prefSize(value, value)
 
 /** Sets max width and height. */
-inline var Region.maxSize: Number
+var Region.maxSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = maxSize(value, value)
 

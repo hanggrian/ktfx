@@ -1,8 +1,8 @@
 const val releaseUser = "hendraanggrian"
-const val releaseGroup = "com.hendraanggrian"
+const val releaseGroup = "com.$releaseUser"
 const val releaseArtifact = "kotfx"
-const val releaseVersion = "0.34"
-const val releaseDesc = "Minimalist JavaFX development"
+const val releaseVersion = "0.33"
+const val releaseDesc = "Minimalist JavaFX development with Kotlin"
 const val releaseWeb = "https://github.com/$releaseUser/$releaseArtifact"
 
 const val kotlinVersion = "1.2.21"

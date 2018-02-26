@@ -11,14 +11,12 @@ import kotlin.DeprecationLevel.ERROR
 /** Removes old icons and set a new one to this stage. */
 var Stage.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) {
-        when (icons.size) {
-            0 -> icons.add(value)
-            1 -> icons[0] = value
-            else -> {
-                icons.clear()
-                icons.add(value)
-            }
+    set(value) = when (icons.size) {
+        0 -> icons += value
+        1 -> icons[0] = value
+        else -> {
+            icons.clear()
+            icons += value
         }
     }
 

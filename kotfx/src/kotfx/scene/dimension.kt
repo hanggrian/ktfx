@@ -1,132 +1,108 @@
 @file:JvmMultifileClass
 @file:JvmName("ScenesKt")
-@file:Suppress("UsePropertyAccessSyntax")
+@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
 package kotfx
 
 import javafx.geometry.Insets
 import javafx.scene.layout.FlowPane
 import javafx.scene.layout.GridPane
-import javafx.scene.layout.HBox
 import javafx.scene.layout.Region
 import javafx.scene.layout.TilePane
-import javafx.scene.layout.VBox
 import javafx.stage.Stage
 import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-/** Sets min width and height to this stage. */
-fun Stage.minSize(width: Number? = null, height: Number? = null) {
-    if (width != null) setMinWidth(width.toDouble())
-    if (height != null) setMinHeight(height.toDouble())
+inline fun Stage.setMinSize(width: Double, height: Double) {
+    minWidth = width
+    minHeight = height
 }
 
-/** Sets max width and height to this stage. */
-fun Stage.maxSize(width: Number? = null, height: Number? = null) {
-    if (width != null) setMaxWidth(width.toDouble())
-    if (height != null) setMaxHeight(height.toDouble())
+inline fun Stage.setMaxSize(width: Double, height: Double) {
+    maxWidth = width
+    maxHeight = height
 }
 
-/** Sets width and height to this stage. */
-fun Stage.size(width: Number? = null, height: Number? = null) {
-    if (width != null) setWidth(width.toDouble())
-    if (height != null) setHeight(height.toDouble())
+inline fun Stage.setSize(width: Double, height: Double) {
+    this.width = width
+    this.height = height
 }
 
-/** Sets min width and height to this stage. */
-var Stage.minSize: Number
+inline var Stage.minSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = minSize(value, value)
+    set(value) = setMinSize(value, value)
 
-/** Sets max width and height to this stage. */
-var Stage.maxSize: Number
+inline var Stage.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = maxSize(value, value)
+    set(value) = setMaxSize(value, value)
 
-/** Sets width and height to this stage. */
-var Stage.size: Number
+inline var Stage.size: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = size(value, value)
+    set(value) = setSize(value, value)
 
-/** Sets min width and height to this region. */
-fun Region.minSize(width: Number? = null, height: Number? = null) {
-    if (width != null) setMinWidth(width.toDouble())
-    if (height != null) setMinHeight(height.toDouble())
+inline fun Region.setSize(width: Double, height: Double) {
+    setMinSize(width, height)
+    setPrefSize(width, height)
+    setMaxSize(width, height)
 }
 
-/** Sets width and height to this region. */
-fun Region.prefSize(width: Number? = null, height: Number? = null) {
-    if (width != null) setPrefWidth(width.toDouble())
-    if (height != null) setPrefHeight(height.toDouble())
-}
-
-/** Sets max width and height to this region. */
-fun Region.maxSize(width: Number? = null, height: Number? = null) {
-    if (width != null) setMaxWidth(width.toDouble())
-    if (height != null) setMaxHeight(height.toDouble())
-}
-
-fun Region.size(width: Number, height: Number) {
-    minSize(width, height)
-    prefSize(width, height)
-    maxSize(width, height)
-}
-
-/** Sets min width and height. */
-var Region.minSize: Number
+inline var Region.minSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = minSize(value, value)
+    set(value) = setMinSize(value, value)
 
-/** Sets pref width and height. */
-var Region.prefSize: Number
+inline var Region.prefSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = prefSize(value, value)
+    set(value) = setPrefSize(value, value)
 
-/** Sets max width and height. */
-var Region.maxSize: Number
+inline var Region.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = maxSize(value, value)
+    set(value) = setMaxSize(value, value)
 
-var Region.size: Number
+inline var Region.size: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = size(value, value)
+    set(value) = setSize(value, value)
 
-/** Sets padding on each side. */
-fun Region.padding(
-    top: Number = padding.top,
-    right: Number = padding.right,
-    bottom: Number = padding.bottom,
-    left: Number = padding.left
-) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
+inline var Region.topPadding: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setPadding(Insets(value, padding.right, padding.bottom, padding.left))
 
-/** Sets padding on all sides. */
-fun Region.padding(all: Number) = setPadding(Insets(all.toDouble()))
+inline var Region.rightPadding: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setPadding(Insets(padding.top, value, padding.bottom, padding.left))
 
-fun HBox.spacing(spacing: Number) = setSpacing(spacing.toDouble())
+inline var Region.bottomPadding: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setPadding(Insets(padding.top, padding.right, value, padding.left))
 
-fun VBox.spacing(spacing: Number) = setSpacing(spacing.toDouble())
+inline var Region.leftPadding: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setPadding(Insets(padding.top, padding.right, padding.bottom, value))
+
+inline var Region.paddings: Double
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setPadding(Insets(value))
 
 /** Sets a horizontal and vertical gap. */
-var FlowPane.gap: Number
+inline var FlowPane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value.toDouble()
-        hgap = value.toDouble()
+        vgap = value
+        hgap = value
     }
 
 /** Sets a horizontal and vertical gap. */
-var GridPane.gap: Number
+inline var GridPane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value.toDouble()
-        hgap = value.toDouble()
+        vgap = value
+        hgap = value
     }
 
 /** Sets a horizontal and vertical gap. */
-var TilePane.gap: Number
+inline var TilePane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value.toDouble()
-        hgap = value.toDouble()
+        vgap = value
+        hgap = value
     }

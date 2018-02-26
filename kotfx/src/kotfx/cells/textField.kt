@@ -8,32 +8,32 @@ import javafx.scene.control.ListView
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeView
-import javafx.scene.control.cell.TextFieldListCell
-import javafx.scene.control.cell.TextFieldTableCell
-import javafx.scene.control.cell.TextFieldTreeCell
-import javafx.scene.control.cell.TextFieldTreeTableCell
+import javafx.scene.control.cell.TextFieldListCell.forListView
+import javafx.scene.control.cell.TextFieldTableCell.forTableColumn
+import javafx.scene.control.cell.TextFieldTreeCell.forTreeView
+import javafx.scene.control.cell.TextFieldTreeTableCell.forTreeTableColumn
 import kotfx.internal.asConverter
 
-inline fun ListView<String>.textFieldCellFactory() = setCellFactory(TextFieldListCell.forListView())
+inline fun ListView<String>.textFieldCellFactory() = setCellFactory(forListView())
 
 inline fun <T> ListView<T>.textFieldCellFactory(
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(TextFieldListCell.forListView(converter.asConverter()))
+) = setCellFactory(forListView(converter.asConverter()))
 
-inline fun <S> TableColumn<S, String>.textFieldCellFactory() = setCellFactory(TextFieldTableCell.forTableColumn())
+inline fun <S> TableColumn<S, String>.textFieldCellFactory() = setCellFactory(forTableColumn())
 
 inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(TextFieldTableCell.forTableColumn(converter.asConverter()))
+) = setCellFactory(forTableColumn(converter.asConverter()))
 
-inline fun TreeView<String>.textFieldCellFactory() = setCellFactory(TextFieldTreeCell.forTreeView())
+inline fun TreeView<String>.textFieldCellFactory() = setCellFactory(forTreeView())
 
 inline fun <T> TreeView<T>.textFieldCellFactory(
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(TextFieldTreeCell.forTreeView(converter.asConverter()))
+) = setCellFactory(forTreeView(converter.asConverter()))
 
-inline fun <S> TreeTableColumn<S, String>.textFieldCellFactory() = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn())
+inline fun <S> TreeTableColumn<S, String>.textFieldCellFactory() = setCellFactory(forTreeTableColumn())
 
 inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter.asConverter()))
+) = setCellFactory(forTreeTableColumn(converter.asConverter()))

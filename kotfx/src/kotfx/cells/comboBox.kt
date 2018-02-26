@@ -9,80 +9,80 @@ import javafx.scene.control.ListView
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeView
-import javafx.scene.control.cell.ChoiceBoxTableCell
-import javafx.scene.control.cell.ChoiceBoxTreeCell
-import javafx.scene.control.cell.ChoiceBoxTreeTableCell
-import javafx.scene.control.cell.ComboBoxListCell
+import javafx.scene.control.cell.ChoiceBoxTableCell.forTableColumn
+import javafx.scene.control.cell.ChoiceBoxTreeCell.forTreeView
+import javafx.scene.control.cell.ChoiceBoxTreeTableCell.forTreeTableColumn
+import javafx.scene.control.cell.ComboBoxListCell.forListView
 import kotfx.internal.asConverter
 
 inline fun <T> ListView<T>.comboBoxCellFactory(
     vararg items: T
-) = setCellFactory(ComboBoxListCell.forListView(*items))
+) = setCellFactory(forListView(*items))
 
 inline fun <T> ListView<T>.comboBoxCellFactory(
     vararg items: T,
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(ComboBoxListCell.forListView(converter.asConverter(), *items))
+) = setCellFactory(forListView(converter.asConverter(), *items))
 
 inline fun <T> ListView<T>.comboBoxCellFactory(
     items: ObservableList<T>
-) = setCellFactory(ComboBoxListCell.forListView(items))
+) = setCellFactory(forListView(items))
 
 inline fun <T> ListView<T>.comboBoxCellFactory(
     items: ObservableList<T>,
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(ComboBoxListCell.forListView(converter.asConverter(), items))
+) = setCellFactory(forListView(converter.asConverter(), items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     vararg items: T
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(*items))
+) = setCellFactory(forTableColumn(*items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     vararg items: T,
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), *items))
+) = setCellFactory(forTableColumn(converter.asConverter(), *items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(items))
+) = setCellFactory(forTableColumn(items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>,
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), items))
+) = setCellFactory(forTableColumn(converter.asConverter(), items))
 
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     vararg items: T
-) = setCellFactory(ChoiceBoxTreeCell.forTreeView(*items))
+) = setCellFactory(forTreeView(*items))
 
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     vararg items: T,
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter.asConverter(), *items))
+) = setCellFactory(forTreeView(converter.asConverter(), *items))
 
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     items: ObservableList<T>
-) = setCellFactory(ChoiceBoxTreeCell.forTreeView(items))
+) = setCellFactory(forTreeView(items))
 
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     items: ObservableList<T>,
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter.asConverter(), items))
+) = setCellFactory(forTreeView(converter.asConverter(), items))
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     vararg items: T
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(*items))
+) = setCellFactory(forTreeTableColumn(*items))
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     vararg items: T,
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), *items))
+) = setCellFactory(forTreeTableColumn(converter.asConverter(), *items))
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(items))
+) = setCellFactory(forTreeTableColumn(items))
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>,
     converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), items))
+) = setCellFactory(forTreeTableColumn(converter.asConverter(), items))

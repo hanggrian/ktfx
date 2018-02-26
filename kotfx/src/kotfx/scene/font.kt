@@ -14,6 +14,24 @@ import javafx.scene.text.Text
 import java.io.InputStream
 import java.net.URL
 
+interface Fonted<out T> {
+
+    fun size(size: Number): T
+}
+
+class _SystemFont : Fonted<_SystemFont> {
+
+    private var _name: String? = null
+    private var _weight: FontWeight? = null
+    private var _posture: FontPosture? = null
+    private var _size: Number = -1
+
+    infix fun name(name: String): _SystemFont = apply { _name = name }
+    infix fun weight(weight: FontWeight): _SystemFont = apply { _weight = weight }
+    infix fun posture(posture: FontPosture): _SystemFont = apply { _posture = posture }
+    override infix fun size(size: Number): _SystemFont = apply { _size = size }
+}
+
 /** Search appropriate font with options and set it to this [Labeled]. */
 fun Labeled.font(
     family: String? = null,

@@ -82,32 +82,30 @@ inline fun Dialog<*>.addButton(
     text: String,
     data: ButtonData = OTHER,
     noinline init: (Node.() -> Unit)? = null
-): Boolean = addButton(ButtonType(text, data), init)
+) = addButton(ButtonType(text, data), init)
 
 /** Add button to this dialog and return it as a node. */
 fun Dialog<*>.addButton(
     type: ButtonType,
     init: (Node.() -> Unit)? = null
-): Boolean {
-    val result = buttons.add(type)
+) {
+    buttons += type
     if (init != null) lookupButton(type).init()
-    return result
 }
 
 /** Add multiple custom buttons to this dialog, returning them as list of nodes. */
 inline fun Dialog<*>.addButtons(
     vararg buttons: Pair<String, ButtonData>,
     noinline init: (List<Node>.() -> Unit)? = null
-): Boolean = addButtons(*buttons.map { ButtonType(it.first, it.second) }.toTypedArray(), init = init)
+) = addButtons(*buttons.map { ButtonType(it.first, it.second) }.toTypedArray(), init = init)
 
 /** Add multiple buttons to this dialog, returning them as list of nodes. */
 fun Dialog<*>.addButtons(
     vararg types: ButtonType,
     init: (List<Node>.() -> Unit)? = null
-): Boolean {
-    val result = buttons.addAll(*types)
+) {
+    buttons += types
     if (init != null) types.map { lookupButton(it) }.init()
-    return result
 }
 
 fun <R> dialog(

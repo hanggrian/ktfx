@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("EventHandlersKt")
+@file:JvmName("EventsKt")
 
 package kotfx.coroutines
 

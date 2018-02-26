@@ -1,4 +1,3 @@
-@file:JvmMultifileClass
 @file:JvmName("ScenesKt")
 
 package kotfx.coroutines

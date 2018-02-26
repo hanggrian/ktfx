@@ -2,7 +2,7 @@ KotFX
 =====
 Kotlin DSL and extension functions for minimalist JavaFX development.
 
-Kotfx consists of several parts:
+KotFX consists of several parts:
  * *KotFX Core*: full of helpers for bindings, collections, dialogs, and so on.
  * *KotFX Layout*: write JavaFX layouts dynamically with Kotlin DSL.
  * *KotFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
@@ -17,9 +17,9 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.32'
-    compile 'com.hendraanggrian:kotfx-layout:0.32'
-    compile 'com.hendraanggrian:kotfx-coroutines:0.32'
+    compile 'com.hendraanggrian:kotfx:0.33'
+    compile 'com.hendraanggrian:kotfx-layout:0.33'
+    compile 'com.hendraanggrian:kotfx-coroutines:0.33'
 }
 ```
 

@@ -1,13 +1,13 @@
 const val releaseUser = "hendraanggrian"
 const val releaseGroup = "com.hendraanggrian"
 const val releaseArtifact = "kotfx"
-const val releaseVersion = "0.32"
+const val releaseVersion = "0.33"
 const val releaseDesc = "Minimalist JavaFX development"
 const val releaseWeb = "https://github.com/$releaseUser/$releaseArtifact"
 
 const val kotlinVersion = "1.2.21"
 const val spekVersion = "1.1.5"
-const val coroutinesVersion = "0.22.2"
+const val coroutinesVersion = "0.22.3"
 const val junitPlatformVersion = "1.0.0"
 
 fun Dependency.kotlinx(module: String, version: String? = null) = "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$version" }

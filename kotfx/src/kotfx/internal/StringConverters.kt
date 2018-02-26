@@ -2,6 +2,7 @@
 
 package kotfx.internal
 
+import javafx.util.StringConverter
 import kotfx._StringConverter
 
-inline fun <T> (_StringConverter<T>.() -> Unit).asConverter() = _StringConverter<T>().apply(this)
+inline fun <T> (_StringConverter<T>.() -> Unit).asConverter(): StringConverter<T> = _StringConverter<T>().apply(this)

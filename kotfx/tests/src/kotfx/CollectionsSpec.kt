@@ -20,9 +20,9 @@ object CollectionsSpec : Spek({
         }
         it("should be modifiable list") {
             val list = iterable.toMutableObservableList()
-            list.add(1)
-            list.add(2)
-            list.add(3)
+            list += 1
+            list += 2
+            list += 3
             assertEquals(list.size, 3)
         }
     }

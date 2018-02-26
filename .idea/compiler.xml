@@ -12,6 +12,8 @@
       <module name="kotfx-kotfx_test" target="1.8" />
       <module name="kotfx-layout_main" target="1.8" />
       <module name="kotfx-layout_test" target="1.8" />
+      <module name="kotfx-listeners_main" target="1.8" />
+      <module name="kotfx-listeners_test" target="1.8" />
       <module name="kotfx_main" target="1.9" />
       <module name="kotfx_test" target="1.9" />
     </bytecodeTargetLevel>

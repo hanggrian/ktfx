@@ -11,9 +11,5 @@ import kotlin.coroutines.experimental.CoroutineContext
 
 fun Animation.onFinished(
     context: CoroutineContext = FX,
-    consume: Boolean = false,
     action: suspend CoroutineScope.(ActionEvent) -> Unit
-) = setOnFinished { event ->
-    if (consume) event.consume()
-    launch(context) { action(event) }
-}
+) = setOnFinished { event -> launch(context) { action(event) } }

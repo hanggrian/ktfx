@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/kotfx" />
             <option value="$PROJECT_DIR$/kotfx-coroutines" />
             <option value="$PROJECT_DIR$/kotfx-layout" />
+            <option value="$PROJECT_DIR$/kotfx-listeners" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("ScenesKt")
 @file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
 package kotfx
@@ -63,46 +61,46 @@ inline var Region.size: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSize(value, value)
 
-inline var Region.topPadding: Double
+var Region.topPadding: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setPadding(Insets(value, padding.right, padding.bottom, padding.left))
+    set(value) = padding.let { setPadding(Insets(value.toDouble(), it.right, it.bottom, it.left)) }
 
-inline var Region.rightPadding: Double
+var Region.rightPadding: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setPadding(Insets(padding.top, value, padding.bottom, padding.left))
+    set(value) = padding.let { setPadding(Insets(it.top, value.toDouble(), it.bottom, it.left)) }
 
-inline var Region.bottomPadding: Double
+var Region.bottomPadding: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setPadding(Insets(padding.top, padding.right, value, padding.left))
+    set(value) = padding.let { setPadding(Insets(it.top, it.right, value.toDouble(), it.left)) }
 
-inline var Region.leftPadding: Double
+var Region.leftPadding: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setPadding(Insets(padding.top, padding.right, padding.bottom, value))
+    set(value) = padding.let { setPadding(Insets(it.top, it.right, it.bottom, value.toDouble())) }
 
 inline var Region.paddings: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setPadding(Insets(value))
 
 /** Sets a horizontal and vertical gap. */
-inline var FlowPane.gap: Double
+var FlowPane.gap: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value
-        hgap = value
+        vgap = value.toDouble()
+        hgap = value.toDouble()
     }
 
 /** Sets a horizontal and vertical gap. */
-inline var GridPane.gap: Double
+var GridPane.gap: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value
-        hgap = value
+        vgap = value.toDouble()
+        hgap = value.toDouble()
     }
 
 /** Sets a horizontal and vertical gap. */
-inline var TilePane.gap: Double
+var TilePane.gap: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        vgap = value
-        hgap = value
+        vgap = value.toDouble()
+        hgap = value.toDouble()
     }

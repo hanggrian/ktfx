@@ -1,5 +1,3 @@
-@file:JvmName("ScenesKt")
-
 package kotfx.coroutines
 
 import javafx.scene.Node

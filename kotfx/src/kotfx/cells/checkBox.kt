@@ -15,16 +15,10 @@ import javafx.scene.control.cell.CheckBoxTableCell.forTableColumn
 import javafx.scene.control.cell.CheckBoxTreeCell.forTreeView
 import javafx.scene.control.cell.CheckBoxTreeTableCell.forTreeTableColumn
 import javafx.util.StringConverter
-import kotfx.internal.asConverter
 
 inline fun <T> ListView<T>.checkBoxCellFactory(
     noinline callback: (T) -> ObservableValue<Boolean>
 ) = setCellFactory(forListView(callback))
-
-inline fun <T> ListView<T>.checkBoxCellFactory(
-    noinline callback: (T) -> ObservableValue<Boolean>,
-    converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(forListView(callback, converter.asConverter()))
 
 inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory() = setCellFactory(forTableColumn(this))
 
@@ -36,11 +30,6 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
     noinline callback: (Int) -> ObservableValue<Boolean>
 ) = setCellFactory(forTableColumn(callback, showLabel))
-
-inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
-    noinline callback: (Int) -> ObservableValue<Boolean>,
-    converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(forTableColumn(callback, converter.asConverter()))
 
 inline fun <T> TreeView<T>.checkBoxCellFactory() = setCellFactory(forTreeView())
 
@@ -63,8 +52,3 @@ inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
     noinline callback: (Int) -> ObservableValue<Boolean>
 ) = setCellFactory(forTreeTableColumn(callback, showLabel))
-
-inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
-    noinline callback: (Int) -> ObservableValue<Boolean>,
-    converter: _StringConverter<T>.() -> Unit
-) = setCellFactory(forTreeTableColumn(callback, converter.asConverter()))

@@ -1,4 +1,3 @@
-@file:JvmName("ScenesKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package kotfx.listeners

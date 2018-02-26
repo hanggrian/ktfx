@@ -5,7 +5,6 @@
 package kotfx.bindings
 
 import javafx.beans.Observable
-import javafx.beans.binding.Bindings
 import javafx.beans.binding.Bindings.createStringBinding
 import javafx.beans.binding.Bindings.equal
 import javafx.beans.binding.Bindings.equalIgnoreCase
@@ -17,25 +16,11 @@ import javafx.beans.binding.Bindings.notEqual
 import javafx.beans.binding.Bindings.notEqualIgnoreCase
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.StringBinding
-import javafx.beans.property.Property
-import javafx.beans.property.StringProperty
 import javafx.beans.value.ObservableStringValue
-import kotfx._StringConverter
-import kotfx.internal.asConverter
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [StringBinding]. */
 inline fun stringBindingOf(vararg dependencies: Observable, noinline func: () -> String): StringBinding = createStringBinding(Callable(func), *dependencies)
-
-fun <T> Property<String>.bindBidirectional(
-    property: Property<T>,
-    converter: _StringConverter<T>.() -> Unit
-) = Bindings.bindBidirectional(this, property, converter.asConverter())
-
-fun <T> StringProperty.bindBidirectional(
-    property: Property<T>,
-    converter: _StringConverter<T>.() -> Unit
-) = bindBidirectional(property, converter.asConverter())
 
 inline infix fun ObservableStringValue.eq(other: ObservableStringValue): BooleanBinding = equal(this, other)
 inline infix fun ObservableStringValue.eq(other: String): BooleanBinding = equal(this, other)

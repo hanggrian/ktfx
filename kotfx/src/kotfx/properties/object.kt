@@ -19,3 +19,5 @@ inline fun <T> T?.toReadOnlyProperty(): ReadOnlyObjectProperty<T> = ReadOnlyObje
 
 /** Returns this property as an observable. */
 inline fun <T> Property<T>.asObservable(): ObservableValue<T> = this
+
+inline val ObservableValue<*>.hasValue: Boolean get() = value != null

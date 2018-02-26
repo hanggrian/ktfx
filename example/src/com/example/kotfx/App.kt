@@ -3,6 +3,7 @@ package com.example.kotfx
 import javafx.application.Application
 import javafx.scene.Scene
 import javafx.scene.control.Label
+import javafx.scene.text.Font.font
 import javafx.scene.text.FontWeight.BOLD
 import javafx.stage.Stage
 import kotfx.bindings.booleanBindingOf
@@ -10,7 +11,6 @@ import kotfx.bindings.stringBindingOf
 import kotfx.coroutines.onAction
 import kotfx.dialogs.errorAlert
 import kotfx.dialogs.infoAlert
-import kotfx.font
 import kotfx.layout.button
 import kotfx.layout.gridPane
 import kotfx.layout.label
@@ -138,7 +138,7 @@ class App : Application() {
                     errorAlert("Not yet supported.") {
                         title = ":("
                         dialogPane.expandableContent = kotfx.layout.vbox {
-                            label("Suggestion") { font("Arial", BOLD, size = 14) }
+                            label("Suggestion") { font = font("Arial", BOLD, 14.0) }
                             label("Use an actual calculator.") topMargin 4
                         }
                     }.show()

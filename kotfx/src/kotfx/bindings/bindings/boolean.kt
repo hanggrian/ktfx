@@ -5,10 +5,10 @@
 package kotfx.bindings
 
 import javafx.beans.Observable
-import javafx.beans.binding.Bindings
 import javafx.beans.binding.Bindings.and
 import javafx.beans.binding.Bindings.createBooleanBinding
 import javafx.beans.binding.Bindings.equal
+import javafx.beans.binding.Bindings.not
 import javafx.beans.binding.Bindings.notEqual
 import javafx.beans.binding.Bindings.or
 import javafx.beans.binding.BooleanBinding
@@ -25,7 +25,7 @@ inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): Bool
 inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): BooleanBinding = or(this, other)
 
 /** Creates a {@link BooleanBinding} that calculates the inverse of the value of a [ObservableBooleanValue]. */
-inline fun not(what: ObservableBooleanValue): BooleanBinding = Bindings.not(what)
+inline operator fun ObservableBooleanValue.not(): BooleanBinding = not(this)
 
 /** Creates a new [BooleanBinding] that holds {@code true} if the values of two instances of [ObservableBooleanValue] are equal. */
 inline infix fun ObservableBooleanValue.eq(other: ObservableBooleanValue): BooleanBinding = equal(this, other)

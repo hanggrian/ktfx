@@ -42,6 +42,7 @@ interface ConstrainedPane {
 interface MarginedPane : ConstrainedPane {
 
     infix fun <N : Node> N.margins(value: Insets?): N
+    infix fun <N : Node> N.margins(value: Number) = margins(Insets(value.toDouble()))
     fun <N : Node> N.margins(top: Number, right: Number, bottom: Number, left: Number): N =
         margins(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 

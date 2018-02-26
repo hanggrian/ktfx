@@ -13,10 +13,18 @@ import kotlin.coroutines.experimental.CoroutineContext
 
 fun MediaPlayer.onMarker(
     context: CoroutineContext = FX,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(MediaMarkerEvent) -> Unit
-) = setOnMarker { event -> launch(context) { action(event) } }
+) = setOnMarker { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}
 
 fun MediaView.onError(
     context: CoroutineContext = FX,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(MediaErrorEvent) -> Unit
-) = setOnError { event -> launch(context) { action(event) } }
+) = setOnError { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}

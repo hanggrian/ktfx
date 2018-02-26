@@ -17,9 +17,9 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.33'
-    compile 'com.hendraanggrian:kotfx-layout:0.33'
-    compile 'com.hendraanggrian:kotfx-coroutines:0.33'
+    compile 'com.hendraanggrian:kotfx:0.34'
+    compile 'com.hendraanggrian:kotfx-layout:0.34'
+    compile 'com.hendraanggrian:kotfx-coroutines:0.34'
 }
 ```
 

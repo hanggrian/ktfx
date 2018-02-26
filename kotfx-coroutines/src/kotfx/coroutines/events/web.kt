@@ -13,25 +13,45 @@ import kotlin.coroutines.experimental.CoroutineContext
 
 fun WebEngine.onAlert(
     context: CoroutineContext = FX,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(WebEvent<String>) -> Unit
-) = setOnAlert { event -> launch(context) { action(event) } }
+) = setOnAlert { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}
 
 fun WebEngine.onError(
     context: CoroutineContext = FX,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(WebErrorEvent) -> Unit
-) = setOnError { event -> launch(context) { action(event) } }
+) = setOnError { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}
 
 fun WebEngine.onResized(
     context: CoroutineContext = FX,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(WebEvent<Rectangle2D>) -> Unit
-) = setOnResized { event -> launch(context) { action(event) } }
+) = setOnResized { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}
 
 fun WebEngine.onStatusChanged(
     context: CoroutineContext = FX,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(WebEvent<String>) -> Unit
-) = setOnStatusChanged { event -> launch(context) { action(event) } }
+) = setOnStatusChanged { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}
 
 fun WebEngine.onVisibilityChanged(
     context: CoroutineContext = FX,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(WebEvent<Boolean>) -> Unit
-) = setOnVisibilityChanged { event -> launch(context) { action(event) } }
+) = setOnVisibilityChanged { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}

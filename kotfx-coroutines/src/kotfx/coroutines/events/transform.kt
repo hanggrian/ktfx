@@ -13,11 +13,19 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun <E : Event> Transform.eventFilter(
     context: CoroutineContext = FX,
     type: EventType<E>,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(E) -> Unit
-) = addEventFilter(type) { event -> launch(context) { action(event) } }
+) = addEventFilter(type) { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}
 
 fun <E : Event> Transform.eventHandler(
     context: CoroutineContext = FX,
     type: EventType<E>,
+    consume: Boolean = false,
     action: suspend CoroutineScope.(E) -> Unit
-) = addEventHandler(type) { event -> launch(context) { action(event) } }
+) = addEventHandler(type) { event ->
+    if (consume) event.consume()
+    launch(context) { action(event) }
+}

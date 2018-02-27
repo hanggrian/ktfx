@@ -12,74 +12,96 @@ import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-inline fun Stage.setMinSize(width: Double, height: Double) {
-    minWidth = width
-    minHeight = height
+fun Stage.minSize(width: Number = minWidth, height: Number = minHeight) {
+    minWidth = width.toDouble()
+    minHeight = height.toDouble()
 }
 
-inline fun Stage.setMaxSize(width: Double, height: Double) {
-    maxWidth = width
-    maxHeight = height
+fun Stage.maxSize(width: Number = maxWidth, height: Number = maxHeight) {
+    maxWidth = width.toDouble()
+    maxHeight = height.toDouble()
 }
 
-inline fun Stage.setSize(width: Double, height: Double) {
-    this.width = width
-    this.height = height
+fun Stage.size(width: Number = this.width, height: Number = this.height) {
+    this.width = width.toDouble()
+    this.height = height.toDouble()
 }
 
-inline var Stage.minSize: Double
+inline var Stage.minSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value, value)
+    set(value) = minSize(value, value)
 
-inline var Stage.maxSize: Double
+inline var Stage.maxSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMaxSize(value, value)
+    set(value) = maxSize(value, value)
 
-inline var Stage.size: Double
+inline var Stage.size: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setSize(value, value)
+    set(value) = size(value, value)
 
-inline fun Region.setSize(width: Double, height: Double) {
-    setMinSize(width, height)
-    setPrefSize(width, height)
-    setMaxSize(width, height)
+fun Region.minSize(width: Number = minWidth, height: Number = minHeight) {
+    minWidth = width.toDouble()
+    minHeight = height.toDouble()
 }
 
-inline var Region.minSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value, value)
+fun Region.prefSize(width: Number = prefWidth, height: Number = prefHeight) {
+    prefWidth = width.toDouble()
+    prefHeight = height.toDouble()
+}
 
-inline var Region.prefSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setPrefSize(value, value)
+fun Region.maxSize(width: Number = maxWidth, height: Number = maxHeight) {
+    maxWidth = width.toDouble()
+    maxHeight = height.toDouble()
+}
 
-inline var Region.maxSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMaxSize(value, value)
+inline fun Region.size(width: Number, height: Number) {
+    minSize(width, height)
+    prefSize(width, height)
+    maxSize(width, height)
+}
 
-inline var Region.size: Double
+inline var Region.minSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setSize(value, value)
+    set(value) = minSize(value, value)
 
-var Region.topPadding: Number
+inline var Region.prefSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = padding.let { setPadding(Insets(value.toDouble(), it.right, it.bottom, it.left)) }
+    set(value) = prefSize(value, value)
 
-var Region.rightPadding: Number
+inline var Region.maxSize: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = padding.let { setPadding(Insets(it.top, value.toDouble(), it.bottom, it.left)) }
+    set(value) = maxSize(value, value)
 
-var Region.bottomPadding: Number
+inline var Region.size: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = padding.let { setPadding(Insets(it.top, it.right, value.toDouble(), it.left)) }
+    set(value) = size(value, value)
 
-var Region.leftPadding: Number
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = padding.let { setPadding(Insets(it.top, it.right, it.bottom, value.toDouble())) }
+fun Region.paddings(
+    top: Number = padding.top,
+    right: Number = padding.right,
+    bottom: Number = padding.bottom,
+    left: Number = padding.left
+) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 
-inline var Region.paddings: Double
+var Region.paddings: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setPadding(Insets(value))
+    set(value) = setPadding(Insets(value.toDouble()))
+
+inline var Region.topPadding: Number
+    get() = padding.top
+    set(value) = paddings(top = value)
+
+inline var Region.rightPadding: Number
+    get() = padding.right
+    set(value) = paddings(right = value)
+
+inline var Region.bottomPadding: Number
+    get() = padding.bottom
+    set(value) = paddings(bottom = value)
+
+inline var Region.leftPadding: Number
+    get() = padding.left
+    set(value) = paddings(left = value)
 
 /** Sets a horizontal and vertical gap. */
 var FlowPane.gap: Number

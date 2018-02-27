@@ -15,9 +15,8 @@ import kotfx.layout.button
 import kotfx.layout.gridPane
 import kotfx.layout.label
 import kotfx.layout.vbox
-import kotfx.leftPadding
 import kotfx.minSize
-import kotfx.rightPadding
+import kotfx.paddings
 
 class App : Application() {
 
@@ -33,8 +32,7 @@ class App : Application() {
     override fun start(stage: Stage) {
         stage.scene = Scene(gridPane {
             vbox {
-                rightPadding = 20.0
-                leftPadding = 20.0
+                paddings(right = 20, left = 20)
                 calculationLabel = label("")
                 resultLabel = label {
                     textProperty().bind(stringBindingOf(calculationLabel.textProperty()) {
@@ -64,76 +62,76 @@ class App : Application() {
             } row 0 col 0 colSpan 5 hfill true
 
             button("1") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("1")
                 }
             } row 1 col 0
             button("2") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("2")
                 }
             } row 1 col 1
             button("3") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("3")
                 }
             } row 1 col 2
 
             button("4") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("4")
                 }
             } row 2 col 0
             button("5") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("5")
                 }
             } row 2 col 1
             button("6") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("6")
                 }
             } row 2 col 2
 
             button("7") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("7")
                 }
             } row 3 col 0
             button("8") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("8")
                 }
             } row 3 col 1
             button("9") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("9")
                 }
             } row 3 col 2
 
             button("0") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("0")
                 }
             } row 4 col 0
             button("00") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("00")
                 }
             } row 4 col 1
             button(".") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     errorAlert("Not yet supported.") {
                         title = ":("
@@ -146,38 +144,38 @@ class App : Application() {
             } row 4 col 2
 
             button("C") {
-                setMinSize(80.0, 40.0)
+                minSize(80, 40)
                 isCancelButton = true
                 onAction {
                     calculationLabel.text = ""
                 }
             } row 1 col 3 colSpan 2
             button("*") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("*")
                 }
             } row 2 col 3
             button("/") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("/")
                 }
             } row 2 col 4
             button("+") {
-                setMinSize(40.0, 80.0)
+                minSize(40, 80)
                 onAction {
                     appendText("+")
                 }
             } row 3 col 3 rowSpan 2
             button("-") {
-                minSize = 40.0
+                minSize = 40
                 onAction {
                     appendText("-")
                 }
             } row 3 col 4
             button("=") {
-                minSize = 40.0
+                minSize = 40
                 isDefaultButton = true
                 disableProperty().bind(booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator })
                 onAction {

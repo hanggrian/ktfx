@@ -6,24 +6,25 @@ import javafx.scene.control.Label
 import javafx.scene.text.Font.font
 import javafx.scene.text.FontWeight.BOLD
 import javafx.stage.Stage
-import kotfx.bindings.booleanBindingOf
-import kotfx.bindings.stringBindingOf
-import kotfx.coroutines.onAction
-import kotfx.dialogs.errorAlert
-import kotfx.dialogs.infoAlert
-import kotfx.layout.button
-import kotfx.layout.gridPane
-import kotfx.layout.label
-import kotfx.layout.vbox
-import kotfx.minSize
-import kotfx.paddings
+import kotfx.application.deploy
+import kotfx.beans.binding.booleanBindingOf
+import kotfx.beans.binding.stringBindingOf
+import kotfx.event.onAction
+import kotfx.scene.button
+import kotfx.scene.dialogs.errorAlert
+import kotfx.scene.dialogs.infoAlert
+import kotfx.scene.gridPane
+import kotfx.scene.label
+import kotfx.scene.layout.minSize
+import kotfx.scene.layout.paddings
+import kotfx.scene.vbox
 
 class App : Application() {
 
     companion object {
         private val OPERATORS = arrayOf("+", "-", "/", "*")
 
-        @JvmStatic fun main(vararg args: String) = launch(App::class.java, *args)
+        @JvmStatic fun main(vararg args: String) = deploy<App>(*args)
     }
 
     private lateinit var calculationLabel: Label
@@ -135,7 +136,7 @@ class App : Application() {
                 onAction {
                     errorAlert("Not yet supported.") {
                         title = ":("
-                        dialogPane.expandableContent = kotfx.layout.vbox {
+                        dialogPane.expandableContent = kotfx.scene.vbox {
                             label("Suggestion") { font = font("Arial", BOLD, 14.0) }
                             label("Use an actual calculator.") topMargin 4
                         }

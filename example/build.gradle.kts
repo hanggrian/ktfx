@@ -14,4 +14,5 @@ dependencies {
     implementation(project(":kotfx"))
     implementation(project(":kotfx-layout"))
     implementation(project(":kotfx-coroutines"))
+    implementation(project(":kotfx-listeners"))
 }

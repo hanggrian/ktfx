@@ -19,10 +19,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout_main.iml" group="kotfx-layout" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layout_test.iml" group="kotfx-layout" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners.iml" group="kotfx-listeners" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners.iml" group="kotfx-listeners" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_main.iml" group="kotfx-listeners" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_main.iml" group="kotfx-listeners" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_test.iml" group="kotfx-listeners" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_test.iml" group="kotfx-listeners" />
     </modules>
   </component>

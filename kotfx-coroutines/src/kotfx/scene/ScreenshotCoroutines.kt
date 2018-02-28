@@ -5,7 +5,7 @@ import javafx.scene.Scene
 import javafx.scene.SnapshotParameters
 import javafx.scene.SnapshotResult
 import javafx.scene.image.WritableImage
-import kotfx.FX
+import kotfx.coroutines.FX
 import kotfx.internal.Interopability.asCallback
 import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch

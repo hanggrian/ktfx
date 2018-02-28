@@ -6,13 +6,14 @@ import javafx.beans.Observable
 import javafx.beans.binding.Bindings.bindBidirectional
 import javafx.beans.property.Property
 import javafx.beans.property.StringProperty
+import javafx.beans.value.ChangeListener
 import javafx.beans.value.ObservableValue
-import kotfx.util._StringConverter
 import kotfx.internal.asConverter
+import kotfx.util._StringConverter
 
 inline fun <T> ObservableValue<T>.listener(
     noinline listener: (Observable, oldValue: T, value: T) -> Unit
-) = addListener { observable, oldValue, value -> listener(observable, oldValue, value) }
+) = addListener(ChangeListener(listener))
 
 inline fun <T> Property<String>.bindBidirectional(
     property: Property<T>,

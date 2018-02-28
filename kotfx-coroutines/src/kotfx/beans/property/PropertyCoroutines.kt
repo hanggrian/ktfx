@@ -2,7 +2,7 @@ package kotfx.beans.property
 
 import javafx.beans.Observable
 import javafx.beans.value.ObservableValue
-import kotfx.FX
+import kotfx.coroutines.FX
 import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext

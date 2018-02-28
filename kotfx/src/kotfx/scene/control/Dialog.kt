@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
-package kotfx.scene.dialogs
+package kotfx.scene.control
 
 import javafx.scene.Node
 import javafx.scene.control.ButtonBar.ButtonData
@@ -21,7 +21,7 @@ import javafx.scene.image.ImageView
 import javafx.stage.Stage
 import kotfx.internal.NO_GETTER
 import kotfx.internal.noGetter
-import kotfx.scene.icon
+import kotfx.stage.icon
 import kotlin.DeprecationLevel.ERROR
 
 /** Removes old icons and set a new one to this dialog. */

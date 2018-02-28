@@ -1,4 +1,4 @@
-package kotfx.scene
+package kotfx.stage
 
 import javafx.scene.image.Image
 import javafx.stage.Stage
@@ -28,11 +28,6 @@ fun Stage.minSize(width: Number = minWidth, height: Number = minHeight) {
 fun Stage.maxSize(width: Number = maxWidth, height: Number = maxHeight) {
     maxWidth = width.toDouble()
     maxHeight = height.toDouble()
-}
-
-fun Stage.size(width: Number = this.width, height: Number = this.height) {
-    this.width = width.toDouble()
-    this.height = height.toDouble()
 }
 
 var Stage.minSize: Number

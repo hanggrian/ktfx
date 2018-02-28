@@ -11,8 +11,8 @@ import kotfx.beans.binding.booleanBindingOf
 import kotfx.beans.binding.stringBindingOf
 import kotfx.event.onAction
 import kotfx.scene.button
-import kotfx.scene.dialogs.errorAlert
-import kotfx.scene.dialogs.infoAlert
+import kotfx.scene.control.errorAlert
+import kotfx.scene.control.infoAlert
 import kotfx.scene.gridPane
 import kotfx.scene.label
 import kotfx.scene.layout.minSize

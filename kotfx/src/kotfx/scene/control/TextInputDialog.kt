@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package kotfx.scene.dialogs
+package kotfx.scene.control
 
 import javafx.scene.Node
 import javafx.scene.control.TextInputDialog

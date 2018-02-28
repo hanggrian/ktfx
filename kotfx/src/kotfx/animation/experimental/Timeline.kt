@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package kotfx.experimental.animations
+package kotfx.animation.experimental
 
 import javafx.animation.KeyFrame
 import javafx.animation.Timeline

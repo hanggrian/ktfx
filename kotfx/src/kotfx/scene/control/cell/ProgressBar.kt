@@ -2,7 +2,7 @@
 @file:JvmName("CellsKt")
 @file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
-package kotfx.scene.cell
+package kotfx.scene.control.cell
 
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TreeTableColumn

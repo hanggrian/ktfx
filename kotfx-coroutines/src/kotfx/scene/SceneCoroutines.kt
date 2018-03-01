@@ -3,6 +3,8 @@ package kotfx.scene
 import javafx.event.Event
 import javafx.event.EventType
 import javafx.scene.Scene
+import javafx.scene.SnapshotResult
+import javafx.scene.image.WritableImage
 import javafx.scene.input.ContextMenuEvent
 import javafx.scene.input.DragEvent
 import javafx.scene.input.InputMethodEvent
@@ -14,6 +16,7 @@ import javafx.scene.input.ScrollEvent
 import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
+import kotfx.internal.Interopability.asCallback
 import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
@@ -224,3 +227,9 @@ fun Scene.onZoomStarted(
     context: CoroutineContext,
     action: suspend CoroutineScope.(ZoomEvent) -> Unit
 ) = setOnZoomStarted { event -> launch(context) { action(event) } }
+
+fun Scene.screenshot(
+    context: CoroutineContext,
+    image: WritableImage? = null,
+    callback: suspend CoroutineScope.(SnapshotResult) -> Unit
+) = snapshot(asCallback { param -> launch(context) { callback(param) } }, image)

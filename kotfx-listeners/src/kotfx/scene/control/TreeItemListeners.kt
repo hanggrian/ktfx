@@ -7,7 +7,7 @@ import javafx.event.EventHandler
 import javafx.event.EventType
 import javafx.scene.control.TreeItem
 
-inline fun <T, E : Event> TreeItem<T>.eventHandler(
+inline fun <E : Event> TreeItem<*>.eventHandler(
     type: EventType<E>,
     noinline action: (E) -> Unit
 ) = addEventHandler(type, EventHandler(action))

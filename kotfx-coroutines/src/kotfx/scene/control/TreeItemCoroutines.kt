@@ -7,7 +7,7 @@ import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
-fun <T, E : Event> TreeItem<T>.eventHandler(
+fun <E : Event> TreeItem<*>.eventHandler(
     context: CoroutineContext,
     type: EventType<E>,
     action: suspend CoroutineScope.(Event) -> Unit

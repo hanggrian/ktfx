@@ -4,9 +4,7 @@ package kotfx.scene.control
 
 import javafx.scene.control.DatePicker
 import kotfx.internal.asConverter
-import kotfx.util._StringConverter
+import kotfx.util.StringConverterBuilder
 import java.time.LocalDate
 
-inline fun DatePicker.converter(
-    converter: _StringConverter<LocalDate>.() -> Unit
-) = setConverter(converter.asConverter())
+inline fun DatePicker.converter(converter: StringConverterBuilder<LocalDate>.() -> Unit) = setConverter(converter.asConverter())

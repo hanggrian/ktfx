@@ -7,27 +7,27 @@ import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
-fun <T> ComboBoxBase<T>.onAction(
+fun ComboBoxBase<*>.onAction(
     context: CoroutineContext,
     action: suspend CoroutineScope.(ActionEvent) -> Unit
 ) = setOnAction { event -> launch(context) { action(event) } }
 
-fun <T> ComboBoxBase<T>.onHidden(
+fun ComboBoxBase<*>.onHidden(
     context: CoroutineContext,
     action: suspend CoroutineScope.(Event) -> Unit
 ) = setOnHidden { event -> launch(context) { action(event) } }
 
-fun <T> ComboBoxBase<T>.onHiding(
+fun ComboBoxBase<*>.onHiding(
     context: CoroutineContext,
     action: suspend CoroutineScope.(Event) -> Unit
 ) = setOnHiding { event -> launch(context) { action(event) } }
 
-fun <T> ComboBoxBase<T>.onShowing(
+fun ComboBoxBase<*>.onShowing(
     context: CoroutineContext,
     action: suspend CoroutineScope.(Event) -> Unit
 ) = setOnShowing { event -> launch(context) { action(event) } }
 
-fun <T> ComboBoxBase<T>.onShown(
+fun ComboBoxBase<*>.onShown(
     context: CoroutineContext,
     action: suspend CoroutineScope.(Event) -> Unit
 ) = setOnShown { event -> launch(context) { action(event) } }

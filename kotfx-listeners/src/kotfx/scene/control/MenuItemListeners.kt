@@ -13,10 +13,6 @@ inline fun <E : Event> MenuItem.eventHandler(
     noinline action: (E) -> Unit
 ) = addEventHandler(type, EventHandler(action))
 
-inline fun MenuItem.onAction(
-    noinline action: (ActionEvent) -> Unit
-) = setOnAction(EventHandler(action))
+inline fun MenuItem.onAction(noinline action: (ActionEvent) -> Unit) = setOnAction(EventHandler(action))
 
-inline fun MenuItem.onMenuValidation(
-    noinline action: (Event) -> Unit
-) = setOnMenuValidation(EventHandler(action))
+inline fun MenuItem.onMenuValidation(noinline action: (Event) -> Unit) = setOnMenuValidation(EventHandler(action))

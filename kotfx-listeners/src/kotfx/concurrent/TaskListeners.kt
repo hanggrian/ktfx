@@ -8,32 +8,32 @@ import javafx.event.Event
 import javafx.event.EventHandler
 import javafx.event.EventType
 
-inline fun <V, E : Event> Task<V>.eventFilter(
+inline fun <E : Event> Task<*>.eventFilter(
     type: EventType<E>,
     noinline action: (E) -> Unit
 ) = addEventFilter(type, EventHandler(action))
 
-inline fun <V, E : Event> Task<V>.eventHandler(
+inline fun <E : Event> Task<*>.eventHandler(
     type: EventType<E>,
     noinline action: (E) -> Unit
 ) = addEventHandler(type, EventHandler(action))
 
-inline fun <V> Task<V>.onCancelled(
+inline fun Task<*>.onCancelled(
     noinline action: (WorkerStateEvent) -> Unit
 ) = setOnCancelled(EventHandler(action))
 
-inline fun <V> Task<V>.onFailed(
+inline fun Task<*>.onFailed(
     noinline action: (WorkerStateEvent) -> Unit
 ) = setOnFailed(EventHandler(action))
 
-inline fun <V> Task<V>.onRunning(
+inline fun Task<*>.onRunning(
     noinline action: (WorkerStateEvent) -> Unit
 ) = setOnRunning(EventHandler(action))
 
-inline fun <V> Task<V>.onScheduled(
+inline fun Task<*>.onScheduled(
     noinline action: (WorkerStateEvent) -> Unit
 ) = setOnScheduled(EventHandler(action))
 
-inline fun <V> Task<V>.onSucceeded(
+inline fun Task<*>.onSucceeded(
     noinline action: (WorkerStateEvent) -> Unit
 ) = setOnSucceeded(EventHandler(action))

@@ -8,7 +8,7 @@ import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
-fun <S> TableView<S>.onScrollTo(
+fun TableView<*>.onScrollTo(
     context: CoroutineContext,
     action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
 ) = setOnScrollTo { event -> launch(context) { action(event) } }

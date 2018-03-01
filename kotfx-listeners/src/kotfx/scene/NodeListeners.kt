@@ -6,6 +6,9 @@ import javafx.event.Event
 import javafx.event.EventHandler
 import javafx.event.EventType
 import javafx.scene.Node
+import javafx.scene.SnapshotParameters
+import javafx.scene.SnapshotResult
+import javafx.scene.image.WritableImage
 import javafx.scene.input.ContextMenuEvent
 import javafx.scene.input.DragEvent
 import javafx.scene.input.InputMethodEvent
@@ -17,6 +20,7 @@ import javafx.scene.input.ScrollEvent
 import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
+import kotfx.internal.Interopability.asCallback
 
 inline fun <E : Event> Node.eventFilter(
     type: EventType<E>,
@@ -183,3 +187,9 @@ inline fun Node.onZoomFinished(
 inline fun Node.onZoomStarted(
     noinline action: (ZoomEvent) -> Unit
 ) = setOnZoomStarted(EventHandler(action))
+
+inline fun Node.screenshot(
+    params: SnapshotParameters? = null,
+    image: WritableImage? = null,
+    noinline callback: (SnapshotResult) -> Unit
+) = snapshot(asCallback(callback), params, image)

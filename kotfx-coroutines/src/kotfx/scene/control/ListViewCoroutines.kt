@@ -21,7 +21,7 @@ fun <T> ListView<T>.onEditStart(
     action: suspend CoroutineScope.(ListView.EditEvent<T>) -> Unit
 ) = setOnEditStart { event -> launch(context) { action(event) } }
 
-fun <T> ListView<T>.onScrollTo(
+fun ListView<*>.onScrollTo(
     context: CoroutineContext,
     action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
 ) = setOnScrollTo { event -> launch(context) { action(event) } }

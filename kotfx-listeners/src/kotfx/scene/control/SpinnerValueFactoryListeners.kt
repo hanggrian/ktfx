@@ -4,8 +4,6 @@ package kotfx.scene.control
 
 import javafx.scene.control.SpinnerValueFactory
 import kotfx.internal.asConverter
-import kotfx.util._StringConverter
+import kotfx.util.StringConverterBuilder
 
-inline fun <T> SpinnerValueFactory<T>.converter(
-    converter: _StringConverter<T>.() -> Unit
-) = setConverter(converter.asConverter())
+inline fun <T> SpinnerValueFactory<T>.converter(converter: StringConverterBuilder<T>.() -> Unit) = setConverter(converter.asConverter())

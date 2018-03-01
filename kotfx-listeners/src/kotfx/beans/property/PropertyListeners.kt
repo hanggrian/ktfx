@@ -9,7 +9,7 @@ import javafx.beans.property.StringProperty
 import javafx.beans.value.ChangeListener
 import javafx.beans.value.ObservableValue
 import kotfx.internal.asConverter
-import kotfx.util._StringConverter
+import kotfx.util.StringConverterBuilder
 
 inline fun <T> ObservableValue<T>.listener(
     noinline listener: (Observable, oldValue: T, value: T) -> Unit
@@ -17,10 +17,10 @@ inline fun <T> ObservableValue<T>.listener(
 
 inline fun <T> Property<String>.bindBidirectional(
     property: Property<T>,
-    converter: _StringConverter<T>.() -> Unit
+    converter: StringConverterBuilder<T>.() -> Unit
 ) = bindBidirectional(this, property, converter.asConverter())
 
 inline fun <T> StringProperty.bindBidirectional(
     property: Property<T>,
-    converter: _StringConverter<T>.() -> Unit
+    converter: StringConverterBuilder<T>.() -> Unit
 ) = bindBidirectional(property, converter.asConverter())

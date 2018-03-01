@@ -7,44 +7,44 @@ import javafx.event.EventType
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
-fun <V, E : Event> Service<V>.eventFilter(
+fun <E : Event> Service<*>.eventFilter(
     context: CoroutineContext,
     type: EventType<E>,
-    action: (E) -> Unit
+    action: suspend (E) -> Unit
 ) = addEventFilter(type, { event -> launch(context) { action(event) } })
 
-fun <V, E : Event> Service<V>.eventHandler(
+fun <E : Event> Service<*>.eventHandler(
     context: CoroutineContext,
     type: EventType<E>,
-    action: (E) -> Unit
+    action: suspend (E) -> Unit
 ) = addEventFilter(type, { event -> launch(context) { action(event) } })
 
-fun <V> Service<V>.onCancelled(
+fun Service<*>.onCancelled(
     context: CoroutineContext,
     action: suspend (WorkerStateEvent) -> Unit
 ) = setOnCancelled { event -> launch(context) { action(event) } }
 
-fun <V> Service<V>.onFailed(
+fun Service<*>.onFailed(
     context: CoroutineContext,
     action: suspend (WorkerStateEvent) -> Unit
 ) = setOnFailed { event -> launch(context) { action(event) } }
 
-fun <V> Service<V>.onReady(
+fun Service<*>.onReady(
     context: CoroutineContext,
     action: suspend (WorkerStateEvent) -> Unit
 ) = setOnReady { event -> launch(context) { action(event) } }
 
-fun <V> Service<V>.onRunning(
+fun Service<*>.onRunning(
     context: CoroutineContext,
     action: suspend (WorkerStateEvent) -> Unit
 ) = setOnRunning { event -> launch(context) { action(event) } }
 
-fun <V> Service<V>.onScheduled(
+fun Service<*>.onScheduled(
     context: CoroutineContext,
     action: suspend (WorkerStateEvent) -> Unit
 ) = setOnScheduled { event -> launch(context) { action(event) } }
 
-fun <V> Service<V>.onSucceeded(
+fun Service<*>.onSucceeded(
     context: CoroutineContext,
     action: suspend (WorkerStateEvent) -> Unit
 ) = setOnSucceeded { event -> launch(context) { action(event) } }

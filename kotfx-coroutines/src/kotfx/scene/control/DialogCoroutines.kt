@@ -6,27 +6,27 @@ import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
-fun <R> Dialog<R>.onCloseRequest(
+fun Dialog<*>.onCloseRequest(
     context: CoroutineContext,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
 ) = setOnCloseRequest { event -> launch(context) { action(event) } }
 
-fun <R> Dialog<R>.onHidden(
+fun Dialog<*>.onHidden(
     context: CoroutineContext,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
 ) = setOnHidden { event -> launch(context) { action(event) } }
 
-fun <R> Dialog<R>.onHiding(
+fun Dialog<*>.onHiding(
     context: CoroutineContext,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
 ) = setOnHiding { event -> launch(context) { action(event) } }
 
-fun <R> Dialog<R>.onShowing(
+fun Dialog<*>.onShowing(
     context: CoroutineContext,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
 ) = setOnShowing { event -> launch(context) { action(event) } }
 
-fun <R> Dialog<R>.onShown(
+fun Dialog<*>.onShown(
     context: CoroutineContext,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
 ) = setOnShown { event -> launch(context) { action(event) } }

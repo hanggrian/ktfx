@@ -21,7 +21,7 @@ fun <T> TreeView<T>.onEditStart(
     action: suspend CoroutineScope.(TreeView.EditEvent<T>) -> Unit
 ) = setOnEditStart { event -> launch(context) { action(event) } }
 
-fun <T> TreeView<T>.onScrollTo(
+fun TreeView<*>.onScrollTo(
     context: CoroutineContext,
     action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
 ) = setOnScrollTo { event -> launch(context) { action(event) } }

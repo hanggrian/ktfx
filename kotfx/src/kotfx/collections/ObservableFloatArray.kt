@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("ObservableArrayKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package kotfx.collections

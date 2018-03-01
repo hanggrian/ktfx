@@ -19,7 +19,7 @@ import javafx.scene.input.ScrollEvent
 import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
-import kotfx.internal.Interopability.asCallback
+import kotfx.internal.Interoperability.asCallback
 
 inline fun <E : Event> Scene.eventFilter(
     type: EventType<E>,

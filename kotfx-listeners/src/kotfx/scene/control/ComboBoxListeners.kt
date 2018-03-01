@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("ControlListenersKt")
 @file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
 package kotfx.scene.control

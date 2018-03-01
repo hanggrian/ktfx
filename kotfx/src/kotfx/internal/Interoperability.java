@@ -8,9 +8,9 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Some Java just can't be written in Kotlin, this utility class should take care of it.
  */
-public final class Interopability {
+public final class Interoperability {
 
-    private Interopability() {
+    private Interoperability() {
     }
 
     /**

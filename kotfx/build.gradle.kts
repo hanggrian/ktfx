@@ -22,8 +22,8 @@ plugins {
 }
 
 java.sourceSets {
-    get("main").java.srcDir("src")
-    get("test").java.srcDir("tests/src")
+    "main" { java.srcDir("src") }
+    "test" { java.srcDir("tests/src") }
 }
 
 val ktlint by configurations.creating
@@ -68,7 +68,7 @@ tasks {
         outputDirectory = "$buildDir/docs"
         doFirst {
             file(outputDirectory).deleteRecursively()
-            file("$buildDir/gitPublish").deleteRecursively()
+            buildDir.resolve("gitPublish").deleteRecursively()
         }
     }
 
@@ -78,8 +78,9 @@ tasks {
         contents.from(
             "pages",
             dokka.outputDirectory,
-            "../kotfx-coroutines/build/docs",
-            "../kotfx-layout/build/docs"
+            "../kotfx-layout/build/docs",
+            "../kotfx-listeners/build/docs",
+            "../kotfx-coroutines/build/docs"
         )
     }
 }

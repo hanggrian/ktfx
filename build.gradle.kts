@@ -19,7 +19,7 @@ allprojects {
     repositories {
         jcenter()
     }
-    tasks.withType(Delete::class.java) {
+    tasks.withType<Delete> {
         delete(projectDir.resolve("out"))
     }
 }

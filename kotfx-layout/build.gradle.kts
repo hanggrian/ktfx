@@ -21,8 +21,8 @@ plugins {
 }
 
 java.sourceSets {
-    get("main").java.srcDir("src")
-    get("test").java.srcDir("tests/src")
+    "main" { java.srcDir("src") }
+    "test" { java.srcDir("tests/src") }
 }
 
 val ktlint by configurations.creating
@@ -64,7 +64,7 @@ tasks {
         args("-F", "src/**/*.kt")
     }
 
-    val dokka by getting(DokkaTask::class) {
+    getting(DokkaTask::class) {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
     }

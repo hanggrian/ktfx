@@ -1,9 +1,9 @@
 KotFX
 =====
-Kotlin DSL and extension functions for minimalist JavaFX development.
+[Kotlin] extension for JavaFX in spirit of [android-ktx] and [anko]. 
 
-KotFX consists of several parts:
- * *KotFX Core*: full of helpers for bindings, collections, dialogs, and so on.
+Consists of several parts:
+ * *KotFX Core*: full of helpers for common JavaFX application logic.
  * *KotFX Layout*: write JavaFX layouts dynamically with Kotlin DSL.
  * *KotFX Listeners*: coming soon.
  * *KotFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
@@ -18,10 +18,10 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.34'
-    compile 'com.hendraanggrian:kotfx-layout:0.34'
-    compile 'com.hendraanggrian:kotfx-listeners:0.34'
-    compile 'com.hendraanggrian:kotfx-coroutines:0.34'
+    compile 'com.hendraanggrian:kotfx:0.35'
+    compile 'com.hendraanggrian:kotfx-layout:0.35'
+    compile 'com.hendraanggrian:kotfx-listeners:0.35'
+    compile 'com.hendraanggrian:kotfx-coroutines:0.35'
 }
 ```
 
@@ -131,5 +131,8 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
     
+[Kotlin]: https://kotlinlang.org/
+[android-ktx]: https://github.com/android/android-ktx
+[anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
 [demo_scenedsl]: /art/demo_scenedsl.png

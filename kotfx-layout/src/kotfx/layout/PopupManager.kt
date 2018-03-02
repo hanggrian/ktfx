@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+@file:Suppress("NOTHING_TO_INLINE", "ClassName", "UsePropertyAccessSyntax")
 
 package kotfx.layout
 

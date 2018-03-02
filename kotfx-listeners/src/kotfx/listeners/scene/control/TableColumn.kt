@@ -12,28 +12,28 @@ import javafx.scene.control.cell.TextFieldTableCell
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     noinline callback: (Int) -> ObservableValue<Boolean>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(CheckBoxTableCell.forTableColumn(callback, converter.asConverter()))
+) = setCellFactory(CheckBoxTableCell.forTableColumn(callback, converter.build()))
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     vararg items: T,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), *items))
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.build(), *items))
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     items: ObservableList<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), items))
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.build(), items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     vararg items: T,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), *items))
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.build(), *items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.asConverter(), items))
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.build(), items))
 
 inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(TextFieldTableCell.forTableColumn(converter.asConverter()))
+) = setCellFactory(TextFieldTableCell.forTableColumn(converter.build()))

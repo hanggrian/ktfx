@@ -1,3 +1,5 @@
+@file:Suppress("ClassName")
+
 package kotfx.layout
 
 import javafx.scene.layout.ColumnConstraints

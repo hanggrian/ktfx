@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+
 package kotfx.listeners
 
 import javafx.util.StringConverter
@@ -14,26 +16,24 @@ internal class _StringConverterBuilder<T> : StringConverter<T>(), StringConverte
     private var toString: ((T?) -> String)? = null
     private var fromString: ((String) -> T?)? = null
 
+    override fun toString(listener: (T?) -> String) {
+        toString = listener
+    }
+
     override fun toString(any: T?): String {
         val handler = toString ?: return any?.toString() ?: ""
         return handler(any)
+    }
+
+    override fun fromString(listener: (String) -> T?) {
+        fromString = listener
     }
 
     override fun fromString(string: String): T? {
         val handler = fromString ?: return null
         return handler(string)
     }
-
-    override fun toString(listener: (T?) -> String) {
-        toString = listener
-    }
-
-    override fun fromString(listener: (String) -> T?) {
-        fromString = listener
-    }
 }
 
-@PublishedApi
-@Suppress("NOTHING_TO_INLINE")
-internal inline fun <T> (StringConverterBuilder<T>.() -> Unit).asConverter(): StringConverter<T> =
+@PublishedApi internal inline fun <T> (StringConverterBuilder<T>.() -> Unit).build(): StringConverter<T> =
     _StringConverterBuilder<T>().apply(this)

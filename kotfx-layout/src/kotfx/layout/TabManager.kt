@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
 
 package kotfx.layout
 
@@ -17,10 +17,10 @@ interface TabManager {
 
 class _TabPane(vararg tabs: Tab) : TabPane(*tabs), TabManager
 
-inline fun tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl TabPane).() -> Unit)? = null): TabPane = TabPane(*tabs).apply { init?.invoke(this) }
-inline fun ChildManager.tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl TabPane).() -> Unit)? = null): TabPane = kotfx.layout.tabPane(*tabs, init = init).add()
-inline fun ItemManager.tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl TabPane).() -> Unit)? = null): TabPane = kotfx.layout.tabPane(*tabs, init = init).add()
-inline fun ButtonManager.tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl TabPane).() -> Unit)? = null): TabPane = kotfx.layout.tabPane(*tabs, init = init).add()
+inline fun tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null): TabPane = _TabPane(*tabs).apply { init?.invoke(this) }
+inline fun ChildManager.tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null): TabPane = kotfx.layout.tabPane(*tabs, init = init).add()
+inline fun ItemManager.tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null): TabPane = kotfx.layout.tabPane(*tabs, init = init).add()
+inline fun ButtonManager.tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null): TabPane = kotfx.layout.tabPane(*tabs, init = init).add()
 
 inline fun tab(text: String? = null, content: Node? = null, noinline init: ((@LayoutDsl Tab).() -> Unit)? = null): Tab = Tab(text, content).apply { init?.invoke(this) }
 inline fun TabManager.tab(text: String? = null, content: Node? = null, noinline init: ((@LayoutDsl Tab).() -> Unit)? = null): Tab = kotfx.layout.tab(text, content, init).add()

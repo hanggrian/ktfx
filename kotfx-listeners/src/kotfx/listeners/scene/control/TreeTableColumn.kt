@@ -12,28 +12,28 @@ import javafx.scene.control.cell.TextFieldTreeTableCell
 inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     noinline callback: (Int) -> ObservableValue<Boolean>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, converter.asConverter()))
+) = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, converter.build()))
 
 inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     vararg items: T,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), *items))
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.build(), *items))
 
 inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     items: ObservableList<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), items))
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.build(), items))
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     vararg items: T,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), *items))
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.build(), *items))
 
 inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), items))
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.build(), items))
 
 inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter.asConverter()))
+) = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter.build()))

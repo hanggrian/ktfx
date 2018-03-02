@@ -26,10 +26,7 @@ fun alert(
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(NONE, contentText, *buttonTypes).apply {
     if (title != null) headerTitle = title
-    if (graphic != null) when (graphic) {
-        is ImageView -> graphicIcon = graphic
-        else -> setGraphic(graphic)
-    }
+    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
     init?.invoke(this)
 }
 
@@ -47,10 +44,7 @@ fun infoAlert(
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(INFORMATION, contentText, *buttonTypes).apply {
     if (title != null) headerTitle = title
-    if (graphic != null) when (graphic) {
-        is ImageView -> graphicIcon = graphic
-        else -> setGraphic(graphic)
-    }
+    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
     init?.invoke(this)
 }
 
@@ -68,10 +62,7 @@ fun warningAlert(
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(WARNING, contentText, *buttonTypes).apply {
     if (title != null) headerTitle = title
-    if (graphic != null) when (graphic) {
-        is ImageView -> graphicIcon = graphic
-        else -> setGraphic(graphic)
-    }
+    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
     init?.invoke(this)
 }
 
@@ -89,10 +80,7 @@ fun confirmAlert(
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).apply {
     if (title != null) headerTitle = title
-    if (graphic != null) when (graphic) {
-        is ImageView -> graphicIcon = graphic
-        else -> setGraphic(graphic)
-    }
+    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
     init?.invoke(this)
 }
 
@@ -110,9 +98,6 @@ fun errorAlert(
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(ERROR, contentText, *buttonTypes).apply {
     if (title != null) headerTitle = title
-    if (graphic != null) when (graphic) {
-        is ImageView -> graphicIcon = graphic
-        else -> setGraphic(graphic)
-    }
+    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
     init?.invoke(this)
 }

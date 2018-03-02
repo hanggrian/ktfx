@@ -16,7 +16,7 @@ fun Dependency.kotlinx(module: String, version: String? = null) = "org.jetbrains
 fun Dependency.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:0.9.15"
 inline val Plugin.dokka get() = id("org.jetbrains.dokka")
 
-fun Dependency.ktlint() = "com.github.shyiko:ktlint:0.17.1"
+fun Dependency.ktlint() = "com.github.shyiko:ktlint:0.18.0"
 
 fun Dependency.gitPublish() = "org.ajoberstar:gradle-git-publish:0.3.2"
 inline val Plugin.`git-publish` get() = id("org.ajoberstar.git-publish")

@@ -9,15 +9,15 @@ import javafx.stage.Stage
 import kotfx.application.deploy
 import kotfx.beans.binding.booleanBindingOf
 import kotfx.beans.binding.stringBindingOf
-import kotfx.scene.button
+import kotfx.layout.button
+import kotfx.layout.gridPane
+import kotfx.layout.label
+import kotfx.layout.vbox
+import kotfx.listeners.onAction
 import kotfx.scene.control.errorAlert
 import kotfx.scene.control.infoAlert
-import kotfx.scene.control.onAction
-import kotfx.scene.gridPane
-import kotfx.scene.label
 import kotfx.scene.layout.minSize
 import kotfx.scene.layout.paddings
-import kotfx.scene.vbox
 
 class App : Application() {
 
@@ -136,7 +136,7 @@ class App : Application() {
                 onAction {
                     errorAlert("Not yet supported.") {
                         title = ":("
-                        dialogPane.expandableContent = kotfx.scene.vbox {
+                        dialogPane.expandableContent = kotfx.layout.vbox {
                             label("Suggestion") { font = font("Arial", BOLD, 14.0) }
                             label("Use an actual calculator.") topMargin 4
                         }

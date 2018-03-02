@@ -74,10 +74,7 @@ fun <R> dialog(
     init: (Dialog<R>.() -> Unit)? = null
 ): Dialog<R> = Dialog<R>().apply {
     if (title != null) setTitle(title)
-    if (graphic != null) when (graphic) {
-        is ImageView -> graphicIcon = graphic
-        else -> setGraphic(graphic)
-    }
+    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
     if (title != null && graphic != null) headerText = title
     init?.invoke(this)
 }

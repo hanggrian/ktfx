@@ -20,9 +20,6 @@ fun <T> choiceDialog(
     init: (ChoiceDialog<T>.() -> Unit)? = null
 ): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
     if (title != null) headerTitle = title
-    if (graphic != null) when (graphic) {
-        is ImageView -> graphicIcon = graphic
-        else -> setGraphic(graphic)
-    }
+    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
     init?.invoke(this)
 }

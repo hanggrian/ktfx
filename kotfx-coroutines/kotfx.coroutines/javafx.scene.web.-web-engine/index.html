@@ -5,25 +5,11 @@
 <link rel="stylesheet" href="../../../style.css">
 </HEAD>
 <BODY>
-<a href="../../index.html">kotfx-coroutines</a>&nbsp;/&nbsp;<a href="../index.html">kotfx.coroutines</a>&nbsp;/&nbsp;<a href=".">javafx.scene.web.WebEngine</a><br/>
+<a href="../../index.html">kotfx-coroutines</a>&nbsp;/&nbsp;<a href="../index.html">kotfx.coroutines</a>&nbsp;/&nbsp;<a href="./index.html">javafx.scene.web.WebEngine</a><br/>
 <br/>
 <h3>Extensions for javafx.scene.web.WebEngine</h3>
 <table>
 <tbody>
-<tr>
-<td>
-<p><a href="confirm-handler.html">confirmHandler</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">WebEngine</span><span class="symbol">.</span><span class="identifier">confirmHandler</span><span class="symbol">(</span><span class="identifier" id="kotfx.coroutines$confirmHandler(javafx.scene.web.WebEngine, kotlin.coroutines.experimental.CoroutineContext, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, kotlin.String, kotlin.Boolean)))/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/-coroutine-context/index.html"><span class="identifier">CoroutineContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;FX<span class="symbol">, </span><span class="identifier" id="kotfx.coroutines$confirmHandler(javafx.scene.web.WebEngine, kotlin.coroutines.experimental.CoroutineContext, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, kotlin.String, kotlin.Boolean)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="keyword">suspend </span><span class="identifier">CoroutineScope</span><span class="symbol">.</span><span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="create-popup-handler.html">createPopupHandler</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">WebEngine</span><span class="symbol">.</span><span class="identifier">createPopupHandler</span><span class="symbol">(</span><span class="identifier" id="kotfx.coroutines$createPopupHandler(javafx.scene.web.WebEngine, kotlin.coroutines.experimental.CoroutineContext, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, javafx.scene.web.PopupFeatures, javafx.scene.web.WebEngine)))/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/-coroutine-context/index.html"><span class="identifier">CoroutineContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;FX<span class="symbol">, </span><span class="identifier" id="kotfx.coroutines$createPopupHandler(javafx.scene.web.WebEngine, kotlin.coroutines.experimental.CoroutineContext, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, javafx.scene.web.PopupFeatures, javafx.scene.web.WebEngine)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="keyword">suspend </span><span class="identifier">CoroutineScope</span><span class="symbol">.</span><span class="symbol">(</span><span class="identifier">PopupFeatures</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">WebEngine</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
-</tr>
 <tr>
 <td>
 <p><a href="on-alert.html">onAlert</a></p>
@@ -58,13 +44,6 @@
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">WebEngine</span><span class="symbol">.</span><span class="identifier">onVisibilityChanged</span><span class="symbol">(</span><span class="identifier" id="kotfx.coroutines$onVisibilityChanged(javafx.scene.web.WebEngine, kotlin.coroutines.experimental.CoroutineContext, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, javafx.scene.web.WebEvent((kotlin.Boolean)), kotlin.Unit)))/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/-coroutine-context/index.html"><span class="identifier">CoroutineContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;FX<span class="symbol">, </span><span class="identifier" id="kotfx.coroutines$onVisibilityChanged(javafx.scene.web.WebEngine, kotlin.coroutines.experimental.CoroutineContext, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, javafx.scene.web.WebEvent((kotlin.Boolean)), kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="keyword">suspend </span><span class="identifier">CoroutineScope</span><span class="symbol">.</span><span class="symbol">(</span><span class="identifier">WebEvent</span><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">&gt;</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="prompt-handler.html">promptHandler</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">WebEngine</span><span class="symbol">.</span><span class="identifier">promptHandler</span><span class="symbol">(</span><span class="identifier" id="kotfx.coroutines$promptHandler(javafx.scene.web.WebEngine, kotlin.coroutines.experimental.CoroutineContext, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, javafx.scene.web.PromptData, kotlin.String)))/context">context</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines.experimental/-coroutine-context/index.html"><span class="identifier">CoroutineContext</span></a>&nbsp;<span class="symbol">=</span>&nbsp;FX<span class="symbol">, </span><span class="identifier" id="kotfx.coroutines$promptHandler(javafx.scene.web.WebEngine, kotlin.coroutines.experimental.CoroutineContext, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, javafx.scene.web.PromptData, kotlin.String)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="keyword">suspend </span><span class="identifier">CoroutineScope</span><span class="symbol">.</span><span class="symbol">(</span><span class="identifier">PromptData</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>

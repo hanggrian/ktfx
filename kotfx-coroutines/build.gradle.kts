@@ -67,7 +67,7 @@ tasks {
         args("-F", "src/**/*.kt")
     }
 
-    getting(DokkaTask::class) {
+    withType<DokkaTask> {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
     }
@@ -83,7 +83,7 @@ publish {
 }
 
 configure<JUnitPlatformExtension> {
-    if (this is ExtensionAware) extensions.getByType(FiltersExtension::class.java).apply {
+    if (this is ExtensionAware) extensions.getByType(FiltersExtension::class.java).run {
         if (this is ExtensionAware) extensions.getByType(EnginesExtension::class.java).include("spek")
     }
 }

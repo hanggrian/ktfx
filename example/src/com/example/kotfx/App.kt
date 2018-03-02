@@ -9,11 +9,11 @@ import javafx.stage.Stage
 import kotfx.application.deploy
 import kotfx.beans.binding.booleanBindingOf
 import kotfx.beans.binding.stringBindingOf
+import kotfx.coroutines.onAction
 import kotfx.layout.button
 import kotfx.layout.gridPane
 import kotfx.layout.label
 import kotfx.layout.vbox
-import kotfx.listeners.onAction
 import kotfx.scene.control.errorAlert
 import kotfx.scene.control.infoAlert
 import kotfx.scene.layout.minSize

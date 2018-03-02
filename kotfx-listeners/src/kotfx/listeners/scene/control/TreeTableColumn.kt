@@ -1,0 +1,39 @@
+@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+
+package kotfx.listeners
+
+import javafx.beans.value.ObservableValue
+import javafx.collections.ObservableList
+import javafx.scene.control.TreeTableColumn
+import javafx.scene.control.cell.CheckBoxTreeTableCell
+import javafx.scene.control.cell.ChoiceBoxTreeTableCell
+import javafx.scene.control.cell.TextFieldTreeTableCell
+
+inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
+    noinline callback: (Int) -> ObservableValue<Boolean>,
+    converter: StringConverterBuilder<T>.() -> Unit
+) = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, converter.asConverter()))
+
+inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
+    vararg items: T,
+    converter: StringConverterBuilder<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), *items))
+
+inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
+    items: ObservableList<T>,
+    converter: StringConverterBuilder<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), items))
+
+inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
+    vararg items: T,
+    converter: StringConverterBuilder<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), *items))
+
+inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
+    items: ObservableList<T>,
+    converter: StringConverterBuilder<T>.() -> Unit
+) = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter.asConverter(), items))
+
+inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
+    converter: StringConverterBuilder<T>.() -> Unit
+) = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter.asConverter()))

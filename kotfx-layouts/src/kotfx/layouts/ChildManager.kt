@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "ClassName")
 
-package kotfx.layout
+package kotfx.layouts
 
 import javafx.collections.ObservableList
 import javafx.geometry.HPos
@@ -23,7 +23,6 @@ import javafx.scene.layout.StackPane
 import javafx.scene.layout.TilePane
 import javafx.scene.layout.VBox
 import javafx.scene.text.TextFlow
-import kotfx.annotations.LayoutDsl
 
 interface ChildManager {
 
@@ -104,9 +103,9 @@ open class _AnchorPane : AnchorPane(), ChildManager, ConstrainedPane {
 }
 
 inline fun anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
-inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = kotfx.layout.anchorPane(init).add()
-inline fun ItemManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = kotfx.layout.anchorPane(init).add()
-inline fun ButtonManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = kotfx.layout.anchorPane(init).add()
+inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = kotfx.layouts.anchorPane(init).add()
+inline fun ItemManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = kotfx.layouts.anchorPane(init).add()
+inline fun ButtonManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = kotfx.layouts.anchorPane(init).add()
 
 open class _BorderPane : BorderPane(), ChildManager, AlignedPane, MarginedPane {
 
@@ -120,9 +119,9 @@ open class _BorderPane : BorderPane(), ChildManager, AlignedPane, MarginedPane {
 }
 
 inline fun borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init)
-inline fun ChildManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = kotfx.layout.borderPane(init).add()
-inline fun ItemManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = kotfx.layout.borderPane(init).add()
-inline fun ButtonManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = kotfx.layout.borderPane(init).add()
+inline fun ChildManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = kotfx.layouts.borderPane(init).add()
+inline fun ItemManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = kotfx.layouts.borderPane(init).add()
+inline fun ButtonManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = kotfx.layouts.borderPane(init).add()
 
 open class _FlowPane : FlowPane(), ChildManager, MarginedPane {
 
@@ -134,9 +133,9 @@ open class _FlowPane : FlowPane(), ChildManager, MarginedPane {
 }
 
 inline fun flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init)
-inline fun ChildManager.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = kotfx.layout.flowPane(init).add()
-inline fun ItemManager.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = kotfx.layout.flowPane(init).add()
-inline fun ButtonManager.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = kotfx.layout.flowPane(init).add()
+inline fun ChildManager.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = kotfx.layouts.flowPane(init).add()
+inline fun ItemManager.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = kotfx.layouts.flowPane(init).add()
+inline fun ButtonManager.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = kotfx.layouts.flowPane(init).add()
 
 open class _GridPane : GridPane(), ChildManager, MarginedPane, AlignedPane, HGrowedPane, VGrowedPane {
 
@@ -186,9 +185,9 @@ open class _GridPane : GridPane(), ChildManager, MarginedPane, AlignedPane, HGro
 }
 
 inline fun gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)
-inline fun ChildManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = kotfx.layout.gridPane(init).add()
-inline fun ItemManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = kotfx.layout.gridPane(init).add()
-inline fun ButtonManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = kotfx.layout.gridPane(init).add()
+inline fun ChildManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = kotfx.layouts.gridPane(init).add()
+inline fun ItemManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = kotfx.layouts.gridPane(init).add()
+inline fun ButtonManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = kotfx.layouts.gridPane(init).add()
 
 open class _HBox : HBox(), ChildManager, HGrowedPane, MarginedPane {
 
@@ -202,9 +201,9 @@ open class _HBox : HBox(), ChildManager, HGrowedPane, MarginedPane {
 }
 
 inline fun hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
-inline fun ChildManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = kotfx.layout.hbox(init).add()
-inline fun ItemManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = kotfx.layout.hbox(init).add()
-inline fun ButtonManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = kotfx.layout.hbox(init).add()
+inline fun ChildManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = kotfx.layouts.hbox(init).add()
+inline fun ItemManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = kotfx.layouts.hbox(init).add()
+inline fun ButtonManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = kotfx.layouts.hbox(init).add()
 
 open class _StackPane : StackPane(), ChildManager, AlignedPane, MarginedPane {
 
@@ -218,16 +217,16 @@ open class _StackPane : StackPane(), ChildManager, AlignedPane, MarginedPane {
 }
 
 inline fun stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init)
-inline fun ChildManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = kotfx.layout.stackPane(init).add()
-inline fun ItemManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = kotfx.layout.stackPane(init).add()
-inline fun ButtonManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = kotfx.layout.stackPane(init).add()
+inline fun ChildManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = kotfx.layouts.stackPane(init).add()
+inline fun ItemManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = kotfx.layouts.stackPane(init).add()
+inline fun ButtonManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = kotfx.layouts.stackPane(init).add()
 
 open class _TextFlow : TextFlow(), ChildManager
 
 inline fun textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = _TextFlow().apply(init)
-inline fun ChildManager.textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = kotfx.layout.textFlow(init).add()
-inline fun ItemManager.textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = kotfx.layout.textFlow(init).add()
-inline fun ButtonManager.textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = kotfx.layout.textFlow(init).add()
+inline fun ChildManager.textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = kotfx.layouts.textFlow(init).add()
+inline fun ItemManager.textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = kotfx.layouts.textFlow(init).add()
+inline fun ButtonManager.textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = kotfx.layouts.textFlow(init).add()
 
 open class _TilePane : TilePane(), ChildManager, AlignedPane, MarginedPane {
 
@@ -241,9 +240,9 @@ open class _TilePane : TilePane(), ChildManager, AlignedPane, MarginedPane {
 }
 
 inline fun tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init)
-inline fun ChildManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = kotfx.layout.tilePane(init).add()
-inline fun ItemManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = kotfx.layout.tilePane(init).add()
-inline fun ButtonManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = kotfx.layout.tilePane(init).add()
+inline fun ChildManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = kotfx.layouts.tilePane(init).add()
+inline fun ItemManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = kotfx.layouts.tilePane(init).add()
+inline fun ButtonManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = kotfx.layouts.tilePane(init).add()
 
 open class _VBox : VBox(), ChildManager, VGrowedPane, MarginedPane {
 
@@ -257,8 +256,8 @@ open class _VBox : VBox(), ChildManager, VGrowedPane, MarginedPane {
 }
 
 inline fun vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = _VBox().apply(init)
-inline fun ChildManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = kotfx.layout.vbox(init).add()
-inline fun ItemManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = kotfx.layout.vbox(init).add()
-inline fun ButtonManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = kotfx.layout.vbox(init).add()
+inline fun ChildManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = kotfx.layouts.vbox(init).add()
+inline fun ItemManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = kotfx.layouts.vbox(init).add()
+inline fun ButtonManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = kotfx.layouts.vbox(init).add()
 
 private inline fun posOf(vpos: VPos, hpos: HPos): Pos = "${vpos}_$hpos".let { if (it == "CENTER_CENTER") Pos.CENTER else Pos.valueOf(it) }

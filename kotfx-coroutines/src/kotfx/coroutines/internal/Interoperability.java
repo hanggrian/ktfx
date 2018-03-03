@@ -1,4 +1,4 @@
-package kotfx.internal;
+package kotfx.coroutines.internal;
 
 import javafx.util.Callback;
 import kotlin.Unit;

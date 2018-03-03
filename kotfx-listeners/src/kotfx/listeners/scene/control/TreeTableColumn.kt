@@ -37,3 +37,7 @@ inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
 inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
     converter: StringConverterBuilder<T>.() -> Unit
 ) = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter.build()))
+
+inline fun <S, T> TreeTableColumn<S, T>.cellFactory(
+    noinline cellFactory: TreeTableCellBuilder<S, T>.() -> Unit
+) = setCellFactory { cellFactory.build() }

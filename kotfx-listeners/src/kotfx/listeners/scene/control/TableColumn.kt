@@ -37,3 +37,7 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
 inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
     converter: StringConverterBuilder<T>.() -> Unit
 ) = setCellFactory(TextFieldTableCell.forTableColumn(converter.build()))
+
+inline fun <S, T> TableColumn<S, T>.cellFactory(
+    noinline cellFactory: TableCellBuilder<S, T>.() -> Unit
+) = setCellFactory { cellFactory.build() }

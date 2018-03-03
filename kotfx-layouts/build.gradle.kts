@@ -9,7 +9,7 @@ import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 
-group = "$releaseArtifact.layout"
+group = "$releaseArtifact.layouts"
 version = releaseVersion
 
 plugins {
@@ -73,7 +73,7 @@ tasks {
 publish {
     userOrg = releaseUser
     groupId = releaseGroup
-    artifactId = "$releaseArtifact-layout"
+    artifactId = "$releaseArtifact-layouts"
     publishVersion = releaseVersion
     desc = releaseDesc
     website = releaseWeb

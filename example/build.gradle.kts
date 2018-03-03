@@ -12,7 +12,7 @@ kotlin.experimental.coroutines = ENABLE
 
 dependencies {
     implementation(project(":kotfx"))
-    implementation(project(":kotfx-layout"))
+    implementation(project(":kotfx-layouts"))
     implementation(project(":kotfx-listeners"))
     implementation(project(":kotfx-coroutines"))
 }

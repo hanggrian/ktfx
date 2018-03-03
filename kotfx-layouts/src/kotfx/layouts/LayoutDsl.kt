@@ -1,4 +1,4 @@
-package kotfx.annotations
+package kotfx.layouts
 
 @DslMarker
 @Target(AnnotationTarget.TYPE)

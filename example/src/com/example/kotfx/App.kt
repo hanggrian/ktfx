@@ -10,10 +10,10 @@ import kotfx.application.deploy
 import kotfx.beans.binding.booleanBindingOf
 import kotfx.beans.binding.stringBindingOf
 import kotfx.coroutines.onAction
-import kotfx.layout.button
-import kotfx.layout.gridPane
-import kotfx.layout.label
-import kotfx.layout.vbox
+import kotfx.layouts.button
+import kotfx.layouts.gridPane
+import kotfx.layouts.label
+import kotfx.layouts.vbox
 import kotfx.scene.control.errorAlert
 import kotfx.scene.control.infoAlert
 import kotfx.scene.layout.minSize
@@ -136,7 +136,7 @@ class App : Application() {
                 onAction {
                     errorAlert("Not yet supported.") {
                         title = ":("
-                        dialogPane.expandableContent = kotfx.layout.vbox {
+                        dialogPane.expandableContent = kotfx.layouts.vbox {
                             label("Suggestion") { font = font("Arial", BOLD, 14.0) }
                             label("Use an actual calculator.") topMargin 4
                         }

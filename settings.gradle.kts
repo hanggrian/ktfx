@@ -1,5 +1,5 @@
 include(":kotfx")
-include(":kotfx-layout")
+include(":kotfx-layouts")
 include(":kotfx-listeners")
 include(":kotfx-coroutines")
 

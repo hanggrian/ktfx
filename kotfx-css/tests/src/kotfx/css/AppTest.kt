@@ -4,11 +4,11 @@ import javafx.scene.Cursor
 import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.scene.effect.BlendMode
-import javafx.scene.layout.BorderPane
 import javafx.stage.Stage
-import org.junit.Assert.assertEquals
+import kotfx.css.experimental.style
 import org.junit.Test
 import org.testfx.framework.junit.ApplicationTest
+import kotlin.test.assertEquals
 
 class AppTest : ApplicationTest() {
 
@@ -16,19 +16,21 @@ class AppTest : ApplicationTest() {
 
     override fun start(stage: Stage) {
         label = Label()
-        stage.scene = Scene(BorderPane(label))
+        stage.scene = Scene(label)
         stage.show()
     }
 
     @Test fun asd() {
-        label.style = nodeStyle {
-            blendMode = BlendMode.GREEN
+        label.style = style {
+            blendMode = BlendMode.RED
             cursor = Cursor.DISAPPEAR
+            opacity = 0.5
         }
         label.applyCss()
         label.layout()
 
-        //assertEquals(label.blendMode, BlendMode.GREEN)
+        //assertEquals(label.blendMode, BlendMode.RED)
         assertEquals(label.cursor, Cursor.DISAPPEAR)
+        assertEquals(label.opacity, 0.5)
     }
 }

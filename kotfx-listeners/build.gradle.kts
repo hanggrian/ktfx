@@ -33,14 +33,14 @@ dependencies {
     ktlint(ktlint())
     testCompile(kotlin("test", kotlinVersion))
     testCompile(kotlin("reflect", kotlinVersion))
-    testCompile(spek("api", spekVersion)) {
+    testCompile(spek("api")) {
         exclude("org.jetbrains.kotlin")
     }
-    testRuntime(spek("junit-platform-engine", spekVersion)) {
+    testRuntime(spek("junit-platform-engine")) {
         exclude("org.jetbrains.kotlin")
         exclude("org.junit.platform")
     }
-    testCompile(junitPlatform("runner", junitPlatformVersion))
+    testCompile(junitPlatform("runner"))
 }
 
 tasks {

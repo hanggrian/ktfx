@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package kotfx.animation.experimental
+package kotfx.animation
 
 import javafx.animation.Animation
 import javafx.animation.FadeTransition

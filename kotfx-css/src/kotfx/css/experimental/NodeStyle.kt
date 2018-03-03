@@ -1,4 +1,4 @@
-package kotfx.css
+package kotfx.css.experimental
 
 import javafx.scene.Cursor
 import javafx.scene.effect.BlendMode
@@ -8,9 +8,11 @@ import java.lang.Character.isUpperCase
 open class Style {
     protected val map: MutableMap<String, Any> = mutableMapOf()
 
-    override fun toString(): String = StringBuilder().apply {
-        map.forEach { key, value -> appendln("\t${key.toFXKey()}: ${value.toString().toLowerCase()};") }
-    }.toString()
+    override fun toString(): String {
+        var s = ""
+        map.forEach { key, value -> s += "\t${key.toFXKey()}: ${value.toString().toLowerCase()};\n" }
+        return s
+    }
 
     private companion object {
         val NO_FX = arrayOf("visibility")
@@ -41,7 +43,7 @@ class AllStyle : NodeStyle() {
 
 }
 
-fun nodeStyle(init: NodeStyle.() -> Unit): String = StringBuilder().apply {
+inline fun style(init: NodeStyle.() -> Unit): String = StringBuilder().apply {
     appendln(".node {")
     append(NodeStyle().apply(init).toString())
     append("}")

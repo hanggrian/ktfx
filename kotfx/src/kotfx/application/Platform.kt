@@ -2,17 +2,15 @@
 
 package kotfx.application
 
+import com.sun.javafx.application.PlatformImpl
 import javafx.application.ConditionalFeature
 import javafx.application.Platform
-import javafx.application.Platform.isFxApplicationThread
-import javafx.application.Platform.isSupported
-import javafx.application.Platform.runLater
 
 /** Run the specified block on the JavaFX thread. */
-inline fun later(noinline block: () -> Unit) = runLater(block)
+inline fun later(noinline block: () -> Unit) = Platform.runLater(block)
 
 /** Returns true if the calling thread is the JavaFX thread. */
-inline fun isFXThread(): Boolean = isFxApplicationThread()
+inline fun isFXThread(): Boolean = Platform.isFxApplicationThread()
 
 /** Causes JavaFX application and JVM to terminate immediately. */
 inline fun exit(status: Int = 0) {
@@ -21,4 +19,6 @@ inline fun exit(status: Int = 0) {
 }
 
 /** Queries whether a specific conditional feature is supported by the platform. */
-inline fun ConditionalFeature.isSupported(): Boolean = isSupported(this)
+inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)
+
+fun initToolkit(startup: (() -> Unit)? = null) = PlatformImpl.startup { startup?.invoke() }

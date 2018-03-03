@@ -17,6 +17,7 @@ plugins {
     kotlin("jvm")
     dokka
     `bintray-release`
+    `junit-platform`
 }
 
 java.sourceSets {
@@ -30,9 +31,9 @@ dependencies {
     compile(project(":kotfx"))
     compile(kotlin("stdlib", kotlinVersion))
     ktlint(ktlint())
-    testCompile("org.testfx:testfx-core:4.0.12-alpha")
-    testCompile("org.testfx:testfx-junit:4.0.12-alpha")
-    testCompile("junit:junit:4.12")
+    testCompile(kotlin("test", kotlinVersion))
+    testCompile(testFX("core"))
+    testCompile(testFX("junit"))
 }
 
 tasks {
@@ -69,4 +70,10 @@ publish {
     publishVersion = releaseVersion
     desc = releaseDesc
     website = releaseWeb
+}
+
+configure<JUnitPlatformExtension> {
+    if (this is ExtensionAware) extensions.getByType(FiltersExtension::class.java).run {
+        if (this is ExtensionAware) extensions.getByType(EnginesExtension::class.java).include("spek")
+    }
 }

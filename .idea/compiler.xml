@@ -8,6 +8,8 @@
       <module name="example_test" target="1.8" />
       <module name="kotfx-coroutines_main" target="1.8" />
       <module name="kotfx-coroutines_test" target="1.8" />
+      <module name="kotfx-css_main" target="1.8" />
+      <module name="kotfx-css_test" target="1.8" />
       <module name="kotfx-kotfx_main" target="1.8" />
       <module name="kotfx-kotfx_test" target="1.8" />
       <module name="kotfx-layout_main" target="1.8" />

@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/example" />
             <option value="$PROJECT_DIR$/kotfx" />
             <option value="$PROJECT_DIR$/kotfx-coroutines" />
+            <option value="$PROJECT_DIR$/kotfx-css" />
             <option value="$PROJECT_DIR$/kotfx-layouts" />
             <option value="$PROJECT_DIR$/kotfx-listeners" />
           </set>

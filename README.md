@@ -5,8 +5,8 @@ Written in spirit of [android-ktx] and [anko].
 
 Consists of several parts:
  * *KotlinFX Core*: full of helpers for common JavaFX application logic.
- * *KotlinFX Layout*: write JavaFX layouts dynamically with Kotlin DSL.
- * *KotlinFX Listeners*: coming soon.
+ * *KotlinFX Layout*: dynamic JavaFX layout with Kotlin DSL.
+ * *KotlinFX Listeners*: write common JavaFX listeners with Kotlin DSL.
  * *KotlinFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
 
 Download
@@ -141,11 +141,11 @@ Trade common JavaFX listener with Kotlin DSL.
 val dateBox = ChoiceBox<Date>()
 dateBox.converter {
     val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-    fromString { 
-        dateFormat.parse(it) 
+    fromString {
+        dateFormat.parse(it)
     }
-    toString { 
-        dateFormat.format(it) 
+    toString {
+        dateFormat.format(it)
     }
 }
 
@@ -180,7 +180,7 @@ button.onAction(CommonPool) {
 
 License
 -------
-    Copyright 2017 Hendra Anggrian
+    Copyright 2018 Hendra Anggrian
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

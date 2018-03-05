@@ -15,7 +15,7 @@ To download all features, use KotlinFX main library:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian:kotlinfx:0.1'
+    compile 'com.hendraanggrian.kotlinfx:kotlinfx:0.1'
 }
 ```
 
@@ -23,12 +23,14 @@ Or download separate library if only specific feature is desired:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian:kotlinfx-core:0.1'
-    compile 'com.hendraanggrian:kotlinfx-layouts:0.1'
-    compile 'com.hendraanggrian:kotlinfx-listeners:0.1'
-    compile 'com.hendraanggrian:kotlinfx-coroutines:0.1'
+    compile 'com.hendraanggrian.kotlinfx:kotlinfx-core:0.1'
+    compile 'com.hendraanggrian.kotlinfx:kotlinfx-layouts:0.1'
+    compile 'com.hendraanggrian.kotlinfx:kotlinfx-listeners:0.1'
+    compile 'com.hendraanggrian.kotlinfx:kotlinfx-coroutines:0.1'
 }
 ```
+
+All artifacts are hosted on [jcenter].
 
 KotlinFX Core
 -------------
@@ -37,6 +39,7 @@ The main goal of core library is not to add any new feature to the existing Java
 Below are preview of some of the packages.
 
 #### Collections
+
 ```kotlin
 // create unmodifiable observable collection
 val emptyUnmodifiableList = emptyObservableList()
@@ -51,6 +54,7 @@ val list = myList.toObservableList() // or toMutableObservableList() for modifia
 ```
 
 #### Bindings
+
 ```kotlin
 // infix conditional binding
 button.disableProperty.bind(firstName.textProperty().isEmpty or lastName.textProperty().isEmpty)
@@ -71,7 +75,6 @@ imageView.imageProperty().bind(bindingOf(urlField) {
 ```
 
 #### Dialogs
-Create `Dialog`, `ChoiceDialog`, `TextInputDialog`, and `Alert` with Kotlin DSL.
 
 ```kotlin
 // show an alert
@@ -108,8 +111,8 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-KotlinFX Layout
----------------
+KotlinFX Layouts
+----------------
 Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
 
 ```kotlin
@@ -131,20 +134,35 @@ gridPane {
 
 KotlinFX Listeners
 ------------------
-Trade common JavaFX listener like `StringConverter` with Kotlin DSL.
+Trade common JavaFX listener with Kotlin DSL.
 
 ```kotlin
-val persons = ChoiceBox<Person>()
-persons.converter {
-    fromString { getPersonFromString(it) }
-    toString { it.name }
+// string converter
+val dateBox = ChoiceBox<Date>()
+dateBox.converter {
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+    fromString { 
+        dateFormat.parse(it) 
+    }
+    toString { 
+        dateFormat.format(it) 
+    }
+}
+
+// custom list cell
+val personList = ListView<Person>()
+personList.cellFactory {
+    onUpdateItem { person, empty ->
+        if (person != null && !empty) {
+            graphic = Button("Do something")
+        }
+    }
 }
 ```
 
 KotlinFX Coroutines
 -------------------
-*KotFX Coroutines* is based on the experimental [kotlinx.coroutines] library,
-it allows invoking JavaFX `EventHandler` the coroutine way.
+Based on the experimental [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
 ```kotlin
 button.setOnAction {
@@ -180,4 +198,5 @@ License
 [android-ktx]: https://github.com/android/android-ktx
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
+[jcenter]: https://bintray.com/hendraanggrian/kotlinfx
 [demo_layouts]: /art/demo_layouts.png

@@ -26,21 +26,20 @@ dependencies {
     compile(project(":kotlinfx-coroutines"))
 }
 
-tasks {
-    gitPublish {
-        repoUri = releaseWeb
-        branch = "gh-pages"
-        contents.from(
-            "pages",
-            "../kotlinfx-core/build/docs",
-            "../kotlinfx-layouts/build/docs",
-            "../kotlinfx-listeners/build/docs",
-            "../kotlinfx-coroutines/build/docs"
-        )
-    }
+gitPublish {
+    repoUri = releaseWeb
+    branch = "gh-pages"
+    contents.from(
+        "pages",
+        "../kotlinfx-core/build/docs",
+        "../kotlinfx-layouts/build/docs",
+        "../kotlinfx-listeners/build/docs",
+        "../kotlinfx-coroutines/build/docs"
+    )
 }
 
 publish {
+    repoName = releaseArtifact
     userOrg = releaseUser
     groupId = releaseGroup
     artifactId = releaseArtifact

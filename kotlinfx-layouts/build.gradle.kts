@@ -71,6 +71,7 @@ tasks {
 }
 
 publish {
+    repoName = releaseArtifact
     userOrg = releaseUser
     groupId = releaseGroup
     artifactId = "$releaseArtifact-layouts"

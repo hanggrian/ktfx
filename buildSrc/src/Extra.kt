@@ -2,8 +2,8 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.plugin.use.PluginDependenciesSpec
 
 const val releaseUser = "hendraanggrian"
-const val releaseGroup = "com.$releaseUser"
 const val releaseArtifact = "kotlinfx"
+const val releaseGroup = "com.$releaseUser.$releaseArtifact"
 const val releaseVersion = "0.1"
 const val releaseDesc = "Minimalist JavaFX development with Kotlin"
 const val releaseWeb = "https://github.com/$releaseUser/$releaseArtifact"

@@ -15,9 +15,6 @@ version = releaseVersion
 plugins {
     `java-library`
     kotlin("jvm")
-    dokka
-    `bintray-release`
-    `junit-platform`
 }
 
 java.sourceSets {
@@ -55,25 +52,5 @@ tasks {
         classpath = ktlint
         main = "com.github.shyiko.ktlint.Main"
         args("-F", "src/**/*.kt")
-    }
-
-    withType<DokkaTask> {
-        outputDirectory = "$buildDir/docs"
-        doFirst { file(outputDirectory).deleteRecursively() }
-    }
-}
-
-publish {
-    userOrg = releaseUser
-    groupId = releaseGroup
-    artifactId = "$releaseArtifact-css"
-    publishVersion = releaseVersion
-    desc = releaseDesc
-    website = releaseWeb
-}
-
-configure<JUnitPlatformExtension> {
-    if (this is ExtensionAware) extensions.getByType(FiltersExtension::class.java).run {
-        if (this is ExtensionAware) extensions.getByType(EnginesExtension::class.java).include("spek")
     }
 }

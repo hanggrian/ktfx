@@ -1,7 +1,6 @@
 package com.example.kotlinfx
 
 import javafx.application.Application
-import javafx.geometry.HPos.RIGHT
 import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.scene.text.Font.font
@@ -14,11 +13,9 @@ import kotlinfx.coroutines.onAction
 import kotlinfx.layouts.button
 import kotlinfx.layouts.gridPane
 import kotlinfx.layouts.label
-import kotlinfx.layouts.textField
 import kotlinfx.layouts.vbox
 import kotlinfx.scene.control.errorAlert
 import kotlinfx.scene.control.infoAlert
-import kotlinfx.scene.layout.gaps
 import kotlinfx.scene.layout.minSize
 import kotlinfx.scene.layout.paddings
 

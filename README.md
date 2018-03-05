@@ -1,47 +1,42 @@
-KotFX
-=====
-[Kotlin] extension for JavaFX in spirit of [android-ktx] and [anko]. 
+KotlinFX
+========
+Unofficial JavaFX extension in [Kotlin] language.
+Written in spirit of [android-ktx] and [anko].
 
 Consists of several parts:
- * *KotFX Core*: full of helpers for common JavaFX application logic.
- * *KotFX Layout*: write JavaFX layouts dynamically with Kotlin DSL.
- * *KotFX Listeners*: coming soon.
- * *KotFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
-  
+ * *KotlinFX Core*: full of helpers for common JavaFX application logic.
+ * *KotlinFX Layout*: write JavaFX layouts dynamically with Kotlin DSL.
+ * *KotlinFX Listeners*: coming soon.
+ * *KotlinFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
+
 Download
 --------
-*KotFX Layout* and *KotFX Coroutines* are based on *KotFX Core* library.
+To download all features, use KotlinFX main library:
 
 ```gradle
-repositories {
-    jcenter()
-}
-
 dependencies {
-    compile 'com.hendraanggrian:kotfx:0.35'
-    compile 'com.hendraanggrian:kotfx-layouts:0.35'
-    compile 'com.hendraanggrian:kotfx-listeners:0.35'
-    compile 'com.hendraanggrian:kotfx-coroutines:0.35'
+    compile 'com.hendraanggrian:kotlinfx:0.1'
 }
 ```
 
-KotFX Core
-----------
-#### Bindings
-`kotfx.bindings` simplifies the process using kotlin infix and operator functions.
-```kotlin
-button.disableProperty.bind(passwordField.textProperty().isEmpty
-    or passwordConfirmField.textProperty().isEmpty
-    or (passwordField.textProperty().length() less 4)
-    or (passwordConfirmField.textProperty().length() less 4)
-    or (passwordField.textProperty() neq passwordConfirmField.textProperty()))
+Or download separate library if only specific feature is desired:
+
+```gradle
+dependencies {
+    compile 'com.hendraanggrian:kotlinfx-core:0.1'
+    compile 'com.hendraanggrian:kotlinfx-layouts:0.1'
+    compile 'com.hendraanggrian:kotlinfx-listeners:0.1'
+    compile 'com.hendraanggrian:kotlinfx-coroutines:0.1'
+}
 ```
+
+KotlinFX Core
+-------------
+Full of extensions for JavaFX, packaged accordingly.
+The main goal of core library is not to add any new feature to the existing JavaFX APIs.
+Below are preview of some of the packages.
 
 #### Collections
-In JavaFX, collections are wrapped into observable version of themselves.
-`kotfx.collections` provides static functions to create new or convert existing into observable collections,
-`kotfx.collections` aims to extend those functions with Kotlin's extension functions.
-
 ```kotlin
 // create unmodifiable observable collection
 val emptyUnmodifiableList = emptyObservableList()
@@ -53,6 +48,26 @@ val modifiableList = mutableObservableListOf(1, 2, 3)
 
 // convert existing
 val list = myList.toObservableList() // or toMutableObservableList() for modifiable version
+```
+
+#### Bindings
+```kotlin
+// infix conditional binding
+button.disableProperty.bind(firstName.textProperty().isEmpty or lastName.textProperty().isEmpty)
+
+// operator binding for number properties
+totalProperty.bind(qtyProperty * priceProperty)
+
+// infix binding for number properties
+loginButton.disableProperty.bind(passwordField.textProperty.length() less 4)
+
+// custom binding
+label.graphic().bind(stringBindingOf(listView.selectionModel.selectedIndexProperty()) {
+    "${listView.selectionModel.selectedIndex} selected"
+})
+imageView.imageProperty().bind(bindingOf(urlField) {
+    Image(urlField.text)
+})
 ```
 
 #### Dialogs
@@ -81,7 +96,7 @@ choiceDialog(items, defaultItem) {
 
 // show a custom dialog
 dialog<String>("Who's a little piggy?") {
-    content = gridPane { }
+    content = ...
     val button1 = yesButton("Me")
     noButton("Not me")
     helpButton("What's a piggy?") {
@@ -93,27 +108,57 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-KotFX Layout
-------------
+KotlinFX Layout
+---------------
 Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
+
 ```kotlin
-vbox {
-    val name = textField()
-    button("Say Hello") {
-        setOnAction { alert("Hello, ${name.text}!") }
-    } marginTop 8
+gridPane {
+    gaps = 8
+    label("First name") row 0 col 0
+    val firstName = textField() row 0 col 1
+    label("Last name") row 1 col 0
+    val lastName = textField() row 1 col 1
+    button("Say hello") {
+        setOnAction {
+            infoAlert("Hello, ${firstName.text} ${lastName.text}!").show()
+        }
+    } hpos RIGHT row 2 col 1
 }
 ```
 
-![Demo][demo_scenedsl]
+![Layouts demo][demo_layouts]
 
-KotFX Coroutines
-----------------
+KotlinFX Listeners
+------------------
+Trade common JavaFX listener like `StringConverter` with Kotlin DSL.
+
+```kotlin
+val persons = ChoiceBox<Person>()
+persons.converter {
+    fromString { getPersonFromString(it) }
+    toString { it.name }
+}
+```
+
+KotlinFX Coroutines
+-------------------
 *KotFX Coroutines* is based on the experimental [kotlinx.coroutines] library,
-it allows invoking JavaFX listeners the coroutine way:
- * `EventHandler`: button action, window showing, animation finished, etc.
- * `Callback`: list cell factory, table row factory, dialog result converter, etc.
- * `StringConverter`: choice converter, binding `StringProperty` bidirectionally, etc.
+it allows invoking JavaFX `EventHandler` the coroutine way.
+
+```kotlin
+button.setOnAction {
+    doSomethingInBackground() // might freeze UI
+    celebrateCompletion()
+}
+
+button.onAction(CommonPool) {
+    doSomethingInBackground() // non-blocking in common pool
+    launch(FX) {
+        celebrateCompletion()
+    }
+}
+```
 
 License
 -------
@@ -130,9 +175,9 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-    
+
 [Kotlin]: https://kotlinlang.org/
 [android-ktx]: https://github.com/android/android-ktx
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
-[demo_scenedsl]: /art/demo_scenedsl.png
+[demo_layouts]: /art/demo_layouts.png

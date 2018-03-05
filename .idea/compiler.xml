@@ -20,8 +20,20 @@
       <module name="kotfx-layouts_test" target="1.8" />
       <module name="kotfx-listeners_main" target="1.8" />
       <module name="kotfx-listeners_test" target="1.8" />
-      <module name="kotfx_main" target="1.9" />
-      <module name="kotfx_test" target="1.9" />
+      <module name="kotfx_main" target="1.8" />
+      <module name="kotfx_test" target="1.8" />
+      <module name="kotlinfx-core_main" target="1.8" />
+      <module name="kotlinfx-core_test" target="1.8" />
+      <module name="kotlinfx-coroutines_main" target="1.8" />
+      <module name="kotlinfx-coroutines_test" target="1.8" />
+      <module name="kotlinfx-css_main" target="1.8" />
+      <module name="kotlinfx-css_test" target="1.8" />
+      <module name="kotlinfx-kotlinfx_main" target="1.8" />
+      <module name="kotlinfx-kotlinfx_test" target="1.8" />
+      <module name="kotlinfx-layouts_main" target="1.8" />
+      <module name="kotlinfx-layouts_test" target="1.8" />
+      <module name="kotlinfx-listeners_main" target="1.8" />
+      <module name="kotlinfx-listeners_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

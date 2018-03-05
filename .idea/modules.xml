@@ -3,10 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc_main.iml" group="buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc_main.iml" group="buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc_test.iml" group="buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc_test.iml" group="buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_main.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_main.iml" group="example" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_main.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_main.iml" group="example" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_test.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_test.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_test.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_test.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-core.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-core.iml" group="kotfx-core" />
@@ -28,6 +34,25 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners.iml" group="kotfx-listeners" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_main.iml" group="kotfx-listeners" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners_test.iml" group="kotfx-listeners" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-core/kotlinfx-core.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-core/kotlinfx-core.iml" group="kotlinfx-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-core/kotlinfx-core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-core/kotlinfx-core_main.iml" group="kotlinfx-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-core/kotlinfx-core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-core/kotlinfx-core_test.iml" group="kotlinfx-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-coroutines/kotlinfx-coroutines.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-coroutines/kotlinfx-coroutines.iml" group="kotlinfx-coroutines" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-coroutines/kotlinfx-coroutines_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-coroutines/kotlinfx-coroutines_main.iml" group="kotlinfx-coroutines" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-coroutines/kotlinfx-coroutines_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-coroutines/kotlinfx-coroutines_test.iml" group="kotlinfx-coroutines" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-css/kotlinfx-css.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-css/kotlinfx-css.iml" group="kotlinfx-css" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-css/kotlinfx-css_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-css/kotlinfx-css_main.iml" group="kotlinfx-css" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-css/kotlinfx-css_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-css/kotlinfx-css_test.iml" group="kotlinfx-css" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx/kotlinfx-kotlinfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx/kotlinfx-kotlinfx.iml" group="kotlinfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx/kotlinfx-kotlinfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx/kotlinfx-kotlinfx_main.iml" group="kotlinfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx/kotlinfx-kotlinfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx/kotlinfx-kotlinfx_test.iml" group="kotlinfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-layouts/kotlinfx-layouts.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-layouts/kotlinfx-layouts.iml" group="kotlinfx-layouts" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-layouts/kotlinfx-layouts_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-layouts/kotlinfx-layouts_main.iml" group="kotlinfx-layouts" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-layouts/kotlinfx-layouts_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-layouts/kotlinfx-layouts_test.iml" group="kotlinfx-layouts" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners.iml" group="kotlinfx-listeners" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners_main.iml" group="kotlinfx-listeners" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners_test.iml" group="kotlinfx-listeners" />
     </modules>
   </component>
 </project>

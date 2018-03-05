@@ -11,5 +11,5 @@ java.sourceSets["main"].java.srcDir("src")
 kotlin.experimental.coroutines = ENABLE
 
 dependencies {
-    implementation(project(":kotfx"))
+    implementation(project(":kotlinfx"))
 }

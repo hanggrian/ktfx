@@ -3,8 +3,8 @@ import org.gradle.plugin.use.PluginDependenciesSpec
 
 const val releaseUser = "hendraanggrian"
 const val releaseGroup = "com.$releaseUser"
-const val releaseArtifact = "kotfx"
-const val releaseVersion = "0.35"
+const val releaseArtifact = "kotlinfx"
+const val releaseVersion = "0.1"
 const val releaseDesc = "Minimalist JavaFX development with Kotlin"
 const val releaseWeb = "https://github.com/$releaseUser/$releaseArtifact"
 

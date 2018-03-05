@@ -9,7 +9,7 @@ import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 
-group = "$releaseArtifact.listeners"
+group = "$releaseArtifact.core"
 version = releaseVersion
 
 plugins {
@@ -28,7 +28,6 @@ java.sourceSets {
 val ktlint by configurations.creating
 
 dependencies {
-    compile(project(":kotfx-core"))
     compile(kotlin("stdlib", kotlinVersion))
     ktlint(ktlint())
     testCompile(kotlin("test", kotlinVersion))
@@ -44,22 +43,22 @@ dependencies {
 }
 
 tasks {
-    val ktlint by creating(JavaExec::class) {
+    "ktlint"(JavaExec::class) {
+        get("check").dependsOn(this)
         group = "verification"
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."
-        classpath = configurations["ktlint"]
+        classpath = ktlint
         main = "com.github.shyiko.ktlint.Main"
         args("src/**/*.kt")
     }
-    get("check").dependsOn(ktlint)
     "ktlintFormat"(JavaExec::class) {
         group = "formatting"
         inputs.dir("src")
         outputs.dir("src")
         description = "Fix Kotlin code style deviations."
-        classpath = configurations["ktlint"]
+        classpath = ktlint
         main = "com.github.shyiko.ktlint.Main"
         args("-F", "src/**/*.kt")
     }
@@ -73,7 +72,7 @@ tasks {
 publish {
     userOrg = releaseUser
     groupId = releaseGroup
-    artifactId = "$releaseArtifact-listeners"
+    artifactId = "$releaseArtifact-core"
     publishVersion = releaseVersion
     desc = releaseDesc
     website = releaseWeb

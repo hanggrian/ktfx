@@ -30,7 +30,7 @@ kotlin.experimental.coroutines = ENABLE
 val ktlint by configurations.creating
 
 dependencies {
-    compile(project(":kotfx"))
+    compile(project(":kotfx-core"))
     compile(kotlin("stdlib", kotlinVersion))
     compile(kotlinx("coroutines-javafx", coroutinesVersion))
     ktlint(ktlint())

@@ -6,6 +6,8 @@
       <module name="buildSrc_test" target="1.8" />
       <module name="example_main" target="1.8" />
       <module name="example_test" target="1.8" />
+      <module name="kotfx-core_main" target="1.8" />
+      <module name="kotfx-core_test" target="1.8" />
       <module name="kotfx-coroutines_main" target="1.8" />
       <module name="kotfx-coroutines_test" target="1.8" />
       <module name="kotfx-css_main" target="1.8" />

@@ -9,20 +9,20 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_main.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_main.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_test.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_test.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-core.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-core.iml" group="kotfx-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-core/kotfx-core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-core/kotfx-core_main.iml" group="kotfx-core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-core/kotfx-core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-core/kotfx-core_test.iml" group="kotfx-core" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines.iml" group="kotfx-coroutines" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines_main.iml" group="kotfx-coroutines" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-coroutines/kotfx-coroutines_test.iml" group="kotfx-coroutines" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css.iml" group="kotfx-css" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css.iml" group="kotfx-css" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css_main.iml" group="kotfx-css" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css_main.iml" group="kotfx-css" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css_test.iml" group="kotfx-css" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-css/kotfx-css_test.iml" group="kotfx-css" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx.iml" group="kotfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_main.iml" group="kotfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx/kotfx-kotfx_test.iml" group="kotfx" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layouts.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layouts.iml" group="kotfx-layouts" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layouts/kotfx-layouts.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layouts/kotfx-layouts.iml" group="kotfx-layouts" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layouts.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layout/kotfx-layouts.iml" group="kotfx-layouts" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layouts/kotfx-layouts_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layouts/kotfx-layouts_main.iml" group="kotfx-layouts" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-layouts/kotfx-layouts_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-layouts/kotfx-layouts_test.iml" group="kotfx-layouts" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners.iml" filepath="$PROJECT_DIR$/.idea/modules/kotfx-listeners/kotfx-listeners.iml" group="kotfx-listeners" />

@@ -2,14 +2,14 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.plugin.use.PluginDependenciesSpec
 
 const val releaseUser = "hendraanggrian"
-const val releaseArtifact = "kotlinfx"
+const val releaseArtifact = "kfx"
 const val releaseGroup = "com.$releaseUser.$releaseArtifact"
-const val releaseVersion = "0.1"
-const val releaseDesc = "Minimalist JavaFX development with Kotlin"
+const val releaseVersion = "0.1.0"
+const val releaseDesc = "Kotlin extensions for JavaFX app development and more"
 const val releaseWeb = "https://github.com/$releaseUser/$releaseArtifact"
 
 const val kotlinVersion = "1.2.30"
-const val coroutinesVersion = "0.22.3"
+const val coroutinesVersion = "0.22.4"
 
 fun DependencyHandler.kotlinx(module: String, version: String? = null) = "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$version" }
     ?: ""}"
@@ -17,7 +17,7 @@ fun DependencyHandler.kotlinx(module: String, version: String? = null) = "org.je
 fun DependencyHandler.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:0.9.16"
 inline val PluginDependenciesSpec.dokka get() = id("org.jetbrains.dokka")
 
-fun DependencyHandler.ktlint() = "com.github.shyiko:ktlint:0.18.0"
+fun DependencyHandler.ktlint() = "com.github.shyiko:ktlint:0.19.0"
 
 fun DependencyHandler.gitPublish() = "org.ajoberstar:gradle-git-publish:0.3.3"
 inline val PluginDependenciesSpec.`git-publish` get() = id("org.ajoberstar.git-publish")

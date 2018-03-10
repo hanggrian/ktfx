@@ -1,21 +1,21 @@
-KotlinFX
-========
-Unofficial JavaFX extension in [Kotlin] language.
+KFX
+===
+[Kotlin] extensions for JavaFX app development and more. 
 Written in spirit of [android-ktx] and [anko].
 
 Consists of several parts:
- * *KotlinFX Core*: full of helpers for common JavaFX application logic.
- * *KotlinFX Layout*: dynamic JavaFX layout with Kotlin DSL.
- * *KotlinFX Listeners*: write common JavaFX listeners with Kotlin DSL.
- * *KotlinFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
+ * *KFX Commons*: full of helpers for common JavaFX application logic.
+ * *KFX Layout*: dynamic JavaFX layout with Kotlin DSL.
+ * *KFX Listeners*: write common JavaFX listeners with Kotlin DSL.
+ * *KFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
 
 Download
 --------
-To download all features, use KotlinFX main library:
+To download all features, use KFX main library:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.kotlinfx:kotlinfx:0.1'
+    compile 'com.hendraanggrian.kfx:kfx:0.1.0'
 }
 ```
 
@@ -23,17 +23,17 @@ Or download separate library if only specific feature is desired:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.kotlinfx:kotlinfx-core:0.1'
-    compile 'com.hendraanggrian.kotlinfx:kotlinfx-layouts:0.1'
-    compile 'com.hendraanggrian.kotlinfx:kotlinfx-listeners:0.1'
-    compile 'com.hendraanggrian.kotlinfx:kotlinfx-coroutines:0.1'
+    compile 'com.hendraanggrian.kfx:kfx-commons:0.1.0'
+    compile 'com.hendraanggrian.kfx:kfx-layouts:0.1.0'
+    compile 'com.hendraanggrian.kfx:kfx-listeners:0.1.0'
+    compile 'com.hendraanggrian.kfx:kfx-coroutines:0.1.0'
 }
 ```
 
 All artifacts are hosted on [jcenter].
 
-KotlinFX Core
--------------
+KFX Commons
+-----------
 Full of extensions for JavaFX, packaged accordingly.
 The main goal of core library is not to add any new feature to the existing JavaFX APIs.
 Below are preview of some of the packages.
@@ -111,8 +111,8 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-KotlinFX Layouts
-----------------
+KFX Layouts
+-----------
 Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
 
 ```kotlin
@@ -132,8 +132,8 @@ gridPane {
 
 ![Layouts demo][demo_layouts]
 
-KotlinFX Listeners
-------------------
+KFX Listeners
+-------------
 Trade common JavaFX listener with Kotlin DSL.
 
 ```kotlin
@@ -160,8 +160,8 @@ personList.cellFactory {
 }
 ```
 
-KotlinFX Coroutines
--------------------
+KFX Coroutines
+--------------
 Based on the experimental [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
 ```kotlin
@@ -198,5 +198,5 @@ License
 [android-ktx]: https://github.com/android/android-ktx
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
-[jcenter]: https://bintray.com/hendraanggrian/kotlinfx
+[jcenter]: https://bintray.com/hendraanggrian/kfx
 [demo_layouts]: /art/demo_layouts.png

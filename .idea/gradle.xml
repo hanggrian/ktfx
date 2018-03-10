@@ -11,12 +11,12 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/example" />
-            <option value="$PROJECT_DIR$/kotlinfx" />
-            <option value="$PROJECT_DIR$/kotlinfx-core" />
-            <option value="$PROJECT_DIR$/kotlinfx-coroutines" />
-            <option value="$PROJECT_DIR$/kotlinfx-css" />
-            <option value="$PROJECT_DIR$/kotlinfx-layouts" />
-            <option value="$PROJECT_DIR$/kotlinfx-listeners" />
+            <option value="$PROJECT_DIR$/kfx" />
+            <option value="$PROJECT_DIR$/kfx-commons" />
+            <option value="$PROJECT_DIR$/kfx-coroutines" />
+            <option value="$PROJECT_DIR$/kfx-layouts" />
+            <option value="$PROJECT_DIR$/kfx-listeners" />
+            <option value="$PROJECT_DIR$/kfx-styles" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -14,17 +14,31 @@
 <tbody>
 <tr>
 <td>
-<p><a href="bottom-margin.html">bottomMargin</a></p>
+<p><a href="margin-bottom.html">marginBottom</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">bottomMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">marginBottom</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
 </tr>
 <tr>
 <td>
-<p><a href="left-margin.html">leftMargin</a></p>
+<p><a href="margin-left.html">marginLeft</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">leftMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">marginLeft</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="margin-right.html">marginRight</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">marginRight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="margin-top.html">marginTop</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">marginTop</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -33,20 +47,6 @@
 <td>
 <code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">: </span><span class="identifier">Insets</span></code></td>
 </tr>
-<tr>
-<td>
-<p><a href="right-margin.html">rightMargin</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">rightMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="top-margin.html">topMargin</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">topMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a></code></td>
-</tr>
 </tbody>
 </table>
 <h3>Functions</h3>
@@ -54,17 +54,31 @@
 <tbody>
 <tr>
 <td>
-<p><a href="bottom-margin.html">bottomMargin</a></p>
+<p><a href="margin-bottom.html">marginBottom</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="bottom-margin.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">bottomMargin</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$bottomMargin(kfx.layouts.MarginedPane.bottomMargin.N, kotlin.Number)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="bottom-margin.html#N"><span class="identifier">N</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margin-bottom.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginBottom</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$marginBottom(kfx.layouts.MarginedPane.marginBottom.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margin-bottom.html#N"><span class="identifier">N</span></a></code></td>
 </tr>
 <tr>
 <td>
 <p><a href="margin-left.html">marginLeft</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margin-left.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginLeft</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$marginLeft(kfx.layouts.MarginedPane.marginLeft.N, kotlin.Number)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margin-left.html#N"><span class="identifier">N</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margin-left.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginLeft</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$marginLeft(kfx.layouts.MarginedPane.marginLeft.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margin-left.html#N"><span class="identifier">N</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="margin-right.html">marginRight</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margin-right.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginRight</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$marginRight(kfx.layouts.MarginedPane.marginRight.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margin-right.html#N"><span class="identifier">N</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="margin-top.html">marginTop</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margin-top.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginTop</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$marginTop(kfx.layouts.MarginedPane.marginTop.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margin-top.html#N"><span class="identifier">N</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -72,22 +86,8 @@
 </td>
 <td>
 <code><span class="keyword">abstract</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margins.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, javafx.geometry.Insets)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">Insets</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="margins.html#N"><span class="identifier">N</span></a></code><br/>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margins.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Number)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margins.html#N"><span class="identifier">N</span></a></code><br/>
-<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margins.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/top">top</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">, </span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/right">right</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">, </span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/bottom">bottom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">, </span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/left">left</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margins.html#N"><span class="identifier">N</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="right-margin.html">rightMargin</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="right-margin.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">rightMargin</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$rightMargin(kfx.layouts.MarginedPane.rightMargin.N, kotlin.Number)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="right-margin.html#N"><span class="identifier">N</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="top-margin.html">topMargin</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="top-margin.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">topMargin</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$topMargin(kfx.layouts.MarginedPane.topMargin.N, kotlin.Number)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="top-margin.html#N"><span class="identifier">N</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margins.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margins.html#N"><span class="identifier">N</span></a></code><br/>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="margins.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">(</span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/top">top</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/right">right</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/bottom">bottom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="kfx.layouts.MarginedPane$margins(kfx.layouts.MarginedPane.margins.N, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/left">left</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="margins.html#N"><span class="identifier">N</span></a></code></td>
 </tr>
 </tbody>
 </table>

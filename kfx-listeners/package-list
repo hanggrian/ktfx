@@ -38,3 +38,4 @@ $dokka.location:kfx.listeners$textFieldCellFactory(javafx.scene.control.TreeTabl
 $dokka.location:kfx.listeners$textFieldCellFactory(javafx.scene.control.TreeView((kfx.listeners.textFieldCellFactory.T)), kotlin.Function1((kfx.listeners.StringConverterBuilder((kfx.listeners.textFieldCellFactory.T)), kotlin.Unit)))kfx.listeners/javafx.scene.control.-tree-view/text-field-cell-factory.html
 $dokka.location:kfx.listeners$tickLabelFormatter(javafx.scene.chart.ValueAxis((kfx.listeners.tickLabelFormatter.T)), kotlin.Function1((kfx.listeners.StringConverterBuilder((kfx.listeners.tickLabelFormatter.T)), kotlin.Unit)))kfx.listeners/javafx.scene.chart.-value-axis/tick-label-formatter.html
 kfx.listeners
+kfx.listeners.internal

@@ -426,32 +426,44 @@ $dokka.location:kfx.scene.control$textFieldCellFactory(javafx.scene.control.Tabl
 $dokka.location:kfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeTableColumn((kfx.scene.control.textFieldCellFactory.S, kotlin.String)))kfx.scene.control/javafx.scene.control.-tree-table-column/text-field-cell-factory.html
 $dokka.location:kfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeView((kotlin.String)))kfx.scene.control/javafx.scene.control.-tree-view/text-field-cell-factory.html
 $dokka.location:kfx.scene.control$yesButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))kfx.scene.control/javafx.scene.control.-dialog/yes-button.html
-$dokka.location:kfx.scene.layout$bottomPadding#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/bottom-padding.html
 $dokka.location:kfx.scene.layout$gaps#javafx.scene.layout.FlowPanekfx.scene.layout/javafx.scene.layout.-flow-pane/gaps.html
 $dokka.location:kfx.scene.layout$gaps#javafx.scene.layout.GridPanekfx.scene.layout/javafx.scene.layout.-grid-pane/gaps.html
 $dokka.location:kfx.scene.layout$gaps#javafx.scene.layout.TilePanekfx.scene.layout/javafx.scene.layout.-tile-pane/gaps.html
-$dokka.location:kfx.scene.layout$leftPadding#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/left-padding.html
-$dokka.location:kfx.scene.layout$maxSize#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/max-size.html
-$dokka.location:kfx.scene.layout$maxSize(javafx.scene.layout.Region, kotlin.Number, kotlin.Number)kfx.scene.layout/javafx.scene.layout.-region/max-size.html
-$dokka.location:kfx.scene.layout$minSize#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/min-size.html
-$dokka.location:kfx.scene.layout$minSize(javafx.scene.layout.Region, kotlin.Number, kotlin.Number)kfx.scene.layout/javafx.scene.layout.-region/min-size.html
+$dokka.location:kfx.scene.layout$heightMax#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/height-max.html
+$dokka.location:kfx.scene.layout$heightMin#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/height-min.html
+$dokka.location:kfx.scene.layout$heightPref#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/height-pref.html
+$dokka.location:kfx.scene.layout$paddingBottom#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/padding-bottom.html
+$dokka.location:kfx.scene.layout$paddingLeft#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/padding-left.html
+$dokka.location:kfx.scene.layout$paddingRight#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/padding-right.html
+$dokka.location:kfx.scene.layout$paddingTop#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/padding-top.html
 $dokka.location:kfx.scene.layout$paddings#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/paddings.html
-$dokka.location:kfx.scene.layout$paddings(javafx.scene.layout.Region, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)kfx.scene.layout/javafx.scene.layout.-region/paddings.html
-$dokka.location:kfx.scene.layout$prefSize#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/pref-size.html
-$dokka.location:kfx.scene.layout$prefSize(javafx.scene.layout.Region, kotlin.Number, kotlin.Number)kfx.scene.layout/javafx.scene.layout.-region/pref-size.html
-$dokka.location:kfx.scene.layout$rightPadding#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/right-padding.html
+$dokka.location:kfx.scene.layout$setSize(javafx.scene.layout.Region, kotlin.Int, kotlin.Int)kfx.scene.layout/javafx.scene.layout.-region/set-size.html
+$dokka.location:kfx.scene.layout$setSizeMax(javafx.scene.layout.Region, kotlin.Int, kotlin.Int)kfx.scene.layout/javafx.scene.layout.-region/set-size-max.html
+$dokka.location:kfx.scene.layout$setSizeMin(javafx.scene.layout.Region, kotlin.Int, kotlin.Int)kfx.scene.layout/javafx.scene.layout.-region/set-size-min.html
+$dokka.location:kfx.scene.layout$setSizePref(javafx.scene.layout.Region, kotlin.Int, kotlin.Int)kfx.scene.layout/javafx.scene.layout.-region/set-size-pref.html
 $dokka.location:kfx.scene.layout$size#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/size.html
-$dokka.location:kfx.scene.layout$size(javafx.scene.layout.Region, kotlin.Number, kotlin.Number)kfx.scene.layout/javafx.scene.layout.-region/size.html
+$dokka.location:kfx.scene.layout$sizeMax#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/size-max.html
+$dokka.location:kfx.scene.layout$sizeMin#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/size-min.html
+$dokka.location:kfx.scene.layout$sizePref#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/size-pref.html
 $dokka.location:kfx.scene.layout$spacings#javafx.scene.layout.HBoxkfx.scene.layout/javafx.scene.layout.-h-box/spacings.html
 $dokka.location:kfx.scene.layout$spacings#javafx.scene.layout.VBoxkfx.scene.layout/javafx.scene.layout.-v-box/spacings.html
-$dokka.location:kfx.scene.layout$topPadding#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/top-padding.html
+$dokka.location:kfx.scene.layout$updatePadding(javafx.scene.layout.Region, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)kfx.scene.layout/javafx.scene.layout.-region/update-padding.html
+$dokka.location:kfx.scene.layout$widthMax#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/width-max.html
+$dokka.location:kfx.scene.layout$widthMin#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/width-min.html
+$dokka.location:kfx.scene.layout$widthPref#javafx.scene.layout.Regionkfx.scene.layout/javafx.scene.layout.-region/width-pref.html
+$dokka.location:kfx.stage$heightMax#javafx.stage.Stagekfx.stage/javafx.stage.-stage/height-max.html
+$dokka.location:kfx.stage$heightMin#javafx.stage.Stagekfx.stage/javafx.stage.-stage/height-min.html
 $dokka.location:kfx.stage$icon#javafx.stage.Stagekfx.stage/javafx.stage.-stage/icon.html
-$dokka.location:kfx.stage$maxSize#javafx.stage.Stagekfx.stage/javafx.stage.-stage/max-size.html
-$dokka.location:kfx.stage$maxSize(javafx.stage.Stage, kotlin.Number, kotlin.Number)kfx.stage/javafx.stage.-stage/max-size.html
-$dokka.location:kfx.stage$minSize#javafx.stage.Stagekfx.stage/javafx.stage.-stage/min-size.html
-$dokka.location:kfx.stage$minSize(javafx.stage.Stage, kotlin.Number, kotlin.Number)kfx.stage/javafx.stage.-stage/min-size.html
-$dokka.location:kfx.stage$size#javafx.stage.Stagekfx.stage/javafx.stage.-stage/size.html
-$dokka.location:kfx.stage$size(javafx.stage.Window, kotlin.Number, kotlin.Number)kfx.stage/javafx.stage.-window/size.html
+$dokka.location:kfx.stage$setSize(javafx.scene.layout.Region, kotlin.Int, kotlin.Int)kfx.stage/javafx.scene.layout.-region/set-size.html
+$dokka.location:kfx.stage$setSize(javafx.stage.Window, kotlin.Int, kotlin.Int)kfx.stage/javafx.stage.-window/set-size.html
+$dokka.location:kfx.stage$setSizeMax(javafx.stage.Stage, kotlin.Int, kotlin.Int)kfx.stage/javafx.stage.-stage/set-size-max.html
+$dokka.location:kfx.stage$setSizeMin(javafx.stage.Stage, kotlin.Int, kotlin.Int)kfx.stage/javafx.stage.-stage/set-size-min.html
+$dokka.location:kfx.stage$size#javafx.scene.layout.Regionkfx.stage/javafx.scene.layout.-region/size.html
+$dokka.location:kfx.stage$size#javafx.stage.Windowkfx.stage/javafx.stage.-window/size.html
+$dokka.location:kfx.stage$sizeMax#javafx.stage.Stagekfx.stage/javafx.stage.-stage/size-max.html
+$dokka.location:kfx.stage$sizeMin#javafx.stage.Stagekfx.stage/javafx.stage.-stage/size-min.html
+$dokka.location:kfx.stage$widthMax#javafx.stage.Stagekfx.stage/javafx.stage.-stage/width-max.html
+$dokka.location:kfx.stage$widthMin#javafx.stage.Stagekfx.stage/javafx.stage.-stage/width-min.html
 $dokka.location:kfx.util$component1(javafx.util.Pair((kfx.util.component1.F, kfx.util.component1.S)))kfx.util/javafx.util.-pair/component1.html
 $dokka.location:kfx.util$component2(javafx.util.Pair((kfx.util.component2.F, kfx.util.component2.S)))kfx.util/javafx.util.-pair/component2.html
 $dokka.location:kfx.util$div(javafx.util.Duration, javafx.util.Duration)kfx.util/javafx.util.-duration/div.html

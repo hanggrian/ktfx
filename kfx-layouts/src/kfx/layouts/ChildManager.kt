@@ -39,20 +39,20 @@ interface ConstrainedPane {
 interface MarginedPane : ConstrainedPane {
 
     infix fun <N : Node> N.margins(value: Insets?): N
-    infix fun <N : Node> N.margins(value: Number) = margins(Insets(value.toDouble()))
-    fun <N : Node> N.margins(top: Number, right: Number, bottom: Number, left: Number): N =
+    infix fun <N : Node> N.margins(value: Int) = margins(Insets(value.toDouble()))
+    fun <N : Node> N.margins(top: Int, right: Int, bottom: Int, left: Int): N =
         margins(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 
-    infix fun <N : Node> N.marginTop(value: Number): N = margins(value, marginRight, marginBottom, marginLeft)
-    infix fun <N : Node> N.marginRight(value: Number): N = margins(marginTop, value, marginBottom, marginLeft)
-    infix fun <N : Node> N.marginBottom(value: Number): N = margins(marginTop, marginRight, value, marginLeft)
-    infix fun <N : Node> N.marginLeft(value: Number): N = margins(marginTop, marginRight, marginBottom, value)
+    infix fun <N : Node> N.marginTop(value: Int): N = margins(value, marginRight, marginBottom, marginLeft)
+    infix fun <N : Node> N.marginRight(value: Int): N = margins(marginTop, value, marginBottom, marginLeft)
+    infix fun <N : Node> N.marginBottom(value: Int): N = margins(marginTop, marginRight, value, marginLeft)
+    infix fun <N : Node> N.marginLeft(value: Int): N = margins(marginTop, marginRight, marginBottom, value)
 
     val Node.margins: Insets
-    val Node.marginTop: Double get() = margins.top
-    val Node.marginRight: Double get() = margins.right
-    val Node.marginBottom: Double get() = margins.bottom
-    val Node.marginLeft: Double get() = margins.left
+    val Node.marginTop: Int get() = margins.top.toInt()
+    val Node.marginRight: Int get() = margins.right.toInt()
+    val Node.marginBottom: Int get() = margins.bottom.toInt()
+    val Node.marginLeft: Int get() = margins.left.toInt()
 }
 
 interface AlignedPane : ConstrainedPane {
@@ -82,22 +82,22 @@ interface VGrowedPane : ConstrainedPane {
 
 open class _AnchorPane : AnchorPane(), ChildManager, ConstrainedPane {
 
-    infix fun <N : Node> N.anchor(value: Number?): N = apply {
+    infix fun <N : Node> N.anchors(value: Int?): N = apply {
         setTopAnchor(this, value?.toDouble())
         setLeftAnchor(this, value?.toDouble())
         setBottomAnchor(this, value?.toDouble())
         setRightAnchor(this, value?.toDouble())
     }
 
-    infix fun <N : Node> N.topAnchor(value: Number?): N = apply { setTopAnchor(this, value?.toDouble()) }
-    infix fun <N : Node> N.leftAnchor(value: Number?): N = apply { setLeftAnchor(this, value?.toDouble()) }
-    infix fun <N : Node> N.bottomAnchor(value: Number?): N = apply { setBottomAnchor(this, value?.toDouble()) }
-    infix fun <N : Node> N.anchorRight(value: Number?): N = apply { setRightAnchor(this, value?.toDouble()) }
+    infix fun <N : Node> N.anchorTop(value: Int?): N = apply { setTopAnchor(this, value?.toDouble()) }
+    infix fun <N : Node> N.anchorLeft(value: Int?): N = apply { setLeftAnchor(this, value?.toDouble()) }
+    infix fun <N : Node> N.anchorBottom(value: Int?): N = apply { setBottomAnchor(this, value?.toDouble()) }
+    infix fun <N : Node> N.anchorRight(value: Int?): N = apply { setRightAnchor(this, value?.toDouble()) }
 
-    val Node.topAnchor: Double get() = getTopAnchor(this) ?: 0.0
-    val Node.leftAnchor: Double get() = getLeftAnchor(this) ?: 0.0
-    val Node.bottomAnchor: Double get() = getBottomAnchor(this) ?: 0.0
-    val Node.rightAnchor: Double get() = getRightAnchor(this) ?: 0.0
+    val Node.anchorTop: Int get() = getTopAnchor(this)?.toInt() ?: 0
+    val Node.anchorLeft: Int get() = getLeftAnchor(this)?.toInt() ?: 0
+    val Node.anchorBottom: Int get() = getBottomAnchor(this)?.toInt() ?: 0
+    val Node.anchorRight: Int get() = getRightAnchor(this)?.toInt() ?: 0
 
     override fun Node.reset() = clearConstraints(this)
 }

@@ -31,9 +31,10 @@ val ktlint by configurations.creating
 dependencies {
     compile(project(":kfx-commons"))
     compile(kotlin("stdlib", kotlinVersion))
-    ktlint(ktlint())
+
     testImplementation(kotlin("test", kotlinVersion))
     testImplementation(kotlin("reflect", kotlinVersion))
+    testImplementation(junitPlatform("runner"))
     testImplementation(spek("api")) {
         exclude("org.jetbrains.kotlin")
     }
@@ -43,7 +44,8 @@ dependencies {
     }
     testImplementation(testFX("core"))
     testImplementation(testFX("junit"))
-    testCompile(junitPlatform("runner"))
+
+    ktlint(ktlint())
 }
 
 tasks {

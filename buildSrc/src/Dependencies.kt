@@ -1,8 +1,10 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
 import org.gradle.plugin.use.PluginDependenciesSpec
 
-fun DependencyHandler.kotlinx(module: String, version: String? = null) = "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$version" }
-    ?: ""}"
+fun DependencyHandler.kotlinx(
+    module: String,
+    version: String? = null
+) = "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$version" } ?: ""}"
 
 fun DependencyHandler.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
 inline val PluginDependenciesSpec.dokka get() = id("org.jetbrains.dokka")

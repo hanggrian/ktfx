@@ -6,7 +6,7 @@ import kfx.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Sets a horizontal and vertical gap. */
-var TilePane.gaps: Number
+var TilePane.gaps: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         vgap = value.toDouble()

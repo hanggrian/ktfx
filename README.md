@@ -15,7 +15,7 @@ To download all features, use KFX main library:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.kfx:kfx:0.1.0'
+    compile 'com.hendraanggrian.kfx:kfx:0.1.1'
 }
 ```
 
@@ -23,10 +23,10 @@ Or download separate library if only specific feature is desired:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.kfx:kfx-commons:0.1.0'
-    compile 'com.hendraanggrian.kfx:kfx-layouts:0.1.0'
-    compile 'com.hendraanggrian.kfx:kfx-listeners:0.1.0'
-    compile 'com.hendraanggrian.kfx:kfx-coroutines:0.1.0'
+    compile 'com.hendraanggrian.kfx:kfx-commons:0.1.1'
+    compile 'com.hendraanggrian.kfx:kfx-layouts:0.1.1'
+    compile 'com.hendraanggrian.kfx:kfx-listeners:0.1.1'
+    compile 'com.hendraanggrian.kfx:kfx-coroutines:0.1.1'
 }
 ```
 

@@ -8,99 +8,113 @@ import kfx.NO_GETTER
 import kfx.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-var Region.widthMin: Number
-    get() = minWidth
+/** Minimum width in integer. */
+var Region.widthMin: Int
+    get() = minWidth.toInt()
     set(value) = setMinWidth(value.toDouble())
 
-var Region.heightMin: Number
-    get() = minHeight
+/** Minimum height in integer. */
+var Region.heightMin: Int
+    get() = minHeight.toInt()
     set(value) = setMinHeight(value.toDouble())
 
-var Region.widthPref: Number
-    get() = prefWidth
+/** Sets minimum width and height in integer. */
+inline fun Region.setSizeMin(width: Int, height: Int) {
+    widthMin = width
+    heightMin = height
+}
+
+/** Sets minimum width and height in integer. */
+// TODO: investigate why this method can't be inlined
+inline var Region.sizeMin: Int
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setSizeMin(value, value)
+
+/** Preferred width in integer. */
+var Region.widthPref: Int
+    get() = prefWidth.toInt()
     set(value) = setPrefWidth(value.toDouble())
 
-var Region.heightPref: Number
-    get() = prefHeight
+/** Preferred height in integer. */
+var Region.heightPref: Int
+    get() = prefHeight.toInt()
     set(value) = setPrefHeight(value.toDouble())
 
-var Region.widthMax: Number
-    get() = maxWidth
+/** Sets preferred width and height in integer. */
+inline fun Region.setSizePref(width: Int, height: Int) {
+    widthPref = width
+    heightPref = height
+}
+
+/** Sets preferred width and height in integer. */
+// TODO: investigate why this method can't be inlined
+inline var Region.sizePref: Int
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setSizePref(value, value)
+
+/** Maximum width in integer. */
+var Region.widthMax: Int
+    get() = maxWidth.toInt()
     set(value) = setMaxWidth(value.toDouble())
 
-var Region.heightMax: Number
-    get() = maxHeight
+/** Maximum height in integer. */
+var Region.heightMax: Int
+    get() = maxHeight.toInt()
     set(value) = setMaxHeight(value.toDouble())
 
+/** Sets maximum width and height in integer. */
+inline fun Region.setSizeMax(width: Int, height: Int) {
+    widthMax = width
+    heightMax = height
+}
+
+/** Sets maximum width and height in integer. */
 // TODO: investigate why this method can't be inlined
-var Region.minSize: Number
+var Region.sizeMax: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = minSize(value, value)
+    set(value) = setSizeMax(value, value)
 
-// TODO: investigate why this method can't be inlined
-var Region.prefSize: Number
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = prefSize(value, value)
-
-// TODO: investigate why this method can't be inlined
-var Region.maxSize: Number
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = maxSize(value, value)
-
-inline var Region.size: Number
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = size(value, value)
-
-fun Region.minSize(width: Number = minWidth, height: Number = minHeight) {
-    minWidth = width.toDouble()
-    minHeight = height.toDouble()
+/** Force width and height in integer. */
+inline fun Region.setSize(width: Int, height: Int) {
+    setSizeMin(width, height)
+    setSizePref(width, height)
+    setSizeMax(width, height)
 }
 
-fun Region.prefSize(width: Number = prefWidth, height: Number = prefHeight) {
-    prefWidth = width.toDouble()
-    prefHeight = height.toDouble()
-}
+/** Force width and height in integer. */
+inline var Region.size: Int
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    set(value) = setSize(value, value)
 
-fun Region.maxSize(width: Number = maxWidth, height: Number = maxHeight) {
-    maxWidth = width.toDouble()
-    maxHeight = height.toDouble()
-}
-
-inline fun Region.size(width: Number, height: Number) {
-    minSize(width, height)
-    prefSize(width, height)
-    maxSize(width, height)
-}
-
-/** Sets padding to each side of this [Region]. */
+/** Sets padding to each side with integer. */
 fun Region.updatePadding(
-    top: Number = padding.top,
-    right: Number = padding.right,
-    bottom: Number = padding.bottom,
-    left: Number = padding.left
+    top: Int = padding.top.toInt(),
+    right: Int = padding.right.toInt(),
+    bottom: Int = padding.bottom.toInt(),
+    left: Int = padding.left.toInt()
 ) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 
-/** Sets padding to all sides of this [Region]. */
-var Region.paddings: Number
+/** Sets padding to all sides with integer. */
+var Region.paddings: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setPadding(Insets(value.toDouble()))
 
-/** Top padding of this [Region]. */
-inline var Region.paddingTop: Number
-    get() = padding.top
+/** Top padding in integer. */
+inline var Region.paddingTop: Int
+    get() = padding.top.toInt()
     set(value) = updatePadding(top = value)
 
-/** Right padding of this [Region]. */
-inline var Region.paddingRight: Number
-    get() = padding.right
+/** Right padding in integer. */
+inline var Region.paddingRight: Int
+    get() = padding.right.toInt()
     set(value) = updatePadding(right = value)
 
-/** Bottom padding of this [Region]. */
-inline var Region.paddingBottom: Number
-    get() = padding.bottom
+/** Bottom padding in integer. */
+inline var Region.paddingBottom: Int
+    get() = padding.bottom.toInt()
     set(value) = updatePadding(bottom = value)
 
-/** Left padding of this [Region]. */
-inline var Region.paddingLeft: Number
-    get() = padding.left
+/** Left padding in integer. */
+inline var Region.paddingLeft: Int
+    get() = padding.left.toInt()
     set(value) = updatePadding(left = value)

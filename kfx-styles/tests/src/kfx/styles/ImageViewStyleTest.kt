@@ -3,7 +3,7 @@ package kfx.styles
 import javafx.scene.image.ImageView
 import kotlin.test.assertNotNull
 
-class ImageViewStyleTest : ControlTest<ImageView>() {
+class ImageViewStyleTest : NodeTest<ImageView>() {
 
     override fun newInstance() = ImageView()
 

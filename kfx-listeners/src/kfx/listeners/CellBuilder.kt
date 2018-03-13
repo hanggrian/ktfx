@@ -7,8 +7,10 @@ import javafx.scene.control.TableCell
 import javafx.scene.control.TableRow
 import javafx.scene.control.TreeTableCell
 import javafx.scene.control.TreeTableRow
+import kfx.listeners.internal.CellBuilderImpl
 
-private interface CellBuilder<out T> {
+/** Interface to build [javafx.scene.control.Cell] with Kotlin DSL. */
+internal interface CellBuilder<out T> {
 
     fun onStartEdit(listener: () -> Unit)
 
@@ -16,34 +18,14 @@ private interface CellBuilder<out T> {
 
     fun onCancelEdit(listener: () -> Unit)
 
-    fun onUpdateItem(listener: (T?, empty: Boolean) -> Unit)
+    fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
+
+    fun clear()
 }
 
-class CellImpl<T> : CellBuilder<T> {
-    internal var onStartEdit: (() -> Unit)? = null
-    internal var onCommitEdit: ((T?) -> Unit)? = null
-    internal var onCancelEdit: (() -> Unit)? = null
-    internal var onUpdateItem: ((T?, empty: Boolean) -> Unit)? = null
-
-    override fun onStartEdit(listener: () -> Unit) {
-        onStartEdit = listener
-    }
-
-    override fun onCommitEdit(listener: (T?) -> Unit) {
-        onCommitEdit = listener
-    }
-
-    override fun onCancelEdit(listener: () -> Unit) {
-        onCancelEdit = listener
-    }
-
-    override fun onUpdateItem(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdateItem = listener
-    }
-}
-
+/** [ListCell] builder with Kotlin DSL. */
 class ListCellBuilder<T>(
-    private val impl: CellImpl<T> = CellImpl()
+    private val impl: CellBuilderImpl<T> = CellBuilderImpl()
 ) : ListCell<T>(), CellBuilder<T> by impl {
 
     override fun startEdit() {
@@ -65,13 +47,19 @@ class ListCellBuilder<T>(
         super.updateItem(item, empty)
         impl.onUpdateItem?.invoke(item, empty)
     }
+
+    override fun clear() {
+        text = null
+        graphic = null
+    }
 }
 
 @PublishedApi internal inline fun <T> (ListCellBuilder<T>.() -> Unit).build(): ListCell<T> =
     ListCellBuilder<T>().apply(this)
 
+/** [TableRow] builder with Kotlin DSL. */
 class TableRowBuilder<T>(
-    private val impl: CellImpl<T> = CellImpl()
+    private val impl: CellBuilderImpl<T> = CellBuilderImpl()
 ) : TableRow<T>(), CellBuilder<T> by impl {
 
     override fun startEdit() {
@@ -93,13 +81,19 @@ class TableRowBuilder<T>(
         super.updateItem(item, empty)
         impl.onUpdateItem?.invoke(item, empty)
     }
+
+    override fun clear() {
+        text = null
+        graphic = null
+    }
 }
 
 @PublishedApi internal inline fun <T> (TableRowBuilder<T>.() -> Unit).build(): TableRow<T> =
     TableRowBuilder<T>().apply(this)
 
+/** [TableCell] builder with Kotlin DSL. */
 class TableCellBuilder<S, T>(
-    private val impl: CellImpl<T> = CellImpl()
+    private val impl: CellBuilderImpl<T> = CellBuilderImpl()
 ) : TableCell<S, T>(), CellBuilder<T> by impl {
 
     override fun startEdit() {
@@ -121,13 +115,19 @@ class TableCellBuilder<S, T>(
         super.updateItem(item, empty)
         impl.onUpdateItem?.invoke(item, empty)
     }
+
+    override fun clear() {
+        text = null
+        graphic = null
+    }
 }
 
 @PublishedApi internal inline fun <S, T> (TableCellBuilder<S, T>.() -> Unit).build(): TableCell<S, T> =
     TableCellBuilder<S, T>().apply(this)
 
+/** [TreeTableRow] builder with Kotlin DSL. */
 class TreeTableRowBuilder<T>(
-    private val impl: CellImpl<T> = CellImpl()
+    private val impl: CellBuilderImpl<T> = CellBuilderImpl()
 ) : TreeTableRow<T>(), CellBuilder<T> by impl {
 
     override fun startEdit() {
@@ -149,13 +149,19 @@ class TreeTableRowBuilder<T>(
         super.updateItem(item, empty)
         impl.onUpdateItem?.invoke(item, empty)
     }
+
+    override fun clear() {
+        text = null
+        graphic = null
+    }
 }
 
 @PublishedApi internal inline fun <T> (TreeTableRowBuilder<T>.() -> Unit).build(): TreeTableRow<T> =
     TreeTableRowBuilder<T>().apply(this)
 
+/** [TreeTableCell] builder with Kotlin DSL. */
 class TreeTableCellBuilder<S, T>(
-    private val impl: CellImpl<T> = CellImpl()
+    private val impl: CellBuilderImpl<T> = CellBuilderImpl()
 ) : TreeTableCell<S, T>(), CellBuilder<T> by impl {
 
     override fun startEdit() {
@@ -176,6 +182,11 @@ class TreeTableCellBuilder<S, T>(
     override fun updateItem(item: T, empty: Boolean) {
         super.updateItem(item, empty)
         impl.onUpdateItem?.invoke(item, empty)
+    }
+
+    override fun clear() {
+        text = null
+        graphic = null
     }
 }
 

@@ -3,9 +3,11 @@
 package kfx.scene.layout
 
 import javafx.scene.layout.HBox
-import kfx.internal.NO_GETTER
-import kfx.internal.noGetter
+import kfx.NO_GETTER
+import kfx.noGetter
+import kotlin.DeprecationLevel.ERROR
 
+/** Sets spacing of each child. */
 var HBox.spacings: Number
-    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSpacing(value.toDouble())

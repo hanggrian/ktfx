@@ -1,16 +1,14 @@
 package kfx.styles
 
-import javafx.scene.Node
-import javafx.scene.Parent
 import javafx.scene.Scene
-import javafx.scene.layout.Pane
+import javafx.scene.control.Control
 import javafx.stage.Stage
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.runBlocking
 import org.junit.Test
 import org.testfx.framework.junit.ApplicationTest
 
-abstract class AppTest<T : Node> : ApplicationTest() {
+abstract class ControlTest<T : Control> : ApplicationTest() {
 
     abstract fun newInstance(): T
 
@@ -22,8 +20,10 @@ abstract class AppTest<T : Node> : ApplicationTest() {
 
     override fun start(stage: Stage) {
         node = newInstance()
-        stage.scene = Scene(Pane(node))
-        stage.show()
+        stage.run {
+            scene = Scene(node)
+            show()
+        }
     }
 
     @Test
@@ -31,7 +31,7 @@ abstract class AppTest<T : Node> : ApplicationTest() {
     fun style() {
         node.style = style
         node.applyCss()
-        if (node is Parent) (node as Parent).layout()
+        node.layout()
         runBlocking {
             delay(500)
             assertion()

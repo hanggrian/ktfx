@@ -4,8 +4,8 @@ import javafx.scene.image.Image
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.stage.StageStyle.DECORATED
-import kfx.internal.NO_GETTER
-import kfx.internal.noGetter
+import kfx.NO_GETTER
+import kfx.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Removes old icons and set a new one to this stage. */

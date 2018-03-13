@@ -43,16 +43,16 @@ interface MarginedPane : ConstrainedPane {
     fun <N : Node> N.margins(top: Number, right: Number, bottom: Number, left: Number): N =
         margins(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 
-    infix fun <N : Node> N.topMargin(value: Number): N = margins(value, rightMargin, bottomMargin, leftMargin)
-    infix fun <N : Node> N.rightMargin(value: Number): N = margins(topMargin, value, bottomMargin, leftMargin)
-    infix fun <N : Node> N.bottomMargin(value: Number): N = margins(topMargin, rightMargin, value, leftMargin)
-    infix fun <N : Node> N.marginLeft(value: Number): N = margins(topMargin, rightMargin, bottomMargin, value)
+    infix fun <N : Node> N.marginTop(value: Number): N = margins(value, marginRight, marginBottom, marginLeft)
+    infix fun <N : Node> N.marginRight(value: Number): N = margins(marginTop, value, marginBottom, marginLeft)
+    infix fun <N : Node> N.marginBottom(value: Number): N = margins(marginTop, marginRight, value, marginLeft)
+    infix fun <N : Node> N.marginLeft(value: Number): N = margins(marginTop, marginRight, marginBottom, value)
 
     val Node.margins: Insets
-    val Node.topMargin: Double get() = margins.top
-    val Node.rightMargin: Double get() = margins.right
-    val Node.bottomMargin: Double get() = margins.bottom
-    val Node.leftMargin: Double get() = margins.left
+    val Node.marginTop: Double get() = margins.top
+    val Node.marginRight: Double get() = margins.right
+    val Node.marginBottom: Double get() = margins.bottom
+    val Node.marginLeft: Double get() = margins.left
 }
 
 interface AlignedPane : ConstrainedPane {

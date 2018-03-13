@@ -8,7 +8,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class NodeStyleTest : AppTest<Node>() {
+class NodeStyleTest : ControlTest<Node>() {
 
     override fun newInstance() = Button("Hello world")
 

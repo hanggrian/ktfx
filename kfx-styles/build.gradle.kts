@@ -8,6 +8,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
+import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
 group = "$releaseArtifact.styles"
 version = releaseVersion
@@ -31,16 +32,16 @@ dependencies {
     compile(project(":kfx-commons"))
     compile(kotlin("stdlib", kotlinVersion))
     ktlint(ktlint())
-    testCompile(kotlinx("coroutines-core", coroutinesVersion))
-    testCompile(kotlin("test", kotlinVersion))
-    testCompile(testFX("core"))
-    testCompile(testFX("junit"))
+    testImplementation(kotlin("test", kotlinVersion))
+    testImplementation(kotlinx("coroutines-core", coroutinesVersion))
+    testImplementation(testFX("core"))
+    testImplementation(testFX("junit"))
 }
 
 tasks {
     "ktlint"(JavaExec::class) {
         get("check").dependsOn(ktlint)
-        group = "verification"
+        group = VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."

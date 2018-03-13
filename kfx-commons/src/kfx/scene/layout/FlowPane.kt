@@ -1,8 +1,8 @@
 package kfx.scene.layout
 
 import javafx.scene.layout.FlowPane
-import kfx.internal.NO_GETTER
-import kfx.internal.noGetter
+import kfx.NO_GETTER
+import kfx.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Sets a horizontal and vertical gap. */

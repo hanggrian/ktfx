@@ -1,0 +1,10 @@
+const val kotlinVersion = "1.2.30"
+const val coroutinesVersion = "0.22.4"
+
+internal const val dokkaVersion = "0.9.16"
+internal const val spekVersion = "1.1.5"
+internal const val junitPlatformVersion = "1.0.0"
+internal const val testFXVersion = "4.0.12-alpha"
+internal const val bintrayReleaseVersion = "0.8.0"
+internal const val gitPublishVersion = "0.3.3"
+internal const val ktlintVersion = "0.19.0"

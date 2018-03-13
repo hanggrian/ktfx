@@ -1,4 +1,4 @@
-package kfx.internal
+package kfx
 
 internal const val NO_GETTER: String = "Property does not have a getter"
 

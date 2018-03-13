@@ -17,7 +17,7 @@ import kfx.layouts.vbox
 import kfx.scene.control.errorAlert
 import kfx.scene.control.infoAlert
 import kfx.scene.layout.minSize
-import kfx.scene.layout.paddings
+import kfx.scene.layout.updatePadding
 
 class App : Application() {
 
@@ -33,7 +33,7 @@ class App : Application() {
     override fun start(stage: Stage) {
         stage.scene = Scene(gridPane {
             vbox {
-                paddings(right = 20, left = 20)
+                updatePadding(right = 20, left = 20)
                 calculationLabel = label("")
                 resultLabel = label {
                     textProperty().bind(stringBindingOf(calculationLabel.textProperty()) {
@@ -138,7 +138,7 @@ class App : Application() {
                         title = ":("
                         dialogPane.expandableContent = kfx.layouts.vbox {
                             label("Suggestion") { font = font("Arial", BOLD, 14.0) }
-                            label("Use an actual calculator.") topMargin 4
+                            label("Use an actual calculator.") marginTop 4
                         }
                     }.show()
                 }

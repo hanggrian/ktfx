@@ -4,10 +4,13 @@ package kfx.listeners
 
 import javafx.util.StringConverter
 
+/** Interface to build [StringConverter] with Kotlin DSL. */
 interface StringConverterBuilder<T> {
 
+    /** Convert the object to String. */
     fun toString(listener: (T?) -> String)
 
+    /** Convert String back to object. */
     fun fromString(listener: (String) -> T?)
 }
 

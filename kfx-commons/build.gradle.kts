@@ -3,11 +3,11 @@ import org.gradle.api.tasks.JavaExec
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.creating
 import org.gradle.kotlin.dsl.kotlin
-import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
+import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
 group = "$releaseArtifact.commons"
 version = releaseVersion
@@ -45,7 +45,7 @@ dependencies {
 tasks {
     "ktlint"(JavaExec::class) {
         get("check").dependsOn(this)
-        group = "verification"
+        group = VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."

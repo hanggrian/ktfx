@@ -8,6 +8,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
+import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
 group = "$releaseArtifact.listeners"
 version = releaseVersion
@@ -31,21 +32,23 @@ dependencies {
     compile(project(":kfx-commons"))
     compile(kotlin("stdlib", kotlinVersion))
     ktlint(ktlint())
-    testCompile(kotlin("test", kotlinVersion))
-    testCompile(kotlin("reflect", kotlinVersion))
-    testCompile(spek("api")) {
+    testImplementation(kotlin("test", kotlinVersion))
+    testImplementation(kotlin("reflect", kotlinVersion))
+    testImplementation(spek("api")) {
         exclude("org.jetbrains.kotlin")
     }
     testRuntime(spek("junit-platform-engine")) {
         exclude("org.jetbrains.kotlin")
         exclude("org.junit.platform")
     }
+    testImplementation(testFX("core"))
+    testImplementation(testFX("junit"))
     testCompile(junitPlatform("runner"))
 }
 
 tasks {
     val ktlint by creating(JavaExec::class) {
-        group = "verification"
+        group = VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."

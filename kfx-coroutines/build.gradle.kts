@@ -8,6 +8,7 @@ import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 import org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
+import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
 group = "$releaseArtifact.coroutines"
 version = releaseVersion
@@ -49,7 +50,7 @@ dependencies {
 tasks {
     "ktlint"(JavaExec::class) {
         get("check").dependsOn(this)
-        group = "verification"
+        group = VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."

@@ -19,24 +19,18 @@ plugins {
     `bintray-release`
 }
 
+val artifacts = arrayOf("commons", "coroutines", "layouts", "listeners").map { "kfx-$it" }
+
 dependencies {
-    compile(project(":kfx-commons"))
-    compile(project(":kfx-coroutines"))
-    compile(project(":kfx-layouts"))
-    compile(project(":kfx-listeners"))
+    artifacts.forEach { compile(project(":$it")) }
 }
 
 gitPublish {
     repoUri = releaseWeb
     branch = "gh-pages"
-    contents.from(
-        "pages",
-        "../kfx-commons/build/docs",
-        "../kfx-coroutines/build/docs",
-        "../kfx-layouts/build/docs",
-        "../kfx-listeners/build/docs"
-    )
+    contents.from(*(arrayOf("pages") + artifacts.map { "../$it/build/docs" }))
 }
+tasks["gitPublishCopy"].dependsOn(*artifacts.map { ":$it:dokka" }.toTypedArray())
 
 publish {
     repoName = releaseArtifact

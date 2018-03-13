@@ -19,8 +19,8 @@ import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
-import kfx.internal.NO_GETTER
-import kfx.internal.noGetter
+import kfx.NO_GETTER
+import kfx.noGetter
 import kfx.stage.icon
 import kotlin.DeprecationLevel.ERROR
 

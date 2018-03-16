@@ -18,7 +18,8 @@ import javafx.beans.value.ObservableStringValue
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [StringBinding]. */
-inline fun stringBindingOf(vararg dependencies: Observable, noinline func: () -> String): StringBinding = createStringBinding(Callable(func), *dependencies)
+inline fun stringBindingOf(vararg dependencies: Observable, noinline func: () -> String): StringBinding =
+    createStringBinding(Callable(func), *dependencies)
 
 inline infix fun ObservableStringValue.eq(other: ObservableStringValue): BooleanBinding = equal(this, other)
 inline infix fun ObservableStringValue.eq(other: String): BooleanBinding = equal(this, other)

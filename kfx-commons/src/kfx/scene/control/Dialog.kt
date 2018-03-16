@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package kfx.scene.control
 
@@ -47,15 +47,34 @@ inline var Dialog<*>.headerTitle: String
         title = value
     }
 
+/** Add apply button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.applyButton(noinline init: (Node.() -> Unit)? = null) = addButton(APPLY, init)
+
+/** Add ok button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.okButton(noinline init: (Node.() -> Unit)? = null) = addButton(OK, init)
+
+/** Add cancel button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.cancelButton(noinline init: (Node.() -> Unit)? = null) = addButton(CANCEL, init)
+
+/** Add close button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.closeButton(noinline init: (Node.() -> Unit)? = null) = addButton(CLOSE, init)
+
+/** Add yes button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.yesButton(noinline init: (Node.() -> Unit)? = null) = addButton(YES, init)
+
+/** Add no button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.noButton(noinline init: (Node.() -> Unit)? = null) = addButton(NO, init)
+
+/** Add finish button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.finishButton(noinline init: (Node.() -> Unit)? = null) = addButton(FINISH, init)
+
+/** Add next button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.nextButton(noinline init: (Node.() -> Unit)? = null) = addButton(NEXT, init)
+
+/** Add previous button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.previousButton(noinline init: (Node.() -> Unit)? = null) = addButton(PREVIOUS, init)
+
+/** Add custom button specifying text and type, invoking DSL to customize it as node. */
 inline fun Dialog<*>.customButton(
     text: String,
     data: ButtonData = OTHER,
@@ -72,9 +91,9 @@ fun <R> dialog(
     title: String? = null,
     graphic: Node? = null,
     init: (Dialog<R>.() -> Unit)? = null
-): Dialog<R> = Dialog<R>().apply {
-    if (title != null) setTitle(title)
-    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
-    if (title != null && graphic != null) headerText = title
-    init?.invoke(this)
+): Dialog<R> = Dialog<R>().also { dialog ->
+    if (title != null) dialog.title = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    if (title != null && graphic != null) dialog.headerText = title
+    init?.invoke(dialog)
 }

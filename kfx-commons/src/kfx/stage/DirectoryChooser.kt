@@ -14,8 +14,8 @@ fun directoryChooser(
     title: String?,
     initialDirectory: File? = null,
     init: (DirectoryChooser.() -> Unit)? = null
-): DirectoryChooser = DirectoryChooser().apply {
-    if (title != null) setTitle(title)
-    if (initialDirectory != null) setInitialDirectory(initialDirectory)
-    init?.invoke(this)
+): DirectoryChooser = DirectoryChooser().also {
+    if (title != null) it.title = title
+    if (initialDirectory != null) it.initialDirectory = initialDirectory
+    init?.invoke(it)
 }

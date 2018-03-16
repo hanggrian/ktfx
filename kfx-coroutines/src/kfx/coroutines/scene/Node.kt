@@ -229,7 +229,7 @@ fun Node.onZoomStarted(
     action: suspend CoroutineScope.(ZoomEvent) -> Unit
 ) = setOnZoomStarted { event -> launch(context) { action(event) } }
 
-fun Node.screenshot(
+fun Node.snapshot(
     context: CoroutineContext = FX,
     params: SnapshotParameters? = null,
     image: WritableImage? = null,

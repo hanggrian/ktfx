@@ -37,7 +37,10 @@ inline fun <K, V> emptyObservableMap(): ObservableMap<K, V> = FXCollections.empt
 inline fun <K, V> observableMapOf(): ObservableMap<K, V> = emptyObservableMap()
 
 /** Returns an empty observable map of containing all [pairs]. */
-fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = if (pairs.isNotEmpty()) unmodifiableObservableMap(mutableObservableMapOf(*pairs)) else emptyObservableMap()
+fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = when {
+    pairs.isNotEmpty() -> unmodifiableObservableMap(mutableObservableMapOf(*pairs))
+    else -> emptyObservableMap()
+}
 
 /** Converts this map to immutable [ObservableMap]. */
 inline fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> = unmodifiableObservableMap(toMutableObservableMap())
@@ -46,14 +49,18 @@ inline fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> = unmodifiabl
 inline fun <K, V> mutableObservableMapOf(): ObservableMap<K, V> = observableHashMap()
 
 /** Returns an [[ObservableMap]] of [pairs]. */
-fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = observableMap(HashMap<K, V>().apply { for ((key, value) in pairs) put(key, value) })
+fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = observableMap(HashMap<K, V>().apply {
+    for ((key, value) in pairs) put(key, value)
+})
 
 /** Converts this map to [[ObservableMap]]. */
 inline fun <K, V> Map<K, V>.toMutableObservableMap(): ObservableMap<K, V> = observableMap(this)
 
-inline fun <K, V> ObservableMap<K, V>.bindContentBidirectional(other: ObservableMap<K, V>) = bindContentBidirectional(this, other)
+inline fun <K, V> ObservableMap<K, V>.bindContentBidirectional(other: ObservableMap<K, V>) =
+    bindContentBidirectional(this, other)
 
-inline fun <K, V> ObservableMap<K, V>.unbindContentBidirectional(other: ObservableMap<K, V>) = unbindContentBidirectional(this, other)
+inline fun <K, V> ObservableMap<K, V>.unbindContentBidirectional(other: ObservableMap<K, V>) =
+    unbindContentBidirectional(this, other)
 
 inline fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>) = bindContent(this, other)
 

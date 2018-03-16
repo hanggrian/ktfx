@@ -14,6 +14,7 @@ import kfx.layouts.button
 import kfx.layouts.gridPane
 import kfx.layouts.label
 import kfx.layouts.vbox
+import kfx.scene.control.alert
 import kfx.scene.control.errorAlert
 import kfx.scene.control.infoAlert
 import kfx.scene.layout.setSizeMin
@@ -187,6 +188,8 @@ class App : Application() {
         })
         stage.isResizable = false
         stage.show()
+
+        alert("fuck you").showAndWait()
     }
 
     private fun appendText(text: String) {

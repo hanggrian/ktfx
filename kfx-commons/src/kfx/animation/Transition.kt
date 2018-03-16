@@ -14,7 +14,9 @@ import javafx.util.Duration
 
 inline fun parallelTransitionOf(vararg animations: Animation): ParallelTransition = ParallelTransition(*animations)
 
-inline fun sequentialTransitionOf(vararg animations: Animation): SequentialTransition = SequentialTransition().apply { children.addAll(*animations) }
+inline fun sequentialTransitionOf(vararg animations: Animation): SequentialTransition = SequentialTransition().apply {
+    children.addAll(*animations)
+}
 
 inline fun Node.fadeTransition(
     duration: Duration,

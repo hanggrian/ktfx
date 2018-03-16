@@ -35,10 +35,10 @@ fun fileChooser(
     initialFileName: String?,
     vararg filters: FileChooser.ExtensionFilter,
     init: (FileChooser.() -> Unit)? = null
-): FileChooser = FileChooser().apply {
-    if (title != null) setTitle(title)
-    if (initialDirectory != null) setInitialDirectory(initialDirectory)
-    if (initialFileName != null) setInitialFileName(initialFileName)
-    if (filters.isNotEmpty()) extensionFilters.addAll(*filters)
-    init?.invoke(this)
+): FileChooser = FileChooser().also {
+    if (title != null) it.title = title
+    if (initialDirectory != null) it.initialDirectory = initialDirectory
+    if (initialFileName != null) it.initialFileName = initialFileName
+    if (filters.isNotEmpty()) it.extensionFilters += filters
+    init?.invoke(it)
 }

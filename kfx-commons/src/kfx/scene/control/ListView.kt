@@ -10,14 +10,20 @@ import javafx.scene.control.cell.ChoiceBoxListCell
 import javafx.scene.control.cell.ComboBoxListCell
 import javafx.scene.control.cell.TextFieldListCell
 
-inline fun <T> ListView<T>.checkBoxCellFactory(noinline callback: (T) -> ObservableValue<Boolean>) = setCellFactory(CheckBoxListCell.forListView(callback))
+inline fun <T> ListView<T>.checkBoxCellFactory(noinline callback: (T) -> ObservableValue<Boolean>) =
+    setCellFactory(CheckBoxListCell.forListView(callback))
 
-inline fun <T> ListView<T>.choiceBoxCellFactory(vararg items: T) = setCellFactory(ChoiceBoxListCell.forListView(*items))
+inline fun <T> ListView<T>.choiceBoxCellFactory(vararg items: T) =
+    setCellFactory(ChoiceBoxListCell.forListView(*items))
 
-inline fun <T> ListView<T>.choiceBoxCellFactory(items: ObservableList<T>) = setCellFactory(ChoiceBoxListCell.forListView(items))
+inline fun <T> ListView<T>.choiceBoxCellFactory(items: ObservableList<T>) =
+    setCellFactory(ChoiceBoxListCell.forListView(items))
 
-inline fun <T> ListView<T>.comboBoxCellFactory(vararg items: T) = setCellFactory(ComboBoxListCell.forListView(*items))
+inline fun <T> ListView<T>.comboBoxCellFactory(vararg items: T) =
+    setCellFactory(ComboBoxListCell.forListView(*items))
 
-inline fun <T> ListView<T>.comboBoxCellFactory(items: ObservableList<T>) = setCellFactory(ComboBoxListCell.forListView(items))
+inline fun <T> ListView<T>.comboBoxCellFactory(items: ObservableList<T>) =
+    setCellFactory(ComboBoxListCell.forListView(items))
 
-inline fun ListView<String>.textFieldCellFactory() = setCellFactory(TextFieldListCell.forListView())
+inline fun ListView<String>.textFieldCellFactory() =
+    setCellFactory(TextFieldListCell.forListView())

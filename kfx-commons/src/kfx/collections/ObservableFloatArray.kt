@@ -13,7 +13,8 @@ import javafx.collections.ObservableFloatArray
 inline fun observableFloatArrayOf(): ObservableFloatArray = FXCollections.observableFloatArray()
 
 /** Returns an [ObservableFloatArray] of [elements]. */
-inline fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray = FXCollections.observableFloatArray(*elements)
+inline fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray =
+    FXCollections.observableFloatArray(*elements)
 
 /** Converts this [FloatArray] to [ObservableFloatArray]. */
 inline fun FloatArray.toObservableArray(): ObservableFloatArray = FXCollections.observableFloatArray(*this)

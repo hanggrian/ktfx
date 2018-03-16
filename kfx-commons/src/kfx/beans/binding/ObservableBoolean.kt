@@ -14,7 +14,8 @@ import javafx.beans.value.ObservableBooleanValue
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [BooleanBinding]. */
-inline fun booleanBindingOf(vararg dependencies: Observable, noinline func: () -> Boolean): BooleanBinding = createBooleanBinding(Callable(func), *dependencies)
+inline fun booleanBindingOf(vararg dependencies: Observable, noinline func: () -> Boolean): BooleanBinding =
+    createBooleanBinding(Callable(func), *dependencies)
 
 /** Creates a [BooleanBinding] that calculates the conditional-AND operation on the value of two instance of [ObservableBooleanValue]. */
 inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): BooleanBinding = and(this, other)

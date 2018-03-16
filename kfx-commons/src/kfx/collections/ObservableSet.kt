@@ -27,9 +27,11 @@ inline fun <T> observableSetOf(vararg elements: T): ObservableSet<T> = elements.
 /** Returns an [ObservableList] containing all [elements]. */
 inline fun <T> mutableObservableSetOf(vararg elements: T): ObservableSet<T> = elements.toMutableObservableSet()
 
-inline fun <E> ObservableSet<E>.bindContentBidirectional(other: ObservableSet<E>) = bindContentBidirectional(this, other)
+inline fun <E> ObservableSet<E>.bindContentBidirectional(other: ObservableSet<E>) =
+    bindContentBidirectional(this, other)
 
-inline fun <E> ObservableSet<E>.unbindContentBidirectional(other: ObservableSet<E>) = unbindContentBidirectional(this, other)
+inline fun <E> ObservableSet<E>.unbindContentBidirectional(other: ObservableSet<E>) =
+    unbindContentBidirectional(this, other)
 
 inline fun <E> Set<E>.bindContent(other: ObservableSet<E>) = bindContent(this, other)
 

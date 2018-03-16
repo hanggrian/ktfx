@@ -12,12 +12,12 @@ inline fun inputDialog(
 ): TextInputDialog = inputDialog(null, null, prefill, init)
 
 fun inputDialog(
-    title: String?,
-    graphic: Node?,
+    title: String? = null,
+    graphic: Node? = null,
     prefill: String = "",
     init: (TextInputDialog.() -> Unit)? = null
-): TextInputDialog = TextInputDialog(prefill).apply {
-    if (title != null) headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
-    init?.invoke(this)
+): TextInputDialog = TextInputDialog(prefill).also { dialog ->
+    if (title != null) dialog.headerTitle = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    init?.invoke(dialog)
 }

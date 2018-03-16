@@ -101,9 +101,11 @@ inline fun <T : Comparable<T>> ObservableList<T>.sort() = sort(this)
 /** Sorts the provided observable list using the c comparator, firing change notification once. */
 inline infix fun <T> ObservableList<T>.sort(c: Comparator<T>) = sort(this, c)
 
-inline fun <E> ObservableList<E>.bindContentBidirectional(other: ObservableList<E>) = bindContentBidirectional(this, other)
+inline fun <E> ObservableList<E>.bindContentBidirectional(other: ObservableList<E>) =
+    bindContentBidirectional(this, other)
 
-inline fun <E> ObservableList<E>.unbindContentBidirectional(other: ObservableList<E>) = unbindContentBidirectional(this, other)
+inline fun <E> ObservableList<E>.unbindContentBidirectional(other: ObservableList<E>) =
+    unbindContentBidirectional(this, other)
 
 inline fun <E> List<E>.bindContent(other: ObservableList<E>) = bindContent(this, other)
 

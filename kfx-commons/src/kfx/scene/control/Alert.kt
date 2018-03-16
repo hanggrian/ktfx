@@ -19,14 +19,17 @@ inline fun alert(
 ): Alert = alert(null, null, contentText, *buttonTypes, init = init)
 
 fun alert(
-    title: String?,
-    graphic: Node?,
+    title: String? = null,
+    graphic: Node? = null,
     contentText: String = "",
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(NONE, contentText, *buttonTypes).apply {
     if (title != null) headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
+    when {
+        graphic != null && graphic is ImageView -> graphicIcon = graphic
+        graphic != null -> setGraphic(graphic)
+    }
     init?.invoke(this)
 }
 
@@ -37,8 +40,8 @@ inline fun infoAlert(
 ): Alert = infoAlert(null, null, contentText, *buttonTypes, init = init)
 
 fun infoAlert(
-    title: String?,
-    graphic: Node?,
+    title: String? = null,
+    graphic: Node? = null,
     contentText: String = "",
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
@@ -55,8 +58,8 @@ inline fun warningAlert(
 ): Alert = warningAlert(null, null, contentText, *buttonTypes, init = init)
 
 fun warningAlert(
-    title: String?,
-    graphic: Node?,
+    title: String? = null,
+    graphic: Node? = null,
     contentText: String = "",
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
@@ -73,8 +76,8 @@ inline fun confirmAlert(
 ): Alert = confirmAlert(null, null, contentText, *buttonTypes, init = init)
 
 fun confirmAlert(
-    title: String?,
-    graphic: Node?,
+    title: String? = null,
+    graphic: Node? = null,
     contentText: String = "",
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
@@ -91,8 +94,8 @@ inline fun errorAlert(
 ): Alert = errorAlert(null, null, contentText, *buttonTypes, init = init)
 
 fun errorAlert(
-    title: String?,
-    graphic: Node?,
+    title: String? = null,
+    graphic: Node? = null,
     contentText: String = "",
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null

@@ -13,13 +13,13 @@ inline fun <T> choiceDialog(
 ): ChoiceDialog<T> = choiceDialog(null, null, items, prefill, init)
 
 fun <T> choiceDialog(
-    title: String?,
-    graphic: Node?,
+    title: String? = null,
+    graphic: Node? = null,
     items: Collection<T>? = null,
     prefill: T? = null,
     init: (ChoiceDialog<T>.() -> Unit)? = null
-): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).apply {
-    if (title != null) headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { graphicIcon = it } ?: setGraphic(graphic)
-    init?.invoke(this)
+): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).also { dialog ->
+    if (title != null) dialog.headerTitle = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    init?.invoke(dialog)
 }

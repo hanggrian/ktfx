@@ -228,7 +228,7 @@ fun Scene.onZoomStarted(
     action: suspend CoroutineScope.(ZoomEvent) -> Unit
 ) = setOnZoomStarted { event -> launch(context) { action(event) } }
 
-fun Scene.screenshot(
+fun Scene.snapshot(
     context: CoroutineContext = FX,
     image: WritableImage? = null,
     callback: suspend CoroutineScope.(SnapshotResult) -> Unit

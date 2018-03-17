@@ -11,12 +11,12 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/example" />
-            <option value="$PROJECT_DIR$/kfx" />
-            <option value="$PROJECT_DIR$/kfx-commons" />
-            <option value="$PROJECT_DIR$/kfx-coroutines" />
-            <option value="$PROJECT_DIR$/kfx-layouts" />
-            <option value="$PROJECT_DIR$/kfx-listeners" />
-            <option value="$PROJECT_DIR$/kfx-styles" />
+            <option value="$PROJECT_DIR$/ktfx" />
+            <option value="$PROJECT_DIR$/ktfx-commons" />
+            <option value="$PROJECT_DIR$/ktfx-coroutines" />
+            <option value="$PROJECT_DIR$/ktfx-layouts" />
+            <option value="$PROJECT_DIR$/ktfx-listeners" />
+            <option value="$PROJECT_DIR$/ktfx-styles" />
           </set>
         </option>
       </GradleProjectSettings>

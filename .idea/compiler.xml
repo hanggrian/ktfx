@@ -18,6 +18,8 @@
       <module name="kfx-listeners_test" target="1.8" />
       <module name="kfx-styles_main" target="1.8" />
       <module name="kfx-styles_test" target="1.8" />
+      <module name="kfx_main" target="1.8" />
+      <module name="kfx_test" target="1.8" />
       <module name="kotfx-core_main" target="1.8" />
       <module name="kotfx-core_test" target="1.8" />
       <module name="kotfx-coroutines_main" target="1.8" />
@@ -48,6 +50,18 @@
       <module name="kotlinfx-listeners_test" target="1.8" />
       <module name="kotlinfx_main" target="1.8" />
       <module name="kotlinfx_test" target="1.8" />
+      <module name="ktfx-commons_main" target="1.8" />
+      <module name="ktfx-commons_test" target="1.8" />
+      <module name="ktfx-coroutines_main" target="1.8" />
+      <module name="ktfx-coroutines_test" target="1.8" />
+      <module name="ktfx-ktfx_main" target="1.8" />
+      <module name="ktfx-ktfx_test" target="1.8" />
+      <module name="ktfx-layouts_main" target="1.8" />
+      <module name="ktfx-layouts_test" target="1.8" />
+      <module name="ktfx-listeners_main" target="1.8" />
+      <module name="ktfx-listeners_test" target="1.8" />
+      <module name="ktfx-styles_main" target="1.8" />
+      <module name="ktfx-styles_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

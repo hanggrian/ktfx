@@ -1,0 +1,11 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:ktfx.layouts$column(javafx.scene.layout.GridPane, kotlin.Function1((ktfx.layouts.ConstraintsBuilder((javafx.scene.layout.ColumnConstraints)), kotlin.Unit)))ktfx.layouts/javafx.scene.layout.-grid-pane/column.html
+$dokka.location:ktfx.layouts$contextMenu(javafx.scene.control.Control, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((ktfx.layouts._ContextMenu, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-control/context-menu.html
+$dokka.location:ktfx.layouts$contextMenu(javafx.scene.control.Tab, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((ktfx.layouts._ContextMenu, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-tab/context-menu.html
+$dokka.location:ktfx.layouts$contextMenu(javafx.scene.control.TableColumnBase((ktfx.layouts.contextMenu.S, ktfx.layouts.contextMenu.T)), kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((ktfx.layouts._ContextMenu, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-table-column-base/context-menu.html
+$dokka.location:ktfx.layouts$row(javafx.scene.layout.GridPane, kotlin.Function1((ktfx.layouts.ConstraintsBuilder((javafx.scene.layout.RowConstraints)), kotlin.Unit)))ktfx.layouts/javafx.scene.layout.-grid-pane/row.html
+$dokka.location:ktfx.layouts$tooltip(javafx.scene.Node, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))ktfx.layouts/javafx.scene.-node/tooltip.html
+$dokka.location:ktfx.layouts$tooltip(javafx.scene.control.Control, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-control/tooltip.html
+$dokka.location:ktfx.layouts$tooltip(javafx.scene.control.Tab, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-tab/tooltip.html
+ktfx.layouts

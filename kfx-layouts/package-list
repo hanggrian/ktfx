@@ -1,10 +1,10 @@
 $dokka.format:html
 $dokka.linkExtension:html
-$dokka.location:kfx.layouts$column(javafx.scene.layout.GridPane, kotlin.Function1((kfx.layouts.Constrained((javafx.scene.layout.ColumnConstraints)), kotlin.Unit)))kfx.layouts/javafx.scene.layout.-grid-pane/column.html
+$dokka.location:kfx.layouts$column(javafx.scene.layout.GridPane, kotlin.Function1((kfx.layouts.ConstraintsBuilder((javafx.scene.layout.ColumnConstraints)), kotlin.Unit)))kfx.layouts/javafx.scene.layout.-grid-pane/column.html
 $dokka.location:kfx.layouts$contextMenu(javafx.scene.control.Control, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((kfx.layouts._ContextMenu, kotlin.Unit)))kfx.layouts/javafx.scene.control.-control/context-menu.html
 $dokka.location:kfx.layouts$contextMenu(javafx.scene.control.Tab, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((kfx.layouts._ContextMenu, kotlin.Unit)))kfx.layouts/javafx.scene.control.-tab/context-menu.html
 $dokka.location:kfx.layouts$contextMenu(javafx.scene.control.TableColumnBase((kfx.layouts.contextMenu.S, kfx.layouts.contextMenu.T)), kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((kfx.layouts._ContextMenu, kotlin.Unit)))kfx.layouts/javafx.scene.control.-table-column-base/context-menu.html
-$dokka.location:kfx.layouts$row(javafx.scene.layout.GridPane, kotlin.Function1((kfx.layouts.Constrained((javafx.scene.layout.RowConstraints)), kotlin.Unit)))kfx.layouts/javafx.scene.layout.-grid-pane/row.html
+$dokka.location:kfx.layouts$row(javafx.scene.layout.GridPane, kotlin.Function1((kfx.layouts.ConstraintsBuilder((javafx.scene.layout.RowConstraints)), kotlin.Unit)))kfx.layouts/javafx.scene.layout.-grid-pane/row.html
 $dokka.location:kfx.layouts$tooltip(javafx.scene.Node, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))kfx.layouts/javafx.scene.-node/tooltip.html
 $dokka.location:kfx.layouts$tooltip(javafx.scene.control.Control, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))kfx.layouts/javafx.scene.control.-control/tooltip.html
 $dokka.location:kfx.layouts$tooltip(javafx.scene.control.Tab, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))kfx.layouts/javafx.scene.control.-tab/tooltip.html

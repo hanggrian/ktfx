@@ -34,10 +34,10 @@
 </tr>
 <tr>
 <td>
-<p><a href="-constrained/index.html">Constrained</a></p>
+<p><a href="-column-constraints-builder/index.html">ColumnConstraintsBuilder</a></p>
 </td>
 <td>
-<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">Constrained</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ConstraintsBase</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">class </span><span class="identifier">ColumnConstraintsBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-constraints-builder/index.html"><span class="identifier">ConstraintsBuilder</span></a><span class="symbol">&lt;</span><span class="identifier">ColumnConstraints</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -45,6 +45,15 @@
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">ConstrainedPane</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="-constraints-builder/index.html">ConstraintsBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">sealed</span> <span class="keyword">class </span><span class="identifier">ConstraintsBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ConstraintsBase</span><span class="symbol">&gt;</span></code>
+<p>Base class of row and column constrains builder DSL.</p>
+</td>
 </tr>
 <tr>
 <td>
@@ -83,6 +92,13 @@
 </tr>
 <tr>
 <td>
+<p><a href="-row-constraints-builder/index.html">RowConstraintsBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">RowConstraintsBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-constraints-builder/index.html"><span class="identifier">ConstraintsBuilder</span></a><span class="symbol">&lt;</span><span class="identifier">RowConstraints</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
 <p><a href="-tab-manager/index.html">TabManager</a></p>
 </td>
 <td>
@@ -115,13 +131,6 @@
 </td>
 <td>
 <code><span class="keyword">class </span><span class="identifier">_ButtonBar</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ButtonBar</span><span class="symbol">, </span><a href="-button-manager/index.html"><span class="identifier">ButtonManager</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="_-column-constrained/index.html">_ColumnConstrained</a></p>
-</td>
-<td>
-<code><span class="keyword">class </span><span class="identifier">_ColumnConstrained</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-constrained/index.html"><span class="identifier">Constrained</span></a><span class="symbol">&lt;</span><span class="identifier">ColumnConstraints</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -164,13 +173,6 @@
 </td>
 <td>
 <code><span class="keyword">class </span><span class="identifier">_MenuBar</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MenuBar</span><span class="symbol">, </span><a href="-menu-manager/index.html"><span class="identifier">MenuManager</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="_-row-constrained/index.html">_RowConstrained</a></p>
-</td>
-<td>
-<code><span class="keyword">class </span><span class="identifier">_RowConstrained</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-constrained/index.html"><span class="identifier">Constrained</span></a><span class="symbol">&lt;</span><span class="identifier">RowConstraints</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>

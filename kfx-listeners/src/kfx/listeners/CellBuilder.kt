@@ -12,14 +12,19 @@ import kfx.listeners.internal.CellBuilderImpl
 /** Interface to build [javafx.scene.control.Cell] with Kotlin DSL. */
 internal interface CellBuilder<out T> {
 
+    /** Invoked when cell is on editing mode. */
     fun onStartEdit(listener: () -> Unit)
 
+    /** Invoked when cell edit is being committed. */
     fun onCommitEdit(listener: (T?) -> Unit)
 
+    /** Invoked when cell edit is canceled. */
     fun onCancelEdit(listener: () -> Unit)
 
+    /** Invoked when cell item is updating. */
     fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
 
+    /** Clear text and graphic of current cell. */
     fun clear()
 }
 

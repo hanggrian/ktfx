@@ -87,6 +87,13 @@ internal fun Dialog<*>.addButton(button: ButtonType, init: (Node.() -> Unit)?) {
     if (init != null) dialogPane.lookupButton(button).init()
 }
 
+/**
+ * Build a custom dialog with Kotlin DSL.
+ *
+ * @param title title of the dialog.
+ * @param graphic node to be displayed in header.
+ * @param init custom initialization block.
+ */
 fun <R> dialog(
     title: String? = null,
     graphic: Node? = null,

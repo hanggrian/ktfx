@@ -12,6 +12,6 @@ fun Window.setSize(width: Int, height: Int) {
 }
 
 /** Sets width and height in integer. */
-var Window.size: Int
+inline var Window.size: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSize(value, value)

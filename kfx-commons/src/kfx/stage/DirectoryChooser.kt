@@ -3,19 +3,17 @@
 package kfx.stage
 
 import javafx.stage.DirectoryChooser
-import java.io.File
 
-inline fun directoryChooser(
-    initialDirectory: File? = null,
-    noinline init: (DirectoryChooser.() -> Unit)? = null
-): DirectoryChooser = directoryChooser(null, initialDirectory, init)
-
+/**
+ * Build a directory chooser dialog with Kotlin DSL.
+ *
+ * @param title title of the dialog.
+ * @param init custom initialization block.
+ */
 fun directoryChooser(
-    title: String?,
-    initialDirectory: File? = null,
+    title: String? = null,
     init: (DirectoryChooser.() -> Unit)? = null
 ): DirectoryChooser = DirectoryChooser().also {
     if (title != null) it.title = title
-    if (initialDirectory != null) it.initialDirectory = initialDirectory
     init?.invoke(it)
 }

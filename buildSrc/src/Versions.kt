@@ -1,5 +1,5 @@
 const val kotlinVersion = "1.2.30"
-const val coroutinesVersion = "0.22.4"
+const val coroutinesVersion = "0.22.5"
 
 internal const val dokkaVersion = "0.9.16"
 internal const val spekVersion = "1.1.5"

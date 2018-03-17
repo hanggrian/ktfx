@@ -9,7 +9,6 @@ import javafx.scene.control.TreeView
 import javafx.scene.control.cell.CheckBoxTreeCell
 import javafx.scene.control.cell.ChoiceBoxTreeCell
 import javafx.scene.control.cell.TextFieldTreeCell
-import javafx.util.StringConverter
 
 inline fun <T> TreeView<T>.checkBoxCellFactory() =
     setCellFactory(CheckBoxTreeCell.forTreeView())

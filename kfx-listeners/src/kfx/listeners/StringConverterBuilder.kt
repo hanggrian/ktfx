@@ -16,26 +16,20 @@ interface StringConverterBuilder<T> {
 
 @PublishedApi
 internal class _StringConverterBuilder<T> : StringConverter<T>(), StringConverterBuilder<T> {
-    private var toString: ((T?) -> String)? = null
-    private var fromString: ((String) -> T?)? = null
+    private var _toString: (T?) -> String = { it?.toString() ?: "" }
+    private var _fromString: (String) -> T? = { null }
 
     override fun toString(listener: (T?) -> String) {
-        toString = listener
+        _toString = listener
     }
 
-    override fun toString(any: T?): String {
-        val handler = toString ?: return any?.toString() ?: ""
-        return handler(any)
-    }
+    override fun toString(any: T?): String = _toString(any)
 
     override fun fromString(listener: (String) -> T?) {
-        fromString = listener
+        _fromString = listener
     }
 
-    override fun fromString(string: String): T? {
-        val handler = fromString ?: return null
-        return handler(string)
-    }
+    override fun fromString(string: String): T? = _fromString(string)
 }
 
 @PublishedApi internal inline fun <T> (StringConverterBuilder<T>.() -> Unit).build(): StringConverter<T> =

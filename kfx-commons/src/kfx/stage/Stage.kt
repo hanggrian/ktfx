@@ -54,7 +54,7 @@ inline fun Stage.setSizeMax(width: Int, height: Int) {
 
 /** Sets maximum width and height in integer. */
 // TODO: investigate why this method can't be inlined
-var Stage.sizeMax: Int
+inline var Stage.sizeMax: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSizeMax(value, value)
 

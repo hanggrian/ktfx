@@ -25,7 +25,6 @@ inline fun Region.setSizeMin(width: Int, height: Int) {
 }
 
 /** Sets minimum width and height in integer. */
-// TODO: investigate why this method can't be inlined
 inline var Region.sizeMin: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSizeMin(value, value)
@@ -47,7 +46,6 @@ inline fun Region.setSizePref(width: Int, height: Int) {
 }
 
 /** Sets preferred width and height in integer. */
-// TODO: investigate why this method can't be inlined
 inline var Region.sizePref: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSizePref(value, value)
@@ -69,7 +67,6 @@ inline fun Region.setSizeMax(width: Int, height: Int) {
 }
 
 /** Sets maximum width and height in integer. */
-// TODO: investigate why this method can't be inlined
 inline var Region.sizeMax: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSizeMax(value, value)

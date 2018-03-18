@@ -31,7 +31,6 @@ inline fun Stage.setSizeMin(width: Int, height: Int) {
 }
 
 /** Sets minimum width and height in integer. */
-// TODO: investigate why this method can't be inlined
 inline var Stage.sizeMin: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSizeMin(value, value)
@@ -53,7 +52,6 @@ inline fun Stage.setSizeMax(width: Int, height: Int) {
 }
 
 /** Sets maximum width and height in integer. */
-// TODO: investigate why this method can't be inlined
 inline var Stage.sizeMax: Int
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSizeMax(value, value)

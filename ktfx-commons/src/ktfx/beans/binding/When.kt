@@ -18,6 +18,7 @@ import javafx.beans.value.ObservableNumberValue
 import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableStringValue
 
+/** Start a conditional if else binding. */
 inline fun `if`(condition: ObservableBooleanValue): When = `when`(condition)
 
 inline infix fun When.then(thenValue: ObservableNumberValue): NumberConditionBuilder = then(thenValue)

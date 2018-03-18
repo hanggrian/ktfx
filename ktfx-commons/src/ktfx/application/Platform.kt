@@ -21,4 +21,5 @@ inline fun exit(status: Int = 0) {
 /** Queries whether a specific conditional feature is supported by the platform. */
 inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)
 
+/** Force initialize JavaFX toolkit, may be useful for testing. */
 fun initToolkit(startup: (() -> Unit)? = null) = PlatformImpl.startup { startup?.invoke() }

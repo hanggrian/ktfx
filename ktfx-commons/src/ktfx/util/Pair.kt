@@ -5,13 +5,13 @@ package ktfx.util
 import javafx.util.Pair
 
 /** Key component of a [Pair] */
-inline operator fun <F, S> Pair<F, S>.component1(): F? = key
+inline operator fun <K, V> Pair<K, V>.component1(): K? = key
 
 /** Value component of a [Pair] */
-inline operator fun <F, S> Pair<F, S>.component2(): S? = value
+inline operator fun <K, V> Pair<K, V>.component2(): V? = value
 
 /** Converts JavaFX's pair to Kotlin's. */
-inline fun <F, S> Pair<F, S>.toKotlinPair(): kotlin.Pair<F, S> = kotlin.Pair(key, value)
+inline fun <K, V> Pair<K, V>.toKotlinPair(): kotlin.Pair<K, V> = kotlin.Pair(key, value)
 
 /** Converts Kotlin's pair to JavaFX's. */
-inline fun <F, S> kotlin.Pair<F, S>.toFXPair(): Pair<F, S> = Pair(first, second)
+inline fun <K, V> kotlin.Pair<K, V>.toFXPair(): Pair<K, V> = Pair(first, second)

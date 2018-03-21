@@ -15,7 +15,7 @@ All artifacts are hosted on [jcenter]. To download all of them, use KtFX main li
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx:0.1.1'
+    compile 'com.hendraanggrian.ktfx:ktfx:0.1.2'
 }
 ```
 
@@ -23,10 +23,10 @@ Or download separate library if only specific feature is desired:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx-commons:0.1.1'
-    compile 'com.hendraanggrian.ktfx:ktfx-layouts:0.1.1'
-    compile 'com.hendraanggrian.ktfx:ktfx-listeners:0.1.1'
-    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:0.1.1'
+    compile 'com.hendraanggrian.ktfx:ktfx-commons:0.1.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-layouts:0.1.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-listeners:0.1.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:0.1.2'
 }
 ```
 

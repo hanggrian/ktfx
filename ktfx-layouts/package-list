@@ -1,6 +1,8 @@
 $dokka.format:html
 $dokka.linkExtension:html
 $dokka.location:ktfx.layouts$column(javafx.scene.layout.GridPane, kotlin.Function1((ktfx.layouts.ConstraintsBuilder((javafx.scene.layout.ColumnConstraints)), kotlin.Unit)))ktfx.layouts/javafx.scene.layout.-grid-pane/column.html
+$dokka.location:ktfx.layouts$columns(javafx.scene.control.TableView((ktfx.layouts.columns.S)), kotlin.Function1((ktfx.layouts.TableColumnsBuilder((ktfx.layouts.columns.S)), kotlin.Unit)))ktfx.layouts/javafx.scene.control.-table-view/columns.html
+$dokka.location:ktfx.layouts$columns(javafx.scene.control.TreeTableView((ktfx.layouts.columns.S)), kotlin.Function1((ktfx.layouts.TreeTableColumnsBuilder((ktfx.layouts.columns.S)), kotlin.Unit)))ktfx.layouts/javafx.scene.control.-tree-table-view/columns.html
 $dokka.location:ktfx.layouts$contextMenu(javafx.scene.control.Control, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((ktfx.layouts._ContextMenu, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-control/context-menu.html
 $dokka.location:ktfx.layouts$contextMenu(javafx.scene.control.Tab, kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((ktfx.layouts._ContextMenu, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-tab/context-menu.html
 $dokka.location:ktfx.layouts$contextMenu(javafx.scene.control.TableColumnBase((ktfx.layouts.contextMenu.S, ktfx.layouts.contextMenu.T)), kotlin.Array((javafx.scene.control.MenuItem)), kotlin.Function1((ktfx.layouts._ContextMenu, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-table-column-base/context-menu.html

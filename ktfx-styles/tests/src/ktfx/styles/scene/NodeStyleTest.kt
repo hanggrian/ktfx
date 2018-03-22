@@ -1,9 +1,12 @@
-package ktfx.styles
+package ktfx.styles.scene
 
 import javafx.scene.Cursor
 import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.effect.BlendMode
+import ktfx.styles.NodeTest
+import ktfx.styles.Visibility
+import ktfx.styles.nodeStyle
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -28,18 +31,18 @@ class NodeStyleTest : NodeTest<Node>() {
             visibility = Visibility.HIDDEN
         }
 
-    override fun assertion() {
+    override fun Node.assertion() {
         //assertEquals(button.blendMode, BlendMode.RED)
-        assertEquals(node.cursor, Cursor.CROSSHAIR)
-        assertTrue(node.isFocusTraversable)
-        assertEquals(node.opacity, 0.5)
-        assertEquals(node.rotate, 0.5)
-        assertEquals(node.scaleX, 0.5)
-        assertEquals(node.scaleY, 0.5)
-        assertEquals(node.scaleZ, 0.5)
-        assertEquals(node.translateX, 0.5)
-        assertEquals(node.translateY, 0.5)
-        assertEquals(node.translateZ, 0.5)
-        assertFalse(node.isVisible)
+        assertEquals(cursor, Cursor.CROSSHAIR)
+        assertTrue(isFocusTraversable)
+        assertEquals(opacity, 0.5)
+        assertEquals(rotate, 0.5)
+        assertEquals(scaleX, 0.5)
+        assertEquals(scaleY, 0.5)
+        assertEquals(scaleZ, 0.5)
+        assertEquals(translateX, 0.5)
+        assertEquals(translateY, 0.5)
+        assertEquals(translateZ, 0.5)
+        assertFalse(isVisible)
     }
 }

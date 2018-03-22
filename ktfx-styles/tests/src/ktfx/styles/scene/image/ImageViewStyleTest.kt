@@ -1,6 +1,9 @@
-package ktfx.styles
+package ktfx.styles.scene.image
 
 import javafx.scene.image.ImageView
+import ktfx.styles.NodeTest
+import ktfx.styles.Urls
+import ktfx.styles.imageViewStyle
 import kotlin.test.assertNotNull
 
 class ImageViewStyleTest : NodeTest<ImageView>() {
@@ -12,7 +15,7 @@ class ImageViewStyleTest : NodeTest<ImageView>() {
             image = Urls("test.png")
         }
 
-    override fun assertion() {
-        assertNotNull(node.image)
+    override fun ImageView.assertion() {
+        assertNotNull(image)
     }
 }

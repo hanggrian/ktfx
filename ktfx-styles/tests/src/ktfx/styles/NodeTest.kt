@@ -17,7 +17,7 @@ abstract class NodeTest<T : Node> : ApplicationTest() {
 
     abstract val style: String
 
-    abstract fun assertion()
+    abstract fun T.assertion()
 
     protected lateinit var node: T
 
@@ -35,12 +35,13 @@ abstract class NodeTest<T : Node> : ApplicationTest() {
     @Test
     @Suppress("EXPERIMENTAL_FEATURE_WARNING")
     fun style() {
+        println(style)
         node.style = style
         node.applyCss()
         if (node is Control) (node as Control).layout()
         runBlocking {
             delay(500)
-            assertion()
+            node.assertion()
         }
     }
 }

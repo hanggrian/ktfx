@@ -6,8 +6,7 @@ import javafx.scene.text.FontSmoothingType
 import javafx.scene.text.FontWeight
 import javafx.scene.text.TextAlignment
 
-class TextStyleBuilder : ShapeStyleBuilder(), FontSmoothableStyleBuilder, TextAlignableStyleBuilder,
-    UnderlinableStyleBuilder {
+class TextStyleBuilder : ShapeStyleBuilder() {
 
     /** Shorthand property for font-size, font-family, font-weight and font-style. */
     @Incubating
@@ -21,15 +20,15 @@ class TextStyleBuilder : ShapeStyleBuilder(), FontSmoothableStyleBuilder, TextAl
 
     var fontWeight: FontWeight by map
 
-    override var fontSmoothingType: FontSmoothingType by map
+    var fontSmoothingType: FontSmoothingType by map
 
     var strikethrough: Boolean by map
 
-    override var textAlignment: TextAlignment by map
+    var textAlignment: TextAlignment by map
 
     var textOrigin: VPos by map
 
-    override var underline: Boolean by map
+    var underline: Boolean by map
 }
 
 inline fun textStyle(builder: TextStyleBuilder.() -> Unit): String =

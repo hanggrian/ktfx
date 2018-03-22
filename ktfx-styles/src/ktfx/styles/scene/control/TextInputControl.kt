@@ -2,12 +2,12 @@ package ktfx.styles
 
 import javafx.scene.paint.Color
 
-open class TextInputControlStyleBuilder : ControlStyleBuilder(), TextFillableStyleBuilder {
+open class TextInputControlStyleBuilder : ControlStyleBuilder() {
 
     @Incubating
     var font: String by map
 
-    override var textFill: Color by map
+    var textFill: Color by map
 
     var promptTextFill: Color by map
 

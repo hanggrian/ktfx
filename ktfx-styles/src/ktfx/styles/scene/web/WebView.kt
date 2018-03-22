@@ -2,11 +2,11 @@ package ktfx.styles
 
 import javafx.scene.text.FontSmoothingType
 
-class WebViewStyleBuilder : NodeStyleBuilder(), FontSmoothableStyleBuilder {
+class WebViewStyleBuilder : NodeStyleBuilder() {
 
     var contextMenuEnabled: Boolean by map
 
-    override var fontSmoothingType: FontSmoothingType by map
+    var fontSmoothingType: FontSmoothingType by map
 
     var fontScale: Number by map
 

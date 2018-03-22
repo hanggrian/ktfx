@@ -2,9 +2,9 @@ package ktfx.styles
 
 import javafx.geometry.Orientation
 
-class ScrollBarStyleBuilder : ControlStyleBuilder(), OrientableStyleBuilder {
+class ScrollBarStyleBuilder : ControlStyleBuilder() {
 
-    override var orientation: Orientation by map
+    var orientation: Orientation by map
 
     var blockIncrement: Number by map
 

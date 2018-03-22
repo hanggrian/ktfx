@@ -2,9 +2,9 @@ package ktfx.styles
 
 import javafx.geometry.Orientation
 
-class ListViewStyleBuilder : ControlStyleBuilder(), OrientableStyleBuilder {
+class ListViewStyleBuilder : ControlStyleBuilder() {
 
-    override var orientation: Orientation by map
+    var orientation: Orientation by map
 }
 
 inline fun listViewStyle(builder: ListViewStyleBuilder .() -> Unit): String =

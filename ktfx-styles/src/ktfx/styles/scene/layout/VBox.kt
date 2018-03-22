@@ -2,11 +2,11 @@ package ktfx.styles
 
 import javafx.geometry.Pos
 
-class VBoxStyleBuilder : NodeStyleBuilder(), SpacableStyleBuilder, AlignableStyleBuilder {
+class VBoxStyleBuilder : RegionStyleBuilder() {
 
-    override var spacing: Number by map
+    var spacing: Number by map
 
-    override var alignment: Pos by map
+    var alignment: Pos by map
 
     var fillWidth: Boolean by map
 }

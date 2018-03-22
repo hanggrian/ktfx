@@ -3,7 +3,7 @@ package ktfx.styles
 import javafx.geometry.Insets
 import javafx.scene.paint.Color
 
-class RegionStyleBuilder : NodeStyleBuilder() {
+open class RegionStyleBuilder : NodeStyleBuilder() {
 
     /** A series of paint values separated by commas.. */
     var backgroundColor: Color by map

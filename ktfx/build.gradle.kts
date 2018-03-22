@@ -19,7 +19,7 @@ plugins {
     `bintray-release`
 }
 
-val artifacts = arrayOf("commons", "coroutines", "layouts", "listeners").map { "ktfx-$it" }
+val artifacts = arrayOf("commons", "coroutines", "layouts", "listeners", "styles").map { "ktfx-$it" }
 
 dependencies {
     artifacts.forEach { compile(project(":$it")) }

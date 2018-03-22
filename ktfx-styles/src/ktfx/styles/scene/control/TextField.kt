@@ -2,9 +2,9 @@ package ktfx.styles
 
 import javafx.geometry.Pos
 
-class TextFieldStyleBuilder : TextInputControlStyleBuilder(), AlignableStyleBuilder {
+class TextFieldStyleBuilder : TextInputControlStyleBuilder() {
 
-    override var alignment: Pos by map
+    var alignment: Pos by map
 }
 
 inline fun textFieldStyle(builder: TextFieldStyleBuilder .() -> Unit): String =

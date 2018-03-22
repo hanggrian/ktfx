@@ -7,13 +7,12 @@ import javafx.scene.control.OverrunStyle
 import javafx.scene.paint.Color
 import javafx.scene.text.TextAlignment
 
-open class LabeledStyleBuilder : ControlStyleBuilder(), AlignableStyleBuilder, TextAlignableStyleBuilder,
-    UnderlinableStyleBuilder, TextFillableStyleBuilder {
+open class LabeledStyleBuilder : ControlStyleBuilder() {
 
-    override var alignment: Pos by map
+    var alignment: Pos by map
 
     /** Text-align from CSS spec maps to textAlignment in JavaFX. */
-    override var textAlignment: TextAlignment by map
+    var textAlignment: TextAlignment by map
 
     var textOverrun: OverrunStyle by map
 
@@ -22,7 +21,7 @@ open class LabeledStyleBuilder : ControlStyleBuilder(), AlignableStyleBuilder, T
     @Incubating
     var font: String by map
 
-    override var underline: Boolean by map
+    var underline: Boolean by map
 
     var graphic: Url by map
 
@@ -32,7 +31,7 @@ open class LabeledStyleBuilder : ControlStyleBuilder(), AlignableStyleBuilder, T
 
     var labelPadding: Insets by map
 
-    override var textFill: Color by map
+    var textFill: Color by map
 
     var ellipsisString: String by map
 }

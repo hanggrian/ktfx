@@ -16,6 +16,8 @@ version = releaseVersion
 plugins {
     `java-library`
     kotlin("jvm")
+    dokka
+    `bintray-release`
 }
 
 java.sourceSets {
@@ -32,17 +34,8 @@ dependencies {
     compile(project(":ktfx-commons"))
     compile(kotlin("stdlib", kotlinVersion))
 
-    testImplementation(kotlinx("coroutines-core", coroutinesVersion))
     testImplementation(kotlin("test", kotlinVersion))
-    testImplementation(kotlin("reflect", kotlinVersion))
-    testImplementation(junitPlatform("runner"))
-    testImplementation(spek("api")) {
-        exclude("org.jetbrains.kotlin")
-    }
-    testRuntime(spek("junit-platform-engine")) {
-        exclude("org.jetbrains.kotlin")
-        exclude("org.junit.platform")
-    }
+    testImplementation(kotlinx("coroutines-core", coroutinesVersion))
     testImplementation(testFX("core"))
     testImplementation(testFX("junit"))
 
@@ -69,4 +62,19 @@ tasks {
         main = "com.github.shyiko.ktlint.Main"
         args("-F", "src/**/*.kt")
     }
+
+    withType<DokkaTask> {
+        outputDirectory = "$buildDir/docs"
+        doFirst { file(outputDirectory).deleteRecursively() }
+    }
+}
+
+publish {
+    repoName = releaseArtifact
+    userOrg = releaseUser
+    groupId = releaseGroup
+    artifactId = "$releaseArtifact-styles"
+    publishVersion = releaseVersion
+    desc = releaseDesc
+    website = releaseWeb
 }

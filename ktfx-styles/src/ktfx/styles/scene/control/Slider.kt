@@ -2,9 +2,9 @@ package ktfx.styles
 
 import javafx.geometry.Orientation
 
-class SliderStyleBuilder : ControlStyleBuilder(), OrientableStyleBuilder {
+class SliderStyleBuilder : ControlStyleBuilder() {
 
-    override var orientation: Orientation by map
+    var orientation: Orientation by map
 
     var showTickLabels: Boolean by map
 

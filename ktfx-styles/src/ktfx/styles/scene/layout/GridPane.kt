@@ -2,13 +2,13 @@ package ktfx.styles
 
 import javafx.geometry.Pos
 
-class GridPaneStyleBuilder : NodeStyleBuilder(), GappableStyleBuilder, AlignableStyleBuilder {
+class GridPaneStyleBuilder : RegionStyleBuilder() {
 
-    override var hgap: Number by map
+    var hgap: Number by map
 
-    override var vgap: Number by map
+    var vgap: Number by map
 
-    override var alignment: Pos by map
+    var alignment: Pos by map
 
     var gridLinesVisible: Boolean by map
 }

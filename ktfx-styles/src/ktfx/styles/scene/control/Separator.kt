@@ -4,9 +4,9 @@ import javafx.geometry.HPos
 import javafx.geometry.Orientation
 import javafx.geometry.VPos
 
-class SeparatorStyleBuilder : ControlStyleBuilder(), OrientableStyleBuilder {
+class SeparatorStyleBuilder : ControlStyleBuilder() {
 
-    override var orientation: Orientation by map
+    var orientation: Orientation by map
 
     var halignment: HPos by map
 

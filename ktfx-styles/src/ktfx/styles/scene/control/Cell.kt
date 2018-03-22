@@ -1,6 +1,6 @@
 package ktfx.styles
 
-class CellStyleBuilder : LabeledStyleBuilder() {
+open class CellStyleBuilder : LabeledStyleBuilder() {
 
     /**
      * The cell size.

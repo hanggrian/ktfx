@@ -2,9 +2,9 @@ package ktfx.styles
 
 import javafx.geometry.Orientation
 
-class ToolBarStyleBuilder : ControlStyleBuilder(), OrientableStyleBuilder {
+class ToolBarStyleBuilder : ControlStyleBuilder() {
 
-    override var orientation: Orientation by map
+    var orientation: Orientation by map
 }
 
 inline fun toolBarStyle(builder: ToolBarStyleBuilder .() -> Unit): String =

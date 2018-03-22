@@ -5,9 +5,10 @@ Written in spirit of [android-ktx] and [anko].
 
 Consists of several parts:
  * *KtFX Commons*: full of helpers for common JavaFX application logic.
- * *KtFX Layout*: dynamic JavaFX layout with Kotlin DSL.
+ * *KtFX Layouts*: dynamic JavaFX layout with Kotlin DSL.
  * *KtFX Listeners*: write common JavaFX listeners with Kotlin DSL.
  * *KtFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
+ * *KtFX Styles*: type-safe inline CSS styling.
 
 Download
 --------
@@ -15,7 +16,7 @@ All artifacts are hosted on [jcenter]. To download all of them, use KtFX main li
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx:0.1.2'
+    compile 'com.hendraanggrian.ktfx:ktfx:0.2'
 }
 ```
 
@@ -23,10 +24,11 @@ Or download separate library if only specific feature is desired:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx-commons:0.1.2'
-    compile 'com.hendraanggrian.ktfx:ktfx-layouts:0.1.2'
-    compile 'com.hendraanggrian.ktfx:ktfx-listeners:0.1.2'
-    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:0.1.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-commons:0.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-layouts:0.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-listeners:0.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:0.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-styles:0.2'
 }
 ```
 
@@ -175,6 +177,23 @@ button.onAction(CommonPool) {
     }
 }
 ```
+
+KtFX Styles
+-----------
+When writing inline styles, longer strings tend to be hard to read and more likely to cause error.
+Replace it with type-safe style builders.
+
+```kotlin
+// error prone string
+label.style = "-fx-alignment: right; -fx-wrap-text: true; -fx-text-fill: red;"
+
+// type-safe DSL
+label.style = labeledStyle {
+    alignment = Pos.RIGHT
+    wrapText = true
+    textFill = Color.RED
+}
+``` 
 
 License
 -------

@@ -7,8 +7,14 @@ import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
 
 @Suppress("ClassName")
-open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), TabManager
+open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), TabLayoutManager
 
-inline fun tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null): TabPane = _TabPane(*tabs).apply { init?.invoke(this) }
+inline fun tabPane(
+    vararg tabs: Tab,
+    noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
+): TabPane = _TabPane(*tabs).also { init?.invoke(it) }
 
-inline fun Manager<Node>.tabPane(vararg tabs: Tab, noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null): TabPane = ktfx.layouts.tabPane(*tabs, init = init).add()
+inline fun LayoutManager<Node>.tabPane(
+    vararg tabs: Tab,
+    noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
+): TabPane = ktfx.layouts.tabPane(*tabs, init = init).add()

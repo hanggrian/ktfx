@@ -10,9 +10,9 @@ import ktfx.collections.mutableObservableListOf
 inline fun <T> choiceBox(
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ChoiceBox<T>).() -> Unit)? = null
-): ChoiceBox<T> = ChoiceBox(items).apply { init?.invoke(this) }
+): ChoiceBox<T> = ChoiceBox(items).also { init?.invoke(it) }
 
-inline fun <T> Manager<Node>.choiceBox(
+inline fun <T> LayoutManager<Node>.choiceBox(
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = ktfx.layouts.choiceBox(items, init).add()

@@ -6,14 +6,14 @@ import javafx.scene.Node
 import javafx.scene.control.ButtonBar
 
 @Suppress("ClassName")
-open class _ButtonBar(buttonOrder: String? = null) : ButtonBar(buttonOrder), ButtonManager
+open class _ButtonBar(buttonOrder: String? = null) : ButtonBar(buttonOrder), ButtonLayoutManager
 
 inline fun buttonBar(
     buttonOrder: String? = null,
     noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
-): ButtonBar = _ButtonBar(buttonOrder).apply { init?.invoke(this) }
+): ButtonBar = _ButtonBar(buttonOrder).also { init?.invoke(it) }
 
-inline fun Manager<Node>.buttonBar(
+inline fun LayoutManager<Node>.buttonBar(
     buttonOrder: String? = null,
     noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
 ): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init).add()

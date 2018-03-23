@@ -4,9 +4,11 @@ import javafx.collections.ObservableList
 import javafx.scene.Node
 
 /**
- * Manager for adding items with Kotlin DSL.
+ * LayoutManager for adding items with Kotlin DSL.
+ *
+ * @see _ToolBar
  */
-interface ItemManager : Manager<Node> {
+interface ItemLayoutManager : LayoutManager<Node> {
 
     /** Shall be shadowed on classes extending this interface. */
     fun getItems(): ObservableList<Node>

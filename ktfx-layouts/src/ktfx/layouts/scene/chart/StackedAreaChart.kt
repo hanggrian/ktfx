@@ -14,9 +14,9 @@ inline fun <X, Y> stackedAreaChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl StackedAreaChart<X, Y>).() -> Unit)? = null
-): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply { init?.invoke(this) }
+): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).also { init?.invoke(it) }
 
-inline fun <X, Y> Manager<Node>.stackedAreaChart(
+inline fun <X, Y> LayoutManager<Node>.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),

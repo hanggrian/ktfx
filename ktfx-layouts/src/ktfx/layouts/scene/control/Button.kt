@@ -9,9 +9,9 @@ inline fun button(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Button).() -> Unit)? = null
-): Button = Button(text, graphic).apply { init?.invoke(this) }
+): Button = Button(text, graphic).also { init?.invoke(it) }
 
-inline fun Manager<Node>.button(
+inline fun LayoutManager<Node>.button(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Button).() -> Unit)? = null

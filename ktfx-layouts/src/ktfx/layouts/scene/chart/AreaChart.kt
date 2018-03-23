@@ -14,9 +14,9 @@ inline fun <X, Y> areaChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
-): AreaChart<X, Y> = AreaChart(x, y, data).apply { init?.invoke(this) }
+): AreaChart<X, Y> = AreaChart(x, y, data).also { init?.invoke(it) }
 
-inline fun <X, Y> Manager<Node>.areaChart(
+inline fun <X, Y> LayoutManager<Node>.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),

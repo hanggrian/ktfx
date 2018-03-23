@@ -1,11 +1,12 @@
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+
 package ktfx.layouts
 
 import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
 
-@Suppress("ClassName")
-open class _FlowPane : FlowPane(), ChildManager, MarginedPane {
+open class _FlowPane : FlowPane(), ChildLayoutManager, MarginedPane {
 
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
 
@@ -14,6 +15,10 @@ open class _FlowPane : FlowPane(), ChildManager, MarginedPane {
     override fun Node.reset() = clearConstraints(this)
 }
 
-inline fun flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = _FlowPane().apply(init)
+inline fun flowPane(
+    noinline init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
+): FlowPane = _FlowPane().also { init?.invoke(it) }
 
-inline fun Manager<Node>.flowPane(init: (@LayoutDsl _FlowPane).() -> Unit): FlowPane = ktfx.layouts.flowPane(init).add()
+inline fun LayoutManager<Node>.flowPane(
+    noinline init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
+): FlowPane = ktfx.layouts.flowPane(init).add()

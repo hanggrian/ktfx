@@ -6,6 +6,12 @@ import javafx.scene.Node
 import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
 
-inline fun meshView(mesh: Mesh? = null, noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null): MeshView = MeshView(mesh).apply { init?.invoke(this) }
+inline fun meshView(
+    mesh: Mesh? = null,
+    noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null
+): MeshView = MeshView(mesh).also { init?.invoke(it) }
 
-inline fun Manager<Node>.meshView(mesh: Mesh? = null, noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null): MeshView = ktfx.layouts.meshView(mesh, init).add()
+inline fun LayoutManager<Node>.meshView(
+    mesh: Mesh? = null,
+    noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null
+): MeshView = ktfx.layouts.meshView(mesh, init).add()

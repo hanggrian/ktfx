@@ -9,9 +9,19 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 
 /**
- * Manager for adding controls with Kotlin DSL.
+ * LayoutManager for adding controls with Kotlin DSL.
+ *
+ * @see _AnchorPane
+ * @see _BorderPane
+ * @see _FlowPane
+ * @see _GridPane
+ * @see _HBox
+ * @see _StackPane
+ * @see _TextFlow
+ * @see _TilePane
+ * @see _VBox
  */
-interface ChildManager : Manager<Node> {
+interface ChildLayoutManager : LayoutManager<Node> {
 
     /** Shall be shadowed on classes extending this interface. */
     fun getChildren(): ObservableList<Node>

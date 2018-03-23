@@ -1,4 +1,4 @@
-@file:Suppress("ClassName")
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
 
 package ktfx.layouts
 
@@ -13,7 +13,7 @@ import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
 
-open class _GridPane : GridPane(), ChildManager, MarginedPane, AlignedPane, HGrowedPane, VGrowedPane {
+open class _GridPane : GridPane(), ChildLayoutManager, MarginedPane, AlignedPane, HGrowedPane, VGrowedPane {
 
     infix fun <N : Node> N.row(value: Int): N = apply { setRowIndex(this, value) }
     infix fun <N : Node> N.col(value: Int): N = apply { setColumnIndex(this, value) }
@@ -60,9 +60,13 @@ open class _GridPane : GridPane(), ChildManager, MarginedPane, AlignedPane, HGro
     override fun Node.reset() = clearConstraints(this)
 }
 
-inline fun gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)
+inline fun gridPane(
+    noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
+): GridPane = _GridPane().also { init?.invoke(it) }
 
-inline fun Manager<Node>.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = ktfx.layouts.gridPane(init).add()
+inline fun LayoutManager<Node>.gridPane(
+    noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
+): GridPane = ktfx.layouts.gridPane(init).add()
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {
@@ -83,15 +87,15 @@ internal sealed class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuil
     val constraints: MutableList<T> = mutableListOf()
 
     override fun constraints(init: (T.() -> Unit)?) {
-        constraints += newInstance().apply { init?.invoke(this) }
+        constraints += newInstance().also { init?.invoke(it) }
     }
 
     override fun constraints(size: Int, init: (T.() -> Unit)?) {
-        constraints += newInstance(size).apply { init?.invoke(this) }
+        constraints += newInstance(size).also { init?.invoke(it) }
     }
 
     override fun constraints(minSize: Int, prefSize: Int, maxSize: Int, init: (T.() -> Unit)?) {
-        constraints += newInstance(minSize, prefSize, maxSize).apply { init?.invoke(this) }
+        constraints += newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }
     }
 
     internal abstract fun newInstance(): T

@@ -4,9 +4,11 @@ import javafx.collections.ObservableList
 import javafx.scene.control.Tab
 
 /**
- * Manager for adding tabs with Kotlin DSL.
+ * LayoutManager for adding tabs with Kotlin DSL.
+ *
+ * @see _TabPane
  */
-interface TabManager : Manager<Tab> {
+interface TabLayoutManager : LayoutManager<Tab> {
 
     /** Shall be shadowed on classes extending this interface. */
     fun getTabs(): ObservableList<Tab>

@@ -14,9 +14,9 @@ inline fun <X, Y> stackedBarChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl StackedBarChart<X, Y>).() -> Unit)? = null
-): StackedBarChart<X, Y> = StackedBarChart(x, y, data).apply { init?.invoke(this) }
+): StackedBarChart<X, Y> = StackedBarChart(x, y, data).also { init?.invoke(it) }
 
-inline fun <X, Y> Manager<Node>.stackedBarChart(
+inline fun <X, Y> LayoutManager<Node>.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),

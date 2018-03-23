@@ -9,11 +9,17 @@ import javafx.scene.control.Tab
 import javafx.scene.control.TableColumnBase
 
 @Suppress("ClassName")
-open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupManager
+open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupLayoutManager
 
-inline fun contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null): ContextMenu = _ContextMenu(*items).apply { init?.invoke(this) }
+inline fun contextMenu(
+    vararg items: MenuItem,
+    noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
+): ContextMenu = _ContextMenu(*items).also { init?.invoke(it) }
 
-inline fun Control.contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null) = setContextMenu(ktfx.layouts.contextMenu(*items, init = init))
+inline fun Control.contextMenu(
+    vararg items: MenuItem,
+    noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
+) = setContextMenu(ktfx.layouts.contextMenu(*items, init = init))
 
 inline fun Tab.contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null) = setContextMenu(ktfx.layouts.contextMenu(*items, init = init))
 

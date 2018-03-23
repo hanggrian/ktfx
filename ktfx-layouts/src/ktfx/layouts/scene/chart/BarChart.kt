@@ -15,9 +15,9 @@ inline fun <X, Y> barChart(
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     gap: Double = 10.0,
     noinline init: ((@LayoutDsl BarChart<X, Y>).() -> Unit)? = null
-): BarChart<X, Y> = BarChart(x, y, data, gap).apply { init?.invoke(this) }
+): BarChart<X, Y> = BarChart(x, y, data, gap).also { init?.invoke(it) }
 
-inline fun <X, Y> Manager<Node>.barChart(
+inline fun <X, Y> LayoutManager<Node>.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),

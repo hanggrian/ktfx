@@ -1,10 +1,11 @@
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 
-@Suppress("ClassName")
-open class _AnchorPane : AnchorPane(), ChildManager, ConstrainedPane {
+open class _AnchorPane : AnchorPane(), ChildLayoutManager, ConstrainedPane {
 
     infix fun <N : Node> N.anchors(value: Int?): N = apply {
         setTopAnchor(this, value?.toDouble())
@@ -26,6 +27,10 @@ open class _AnchorPane : AnchorPane(), ChildManager, ConstrainedPane {
     override fun Node.reset() = clearConstraints(this)
 }
 
-inline fun anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
+inline fun anchorPane(
+    noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
+): AnchorPane = _AnchorPane().also { init?.invoke(it) }
 
-inline fun Manager<Node>.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = ktfx.layouts.anchorPane(init).add()
+inline fun LayoutManager<Node>.anchorPane(
+    noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
+): AnchorPane = ktfx.layouts.anchorPane(init).add()

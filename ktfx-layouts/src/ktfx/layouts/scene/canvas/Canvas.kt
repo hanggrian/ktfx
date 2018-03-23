@@ -9,9 +9,9 @@ inline fun canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     noinline init: ((@LayoutDsl Canvas).() -> Unit)? = null
-): Canvas = Canvas(width, height).apply { init?.invoke(this) }
+): Canvas = Canvas(width, height).also { init?.invoke(it) }
 
-inline fun Manager<Node>.canvas(
+inline fun LayoutManager<Node>.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     noinline init: ((@LayoutDsl Canvas).() -> Unit)? = null

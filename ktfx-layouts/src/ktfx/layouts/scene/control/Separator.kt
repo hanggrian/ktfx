@@ -3,9 +3,16 @@
 package ktfx.layouts
 
 import javafx.geometry.Orientation
+import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.control.Separator
 
-inline fun separator(orientation: Orientation = Orientation.HORIZONTAL, noinline init: ((@LayoutDsl Separator).() -> Unit)? = null): Separator = Separator(orientation).apply { init?.invoke(this) }
+inline fun separator(
+    orientation: Orientation = HORIZONTAL,
+    noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
+): Separator = Separator(orientation).also { init?.invoke(it) }
 
-inline fun Manager<Node>.separator(orientation: Orientation = Orientation.HORIZONTAL, noinline init: ((@LayoutDsl Separator).() -> Unit)? = null): Separator = ktfx.layouts.separator(orientation, init).add()
+inline fun LayoutManager<Node>.separator(
+    orientation: Orientation = HORIZONTAL,
+    noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
+): Separator = ktfx.layouts.separator(orientation, init).add()

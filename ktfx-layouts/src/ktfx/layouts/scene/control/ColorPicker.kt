@@ -9,9 +9,9 @@ import javafx.scene.paint.Color
 inline fun colorPicker(
     color: Color = Color.WHITE,
     noinline init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
-): ColorPicker = ColorPicker(color).apply { init?.invoke(this) }
+): ColorPicker = ColorPicker(color).also { init?.invoke(it) }
 
-inline fun Manager<Node>.colorPicker(
+inline fun LayoutManager<Node>.colorPicker(
     color: Color = Color.WHITE,
     noinline init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
 ): ColorPicker = ktfx.layouts.colorPicker(color, init).add()

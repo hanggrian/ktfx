@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+
 package ktfx.layouts
 
 import javafx.geometry.Insets
@@ -5,8 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 
-@Suppress("ClassName")
-open class _VBox : VBox(), ChildManager, VGrowedPane, MarginedPane {
+open class _VBox : VBox(), ChildLayoutManager, VGrowedPane, MarginedPane {
 
     override infix fun <N : Node> N.vpriority(value: Priority?): N = apply { setVgrow(this, value) }
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
@@ -17,6 +18,10 @@ open class _VBox : VBox(), ChildManager, VGrowedPane, MarginedPane {
     override fun Node.reset() = clearConstraints(this)
 }
 
-inline fun vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = _VBox().apply(init)
+inline fun vbox(
+    noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
+): VBox = _VBox().also { init?.invoke(it) }
 
-inline fun Manager<Node>.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = ktfx.layouts.vbox(init).add()
+inline fun LayoutManager<Node>.vbox(
+    noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
+): VBox = ktfx.layouts.vbox(init).add()

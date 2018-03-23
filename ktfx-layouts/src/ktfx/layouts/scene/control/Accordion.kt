@@ -9,9 +9,9 @@ import javafx.scene.control.TitledPane
 inline fun accordion(
     vararg titledPanes: TitledPane,
     noinline init: ((@LayoutDsl Accordion).() -> Unit)? = null
-): Accordion = Accordion(*titledPanes).apply { init?.invoke(this) }
+): Accordion = Accordion(*titledPanes).also { init?.invoke(it) }
 
-inline fun Manager<Node>.accordion(
+inline fun LayoutManager<Node>.accordion(
     vararg titledPanes: TitledPane,
     noinline init: ((@LayoutDsl Accordion).() -> Unit)? = null
 ): Accordion = ktfx.layouts.accordion(*titledPanes, init = init).add()

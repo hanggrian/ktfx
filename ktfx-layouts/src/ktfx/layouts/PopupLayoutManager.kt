@@ -4,9 +4,12 @@ import javafx.collections.ObservableList
 import javafx.scene.control.MenuItem
 
 /**
- * Manager for adding menu items with Kotlin DSL.
+ * LayoutManager for adding menu items with Kotlin DSL.
+ *
+ * @see _ContextMenu
+ * @see _Menu
  */
-interface PopupManager : Manager<MenuItem> {
+interface PopupLayoutManager : LayoutManager<MenuItem> {
 
     /** Shall be shadowed on classes extending this interface. */
     fun getItems(): ObservableList<MenuItem>

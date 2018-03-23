@@ -5,6 +5,14 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Tab
 
-inline fun tab(text: String? = null, content: Node? = null, noinline init: ((@LayoutDsl Tab).() -> Unit)? = null): Tab = Tab(text, content).apply { init?.invoke(this) }
+inline fun tab(
+    text: String? = null,
+    content: Node? = null,
+    noinline init: ((@LayoutDsl Tab).() -> Unit)? = null
+): Tab = Tab(text, content).also { init?.invoke(it) }
 
-inline fun Manager<Tab>.tab(text: String? = null, content: Node? = null, noinline init: ((@LayoutDsl Tab).() -> Unit)? = null): Tab = ktfx.layouts.tab(text, content, init).add()
+inline fun LayoutManager<Tab>.tab(
+    text: String? = null,
+    content: Node? = null,
+    noinline init: ((@LayoutDsl Tab).() -> Unit)? = null
+): Tab = ktfx.layouts.tab(text, content, init).add()

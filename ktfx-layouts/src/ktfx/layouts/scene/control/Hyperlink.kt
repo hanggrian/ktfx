@@ -5,6 +5,14 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
 
-inline fun hyperlink(text: String? = null, graphic: Node? = null, noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null): Hyperlink = Hyperlink(text, graphic).apply { init?.invoke(this) }
+inline fun hyperlink(
+    text: String? = null,
+    graphic: Node? = null,
+    noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null
+): Hyperlink = Hyperlink(text, graphic).also { init?.invoke(it) }
 
-inline fun Manager<Node>.hyperlink(text: String? = null, graphic: Node? = null, noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null): Hyperlink = ktfx.layouts.hyperlink(text, graphic, init).add()
+inline fun LayoutManager<Node>.hyperlink(
+    text: String? = null,
+    graphic: Node? = null,
+    noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null
+): Hyperlink = ktfx.layouts.hyperlink(text, graphic, init).add()

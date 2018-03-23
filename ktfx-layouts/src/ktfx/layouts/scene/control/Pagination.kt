@@ -4,7 +4,16 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Pagination
+import javafx.scene.control.Pagination.INDETERMINATE
 
-inline fun pagination(count: Int = Pagination.INDETERMINATE, index: Int = 0, noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null): Pagination = Pagination(count, index).apply { init?.invoke(this) }
+inline fun pagination(
+    count: Int = INDETERMINATE,
+    index: Int = 0,
+    noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null
+): Pagination = Pagination(count, index).also { init?.invoke(it) }
 
-inline fun Manager<Node>.pagination(count: Int = Pagination.INDETERMINATE, index: Int = 0, noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null): Pagination = ktfx.layouts.pagination(count, index, init).add()
+inline fun LayoutManager<Node>.pagination(
+    count: Int = INDETERMINATE,
+    index: Int = 0,
+    noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null
+): Pagination = ktfx.layouts.pagination(count, index, init).add()

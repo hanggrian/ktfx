@@ -8,9 +8,9 @@ import javafx.scene.control.CheckBox
 inline fun checkBox(
     text: String? = null,
     noinline init: ((@LayoutDsl CheckBox).() -> Unit)? = null
-): CheckBox = CheckBox(text).apply { init?.invoke(this) }
+): CheckBox = CheckBox(text).also { init?.invoke(it) }
 
-inline fun Manager<Node>.checkBox(
+inline fun LayoutManager<Node>.checkBox(
     text: String? = null,
     noinline init: ((@LayoutDsl CheckBox).() -> Unit)? = null
 ): CheckBox = ktfx.layouts.checkBox(text, init).add()

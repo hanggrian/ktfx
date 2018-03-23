@@ -6,6 +6,14 @@ import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
 import javafx.scene.control.MenuItem
 
-inline fun customMenuItem(node: Node? = null, hideOnClick: Boolean = true, noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null): CustomMenuItem = CustomMenuItem(node, hideOnClick).apply { init?.invoke(this) }
+inline fun customMenuItem(
+    node: Node? = null,
+    hideOnClick: Boolean = true,
+    noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
+): CustomMenuItem = CustomMenuItem(node, hideOnClick).also { init?.invoke(it) }
 
-inline fun Manager<MenuItem>.customMenuItem(node: Node? = null, hideOnClick: Boolean = true, noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null): CustomMenuItem = ktfx.layouts.customMenuItem(node, hideOnClick, init).add()
+inline fun LayoutManager<MenuItem>.customMenuItem(
+    node: Node? = null,
+    hideOnClick: Boolean = true,
+    noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
+): CustomMenuItem = ktfx.layouts.customMenuItem(node, hideOnClick, init).add()

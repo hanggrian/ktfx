@@ -4,7 +4,6 @@ package ktfx.styles
 
 import javafx.scene.Cursor
 import javafx.scene.effect.BlendMode
-import javafx.scene.effect.Effect
 
 open class NodeStyleBuilder(prettyPrint: Boolean) : StyleBuilder(prettyPrint) {
 
@@ -12,7 +11,8 @@ open class NodeStyleBuilder(prettyPrint: Boolean) : StyleBuilder(prettyPrint) {
 
     var cursor: Cursor by map
 
-    var effect: Effect by map
+    @Incubating
+    var effect: String by map
 
     var focusTraversable: Boolean by map
 

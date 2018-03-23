@@ -7,8 +7,18 @@ import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
 
 @Suppress("ClassName")
-open class _Menu(text: String = "", graphic: Node? = null, vararg items: MenuItem) : Menu(text, graphic, *items), PopupManager
+open class _Menu(text: String = "", graphic: Node? = null, vararg items: MenuItem) : Menu(text, graphic, *items), PopupLayoutManager
 
-inline fun menu(text: String = "", graphic: Node? = null, vararg items: MenuItem, noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null): Menu = _Menu(text, graphic, *items).apply { init?.invoke(this) }
+inline fun menu(
+    text: String = "",
+    graphic: Node? = null,
+    vararg items: MenuItem,
+    noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
+): Menu = _Menu(text, graphic, *items).also { init?.invoke(it) }
 
-inline fun Manager<MenuItem>.menu(text: String = "", graphic: Node? = null, vararg items: MenuItem, noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null): Menu = ktfx.layouts.menu(text, graphic, *items, init = init).add()
+inline fun LayoutManager<MenuItem>.menu(
+    text: String = "",
+    graphic: Node? = null,
+    vararg items: MenuItem,
+    noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
+): Menu = ktfx.layouts.menu(text, graphic, *items, init = init).add()

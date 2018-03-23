@@ -5,6 +5,18 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.shape.Line
 
-inline fun line(centerX: Double = 0.0, centerY: Double = 0.0, endX: Double = 0.0, endY: Double = 0.0, noinline init: ((@LayoutDsl Line).() -> Unit)? = null): Line = Line(centerX, centerY, endX, endY).apply { init?.invoke(this) }
+inline fun line(
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    noinline init: ((@LayoutDsl Line).() -> Unit)? = null
+): Line = Line(centerX, centerY, endX, endY).also { init?.invoke(it) }
 
-inline fun Manager<Node>.line(centerX: Double = 0.0, centerY: Double = 0.0, endX: Double = 0.0, endY: Double = 0.0, noinline init: ((@LayoutDsl Line).() -> Unit)? = null): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init).add()
+inline fun LayoutManager<Node>.line(
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    noinline init: ((@LayoutDsl Line).() -> Unit)? = null
+): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init).add()

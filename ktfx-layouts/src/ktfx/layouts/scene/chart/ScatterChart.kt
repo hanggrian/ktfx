@@ -14,9 +14,9 @@ inline fun <X, Y> scatterChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
-): ScatterChart<X, Y> = ScatterChart(x, y, data).apply { init?.invoke(this) }
+): ScatterChart<X, Y> = ScatterChart(x, y, data).also { init?.invoke(it) }
 
-inline fun <X, Y> Manager<Node>.scatterChart(
+inline fun <X, Y> LayoutManager<Node>.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),

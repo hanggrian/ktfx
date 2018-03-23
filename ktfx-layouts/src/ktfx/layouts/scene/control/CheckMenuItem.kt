@@ -10,9 +10,9 @@ inline fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
-): CheckMenuItem = CheckMenuItem(text, graphic).apply { init?.invoke(this) }
+): CheckMenuItem = CheckMenuItem(text, graphic).also { init?.invoke(it) }
 
-inline fun Manager<MenuItem>.checkMenuItem(
+inline fun LayoutManager<MenuItem>.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null

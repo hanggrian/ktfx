@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+
 package ktfx.layouts
 
 import javafx.geometry.Insets
@@ -5,8 +7,7 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
 
-@Suppress("ClassName")
-open class _StackPane : StackPane(), ChildManager, AlignedPane, MarginedPane {
+open class _StackPane : StackPane(), ChildLayoutManager, AlignedPane, MarginedPane {
 
     override infix fun <N : Node> N.pos(value: Pos?): N = apply { setAlignment(this, value) }
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
@@ -17,6 +18,10 @@ open class _StackPane : StackPane(), ChildManager, AlignedPane, MarginedPane {
     override fun Node.reset() = clearConstraints(this)
 }
 
-inline fun stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init)
+inline fun stackPane(
+    noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
+): StackPane = _StackPane().also { init?.invoke(it) }
 
-inline fun Manager<Node>.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = ktfx.layouts.stackPane(init).add()
+inline fun LayoutManager<Node>.stackPane(
+    noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
+): StackPane = ktfx.layouts.stackPane(init).add()

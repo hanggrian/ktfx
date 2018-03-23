@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+
 package ktfx.layouts
 
 import javafx.geometry.Insets
@@ -5,8 +7,7 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
 
-@Suppress("ClassName")
-open class _TilePane : TilePane(), ChildManager, AlignedPane, MarginedPane {
+open class _TilePane : TilePane(), ChildLayoutManager, AlignedPane, MarginedPane {
 
     override infix fun <N : Node> N.pos(value: Pos?): N = apply { setAlignment(this, value) }
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
@@ -17,6 +18,10 @@ open class _TilePane : TilePane(), ChildManager, AlignedPane, MarginedPane {
     override fun Node.reset() = clearConstraints(this)
 }
 
-inline fun tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init)
+inline fun tilePane(
+    noinline init: ((@LayoutDsl _TilePane).() -> Unit)? = null
+): TilePane = _TilePane().also { init?.invoke(it) }
 
-inline fun Manager<Node>.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = ktfx.layouts.tilePane(init).add()
+inline fun LayoutManager<Node>.tilePane(
+    noinline init: ((@LayoutDsl _TilePane).() -> Unit)? = null
+): TilePane = ktfx.layouts.tilePane(init).add()

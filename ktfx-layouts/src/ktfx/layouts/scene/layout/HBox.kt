@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+
 package ktfx.layouts
 
 import javafx.geometry.Insets
@@ -5,8 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 
-@Suppress("ClassName")
-open class _HBox : HBox(), ChildManager, HGrowedPane, MarginedPane {
+open class _HBox : HBox(), ChildLayoutManager, HGrowedPane, MarginedPane {
 
     override infix fun <N : Node> N.hpriority(value: Priority?): N = apply { setHgrow(this, value) }
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
@@ -17,6 +18,10 @@ open class _HBox : HBox(), ChildManager, HGrowedPane, MarginedPane {
     override fun Node.reset() = clearConstraints(this)
 }
 
-inline fun hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
+inline fun hbox(
+    noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
+): HBox = _HBox().also { init?.invoke(it) }
 
-inline fun Manager<Node>.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = ktfx.layouts.hbox(init).add()
+inline fun LayoutManager<Node>.hbox(
+    noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
+): HBox = ktfx.layouts.hbox(init).add()

@@ -5,6 +5,10 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.Region
 
-inline fun region(noinline init: ((@LayoutDsl Region).() -> Unit)? = null): Region = Region().apply { init?.invoke(this) }
+inline fun region(
+    noinline init: ((@LayoutDsl Region).() -> Unit)? = null
+): Region = Region().also { init?.invoke(it) }
 
-inline fun Manager<Node>.region(noinline init: ((@LayoutDsl Region).() -> Unit)? = null): Region = ktfx.layouts.region(init).add()
+inline fun LayoutManager<Node>.region(
+    noinline init: ((@LayoutDsl Region).() -> Unit)? = null
+): Region = ktfx.layouts.region(init).add()

@@ -8,9 +8,15 @@ import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import ktfx.collections.mutableObservableListOf
 
-inline fun <S> tableView(items: ObservableList<S> = mutableObservableListOf(), noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null): TableView<S> = TableView<S>(items).apply { init?.invoke(this) }
+inline fun <S> tableView(
+    items: ObservableList<S> = mutableObservableListOf(),
+    noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
+): TableView<S> = TableView<S>(items).also { init?.invoke(it) }
 
-inline fun <S> Manager<Node>.tableView(items: ObservableList<S> = mutableObservableListOf(), noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null): TableView<S> = ktfx.layouts.tableView(items, init).add()
+inline fun <S> LayoutManager<Node>.tableView(
+    items: ObservableList<S> = mutableObservableListOf(),
+    noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
+): TableView<S> = ktfx.layouts.tableView(items, init).add()
 
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {
@@ -25,7 +31,7 @@ internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S> {
     val columns: MutableList<TableColumn<S, *>> = mutableListOf()
 
     override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?) {
-        columns += TableColumn<S, T>(text).apply { init?.invoke(this) }
+        columns += TableColumn<S, T>(text).also { init?.invoke(it) }
     }
 }
 

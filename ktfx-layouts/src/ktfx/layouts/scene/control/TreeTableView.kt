@@ -7,9 +7,15 @@ import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
 
-inline fun <S> treeTableView(root: TreeItem<S>? = null, noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null): TreeTableView<S> = TreeTableView<S>(root).apply { init?.invoke(this) }
+inline fun <S> treeTableView(
+    root: TreeItem<S>? = null,
+    noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null
+): TreeTableView<S> = TreeTableView<S>(root).also { init?.invoke(it) }
 
-inline fun <S> Manager<Node>.treeTableView(root: TreeItem<S>? = null, noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null): TreeTableView<S> = ktfx.layouts.treeTableView(root, init).add()
+inline fun <S> LayoutManager<Node>.treeTableView(
+    root: TreeItem<S>? = null,
+    noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null
+): TreeTableView<S> = ktfx.layouts.treeTableView(root, init).add()
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {
@@ -24,7 +30,7 @@ internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S> {
     val columns: MutableList<TreeTableColumn<S, *>> = mutableListOf()
 
     override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?) {
-        columns += TreeTableColumn<S, T>(text).apply { init?.invoke(this) }
+        columns += TreeTableColumn<S, T>(text).also { init?.invoke(it) }
     }
 }
 

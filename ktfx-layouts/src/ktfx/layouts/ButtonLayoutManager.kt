@@ -4,11 +4,11 @@ import javafx.collections.ObservableList
 import javafx.scene.Node
 
 /**
- * Manager for adding buttons with Kotlin DSL.
+ * LayoutManager for adding buttons with Kotlin DSL.
  *
  * @see _ButtonBar
  */
-interface ButtonManager : Manager<Node> {
+interface ButtonLayoutManager : LayoutManager<Node> {
 
     /** Shall be shadowed on classes extending this interface. */
     fun getButtons(): ObservableList<Node>

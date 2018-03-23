@@ -3,9 +3,15 @@
 package ktfx.layouts
 
 import javafx.scene.Node
-import javafx.scene.control.ProgressBar
+import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 import javafx.scene.control.ProgressIndicator
 
-inline fun progressIndicator(progress: Double = ProgressBar.INDETERMINATE_PROGRESS, noinline init: ((@LayoutDsl ProgressIndicator).() -> Unit)? = null): ProgressIndicator = ProgressIndicator(progress).apply { init?.invoke(this) }
+inline fun progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    noinline init: ((@LayoutDsl ProgressIndicator).() -> Unit)? = null
+): ProgressIndicator = ProgressIndicator(progress).also { init?.invoke(it) }
 
-inline fun Manager<Node>.progressIndicator(progress: Double = ProgressBar.INDETERMINATE_PROGRESS, noinline init: ((@LayoutDsl ProgressIndicator).() -> Unit)? = null): ProgressIndicator = ktfx.layouts.progressIndicator(progress, init).add()
+inline fun LayoutManager<Node>.progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    noinline init: ((@LayoutDsl ProgressIndicator).() -> Unit)? = null
+): ProgressIndicator = ktfx.layouts.progressIndicator(progress, init).add()

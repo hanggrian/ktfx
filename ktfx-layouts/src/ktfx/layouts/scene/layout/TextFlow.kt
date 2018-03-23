@@ -1,11 +1,16 @@
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.text.TextFlow
 
-@Suppress("ClassName")
-open class _TextFlow : TextFlow(), ChildManager
+open class _TextFlow : TextFlow(), ChildLayoutManager
 
-inline fun textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = _TextFlow().apply(init)
+inline fun textFlow(
+    noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
+): TextFlow = _TextFlow().also { init?.invoke(it) }
 
-inline fun Manager<Node>.textFlow(init: (@LayoutDsl _TextFlow).() -> Unit): TextFlow = ktfx.layouts.textFlow(init).add()
+inline fun LayoutManager<Node>.textFlow(
+    noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
+): TextFlow = ktfx.layouts.textFlow(init).add()

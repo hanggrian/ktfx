@@ -37,7 +37,9 @@ interface LabeledStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _LabeledStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), LabeledStyleBuilder {
+open class _LabeledStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), LabeledStyleBuilder {
     override var alignment: Pos by map
     override var textAlignment: TextAlignment by map
     override var textOverrun: OverrunStyle by map

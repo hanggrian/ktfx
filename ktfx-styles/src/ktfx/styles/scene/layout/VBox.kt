@@ -13,7 +13,9 @@ interface VBoxStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _VBoxStyleBuilder(prettyPrint: Boolean) : _RegionStyleBuilder(prettyPrint), VBoxStyleBuilder {
+internal class _VBoxStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), VBoxStyleBuilder {
     override var spacing: Number by map
     override var alignment: Pos by map
     override var fillWidth: Boolean by map

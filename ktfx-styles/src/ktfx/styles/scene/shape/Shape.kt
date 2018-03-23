@@ -30,7 +30,9 @@ interface ShapeStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _ShapeStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), ShapeStyleBuilder {
+open class _ShapeStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), ShapeStyleBuilder {
     override var fill: Color by map
     override var smooth: Boolean by map
     override var stroke: Color by map

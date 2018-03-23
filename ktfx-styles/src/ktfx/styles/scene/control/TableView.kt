@@ -8,7 +8,9 @@ interface TableViewStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _TableViewStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), TableViewStyleBuilder {
+internal class _TableViewStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), TableViewStyleBuilder {
     override var size: Number by map
 }
 

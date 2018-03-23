@@ -13,7 +13,9 @@ interface ScrollBarStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _ScrollBarStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), ScrollBarStyleBuilder {
+internal class _ScrollBarStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), ScrollBarStyleBuilder {
     override var orientation: Orientation by map
     override var blockIncrement: Number by map
     override var unitIncrement: Number by map

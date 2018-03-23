@@ -8,7 +8,9 @@ interface ImageViewStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _ImageViewStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), ImageViewStyleBuilder {
+internal class _ImageViewStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), ImageViewStyleBuilder {
     override var image: Urls by map
 }
 

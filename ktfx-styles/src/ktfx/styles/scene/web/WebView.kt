@@ -25,7 +25,9 @@ interface WebViewStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _WebViewStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), WebViewStyleBuilder {
+internal class _WebViewStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), WebViewStyleBuilder {
     override var contextMenuEnabled: Boolean by map
     override var fontSmoothingType: FontSmoothingType by map
     override var fontScale: Number by map

@@ -7,7 +7,9 @@ interface LineChartStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _LineChartStyleBuilder(prettyPrint: Boolean) : _XYChartStyleBuilder(prettyPrint), LineChartStyleBuilder {
+internal class _LineChartStyleBuilder(
+    prettyPrint: Boolean
+) : _XYChartStyleBuilder(prettyPrint), LineChartStyleBuilder {
     override var createSymbols: Boolean by map
 }
 

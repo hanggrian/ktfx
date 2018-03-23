@@ -24,7 +24,9 @@ interface TooltipStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _TooltipStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), TooltipStyleBuilder {
+internal class _TooltipStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), TooltipStyleBuilder {
     override var textAlignment: TextAlignment by map
     override var textOverrun: OverrunStyle by map
     override var wrapText: Boolean by map

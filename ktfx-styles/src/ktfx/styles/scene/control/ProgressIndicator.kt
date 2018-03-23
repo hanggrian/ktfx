@@ -8,8 +8,9 @@ interface ProgressIndicatorStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _ProgressIndicatorStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
-    ProgressIndicatorStyleBuilder {
+open class _ProgressIndicatorStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), ProgressIndicatorStyleBuilder {
     override var progressColor: Color by map
 }
 

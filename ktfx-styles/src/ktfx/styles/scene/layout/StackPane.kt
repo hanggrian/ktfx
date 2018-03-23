@@ -9,7 +9,9 @@ interface StackPaneStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _StackPaneStyleBuilder(prettyPrint: Boolean) : _RegionStyleBuilder(prettyPrint), StackPaneStyleBuilder {
+internal class _StackPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), StackPaneStyleBuilder {
     override var alignment: Pos by map
 }
 

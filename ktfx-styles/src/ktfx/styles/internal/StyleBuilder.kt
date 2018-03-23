@@ -1,4 +1,4 @@
-package ktfx.styles
+package ktfx.styles.internal
 
 import javafx.geometry.Insets
 import javafx.scene.paint.Color
@@ -10,9 +10,11 @@ open class StyleBuilder(private val prettyPrint: Boolean) {
 
     override fun toString(): String = StringBuilder().apply {
         map.forEach { key, value ->
-            when {
-                prettyPrint -> appendln("${key.toKey()}: ${value.toValue()};")
-                else -> append("${key.toKey()}: ${value.toValue()}; ")
+            "${key.toKey()}: ${value.toValue()};".let { line ->
+                when {
+                    prettyPrint -> appendln(line)
+                    else -> append("$line ")
+                }
             }
         }
     }.toString()

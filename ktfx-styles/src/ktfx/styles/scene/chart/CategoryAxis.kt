@@ -14,8 +14,9 @@ interface CategoryAxisStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _CategoryAxisStyleBuilder(prettyPrint: Boolean) : _AxisStyleBuilder(prettyPrint),
-    CategoryAxisStyleBuilder {
+internal class _CategoryAxisStyleBuilder(
+    prettyPrint: Boolean
+) : _AxisStyleBuilder(prettyPrint), CategoryAxisStyleBuilder {
     override var startMargin: Number by map
     override var endMargin: Number by map
     override var gapStartAndEnd: Boolean by map

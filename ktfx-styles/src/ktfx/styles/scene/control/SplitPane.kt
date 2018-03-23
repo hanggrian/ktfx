@@ -9,7 +9,9 @@ interface SplitPaneStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _SplitPaneStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), SplitPaneStyleBuilder {
+internal class _SplitPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), SplitPaneStyleBuilder {
     override var orientation: Orientation by map
 }
 

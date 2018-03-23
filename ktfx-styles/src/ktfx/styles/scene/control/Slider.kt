@@ -21,7 +21,9 @@ interface SliderStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _SliderStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), SliderStyleBuilder {
+internal class _SliderStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), SliderStyleBuilder {
     override var orientation: Orientation by map
     override var showTickLabels: Boolean by map
     override var showTickMarks: Boolean by map

@@ -7,7 +7,9 @@ interface ControlStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _ControlStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), ControlStyleBuilder {
+open class _ControlStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), ControlStyleBuilder {
     override var skin: String by map
 }
 

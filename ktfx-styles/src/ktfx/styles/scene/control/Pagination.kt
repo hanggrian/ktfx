@@ -15,8 +15,9 @@ interface PaginationStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _PaginationStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
-    PaginationStyleBuilder {
+internal class _PaginationStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), PaginationStyleBuilder {
     override var maxPageIndicatorCount: Number by map
     override var arrowsVisible: Boolean by map
     override var tooltipVisible: Boolean by map

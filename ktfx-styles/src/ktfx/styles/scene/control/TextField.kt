@@ -9,7 +9,9 @@ interface TextFieldStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _TextFieldStyleBuilder(prettyPrint: Boolean) : _TextInputControlStyleBuilder(prettyPrint), TextFieldStyleBuilder {
+internal class _TextFieldStyleBuilder(
+    prettyPrint: Boolean
+) : _TextInputControlStyleBuilder(prettyPrint), TextFieldStyleBuilder {
     override var alignment: Pos by map
 }
 

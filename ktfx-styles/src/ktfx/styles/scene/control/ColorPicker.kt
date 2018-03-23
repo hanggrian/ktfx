@@ -7,7 +7,9 @@ interface ColorPickerStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _ColorPickerStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
+internal class _ColorPickerStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint),
     ColorPickerStyleBuilder {
     override var colorLabelVisible: Boolean by map
 }

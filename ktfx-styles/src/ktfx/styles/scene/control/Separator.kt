@@ -15,7 +15,9 @@ interface SeparatorStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _SeparatorStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), SeparatorStyleBuilder {
+internal class _SeparatorStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), SeparatorStyleBuilder {
     override var orientation: Orientation by map
     override var halignment: HPos by map
     override var valignment: VPos by map

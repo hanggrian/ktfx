@@ -10,7 +10,9 @@ interface CellStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _CellStyleBuilder(prettyPrint: Boolean) : _LabeledStyleBuilder(prettyPrint), CellStyleBuilder {
+open class _CellStyleBuilder(
+    prettyPrint: Boolean
+) : _LabeledStyleBuilder(prettyPrint), CellStyleBuilder {
     override var cellSize: Number by map
 }
 

@@ -19,8 +19,9 @@ interface TextInputControlStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _TextInputControlStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
-    TextInputControlStyleBuilder {
+open class _TextInputControlStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), TextInputControlStyleBuilder {
     override var font: String by map
     override var textFill: Color by map
     override var promptTextFill: Color by map

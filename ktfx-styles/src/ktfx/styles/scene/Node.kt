@@ -4,6 +4,7 @@ package ktfx.styles
 
 import javafx.scene.Cursor
 import javafx.scene.effect.BlendMode
+import ktfx.styles.internal.StyleBuilder
 
 interface NodeStyleBuilder {
 
@@ -49,7 +50,9 @@ interface NodeStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _NodeStyleBuilder(prettyPrint: Boolean) : StyleBuilder(prettyPrint), NodeStyleBuilder {
+open class _NodeStyleBuilder(
+    prettyPrint: Boolean
+) : StyleBuilder(prettyPrint), NodeStyleBuilder {
     override var blendMode: BlendMode by map
     override var cursor: Cursor by map
     override var effect: String by map

@@ -13,7 +13,9 @@ interface PieChartStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _PieChartStyleBuilder(prettyPrint: Boolean) : _ChartStyleBuilder(prettyPrint), PieChartStyleBuilder {
+internal class _PieChartStyleBuilder(
+    prettyPrint: Boolean
+) : _ChartStyleBuilder(prettyPrint), PieChartStyleBuilder {
     override var clockwise: Boolean by map
     override var pieLabelVisible: Boolean by map
     override var labelLineLength: Number by map

@@ -9,7 +9,9 @@ interface RectangleStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _RectangleStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), RectangleStyleBuilder {
+internal class _RectangleStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), RectangleStyleBuilder {
     override var arcHeight: Number by map
     override var arcWidth: Number by map
 }

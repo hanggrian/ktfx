@@ -15,7 +15,9 @@ interface GridPaneStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _GridPaneStyleBuilder(prettyPrint: Boolean) : _RegionStyleBuilder(prettyPrint), GridPaneStyleBuilder {
+internal class _GridPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), GridPaneStyleBuilder {
     override var hgap: Number by map
     override var vgap: Number by map
     override var alignment: Pos by map

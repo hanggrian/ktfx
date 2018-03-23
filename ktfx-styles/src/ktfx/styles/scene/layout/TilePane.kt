@@ -26,7 +26,9 @@ interface TilePaneStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _TilePaneStyleBuilder(prettyPrint: Boolean) : _RegionStyleBuilder(prettyPrint), TilePaneStyleBuilder {
+internal class _TilePaneStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), TilePaneStyleBuilder {
     override var orientation: Orientation by map
     override var prefRows: Int by map
     override var prefColumns: Int by map

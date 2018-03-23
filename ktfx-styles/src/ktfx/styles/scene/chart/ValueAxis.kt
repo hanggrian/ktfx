@@ -10,7 +10,9 @@ interface ValueAxisStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _ValueAxisStyleBuilder(prettyPrint: Boolean) : _AxisStyleBuilder(prettyPrint), ValueAxisStyleBuilder {
+open class _ValueAxisStyleBuilder(
+    prettyPrint: Boolean
+) : _AxisStyleBuilder(prettyPrint), ValueAxisStyleBuilder {
     override var minorTickLength: Number by map
     override var minorTickCount: Number by map
     override var minorTickVisible: Boolean by map

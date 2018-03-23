@@ -13,7 +13,9 @@ interface TabPaneStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _TabPaneStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), TabPaneStyleBuilder {
+internal class _TabPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), TabPaneStyleBuilder {
     override var tabMinWidth: Int by map
     override var tabMaxWidth: Int by map
     override var tabMinHeight: Int by map

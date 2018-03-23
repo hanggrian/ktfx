@@ -22,7 +22,9 @@ interface AxisStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _AxisStyleBuilder(prettyPrint: Boolean) : _ChartStyleBuilder(prettyPrint), AxisStyleBuilder {
+open class _AxisStyleBuilder(
+    prettyPrint: Boolean
+) : _ChartStyleBuilder(prettyPrint), AxisStyleBuilder {
     override var side: Side by map
     override var tickLength: Number by map
     override var tickLabelFont: String by map

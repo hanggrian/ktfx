@@ -17,8 +17,9 @@ interface ScrollPaneStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _ScrollPaneStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
-    ScrollPaneStyleBuilder {
+internal class _ScrollPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), ScrollPaneStyleBuilder {
     override var fitToWidth: Boolean by map
     override var fitToHeight: Boolean by map
     override var pannable: Boolean by map

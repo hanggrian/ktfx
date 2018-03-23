@@ -9,7 +9,9 @@ interface ListViewStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _ListViewStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), ListViewStyleBuilder {
+internal class _ListViewStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), ListViewStyleBuilder {
     override var orientation: Orientation by map
 }
 

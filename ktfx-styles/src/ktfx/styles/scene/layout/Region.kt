@@ -203,7 +203,9 @@ interface RegionStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _RegionStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), RegionStyleBuilder {
+open class _RegionStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), RegionStyleBuilder {
     override var backgroundColor: Color by map
     override var backgroundInsets: Insets by map
     override var backgroundRadius: Insets by map

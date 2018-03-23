@@ -33,7 +33,9 @@ interface TextStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _TextStyleBuilder(prettyPrint: Boolean) : _ShapeStyleBuilder(prettyPrint), TextStyleBuilder {
+internal class _TextStyleBuilder(
+    prettyPrint: Boolean
+) : _ShapeStyleBuilder(prettyPrint), TextStyleBuilder {
     override var font: String by map
     override var fontFamily: String by map
     override var fontSize: Number by map

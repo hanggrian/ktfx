@@ -16,7 +16,9 @@ interface XYChartStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _XYChartStyleBuilder(prettyPrint: Boolean) : _ChartStyleBuilder(prettyPrint), XYChartStyleBuilder {
+open class _XYChartStyleBuilder(
+    prettyPrint: Boolean
+) : _ChartStyleBuilder(prettyPrint), XYChartStyleBuilder {
     override var alternativeColumnFillVisible: Boolean by map
     override var alternativeRowFillVisible: Boolean by map
     override var horizontalGridLinesVisible: Boolean by map

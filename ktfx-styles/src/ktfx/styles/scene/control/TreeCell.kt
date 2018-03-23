@@ -8,7 +8,9 @@ interface TreeCellStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _TreeCellStyleBuilder(prettyPrint: Boolean) : _CellStyleBuilder(prettyPrint), TreeCellStyleBuilder {
+internal class _TreeCellStyleBuilder(
+    prettyPrint: Boolean
+) : _CellStyleBuilder(prettyPrint), TreeCellStyleBuilder {
     override var indent: Number by map
 }
 

@@ -9,8 +9,9 @@ interface TitledPaneStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _TitledPaneStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
-    TitledPaneStyleBuilder {
+internal class _TitledPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), TitledPaneStyleBuilder {
     override var animated: Boolean by map
     override var collapsible: Boolean by map
 }

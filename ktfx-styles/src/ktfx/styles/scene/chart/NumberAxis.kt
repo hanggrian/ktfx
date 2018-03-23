@@ -8,8 +8,9 @@ interface NumberAxisStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _NumberAxisStyleBuilder(prettyPrint: Boolean) : _ValueAxisStyleBuilder(prettyPrint),
-    NumberAxisStyleBuilder {
+internal class _NumberAxisStyleBuilder(
+    prettyPrint: Boolean
+) : _ValueAxisStyleBuilder(prettyPrint), NumberAxisStyleBuilder {
     override var tickUnit: Number by map
 }
 

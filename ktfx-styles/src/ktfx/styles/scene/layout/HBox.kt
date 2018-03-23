@@ -13,7 +13,9 @@ interface HBoxStyleBuilder : RegionStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _HBoxStyleBuilder(prettyPrint: Boolean) : _RegionStyleBuilder(prettyPrint), HBoxStyleBuilder {
+internal class _HBoxStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), HBoxStyleBuilder {
     override var spacing: Number by map
     override var alignment: Pos by map
     override var fillHeight: Boolean by map

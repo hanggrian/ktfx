@@ -12,7 +12,9 @@ interface ChartStyleBuilder {
 }
 
 @Suppress("ClassName")
-open class _ChartStyleBuilder(prettyPrint: Boolean) : _RegionStyleBuilder(prettyPrint), ChartStyleBuilder {
+open class _ChartStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), ChartStyleBuilder {
     override var legendSide: Side by map
     override var legendVisible: Boolean by map
     override var titleSide: Side by map

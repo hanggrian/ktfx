@@ -22,7 +22,9 @@ interface FlowPaneStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _FlowPaneStyleBuilder(prettyPrint: Boolean) : _RegionStyleBuilder(prettyPrint), FlowPaneStyleBuilder {
+internal class _FlowPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), FlowPaneStyleBuilder {
     override var hgap: Number by map
     override var vgap: Number by map
     override var alignment: Pos by map

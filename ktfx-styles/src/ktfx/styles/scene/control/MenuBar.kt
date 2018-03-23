@@ -7,7 +7,9 @@ interface MenuBarStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _MenuBarStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), MenuBarStyleBuilder {
+internal class _MenuBarStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), MenuBarStyleBuilder {
     override var useSystemMenuBar: Boolean by map
 }
 

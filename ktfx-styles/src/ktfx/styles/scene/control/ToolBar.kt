@@ -9,7 +9,9 @@ interface ToolBarStyleBuilder {
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _ToolBarStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), ToolBarStyleBuilder {
+internal class _ToolBarStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), ToolBarStyleBuilder {
     override var orientation: Orientation by map
 }
 

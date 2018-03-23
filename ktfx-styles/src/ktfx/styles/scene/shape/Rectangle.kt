@@ -1,13 +1,20 @@
 package ktfx.styles
 
-class RectangleStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPrint) {
+interface RectangleStyleBuilder {
 
-    var arcHeight: Number by map
+    var arcHeight: Number
 
-    var arcWidth: Number by map
+    var arcWidth: Number
+}
+
+@PublishedApi
+@Suppress("ClassName")
+internal class _RectangleStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), RectangleStyleBuilder {
+    override var arcHeight: Number by map
+    override var arcWidth: Number by map
 }
 
 inline fun rectangleStyle(
     prettyPrint: Boolean = false,
     builder: RectangleStyleBuilder.() -> Unit
-): String = RectangleStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _RectangleStyleBuilder(prettyPrint).apply(builder).toString()

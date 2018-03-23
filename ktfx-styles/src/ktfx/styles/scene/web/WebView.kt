@@ -2,28 +2,42 @@ package ktfx.styles
 
 import javafx.scene.text.FontSmoothingType
 
-class WebViewStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPrint) {
+interface WebViewStyleBuilder {
 
-    var contextMenuEnabled: Boolean by map
+    var contextMenuEnabled: Boolean
 
-    var fontSmoothingType: FontSmoothingType by map
+    var fontSmoothingType: FontSmoothingType
 
-    var fontScale: Number by map
+    var fontScale: Number
 
-    var minWidth: Number by map
+    var minWidth: Number
 
-    var minHeight: Number by map
+    var minHeight: Number
 
-    var prefWidth: Number by map
+    var prefWidth: Number
 
-    var prefHeight: Number by map
+    var prefHeight: Number
 
-    var maxWidth: Number by map
+    var maxWidth: Number
 
-    var maxHeight: Number by map
+    var maxHeight: Number
+}
+
+@PublishedApi
+@Suppress("ClassName")
+internal class _WebViewStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), WebViewStyleBuilder {
+    override var contextMenuEnabled: Boolean by map
+    override var fontSmoothingType: FontSmoothingType by map
+    override var fontScale: Number by map
+    override var minWidth: Number by map
+    override var minHeight: Number by map
+    override var prefWidth: Number by map
+    override var prefHeight: Number by map
+    override var maxWidth: Number by map
+    override var maxHeight: Number by map
 }
 
 inline fun webViewStyle(
     prettyPrint: Boolean = false,
     builder: WebViewStyleBuilder.() -> Unit
-): String = WebViewStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _WebViewStyleBuilder(prettyPrint).apply(builder).toString()

@@ -3,10 +3,10 @@ package ktfx.styles
 import javafx.geometry.Insets
 import javafx.scene.paint.Color
 
-open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPrint) {
+interface RegionStyleBuilder {
 
     /** A series of paint values separated by commas.. */
-    var backgroundColor: Color by map
+    var backgroundColor: Color
 
     /**
      * A series of size values or sets of four size values, separated by commas.
@@ -14,7 +14,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * Otherwise, the four values for each inset are given in the order top, right, bottom, left.
      * Each comma-separated value or set of values in the series applies to the corresponding background color.
      */
-    var backgroundInsets: Insets by map
+    var backgroundInsets: Insets
 
     /**
      * A series of radius values or sets of four radius values, separated by commas.
@@ -23,31 +23,31 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * bottom-left corners, in that order.
      * Each comma-separated value or set of values in the series applies to the corresponding background color.
      */
-    var backgroundRadius: Insets by map
+    var backgroundRadius: Insets
 
     /** A series of image URIs separated by commas. */
-    var backgroundImage: Urls by map
+    var backgroundImage: Urls
 
     /**
      * A series of <bg-position> values separated by commas.
      * Each bg-position item in the series applies to the corresponding image in the background-image series.
      */
     @Incubating
-    var backgroundPosition: String by map
+    var backgroundPosition: String
 
     /**
      * A series of <repeat-style> values separated by commas.
      * Each repeat-style item in the series applies to the corresponding image in the background-image series.
      */
     @Incubating
-    var backgroundRepeat: String by map
+    var backgroundRepeat: String
 
     /**
      * A series of <bg-size> values separated by commas.
      * Each bg-size item in the series applies to the corresponding image in the background-image series.
      */
     @Incubating
-    var backgroundSize: String by map
+    var backgroundSize: String
 
     /**
      * A series of paint values or sets of four paint values, separated by commas.
@@ -56,7 +56,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * borders of the region, in that order.
      * If the border is not rectangular, only the first paint value in the set is used.
      */
-    var borderColor: Color by map
+    var borderColor: Color
 
     /**
      * A series of inset or sets of four inset values, separated by commas.
@@ -64,7 +64,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * values is specified, they are used for the top, right, bottom, and left edges of the region, in that order.
      * Each item in the series of insets applies to the corresponding item in the series of border colors.
      */
-    var borderInsets: Insets by map
+    var borderInsets: Insets
 
     /**
      * A series of radius or sets of four radius values, separated by commas.
@@ -74,7 +74,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * Each item in the series of radii applies to the corresponding item in the series of border colors.
      */
     @Incubating
-    var borderRadius: String by map
+    var borderRadius: String
 
     /**
      * A series of border style values, separated by commas.
@@ -89,7 +89,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * This corresponds to the strokeDashOffset variable of Shape.
      */
     @Incubating
-    var borderStyle: String by map
+    var borderStyle: String
 
     /**
      * A series of width or sets of four width values, separated by commas.
@@ -98,17 +98,17 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * If the border is not rectangular, only the first width value is used.
      * Each item in the series of widths applies to the corresponding item in the series of border colors.
      */
-    var borderWidth: Number by map
+    var borderWidth: Number
 
     /** A series of image URIs, separated by commas. */
-    var borderImageSource: Urls by map
+    var borderImageSource: Urls
 
     /**
      * A series of repeat-style values, separated by commas.
      * Each item in the series applies to the corresponding image in the series of border images.
      */
     @Incubating
-    var borderImageRepeat: String by map
+    var borderImageRepeat: String
 
     /**
      * A series of image slice values or sets of four values, separated by commas.
@@ -121,7 +121,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * Percentage values may be used here, in which case the values are considered proportional to the source image.
      */
     @Incubating
-    var borderImageSlice: String by map
+    var borderImageSlice: String
 
     /**
      * A series of width or sets of four width values, separated by commas.
@@ -131,7 +131,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * to the corresponding item in the series of border images.
      * Percentage values may be used here, in which case the values are considered proportional to the border image area.
      */
-    var borderImageWidth: Number by map
+    var borderImageWidth: Number
 
     /**
      * A sets of four padding values, separated by commas.
@@ -139,34 +139,34 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * padding values is specified, they are used for the top, right, bottom, and left edges of the region, in that
      * order.
      */
-    var padding: Insets by map
+    var padding: Insets
 
     /**
      * If true means the shape centered within the region's width and height, otherwise the shape is positioned at its
      * source position.
      * Has no effect if a shape string is not specified.
      */
-    var positionShape: Boolean by map
+    var positionShape: Boolean
 
     /**
      * If true means the shape is scaled to fit the size of the region, otherwise the shape is at its source size, and
      * its position depends on the value of the position-shape property.
      * Has no effect if a shape string is not specified.
      */
-    var scaleShape: Boolean by map
+    var scaleShape: Boolean
 
     /**
      * An SVG path string.
      * By specifying a shape here the region takes on that shape instead of a rectangle or rounded rectangle.
      * The syntax of this path string is specified in [3].
      */
-    var shape: String by map
+    var shape: String
 
     /**
      * Defines whether this region rounds position/spacing and ceils size values to pixel boundaries when laying out its
      * children.
      */
-    var snapToPixel: Boolean by map
+    var snapToPixel: Boolean
 
     /**
      * This property is set by specifying -fx-background-color, optionally -fx-background-insets, and optionally
@@ -175,7 +175,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * There is no shorthand notation for -fx-background-fills at this time.
      */
     @Incubating
-    var backgroundFills: String by map
+    var backgroundFills: String
 
     /**
      * This property is set by specifying -fx-background-image, optionally -fx-background-position, optionally
@@ -183,7 +183,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * There is no shorthand notation for -fx-background-images at this time.
      */
     @Incubating
-    var backgroundImages: String by map
+    var backgroundImages: String
 
     /**
      * This property is set by specifying -fx-border-color with the optional -fx-border-insets, -fx-border-radius,
@@ -191,7 +191,7 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * There is no shorthand notation for -fx-stroke-borders at this time.
      */
     @Incubating
-    var strokeBorders: String by map
+    var strokeBorders: String
 
     /**
      * This property set by specifying -fx-border-image-source with the optional -fx-border-image-insets,
@@ -199,10 +199,39 @@ open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPri
      * There is no shorthand notation for -fx-image-borders at this time.
      */
     @Incubating
-    var imageBorders: String by map
+    var imageBorders: String
+}
+
+@Suppress("ClassName")
+open class _RegionStyleBuilder(prettyPrint: Boolean) : _NodeStyleBuilder(prettyPrint), RegionStyleBuilder {
+    override var backgroundColor: Color by map
+    override var backgroundInsets: Insets by map
+    override var backgroundRadius: Insets by map
+    override var backgroundImage: Urls by map
+    override var backgroundPosition: String by map
+    override var backgroundRepeat: String by map
+    override var backgroundSize: String by map
+    override var borderColor: Color by map
+    override var borderInsets: Insets by map
+    override var borderRadius: String by map
+    override var borderStyle: String by map
+    override var borderWidth: Number by map
+    override var borderImageSource: Urls by map
+    override var borderImageRepeat: String by map
+    override var borderImageSlice: String by map
+    override var borderImageWidth: Number by map
+    override var padding: Insets by map
+    override var positionShape: Boolean by map
+    override var scaleShape: Boolean by map
+    override var shape: String by map
+    override var snapToPixel: Boolean by map
+    override var backgroundFills: String by map
+    override var backgroundImages: String by map
+    override var strokeBorders: String by map
+    override var imageBorders: String by map
 }
 
 inline fun regionStyle(
     prettyPrint: Boolean = false,
     builder: RegionStyleBuilder.() -> Unit
-): String = RegionStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _RegionStyleBuilder(prettyPrint).apply(builder).toString()

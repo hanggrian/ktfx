@@ -5,22 +5,33 @@ import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 
-class FlowPaneStyleBuilder(prettyPrint: Boolean) : RegionStyleBuilder(prettyPrint) {
+interface FlowPaneStyleBuilder {
 
-    var hgap: Number by map
+    var hgap: Number
 
-    var vgap: Number by map
+    var vgap: Number
 
-    var alignment: Pos by map
+    var alignment: Pos
 
-    var columnHalignment: HPos by map
+    var columnHalignment: HPos
 
-    var rowValignment: VPos by map
+    var rowValignment: VPos
 
-    var orientation: Orientation by map
+    var orientation: Orientation
+}
+
+@PublishedApi
+@Suppress("ClassName")
+internal class _FlowPaneStyleBuilder(prettyPrint: Boolean) : _RegionStyleBuilder(prettyPrint), FlowPaneStyleBuilder {
+    override var hgap: Number by map
+    override var vgap: Number by map
+    override var alignment: Pos by map
+    override var columnHalignment: HPos by map
+    override var rowValignment: VPos by map
+    override var orientation: Orientation by map
 }
 
 inline fun flowPaneStyle(
     prettyPrint: Boolean = false,
     builder: FlowPaneStyleBuilder.() -> Unit
-): String = FlowPaneStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _FlowPaneStyleBuilder(prettyPrint).apply(builder).toString()

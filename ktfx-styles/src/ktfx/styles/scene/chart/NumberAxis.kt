@@ -1,12 +1,19 @@
 package ktfx.styles
 
-class NumberAxisStyleBuilder(prettyPrint: Boolean) : ValueAxisStyleBuilder(prettyPrint) {
+interface NumberAxisStyleBuilder {
 
     /** The value between each major tick mark in data units. */
-    var tickUnit: Number by map
+    var tickUnit: Number
+}
+
+@PublishedApi
+@Suppress("ClassName")
+internal class _NumberAxisStyleBuilder(prettyPrint: Boolean) : _ValueAxisStyleBuilder(prettyPrint),
+    NumberAxisStyleBuilder {
+    override var tickUnit: Number by map
 }
 
 inline fun numberAxisStyle(
     prettyPrint: Boolean = false,
     builder: NumberAxisStyleBuilder.() -> Unit
-): String = NumberAxisStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _NumberAxisStyleBuilder(prettyPrint).apply(builder).toString()

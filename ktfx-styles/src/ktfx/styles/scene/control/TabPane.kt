@@ -1,17 +1,26 @@
 package ktfx.styles
 
-class TabPaneStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
+interface TabPaneStyleBuilder {
 
-    var tabMinWidth: Int by map
+    var tabMinWidth: Int
 
-    var tabMaxWidth: Int by map
+    var tabMaxWidth: Int
 
-    var tabMinHeight: Int by map
+    var tabMinHeight: Int
 
-    var tabMaxHeight: Int by map
+    var tabMaxHeight: Int
+}
+
+@PublishedApi
+@Suppress("ClassName")
+internal class _TabPaneStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), TabPaneStyleBuilder {
+    override var tabMinWidth: Int by map
+    override var tabMaxWidth: Int by map
+    override var tabMinHeight: Int by map
+    override var tabMaxHeight: Int by map
 }
 
 inline fun tabPaneStyle(
     prettyPrint: Boolean = false,
     builder: TabPaneStyleBuilder .() -> Unit
-): String = TabPaneStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _TabPaneStyleBuilder(prettyPrint).apply(builder).toString()

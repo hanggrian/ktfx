@@ -7,36 +7,52 @@ import javafx.scene.control.OverrunStyle
 import javafx.scene.paint.Color
 import javafx.scene.text.TextAlignment
 
-open class LabeledStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
+interface LabeledStyleBuilder {
 
-    var alignment: Pos by map
+    var alignment: Pos
 
     /** Text-align from CSS spec maps to textAlignment in JavaFX. */
-    var textAlignment: TextAlignment by map
+    var textAlignment: TextAlignment
 
-    var textOverrun: OverrunStyle by map
+    var textOverrun: OverrunStyle
 
-    var wrapText: Boolean by map
+    var wrapText: Boolean
 
     @Incubating
-    var font: String by map
+    var font: String
 
-    var underline: Boolean by map
+    var underline: Boolean
 
-    var graphic: Url by map
+    var graphic: Url
 
-    var contentDisplay: ContentDisplay by map
+    var contentDisplay: ContentDisplay
 
-    var graphicTextGap: Number by map
+    var graphicTextGap: Number
 
-    var labelPadding: Insets by map
+    var labelPadding: Insets
 
-    var textFill: Color by map
+    var textFill: Color
 
-    var ellipsisString: String by map
+    var ellipsisString: String
+}
+
+@Suppress("ClassName")
+open class _LabeledStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), LabeledStyleBuilder {
+    override var alignment: Pos by map
+    override var textAlignment: TextAlignment by map
+    override var textOverrun: OverrunStyle by map
+    override var wrapText: Boolean by map
+    override var font: String by map
+    override var underline: Boolean by map
+    override var graphic: Url by map
+    override var contentDisplay: ContentDisplay by map
+    override var graphicTextGap: Number by map
+    override var labelPadding: Insets by map
+    override var textFill: Color by map
+    override var ellipsisString: String by map
 }
 
 inline fun labeledStyle(
     prettyPrint: Boolean = false,
     builder: LabeledStyleBuilder .() -> Unit
-): String = LabeledStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _LabeledStyleBuilder(prettyPrint).apply(builder).toString()

@@ -4,16 +4,24 @@ import javafx.geometry.HPos
 import javafx.geometry.Orientation
 import javafx.geometry.VPos
 
-class SeparatorStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
+interface SeparatorStyleBuilder {
 
-    var orientation: Orientation by map
+    var orientation: Orientation
 
-    var halignment: HPos by map
+    var halignment: HPos
 
-    var valignment: VPos by map
+    var valignment: VPos
+}
+
+@PublishedApi
+@Suppress("ClassName")
+internal class _SeparatorStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), SeparatorStyleBuilder {
+    override var orientation: Orientation by map
+    override var halignment: HPos by map
+    override var valignment: VPos by map
 }
 
 inline fun separatorStyle(
     prettyPrint: Boolean = false,
     builder: SeparatorStyleBuilder .() -> Unit
-): String = SeparatorStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _SeparatorStyleBuilder(prettyPrint).apply(builder).toString()

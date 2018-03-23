@@ -2,12 +2,18 @@ package ktfx.styles
 
 import javafx.geometry.Orientation
 
-class SplitPaneStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
+interface SplitPaneStyleBuilder {
 
-    var orientation: Orientation by map
+    var orientation: Orientation
+}
+
+@PublishedApi
+@Suppress("ClassName")
+internal class _SplitPaneStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint), SplitPaneStyleBuilder {
+    override var orientation: Orientation by map
 }
 
 inline fun splitPaneStyle(
     prettyPrint: Boolean = false,
     builder: SplitPaneStyleBuilder .() -> Unit
-): String = SplitPaneStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _SplitPaneStyleBuilder(prettyPrint).apply(builder).toString()

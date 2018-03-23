@@ -2,12 +2,18 @@ package ktfx.styles
 
 import javafx.scene.paint.Color
 
-open class ProgressIndicatorStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
+interface ProgressIndicatorStyleBuilder {
 
-    var progressColor: Color by map
+    var progressColor: Color
+}
+
+@Suppress("ClassName")
+open class _ProgressIndicatorStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
+    ProgressIndicatorStyleBuilder {
+    override var progressColor: Color by map
 }
 
 inline fun progressIndicatorStyle(
     prettyPrint: Boolean = false,
     builder: ProgressIndicatorStyleBuilder .() -> Unit
-): String = ProgressIndicatorStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _ProgressIndicatorStyleBuilder(prettyPrint).apply(builder).toString()

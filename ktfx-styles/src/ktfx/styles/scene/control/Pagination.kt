@@ -1,16 +1,27 @@
 package ktfx.styles
 
-class PaginationStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
+interface PaginationStyleBuilder {
 
-    var maxPageIndicatorCount: Number by map
+    var maxPageIndicatorCount: Number
 
-    var arrowsVisible: Boolean by map
+    var arrowsVisible: Boolean
 
-    var tooltipVisible: Boolean by map
+    var tooltipVisible: Boolean
 
-    var pageInformationVisible: Boolean by map
+    var pageInformationVisible: Boolean
 
-    var pageInformationAlignment: PageAlignment by map
+    var pageInformationAlignment: PageAlignment
+}
+
+@PublishedApi
+@Suppress("ClassName")
+internal class _PaginationStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
+    PaginationStyleBuilder {
+    override var maxPageIndicatorCount: Number by map
+    override var arrowsVisible: Boolean by map
+    override var tooltipVisible: Boolean by map
+    override var pageInformationVisible: Boolean by map
+    override var pageInformationAlignment: PageAlignment by map
 }
 
 enum class PageAlignment {
@@ -20,4 +31,4 @@ enum class PageAlignment {
 inline fun paginationStyle(
     prettyPrint: Boolean = false,
     builder: PaginationStyleBuilder .() -> Unit
-): String = PaginationStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _PaginationStyleBuilder(prettyPrint).apply(builder).toString()

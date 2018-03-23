@@ -2,23 +2,34 @@ package ktfx.styles
 
 import javafx.scene.paint.Color
 
-open class TextInputControlStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
+interface TextInputControlStyleBuilder {
 
     @Incubating
-    var font: String by map
+    var font: String
 
-    var textFill: Color by map
+    var textFill: Color
 
-    var promptTextFill: Color by map
+    var promptTextFill: Color
 
-    var highlightFill: Color by map
+    var highlightFill: Color
 
-    var highlightTextFill: Color by map
+    var highlightTextFill: Color
 
-    var displayCaret: Boolean by map
+    var displayCaret: Boolean
+}
+
+@Suppress("ClassName")
+open class _TextInputControlStyleBuilder(prettyPrint: Boolean) : _ControlStyleBuilder(prettyPrint),
+    TextInputControlStyleBuilder {
+    override var font: String by map
+    override var textFill: Color by map
+    override var promptTextFill: Color by map
+    override var highlightFill: Color by map
+    override var highlightTextFill: Color by map
+    override var displayCaret: Boolean by map
 }
 
 inline fun textInputControlStyle(
     prettyPrint: Boolean = false,
     builder: TextInputControlStyleBuilder .() -> Unit
-): String = TextInputControlStyleBuilder(prettyPrint).apply(builder).toString()
+): String = _TextInputControlStyleBuilder(prettyPrint).apply(builder).toString()

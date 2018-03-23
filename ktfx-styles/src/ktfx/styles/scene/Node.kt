@@ -4,6 +4,7 @@ package ktfx.styles
 
 import javafx.scene.Cursor
 import javafx.scene.effect.BlendMode
+import ktfx.styles.internal.StyleBuilder
 
 open class NodeStyleBuilder(prettyPrint: Boolean) : StyleBuilder(prettyPrint) {
 

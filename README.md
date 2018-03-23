@@ -12,11 +12,12 @@ Consists of several parts:
 
 Download
 --------
-All artifacts are hosted on [jcenter]. To download all of them, use KtFX main library:
+All artifacts are hosted on [jcenter].
+To download all of them, use KtFX main library (see `version` in [releases]):
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx:0.2'
+    compile 'com.hendraanggrian.ktfx:ktfx:$version'
 }
 ```
 
@@ -24,11 +25,11 @@ Or download separate library if only specific feature is desired:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx-commons:0.2'
-    compile 'com.hendraanggrian.ktfx:ktfx-layouts:0.2'
-    compile 'com.hendraanggrian.ktfx:ktfx-listeners:0.2'
-    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:0.2'
-    compile 'com.hendraanggrian.ktfx:ktfx-styles:0.2'
+    compile 'com.hendraanggrian.ktfx:ktfx-commons:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-layouts:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-listeners:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-styles:$version'
 }
 ```
 
@@ -215,5 +216,6 @@ License
 [android-ktx]: https://github.com/android/android-ktx
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
+[releases]: https://github.com/hendraanggrian/ktfx/releases
 [jcenter]: https://bintray.com/hendraanggrian/ktfx
 [demo_layouts]: /art/demo_layouts.png

@@ -2,3 +2,4 @@ $dokka.format:html
 $dokka.linkExtension:html
 
 ktfx.styles
+ktfx.styles.internal

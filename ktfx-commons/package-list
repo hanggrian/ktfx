@@ -379,6 +379,24 @@ $dokka.location:ktfx.collections$unbindContent(kotlin.collections.Set((ktfx.coll
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-list/unbind-content-bidirectional.html
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableMap((ktfx.collections.unbindContentBidirectional.K, ktfx.collections.unbindContentBidirectional.V)), javafx.collections.ObservableMap((ktfx.collections.unbindContentBidirectional.K, ktfx.collections.unbindContentBidirectional.V)))ktfx.collections/javafx.collections.-observable-map/unbind-content-bidirectional.html
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-set/unbind-content-bidirectional.html
+$dokka.location:ktfx.embed.swing$toBufferedImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.embed.swing/javafx.scene.image.-image/to-buffered-image.html
+$dokka.location:ktfx.embed.swing$toWritableImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.embed.swing/java.awt.image.-buffered-image/to-writable-image.html
+$dokka.location:ktfx.geometry$component1(javafx.geometry.Dimension2D)ktfx.geometry/javafx.geometry.-dimension2-d/component1.html
+$dokka.location:ktfx.geometry$component1(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component1.html
+$dokka.location:ktfx.geometry$component1(javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/component1.html
+$dokka.location:ktfx.geometry$component1(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component1.html
+$dokka.location:ktfx.geometry$component2(javafx.geometry.Dimension2D)ktfx.geometry/javafx.geometry.-dimension2-d/component2.html
+$dokka.location:ktfx.geometry$component2(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component2.html
+$dokka.location:ktfx.geometry$component2(javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/component2.html
+$dokka.location:ktfx.geometry$component2(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component2.html
+$dokka.location:ktfx.geometry$component3(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component3.html
+$dokka.location:ktfx.geometry$component3(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component3.html
+$dokka.location:ktfx.geometry$component4(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component4.html
+$dokka.location:ktfx.print$component1(javafx.print.PageRange)ktfx.print/javafx.print.-page-range/component1.html
+$dokka.location:ktfx.print$component1(javafx.print.Paper)ktfx.print/javafx.print.-paper/component1.html
+$dokka.location:ktfx.print$component2(javafx.print.PageRange)ktfx.print/javafx.print.-page-range/component2.html
+$dokka.location:ktfx.print$component2(javafx.print.Paper)ktfx.print/javafx.print.-paper/component2.html
+$dokka.location:ktfx.print$component3(javafx.print.Paper)ktfx.print/javafx.print.-paper/component3.html
 $dokka.location:ktfx.scene$snapshot(javafx.scene.Node, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage)ktfx.scene/javafx.scene.-node/snapshot.html
 $dokka.location:ktfx.scene$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage)ktfx.scene/javafx.scene.-scene/snapshot.html
 $dokka.location:ktfx.scene.control$applyButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/apply-button.html
@@ -425,6 +443,21 @@ $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.Tab
 $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeTableColumn((ktfx.scene.control.textFieldCellFactory.S, kotlin.String)))ktfx.scene.control/javafx.scene.control.-tree-table-column/text-field-cell-factory.html
 $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeView((kotlin.String)))ktfx.scene.control/javafx.scene.control.-tree-view/text-field-cell-factory.html
 $dokka.location:ktfx.scene.control$yesButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/yes-button.html
+$dokka.location:ktfx.scene.input$contains(javafx.scene.input.KeyCharacterCombination, javafx.scene.input.KeyEvent)ktfx.scene.input/javafx.scene.input.-key-character-combination/contains.html
+$dokka.location:ktfx.scene.input$contains(javafx.scene.input.KeyCodeCombination, javafx.scene.input.KeyEvent)ktfx.scene.input/javafx.scene.input.-key-code-combination/contains.html
+$dokka.location:ktfx.scene.input$contains(javafx.scene.input.KeyCombination, javafx.scene.input.KeyEvent)ktfx.scene.input/javafx.scene.input.-key-combination/contains.html
+$dokka.location:ktfx.scene.input$ifFilesPresent(javafx.scene.input.Clipboard, kotlin.Function1((kotlin.collections.List((java.io.File)), kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard/if-files-present.html
+$dokka.location:ktfx.scene.input$ifFilesPresent(javafx.scene.input.ClipboardContent, kotlin.Function1((kotlin.collections.List((java.io.File)), kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard-content/if-files-present.html
+$dokka.location:ktfx.scene.input$ifHtmlPresent(javafx.scene.input.Clipboard, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard/if-html-present.html
+$dokka.location:ktfx.scene.input$ifHtmlPresent(javafx.scene.input.ClipboardContent, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard-content/if-html-present.html
+$dokka.location:ktfx.scene.input$ifImagePresent(javafx.scene.input.Clipboard, kotlin.Function1((javafx.scene.image.Image, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard/if-image-present.html
+$dokka.location:ktfx.scene.input$ifImagePresent(javafx.scene.input.ClipboardContent, kotlin.Function1((javafx.scene.image.Image, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard-content/if-image-present.html
+$dokka.location:ktfx.scene.input$ifRtfPresent(javafx.scene.input.Clipboard, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard/if-rtf-present.html
+$dokka.location:ktfx.scene.input$ifRtfPresent(javafx.scene.input.ClipboardContent, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard-content/if-rtf-present.html
+$dokka.location:ktfx.scene.input$ifStringPresent(javafx.scene.input.Clipboard, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard/if-string-present.html
+$dokka.location:ktfx.scene.input$ifStringPresent(javafx.scene.input.ClipboardContent, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard-content/if-string-present.html
+$dokka.location:ktfx.scene.input$ifUrlPresent(javafx.scene.input.Clipboard, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard/if-url-present.html
+$dokka.location:ktfx.scene.input$ifUrlPresent(javafx.scene.input.ClipboardContent, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard-content/if-url-present.html
 $dokka.location:ktfx.scene.input$isDelete(javafx.scene.input.KeyCode)ktfx.scene.input/javafx.scene.input.-key-code/is-delete.html
 $dokka.location:ktfx.scene.input$plus(javafx.scene.input.KeyCode, javafx.scene.input.KeyCombination.Modifier)ktfx.scene.input/javafx.scene.input.-key-code/plus.html
 $dokka.location:ktfx.scene.input$plus(javafx.scene.input.KeyCode, kotlin.Array((javafx.scene.input.KeyCombination.Modifier)))ktfx.scene.input/javafx.scene.input.-key-code/plus.html
@@ -453,6 +486,10 @@ $dokka.location:ktfx.scene.layout$updatePadding(javafx.scene.layout.Region, kotl
 $dokka.location:ktfx.scene.layout$widthMax#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/width-max.html
 $dokka.location:ktfx.scene.layout$widthMin#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/width-min.html
 $dokka.location:ktfx.scene.layout$widthPref#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/width-pref.html
+$dokka.location:ktfx.scene.paint$component1(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component1.html
+$dokka.location:ktfx.scene.paint$component2(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component2.html
+$dokka.location:ktfx.scene.paint$component3(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component3.html
+$dokka.location:ktfx.scene.paint$component4(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component4.html
 $dokka.location:ktfx.stage$heightMax#javafx.stage.Stagektfx.stage/javafx.stage.-stage/height-max.html
 $dokka.location:ktfx.stage$heightMin#javafx.stage.Stagektfx.stage/javafx.stage.-stage/height-min.html
 $dokka.location:ktfx.stage$icon#javafx.stage.Stagektfx.stage/javafx.stage.-stage/icon.html
@@ -481,9 +518,13 @@ ktfx.application
 ktfx.beans.binding
 ktfx.beans.property
 ktfx.collections
+ktfx.embed.swing
+ktfx.geometry
+ktfx.print
 ktfx.scene
 ktfx.scene.control
 ktfx.scene.input
 ktfx.scene.layout
+ktfx.scene.paint
 ktfx.stage
 ktfx.util

@@ -10,7 +10,7 @@ class ProgressIndicatorStyleTest : NodeTest<ProgressIndicator>() {
     override fun newInstance() = ProgressIndicator()
 
     override val style: String
-        get() = progressIndicatorStyle {
+        get() = progressIndicatorStyle(true) {
             // progressColor = BLUE
         }
 

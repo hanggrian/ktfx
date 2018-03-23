@@ -11,7 +11,7 @@ class TextFieldStyleTest : NodeTest<TextField>() {
     override fun newInstance() = TextField("Hello world")
 
     override val style: String
-        get() = textFieldStyle {
+        get() = textFieldStyle(true) {
             alignment = TOP_RIGHT
         }
 

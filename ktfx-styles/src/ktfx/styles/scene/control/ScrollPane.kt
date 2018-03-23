@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.scene.control.ScrollPane.ScrollBarPolicy
 
-class ScrollPaneStyleBuilder : ControlStyleBuilder() {
+class ScrollPaneStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
 
     var fitToWidth: Boolean by map
 
@@ -15,5 +15,7 @@ class ScrollPaneStyleBuilder : ControlStyleBuilder() {
     var vbarPolicy: ScrollBarPolicy by map
 }
 
-inline fun scrollPaneStyle(builder: ScrollPaneStyleBuilder .() -> Unit): String =
-    ScrollPaneStyleBuilder().apply(builder).toString()
+inline fun scrollPaneStyle(
+    prettyPrint: Boolean = false,
+    builder: ScrollPaneStyleBuilder .() -> Unit
+): String = ScrollPaneStyleBuilder(prettyPrint).apply(builder).toString()

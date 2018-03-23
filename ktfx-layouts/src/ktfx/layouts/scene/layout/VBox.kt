@@ -18,6 +18,5 @@ open class _VBox : VBox(), ChildManager, VGrowedPane, MarginedPane {
 }
 
 inline fun vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = _VBox().apply(init)
-inline fun ChildManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = ktfx.layouts.vbox(init).add()
-inline fun ItemManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = ktfx.layouts.vbox(init).add()
-inline fun ButtonManager.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = ktfx.layouts.vbox(init).add()
+
+inline fun Manager<Node>.vbox(init: (@LayoutDsl _VBox).() -> Unit): VBox = ktfx.layouts.vbox(init).add()

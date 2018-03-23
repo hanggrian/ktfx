@@ -13,7 +13,7 @@ class TextInputControlStyleTest : NodeTest<TextArea>() {
     override fun newInstance() = TextArea("Hello world")
 
     override val style: String
-        get() = textInputControlStyle {
+        get() = textInputControlStyle(true) {
             // TODO: investigate why this test run successfully but gradle build failed
             /*textFill = BLUE
             promptTextFill = AQUA

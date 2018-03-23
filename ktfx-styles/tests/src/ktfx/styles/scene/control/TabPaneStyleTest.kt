@@ -11,7 +11,7 @@ class TabPaneStyleTest : NodeTest<TabPane>() {
     override fun newInstance() = TabPane(Tab("Hello"), Tab("world"))
 
     override val style: String
-        get() = tabPaneStyle {
+        get() = tabPaneStyle(true) {
             tabMinWidth = 50
             tabMaxWidth = 100
             tabMinHeight = 200

@@ -18,6 +18,5 @@ open class _BorderPane : BorderPane(), ChildManager, AlignedPane, MarginedPane {
 }
 
 inline fun borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = _BorderPane().apply(init)
-inline fun ChildManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = ktfx.layouts.borderPane(init).add()
-inline fun ItemManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = ktfx.layouts.borderPane(init).add()
-inline fun ButtonManager.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = ktfx.layouts.borderPane(init).add()
+
+inline fun Manager<Node>.borderPane(init: (@LayoutDsl _BorderPane).() -> Unit): BorderPane = ktfx.layouts.borderPane(init).add()

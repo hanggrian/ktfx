@@ -18,6 +18,5 @@ open class _HBox : HBox(), ChildManager, HGrowedPane, MarginedPane {
 }
 
 inline fun hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = _HBox().apply(init)
-inline fun ChildManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = ktfx.layouts.hbox(init).add()
-inline fun ItemManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = ktfx.layouts.hbox(init).add()
-inline fun ButtonManager.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = ktfx.layouts.hbox(init).add()
+
+inline fun Manager<Node>.hbox(init: (@LayoutDsl _HBox).() -> Unit): HBox = ktfx.layouts.hbox(init).add()

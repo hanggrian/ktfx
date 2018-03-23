@@ -5,7 +5,7 @@ import javafx.scene.shape.StrokeLineCap
 import javafx.scene.shape.StrokeLineJoin
 import javafx.scene.shape.StrokeType
 
-open class ShapeStyleBuilder : NodeStyleBuilder() {
+open class ShapeStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPrint) {
 
     var fill: Color by map
 
@@ -29,5 +29,7 @@ open class ShapeStyleBuilder : NodeStyleBuilder() {
     var strokeWidth: Number by map
 }
 
-inline fun shapeStyle(builder: ShapeStyleBuilder.() -> Unit): String =
-    ShapeStyleBuilder().apply(builder).toString()
+inline fun shapeStyle(
+    prettyPrint: Boolean = false,
+    builder: ShapeStyleBuilder.() -> Unit
+): String = ShapeStyleBuilder(prettyPrint).apply(builder).toString()

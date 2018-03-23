@@ -2,14 +2,14 @@
 
 package ktfx.layouts
 
+import javafx.scene.Node
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
 
 inline fun <S> treeTableView(root: TreeItem<S>? = null, noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null): TreeTableView<S> = TreeTableView<S>(root).apply { init?.invoke(this) }
-inline fun <S> ChildManager.treeTableView(root: TreeItem<S>? = null, noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null): TreeTableView<S> = ktfx.layouts.treeTableView(root, init).add()
-inline fun <S> ItemManager.treeTableView(root: TreeItem<S>? = null, noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null): TreeTableView<S> = ktfx.layouts.treeTableView(root, init).add()
-inline fun <S> ButtonManager.treeTableView(root: TreeItem<S>? = null, noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null): TreeTableView<S> = ktfx.layouts.treeTableView(root, init).add()
+
+inline fun <S> Manager<Node>.treeTableView(root: TreeItem<S>? = null, noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null): TreeTableView<S> = ktfx.layouts.treeTableView(root, init).add()
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {

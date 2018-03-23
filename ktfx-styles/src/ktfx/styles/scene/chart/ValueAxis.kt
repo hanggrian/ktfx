@@ -1,6 +1,6 @@
 package ktfx.styles
 
-open class ValueAxisStyleBuilder : AxisStyleBuilder() {
+open class ValueAxisStyleBuilder(prettyPrint: Boolean) : AxisStyleBuilder(prettyPrint) {
 
     var minorTickLength: Number by map
 
@@ -9,5 +9,7 @@ open class ValueAxisStyleBuilder : AxisStyleBuilder() {
     var minorTickVisible: Boolean by map
 }
 
-inline fun valueAxisStyle(builder: ValueAxisStyleBuilder.() -> Unit): String =
-    ValueAxisStyleBuilder().apply(builder).toString()
+inline fun valueAxisStyle(
+    prettyPrint: Boolean = false,
+    builder: ValueAxisStyleBuilder.() -> Unit
+): String = ValueAxisStyleBuilder(prettyPrint).apply(builder).toString()

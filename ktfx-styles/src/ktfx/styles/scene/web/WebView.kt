@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.scene.text.FontSmoothingType
 
-class WebViewStyleBuilder : NodeStyleBuilder() {
+class WebViewStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPrint) {
 
     var contextMenuEnabled: Boolean by map
 
@@ -23,5 +23,7 @@ class WebViewStyleBuilder : NodeStyleBuilder() {
     var maxHeight: Number by map
 }
 
-inline fun webViewStyle(builder: WebViewStyleBuilder.() -> Unit): String =
-    WebViewStyleBuilder().apply(builder).toString()
+inline fun webViewStyle(
+    prettyPrint: Boolean = false,
+    builder: WebViewStyleBuilder.() -> Unit
+): String = WebViewStyleBuilder(prettyPrint).apply(builder).toString()

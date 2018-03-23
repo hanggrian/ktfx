@@ -16,7 +16,7 @@ class ShapeStyleTest : NodeTest<Shape>() {
     override fun newInstance() = Circle()
 
     override val style: String
-        get() = shapeStyle {
+        get() = shapeStyle(true) {
             fill = BLUE
             smooth = false
             stroke = AQUA

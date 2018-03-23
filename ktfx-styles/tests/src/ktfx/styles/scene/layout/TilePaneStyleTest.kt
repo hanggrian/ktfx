@@ -13,7 +13,7 @@ class TilePaneStyleTest : NodeTest<TilePane>() {
     override fun newInstance() = TilePane()
 
     override val style: String
-        get() = tilePaneStyle {
+        get() = tilePaneStyle(true) {
             orientation = VERTICAL
             prefRows = 3
             prefColumns = 2

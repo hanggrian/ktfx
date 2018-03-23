@@ -1,6 +1,6 @@
 package ktfx.styles
 
-class CategoryAxisStyleBuilder : AxisStyleBuilder() {
+class CategoryAxisStyleBuilder(prettyPrint: Boolean) : AxisStyleBuilder(prettyPrint) {
 
     /** The margin between the axis start and the first tick-mark. */
     var startMargin: Number by map
@@ -12,5 +12,7 @@ class CategoryAxisStyleBuilder : AxisStyleBuilder() {
     var gapStartAndEnd: Boolean by map
 }
 
-inline fun categoryAxisStyle(builder: CategoryAxisStyleBuilder.() -> Unit): String =
-    CategoryAxisStyleBuilder().apply(builder).toString()
+inline fun categoryAxisStyle(
+    prettyPrint: Boolean = false,
+    builder: CategoryAxisStyleBuilder.() -> Unit
+): String = CategoryAxisStyleBuilder(prettyPrint).apply(builder).toString()

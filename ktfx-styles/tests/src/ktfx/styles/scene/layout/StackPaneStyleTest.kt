@@ -11,7 +11,7 @@ class StackPaneStyleTest : NodeTest<StackPane>() {
     override fun newInstance() = StackPane()
 
     override val style: String
-        get() = stackPaneStyle {
+        get() = stackPaneStyle(true) {
             alignment = TOP_RIGHT
         }
 

@@ -12,7 +12,7 @@ class ListViewStyleTest : NodeTest<ListView<String>>() {
     override fun newInstance() = ListView<String>(observableListOf("Hello", "world"))
 
     override val style: String
-        get() = listViewStyle {
+        get() = listViewStyle(true) {
             orientation = VERTICAL
         }
 

@@ -12,7 +12,7 @@ class SplitPaneStyleTest : NodeTest<SplitPane>() {
     override fun newInstance() = SplitPane(Label("Hello"), Label("world"))
 
     override val style: String
-        get() = splitPaneStyle {
+        get() = splitPaneStyle(true) {
             orientation = VERTICAL
         }
 

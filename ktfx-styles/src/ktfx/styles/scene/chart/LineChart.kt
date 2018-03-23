@@ -1,9 +1,11 @@
 package ktfx.styles
 
-class LineChartStyleBuilder : XYChartStyleBuilder() {
+class LineChartStyleBuilder(prettyPrint: Boolean) : XYChartStyleBuilder(prettyPrint) {
 
     var createSymbols: Boolean by map
 }
 
-inline fun lineChartStyle(builder: LineChartStyleBuilder.() -> Unit): String =
-    LineChartStyleBuilder().apply(builder).toString()
+inline fun lineChartStyle(
+    prettyPrint: Boolean = false,
+    builder: LineChartStyleBuilder.() -> Unit
+): String = LineChartStyleBuilder(prettyPrint).apply(builder).toString()

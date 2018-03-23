@@ -16,7 +16,7 @@ class LabeledStyleTest : NodeTest<Labeled>() {
     override fun newInstance() = Label("Hello world")
 
     override val style: String
-        get() = labeledStyle {
+        get() = labeledStyle(true) {
             alignment = TOP_RIGHT
             textAlignment = RIGHT
             textOverrun = CLIP

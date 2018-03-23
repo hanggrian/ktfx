@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.scene.paint.Color
 
-open class TextInputControlStyleBuilder : ControlStyleBuilder() {
+open class TextInputControlStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
 
     @Incubating
     var font: String by map
@@ -18,5 +18,7 @@ open class TextInputControlStyleBuilder : ControlStyleBuilder() {
     var displayCaret: Boolean by map
 }
 
-inline fun textInputControlStyle(builder: TextInputControlStyleBuilder .() -> Unit): String =
-    TextInputControlStyleBuilder().apply(builder).toString()
+inline fun textInputControlStyle(
+    prettyPrint: Boolean = false,
+    builder: TextInputControlStyleBuilder .() -> Unit
+): String = TextInputControlStyleBuilder(prettyPrint).apply(builder).toString()

@@ -3,14 +3,14 @@
 package ktfx.layouts
 
 import javafx.collections.ObservableList
+import javafx.scene.Node
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import ktfx.collections.mutableObservableListOf
 
 inline fun <S> tableView(items: ObservableList<S> = mutableObservableListOf(), noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null): TableView<S> = TableView<S>(items).apply { init?.invoke(this) }
-inline fun <S> ChildManager.tableView(items: ObservableList<S> = mutableObservableListOf(), noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null): TableView<S> = ktfx.layouts.tableView(items, init).add()
-inline fun <S> ItemManager.tableView(items: ObservableList<S> = mutableObservableListOf(), noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null): TableView<S> = ktfx.layouts.tableView(items, init).add()
-inline fun <S> ButtonManager.tableView(items: ObservableList<S> = mutableObservableListOf(), noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null): TableView<S> = ktfx.layouts.tableView(items, init).add()
+
+inline fun <S> Manager<Node>.tableView(items: ObservableList<S> = mutableObservableListOf(), noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null): TableView<S> = ktfx.layouts.tableView(items, init).add()
 
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {

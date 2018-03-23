@@ -11,7 +11,7 @@ class ImageViewStyleTest : NodeTest<ImageView>() {
     override fun newInstance() = ImageView()
 
     override val style: String
-        get() = imageViewStyle {
+        get() = imageViewStyle(true) {
             image = Urls("test.png")
         }
 

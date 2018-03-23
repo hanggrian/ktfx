@@ -9,7 +9,7 @@ class PaginationStyleTest : NodeTest<Pagination>() {
     override fun newInstance() = Pagination()
 
     override val style: String
-        get() = paginationStyle {
+        get() = paginationStyle(true) {
             // maxPageIndicatorCount = 20
             // arrowsVisible = false
             // tooltipVisible = false

@@ -6,7 +6,7 @@ import javafx.scene.Cursor
 import javafx.scene.effect.BlendMode
 import javafx.scene.effect.Effect
 
-open class NodeStyleBuilder : StyleBuilder() {
+open class NodeStyleBuilder(prettyPrint: Boolean) : StyleBuilder(prettyPrint) {
 
     var blendMode: BlendMode by map
 
@@ -52,5 +52,7 @@ enum class Visibility {
     VISIBLE, HIDDEN, COLLAPSE, INHERIT
 }
 
-inline fun nodeStyle(builder: NodeStyleBuilder.() -> Unit): String =
-    NodeStyleBuilder().apply(builder).toString()
+inline fun nodeStyle(
+    prettyPrint: Boolean = false,
+    builder: NodeStyleBuilder.() -> Unit
+): String = NodeStyleBuilder(prettyPrint).apply(builder).toString()

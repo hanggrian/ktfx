@@ -11,7 +11,7 @@ class VBoxStyleTest : NodeTest<VBox>() {
     override fun newInstance() = VBox()
 
     override val style: String
-        get() = vboxStyle {
+        get() = vboxStyle(true) {
             spacing = 10
             alignment = TOP_RIGHT
             fillWidth = true

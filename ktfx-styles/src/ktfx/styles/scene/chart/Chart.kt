@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.geometry.Side
 
-open class ChartStyleBuilder : RegionStyleBuilder() {
+open class ChartStyleBuilder(prettyPrint: Boolean) : RegionStyleBuilder(prettyPrint) {
 
     var legendSide: Side by map
 
@@ -11,5 +11,7 @@ open class ChartStyleBuilder : RegionStyleBuilder() {
     var titleSide: Side by map
 }
 
-inline fun chartStyle(builder: ChartStyleBuilder.() -> Unit): String =
-    ChartStyleBuilder().apply(builder).toString()
+inline fun chartStyle(
+    prettyPrint: Boolean = false,
+    builder: ChartStyleBuilder.() -> Unit
+): String = ChartStyleBuilder(prettyPrint).apply(builder).toString()

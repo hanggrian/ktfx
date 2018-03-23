@@ -4,11 +4,17 @@ import javafx.geometry.Insets
 import javafx.scene.paint.Color
 import java.lang.Character.isUpperCase
 
-open class StyleBuilder {
+open class StyleBuilder(private val prettyPrint: Boolean) {
+
     protected val map: MutableMap<String, Any> = mutableMapOf()
 
-    override fun toString(): String = StringBuilder().also {
-        map.forEach { key, value -> it.appendln("${key.toKey()}: ${value.toValue()};") }
+    override fun toString(): String = StringBuilder().apply {
+        map.forEach { key, value ->
+            when {
+                prettyPrint -> appendln("${key.toKey()}: ${value.toValue()};")
+                else -> append("${key.toKey()}: ${value.toValue()}; ")
+            }
+        }
     }.toString()
 
     private companion object {

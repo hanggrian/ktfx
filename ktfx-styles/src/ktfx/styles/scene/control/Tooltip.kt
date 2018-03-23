@@ -4,7 +4,7 @@ import javafx.scene.control.ContentDisplay
 import javafx.scene.control.OverrunStyle
 import javafx.scene.text.TextAlignment
 
-class TooltipStyleBuilder : ControlStyleBuilder() {
+class TooltipStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
 
     var textAlignment: TextAlignment by map
 
@@ -22,5 +22,7 @@ class TooltipStyleBuilder : ControlStyleBuilder() {
     var font: String by map
 }
 
-inline fun tooltipStyle(builder: TooltipStyleBuilder .() -> Unit): String =
-    TooltipStyleBuilder().apply(builder).toString()
+inline fun tooltipStyle(
+    prettyPrint: Boolean = false,
+    builder: TooltipStyleBuilder .() -> Unit
+): String = TooltipStyleBuilder(prettyPrint).apply(builder).toString()

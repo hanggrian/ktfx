@@ -18,6 +18,5 @@ open class _TilePane : TilePane(), ChildManager, AlignedPane, MarginedPane {
 }
 
 inline fun tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = _TilePane().apply(init)
-inline fun ChildManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = ktfx.layouts.tilePane(init).add()
-inline fun ItemManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = ktfx.layouts.tilePane(init).add()
-inline fun ButtonManager.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = ktfx.layouts.tilePane(init).add()
+
+inline fun Manager<Node>.tilePane(init: (@LayoutDsl _TilePane).() -> Unit): TilePane = ktfx.layouts.tilePane(init).add()

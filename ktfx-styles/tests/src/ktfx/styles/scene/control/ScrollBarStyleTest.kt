@@ -11,7 +11,7 @@ class ScrollBarStyleTest : NodeTest<ScrollBar>() {
     override fun newInstance() = ScrollBar()
 
     override val style: String
-        get() = scrollBarStyle {
+        get() = scrollBarStyle(true) {
             orientation = VERTICAL
             blockIncrement = 5
             unitIncrement = 10

@@ -10,7 +10,7 @@ class TableViewStyleTest : NodeTest<TableView<String>>() {
     override fun newInstance() = TableView<String>(observableListOf("Hello", "world"))
 
     override val style: String
-        get() = tableViewStyle {
+        get() = tableViewStyle(true) {
             size = 50
         }
 

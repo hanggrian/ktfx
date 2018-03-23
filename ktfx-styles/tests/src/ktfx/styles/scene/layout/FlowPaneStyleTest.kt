@@ -5,8 +5,8 @@ import javafx.geometry.Orientation.VERTICAL
 import javafx.geometry.Pos.TOP_RIGHT
 import javafx.geometry.VPos.BOTTOM
 import javafx.scene.layout.FlowPane
-import ktfx.styles.flowPaneStyle
 import ktfx.styles.NodeTest
+import ktfx.styles.flowPaneStyle
 import kotlin.test.assertEquals
 
 class FlowPaneStyleTest : NodeTest<FlowPane>() {
@@ -14,7 +14,7 @@ class FlowPaneStyleTest : NodeTest<FlowPane>() {
     override fun newInstance() = FlowPane()
 
     override val style: String
-        get() = flowPaneStyle {
+        get() = flowPaneStyle(true) {
             hgap = 10
             vgap = 20
             alignment = TOP_RIGHT

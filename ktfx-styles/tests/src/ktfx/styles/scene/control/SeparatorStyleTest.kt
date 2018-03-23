@@ -13,7 +13,7 @@ class SeparatorStyleTest : NodeTest<Separator>() {
     override fun newInstance() = Separator()
 
     override val style: String
-        get() = separatorStyle {
+        get() = separatorStyle(true) {
             orientation = VERTICAL
             halignment = RIGHT
             valignment = BOTTOM

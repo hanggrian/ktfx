@@ -15,7 +15,7 @@ class TextStyleTest : NodeTest<Text>() {
     override fun newInstance() = Text("Hello world")
 
     override val style: String
-        get() = textStyle {
+        get() = textStyle(true) {
             // font
             fontFamily = "Arial"
             fontSize = 20

@@ -12,7 +12,7 @@ class ScrollPaneStyleTest : NodeTest<ScrollPane>() {
     override fun newInstance() = ScrollPane()
 
     override val style: String
-        get() = scrollPaneStyle {
+        get() = scrollPaneStyle(true) {
             fitToWidth = true
             fitToHeight = true
             pannable = true

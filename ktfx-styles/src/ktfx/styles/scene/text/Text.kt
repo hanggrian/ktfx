@@ -6,7 +6,7 @@ import javafx.scene.text.FontSmoothingType
 import javafx.scene.text.FontWeight
 import javafx.scene.text.TextAlignment
 
-class TextStyleBuilder : ShapeStyleBuilder() {
+class TextStyleBuilder(prettyPrint: Boolean) : ShapeStyleBuilder(prettyPrint) {
 
     /** Shorthand property for font-size, font-family, font-weight and font-style. */
     @Incubating
@@ -31,5 +31,7 @@ class TextStyleBuilder : ShapeStyleBuilder() {
     var underline: Boolean by map
 }
 
-inline fun textStyle(builder: TextStyleBuilder.() -> Unit): String =
-    TextStyleBuilder().apply(builder).toString()
+inline fun textStyle(
+    prettyPrint: Boolean = false,
+    builder: TextStyleBuilder.() -> Unit
+): String = TextStyleBuilder(prettyPrint).apply(builder).toString()

@@ -16,7 +16,7 @@ class NodeStyleTest : NodeTest<Node>() {
     override fun newInstance() = Button("Hello world")
 
     override val style: String
-        get() = nodeStyle {
+        get() = nodeStyle(true) {
             blendMode = BlendMode.RED
             cursor = Cursor.CROSSHAIR
             focusTraversable = true

@@ -1,6 +1,6 @@
 package ktfx.styles
 
-open class CellStyleBuilder : LabeledStyleBuilder() {
+open class CellStyleBuilder(prettyPrint: Boolean) : LabeledStyleBuilder(prettyPrint) {
 
     /**
      * The cell size.
@@ -9,5 +9,7 @@ open class CellStyleBuilder : LabeledStyleBuilder() {
     var cellSize: Number by map
 }
 
-inline fun cellStyle(builder: CellStyleBuilder .() -> Unit): String =
-    CellStyleBuilder().apply(builder).toString()
+inline fun cellStyle(
+    prettyPrint: Boolean = false,
+    builder: CellStyleBuilder .() -> Unit
+): String = CellStyleBuilder(prettyPrint).apply(builder).toString()

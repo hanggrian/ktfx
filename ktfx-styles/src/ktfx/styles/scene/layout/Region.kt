@@ -3,7 +3,7 @@ package ktfx.styles
 import javafx.geometry.Insets
 import javafx.scene.paint.Color
 
-open class RegionStyleBuilder : NodeStyleBuilder() {
+open class RegionStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPrint) {
 
     /** A series of paint values separated by commas.. */
     var backgroundColor: Color by map
@@ -202,5 +202,7 @@ open class RegionStyleBuilder : NodeStyleBuilder() {
     var imageBorders: String by map
 }
 
-inline fun regionStyle(builder: RegionStyleBuilder.() -> Unit): String =
-    RegionStyleBuilder().apply(builder).toString()
+inline fun regionStyle(
+    prettyPrint: Boolean = false,
+    builder: RegionStyleBuilder.() -> Unit
+): String = RegionStyleBuilder(prettyPrint).apply(builder).toString()

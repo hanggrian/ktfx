@@ -8,11 +8,15 @@ import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 
-interface ChildManager {
+/**
+ * Manager for adding controls with Kotlin DSL.
+ */
+interface ChildManager : Manager<Node> {
 
+    /** Shall be shadowed on classes extending this interface. */
     fun getChildren(): ObservableList<Node>
 
-    fun <T : Node> T.add(): T = also { getChildren() += it }
+    override fun <T : Node> T.add(): T = also { getChildren() += it }
 }
 
 interface ConstrainedPane {

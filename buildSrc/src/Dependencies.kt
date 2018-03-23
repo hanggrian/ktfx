@@ -16,6 +16,8 @@ inline val PluginDependenciesSpec.`junit-platform` get() = id("org.junit.platfor
 
 fun DependencyHandler.testFX(module: String) = "org.testfx:testfx-$module:$testFXVersion"
 
+fun DependencyHandler.truth() = "com.google.truth:truth:$truthVersion"
+
 fun DependencyHandler.bintrayRelease() = "com.novoda:bintray-release:$bintrayReleaseVersion"
 inline val PluginDependenciesSpec.`bintray-release` get() = id("com.novoda.bintray-release")
 

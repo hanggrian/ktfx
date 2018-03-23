@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.geometry.Orientation
 
-class SliderStyleBuilder : ControlStyleBuilder() {
+class SliderStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
 
     var orientation: Orientation by map
 
@@ -19,5 +19,7 @@ class SliderStyleBuilder : ControlStyleBuilder() {
     var blockIncrement: Int by map
 }
 
-inline fun sliderStyle(builder: SliderStyleBuilder .() -> Unit): String =
-    SliderStyleBuilder().apply(builder).toString()
+inline fun sliderStyle(
+    prettyPrint: Boolean = false,
+    builder: SliderStyleBuilder .() -> Unit
+): String = SliderStyleBuilder(prettyPrint).apply(builder).toString()

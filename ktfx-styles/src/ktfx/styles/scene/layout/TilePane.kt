@@ -3,7 +3,7 @@ package ktfx.styles
 import javafx.geometry.Orientation
 import javafx.geometry.Pos
 
-class TilePaneStyleBuilder : RegionStyleBuilder() {
+class TilePaneStyleBuilder(prettyPrint: Boolean) : RegionStyleBuilder(prettyPrint) {
 
     var orientation: Orientation by map
 
@@ -24,5 +24,7 @@ class TilePaneStyleBuilder : RegionStyleBuilder() {
     var tileAlignment: Pos by map
 }
 
-inline fun tilePaneStyle(builder: TilePaneStyleBuilder.() -> Unit): String =
-    TilePaneStyleBuilder().apply(builder).toString()
+inline fun tilePaneStyle(
+    prettyPrint: Boolean = false,
+    builder: TilePaneStyleBuilder.() -> Unit
+): String = TilePaneStyleBuilder(prettyPrint).apply(builder).toString()

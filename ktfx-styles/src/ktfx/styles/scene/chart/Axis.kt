@@ -3,7 +3,7 @@ package ktfx.styles
 import javafx.geometry.Side
 import javafx.scene.paint.Color
 
-open class AxisStyleBuilder : ChartStyleBuilder() {
+open class AxisStyleBuilder(prettyPrint: Boolean) : ChartStyleBuilder(prettyPrint) {
 
     var side: Side by map
 
@@ -21,5 +21,7 @@ open class AxisStyleBuilder : ChartStyleBuilder() {
     var tickLabelsVisible: Boolean by map
 }
 
-inline fun axisStyle(builder: AxisStyleBuilder.() -> Unit): String =
-    AxisStyleBuilder().apply(builder).toString()
+inline fun axisStyle(
+    prettyPrint: Boolean = false,
+    builder: AxisStyleBuilder.() -> Unit
+): String = AxisStyleBuilder(prettyPrint).apply(builder).toString()

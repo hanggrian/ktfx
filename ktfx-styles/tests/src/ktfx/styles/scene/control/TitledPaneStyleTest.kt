@@ -11,7 +11,7 @@ class TitledPaneStyleTest : NodeTest<TitledPane>() {
     override fun newInstance() = TitledPane("Hello world", Label("Hello world"))
 
     override val style: String
-        get() = titledPaneStyle {
+        get() = titledPaneStyle(true) {
             // animated = false
             // collapsible = false
         }

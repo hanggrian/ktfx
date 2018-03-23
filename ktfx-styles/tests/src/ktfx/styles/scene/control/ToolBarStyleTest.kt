@@ -9,7 +9,7 @@ class ToolBarStyleTest : NodeTest<ToolBar>() {
     override fun newInstance() = ToolBar()
 
     override val style: String
-        get() = toolBarStyle {
+        get() = toolBarStyle(true) {
             // orientation = VERTICAL
         }
 

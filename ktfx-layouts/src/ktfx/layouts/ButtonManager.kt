@@ -3,9 +3,15 @@ package ktfx.layouts
 import javafx.collections.ObservableList
 import javafx.scene.Node
 
-interface ButtonManager {
+/**
+ * Manager for adding buttons with Kotlin DSL.
+ *
+ * @see _ButtonBar
+ */
+interface ButtonManager : Manager<Node> {
 
+    /** Shall be shadowed on classes extending this interface. */
     fun getButtons(): ObservableList<Node>
 
-    fun <T : Node> T.add(): T = also { getButtons() += it }
+    override fun <T : Node> T.add(): T = also { getButtons() += it }
 }

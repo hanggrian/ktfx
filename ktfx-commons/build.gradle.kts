@@ -42,6 +42,7 @@ dependencies {
     }
     testImplementation(testFX("core"))
     testImplementation(testFX("junit"))
+    testImplementation(truth())
 
     ktlint(ktlint())
 }

@@ -5,7 +5,7 @@ import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 
-class FlowPaneStyleBuilder : RegionStyleBuilder() {
+class FlowPaneStyleBuilder(prettyPrint: Boolean) : RegionStyleBuilder(prettyPrint) {
 
     var hgap: Number by map
 
@@ -20,5 +20,7 @@ class FlowPaneStyleBuilder : RegionStyleBuilder() {
     var orientation: Orientation by map
 }
 
-inline fun flowPaneStyle(builder: FlowPaneStyleBuilder.() -> Unit): String =
-    FlowPaneStyleBuilder().apply(builder).toString()
+inline fun flowPaneStyle(
+    prettyPrint: Boolean = false,
+    builder: FlowPaneStyleBuilder.() -> Unit
+): String = FlowPaneStyleBuilder(prettyPrint).apply(builder).toString()

@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.geometry.Orientation
 
-class ScrollBarStyleBuilder : ControlStyleBuilder() {
+class ScrollBarStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
 
     var orientation: Orientation by map
 
@@ -11,5 +11,7 @@ class ScrollBarStyleBuilder : ControlStyleBuilder() {
     var unitIncrement: Number by map
 }
 
-inline fun scrollBarStyle(builder: ScrollBarStyleBuilder .() -> Unit): String =
-    ScrollBarStyleBuilder().apply(builder).toString()
+inline fun scrollBarStyle(
+    prettyPrint: Boolean = false,
+    builder: ScrollBarStyleBuilder .() -> Unit
+): String = ScrollBarStyleBuilder(prettyPrint).apply(builder).toString()

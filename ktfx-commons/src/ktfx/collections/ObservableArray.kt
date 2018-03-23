@@ -9,13 +9,17 @@ import javafx.collections.ObservableArray
 import javafx.collections.ObservableList
 import javafx.collections.ObservableSet
 
-inline fun ObservableArray<*>.sizeBinding(): IntegerBinding = size(this)
-
+/** Length of data in this array. */
 inline val ObservableArray<*>.size: Int get() = size()
 
+/** Returns `true` if the array is empty. */
 inline fun ObservableArray<*>.isEmpty() = size == 0
 
+/** Returns `true` if the array is not empty. */
 inline fun ObservableArray<*>.isNotEmpty() = size != 0
+
+/** Creates a new [IntegerBinding] that contains the size of this array. */
+inline fun ObservableArray<*>.sizeBinding(): IntegerBinding = size(this)
 
 /** Converts this array to immutable [ObservableList]. */
 fun <T> Array<out T>.toObservableList(): ObservableList<T> = when (size) {

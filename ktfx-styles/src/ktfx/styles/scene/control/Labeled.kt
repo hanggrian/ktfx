@@ -7,7 +7,7 @@ import javafx.scene.control.OverrunStyle
 import javafx.scene.paint.Color
 import javafx.scene.text.TextAlignment
 
-open class LabeledStyleBuilder : ControlStyleBuilder() {
+open class LabeledStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
 
     var alignment: Pos by map
 
@@ -36,5 +36,7 @@ open class LabeledStyleBuilder : ControlStyleBuilder() {
     var ellipsisString: String by map
 }
 
-inline fun labeledStyle(builder: LabeledStyleBuilder .() -> Unit): String =
-    LabeledStyleBuilder().apply(builder).toString()
+inline fun labeledStyle(
+    prettyPrint: Boolean = false,
+    builder: LabeledStyleBuilder .() -> Unit
+): String = LabeledStyleBuilder(prettyPrint).apply(builder).toString()

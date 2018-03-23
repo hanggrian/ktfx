@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.geometry.Pos
 
-class HBoxStyleBuilder : RegionStyleBuilder() {
+class HBoxStyleBuilder(prettyPrint: Boolean) : RegionStyleBuilder(prettyPrint) {
 
     var spacing: Number by map
 
@@ -11,5 +11,7 @@ class HBoxStyleBuilder : RegionStyleBuilder() {
     var fillHeight: Boolean by map
 }
 
-inline fun hboxStyle(builder: HBoxStyleBuilder.() -> Unit): String =
-    HBoxStyleBuilder().apply(builder).toString()
+inline fun hboxStyle(
+    prettyPrint: Boolean = false,
+    builder: HBoxStyleBuilder.() -> Unit
+): String = HBoxStyleBuilder(prettyPrint).apply(builder).toString()

@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.geometry.Pos
 
-class GridPaneStyleBuilder : RegionStyleBuilder() {
+class GridPaneStyleBuilder(prettyPrint: Boolean) : RegionStyleBuilder(prettyPrint) {
 
     var hgap: Number by map
 
@@ -13,5 +13,7 @@ class GridPaneStyleBuilder : RegionStyleBuilder() {
     var gridLinesVisible: Boolean by map
 }
 
-inline fun gridPaneStyle(builder: GridPaneStyleBuilder.() -> Unit): String =
-    GridPaneStyleBuilder().apply(builder).toString()
+inline fun gridPaneStyle(
+    prettyPrint: Boolean = false,
+    builder: GridPaneStyleBuilder.() -> Unit
+): String = GridPaneStyleBuilder(prettyPrint).apply(builder).toString()

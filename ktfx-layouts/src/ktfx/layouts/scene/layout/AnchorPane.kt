@@ -27,6 +27,5 @@ open class _AnchorPane : AnchorPane(), ChildManager, ConstrainedPane {
 }
 
 inline fun anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = _AnchorPane().apply(init)
-inline fun ChildManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = ktfx.layouts.anchorPane(init).add()
-inline fun ItemManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = ktfx.layouts.anchorPane(init).add()
-inline fun ButtonManager.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = ktfx.layouts.anchorPane(init).add()
+
+inline fun Manager<Node>.anchorPane(init: (@LayoutDsl _AnchorPane).() -> Unit): AnchorPane = ktfx.layouts.anchorPane(init).add()

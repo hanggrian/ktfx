@@ -10,7 +10,7 @@ class RectangleStyleTest : NodeTest<Rectangle>() {
     override fun newInstance() = Rectangle()
 
     override val style: String
-        get() = rectangleStyle {
+        get() = rectangleStyle(true) {
             arcHeight = 10
             arcWidth = 20
         }

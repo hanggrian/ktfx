@@ -1,6 +1,6 @@
 package ktfx.styles
 
-class PieChartStyleBuilder : ChartStyleBuilder() {
+class PieChartStyleBuilder(prettyPrint: Boolean) : ChartStyleBuilder(prettyPrint) {
 
     var clockwise: Boolean by map
 
@@ -11,5 +11,7 @@ class PieChartStyleBuilder : ChartStyleBuilder() {
     var startAngle: Number by map
 }
 
-inline fun pieChartStyle(builder: PieChartStyleBuilder.() -> Unit): String =
-    PieChartStyleBuilder().apply(builder).toString()
+inline fun pieChartStyle(
+    prettyPrint: Boolean = false,
+    builder: PieChartStyleBuilder.() -> Unit
+): String = PieChartStyleBuilder(prettyPrint).apply(builder).toString()

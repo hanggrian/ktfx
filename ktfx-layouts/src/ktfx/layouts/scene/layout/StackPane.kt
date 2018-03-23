@@ -18,6 +18,5 @@ open class _StackPane : StackPane(), ChildManager, AlignedPane, MarginedPane {
 }
 
 inline fun stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = _StackPane().apply(init)
-inline fun ChildManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = ktfx.layouts.stackPane(init).add()
-inline fun ItemManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = ktfx.layouts.stackPane(init).add()
-inline fun ButtonManager.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = ktfx.layouts.stackPane(init).add()
+
+inline fun Manager<Node>.stackPane(init: (@LayoutDsl _StackPane).() -> Unit): StackPane = ktfx.layouts.stackPane(init).add()

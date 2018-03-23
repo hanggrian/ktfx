@@ -10,7 +10,7 @@ class WebViewStyleTest : NodeTest<WebView>() {
     override fun newInstance() = WebView()
 
     override val style: String
-        get() = webViewStyle {
+        get() = webViewStyle(true) {
             contextMenuEnabled = false
             fontSmoothingType = LCD
             fontScale = 2

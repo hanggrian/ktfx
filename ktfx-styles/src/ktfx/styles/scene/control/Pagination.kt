@@ -1,6 +1,6 @@
 package ktfx.styles
 
-class PaginationStyleBuilder : ControlStyleBuilder() {
+class PaginationStyleBuilder(prettyPrint: Boolean) : ControlStyleBuilder(prettyPrint) {
 
     var maxPageIndicatorCount: Number by map
 
@@ -17,5 +17,7 @@ enum class PageAlignment {
     TOP, BOTTOM, LEFT, RIGHT
 }
 
-inline fun paginationStyle(builder: PaginationStyleBuilder .() -> Unit): String =
-    PaginationStyleBuilder().apply(builder).toString()
+inline fun paginationStyle(
+    prettyPrint: Boolean = false,
+    builder: PaginationStyleBuilder .() -> Unit
+): String = PaginationStyleBuilder(prettyPrint).apply(builder).toString()

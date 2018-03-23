@@ -11,7 +11,7 @@ class SliderStyleTest : NodeTest<Slider>() {
     override fun newInstance() = Slider(0.0, 100.0, 50.0)
 
     override val style: String
-        get() = sliderStyle {
+        get() = sliderStyle(true) {
             orientation = VERTICAL
             /*showTickLabels = true
             showTickMarks = true

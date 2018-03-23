@@ -9,7 +9,7 @@ class ProgressBarStyleTest : NodeTest<ProgressBar>() {
     override fun newInstance() = ProgressBar()
 
     override val style: String
-        get() = progressBarStyle {
+        get() = progressBarStyle(true) {
             indeterminateBarLength = 10
             indeterminateBarEscape = false
             indeterminateBarFlip = false

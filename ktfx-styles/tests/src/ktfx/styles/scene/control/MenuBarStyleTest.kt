@@ -10,7 +10,7 @@ class MenuBarStyleTest : NodeTest<MenuBar>() {
     override fun newInstance() = MenuBar()
 
     override val style: String
-        get() = menuBarStyle {
+        get() = menuBarStyle(true) {
             // useSystemMenuBar = true
         }
 

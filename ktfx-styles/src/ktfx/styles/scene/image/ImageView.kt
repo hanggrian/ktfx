@@ -1,10 +1,12 @@
 package ktfx.styles
 
-class ImageViewStyleBuilder : NodeStyleBuilder() {
+class ImageViewStyleBuilder(prettyPrint: Boolean) : NodeStyleBuilder(prettyPrint) {
 
     /** Relative URLs are resolved against the URL of the stylesheet. */
     var image: Urls by map
 }
 
-inline fun imageViewStyle(builder: ImageViewStyleBuilder.() -> Unit): String =
-    ImageViewStyleBuilder().apply(builder).toString()
+inline fun imageViewStyle(
+    prettyPrint: Boolean = false,
+    builder: ImageViewStyleBuilder.() -> Unit
+): String = ImageViewStyleBuilder(prettyPrint).apply(builder).toString()

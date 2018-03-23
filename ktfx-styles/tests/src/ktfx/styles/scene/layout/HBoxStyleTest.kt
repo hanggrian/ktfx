@@ -2,8 +2,8 @@ package ktfx.styles.scene.layout
 
 import javafx.geometry.Pos.TOP_RIGHT
 import javafx.scene.layout.HBox
-import ktfx.styles.hboxStyle
 import ktfx.styles.NodeTest
+import ktfx.styles.hboxStyle
 import kotlin.test.assertEquals
 
 class HBoxStyleTest : NodeTest<HBox>() {
@@ -11,7 +11,7 @@ class HBoxStyleTest : NodeTest<HBox>() {
     override fun newInstance() = HBox()
 
     override val style: String
-        get() = hboxStyle {
+        get() = hboxStyle(true) {
             spacing = 10
             alignment = TOP_RIGHT
             fillHeight = true

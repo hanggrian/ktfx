@@ -61,9 +61,8 @@ open class _GridPane : GridPane(), ChildManager, MarginedPane, AlignedPane, HGro
 }
 
 inline fun gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = _GridPane().apply(init)
-inline fun ChildManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = ktfx.layouts.gridPane(init).add()
-inline fun ItemManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = ktfx.layouts.gridPane(init).add()
-inline fun ButtonManager.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = ktfx.layouts.gridPane(init).add()
+
+inline fun Manager<Node>.gridPane(init: (@LayoutDsl _GridPane).() -> Unit): GridPane = ktfx.layouts.gridPane(init).add()
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {

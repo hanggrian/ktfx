@@ -12,10 +12,9 @@ open class StyleBuilder {
     }.toString()
 
     private companion object {
-        val NO_FX = arrayOf("visibility")
 
         fun String.toKey() = when (this) {
-            in NO_FX -> this
+            "visibility" -> this
             else -> "-fx-${map { if (isUpperCase(it)) "-${it.toLowerCase()}" else it.toString() }.joinToString("")}"
         }
 

@@ -4,7 +4,11 @@ package ktfx.scene.input
 
 import javafx.scene.image.Image
 import javafx.scene.input.Clipboard
+import javafx.scene.input.DataFormat
 import java.io.File
+
+/** The content associated with this type, or null if there is none. */
+inline operator fun Clipboard.get(dataFormat: DataFormat): Any? = getContent(dataFormat)
 
 /** Executes action if string is present in this clipboard. */
 inline fun Clipboard.ifStringPresent(action: (String) -> Unit) {

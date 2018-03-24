@@ -7,7 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 
-open class _HBox : HBox(), ChildLayoutManager, HGrowedPane, MarginedPane {
+open class _HBox : HBox(), LayoutManager<Node>, HGrowedPane, MarginedPane {
 
     override infix fun <N : Node> N.hpriority(value: Priority?): N = apply { setHgrow(this, value) }
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
@@ -16,6 +16,8 @@ open class _HBox : HBox(), ChildLayoutManager, HGrowedPane, MarginedPane {
     override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
 
     override fun Node.reset() = clearConstraints(this)
+
+    override fun <T : Node> T.add(): T = also { children += it }
 }
 
 inline fun hbox(

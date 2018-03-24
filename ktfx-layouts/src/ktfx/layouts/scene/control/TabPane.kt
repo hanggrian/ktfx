@@ -7,7 +7,10 @@ import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
 
 @Suppress("ClassName")
-open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), TabLayoutManager
+open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), LayoutManager<Tab> {
+
+    override fun <T : Tab> T.add(): T = also { tabs += it }
+}
 
 inline fun tabPane(
     vararg tabs: Tab,

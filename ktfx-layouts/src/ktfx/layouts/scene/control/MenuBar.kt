@@ -7,7 +7,10 @@ import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
 
 @Suppress("ClassName")
-class _MenuBar(vararg menus: Menu) : MenuBar(*menus), MenuLayoutManager
+class _MenuBar(vararg menus: Menu) : MenuBar(*menus), LayoutManager<Menu> {
+
+    override fun <T : Menu> T.add(): T = also { menus += it }
+}
 
 inline fun menuBar(
     vararg menus: Menu,

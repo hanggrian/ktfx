@@ -1,33 +1,12 @@
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.geometry.HPos
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.Priority
-
-/**
- * LayoutManager for adding controls with Kotlin DSL.
- *
- * @see _AnchorPane
- * @see _BorderPane
- * @see _FlowPane
- * @see _GridPane
- * @see _HBox
- * @see _StackPane
- * @see _TextFlow
- * @see _TilePane
- * @see _VBox
- */
-interface ChildLayoutManager : LayoutManager<Node> {
-
-    /** Shall be shadowed on classes extending this interface. */
-    fun getChildren(): ObservableList<Node>
-
-    override fun <T : Node> T.add(): T = also { getChildren() += it }
-}
+import ktfx.geometry.plus
 
 interface ConstrainedPane {
 
@@ -66,9 +45,9 @@ interface AlignedPane : ConstrainedPane {
 
     infix fun <N : Node> N.pos(value: Pos?): N
 
-    infix fun <N : Node> N.hpos(value: HPos?): N = pos(posOf(vpos, value ?: hpos))
+    infix fun <N : Node> N.hpos(value: HPos?): N = pos(vpos + (value ?: hpos))
 
-    infix fun <N : Node> N.vpos(value: VPos?): N = pos(posOf(value ?: vpos, hpos))
+    infix fun <N : Node> N.vpos(value: VPos?): N = pos((value ?: vpos) + hpos)
 
     val Node.pos: Pos
 
@@ -89,8 +68,4 @@ interface VGrowedPane : ConstrainedPane {
     infix fun <N : Node> N.vpriority(value: Priority?): N
 
     val Node.vpriority: Priority
-}
-
-internal fun posOf(vpos: VPos, hpos: HPos): Pos = "${vpos}_$hpos".let {
-    if (it == "CENTER_CENTER") Pos.CENTER else Pos.valueOf(it)
 }

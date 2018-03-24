@@ -9,7 +9,10 @@ import javafx.scene.control.Tab
 import javafx.scene.control.TableColumnBase
 
 @Suppress("ClassName")
-open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), PopupLayoutManager
+open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), LayoutManager<MenuItem> {
+
+    override fun <T : MenuItem> T.add(): T = also { items += it }
+}
 
 inline fun contextMenu(
     vararg items: MenuItem,

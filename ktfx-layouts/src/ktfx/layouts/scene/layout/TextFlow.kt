@@ -5,7 +5,10 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.text.TextFlow
 
-open class _TextFlow : TextFlow(), ChildLayoutManager
+open class _TextFlow : TextFlow(), LayoutManager<Node> {
+
+    override fun <T : Node> T.add(): T = also { children += it }
+}
 
 inline fun textFlow(
     noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null

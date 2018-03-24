@@ -7,7 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 
-open class _VBox : VBox(), ChildLayoutManager, VGrowedPane, MarginedPane {
+open class _VBox : VBox(), LayoutManager<Node>, VGrowedPane, MarginedPane {
 
     override infix fun <N : Node> N.vpriority(value: Priority?): N = apply { setVgrow(this, value) }
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
@@ -16,6 +16,8 @@ open class _VBox : VBox(), ChildLayoutManager, VGrowedPane, MarginedPane {
     override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
 
     override fun Node.reset() = clearConstraints(this)
+
+    override fun <T : Node> T.add(): T = also { children += it }
 }
 
 inline fun vbox(

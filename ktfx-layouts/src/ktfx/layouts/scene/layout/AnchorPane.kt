@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 
-open class _AnchorPane : AnchorPane(), ChildLayoutManager, ConstrainedPane {
+open class _AnchorPane : AnchorPane(), LayoutManager<Node>, ConstrainedPane {
 
     infix fun <N : Node> N.anchors(value: Int?): N = apply {
         setTopAnchor(this, value?.toDouble())
@@ -25,6 +25,8 @@ open class _AnchorPane : AnchorPane(), ChildLayoutManager, ConstrainedPane {
     val Node.anchorRight: Int get() = getRightAnchor(this)?.toInt() ?: 0
 
     override fun Node.reset() = clearConstraints(this)
+
+    override fun <T : Node> T.add(): T = also { children += it }
 }
 
 inline fun anchorPane(

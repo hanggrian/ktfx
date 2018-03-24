@@ -6,7 +6,10 @@ import javafx.scene.Node
 import javafx.scene.control.ToolBar
 
 @Suppress("ClassName")
-open class _ToolBar(vararg items: Node) : ToolBar(*items), ItemLayoutManager
+open class _ToolBar(vararg items: Node) : ToolBar(*items), LayoutManager<Node> {
+
+    override fun <T : Node> T.add(): T = also { items += it }
+}
 
 inline fun toolBar(
     vararg items: Node,

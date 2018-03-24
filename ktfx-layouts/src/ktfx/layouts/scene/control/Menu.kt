@@ -7,7 +7,10 @@ import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
 
 @Suppress("ClassName")
-open class _Menu(text: String = "", graphic: Node? = null, vararg items: MenuItem) : Menu(text, graphic, *items), PopupLayoutManager
+open class _Menu(text: String, graphic: Node?, vararg items: MenuItem) : Menu(text, graphic, *items), LayoutManager<MenuItem> {
+
+    override fun <T : MenuItem> T.add(): T = also { items += it }
+}
 
 inline fun menu(
     text: String = "",

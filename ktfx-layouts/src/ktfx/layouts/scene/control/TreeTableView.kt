@@ -26,7 +26,6 @@ interface TreeTableColumnsBuilder<S> {
 @PublishedApi
 @Suppress("ClassName")
 internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S> {
-
     val columns: MutableList<TreeTableColumn<S, *>> = mutableListOf()
 
     override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?) {

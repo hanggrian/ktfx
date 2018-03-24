@@ -27,7 +27,6 @@ interface TableColumnsBuilder<S> {
 @PublishedApi
 @Suppress("ClassName")
 internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S> {
-
     val columns: MutableList<TableColumn<S, *>> = mutableListOf()
 
     override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?) {

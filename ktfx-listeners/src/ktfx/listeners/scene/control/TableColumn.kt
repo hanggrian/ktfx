@@ -12,31 +12,31 @@ import javafx.scene.control.cell.TextFieldTableCell
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     noinline callback: (Int) -> ObservableValue<Boolean>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(CheckBoxTableCell.forTableColumn(callback, converter.build()))
+) = setCellFactory(CheckBoxTableCell.forTableColumn(callback, stringConverter(converter)))
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     vararg items: T,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.build(), *items))
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(stringConverter(converter), *items))
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     items: ObservableList<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.build(), items))
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(stringConverter(converter), items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     vararg items: T,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.build(), *items))
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(stringConverter(converter), *items))
 
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     items: ObservableList<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter.build(), items))
+) = setCellFactory(ChoiceBoxTableCell.forTableColumn(stringConverter(converter), items))
 
 inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
     converter: StringConverterBuilder<T>.() -> Unit
-) = setCellFactory(TextFieldTableCell.forTableColumn(converter.build()))
+) = setCellFactory(TextFieldTableCell.forTableColumn(stringConverter(converter)))
 
 inline fun <S, T> TableColumn<S, T>.cellFactory(
     noinline cellFactory: TableCellBuilder<S, T>.() -> Unit

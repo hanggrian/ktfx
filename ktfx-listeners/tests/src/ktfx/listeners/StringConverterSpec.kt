@@ -1,7 +1,5 @@
 package ktfx.listeners
 
-import javafx.util.StringConverter
-import ktfx.listeners.StringConverterSpec.stringConverter
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.it
@@ -32,8 +30,4 @@ object StringConverterSpec : Spek({
             assertEquals(converter.fromString("Hendra"), Person("Hendra"))
         }
     }
-}) {
-
-    inline fun <T> stringConverter(builder: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
-        _StringConverterBuilder<T>().apply(builder)
-}
+})

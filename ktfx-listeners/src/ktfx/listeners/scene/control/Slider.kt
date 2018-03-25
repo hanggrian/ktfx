@@ -6,4 +6,4 @@ import javafx.scene.control.Slider
 
 inline fun Slider.labelFormatter(
     converter: StringConverterBuilder<Double>.() -> Unit
-) = setLabelFormatter(converter.build())
+) = setLabelFormatter(stringConverter(converter))

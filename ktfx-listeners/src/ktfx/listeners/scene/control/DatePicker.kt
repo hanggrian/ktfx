@@ -7,4 +7,4 @@ import java.time.LocalDate
 
 inline fun DatePicker.converter(
     converter: StringConverterBuilder<LocalDate>.() -> Unit
-) = setConverter(converter.build())
+) = setConverter(stringConverter(converter))

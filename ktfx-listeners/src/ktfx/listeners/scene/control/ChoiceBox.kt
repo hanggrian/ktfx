@@ -6,4 +6,4 @@ import javafx.scene.control.ChoiceBox
 
 inline fun <T> ChoiceBox<T>.converter(
     converter: StringConverterBuilder<T>.() -> Unit
-) = setConverter(converter.build())
+) = setConverter(stringConverter(converter))

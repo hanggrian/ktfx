@@ -6,4 +6,4 @@ import javafx.scene.control.SpinnerValueFactory
 
 inline fun <T> SpinnerValueFactory<T>.converter(
     converter: StringConverterBuilder<T>.() -> Unit
-) = setConverter(converter.build())
+) = setConverter(stringConverter(converter))

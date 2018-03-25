@@ -32,5 +32,7 @@ internal class _StringConverterBuilder<T> : StringConverter<T>(), StringConverte
     override fun fromString(string: String): T? = _fromString(string)
 }
 
-@PublishedApi internal inline fun <T> (StringConverterBuilder<T>.() -> Unit).build(): StringConverter<T> =
-    _StringConverterBuilder<T>().apply(this)
+/** Build string converter with Kotlin DSL. */
+inline fun <T> stringConverter(
+    builder: StringConverterBuilder<T>.() -> Unit
+): StringConverter<T> = _StringConverterBuilder<T>().apply(builder)

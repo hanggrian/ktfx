@@ -6,7 +6,7 @@ import javafx.scene.control.ComboBox
 
 inline fun <T> ComboBox<T>.converter(
     converter: StringConverterBuilder<T>.() -> Unit
-) = setConverter(converter.build())
+) = setConverter(stringConverter(converter))
 
 inline fun <T> ComboBox<T>.cellFactory(
     noinline cellFactory: ListCellBuilder<T>.() -> Unit

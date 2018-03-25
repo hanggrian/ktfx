@@ -9,9 +9,9 @@ import javafx.beans.property.StringProperty
 inline fun <T> Property<String>.bindBidirectional(
     property: Property<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = bindBidirectional(this, property, converter.build())
+) = bindBidirectional(this, property, stringConverter(converter))
 
 inline fun <T> StringProperty.bindBidirectional(
     property: Property<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = bindBidirectional(property, converter.build())
+) = bindBidirectional(property, stringConverter(converter))

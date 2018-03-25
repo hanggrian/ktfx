@@ -67,8 +67,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners_main.iml" group="kotlinfx-listeners" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners_test.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlinfx-listeners/kotlinfx-listeners_test.iml" group="kotlinfx-listeners" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kfx-commons/ktfx-commons.iml" filepath="$PROJECT_DIR$/.idea/modules/kfx-commons/ktfx-commons.iml" group="ktfx-commons" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-commons/ktfx-commons.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-commons/ktfx-commons.iml" group="ktfx-commons" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kfx-commons/ktfx-commons.iml" filepath="$PROJECT_DIR$/.idea/modules/kfx-commons/ktfx-commons.iml" group="ktfx-commons" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-commons/ktfx-commons_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-commons/ktfx-commons_main.iml" group="ktfx-commons" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-commons/ktfx-commons_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-commons/ktfx-commons_test.iml" group="ktfx-commons" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-coroutines/ktfx-coroutines.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-coroutines/ktfx-coroutines.iml" group="ktfx-coroutines" />

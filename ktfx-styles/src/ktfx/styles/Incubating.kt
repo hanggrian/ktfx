@@ -1,8 +1,8 @@
 package ktfx.styles
 
 /**
- * Some css elements are not yet supported, from time being they are replaced by simple string.
- * This annotation is to mark them incubating.
+ * Some css elements are somewhat complicated and type-safe styling is currently unsupported.
+ * For the time being, property marked with this annotation are using unsafe traditional string.
  */
 @Target(AnnotationTarget.PROPERTY)
 annotation class Incubating

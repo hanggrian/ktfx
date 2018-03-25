@@ -1,15 +1,15 @@
 package ktfx.coroutines
 
 import javafx.event.Event
-import javafx.stage.PopupWindow
+import javafx.event.EventType
+import javafx.scene.control.TableColumnBase
 import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
-/**
- * Specifies whether the PopupWindow should be hidden when an unhandled escape key is pressed while the popup has focus.
- */
-fun PopupWindow.onAutoHide(
+/** Registers an event handler to this table column. */
+fun <E : Event> TableColumnBase<*, *>.eventHandler(
     context: CoroutineContext = FX,
+    type: EventType<E>,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnAutoHide { event -> launch(context) { action(event) } }
+) = addEventHandler(type) { event -> launch(context) { action(event) } }

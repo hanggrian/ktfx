@@ -6,6 +6,7 @@ import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
+/** Callback function to be informed when an item contained within this [ContextMenu] has been activated. */
 fun ContextMenu.onAction(
     context: CoroutineContext = FX,
     action: suspend CoroutineScope.(ActionEvent) -> Unit

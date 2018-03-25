@@ -1,6 +1,6 @@
 KtFX
 ====
-[Kotlin] extensions for JavaFX app development and more. 
+[Kotlin] extensions for JavaFX app development and more.
 Written in spirit of [android-ktx] and [anko].
 
 Consists of several parts:
@@ -125,7 +125,8 @@ gridPane {
     val lastName = textField() row 1 col 1
     button("Say hello") {
         setOnAction {
-            infoAlert("Hello, ${firstName.text} ${lastName.text}!").show()
+            infoAlert("Hello, ${firstName.text} ${lastName.text}!")
+                .show()
         }
     } hpos RIGHT row 2 col 1
 }
@@ -136,6 +137,7 @@ gridPane {
 KtFX Listeners
 --------------
 Trade common JavaFX listener with Kotlin DSL.
+Currently includes string converters and table cells.
 
 ```kotlin
 // string converter
@@ -194,7 +196,7 @@ label.style = labeledStyle {
     wrapText = true
     textFill = Color.RED
 }
-``` 
+```
 
 License
 -------

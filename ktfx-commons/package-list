@@ -1,9 +1,20 @@
 $dokka.format:html
 $dokka.linkExtension:html
-$dokka.location:ktfx.animation$fadeTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.animation.FadeTransition, kotlin.Unit)))ktfx.animation/javafx.scene.-node/fade-transition.html
-$dokka.location:ktfx.animation$parallelTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)), kotlin.Function1((javafx.animation.ParallelTransition, kotlin.Unit)))ktfx.animation/javafx.scene.-node/parallel-transition.html
-$dokka.location:ktfx.animation$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape, kotlin.Function1((javafx.animation.PathTransition, kotlin.Unit)))ktfx.animation/javafx.scene.-node/path-transition.html
-$dokka.location:ktfx.animation$sequentialTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)), kotlin.Function1((javafx.animation.SequentialTransition, kotlin.Unit)))ktfx.animation/javafx.scene.-node/sequential-transition.html
+$dokka.location:ktfx.animation$component1(javafx.animation.KeyFrame)ktfx.animation/javafx.animation.-key-frame/component1.html
+$dokka.location:ktfx.animation$component1(javafx.animation.KeyValue)ktfx.animation/javafx.animation.-key-value/component1.html
+$dokka.location:ktfx.animation$component2(javafx.animation.KeyFrame)ktfx.animation/javafx.animation.-key-frame/component2.html
+$dokka.location:ktfx.animation$component2(javafx.animation.KeyValue)ktfx.animation/javafx.animation.-key-value/component2.html
+$dokka.location:ktfx.animation$component3(javafx.animation.KeyFrame)ktfx.animation/javafx.animation.-key-frame/component3.html
+$dokka.location:ktfx.animation$component3(javafx.animation.KeyValue)ktfx.animation/javafx.animation.-key-value/component3.html
+$dokka.location:ktfx.animation$fadeTransition(javafx.scene.Node, javafx.util.Duration)ktfx.animation/javafx.scene.-node/fade-transition.html
+$dokka.location:ktfx.animation$fillTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color)ktfx.animation/javafx.scene.shape.-shape/fill-transition.html
+$dokka.location:ktfx.animation$parallelTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)))ktfx.animation/javafx.scene.-node/parallel-transition.html
+$dokka.location:ktfx.animation$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape)ktfx.animation/javafx.scene.-node/path-transition.html
+$dokka.location:ktfx.animation$rotateTransition(javafx.scene.Node, javafx.util.Duration)ktfx.animation/javafx.scene.-node/rotate-transition.html
+$dokka.location:ktfx.animation$scaleTransition(javafx.scene.Node, javafx.util.Duration)ktfx.animation/javafx.scene.-node/scale-transition.html
+$dokka.location:ktfx.animation$sequentialTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)))ktfx.animation/javafx.scene.-node/sequential-transition.html
+$dokka.location:ktfx.animation$strokeTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color)ktfx.animation/javafx.scene.shape.-shape/stroke-transition.html
+$dokka.location:ktfx.animation$translateTransition(javafx.scene.Node, javafx.util.Duration)ktfx.animation/javafx.scene.-node/translate-transition.html
 $dokka.location:ktfx.application$isSupported(javafx.application.ConditionalFeature)ktfx.application/javafx.application.-conditional-feature/is-supported.html
 $dokka.location:ktfx.beans.binding$and(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.beans.binding/javafx.beans.value.-observable-boolean-value/and.html
 $dokka.location:ktfx.beans.binding$div(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/javafx.beans.binding.-double-expression/div.html
@@ -381,17 +392,28 @@ $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.O
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-set/unbind-content-bidirectional.html
 $dokka.location:ktfx.embed.swing$toBufferedImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.embed.swing/javafx.scene.image.-image/to-buffered-image.html
 $dokka.location:ktfx.embed.swing$toWritableImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.embed.swing/java.awt.image.-buffered-image/to-writable-image.html
+$dokka.location:ktfx.event$component1(javafx.event.Event)ktfx.event/javafx.event.-event/component1.html
+$dokka.location:ktfx.event$component2(javafx.event.Event)ktfx.event/javafx.event.-event/component2.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Dimension2D)ktfx.geometry/javafx.geometry.-dimension2-d/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component1.html
+$dokka.location:ktfx.geometry$component1(javafx.geometry.Pos)ktfx.geometry/javafx.geometry.-pos/component1.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Dimension2D)ktfx.geometry/javafx.geometry.-dimension2-d/component2.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component2.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/component2.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component2.html
+$dokka.location:ktfx.geometry$component2(javafx.geometry.Pos)ktfx.geometry/javafx.geometry.-pos/component2.html
 $dokka.location:ktfx.geometry$component3(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component3.html
 $dokka.location:ktfx.geometry$component3(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component3.html
 $dokka.location:ktfx.geometry$component4(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component4.html
+$dokka.location:ktfx.geometry$minus(javafx.geometry.Point2D, javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/minus.html
+$dokka.location:ktfx.geometry$minus(javafx.geometry.Point3D, javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/minus.html
+$dokka.location:ktfx.geometry$plus(javafx.geometry.HPos, javafx.geometry.VPos)ktfx.geometry/javafx.geometry.-h-pos/plus.html
+$dokka.location:ktfx.geometry$plus(javafx.geometry.Point2D, javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/plus.html
+$dokka.location:ktfx.geometry$plus(javafx.geometry.Point3D, javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/plus.html
+$dokka.location:ktfx.geometry$plus(javafx.geometry.VPos, javafx.geometry.HPos)ktfx.geometry/javafx.geometry.-v-pos/plus.html
+$dokka.location:ktfx.geometry$times(javafx.geometry.Point3D, kotlin.Double)ktfx.geometry/javafx.geometry.-point3-d/times.html
 $dokka.location:ktfx.print$component1(javafx.print.PageRange)ktfx.print/javafx.print.-page-range/component1.html
 $dokka.location:ktfx.print$component1(javafx.print.Paper)ktfx.print/javafx.print.-paper/component1.html
 $dokka.location:ktfx.print$component2(javafx.print.PageRange)ktfx.print/javafx.print.-page-range/component2.html
@@ -443,9 +465,82 @@ $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.Tab
 $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeTableColumn((ktfx.scene.control.textFieldCellFactory.S, kotlin.String)))ktfx.scene.control/javafx.scene.control.-tree-table-column/text-field-cell-factory.html
 $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeView((kotlin.String)))ktfx.scene.control/javafx.scene.control.-tree-view/text-field-cell-factory.html
 $dokka.location:ktfx.scene.control$yesButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/yes-button.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.Blend)ktfx.scene.effect/javafx.scene.effect.-blend/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.Bloom)ktfx.scene.effect/javafx.scene.effect.-bloom/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.BoxBlur)ktfx.scene.effect/javafx.scene.effect.-box-blur/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.ColorAdjust)ktfx.scene.effect/javafx.scene.effect.-color-adjust/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.ColorInput)ktfx.scene.effect/javafx.scene.effect.-color-input/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.DisplacementMap)ktfx.scene.effect/javafx.scene.effect.-displacement-map/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.GaussianBlur)ktfx.scene.effect/javafx.scene.effect.-gaussian-blur/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.Glow)ktfx.scene.effect/javafx.scene.effect.-glow/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.ImageInput)ktfx.scene.effect/javafx.scene.effect.-image-input/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.Lighting)ktfx.scene.effect/javafx.scene.effect.-lighting/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.MotionBlur)ktfx.scene.effect/javafx.scene.effect.-motion-blur/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.Reflection)ktfx.scene.effect/javafx.scene.effect.-reflection/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.SepiaTone)ktfx.scene.effect/javafx.scene.effect.-sepia-tone/component1.html
+$dokka.location:ktfx.scene.effect$component1(javafx.scene.effect.Shadow)ktfx.scene.effect/javafx.scene.effect.-shadow/component1.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.Blend)ktfx.scene.effect/javafx.scene.effect.-blend/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.Bloom)ktfx.scene.effect/javafx.scene.effect.-bloom/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.BoxBlur)ktfx.scene.effect/javafx.scene.effect.-box-blur/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.ColorAdjust)ktfx.scene.effect/javafx.scene.effect.-color-adjust/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.ColorInput)ktfx.scene.effect/javafx.scene.effect.-color-input/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.DisplacementMap)ktfx.scene.effect/javafx.scene.effect.-displacement-map/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.GaussianBlur)ktfx.scene.effect/javafx.scene.effect.-gaussian-blur/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.Glow)ktfx.scene.effect/javafx.scene.effect.-glow/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.ImageInput)ktfx.scene.effect/javafx.scene.effect.-image-input/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.Lighting)ktfx.scene.effect/javafx.scene.effect.-lighting/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.MotionBlur)ktfx.scene.effect/javafx.scene.effect.-motion-blur/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.Reflection)ktfx.scene.effect/javafx.scene.effect.-reflection/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.SepiaTone)ktfx.scene.effect/javafx.scene.effect.-sepia-tone/component2.html
+$dokka.location:ktfx.scene.effect$component2(javafx.scene.effect.Shadow)ktfx.scene.effect/javafx.scene.effect.-shadow/component2.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.BoxBlur)ktfx.scene.effect/javafx.scene.effect.-box-blur/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.ColorAdjust)ktfx.scene.effect/javafx.scene.effect.-color-adjust/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.ColorInput)ktfx.scene.effect/javafx.scene.effect.-color-input/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.DisplacementMap)ktfx.scene.effect/javafx.scene.effect.-displacement-map/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.ImageInput)ktfx.scene.effect/javafx.scene.effect.-image-input/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.Lighting)ktfx.scene.effect/javafx.scene.effect.-lighting/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.MotionBlur)ktfx.scene.effect/javafx.scene.effect.-motion-blur/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.Reflection)ktfx.scene.effect/javafx.scene.effect.-reflection/component3.html
+$dokka.location:ktfx.scene.effect$component3(javafx.scene.effect.Shadow)ktfx.scene.effect/javafx.scene.effect.-shadow/component3.html
+$dokka.location:ktfx.scene.effect$component4(javafx.scene.effect.ColorAdjust)ktfx.scene.effect/javafx.scene.effect.-color-adjust/component4.html
+$dokka.location:ktfx.scene.effect$component4(javafx.scene.effect.ColorInput)ktfx.scene.effect/javafx.scene.effect.-color-input/component4.html
+$dokka.location:ktfx.scene.effect$component4(javafx.scene.effect.DisplacementMap)ktfx.scene.effect/javafx.scene.effect.-displacement-map/component4.html
+$dokka.location:ktfx.scene.effect$component4(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component4.html
+$dokka.location:ktfx.scene.effect$component4(javafx.scene.effect.Lighting)ktfx.scene.effect/javafx.scene.effect.-lighting/component4.html
+$dokka.location:ktfx.scene.effect$component4(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component4.html
+$dokka.location:ktfx.scene.effect$component4(javafx.scene.effect.Reflection)ktfx.scene.effect/javafx.scene.effect.-reflection/component4.html
+$dokka.location:ktfx.scene.effect$component4(javafx.scene.effect.Shadow)ktfx.scene.effect/javafx.scene.effect.-shadow/component4.html
+$dokka.location:ktfx.scene.effect$component5(javafx.scene.effect.ColorAdjust)ktfx.scene.effect/javafx.scene.effect.-color-adjust/component5.html
+$dokka.location:ktfx.scene.effect$component5(javafx.scene.effect.ColorInput)ktfx.scene.effect/javafx.scene.effect.-color-input/component5.html
+$dokka.location:ktfx.scene.effect$component5(javafx.scene.effect.DisplacementMap)ktfx.scene.effect/javafx.scene.effect.-displacement-map/component5.html
+$dokka.location:ktfx.scene.effect$component5(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component5.html
+$dokka.location:ktfx.scene.effect$component5(javafx.scene.effect.Lighting)ktfx.scene.effect/javafx.scene.effect.-lighting/component5.html
+$dokka.location:ktfx.scene.effect$component5(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component5.html
+$dokka.location:ktfx.scene.effect$component5(javafx.scene.effect.Reflection)ktfx.scene.effect/javafx.scene.effect.-reflection/component5.html
+$dokka.location:ktfx.scene.effect$component5(javafx.scene.effect.Shadow)ktfx.scene.effect/javafx.scene.effect.-shadow/component5.html
+$dokka.location:ktfx.scene.effect$component6(javafx.scene.effect.DisplacementMap)ktfx.scene.effect/javafx.scene.effect.-displacement-map/component6.html
+$dokka.location:ktfx.scene.effect$component6(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component6.html
+$dokka.location:ktfx.scene.effect$component6(javafx.scene.effect.Lighting)ktfx.scene.effect/javafx.scene.effect.-lighting/component6.html
+$dokka.location:ktfx.scene.effect$component6(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component6.html
+$dokka.location:ktfx.scene.effect$component6(javafx.scene.effect.Shadow)ktfx.scene.effect/javafx.scene.effect.-shadow/component6.html
+$dokka.location:ktfx.scene.effect$component7(javafx.scene.effect.DisplacementMap)ktfx.scene.effect/javafx.scene.effect.-displacement-map/component7.html
+$dokka.location:ktfx.scene.effect$component7(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component7.html
+$dokka.location:ktfx.scene.effect$component7(javafx.scene.effect.Lighting)ktfx.scene.effect/javafx.scene.effect.-lighting/component7.html
+$dokka.location:ktfx.scene.effect$component7(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component7.html
+$dokka.location:ktfx.scene.effect$component8(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component8.html
+$dokka.location:ktfx.scene.effect$component8(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component8.html
+$dokka.location:ktfx.scene.effect$component9(javafx.scene.effect.DropShadow)ktfx.scene.effect/javafx.scene.effect.-drop-shadow/component9.html
+$dokka.location:ktfx.scene.effect$component9(javafx.scene.effect.PerspectiveTransform)ktfx.scene.effect/javafx.scene.effect.-perspective-transform/component9.html
 $dokka.location:ktfx.scene.input$contains(javafx.scene.input.KeyCharacterCombination, javafx.scene.input.KeyEvent)ktfx.scene.input/javafx.scene.input.-key-character-combination/contains.html
 $dokka.location:ktfx.scene.input$contains(javafx.scene.input.KeyCodeCombination, javafx.scene.input.KeyEvent)ktfx.scene.input/javafx.scene.input.-key-code-combination/contains.html
 $dokka.location:ktfx.scene.input$contains(javafx.scene.input.KeyCombination, javafx.scene.input.KeyEvent)ktfx.scene.input/javafx.scene.input.-key-combination/contains.html
+$dokka.location:ktfx.scene.input$get(javafx.scene.input.Clipboard, javafx.scene.input.DataFormat)ktfx.scene.input/javafx.scene.input.-clipboard/get.html
 $dokka.location:ktfx.scene.input$ifFilesPresent(javafx.scene.input.Clipboard, kotlin.Function1((kotlin.collections.List((java.io.File)), kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard/if-files-present.html
 $dokka.location:ktfx.scene.input$ifFilesPresent(javafx.scene.input.ClipboardContent, kotlin.Function1((kotlin.collections.List((java.io.File)), kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard-content/if-files-present.html
 $dokka.location:ktfx.scene.input$ifHtmlPresent(javafx.scene.input.Clipboard, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard/if-html-present.html
@@ -490,6 +585,24 @@ $dokka.location:ktfx.scene.paint$component1(javafx.scene.paint.Color)ktfx.scene
 $dokka.location:ktfx.scene.paint$component2(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component2.html
 $dokka.location:ktfx.scene.paint$component3(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component3.html
 $dokka.location:ktfx.scene.paint$component4(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component4.html
+$dokka.location:ktfx.scene.transform$component1(javafx.scene.transform.Rotate)ktfx.scene.transform/javafx.scene.transform.-rotate/component1.html
+$dokka.location:ktfx.scene.transform$component1(javafx.scene.transform.Scale)ktfx.scene.transform/javafx.scene.transform.-scale/component1.html
+$dokka.location:ktfx.scene.transform$component1(javafx.scene.transform.Shear)ktfx.scene.transform/javafx.scene.transform.-shear/component1.html
+$dokka.location:ktfx.scene.transform$component1(javafx.scene.transform.Translate)ktfx.scene.transform/javafx.scene.transform.-translate/component1.html
+$dokka.location:ktfx.scene.transform$component2(javafx.scene.transform.Rotate)ktfx.scene.transform/javafx.scene.transform.-rotate/component2.html
+$dokka.location:ktfx.scene.transform$component2(javafx.scene.transform.Scale)ktfx.scene.transform/javafx.scene.transform.-scale/component2.html
+$dokka.location:ktfx.scene.transform$component2(javafx.scene.transform.Shear)ktfx.scene.transform/javafx.scene.transform.-shear/component2.html
+$dokka.location:ktfx.scene.transform$component2(javafx.scene.transform.Translate)ktfx.scene.transform/javafx.scene.transform.-translate/component2.html
+$dokka.location:ktfx.scene.transform$component3(javafx.scene.transform.Rotate)ktfx.scene.transform/javafx.scene.transform.-rotate/component3.html
+$dokka.location:ktfx.scene.transform$component3(javafx.scene.transform.Scale)ktfx.scene.transform/javafx.scene.transform.-scale/component3.html
+$dokka.location:ktfx.scene.transform$component3(javafx.scene.transform.Shear)ktfx.scene.transform/javafx.scene.transform.-shear/component3.html
+$dokka.location:ktfx.scene.transform$component3(javafx.scene.transform.Translate)ktfx.scene.transform/javafx.scene.transform.-translate/component3.html
+$dokka.location:ktfx.scene.transform$component4(javafx.scene.transform.Rotate)ktfx.scene.transform/javafx.scene.transform.-rotate/component4.html
+$dokka.location:ktfx.scene.transform$component4(javafx.scene.transform.Scale)ktfx.scene.transform/javafx.scene.transform.-scale/component4.html
+$dokka.location:ktfx.scene.transform$component4(javafx.scene.transform.Shear)ktfx.scene.transform/javafx.scene.transform.-shear/component4.html
+$dokka.location:ktfx.scene.transform$component5(javafx.scene.transform.Rotate)ktfx.scene.transform/javafx.scene.transform.-rotate/component5.html
+$dokka.location:ktfx.scene.transform$component5(javafx.scene.transform.Scale)ktfx.scene.transform/javafx.scene.transform.-scale/component5.html
+$dokka.location:ktfx.scene.transform$component6(javafx.scene.transform.Scale)ktfx.scene.transform/javafx.scene.transform.-scale/component6.html
 $dokka.location:ktfx.stage$heightMax#javafx.stage.Stagektfx.stage/javafx.stage.-stage/height-max.html
 $dokka.location:ktfx.stage$heightMin#javafx.stage.Stagektfx.stage/javafx.stage.-stage/height-min.html
 $dokka.location:ktfx.stage$icon#javafx.stage.Stagektfx.stage/javafx.stage.-stage/icon.html
@@ -519,12 +632,15 @@ ktfx.beans.binding
 ktfx.beans.property
 ktfx.collections
 ktfx.embed.swing
+ktfx.event
 ktfx.geometry
 ktfx.print
 ktfx.scene
 ktfx.scene.control
+ktfx.scene.effect
 ktfx.scene.input
 ktfx.scene.layout
 ktfx.scene.paint
+ktfx.scene.transform
 ktfx.stage
 ktfx.util

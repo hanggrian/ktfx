@@ -15,28 +15,63 @@
 <p><a href="fade-transition.html">fadeTransition</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">fadeTransition</span><span class="symbol">(</span><span class="identifier" id="ktfx.animation$fadeTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.animation.FadeTransition, kotlin.Unit)))/duration">duration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">, </span><span class="identifier" id="ktfx.animation$fadeTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.animation.FadeTransition, kotlin.Unit)))/from">from</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.animation$fadeTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.animation.FadeTransition, kotlin.Unit)))/to">to</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.animation$fadeTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.animation.FadeTransition, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">FadeTransition</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Transition</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">fadeTransition</span><span class="symbol">(</span><span class="identifier" id="ktfx.animation$fadeTransition(javafx.scene.Node, javafx.util.Duration)/duration">duration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span>&nbsp;<span class="symbol">=</span>&nbsp;millis(400.0)<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FadeTransition</span></code>
+<p>Construct a <a href="#">FadeTransition</a> that animates this <a href="#">Node</a>.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="parallel-transition.html">parallelTransition</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">parallelTransition</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.animation$parallelTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)), kotlin.Function1((javafx.animation.ParallelTransition, kotlin.Unit)))/animations">animations</span><span class="symbol">:</span>&nbsp;<span class="identifier">Animation</span><span class="symbol">, </span><span class="identifier" id="ktfx.animation$parallelTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)), kotlin.Function1((javafx.animation.ParallelTransition, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">ParallelTransition</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Transition</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">parallelTransition</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.animation$parallelTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)))/animations">animations</span><span class="symbol">:</span>&nbsp;<span class="identifier">Animation</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ParallelTransition</span></code>
+<p>Construct a <a href="#">ParallelTransition</a> that animates this <a href="#">Node</a>.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="path-transition.html">pathTransition</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">pathTransition</span><span class="symbol">(</span><span class="identifier" id="ktfx.animation$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape, kotlin.Function1((javafx.animation.PathTransition, kotlin.Unit)))/duration">duration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span><span class="symbol">, </span><span class="identifier" id="ktfx.animation$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape, kotlin.Function1((javafx.animation.PathTransition, kotlin.Unit)))/path">path</span><span class="symbol">:</span>&nbsp;<span class="identifier">Shape</span><span class="symbol">, </span><span class="identifier" id="ktfx.animation$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape, kotlin.Function1((javafx.animation.PathTransition, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">PathTransition</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Transition</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">pathTransition</span><span class="symbol">(</span><span class="identifier" id="ktfx.animation$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape)/duration">duration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span>&nbsp;<span class="symbol">=</span>&nbsp;millis(400.0)<span class="symbol">, </span><span class="identifier" id="ktfx.animation$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape)/path">path</span><span class="symbol">:</span>&nbsp;<span class="identifier">Shape</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PathTransition</span></code>
+<p>Construct a <a href="#">PathTransition</a> that animates this <a href="#">Node</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="rotate-transition.html">rotateTransition</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">rotateTransition</span><span class="symbol">(</span><span class="identifier" id="ktfx.animation$rotateTransition(javafx.scene.Node, javafx.util.Duration)/duration">duration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span>&nbsp;<span class="symbol">=</span>&nbsp;millis(400.0)<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">RotateTransition</span></code>
+<p>Construct a <a href="#">RotateTransition</a> that animates this <a href="#">Node</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="scale-transition.html">scaleTransition</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">scaleTransition</span><span class="symbol">(</span><span class="identifier" id="ktfx.animation$scaleTransition(javafx.scene.Node, javafx.util.Duration)/duration">duration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span>&nbsp;<span class="symbol">=</span>&nbsp;millis(400.0)<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ScaleTransition</span></code>
+<p>Construct a <a href="#">ScaleTransition</a> that animates this <a href="#">Node</a>.</p>
+</td>
 </tr>
 <tr>
 <td>
 <p><a href="sequential-transition.html">sequentialTransition</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">sequentialTransition</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.animation$sequentialTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)), kotlin.Function1((javafx.animation.SequentialTransition, kotlin.Unit)))/animations">animations</span><span class="symbol">:</span>&nbsp;<span class="identifier">Animation</span><span class="symbol">, </span><span class="identifier" id="ktfx.animation$sequentialTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)), kotlin.Function1((javafx.animation.SequentialTransition, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">SequentialTransition</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Transition</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">sequentialTransition</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.animation$sequentialTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)))/animations">animations</span><span class="symbol">:</span>&nbsp;<span class="identifier">Animation</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SequentialTransition</span></code>
+<p>Construct a <a href="#">SequentialTransition</a> that animates this <a href="#">Node</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="translate-transition.html">translateTransition</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">translateTransition</span><span class="symbol">(</span><span class="identifier" id="ktfx.animation$translateTransition(javafx.scene.Node, javafx.util.Duration)/duration">duration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Duration</span>&nbsp;<span class="symbol">=</span>&nbsp;millis(400.0)<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TranslateTransition</span></code>
+<p>Construct a <a href="#">TranslateTransition</a> that animates this <a href="#">Node</a>.</p>
+</td>
 </tr>
 </tbody>
 </table>

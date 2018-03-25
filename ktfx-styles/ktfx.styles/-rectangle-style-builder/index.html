@@ -8,19 +8,7 @@
 <a href="../../index.html">ktfx-styles</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.styles</a>&nbsp;/&nbsp;<a href="./index.html">RectangleStyleBuilder</a><br/>
 <br/>
 <h1>RectangleStyleBuilder</h1>
-<code><span class="keyword">class </span><span class="identifier">RectangleStyleBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-node-style-builder/index.html"><span class="identifier">NodeStyleBuilder</span></a></code>
-<h3>Constructors</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="-init-.html">&lt;init&gt;</a></p>
-</td>
-<td>
-<code><span class="identifier">RectangleStyleBuilder</span><span class="symbol">(</span><span class="identifier" id="ktfx.styles.RectangleStyleBuilder$<init>(kotlin.Boolean)/prettyPrint">prettyPrint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span></code></td>
-</tr>
-</tbody>
-</table>
+<code><span class="keyword">interface </span><span class="identifier">RectangleStyleBuilder</span></code>
 <h3>Properties</h3>
 <table>
 <tbody>
@@ -29,124 +17,14 @@
 <p><a href="arc-height.html">arcHeight</a></p>
 </td>
 <td>
-<code><span class="keyword">var </span><span class="identifier">arcHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">var </span><span class="identifier">arcHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
 </tr>
 <tr>
 <td>
 <p><a href="arc-width.html">arcWidth</a></p>
 </td>
 <td>
-<code><span class="keyword">var </span><span class="identifier">arcWidth</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
-</tr>
-</tbody>
-</table>
-<h3>Inherited Properties</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="../-node-style-builder/blend-mode.html">blendMode</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">blendMode</span><span class="symbol">: </span><span class="identifier">BlendMode</span></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/cursor.html">cursor</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">cursor</span><span class="symbol">: </span><span class="identifier">Cursor</span></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/effect.html">effect</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">effect</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/focus-traversable.html">focusTraversable</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">focusTraversable</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/opacity.html">opacity</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">opacity</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
-<p>Opacity can be thought of conceptually as a postprocessing operation.
-Conceptually, after the node (including its descendants) is rendered into an RGBA offscreen image,
-the opacity setting specifies how to blend the offscreen rendering into the current composite rendering.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/rotate.html">rotate</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">rotate</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
-<p>This is the angle of the rotation in degrees.
-Zero degrees is at 3 o'clock (directly to the right).
-Angle values are positive clockwise. Rotation is about the center.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/scale-x.html">scaleX</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">scaleX</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
-<p>scale about the center</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/scale-y.html">scaleY</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">scaleY</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
-<p>scale about the center</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/scale-z.html">scaleZ</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">scaleZ</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
-<p>scale about the center</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/translate-x.html">translateX</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">translateX</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/translate-y.html">translateY</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">translateY</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/translate-z.html">translateZ</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">translateZ</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../-node-style-builder/visibility.html">visibility</a></p>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">visibility</span><span class="symbol">: </span><a href="../-visibility/index.html"><span class="identifier">Visibility</span></a></code></td>
+<code><span class="keyword">abstract</span> <span class="keyword">var </span><span class="identifier">arcWidth</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
 </tr>
 </tbody>
 </table>

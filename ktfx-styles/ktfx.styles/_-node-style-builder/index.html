@@ -1,0 +1,185 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>_NodeStyleBuilder - ktfx-styles</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ktfx-styles</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.styles</a>&nbsp;/&nbsp;<a href="./index.html">_NodeStyleBuilder</a><br/>
+<br/>
+<h1>_NodeStyleBuilder</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_NodeStyleBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../../ktfx.styles.internal/-style-builder/index.html"><span class="identifier">StyleBuilder</span></a><span class="symbol">, </span><a href="../-node-style-builder/index.html"><span class="identifier">NodeStyleBuilder</span></a></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">_NodeStyleBuilder</span><span class="symbol">(</span><span class="identifier" id="ktfx.styles._NodeStyleBuilder$<init>(kotlin.Boolean)/prettyPrint">prettyPrint</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="blend-mode.html">blendMode</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">blendMode</span><span class="symbol">: </span><span class="identifier">BlendMode</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="cursor.html">cursor</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">cursor</span><span class="symbol">: </span><span class="identifier">Cursor</span></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="effect.html">effect</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">effect</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="focus-traversable.html">focusTraversable</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">focusTraversable</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="opacity.html">opacity</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">opacity</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
+<p>Opacity can be thought of conceptually as a postprocessing operation.
+Conceptually, after the node (including its descendants) is rendered into an RGBA offscreen image,
+the opacity setting specifies how to blend the offscreen rendering into the current composite rendering.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="rotate.html">rotate</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">rotate</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
+<p>This is the angle of the rotation in degrees.
+Zero degrees is at 3 o'clock (directly to the right).
+Angle values are positive clockwise. Rotation is about the center.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="scale-x.html">scaleX</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">scaleX</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
+<p>scale about the center</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="scale-y.html">scaleY</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">scaleY</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
+<p>scale about the center</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="scale-z.html">scaleZ</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">scaleZ</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code>
+<p>scale about the center</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="translate-x.html">translateX</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">translateX</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="translate-y.html">translateY</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">translateY</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="translate-z.html">translateZ</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">translateZ</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="visibility.html">visibility</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">var </span><span class="identifier">visibility</span><span class="symbol">: </span><a href="../-visibility/index.html"><span class="identifier">Visibility</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../ktfx.styles.internal/-style-builder/map.html">map</a></p>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">map</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/index.html"><span class="identifier">MutableMap</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inherited Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../../ktfx.styles.internal/-style-builder/to-string.html">toString</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">toString</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../_-control-style-builder/index.html">_ControlStyleBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_ControlStyleBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">_NodeStyleBuilder</span></a><span class="symbol">, </span><a href="../-control-style-builder/index.html"><span class="identifier">ControlStyleBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../_-region-style-builder/index.html">_RegionStyleBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_RegionStyleBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">_NodeStyleBuilder</span></a><span class="symbol">, </span><a href="../-region-style-builder/index.html"><span class="identifier">RegionStyleBuilder</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="../_-shape-style-builder/index.html">_ShapeStyleBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_ShapeStyleBuilder</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">_NodeStyleBuilder</span></a><span class="symbol">, </span><a href="../-shape-style-builder/index.html"><span class="identifier">ShapeStyleBuilder</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

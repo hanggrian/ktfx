@@ -8,7 +8,7 @@
 <a href="../../index.html">ktfx-layouts</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.layouts</a>&nbsp;/&nbsp;<a href="./index.html">_StackPane</a><br/>
 <br/>
 <h1>_StackPane</h1>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_StackPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackPane</span><span class="symbol">, </span><a href="../-child-layout-manager/index.html"><span class="identifier">ChildLayoutManager</span></a><span class="symbol">, </span><a href="../-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="../-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_StackPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackPane</span><span class="symbol">, </span><a href="../-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="../-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -92,6 +92,15 @@
 <tbody>
 <tr>
 <td>
+<p><a href="add.html">add</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="add.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">add</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="add.html#T"><span class="identifier">T</span></a></code>
+<p>Add item to this manager, returning the item added.</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="margins.html">margins</a></p>
 </td>
 <td>
@@ -116,15 +125,6 @@
 <h3>Inherited Functions</h3>
 <table>
 <tbody>
-<tr>
-<td>
-<p><a href="../-child-layout-manager/add.html">add</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../-child-layout-manager/add.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">add</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="../-child-layout-manager/add.html#T"><span class="identifier">T</span></a></code>
-<p>Add item to this manager, returning the item added.</p>
-</td>
-</tr>
 <tr>
 <td>
 <p><a href="../-aligned-pane/hpos.html">hpos</a></p>

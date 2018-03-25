@@ -3,7 +3,6 @@
 package ktfx.scene.effect
 
 import javafx.scene.effect.BoxBlur
-import javafx.scene.effect.Effect
 
 /** The horizontal dimension of the blur effect. */
 inline operator fun BoxBlur.component1(): Double = width

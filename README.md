@@ -58,19 +58,19 @@ val list = myList.toObservableList() // or toMutableObservableList() for modifia
 
 ```kotlin
 // infix conditional binding
-button.disableProperty.bind(firstName.textProperty().isEmpty or lastName.textProperty().isEmpty)
+button.disableProperty().bind(firstName.textProperty().isEmpty or lastName.textProperty().isEmpty)
 
 // operator binding for number properties
 totalProperty.bind(qtyProperty * priceProperty)
 
 // infix binding for number properties
-loginButton.disableProperty.bind(passwordField.textProperty.length() less 4)
+loginButton.disableProperty().bind(passwordField.textProperty.length() less 4)
 
 // custom binding
-label.graphic().bind(stringBindingOf(listView.selectionModel.selectedIndexProperty()) {
+label.graphicProperty().bind(stringBindingOf(listView.selectionModel.selectedIndexProperty()) {
     "${listView.selectionModel.selectedIndex} selected"
 })
-imageView.imageProperty().bind(bindingOf(urlField) {
+imageView.imageProperty().bind(bindingOf(urlField.textProperty()) {
     Image(urlField.text)
 })
 ```
@@ -85,25 +85,21 @@ alert("Here's an alert").show()
 confirmAlert("Are you sure?").showAndWait()
 
 // custom init a text input dialog
-inputDialog() {
-    headerText = "Question #1"
+inputDialog("Question #1") {
     contentText = "Why does the chicken cross the road?"
     editor.promptText = "Hint"
 }.showAndWait()
 
 // a choice dialog
-choiceDialog(items, defaultItem) {
-    headerText = "Pick an item"
-    graphic = ImageView("/my/image.png")
-    expandableContent = Label("Just an image")
-}.showAndWait()
+choiceDialog("Pick an item", ImageView("/my/image.png"), items)
+    .showAndWait()
 
 // show a custom dialog
 dialog<String>("Who's a little piggy?") {
     content = ...
-    val button1 = yesButton("Me")
-    noButton("Not me")
-    helpButton("What's a piggy?") {
+    yesButton()
+    noButton()
+    customButton("What's a piggy?") {
         // explain what a piggy is
     }
     resultConverter {
@@ -114,7 +110,8 @@ dialog<String>("Who's a little piggy?") {
 
 KtFX Layouts
 ------------
-Generate JavaFX layouts and controls with Kotlin DSL, no FXML required.
+Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. 
+It's a direct replacement of FXML files.
 
 ```kotlin
 gridPane {
@@ -169,7 +166,7 @@ Based on the experimental [kotlinx.coroutines] library, it allows invoking JavaF
 
 ```kotlin
 button.setOnAction {
-    doSomethingInBackground() // might freeze UI
+    doSomethingInBackground()// might freeze UI
     celebrateCompletion()
 }
 
@@ -192,7 +189,7 @@ label.style = "-fx-alignment: right; -fx-wrap-text: true; -fx-text-fill: red;"
 
 // type-safe DSL
 label.style = labeledStyle {
-    alignment = Pos.RIGHT
+    alignment = Pos.CENTER_RIGHT
     wrapText = true
     textFill = Color.RED
 }

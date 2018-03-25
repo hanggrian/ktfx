@@ -1,3 +1,5 @@
+Cloned from [nrandecker/particle](https://github.com/nrandecker/particle) as of 26 March 2018.
+
 # Particle Jekyll Theme
 
 ![](./particle.jpg)

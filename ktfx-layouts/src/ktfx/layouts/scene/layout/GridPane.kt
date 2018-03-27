@@ -13,6 +13,10 @@ import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
 import ktfx.geometry.plus
+import ktfx.layouts.internal.AlignedPane
+import ktfx.layouts.internal.HGrowedPane
+import ktfx.layouts.internal.MarginedPane
+import ktfx.layouts.internal.VGrowedPane
 
 open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, AlignedPane, HGrowedPane, VGrowedPane {
 

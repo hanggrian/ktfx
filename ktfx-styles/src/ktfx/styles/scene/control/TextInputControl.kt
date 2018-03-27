@@ -1,10 +1,11 @@
 package ktfx.styles
 
 import javafx.scene.paint.Color
+import ktfx.styles.internal.Beta
 
 interface TextInputControlStyleBuilder {
 
-    @Incubating
+    @Beta
     var font: String
 
     var textFill: Color

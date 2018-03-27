@@ -6,6 +6,7 @@ import javafx.scene.control.ContentDisplay
 import javafx.scene.control.OverrunStyle
 import javafx.scene.paint.Color
 import javafx.scene.text.TextAlignment
+import ktfx.styles.internal.Beta
 
 interface LabeledStyleBuilder {
 
@@ -18,7 +19,7 @@ interface LabeledStyleBuilder {
 
     var wrapText: Boolean
 
-    @Incubating
+    @Beta
     var font: String
 
     var underline: Boolean

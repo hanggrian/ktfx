@@ -6,6 +6,8 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
+import ktfx.layouts.internal.MarginedPane
+import ktfx.layouts.internal.VGrowedPane
 
 open class _VBox : VBox(), LayoutManager<Node>, VGrowedPane, MarginedPane {
 

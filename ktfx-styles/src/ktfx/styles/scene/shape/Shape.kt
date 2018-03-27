@@ -4,6 +4,7 @@ import javafx.scene.paint.Color
 import javafx.scene.shape.StrokeLineCap
 import javafx.scene.shape.StrokeLineJoin
 import javafx.scene.shape.StrokeType
+import ktfx.styles.internal.Beta
 
 interface ShapeStyleBuilder {
 
@@ -15,7 +16,7 @@ interface ShapeStyleBuilder {
 
     var strokeType: StrokeType
 
-    @Incubating
+    @Beta
     var strokeDashArray: String
 
     var strokeDashOffset: Number

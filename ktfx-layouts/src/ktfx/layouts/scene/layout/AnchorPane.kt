@@ -4,6 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
+import ktfx.layouts.internal.ConstrainedPane
 
 open class _AnchorPane : AnchorPane(), LayoutManager<Node>, ConstrainedPane {
 

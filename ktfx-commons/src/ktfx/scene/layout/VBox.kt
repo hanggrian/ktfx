@@ -3,8 +3,8 @@
 package ktfx.scene.layout
 
 import javafx.scene.layout.VBox
-import ktfx.NO_GETTER
-import ktfx.noGetter
+import ktfx.internal.NO_GETTER
+import ktfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Sets spacing of each child. */

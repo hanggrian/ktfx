@@ -6,6 +6,8 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
+import ktfx.layouts.internal.AlignedPane
+import ktfx.layouts.internal.MarginedPane
 
 open class _BorderPane : BorderPane(), LayoutManager<Node>, AlignedPane, MarginedPane {
 

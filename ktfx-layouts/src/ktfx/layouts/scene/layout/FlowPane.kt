@@ -5,6 +5,7 @@ package ktfx.layouts
 import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
+import ktfx.layouts.internal.MarginedPane
 
 open class _FlowPane : FlowPane(), LayoutManager<Node>, MarginedPane {
 

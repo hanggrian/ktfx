@@ -1,4 +1,4 @@
-package ktfx
+package ktfx.internal
 
 internal const val NO_GETTER = "Property does not have a getter"
 

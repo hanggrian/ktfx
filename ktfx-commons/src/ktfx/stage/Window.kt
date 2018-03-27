@@ -1,8 +1,8 @@
 package ktfx.stage
 
 import javafx.stage.Window
-import ktfx.NO_GETTER
-import ktfx.noGetter
+import ktfx.internal.NO_GETTER
+import ktfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Sets width and height in integer. */

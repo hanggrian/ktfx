@@ -1,4 +1,4 @@
-package ktfx.layouts
+package ktfx.layouts.internal
 
 import javafx.geometry.HPos
 import javafx.geometry.Insets

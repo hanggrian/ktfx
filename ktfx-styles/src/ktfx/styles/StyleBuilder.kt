@@ -1,4 +1,4 @@
-package ktfx.styles.internal
+package ktfx.styles
 
 import javafx.geometry.Insets
 import javafx.scene.paint.Color

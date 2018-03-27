@@ -6,6 +6,8 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
+import ktfx.layouts.internal.HGrowedPane
+import ktfx.layouts.internal.MarginedPane
 
 open class _HBox : HBox(), LayoutManager<Node>, HGrowedPane, MarginedPane {
 

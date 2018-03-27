@@ -7,8 +7,8 @@ import javafx.scene.layout.Region
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.stage.StageStyle.DECORATED
-import ktfx.NO_GETTER
-import ktfx.noGetter
+import ktfx.internal.NO_GETTER
+import ktfx.internal.noGetter
 import ktfx.scene.layout.setSizeMax
 import ktfx.scene.layout.setSizeMin
 import ktfx.scene.layout.setSizePref

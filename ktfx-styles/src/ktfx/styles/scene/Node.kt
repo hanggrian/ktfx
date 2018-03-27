@@ -4,7 +4,7 @@ package ktfx.styles
 
 import javafx.scene.Cursor
 import javafx.scene.effect.BlendMode
-import ktfx.styles.internal.StyleBuilder
+import ktfx.styles.internal.Beta
 
 interface NodeStyleBuilder {
 
@@ -12,7 +12,7 @@ interface NodeStyleBuilder {
 
     var cursor: Cursor
 
-    @Incubating
+    @Beta
     var effect: String
 
     var focusTraversable: Boolean

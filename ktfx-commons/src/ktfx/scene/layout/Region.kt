@@ -4,8 +4,8 @@ package ktfx.scene.layout
 
 import javafx.geometry.Insets
 import javafx.scene.layout.Region
-import ktfx.NO_GETTER
-import ktfx.noGetter
+import ktfx.internal.NO_GETTER
+import ktfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Minimum width in integer. */

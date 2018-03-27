@@ -454,6 +454,8 @@ $dokka.location:ktfx.scene.control$finishButton(javafx.scene.control.Dialog((kot
 $dokka.location:ktfx.scene.control$graphicIcon#javafx.scene.control.Dialog((kotlin.Any))ktfx.scene.control/javafx.scene.control.-dialog/graphic-icon.html
 $dokka.location:ktfx.scene.control$headerTitle#javafx.scene.control.Dialog((kotlin.Any))ktfx.scene.control/javafx.scene.control.-dialog/header-title.html
 $dokka.location:ktfx.scene.control$icon#javafx.scene.control.Dialog((kotlin.Any))ktfx.scene.control/javafx.scene.control.-dialog/icon.html
+$dokka.location:ktfx.scene.control$isNotSelected(javafx.scene.control.SelectionModel((ktfx.scene.control.isNotSelected.T)))ktfx.scene.control/javafx.scene.control.-selection-model/is-not-selected.html
+$dokka.location:ktfx.scene.control$isSelected(javafx.scene.control.SelectionModel((ktfx.scene.control.isSelected.T)))ktfx.scene.control/javafx.scene.control.-selection-model/is-selected.html
 $dokka.location:ktfx.scene.control$nextButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/next-button.html
 $dokka.location:ktfx.scene.control$noButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/no-button.html
 $dokka.location:ktfx.scene.control$okButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/ok-button.html

@@ -13,20 +13,6 @@
 <tbody>
 <tr>
 <td>
-<p><a href="-aligned-pane/index.html">AlignedPane</a></p>
-</td>
-<td>
-<code><span class="keyword">interface </span><span class="identifier">AlignedPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-constrained-pane/index.html"><span class="identifier">ConstrainedPane</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="-constrained-pane/index.html">ConstrainedPane</a></p>
-</td>
-<td>
-<code><span class="keyword">interface </span><span class="identifier">ConstrainedPane</span></code></td>
-</tr>
-<tr>
-<td>
 <p><a href="-constraints-builder/index.html">ConstraintsBuilder</a></p>
 </td>
 <td>
@@ -36,26 +22,12 @@
 </tr>
 <tr>
 <td>
-<p><a href="-h-growed-pane/index.html">HGrowedPane</a></p>
-</td>
-<td>
-<code><span class="keyword">interface </span><span class="identifier">HGrowedPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-constrained-pane/index.html"><span class="identifier">ConstrainedPane</span></a></code></td>
-</tr>
-<tr>
-<td>
 <p><a href="-layout-manager/index.html">LayoutManager</a></p>
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">LayoutManager</span><span class="symbol">&lt;</span><span class="keyword">in</span>&nbsp;<span class="identifier">E</span><span class="symbol">&gt;</span></code>
 <p>Base interface for all layout managers.</p>
 </td>
-</tr>
-<tr>
-<td>
-<p><a href="-margined-pane/index.html">MarginedPane</a></p>
-</td>
-<td>
-<code><span class="keyword">interface </span><span class="identifier">MarginedPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-constrained-pane/index.html"><span class="identifier">ConstrainedPane</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -77,24 +49,17 @@
 </tr>
 <tr>
 <td>
-<p><a href="-v-growed-pane/index.html">VGrowedPane</a></p>
-</td>
-<td>
-<code><span class="keyword">interface </span><span class="identifier">VGrowedPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-constrained-pane/index.html"><span class="identifier">ConstrainedPane</span></a></code></td>
-</tr>
-<tr>
-<td>
 <p><a href="_-anchor-pane/index.html">_AnchorPane</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_AnchorPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AnchorPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-constrained-pane/index.html"><span class="identifier">ConstrainedPane</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_AnchorPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AnchorPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../ktfx.layouts.internal/-constrained-pane/index.html"><span class="identifier">ConstrainedPane</span></a></code></td>
 </tr>
 <tr>
 <td>
 <p><a href="_-border-pane/index.html">_BorderPane</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_BorderPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BorderPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_BorderPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BorderPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../ktfx.layouts.internal/-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="../ktfx.layouts.internal/-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -115,21 +80,21 @@
 <p><a href="_-flow-pane/index.html">_FlowPane</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_FlowPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_FlowPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../ktfx.layouts.internal/-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
 </tr>
 <tr>
 <td>
 <p><a href="_-grid-pane/index.html">_GridPane</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_GridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-margined-pane/index.html"><span class="identifier">MarginedPane</span></a><span class="symbol">, </span><a href="-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="-h-growed-pane/index.html"><span class="identifier">HGrowedPane</span></a><span class="symbol">, </span><a href="-v-growed-pane/index.html"><span class="identifier">VGrowedPane</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_GridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../ktfx.layouts.internal/-margined-pane/index.html"><span class="identifier">MarginedPane</span></a><span class="symbol">, </span><a href="../ktfx.layouts.internal/-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="../ktfx.layouts.internal/-h-growed-pane/index.html"><span class="identifier">HGrowedPane</span></a><span class="symbol">, </span><a href="../ktfx.layouts.internal/-v-growed-pane/index.html"><span class="identifier">VGrowedPane</span></a></code></td>
 </tr>
 <tr>
 <td>
 <p><a href="_-h-box/index.html">_HBox</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_HBox</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">HBox</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-h-growed-pane/index.html"><span class="identifier">HGrowedPane</span></a><span class="symbol">, </span><a href="-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_HBox</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">HBox</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../ktfx.layouts.internal/-h-growed-pane/index.html"><span class="identifier">HGrowedPane</span></a><span class="symbol">, </span><a href="../ktfx.layouts.internal/-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -150,7 +115,7 @@
 <p><a href="_-stack-pane/index.html">_StackPane</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_StackPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_StackPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackPane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../ktfx.layouts.internal/-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="../ktfx.layouts.internal/-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -171,7 +136,7 @@
 <p><a href="_-tile-pane/index.html">_TilePane</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_TilePane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TilePane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_TilePane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TilePane</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../ktfx.layouts.internal/-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="../ktfx.layouts.internal/-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -185,7 +150,7 @@
 <p><a href="_-v-box/index.html">_VBox</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_VBox</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">VBox</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="-v-growed-pane/index.html"><span class="identifier">VGrowedPane</span></a><span class="symbol">, </span><a href="-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_VBox</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">VBox</span><span class="symbol">, </span><a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../ktfx.layouts.internal/-v-growed-pane/index.html"><span class="identifier">VGrowedPane</span></a><span class="symbol">, </span><a href="../ktfx.layouts.internal/-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code></td>
 </tr>
 </tbody>
 </table>

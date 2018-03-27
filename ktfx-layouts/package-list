@@ -11,3 +11,4 @@ $dokka.location:ktfx.layouts$tooltip(javafx.scene.Node, kotlin.String, kotlin.Fu
 $dokka.location:ktfx.layouts$tooltip(javafx.scene.control.Control, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-control/tooltip.html
 $dokka.location:ktfx.layouts$tooltip(javafx.scene.control.Tab, kotlin.String, kotlin.Function1((javafx.scene.control.Tooltip, kotlin.Unit)))ktfx.layouts/javafx.scene.control.-tab/tooltip.html
 ktfx.layouts
+ktfx.layouts.internal

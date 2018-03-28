@@ -8,7 +8,7 @@
 <a href="../../index.html">ktfx-layouts</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.layouts</a>&nbsp;/&nbsp;<a href="./index.html">_TilePane</a><br/>
 <br/>
 <h1>_TilePane</h1>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_TilePane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TilePane</span><span class="symbol">, </span><a href="../-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../../ktfx.layouts.internal/-aligned-pane/index.html"><span class="identifier">AlignedPane</span></a><span class="symbol">, </span><a href="../../ktfx.layouts.internal/-margined-pane/index.html"><span class="identifier">MarginedPane</span></a></code>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_TilePane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TilePane</span><span class="symbol">, </span><a href="../-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">AlignedPane</span><span class="symbol">, </span><span class="identifier">MarginedPane</span></code>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -37,53 +37,6 @@
 </td>
 <td>
 <code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">pos</span><span class="symbol">: </span><span class="identifier">Pos</span></code></td>
-</tr>
-</tbody>
-</table>
-<h3>Inherited Properties</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-aligned-pane/hpos.html">hpos</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">hpos</span><span class="symbol">: </span><span class="identifier">HPos</span></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margin-bottom.html">marginBottom</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">marginBottom</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margin-left.html">marginLeft</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">marginLeft</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margin-right.html">marginRight</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">marginRight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margin-top.html">marginTop</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">marginTop</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-aligned-pane/vpos.html">vpos</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">val </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">vpos</span><span class="symbol">: </span><span class="identifier">VPos</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -119,61 +72,6 @@
 </td>
 <td>
 <code><span class="keyword">open</span> <span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">reset</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
-</tr>
-</tbody>
-</table>
-<h3>Inherited Functions</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-aligned-pane/hpos.html">hpos</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../../ktfx.layouts.internal/-aligned-pane/hpos.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">hpos</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.internal.AlignedPane$hpos(ktfx.layouts.internal.AlignedPane.hpos.N, javafx.geometry.HPos)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">HPos</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../ktfx.layouts.internal/-aligned-pane/hpos.html#N"><span class="identifier">N</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margin-bottom.html">marginBottom</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../../ktfx.layouts.internal/-margined-pane/margin-bottom.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginBottom</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$marginBottom(ktfx.layouts.internal.MarginedPane.marginBottom.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../ktfx.layouts.internal/-margined-pane/margin-bottom.html#N"><span class="identifier">N</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margin-left.html">marginLeft</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../../ktfx.layouts.internal/-margined-pane/margin-left.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginLeft</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$marginLeft(ktfx.layouts.internal.MarginedPane.marginLeft.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../ktfx.layouts.internal/-margined-pane/margin-left.html#N"><span class="identifier">N</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margin-right.html">marginRight</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../../ktfx.layouts.internal/-margined-pane/margin-right.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginRight</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$marginRight(ktfx.layouts.internal.MarginedPane.marginRight.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../ktfx.layouts.internal/-margined-pane/margin-right.html#N"><span class="identifier">N</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margin-top.html">marginTop</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../../ktfx.layouts.internal/-margined-pane/margin-top.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">marginTop</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$marginTop(ktfx.layouts.internal.MarginedPane.marginTop.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../ktfx.layouts.internal/-margined-pane/margin-top.html#N"><span class="identifier">N</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-margined-pane/margins.html">margins</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../../ktfx.layouts.internal/-margined-pane/margins.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$margins(ktfx.layouts.internal.MarginedPane.margins.N, kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../ktfx.layouts.internal/-margined-pane/margins.html#N"><span class="identifier">N</span></a></code><br/>
-<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../../ktfx.layouts.internal/-margined-pane/margins.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$margins(ktfx.layouts.internal.MarginedPane.margins.N, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/top">top</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$margins(ktfx.layouts.internal.MarginedPane.margins.N, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/right">right</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$margins(ktfx.layouts.internal.MarginedPane.margins.N, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/bottom">bottom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.internal.MarginedPane$margins(ktfx.layouts.internal.MarginedPane.margins.N, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/left">left</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../ktfx.layouts.internal/-margined-pane/margins.html#N"><span class="identifier">N</span></a></code></td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx.layouts.internal/-aligned-pane/vpos.html">vpos</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">N</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../../ktfx.layouts.internal/-aligned-pane/vpos.html#N"><span class="identifier">N</span></a><span class="symbol">.</span><span class="identifier">vpos</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.internal.AlignedPane$vpos(ktfx.layouts.internal.AlignedPane.vpos.N, javafx.geometry.VPos)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">VPos</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="../../ktfx.layouts.internal/-aligned-pane/vpos.html#N"><span class="identifier">N</span></a></code></td>
 </tr>
 </tbody>
 </table>

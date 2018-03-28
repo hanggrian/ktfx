@@ -41,17 +41,6 @@ $dokka.location:ktfx.beans.binding$div(kotlin.Double, javafx.beans.value.Observa
 $dokka.location:ktfx.beans.binding$div(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/kotlin.-float/div.html
 $dokka.location:ktfx.beans.binding$div(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/kotlin.-int/div.html
 $dokka.location:ktfx.beans.binding$div(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/kotlin.-long/div.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.BooleanConditionBuilder, javafx.beans.value.ObservableBooleanValue)ktfx.beans.binding/javafx.beans.binding.-when.-boolean-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.BooleanConditionBuilder, kotlin.Boolean)ktfx.beans.binding/javafx.beans.binding.-when.-boolean-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.NumberConditionBuilder, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Double)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Float)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Int)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Long)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.ObjectConditionBuilder((ktfx.beans.binding.else.T)), javafx.beans.value.ObservableObjectValue((ktfx.beans.binding.else.T)))ktfx.beans.binding/javafx.beans.binding.-when.-object-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.ObjectConditionBuilder((ktfx.beans.binding.else.T)), ktfx.beans.binding.else.T)ktfx.beans.binding/javafx.beans.binding.-when.-object-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.StringConditionBuilder, javafx.beans.value.ObservableStringValue)ktfx.beans.binding/javafx.beans.binding.-when.-string-condition-builder/else.html
-$dokka.location:ktfx.beans.binding$else(javafx.beans.binding.When.StringConditionBuilder, kotlin.String)ktfx.beans.binding/javafx.beans.binding.-when.-string-condition-builder/else.html
 $dokka.location:ktfx.beans.binding$eq(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.beans.binding/javafx.beans.value.-observable-boolean-value/eq.html
 $dokka.location:ktfx.beans.binding$eq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/javafx.beans.value.-observable-number-value/eq.html
 $dokka.location:ktfx.beans.binding$eq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.beans.binding/javafx.beans.value.-observable-number-value/eq.html
@@ -182,6 +171,17 @@ $dokka.location:ktfx.beans.binding$neqIg(javafx.beans.value.ObservableStringValu
 $dokka.location:ktfx.beans.binding$neqIg(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.beans.binding/kotlin.-string/neq-ig.html
 $dokka.location:ktfx.beans.binding$not(javafx.beans.value.ObservableBooleanValue)ktfx.beans.binding/javafx.beans.value.-observable-boolean-value/not.html
 $dokka.location:ktfx.beans.binding$or(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.beans.binding/javafx.beans.value.-observable-boolean-value/or.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.BooleanConditionBuilder, javafx.beans.value.ObservableBooleanValue)ktfx.beans.binding/javafx.beans.binding.-when.-boolean-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.BooleanConditionBuilder, kotlin.Boolean)ktfx.beans.binding/javafx.beans.binding.-when.-boolean-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.NumberConditionBuilder, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Double)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Float)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Int)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Long)ktfx.beans.binding/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.ObjectConditionBuilder((ktfx.beans.binding.otherwise.T)), javafx.beans.value.ObservableObjectValue((ktfx.beans.binding.otherwise.T)))ktfx.beans.binding/javafx.beans.binding.-when.-object-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.ObjectConditionBuilder((ktfx.beans.binding.otherwise.T)), ktfx.beans.binding.otherwise.T)ktfx.beans.binding/javafx.beans.binding.-when.-object-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.StringConditionBuilder, javafx.beans.value.ObservableStringValue)ktfx.beans.binding/javafx.beans.binding.-when.-string-condition-builder/otherwise.html
+$dokka.location:ktfx.beans.binding$otherwise(javafx.beans.binding.When.StringConditionBuilder, kotlin.String)ktfx.beans.binding/javafx.beans.binding.-when.-string-condition-builder/otherwise.html
 $dokka.location:ktfx.beans.binding$plus(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/javafx.beans.binding.-double-expression/plus.html
 $dokka.location:ktfx.beans.binding$plus(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx.beans.binding/javafx.beans.binding.-double-expression/plus.html
 $dokka.location:ktfx.beans.binding$plus(javafx.beans.binding.DoubleExpression, kotlin.Float)ktfx.beans.binding/javafx.beans.binding.-double-expression/plus.html
@@ -284,6 +284,16 @@ $dokka.location:ktfx.beans.property$toReadOnlyProperty(kotlin.Float)ktfx.beans.
 $dokka.location:ktfx.beans.property$toReadOnlyProperty(kotlin.Int)ktfx.beans.property/kotlin.-int/to-read-only-property.html
 $dokka.location:ktfx.beans.property$toReadOnlyProperty(kotlin.Long)ktfx.beans.property/kotlin.-long/to-read-only-property.html
 $dokka.location:ktfx.beans.property$toReadOnlyProperty(kotlin.String)ktfx.beans.property/kotlin.-string/to-read-only-property.html
+$dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-double-value/get-value.html
+$dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-float-value/get-value.html
+$dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableIntegerValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-integer-value/get-value.html
+$dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableLongValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-long-value/get-value.html
+$dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableValue((ktfx.beans.value.getValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-value/get-value.html
+$dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Double)ktfx.beans.value/javafx.beans.value.-writable-double-value/set-value.html
+$dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Float)ktfx.beans.value/javafx.beans.value.-writable-float-value/set-value.html
+$dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableIntegerValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Int)ktfx.beans.value/javafx.beans.value.-writable-integer-value/set-value.html
+$dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableLongValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Long)ktfx.beans.value/javafx.beans.value.-writable-long-value/set-value.html
+$dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableValue((ktfx.beans.value.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), ktfx.beans.value.setValue.V)ktfx.beans.value/javafx.beans.value.-writable-value/set-value.html
 $dokka.location:ktfx.collections$bindContent(kotlin.collections.List((ktfx.collections.bindContent.E)), javafx.collections.ObservableList((ktfx.collections.bindContent.E)))ktfx.collections/kotlin.collections.-list/bind-content.html
 $dokka.location:ktfx.collections$bindContent(kotlin.collections.Map((ktfx.collections.bindContent.K, ktfx.collections.bindContent.V)), javafx.collections.ObservableMap((ktfx.collections.bindContent.K, ktfx.collections.bindContent.V)))ktfx.collections/kotlin.collections.-map/bind-content.html
 $dokka.location:ktfx.collections$bindContent(kotlin.collections.Set((ktfx.collections.bindContent.E)), javafx.collections.ObservableSet((ktfx.collections.bindContent.E)))ktfx.collections/kotlin.collections.-set/bind-content.html
@@ -632,6 +642,7 @@ ktfx.animation
 ktfx.application
 ktfx.beans.binding
 ktfx.beans.property
+ktfx.beans.value
 ktfx.collections
 ktfx.embed.swing
 ktfx.event

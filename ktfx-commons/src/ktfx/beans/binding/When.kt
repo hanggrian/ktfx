@@ -19,7 +19,7 @@ import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableStringValue
 
 /** Start a conditional if else binding. */
-inline fun `if`(condition: ObservableBooleanValue): When = `when`(condition)
+inline fun `when`(condition: ObservableBooleanValue): When = `when`(condition)
 
 inline infix fun When.then(thenValue: ObservableNumberValue): NumberConditionBuilder = then(thenValue)
 inline infix fun When.then(thenValue: Double): NumberConditionBuilder = then(thenValue)
@@ -27,26 +27,26 @@ inline infix fun When.then(thenValue: Float): NumberConditionBuilder = then(then
 inline infix fun When.then(thenValue: Long): NumberConditionBuilder = then(thenValue)
 inline infix fun When.then(thenValue: Int): NumberConditionBuilder = then(thenValue)
 
-inline infix fun NumberConditionBuilder.`else`(otherwiseValue: ObservableNumberValue): NumberBinding = otherwise(otherwiseValue)
-inline infix fun NumberConditionBuilder.`else`(otherwiseValue: Double): DoubleBinding = otherwise(otherwiseValue)
-inline infix fun NumberConditionBuilder.`else`(otherwiseValue: Float): NumberBinding = otherwise(otherwiseValue)
-inline infix fun NumberConditionBuilder.`else`(otherwiseValue: Long): NumberBinding = otherwise(otherwiseValue)
-inline infix fun NumberConditionBuilder.`else`(otherwiseValue: Int): NumberBinding = otherwise(otherwiseValue)
+inline infix fun NumberConditionBuilder.otherwise(otherwiseValue: ObservableNumberValue): NumberBinding = otherwise(otherwiseValue)
+inline infix fun NumberConditionBuilder.otherwise(otherwiseValue: Double): DoubleBinding = otherwise(otherwiseValue)
+inline infix fun NumberConditionBuilder.otherwise(otherwiseValue: Float): NumberBinding = otherwise(otherwiseValue)
+inline infix fun NumberConditionBuilder.otherwise(otherwiseValue: Long): NumberBinding = otherwise(otherwiseValue)
+inline infix fun NumberConditionBuilder.otherwise(otherwiseValue: Int): NumberBinding = otherwise(otherwiseValue)
 
 inline infix fun When.then(thenValue: ObservableBooleanValue): BooleanConditionBuilder = then(thenValue)
 inline infix fun When.then(thenValue: Boolean): BooleanConditionBuilder = then(thenValue)
 
-inline infix fun BooleanConditionBuilder.`else`(otherwiseValue: ObservableBooleanValue): BooleanBinding = otherwise(otherwiseValue)
-inline infix fun BooleanConditionBuilder.`else`(otherwiseValue: Boolean): BooleanBinding = otherwise(otherwiseValue)
+inline infix fun BooleanConditionBuilder.otherwise(otherwiseValue: ObservableBooleanValue): BooleanBinding = otherwise(otherwiseValue)
+inline infix fun BooleanConditionBuilder.otherwise(otherwiseValue: Boolean): BooleanBinding = otherwise(otherwiseValue)
 
 inline infix fun When.then(thenValue: ObservableStringValue): StringConditionBuilder = then(thenValue)
 inline infix fun When.then(thenValue: String): StringConditionBuilder = then(thenValue)
 
-inline infix fun StringConditionBuilder.`else`(otherwiseValue: ObservableStringValue): StringBinding = otherwise(otherwiseValue)
-inline infix fun StringConditionBuilder.`else`(otherwiseValue: String): StringBinding = otherwise(otherwiseValue)
+inline infix fun StringConditionBuilder.otherwise(otherwiseValue: ObservableStringValue): StringBinding = otherwise(otherwiseValue)
+inline infix fun StringConditionBuilder.otherwise(otherwiseValue: String): StringBinding = otherwise(otherwiseValue)
 
 inline infix fun <T> When.then(thenValue: ObservableObjectValue<T>): ObjectConditionBuilder<T> = then(thenValue)
 inline infix fun <T> When.then(thenValue: T?): ObjectConditionBuilder<T> = then(thenValue)
 
-inline infix fun <T> ObjectConditionBuilder<T>.`else`(otherwiseValue: ObservableObjectValue<T>): ObjectBinding<T> = otherwise(otherwiseValue)
-inline infix fun <T> ObjectConditionBuilder<T>.`else`(otherwiseValue: T?): ObjectBinding<T> = otherwise(otherwiseValue)
+inline infix fun <T> ObjectConditionBuilder<T>.otherwise(otherwiseValue: ObservableObjectValue<T>): ObjectBinding<T> = otherwise(otherwiseValue)
+inline infix fun <T> ObjectConditionBuilder<T>.otherwise(otherwiseValue: T?): ObjectBinding<T> = otherwise(otherwiseValue)

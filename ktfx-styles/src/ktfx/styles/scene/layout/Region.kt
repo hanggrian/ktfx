@@ -6,7 +6,7 @@ import ktfx.styles.internal.Beta
 
 interface RegionStyleBuilder {
 
-    /** A series of paint values separated by commas.. */
+    /** A series of paint values separated by commas. */
     var backgroundColor: Color
 
     /**

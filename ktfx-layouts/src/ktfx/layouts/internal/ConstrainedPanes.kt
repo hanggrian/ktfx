@@ -8,12 +8,12 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import ktfx.geometry.plus
 
-interface ConstrainedPane {
+internal interface ConstrainedPane {
 
     fun Node.reset()
 }
 
-interface MarginedPane : ConstrainedPane {
+internal interface MarginedPane : ConstrainedPane {
 
     infix fun <N : Node> N.margins(value: Insets?): N
 
@@ -41,7 +41,7 @@ interface MarginedPane : ConstrainedPane {
     val Node.marginLeft: Int get() = margins.left.toInt()
 }
 
-interface AlignedPane : ConstrainedPane {
+internal interface AlignedPane : ConstrainedPane {
 
     infix fun <N : Node> N.pos(value: Pos?): N
 
@@ -56,14 +56,14 @@ interface AlignedPane : ConstrainedPane {
     val Node.vpos: VPos get() = pos.vpos
 }
 
-interface HGrowedPane : ConstrainedPane {
+internal interface HGrowedPane : ConstrainedPane {
 
     infix fun <N : Node> N.hpriority(value: Priority?): N
 
     val Node.hpriority: Priority
 }
 
-interface VGrowedPane : ConstrainedPane {
+internal interface VGrowedPane : ConstrainedPane {
 
     infix fun <N : Node> N.vpriority(value: Priority?): N
 

@@ -4,6 +4,7 @@ package ktfx.listeners
 
 import javafx.scene.control.TreeTableView
 
+/** A function which produces a TreeTableRow. */
 inline fun <S> TreeTableView<S>.rowFactory(
     noinline rowFactory: TreeTableRowBuilder<S>.() -> Unit
 ) = setRowFactory { rowFactory.build() }

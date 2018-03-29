@@ -20,7 +20,7 @@ inline fun <S> LayoutManager<Node>.treeTableView(
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {
 
-    fun <T> column(text: String? = null, init: (TreeTableColumn<S, T>.() -> Unit)? = null)
+    fun <T> column(text: String? = null, init: (TreeTableColumn<S, T>.() -> Unit)? = null): TreeTableColumn<S, T>
 }
 
 @PublishedApi
@@ -28,9 +28,8 @@ interface TreeTableColumnsBuilder<S> {
 internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S> {
     val columns: MutableList<TreeTableColumn<S, *>> = mutableListOf()
 
-    override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?) {
-        columns += TreeTableColumn<S, T>(text).also { init?.invoke(it) }
-    }
+    override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?): TreeTableColumn<S, T> =
+        TreeTableColumn<S, T>(text).also { init?.invoke(it) }.also { columns += it }
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */

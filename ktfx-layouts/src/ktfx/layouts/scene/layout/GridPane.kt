@@ -79,13 +79,13 @@ inline fun LayoutManager<Node>.gridPane(
 interface ConstraintsBuilder<out T : ConstraintsBase> {
 
     /** Create a constraints. */
-    fun constraints(init: (T.() -> Unit)? = null)
+    fun constraints(init: (T.() -> Unit)? = null): T
 
     /** Create a constraints with pre-defined width. */
-    fun constraints(size: Int, init: (T.() -> Unit)? = null)
+    fun constraints(size: Int, init: (T.() -> Unit)? = null): T
 
     /** Create a constraints with pre-defined minimum, preferred, and maximum width. */
-    fun constraints(minSize: Int, prefSize: Int, maxSize: Int, init: (T.() -> Unit)? = null)
+    fun constraints(minSize: Int, prefSize: Int, maxSize: Int, init: (T.() -> Unit)? = null): T
 }
 
 @PublishedApi
@@ -96,17 +96,14 @@ internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBu
     internal abstract fun newInstance(width: Int): T
     internal abstract fun newInstance(width: Int, prefWidth: Int, maxWidth: Int): T
 
-    override fun constraints(init: (T.() -> Unit)?) {
-        constraints += newInstance().also { init?.invoke(it) }
-    }
+    override fun constraints(init: (T.() -> Unit)?): T =
+        newInstance().also { init?.invoke(it) }.also { constraints += it }
 
-    override fun constraints(size: Int, init: (T.() -> Unit)?) {
-        constraints += newInstance(size).also { init?.invoke(it) }
-    }
+    override fun constraints(size: Int, init: (T.() -> Unit)?): T =
+        newInstance(size).also { init?.invoke(it) }.also { constraints += it }
 
-    override fun constraints(minSize: Int, prefSize: Int, maxSize: Int, init: (T.() -> Unit)?) {
-        constraints += newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }
-    }
+    override fun constraints(minSize: Int, prefSize: Int, maxSize: Int, init: (T.() -> Unit)?): T =
+        newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }.also { constraints += it }
 }
 
 /** Invokes a row constraints DSL builder. */

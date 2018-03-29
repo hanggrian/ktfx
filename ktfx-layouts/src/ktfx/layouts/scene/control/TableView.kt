@@ -21,7 +21,7 @@ inline fun <S> LayoutManager<Node>.tableView(
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {
 
-    fun <T> column(text: String? = null, init: (TableColumn<S, T>.() -> Unit)? = null)
+    fun <T> column(text: String? = null, init: (TableColumn<S, T>.() -> Unit)? = null): TableColumn<S, T>
 }
 
 @PublishedApi
@@ -29,9 +29,8 @@ interface TableColumnsBuilder<S> {
 internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S> {
     val columns: MutableList<TableColumn<S, *>> = mutableListOf()
 
-    override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?) {
-        columns += TableColumn<S, T>(text).also { init?.invoke(it) }
-    }
+    override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?): TableColumn<S, T> =
+        TableColumn<S, T>(text).also { init?.invoke(it) }.also { columns += it }
 }
 
 /** Invokes a [TableColumn] DSL builder. */

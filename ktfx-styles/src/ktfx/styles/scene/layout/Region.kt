@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.geometry.Insets
 import javafx.scene.paint.Color
-import ktfx.styles.internal.Beta
+import ktfx.styles.internal.NotImplemented
 
 interface RegionStyleBuilder {
 
@@ -33,21 +33,21 @@ interface RegionStyleBuilder {
      * A series of <bg-position> values separated by commas.
      * Each bg-position item in the series applies to the corresponding image in the background-image series.
      */
-    @Beta
+    @NotImplemented
     var backgroundPosition: String
 
     /**
      * A series of <repeat-style> values separated by commas.
      * Each repeat-style item in the series applies to the corresponding image in the background-image series.
      */
-    @Beta
+    @NotImplemented
     var backgroundRepeat: String
 
     /**
      * A series of <bg-size> values separated by commas.
      * Each bg-size item in the series applies to the corresponding image in the background-image series.
      */
-    @Beta
+    @NotImplemented
     var backgroundSize: String
 
     /**
@@ -74,7 +74,7 @@ interface RegionStyleBuilder {
      * corners, in that order.
      * Each item in the series of radii applies to the corresponding item in the series of border colors.
      */
-    @Beta
+    @NotImplemented
     var borderRadius: String
 
     /**
@@ -89,7 +89,7 @@ interface RegionStyleBuilder {
      * the stroke.
      * This corresponds to the strokeDashOffset variable of Shape.
      */
-    @Beta
+    @NotImplemented
     var borderStyle: String
 
     /**
@@ -108,7 +108,7 @@ interface RegionStyleBuilder {
      * A series of repeat-style values, separated by commas.
      * Each item in the series applies to the corresponding image in the series of border images.
      */
-    @Beta
+    @NotImplemented
     var borderImageRepeat: String
 
     /**
@@ -121,7 +121,7 @@ interface RegionStyleBuilder {
      * If 'fill' is present, the middle slice is preserved, otherwise it is discarded.
      * Percentage values may be used here, in which case the values are considered proportional to the source image.
      */
-    @Beta
+    @NotImplemented
     var borderImageSlice: String
 
     /**
@@ -175,7 +175,7 @@ interface RegionStyleBuilder {
      * In order to set the background fill to null, specify the style "-fx-background-color: null;".
      * There is no shorthand notation for -fx-background-fills at this time.
      */
-    @Beta
+    @NotImplemented
     var backgroundFills: String
 
     /**
@@ -183,7 +183,7 @@ interface RegionStyleBuilder {
      * -fx-background-repeat, and optionally -fx-background-size.
      * There is no shorthand notation for -fx-background-images at this time.
      */
-    @Beta
+    @NotImplemented
     var backgroundImages: String
 
     /**
@@ -191,7 +191,7 @@ interface RegionStyleBuilder {
      * -fx-border-style and -fx-border-width.
      * There is no shorthand notation for -fx-stroke-borders at this time.
      */
-    @Beta
+    @NotImplemented
     var strokeBorders: String
 
     /**
@@ -199,7 +199,7 @@ interface RegionStyleBuilder {
      * -fx-border-image-repeat, -fx-border-image-slice and -fx-border-image-width.
      * There is no shorthand notation for -fx-image-borders at this time.
      */
-    @Beta
+    @NotImplemented
     var imageBorders: String
 }
 

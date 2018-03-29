@@ -3,7 +3,7 @@ package ktfx.styles
 import javafx.scene.control.ContentDisplay
 import javafx.scene.control.OverrunStyle
 import javafx.scene.text.TextAlignment
-import ktfx.styles.internal.Beta
+import ktfx.styles.internal.NotImplemented
 
 interface TooltipStyleBuilder {
 
@@ -19,7 +19,7 @@ interface TooltipStyleBuilder {
 
     var graphicTextGap: Number
 
-    @Beta
+    @NotImplemented
     var font: String
 }
 

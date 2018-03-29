@@ -5,12 +5,12 @@ import javafx.scene.text.FontPosture
 import javafx.scene.text.FontSmoothingType
 import javafx.scene.text.FontWeight
 import javafx.scene.text.TextAlignment
-import ktfx.styles.internal.Beta
+import ktfx.styles.internal.NotImplemented
 
 interface TextStyleBuilder {
 
     /** Shorthand property for font-size, font-family, font-weight and font-style. */
-    @Beta
+    @NotImplemented
     var font: String
 
     var fontFamily: String

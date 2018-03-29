@@ -2,7 +2,7 @@ package ktfx.styles
 
 import javafx.geometry.Side
 import javafx.scene.paint.Color
-import ktfx.styles.internal.Beta
+import ktfx.styles.internal.NotImplemented
 
 interface AxisStyleBuilder {
 
@@ -10,7 +10,7 @@ interface AxisStyleBuilder {
 
     var tickLength: Number
 
-    @Beta
+    @NotImplemented
     var tickLabelFont: String
 
     var tickLabelFill: Color

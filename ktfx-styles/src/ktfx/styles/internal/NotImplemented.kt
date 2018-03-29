@@ -5,4 +5,4 @@ package ktfx.styles.internal
  * For the time being, property marked with this annotation are using unsafe traditional string.
  */
 @Target(AnnotationTarget.PROPERTY)
-annotation class Beta
+annotation class NotImplemented

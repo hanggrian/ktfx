@@ -82,10 +82,10 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
     fun constraints(init: (T.() -> Unit)? = null): T
 
     /** Create a constraints with pre-defined width. */
-    fun constraints(size: Int, init: (T.() -> Unit)? = null): T
+    fun constraints(size: Number, init: (T.() -> Unit)? = null): T
 
     /** Create a constraints with pre-defined minimum, preferred, and maximum width. */
-    fun constraints(minSize: Int, prefSize: Int, maxSize: Int, init: (T.() -> Unit)? = null): T
+    fun constraints(minSize: Number, prefSize: Number, maxSize: Number, init: (T.() -> Unit)? = null): T
 }
 
 @PublishedApi
@@ -93,16 +93,16 @@ internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBu
     val constraints: MutableList<T> = mutableListOf()
 
     internal abstract fun newInstance(): T
-    internal abstract fun newInstance(width: Int): T
-    internal abstract fun newInstance(width: Int, prefWidth: Int, maxWidth: Int): T
+    internal abstract fun newInstance(width: Number): T
+    internal abstract fun newInstance(width: Number, prefWidth: Number, maxWidth: Number): T
 
     override fun constraints(init: (T.() -> Unit)?): T =
         newInstance().also { init?.invoke(it) }.also { constraints += it }
 
-    override fun constraints(size: Int, init: (T.() -> Unit)?): T =
+    override fun constraints(size: Number, init: (T.() -> Unit)?): T =
         newInstance(size).also { init?.invoke(it) }.also { constraints += it }
 
-    override fun constraints(minSize: Int, prefSize: Int, maxSize: Int, init: (T.() -> Unit)?): T =
+    override fun constraints(minSize: Number, prefSize: Number, maxSize: Number, init: (T.() -> Unit)?): T =
         newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }.also { constraints += it }
 }
 
@@ -110,8 +110,8 @@ internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBu
 inline fun GridPane.row(init: ConstraintsBuilder<RowConstraints>.() -> Unit) {
     rowConstraints += object : _ConstraintsBuilder<RowConstraints>() {
         override fun newInstance(): RowConstraints = RowConstraints()
-        override fun newInstance(width: Int): RowConstraints = RowConstraints(width.toDouble())
-        override fun newInstance(width: Int, prefWidth: Int, maxWidth: Int): RowConstraints =
+        override fun newInstance(width: Number): RowConstraints = RowConstraints(width.toDouble())
+        override fun newInstance(width: Number, prefWidth: Number, maxWidth: Number): RowConstraints =
             RowConstraints(width.toDouble(), prefWidth.toDouble(), maxWidth.toDouble())
     }.apply(init).constraints
 }
@@ -120,8 +120,8 @@ inline fun GridPane.row(init: ConstraintsBuilder<RowConstraints>.() -> Unit) {
 inline fun GridPane.column(init: ConstraintsBuilder<ColumnConstraints>.() -> Unit) {
     columnConstraints += object : _ConstraintsBuilder<ColumnConstraints>() {
         override fun newInstance(): ColumnConstraints = ColumnConstraints()
-        override fun newInstance(width: Int): ColumnConstraints = ColumnConstraints(width.toDouble())
-        override fun newInstance(width: Int, prefWidth: Int, maxWidth: Int): ColumnConstraints =
+        override fun newInstance(width: Number): ColumnConstraints = ColumnConstraints(width.toDouble())
+        override fun newInstance(width: Number, prefWidth: Number, maxWidth: Number): ColumnConstraints =
             ColumnConstraints(width.toDouble(), prefWidth.toDouble(), maxWidth.toDouble())
     }.apply(init).constraints
 }

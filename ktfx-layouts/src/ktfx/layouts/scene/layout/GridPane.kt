@@ -3,9 +3,12 @@
 package ktfx.layouts
 
 import javafx.geometry.HPos
+import javafx.geometry.HPos.LEFT
 import javafx.geometry.Insets
+import javafx.geometry.Insets.EMPTY
 import javafx.geometry.Pos
 import javafx.geometry.VPos
+import javafx.geometry.VPos.TOP
 import javafx.scene.Node
 import javafx.scene.layout.ColumnConstraints
 import javafx.scene.layout.ConstraintsBase
@@ -32,7 +35,7 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, AlignedPan
 
     override fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
 
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override infix fun <N : Node> N.hpos(value: HPos?): N = apply { setHalignment(this, value) }
     override infix fun <N : Node> N.vpos(value: VPos?): N = apply { setValignment(this, value) }
@@ -41,8 +44,8 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, AlignedPan
         setValignment(this, value?.vpos)
     }
 
-    override val Node.vpos: VPos get() = getValignment(this) ?: VPos.TOP
-    override val Node.hpos: HPos get() = getHalignment(this) ?: HPos.LEFT
+    override val Node.vpos: VPos get() = getValignment(this) ?: TOP
+    override val Node.hpos: HPos get() = getHalignment(this) ?: LEFT
     override val Node.pos: Pos get() = vpos + hpos
 
     infix fun <N : Node> N.hfill(value: Boolean): N = apply { setFillWidth(this, value) }

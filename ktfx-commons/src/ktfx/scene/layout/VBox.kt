@@ -8,6 +8,6 @@ import ktfx.internal.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Sets spacing of each child. */
-var VBox.spacings: Int
+inline var VBox.spacings: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setSpacing(value.toDouble())
+    set(value) = setSpacing(value)

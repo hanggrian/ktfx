@@ -3,8 +3,10 @@
 package ktfx.layouts
 
 import javafx.geometry.Insets
+import javafx.geometry.Insets.EMPTY
 import javafx.scene.Node
 import javafx.scene.layout.Priority
+import javafx.scene.layout.Priority.NEVER
 import javafx.scene.layout.VBox
 import ktfx.layouts.internal.MarginedPane
 import ktfx.layouts.internal.VGrowedPane
@@ -14,8 +16,8 @@ open class _VBox : VBox(), LayoutManager<Node>, VGrowedPane, MarginedPane {
     override infix fun <N : Node> N.vpriority(value: Priority?): N = apply { setVgrow(this, value) }
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
 
-    override val Node.vpriority: Priority get() = getVgrow(this) ?: Priority.NEVER
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.vpriority: Priority get() = getVgrow(this) ?: NEVER
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun Node.reset() = clearConstraints(this)
 

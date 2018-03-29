@@ -3,6 +3,7 @@
 package ktfx.layouts
 
 import javafx.geometry.Insets
+import javafx.geometry.Insets.EMPTY
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
 import ktfx.layouts.internal.MarginedPane
@@ -11,7 +12,7 @@ open class _FlowPane : FlowPane(), LayoutManager<Node>, MarginedPane {
 
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
 
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun Node.reset() = clearConstraints(this)
 

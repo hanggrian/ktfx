@@ -16,8 +16,6 @@ import ktfx.layouts.label
 import ktfx.layouts.vbox
 import ktfx.scene.control.errorAlert
 import ktfx.scene.control.infoAlert
-import ktfx.scene.layout.setSizeMin
-import ktfx.scene.layout.sizeMin
 import ktfx.scene.layout.updatePadding
 
 class App : Application() {
@@ -64,76 +62,76 @@ class App : Application() {
             } row 0 col 0 colSpan 5 hfill true
 
             button("1") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("1")
                 }
             } row 1 col 0
             button("2") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("2")
                 }
             } row 1 col 1
             button("3") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("3")
                 }
             } row 1 col 2
 
             button("4") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("4")
                 }
             } row 2 col 0
             button("5") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("5")
                 }
             } row 2 col 1
             button("6") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("6")
                 }
             } row 2 col 2
 
             button("7") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("7")
                 }
             } row 3 col 0
             button("8") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("8")
                 }
             } row 3 col 1
             button("9") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("9")
                 }
             } row 3 col 2
 
             button("0") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("0")
                 }
             } row 4 col 0
             button("00") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("00")
                 }
             } row 4 col 1
             button(".") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     errorAlert("Not yet supported.") {
                         title = ":("
@@ -146,38 +144,38 @@ class App : Application() {
             } row 4 col 2
 
             button("C") {
-                setSizeMin(80, 40)
+                setMinSize(80.0, 40.0)
                 isCancelButton = true
                 onAction {
                     calculationLabel.text = ""
                 }
             } row 1 col 3 colSpan 2
             button("*") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("*")
                 }
             } row 2 col 3
             button("/") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("/")
                 }
             } row 2 col 4
             button("+") {
-                setSizeMin(40, 80)
+                setMinSize(40.0, 80.0)
                 onAction {
                     appendText("+")
                 }
             } row 3 col 3 rowSpan 2
             button("-") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 onAction {
                     appendText("-")
                 }
             } row 3 col 4
             button("=") {
-                sizeMin = 40
+                setMinSize(40.0, 40.0)
                 isDefaultButton = true
                 disableProperty().bind(booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator })
                 onAction {

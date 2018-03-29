@@ -85,33 +85,33 @@ inline var Region.size: Int
 
 /** Sets padding to each side with integer. */
 fun Region.updatePadding(
-    top: Int = padding.top.toInt(),
-    right: Int = padding.right.toInt(),
-    bottom: Int = padding.bottom.toInt(),
-    left: Int = padding.left.toInt()
+    top: Number = padding.top,
+    right: Number = padding.right,
+    bottom: Number = padding.bottom,
+    left: Number = padding.left
 ) = setPadding(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
 
 /** Sets padding to all sides with integer. */
-var Region.paddings: Int
+var Region.paddings: Number
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setPadding(Insets(value.toDouble()))
 
 /** Top padding in integer. */
-inline var Region.paddingTop: Int
-    get() = padding.top.toInt()
+inline var Region.paddingTop: Number
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = updatePadding(top = value)
 
 /** Right padding in integer. */
-inline var Region.paddingRight: Int
-    get() = padding.right.toInt()
+inline var Region.paddingRight: Number
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = updatePadding(right = value)
 
 /** Bottom padding in integer. */
-inline var Region.paddingBottom: Int
-    get() = padding.bottom.toInt()
+inline var Region.paddingBottom: Number
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = updatePadding(bottom = value)
 
 /** Left padding in integer. */
-inline var Region.paddingLeft: Int
-    get() = padding.left.toInt()
+inline var Region.paddingLeft: Number
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = updatePadding(left = value)

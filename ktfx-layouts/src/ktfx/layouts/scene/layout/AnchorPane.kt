@@ -30,10 +30,14 @@ open class _AnchorPane : AnchorPane(), LayoutManager<Node>, ConstrainedPane {
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun anchorPane(): AnchorPane = anchorPane { }
+
 inline fun anchorPane(
-    noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
-): AnchorPane = _AnchorPane().also { init?.invoke(it) }
+    init: (@LayoutDsl _AnchorPane).() -> Unit
+): AnchorPane = _AnchorPane().apply(init)
+
+inline fun LayoutManager<Node>.anchorPane(): AnchorPane = anchorPane { }
 
 inline fun LayoutManager<Node>.anchorPane(
-    noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
+    init: (@LayoutDsl _AnchorPane).() -> Unit
 ): AnchorPane = ktfx.layouts.anchorPane(init).add()

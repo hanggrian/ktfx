@@ -15,15 +15,37 @@ open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), LayoutMan
 }
 
 inline fun contextMenu(
+    vararg items: MenuItem
+): ContextMenu = contextMenu(*items) { }
+
+inline fun contextMenu(
     vararg items: MenuItem,
-    noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = _ContextMenu(*items).also { init?.invoke(it) }
+    init: (@LayoutDsl _ContextMenu).() -> Unit
+): ContextMenu = _ContextMenu(*items).apply(init)
+
+inline fun Control.contextMenu(
+    vararg items: MenuItem
+) = contextMenu(*items) { }
 
 inline fun Control.contextMenu(
     vararg items: MenuItem,
-    noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
+    init: (@LayoutDsl _ContextMenu).() -> Unit
 ) = setContextMenu(ktfx.layouts.contextMenu(*items, init = init))
 
-inline fun Tab.contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null) = setContextMenu(ktfx.layouts.contextMenu(*items, init = init))
+inline fun Tab.contextMenu(
+    vararg items: MenuItem
+) = contextMenu(*items) { }
 
-inline fun <S, T> TableColumnBase<S, T>.contextMenu(vararg items: MenuItem, noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null) = setContextMenu(ktfx.layouts.contextMenu(*items, init = init))
+inline fun Tab.contextMenu(
+    vararg items: MenuItem,
+    init: (@LayoutDsl _ContextMenu).() -> Unit
+) = setContextMenu(ktfx.layouts.contextMenu(*items, init = init))
+
+inline fun <S, T> TableColumnBase<S, T>.contextMenu(
+    vararg items: MenuItem
+) = contextMenu(*items) { }
+
+inline fun <S, T> TableColumnBase<S, T>.contextMenu(
+    vararg items: MenuItem,
+    init: (@LayoutDsl _ContextMenu).() -> Unit
+) = setContextMenu(ktfx.layouts.contextMenu(*items, init = init))

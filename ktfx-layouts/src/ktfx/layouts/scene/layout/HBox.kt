@@ -22,10 +22,12 @@ open class _HBox : HBox(), LayoutManager<Node>, HGrowedPane, MarginedPane {
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun hbox(): HBox = hbox { }
 inline fun hbox(
-    noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
-): HBox = _HBox().also { init?.invoke(it) }
+    init: (@LayoutDsl _HBox).() -> Unit
+): HBox = _HBox().apply(init)
 
+inline fun LayoutManager<Node>.hbox(): HBox = hbox { }
 inline fun LayoutManager<Node>.hbox(
-    noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
+    init: (@LayoutDsl _HBox).() -> Unit
 ): HBox = ktfx.layouts.hbox(init).add()

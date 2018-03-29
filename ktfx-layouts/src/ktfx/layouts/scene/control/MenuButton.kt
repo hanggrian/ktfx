@@ -7,12 +7,22 @@ import javafx.scene.control.MenuButton
 
 inline fun menuButton(
     text: String? = null,
+    graphic: Node? = null
+): MenuButton = menuButton(text, graphic) { }
+
+inline fun menuButton(
+    text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl MenuButton).() -> Unit)? = null
-): MenuButton = MenuButton(text, graphic).also { init?.invoke(it) }
+    init: (@LayoutDsl MenuButton).() -> Unit
+): MenuButton = MenuButton(text, graphic).apply(init)
+
+inline fun LayoutManager<Node>.menuButton(
+    text: String? = null,
+    graphic: Node? = null
+): MenuButton = menuButton(text, graphic) { }
 
 inline fun LayoutManager<Node>.menuButton(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl MenuButton).() -> Unit)? = null
+    init: (@LayoutDsl MenuButton).() -> Unit
 ): MenuButton = ktfx.layouts.menuButton(text, graphic, init).add()

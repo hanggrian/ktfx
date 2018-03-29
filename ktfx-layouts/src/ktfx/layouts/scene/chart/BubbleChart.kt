@@ -12,13 +12,25 @@ import ktfx.collections.mutableObservableListOf
 inline fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): BubbleChart<X, Y> = bubbleChart(x, y, data) { }
+
+inline fun <X, Y> bubbleChart(
+    x: Axis<X>,
+    y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl BubbleChart<X, Y>).() -> Unit)? = null
-): BubbleChart<X, Y> = BubbleChart(x, y, data).also { init?.invoke(it) }
+    init: (@LayoutDsl BubbleChart<X, Y>).() -> Unit
+): BubbleChart<X, Y> = BubbleChart(x, y, data).apply(init)
+
+inline fun <X, Y> LayoutManager<Node>.bubbleChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): BubbleChart<X, Y> = bubbleChart(x, y, data) { }
 
 inline fun <X, Y> LayoutManager<Node>.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl BubbleChart<X, Y>).() -> Unit)? = null
+    init: (@LayoutDsl BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> = ktfx.layouts.bubbleChart(x, y, data, init).add()

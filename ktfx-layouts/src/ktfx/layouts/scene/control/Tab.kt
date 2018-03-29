@@ -7,12 +7,22 @@ import javafx.scene.control.Tab
 
 inline fun tab(
     text: String? = null,
+    content: Node? = null
+): Tab = tab(text, content) { }
+
+inline fun tab(
+    text: String? = null,
     content: Node? = null,
-    noinline init: ((@LayoutDsl Tab).() -> Unit)? = null
-): Tab = Tab(text, content).also { init?.invoke(it) }
+    init: (@LayoutDsl Tab).() -> Unit
+): Tab = Tab(text, content).apply(init)
+
+inline fun LayoutManager<Tab>.tab(
+    text: String? = null,
+    content: Node? = null
+): Tab = tab(text, content) { }
 
 inline fun LayoutManager<Tab>.tab(
     text: String? = null,
     content: Node? = null,
-    noinline init: ((@LayoutDsl Tab).() -> Unit)? = null
+    init: (@LayoutDsl Tab).() -> Unit
 ): Tab = ktfx.layouts.tab(text, content, init).add()

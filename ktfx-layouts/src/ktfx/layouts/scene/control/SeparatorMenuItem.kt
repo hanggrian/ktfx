@@ -5,10 +5,14 @@ package ktfx.layouts
 import javafx.scene.control.MenuItem
 import javafx.scene.control.SeparatorMenuItem
 
+inline fun separatorMenuItem(): SeparatorMenuItem = separatorMenuItem { }
+
 inline fun separatorMenuItem(
-    noinline init: ((@LayoutDsl SeparatorMenuItem).() -> Unit)? = null
-): SeparatorMenuItem = SeparatorMenuItem().also { init?.invoke(it) }
+    init: (@LayoutDsl SeparatorMenuItem).() -> Unit
+): SeparatorMenuItem = SeparatorMenuItem().apply(init)
+
+inline fun LayoutManager<MenuItem>.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem { }
 
 inline fun LayoutManager<MenuItem>.separatorMenuItem(
-    noinline init: ((@LayoutDsl SeparatorMenuItem).() -> Unit)? = null
+    init: (@LayoutDsl SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem = ktfx.layouts.separatorMenuItem(init).add()

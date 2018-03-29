@@ -12,11 +12,19 @@ open class _ToolBar(vararg items: Node) : ToolBar(*items), LayoutManager<Node> {
 }
 
 inline fun toolBar(
+    vararg items: Node
+): ToolBar = toolBar(*items) { }
+
+inline fun toolBar(
     vararg items: Node,
-    noinline init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
-): ToolBar = _ToolBar(*items).also { init?.invoke(it) }
+    init: (@LayoutDsl _ToolBar).() -> Unit
+): ToolBar = _ToolBar(*items).apply(init)
+
+inline fun LayoutManager<Node>.toolBar(
+    vararg items: Node
+): ToolBar = toolBar(*items) { }
 
 inline fun LayoutManager<Node>.toolBar(
     vararg items: Node,
-    noinline init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
+    init: (@LayoutDsl _ToolBar).() -> Unit
 ): ToolBar = ktfx.layouts.toolBar(*items, init = init).add()

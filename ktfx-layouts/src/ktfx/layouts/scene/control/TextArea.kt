@@ -6,11 +6,19 @@ import javafx.scene.Node
 import javafx.scene.control.TextArea
 
 inline fun textArea(
+    text: String = ""
+): TextArea = textArea(text) { }
+
+inline fun textArea(
     text: String = "",
-    noinline init: ((@LayoutDsl TextArea).() -> Unit)? = null
-): TextArea = TextArea(text).also { init?.invoke(it) }
+    init: (@LayoutDsl TextArea).() -> Unit
+): TextArea = TextArea(text).apply(init)
+
+inline fun LayoutManager<Node>.textArea(
+    text: String = ""
+): TextArea = textArea(text) { }
 
 inline fun LayoutManager<Node>.textArea(
     text: String = "",
-    noinline init: ((@LayoutDsl TextArea).() -> Unit)? = null
+    init: (@LayoutDsl TextArea).() -> Unit
 ): TextArea = ktfx.layouts.textArea(text, init).add()

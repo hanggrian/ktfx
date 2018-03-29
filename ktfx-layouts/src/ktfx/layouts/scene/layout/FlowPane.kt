@@ -18,10 +18,14 @@ open class _FlowPane : FlowPane(), LayoutManager<Node>, MarginedPane {
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun flowPane(): FlowPane = flowPane { }
+
 inline fun flowPane(
-    noinline init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
-): FlowPane = _FlowPane().also { init?.invoke(it) }
+    init: (@LayoutDsl _FlowPane).() -> Unit
+): FlowPane = _FlowPane().apply(init)
+
+inline fun LayoutManager<Node>.flowPane(): FlowPane = flowPane { }
 
 inline fun LayoutManager<Node>.flowPane(
-    noinline init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
+    init: (@LayoutDsl _FlowPane).() -> Unit
 ): FlowPane = ktfx.layouts.flowPane(init).add()

@@ -7,11 +7,19 @@ import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton
 
 inline fun splitMenuButton(
+    vararg items: MenuItem
+): SplitMenuButton = splitMenuButton(*items) { }
+
+inline fun splitMenuButton(
     vararg items: MenuItem,
-    noinline init: ((@LayoutDsl SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = SplitMenuButton(*items).also { init?.invoke(it) }
+    init: (@LayoutDsl SplitMenuButton).() -> Unit
+): SplitMenuButton = SplitMenuButton(*items).apply(init)
+
+inline fun LayoutManager<Node>.splitMenuButton(
+    vararg items: MenuItem
+): SplitMenuButton = splitMenuButton(*items) { }
 
 inline fun LayoutManager<Node>.splitMenuButton(
     vararg items: MenuItem,
-    noinline init: ((@LayoutDsl SplitMenuButton).() -> Unit)? = null
+    init: (@LayoutDsl SplitMenuButton).() -> Unit
 ): SplitMenuButton = ktfx.layouts.splitMenuButton(*items, init = init).add()

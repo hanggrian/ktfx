@@ -8,11 +8,19 @@ import javafx.scene.control.ComboBox
 import ktfx.collections.mutableObservableListOf
 
 inline fun <T> comboBox(
+    items: ObservableList<T> = mutableObservableListOf()
+): ComboBox<T> = comboBox(items) { }
+
+inline fun <T> comboBox(
     items: ObservableList<T> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl ComboBox<T>).() -> Unit)? = null
-): ComboBox<T> = ComboBox(items).also { init?.invoke(it) }
+    init: (@LayoutDsl ComboBox<T>).() -> Unit
+): ComboBox<T> = ComboBox(items).apply(init)
+
+inline fun <T> LayoutManager<Node>.comboBox(
+    items: ObservableList<T> = mutableObservableListOf()
+): ComboBox<T> = comboBox(items) { }
 
 inline fun <T> LayoutManager<Node>.comboBox(
     items: ObservableList<T> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl ComboBox<T>).() -> Unit)? = null
+    init: (@LayoutDsl ComboBox<T>).() -> Unit
 ): ComboBox<T> = ktfx.layouts.comboBox(items, init).add()

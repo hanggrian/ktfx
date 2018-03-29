@@ -7,12 +7,22 @@ import javafx.scene.control.MenuItem
 
 inline fun menuItem(
     text: String? = null,
+    graphic: Node? = null
+): MenuItem = menuItem(text, graphic) { }
+
+inline fun menuItem(
+    text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
-): MenuItem = MenuItem(text, graphic).also { init?.invoke(it) }
+    init: (@LayoutDsl MenuItem).() -> Unit
+): MenuItem = MenuItem(text, graphic).apply(init)
+
+inline fun LayoutManager<MenuItem>.menuItem(
+    text: String? = null,
+    graphic: Node? = null
+): MenuItem = menuItem(text, graphic) { }
 
 inline fun LayoutManager<MenuItem>.menuItem(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
+    init: (@LayoutDsl MenuItem).() -> Unit
 ): MenuItem = ktfx.layouts.menuItem(text, graphic, init).add()

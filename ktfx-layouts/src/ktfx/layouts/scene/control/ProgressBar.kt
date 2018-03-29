@@ -7,11 +7,19 @@ import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 
 inline fun progressBar(
-    progress: Double = INDETERMINATE_PROGRESS,
-    noinline init: ((@LayoutDsl ProgressBar).() -> Unit)? = null
-): ProgressBar = ProgressBar(progress).also { init?.invoke(it) }
+    progress: Number = INDETERMINATE_PROGRESS
+): ProgressBar = progressBar(progress) { }
+
+fun progressBar(
+    progress: Number = INDETERMINATE_PROGRESS,
+    init: (@LayoutDsl ProgressBar).() -> Unit
+): ProgressBar = ProgressBar(progress.toDouble()).apply(init)
 
 inline fun LayoutManager<Node>.progressBar(
-    progress: Double = INDETERMINATE_PROGRESS,
-    noinline init: ((@LayoutDsl ProgressBar).() -> Unit)? = null
+    progress: Number = INDETERMINATE_PROGRESS
+): ProgressBar = progressBar(progress) { }
+
+inline fun LayoutManager<Node>.progressBar(
+    progress: Number = INDETERMINATE_PROGRESS,
+    noinline init: (@LayoutDsl ProgressBar).() -> Unit
 ): ProgressBar = ktfx.layouts.progressBar(progress, init).add()

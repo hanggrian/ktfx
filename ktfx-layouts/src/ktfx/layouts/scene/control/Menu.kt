@@ -15,13 +15,25 @@ open class _Menu(text: String, graphic: Node?, vararg items: MenuItem) : Menu(te
 inline fun menu(
     text: String = "",
     graphic: Node? = null,
+    vararg items: MenuItem
+): Menu = menu(text, graphic, *items) { }
+
+inline fun menu(
+    text: String = "",
+    graphic: Node? = null,
     vararg items: MenuItem,
-    noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
-): Menu = _Menu(text, graphic, *items).also { init?.invoke(it) }
+    init: (@LayoutDsl _Menu).() -> Unit
+): Menu = _Menu(text, graphic, *items).apply(init)
+
+inline fun LayoutManager<MenuItem>.menu(
+    text: String = "",
+    graphic: Node? = null,
+    vararg items: MenuItem
+): Menu = menu(text, graphic, *items) { }
 
 inline fun LayoutManager<MenuItem>.menu(
     text: String = "",
     graphic: Node? = null,
     vararg items: MenuItem,
-    noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
+    init: (@LayoutDsl _Menu).() -> Unit
 ): Menu = ktfx.layouts.menu(text, graphic, *items, init = init).add()

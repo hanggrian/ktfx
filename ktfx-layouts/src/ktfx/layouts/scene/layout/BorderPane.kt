@@ -3,7 +3,9 @@
 package ktfx.layouts
 
 import javafx.geometry.Insets
+import javafx.geometry.Insets.EMPTY
 import javafx.geometry.Pos
+import javafx.geometry.Pos.TOP_LEFT
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
 import ktfx.layouts.internal.AlignedPane
@@ -14,18 +16,22 @@ open class _BorderPane : BorderPane(), LayoutManager<Node>, AlignedPane, Margine
     override infix fun <N : Node> N.pos(value: Pos?): N = apply { setAlignment(this, value) }
     override infix fun <N : Node> N.margins(value: Insets?): N = apply { setMargin(this, value) }
 
-    override val Node.pos: Pos get() = getAlignment(this) ?: Pos.TOP_LEFT
-    override val Node.margins: Insets get() = getMargin(this) ?: Insets.EMPTY
+    override val Node.pos: Pos get() = getAlignment(this) ?: TOP_LEFT
+    override val Node.margins: Insets get() = getMargin(this) ?: EMPTY
 
     override fun Node.reset() = clearConstraints(this)
 
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun borderPane(): BorderPane = borderPane { }
+
 inline fun borderPane(
-    noinline init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
-): BorderPane = _BorderPane().also { init?.invoke(it) }
+    init: (@LayoutDsl _BorderPane).() -> Unit
+): BorderPane = _BorderPane().apply(init)
+
+inline fun LayoutManager<Node>.borderPane(): BorderPane = borderPane { }
 
 inline fun LayoutManager<Node>.borderPane(
-    noinline init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
+    init: (@LayoutDsl _BorderPane).() -> Unit
 ): BorderPane = ktfx.layouts.borderPane(init).add()

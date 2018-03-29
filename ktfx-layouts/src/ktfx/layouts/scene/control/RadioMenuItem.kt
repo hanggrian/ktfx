@@ -8,12 +8,22 @@ import javafx.scene.control.RadioMenuItem
 
 inline fun radioMenuItem(
     text: String? = null,
+    graphic: Node? = null
+): RadioMenuItem = radioMenuItem(text, graphic) { }
+
+inline fun radioMenuItem(
+    text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
-): RadioMenuItem = RadioMenuItem(text, graphic).also { init?.invoke(it) }
+    init: (@LayoutDsl RadioMenuItem).() -> Unit
+): RadioMenuItem = RadioMenuItem(text, graphic).apply(init)
+
+inline fun LayoutManager<MenuItem>.radioMenuItem(
+    text: String? = null,
+    graphic: Node? = null
+): RadioMenuItem = radioMenuItem(text, graphic) { }
 
 inline fun LayoutManager<MenuItem>.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
+    init: (@LayoutDsl RadioMenuItem).() -> Unit
 ): RadioMenuItem = ktfx.layouts.radioMenuItem(text, graphic, init).add()

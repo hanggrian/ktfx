@@ -12,13 +12,25 @@ import ktfx.collections.mutableObservableListOf
 inline fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): AreaChart<X, Y> = areaChart(x, y, data) { }
+
+inline fun <X, Y> areaChart(
+    x: Axis<X>,
+    y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
-): AreaChart<X, Y> = AreaChart(x, y, data).also { init?.invoke(it) }
+    init: (@LayoutDsl AreaChart<X, Y>).() -> Unit
+): AreaChart<X, Y> = AreaChart(x, y, data).apply(init)
+
+inline fun <X, Y> LayoutManager<Node>.areaChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): AreaChart<X, Y> = areaChart(x, y, data) { }
 
 inline fun <X, Y> LayoutManager<Node>.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
+    init: (@LayoutDsl AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data, init).add()

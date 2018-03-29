@@ -9,11 +9,19 @@ import javafx.scene.chart.PieChart.Data
 import ktfx.collections.mutableObservableListOf
 
 inline fun pieChart(
+    data: ObservableList<Data> = mutableObservableListOf()
+): PieChart = pieChart(data) { }
+
+inline fun pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl PieChart).() -> Unit)? = null
-): PieChart = PieChart(data).also { init?.invoke(it) }
+    init: (@LayoutDsl PieChart).() -> Unit
+): PieChart = PieChart(data).apply(init)
+
+inline fun LayoutManager<Node>.pieChart(
+    data: ObservableList<Data> = mutableObservableListOf()
+): PieChart = pieChart(data) { }
 
 inline fun LayoutManager<Node>.pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl PieChart).() -> Unit)? = null
+    init: (@LayoutDsl PieChart).() -> Unit
 ): PieChart = ktfx.layouts.pieChart(data, init).add()

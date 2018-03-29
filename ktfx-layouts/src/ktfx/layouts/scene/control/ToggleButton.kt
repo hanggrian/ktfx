@@ -7,12 +7,22 @@ import javafx.scene.control.ToggleButton
 
 inline fun toggleButton(
     text: String? = null,
+    graphic: Node? = null
+): ToggleButton = toggleButton(text, graphic) { }
+
+inline fun toggleButton(
+    text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl ToggleButton).() -> Unit)? = null
-): ToggleButton = ToggleButton(text, graphic).also { init?.invoke(it) }
+    init: (@LayoutDsl ToggleButton).() -> Unit
+): ToggleButton = ToggleButton(text, graphic).apply(init)
+
+inline fun LayoutManager<Node>.toggleButton(
+    text: String? = null,
+    graphic: Node? = null
+): ToggleButton = toggleButton(text, graphic) { }
 
 inline fun LayoutManager<Node>.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl ToggleButton).() -> Unit)? = null
+    init: (@LayoutDsl ToggleButton).() -> Unit
 ): ToggleButton = ktfx.layouts.toggleButton(text, graphic, init).add()

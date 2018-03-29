@@ -12,11 +12,19 @@ open class _ButtonBar(buttonOrder: String? = null) : ButtonBar(buttonOrder), Lay
 }
 
 inline fun buttonBar(
+    buttonOrder: String? = null
+): ButtonBar = buttonBar(buttonOrder) { }
+
+inline fun buttonBar(
     buttonOrder: String? = null,
-    noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
-): ButtonBar = _ButtonBar(buttonOrder).also { init?.invoke(it) }
+    init: (@LayoutDsl _ButtonBar).() -> Unit
+): ButtonBar = _ButtonBar(buttonOrder).apply(init)
+
+inline fun LayoutManager<Node>.buttonBar(
+    buttonOrder: String? = null
+): ButtonBar = buttonBar(buttonOrder) { }
 
 inline fun LayoutManager<Node>.buttonBar(
     buttonOrder: String? = null,
-    noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
+    init: (@LayoutDsl _ButtonBar).() -> Unit
 ): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init).add()

@@ -22,10 +22,12 @@ open class _TilePane : TilePane(), LayoutManager<Node>, AlignedPane, MarginedPan
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun tilePane(): TilePane = tilePane { }
 inline fun tilePane(
-    noinline init: ((@LayoutDsl _TilePane).() -> Unit)? = null
-): TilePane = _TilePane().also { init?.invoke(it) }
+    init: (@LayoutDsl _TilePane).() -> Unit
+): TilePane = _TilePane().apply(init)
 
+inline fun LayoutManager<Node>.tilePane(): TilePane = tilePane { }
 inline fun LayoutManager<Node>.tilePane(
-    noinline init: ((@LayoutDsl _TilePane).() -> Unit)? = null
+    init: (@LayoutDsl _TilePane).() -> Unit
 ): TilePane = ktfx.layouts.tilePane(init).add()

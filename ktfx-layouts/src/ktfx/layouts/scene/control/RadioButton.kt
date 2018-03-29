@@ -6,11 +6,19 @@ import javafx.scene.Node
 import javafx.scene.control.RadioButton
 
 inline fun radioButton(
+    text: String? = null
+): RadioButton = radioButton(text) { }
+
+inline fun radioButton(
     text: String? = null,
-    noinline init: ((@LayoutDsl RadioButton).() -> Unit)? = null
-): RadioButton = RadioButton(text).also { init?.invoke(it) }
+    init: (@LayoutDsl RadioButton).() -> Unit
+): RadioButton = RadioButton(text).apply(init)
+
+inline fun LayoutManager<Node>.radioButton(
+    text: String? = null
+): RadioButton = radioButton(text) { }
 
 inline fun LayoutManager<Node>.radioButton(
     text: String? = null,
-    noinline init: ((@LayoutDsl RadioButton).() -> Unit)? = null
+    init: (@LayoutDsl RadioButton).() -> Unit
 ): RadioButton = ktfx.layouts.radioButton(text, init).add()

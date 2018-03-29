@@ -8,11 +8,19 @@ import javafx.scene.Node
 import javafx.scene.control.Separator
 
 inline fun separator(
+    orientation: Orientation = HORIZONTAL
+): Separator = separator(orientation) { }
+
+inline fun separator(
     orientation: Orientation = HORIZONTAL,
-    noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
-): Separator = Separator(orientation).also { init?.invoke(it) }
+    init: (@LayoutDsl Separator).() -> Unit
+): Separator = Separator(orientation).apply(init)
+
+inline fun LayoutManager<Node>.separator(
+    orientation: Orientation = HORIZONTAL
+): Separator = separator(orientation) { }
 
 inline fun LayoutManager<Node>.separator(
     orientation: Orientation = HORIZONTAL,
-    noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
+    init: (@LayoutDsl Separator).() -> Unit
 ): Separator = ktfx.layouts.separator(orientation, init).add()

@@ -6,17 +6,31 @@ import javafx.scene.Node
 import javafx.scene.shape.Line
 
 inline fun line(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0,
-    noinline init: ((@LayoutDsl Line).() -> Unit)? = null
-): Line = Line(centerX, centerY, endX, endY).also { init?.invoke(it) }
+    centerX: Number = 0,
+    centerY: Number = 0,
+    endX: Number = 0,
+    endY: Number = 0
+): Line = line(centerX, centerY, endX, endY) { }
+
+fun line(
+    centerX: Number = 0,
+    centerY: Number = 0,
+    endX: Number = 0,
+    endY: Number = 0,
+    init: (@LayoutDsl Line).() -> Unit
+): Line = Line(centerX.toDouble(), centerY.toDouble(), endX.toDouble(), endY.toDouble()).apply(init)
 
 inline fun LayoutManager<Node>.line(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0,
-    noinline init: ((@LayoutDsl Line).() -> Unit)? = null
+    centerX: Number = 0,
+    centerY: Number = 0,
+    endX: Number = 0,
+    endY: Number = 0
+): Line = line(centerX, centerY, endX, endY) { }
+
+inline fun LayoutManager<Node>.line(
+    centerX: Number = 0,
+    centerY: Number = 0,
+    endX: Number = 0,
+    endY: Number = 0,
+    noinline init: (@LayoutDsl Line).() -> Unit
 ): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init).add()

@@ -13,11 +13,19 @@ class _MenuBar(vararg menus: Menu) : MenuBar(*menus), LayoutManager<Menu> {
 }
 
 inline fun menuBar(
+    vararg menus: Menu
+): MenuBar = menuBar(*menus) { }
+
+inline fun menuBar(
     vararg menus: Menu,
-    noinline init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
-): MenuBar = _MenuBar(*menus).also { init?.invoke(it) }
+    init: (@LayoutDsl _MenuBar).() -> Unit
+): MenuBar = _MenuBar(*menus).apply(init)
+
+inline fun LayoutManager<Node>.menuBar(
+    vararg menus: Menu
+): MenuBar = menuBar(*menus) { }
 
 inline fun LayoutManager<Node>.menuBar(
     vararg menus: Menu,
-    noinline init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
+    init: (@LayoutDsl _MenuBar).() -> Unit
 ): MenuBar = ktfx.layouts.menuBar(*menus, init = init).add()

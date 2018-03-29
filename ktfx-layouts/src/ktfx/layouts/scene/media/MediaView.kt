@@ -7,11 +7,19 @@ import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
 
 inline fun mediaView(
+    player: MediaPlayer? = null
+): MediaView = mediaView(player) { }
+
+inline fun mediaView(
     player: MediaPlayer? = null,
-    noinline init: ((@LayoutDsl MediaView).() -> Unit)? = null
-): MediaView = MediaView(player).also { init?.invoke(it) }
+    init: (@LayoutDsl MediaView).() -> Unit
+): MediaView = MediaView(player).apply(init)
+
+inline fun LayoutManager<Node>.mediaView(
+    player: MediaPlayer? = null
+): MediaView = mediaView(player) { }
 
 inline fun LayoutManager<Node>.mediaView(
     player: MediaPlayer? = null,
-    noinline init: ((@LayoutDsl MediaView).() -> Unit)? = null
+    init: (@LayoutDsl MediaView).() -> Unit
 ): MediaView = ktfx.layouts.mediaView(player, init).add()

@@ -22,10 +22,12 @@ open class _VBox : VBox(), LayoutManager<Node>, VGrowedPane, MarginedPane {
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun vbox(): VBox = vbox { }
 inline fun vbox(
-    noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
-): VBox = _VBox().also { init?.invoke(it) }
+    init: (@LayoutDsl _VBox).() -> Unit
+): VBox = _VBox().apply(init)
 
+inline fun LayoutManager<Node>.vbox(): VBox = vbox { }
 inline fun LayoutManager<Node>.vbox(
-    noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
+    init: (@LayoutDsl _VBox).() -> Unit
 ): VBox = ktfx.layouts.vbox(init).add()

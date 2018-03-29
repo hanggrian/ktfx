@@ -7,11 +7,19 @@ import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
 
 inline fun meshView(
+    mesh: Mesh? = null
+): MeshView = meshView(mesh) { }
+
+inline fun meshView(
     mesh: Mesh? = null,
-    noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null
-): MeshView = MeshView(mesh).also { init?.invoke(it) }
+    init: (@LayoutDsl MeshView).() -> Unit
+): MeshView = MeshView(mesh).apply(init)
+
+inline fun LayoutManager<Node>.meshView(
+    mesh: Mesh? = null
+): MeshView = meshView(mesh) { }
 
 inline fun LayoutManager<Node>.meshView(
     mesh: Mesh? = null,
-    noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null
+    init: (@LayoutDsl MeshView).() -> Unit
 ): MeshView = ktfx.layouts.meshView(mesh, init).add()

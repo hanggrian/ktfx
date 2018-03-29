@@ -67,43 +67,56 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, AlignedPan
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun gridPane(): GridPane = gridPane { }
+
 inline fun gridPane(
-    noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
-): GridPane = _GridPane().also { init?.invoke(it) }
+    init: (@LayoutDsl _GridPane).() -> Unit
+): GridPane = _GridPane().apply(init)
+
+inline fun LayoutManager<Node>.gridPane(): GridPane = gridPane { }
 
 inline fun LayoutManager<Node>.gridPane(
-    noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
+    init: (@LayoutDsl _GridPane).() -> Unit
 ): GridPane = ktfx.layouts.gridPane(init).add()
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {
 
-    /** Create a constraints. */
-    fun constraints(init: (T.() -> Unit)? = null): T
+    fun constraints(init: T.() -> Unit): T
 
-    /** Create a constraints with pre-defined width. */
-    fun constraints(size: Number, init: (T.() -> Unit)? = null): T
+    fun constraints(size: Number, init: T.() -> Unit): T
 
-    /** Create a constraints with pre-defined minimum, preferred, and maximum width. */
-    fun constraints(minSize: Number, prefSize: Number, maxSize: Number, init: (T.() -> Unit)? = null): T
+    fun constraints(minSize: Number, prefSize: Number, maxSize: Number, init: T.() -> Unit): T
 }
+
+inline fun <T : ConstraintsBase> ConstraintsBuilder<T>.constraints(): T = constraints { }
+
+inline fun <T : ConstraintsBase> ConstraintsBuilder<T>.constraints(size: Number): T = constraints(size) { }
+
+inline fun <T : ConstraintsBase> ConstraintsBuilder<T>.constraints(
+    minSize: Number,
+    prefSize: Number,
+    maxSize: Number
+): T = constraints(minSize, prefSize, maxSize) { }
 
 @PublishedApi
 internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T> {
     val constraints: MutableList<T> = mutableListOf()
 
     internal abstract fun newInstance(): T
+
     internal abstract fun newInstance(width: Number): T
+
     internal abstract fun newInstance(width: Number, prefWidth: Number, maxWidth: Number): T
 
-    override fun constraints(init: (T.() -> Unit)?): T =
-        newInstance().also { init?.invoke(it) }.also { constraints += it }
+    override fun constraints(init: T.() -> Unit): T =
+        newInstance().apply(init).also { constraints += it }
 
-    override fun constraints(size: Number, init: (T.() -> Unit)?): T =
-        newInstance(size).also { init?.invoke(it) }.also { constraints += it }
+    override fun constraints(size: Number, init: T.() -> Unit): T =
+        newInstance(size).apply(init).also { constraints += it }
 
-    override fun constraints(minSize: Number, prefSize: Number, maxSize: Number, init: (T.() -> Unit)?): T =
-        newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }.also { constraints += it }
+    override fun constraints(minSize: Number, prefSize: Number, maxSize: Number, init: T.() -> Unit): T =
+        newInstance(minSize, prefSize, maxSize).apply(init).also { constraints += it }
 }
 
 /** Invokes a row constraints DSL builder. */

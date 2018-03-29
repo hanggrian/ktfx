@@ -7,11 +7,19 @@ import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeView
 
 inline fun <T> treeView(
+    root: TreeItem<T>? = null
+): TreeView<T> = treeView(root) { }
+
+inline fun <T> treeView(
     root: TreeItem<T>? = null,
-    noinline init: ((@LayoutDsl TreeView<T>).() -> Unit)? = null
-): TreeView<T> = TreeView<T>(root).also { init?.invoke(it) }
+    init: (@LayoutDsl TreeView<T>).() -> Unit
+): TreeView<T> = TreeView<T>(root).apply(init)
+
+inline fun <T> LayoutManager<Node>.treeView(
+    root: TreeItem<T>? = null
+): TreeView<T> = treeView(root) { }
 
 inline fun <T> LayoutManager<Node>.treeView(
     root: TreeItem<T>? = null,
-    noinline init: ((@LayoutDsl TreeView<T>).() -> Unit)? = null
+    init: (@LayoutDsl TreeView<T>).() -> Unit
 ): TreeView<T> = ktfx.layouts.treeView(root, init).add()

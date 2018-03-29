@@ -12,13 +12,25 @@ import ktfx.collections.mutableObservableListOf
 inline fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): ScatterChart<X, Y> = scatterChart(x, y, data) { }
+
+inline fun <X, Y> scatterChart(
+    x: Axis<X>,
+    y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
-): ScatterChart<X, Y> = ScatterChart(x, y, data).also { init?.invoke(it) }
+    noinline init: (@LayoutDsl ScatterChart<X, Y>).() -> Unit
+): ScatterChart<X, Y> = ScatterChart(x, y, data).apply(init)
+
+inline fun <X, Y> LayoutManager<Node>.scatterChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): ScatterChart<X, Y> = scatterChart(x, y, data) { }
 
 inline fun <X, Y> LayoutManager<Node>.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
+    noinline init: (@LayoutDsl ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> = ktfx.layouts.scatterChart(x, y, data, init).add()

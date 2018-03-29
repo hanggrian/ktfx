@@ -5,10 +5,14 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.shape.SVGPath
 
+inline fun svgPath(): SVGPath = svgPath { }
+
 inline fun svgPath(
-    noinline init: ((@LayoutDsl SVGPath).() -> Unit)? = null
-): SVGPath = SVGPath().also { init?.invoke(it) }
+    init: (@LayoutDsl SVGPath).() -> Unit
+): SVGPath = SVGPath().apply(init)
+
+inline fun LayoutManager<Node>.svgPath(): SVGPath = svgPath { }
 
 inline fun LayoutManager<Node>.svgPath(
-    noinline init: ((@LayoutDsl SVGPath).() -> Unit)? = null
+    init: (@LayoutDsl SVGPath).() -> Unit
 ): SVGPath = ktfx.layouts.svgPath(init).add()

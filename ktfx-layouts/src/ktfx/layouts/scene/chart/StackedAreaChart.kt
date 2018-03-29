@@ -12,13 +12,25 @@ import ktfx.collections.mutableObservableListOf
 inline fun <X, Y> stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): StackedAreaChart<X, Y> = stackedAreaChart(x, y, data) { }
+
+inline fun <X, Y> stackedAreaChart(
+    x: Axis<X>,
+    y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl StackedAreaChart<X, Y>).() -> Unit)? = null
-): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).also { init?.invoke(it) }
+    init: (@LayoutDsl StackedAreaChart<X, Y>).() -> Unit
+): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).apply(init)
+
+inline fun <X, Y> LayoutManager<Node>.stackedAreaChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): StackedAreaChart<X, Y> = stackedAreaChart(x, y, data) { }
 
 inline fun <X, Y> LayoutManager<Node>.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl StackedAreaChart<X, Y>).() -> Unit)? = null
+    init: (@LayoutDsl StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> = ktfx.layouts.stackedAreaChart(x, y, data, init).add()

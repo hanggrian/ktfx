@@ -8,11 +8,19 @@ import javafx.scene.control.ListView
 import ktfx.collections.mutableObservableListOf
 
 inline fun <T> listView(
+    items: ObservableList<T> = mutableObservableListOf()
+): ListView<T> = listView(items) { }
+
+inline fun <T> listView(
     items: ObservableList<T> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl ListView<T>).() -> Unit)? = null
-): ListView<T> = ListView(items).also { init?.invoke(it) }
+    init: (@LayoutDsl ListView<T>).() -> Unit
+): ListView<T> = ListView(items).apply(init)
+
+inline fun <T> LayoutManager<Node>.listView(
+    items: ObservableList<T> = mutableObservableListOf()
+): ListView<T> = listView(items) { }
 
 inline fun <T> LayoutManager<Node>.listView(
     items: ObservableList<T> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl ListView<T>).() -> Unit)? = null
+    init: (@LayoutDsl ListView<T>).() -> Unit
 ): ListView<T> = ktfx.layouts.listView(items, init).add()

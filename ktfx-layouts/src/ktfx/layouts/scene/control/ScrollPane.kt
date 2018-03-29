@@ -6,11 +6,19 @@ import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 
 inline fun scrollPane(
+    content: Node? = null
+): ScrollPane = scrollPane(content) { }
+
+inline fun scrollPane(
     content: Node? = null,
-    noinline init: ((@LayoutDsl ScrollPane).() -> Unit)? = null
-): ScrollPane = ScrollPane(content).also { init?.invoke(it) }
+    init: (@LayoutDsl ScrollPane).() -> Unit
+): ScrollPane = ScrollPane(content).apply(init)
+
+inline fun LayoutManager<Node>.scrollPane(
+    content: Node? = null
+): ScrollPane = scrollPane(content) { }
 
 inline fun LayoutManager<Node>.scrollPane(
     content: Node? = null,
-    noinline init: ((@LayoutDsl ScrollPane).() -> Unit)? = null
+    init: (@LayoutDsl ScrollPane).() -> Unit
 ): ScrollPane = ktfx.layouts.scrollPane(content, init).add()

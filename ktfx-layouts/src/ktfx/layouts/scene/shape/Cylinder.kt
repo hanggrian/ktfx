@@ -6,15 +6,27 @@ import javafx.scene.Node
 import javafx.scene.shape.Cylinder
 
 inline fun cylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
+    radius: Number = 1,
+    height: Number = 2,
+    division: Int = 64
+): Cylinder = cylinder(radius, height, division) { }
+
+fun cylinder(
+    radius: Number = 1,
+    height: Number = 2,
     division: Int = 64,
-    noinline init: ((@LayoutDsl Cylinder).() -> Unit)? = null
-): Cylinder = Cylinder(radius, height, division).also { init?.invoke(it) }
+    init: (@LayoutDsl Cylinder).() -> Unit
+): Cylinder = Cylinder(radius.toDouble(), height.toDouble(), division).apply(init)
 
 inline fun LayoutManager<Node>.cylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
+    radius: Number = 1,
+    height: Number = 2,
+    division: Int = 64
+): Cylinder = cylinder(radius, height, division) { }
+
+inline fun LayoutManager<Node>.cylinder(
+    radius: Number = 1,
+    height: Number = 2,
     division: Int = 64,
-    noinline init: ((@LayoutDsl Cylinder).() -> Unit)? = null
+    noinline init: (@LayoutDsl Cylinder).() -> Unit
 ): Cylinder = ktfx.layouts.cylinder(radius, height, division, init).add()

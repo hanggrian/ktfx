@@ -7,12 +7,22 @@ import javafx.scene.control.Hyperlink
 
 inline fun hyperlink(
     text: String? = null,
+    graphic: Node? = null
+): Hyperlink = hyperlink(text, graphic) { }
+
+inline fun hyperlink(
+    text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null
-): Hyperlink = Hyperlink(text, graphic).also { init?.invoke(it) }
+    init: (@LayoutDsl Hyperlink).() -> Unit
+): Hyperlink = Hyperlink(text, graphic).apply(init)
+
+inline fun LayoutManager<Node>.hyperlink(
+    text: String? = null,
+    graphic: Node? = null
+): Hyperlink = hyperlink(text, graphic) { }
 
 inline fun LayoutManager<Node>.hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null
+    init: (@LayoutDsl Hyperlink).() -> Unit
 ): Hyperlink = ktfx.layouts.hyperlink(text, graphic, init).add()

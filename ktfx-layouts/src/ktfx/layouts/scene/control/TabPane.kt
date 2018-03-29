@@ -13,11 +13,19 @@ open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), LayoutManager<Tab> {
 }
 
 inline fun tabPane(
+    vararg tabs: Tab
+): TabPane = tabPane(*tabs) { }
+
+inline fun tabPane(
     vararg tabs: Tab,
-    noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
-): TabPane = _TabPane(*tabs).also { init?.invoke(it) }
+    init: (@LayoutDsl _TabPane).() -> Unit
+): TabPane = _TabPane(*tabs).apply(init)
+
+inline fun LayoutManager<Node>.tabPane(
+    vararg tabs: Tab
+): TabPane = tabPane(*tabs) { }
 
 inline fun LayoutManager<Node>.tabPane(
     vararg tabs: Tab,
-    noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
+    init: (@LayoutDsl _TabPane).() -> Unit
 ): TabPane = ktfx.layouts.tabPane(*tabs, init = init).add()

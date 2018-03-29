@@ -22,10 +22,12 @@ open class _StackPane : StackPane(), LayoutManager<Node>, AlignedPane, MarginedP
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun stackPane(): StackPane = stackPane { }
 inline fun stackPane(
-    noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
-): StackPane = _StackPane().also { init?.invoke(it) }
+    init: (@LayoutDsl _StackPane).() -> Unit
+): StackPane = _StackPane().apply(init)
 
+inline fun LayoutManager<Node>.stackPane(): StackPane = stackPane { }
 inline fun LayoutManager<Node>.stackPane(
-    noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
+    init: (@LayoutDsl _StackPane).() -> Unit
 ): StackPane = ktfx.layouts.stackPane(init).add()

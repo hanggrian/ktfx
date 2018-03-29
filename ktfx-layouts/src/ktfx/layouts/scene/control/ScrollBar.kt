@@ -5,10 +5,14 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.ScrollBar
 
+inline fun scrollBar(): ScrollBar = scrollBar { }
+
 inline fun scrollBar(
-    noinline init: ((@LayoutDsl ScrollBar).() -> Unit)? = null
-): ScrollBar = ScrollBar().also { init?.invoke(it) }
+    init: (@LayoutDsl ScrollBar).() -> Unit
+): ScrollBar = ScrollBar().apply(init)
+
+inline fun LayoutManager<Node>.scrollBar(): ScrollBar = scrollBar { }
 
 inline fun LayoutManager<Node>.scrollBar(
-    noinline init: ((@LayoutDsl ScrollBar).() -> Unit)? = null
+    init: (@LayoutDsl ScrollBar).() -> Unit
 ): ScrollBar = ktfx.layouts.scrollBar(init).add()

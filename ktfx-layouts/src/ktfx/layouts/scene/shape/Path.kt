@@ -7,11 +7,19 @@ import javafx.scene.shape.Path
 import javafx.scene.shape.PathElement
 
 inline fun path(
+    vararg elements: PathElement
+): Path = path(*elements) { }
+
+inline fun path(
     vararg elements: PathElement,
-    noinline init: ((@LayoutDsl Path).() -> Unit)? = null
-): Path = Path(*elements).also { init?.invoke(it) }
+    init: (@LayoutDsl Path).() -> Unit
+): Path = Path(*elements).apply(init)
+
+inline fun LayoutManager<Node>.path(
+    vararg elements: PathElement
+): Path = path(*elements) { }
 
 inline fun LayoutManager<Node>.path(
     vararg elements: PathElement,
-    noinline init: ((@LayoutDsl Path).() -> Unit)? = null
+    init: (@LayoutDsl Path).() -> Unit
 ): Path = ktfx.layouts.path(*elements, init = init).add()

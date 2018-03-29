@@ -7,12 +7,22 @@ import javafx.scene.control.Label
 
 inline fun label(
     text: String? = null,
+    graphic: Node? = null
+): Label = label(text, graphic) { }
+
+inline fun label(
+    text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl Label).() -> Unit)? = null
-): Label = Label(text, graphic).also { init?.invoke(it) }
+    init: (@LayoutDsl Label).() -> Unit
+): Label = Label(text, graphic).apply(init)
+
+inline fun LayoutManager<Node>.label(
+    text: String? = null,
+    graphic: Node? = null
+): Label = label(text, graphic) { }
 
 inline fun LayoutManager<Node>.label(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl Label).() -> Unit)? = null
+    init: (@LayoutDsl Label).() -> Unit
 ): Label = ktfx.layouts.label(text, graphic, init).add()

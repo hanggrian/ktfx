@@ -8,12 +8,22 @@ import javafx.scene.control.Pagination.INDETERMINATE
 
 inline fun pagination(
     count: Int = INDETERMINATE,
+    index: Int = 0
+): Pagination = pagination(count, index) { }
+
+inline fun pagination(
+    count: Int = INDETERMINATE,
     index: Int = 0,
-    noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null
-): Pagination = Pagination(count, index).also { init?.invoke(it) }
+    init: (@LayoutDsl Pagination).() -> Unit
+): Pagination = Pagination(count, index).apply(init)
+
+inline fun LayoutManager<Node>.pagination(
+    count: Int = INDETERMINATE,
+    index: Int = 0
+): Pagination = pagination(count, index) { }
 
 inline fun LayoutManager<Node>.pagination(
     count: Int = INDETERMINATE,
     index: Int = 0,
-    noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null
+    init: (@LayoutDsl Pagination).() -> Unit
 ): Pagination = ktfx.layouts.pagination(count, index, init).add()

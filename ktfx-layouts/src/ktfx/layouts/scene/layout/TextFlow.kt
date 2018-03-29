@@ -10,10 +10,12 @@ open class _TextFlow : TextFlow(), LayoutManager<Node> {
     override fun <T : Node> T.add(): T = also { children += it }
 }
 
+inline fun textFlow(): TextFlow = textFlow { }
 inline fun textFlow(
-    noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
-): TextFlow = _TextFlow().also { init?.invoke(it) }
+    init: (@LayoutDsl _TextFlow).() -> Unit
+): TextFlow = _TextFlow().apply(init)
 
+inline fun LayoutManager<Node>.textFlow(): TextFlow = textFlow { }
 inline fun LayoutManager<Node>.textFlow(
-    noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
+    init: (@LayoutDsl _TextFlow).() -> Unit
 ): TextFlow = ktfx.layouts.textFlow(init).add()

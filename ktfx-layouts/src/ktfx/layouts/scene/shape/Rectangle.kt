@@ -6,31 +6,31 @@ import javafx.scene.Node
 import javafx.scene.shape.Rectangle
 
 inline fun rectangle(
-    x: Number = 0,
-    y: Number = 0,
-    width: Number = 0,
-    height: Number = 0
+    x: Double = 0.0,
+    y: Double = 0.0,
+    width: Double = 0.0,
+    height: Double = 0.0
 ): Rectangle = rectangle(x, y, width, height) { }
 
-fun rectangle(
-    x: Number = 0,
-    y: Number = 0,
-    width: Number = 0,
-    height: Number = 0,
+inline fun rectangle(
+    x: Double = 0.0,
+    y: Double = 0.0,
+    width: Double = 0.0,
+    height: Double = 0.0,
     init: (@LayoutDsl Rectangle).() -> Unit
-): Rectangle = Rectangle(x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()).apply(init)
+): Rectangle = Rectangle(x, y, width, height).apply(init)
 
 inline fun LayoutManager<Node>.rectangle(
-    x: Number = 0,
-    y: Number = 0,
-    width: Number = 0,
-    height: Number = 0
+    x: Double = 0.0,
+    y: Double = 0.0,
+    width: Double = 0.0,
+    height: Double = 0.0
 ): Rectangle = rectangle(x, y, width, height) { }
 
 inline fun LayoutManager<Node>.rectangle(
-    x: Number = 0,
-    y: Number = 0,
-    width: Number = 0,
-    height: Number = 0,
-    noinline init: (@LayoutDsl Rectangle).() -> Unit
+    x: Double = 0.0,
+    y: Double = 0.0,
+    width: Double = 0.0,
+    height: Double = 0.0,
+    init: (@LayoutDsl Rectangle).() -> Unit
 ): Rectangle = ktfx.layouts.rectangle(x, y, width, height, init).add()

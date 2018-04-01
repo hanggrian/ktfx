@@ -6,27 +6,27 @@ import javafx.scene.Node
 import javafx.scene.control.Slider
 
 inline fun slider(
-    min: Number,
-    max: Number,
-    value: Number
+    min: Double,
+    max: Double,
+    value: Double
 ): Slider = slider(min, max, value) { }
 
-fun slider(
-    min: Number,
-    max: Number,
-    value: Number,
+inline fun slider(
+    min: Double,
+    max: Double,
+    value: Double,
     init: (@LayoutDsl Slider).() -> Unit
-): Slider = Slider(min.toDouble(), max.toDouble(), value.toDouble()).apply(init)
+): Slider = Slider(min, max, value).apply(init)
 
 inline fun LayoutManager<Node>.slider(
-    min: Number,
-    max: Number,
-    value: Number
+    min: Double,
+    max: Double,
+    value: Double
 ): Slider = slider(min, max, value) { }
 
 inline fun LayoutManager<Node>.slider(
-    min: Number,
-    max: Number,
-    value: Number,
-    noinline init: (@LayoutDsl Slider).() -> Unit
+    min: Double,
+    max: Double,
+    value: Double,
+    init: (@LayoutDsl Slider).() -> Unit
 ): Slider = ktfx.layouts.slider(min, max, value, init).add()

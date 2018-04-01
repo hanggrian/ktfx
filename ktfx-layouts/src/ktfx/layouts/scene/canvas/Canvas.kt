@@ -6,23 +6,23 @@ import javafx.scene.Node
 import javafx.scene.canvas.Canvas
 
 inline fun canvas(
-    width: Number = 0,
-    height: Number = 0
+    width: Double = 0.0,
+    height: Double = 0.0
 ): Canvas = canvas(width, height) { }
 
-fun canvas(
-    width: Number = 0,
-    height: Number = 0,
+inline fun canvas(
+    width: Double = 0.0,
+    height: Double = 0.0,
     init: (@LayoutDsl Canvas).() -> Unit
-): Canvas = Canvas(width.toDouble(), height.toDouble()).apply(init)
+): Canvas = Canvas(width, height).apply(init)
 
 inline fun LayoutManager<Node>.canvas(
-    width: Number = 0,
-    height: Number = 0
+    width: Double = 0.0,
+    height: Double = 0.0
 ): Canvas = canvas(width, height) { }
 
 inline fun LayoutManager<Node>.canvas(
-    width: Number = 0,
-    height: Number = 0,
-    noinline init: (@LayoutDsl Canvas).() -> Unit
+    width: Double = 0.0,
+    height: Double = 0.0,
+    init: (@LayoutDsl Canvas).() -> Unit
 ): Canvas = ktfx.layouts.canvas(width, height, init).add()

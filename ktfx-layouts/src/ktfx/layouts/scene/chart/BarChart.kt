@@ -13,28 +13,28 @@ inline fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    gap: Number = 10
+    gap: Double = 10.0
 ): BarChart<X, Y> = barChart(x, y, data, gap) { }
 
-fun <X, Y> barChart(
+inline fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    gap: Number = 10,
+    gap: Double = 10.0,
     init: (@LayoutDsl BarChart<X, Y>).() -> Unit
-): BarChart<X, Y> = BarChart(x, y, data, gap.toDouble()).apply(init)
+): BarChart<X, Y> = BarChart(x, y, data, gap).apply(init)
 
 inline fun <X, Y> LayoutManager<Node>.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    gap: Number = 10
+    gap: Double = 10.0
 ): BarChart<X, Y> = barChart(x, y, data, gap) { }
 
 inline fun <X, Y> LayoutManager<Node>.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    gap: Number = 10,
-    noinline init: (@LayoutDsl BarChart<X, Y>).() -> Unit
+    gap: Double = 10.0,
+    init: (@LayoutDsl BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> = ktfx.layouts.barChart(x, y, data, gap, init).add()

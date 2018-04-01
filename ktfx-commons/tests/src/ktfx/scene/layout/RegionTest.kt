@@ -25,7 +25,7 @@ class RegionTest : ApplicationTest() {
         assertEquals(region.paddingLeft, 0.0)
         assertEquals(region.paddingRight, 0.0)
         assertEquals(region.paddingBottom, 20.0)
-        region.paddings = 10.0
+        region.paddingAll = 10.0
         assertEquals(region.paddingTop, 10.0)
         assertEquals(region.paddingLeft, 10.0)
         assertEquals(region.paddingRight, 10.0)

@@ -6,19 +6,19 @@ import javafx.scene.Node
 import javafx.scene.shape.Polyline
 
 inline fun polyline(
-    vararg points: Number
+    vararg points: Double
 ): Polyline = polyline(*points) { }
 
-fun polyline(
-    vararg points: Number,
+inline fun polyline(
+    vararg points: Double,
     init: (@LayoutDsl Polyline).() -> Unit
-): Polyline = Polyline(*points.map { it.toDouble() }.toDoubleArray()).apply(init)
+): Polyline = Polyline(*points).apply(init)
 
 inline fun LayoutManager<Node>.polyline(
-    vararg points: Number
+    vararg points: Double
 ): Polyline = polyline(*points) { }
 
 inline fun LayoutManager<Node>.polyline(
-    vararg points: Number,
-    noinline init: (@LayoutDsl Polyline).() -> Unit
+    vararg points: Double,
+    init: (@LayoutDsl Polyline).() -> Unit
 ): Polyline = ktfx.layouts.polyline(*points, init = init).add()

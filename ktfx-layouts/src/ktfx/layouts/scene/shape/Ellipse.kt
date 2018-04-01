@@ -6,31 +6,31 @@ import javafx.scene.Node
 import javafx.scene.shape.Ellipse
 
 inline fun ellipse(
-    centerX: Number = 0,
-    centerY: Number = 0,
-    radiusX: Number = 0,
-    radiusY: Number = 0
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radiusX: Double = 0.0,
+    radiusY: Double = 0.0
 ): Ellipse = ellipse(centerX, centerY, radiusX, radiusY) { }
 
-fun ellipse(
-    centerX: Number = 0,
-    centerY: Number = 0,
-    radiusX: Number = 0,
-    radiusY: Number = 0,
+inline fun ellipse(
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radiusX: Double = 0.0,
+    radiusY: Double = 0.0,
     init: (@LayoutDsl Ellipse).() -> Unit
-): Ellipse = Ellipse(centerX.toDouble(), centerY.toDouble(), radiusX.toDouble(), radiusY.toDouble()).apply(init)
+): Ellipse = Ellipse(centerX, centerY, radiusX, radiusY).apply(init)
 
 inline fun LayoutManager<Node>.ellipse(
-    centerX: Number = 0,
-    centerY: Number = 0,
-    radiusX: Number = 0,
-    radiusY: Number = 0
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radiusX: Double = 0.0,
+    radiusY: Double = 0.0
 ): Ellipse = ellipse(centerX, centerY, radiusX, radiusY) { }
 
 inline fun LayoutManager<Node>.ellipse(
-    centerX: Number = 0,
-    centerY: Number = 0,
-    radiusX: Number = 0,
-    radiusY: Number = 0,
-    noinline init: (@LayoutDsl Ellipse).() -> Unit
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radiusX: Double = 0.0,
+    radiusY: Double = 0.0,
+    init: (@LayoutDsl Ellipse).() -> Unit
 ): Ellipse = ktfx.layouts.ellipse(centerX, centerY, radiusX, radiusY, init).add()

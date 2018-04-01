@@ -4,22 +4,14 @@ package ktfx.scene.layout
 
 import javafx.geometry.Insets
 import javafx.scene.layout.Region
-import ktfx.internal.NO_GETTER
-import ktfx.internal.noGetter
+import ktfx.internal.KtFXInternals.NO_GETTER
+import ktfx.internal.KtFXInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Sets padding to all sides with integer. */
-inline var Region.paddings: Double
+inline var Region.paddingAll: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setPadding(Insets(value))
-
-/** Sets padding to each side with integer. */
-inline fun Region.updatePadding(
-    top: Double = padding.top,
-    right: Double = padding.right,
-    bottom: Double = padding.bottom,
-    left: Double = padding.left
-) = setPadding(Insets(top, right, bottom, left))
 
 /** Top padding in integer. */
 inline var Region.paddingTop: Double
@@ -40,3 +32,11 @@ inline var Region.paddingBottom: Double
 inline var Region.paddingLeft: Double
     get() = padding.left
     set(value) = updatePadding(left = value)
+
+/** Sets padding to each side with integer. */
+inline fun Region.updatePadding(
+    top: Double = paddingTop,
+    right: Double = paddingRight,
+    bottom: Double = paddingBottom,
+    left: Double = paddingLeft
+) = setPadding(Insets(top, right, bottom, left))

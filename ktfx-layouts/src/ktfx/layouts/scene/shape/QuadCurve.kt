@@ -6,40 +6,39 @@ import javafx.scene.Node
 import javafx.scene.shape.QuadCurve
 
 inline fun quadCurve(
-    startX: Number = 0,
-    startY: Number = 0,
-    controlX: Number = 0,
-    controlY: Number = 0,
-    endX: Number = 0,
-    endY: Number = 0
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0
 ): QuadCurve = quadCurve(startX, startY, controlX, controlY, endX, endY) { }
 
-fun quadCurve(
-    startX: Number = 0,
-    startY: Number = 0,
-    controlX: Number = 0,
-    controlY: Number = 0,
-    endX: Number = 0,
-    endY: Number = 0,
+inline fun quadCurve(
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
     init: (@LayoutDsl QuadCurve).() -> Unit
-): QuadCurve = QuadCurve(startX.toDouble(), startY.toDouble(), controlX.toDouble(), controlY.toDouble(),
-    endX.toDouble(), endY.toDouble()).apply(init)
+): QuadCurve = QuadCurve(startX, startY, controlX, controlY, endX, endY).apply(init)
 
 inline fun LayoutManager<Node>.quadCurve(
-    startX: Number = 0,
-    startY: Number = 0,
-    controlX: Number = 0,
-    controlY: Number = 0,
-    endX: Number = 0,
-    endY: Number = 0
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0
 ): QuadCurve = quadCurve(startX, startY, controlX, controlY, endX, endY) { }
 
 inline fun LayoutManager<Node>.quadCurve(
-    startX: Number = 0,
-    startY: Number = 0,
-    controlX: Number = 0,
-    controlY: Number = 0,
-    endX: Number = 0,
-    endY: Number = 0,
-    noinline init: (@LayoutDsl QuadCurve).() -> Unit
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    init: (@LayoutDsl QuadCurve).() -> Unit
 ): QuadCurve = ktfx.layouts.quadCurve(startX, startY, controlX, controlY, endX, endY, init).add()

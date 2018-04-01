@@ -32,7 +32,7 @@ class App : Application() {
     override fun start(stage: Stage) {
         stage.scene = Scene(gridPane {
             vbox {
-                updatePadding(right = 20, left = 20)
+                updatePadding(right = 20.0, left = 20.0)
                 calculationLabel = label("")
                 resultLabel = label {
                     textProperty().bind(stringBindingOf(calculationLabel.textProperty()) {
@@ -59,7 +59,7 @@ class App : Application() {
                         }
                     })
                 }
-            } row 0 col 0 colSpan 5 hfill true
+            } row 0 col 0 colStretch 5 hfill true
 
             button("1") {
                 setMinSize(40.0, 40.0)
@@ -137,7 +137,7 @@ class App : Application() {
                         title = ":("
                         dialogPane.expandableContent = ktfx.layouts.vbox {
                             label("Suggestion") { font = font("Arial", BOLD, 14.0) }
-                            label("Use an actual calculator.") marginTop 4
+                            label("Use an actual calculator.") marginTop 4.0
                         }
                     }.show()
                 }
@@ -149,7 +149,7 @@ class App : Application() {
                 onAction {
                     calculationLabel.text = ""
                 }
-            } row 1 col 3 colSpan 2
+            } row 1 col 3 colStretch 2
             button("*") {
                 setMinSize(40.0, 40.0)
                 onAction {
@@ -167,7 +167,7 @@ class App : Application() {
                 onAction {
                     appendText("+")
                 }
-            } row 3 col 3 rowSpan 2
+            } row 3 col 3 rowStretch 2
             button("-") {
                 setMinSize(40.0, 40.0)
                 onAction {

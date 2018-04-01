@@ -11,11 +11,13 @@ open class _TextFlow : TextFlow(), LayoutManager<Node> {
 }
 
 inline fun textFlow(): TextFlow = textFlow { }
+
 inline fun textFlow(
     init: (@LayoutDsl _TextFlow).() -> Unit
 ): TextFlow = _TextFlow().apply(init)
 
 inline fun LayoutManager<Node>.textFlow(): TextFlow = textFlow { }
+
 inline fun LayoutManager<Node>.textFlow(
     init: (@LayoutDsl _TextFlow).() -> Unit
 ): TextFlow = ktfx.layouts.textFlow(init).add()

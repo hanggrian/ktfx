@@ -6,66 +6,94 @@ import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.Priority
-import ktfx.geometry.plus
+import ktfx.internal.KtFXInternals.NO_GETTER
+import ktfx.internal.KtFXInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
 
 internal interface ConstrainedPane {
 
-    fun Node.reset()
+    fun Node.clear()
 }
 
 internal interface MarginedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.margins(value: Insets?): N
+    infix fun <N : Node> N.margins(value: Insets?): N = apply { margins = value }
 
-    infix fun <N : Node> N.margins(value: Number) = margins(Insets(value.toDouble()))
+    infix fun <N : Node> N.marginAll(value: Double?) = apply { marginAll = value }
 
-    fun <N : Node> N.margins(top: Number, right: Number, bottom: Number, left: Number): N =
-        margins(Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble()))
+    infix fun <N : Node> N.marginTop(value: Double?): N = apply { marginTop = value }
 
-    infix fun <N : Node> N.marginTop(value: Number): N = margins(value, marginRight, marginBottom, marginLeft)
+    infix fun <N : Node> N.marginRight(value: Double?): N = apply { marginRight = value }
 
-    infix fun <N : Node> N.marginRight(value: Number): N = margins(marginTop, value, marginBottom, marginLeft)
+    infix fun <N : Node> N.marginBottom(value: Double?): N = apply { marginBottom = value }
 
-    infix fun <N : Node> N.marginBottom(value: Number): N = margins(marginTop, marginRight, value, marginLeft)
+    infix fun <N : Node> N.marginLeft(value: Double?): N = apply { marginLeft = value }
 
-    infix fun <N : Node> N.marginLeft(value: Number): N = margins(marginTop, marginRight, marginBottom, value)
+    var Node.margins: Insets?
 
-    val Node.margins: Insets
+    var Node.marginAll: Double?
+        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+        set(value) {
+            margins = value?.let { Insets(it) }
+        }
 
-    val Node.marginTop: Double get() = margins.top
+    var Node.marginTop: Double?
+        get() = margins?.top
+        set(value) = updateMargin(top = value)
 
-    val Node.marginRight: Double get() = margins.right
+    var Node.marginRight: Double?
+        get() = margins?.right
+        set(value) = updateMargin(right = value)
 
-    val Node.marginBottom: Double get() = margins.bottom
+    var Node.marginBottom: Double?
+        get() = margins?.bottom
+        set(value) = updateMargin(bottom = value)
 
-    val Node.marginLeft: Double get() = margins.left
+    var Node.marginLeft: Double?
+        get() = margins?.left
+        set(value) = updateMargin(left = value)
+
+    fun Node.updateMargin(
+        top: Double? = marginTop,
+        right: Double? = marginRight,
+        bottom: Double? = marginBottom,
+        left: Double? = marginLeft
+    ) {
+        margins = Insets(top ?: 0.0, right ?: 0.0, bottom ?: 0.0, left ?: 0.0)
+    }
 }
 
 internal interface AlignedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.pos(value: Pos?): N
+    infix fun <N : Node> N.pos(value: Pos?): N = apply { pos = value }
 
-    infix fun <N : Node> N.hpos(value: HPos?): N = pos(vpos + (value ?: hpos))
+    var Node.pos: Pos?
+}
 
-    infix fun <N : Node> N.vpos(value: VPos?): N = pos((value ?: vpos) + hpos)
+internal interface HAlignedPane : ConstrainedPane {
 
-    val Node.pos: Pos
+    infix fun <N : Node> N.hpos(value: HPos?): N = apply { hpos = value }
 
-    val Node.hpos: HPos get() = pos.hpos
+    var Node.hpos: HPos?
+}
 
-    val Node.vpos: VPos get() = pos.vpos
+internal interface VAlignedPane : ConstrainedPane {
+
+    infix fun <N : Node> N.vpos(value: VPos?): N = apply { vpos = value }
+
+    var Node.vpos: VPos?
 }
 
 internal interface HGrowedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.hpriority(value: Priority?): N
+    infix fun <N : Node> N.hpriority(value: Priority?): N = apply { hpriority = value }
 
-    val Node.hpriority: Priority
+    var Node.hpriority: Priority?
 }
 
 internal interface VGrowedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.vpriority(value: Priority?): N
+    infix fun <N : Node> N.vpriority(value: Priority?): N = apply { vpriority = value }
 
-    val Node.vpriority: Priority
+    var Node.vpriority: Priority?
 }

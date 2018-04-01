@@ -15,12 +15,12 @@ object GridConstraintsSpec : Spek({
     given("A constrainted GridPane") {
         initToolkit()
         val gridPane = gridPane {
-            row {
+            rowConstraints {
                 constraints()
-                constraints(20)
+                constraints(20.0)
             }
-            column {
-                constraints(30)
+            columnConstraints {
+                constraints(30.0)
                 constraints()
             }
         }

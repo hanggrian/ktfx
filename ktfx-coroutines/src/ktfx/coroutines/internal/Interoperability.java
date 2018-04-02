@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public final class Interoperability {
 
     private Interoperability() {
+        // no instance
     }
 
     /**

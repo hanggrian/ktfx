@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn
 import javafx.scene.control.cell.CheckBoxTableCell
 import javafx.scene.control.cell.ChoiceBoxTableCell
 import javafx.scene.control.cell.TextFieldTableCell
+import ktfx.listeners.internal.build
 
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     noinline callback: (Int) -> ObservableValue<Boolean>,

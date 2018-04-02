@@ -3,6 +3,7 @@
 package ktfx.listeners
 
 import javafx.scene.control.TableView
+import ktfx.listeners.internal.build
 
 /** A function which produces a TableRow. */
 inline fun <S> TableView<S>.rowFactory(

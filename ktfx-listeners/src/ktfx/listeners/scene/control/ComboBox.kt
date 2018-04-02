@@ -3,6 +3,7 @@
 package ktfx.listeners
 
 import javafx.scene.control.ComboBox
+import ktfx.listeners.internal.build
 
 /** Converts the user-typed input. */
 inline fun <T> ComboBox<T>.converter(

@@ -7,51 +7,8 @@ import javafx.scene.control.TableCell
 import javafx.scene.control.TableRow
 import javafx.scene.control.TreeTableCell
 import javafx.scene.control.TreeTableRow
-
-/** Interface to build [javafx.scene.control.Cell] with Kotlin DSL. */
-internal interface CellBuilder<out T> {
-
-    /** Invoked when cell is on editing mode. */
-    fun onStartEdit(listener: () -> Unit)
-
-    /** Invoked when cell edit is being committed. */
-    fun onCommitEdit(listener: (T?) -> Unit)
-
-    /** Invoked when cell edit is canceled. */
-    fun onCancelEdit(listener: () -> Unit)
-
-    /** Invoked when cell item is updating. */
-    fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
-
-    /** Clear text and graphic of current cell. */
-    fun clear()
-}
-
-class CellBuilderImpl<T> : CellBuilder<T> {
-
-    internal var onStartEdit: (() -> Unit)? = null
-    internal var onCommitEdit: ((T?) -> Unit)? = null
-    internal var onCancelEdit: (() -> Unit)? = null
-    internal var onUpdateItem: ((T?, empty: Boolean) -> Unit)? = null
-
-    override fun onStartEdit(listener: () -> Unit) {
-        onStartEdit = listener
-    }
-
-    override fun onCommitEdit(listener: (T?) -> Unit) {
-        onCommitEdit = listener
-    }
-
-    override fun onCancelEdit(listener: () -> Unit) {
-        onCancelEdit = listener
-    }
-
-    override fun onUpdate(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdateItem = listener
-    }
-
-    override fun clear() {}
-}
+import ktfx.listeners.internal.CellBuilder
+import ktfx.listeners.internal.CellBuilderImpl
 
 /** [ListCell] builder with Kotlin DSL. */
 class ListCellBuilder<T>(
@@ -84,9 +41,6 @@ class ListCellBuilder<T>(
     }
 }
 
-@PublishedApi internal inline fun <T> (ListCellBuilder<T>.() -> Unit).build(): ListCell<T> =
-    ListCellBuilder<T>().apply(this)
-
 /** [TableRow] builder with Kotlin DSL. */
 class TableRowBuilder<T>(
     private val impl: CellBuilderImpl<T> = CellBuilderImpl()
@@ -117,9 +71,6 @@ class TableRowBuilder<T>(
         graphic = null
     }
 }
-
-@PublishedApi internal inline fun <T> (TableRowBuilder<T>.() -> Unit).build(): TableRow<T> =
-    TableRowBuilder<T>().apply(this)
 
 /** [TableCell] builder with Kotlin DSL. */
 class TableCellBuilder<S, T>(
@@ -152,9 +103,6 @@ class TableCellBuilder<S, T>(
     }
 }
 
-@PublishedApi internal inline fun <S, T> (TableCellBuilder<S, T>.() -> Unit).build(): TableCell<S, T> =
-    TableCellBuilder<S, T>().apply(this)
-
 /** [TreeTableRow] builder with Kotlin DSL. */
 class TreeTableRowBuilder<T>(
     private val impl: CellBuilderImpl<T> = CellBuilderImpl()
@@ -186,9 +134,6 @@ class TreeTableRowBuilder<T>(
     }
 }
 
-@PublishedApi internal inline fun <T> (TreeTableRowBuilder<T>.() -> Unit).build(): TreeTableRow<T> =
-    TreeTableRowBuilder<T>().apply(this)
-
 /** [TreeTableCell] builder with Kotlin DSL. */
 class TreeTableCellBuilder<S, T>(
     private val impl: CellBuilderImpl<T> = CellBuilderImpl()
@@ -219,6 +164,3 @@ class TreeTableCellBuilder<S, T>(
         graphic = null
     }
 }
-
-@PublishedApi internal inline fun <S, T> (TreeTableCellBuilder<S, T>.() -> Unit).build(): TreeTableCell<S, T> =
-    TreeTableCellBuilder<S, T>().apply(this)

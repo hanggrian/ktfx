@@ -5,6 +5,7 @@ package ktfx.styles
 import javafx.scene.Cursor
 import javafx.scene.effect.BlendMode
 import ktfx.styles.internal.NotImplemented
+import ktfx.styles.internal.StyleBuilder
 
 interface NodeStyleBuilder {
 

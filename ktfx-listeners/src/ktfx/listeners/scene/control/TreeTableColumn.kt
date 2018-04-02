@@ -8,6 +8,7 @@ import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.cell.CheckBoxTreeTableCell
 import javafx.scene.control.cell.ChoiceBoxTreeTableCell
 import javafx.scene.control.cell.TextFieldTreeTableCell
+import ktfx.listeners.internal.build
 
 inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     noinline callback: (Int) -> ObservableValue<Boolean>,

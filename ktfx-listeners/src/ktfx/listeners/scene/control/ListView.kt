@@ -9,6 +9,7 @@ import javafx.scene.control.cell.CheckBoxListCell
 import javafx.scene.control.cell.ChoiceBoxListCell
 import javafx.scene.control.cell.ComboBoxListCell
 import javafx.scene.control.cell.TextFieldListCell
+import ktfx.listeners.internal.build
 
 inline fun <T> ListView<T>.checkBoxCellFactory(
     noinline callback: (T) -> ObservableValue<Boolean>,

@@ -9,8 +9,8 @@ import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
-group = "$releaseArtifact.commons"
-version = releaseVersion
+group = ARTIFACT_COMMONS.asGroup()
+version = RELEASE_VERSION
 
 plugins {
     `java-library`
@@ -28,10 +28,10 @@ java.sourceSets {
 val ktlint by configurations.creating
 
 dependencies {
-    compile(kotlin("stdlib", kotlinVersion))
+    compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(kotlin("test", kotlinVersion))
-    testImplementation(kotlin("reflect", kotlinVersion))
+    testImplementation(kotlin("test", VERSION_KOTLIN))
+    testImplementation(kotlin("reflect", VERSION_KOTLIN))
     testImplementation(junitPlatform("runner"))
     testImplementation(spek("api")) {
         exclude("org.jetbrains.kotlin")
@@ -75,13 +75,13 @@ tasks {
 }
 
 publish {
-    repoName = releaseArtifact
-    userOrg = releaseUser
-    groupId = releaseGroup
-    artifactId = "$releaseArtifact-commons"
-    publishVersion = releaseVersion
-    desc = releaseDesc
-    website = releaseWeb
+    repoName = RELEASE_ARTIFACT
+    userOrg = RELEASE_USER
+    groupId = RELEASE_GROUP
+    artifactId = ARTIFACT_COMMONS
+    publishVersion = RELEASE_VERSION
+    desc = RELEASE_DESC
+    website = RELEASE_WEB
 }
 
 configure<JUnitPlatformExtension> {

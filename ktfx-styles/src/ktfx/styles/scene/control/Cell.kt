@@ -1,5 +1,7 @@
 package ktfx.styles
 
+import ktfx.styles.internal._CellStyleBuilder
+
 interface CellStyleBuilder {
 
     /**
@@ -7,13 +9,6 @@ interface CellStyleBuilder {
      * For vertical ListView or a TreeView or TableView this is the height, for a horizontal ListView this is the width.
      */
     var cellSize: Number
-}
-
-@Suppress("ClassName")
-open class _CellStyleBuilder(
-    prettyPrint: Boolean
-) : _LabeledStyleBuilder(prettyPrint), CellStyleBuilder {
-    override var cellSize: Number by map
 }
 
 inline fun cellStyle(

@@ -1,18 +1,11 @@
 package ktfx.styles
 
 import javafx.geometry.Pos
+import ktfx.styles.internal._TextFieldStyleBuilder
 
 interface TextFieldStyleBuilder {
 
     var alignment: Pos
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _TextFieldStyleBuilder(
-    prettyPrint: Boolean
-) : _TextInputControlStyleBuilder(prettyPrint), TextFieldStyleBuilder {
-    override var alignment: Pos by map
 }
 
 inline fun textFieldStyle(

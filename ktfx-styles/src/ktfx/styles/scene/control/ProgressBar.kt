@@ -1,5 +1,7 @@
 package ktfx.styles
 
+import ktfx.styles.internal._ProgressBarStyleBuilder
+
 interface ProgressBarStyleBuilder {
 
     var indeterminateBarLength: Number
@@ -9,17 +11,6 @@ interface ProgressBarStyleBuilder {
     var indeterminateBarFlip: Boolean
 
     var indeterminateBarAnimationTime: Number
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _ProgressBarStyleBuilder(
-    prettyPrint: Boolean
-) : _ProgressIndicatorStyleBuilder(prettyPrint), ProgressBarStyleBuilder {
-    override var indeterminateBarLength: Number by map
-    override var indeterminateBarEscape: Boolean by map
-    override var indeterminateBarFlip: Boolean by map
-    override var indeterminateBarAnimationTime: Number by map
 }
 
 inline fun progressBarStyle(

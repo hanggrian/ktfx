@@ -1,18 +1,11 @@
 package ktfx.styles
 
 import javafx.geometry.Pos
+import ktfx.styles.internal._StackPaneStyleBuilder
 
 interface StackPaneStyleBuilder {
 
     var alignment: Pos
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _StackPaneStyleBuilder(
-    prettyPrint: Boolean
-) : _RegionStyleBuilder(prettyPrint), StackPaneStyleBuilder {
-    override var alignment: Pos by map
 }
 
 inline fun stackPaneStyle(

@@ -1,8 +1,3 @@
-include(":ktfx")
-include(":ktfx-commons")
-include(":ktfx-coroutines")
-include(":ktfx-layouts")
-include(":ktfx-listeners")
-include(":ktfx-styles")
+(ARTIFACTS + RELEASE_ARTIFACT).forEach { include(":$it") }
 
 include(":example")

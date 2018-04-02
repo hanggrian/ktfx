@@ -1,6 +1,7 @@
 package ktfx.styles
 
 import javafx.geometry.Pos
+import ktfx.styles.internal._HBoxStyleBuilder
 
 interface HBoxStyleBuilder : RegionStyleBuilder {
 
@@ -9,16 +10,6 @@ interface HBoxStyleBuilder : RegionStyleBuilder {
     var alignment: Pos
 
     var fillHeight: Boolean
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _HBoxStyleBuilder(
-    prettyPrint: Boolean
-) : _RegionStyleBuilder(prettyPrint), HBoxStyleBuilder {
-    override var spacing: Number by map
-    override var alignment: Pos by map
-    override var fillHeight: Boolean by map
 }
 
 inline fun hboxStyle(

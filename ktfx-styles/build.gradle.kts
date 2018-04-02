@@ -10,8 +10,8 @@ import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
-group = "$releaseArtifact.styles"
-version = releaseVersion
+group = ARTIFACT_STYLES.asGroup()
+version = RELEASE_VERSION
 
 plugins {
     `java-library`
@@ -31,11 +31,11 @@ java.sourceSets {
 val ktlint by configurations.creating
 
 dependencies {
-    compile(project(":ktfx-commons"))
-    compile(kotlin("stdlib", kotlinVersion))
+    compile(project(":$ARTIFACT_COMMONS"))
+    compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(kotlin("test", kotlinVersion))
-    testImplementation(kotlinx("coroutines-core", coroutinesVersion))
+    testImplementation(kotlin("test", VERSION_KOTLIN))
+    testImplementation(kotlinx("coroutines-core", VERSION_COROUTINES))
     testImplementation(testFX("core"))
     testImplementation(testFX("junit"))
 
@@ -70,11 +70,11 @@ tasks {
 }
 
 publish {
-    repoName = releaseArtifact
-    userOrg = releaseUser
-    groupId = releaseGroup
-    artifactId = "$releaseArtifact-styles"
-    publishVersion = releaseVersion
-    desc = releaseDesc
-    website = releaseWeb
+    repoName = RELEASE_ARTIFACT
+    userOrg = RELEASE_USER
+    groupId = RELEASE_GROUP
+    artifactId = ARTIFACT_STYLES
+    publishVersion = RELEASE_VERSION
+    desc = RELEASE_DESC
+    website = RELEASE_WEB
 }

@@ -10,8 +10,8 @@ import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 import org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
-group = "$releaseArtifact.coroutines"
-version = releaseVersion
+group = ARTIFACT_COROUTINES.asGroup()
+version = RELEASE_VERSION
 
 plugins {
     `java-library`
@@ -31,12 +31,12 @@ kotlin.experimental.coroutines = ENABLE
 val ktlint by configurations.creating
 
 dependencies {
-    compile(project(":ktfx-commons"))
-    compile(kotlin("stdlib", kotlinVersion))
-    compile(kotlinx("coroutines-javafx", coroutinesVersion))
+    compile(project(":$ARTIFACT_COMMONS"))
+    compile(kotlin("stdlib", VERSION_KOTLIN))
+    compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
-    testImplementation(kotlin("test", kotlinVersion))
-    testImplementation(kotlin("reflect", kotlinVersion))
+    testImplementation(kotlin("test", VERSION_KOTLIN))
+    testImplementation(kotlin("reflect", VERSION_KOTLIN))
     testImplementation(junitPlatform("runner"))
     testImplementation(spek("api")) {
         exclude("org.jetbrains.kotlin")
@@ -79,13 +79,13 @@ tasks {
 }
 
 publish {
-    repoName = releaseArtifact
-    userOrg = releaseUser
-    groupId = releaseGroup
-    artifactId = "$releaseArtifact-coroutines"
-    publishVersion = releaseVersion
-    desc = releaseDesc
-    website = releaseWeb
+    repoName = RELEASE_ARTIFACT
+    userOrg = RELEASE_USER
+    groupId = RELEASE_GROUP
+    artifactId = ARTIFACT_COROUTINES
+    publishVersion = RELEASE_VERSION
+    desc = RELEASE_DESC
+    website = RELEASE_WEB
 }
 
 configure<JUnitPlatformExtension> {

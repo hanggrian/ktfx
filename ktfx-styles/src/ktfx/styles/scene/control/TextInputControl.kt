@@ -2,6 +2,7 @@ package ktfx.styles
 
 import javafx.scene.paint.Color
 import ktfx.styles.internal.NotImplemented
+import ktfx.styles.internal._TextInputControlStyleBuilder
 
 interface TextInputControlStyleBuilder {
 
@@ -17,18 +18,6 @@ interface TextInputControlStyleBuilder {
     var highlightTextFill: Color
 
     var displayCaret: Boolean
-}
-
-@Suppress("ClassName")
-open class _TextInputControlStyleBuilder(
-    prettyPrint: Boolean
-) : _ControlStyleBuilder(prettyPrint), TextInputControlStyleBuilder {
-    override var font: String by map
-    override var textFill: Color by map
-    override var promptTextFill: Color by map
-    override var highlightFill: Color by map
-    override var highlightTextFill: Color by map
-    override var displayCaret: Boolean by map
 }
 
 inline fun textInputControlStyle(

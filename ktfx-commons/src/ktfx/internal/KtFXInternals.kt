@@ -17,7 +17,7 @@ object KtFXInternals {
     /** Some mutable backing fields are only used to set value. */
     inline fun noGetter(): Nothing = fail { NO_GETTER }
 
-    inline fun fail(message: () -> String): Nothing = throw UnsupportedOperationException(message())
+    inline fun fail(lazyMessage: () -> Any): Nothing = throw UnsupportedOperationException(lazyMessage().toString())
 
     @PublishedApi
     internal fun posOf(vpos: VPos, hpos: HPos): Pos = "${vpos}_$hpos".let {

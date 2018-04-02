@@ -1,16 +1,10 @@
 package ktfx.styles
 
+import ktfx.styles.internal._MenuBarStyleBuilder
+
 interface MenuBarStyleBuilder {
 
     var useSystemMenuBar: Boolean
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _MenuBarStyleBuilder(
-    prettyPrint: Boolean
-) : _ControlStyleBuilder(prettyPrint), MenuBarStyleBuilder {
-    override var useSystemMenuBar: Boolean by map
 }
 
 inline fun menuBarStyle(

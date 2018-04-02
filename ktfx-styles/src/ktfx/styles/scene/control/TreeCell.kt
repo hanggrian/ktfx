@@ -1,17 +1,11 @@
 package ktfx.styles
 
+import ktfx.styles.internal._TreeCellStyleBuilder
+
 interface TreeCellStyleBuilder {
 
     /** The amout of space to multiply by the treeItem.level to get the left margin. */
     var indent: Number
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _TreeCellStyleBuilder(
-    prettyPrint: Boolean
-) : _CellStyleBuilder(prettyPrint), TreeCellStyleBuilder {
-    override var indent: Number by map
 }
 
 inline fun treeCellStyle(

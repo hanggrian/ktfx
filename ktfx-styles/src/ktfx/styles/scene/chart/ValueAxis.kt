@@ -1,5 +1,7 @@
 package ktfx.styles
 
+import ktfx.styles.internal._ValueAxisStyleBuilder
+
 interface ValueAxisStyleBuilder {
 
     var minorTickLength: Number
@@ -7,15 +9,6 @@ interface ValueAxisStyleBuilder {
     var minorTickCount: Number
 
     var minorTickVisible: Boolean
-}
-
-@Suppress("ClassName")
-open class _ValueAxisStyleBuilder(
-    prettyPrint: Boolean
-) : _AxisStyleBuilder(prettyPrint), ValueAxisStyleBuilder {
-    override var minorTickLength: Number by map
-    override var minorTickCount: Number by map
-    override var minorTickVisible: Boolean by map
 }
 
 inline fun valueAxisStyle(

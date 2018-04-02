@@ -1,16 +1,10 @@
 package ktfx.styles
 
+import ktfx.styles.internal._LineChartStyleBuilder
+
 interface LineChartStyleBuilder {
 
     var createSymbols: Boolean
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _LineChartStyleBuilder(
-    prettyPrint: Boolean
-) : _XYChartStyleBuilder(prettyPrint), LineChartStyleBuilder {
-    override var createSymbols: Boolean by map
 }
 
 inline fun lineChartStyle(

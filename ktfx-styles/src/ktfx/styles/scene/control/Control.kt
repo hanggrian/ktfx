@@ -1,16 +1,11 @@
 package ktfx.styles
 
+import ktfx.styles.internal._ControlStyleBuilder
+
 interface ControlStyleBuilder {
 
     /** The class name of the Control's Skin. */
     var skin: String
-}
-
-@Suppress("ClassName")
-open class _ControlStyleBuilder(
-    prettyPrint: Boolean
-) : _NodeStyleBuilder(prettyPrint), ControlStyleBuilder {
-    override var skin: String by map
 }
 
 inline fun controlStyle(

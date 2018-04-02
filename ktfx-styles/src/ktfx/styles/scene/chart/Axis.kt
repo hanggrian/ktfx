@@ -3,6 +3,7 @@ package ktfx.styles
 import javafx.geometry.Side
 import javafx.scene.paint.Color
 import ktfx.styles.internal.NotImplemented
+import ktfx.styles.internal._AxisStyleBuilder
 
 interface AxisStyleBuilder {
 
@@ -20,19 +21,6 @@ interface AxisStyleBuilder {
     var tickMarkVisible: Boolean
 
     var tickLabelsVisible: Boolean
-}
-
-@Suppress("ClassName")
-open class _AxisStyleBuilder(
-    prettyPrint: Boolean
-) : _ChartStyleBuilder(prettyPrint), AxisStyleBuilder {
-    override var side: Side by map
-    override var tickLength: Number by map
-    override var tickLabelFont: String by map
-    override var tickLabelFill: Color by map
-    override var tickLabelGap: Number by map
-    override var tickMarkVisible: Boolean by map
-    override var tickLabelsVisible: Boolean by map
 }
 
 inline fun axisStyle(

@@ -7,7 +7,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath(kotlin("gradle-plugin", kotlinVersion))
+        classpath(kotlin("gradle-plugin", VERSION_KOTLIN))
         classpath(dokka())
         classpath(gitPublish())
         classpath(bintrayRelease())
@@ -29,7 +29,7 @@ tasks {
         delete(buildDir)
     }
     "wrapper"(Wrapper::class) {
-        gradleVersion = "4.6"
+        gradleVersion = VERSION_GRADLE
     }
 }
 

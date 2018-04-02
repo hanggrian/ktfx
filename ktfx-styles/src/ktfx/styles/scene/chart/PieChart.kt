@@ -1,5 +1,7 @@
 package ktfx.styles
 
+import ktfx.styles.internal._PieChartStyleBuilder
+
 interface PieChartStyleBuilder {
 
     var clockwise: Boolean
@@ -9,17 +11,6 @@ interface PieChartStyleBuilder {
     var labelLineLength: Number
 
     var startAngle: Number
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _PieChartStyleBuilder(
-    prettyPrint: Boolean
-) : _ChartStyleBuilder(prettyPrint), PieChartStyleBuilder {
-    override var clockwise: Boolean by map
-    override var pieLabelVisible: Boolean by map
-    override var labelLineLength: Number by map
-    override var startAngle: Number by map
 }
 
 inline fun pieChartStyle(

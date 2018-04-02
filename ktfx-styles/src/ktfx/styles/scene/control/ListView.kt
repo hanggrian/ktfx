@@ -1,18 +1,11 @@
 package ktfx.styles
 
 import javafx.geometry.Orientation
+import ktfx.styles.internal._ListViewStyleBuilder
 
 interface ListViewStyleBuilder {
 
     var orientation: Orientation
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _ListViewStyleBuilder(
-    prettyPrint: Boolean
-) : _ControlStyleBuilder(prettyPrint), ListViewStyleBuilder {
-    override var orientation: Orientation by map
 }
 
 inline fun listViewStyle(

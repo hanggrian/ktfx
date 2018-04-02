@@ -1,19 +1,12 @@
 package ktfx.styles
 
+import ktfx.styles.internal._TitledPaneStyleBuilder
+
 interface TitledPaneStyleBuilder {
 
     var animated: Boolean
 
     var collapsible: Boolean
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _TitledPaneStyleBuilder(
-    prettyPrint: Boolean
-) : _ControlStyleBuilder(prettyPrint), TitledPaneStyleBuilder {
-    override var animated: Boolean by map
-    override var collapsible: Boolean by map
 }
 
 inline fun titledPaneStyle(

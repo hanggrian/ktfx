@@ -1,10 +1,11 @@
+@file:Suppress("ClassName")
+
 package ktfx.listeners.internal
 
 import javafx.util.StringConverter
 import ktfx.listeners.StringConverterBuilder
 
 @PublishedApi
-@Suppress("ClassName")
 internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilder<T> {
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }

@@ -1,17 +1,10 @@
 package ktfx.styles
 
+import ktfx.styles.internal._ColorPickerStyleBuilder
+
 interface ColorPickerStyleBuilder {
 
     var colorLabelVisible: Boolean
-}
-
-@PublishedApi
-@Suppress("ClassName")
-internal class _ColorPickerStyleBuilder(
-    prettyPrint: Boolean
-) : _ControlStyleBuilder(prettyPrint),
-    ColorPickerStyleBuilder {
-    override var colorLabelVisible: Boolean by map
 }
 
 inline fun colorPickerStyle(

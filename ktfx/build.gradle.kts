@@ -9,8 +9,8 @@ import org.junit.platform.gradle.plugin.FiltersExtension
 import org.junit.platform.gradle.plugin.EnginesExtension
 import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 
-group = releaseArtifact
-version = releaseVersion
+group = RELEASE_ARTIFACT
+version = RELEASE_VERSION
 
 plugins {
     `java-library`
@@ -19,25 +19,23 @@ plugins {
     `bintray-release`
 }
 
-val artifacts = arrayOf("commons", "coroutines", "layouts", "listeners", "styles").map { "ktfx-$it" }
-
 dependencies {
-    artifacts.forEach { compile(project(":$it")) }
+    ARTIFACTS.forEach { compile(project(":$it")) }
 }
 
 gitPublish {
-    repoUri = releaseWeb
+    repoUri = RELEASE_WEB
     branch = "gh-pages"
-    contents.from(*(arrayOf("pages") + artifacts.map { "../$it/build/docs" }))
+    contents.from(*(ARTIFACTS.map { "../$it/build/docs" } + "pages").toTypedArray())
 }
-tasks["gitPublishCopy"].dependsOn(*artifacts.map { ":$it:dokka" }.toTypedArray())
+tasks["gitPublishCopy"].dependsOn(*ARTIFACTS.map { ":$it:dokka" }.toTypedArray())
 
 publish {
-    repoName = releaseArtifact
-    userOrg = releaseUser
-    groupId = releaseGroup
-    artifactId = releaseArtifact
-    publishVersion = releaseVersion
-    desc = releaseDesc
-    website = releaseWeb
+    repoName = RELEASE_ARTIFACT
+    userOrg = RELEASE_USER
+    groupId = RELEASE_GROUP
+    artifactId = RELEASE_ARTIFACT
+    publishVersion = RELEASE_VERSION
+    desc = RELEASE_DESC
+    website = RELEASE_WEB
 }

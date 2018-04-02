@@ -418,7 +418,11 @@ $dokka.location:ktfx.geometry$plus(javafx.geometry.VPos, javafx.geometry.HPos)k
 $dokka.location:ktfx.geometry$times(javafx.geometry.Point3D, kotlin.Double)ktfx.geometry/javafx.geometry.-point3-d/times.html
 $dokka.location:ktfx.scene$snapshot(javafx.scene.Node, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage)ktfx.scene/javafx.scene.-node/snapshot.html
 $dokka.location:ktfx.scene$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage)ktfx.scene/javafx.scene.-scene/snapshot.html
+$dokka.location:ktfx.scene.control$applyButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/apply-button.html
 $dokka.location:ktfx.scene.control$applyButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/apply-button.html
+$dokka.location:ktfx.scene.control$button(javafx.scene.control.Dialog((kotlin.Any)), kotlin.String, javafx.scene.control.ButtonBar.ButtonData)ktfx.scene.control/javafx.scene.control.-dialog/button.html
+$dokka.location:ktfx.scene.control$button(javafx.scene.control.Dialog((kotlin.Any)), kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/button.html
+$dokka.location:ktfx.scene.control$cancelButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/cancel-button.html
 $dokka.location:ktfx.scene.control$cancelButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/cancel-button.html
 $dokka.location:ktfx.scene.control$checkBoxCellFactory(javafx.scene.control.ListView((ktfx.scene.control.checkBoxCellFactory.T)), kotlin.Function1((ktfx.scene.control.checkBoxCellFactory.T, javafx.beans.value.ObservableValue((kotlin.Boolean)))))ktfx.scene.control/javafx.scene.control.-list-view/check-box-cell-factory.html
 $dokka.location:ktfx.scene.control$checkBoxCellFactory(javafx.scene.control.TableColumn((ktfx.scene.control.checkBoxCellFactory.S, kotlin.Boolean)))ktfx.scene.control/javafx.scene.control.-table-column/check-box-cell-factory.html
@@ -437,6 +441,7 @@ $dokka.location:ktfx.scene.control$choiceBoxCellFactory(javafx.scene.control.Tre
 $dokka.location:ktfx.scene.control$choiceBoxCellFactory(javafx.scene.control.TreeTableColumn((ktfx.scene.control.choiceBoxCellFactory.S, ktfx.scene.control.choiceBoxCellFactory.T)), kotlin.Array((ktfx.scene.control.choiceBoxCellFactory.T)))ktfx.scene.control/javafx.scene.control.-tree-table-column/choice-box-cell-factory.html
 $dokka.location:ktfx.scene.control$choiceBoxCellFactory(javafx.scene.control.TreeView((ktfx.scene.control.choiceBoxCellFactory.T)), javafx.collections.ObservableList((ktfx.scene.control.choiceBoxCellFactory.T)))ktfx.scene.control/javafx.scene.control.-tree-view/choice-box-cell-factory.html
 $dokka.location:ktfx.scene.control$choiceBoxCellFactory(javafx.scene.control.TreeView((ktfx.scene.control.choiceBoxCellFactory.T)), kotlin.Array((ktfx.scene.control.choiceBoxCellFactory.T)))ktfx.scene.control/javafx.scene.control.-tree-view/choice-box-cell-factory.html
+$dokka.location:ktfx.scene.control$closeButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/close-button.html
 $dokka.location:ktfx.scene.control$closeButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/close-button.html
 $dokka.location:ktfx.scene.control$comboBoxCellFactory(javafx.scene.control.ListView((ktfx.scene.control.comboBoxCellFactory.T)), javafx.collections.ObservableList((ktfx.scene.control.comboBoxCellFactory.T)))ktfx.scene.control/javafx.scene.control.-list-view/combo-box-cell-factory.html
 $dokka.location:ktfx.scene.control$comboBoxCellFactory(javafx.scene.control.ListView((ktfx.scene.control.comboBoxCellFactory.T)), kotlin.Array((ktfx.scene.control.comboBoxCellFactory.T)))ktfx.scene.control/javafx.scene.control.-list-view/combo-box-cell-factory.html
@@ -446,16 +451,20 @@ $dokka.location:ktfx.scene.control$comboBoxCellFactory(javafx.scene.control.Tree
 $dokka.location:ktfx.scene.control$comboBoxCellFactory(javafx.scene.control.TreeTableColumn((ktfx.scene.control.comboBoxCellFactory.S, ktfx.scene.control.comboBoxCellFactory.T)), kotlin.Array((ktfx.scene.control.comboBoxCellFactory.T)))ktfx.scene.control/javafx.scene.control.-tree-table-column/combo-box-cell-factory.html
 $dokka.location:ktfx.scene.control$comboBoxCellFactory(javafx.scene.control.TreeView((ktfx.scene.control.comboBoxCellFactory.T)), javafx.collections.ObservableList((ktfx.scene.control.comboBoxCellFactory.T)))ktfx.scene.control/javafx.scene.control.-tree-view/combo-box-cell-factory.html
 $dokka.location:ktfx.scene.control$comboBoxCellFactory(javafx.scene.control.TreeView((ktfx.scene.control.comboBoxCellFactory.T)), kotlin.Array((ktfx.scene.control.comboBoxCellFactory.T)))ktfx.scene.control/javafx.scene.control.-tree-view/combo-box-cell-factory.html
-$dokka.location:ktfx.scene.control$customButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/custom-button.html
+$dokka.location:ktfx.scene.control$finishButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/finish-button.html
 $dokka.location:ktfx.scene.control$finishButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/finish-button.html
 $dokka.location:ktfx.scene.control$graphicIcon#javafx.scene.control.Dialog((kotlin.Any))ktfx.scene.control/javafx.scene.control.-dialog/graphic-icon.html
 $dokka.location:ktfx.scene.control$headerTitle#javafx.scene.control.Dialog((kotlin.Any))ktfx.scene.control/javafx.scene.control.-dialog/header-title.html
 $dokka.location:ktfx.scene.control$icon#javafx.scene.control.Dialog((kotlin.Any))ktfx.scene.control/javafx.scene.control.-dialog/icon.html
 $dokka.location:ktfx.scene.control$isNotSelected(javafx.scene.control.SelectionModel((ktfx.scene.control.isNotSelected.T)))ktfx.scene.control/javafx.scene.control.-selection-model/is-not-selected.html
 $dokka.location:ktfx.scene.control$isSelected(javafx.scene.control.SelectionModel((ktfx.scene.control.isSelected.T)))ktfx.scene.control/javafx.scene.control.-selection-model/is-selected.html
+$dokka.location:ktfx.scene.control$nextButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/next-button.html
 $dokka.location:ktfx.scene.control$nextButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/next-button.html
+$dokka.location:ktfx.scene.control$noButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/no-button.html
 $dokka.location:ktfx.scene.control$noButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/no-button.html
+$dokka.location:ktfx.scene.control$okButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/ok-button.html
 $dokka.location:ktfx.scene.control$okButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/ok-button.html
+$dokka.location:ktfx.scene.control$previousButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/previous-button.html
 $dokka.location:ktfx.scene.control$previousButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/previous-button.html
 $dokka.location:ktfx.scene.control$progressBarCellFactory(javafx.scene.control.TableColumn((ktfx.scene.control.progressBarCellFactory.S, kotlin.Double)))ktfx.scene.control/javafx.scene.control.-table-column/progress-bar-cell-factory.html
 $dokka.location:ktfx.scene.control$progressBarCellFactory(javafx.scene.control.TreeTableColumn((ktfx.scene.control.progressBarCellFactory.S, kotlin.Double)))ktfx.scene.control/javafx.scene.control.-tree-table-column/progress-bar-cell-factory.html
@@ -463,6 +472,7 @@ $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.Lis
 $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.TableColumn((ktfx.scene.control.textFieldCellFactory.S, kotlin.String)))ktfx.scene.control/javafx.scene.control.-table-column/text-field-cell-factory.html
 $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeTableColumn((ktfx.scene.control.textFieldCellFactory.S, kotlin.String)))ktfx.scene.control/javafx.scene.control.-tree-table-column/text-field-cell-factory.html
 $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeView((kotlin.String)))ktfx.scene.control/javafx.scene.control.-tree-view/text-field-cell-factory.html
+$dokka.location:ktfx.scene.control$yesButton(javafx.scene.control.Dialog((kotlin.Any)))ktfx.scene.control/javafx.scene.control.-dialog/yes-button.html
 $dokka.location:ktfx.scene.control$yesButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/yes-button.html
 $dokka.location:ktfx.scene.input$contains(javafx.scene.input.KeyCharacterCombination, javafx.scene.input.KeyEvent)ktfx.scene.input/javafx.scene.input.-key-character-combination/contains.html
 $dokka.location:ktfx.scene.input$contains(javafx.scene.input.KeyCodeCombination, javafx.scene.input.KeyEvent)ktfx.scene.input/javafx.scene.input.-key-code-combination/contains.html
@@ -486,17 +496,27 @@ $dokka.location:ktfx.scene.input$plus(javafx.scene.input.KeyCode, kotlin.Array((
 $dokka.location:ktfx.scene.layout$gap#javafx.scene.layout.FlowPanektfx.scene.layout/javafx.scene.layout.-flow-pane/gap.html
 $dokka.location:ktfx.scene.layout$gap#javafx.scene.layout.GridPanektfx.scene.layout/javafx.scene.layout.-grid-pane/gap.html
 $dokka.location:ktfx.scene.layout$gap#javafx.scene.layout.TilePanektfx.scene.layout/javafx.scene.layout.-tile-pane/gap.html
+$dokka.location:ktfx.scene.layout$maxSize#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/max-size.html
+$dokka.location:ktfx.scene.layout$minSize#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/min-size.html
 $dokka.location:ktfx.scene.layout$paddingAll#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-all.html
 $dokka.location:ktfx.scene.layout$paddingBottom#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-bottom.html
 $dokka.location:ktfx.scene.layout$paddingLeft#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-left.html
 $dokka.location:ktfx.scene.layout$paddingRight#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-right.html
 $dokka.location:ktfx.scene.layout$paddingTop#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-top.html
+$dokka.location:ktfx.scene.layout$prefSize#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/pref-size.html
 $dokka.location:ktfx.scene.layout$updatePadding(javafx.scene.layout.Region, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.layout/javafx.scene.layout.-region/update-padding.html
 $dokka.location:ktfx.scene.paint$component1(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component1.html
 $dokka.location:ktfx.scene.paint$component2(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component2.html
 $dokka.location:ktfx.scene.paint$component3(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component3.html
 $dokka.location:ktfx.scene.paint$component4(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component4.html
+$dokka.location:ktfx.scene.paint$webFormat#javafx.scene.paint.Colorktfx.scene.paint/javafx.scene.paint.-color/web-format.html
 $dokka.location:ktfx.stage$icon#javafx.stage.Stagektfx.stage/javafx.stage.-stage/icon.html
+$dokka.location:ktfx.stage$maxSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/max-size.html
+$dokka.location:ktfx.stage$minSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/min-size.html
+$dokka.location:ktfx.stage$setMaxSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.stage/javafx.stage.-stage/set-max-size.html
+$dokka.location:ktfx.stage$setMinSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.stage/javafx.stage.-stage/set-min-size.html
+$dokka.location:ktfx.stage$setSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.stage/javafx.stage.-stage/set-size.html
+$dokka.location:ktfx.stage$size#javafx.stage.Stagektfx.stage/javafx.stage.-stage/size.html
 $dokka.location:ktfx.util$component1(javafx.util.Pair((ktfx.util.component1.K, ktfx.util.component1.V)))ktfx.util/javafx.util.-pair/component1.html
 $dokka.location:ktfx.util$component2(javafx.util.Pair((ktfx.util.component2.K, ktfx.util.component2.V)))ktfx.util/javafx.util.-pair/component2.html
 $dokka.location:ktfx.util$div(javafx.util.Duration, javafx.util.Duration)ktfx.util/javafx.util.-duration/div.html

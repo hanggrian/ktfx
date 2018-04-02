@@ -2,6 +2,7 @@
 
 package ktfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import ktfx.internal.KtFXInternals.NO_GETTER
@@ -10,6 +11,10 @@ import ktfx.layouts.internal.ConstrainedPane
 import kotlin.DeprecationLevel.ERROR
 
 open class _AnchorPane : AnchorPane(), LayoutManager<Node>, ConstrainedPane {
+
+    override val childs: ObservableList<Node> get() = children
+
+    override fun Node.clear() = clearConstraints(this)
 
     infix fun <N : Node> N.anchorAll(value: Double?): N = apply { anchorAll = value }
 
@@ -45,10 +50,6 @@ open class _AnchorPane : AnchorPane(), LayoutManager<Node>, ConstrainedPane {
     var Node.anchorRight: Double?
         get() = getRightAnchor(this)
         set(value) = setRightAnchor(this, value)
-
-    override fun Node.clear() = clearConstraints(this)
-
-    override fun <T : Node> T.add(): T = also { children += it }
 }
 
 inline fun anchorPane(): AnchorPane = anchorPane { }

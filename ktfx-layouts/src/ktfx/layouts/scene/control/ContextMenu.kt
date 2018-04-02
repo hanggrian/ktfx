@@ -2,6 +2,7 @@
 
 package ktfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.scene.control.ContextMenu
 import javafx.scene.control.Control
 import javafx.scene.control.MenuItem
@@ -11,7 +12,7 @@ import javafx.scene.control.TableColumnBase
 @Suppress("ClassName")
 open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), LayoutManager<MenuItem> {
 
-    override fun <T : MenuItem> T.add(): T = also { items += it }
+    override val childs: ObservableList<MenuItem> get() = items
 }
 
 inline fun contextMenu(

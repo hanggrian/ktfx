@@ -5,7 +5,7 @@ import ktfx.listeners.StringConverterBuilder
 
 @PublishedApi
 @Suppress("ClassName")
-internal class _StringConverterBuilder<T> : StringConverter<T>(), StringConverterBuilder<T> {
+internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilder<T> {
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
 

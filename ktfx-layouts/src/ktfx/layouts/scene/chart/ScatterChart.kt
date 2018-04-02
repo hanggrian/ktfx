@@ -19,7 +19,7 @@ inline fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: (@LayoutDsl ScatterChart<X, Y>).() -> Unit
+    init: (@LayoutDsl ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> = ScatterChart(x, y, data).apply(init)
 
 inline fun <X, Y> LayoutManager<Node>.scatterChart(
@@ -32,5 +32,5 @@ inline fun <X, Y> LayoutManager<Node>.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: (@LayoutDsl ScatterChart<X, Y>).() -> Unit
+    init: (@LayoutDsl ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> = ktfx.layouts.scatterChart(x, y, data, init).add()

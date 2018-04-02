@@ -2,6 +2,7 @@
 
 package ktfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
@@ -9,7 +10,7 @@ import javafx.scene.control.TabPane
 @Suppress("ClassName")
 open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), LayoutManager<Tab> {
 
-    override fun <T : Tab> T.add(): T = also { tabs += it }
+    override val childs: ObservableList<Tab> get() = tabs
 }
 
 inline fun tabPane(

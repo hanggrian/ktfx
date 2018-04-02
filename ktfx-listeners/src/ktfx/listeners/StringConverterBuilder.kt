@@ -3,7 +3,7 @@
 package ktfx.listeners
 
 import javafx.util.StringConverter
-import ktfx.listeners.internal._StringConverterBuilder
+import ktfx.listeners.internal._StringConverter
 
 /** Interface to build [StringConverter] with Kotlin DSL. */
 interface StringConverterBuilder<T> {
@@ -18,4 +18,4 @@ interface StringConverterBuilder<T> {
 /** Build string converter with Kotlin DSL. */
 inline fun <T> stringConverter(
     builder: StringConverterBuilder<T>.() -> Unit
-): StringConverter<T> = _StringConverterBuilder<T>().apply(builder)
+): StringConverter<T> = _StringConverter<T>().apply(builder)

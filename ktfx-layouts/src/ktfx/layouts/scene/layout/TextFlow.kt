@@ -2,12 +2,13 @@
 
 package ktfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.text.TextFlow
 
 open class _TextFlow : TextFlow(), LayoutManager<Node> {
 
-    override fun <T : Node> T.add(): T = also { children += it }
+    override val childs: ObservableList<Node> get() = children
 }
 
 inline fun textFlow(): TextFlow = textFlow { }

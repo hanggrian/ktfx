@@ -7,11 +7,11 @@ import javafx.stage.DirectoryChooser
 /**
  * Build a directory chooser dialog with Kotlin DSL.
  *
- * @param init custom initialization block.
+ * @param title title of the dialog.
  */
 inline fun directoryChooser(
-    noinline init: (DirectoryChooser.() -> Unit)? = null
-): DirectoryChooser = directoryChooser(null, init)
+    title: String? = null
+): DirectoryChooser = directoryChooser(title) { }
 
 /**
  * Build a directory chooser dialog with Kotlin DSL.
@@ -21,8 +21,8 @@ inline fun directoryChooser(
  */
 fun directoryChooser(
     title: String? = null,
-    init: (DirectoryChooser.() -> Unit)? = null
+    init: DirectoryChooser.() -> Unit
 ): DirectoryChooser = DirectoryChooser().also {
     if (title != null) it.title = title
-    init?.invoke(it)
+    it.init()
 }

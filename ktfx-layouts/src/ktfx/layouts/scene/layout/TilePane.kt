@@ -2,6 +2,7 @@
 
 package ktfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
@@ -11,6 +12,10 @@ import ktfx.layouts.internal.MarginedPane
 
 open class _TilePane : TilePane(), LayoutManager<Node>, AlignedPane, MarginedPane {
 
+    override val childs: ObservableList<Node> get() = children
+
+    override fun Node.clear() = clearConstraints(this)
+
     override var Node.pos: Pos?
         get() = getAlignment(this)
         set(value) = setAlignment(this, value)
@@ -18,10 +23,6 @@ open class _TilePane : TilePane(), LayoutManager<Node>, AlignedPane, MarginedPan
     override var Node.margins: Insets?
         get() = getMargin(this)
         set(value) = setMargin(this, value)
-
-    override fun Node.clear() = clearConstraints(this)
-
-    override fun <T : Node> T.add(): T = also { children += it }
 }
 
 inline fun tilePane(): TilePane = tilePane { }

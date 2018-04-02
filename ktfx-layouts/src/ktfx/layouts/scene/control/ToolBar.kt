@@ -2,13 +2,14 @@
 
 package ktfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
 
 @Suppress("ClassName")
 open class _ToolBar(vararg items: Node) : ToolBar(*items), LayoutManager<Node> {
 
-    override fun <T : Node> T.add(): T = also { items += it }
+    override val childs: ObservableList<Node> get() = items
 }
 
 inline fun toolBar(

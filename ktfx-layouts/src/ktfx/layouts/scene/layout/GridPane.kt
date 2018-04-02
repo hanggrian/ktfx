@@ -2,6 +2,7 @@
 
 package ktfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.geometry.HPos
 import javafx.geometry.Insets
 import javafx.geometry.VPos
@@ -19,6 +20,10 @@ import ktfx.layouts.internal.VGrowedPane
 
 open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane,
     VGrowedPane {
+
+    override val childs: ObservableList<Node> get() = children
+
+    override fun Node.clear() = clearConstraints(this)
 
     infix fun <N : Node> N.row(value: Int?): N = apply { row = value }
 
@@ -75,10 +80,6 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
     override var Node.vpriority: Priority?
         get() = getVgrow(this)
         set(value) = setVgrow(this, value)
-
-    override fun Node.clear() = clearConstraints(this)
-
-    override fun <T : Node> T.add(): T = also { children += it }
 }
 
 inline fun gridPane(): GridPane = gridPane { }

@@ -2,6 +2,7 @@
 
 package ktfx.layouts
 
+import javafx.collections.ObservableList
 import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
@@ -11,6 +12,10 @@ import ktfx.layouts.internal.MarginedPane
 
 open class _HBox : HBox(), LayoutManager<Node>, HGrowedPane, MarginedPane {
 
+    override val childs: ObservableList<Node> get() = children
+
+    override fun Node.clear() = clearConstraints(this)
+
     override var Node.hpriority: Priority?
         get() = getHgrow(this)
         set(value) = setHgrow(this, value)
@@ -18,10 +23,6 @@ open class _HBox : HBox(), LayoutManager<Node>, HGrowedPane, MarginedPane {
     override var Node.margins: Insets?
         get() = getMargin(this)
         set(value) = setMargin(this, value)
-
-    override fun Node.clear() = clearConstraints(this)
-
-    override fun <T : Node> T.add(): T = also { children += it }
 }
 
 inline fun hbox(): HBox = hbox { }

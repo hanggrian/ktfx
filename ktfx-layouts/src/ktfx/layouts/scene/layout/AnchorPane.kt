@@ -16,15 +16,15 @@ open class _AnchorPane : AnchorPane(), LayoutManager<Node>, ConstrainedPane {
 
     override fun Node.clear() = clearConstraints(this)
 
-    infix fun <N : Node> N.anchorAll(value: Double?): N = apply { anchorAll = value }
+    infix fun <N : Node> N.anchorAll(anchorAll: Double?): N = also { it.anchorAll = anchorAll }
 
-    infix fun <N : Node> N.anchorTop(value: Double?): N = apply { anchorTop = value }
+    infix fun <N : Node> N.anchorTop(anchorTop: Double?): N = also { it.anchorTop = anchorTop }
 
-    infix fun <N : Node> N.anchorLeft(value: Double?): N = apply { anchorLeft = value }
+    infix fun <N : Node> N.anchorLeft(anchorLeft: Double?): N = also { it.anchorLeft = anchorLeft }
 
-    infix fun <N : Node> N.anchorBottom(value: Double?): N = apply { anchorBottom = value }
+    infix fun <N : Node> N.anchorBottom(anchorBottom: Double?): N = also { it.anchorBottom = anchorBottom }
 
-    infix fun <N : Node> N.anchorRight(value: Double?): N = apply { anchorRight = value }
+    infix fun <N : Node> N.anchorRight(anchorRight: Double?): N = also { it.anchorRight = anchorRight }
 
     var Node.anchorAll: Double?
         @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()

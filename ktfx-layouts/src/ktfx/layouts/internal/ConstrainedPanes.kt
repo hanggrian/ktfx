@@ -17,17 +17,17 @@ internal interface ConstrainedPane {
 
 internal interface MarginedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.margins(value: Insets?): N = apply { margins = value }
+    infix fun <N : Node> N.margins(margins: Insets?): N = also { it.margins = margins }
 
-    infix fun <N : Node> N.marginAll(value: Double?) = apply { marginAll = value }
+    infix fun <N : Node> N.marginAll(marginAll: Double?) = also { it.marginAll = marginAll }
 
-    infix fun <N : Node> N.marginTop(value: Double?): N = apply { marginTop = value }
+    infix fun <N : Node> N.marginTop(marginTop: Double?): N = also { it.marginTop = marginTop }
 
-    infix fun <N : Node> N.marginRight(value: Double?): N = apply { marginRight = value }
+    infix fun <N : Node> N.marginRight(marginRight: Double?): N = also { it.marginRight = marginRight }
 
-    infix fun <N : Node> N.marginBottom(value: Double?): N = apply { marginBottom = value }
+    infix fun <N : Node> N.marginBottom(marginBottom: Double?): N = also { it.marginBottom = marginBottom }
 
-    infix fun <N : Node> N.marginLeft(value: Double?): N = apply { marginLeft = value }
+    infix fun <N : Node> N.marginLeft(marginLeft: Double?): N = also { it.marginLeft = marginLeft }
 
     var Node.margins: Insets? // alias for reserved variable `margin`
 
@@ -65,35 +65,35 @@ internal interface MarginedPane : ConstrainedPane {
 
 internal interface AlignedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.pos(value: Pos?): N = apply { pos = value }
+    infix fun <N : Node> N.pos(pos: Pos?): N = also { it.pos = pos }
 
     var Node.pos: Pos?
 }
 
 internal interface HAlignedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.hpos(value: HPos?): N = apply { hpos = value }
+    infix fun <N : Node> N.hpos(hpos: HPos?): N = also { it.hpos = hpos }
 
     var Node.hpos: HPos?
 }
 
 internal interface VAlignedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.vpos(value: VPos?): N = apply { vpos = value }
+    infix fun <N : Node> N.vpos(vpos: VPos?): N = also { it.vpos = vpos }
 
     var Node.vpos: VPos?
 }
 
 internal interface HGrowedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.hpriority(value: Priority?): N = apply { hpriority = value }
+    infix fun <N : Node> N.hpriority(hpriority: Priority?): N = also { it.hpriority = hpriority }
 
     var Node.hpriority: Priority?
 }
 
 internal interface VGrowedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.vpriority(value: Priority?): N = apply { vpriority = value }
+    infix fun <N : Node> N.vpriority(vpriority: Priority?): N = also { it.vpriority = vpriority }
 
     var Node.vpriority: Priority?
 }

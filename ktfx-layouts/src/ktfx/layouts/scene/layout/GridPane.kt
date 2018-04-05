@@ -25,13 +25,13 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
 
     override fun Node.clear() = clearConstraints(this)
 
-    infix fun <N : Node> N.row(value: Int?): N = apply { row = value }
+    infix fun <N : Node> N.row(row: Int?): N = also { it.row = row }
 
-    infix fun <N : Node> N.col(value: Int?): N = apply { col = value }
+    infix fun <N : Node> N.col(col: Int?): N = also { it.col = col }
 
-    infix fun <N : Node> N.rowSpans(value: Int?): N = apply { rowSpans = value }
+    infix fun <N : Node> N.rowSpans(rowSpans: Int?): N = also { it.rowSpans = rowSpans }
 
-    infix fun <N : Node> N.colSpans(value: Int?): N = apply { colSpans = value }
+    infix fun <N : Node> N.colSpans(colSpans: Int?): N = also { it.colSpans = colSpans }
 
     var Node.row: Int?
         get() = getRowIndex(this)

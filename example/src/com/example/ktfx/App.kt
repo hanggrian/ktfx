@@ -39,9 +39,13 @@ class App : Application() {
                     resultLabel = label {
                         textProperty().bind(stringBindingOf(calculationLabel.textProperty()) {
                             if (endsWithOperator) "..." else {
-                                val operators = calculationLabel.text.split("\\d".toRegex()).filter { it.isNotEmpty() }
+                                val operators = calculationLabel.text
+                                    .split("\\d".toRegex())
+                                    .filter { it.isNotEmpty() }
                                     .toMutableList()
-                                val values = calculationLabel.text.split("[+\\-/*]".toRegex()).toMutableList()
+                                val values = calculationLabel.text
+                                    .split("[+\\-/*]".toRegex())
+                                    .toMutableList()
                                 var total: Double? = null
                                 while (!values.isEmpty() && !operators.isEmpty()) {
                                     val value = values[0].toDouble()
@@ -182,7 +186,7 @@ class App : Application() {
                     isDefaultButton = true
                     disableProperty().bind(booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator })
                     onAction {
-                        infoAlert(resultLabel.text) { headerText = "Result" }.showAndWait()
+                        infoAlert("Result", contentText = resultLabel.text).showAndWait()
                     }
                 } row 4 col 4
             }

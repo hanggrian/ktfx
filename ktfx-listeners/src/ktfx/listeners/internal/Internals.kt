@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
 
 package ktfx.listeners.internal
 
@@ -7,11 +7,31 @@ import javafx.scene.control.TableCell
 import javafx.scene.control.TableRow
 import javafx.scene.control.TreeTableCell
 import javafx.scene.control.TreeTableRow
+import javafx.util.StringConverter
 import ktfx.listeners.ListCellBuilder
+import ktfx.listeners.StringConverterBuilder
 import ktfx.listeners.TableCellBuilder
 import ktfx.listeners.TableRowBuilder
 import ktfx.listeners.TreeTableCellBuilder
 import ktfx.listeners.TreeTableRowBuilder
+
+@PublishedApi
+internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilder<T> {
+    private var _toString: (T?) -> String = { it?.toString() ?: "" }
+    private var _fromString: (String) -> T? = { null }
+
+    override fun toString(listener: (T?) -> String) {
+        _toString = listener
+    }
+
+    override fun toString(any: T?): String = _toString(any)
+
+    override fun fromString(listener: (String) -> T?) {
+        _fromString = listener
+    }
+
+    override fun fromString(string: String): T? = _fromString(string)
+}
 
 /** Interface to build [javafx.scene.control.Cell] with Kotlin DSL. */
 internal interface CellBuilder<out T> {

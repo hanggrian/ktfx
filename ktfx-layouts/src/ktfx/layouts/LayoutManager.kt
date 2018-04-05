@@ -4,11 +4,11 @@ import javafx.collections.ObservableList
 import ktfx.internal.KtFXInternals.fail
 
 /** Base interface for all layout managers. */
-interface LayoutManager<E> {
+interface LayoutManager<C> {
 
     /** Should return the actual collection of this parent. */
-    val childs: ObservableList<E> get() = fail { "Childs is not initialized" }
+    val childs: ObservableList<C> get() = fail { "Childs is not initialized" }
 
     /** Add item to collection, returning the item added. */
-    fun <T : E> T.add(): T = also { childs += it }
+    fun <T : C> T.add(): T = also { childs += it }
 }

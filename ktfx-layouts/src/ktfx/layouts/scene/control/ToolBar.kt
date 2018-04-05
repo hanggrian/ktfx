@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
 
 package ktfx.layouts
 
@@ -6,7 +6,6 @@ import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
 
-@Suppress("ClassName")
 open class _ToolBar(vararg items: Node) : ToolBar(*items), LayoutManager<Node> {
 
     override val childs: ObservableList<Node> get() = items

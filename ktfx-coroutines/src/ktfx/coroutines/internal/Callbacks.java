@@ -5,12 +5,9 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * Some Java code just can't be written in Kotlin, this utility class should take care of it.
- */
-public final class Interoperability {
+public final class Callbacks {
 
-    private Interoperability() {
+    private Callbacks() {
         // no instance
     }
 
@@ -22,7 +19,7 @@ public final class Interoperability {
      * @return callback with no return value.
      */
     @NotNull
-    public static <P> Callback<P, Void> asCallback(@NotNull Function1<P, Unit> function) {
+    public static <P> Callback<P, Void> noReturn(@NotNull Function1<P, Unit> function) {
         return param -> {
             function.invoke(param);
             return null;

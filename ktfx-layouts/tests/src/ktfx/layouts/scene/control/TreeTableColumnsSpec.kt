@@ -1,6 +1,10 @@
-package ktfx.layouts
+package ktfx.layouts.scene.control
 
 import ktfx.application.initToolkit
+import ktfx.layouts.Person
+import ktfx.layouts.column
+import ktfx.layouts.columns
+import ktfx.layouts.treeTableView
 import org.jetbrains.spek.api.Spek
 import org.jetbrains.spek.api.dsl.given
 import org.jetbrains.spek.api.dsl.it

@@ -17,27 +17,22 @@ class ListCellBuilder<T>(
 
     override fun startEdit() {
         super.startEdit()
-        impl.onStartEdit?.invoke()
+        impl.onEditStart?.invoke()
     }
 
     override fun commitEdit(newValue: T) {
         super.commitEdit(newValue)
-        impl.onCommitEdit?.invoke(newValue)
+        impl.onEditCommit?.invoke(newValue)
     }
 
     override fun cancelEdit() {
         super.cancelEdit()
-        impl.onCancelEdit?.invoke()
+        impl.onEditCancel?.invoke()
     }
 
     override fun updateItem(item: T, empty: Boolean) {
         super.updateItem(item, empty)
-        impl.onUpdateItem?.invoke(item, empty)
-    }
-
-    override fun clear() {
-        text = null
-        graphic = null
+        impl.onUpdate?.invoke(item, empty)
     }
 }
 
@@ -48,27 +43,22 @@ class TableRowBuilder<T>(
 
     override fun startEdit() {
         super.startEdit()
-        impl.onStartEdit?.invoke()
+        impl.onEditStart?.invoke()
     }
 
     override fun commitEdit(newValue: T) {
         super.commitEdit(newValue)
-        impl.onCommitEdit?.invoke(newValue)
+        impl.onEditCommit?.invoke(newValue)
     }
 
     override fun cancelEdit() {
         super.cancelEdit()
-        impl.onCancelEdit?.invoke()
+        impl.onEditCancel?.invoke()
     }
 
     override fun updateItem(item: T, empty: Boolean) {
         super.updateItem(item, empty)
-        impl.onUpdateItem?.invoke(item, empty)
-    }
-
-    override fun clear() {
-        text = null
-        graphic = null
+        impl.onUpdate?.invoke(item, empty)
     }
 }
 
@@ -79,27 +69,22 @@ class TableCellBuilder<S, T>(
 
     override fun startEdit() {
         super.startEdit()
-        impl.onStartEdit?.invoke()
+        impl.onEditStart?.invoke()
     }
 
     override fun commitEdit(newValue: T) {
         super.commitEdit(newValue)
-        impl.onCommitEdit?.invoke(newValue)
+        impl.onEditCommit?.invoke(newValue)
     }
 
     override fun cancelEdit() {
         super.cancelEdit()
-        impl.onCancelEdit?.invoke()
+        impl.onEditCancel?.invoke()
     }
 
     override fun updateItem(item: T, empty: Boolean) {
         super.updateItem(item, empty)
-        impl.onUpdateItem?.invoke(item, empty)
-    }
-
-    override fun clear() {
-        text = null
-        graphic = null
+        impl.onUpdate?.invoke(item, empty)
     }
 }
 
@@ -110,27 +95,22 @@ class TreeTableRowBuilder<T>(
 
     override fun startEdit() {
         super.startEdit()
-        impl.onStartEdit?.invoke()
+        impl.onEditStart?.invoke()
     }
 
     override fun commitEdit(newValue: T) {
         super.commitEdit(newValue)
-        impl.onCommitEdit?.invoke(newValue)
+        impl.onEditCommit?.invoke(newValue)
     }
 
     override fun cancelEdit() {
         super.cancelEdit()
-        impl.onCancelEdit?.invoke()
+        impl.onEditCancel?.invoke()
     }
 
     override fun updateItem(item: T, empty: Boolean) {
         super.updateItem(item, empty)
-        impl.onUpdateItem?.invoke(item, empty)
-    }
-
-    override fun clear() {
-        text = null
-        graphic = null
+        impl.onUpdate?.invoke(item, empty)
     }
 }
 
@@ -141,26 +121,21 @@ class TreeTableCellBuilder<S, T>(
 
     override fun startEdit() {
         super.startEdit()
-        impl.onStartEdit?.invoke()
+        impl.onEditStart?.invoke()
     }
 
     override fun commitEdit(newValue: T) {
         super.commitEdit(newValue)
-        impl.onCommitEdit?.invoke(newValue)
+        impl.onEditCommit?.invoke(newValue)
     }
 
     override fun cancelEdit() {
         super.cancelEdit()
-        impl.onCancelEdit?.invoke()
+        impl.onEditCancel?.invoke()
     }
 
     override fun updateItem(item: T, empty: Boolean) {
         super.updateItem(item, empty)
-        impl.onUpdateItem?.invoke(item, empty)
-    }
-
-    override fun clear() {
-        text = null
-        graphic = null
+        impl.onUpdate?.invoke(item, empty)
     }
 }

@@ -19,7 +19,7 @@ import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
 import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.launch
-import ktfx.coroutines.internal.Interoperability.asCallback
+import ktfx.coroutines.internal.Callbacks.noReturn
 import kotlin.coroutines.experimental.CoroutineContext
 
 /** Registers an event filter to this node. */
@@ -278,4 +278,4 @@ fun Node.snapshot(
     params: SnapshotParameters? = null,
     image: WritableImage? = null,
     callback: suspend CoroutineScope.(SnapshotResult) -> Unit
-) = snapshot(asCallback { param -> launch(context) { callback(param) } }, params, image)
+) = snapshot(noReturn { param -> launch(context) { callback(param) } }, params, image)

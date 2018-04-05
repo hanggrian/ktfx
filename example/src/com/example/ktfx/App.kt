@@ -62,7 +62,7 @@ class App : Application() {
                             }
                         })
                     }
-                } row 0 col 0 colStretch 5 hfill true
+                } row 0 col 0 colSpans 5 hfill true
 
                 button("1") {
                     minSize = 40.0
@@ -152,7 +152,7 @@ class App : Application() {
                     onAction {
                         calculationLabel.text = ""
                     }
-                } row 1 col 3 colStretch 2
+                } row 1 col 3 colSpans 2
                 button("*") {
                     minSize = 40.0
                     onAction {
@@ -170,7 +170,7 @@ class App : Application() {
                     onAction {
                         appendText("+")
                     }
-                } row 3 col 3 rowStretch 2
+                } row 3 col 3 rowSpans 2
                 button("-") {
                     minSize = 40.0
                     onAction {

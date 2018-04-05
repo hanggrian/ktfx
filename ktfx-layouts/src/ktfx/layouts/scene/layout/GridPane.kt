@@ -29,9 +29,9 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
 
     infix fun <N : Node> N.col(value: Int?): N = apply { col = value }
 
-    infix fun <N : Node> N.rowStretch(value: Int?): N = apply { rowStretch = value }
+    infix fun <N : Node> N.rowSpans(value: Int?): N = apply { rowSpans = value }
 
-    infix fun <N : Node> N.colStretch(value: Int?): N = apply { colStretch = value }
+    infix fun <N : Node> N.colSpans(value: Int?): N = apply { colSpans = value }
 
     var Node.row: Int?
         get() = getRowIndex(this)
@@ -41,11 +41,11 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
         get() = getColumnIndex(this)
         set(value) = setColumnIndex(this, value)
 
-    var Node.rowStretch: Int?
+    var Node.rowSpans: Int? // alias for reserved variable `rowSpan`
         get() = getRowSpan(this)
         set(value) = setRowSpan(this, value)
 
-    var Node.colStretch: Int?
+    var Node.colSpans: Int?
         get() = getColumnSpan(this)
         set(value) = setColumnSpan(this, value)
 

@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+@file:Suppress("NOTHING_TO_INLINE", "ClassName", "UsePropertyAccessSyntax")
 
 package ktfx.layouts
 
@@ -9,7 +9,6 @@ import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TableColumnBase
 
-@Suppress("ClassName")
 open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), LayoutManager<MenuItem> {
 
     override val childs: ObservableList<MenuItem> get() = items

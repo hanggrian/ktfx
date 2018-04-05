@@ -17,45 +17,40 @@ import ktfx.listeners.TreeTableRowBuilder
 internal interface CellBuilder<out T> {
 
     /** Invoked when cell is on editing mode. */
-    fun onStartEdit(listener: () -> Unit)
+    fun onEditStart(listener: () -> Unit)
 
     /** Invoked when cell edit is being committed. */
-    fun onCommitEdit(listener: (T?) -> Unit)
+    fun onEditCommit(listener: (T?) -> Unit)
 
     /** Invoked when cell edit is canceled. */
-    fun onCancelEdit(listener: () -> Unit)
+    fun onEditCancel(listener: () -> Unit)
 
     /** Invoked when cell item is updating. */
     fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
-
-    /** Clear text and graphic of current cell. */
-    fun clear()
 }
 
 class CellBuilderImpl<T> : CellBuilder<T> {
 
-    internal var onStartEdit: (() -> Unit)? = null
-    internal var onCommitEdit: ((T?) -> Unit)? = null
-    internal var onCancelEdit: (() -> Unit)? = null
-    internal var onUpdateItem: ((T?, empty: Boolean) -> Unit)? = null
+    internal var onEditStart: (() -> Unit)? = null
+    internal var onEditCommit: ((T?) -> Unit)? = null
+    internal var onEditCancel: (() -> Unit)? = null
+    internal var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
 
-    override fun onStartEdit(listener: () -> Unit) {
-        onStartEdit = listener
+    override fun onEditStart(listener: () -> Unit) {
+        onEditStart = listener
     }
 
-    override fun onCommitEdit(listener: (T?) -> Unit) {
-        onCommitEdit = listener
+    override fun onEditCommit(listener: (T?) -> Unit) {
+        onEditCommit = listener
     }
 
-    override fun onCancelEdit(listener: () -> Unit) {
-        onCancelEdit = listener
+    override fun onEditCancel(listener: () -> Unit) {
+        onEditCancel = listener
     }
 
     override fun onUpdate(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdateItem = listener
+        onUpdate = listener
     }
-
-    override fun clear() {}
 }
 
 @PublishedApi internal inline fun <T> (ListCellBuilder<T>.() -> Unit).build(): ListCell<T> =

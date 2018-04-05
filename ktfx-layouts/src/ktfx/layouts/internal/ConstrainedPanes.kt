@@ -29,7 +29,7 @@ internal interface MarginedPane : ConstrainedPane {
 
     infix fun <N : Node> N.marginLeft(value: Double?): N = apply { marginLeft = value }
 
-    var Node.margins: Insets?
+    var Node.margins: Insets? // alias for reserved variable `margin`
 
     var Node.marginAll: Double?
         @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()

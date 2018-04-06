@@ -2,7 +2,6 @@ package ktfx.layouts.scene.layout
 
 import ktfx.application.initToolkit
 import ktfx.layouts.columnConstraints
-import ktfx.layouts.constraints
 import ktfx.layouts.gridPane
 import ktfx.layouts.rowConstraints
 import org.jetbrains.spek.api.Spek

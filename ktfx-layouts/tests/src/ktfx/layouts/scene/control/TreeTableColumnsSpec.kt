@@ -2,7 +2,6 @@ package ktfx.layouts.scene.control
 
 import ktfx.application.initToolkit
 import ktfx.layouts.Person
-import ktfx.layouts.column
 import ktfx.layouts.columns
 import ktfx.layouts.treeTableView
 import org.jetbrains.spek.api.Spek
@@ -19,8 +18,8 @@ object TreeTableColumnsSpec : Spek({
         initToolkit()
         val treeTableView = treeTableView<Person> {
             columns {
-                column<String>("Name")
-                column<Int>("Age")
+                "Name"<String>()
+                "Age"<Int>()
             }
         }
         it("should have correct constraints") {

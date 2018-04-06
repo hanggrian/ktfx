@@ -17,6 +17,7 @@ import ktfx.layouts.internal.HGrowedPane
 import ktfx.layouts.internal.MarginedPane
 import ktfx.layouts.internal.VAlignedPane
 import ktfx.layouts.internal.VGrowedPane
+import ktfx.layouts.internal._ConstraintsBuilder
 
 open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane,
     VGrowedPane {
@@ -97,41 +98,17 @@ inline fun LayoutManager<Node>.gridPane(
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {
 
+    fun constraints(): T = constraints { }
+
     fun constraints(init: T.() -> Unit): T
+
+    fun constraints(size: Double): T = constraints(size) { }
 
     fun constraints(size: Double, init: T.() -> Unit): T
 
+    fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T = constraints(minSize, prefSize, maxSize) { }
+
     fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: T.() -> Unit): T
-}
-
-inline fun <T : ConstraintsBase> ConstraintsBuilder<T>.constraints(): T = constraints { }
-
-inline fun <T : ConstraintsBase> ConstraintsBuilder<T>.constraints(size: Double): T = constraints(size) { }
-
-inline fun <T : ConstraintsBase> ConstraintsBuilder<T>.constraints(
-    minSize: Double,
-    prefSize: Double,
-    maxSize: Double
-): T = constraints(minSize, prefSize, maxSize) { }
-
-@PublishedApi
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T> {
-    val constraints: MutableList<T> = mutableListOf()
-
-    internal abstract fun newInstance(): T
-
-    internal abstract fun newInstance(width: Double): T
-
-    internal abstract fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): T
-
-    override fun constraints(init: T.() -> Unit): T =
-        newInstance().apply(init).also { constraints += it }
-
-    override fun constraints(size: Double, init: T.() -> Unit): T =
-        newInstance(size).apply(init).also { constraints += it }
-
-    override fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: T.() -> Unit): T =
-        newInstance(minSize, prefSize, maxSize).apply(init).also { constraints += it }
 }
 
 /** Invokes a row constraints DSL builder. */

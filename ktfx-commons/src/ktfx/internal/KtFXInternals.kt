@@ -27,9 +27,10 @@ object KtFXInternals {
         if (it == "CENTER_CENTER") CENTER else valueOf(it)
     }
 
+    /** Invokes DSL to create a button in dialog, returning a Node. */
     @PublishedApi
-    internal fun Dialog<*>.addButton(button: ButtonType, init: Node.() -> Unit) = dialogPane.run {
-        buttonTypes += button
-        lookupButton(button).init()
+    internal fun Dialog<*>.addButton(type: ButtonType, init: Node.() -> Unit): Node = dialogPane.run {
+        buttonTypes += type
+        return lookupButton(type).apply(init)
     }
 }

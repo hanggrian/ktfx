@@ -39,7 +39,7 @@ abstract class NodeTest<T : Node> : ApplicationTest() {
         node.style = style
         node.applyCss()
         runBlocking {
-            delay(500)
+            delay(700)
             later { node.assertion() }
         }
     }

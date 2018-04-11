@@ -3,6 +3,7 @@ package ktfx.coroutines
 import javafx.concurrent.Service
 import javafx.concurrent.WorkerStateEvent
 import javafx.event.Event
+import javafx.event.EventHandler
 import javafx.event.EventType
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
@@ -12,14 +13,14 @@ fun <E : Event> Service<*>.eventFilter(
     context: CoroutineContext = FX,
     type: EventType<E>,
     action: suspend (E) -> Unit
-) = addEventFilter(type, { event -> launch(context) { action(event) } })
+): EventHandler<E> = EventHandler<E> { event -> launch(context) { action(event) } }.also { addEventFilter(type, it) }
 
 /** Registers an event filter to this task. */
 fun <E : Event> Service<*>.eventHandler(
     context: CoroutineContext = FX,
     type: EventType<E>,
     action: suspend (E) -> Unit
-) = addEventFilter(type, { event -> launch(context) { action(event) } })
+): EventHandler<E> = EventHandler<E> { event -> launch(context) { action(event) } }.also { addEventHandler(type, it) }
 
 /** The onCancelled event handler is called whenever the Task state transitions to the CANCELLED state. */
 fun Service<*>.onCancelled(

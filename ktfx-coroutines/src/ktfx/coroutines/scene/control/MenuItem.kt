@@ -2,6 +2,7 @@ package ktfx.coroutines
 
 import javafx.event.ActionEvent
 import javafx.event.Event
+import javafx.event.EventHandler
 import javafx.event.EventType
 import javafx.scene.control.MenuItem
 import kotlinx.coroutines.experimental.CoroutineScope
@@ -13,7 +14,7 @@ fun <E : Event> MenuItem.eventHandler(
     context: CoroutineContext = FX,
     type: EventType<E>,
     action: suspend CoroutineScope.(E) -> Unit
-) = addEventHandler(type) { event -> launch(context) { action(event) } }
+): EventHandler<E> = EventHandler<E> { event -> launch(context) { action(event) } }.also { addEventHandler(type, it) }
 
 /** The action, which is invoked whenever the [MenuItem] is fired. */
 fun MenuItem.onAction(

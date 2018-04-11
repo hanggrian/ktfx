@@ -10,6 +10,10 @@ import javafx.beans.binding.Bindings.createIntegerBinding
 import javafx.beans.binding.Bindings.createLongBinding
 import javafx.beans.binding.Bindings.divide
 import javafx.beans.binding.Bindings.multiply
+import javafx.beans.binding.Bindings.selectDouble
+import javafx.beans.binding.Bindings.selectFloat
+import javafx.beans.binding.Bindings.selectInteger
+import javafx.beans.binding.Bindings.selectLong
 import javafx.beans.binding.Bindings.subtract
 import javafx.beans.binding.DoubleBinding
 import javafx.beans.binding.DoubleExpression
@@ -38,6 +42,18 @@ inline fun intBindingOf(vararg dependencies: Observable, noinline func: () -> In
 /** Helper function to create a custom [LongBinding]. */
 inline fun longBindingOf(vararg dependencies: Observable, noinline func: () -> Long): LongBinding =
     createLongBinding(Callable(func), *dependencies)
+
+/** Creates a double binding used to get a member. */
+inline fun Any.selectDouble(vararg steps: String): DoubleBinding = selectDouble(this, *steps)
+
+/** Creates a float binding used to get a member. */
+inline fun Any.selectFloat(vararg steps: String): FloatBinding = selectFloat(this, *steps)
+
+/** Creates an integer binding used to get a member. */
+inline fun Any.selectInt(vararg steps: String): IntegerBinding = selectInteger(this, *steps)
+
+/** Creates a long binding used to get a member. */
+inline fun Any.selectLong(vararg steps: String): LongBinding = selectLong(this, *steps)
 
 inline operator fun Double.plus(op: ObservableNumberValue): DoubleBinding = add(this, op)
 inline operator fun DoubleExpression.plus(op: ObservableNumberValue): DoubleBinding = this.add(op)

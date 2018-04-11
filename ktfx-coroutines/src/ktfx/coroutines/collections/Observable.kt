@@ -9,4 +9,6 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun Observable.listener(
     context: CoroutineContext = FX,
     listener: suspend (Observable) -> Unit
-) = addListener { observable -> launch(context) { listener(observable) } }
+): InvalidationListener = InvalidationListener { observable ->
+    launch(context) { listener(observable) }
+}.also { addListener(it) }

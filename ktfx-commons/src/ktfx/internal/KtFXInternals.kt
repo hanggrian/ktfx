@@ -1,5 +1,8 @@
 package ktfx.internal
 
+import javafx.beans.Observable
+import javafx.beans.binding.BooleanBinding
+import javafx.collections.ObservableList
 import javafx.geometry.HPos
 import javafx.geometry.Pos
 import javafx.geometry.Pos.CENTER
@@ -8,6 +11,7 @@ import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
+import ktfx.collections.observableListOf
 
 @Suppress("NOTHING_TO_INLINE")
 object KtFXInternals {
@@ -21,6 +25,19 @@ object KtFXInternals {
     inline fun fail(
         lazyMessage: () -> Any = { "Fatal error" }
     ): Nothing = throw UnsupportedOperationException(lazyMessage().toString())
+
+    internal fun <T : Observable> newBooleanBinding(
+        op: T,
+        computeValue: T.() -> Boolean
+    ): BooleanBinding = object : BooleanBinding() {
+        init {
+            super.bind(op)
+        }
+
+        override fun dispose() = super.unbind(op)
+        override fun computeValue(): Boolean = op.computeValue()
+        override fun getDependencies(): ObservableList<*> = observableListOf(op)
+    }
 
     @PublishedApi
     internal fun posOf(vpos: VPos, hpos: HPos): Pos = "${vpos}_$hpos".let {

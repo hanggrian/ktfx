@@ -2,25 +2,26 @@ package ktfx.beans.binding
 
 import javafx.beans.binding.Bindings
 import javafx.collections.ObservableList
-import ktfx.collections.emptyBinding
 import ktfx.collections.getBinding
-import ktfx.collections.sizeBinding
+import ktfx.collections.isEmpty
+import ktfx.collections.isNotEmpty
+import ktfx.collections.size
 
 class ObservableListBindingsTest {
 
     fun sizeBinding(list: ObservableList<*>) {
         Bindings.size(list)
-        list.sizeBinding()
+        list.size()
     }
 
     fun isEmpty(list: ObservableList<*>) {
         Bindings.isEmpty(list)
-        list.emptyBinding()
+        list.isEmpty
     }
 
     fun isNotEmpty(list: ObservableList<*>) {
         Bindings.isNotEmpty(list)
-        list.emptyBinding()
+        list.isNotEmpty
     }
 
     fun valueAt(list: ObservableList<*>) {

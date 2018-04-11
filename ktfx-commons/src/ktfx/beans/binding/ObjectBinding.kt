@@ -22,13 +22,13 @@ import java.util.concurrent.Callable
 inline fun <T> bindingOf(vararg dependencies: Observable, noinline func: () -> T?): ObjectBinding<T?> =
     createObjectBinding(Callable(func), *dependencies)
 
-inline infix fun ObservableObjectValue<*>.eq(other: ObservableObjectValue<*>): BooleanBinding = equal(this, other)
-inline infix fun ObservableObjectValue<*>.eq(other: Any): BooleanBinding = equal(this, other)
-inline infix fun Any.eq(other: ObservableObjectValue<*>): BooleanBinding = equal(this, other)
+inline infix fun ObservableObjectValue<*>.eq(op: ObservableObjectValue<*>): BooleanBinding = equal(this, op)
+inline infix fun ObservableObjectValue<*>.eq(op: Any): BooleanBinding = equal(this, op)
+inline infix fun Any.eq(op: ObservableObjectValue<*>): BooleanBinding = equal(this, op)
 
-inline infix fun ObservableObjectValue<*>.neq(other: ObservableObjectValue<*>): BooleanBinding = notEqual(this, other)
-inline infix fun ObservableObjectValue<*>.neq(other: Any): BooleanBinding = notEqual(this, other)
-inline infix fun Any.neq(other: ObservableObjectValue<*>): BooleanBinding = notEqual(this, other)
+inline infix fun ObservableObjectValue<*>.neq(op: ObservableObjectValue<*>): BooleanBinding = notEqual(this, op)
+inline infix fun ObservableObjectValue<*>.neq(op: Any): BooleanBinding = notEqual(this, op)
+inline infix fun Any.neq(op: ObservableObjectValue<*>): BooleanBinding = notEqual(this, op)
 
 /** Creates an object binding used to get a member. */
 inline fun <T> ObservableValue<*>.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)

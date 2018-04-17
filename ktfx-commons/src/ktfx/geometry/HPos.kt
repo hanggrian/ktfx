@@ -8,4 +8,4 @@ import javafx.geometry.VPos
 import ktfx.internal.KtFXInternals.posOf
 
 /** Construct a new position given the added vertical position. */
-inline operator fun HPos.plus(vpos: VPos): Pos = posOf(vpos, this)
+operator fun HPos.plus(vpos: VPos): Pos = posOf(vpos, this)

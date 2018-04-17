@@ -19,7 +19,7 @@ class _MenuBar(vararg menus: Menu) : MenuBar(*menus), LayoutManager<Menu> {
     inline operator fun String.invoke(
         graphic: Node? = null,
         vararg items: MenuItem,
-        init: (@LayoutDsl Menu).() -> Unit
+        init: (@LayoutDsl _Menu).() -> Unit
     ): Menu = menu(this, graphic, *items, init = init)
 }
 

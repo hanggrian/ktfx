@@ -17,7 +17,7 @@ open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), LayoutManager<Tab> {
     /** Convenient method to add tab to this pane by only using string. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutDsl Tab).() -> Unit
+        init: (@LayoutDsl _Tab).() -> Unit
     ): Tab = tab(this, graphic, init)
 }
 

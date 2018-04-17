@@ -26,6 +26,7 @@ object KtFXInternals {
         lazyMessage: () -> Any = { "Fatal error" }
     ): Nothing = throw UnsupportedOperationException(lazyMessage().toString())
 
+    @PublishedApi
     internal fun <T : Observable> newBooleanBinding(
         op: T,
         computeValue: T.() -> Boolean
@@ -39,7 +40,6 @@ object KtFXInternals {
         override fun getDependencies(): ObservableList<*> = observableListOf(op)
     }
 
-    @PublishedApi
     internal fun posOf(vpos: VPos, hpos: HPos): Pos = "${vpos}_$hpos".let {
         if (it == "CENTER_CENTER") CENTER else valueOf(it)
     }

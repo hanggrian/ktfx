@@ -13,25 +13,25 @@ inline fun ClipboardContent.ifStringPresent(action: (String) -> Unit) {
 
 /** Executes action if url is present in this clipboard content. */
 inline fun ClipboardContent.ifUrlPresent(action: (String) -> Unit) {
-    if (hasString()) action(url)
+    if (hasUrl()) action(url)
 }
 
 /** Executes action if html is present in this clipboard content. */
 inline fun ClipboardContent.ifHtmlPresent(action: (String) -> Unit) {
-    if (hasString()) action(html)
+    if (hasHtml()) action(html)
 }
 
 /** Executes action if rtf is present in this clipboard content. */
 inline fun ClipboardContent.ifRtfPresent(action: (String) -> Unit) {
-    if (hasString()) action(rtf)
+    if (hasRtf()) action(rtf)
 }
 
 /** Executes action if image is present in this clipboard content. */
 inline fun ClipboardContent.ifImagePresent(action: (Image) -> Unit) {
-    if (hasString()) action(image)
+    if (hasImage()) action(image)
 }
 
 /** Executes action if files is present in this clipboard content. */
 inline fun ClipboardContent.ifFilesPresent(action: (List<File>) -> Unit) {
-    if (hasString()) action(files)
+    if (hasFiles()) action(files)
 }

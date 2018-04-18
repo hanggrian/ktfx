@@ -9,11 +9,6 @@ fun DependencyHandler.kotlinx(
 fun DependencyHandler.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:$VERSION_DOKKA"
 inline val PluginDependenciesSpec.dokka get() = id("org.jetbrains.dokka")
 
-fun DependencyHandler.spek(module: String) = "org.jetbrains.spek:spek-$module:$VERSION_SPEK"
-
-fun DependencyHandler.junitPlatform(module: String) = "org.junit.platform:junit-platform-$module:$VERSION_JUNIT_PLATFORM"
-inline val PluginDependenciesSpec.`junit-platform` get() = id("org.junit.platform.gradle.plugin")
-
 fun DependencyHandler.testFX(module: String) = "org.testfx:testfx-$module:$VERSION_TESTFX"
 
 fun DependencyHandler.truth() = "com.google.truth:truth:$VERSION_TRUTH"

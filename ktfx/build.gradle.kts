@@ -5,9 +5,6 @@ import org.gradle.kotlin.dsl.creating
 import org.gradle.kotlin.dsl.kotlin
 import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.junit.platform.gradle.plugin.FiltersExtension
-import org.junit.platform.gradle.plugin.EnginesExtension
-import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 
 group = RELEASE_ARTIFACT
 version = RELEASE_VERSION

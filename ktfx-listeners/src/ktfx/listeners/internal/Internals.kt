@@ -17,6 +17,7 @@ import ktfx.listeners.TreeTableRowBuilder
 
 @PublishedApi
 internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilder<T> {
+
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
 
@@ -31,46 +32,6 @@ internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilde
     }
 
     override fun fromString(string: String): T? = _fromString(string)
-}
-
-/** Interface to build [javafx.scene.control.Cell] with Kotlin DSL. */
-internal interface CellBuilder<out T> {
-
-    /** Invoked when cell is on editing mode. */
-    fun onEditStart(listener: () -> Unit)
-
-    /** Invoked when cell edit is being committed. */
-    fun onEditCommit(listener: (T?) -> Unit)
-
-    /** Invoked when cell edit is canceled. */
-    fun onEditCancel(listener: () -> Unit)
-
-    /** Invoked when cell item is updating. */
-    fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
-}
-
-class CellBuilderImpl<T> : CellBuilder<T> {
-
-    internal var onEditStart: (() -> Unit)? = null
-    internal var onEditCommit: ((T?) -> Unit)? = null
-    internal var onEditCancel: (() -> Unit)? = null
-    internal var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
-
-    override fun onEditStart(listener: () -> Unit) {
-        onEditStart = listener
-    }
-
-    override fun onEditCommit(listener: (T?) -> Unit) {
-        onEditCommit = listener
-    }
-
-    override fun onEditCancel(listener: () -> Unit) {
-        onEditCancel = listener
-    }
-
-    override fun onUpdate(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdate = listener
-    }
 }
 
 @PublishedApi internal inline fun <T> (ListCellBuilder<T>.() -> Unit).build(): ListCell<T> =

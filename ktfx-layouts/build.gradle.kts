@@ -5,9 +5,6 @@ import org.gradle.kotlin.dsl.creating
 import org.gradle.kotlin.dsl.kotlin
 import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.junit.platform.gradle.plugin.FiltersExtension
-import org.junit.platform.gradle.plugin.EnginesExtension
-import org.junit.platform.gradle.plugin.JUnitPlatformExtension
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
 group = ARTIFACT_LAYOUTS.asGroup()
@@ -18,7 +15,6 @@ plugins {
     kotlin("jvm")
     dokka
     `bintray-release`
-    `junit-platform`
 }
 
 java.sourceSets {
@@ -33,15 +29,6 @@ dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
     testImplementation(kotlin("test", VERSION_KOTLIN))
-    testImplementation(kotlin("reflect", VERSION_KOTLIN))
-    testImplementation(junitPlatform("runner"))
-    testImplementation(spek("api")) {
-        exclude("org.jetbrains.kotlin")
-    }
-    testRuntime(spek("junit-platform-engine")) {
-        exclude("org.jetbrains.kotlin")
-        exclude("org.junit.platform")
-    }
     testImplementation(testFX("core"))
     testImplementation(testFX("junit"))
 
@@ -83,10 +70,4 @@ publish {
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB
-}
-
-configure<JUnitPlatformExtension> {
-    if (this is ExtensionAware) extensions.getByType(FiltersExtension::class.java).run {
-        if (this is ExtensionAware) extensions.getByType(EnginesExtension::class.java).include("spek")
-    }
 }

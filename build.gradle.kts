@@ -11,7 +11,6 @@ buildscript {
         classpath(dokka())
         classpath(gitPublish())
         classpath(bintrayRelease())
-        classpath(junitPlatform("gradle-plugin"))
     }
 }
 

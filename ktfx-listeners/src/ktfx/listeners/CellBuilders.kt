@@ -9,31 +9,19 @@ import javafx.scene.control.TreeTableCell
 import javafx.scene.control.TreeTableRow
 
 /** Interface to build [javafx.scene.control.Cell] with Kotlin DSL. */
-interface CellBuilder<T> {
+interface CellBuilder<out T> {
 
     /** Invoked when cell is on editing mode. */
     fun onEditStart(listener: () -> Unit)
 
-    /** Calling `startEdit` super method. */
-    fun editStart()
-
     /** Invoked when cell edit is being committed. */
     fun onEditCommit(listener: (T?) -> Unit)
-
-    /** Calling `commitEdit` super method. */
-    fun editCommit(newValue: T?)
 
     /** Invoked when cell edit is canceled. */
     fun onEditCancel(listener: () -> Unit)
 
-    /** Calling `cancelEdit` super method. */
-    fun editCancel()
-
     /** Invoked when cell item is updating. */
     fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
-
-    /** Calling `updateItem` super method. */
-    fun update(item: T?, empty: Boolean)
 }
 
 /** [ListCell] builder with Kotlin DSL. */
@@ -48,9 +36,8 @@ class ListCellBuilder<T> : ListCell<T>(), CellBuilder<T> {
         onEditStart = listener
     }
 
-    override fun editStart() = super.startEdit()
-
     override fun startEdit() {
+        super.startEdit()
         onEditStart?.invoke()
     }
 
@@ -58,9 +45,8 @@ class ListCellBuilder<T> : ListCell<T>(), CellBuilder<T> {
         onEditCommit = listener
     }
 
-    override fun editCommit(newValue: T?) = super.commitEdit(newValue)
-
     override fun commitEdit(newValue: T?) {
+        super.commitEdit(newValue)
         onEditCommit?.invoke(newValue)
     }
 
@@ -68,9 +54,8 @@ class ListCellBuilder<T> : ListCell<T>(), CellBuilder<T> {
         onEditCancel = listener
     }
 
-    override fun editCancel() = super.cancelEdit()
-
     override fun cancelEdit() {
+        super.cancelEdit()
         onEditCancel?.invoke()
     }
 
@@ -78,9 +63,8 @@ class ListCellBuilder<T> : ListCell<T>(), CellBuilder<T> {
         onUpdate = listener
     }
 
-    override fun update(item: T?, empty: Boolean) = super.updateItem(item, empty)
-
-    override fun updateItem(item: T, empty: Boolean) {
+    override fun updateItem(item: T?, empty: Boolean) {
+        super.updateItem(item, empty)
         onUpdate?.invoke(item, empty)
     }
 }
@@ -97,9 +81,8 @@ class TableRowBuilder<T> : TableRow<T>(), CellBuilder<T> {
         onEditStart = listener
     }
 
-    override fun editStart() = super.startEdit()
-
     override fun startEdit() {
+        super.startEdit()
         onEditStart?.invoke()
     }
 
@@ -107,9 +90,8 @@ class TableRowBuilder<T> : TableRow<T>(), CellBuilder<T> {
         onEditCommit = listener
     }
 
-    override fun editCommit(newValue: T?) = super.commitEdit(newValue)
-
     override fun commitEdit(newValue: T?) {
+        super.commitEdit(newValue)
         onEditCommit?.invoke(newValue)
     }
 
@@ -117,9 +99,8 @@ class TableRowBuilder<T> : TableRow<T>(), CellBuilder<T> {
         onEditCancel = listener
     }
 
-    override fun editCancel() = super.cancelEdit()
-
     override fun cancelEdit() {
+        super.cancelEdit()
         onEditCancel?.invoke()
     }
 
@@ -127,9 +108,8 @@ class TableRowBuilder<T> : TableRow<T>(), CellBuilder<T> {
         onUpdate = listener
     }
 
-    override fun update(item: T?, empty: Boolean) = super.updateItem(item, empty)
-
-    override fun updateItem(item: T, empty: Boolean) {
+    override fun updateItem(item: T?, empty: Boolean) {
+        super.updateItem(item, empty)
         onUpdate?.invoke(item, empty)
     }
 }
@@ -146,9 +126,8 @@ class TableCellBuilder<S, T> : TableCell<S, T>(), CellBuilder<T> {
         onEditStart = listener
     }
 
-    override fun editStart() = super.startEdit()
-
     override fun startEdit() {
+        super.startEdit()
         onEditStart?.invoke()
     }
 
@@ -156,9 +135,8 @@ class TableCellBuilder<S, T> : TableCell<S, T>(), CellBuilder<T> {
         onEditCommit = listener
     }
 
-    override fun editCommit(newValue: T?) = super.commitEdit(newValue)
-
     override fun commitEdit(newValue: T?) {
+        super.commitEdit(newValue)
         onEditCommit?.invoke(newValue)
     }
 
@@ -166,9 +144,8 @@ class TableCellBuilder<S, T> : TableCell<S, T>(), CellBuilder<T> {
         onEditCancel = listener
     }
 
-    override fun editCancel() = super.cancelEdit()
-
     override fun cancelEdit() {
+        super.cancelEdit()
         onEditCancel?.invoke()
     }
 
@@ -176,9 +153,8 @@ class TableCellBuilder<S, T> : TableCell<S, T>(), CellBuilder<T> {
         onUpdate = listener
     }
 
-    override fun update(item: T?, empty: Boolean) = super.updateItem(item, empty)
-
-    override fun updateItem(item: T, empty: Boolean) {
+    override fun updateItem(item: T?, empty: Boolean) {
+        super.updateItem(item, empty)
         onUpdate?.invoke(item, empty)
     }
 }
@@ -195,9 +171,8 @@ class TreeTableRowBuilder<T> : TreeTableRow<T>(), CellBuilder<T> {
         onEditStart = listener
     }
 
-    override fun editStart() = super.startEdit()
-
     override fun startEdit() {
+        super.startEdit()
         onEditStart?.invoke()
     }
 
@@ -205,9 +180,8 @@ class TreeTableRowBuilder<T> : TreeTableRow<T>(), CellBuilder<T> {
         onEditCommit = listener
     }
 
-    override fun editCommit(newValue: T?) = super.commitEdit(newValue)
-
     override fun commitEdit(newValue: T?) {
+        super.commitEdit(newValue)
         onEditCommit?.invoke(newValue)
     }
 
@@ -215,9 +189,8 @@ class TreeTableRowBuilder<T> : TreeTableRow<T>(), CellBuilder<T> {
         onEditCancel = listener
     }
 
-    override fun editCancel() = super.cancelEdit()
-
     override fun cancelEdit() {
+        super.cancelEdit()
         onEditCancel?.invoke()
     }
 
@@ -225,9 +198,8 @@ class TreeTableRowBuilder<T> : TreeTableRow<T>(), CellBuilder<T> {
         onUpdate = listener
     }
 
-    override fun update(item: T?, empty: Boolean) = super.updateItem(item, empty)
-
-    override fun updateItem(item: T, empty: Boolean) {
+    override fun updateItem(item: T?, empty: Boolean) {
+        super.updateItem(item, empty)
         onUpdate?.invoke(item, empty)
     }
 }
@@ -244,9 +216,8 @@ class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
         onEditStart = listener
     }
 
-    override fun editStart() = super.startEdit()
-
     override fun startEdit() {
+        super.startEdit()
         onEditStart?.invoke()
     }
 
@@ -254,9 +225,8 @@ class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
         onEditCommit = listener
     }
 
-    override fun editCommit(newValue: T?) = super.commitEdit(newValue)
-
     override fun commitEdit(newValue: T?) {
+        super.commitEdit(newValue)
         onEditCommit?.invoke(newValue)
     }
 
@@ -264,9 +234,8 @@ class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
         onEditCancel = listener
     }
 
-    override fun editCancel() = super.cancelEdit()
-
     override fun cancelEdit() {
+        super.cancelEdit()
         onEditCancel?.invoke()
     }
 
@@ -274,9 +243,8 @@ class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
         onUpdate = listener
     }
 
-    override fun update(item: T?, empty: Boolean) = super.updateItem(item, empty)
-
-    override fun updateItem(item: T, empty: Boolean) {
+    override fun updateItem(item: T?, empty: Boolean) {
+        super.updateItem(item, empty)
         onUpdate?.invoke(item, empty)
     }
 }

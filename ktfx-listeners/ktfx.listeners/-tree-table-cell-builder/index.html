@@ -8,7 +8,7 @@
 <a href="../../index.html">ktfx-listeners</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.listeners</a>&nbsp;/&nbsp;<a href="./index.html">TreeTableCellBuilder</a><br/>
 <br/>
 <h1>TreeTableCellBuilder</h1>
-<code><span class="keyword">class </span><span class="identifier">TreeTableCellBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">, </span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TreeTableCell</span><span class="symbol">&lt;</span><a href="index.html#S"><span class="identifier">S</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier">CellBuilder</span><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<code><span class="keyword">class </span><span class="identifier">TreeTableCellBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">, </span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TreeTableCell</span><span class="symbol">&lt;</span><a href="index.html#S"><span class="identifier">S</span></a><span class="symbol">,</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="../-cell-builder/index.html"><span class="identifier">CellBuilder</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
 <p><a href="#">TreeTableCell</a> builder with Kotlin DSL.</p>
 <h3>Constructors</h3>
 <table>
@@ -18,7 +18,7 @@
 <p><a href="-init-.html">&lt;init&gt;</a></p>
 </td>
 <td>
-<code><span class="identifier">TreeTableCellBuilder</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$<init>(ktfx.listeners.internal.CellBuilderImpl((ktfx.listeners.TreeTableCellBuilder.T)))/impl">impl</span><span class="symbol">:</span>&nbsp;<a href="../../ktfx.listeners.internal/-cell-builder-impl/index.html"><span class="identifier">CellBuilderImpl</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;CellBuilderImpl()<span class="symbol">)</span></code>
+<code><span class="identifier">TreeTableCellBuilder</span><span class="symbol">(</span><span class="symbol">)</span></code>
 <p><a href="#">TreeTableCell</a> builder with Kotlin DSL.</p>
 </td>
 </tr>
@@ -39,7 +39,43 @@
 <p><a href="commit-edit.html">commitEdit</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">commitEdit</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$commitEdit(ktfx.listeners.TreeTableCellBuilder.T)/newValue">newValue</span><span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">commitEdit</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$commitEdit(ktfx.listeners.TreeTableCellBuilder.T)/newValue">newValue</span><span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="on-edit-cancel.html">onEditCancel</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onEditCancel</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$onEditCancel(kotlin.Function0((kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Invoked when cell edit is canceled.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-edit-commit.html">onEditCommit</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onEditCommit</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$onEditCommit(kotlin.Function1((ktfx.listeners.TreeTableCellBuilder.T, kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Invoked when cell edit is being committed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-edit-start.html">onEditStart</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onEditStart</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$onEditStart(kotlin.Function0((kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Invoked when cell is on editing mode.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-update.html">onUpdate</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">onUpdate</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$onUpdate(kotlin.Function2((ktfx.listeners.TreeTableCellBuilder.T, kotlin.Boolean, kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">empty</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Invoked when cell item is updating.</p>
+</td>
 </tr>
 <tr>
 <td>
@@ -53,7 +89,7 @@
 <p><a href="update-item.html">updateItem</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">updateItem</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$updateItem(ktfx.listeners.TreeTableCellBuilder.T, kotlin.Boolean)/item">item</span><span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$updateItem(ktfx.listeners.TreeTableCellBuilder.T, kotlin.Boolean)/empty">empty</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">updateItem</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$updateItem(ktfx.listeners.TreeTableCellBuilder.T, kotlin.Boolean)/item">item</span><span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="ktfx.listeners.TreeTableCellBuilder$updateItem(ktfx.listeners.TreeTableCellBuilder.T, kotlin.Boolean)/empty">empty</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>

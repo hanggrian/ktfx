@@ -498,6 +498,8 @@ $dokka.location:ktfx.scene.input$ifUrlPresent(javafx.scene.input.Clipboard, kotl
 $dokka.location:ktfx.scene.input$ifUrlPresent(javafx.scene.input.ClipboardContent, kotlin.Function1((kotlin.String, kotlin.Unit)))ktfx.scene.input/javafx.scene.input.-clipboard-content/if-url-present.html
 $dokka.location:ktfx.scene.input$isDelete(javafx.scene.input.KeyCode)ktfx.scene.input/javafx.scene.input.-key-code/is-delete.html
 $dokka.location:ktfx.scene.input$isDoubleClick(javafx.scene.input.MouseEvent)ktfx.scene.input/javafx.scene.input.-mouse-event/is-double-click.html
+$dokka.location:ktfx.scene.input$isLeftClick(javafx.scene.input.MouseEvent)ktfx.scene.input/javafx.scene.input.-mouse-event/is-left-click.html
+$dokka.location:ktfx.scene.input$isRightClick(javafx.scene.input.MouseEvent)ktfx.scene.input/javafx.scene.input.-mouse-event/is-right-click.html
 $dokka.location:ktfx.scene.input$plus(javafx.scene.input.KeyCode, javafx.scene.input.KeyCombination.Modifier)ktfx.scene.input/javafx.scene.input.-key-code/plus.html
 $dokka.location:ktfx.scene.input$plus(javafx.scene.input.KeyCode, kotlin.Array((javafx.scene.input.KeyCombination.Modifier)))ktfx.scene.input/javafx.scene.input.-key-code/plus.html
 $dokka.location:ktfx.scene.layout$gap#javafx.scene.layout.FlowPanektfx.scene.layout/javafx.scene.layout.-flow-pane/gap.html

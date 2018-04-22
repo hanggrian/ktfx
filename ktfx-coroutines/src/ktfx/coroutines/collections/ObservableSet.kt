@@ -6,7 +6,7 @@ import javafx.collections.SetChangeListener.Change
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
-/** Add a listener to this observable list. */
+/** Add a listener to this observable map. */
 fun <E> ObservableSet<E>.listener(
     context: CoroutineContext = FX,
     listener: suspend (Change<out E>) -> Unit

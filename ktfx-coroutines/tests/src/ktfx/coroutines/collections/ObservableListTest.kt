@@ -11,9 +11,9 @@ class ObservableListTest {
 
     private val observable: ObservableList<String> = mutableObservableListOf()
 
-    /*@Test fun listener() = observable.run {
+    @Test fun listener() = observable.run {
         val s = "Hello"
-        val listener = listener {
+        val listener = listener<String> {
             assertEquals(it.from, 0)
             assertEquals(it.to, 1)
             assertTrue(it.wasAdded())
@@ -21,5 +21,5 @@ class ObservableListTest {
         }
         add(s)
         removeListener(listener)
-    }*/
+    }
 }

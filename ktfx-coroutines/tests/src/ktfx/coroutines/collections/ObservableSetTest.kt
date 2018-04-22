@@ -11,13 +11,13 @@ class ObservableSetTest {
 
     private val observable: ObservableSet<String> = mutableObservableSetOf()
 
-    /*@Test fun listener() = observable.run {
+    @Test fun listener() = observable.run {
         val s = "Hello"
-        val listener = listener {
+        val listener = listener<String> {
             assertTrue(it.wasAdded())
             assertEquals(it.elementAdded, s)
         }
         add(s)
         removeListener(listener)
-    }*/
+    }
 }

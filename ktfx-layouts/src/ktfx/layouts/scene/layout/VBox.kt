@@ -10,7 +10,10 @@ import javafx.scene.layout.VBox
 import ktfx.layouts.internal.MarginedPane
 import ktfx.layouts.internal.VGrowedPane
 
-open class _VBox : VBox(), LayoutManager<Node>, VGrowedPane, MarginedPane {
+open class _VBox(
+    spacing: Double,
+    vararg children: Node
+) : VBox(spacing, *children), LayoutManager<Node>, VGrowedPane, MarginedPane {
 
     override val childs: ObservableList<Node> get() = children
 
@@ -25,14 +28,24 @@ open class _VBox : VBox(), LayoutManager<Node>, VGrowedPane, MarginedPane {
         set(value) = setMargin(this, value)
 }
 
-inline fun vbox(): VBox = vbox { }
+inline fun vbox(
+    spacing: Double = 0.0,
+    vararg children: Node
+): VBox = vbox(spacing, *children) { }
 
 inline fun vbox(
+    spacing: Double = 0.0,
+    vararg children: Node,
     init: (@LayoutDsl _VBox).() -> Unit
-): VBox = _VBox().apply(init)
-
-inline fun LayoutManager<Node>.vbox(): VBox = vbox { }
+): VBox = _VBox(spacing, *children).apply(init)
 
 inline fun LayoutManager<Node>.vbox(
+    spacing: Double = 0.0,
+    vararg children: Node
+): VBox = vbox(spacing, *children) { }
+
+inline fun LayoutManager<Node>.vbox(
+    spacing: Double = 0.0,
+    vararg children: Node,
     init: (@LayoutDsl _VBox).() -> Unit
-): VBox = ktfx.layouts.vbox(init).add()
+): VBox = ktfx.layouts.vbox(spacing, *children, init = init).add()

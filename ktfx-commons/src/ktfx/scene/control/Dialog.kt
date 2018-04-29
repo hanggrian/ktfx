@@ -103,10 +103,10 @@ inline fun Dialog<*>.previousButton(): Node = previousButton { }
 inline fun Dialog<*>.previousButton(noinline init: Node.() -> Unit): Node = addButton(PREVIOUS, init)
 
 /** Add custom button specifying text and type. */
-inline fun Dialog<*>.button(text: String, data: ButtonData = OTHER): Node = button(text, data) { }
+inline fun Dialog<*>.customButton(text: String, data: ButtonData = OTHER): Node = customButton(text, data) { }
 
 /** Add custom button specifying text and type, invoking DSL to customize it as node. */
-inline fun Dialog<*>.button(
+inline fun Dialog<*>.customButton(
     text: String,
     data: ButtonData = OTHER,
     noinline init: Node.() -> Unit

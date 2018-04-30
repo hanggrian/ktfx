@@ -54,19 +54,23 @@ open class _AnchorPane(
         set(value) = setRightAnchor(this, value)
 }
 
+/** Create an [AnchorPane]. */
 inline fun anchorPane(
     vararg children: Node
 ): AnchorPane = anchorPane(*children) { }
 
+/** Create an [AnchorPane] with initialization. */
 inline fun anchorPane(
     vararg children: Node,
     init: (@LayoutDsl _AnchorPane).() -> Unit
 ): AnchorPane = _AnchorPane(*children).apply(init)
 
+/** Create an [AnchorPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.anchorPane(
     vararg children: Node
 ): AnchorPane = anchorPane(*children) { }
 
+/** Create an [AnchorPane] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.anchorPane(
     vararg children: Node,
     init: (@LayoutDsl _AnchorPane).() -> Unit

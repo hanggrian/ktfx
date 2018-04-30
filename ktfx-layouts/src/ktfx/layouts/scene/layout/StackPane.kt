@@ -18,7 +18,7 @@ open class _StackPane(
 
     override fun Node.reset() = clearConstraints(this)
 
-    override var Node.pos: Pos?
+    override var Node.align: Pos?
         get() = getAlignment(this)
         set(value) = setAlignment(this, value)
 

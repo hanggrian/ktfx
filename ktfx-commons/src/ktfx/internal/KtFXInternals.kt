@@ -12,6 +12,7 @@ import javafx.scene.Node
 import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
 import ktfx.collections.observableListOf
+import ktfx.scene.control.pane
 
 @Suppress("NOTHING_TO_INLINE")
 object KtFXInternals {
@@ -46,8 +47,8 @@ object KtFXInternals {
 
     /** Invokes DSL to create a button in dialog, returning a Node. */
     @PublishedApi
-    internal fun Dialog<*>.addButton(type: ButtonType, init: Node.() -> Unit): Node = dialogPane.run {
+    internal fun Dialog<*>.addButton(type: ButtonType, init: (Node.() -> Unit)?): Node = pane.run {
         buttonTypes += type
-        return lookupButton(type).apply(init)
+        return lookupButton(type).also { init?.invoke(it) }
     }
 }

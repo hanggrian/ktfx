@@ -22,7 +22,7 @@ open class _BorderPane(
 
     override fun Node.reset() = clearConstraints(this)
 
-    override var Node.pos: Pos?
+    override var Node.align: Pos?
         get() = getAlignment(this)
         set(value) = setAlignment(this, value)
 
@@ -31,6 +31,7 @@ open class _BorderPane(
         set(value) = setMargin(this, value)
 }
 
+/** Create a [BorderPane]. */
 inline fun borderPane(
     center: Node? = null,
     top: Node? = null,
@@ -39,6 +40,7 @@ inline fun borderPane(
     left: Node? = null
 ): BorderPane = borderPane(center, top, right, bottom, left) { }
 
+/** Create a [BorderPane] with initialization. */
 inline fun borderPane(
     center: Node? = null,
     top: Node? = null,
@@ -48,6 +50,7 @@ inline fun borderPane(
     init: (@LayoutDsl _BorderPane).() -> Unit
 ): BorderPane = _BorderPane(center, top, right, bottom, left).apply(init)
 
+/** Create a [BorderPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.borderPane(
     center: Node? = null,
     top: Node? = null,
@@ -56,6 +59,7 @@ inline fun LayoutManager<Node>.borderPane(
     left: Node? = null
 ): BorderPane = borderPane(center, top, right, bottom, left) { }
 
+/** Create a [BorderPane] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.borderPane(
     center: Node? = null,
     top: Node? = null,

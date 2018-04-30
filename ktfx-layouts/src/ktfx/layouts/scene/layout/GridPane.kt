@@ -54,11 +54,11 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
         get() = getMargin(this)
         set(value) = setMargin(this, value)
 
-    override var Node.vpos: VPos?
+    override var Node.valign: VPos?
         get() = getValignment(this)
         set(value) = setValignment(this, value)
 
-    override var Node.hpos: HPos?
+    override var Node.halign: HPos?
         get() = getHalignment(this)
         set(value) = setHalignment(this, value)
 

@@ -17,7 +17,6 @@ import ktfx.listeners.TreeTableRowBuilder
 
 @PublishedApi
 internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilder<T> {
-
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
 

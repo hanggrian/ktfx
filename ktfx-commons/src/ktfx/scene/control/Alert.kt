@@ -47,6 +47,43 @@ inline fun alert(
 ): Alert = alert(null, null, contentText, *buttonTypes, init = init)
 
 /**
+ * Build a styled alert with Kotlin DSL.
+ *
+ * @param title title of the dialog.
+ * @param graphic node to be displayed in header.
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+fun styledAlert(
+    stylesheet: String,
+    title: String? = null,
+    graphic: Node? = null,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    init: (Alert.() -> Unit)? = null
+): Alert = Alert(NONE, contentText, *buttonTypes).also { dialog ->
+    dialog.pane.stylesheets += stylesheet
+    if (title != null) dialog.headerTitle = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    init?.invoke(dialog)
+}
+
+/**
+ * Build a styled alert with Kotlin DSL.
+ *
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+inline fun styledAlert(
+    stylesheet: String,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    noinline init: (Alert.() -> Unit)? = null
+): Alert = styledAlert(stylesheet, null, null, contentText, *buttonTypes, init = init)
+
+/**
  * Build an information alert with Kotlin DSL.
  *
  * @param title title of the dialog.
@@ -79,6 +116,43 @@ inline fun infoAlert(
     vararg buttonTypes: ButtonType,
     noinline init: (Alert.() -> Unit)? = null
 ): Alert = infoAlert(null, null, contentText, *buttonTypes, init = init)
+
+/**
+ * Build a styled information alert with Kotlin DSL.
+ *
+ * @param title title of the dialog.
+ * @param graphic node to be displayed in header.
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+fun styledInfoAlert(
+    stylesheet: String,
+    title: String? = null,
+    graphic: Node? = null,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    init: (Alert.() -> Unit)? = null
+): Alert = Alert(INFORMATION, contentText, *buttonTypes).also { dialog ->
+    dialog.pane.stylesheets += stylesheet
+    if (title != null) dialog.headerTitle = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    init?.invoke(dialog)
+}
+
+/**
+ * Build a styled information alert with Kotlin DSL.
+ *
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+inline fun styledInfoAlert(
+    stylesheet: String,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    noinline init: (Alert.() -> Unit)? = null
+): Alert = styledInfoAlert(stylesheet, null, null, contentText, *buttonTypes, init = init)
 
 /**
  * Build a warning alert with Kotlin DSL.
@@ -115,6 +189,43 @@ inline fun warningAlert(
 ): Alert = warningAlert(null, null, contentText, *buttonTypes, init = init)
 
 /**
+ * Build a styled warning alert with Kotlin DSL.
+ *
+ * @param title title of the dialog.
+ * @param graphic node to be displayed in header.
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+fun styledWarningAlert(
+    stylesheet: String,
+    title: String? = null,
+    graphic: Node? = null,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    init: (Alert.() -> Unit)? = null
+): Alert = Alert(WARNING, contentText, *buttonTypes).also { dialog ->
+    dialog.pane.stylesheets += stylesheet
+    if (title != null) dialog.headerTitle = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    init?.invoke(dialog)
+}
+
+/**
+ * Build a styled warning alert with Kotlin DSL.
+ *
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+inline fun styledWarningAlert(
+    stylesheet: String,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    noinline init: (Alert.() -> Unit)? = null
+): Alert = styledWarningAlert(stylesheet, null, null, contentText, *buttonTypes, init = init)
+
+/**
  * Build a confirmation alert with Kotlin DSL.
  *
  * @param title title of the dialog.
@@ -149,6 +260,43 @@ inline fun confirmAlert(
 ): Alert = confirmAlert(null, null, contentText, *buttonTypes, init = init)
 
 /**
+ * Build a styled confirmation alert with Kotlin DSL.
+ *
+ * @param title title of the dialog.
+ * @param graphic node to be displayed in header.
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+fun styledConfirmAlert(
+    stylesheet: String,
+    title: String? = null,
+    graphic: Node? = null,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    init: (Alert.() -> Unit)? = null
+): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).also { dialog ->
+    dialog.pane.stylesheets += stylesheet
+    if (title != null) dialog.headerTitle = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    init?.invoke(dialog)
+}
+
+/**
+ * Build a styled confirmation alert with Kotlin DSL.
+ *
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+inline fun styledConfirmAlert(
+    stylesheet: String,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    noinline init: (Alert.() -> Unit)? = null
+): Alert = styledConfirmAlert(stylesheet, null, null, contentText, *buttonTypes, init = init)
+
+/**
  * Build an error alert with Kotlin DSL.
  *
  * @param title title of the dialog.
@@ -181,3 +329,40 @@ inline fun errorAlert(
     vararg buttonTypes: ButtonType,
     noinline init: (Alert.() -> Unit)? = null
 ): Alert = errorAlert(null, null, contentText, *buttonTypes, init = init)
+
+/**
+ * Build a styled error alert with Kotlin DSL.
+ *
+ * @param title title of the dialog.
+ * @param graphic node to be displayed in header.
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+fun styledErrorAlert(
+    stylesheet: String,
+    title: String? = null,
+    graphic: Node? = null,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    init: (Alert.() -> Unit)? = null
+): Alert = Alert(ERROR, contentText, *buttonTypes).also { dialog ->
+    dialog.pane.stylesheets += stylesheet
+    if (title != null) dialog.headerTitle = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    init?.invoke(dialog)
+}
+
+/**
+ * Build a styled error alert with Kotlin DSL.
+ *
+ * @param contentText alert message.
+ * @param buttonTypes alert buttons.
+ * @param init custom initialization block.
+ */
+inline fun styledErrorAlert(
+    stylesheet: String,
+    contentText: String = "",
+    vararg buttonTypes: ButtonType,
+    noinline init: (Alert.() -> Unit)? = null
+): Alert = styledErrorAlert(stylesheet, null, null, contentText, *buttonTypes, init = init)

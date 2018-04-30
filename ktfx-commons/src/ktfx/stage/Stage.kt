@@ -56,31 +56,19 @@ var Stage.icon: Image
     }
 
 /** Creates a stage with options. */
-inline fun stage(
-    title: String? = null,
-    icon: Image? = null,
-    style: StageStyle = DECORATED
-): Stage = stage(title, icon, style) { }
-
-/** Creates a stage with options. */
 fun stage(
     title: String? = null,
     icon: Image? = null,
     style: StageStyle = DECORATED,
-    init: Stage.() -> Unit
+    init: (Stage.() -> Unit)? = null
 ): Stage = Stage(style).also {
     if (title != null) it.setTitle(title)
     if (icon != null) it.icon = icon
-    it.init()
+    init?.invoke(it)
 }
 
 /** Creates a stage with options. */
 inline fun stage(
-    style: StageStyle = DECORATED
-): Stage = stage(style) { }
-
-/** Creates a stage with options. */
-inline fun stage(
     style: StageStyle = DECORATED,
-    noinline init: Stage.() -> Unit
+    noinline init: (Stage.() -> Unit)? = null
 ): Stage = stage(null, null, style, init)

@@ -2,6 +2,7 @@
 
 package ktfx.scene.control
 
+import javafx.beans.property.ObjectProperty
 import javafx.scene.Node
 import javafx.scene.control.ButtonBar.ButtonData
 import javafx.scene.control.ButtonBar.ButtonData.OTHER
@@ -16,6 +17,7 @@ import javafx.scene.control.ButtonType.OK
 import javafx.scene.control.ButtonType.PREVIOUS
 import javafx.scene.control.ButtonType.YES
 import javafx.scene.control.Dialog
+import javafx.scene.control.DialogPane
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
@@ -29,7 +31,7 @@ import kotlin.DeprecationLevel.ERROR
 inline var Dialog<*>.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        (dialogPane.scene.window as Stage).icon = value
+        (pane.scene.window as Stage).icon = value
     }
 
 /** Apply [ImageView] as graphic and icon of this dialog. */
@@ -48,68 +50,44 @@ inline var Dialog<*>.headerTitle: String
         title = value
     }
 
-/** Add apply button. */
-inline fun Dialog<*>.applyButton(): Node = applyButton { }
+/** Alias for `dialogPane`. */
+inline val Dialog<*>.pane: DialogPane get() = dialogPane
+
+/** Alias for `dialogPaneProperty`. */
+inline val Dialog<*>.paneProperty: ObjectProperty<DialogPane> get() = dialogPaneProperty()
 
 /** Add apply button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.applyButton(noinline init: Node.() -> Unit): Node = addButton(APPLY, init)
-
-/** Add ok button. */
-inline fun Dialog<*>.okButton(): Node = okButton { }
+inline fun Dialog<*>.applyButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(APPLY, init)
 
 /** Add ok button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.okButton(noinline init: Node.() -> Unit): Node = addButton(OK, init)
-
-/** Add cancel button. */
-inline fun Dialog<*>.cancelButton(): Node = cancelButton { }
+inline fun Dialog<*>.okButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(OK, init)
 
 /** Add cancel button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.cancelButton(noinline init: Node.() -> Unit): Node = addButton(CANCEL, init)
-
-/** Add close button. */
-inline fun Dialog<*>.closeButton(): Node = closeButton { }
+inline fun Dialog<*>.cancelButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(CANCEL, init)
 
 /** Add close button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.closeButton(noinline init: Node.() -> Unit): Node = addButton(CLOSE, init)
-
-/** Add yes button. */
-inline fun Dialog<*>.yesButton(): Node = yesButton { }
+inline fun Dialog<*>.closeButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(CLOSE, init)
 
 /** Add yes button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.yesButton(noinline init: Node.() -> Unit): Node = addButton(YES, init)
-
-/** Add no button. */
-inline fun Dialog<*>.noButton(): Node = noButton { }
+inline fun Dialog<*>.yesButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(YES, init)
 
 /** Add no button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.noButton(noinline init: Node.() -> Unit): Node = addButton(NO, init)
-
-/** Add finish button. */
-inline fun Dialog<*>.finishButton(): Node = finishButton { }
+inline fun Dialog<*>.noButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(NO, init)
 
 /** Add finish button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.finishButton(noinline init: Node.() -> Unit): Node = addButton(FINISH, init)
-
-/** Add next button. */
-inline fun Dialog<*>.nextButton(): Node = nextButton { }
+inline fun Dialog<*>.finishButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(FINISH, init)
 
 /** Add next button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.nextButton(noinline init: Node.() -> Unit): Node = addButton(NEXT, init)
-
-/** Add previous button. */
-inline fun Dialog<*>.previousButton(): Node = previousButton { }
+inline fun Dialog<*>.nextButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(NEXT, init)
 
 /** Add previous button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.previousButton(noinline init: Node.() -> Unit): Node = addButton(PREVIOUS, init)
-
-/** Add custom button specifying text and type. */
-inline fun Dialog<*>.customButton(text: String, data: ButtonData = OTHER): Node = customButton(text, data) { }
+inline fun Dialog<*>.previousButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(PREVIOUS, init)
 
 /** Add custom button specifying text and type, invoking DSL to customize it as node. */
 inline fun Dialog<*>.customButton(
     text: String,
     data: ButtonData = OTHER,
-    noinline init: Node.() -> Unit
+    noinline init: (Node.() -> Unit)? = null
 ): Node = addButton(ButtonType(text, data), init)
 
 /**
@@ -124,6 +102,26 @@ fun <R> dialog(
     graphic: Node? = null,
     init: (Dialog<R>.() -> Unit)? = null
 ): Dialog<R> = Dialog<R>().also { dialog ->
+    if (title != null) dialog.title = title
+    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    if (title != null && graphic != null) dialog.headerText = title
+    init?.invoke(dialog)
+}
+
+/**
+ * Build a styled custom dialog with Kotlin DSL.
+ *
+ * @param title title of the dialog.
+ * @param graphic node to be displayed in header.
+ * @param init custom initialization block.
+ */
+fun <R> styledDialog(
+    stylesheet: String,
+    title: String? = null,
+    graphic: Node? = null,
+    init: (Dialog<R>.() -> Unit)? = null
+): Dialog<R> = Dialog<R>().also { dialog ->
+    dialog.pane.stylesheets += stylesheet
     if (title != null) dialog.title = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
     if (title != null && graphic != null) dialog.headerText = title

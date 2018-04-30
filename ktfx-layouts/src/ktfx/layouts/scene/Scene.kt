@@ -24,6 +24,7 @@ open class _Scene(
     }
 }
 
+/** Create a [Scene]. */
 inline fun scene(
     root: Parent = region(),
     width: Double = -1.0,
@@ -31,6 +32,7 @@ inline fun scene(
     fill: Paint = WHITE
 ): Scene = scene(root, width, height, fill) { }
 
+/** Create a [Scene] with initialization. */
 inline fun scene(
     root: Parent = region(),
     width: Double = -1.0,
@@ -38,3 +40,25 @@ inline fun scene(
     fill: Paint = WHITE,
     init: _Scene.() -> Unit
 ): Scene = _Scene(root, width, height, fill).apply(init)
+
+/** Create a styled [Scene]. */
+inline fun styledScene(
+    stylesheet: String,
+    root: Parent = region(),
+    width: Double = -1.0,
+    height: Double = -1.0,
+    fill: Paint = WHITE
+): Scene = styledScene(stylesheet, root, width, height, fill) { }
+
+/** Create a styled [Scene] with initialization. */
+inline fun styledScene(
+    stylesheet: String,
+    root: Parent = region(),
+    width: Double = -1.0,
+    height: Double = -1.0,
+    fill: Paint = WHITE,
+    init: _Scene.() -> Unit
+): Scene = _Scene(root, width, height, fill).apply {
+    stylesheets += stylesheet
+    init()
+}

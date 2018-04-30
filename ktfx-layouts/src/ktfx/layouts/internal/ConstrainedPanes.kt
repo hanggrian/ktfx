@@ -65,23 +65,23 @@ internal interface MarginedPane : ConstrainedPane {
 
 internal interface AlignedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.pos(pos: Pos?): N = also { it.pos = pos }
+    infix fun <N : Node> N.align(pos: Pos?): N = also { it.align = pos }
 
-    var Node.pos: Pos?
+    var Node.align: Pos?
 }
 
 internal interface HAlignedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.hpos(hpos: HPos?): N = also { it.hpos = hpos }
+    infix fun <N : Node> N.halign(hpos: HPos?): N = also { it.halign = hpos }
 
-    var Node.hpos: HPos?
+    var Node.halign: HPos?
 }
 
 internal interface VAlignedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.vpos(vpos: VPos?): N = also { it.vpos = vpos }
+    infix fun <N : Node> N.valign(vpos: VPos?): N = also { it.valign = vpos }
 
-    var Node.vpos: VPos?
+    var Node.valign: VPos?
 }
 
 internal interface HGrowedPane : ConstrainedPane {

@@ -1,30 +1,41 @@
 package ktfx.layouts.scene.control
 
 import javafx.scene.control.Label
-import ktfx.application.initToolkit
+import javafx.scene.control.TitledPane
+import ktfx.layouts.LayoutTest
+import ktfx.layouts.accordion
 import ktfx.layouts.label
-import org.junit.Before
-import org.junit.Test
+import ktfx.layouts.pane
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class AccordionTest {
+class AccordionTest : LayoutTest() {
 
-    @Before fun init() = initToolkit()
-
-    @Test fun accordion() {
-        val accordion = ktfx.layouts.accordion()
-        assertTrue(accordion.panes.isEmpty())
+    override fun newInstance() {
+        assertEquals(accordion(TitledPane()).panes.size, 1)
     }
 
-    @Test fun invoke() {
-        val accordion = ktfx.layouts.accordion {
+    override fun newInstanceInitialized() {
+        accordion {
             "Hello"()
             "World" {
                 label("haha")
             }
+
+            assertEquals(panes.size, 2)
+            assertTrue(panes[1].content is Label)
         }
-        assertEquals(accordion.panes.size, 2)
-        assertTrue(accordion.panes[1].content is Label)
+    }
+
+    override fun withManager() {
+        assertEquals(pane {
+            accordion()
+        }.children.size, 1)
+    }
+
+    override fun withManagerInitialized() {
+        assertEquals(pane {
+            accordion { }
+        }.children.size, 1)
     }
 }

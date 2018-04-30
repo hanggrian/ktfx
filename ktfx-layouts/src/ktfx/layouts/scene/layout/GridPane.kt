@@ -24,7 +24,7 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
 
     override val childs: ObservableList<Node> get() = children
 
-    override fun Node.clear() = clearConstraints(this)
+    override fun Node.reset() = clearConstraints(this)
 
     infix fun <N : Node> N.row(row: Int?): N = also { it.row = row }
 

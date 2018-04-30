@@ -8,7 +8,9 @@ import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
 import javafx.scene.control.MenuItem
 
-class _MenuBar(vararg menus: Menu) : MenuBar(*menus), LayoutManager<Menu> {
+class _MenuBar(
+    vararg menus: Menu
+) : MenuBar(*menus), LayoutManager<Menu> {
 
     override val childs: ObservableList<Menu> get() = menus
 

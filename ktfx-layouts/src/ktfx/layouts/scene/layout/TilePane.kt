@@ -21,7 +21,7 @@ open class _TilePane(
 
     override val childs: ObservableList<Node> get() = children
 
-    override fun Node.clear() = clearConstraints(this)
+    override fun Node.reset() = clearConstraints(this)
 
     override var Node.pos: Pos?
         get() = getAlignment(this)

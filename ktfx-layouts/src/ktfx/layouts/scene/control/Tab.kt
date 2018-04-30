@@ -5,7 +5,10 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Tab
 
-open class _Tab(title: String?, content: Node?) : Tab(title, content), LayoutManager<Node> {
+open class _Tab(
+    title: String?,
+    content: Node?
+) : Tab(title, content), LayoutManager<Node> {
 
     override fun <T : Node> T.add(): T = also { content = it }
 }

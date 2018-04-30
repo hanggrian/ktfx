@@ -10,7 +10,9 @@ import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TableColumnBase
 
-open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), LayoutManager<MenuItem> {
+open class _ContextMenu(
+    vararg items: MenuItem
+) : ContextMenu(*items), LayoutManager<MenuItem> {
 
     override val childs: ObservableList<MenuItem> get() = items
 

@@ -1,17 +1,14 @@
 package ktfx.layouts.scene.layout
 
-import ktfx.application.initToolkit
+import ktfx.layouts.BaseTest
 import ktfx.layouts.columnConstraints
 import ktfx.layouts.gridPane
 import ktfx.layouts.rowConstraints
-import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class GridConstraintsTest {
-
-    @Before fun init() = initToolkit()
+class GridConstraintsTest : BaseTest() {
 
     @Test fun constraints() {
         val gridPane = gridPane {

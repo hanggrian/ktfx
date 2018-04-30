@@ -6,7 +6,9 @@ import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.SplitPane
 
-open class _SplitPane(vararg items: Node) : SplitPane(*items), LayoutManager<Node> {
+open class _SplitPane(
+    vararg items: Node
+) : SplitPane(*items), LayoutManager<Node> {
 
     override val childs: ObservableList<Node> get() = items
 }

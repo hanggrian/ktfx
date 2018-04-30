@@ -10,11 +10,14 @@ import javafx.scene.layout.Priority
 import ktfx.layouts.internal.HGrowedPane
 import ktfx.layouts.internal.MarginedPane
 
-open class _HBox : HBox(), LayoutManager<Node>, HGrowedPane, MarginedPane {
+open class _HBox(
+    spacing: Double,
+    vararg children: Node
+) : HBox(spacing, *children), LayoutManager<Node>, HGrowedPane, MarginedPane {
 
     override val childs: ObservableList<Node> get() = children
 
-    override fun Node.clear() = clearConstraints(this)
+    override fun Node.reset() = clearConstraints(this)
 
     override var Node.hpriority: Priority?
         get() = getHgrow(this)
@@ -25,14 +28,24 @@ open class _HBox : HBox(), LayoutManager<Node>, HGrowedPane, MarginedPane {
         set(value) = setMargin(this, value)
 }
 
-inline fun hbox(): HBox = hbox { }
+inline fun hbox(
+    spacing: Double = 0.0,
+    vararg children: Node
+): HBox = hbox(spacing, *children) { }
 
 inline fun hbox(
+    spacing: Double = 0.0,
+    vararg children: Node,
     init: (@LayoutDsl _HBox).() -> Unit
-): HBox = _HBox().apply(init)
-
-inline fun LayoutManager<Node>.hbox(): HBox = hbox { }
+): HBox = _HBox(spacing, *children).apply(init)
 
 inline fun LayoutManager<Node>.hbox(
+    spacing: Double = 0.0,
+    vararg children: Node
+): HBox = hbox(spacing, *children) { }
+
+inline fun LayoutManager<Node>.hbox(
+    spacing: Double = 0.0,
+    vararg children: Node,
     init: (@LayoutDsl _HBox).() -> Unit
-): HBox = ktfx.layouts.hbox(init).add()
+): HBox = ktfx.layouts.hbox(spacing, *children, init = init).add()

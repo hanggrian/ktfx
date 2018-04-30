@@ -1,26 +1,39 @@
 package ktfx.layouts.scene.layout
 
-import ktfx.application.initToolkit
+import javafx.scene.paint.Color.RED
+import javafx.scene.text.Text
+import ktfx.layouts.LayoutTest
+import ktfx.layouts.pane
 import ktfx.layouts.textFlow
-import org.junit.Before
-import org.junit.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
-class TextFlowTest {
+class TextFlowTest : LayoutTest() {
 
-    @Before fun init() = initToolkit()
-
-    @Test fun textFlow() {
-        val textFlow = ktfx.layouts.textFlow()
-        assertTrue(textFlow.children.isEmpty())
+    override fun newInstance() {
+        assertEquals(textFlow(Text()).children.size, 1)
     }
 
-    @Test fun invoke() {
-        val textFlow = textFlow {
+    override fun newInstanceInitialized() {
+        textFlow {
             "Hello"()
-            "World"()
+            "World" {
+                fill = RED
+                assertEquals(fill, RED)
+            }
+
+            assertEquals(children.size, 2)
         }
-        assertEquals(textFlow.children.size, 2)
+    }
+
+    override fun withManager() {
+        assertEquals(pane {
+            textFlow()
+        }.children.size, 1)
+    }
+
+    override fun withManagerInitialized() {
+        assertEquals(pane {
+            textFlow { }
+        }.children.size, 1)
     }
 }

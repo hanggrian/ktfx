@@ -5,7 +5,9 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 
-open class _ScrollPane(content: Node?) : ScrollPane(content), LayoutManager<Node> {
+open class _ScrollPane(
+    content: Node?
+) : ScrollPane(content), LayoutManager<Node> {
 
     override fun <T : Node> T.add(): T = also { content = it }
 }

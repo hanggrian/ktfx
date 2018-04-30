@@ -7,7 +7,9 @@ import javafx.scene.Node
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
 
-open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), LayoutManager<Tab> {
+open class _TabPane(
+    vararg tabs: Tab
+) : TabPane(*tabs), LayoutManager<Tab> {
 
     override val childs: ObservableList<Tab> get() = tabs
 

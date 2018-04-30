@@ -7,7 +7,11 @@ import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
 
-open class _Menu(text: String, graphic: Node?, vararg items: MenuItem) : Menu(text, graphic, *items), LayoutManager<MenuItem> {
+open class _Menu(
+    text: String,
+    graphic: Node?,
+    vararg items: MenuItem
+) : Menu(text, graphic, *items), LayoutManager<MenuItem> {
 
     override val childs: ObservableList<MenuItem> get() = items
 

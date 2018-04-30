@@ -7,7 +7,9 @@ import javafx.scene.Node
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
 
-open class _TextFlow : TextFlow(), LayoutManager<Node> {
+open class _TextFlow(
+    vararg children: Node
+) : TextFlow(*children), LayoutManager<Node> {
 
     override val childs: ObservableList<Node> get() = children
 
@@ -18,14 +20,20 @@ open class _TextFlow : TextFlow(), LayoutManager<Node> {
     inline operator fun String.invoke(init: (@LayoutDsl Text).() -> Unit): Text = text(this, init)
 }
 
-inline fun textFlow(): TextFlow = textFlow { }
+inline fun textFlow(
+    vararg children: Node
+): TextFlow = textFlow(*children) { }
 
 inline fun textFlow(
+    vararg children: Node,
     init: (@LayoutDsl _TextFlow).() -> Unit
-): TextFlow = _TextFlow().apply(init)
-
-inline fun LayoutManager<Node>.textFlow(): TextFlow = textFlow { }
+): TextFlow = _TextFlow(*children).apply(init)
 
 inline fun LayoutManager<Node>.textFlow(
+    vararg children: Node
+): TextFlow = textFlow(*children) { }
+
+inline fun LayoutManager<Node>.textFlow(
+    vararg children: Node,
     init: (@LayoutDsl _TextFlow).() -> Unit
-): TextFlow = ktfx.layouts.textFlow(init).add()
+): TextFlow = ktfx.layouts.textFlow(*children, init = init).add()

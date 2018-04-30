@@ -6,19 +6,27 @@ import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 
-open class _Pane : Pane(), LayoutManager<Node> {
+open class _Pane(
+    vararg children: Node
+) : Pane(*children), LayoutManager<Node> {
 
     override val childs: ObservableList<Node> get() = children
 }
 
-inline fun pane(): Pane = pane { }
+inline fun pane(
+    vararg children: Node
+): Pane = pane(*children) { }
 
 inline fun pane(
+    vararg children: Node,
     init: (@LayoutDsl _Pane).() -> Unit
-): Pane = _Pane().apply(init)
-
-inline fun LayoutManager<Node>.pane(): Pane = pane { }
+): Pane = _Pane(*children).apply(init)
 
 inline fun LayoutManager<Node>.pane(
+    vararg children: Node
+): Pane = pane(*children) { }
+
+inline fun LayoutManager<Node>.pane(
+    vararg children: Node,
     init: (@LayoutDsl _Pane).() -> Unit
-): Pane = ktfx.layouts.pane(init).add()
+): Pane = ktfx.layouts.pane(*children, init = init).add()

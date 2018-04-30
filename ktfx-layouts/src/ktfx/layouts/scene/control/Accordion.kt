@@ -7,7 +7,9 @@ import javafx.scene.Node
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
 
-class _Accordion(vararg titledPanes: TitledPane) : Accordion(*titledPanes), LayoutManager<TitledPane> {
+class _Accordion(
+    vararg titledPanes: TitledPane
+) : Accordion(*titledPanes), LayoutManager<TitledPane> {
 
     override val childs: ObservableList<TitledPane> get() = panes
 

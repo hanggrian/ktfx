@@ -5,7 +5,10 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.TitledPane
 
-open class _TitledPane(title: String?, content: Node?) : TitledPane(title, content), LayoutManager<Node> {
+open class _TitledPane(
+    title: String?,
+    content: Node?
+) : TitledPane(title, content), LayoutManager<Node> {
 
     override fun <T : Node> T.add(): T = also { content = it }
 }

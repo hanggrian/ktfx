@@ -8,7 +8,9 @@ import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
 
 @Suppress("ClassName")
-open class _ButtonBar(buttonOrder: String? = null) : ButtonBar(buttonOrder), LayoutManager<Node> {
+open class _ButtonBar(
+    buttonOrder: String?
+) : ButtonBar(buttonOrder), LayoutManager<Node> {
 
     override val childs: ObservableList<Node> get() = buttons
 

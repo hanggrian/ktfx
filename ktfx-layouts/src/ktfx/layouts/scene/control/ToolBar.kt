@@ -6,7 +6,9 @@ import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
 
-open class _ToolBar(vararg items: Node) : ToolBar(*items), LayoutManager<Node> {
+open class _ToolBar(
+    vararg items: Node
+) : ToolBar(*items), LayoutManager<Node> {
 
     override val childs: ObservableList<Node> get() = items
 }

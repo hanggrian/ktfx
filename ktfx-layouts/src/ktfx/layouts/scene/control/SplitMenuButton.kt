@@ -7,8 +7,9 @@ import javafx.scene.Node
 import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton
 
-open class _SplitMenuButton(vararg items: MenuItem) : SplitMenuButton(*items),
-    LayoutManager<MenuItem> {
+open class _SplitMenuButton(
+    vararg items: MenuItem
+) : SplitMenuButton(*items), LayoutManager<MenuItem> {
 
     override val childs: ObservableList<MenuItem> get() = items
 

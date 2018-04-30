@@ -17,7 +17,7 @@ open class _VBox(
 
     override val childs: ObservableList<Node> get() = children
 
-    override fun Node.clear() = clearConstraints(this)
+    override fun Node.reset() = clearConstraints(this)
 
     override var Node.vpriority: Priority?
         get() = getVgrow(this)

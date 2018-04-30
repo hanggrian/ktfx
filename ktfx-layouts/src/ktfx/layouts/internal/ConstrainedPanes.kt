@@ -12,7 +12,7 @@ import kotlin.DeprecationLevel.ERROR
 
 internal interface ConstrainedPane {
 
-    fun Node.clear()
+    fun Node.reset()
 }
 
 internal interface MarginedPane : ConstrainedPane {

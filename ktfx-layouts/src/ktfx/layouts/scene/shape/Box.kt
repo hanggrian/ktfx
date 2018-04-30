@@ -6,28 +6,41 @@ import javafx.scene.Node
 import javafx.scene.shape.Box
 import javafx.scene.shape.Box.DEFAULT_SIZE
 
-inline fun box(
-    width: Double = DEFAULT_SIZE,
-    height: Double = DEFAULT_SIZE,
-    depth: Double = DEFAULT_SIZE
-): Box = box(width, height, depth) { }
-
-inline fun box(
+/** Creates a [Box]. */
+fun box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
-    init: (@LayoutDsl Box).() -> Unit
-): Box = Box(width, height, depth).apply(init)
+    init: ((@LayoutDsl Box).() -> Unit)? = null
+): Box = Box(width, height, depth).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.box(
-    width: Double = DEFAULT_SIZE,
-    height: Double = DEFAULT_SIZE,
-    depth: Double = DEFAULT_SIZE
-): Box = box(width, height, depth) { }
-
+/** Creates a [Box] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
-    init: (@LayoutDsl Box).() -> Unit
+    noinline init: ((@LayoutDsl Box).() -> Unit)? = null
 ): Box = ktfx.layouts.box(width, height, depth, init).add()
+
+/** Create a styled [Box]. */
+fun styledBox(
+    styleClass: String,
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE,
+    init: ((@LayoutDsl Box).() -> Unit)? = null
+): Box = Box(width, height, depth).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Box] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledBox(
+    styleClass: String,
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE,
+    noinline init: ((@LayoutDsl Box).() -> Unit)? = null
+): Box = ktfx.layouts.styledBox(styleClass, width, height, depth, init).add()

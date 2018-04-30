@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import ktfx.internal.KtFXInternals.NO_GETTER
@@ -14,7 +13,7 @@ open class _AnchorPane(
     vararg children: Node
 ) : AnchorPane(*children), LayoutManager<Node>, ConstrainedPane {
 
-    override val childs: ObservableList<Node> get() = children
+    override val childs: MutableList<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 
@@ -54,24 +53,33 @@ open class _AnchorPane(
         set(value) = setRightAnchor(this, value)
 }
 
-/** Create an [AnchorPane]. */
-inline fun anchorPane(
-    vararg children: Node
-): AnchorPane = anchorPane(*children) { }
-
-/** Create an [AnchorPane] with initialization. */
-inline fun anchorPane(
+/** Creates a [AnchorPane]. */
+fun anchorPane(
     vararg children: Node,
-    init: (@LayoutDsl _AnchorPane).() -> Unit
-): AnchorPane = _AnchorPane(*children).apply(init)
+    init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
+): AnchorPane = _AnchorPane(*children).also {
+    init?.invoke(it)
+}
 
-/** Create an [AnchorPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.anchorPane(
-    vararg children: Node
-): AnchorPane = anchorPane(*children) { }
-
-/** Create an [AnchorPane] with initialization and add it to this [LayoutManager]. */
+/** Creates a [AnchorPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.anchorPane(
     vararg children: Node,
-    init: (@LayoutDsl _AnchorPane).() -> Unit
+    noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
 ): AnchorPane = ktfx.layouts.anchorPane(*children, init = init).add()
+
+/** Create a styled [AnchorPane]. */
+fun styledAnchorPane(
+    styleClass: String,
+    vararg children: Node,
+    init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
+): AnchorPane = _AnchorPane(*children).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [AnchorPane] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledAnchorPane(
+    styleClass: String,
+    vararg children: Node,
+    noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
+): AnchorPane = ktfx.layouts.styledAnchorPane(styleClass, *children, init = init).add()

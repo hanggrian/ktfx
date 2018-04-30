@@ -5,14 +5,29 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Spinner
 
-inline fun <T> spinner(): Spinner<T> = spinner { }
+/** Creates a [Spinner]. */
+fun <T> spinner(
+    init: ((@LayoutDsl Spinner<T>).() -> Unit)? = null
+): Spinner<T> = Spinner<T>().also {
+    init?.invoke(it)
+}
 
-inline fun <T> spinner(
-    init: (@LayoutDsl Spinner<T>).() -> Unit
-): Spinner<T> = Spinner<T>().apply(init)
-
-inline fun <T> LayoutManager<Node>.spinner(): Spinner<T> = spinner { }
-
+/** Creates a [Spinner] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.spinner(
-    init: (@LayoutDsl Spinner<T>).() -> Unit
+    noinline init: ((@LayoutDsl Spinner<T>).() -> Unit)? = null
 ): Spinner<T> = ktfx.layouts.spinner(init).add()
+
+/** Create a styled [Spinner]. */
+fun <T> styledSpinner(
+    styleClass: String,
+    init: ((@LayoutDsl Spinner<T>).() -> Unit)? = null
+): Spinner<T> = Spinner<T>().also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Spinner] and add it to this [LayoutManager]. */
+inline fun <T> LayoutManager<Node>.styledSpinner(
+    styleClass: String,
+    noinline init: ((@LayoutDsl Spinner<T>).() -> Unit)? = null
+): Spinner<T> = ktfx.layouts.styledSpinner(styleClass, init).add()

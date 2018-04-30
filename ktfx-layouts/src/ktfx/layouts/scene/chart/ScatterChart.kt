@@ -9,28 +9,41 @@ import javafx.scene.chart.ScatterChart
 import javafx.scene.chart.XYChart.Series
 import ktfx.collections.mutableObservableListOf
 
-inline fun <X, Y> scatterChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
-): ScatterChart<X, Y> = scatterChart(x, y, data) { }
-
-inline fun <X, Y> scatterChart(
+/** Creates a [ScatterChart]. */
+fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: (@LayoutDsl ScatterChart<X, Y>).() -> Unit
-): ScatterChart<X, Y> = ScatterChart(x, y, data).apply(init)
+    init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
+): ScatterChart<X, Y> = ScatterChart(x, y, data).also {
+    init?.invoke(it)
+}
 
-inline fun <X, Y> LayoutManager<Node>.scatterChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
-): ScatterChart<X, Y> = scatterChart(x, y, data) { }
-
+/** Creates a [ScatterChart] and add it to this [LayoutManager]. */
 inline fun <X, Y> LayoutManager<Node>.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: (@LayoutDsl ScatterChart<X, Y>).() -> Unit
+    noinline init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
 ): ScatterChart<X, Y> = ktfx.layouts.scatterChart(x, y, data, init).add()
+
+/** Create a styled [ScatterChart]. */
+fun <X, Y> styledScatterChart(
+    styleClass: String,
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
+): ScatterChart<X, Y> = ScatterChart(x, y, data).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [ScatterChart] and add it to this [LayoutManager]. */
+inline fun <X, Y> LayoutManager<Node>.styledScatterChart(
+    styleClass: String,
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    noinline init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
+): ScatterChart<X, Y> = ktfx.layouts.styledScatterChart(styleClass, x, y, data, init).add()

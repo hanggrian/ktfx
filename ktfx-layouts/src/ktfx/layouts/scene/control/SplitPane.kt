@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.SplitPane
 
@@ -10,23 +9,36 @@ open class _SplitPane(
     vararg items: Node
 ) : SplitPane(*items), LayoutManager<Node> {
 
-    override val childs: ObservableList<Node> get() = items
+    override val childs: MutableList<Node> get() = items
 }
 
-inline fun splitPane(
-    vararg items: Node
-): SplitPane = splitPane(*items) { }
-
-inline fun splitPane(
+/** Creates a [SplitPane]. */
+fun splitPane(
     vararg items: Node,
-    init: (@LayoutDsl _SplitPane).() -> Unit
-): SplitPane = _SplitPane(*items).apply(init)
+    init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
+): SplitPane = _SplitPane(*items).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.splitPane(
-    vararg items: Node
-): SplitPane = splitPane(*items) { }
-
+/** Creates a [SplitPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.splitPane(
     vararg items: Node,
-    init: (@LayoutDsl _SplitPane).() -> Unit
+    noinline init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
 ): SplitPane = ktfx.layouts.splitPane(*items, init = init).add()
+
+/** Create a styled [SplitPane]. */
+fun styledSplitPane(
+    styleClass: String,
+    vararg items: Node,
+    init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
+): SplitPane = _SplitPane(*items).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [SplitPane] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledSplitPane(
+    styleClass: String,
+    vararg items: Node,
+    noinline init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
+): SplitPane = ktfx.layouts.styledSplitPane(styleClass, *items, init = init).add()

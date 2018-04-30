@@ -9,28 +9,41 @@ import javafx.scene.chart.Axis
 import javafx.scene.chart.XYChart.Series
 import ktfx.collections.mutableObservableListOf
 
-inline fun <X, Y> areaChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
-): AreaChart<X, Y> = areaChart(x, y, data) { }
-
-inline fun <X, Y> areaChart(
+/** Creates a [AreaChart]. */
+fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: (@LayoutDsl AreaChart<X, Y>).() -> Unit
-): AreaChart<X, Y> = AreaChart(x, y, data).apply(init)
+    init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
+): AreaChart<X, Y> = AreaChart(x, y, data).also {
+    init?.invoke(it)
+}
 
-inline fun <X, Y> LayoutManager<Node>.areaChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
-): AreaChart<X, Y> = areaChart(x, y, data) { }
-
+/** Creates a [AreaChart] and add it to this [LayoutManager]. */
 inline fun <X, Y> LayoutManager<Node>.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: (@LayoutDsl AreaChart<X, Y>).() -> Unit
+    noinline init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
 ): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data, init).add()
+
+/** Create a styled [AreaChart]. */
+fun <X, Y> styledAreaChart(
+    styleClass: String,
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
+): AreaChart<X, Y> = AreaChart(x, y, data).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [AreaChart] and add it to this [LayoutManager]. */
+inline fun <X, Y> LayoutManager<Node>.styledAreaChart(
+    styleClass: String,
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    noinline init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
+): AreaChart<X, Y> = ktfx.layouts.styledAreaChart(styleClass, x, y, data, init).add()

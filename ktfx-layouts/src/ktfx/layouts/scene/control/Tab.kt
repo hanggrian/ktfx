@@ -13,24 +13,37 @@ open class _Tab(
     override fun <T : Node> T.add(): T = also { content = it }
 }
 
-inline fun tab(
-    text: String? = null,
-    content: Node? = null
-): Tab = tab(text, content) { }
-
-inline fun tab(
+/** Creates a [Tab]. */
+fun tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutDsl _Tab).() -> Unit
-): Tab = _Tab(text, content).apply(init)
+    init: ((@LayoutDsl _Tab).() -> Unit)? = null
+): Tab = _Tab(text, content).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Tab>.tab(
-    text: String? = null,
-    content: Node? = null
-): Tab = tab(text, content) { }
-
+/** Creates a [Tab] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Tab>.tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutDsl _Tab).() -> Unit
+    noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null
 ): Tab = ktfx.layouts.tab(text, content, init).add()
+
+/** Create a styled [Tab]. */
+fun styledTab(
+    styleClass: String,
+    text: String? = null,
+    content: Node? = null,
+    init: ((@LayoutDsl _Tab).() -> Unit)? = null
+): Tab = _Tab(text, content).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Tab] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Tab>.styledTab(
+    styleClass: String,
+    text: String? = null,
+    content: Node? = null,
+    noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null
+): Tab = ktfx.layouts.styledTab(styleClass, text, content, init).add()

@@ -5,20 +5,33 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.CheckBox
 
-inline fun checkBox(
-    text: String? = null
-): CheckBox = checkBox(text) { }
-
-inline fun checkBox(
+/** Creates a [CheckBox]. */
+fun checkBox(
     text: String? = null,
-    init: (@LayoutDsl CheckBox).() -> Unit
-): CheckBox = CheckBox(text).apply(init)
+    init: ((@LayoutDsl CheckBox).() -> Unit)? = null
+): CheckBox = CheckBox(text).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.checkBox(
-    text: String? = null
-): CheckBox = checkBox(text) { }
-
+/** Creates a [CheckBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.checkBox(
     text: String? = null,
-    init: (@LayoutDsl CheckBox).() -> Unit
+    noinline init: ((@LayoutDsl CheckBox).() -> Unit)? = null
 ): CheckBox = ktfx.layouts.checkBox(text, init).add()
+
+/** Create a styled [CheckBox]. */
+fun styledCheckBox(
+    styleClass: String,
+    text: String? = null,
+    init: ((@LayoutDsl CheckBox).() -> Unit)? = null
+): CheckBox = CheckBox(text).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [CheckBox] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledCheckBox(
+    styleClass: String,
+    text: String? = null,
+    noinline init: ((@LayoutDsl CheckBox).() -> Unit)? = null
+): CheckBox = ktfx.layouts.styledCheckBox(styleClass, text, init).add()

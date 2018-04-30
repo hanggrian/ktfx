@@ -5,32 +5,45 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.shape.Line
 
-inline fun line(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0
-): Line = line(centerX, centerY, endX, endY) { }
-
-inline fun line(
+/** Creates a [Line]. */
+fun line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: (@LayoutDsl Line).() -> Unit
-): Line = Line(centerX, centerY, endX, endY).apply(init)
+    init: ((@LayoutDsl Line).() -> Unit)? = null
+): Line = Line(centerX, centerY, endX, endY).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.line(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0
-): Line = line(centerX, centerY, endX, endY) { }
-
+/** Creates a [Line] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: (@LayoutDsl Line).() -> Unit
+    noinline init: ((@LayoutDsl Line).() -> Unit)? = null
 ): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init).add()
+
+/** Create a styled [Line]. */
+fun styledLine(
+    styleClass: String,
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    init: ((@LayoutDsl Line).() -> Unit)? = null
+): Line = Line(centerX, centerY, endX, endY).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Line] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledLine(
+    styleClass: String,
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    noinline init: ((@LayoutDsl Line).() -> Unit)? = null
+): Line = ktfx.layouts.styledLine(styleClass, centerX, centerY, endX, endY, init).add()

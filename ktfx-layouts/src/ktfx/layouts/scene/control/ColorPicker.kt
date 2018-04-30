@@ -7,20 +7,33 @@ import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
 
-inline fun colorPicker(
-    color: Color = WHITE
-): ColorPicker = colorPicker(color) { }
-
-inline fun colorPicker(
+/** Creates a [ColorPicker]. */
+fun colorPicker(
     color: Color = WHITE,
-    init: (@LayoutDsl ColorPicker).() -> Unit
-): ColorPicker = ColorPicker(color).apply(init)
+    init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
+): ColorPicker = ColorPicker(color).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.colorPicker(
-    color: Color = WHITE
-): ColorPicker = colorPicker(color) { }
-
+/** Creates a [ColorPicker] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.colorPicker(
     color: Color = WHITE,
-    init: (@LayoutDsl ColorPicker).() -> Unit
+    noinline init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
 ): ColorPicker = ktfx.layouts.colorPicker(color, init).add()
+
+/** Create a styled [ColorPicker]. */
+fun styledColorPicker(
+    styleClass: String,
+    color: Color = WHITE,
+    init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
+): ColorPicker = ColorPicker(color).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [ColorPicker] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledColorPicker(
+    styleClass: String,
+    color: Color = WHITE,
+    noinline init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
+): ColorPicker = ktfx.layouts.styledColorPicker(styleClass, color, init).add()

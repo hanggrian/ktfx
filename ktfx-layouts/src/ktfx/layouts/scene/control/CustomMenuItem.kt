@@ -6,24 +6,37 @@ import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
 import javafx.scene.control.MenuItem
 
-inline fun customMenuItem(
-    node: Node? = null,
-    hideOnClick: Boolean = true
-): CustomMenuItem = customMenuItem(node, hideOnClick) { }
-
-inline fun customMenuItem(
+/** Creates a [CustomMenuItem]. */
+fun customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
-    init: (@LayoutDsl CustomMenuItem).() -> Unit
-): CustomMenuItem = CustomMenuItem(node, hideOnClick).apply(init)
+    init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
+): CustomMenuItem = CustomMenuItem(node, hideOnClick).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<MenuItem>.customMenuItem(
-    node: Node? = null,
-    hideOnClick: Boolean = true
-): CustomMenuItem = customMenuItem(node, hideOnClick) { }
-
+/** Creates a [CustomMenuItem] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
-    init: (@LayoutDsl CustomMenuItem).() -> Unit
+    noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
 ): CustomMenuItem = ktfx.layouts.customMenuItem(node, hideOnClick, init).add()
+
+/** Create a styled [CustomMenuItem]. */
+fun styledCustomMenuItem(
+    styleClass: String,
+    node: Node? = null,
+    hideOnClick: Boolean = true,
+    init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
+): CustomMenuItem = CustomMenuItem(node, hideOnClick).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [CustomMenuItem] and add it to this [LayoutManager]. */
+inline fun LayoutManager<MenuItem>.styledCustomMenuItem(
+    styleClass: String,
+    node: Node? = null,
+    hideOnClick: Boolean = true,
+    noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
+): CustomMenuItem = ktfx.layouts.styledCustomMenuItem(styleClass, node, hideOnClick, init).add()

@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
@@ -18,7 +17,7 @@ open class _BorderPane(
     left: Node?
 ) : BorderPane(center, top, right, bottom, left), LayoutManager<Node>, AlignedPane, MarginedPane {
 
-    override val childs: ObservableList<Node> get() = children
+    override val childs: MutableList<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 
@@ -31,40 +30,49 @@ open class _BorderPane(
         set(value) = setMargin(this, value)
 }
 
-/** Create a [BorderPane]. */
-inline fun borderPane(
-    center: Node? = null,
-    top: Node? = null,
-    right: Node? = null,
-    bottom: Node? = null,
-    left: Node? = null
-): BorderPane = borderPane(center, top, right, bottom, left) { }
-
-/** Create a [BorderPane] with initialization. */
-inline fun borderPane(
+/** Creates a [BorderPane]. */
+fun borderPane(
     center: Node? = null,
     top: Node? = null,
     right: Node? = null,
     bottom: Node? = null,
     left: Node? = null,
-    init: (@LayoutDsl _BorderPane).() -> Unit
-): BorderPane = _BorderPane(center, top, right, bottom, left).apply(init)
+    init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
+): BorderPane = _BorderPane(center, top, right, bottom, left).also {
+    init?.invoke(it)
+}
 
-/** Create a [BorderPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.borderPane(
-    center: Node? = null,
-    top: Node? = null,
-    right: Node? = null,
-    bottom: Node? = null,
-    left: Node? = null
-): BorderPane = borderPane(center, top, right, bottom, left) { }
-
-/** Create a [BorderPane] with initialization and add it to this [LayoutManager]. */
+/** Creates a [BorderPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.borderPane(
     center: Node? = null,
     top: Node? = null,
     right: Node? = null,
     bottom: Node? = null,
     left: Node? = null,
-    init: (@LayoutDsl _BorderPane).() -> Unit
+    noinline init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
 ): BorderPane = ktfx.layouts.borderPane(center, top, right, bottom, left, init).add()
+
+/** Create a styled [BorderPane]. */
+fun styledBorderPane(
+    styleClass: String,
+    center: Node? = null,
+    top: Node? = null,
+    right: Node? = null,
+    bottom: Node? = null,
+    left: Node? = null,
+    init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
+): BorderPane = _BorderPane(center, top, right, bottom, left).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [BorderPane] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledBorderPane(
+    styleClass: String,
+    center: Node? = null,
+    top: Node? = null,
+    right: Node? = null,
+    bottom: Node? = null,
+    left: Node? = null,
+    noinline init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
+): BorderPane = ktfx.layouts.styledBorderPane(styleClass, center, top, right, bottom, left, init).add()

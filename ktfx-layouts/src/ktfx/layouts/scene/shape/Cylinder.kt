@@ -5,28 +5,41 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.shape.Cylinder
 
-inline fun cylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64
-): Cylinder = cylinder(radius, height, division) { }
-
-inline fun cylinder(
+/** Creates a [Cylinder]. */
+fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    init: (@LayoutDsl Cylinder).() -> Unit
-): Cylinder = Cylinder(radius, height, division).apply(init)
+    init: ((@LayoutDsl Cylinder).() -> Unit)? = null
+): Cylinder = Cylinder(radius, height, division).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.cylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64
-): Cylinder = cylinder(radius, height, division) { }
-
+/** Creates a [Cylinder] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    init: (@LayoutDsl Cylinder).() -> Unit
+    noinline init: ((@LayoutDsl Cylinder).() -> Unit)? = null
 ): Cylinder = ktfx.layouts.cylinder(radius, height, division, init).add()
+
+/** Create a styled [Cylinder]. */
+fun styledCylinder(
+    styleClass: String,
+    radius: Double = 1.0,
+    height: Double = 2.0,
+    division: Int = 64,
+    init: ((@LayoutDsl Cylinder).() -> Unit)? = null
+): Cylinder = Cylinder(radius, height, division).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Cylinder] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledCylinder(
+    styleClass: String,
+    radius: Double = 1.0,
+    height: Double = 2.0,
+    division: Int = 64,
+    noinline init: ((@LayoutDsl Cylinder).() -> Unit)? = null
+): Cylinder = ktfx.layouts.styledCylinder(styleClass, radius, height, division, init).add()

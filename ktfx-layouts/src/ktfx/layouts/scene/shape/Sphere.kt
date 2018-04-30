@@ -5,24 +5,37 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.shape.Sphere
 
-inline fun sphere(
-    radius: Double = 1.0,
-    division: Int = 64
-): Sphere = sphere(radius, division) { }
-
-inline fun sphere(
+/** Creates a [Sphere]. */
+fun sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    init: (@LayoutDsl Sphere).() -> Unit
-): Sphere = Sphere(radius, division).apply(init)
+    init: ((@LayoutDsl Sphere).() -> Unit)? = null
+): Sphere = Sphere(radius, division).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.sphere(
-    radius: Double = 1.0,
-    division: Int = 64
-): Sphere = sphere(radius, division) { }
-
+/** Creates a [Sphere] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    init: (@LayoutDsl Sphere).() -> Unit
+    noinline init: ((@LayoutDsl Sphere).() -> Unit)? = null
 ): Sphere = ktfx.layouts.sphere(radius, division, init).add()
+
+/** Create a styled [Sphere]. */
+fun styledSphere(
+    styleClass: String,
+    radius: Double = 1.0,
+    division: Int = 64,
+    init: ((@LayoutDsl Sphere).() -> Unit)? = null
+): Sphere = Sphere(radius, division).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Sphere] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledSphere(
+    styleClass: String,
+    radius: Double = 1.0,
+    division: Int = 64,
+    noinline init: ((@LayoutDsl Sphere).() -> Unit)? = null
+): Sphere = ktfx.layouts.styledSphere(styleClass, radius, division, init).add()

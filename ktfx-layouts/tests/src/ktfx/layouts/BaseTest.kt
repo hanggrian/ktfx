@@ -5,5 +5,5 @@ import org.junit.Before
 
 open class BaseTest {
 
-    @Before fun init() = initToolkit { }
+    @Before fun init() = initToolkit()
 }

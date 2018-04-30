@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
@@ -11,32 +10,49 @@ class _Accordion(
     vararg titledPanes: TitledPane
 ) : Accordion(*titledPanes), LayoutManager<TitledPane> {
 
-    override val childs: ObservableList<TitledPane> get() = panes
+    override val childs: MutableList<TitledPane> get() = panes
 
-    /** Convenient method to add button to this bar by only using string. */
-    inline operator fun String.invoke(content: Node? = null): TitledPane = invoke(content) { }
-
-    /** Convenient method to add button to this bar by only using string. */
+    /** Creates a [TitledPane] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(
         content: Node? = null,
-        init: (@LayoutDsl _TitledPane).() -> Unit
+        noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
     ): TitledPane = titledPane(this, content, init).add()
+
+    /** Creates a styled [TitledPane] and add it to this [LayoutManager]. */
+    inline operator fun String.invoke(
+        styleClass: String,
+        content: Node? = null,
+        noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
+    ): TitledPane = styledTitledPane(styleClass, this, content, init).add()
 }
 
-inline fun accordion(
-    vararg titledPanes: TitledPane
-): Accordion = accordion(*titledPanes) { }
-
-inline fun accordion(
+/** Creates a [Accordion]. */
+fun accordion(
     vararg titledPanes: TitledPane,
-    init: (@LayoutDsl _Accordion).() -> Unit
-): Accordion = _Accordion(*titledPanes).apply(init)
+    init: ((@LayoutDsl _Accordion).() -> Unit)? = null
+): Accordion = _Accordion(*titledPanes).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.accordion(
-    vararg titledPanes: TitledPane
-): Accordion = accordion(*titledPanes) { }
-
+/** Creates a [Accordion] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.accordion(
     vararg titledPanes: TitledPane,
-    init: (@LayoutDsl _Accordion).() -> Unit
+    noinline init: ((@LayoutDsl _Accordion).() -> Unit)? = null
 ): Accordion = ktfx.layouts.accordion(*titledPanes, init = init).add()
+
+/** Create a styled [Accordion]. */
+fun styledAccordion(
+    styleClass: String,
+    vararg titledPanes: TitledPane,
+    init: ((@LayoutDsl _Accordion).() -> Unit)? = null
+): Accordion = _Accordion(*titledPanes).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Accordion] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledAccordion(
+    styleClass: String,
+    vararg titledPanes: TitledPane,
+    noinline init: ((@LayoutDsl _Accordion).() -> Unit)? = null
+): Accordion = ktfx.layouts.styledAccordion(styleClass, *titledPanes, init = init).add()

@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
@@ -14,7 +13,7 @@ open class _StackPane(
     vararg children: Node
 ) : StackPane(*children), LayoutManager<Node>, AlignedPane, MarginedPane {
 
-    override val childs: ObservableList<Node> get() = children
+    override val childs: MutableList<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 
@@ -27,24 +26,33 @@ open class _StackPane(
         set(value) = setMargin(this, value)
 }
 
-/** Create a [StackPane]. */
-inline fun stackPane(
-    vararg children: Node
-): StackPane = stackPane(*children) { }
-
-/** Create a [StackPane] with initialization. */
-inline fun stackPane(
+/** Creates a [StackPane]. */
+fun stackPane(
     vararg children: Node,
-    init: (@LayoutDsl _StackPane).() -> Unit
-): StackPane = _StackPane(*children).apply(init)
+    init: ((@LayoutDsl _StackPane).() -> Unit)? = null
+): StackPane = _StackPane(*children).also {
+    init?.invoke(it)
+}
 
-/** Create a [StackPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.stackPane(
-    vararg children: Node
-): StackPane = stackPane(*children) { }
-
-/** Create a [StackPane] with initialization and add it to this [LayoutManager]. */
+/** Creates a [StackPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.stackPane(
     vararg children: Node,
-    init: (@LayoutDsl _StackPane).() -> Unit
+    noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
 ): StackPane = ktfx.layouts.stackPane(*children, init = init).add()
+
+/** Create a styled [StackPane]. */
+fun styledStackPane(
+    styleClass: String,
+    vararg children: Node,
+    init: ((@LayoutDsl _StackPane).() -> Unit)? = null
+): StackPane = _StackPane(*children).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [StackPane] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledStackPane(
+    styleClass: String,
+    vararg children: Node,
+    noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
+): StackPane = ktfx.layouts.styledStackPane(styleClass, *children, init = init).add()

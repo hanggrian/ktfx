@@ -7,20 +7,33 @@ import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.control.Separator
 
-inline fun separator(
-    orientation: Orientation = HORIZONTAL
-): Separator = separator(orientation) { }
-
-inline fun separator(
+/** Creates a [Separator]. */
+fun separator(
     orientation: Orientation = HORIZONTAL,
-    init: (@LayoutDsl Separator).() -> Unit
-): Separator = Separator(orientation).apply(init)
+    init: ((@LayoutDsl Separator).() -> Unit)? = null
+): Separator = Separator(orientation).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.separator(
-    orientation: Orientation = HORIZONTAL
-): Separator = separator(orientation) { }
-
+/** Creates a [Separator] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.separator(
     orientation: Orientation = HORIZONTAL,
-    init: (@LayoutDsl Separator).() -> Unit
+    noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
 ): Separator = ktfx.layouts.separator(orientation, init).add()
+
+/** Create a styled [Separator]. */
+fun styledSeparator(
+    styleClass: String,
+    orientation: Orientation = HORIZONTAL,
+    init: ((@LayoutDsl Separator).() -> Unit)? = null
+): Separator = Separator(orientation).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Separator] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledSeparator(
+    styleClass: String,
+    orientation: Orientation = HORIZONTAL,
+    noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
+): Separator = ktfx.layouts.styledSeparator(styleClass, orientation, init).add()

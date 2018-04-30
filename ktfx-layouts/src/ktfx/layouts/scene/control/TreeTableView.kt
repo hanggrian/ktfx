@@ -8,37 +8,51 @@ import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
 import ktfx.layouts.internal._TreeTableColumnsBuilder
 
-inline fun <S> treeTableView(
-    root: TreeItem<S>? = null
-): TreeTableView<S> = treeTableView(root) { }
-
-inline fun <S> treeTableView(
+/** Creates a [TreeTableView]. */
+fun <S> treeTableView(
     root: TreeItem<S>? = null,
-    init: (@LayoutDsl TreeTableView<S>).() -> Unit
-): TreeTableView<S> = TreeTableView<S>(root).apply(init)
+    init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null
+): TreeTableView<S> = TreeTableView<S>(root).also {
+    init?.invoke(it)
+}
 
-inline fun <S> LayoutManager<Node>.treeTableView(
-    root: TreeItem<S>? = null
-): TreeTableView<S> = treeTableView(root) { }
-
+/** Creates a [TreeTableView] and add it to this [LayoutManager]. */
 inline fun <S> LayoutManager<Node>.treeTableView(
     root: TreeItem<S>? = null,
-    init: (@LayoutDsl TreeTableView<S>).() -> Unit
+    noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null
 ): TreeTableView<S> = ktfx.layouts.treeTableView(root, init).add()
+
+/** Create a styled [TreeTableView]. */
+fun <S> styledTreeTableView(
+    styleClass: String,
+    root: TreeItem<S>? = null,
+    init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null
+): TreeTableView<S> = TreeTableView<S>(root).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [TreeTableView] and add it to this [LayoutManager]. */
+inline fun <S> LayoutManager<Node>.styledTreeTableView(
+    styleClass: String,
+    root: TreeItem<S>? = null,
+    noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null
+): TreeTableView<S> = ktfx.layouts.styledTreeTableView(styleClass, root, init).add()
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {
 
-    fun <T> column(text: String? = null): TreeTableColumn<S, T> = column(text) { }
+    fun <T> column(
+        text: String? = null,
+        init: (TreeTableColumn<S, T>.() -> Unit)? = null
+    ): TreeTableColumn<S, T>
 
-    fun <T> column(text: String? = null, init: TreeTableColumn<S, T>.() -> Unit): TreeTableColumn<S, T>
-
-    operator fun <T> String.invoke(): TreeTableColumn<S, T> = invoke { }
-
-    operator fun <T> String.invoke(init: TreeTableColumn<S, T>.() -> Unit): TreeTableColumn<S, T> = column(this, init)
+    operator fun <T> String.invoke(
+        init: (TreeTableColumn<S, T>.() -> Unit)? = null
+    ): TreeTableColumn<S, T> = column(this, init)
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
 inline fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {
-    columns += _TreeTableColumnsBuilder<S>().apply(init).columns
+    columns += _TreeTableColumnsBuilder<S>().apply(init).childs
 }

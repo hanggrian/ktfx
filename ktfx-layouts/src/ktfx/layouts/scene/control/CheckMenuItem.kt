@@ -6,24 +6,37 @@ import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
 import javafx.scene.control.MenuItem
 
-inline fun checkMenuItem(
-    text: String? = null,
-    graphic: Node? = null
-): CheckMenuItem = checkMenuItem(text, graphic) { }
-
-inline fun checkMenuItem(
+/** Creates a [CheckMenuItem]. */
+fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutDsl CheckMenuItem).() -> Unit
-): CheckMenuItem = CheckMenuItem(text, graphic).apply(init)
+    init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
+): CheckMenuItem = CheckMenuItem(text, graphic).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<MenuItem>.checkMenuItem(
-    text: String? = null,
-    graphic: Node? = null
-): CheckMenuItem = checkMenuItem(text, graphic) { }
-
+/** Creates a [CheckMenuItem] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutDsl CheckMenuItem).() -> Unit
+    noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
 ): CheckMenuItem = ktfx.layouts.checkMenuItem(text, graphic, init).add()
+
+/** Create a styled [CheckMenuItem]. */
+fun styledCheckMenuItem(
+    styleClass: String,
+    text: String? = null,
+    graphic: Node? = null,
+    init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
+): CheckMenuItem = CheckMenuItem(text, graphic).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [CheckMenuItem] and add it to this [LayoutManager]. */
+inline fun LayoutManager<MenuItem>.styledCheckMenuItem(
+    styleClass: String,
+    text: String? = null,
+    graphic: Node? = null,
+    noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
+): CheckMenuItem = ktfx.layouts.styledCheckMenuItem(styleClass, text, graphic, init).add()

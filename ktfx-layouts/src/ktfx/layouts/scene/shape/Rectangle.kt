@@ -5,32 +5,45 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.shape.Rectangle
 
-inline fun rectangle(
-    x: Double = 0.0,
-    y: Double = 0.0,
-    width: Double = 0.0,
-    height: Double = 0.0
-): Rectangle = rectangle(x, y, width, height) { }
-
-inline fun rectangle(
+/** Creates a [Rectangle]. */
+fun rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutDsl Rectangle).() -> Unit
-): Rectangle = Rectangle(x, y, width, height).apply(init)
+    init: ((@LayoutDsl Rectangle).() -> Unit)? = null
+): Rectangle = Rectangle(x, y, width, height).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.rectangle(
-    x: Double = 0.0,
-    y: Double = 0.0,
-    width: Double = 0.0,
-    height: Double = 0.0
-): Rectangle = rectangle(x, y, width, height) { }
-
+/** Creates a [Rectangle] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutDsl Rectangle).() -> Unit
+    noinline init: ((@LayoutDsl Rectangle).() -> Unit)? = null
 ): Rectangle = ktfx.layouts.rectangle(x, y, width, height, init).add()
+
+/** Create a styled [Rectangle]. */
+fun styledRectangle(
+    styleClass: String,
+    x: Double = 0.0,
+    y: Double = 0.0,
+    width: Double = 0.0,
+    height: Double = 0.0,
+    init: ((@LayoutDsl Rectangle).() -> Unit)? = null
+): Rectangle = Rectangle(x, y, width, height).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Rectangle] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledRectangle(
+    styleClass: String,
+    x: Double = 0.0,
+    y: Double = 0.0,
+    width: Double = 0.0,
+    height: Double = 0.0,
+    noinline init: ((@LayoutDsl Rectangle).() -> Unit)? = null
+): Rectangle = ktfx.layouts.styledRectangle(styleClass, x, y, width, height, init).add()

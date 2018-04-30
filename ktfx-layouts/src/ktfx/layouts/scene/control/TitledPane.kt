@@ -13,24 +13,37 @@ open class _TitledPane(
     override fun <T : Node> T.add(): T = also { content = it }
 }
 
-inline fun titledPane(
-    text: String? = null,
-    content: Node? = null
-): TitledPane = titledPane(text, content) { }
-
-inline fun titledPane(
+/** Creates a [TitledPane]. */
+fun titledPane(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutDsl _TitledPane).() -> Unit
-): TitledPane = _TitledPane(text, content).apply(init)
+    init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
+): TitledPane = _TitledPane(text, content).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.titledPane(
-    text: String? = null,
-    content: Node? = null
-): TitledPane = titledPane(text, content) { }
-
+/** Creates a [TitledPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.titledPane(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutDsl _TitledPane).() -> Unit
+    noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
 ): TitledPane = ktfx.layouts.titledPane(text, content, init).add()
+
+/** Create a styled [TitledPane]. */
+fun styledTitledPane(
+    styleClass: String,
+    text: String? = null,
+    content: Node? = null,
+    init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
+): TitledPane = _TitledPane(text, content).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [TitledPane] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledTitledPane(
+    styleClass: String,
+    text: String? = null,
+    content: Node? = null,
+    noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
+): TitledPane = ktfx.layouts.styledTitledPane(styleClass, text, content, init).add()

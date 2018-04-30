@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.geometry.HPos
 import javafx.geometry.Insets
 import javafx.geometry.VPos
@@ -22,7 +21,7 @@ import ktfx.layouts.internal._ConstraintsBuilder
 open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane,
     VGrowedPane {
 
-    override val childs: ObservableList<Node> get() = children
+    override val childs: MutableList<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 
@@ -83,36 +82,41 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
         set(value) = setVgrow(this, value)
 }
 
-/** Create a [GridPane]. */
-inline fun gridPane(): GridPane = gridPane { }
+/** Creates a [GridPane]. */
+fun gridPane(
+    init: ((@LayoutDsl _GridPane).() -> Unit)? = null
+): GridPane = _GridPane().also {
+    init?.invoke(it)
+}
 
-/** Create a [GridPane] with initialization. */
-inline fun gridPane(
-    init: (@LayoutDsl _GridPane).() -> Unit
-): GridPane = _GridPane().apply(init)
-
-/** Create a [GridPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.gridPane(): GridPane = gridPane { }
-
-/** Create a [GridPane] with initialization and add it to this [LayoutManager]. */
+/** Creates a [GridPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.gridPane(
-    init: (@LayoutDsl _GridPane).() -> Unit
+    noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
 ): GridPane = ktfx.layouts.gridPane(init).add()
+
+/** Create a styled [GridPane]. */
+fun styledGridPane(
+    styleClass: String,
+    init: ((@LayoutDsl _GridPane).() -> Unit)? = null
+): GridPane = _GridPane().also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [GridPane] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledGridPane(
+    styleClass: String,
+    noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
+): GridPane = ktfx.layouts.styledGridPane(styleClass, init).add()
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {
 
-    fun constraints(): T = constraints { }
+    fun constraints(init: (T.() -> Unit)? = null): T
 
-    fun constraints(init: T.() -> Unit): T
+    fun constraints(size: Double, init: (T.() -> Unit)? = null): T
 
-    fun constraints(size: Double): T = constraints(size) { }
-
-    fun constraints(size: Double, init: T.() -> Unit): T
-
-    fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T = constraints(minSize, prefSize, maxSize) { }
-
-    fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: T.() -> Unit): T
+    fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: (T.() -> Unit)? = null): T
 }
 
 /** Invokes a row constraints DSL builder. */
@@ -122,7 +126,7 @@ inline fun GridPane.rowConstraints(init: ConstraintsBuilder<RowConstraints>.() -
         override fun newInstance(width: Double): RowConstraints = RowConstraints(width)
         override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): RowConstraints =
             RowConstraints(width, prefWidth, maxWidth)
-    }.apply(init).constraints
+    }.apply(init).childs
 }
 
 /** Invokes a column constraints DSL builder. */
@@ -132,5 +136,5 @@ inline fun GridPane.columnConstraints(init: ConstraintsBuilder<ColumnConstraints
         override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
         override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
             ColumnConstraints(width, prefWidth, maxWidth)
-    }.apply(init).constraints
+    }.apply(init).childs
 }

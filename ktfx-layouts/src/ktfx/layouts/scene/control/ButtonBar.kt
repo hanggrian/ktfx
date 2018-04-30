@@ -1,43 +1,58 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "ClassName")
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
 
-@Suppress("ClassName")
 open class _ButtonBar(
     buttonOrder: String?
 ) : ButtonBar(buttonOrder), LayoutManager<Node> {
 
-    override val childs: ObservableList<Node> get() = buttons
+    override val childs: MutableList<Node> get() = buttons
 
-    /** Convenient method to add button to this bar by only using string. */
-    inline operator fun String.invoke(graphic: Node? = null): Button = invoke(graphic) { }
-
-    /** Convenient method to add button to this bar by only using string. */
+    /** Creates a [Button] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutDsl Button).() -> Unit
+        noinline init: ((@LayoutDsl Button).() -> Unit)? = null
     ): Button = button(this, graphic, init)
+
+    /** Creates a styled [Button] and add it to this [LayoutManager]. */
+    inline operator fun String.invoke(
+        styleClass: String,
+        graphic: Node? = null,
+        noinline init: ((@LayoutDsl Button).() -> Unit)? = null
+    ): Button = styledButton(styleClass, this, graphic, init)
 }
 
-inline fun buttonBar(
-    buttonOrder: String? = null
-): ButtonBar = buttonBar(buttonOrder) { }
-
-inline fun buttonBar(
+/** Creates a [ButtonBar]. */
+fun buttonBar(
     buttonOrder: String? = null,
-    init: (@LayoutDsl _ButtonBar).() -> Unit
-): ButtonBar = _ButtonBar(buttonOrder).apply(init)
+    init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
+): ButtonBar = _ButtonBar(buttonOrder).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.buttonBar(
-    buttonOrder: String? = null
-): ButtonBar = buttonBar(buttonOrder) { }
-
+/** Creates a [ButtonBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.buttonBar(
     buttonOrder: String? = null,
-    init: (@LayoutDsl _ButtonBar).() -> Unit
+    noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
 ): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init).add()
+
+/** Create a styled [ButtonBar]. */
+fun styledButtonBar(
+    styleClass: String,
+    buttonOrder: String? = null,
+    init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
+): ButtonBar = _ButtonBar(buttonOrder).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [ButtonBar] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledButtonBar(
+    styleClass: String,
+    buttonOrder: String? = null,
+    noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
+): ButtonBar = ktfx.layouts.styledButtonBar(styleClass, buttonOrder, init).add()

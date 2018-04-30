@@ -5,20 +5,33 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.text.Text
 
-inline fun text(
-    text: String? = null
-): Text = text(text) { }
-
-inline fun text(
+/** Creates a [Text]. */
+fun text(
     text: String? = null,
-    init: (@LayoutDsl Text).() -> Unit
-): Text = Text(text).apply(init)
+    init: ((@LayoutDsl Text).() -> Unit)? = null
+): Text = Text(text).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.text(
-    text: String? = null
-): Text = text(text) { }
-
+/** Creates a [Text] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.text(
     text: String? = null,
-    init: (@LayoutDsl Text).() -> Unit
+    noinline init: ((@LayoutDsl Text).() -> Unit)? = null
 ): Text = ktfx.layouts.text(text, init).add()
+
+/** Create a styled [Text]. */
+fun styledText(
+    styleClass: String,
+    text: String? = null,
+    init: ((@LayoutDsl Text).() -> Unit)? = null
+): Text = Text(text).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [Text] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledText(
+    styleClass: String,
+    text: String? = null,
+    noinline init: ((@LayoutDsl Text).() -> Unit)? = null
+): Text = ktfx.layouts.styledText(styleClass, text, init).add()

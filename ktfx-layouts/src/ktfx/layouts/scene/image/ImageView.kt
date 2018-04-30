@@ -6,24 +6,33 @@ import javafx.scene.Node
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 
-/** Create a [ImageView]. */
-inline fun imageView(
-    image: Image? = null
-): ImageView = imageView(image) { }
-
-/** Create a [ImageView] with initialization. */
-inline fun imageView(
+/** Creates a [ImageView]. */
+fun imageView(
     image: Image? = null,
-    init: (@LayoutDsl ImageView).() -> Unit
-): ImageView = ImageView(image).apply(init)
+    init: ((@LayoutDsl ImageView).() -> Unit)? = null
+): ImageView = ImageView(image).also {
+    init?.invoke(it)
+}
 
-/** Create a [ImageView] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.imageView(
-    image: Image? = null
-): ImageView = imageView(image) { }
-
-/** Create a [ImageView] with initialization and add it to this [LayoutManager]. */
+/** Creates a [ImageView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.imageView(
     image: Image? = null,
-    init: (@LayoutDsl ImageView).() -> Unit
+    noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
 ): ImageView = ktfx.layouts.imageView(image, init).add()
+
+/** Create a styled [ImageView]. */
+fun styledImageView(
+    styleClass: String,
+    image: Image? = null,
+    init: ((@LayoutDsl ImageView).() -> Unit)? = null
+): ImageView = ImageView(image).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [ImageView] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledImageView(
+    styleClass: String,
+    image: Image? = null,
+    noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
+): ImageView = ktfx.layouts.styledImageView(styleClass, image, init).add()

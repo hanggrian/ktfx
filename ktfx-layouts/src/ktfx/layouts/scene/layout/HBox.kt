@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
@@ -15,7 +14,7 @@ open class _HBox(
     vararg children: Node
 ) : HBox(spacing, *children), LayoutManager<Node>, HGrowedPane, MarginedPane {
 
-    override val childs: ObservableList<Node> get() = children
+    override val childs: MutableList<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 
@@ -28,28 +27,37 @@ open class _HBox(
         set(value) = setMargin(this, value)
 }
 
-/** Create a [HBox]. */
-inline fun hbox(
-    spacing: Double = 0.0,
-    vararg children: Node
-): HBox = hbox(spacing, *children) { }
-
-/** Create a [HBox] with initialization. */
-inline fun hbox(
+/** Creates a [HBox]. */
+fun hbox(
     spacing: Double = 0.0,
     vararg children: Node,
-    init: (@LayoutDsl _HBox).() -> Unit
-): HBox = _HBox(spacing, *children).apply(init)
+    init: ((@LayoutDsl _HBox).() -> Unit)? = null
+): HBox = _HBox(spacing, *children).also {
+    init?.invoke(it)
+}
 
-/** Create a [HBox] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.hbox(
-    spacing: Double = 0.0,
-    vararg children: Node
-): HBox = hbox(spacing, *children) { }
-
-/** Create a [HBox] with initialization and add it to this [LayoutManager]. */
+/** Creates a [HBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.hbox(
     spacing: Double = 0.0,
     vararg children: Node,
-    init: (@LayoutDsl _HBox).() -> Unit
+    noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
 ): HBox = ktfx.layouts.hbox(spacing, *children, init = init).add()
+
+/** Create a styled [HBox]. */
+fun styledHbox(
+    styleClass: String,
+    spacing: Double = 0.0,
+    vararg children: Node,
+    init: ((@LayoutDsl _HBox).() -> Unit)? = null
+): HBox = _HBox(spacing, *children).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [HBox] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledHbox(
+    styleClass: String,
+    spacing: Double = 0.0,
+    vararg children: Node,
+    noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
+): HBox = ktfx.layouts.styledHbox(styleClass, spacing, *children, init = init).add()

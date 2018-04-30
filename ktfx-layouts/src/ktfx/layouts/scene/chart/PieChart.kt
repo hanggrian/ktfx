@@ -8,20 +8,33 @@ import javafx.scene.chart.PieChart
 import javafx.scene.chart.PieChart.Data
 import ktfx.collections.mutableObservableListOf
 
-inline fun pieChart(
-    data: ObservableList<Data> = mutableObservableListOf()
-): PieChart = pieChart(data) { }
-
-inline fun pieChart(
+/** Creates a [PieChart]. */
+fun pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
-    init: (@LayoutDsl PieChart).() -> Unit
-): PieChart = PieChart(data).apply(init)
+    init: ((@LayoutDsl PieChart).() -> Unit)? = null
+): PieChart = PieChart(data).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.pieChart(
-    data: ObservableList<Data> = mutableObservableListOf()
-): PieChart = pieChart(data) { }
-
+/** Creates a [PieChart] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
-    init: (@LayoutDsl PieChart).() -> Unit
+    noinline init: ((@LayoutDsl PieChart).() -> Unit)? = null
 ): PieChart = ktfx.layouts.pieChart(data, init).add()
+
+/** Create a styled [PieChart]. */
+fun styledPieChart(
+    styleClass: String,
+    data: ObservableList<Data> = mutableObservableListOf(),
+    init: ((@LayoutDsl PieChart).() -> Unit)? = null
+): PieChart = PieChart(data).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [PieChart] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledPieChart(
+    styleClass: String,
+    data: ObservableList<Data> = mutableObservableListOf(),
+    noinline init: ((@LayoutDsl PieChart).() -> Unit)? = null
+): PieChart = ktfx.layouts.styledPieChart(styleClass, data, init).add()

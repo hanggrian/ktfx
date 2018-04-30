@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
@@ -15,7 +14,7 @@ open class _VBox(
     vararg children: Node
 ) : VBox(spacing, *children), LayoutManager<Node>, VGrowedPane, MarginedPane {
 
-    override val childs: ObservableList<Node> get() = children
+    override val childs: MutableList<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 
@@ -28,28 +27,37 @@ open class _VBox(
         set(value) = setMargin(this, value)
 }
 
-/** Create a [VBox]. */
-inline fun vbox(
-    spacing: Double = 0.0,
-    vararg children: Node
-): VBox = vbox(spacing, *children) { }
-
-/** Create a [VBox] with initialization. */
-inline fun vbox(
+/** Creates a [VBox]. */
+fun vbox(
     spacing: Double = 0.0,
     vararg children: Node,
-    init: (@LayoutDsl _VBox).() -> Unit
-): VBox = _VBox(spacing, *children).apply(init)
+    init: ((@LayoutDsl _VBox).() -> Unit)? = null
+): VBox = _VBox(spacing, *children).also {
+    init?.invoke(it)
+}
 
-/** Create a [VBox] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.vbox(
-    spacing: Double = 0.0,
-    vararg children: Node
-): VBox = vbox(spacing, *children) { }
-
-/** Create a [VBox] with initialization and add it to this [LayoutManager]. */
+/** Creates a [VBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.vbox(
     spacing: Double = 0.0,
     vararg children: Node,
-    init: (@LayoutDsl _VBox).() -> Unit
+    noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
 ): VBox = ktfx.layouts.vbox(spacing, *children, init = init).add()
+
+/** Create a styled [VBox]. */
+fun styledVbox(
+    styleClass: String,
+    spacing: Double = 0.0,
+    vararg children: Node,
+    init: ((@LayoutDsl _VBox).() -> Unit)? = null
+): VBox = _VBox(spacing, *children).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [VBox] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledVbox(
+    styleClass: String,
+    spacing: Double = 0.0,
+    vararg children: Node,
+    noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
+): VBox = ktfx.layouts.styledVbox(styleClass, spacing, *children, init = init).add()

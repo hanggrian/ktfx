@@ -5,20 +5,33 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.TextArea
 
-inline fun textArea(
-    text: String = ""
-): TextArea = textArea(text) { }
-
-inline fun textArea(
+/** Creates a [TextArea]. */
+fun textArea(
     text: String = "",
-    init: (@LayoutDsl TextArea).() -> Unit
-): TextArea = TextArea(text).apply(init)
+    init: ((@LayoutDsl TextArea).() -> Unit)? = null
+): TextArea = TextArea(text).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.textArea(
-    text: String = ""
-): TextArea = textArea(text) { }
-
+/** Creates a [TextArea] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.textArea(
     text: String = "",
-    init: (@LayoutDsl TextArea).() -> Unit
+    noinline init: ((@LayoutDsl TextArea).() -> Unit)? = null
 ): TextArea = ktfx.layouts.textArea(text, init).add()
+
+/** Create a styled [TextArea]. */
+fun styledTextArea(
+    styleClass: String,
+    text: String = "",
+    init: ((@LayoutDsl TextArea).() -> Unit)? = null
+): TextArea = TextArea(text).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [TextArea] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledTextArea(
+    styleClass: String,
+    text: String = "",
+    noinline init: ((@LayoutDsl TextArea).() -> Unit)? = null
+): TextArea = ktfx.layouts.styledTextArea(styleClass, text, init).add()

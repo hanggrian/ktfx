@@ -12,20 +12,33 @@ open class _ScrollPane(
     override fun <T : Node> T.add(): T = also { content = it }
 }
 
-inline fun scrollPane(
-    content: Node? = null
-): ScrollPane = scrollPane(content) { }
-
-inline fun scrollPane(
+/** Creates a [ScrollPane]. */
+fun scrollPane(
     content: Node? = null,
-    init: (@LayoutDsl _ScrollPane).() -> Unit
-): ScrollPane = _ScrollPane(content).apply(init)
+    init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
+): ScrollPane = _ScrollPane(content).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.scrollPane(
-    content: Node? = null
-): ScrollPane = scrollPane(content) { }
-
+/** Creates a [ScrollPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.scrollPane(
     content: Node? = null,
-    init: (@LayoutDsl _ScrollPane).() -> Unit
+    noinline init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
 ): ScrollPane = ktfx.layouts.scrollPane(content, init).add()
+
+/** Create a styled [ScrollPane]. */
+fun styledScrollPane(
+    styleClass: String,
+    content: Node? = null,
+    init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
+): ScrollPane = _ScrollPane(content).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [ScrollPane] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledScrollPane(
+    styleClass: String,
+    content: Node? = null,
+    noinline init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
+): ScrollPane = ktfx.layouts.styledScrollPane(styleClass, content, init).add()

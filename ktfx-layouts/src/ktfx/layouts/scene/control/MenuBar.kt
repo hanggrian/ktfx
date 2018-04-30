@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
@@ -12,33 +11,51 @@ class _MenuBar(
     vararg menus: Menu
 ) : MenuBar(*menus), LayoutManager<Menu> {
 
-    override val childs: ObservableList<Menu> get() = menus
+    override val childs: MutableList<Menu> get() = menus
 
-    /** Convenient method to add menu to this bar by only using string. */
-    inline operator fun String.invoke(graphic: Node? = null, vararg items: MenuItem): Menu = invoke(graphic, *items) { }
-
-    /** Convenient method to add menu to this bar by only using string. */
+    /** Creates a [Menu] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(
         graphic: Node? = null,
         vararg items: MenuItem,
-        init: (@LayoutDsl _Menu).() -> Unit
-    ): Menu = menu(this, graphic, *items, init = init)
+        noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
+    ): Menu = menu(this, graphic, *items, init = init).add()
+
+    /** Creates a styled [Menu] and add it to this [LayoutManager]. */
+    inline operator fun String.invoke(
+        styleClass: String,
+        graphic: Node? = null,
+        vararg items: MenuItem,
+        noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
+    ): Menu = styledMenu(styleClass, this, graphic, *items, init = init).add()
 }
 
-inline fun menuBar(
-    vararg menus: Menu
-): MenuBar = menuBar(*menus) { }
-
-inline fun menuBar(
+/** Creates a [MenuBar]. */
+fun menuBar(
     vararg menus: Menu,
-    init: (@LayoutDsl _MenuBar).() -> Unit
-): MenuBar = _MenuBar(*menus).apply(init)
+    init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
+): MenuBar = _MenuBar(*menus).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.menuBar(
-    vararg menus: Menu
-): MenuBar = menuBar(*menus) { }
-
+/** Creates a [MenuBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.menuBar(
     vararg menus: Menu,
-    init: (@LayoutDsl _MenuBar).() -> Unit
+    noinline init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
 ): MenuBar = ktfx.layouts.menuBar(*menus, init = init).add()
+
+/** Create a styled [MenuBar]. */
+fun styledMenuBar(
+    styleClass: String,
+    vararg menus: Menu,
+    init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
+): MenuBar = _MenuBar(*menus).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [MenuBar] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledMenuBar(
+    styleClass: String,
+    vararg menus: Menu,
+    noinline init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
+): MenuBar = ktfx.layouts.styledMenuBar(styleClass, *menus, init = init).add()

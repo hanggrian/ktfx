@@ -5,24 +5,37 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
 
-inline fun menuItem(
-    text: String? = null,
-    graphic: Node? = null
-): MenuItem = menuItem(text, graphic) { }
-
-inline fun menuItem(
+/** Creates a [MenuItem]. */
+fun menuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutDsl MenuItem).() -> Unit
-): MenuItem = MenuItem(text, graphic).apply(init)
+    init: ((@LayoutDsl MenuItem).() -> Unit)? = null
+): MenuItem = MenuItem(text, graphic).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<MenuItem>.menuItem(
-    text: String? = null,
-    graphic: Node? = null
-): MenuItem = menuItem(text, graphic) { }
-
+/** Creates a [MenuItem] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.menuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutDsl MenuItem).() -> Unit
+    noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
 ): MenuItem = ktfx.layouts.menuItem(text, graphic, init).add()
+
+/** Create a styled [MenuItem]. */
+fun styledMenuItem(
+    styleClass: String,
+    text: String? = null,
+    graphic: Node? = null,
+    init: ((@LayoutDsl MenuItem).() -> Unit)? = null
+): MenuItem = MenuItem(text, graphic).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [MenuItem] and add it to this [LayoutManager]. */
+inline fun LayoutManager<MenuItem>.styledMenuItem(
+    styleClass: String,
+    text: String? = null,
+    graphic: Node? = null,
+    noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
+): MenuItem = ktfx.layouts.styledMenuItem(styleClass, text, graphic, init).add()

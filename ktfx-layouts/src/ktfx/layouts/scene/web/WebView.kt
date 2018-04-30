@@ -5,14 +5,29 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.web.WebView
 
-inline fun webView(): WebView = webView { }
+/** Creates a [WebView]. */
+fun webView(
+    init: ((@LayoutDsl WebView).() -> Unit)? = null
+): WebView = WebView().also {
+    init?.invoke(it)
+}
 
-inline fun webView(
-    init: (@LayoutDsl WebView).() -> Unit
-): WebView = WebView().apply(init)
-
-inline fun LayoutManager<Node>.webView(): WebView = webView { }
-
+/** Creates a [WebView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.webView(
-    init: (@LayoutDsl WebView).() -> Unit
+    noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
 ): WebView = ktfx.layouts.webView(init).add()
+
+/** Create a styled [WebView]. */
+fun styledWebView(
+    styleClass: String,
+    init: ((@LayoutDsl WebView).() -> Unit)? = null
+): WebView = WebView().also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [WebView] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledWebView(
+    styleClass: String,
+    noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
+): WebView = ktfx.layouts.styledWebView(styleClass, init).add()

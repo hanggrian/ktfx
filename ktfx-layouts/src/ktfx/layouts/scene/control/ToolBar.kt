@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
 
@@ -10,23 +9,36 @@ open class _ToolBar(
     vararg items: Node
 ) : ToolBar(*items), LayoutManager<Node> {
 
-    override val childs: ObservableList<Node> get() = items
+    override val childs: MutableList<Node> get() = items
 }
 
-inline fun toolBar(
-    vararg items: Node
-): ToolBar = toolBar(*items) { }
-
-inline fun toolBar(
+/** Creates a [ToolBar]. */
+fun toolBar(
     vararg items: Node,
-    init: (@LayoutDsl _ToolBar).() -> Unit
-): ToolBar = _ToolBar(*items).apply(init)
+    init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
+): ToolBar = _ToolBar(*items).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.toolBar(
-    vararg items: Node
-): ToolBar = toolBar(*items) { }
-
+/** Creates a [ToolBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.toolBar(
     vararg items: Node,
-    init: (@LayoutDsl _ToolBar).() -> Unit
+    noinline init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
 ): ToolBar = ktfx.layouts.toolBar(*items, init = init).add()
+
+/** Create a styled [ToolBar]. */
+fun styledToolBar(
+    styleClass: String,
+    vararg items: Node,
+    init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
+): ToolBar = _ToolBar(*items).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [ToolBar] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledToolBar(
+    styleClass: String,
+    vararg items: Node,
+    noinline init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
+): ToolBar = ktfx.layouts.styledToolBar(styleClass, *items, init = init).add()

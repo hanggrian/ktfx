@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
@@ -11,32 +10,49 @@ open class _TabPane(
     vararg tabs: Tab
 ) : TabPane(*tabs), LayoutManager<Tab> {
 
-    override val childs: ObservableList<Tab> get() = tabs
+    override val childs: MutableList<Tab> get() = tabs
 
-    /** Convenient method to add tab to this pane by only using string. */
-    inline operator fun String.invoke(graphic: Node? = null): Tab = invoke(graphic) { }
-
-    /** Convenient method to add tab to this pane by only using string. */
+    /** Creates a [Tab] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutDsl _Tab).() -> Unit
+        noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null
     ): Tab = tab(this, graphic, init)
+
+    /** Creates a styled [Tab] and add it to this [LayoutManager]. */
+    inline operator fun String.invoke(
+        styleClass: String,
+        graphic: Node? = null,
+        noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null
+    ): Tab = styledTab(styleClass, this, graphic, init)
 }
 
-inline fun tabPane(
-    vararg tabs: Tab
-): TabPane = tabPane(*tabs) { }
-
-inline fun tabPane(
+/** Creates a [TabPane]. */
+fun tabPane(
     vararg tabs: Tab,
-    init: (@LayoutDsl _TabPane).() -> Unit
-): TabPane = _TabPane(*tabs).apply(init)
+    init: ((@LayoutDsl _TabPane).() -> Unit)? = null
+): TabPane = _TabPane(*tabs).also {
+    init?.invoke(it)
+}
 
-inline fun LayoutManager<Node>.tabPane(
-    vararg tabs: Tab
-): TabPane = tabPane(*tabs) { }
-
+/** Creates a [TabPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.tabPane(
     vararg tabs: Tab,
-    init: (@LayoutDsl _TabPane).() -> Unit
+    noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
 ): TabPane = ktfx.layouts.tabPane(*tabs, init = init).add()
+
+/** Create a styled [TabPane]. */
+fun styledTabPane(
+    styleClass: String,
+    vararg tabs: Tab,
+    init: ((@LayoutDsl _TabPane).() -> Unit)? = null
+): TabPane = _TabPane(*tabs).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [TabPane] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledTabPane(
+    styleClass: String,
+    vararg tabs: Tab,
+    noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
+): TabPane = ktfx.layouts.styledTabPane(styleClass, *tabs, init = init).add()

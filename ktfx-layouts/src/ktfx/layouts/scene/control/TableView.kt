@@ -9,37 +9,51 @@ import javafx.scene.control.TableView
 import ktfx.collections.mutableObservableListOf
 import ktfx.layouts.internal._TableColumnsBuilder
 
-inline fun <S> tableView(
-    items: ObservableList<S> = mutableObservableListOf()
-): TableView<S> = tableView(items) { }
-
-inline fun <S> tableView(
+/** Creates a [TableView]. */
+fun <S> tableView(
     items: ObservableList<S> = mutableObservableListOf(),
-    init: (@LayoutDsl TableView<S>).() -> Unit
-): TableView<S> = TableView<S>(items).apply(init)
+    init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
+): TableView<S> = TableView<S>(items).also {
+    init?.invoke(it)
+}
 
-inline fun <S> LayoutManager<Node>.tableView(
-    items: ObservableList<S> = mutableObservableListOf()
-): TableView<S> = tableView(items) { }
-
+/** Creates a [TableView] and add it to this [LayoutManager]. */
 inline fun <S> LayoutManager<Node>.tableView(
     items: ObservableList<S> = mutableObservableListOf(),
-    init: (@LayoutDsl TableView<S>).() -> Unit
+    noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
 ): TableView<S> = ktfx.layouts.tableView(items, init).add()
+
+/** Create a styled [TableView]. */
+fun <S> styledTableView(
+    styleClass: String,
+    items: ObservableList<S> = mutableObservableListOf(),
+    init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
+): TableView<S> = TableView<S>(items).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
+/** Creates a styled [TableView] and add it to this [LayoutManager]. */
+inline fun <S> LayoutManager<Node>.styledTableView(
+    styleClass: String,
+    items: ObservableList<S> = mutableObservableListOf(),
+    noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
+): TableView<S> = ktfx.layouts.styledTableView(styleClass, items, init).add()
 
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {
 
-    fun <T> column(text: String? = null): TableColumn<S, T> = column(text) { }
+    fun <T> column(
+        text: String? = null,
+        init: (TableColumn<S, T>.() -> Unit)? = null
+    ): TableColumn<S, T>
 
-    fun <T> column(text: String? = null, init: TableColumn<S, T>.() -> Unit): TableColumn<S, T>
-
-    operator fun <T> String.invoke(): TableColumn<S, T> = invoke { }
-
-    operator fun <T> String.invoke(init: TableColumn<S, T>.() -> Unit): TableColumn<S, T> = column(this, init)
+    operator fun <T> String.invoke(
+        init: (TableColumn<S, T>.() -> Unit)? = null
+    ): TableColumn<S, T> = column(this, init)
 }
 
 /** Invokes a [TableColumn] DSL builder. */
 inline fun <S> TableView<S>.columns(init: TableColumnsBuilder<S>.() -> Unit) {
-    columns += _TableColumnsBuilder<S>().apply(init).columns
+    columns += _TableColumnsBuilder<S>().apply(init).childs
 }

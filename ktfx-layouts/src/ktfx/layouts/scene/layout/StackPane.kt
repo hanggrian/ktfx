@@ -27,19 +27,23 @@ open class _StackPane(
         set(value) = setMargin(this, value)
 }
 
+/** Create a [StackPane]. */
 inline fun stackPane(
     vararg children: Node
 ): StackPane = stackPane(*children) { }
 
+/** Create a [StackPane] with initialization. */
 inline fun stackPane(
     vararg children: Node,
     init: (@LayoutDsl _StackPane).() -> Unit
 ): StackPane = _StackPane(*children).apply(init)
 
+/** Create a [StackPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.stackPane(
     vararg children: Node
 ): StackPane = stackPane(*children) { }
 
+/** Create a [StackPane] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.stackPane(
     vararg children: Node,
     init: (@LayoutDsl _StackPane).() -> Unit

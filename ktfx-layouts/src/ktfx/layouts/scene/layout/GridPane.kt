@@ -83,14 +83,18 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
         set(value) = setVgrow(this, value)
 }
 
+/** Create a [GridPane]. */
 inline fun gridPane(): GridPane = gridPane { }
 
+/** Create a [GridPane] with initialization. */
 inline fun gridPane(
     init: (@LayoutDsl _GridPane).() -> Unit
 ): GridPane = _GridPane().apply(init)
 
+/** Create a [GridPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.gridPane(): GridPane = gridPane { }
 
+/** Create a [GridPane] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.gridPane(
     init: (@LayoutDsl _GridPane).() -> Unit
 ): GridPane = ktfx.layouts.gridPane(init).add()

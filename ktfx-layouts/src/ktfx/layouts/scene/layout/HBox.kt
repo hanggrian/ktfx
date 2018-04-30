@@ -28,22 +28,26 @@ open class _HBox(
         set(value) = setMargin(this, value)
 }
 
+/** Create a [HBox]. */
 inline fun hbox(
     spacing: Double = 0.0,
     vararg children: Node
 ): HBox = hbox(spacing, *children) { }
 
+/** Create a [HBox] with initialization. */
 inline fun hbox(
     spacing: Double = 0.0,
     vararg children: Node,
     init: (@LayoutDsl _HBox).() -> Unit
 ): HBox = _HBox(spacing, *children).apply(init)
 
+/** Create a [HBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.hbox(
     spacing: Double = 0.0,
     vararg children: Node
 ): HBox = hbox(spacing, *children) { }
 
+/** Create a [HBox] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.hbox(
     spacing: Double = 0.0,
     vararg children: Node,

@@ -28,22 +28,26 @@ open class _VBox(
         set(value) = setMargin(this, value)
 }
 
+/** Create a [VBox]. */
 inline fun vbox(
     spacing: Double = 0.0,
     vararg children: Node
 ): VBox = vbox(spacing, *children) { }
 
+/** Create a [VBox] with initialization. */
 inline fun vbox(
     spacing: Double = 0.0,
     vararg children: Node,
     init: (@LayoutDsl _VBox).() -> Unit
 ): VBox = _VBox(spacing, *children).apply(init)
 
+/** Create a [VBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.vbox(
     spacing: Double = 0.0,
     vararg children: Node
 ): VBox = vbox(spacing, *children) { }
 
+/** Create a [VBox] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.vbox(
     spacing: Double = 0.0,
     vararg children: Node,

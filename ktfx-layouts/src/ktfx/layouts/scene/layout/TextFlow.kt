@@ -20,19 +20,23 @@ open class _TextFlow(
     inline operator fun String.invoke(init: (@LayoutDsl Text).() -> Unit): Text = text(this, init)
 }
 
+/** Create a [TextFlow]. */
 inline fun textFlow(
     vararg children: Node
 ): TextFlow = textFlow(*children) { }
 
+/** Create a [TextFlow] with initialization. */
 inline fun textFlow(
     vararg children: Node,
     init: (@LayoutDsl _TextFlow).() -> Unit
 ): TextFlow = _TextFlow(*children).apply(init)
 
+/** Create a [TextFlow] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.textFlow(
     vararg children: Node
 ): TextFlow = textFlow(*children) { }
 
+/** Create a [TextFlow] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.textFlow(
     vararg children: Node,
     init: (@LayoutDsl _TextFlow).() -> Unit

@@ -26,6 +26,7 @@ open class _FlowPane(
         set(value) = setMargin(this, value)
 }
 
+/** Create a [FlowPane]. */
 inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
@@ -33,6 +34,7 @@ inline fun flowPane(
     vararg children: Node
 ): FlowPane = flowPane(orientation, hgap, vgap, *children) { }
 
+/** Create a [FlowPane] with initialization. */
 inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
@@ -41,6 +43,7 @@ inline fun flowPane(
     init: (@LayoutDsl _FlowPane).() -> Unit
 ): FlowPane = _FlowPane(orientation, hgap, vgap, *children).apply(init)
 
+/** Create a [FlowPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
@@ -48,6 +51,7 @@ inline fun LayoutManager<Node>.flowPane(
     vararg children: Node
 ): FlowPane = flowPane(orientation, hgap, vgap, *children) { }
 
+/** Create a [FlowPane] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,

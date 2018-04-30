@@ -63,7 +63,7 @@ fun styledAlert(
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(NONE, contentText, *buttonTypes).also { dialog ->
-    dialog.pane.stylesheets += stylesheet
+    dialog.dialogPane.stylesheets += stylesheet
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
     init?.invoke(dialog)
@@ -134,7 +134,7 @@ fun styledInfoAlert(
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(INFORMATION, contentText, *buttonTypes).also { dialog ->
-    dialog.pane.stylesheets += stylesheet
+    dialog.dialogPane.stylesheets += stylesheet
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
     init?.invoke(dialog)
@@ -205,7 +205,7 @@ fun styledWarningAlert(
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(WARNING, contentText, *buttonTypes).also { dialog ->
-    dialog.pane.stylesheets += stylesheet
+    dialog.dialogPane.stylesheets += stylesheet
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
     init?.invoke(dialog)
@@ -276,7 +276,7 @@ fun styledConfirmAlert(
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(CONFIRMATION, contentText, *buttonTypes).also { dialog ->
-    dialog.pane.stylesheets += stylesheet
+    dialog.dialogPane.stylesheets += stylesheet
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
     init?.invoke(dialog)
@@ -347,7 +347,7 @@ fun styledErrorAlert(
     vararg buttonTypes: ButtonType,
     init: (Alert.() -> Unit)? = null
 ): Alert = Alert(ERROR, contentText, *buttonTypes).also { dialog ->
-    dialog.pane.stylesheets += stylesheet
+    dialog.dialogPane.stylesheets += stylesheet
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
     init?.invoke(dialog)

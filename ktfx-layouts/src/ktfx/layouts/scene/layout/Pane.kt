@@ -13,19 +13,23 @@ open class _Pane(
     override val childs: ObservableList<Node> get() = children
 }
 
+/** Create a [Pane]. */
 inline fun pane(
     vararg children: Node
 ): Pane = pane(*children) { }
 
+/** Create a [Pane] with initialization. */
 inline fun pane(
     vararg children: Node,
     init: (@LayoutDsl _Pane).() -> Unit
 ): Pane = _Pane(*children).apply(init)
 
+/** Create a [Pane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.pane(
     vararg children: Node
 ): Pane = pane(*children) { }
 
+/** Create a [Pane] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.pane(
     vararg children: Node,
     init: (@LayoutDsl _Pane).() -> Unit

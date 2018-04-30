@@ -2,7 +2,6 @@
 
 package ktfx.scene.control
 
-import javafx.beans.property.ObjectProperty
 import javafx.scene.Node
 import javafx.scene.control.ButtonBar.ButtonData
 import javafx.scene.control.ButtonBar.ButtonData.OTHER
@@ -17,7 +16,6 @@ import javafx.scene.control.ButtonType.OK
 import javafx.scene.control.ButtonType.PREVIOUS
 import javafx.scene.control.ButtonType.YES
 import javafx.scene.control.Dialog
-import javafx.scene.control.DialogPane
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
@@ -31,7 +29,7 @@ import kotlin.DeprecationLevel.ERROR
 inline var Dialog<*>.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        (pane.scene.window as Stage).icon = value
+        (dialogPane.scene.window as Stage).icon = value
     }
 
 /** Apply [ImageView] as graphic and icon of this dialog. */
@@ -49,12 +47,6 @@ inline var Dialog<*>.headerTitle: String
         headerText = value
         title = value
     }
-
-/** Alias for `dialogPane`. */
-inline val Dialog<*>.pane: DialogPane get() = dialogPane
-
-/** Alias for `dialogPaneProperty`. */
-inline val Dialog<*>.paneProperty: ObjectProperty<DialogPane> get() = dialogPaneProperty()
 
 /** Add apply button, invoking DSL to customize it as node. */
 inline fun Dialog<*>.applyButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(APPLY, init)
@@ -121,7 +113,7 @@ fun <R> styledDialog(
     graphic: Node? = null,
     init: (Dialog<R>.() -> Unit)? = null
 ): Dialog<R> = Dialog<R>().also { dialog ->
-    dialog.pane.stylesheets += stylesheet
+    dialog.dialogPane.stylesheets += stylesheet
     if (title != null) dialog.title = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
     if (title != null && graphic != null) dialog.headerText = title

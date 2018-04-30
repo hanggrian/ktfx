@@ -57,7 +57,7 @@ fun <T> styledChoiceDialog(
     prefill: T? = null,
     init: (ChoiceDialog<T>.() -> Unit)? = null
 ): ChoiceDialog<T> = ChoiceDialog<T>(prefill, items).also { dialog ->
-    dialog.pane.stylesheets += stylesheet
+    dialog.dialogPane.stylesheets += stylesheet
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
     init?.invoke(dialog)

@@ -32,6 +32,7 @@ open class _TilePane(
         set(value) = setMargin(this, value)
 }
 
+/** Create a [TilePane]. */
 inline fun tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
@@ -39,6 +40,7 @@ inline fun tilePane(
     vararg children: Node
 ): TilePane = tilePane(orientation, hgap, vgap, *children) { }
 
+/** Create a [TilePane] with initialization. */
 inline fun tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
@@ -47,6 +49,7 @@ inline fun tilePane(
     init: (@LayoutDsl _TilePane).() -> Unit
 ): TilePane = _TilePane(orientation, hgap, vgap, *children).apply(init)
 
+/** Create a [TilePane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
@@ -54,6 +57,7 @@ inline fun LayoutManager<Node>.tilePane(
     vararg children: Node
 ): TilePane = tilePane(orientation, hgap, vgap, *children) { }
 
+/** Create a [TilePane] with initialization and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,

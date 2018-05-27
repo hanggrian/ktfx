@@ -12,4 +12,5 @@ kotlin.experimental.coroutines = ENABLE
 
 dependencies {
     implementation(project(":ktfx"))
+    implementation(controlsFX())
 }

@@ -6,37 +6,26 @@ import javafx.scene.text.Font
 import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 import javafx.util.Builder
-import ktfx.internal._FontBuilder
+import ktfx.internal._CustomFontBuilder
+import ktfx.internal._DefaultFontBuilder
 import java.io.InputStream
 
-/** Interface for building [Font] with infix functions. */
 interface FontBuilder : Builder<Font> {
 
-    /**
-     * Load font from url string.
-     * When triggered, all other builder action except [size] will not be processed.
-     * @see Font.loadFont
-     */
-    infix fun load(custom: String): FontBuilder
+    /** Font size that will ultimately be converted to [Double]. */
+    operator fun plus(size: Number): FontBuilder
+}
 
-    /**
-     * Load font from input stream.
-     * When triggered, all other builder action except [size] will not be processed.
-     * @see Font.loadFont
-     */
-    infix fun load(custom: InputStream): FontBuilder
+interface DefaultFontBuilder : FontBuilder {
 
     /** Font family. */
-    infix fun family(family: String): FontBuilder
+    operator fun plus(family: String): DefaultFontBuilder
 
     /** Font weight, may use value from enumeration [FontWeight] or typed interface below. */
-    infix fun weight(weight: FontWeight): FontBuilder
+    operator fun plus(weight: FontWeight): DefaultFontBuilder
 
     /** Font posture, may use value from enumeration [FontPosture] or typed interface below. */
-    infix fun posture(posture: FontPosture): FontBuilder
-
-    /** Font size that will ultimately be converted to [Double]. */
-    infix fun size(size: Number): FontBuilder
+    operator fun plus(posture: FontPosture): DefaultFontBuilder
 }
 
 object FontStyles {
@@ -56,5 +45,16 @@ object FontStyles {
 }
 
 /** Build [Font] with Kotlin infix functions. */
-inline fun buildFont(builderAction: FontStyles.(FontBuilder) -> FontBuilder): Font =
-    FontStyles.builderAction(_FontBuilder()).build()
+inline fun buildFont(
+    builderAction: FontStyles.(DefaultFontBuilder) -> FontBuilder
+): Font = FontStyles.builderAction(_DefaultFontBuilder()).build()
+
+inline fun buildFont(
+    urlString: String,
+    builderAction: FontStyles.(FontBuilder) -> FontBuilder
+): Font = FontStyles.builderAction(_CustomFontBuilder().custom(urlString)).build()
+
+inline fun buildFont(
+    stream: InputStream,
+    builderAction: FontStyles.(FontBuilder) -> FontBuilder
+): Font = FontStyles.builderAction(_CustomFontBuilder().custom(stream)).build()

@@ -10,10 +10,10 @@ import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.value.ObservableValue
 
 /** Wrap this object in modifiable property. */
-inline fun <T> T?.toProperty(): ObjectProperty<T> = SimpleObjectProperty(this)
+inline fun <T> T?.toMutableProperty(): ObjectProperty<T> = SimpleObjectProperty(this)
 
 /** Wrap this object in unmodifiable property. */
-inline fun <T> T?.toReadOnlyProperty(): ReadOnlyObjectProperty<T> = ReadOnlyObjectWrapper(this)
+inline fun <T> T?.toProperty(): ReadOnlyObjectProperty<T> = ReadOnlyObjectWrapper(this)
 
 /** Returns this property as an observable. */
 inline fun <T> Property<T>.asObservable(): ObservableValue<T> = this

@@ -28,20 +28,28 @@ import javafx.beans.value.ObservableNumberValue
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [DoubleBinding]. */
-inline fun doubleBindingOf(vararg dependencies: Observable, noinline func: () -> Double): DoubleBinding =
-    createDoubleBinding(Callable(func), *dependencies)
+inline fun doubleBindingOf(
+    vararg dependencies: Observable,
+    noinline func: () -> Double?
+): DoubleBinding = createDoubleBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [FloatBinding]. */
-inline fun floatBindingOf(vararg dependencies: Observable, noinline func: () -> Float): FloatBinding =
-    createFloatBinding(Callable(func), *dependencies)
+inline fun floatBindingOf(
+    vararg dependencies: Observable,
+    noinline func: () -> Float?
+): FloatBinding = createFloatBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [IntegerBinding]. */
-inline fun intBindingOf(vararg dependencies: Observable, noinline func: () -> Int): IntegerBinding =
-    createIntegerBinding(Callable(func), *dependencies)
+inline fun intBindingOf(
+    vararg dependencies: Observable,
+    noinline func: () -> Int?
+): IntegerBinding = createIntegerBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [LongBinding]. */
-inline fun longBindingOf(vararg dependencies: Observable, noinline func: () -> Long): LongBinding =
-    createLongBinding(Callable(func), *dependencies)
+inline fun longBindingOf(
+    vararg dependencies: Observable,
+    noinline func: () -> Long?
+): LongBinding = createLongBinding(Callable(func), *dependencies)
 
 /** Creates a double binding used to get a member. */
 inline fun Any.selectDouble(vararg steps: String): DoubleBinding = selectDouble(this, *steps)

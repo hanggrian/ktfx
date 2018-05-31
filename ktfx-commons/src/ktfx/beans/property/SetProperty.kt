@@ -10,10 +10,10 @@ import javafx.beans.value.ObservableValue
 import javafx.collections.ObservableSet
 
 /** Wrap this set in modifiable property. */
-inline fun <E> ObservableSet<E>?.toProperty(): SetProperty<E> = SimpleSetProperty(this)
+inline fun <E> ObservableSet<E>?.toMutableProperty(): SetProperty<E> = SimpleSetProperty(this)
 
 /** Wrap this set in unmodifiable property. */
-inline fun <E> ObservableSet<E>?.toReadOnlyProperty(): ReadOnlySetProperty<E> = ReadOnlySetWrapper(this)
+inline fun <E> ObservableSet<E>?.toProperty(): ReadOnlySetProperty<E> = ReadOnlySetWrapper(this)
 
 /** Returns this set property as an observable. */
 inline fun <E> SetProperty<E>.asObservable(): ObservableValue<ObservableSet<E>> = this

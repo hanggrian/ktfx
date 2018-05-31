@@ -9,8 +9,10 @@ import javafx.beans.binding.StringBinding
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [StringBinding]. */
-inline fun stringBindingOf(vararg dependencies: Observable, noinline func: () -> String): StringBinding =
-    createStringBinding(Callable(func), *dependencies)
+inline fun stringBindingOf(
+    vararg dependencies: Observable,
+    noinline func: () -> String?
+): StringBinding = createStringBinding(Callable(func), *dependencies)
 
 /** Creates a string binding used to get a member. */
 inline fun Any.selectString(vararg steps: String): StringBinding = selectString(this, *steps)

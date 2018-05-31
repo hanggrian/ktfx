@@ -12,7 +12,7 @@ import javafx.beans.binding.Bindings.notEqual
 import javafx.beans.binding.Bindings.notEqualIgnoreCase
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.value.ObservableStringValue
-import ktfx.internal.KtFXInternals.newBooleanBinding
+import ktfx.beans.binding.booleanBindingOf
 
 inline infix fun ObservableStringValue.eq(op: ObservableStringValue): BooleanBinding = equal(this, op)
 inline infix fun ObservableStringValue.eq(op: String): BooleanBinding = equal(this, op)
@@ -46,6 +46,6 @@ inline infix fun ObservableStringValue.lessEq(op: ObservableStringValue): Boolea
 inline infix fun ObservableStringValue.lessEq(op: String): BooleanBinding = lessThanOrEqual(this, op)
 inline infix fun String.lessEq(op: ObservableStringValue): BooleanBinding = lessThanOrEqual(this, op)
 
-inline fun ObservableStringValue.isBlank(): BooleanBinding = newBooleanBinding(this) { get().isNullOrBlank() }
+inline fun ObservableStringValue.isBlank(): BooleanBinding = booleanBindingOf(this) { get().isNullOrBlank() }
 
-inline fun ObservableStringValue.isNotBlank(): BooleanBinding = newBooleanBinding(this) { !get().isNullOrBlank() }
+inline fun ObservableStringValue.isNotBlank(): BooleanBinding = booleanBindingOf(this) { get().isNotBlank() }

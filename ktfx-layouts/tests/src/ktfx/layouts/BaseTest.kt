@@ -1,9 +1,9 @@
 package ktfx.layouts
 
-import ktfx.application.initToolkit
+import ktfx.application.Platform
 import org.junit.Before
 
 open class BaseTest {
 
-    @Before fun init() = initToolkit()
+    @Before fun init() = Platform.startup { }
 }

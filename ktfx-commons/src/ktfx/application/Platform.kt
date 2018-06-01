@@ -2,24 +2,28 @@
 
 package ktfx.application
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.application.ConditionalFeature
-import javafx.application.Platform
 
-/** Run the specified block on the JavaFX thread. */
-inline fun later(noinline block: () -> Unit) = Platform.runLater(block)
+/** Application platform support class. */
+typealias Platform = com.sun.javafx.application.PlatformImpl
 
-/** Returns true if the calling thread is the JavaFX thread. */
+/**
+ * Returns true if the calling thread is the JavaFX thread.
+ * Alias of `Platform.isFxApplicationThread`.
+ */
 inline fun isFXThread(): Boolean = Platform.isFxApplicationThread()
 
-/** Causes JavaFX application and JVM to terminate immediately. */
-inline fun exit(status: Int = 0) {
-    Platform.exit()
-    System.exit(status)
-}
+/**
+ * Run the specified block on the JavaFX thread.
+ * Alias of `Platform.runLater`.
+ */
+inline fun later(noinline block: () -> Unit) = Platform.runLater(block)
+
+/**
+ * Run and wait the specified block on the JavaFX thread.
+ * Alias of `Platform.runAndWait`.
+ */
+inline fun wait(noinline block: () -> Unit) = Platform.runAndWait(block)
 
 /** Queries whether a specific conditional feature is supported by the platform. */
 inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)
-
-/** Force initialize JavaFX toolkit, may be useful for testing. */
-fun initToolkit(startup: (() -> Unit)? = null) = PlatformImpl.startup { startup?.invoke() }

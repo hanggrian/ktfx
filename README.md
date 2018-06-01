@@ -1,3 +1,5 @@
+[![Download](https://api.bintray.com/packages/jetbrains/anko/anko/images/download.svg) ](https://bintray.com/jetbrains/anko/anko/_latestVersion)
+
 KtFX
 ====
 [Kotlin] extensions for JavaFX app development and more.

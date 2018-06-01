@@ -8,6 +8,20 @@
 <a href="../index.html">ktfx-commons</a>&nbsp;/&nbsp;<a href="./index.html">ktfx.application</a><br/>
 <br/>
 <h2>Package ktfx.application</h2>
+<h3>Type Aliases</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-platform.html">Platform</a></p>
+</td>
+<td>
+<code><span class="keyword">typealias </span><span class="identifier">Platform</span>&nbsp;<span class="symbol">=</span>&nbsp;<span class="identifier">PlatformImpl</span></code>
+<p>Application platform support class.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3>Extensions for External Classes</h3>
 <table>
 <tbody>
@@ -25,29 +39,12 @@
 <tbody>
 <tr>
 <td>
-<p><a href="exit.html">exit</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">exit</span><span class="symbol">(</span><span class="identifier" id="ktfx.application$exit(kotlin.Int)/status">status</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Causes JavaFX application and JVM to terminate immediately.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="init-toolkit.html">initToolkit</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">initToolkit</span><span class="symbol">(</span><span class="identifier" id="ktfx.application$initToolkit(kotlin.Function0((kotlin.Unit)))/startup">startup</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Force initialize JavaFX toolkit, may be useful for testing.</p>
-</td>
-</tr>
-<tr>
-<td>
 <p><a href="is-f-x-thread.html">isFXThread</a></p>
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">isFXThread</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
-<p>Returns true if the calling thread is the JavaFX thread.</p>
+<p>Returns true if the calling thread is the JavaFX thread.
+Alias of <code>Platform.isFxApplicationThread</code>.</p>
 </td>
 </tr>
 <tr>
@@ -56,7 +53,8 @@
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">later</span><span class="symbol">(</span><span class="identifier" id="ktfx.application$later(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Run the specified block on the JavaFX thread.</p>
+<p>Run the specified block on the JavaFX thread.
+Alias of <code>Platform.runLater</code>.</p>
 </td>
 </tr>
 <tr>
@@ -75,6 +73,16 @@
 <td>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">A</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Application</span><span class="symbol">, </span><span class="identifier">P</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Preloader</span><span class="symbol">&gt;</span> <span class="identifier">launchWithPreloader</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.application$launchWithPreloader(kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
 <p>Launch JavaFX application and preloader with reified types.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="wait.html">wait</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">wait</span><span class="symbol">(</span><span class="identifier" id="ktfx.application$wait(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run and wait the specified block on the JavaFX thread.
+Alias of <code>Platform.runAndWait</code>.</p>
 </td>
 </tr>
 </tbody>

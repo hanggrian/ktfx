@@ -31,10 +31,8 @@ dependencies {
     compile(project(":$KTFX_COMMONS"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(kotlin("test", VERSION_KOTLIN))
+    testImplementation(project(":testing"))
     testImplementation(kotlinx("coroutines-core", VERSION_COROUTINES))
-    testImplementation(testFX("core"))
-    testImplementation(testFX("junit"))
 
     ktlint(ktlint())
 }

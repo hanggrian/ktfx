@@ -26,10 +26,7 @@ val ktlint by configurations.creating
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(kotlin("test", VERSION_KOTLIN))
-    testImplementation(testFX("core"))
-    testImplementation(testFX("junit"))
-    testImplementation(truth())
+    testImplementation(project(":testing"))
 
     ktlint(ktlint())
 }

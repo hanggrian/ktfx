@@ -1,13 +1,13 @@
 package ktfx.layouts.scene.layout
 
 import javafx.scene.layout.Region
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.anchorPane
 import ktfx.layouts.pane
 import ktfx.layouts.region
+import ktfx.test.PlatformLayoutTest
 import kotlin.test.assertEquals
 
-class AnchorPaneTest : LayoutTest() {
+class AnchorPaneTest : PlatformLayoutTest() {
 
     override fun newInstance() {
         assertEquals(anchorPane(Region()).children.size, 1)

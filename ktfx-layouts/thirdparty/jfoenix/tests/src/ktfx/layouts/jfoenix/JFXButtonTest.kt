@@ -1,16 +1,16 @@
-package ktfx.layouts.controlsfx
+package ktfx.layouts.jfoenix
 
 import ktfx.test.PlatformLayoutTest
-import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
-class RatingTest : PlatformLayoutTest() {
+class JFXButtonTest : PlatformLayoutTest() {
 
     override fun newInstance() {
-        assertEquals(rating().max, 5)
+        assertNull(jfxButton().text)
     }
 
     override fun newInstanceInitialized() {
-        rating {
+        jfxButton {
         }
     }
 

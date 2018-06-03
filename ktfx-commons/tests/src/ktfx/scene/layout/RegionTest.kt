@@ -3,11 +3,11 @@ package ktfx.scene.layout
 import javafx.scene.Scene
 import javafx.scene.layout.Region
 import javafx.stage.Stage
+import ktfx.test.AppTest
 import org.junit.Test
-import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.assertEquals
 
-class RegionTest : ApplicationTest() {
+class RegionTest : AppTest() {
 
     lateinit var region: Region
 

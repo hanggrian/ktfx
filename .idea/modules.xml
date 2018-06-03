@@ -92,6 +92,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles.iml" group="ktfx-styles" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles_main.iml" group="ktfx-styles" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles_test.iml" group="ktfx-styles" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" group="testing" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/thirdparty.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/thirdparty.iml" group="ktfx-layouts/thirdparty" />
     </modules>
   </component>

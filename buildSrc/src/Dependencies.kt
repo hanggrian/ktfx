@@ -17,6 +17,8 @@ fun DependencyHandler.testFX(module: String) = "org.testfx:testfx-$module:$VERSI
 
 fun DependencyHandler.truth() = "com.google.truth:truth:$VERSION_TRUTH"
 
+fun DependencyHandler.junit() = "junit:junit:$VERSION_JUNIT"
+
 fun DependencyHandler.bintrayRelease() = "com.novoda:bintray-release:$VERSION_BINTRAY_RELEASE"
 inline val PluginDependenciesSpec.`bintray-release` get() = id("com.novoda.bintray-release")
 

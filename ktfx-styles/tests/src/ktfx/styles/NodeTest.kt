@@ -8,10 +8,10 @@ import javafx.stage.Stage
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.runBlocking
 import ktfx.application.later
+import ktfx.test.AppTest
 import org.junit.Test
-import org.testfx.framework.junit.ApplicationTest
 
-abstract class NodeTest<T : Node> : ApplicationTest() {
+abstract class NodeTest<T : Node> : AppTest() {
 
     abstract fun newInstance(): T
 

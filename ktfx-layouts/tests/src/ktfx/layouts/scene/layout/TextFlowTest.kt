@@ -2,12 +2,12 @@ package ktfx.layouts.scene.layout
 
 import javafx.scene.paint.Color.RED
 import javafx.scene.text.Text
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.pane
 import ktfx.layouts.textFlow
+import ktfx.test.PlatformLayoutTest
 import kotlin.test.assertEquals
 
-class TextFlowTest : LayoutTest() {
+class TextFlowTest : PlatformLayoutTest() {
 
     override fun newInstance() {
         assertEquals(textFlow(Text()).children.size, 1)

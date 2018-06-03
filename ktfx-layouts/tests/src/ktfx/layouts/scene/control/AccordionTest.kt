@@ -2,14 +2,14 @@ package ktfx.layouts.scene.control
 
 import javafx.scene.control.Label
 import javafx.scene.control.TitledPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.accordion
 import ktfx.layouts.label
 import ktfx.layouts.pane
+import ktfx.test.PlatformLayoutTest
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class AccordionTest : LayoutTest() {
+class AccordionTest : PlatformLayoutTest() {
 
     override fun newInstance() {
         assertEquals(accordion(TitledPane()).panes.size, 1)

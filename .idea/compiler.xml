@@ -66,6 +66,8 @@
       <module name="ktfx-listeners_test" target="1.8" />
       <module name="ktfx-styles_main" target="1.8" />
       <module name="ktfx-styles_test" target="1.8" />
+      <module name="testing_main" target="1.8" />
+      <module name="testing_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

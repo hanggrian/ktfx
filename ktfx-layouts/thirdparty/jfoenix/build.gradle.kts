@@ -29,9 +29,7 @@ dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(jfoenix())
 
-    testImplementation(kotlin("test", VERSION_KOTLIN))
-    testImplementation(testFX("core"))
-    testImplementation(testFX("junit"))
+    testImplementation(project(":testing"))
 
     ktlint(ktlint())
 }

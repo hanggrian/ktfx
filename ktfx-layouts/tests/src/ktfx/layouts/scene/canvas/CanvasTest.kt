@@ -1,11 +1,11 @@
 package ktfx.layouts.scene.canvas
 
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.canvas
 import ktfx.layouts.pane
+import ktfx.test.PlatformLayoutTest
 import kotlin.test.assertEquals
 
-class CanvasTest : LayoutTest() {
+class CanvasTest : PlatformLayoutTest() {
 
     override fun newInstance() {
         val canvas = canvas(10.0, 20.0)

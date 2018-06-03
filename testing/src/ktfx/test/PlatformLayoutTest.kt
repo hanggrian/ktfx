@@ -1,8 +1,8 @@
-package ktfx.layouts
+package ktfx.test
 
 import org.junit.Test
 
-abstract class LayoutTest : BaseTest() {
+abstract class PlatformLayoutTest : PlatformTest() {
 
     @Test abstract fun newInstance()
 

@@ -1,13 +1,13 @@
 package ktfx.layouts.scene.control
 
-import ktfx.layouts.BaseTest
 import ktfx.layouts.Person
 import ktfx.layouts.columns
 import ktfx.layouts.tableView
+import ktfx.test.PlatformTest
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class TableColumnsTest : BaseTest() {
+class TableColumnsTest : PlatformTest() {
 
     @Test fun columns() {
         val tableView = tableView<Person> {

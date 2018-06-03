@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/ktfx-layouts/thirdparty/jfoenix" />
             <option value="$PROJECT_DIR$/ktfx-listeners" />
             <option value="$PROJECT_DIR$/ktfx-styles" />
+            <option value="$PROJECT_DIR$/testing" />
           </set>
         </option>
       </GradleProjectSettings>

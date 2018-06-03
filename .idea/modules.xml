@@ -11,6 +11,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_main.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_main.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_test.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_test.iml" group="example" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix.iml" group="ktfx-layouts/thirdparty/jfoenix" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_main.iml" group="ktfx-layouts/thirdparty/jfoenix" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_test.iml" group="ktfx-layouts/thirdparty/jfoenix" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kfx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kfx-commons/kfx-commons.iml" filepath="$PROJECT_DIR$/.idea/modules/kfx-commons/kfx-commons.iml" group="kfx-commons" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kfx-commons/kfx-commons_main.iml" filepath="$PROJECT_DIR$/.idea/modules/kfx-commons/kfx-commons_main.iml" group="kfx-commons" />

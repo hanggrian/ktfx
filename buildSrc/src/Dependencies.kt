@@ -11,6 +11,8 @@ inline val PluginDependenciesSpec.dokka get() = id("org.jetbrains.dokka")
 
 fun DependencyHandler.controlsFX() = "org.controlsfx:controlsfx:$VERSION_CONTROLSFX"
 
+fun DependencyHandler.jfoenix() = "com.jfoenix:jfoenix:$VERSION_JFOENIX"
+
 fun DependencyHandler.testFX(module: String) = "org.testfx:testfx-$module:$VERSION_TESTFX"
 
 fun DependencyHandler.truth() = "com.google.truth:truth:$VERSION_TRUTH"

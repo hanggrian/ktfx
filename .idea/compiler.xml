@@ -8,6 +8,8 @@
       <module name="controlsfx_test" target="1.8" />
       <module name="example_main" target="1.8" />
       <module name="example_test" target="1.8" />
+      <module name="jfoenix_main" target="1.8" />
+      <module name="jfoenix_test" target="1.8" />
       <module name="kfx-commons_main" target="1.8" />
       <module name="kfx-commons_test" target="1.8" />
       <module name="kfx-coroutines_main" target="1.8" />

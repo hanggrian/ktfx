@@ -131,6 +131,15 @@ gridPane {
 }
 ```
 
+Third-party libraries are also supported. Though currently is limited.
+
+```gradle
+dependencies {
+    compile 'com.hendraanggrian.ktfx:ktfx-layouts-controlsfx:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-layouts-jfoenix:$version'
+}
+```
+
 ![Layouts demo][demo_layouts]
 
 KtFX Listeners

@@ -58,6 +58,7 @@ tasks {
     }
 
     withType<DokkaTask> {
+        moduleName = KTFX_LAYOUTS_CONTROLSFX
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
     }

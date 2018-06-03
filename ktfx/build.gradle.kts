@@ -25,9 +25,15 @@ dependencies {
 gitPublish {
     repoUri = RELEASE_WEB
     branch = "gh-pages"
-    contents.from(*(artifacts.map { "../$it/build/docs" } + "pages").toTypedArray())
+    contents.from(
+        "pages",
+        *artifacts.map { "../$it/build/docs" }.toTypedArray(),
+        *KTFX_THIRDPARTY_ARTIFACTS.map { "../${it.substringBeforeLast('-')}/thirdparty/${it.substringAfterLast('-')}/build/docs" }.toTypedArray())
 }
-tasks["gitPublishCopy"].dependsOn(*artifacts.map { ":$it:dokka" }.toTypedArray())
+tasks["gitPublishCopy"].dependsOn(
+    *artifacts.map { ":$it:dokka" }.toTypedArray(),
+    *KTFX_THIRDPARTY_ARTIFACTS.map { ":${it.substringBeforeLast('-')}:thirdparty:${it.substringAfterLast('-')}:dokka" }.toTypedArray()
+)
 
 publish {
     repoName = RELEASE_ARTIFACT

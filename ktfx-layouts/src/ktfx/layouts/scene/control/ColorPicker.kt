@@ -19,7 +19,7 @@ fun colorPicker(
 inline fun LayoutManager<Node>.colorPicker(
     color: Color = WHITE,
     noinline init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
-): ColorPicker = ktfx.layouts.colorPicker(color, init).add()
+): ColorPicker = ktfx.layouts.colorPicker(color, init)()
 
 /** Create a styled [ColorPicker]. */
 fun styledColorPicker(
@@ -36,4 +36,4 @@ inline fun LayoutManager<Node>.styledColorPicker(
     styleClass: String,
     color: Color = WHITE,
     noinline init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
-): ColorPicker = ktfx.layouts.styledColorPicker(styleClass, color, init).add()
+): ColorPicker = ktfx.layouts.styledColorPicker(styleClass, color, init)()

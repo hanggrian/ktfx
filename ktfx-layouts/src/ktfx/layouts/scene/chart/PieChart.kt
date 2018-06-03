@@ -20,7 +20,7 @@ fun pieChart(
 inline fun LayoutManager<Node>.pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl PieChart).() -> Unit)? = null
-): PieChart = ktfx.layouts.pieChart(data, init).add()
+): PieChart = ktfx.layouts.pieChart(data, init)()
 
 /** Create a styled [PieChart]. */
 fun styledPieChart(
@@ -37,4 +37,4 @@ inline fun LayoutManager<Node>.styledPieChart(
     styleClass: String,
     data: ObservableList<Data> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl PieChart).() -> Unit)? = null
-): PieChart = ktfx.layouts.styledPieChart(styleClass, data, init).add()
+): PieChart = ktfx.layouts.styledPieChart(styleClass, data, init)()

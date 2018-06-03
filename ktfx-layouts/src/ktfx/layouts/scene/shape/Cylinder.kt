@@ -21,7 +21,7 @@ inline fun LayoutManager<Node>.cylinder(
     height: Double = 2.0,
     division: Int = 64,
     noinline init: ((@LayoutDsl Cylinder).() -> Unit)? = null
-): Cylinder = ktfx.layouts.cylinder(radius, height, division, init).add()
+): Cylinder = ktfx.layouts.cylinder(radius, height, division, init)()
 
 /** Create a styled [Cylinder]. */
 fun styledCylinder(
@@ -42,4 +42,4 @@ inline fun LayoutManager<Node>.styledCylinder(
     height: Double = 2.0,
     division: Int = 64,
     noinline init: ((@LayoutDsl Cylinder).() -> Unit)? = null
-): Cylinder = ktfx.layouts.styledCylinder(styleClass, radius, height, division, init).add()
+): Cylinder = ktfx.layouts.styledCylinder(styleClass, radius, height, division, init)()

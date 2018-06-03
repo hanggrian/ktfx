@@ -14,7 +14,7 @@ internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, LayoutManager<T
     override val childs: MutableList<TableColumn<S, *>> = mutableListOf()
 
     override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?): TableColumn<S, T> =
-        TableColumn<S, T>(text).also { init?.invoke(it) }.add()
+        TableColumn<S, T>(text).also { init?.invoke(it) }()
 }
 
 @PublishedApi
@@ -23,5 +23,5 @@ internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, LayoutM
     override val childs: MutableList<TreeTableColumn<S, *>> = mutableListOf()
 
     override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?): TreeTableColumn<S, T> =
-        TreeTableColumn<S, T>(text).also { init?.invoke(it) }.add()
+        TreeTableColumn<S, T>(text).also { init?.invoke(it) }()
 }

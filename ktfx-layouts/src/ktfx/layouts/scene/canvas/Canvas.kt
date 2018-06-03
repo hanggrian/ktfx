@@ -19,7 +19,7 @@ inline fun LayoutManager<Node>.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     noinline init: ((@LayoutDsl Canvas).() -> Unit)? = null
-): Canvas = ktfx.layouts.canvas(width, height, init).add()
+): Canvas = ktfx.layouts.canvas(width, height, init)()
 
 /** Create a styled [Canvas]. */
 fun styledCanvas(
@@ -38,4 +38,4 @@ inline fun LayoutManager<Node>.styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     noinline init: ((@LayoutDsl Canvas).() -> Unit)? = null
-): Canvas = ktfx.layouts.styledCanvas(styleClass, width, height, init).add()
+): Canvas = ktfx.layouts.styledCanvas(styleClass, width, height, init)()

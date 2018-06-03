@@ -16,7 +16,7 @@ open class _Scene(
     fill: Paint
 ) : Scene(root, width, height, fill), LayoutManager<Node> {
 
-    override fun <T : Node> T.add(): T = also {
+    override operator fun <T : Node> T.invoke(): T = also {
         root = when (it) {
             is Parent -> it
             else -> Pane(it)

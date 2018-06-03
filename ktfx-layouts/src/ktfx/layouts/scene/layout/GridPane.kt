@@ -92,7 +92,7 @@ fun gridPane(
 /** Creates a [GridPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.gridPane(
     noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
-): GridPane = ktfx.layouts.gridPane(init).add()
+): GridPane = ktfx.layouts.gridPane(init)()
 
 /** Create a styled [GridPane]. */
 fun styledGridPane(
@@ -107,7 +107,7 @@ fun styledGridPane(
 inline fun LayoutManager<Node>.styledGridPane(
     styleClass: String,
     noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
-): GridPane = ktfx.layouts.styledGridPane(styleClass, init).add()
+): GridPane = ktfx.layouts.styledGridPane(styleClass, init)()
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {

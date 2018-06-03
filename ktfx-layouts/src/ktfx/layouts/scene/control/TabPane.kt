@@ -38,7 +38,7 @@ fun tabPane(
 inline fun LayoutManager<Node>.tabPane(
     vararg tabs: Tab,
     noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
-): TabPane = ktfx.layouts.tabPane(*tabs, init = init).add()
+): TabPane = ktfx.layouts.tabPane(*tabs, init = init)()
 
 /** Create a styled [TabPane]. */
 fun styledTabPane(
@@ -55,4 +55,4 @@ inline fun LayoutManager<Node>.styledTabPane(
     styleClass: String,
     vararg tabs: Tab,
     noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
-): TabPane = ktfx.layouts.styledTabPane(styleClass, *tabs, init = init).add()
+): TabPane = ktfx.layouts.styledTabPane(styleClass, *tabs, init = init)()

@@ -38,7 +38,7 @@ fun buttonBar(
 inline fun LayoutManager<Node>.buttonBar(
     buttonOrder: String? = null,
     noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
-): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init).add()
+): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init)()
 
 /** Create a styled [ButtonBar]. */
 fun styledButtonBar(
@@ -55,4 +55,4 @@ inline fun LayoutManager<Node>.styledButtonBar(
     styleClass: String,
     buttonOrder: String? = null,
     noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
-): ButtonBar = ktfx.layouts.styledButtonBar(styleClass, buttonOrder, init).add()
+): ButtonBar = ktfx.layouts.styledButtonBar(styleClass, buttonOrder, init)()

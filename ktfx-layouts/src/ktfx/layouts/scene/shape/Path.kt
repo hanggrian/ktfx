@@ -18,7 +18,7 @@ fun path(
 inline fun LayoutManager<Node>.path(
     vararg elements: PathElement,
     noinline init: ((@LayoutDsl Path).() -> Unit)? = null
-): Path = ktfx.layouts.path(*elements, init = init).add()
+): Path = ktfx.layouts.path(*elements, init = init)()
 
 /** Create a styled [Path]. */
 fun styledPath(
@@ -35,4 +35,4 @@ inline fun LayoutManager<Node>.styledPath(
     styleClass: String,
     vararg elements: PathElement,
     noinline init: ((@LayoutDsl Path).() -> Unit)? = null
-): Path = ktfx.layouts.styledPath(styleClass, *elements, init = init).add()
+): Path = ktfx.layouts.styledPath(styleClass, *elements, init = init)()

@@ -18,7 +18,7 @@ fun mediaView(
 inline fun LayoutManager<Node>.mediaView(
     player: MediaPlayer? = null,
     noinline init: ((@LayoutDsl MediaView).() -> Unit)? = null
-): MediaView = ktfx.layouts.mediaView(player, init).add()
+): MediaView = ktfx.layouts.mediaView(player, init)()
 
 /** Create a styled [MediaView]. */
 fun styledMediaView(

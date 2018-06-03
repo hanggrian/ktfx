@@ -50,7 +50,7 @@ inline fun LayoutManager<Node>.borderPane(
     bottom: Node? = null,
     left: Node? = null,
     noinline init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
-): BorderPane = ktfx.layouts.borderPane(center, top, right, bottom, left, init).add()
+): BorderPane = ktfx.layouts.borderPane(center, top, right, bottom, left, init)()
 
 /** Create a styled [BorderPane]. */
 fun styledBorderPane(
@@ -75,4 +75,4 @@ inline fun LayoutManager<Node>.styledBorderPane(
     bottom: Node? = null,
     left: Node? = null,
     noinline init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
-): BorderPane = ktfx.layouts.styledBorderPane(styleClass, center, top, right, bottom, left, init).add()
+): BorderPane = ktfx.layouts.styledBorderPane(styleClass, center, top, right, bottom, left, init)()

@@ -23,7 +23,7 @@ inline fun LayoutManager<Node>.ellipse(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     noinline init: ((@LayoutDsl Ellipse).() -> Unit)? = null
-): Ellipse = ktfx.layouts.ellipse(centerX, centerY, radiusX, radiusY, init).add()
+): Ellipse = ktfx.layouts.ellipse(centerX, centerY, radiusX, radiusY, init)()
 
 /** Create a styled [Ellipse]. */
 fun styledEllipse(
@@ -46,4 +46,4 @@ inline fun LayoutManager<Node>.styledEllipse(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     noinline init: ((@LayoutDsl Ellipse).() -> Unit)? = null
-): Ellipse = ktfx.layouts.styledEllipse(styleClass, centerX, centerY, radiusX, radiusY, init).add()
+): Ellipse = ktfx.layouts.styledEllipse(styleClass, centerX, centerY, radiusX, radiusY, init)()

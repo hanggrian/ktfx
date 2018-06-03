@@ -38,7 +38,7 @@ fun stackPane(
 inline fun LayoutManager<Node>.stackPane(
     vararg children: Node,
     noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
-): StackPane = ktfx.layouts.stackPane(*children, init = init).add()
+): StackPane = ktfx.layouts.stackPane(*children, init = init)()
 
 /** Create a styled [StackPane]. */
 fun styledStackPane(
@@ -55,4 +55,4 @@ inline fun LayoutManager<Node>.styledStackPane(
     styleClass: String,
     vararg children: Node,
     noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
-): StackPane = ktfx.layouts.styledStackPane(styleClass, *children, init = init).add()
+): StackPane = ktfx.layouts.styledStackPane(styleClass, *children, init = init)()

@@ -24,7 +24,7 @@ fun splitPane(
 inline fun LayoutManager<Node>.splitPane(
     vararg items: Node,
     noinline init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
-): SplitPane = ktfx.layouts.splitPane(*items, init = init).add()
+): SplitPane = ktfx.layouts.splitPane(*items, init = init)()
 
 /** Create a styled [SplitPane]. */
 fun styledSplitPane(
@@ -41,4 +41,4 @@ inline fun LayoutManager<Node>.styledSplitPane(
     styleClass: String,
     vararg items: Node,
     noinline init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
-): SplitPane = ktfx.layouts.styledSplitPane(styleClass, *items, init = init).add()
+): SplitPane = ktfx.layouts.styledSplitPane(styleClass, *items, init = init)()

@@ -20,7 +20,7 @@ inline fun LayoutManager<MenuItem>.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
     noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
-): CustomMenuItem = ktfx.layouts.customMenuItem(node, hideOnClick, init).add()
+): CustomMenuItem = ktfx.layouts.customMenuItem(node, hideOnClick, init)()
 
 /** Create a styled [CustomMenuItem]. */
 fun styledCustomMenuItem(
@@ -39,4 +39,4 @@ inline fun LayoutManager<MenuItem>.styledCustomMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
     noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
-): CustomMenuItem = ktfx.layouts.styledCustomMenuItem(styleClass, node, hideOnClick, init).add()
+): CustomMenuItem = ktfx.layouts.styledCustomMenuItem(styleClass, node, hideOnClick, init)()

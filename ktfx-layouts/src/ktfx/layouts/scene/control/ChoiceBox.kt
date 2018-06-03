@@ -19,7 +19,7 @@ fun <T> choiceBox(
 inline fun <T> LayoutManager<Node>.choiceBox(
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ChoiceBox<T>).() -> Unit)? = null
-): ChoiceBox<T> = ktfx.layouts.choiceBox(items, init).add()
+): ChoiceBox<T> = ktfx.layouts.choiceBox(items, init)()
 
 /** Create a styled [ChoiceBox]. */
 fun <T> styledChoiceBox(
@@ -36,4 +36,4 @@ inline fun <T> LayoutManager<Node>.styledChoiceBox(
     styleClass: String,
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ChoiceBox<T>).() -> Unit)? = null
-): ChoiceBox<T> = ktfx.layouts.styledChoiceBox(styleClass, items, init).add()
+): ChoiceBox<T> = ktfx.layouts.styledChoiceBox(styleClass, items, init)()

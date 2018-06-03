@@ -15,7 +15,7 @@ fun svgPath(
 /** Creates a [SVGPath] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.svgPath(
     noinline init: ((@LayoutDsl SVGPath).() -> Unit)? = null
-): SVGPath = ktfx.layouts.svgPath(init).add()
+): SVGPath = ktfx.layouts.svgPath(init)()
 
 /** Create a styled [SVGPath]. */
 fun styledSvgPath(
@@ -30,4 +30,4 @@ fun styledSvgPath(
 inline fun LayoutManager<Node>.styledSvgPath(
     styleClass: String,
     noinline init: ((@LayoutDsl SVGPath).() -> Unit)? = null
-): SVGPath = ktfx.layouts.styledSvgPath(styleClass, init).add()
+): SVGPath = ktfx.layouts.styledSvgPath(styleClass, init)()

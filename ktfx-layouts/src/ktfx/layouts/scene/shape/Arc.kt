@@ -27,7 +27,7 @@ inline fun LayoutManager<Node>.arc(
     startAngle: Double = 0.0,
     length: Double = 0.0,
     noinline init: ((@LayoutDsl Arc).() -> Unit)? = null
-): Arc = ktfx.layouts.arc(centerX, centerY, radiusX, radiusY, startAngle, length, init).add()
+): Arc = ktfx.layouts.arc(centerX, centerY, radiusX, radiusY, startAngle, length, init)()
 
 /** Create a styled [Arc]. */
 fun styledArc(
@@ -54,4 +54,4 @@ inline fun LayoutManager<Node>.styledArc(
     startAngle: Double = 0.0,
     length: Double = 0.0,
     noinline init: ((@LayoutDsl Arc).() -> Unit)? = null
-): Arc = ktfx.layouts.styledArc(styleClass, centerX, centerY, radiusX, radiusY, startAngle, length, init).add()
+): Arc = ktfx.layouts.styledArc(styleClass, centerX, centerY, radiusX, radiusY, startAngle, length, init)()

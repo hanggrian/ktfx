@@ -23,7 +23,7 @@ inline fun LayoutManager<Node>.line(
     endX: Double = 0.0,
     endY: Double = 0.0,
     noinline init: ((@LayoutDsl Line).() -> Unit)? = null
-): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init).add()
+): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init)()
 
 /** Create a styled [Line]. */
 fun styledLine(
@@ -46,4 +46,4 @@ inline fun LayoutManager<Node>.styledLine(
     endX: Double = 0.0,
     endY: Double = 0.0,
     noinline init: ((@LayoutDsl Line).() -> Unit)? = null
-): Line = ktfx.layouts.styledLine(styleClass, centerX, centerY, endX, endY, init).add()
+): Line = ktfx.layouts.styledLine(styleClass, centerX, centerY, endX, endY, init)()

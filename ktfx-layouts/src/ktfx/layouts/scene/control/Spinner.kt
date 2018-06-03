@@ -15,7 +15,7 @@ fun <T> spinner(
 /** Creates a [Spinner] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.spinner(
     noinline init: ((@LayoutDsl Spinner<T>).() -> Unit)? = null
-): Spinner<T> = ktfx.layouts.spinner(init).add()
+): Spinner<T> = ktfx.layouts.spinner(init)()
 
 /** Create a styled [Spinner]. */
 fun <T> styledSpinner(
@@ -30,4 +30,4 @@ fun <T> styledSpinner(
 inline fun <T> LayoutManager<Node>.styledSpinner(
     styleClass: String,
     noinline init: ((@LayoutDsl Spinner<T>).() -> Unit)? = null
-): Spinner<T> = ktfx.layouts.styledSpinner(styleClass, init).add()
+): Spinner<T> = ktfx.layouts.styledSpinner(styleClass, init)()

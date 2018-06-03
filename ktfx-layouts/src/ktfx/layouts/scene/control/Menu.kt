@@ -44,7 +44,7 @@ inline fun LayoutManager<MenuItem>.menu(
     graphic: Node? = null,
     vararg items: MenuItem,
     noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
-): Menu = ktfx.layouts.menu(text, graphic, *items, init = init).add()
+): Menu = ktfx.layouts.menu(text, graphic, *items, init = init)()
 
 /** Create a styled [Menu]. */
 fun styledMenu(
@@ -65,4 +65,4 @@ inline fun LayoutManager<MenuItem>.styledMenu(
     graphic: Node? = null,
     vararg items: MenuItem,
     noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
-): Menu = ktfx.layouts.styledMenu(styleClass, text, graphic, *items, init = init).add()
+): Menu = ktfx.layouts.styledMenu(styleClass, text, graphic, *items, init = init)()

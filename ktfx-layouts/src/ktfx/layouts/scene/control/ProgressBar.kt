@@ -18,7 +18,7 @@ fun progressBar(
 inline fun LayoutManager<Node>.progressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     noinline init: ((@LayoutDsl ProgressBar).() -> Unit)? = null
-): ProgressBar = ktfx.layouts.progressBar(progress, init).add()
+): ProgressBar = ktfx.layouts.progressBar(progress, init)()
 
 /** Create a styled [ProgressBar]. */
 fun styledProgressBar(
@@ -35,4 +35,4 @@ inline fun LayoutManager<Node>.styledProgressBar(
     styleClass: String,
     progress: Double = INDETERMINATE_PROGRESS,
     noinline init: ((@LayoutDsl ProgressBar).() -> Unit)? = null
-): ProgressBar = ktfx.layouts.styledProgressBar(styleClass, progress, init).add()
+): ProgressBar = ktfx.layouts.styledProgressBar(styleClass, progress, init)()

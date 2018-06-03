@@ -6,7 +6,7 @@ import org.gradle.kotlin.dsl.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
-group = ARTIFACT_COMMONS.asGroup()
+group = KTFX_COMMONS.asGroup()
 version = RELEASE_VERSION
 
 plugins {
@@ -65,7 +65,7 @@ publish {
     repoName = RELEASE_ARTIFACT
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_COMMONS
+    artifactId = KTFX_COMMONS
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

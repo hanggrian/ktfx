@@ -17,7 +17,7 @@ fun polygon(
 inline fun LayoutManager<Node>.polygon(
     vararg points: Double,
     noinline init: ((@LayoutDsl Polygon).() -> Unit)? = null
-): Polygon = ktfx.layouts.polygon(*points, init = init).add()
+): Polygon = ktfx.layouts.polygon(*points, init = init)()
 
 /** Create a styled [Polygon]. */
 fun styledPolygon(
@@ -34,4 +34,4 @@ inline fun LayoutManager<Node>.styledPolygon(
     styleClass: String,
     vararg points: Double,
     noinline init: ((@LayoutDsl Polygon).() -> Unit)? = null
-): Polygon = ktfx.layouts.styledPolygon(styleClass, *points, init = init).add()
+): Polygon = ktfx.layouts.styledPolygon(styleClass, *points, init = init)()

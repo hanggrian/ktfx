@@ -15,6 +15,8 @@
             <option value="$PROJECT_DIR$/ktfx-commons" />
             <option value="$PROJECT_DIR$/ktfx-coroutines" />
             <option value="$PROJECT_DIR$/ktfx-layouts" />
+            <option value="$PROJECT_DIR$/ktfx-layouts/thirdparty" />
+            <option value="$PROJECT_DIR$/ktfx-layouts/thirdparty/controlsfx" />
             <option value="$PROJECT_DIR$/ktfx-listeners" />
             <option value="$PROJECT_DIR$/ktfx-styles" />
           </set>

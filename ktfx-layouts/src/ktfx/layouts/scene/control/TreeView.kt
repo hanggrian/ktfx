@@ -18,7 +18,7 @@ fun <T> treeView(
 inline fun <T> LayoutManager<Node>.treeView(
     root: TreeItem<T>? = null,
     noinline init: ((@LayoutDsl TreeView<T>).() -> Unit)? = null
-): TreeView<T> = ktfx.layouts.treeView(root, init).add()
+): TreeView<T> = ktfx.layouts.treeView(root, init)()
 
 /** Create a styled [TreeView]. */
 fun <T> styledTreeView(
@@ -35,4 +35,4 @@ inline fun <T> LayoutManager<Node>.styledTreeView(
     styleClass: String,
     root: TreeItem<T>? = null,
     noinline init: ((@LayoutDsl TreeView<T>).() -> Unit)? = null
-): TreeView<T> = ktfx.layouts.styledTreeView(styleClass, root, init).add()
+): TreeView<T> = ktfx.layouts.styledTreeView(styleClass, root, init)()

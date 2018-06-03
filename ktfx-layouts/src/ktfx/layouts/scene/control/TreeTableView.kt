@@ -20,7 +20,7 @@ fun <S> treeTableView(
 inline fun <S> LayoutManager<Node>.treeTableView(
     root: TreeItem<S>? = null,
     noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null
-): TreeTableView<S> = ktfx.layouts.treeTableView(root, init).add()
+): TreeTableView<S> = ktfx.layouts.treeTableView(root, init)()
 
 /** Create a styled [TreeTableView]. */
 fun <S> styledTreeTableView(
@@ -37,7 +37,7 @@ inline fun <S> LayoutManager<Node>.styledTreeTableView(
     styleClass: String,
     root: TreeItem<S>? = null,
     noinline init: ((@LayoutDsl TreeTableView<S>).() -> Unit)? = null
-): TreeTableView<S> = ktfx.layouts.styledTreeTableView(styleClass, root, init).add()
+): TreeTableView<S> = ktfx.layouts.styledTreeTableView(styleClass, root, init)()
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {

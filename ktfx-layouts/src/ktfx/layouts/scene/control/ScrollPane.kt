@@ -9,7 +9,7 @@ open class _ScrollPane(
     content: Node?
 ) : ScrollPane(content), LayoutManager<Node> {
 
-    override fun <T : Node> T.add(): T = also { content = it }
+    override operator fun <T : Node> T.invoke(): T = also { content = it }
 }
 
 /** Creates a [ScrollPane]. */
@@ -24,7 +24,7 @@ fun scrollPane(
 inline fun LayoutManager<Node>.scrollPane(
     content: Node? = null,
     noinline init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
-): ScrollPane = ktfx.layouts.scrollPane(content, init).add()
+): ScrollPane = ktfx.layouts.scrollPane(content, init)()
 
 /** Create a styled [ScrollPane]. */
 fun styledScrollPane(
@@ -41,4 +41,4 @@ inline fun LayoutManager<Node>.styledScrollPane(
     styleClass: String,
     content: Node? = null,
     noinline init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
-): ScrollPane = ktfx.layouts.styledScrollPane(styleClass, content, init).add()
+): ScrollPane = ktfx.layouts.styledScrollPane(styleClass, content, init)()

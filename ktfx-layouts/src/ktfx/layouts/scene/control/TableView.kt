@@ -21,7 +21,7 @@ fun <S> tableView(
 inline fun <S> LayoutManager<Node>.tableView(
     items: ObservableList<S> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
-): TableView<S> = ktfx.layouts.tableView(items, init).add()
+): TableView<S> = ktfx.layouts.tableView(items, init)()
 
 /** Create a styled [TableView]. */
 fun <S> styledTableView(
@@ -38,7 +38,7 @@ inline fun <S> LayoutManager<Node>.styledTableView(
     styleClass: String,
     items: ObservableList<S> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
-): TableView<S> = ktfx.layouts.styledTableView(styleClass, items, init).add()
+): TableView<S> = ktfx.layouts.styledTableView(styleClass, items, init)()
 
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {

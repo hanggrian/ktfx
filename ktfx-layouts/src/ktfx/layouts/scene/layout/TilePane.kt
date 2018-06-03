@@ -49,7 +49,7 @@ inline fun LayoutManager<Node>.tilePane(
     vgap: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _TilePane).() -> Unit)? = null
-): TilePane = ktfx.layouts.tilePane(orientation, hgap, vgap, *children, init = init).add()
+): TilePane = ktfx.layouts.tilePane(orientation, hgap, vgap, *children, init = init)()
 
 /** Create a styled [TilePane]. */
 fun styledTilePane(
@@ -72,4 +72,4 @@ inline fun LayoutManager<Node>.styledTilePane(
     vgap: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _TilePane).() -> Unit)? = null
-): TilePane = ktfx.layouts.styledTilePane(styleClass, orientation, hgap, vgap, *children, init = init).add()
+): TilePane = ktfx.layouts.styledTilePane(styleClass, orientation, hgap, vgap, *children, init = init)()

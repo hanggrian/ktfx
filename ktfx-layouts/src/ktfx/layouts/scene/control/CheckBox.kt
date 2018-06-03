@@ -17,7 +17,7 @@ fun checkBox(
 inline fun LayoutManager<Node>.checkBox(
     text: String? = null,
     noinline init: ((@LayoutDsl CheckBox).() -> Unit)? = null
-): CheckBox = ktfx.layouts.checkBox(text, init).add()
+): CheckBox = ktfx.layouts.checkBox(text, init)()
 
 /** Create a styled [CheckBox]. */
 fun styledCheckBox(
@@ -34,4 +34,4 @@ inline fun LayoutManager<Node>.styledCheckBox(
     styleClass: String,
     text: String? = null,
     noinline init: ((@LayoutDsl CheckBox).() -> Unit)? = null
-): CheckBox = ktfx.layouts.styledCheckBox(styleClass, text, init).add()
+): CheckBox = ktfx.layouts.styledCheckBox(styleClass, text, init)()

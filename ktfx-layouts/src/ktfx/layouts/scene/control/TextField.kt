@@ -17,7 +17,7 @@ fun textField(
 inline fun LayoutManager<Node>.textField(
     text: String = "",
     noinline init: ((@LayoutDsl TextField).() -> Unit)? = null
-): TextField = ktfx.layouts.textField(text, init).add()
+): TextField = ktfx.layouts.textField(text, init)()
 
 /** Create a styled [TextField]. */
 fun styledTextField(
@@ -34,4 +34,4 @@ inline fun LayoutManager<Node>.styledTextField(
     styleClass: String,
     text: String = "",
     noinline init: ((@LayoutDsl TextField).() -> Unit)? = null
-): TextField = ktfx.layouts.styledTextField(styleClass, text, init).add()
+): TextField = ktfx.layouts.styledTextField(styleClass, text, init)()

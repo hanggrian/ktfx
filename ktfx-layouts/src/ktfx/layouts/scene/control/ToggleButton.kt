@@ -19,7 +19,7 @@ inline fun LayoutManager<Node>.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl ToggleButton).() -> Unit)? = null
-): ToggleButton = ktfx.layouts.toggleButton(text, graphic, init).add()
+): ToggleButton = ktfx.layouts.toggleButton(text, graphic, init)()
 
 /** Create a styled [ToggleButton]. */
 fun styledToggleButton(
@@ -38,4 +38,4 @@ inline fun LayoutManager<Node>.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl ToggleButton).() -> Unit)? = null
-): ToggleButton = ktfx.layouts.styledToggleButton(styleClass, text, graphic, init).add()
+): ToggleButton = ktfx.layouts.styledToggleButton(styleClass, text, graphic, init)()

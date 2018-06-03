@@ -20,7 +20,7 @@ inline fun LayoutManager<MenuItem>.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
-): CheckMenuItem = ktfx.layouts.checkMenuItem(text, graphic, init).add()
+): CheckMenuItem = ktfx.layouts.checkMenuItem(text, graphic, init)()
 
 /** Create a styled [CheckMenuItem]. */
 fun styledCheckMenuItem(
@@ -39,4 +39,4 @@ inline fun LayoutManager<MenuItem>.styledCheckMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
-): CheckMenuItem = ktfx.layouts.styledCheckMenuItem(styleClass, text, graphic, init).add()
+): CheckMenuItem = ktfx.layouts.styledCheckMenuItem(styleClass, text, graphic, init)()

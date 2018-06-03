@@ -19,7 +19,7 @@ fun <T> comboBox(
 inline fun <T> LayoutManager<Node>.comboBox(
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ComboBox<T>).() -> Unit)? = null
-): ComboBox<T> = ktfx.layouts.comboBox(items, init).add()
+): ComboBox<T> = ktfx.layouts.comboBox(items, init)()
 
 /** Create a styled [ComboBox]. */
 fun <T> styledComboBox(
@@ -36,4 +36,4 @@ inline fun <T> LayoutManager<Node>.styledComboBox(
     styleClass: String,
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ComboBox<T>).() -> Unit)? = null
-): ComboBox<T> = ktfx.layouts.styledComboBox(styleClass, items, init).add()
+): ComboBox<T> = ktfx.layouts.styledComboBox(styleClass, items, init)()

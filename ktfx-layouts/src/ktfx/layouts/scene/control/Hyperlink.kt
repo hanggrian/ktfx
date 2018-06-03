@@ -19,7 +19,7 @@ inline fun LayoutManager<Node>.hyperlink(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null
-): Hyperlink = ktfx.layouts.hyperlink(text, graphic, init).add()
+): Hyperlink = ktfx.layouts.hyperlink(text, graphic, init)()
 
 /** Create a styled [Hyperlink]. */
 fun styledHyperlink(
@@ -38,4 +38,4 @@ inline fun LayoutManager<Node>.styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null
-): Hyperlink = ktfx.layouts.styledHyperlink(styleClass, text, graphic, init).add()
+): Hyperlink = ktfx.layouts.styledHyperlink(styleClass, text, graphic, init)()

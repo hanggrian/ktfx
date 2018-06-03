@@ -38,7 +38,7 @@ fun splitMenuButton(
 inline fun LayoutManager<Node>.splitMenuButton(
     vararg items: MenuItem,
     noinline init: ((@LayoutDsl _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = ktfx.layouts.splitMenuButton(*items, init = init).add()
+): SplitMenuButton = ktfx.layouts.splitMenuButton(*items, init = init)()
 
 /** Create a styled [SplitMenuButton]. */
 fun styledSplitMenuButton(
@@ -55,4 +55,4 @@ inline fun LayoutManager<Node>.styledSplitMenuButton(
     styleClass: String,
     vararg items: MenuItem,
     noinline init: ((@LayoutDsl _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = ktfx.layouts.styledSplitMenuButton(styleClass, *items, init = init).add()
+): SplitMenuButton = ktfx.layouts.styledSplitMenuButton(styleClass, *items, init = init)()

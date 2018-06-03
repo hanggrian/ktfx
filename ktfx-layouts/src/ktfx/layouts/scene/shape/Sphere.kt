@@ -19,7 +19,7 @@ inline fun LayoutManager<Node>.sphere(
     radius: Double = 1.0,
     division: Int = 64,
     noinline init: ((@LayoutDsl Sphere).() -> Unit)? = null
-): Sphere = ktfx.layouts.sphere(radius, division, init).add()
+): Sphere = ktfx.layouts.sphere(radius, division, init)()
 
 /** Create a styled [Sphere]. */
 fun styledSphere(
@@ -38,4 +38,4 @@ inline fun LayoutManager<Node>.styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     noinline init: ((@LayoutDsl Sphere).() -> Unit)? = null
-): Sphere = ktfx.layouts.styledSphere(styleClass, radius, division, init).add()
+): Sphere = ktfx.layouts.styledSphere(styleClass, radius, division, init)()

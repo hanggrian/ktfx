@@ -20,7 +20,7 @@ inline fun LayoutManager<Node>.pagination(
     count: Int = INDETERMINATE,
     index: Int = 0,
     noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null
-): Pagination = ktfx.layouts.pagination(count, index, init).add()
+): Pagination = ktfx.layouts.pagination(count, index, init)()
 
 /** Create a styled [Pagination]. */
 fun styledPagination(
@@ -39,4 +39,4 @@ inline fun LayoutManager<Node>.styledPagination(
     count: Int = INDETERMINATE,
     index: Int = 0,
     noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null
-): Pagination = ktfx.layouts.styledPagination(styleClass, count, index, init).add()
+): Pagination = ktfx.layouts.styledPagination(styleClass, count, index, init)()

@@ -19,7 +19,7 @@ inline fun LayoutManager<Node>.label(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Label).() -> Unit)? = null
-): Label = ktfx.layouts.label(text, graphic, init).add()
+): Label = ktfx.layouts.label(text, graphic, init)()
 
 /** Create a styled [Label]. */
 fun styledLabel(
@@ -38,4 +38,4 @@ inline fun LayoutManager<Node>.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Label).() -> Unit)? = null
-): Label = ktfx.layouts.styledLabel(styleClass, text, graphic, init).add()
+): Label = ktfx.layouts.styledLabel(styleClass, text, graphic, init)()

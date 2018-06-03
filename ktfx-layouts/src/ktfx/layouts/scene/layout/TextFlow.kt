@@ -36,7 +36,7 @@ fun textFlow(
 inline fun LayoutManager<Node>.textFlow(
     vararg children: Node,
     noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
-): TextFlow = ktfx.layouts.textFlow(*children, init = init).add()
+): TextFlow = ktfx.layouts.textFlow(*children, init = init)()
 
 /** Create a styled [TextFlow]. */
 fun styledTextFlow(
@@ -53,4 +53,4 @@ inline fun LayoutManager<Node>.styledTextFlow(
     styleClass: String,
     vararg children: Node,
     noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
-): TextFlow = ktfx.layouts.styledTextFlow(styleClass, *children, init = init).add()
+): TextFlow = ktfx.layouts.styledTextFlow(styleClass, *children, init = init)()

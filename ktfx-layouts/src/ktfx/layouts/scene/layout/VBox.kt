@@ -41,7 +41,7 @@ inline fun LayoutManager<Node>.vbox(
     spacing: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
-): VBox = ktfx.layouts.vbox(spacing, *children, init = init).add()
+): VBox = ktfx.layouts.vbox(spacing, *children, init = init)()
 
 /** Create a styled [VBox]. */
 fun styledVbox(
@@ -60,4 +60,4 @@ inline fun LayoutManager<Node>.styledVbox(
     spacing: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
-): VBox = ktfx.layouts.styledVbox(styleClass, spacing, *children, init = init).add()
+): VBox = ktfx.layouts.styledVbox(styleClass, spacing, *children, init = init)()

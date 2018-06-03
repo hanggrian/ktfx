@@ -17,7 +17,7 @@ fun radioButton(
 inline fun LayoutManager<Node>.radioButton(
     text: String? = null,
     noinline init: ((@LayoutDsl RadioButton).() -> Unit)? = null
-): RadioButton = ktfx.layouts.radioButton(text, init).add()
+): RadioButton = ktfx.layouts.radioButton(text, init)()
 
 /** Create a styled [RadioButton]. */
 fun styledRadioButton(
@@ -34,4 +34,4 @@ inline fun LayoutManager<Node>.styledRadioButton(
     styleClass: String,
     text: String? = null,
     noinline init: ((@LayoutDsl RadioButton).() -> Unit)? = null
-): RadioButton = ktfx.layouts.styledRadioButton(styleClass, text, init).add()
+): RadioButton = ktfx.layouts.styledRadioButton(styleClass, text, init)()

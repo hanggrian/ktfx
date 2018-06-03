@@ -41,7 +41,7 @@ inline fun LayoutManager<Node>.hbox(
     spacing: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
-): HBox = ktfx.layouts.hbox(spacing, *children, init = init).add()
+): HBox = ktfx.layouts.hbox(spacing, *children, init = init)()
 
 /** Create a styled [HBox]. */
 fun styledHbox(
@@ -60,4 +60,4 @@ inline fun LayoutManager<Node>.styledHbox(
     spacing: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
-): HBox = ktfx.layouts.styledHbox(styleClass, spacing, *children, init = init).add()
+): HBox = ktfx.layouts.styledHbox(styleClass, spacing, *children, init = init)()

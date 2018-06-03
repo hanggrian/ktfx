@@ -15,7 +15,7 @@ fun passwordField(
 /** Creates a [PasswordField] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.passwordField(
     noinline init: ((@LayoutDsl PasswordField).() -> Unit)? = null
-): PasswordField = ktfx.layouts.passwordField(init).add()
+): PasswordField = ktfx.layouts.passwordField(init)()
 
 /** Create a styled [PasswordField]. */
 fun styledPasswordField(
@@ -30,4 +30,4 @@ fun styledPasswordField(
 inline fun LayoutManager<Node>.styledPasswordField(
     styleClass: String,
     noinline init: ((@LayoutDsl PasswordField).() -> Unit)? = null
-): PasswordField = ktfx.layouts.styledPasswordField(styleClass, init).add()
+): PasswordField = ktfx.layouts.styledPasswordField(styleClass, init)()

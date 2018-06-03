@@ -19,7 +19,7 @@ fun <T> listView(
 inline fun <T> LayoutManager<Node>.listView(
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ListView<T>).() -> Unit)? = null
-): ListView<T> = ktfx.layouts.listView(items, init).add()
+): ListView<T> = ktfx.layouts.listView(items, init)()
 
 /** Create a styled [ListView]. */
 fun <T> styledListView(
@@ -36,4 +36,4 @@ inline fun <T> LayoutManager<Node>.styledListView(
     styleClass: String,
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ListView<T>).() -> Unit)? = null
-): ListView<T> = ktfx.layouts.styledListView(styleClass, items, init).add()
+): ListView<T> = ktfx.layouts.styledListView(styleClass, items, init)()

@@ -17,11 +17,11 @@ internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBu
     abstract fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): T
 
     override fun constraints(init: (T.() -> Unit)?): T =
-        newInstance().also { init?.invoke(it) }.add()
+        newInstance().also { init?.invoke(it) }()
 
     override fun constraints(size: Double, init: (T.() -> Unit)?): T =
-        newInstance(size).also { init?.invoke(it) }.add()
+        newInstance(size).also { init?.invoke(it) }()
 
     override fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: (T.() -> Unit)?): T =
-        newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }.add()
+        newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }()
 }

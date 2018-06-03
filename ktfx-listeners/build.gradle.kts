@@ -7,7 +7,7 @@ import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
-group = ARTIFACT_LISTENERS.asGroup()
+group = KTFX_LISTENERS.asGroup()
 version = RELEASE_VERSION
 
 plugins {
@@ -25,7 +25,7 @@ java.sourceSets {
 val ktlint by configurations.creating
 
 dependencies {
-    compile(project(":$ARTIFACT_COMMONS"))
+    compile(project(":$KTFX_COMMONS"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
     testImplementation(kotlin("test", VERSION_KOTLIN))
@@ -66,7 +66,7 @@ publish {
     repoName = RELEASE_ARTIFACT
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_LISTENERS
+    artifactId = KTFX_LISTENERS
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

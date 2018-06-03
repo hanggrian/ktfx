@@ -10,7 +10,7 @@ open class _TitledPane(
     content: Node?
 ) : TitledPane(title, content), LayoutManager<Node> {
 
-    override fun <T : Node> T.add(): T = also { content = it }
+    override operator fun <T : Node> T.invoke(): T = also { content = it }
 }
 
 /** Creates a [TitledPane]. */
@@ -27,7 +27,7 @@ inline fun LayoutManager<Node>.titledPane(
     text: String? = null,
     content: Node? = null,
     noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
-): TitledPane = ktfx.layouts.titledPane(text, content, init).add()
+): TitledPane = ktfx.layouts.titledPane(text, content, init)()
 
 /** Create a styled [TitledPane]. */
 fun styledTitledPane(
@@ -46,4 +46,4 @@ inline fun LayoutManager<Node>.styledTitledPane(
     text: String? = null,
     content: Node? = null,
     noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
-): TitledPane = ktfx.layouts.styledTitledPane(styleClass, text, content, init).add()
+): TitledPane = ktfx.layouts.styledTitledPane(styleClass, text, content, init)()

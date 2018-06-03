@@ -25,7 +25,7 @@ inline fun <X, Y> LayoutManager<Node>.stackedAreaChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl StackedAreaChart<X, Y>).() -> Unit)? = null
-): StackedAreaChart<X, Y> = ktfx.layouts.stackedAreaChart(x, y, data, init).add()
+): StackedAreaChart<X, Y> = ktfx.layouts.stackedAreaChart(x, y, data, init)()
 
 /** Create a styled [StackedAreaChart]. */
 fun <X, Y> styledStackedAreaChart(
@@ -46,4 +46,4 @@ inline fun <X, Y> LayoutManager<Node>.styledStackedAreaChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl StackedAreaChart<X, Y>).() -> Unit)? = null
-): StackedAreaChart<X, Y> = ktfx.layouts.styledStackedAreaChart(styleClass, x, y, data, init).add()
+): StackedAreaChart<X, Y> = ktfx.layouts.styledStackedAreaChart(styleClass, x, y, data, init)()

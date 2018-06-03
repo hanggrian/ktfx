@@ -16,14 +16,14 @@ class _Accordion(
     inline operator fun String.invoke(
         content: Node? = null,
         noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
-    ): TitledPane = titledPane(this, content, init).add()
+    ): TitledPane = titledPane(this, content, init)()
 
     /** Creates a styled [TitledPane] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(
         styleClass: String,
         content: Node? = null,
         noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
-    ): TitledPane = styledTitledPane(styleClass, this, content, init).add()
+    ): TitledPane = styledTitledPane(styleClass, this, content, init)()
 }
 
 /** Creates a [Accordion]. */
@@ -38,7 +38,7 @@ fun accordion(
 inline fun LayoutManager<Node>.accordion(
     vararg titledPanes: TitledPane,
     noinline init: ((@LayoutDsl _Accordion).() -> Unit)? = null
-): Accordion = ktfx.layouts.accordion(*titledPanes, init = init).add()
+): Accordion = ktfx.layouts.accordion(*titledPanes, init = init)()
 
 /** Create a styled [Accordion]. */
 fun styledAccordion(
@@ -55,4 +55,4 @@ inline fun LayoutManager<Node>.styledAccordion(
     styleClass: String,
     vararg titledPanes: TitledPane,
     noinline init: ((@LayoutDsl _Accordion).() -> Unit)? = null
-): Accordion = ktfx.layouts.styledAccordion(styleClass, *titledPanes, init = init).add()
+): Accordion = ktfx.layouts.styledAccordion(styleClass, *titledPanes, init = init)()

@@ -31,8 +31,7 @@ inline fun LayoutManager<Node>.cubicCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     noinline init: ((@LayoutDsl CubicCurve).() -> Unit)? = null
-): CubicCurve = ktfx.layouts.cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY, init)
-    .add()
+): CubicCurve = ktfx.layouts.cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY, init)()
 
 /** Create a styled [CubicCurve]. */
 fun styledCubicCurve(
@@ -64,4 +63,4 @@ inline fun LayoutManager<Node>.styledCubicCurve(
     endY: Double = 0.0,
     noinline init: ((@LayoutDsl CubicCurve).() -> Unit)? = null
 ): CubicCurve = ktfx.layouts.styledCubicCurve(styleClass, startX, startY, controlX1, controlY1, controlX2, controlY2,
-    endX, endY, init).add()
+    endX, endY, init)()

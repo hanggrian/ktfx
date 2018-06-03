@@ -9,5 +9,5 @@ interface LayoutManager<C> {
     val childs: MutableList<C> get() = fail { "Childs is not initialized" }
 
     /** Add item to collection, returning the item added. */
-    fun <T : C> T.add(): T = also { childs += it }
+    operator fun <T : C> T.invoke(): T = also { childs += it }
 }

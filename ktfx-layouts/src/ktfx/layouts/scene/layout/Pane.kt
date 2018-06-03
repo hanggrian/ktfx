@@ -24,7 +24,7 @@ fun pane(
 inline fun LayoutManager<Node>.pane(
     vararg children: Node,
     noinline init: ((@LayoutDsl _Pane).() -> Unit)? = null
-): Pane = ktfx.layouts.pane(*children, init = init).add()
+): Pane = ktfx.layouts.pane(*children, init = init)()
 
 /** Create a styled [Pane]. */
 fun styledPane(
@@ -41,4 +41,4 @@ inline fun LayoutManager<Node>.styledPane(
     styleClass: String,
     vararg children: Node,
     noinline init: ((@LayoutDsl _Pane).() -> Unit)? = null
-): Pane = ktfx.layouts.styledPane(styleClass, *children, init = init).add()
+): Pane = ktfx.layouts.styledPane(styleClass, *children, init = init)()

@@ -15,7 +15,7 @@ fun webView(
 /** Creates a [WebView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.webView(
     noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
-): WebView = ktfx.layouts.webView(init).add()
+): WebView = ktfx.layouts.webView(init)()
 
 /** Create a styled [WebView]. */
 fun styledWebView(
@@ -30,4 +30,4 @@ fun styledWebView(
 inline fun LayoutManager<Node>.styledWebView(
     styleClass: String,
     noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
-): WebView = ktfx.layouts.styledWebView(styleClass, init).add()
+): WebView = ktfx.layouts.styledWebView(styleClass, init)()

@@ -27,7 +27,7 @@ inline fun LayoutManager<Node>.quadCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     noinline init: ((@LayoutDsl QuadCurve).() -> Unit)? = null
-): QuadCurve = ktfx.layouts.quadCurve(startX, startY, controlX, controlY, endX, endY, init).add()
+): QuadCurve = ktfx.layouts.quadCurve(startX, startY, controlX, controlY, endX, endY, init)()
 
 /** Create a styled [QuadCurve]. */
 fun styledQuadCurve(
@@ -54,4 +54,4 @@ inline fun LayoutManager<Node>.styledQuadCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     noinline init: ((@LayoutDsl QuadCurve).() -> Unit)? = null
-): QuadCurve = ktfx.layouts.styledQuadCurve(styleClass, startX, startY, controlX, controlY, endX, endY, init).add()
+): QuadCurve = ktfx.layouts.styledQuadCurve(styleClass, startX, startY, controlX, controlY, endX, endY, init)()

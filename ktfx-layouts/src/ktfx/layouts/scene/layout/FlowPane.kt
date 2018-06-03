@@ -43,7 +43,7 @@ inline fun LayoutManager<Node>.flowPane(
     vgap: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
-): FlowPane = ktfx.layouts.flowPane(orientation, hgap, vgap, *children, init = init).add()
+): FlowPane = ktfx.layouts.flowPane(orientation, hgap, vgap, *children, init = init)()
 
 /** Create a styled [FlowPane]. */
 fun styledFlowPane(
@@ -66,4 +66,4 @@ inline fun LayoutManager<Node>.styledFlowPane(
     vgap: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
-): FlowPane = ktfx.layouts.styledFlowPane(styleClass, orientation, hgap, vgap, *children, init = init).add()
+): FlowPane = ktfx.layouts.styledFlowPane(styleClass, orientation, hgap, vgap, *children, init = init)()

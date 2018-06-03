@@ -18,7 +18,7 @@ fun progressIndicator(
 inline fun LayoutManager<Node>.progressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     noinline init: ((@LayoutDsl ProgressIndicator).() -> Unit)? = null
-): ProgressIndicator = ktfx.layouts.progressIndicator(progress, init).add()
+): ProgressIndicator = ktfx.layouts.progressIndicator(progress, init)()
 
 /** Create a styled [ProgressIndicator]. */
 fun styledProgressIndicator(
@@ -35,4 +35,4 @@ inline fun LayoutManager<Node>.styledProgressIndicator(
     styleClass: String,
     progress: Double = INDETERMINATE_PROGRESS,
     noinline init: ((@LayoutDsl ProgressIndicator).() -> Unit)? = null
-): ProgressIndicator = ktfx.layouts.styledProgressIndicator(styleClass, progress, init).add()
+): ProgressIndicator = ktfx.layouts.styledProgressIndicator(styleClass, progress, init)()

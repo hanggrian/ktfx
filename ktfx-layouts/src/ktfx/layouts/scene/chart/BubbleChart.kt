@@ -25,7 +25,7 @@ inline fun <X, Y> LayoutManager<Node>.bubbleChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl BubbleChart<X, Y>).() -> Unit)? = null
-): BubbleChart<X, Y> = ktfx.layouts.bubbleChart(x, y, data, init).add()
+): BubbleChart<X, Y> = ktfx.layouts.bubbleChart(x, y, data, init)()
 
 /** Create a styled [BubbleChart]. */
 fun <X, Y> styledBubbleChart(
@@ -46,4 +46,4 @@ inline fun <X, Y> LayoutManager<Node>.styledBubbleChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl BubbleChart<X, Y>).() -> Unit)? = null
-): BubbleChart<X, Y> = ktfx.layouts.styledBubbleChart(styleClass, x, y, data, init).add()
+): BubbleChart<X, Y> = ktfx.layouts.styledBubbleChart(styleClass, x, y, data, init)()

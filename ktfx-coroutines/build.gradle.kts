@@ -7,7 +7,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
-group = ARTIFACT_COROUTINES.asGroup()
+group = KTFX_COROUTINES.asGroup()
 version = RELEASE_VERSION
 
 plugins {
@@ -27,7 +27,7 @@ kotlin.experimental.coroutines = ENABLE
 val ktlint by configurations.creating
 
 dependencies {
-    compile(project(":$ARTIFACT_COMMONS"))
+    compile(project(":$KTFX_COMMONS"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
@@ -69,7 +69,7 @@ publish {
     repoName = RELEASE_ARTIFACT
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_COROUTINES
+    artifactId = KTFX_COROUTINES
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

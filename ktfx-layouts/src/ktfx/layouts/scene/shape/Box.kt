@@ -22,7 +22,7 @@ inline fun LayoutManager<Node>.box(
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
     noinline init: ((@LayoutDsl Box).() -> Unit)? = null
-): Box = ktfx.layouts.box(width, height, depth, init).add()
+): Box = ktfx.layouts.box(width, height, depth, init)()
 
 /** Create a styled [Box]. */
 fun styledBox(
@@ -43,4 +43,4 @@ inline fun LayoutManager<Node>.styledBox(
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
     noinline init: ((@LayoutDsl Box).() -> Unit)? = null
-): Box = ktfx.layouts.styledBox(styleClass, width, height, depth, init).add()
+): Box = ktfx.layouts.styledBox(styleClass, width, height, depth, init)()

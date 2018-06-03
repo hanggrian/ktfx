@@ -16,16 +16,18 @@ plugins {
     `bintray-release`
 }
 
+val artifacts: List<String> = KTFX_ARTIFACTS - RELEASE_ARTIFACT
+
 dependencies {
-    ARTIFACTS.forEach { compile(project(":$it")) }
+    artifacts.forEach { compile(project(":$it")) }
 }
 
 gitPublish {
     repoUri = RELEASE_WEB
     branch = "gh-pages"
-    contents.from(*(ARTIFACTS.map { "../$it/build/docs" } + "pages").toTypedArray())
+    contents.from(*(artifacts.map { "../$it/build/docs" } + "pages").toTypedArray())
 }
-tasks["gitPublishCopy"].dependsOn(*ARTIFACTS.map { ":$it:dokka" }.toTypedArray())
+tasks["gitPublishCopy"].dependsOn(*artifacts.map { ":$it:dokka" }.toTypedArray())
 
 publish {
     repoName = RELEASE_ARTIFACT

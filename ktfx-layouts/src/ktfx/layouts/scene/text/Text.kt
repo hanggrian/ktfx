@@ -17,7 +17,7 @@ fun text(
 inline fun LayoutManager<Node>.text(
     text: String? = null,
     noinline init: ((@LayoutDsl Text).() -> Unit)? = null
-): Text = ktfx.layouts.text(text, init).add()
+): Text = ktfx.layouts.text(text, init)()
 
 /** Create a styled [Text]. */
 fun styledText(
@@ -34,4 +34,4 @@ inline fun LayoutManager<Node>.styledText(
     styleClass: String,
     text: String? = null,
     noinline init: ((@LayoutDsl Text).() -> Unit)? = null
-): Text = ktfx.layouts.styledText(styleClass, text, init).add()
+): Text = ktfx.layouts.styledText(styleClass, text, init)()

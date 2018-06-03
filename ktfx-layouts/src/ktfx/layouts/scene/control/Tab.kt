@@ -10,7 +10,7 @@ open class _Tab(
     content: Node?
 ) : Tab(title, content), LayoutManager<Node> {
 
-    override fun <T : Node> T.add(): T = also { content = it }
+    override operator fun <T : Node> T.invoke(): T = also { content = it }
 }
 
 /** Creates a [Tab]. */
@@ -27,7 +27,7 @@ inline fun LayoutManager<Tab>.tab(
     text: String? = null,
     content: Node? = null,
     noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null
-): Tab = ktfx.layouts.tab(text, content, init).add()
+): Tab = ktfx.layouts.tab(text, content, init)()
 
 /** Create a styled [Tab]. */
 fun styledTab(
@@ -46,4 +46,4 @@ inline fun LayoutManager<Tab>.styledTab(
     text: String? = null,
     content: Node? = null,
     noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null
-): Tab = ktfx.layouts.styledTab(styleClass, text, content, init).add()
+): Tab = ktfx.layouts.styledTab(styleClass, text, content, init)()

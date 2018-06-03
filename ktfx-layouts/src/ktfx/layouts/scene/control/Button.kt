@@ -19,7 +19,7 @@ inline fun LayoutManager<Node>.button(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Button).() -> Unit)? = null
-): Button = ktfx.layouts.button(text, graphic, init).add()
+): Button = ktfx.layouts.button(text, graphic, init)()
 
 /** Create a styled [Button]. */
 fun styledButton(
@@ -38,4 +38,4 @@ inline fun LayoutManager<Node>.styledButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Button).() -> Unit)? = null
-): Button = ktfx.layouts.styledButton(styleClass, text, graphic, init).add()
+): Button = ktfx.layouts.styledButton(styleClass, text, graphic, init)()

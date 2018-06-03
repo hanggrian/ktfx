@@ -25,7 +25,7 @@ inline fun <X, Y> LayoutManager<Node>.areaChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
-): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data, init).add()
+): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data, init)()
 
 /** Create a styled [AreaChart]. */
 fun <X, Y> styledAreaChart(
@@ -46,4 +46,4 @@ inline fun <X, Y> LayoutManager<Node>.styledAreaChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
-): AreaChart<X, Y> = ktfx.layouts.styledAreaChart(styleClass, x, y, data, init).add()
+): AreaChart<X, Y> = ktfx.layouts.styledAreaChart(styleClass, x, y, data, init)()

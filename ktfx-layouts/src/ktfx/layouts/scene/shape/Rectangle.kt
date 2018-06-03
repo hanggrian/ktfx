@@ -23,7 +23,7 @@ inline fun LayoutManager<Node>.rectangle(
     width: Double = 0.0,
     height: Double = 0.0,
     noinline init: ((@LayoutDsl Rectangle).() -> Unit)? = null
-): Rectangle = ktfx.layouts.rectangle(x, y, width, height, init).add()
+): Rectangle = ktfx.layouts.rectangle(x, y, width, height, init)()
 
 /** Create a styled [Rectangle]. */
 fun styledRectangle(
@@ -46,4 +46,4 @@ inline fun LayoutManager<Node>.styledRectangle(
     width: Double = 0.0,
     height: Double = 0.0,
     noinline init: ((@LayoutDsl Rectangle).() -> Unit)? = null
-): Rectangle = ktfx.layouts.styledRectangle(styleClass, x, y, width, height, init).add()
+): Rectangle = ktfx.layouts.styledRectangle(styleClass, x, y, width, height, init)()

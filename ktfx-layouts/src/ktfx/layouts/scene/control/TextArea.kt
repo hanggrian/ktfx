@@ -17,7 +17,7 @@ fun textArea(
 inline fun LayoutManager<Node>.textArea(
     text: String = "",
     noinline init: ((@LayoutDsl TextArea).() -> Unit)? = null
-): TextArea = ktfx.layouts.textArea(text, init).add()
+): TextArea = ktfx.layouts.textArea(text, init)()
 
 /** Create a styled [TextArea]. */
 fun styledTextArea(
@@ -34,4 +34,4 @@ inline fun LayoutManager<Node>.styledTextArea(
     styleClass: String,
     text: String = "",
     noinline init: ((@LayoutDsl TextArea).() -> Unit)? = null
-): TextArea = ktfx.layouts.styledTextArea(styleClass, text, init).add()
+): TextArea = ktfx.layouts.styledTextArea(styleClass, text, init)()

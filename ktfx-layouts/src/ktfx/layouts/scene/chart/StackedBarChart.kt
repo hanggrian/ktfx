@@ -25,7 +25,7 @@ inline fun <X, Y> LayoutManager<Node>.stackedBarChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl StackedBarChart<X, Y>).() -> Unit)? = null
-): StackedBarChart<X, Y> = ktfx.layouts.stackedBarChart(x, y, data, init).add()
+): StackedBarChart<X, Y> = ktfx.layouts.stackedBarChart(x, y, data, init)()
 
 /** Create a styled [StackedBarChart]. */
 fun <X, Y> styledStackedBarChart(
@@ -46,4 +46,4 @@ inline fun <X, Y> LayoutManager<Node>.styledStackedBarChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl StackedBarChart<X, Y>).() -> Unit)? = null
-): StackedBarChart<X, Y> = ktfx.layouts.styledStackedBarChart(styleClass, x, y, data, init).add()
+): StackedBarChart<X, Y> = ktfx.layouts.styledStackedBarChart(styleClass, x, y, data, init)()

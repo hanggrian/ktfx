@@ -42,7 +42,7 @@ inline fun LayoutManager<Node>.menuButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl _MenuButton).() -> Unit)? = null
-): MenuButton = ktfx.layouts.menuButton(text, graphic, init).add()
+): MenuButton = ktfx.layouts.menuButton(text, graphic, init)()
 
 /** Create a styled [MenuButton]. */
 fun styledMenuButton(
@@ -61,4 +61,4 @@ inline fun LayoutManager<Node>.styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl _MenuButton).() -> Unit)? = null
-): MenuButton = ktfx.layouts.styledMenuButton(styleClass, text, graphic, init).add()
+): MenuButton = ktfx.layouts.styledMenuButton(styleClass, text, graphic, init)()

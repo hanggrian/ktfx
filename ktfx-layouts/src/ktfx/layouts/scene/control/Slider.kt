@@ -21,7 +21,7 @@ inline fun LayoutManager<Node>.slider(
     max: Double,
     value: Double,
     noinline init: ((@LayoutDsl Slider).() -> Unit)? = null
-): Slider = ktfx.layouts.slider(min, max, value, init).add()
+): Slider = ktfx.layouts.slider(min, max, value, init)()
 
 /** Create a styled [Slider]. */
 fun styledSlider(
@@ -42,4 +42,4 @@ inline fun LayoutManager<Node>.styledSlider(
     max: Double,
     value: Double,
     noinline init: ((@LayoutDsl Slider).() -> Unit)? = null
-): Slider = ktfx.layouts.styledSlider(styleClass, min, max, value, init).add()
+): Slider = ktfx.layouts.styledSlider(styleClass, min, max, value, init)()

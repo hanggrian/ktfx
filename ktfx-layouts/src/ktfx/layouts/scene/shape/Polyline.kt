@@ -17,7 +17,7 @@ fun polyline(
 inline fun LayoutManager<Node>.polyline(
     vararg points: Double,
     noinline init: ((@LayoutDsl Polyline).() -> Unit)? = null
-): Polyline = ktfx.layouts.polyline(*points, init = init).add()
+): Polyline = ktfx.layouts.polyline(*points, init = init)()
 
 /** Create a styled [Polyline]. */
 fun styledPolyline(
@@ -34,4 +34,4 @@ inline fun LayoutManager<Node>.styledPolyline(
     styleClass: String,
     vararg points: Double,
     noinline init: ((@LayoutDsl Polyline).() -> Unit)? = null
-): Polyline = ktfx.layouts.styledPolyline(styleClass, *points, init = init).add()
+): Polyline = ktfx.layouts.styledPolyline(styleClass, *points, init = init)()

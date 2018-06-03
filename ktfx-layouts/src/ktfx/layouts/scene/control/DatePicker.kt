@@ -18,7 +18,7 @@ fun datePicker(
 inline fun LayoutManager<Node>.datePicker(
     date: LocalDate? = null,
     noinline init: ((@LayoutDsl DatePicker).() -> Unit)? = null
-): DatePicker = ktfx.layouts.datePicker(date, init).add()
+): DatePicker = ktfx.layouts.datePicker(date, init)()
 
 /** Create a styled [DatePicker]. */
 fun styledDatePicker(
@@ -35,4 +35,4 @@ inline fun LayoutManager<Node>.styledDatePicker(
     styleClass: String,
     date: LocalDate? = null,
     noinline init: ((@LayoutDsl DatePicker).() -> Unit)? = null
-): DatePicker = ktfx.layouts.styledDatePicker(styleClass, date, init).add()
+): DatePicker = ktfx.layouts.styledDatePicker(styleClass, date, init)()

@@ -18,7 +18,7 @@ fun imageView(
 inline fun LayoutManager<Node>.imageView(
     image: Image? = null,
     noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
-): ImageView = ktfx.layouts.imageView(image, init).add()
+): ImageView = ktfx.layouts.imageView(image, init)()
 
 /** Create a styled [ImageView]. */
 fun styledImageView(
@@ -35,4 +35,4 @@ inline fun LayoutManager<Node>.styledImageView(
     styleClass: String,
     image: Image? = null,
     noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
-): ImageView = ktfx.layouts.styledImageView(styleClass, image, init).add()
+): ImageView = ktfx.layouts.styledImageView(styleClass, image, init)()

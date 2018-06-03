@@ -27,7 +27,7 @@ inline fun <X, Y> LayoutManager<Node>.barChart(
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     gap: Double = 10.0,
     noinline init: ((@LayoutDsl BarChart<X, Y>).() -> Unit)? = null
-): BarChart<X, Y> = ktfx.layouts.barChart(x, y, data, gap, init).add()
+): BarChart<X, Y> = ktfx.layouts.barChart(x, y, data, gap, init)()
 
 /** Create a styled [BarChart]. */
 fun <X, Y> styledBarChart(
@@ -50,4 +50,4 @@ inline fun <X, Y> LayoutManager<Node>.styledBarChart(
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     gap: Double = 10.0,
     noinline init: ((@LayoutDsl BarChart<X, Y>).() -> Unit)? = null
-): BarChart<X, Y> = ktfx.layouts.styledBarChart(styleClass, x, y, data, gap, init).add()
+): BarChart<X, Y> = ktfx.layouts.styledBarChart(styleClass, x, y, data, gap, init)()

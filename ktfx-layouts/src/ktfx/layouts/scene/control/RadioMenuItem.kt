@@ -20,7 +20,7 @@ inline fun LayoutManager<MenuItem>.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
-): RadioMenuItem = ktfx.layouts.radioMenuItem(text, graphic, init).add()
+): RadioMenuItem = ktfx.layouts.radioMenuItem(text, graphic, init)()
 
 /** Create a styled [RadioMenuItem]. */
 fun styledRadioMenuItem(
@@ -39,4 +39,4 @@ inline fun LayoutManager<MenuItem>.styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
-): RadioMenuItem = ktfx.layouts.styledRadioMenuItem(styleClass, text, graphic, init).add()
+): RadioMenuItem = ktfx.layouts.styledRadioMenuItem(styleClass, text, graphic, init)()

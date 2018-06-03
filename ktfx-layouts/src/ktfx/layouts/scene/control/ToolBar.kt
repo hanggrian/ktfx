@@ -24,7 +24,7 @@ fun toolBar(
 inline fun LayoutManager<Node>.toolBar(
     vararg items: Node,
     noinline init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
-): ToolBar = ktfx.layouts.toolBar(*items, init = init).add()
+): ToolBar = ktfx.layouts.toolBar(*items, init = init)()
 
 /** Create a styled [ToolBar]. */
 fun styledToolBar(
@@ -41,4 +41,4 @@ inline fun LayoutManager<Node>.styledToolBar(
     styleClass: String,
     vararg items: Node,
     noinline init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
-): ToolBar = ktfx.layouts.styledToolBar(styleClass, *items, init = init).add()
+): ToolBar = ktfx.layouts.styledToolBar(styleClass, *items, init = init)()

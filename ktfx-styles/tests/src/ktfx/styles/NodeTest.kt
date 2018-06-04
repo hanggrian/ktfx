@@ -35,7 +35,6 @@ abstract class NodeTest<T : Node> : AppTest() {
     @Test
     @Suppress("EXPERIMENTAL_FEATURE_WARNING")
     fun style() {
-        println(style)
         node.style = style
         node.applyCss()
         runBlocking {

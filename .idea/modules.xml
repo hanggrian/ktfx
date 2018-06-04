@@ -6,13 +6,19 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc_main.iml" group="buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/buildSrc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/buildSrc_test.iml" group="buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx.iml" group="ktfx-layouts/thirdparty/controlsfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx.iml" group="ktfx-layouts/thirdparty/controlsfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx_main.iml" group="ktfx-layouts/thirdparty/controlsfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx_main.iml" group="ktfx-layouts/thirdparty/controlsfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx_test.iml" group="ktfx-layouts/thirdparty/controlsfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/controlsfx/controlsfx_test.iml" group="ktfx-layouts/thirdparty/controlsfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_main.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_main.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/example/example_test.iml" filepath="$PROJECT_DIR$/.idea/modules/example/example_test.iml" group="example" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix.iml" group="ktfx-layouts/thirdparty/jfoenix" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix.iml" group="ktfx-layouts/thirdparty/jfoenix" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_main.iml" group="ktfx-layouts/thirdparty/jfoenix" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_main.iml" group="ktfx-layouts/thirdparty/jfoenix" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_test.iml" group="ktfx-layouts/thirdparty/jfoenix" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/jfoenix/jfoenix_test.iml" group="ktfx-layouts/thirdparty/jfoenix" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kfx.iml" filepath="$PROJECT_DIR$/.idea/modules/kfx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/kfx-commons/kfx-commons.iml" filepath="$PROJECT_DIR$/.idea/modules/kfx-commons/kfx-commons.iml" group="kfx-commons" />
@@ -93,8 +99,12 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles_main.iml" group="ktfx-styles" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-styles/ktfx-styles_test.iml" group="ktfx-styles" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" group="testing" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" group="testing" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/thirdparty.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/thirdparty.iml" group="ktfx-layouts/thirdparty" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/thirdparty.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx-layouts/thirdparty/thirdparty.iml" group="ktfx-layouts/thirdparty" />
     </modules>
   </component>

@@ -1,8 +1,9 @@
-[![Download](https://api.bintray.com/packages/hendraanggrian/ktfx/ktfx/images/download.svg) ](https://bintray.com/hendraanggrian/ktfx/ktfx/_latestVersion)
-[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
-
 KtFX
 ====
+[![Download](https://api.bintray.com/packages/hendraanggrian/ktfx/ktfx/images/download.svg) ](https://bintray.com/hendraanggrian/ktfx/ktfx/_latestVersion)
+[![Build Status](https://travis-ci.org/hendraanggrian/ktfx.svg)](https://travis-ci.org/hendraanggrian/ktfx)
+[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
+
 [Kotlin] extensions for JavaFX app development and more.
 Written in spirit of [android-ktx] and [anko].
 

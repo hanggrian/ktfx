@@ -10,7 +10,6 @@ group = "$RELEASE_ARTIFACT.test"
 version = RELEASE_VERSION
 
 plugins {
-    `java-library`
     kotlin("jvm")
 }
 

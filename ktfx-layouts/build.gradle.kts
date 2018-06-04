@@ -11,7 +11,6 @@ group = KTFX_LAYOUTS.asGroup()
 version = RELEASE_VERSION
 
 plugins {
-    `java-library`
     kotlin("jvm")
     dokka
     `bintray-release`

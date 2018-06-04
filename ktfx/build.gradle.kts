@@ -10,7 +10,6 @@ group = RELEASE_ARTIFACT
 version = RELEASE_VERSION
 
 plugins {
-    `java-library`
     kotlin("jvm")
     `git-publish`
     `bintray-release`

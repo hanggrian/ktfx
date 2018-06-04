@@ -10,7 +10,6 @@ group = KTFX_COMMONS.asGroup()
 version = RELEASE_VERSION
 
 plugins {
-    `java-library`
     kotlin("jvm")
     dokka
     `bintray-release`

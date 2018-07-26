@@ -6,8 +6,8 @@ import javafx.scene.image.Image
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.stage.StageStyle.DECORATED
-import javafxx.internal.KtFXInternals.NO_GETTER
-import javafxx.internal.KtFXInternals.noGetter
+import javafxx.internal.Internals.NO_GETTER
+import javafxx.internal.Internals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Convenience method for overriding the stage's computed minimum width and height. */

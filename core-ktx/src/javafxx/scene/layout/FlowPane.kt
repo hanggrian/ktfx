@@ -1,11 +1,11 @@
 package javafxx.scene.layout
 
 import javafx.scene.layout.FlowPane
-import javafxx.internal.KtFXInternals.NO_GETTER
-import javafxx.internal.KtFXInternals.noGetter
+import javafxx.internal.Internals.NO_GETTER
+import javafxx.internal.Internals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-/** Sets a horizontal and vertical gap. */
+/** Sets horizontal and vertical gap. */
 inline var FlowPane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {

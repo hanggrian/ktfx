@@ -1,6 +1,6 @@
 package javafxx.layouts
 
-import javafxx.internal.KtFXInternals.fail
+import javafxx.internal.Internals.fail
 
 /** Base interface for all layout managers. */
 interface LayoutManager<T> {

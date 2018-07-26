@@ -9,20 +9,20 @@ javafxx
 Written in spirit of [android-ktx] and [anko].
 
 Consists of several parts:
- * *KtFX Commons*: full of helpers for common JavaFX application logic.
- * *KtFX Layouts*: dynamic JavaFX layout with Kotlin DSL.
- * *KtFX Listeners*: write common JavaFX listeners with Kotlin DSL.
- * *KtFX Coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
- * *KtFX Styles*: type-safe inline CSS styling.
+ * *core-ktx*: full of helpers for common JavaFX application logic.
+ * *layouts-ktx*: dynamic JavaFX layout with Kotlin DSL.
+ * *listeners-ktx*: write common JavaFX listeners with Kotlin DSL.
+ * *coroutines-ktx*: utilities based on the experimental [kotlinx.coroutines] library.
+ * *styles-ktx*: type-safe inline CSS styling.
 
 Download
 --------
 All artifacts are hosted on [jcenter].
-To download all of them, use KtFX main library (see `version` in [releases]):
+To download all of them, use javafxx main library (see `version` in [releases]):
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx:$version'
+    compile 'com.hendraanggrian.javafxx:javafxx:$version'
 }
 ```
 
@@ -30,16 +30,16 @@ Or download separate library if only specific feature is desired:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx-commons:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-layouts:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-listeners:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-styles:$version'
+    compile 'com.hendraanggrian.javafxx:core-ktx:$version'
+    compile 'com.hendraanggrian.javafxx:layouts-ktx:$version'
+    compile 'com.hendraanggrian.javafxx:listeners-ktx:$version'
+    compile 'com.hendraanggrian.javafxx:coroutines-ktx:$version'
+    compile 'com.hendraanggrian.javafxx:styles-ktx:$version'
 }
 ```
 
-KtFX Commons
-------------
+Core Extensions
+---------------
 Full of extensions for JavaFX, packaged accordingly.
 The main goal of core library is not to add any new feature to the existing JavaFX APIs.
 Below are preview of some of the packages.
@@ -113,8 +113,8 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-KtFX Layouts
-------------
+Layouts Extensions
+---------------=--
 Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. 
 It's a direct replacement of FXML files.
 
@@ -140,13 +140,13 @@ Third-party libraries are also supported. Though currently is limited.
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx-layouts-controlsfx:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-layouts-jfoenix:$version'
+    compile 'com.hendraanggrian.javafxx:layouts-controlsfx-ktx:$version'
+    compile 'com.hendraanggrian.javafxx:layouts-jfoenix-ktx:$version'
 }
 ```
 
-KtFX Listeners
---------------
+Listeners Extensions
+--------------------
 Trade common JavaFX listener with Kotlin DSL.
 Currently includes string converters and table cells.
 
@@ -174,8 +174,8 @@ personList.cellFactory {
 }
 ```
 
-KtFX Coroutines
----------------
+Coroutines Extensions
+---------------------
 Based on the experimental [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
 ```kotlin
@@ -192,8 +192,8 @@ button.onAction(CommonPool) {
 }
 ```
 
-KtFX Styles
------------
+Styles Extensions
+-----------------
 When writing inline styles, longer strings tend to be hard to read and more likely to cause error.
 Replace it with type-safe style builders.
 
@@ -229,6 +229,6 @@ License
 [android-ktx]: https://github.com/android/android-ktx
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
-[releases]: https://github.com/hendraanggrian/ktfx/releases
-[jcenter]: https://bintray.com/hendraanggrian/ktfx
+[releases]: https://github.com/hendraanggrian/javafxx/releases
+[jcenter]: https://bintray.com/hendraanggrian/javafxx
 [demo_layouts]: /art/demo_layouts.png

@@ -10,7 +10,7 @@ import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
 
 @Suppress("NOTHING_TO_INLINE")
-object KtFXInternals {
+object Internals {
 
     const val NO_GETTER: String = "Property does not have a getter"
 

@@ -1,8 +1,8 @@
 package javafxx.scene.layout
 
 import javafx.scene.layout.GridPane
-import javafxx.internal.KtFXInternals.NO_GETTER
-import javafxx.internal.KtFXInternals.noGetter
+import javafxx.internal.Internals.NO_GETTER
+import javafxx.internal.Internals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Sets a horizontal and vertical gap. */

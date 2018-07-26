@@ -4,8 +4,8 @@ package javafxx.scene.layout
 
 import javafx.geometry.Insets
 import javafx.scene.layout.Region
-import javafxx.internal.KtFXInternals.NO_GETTER
-import javafxx.internal.KtFXInternals.noGetter
+import javafxx.internal.Internals.NO_GETTER
+import javafxx.internal.Internals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 /** Convenience method for overriding the region's computed minimum width and height. */

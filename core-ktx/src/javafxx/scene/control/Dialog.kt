@@ -19,9 +19,9 @@ import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
-import javafxx.internal.KtFXInternals.NO_GETTER
-import javafxx.internal.KtFXInternals.addButton
-import javafxx.internal.KtFXInternals.noGetter
+import javafxx.internal.Internals.NO_GETTER
+import javafxx.internal.Internals.addButton
+import javafxx.internal.Internals.noGetter
 import javafxx.stage.icon
 import kotlin.DeprecationLevel.ERROR
 

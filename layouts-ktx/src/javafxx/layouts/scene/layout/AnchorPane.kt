@@ -4,8 +4,8 @@ package javafxx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
-import javafxx.internal.KtFXInternals.NO_GETTER
-import javafxx.internal.KtFXInternals.noGetter
+import javafxx.internal.Internals.NO_GETTER
+import javafxx.internal.Internals.noGetter
 import javafxx.layouts.internal.ConstrainedPane
 import kotlin.DeprecationLevel.ERROR
 

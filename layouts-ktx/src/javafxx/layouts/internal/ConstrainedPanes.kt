@@ -6,8 +6,8 @@ import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.Priority
-import javafxx.internal.KtFXInternals.NO_GETTER
-import javafxx.internal.KtFXInternals.noGetter
+import javafxx.internal.Internals.NO_GETTER
+import javafxx.internal.Internals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
 internal interface ConstrainedPane {

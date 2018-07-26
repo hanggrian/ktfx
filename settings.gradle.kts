@@ -1,10 +1,9 @@
-KTFX_ARTIFACTS.forEach {
+ARTIFACTS.forEach {
     include(":$it")
 }
 
-KTFX_THIRDPARTY_ARTIFACTS.forEach {
-    include(":${it.substringBeforeLast('-')}:thirdparty:${it.substringAfterLast('-')}")
-}
+include(":$ARTIFACT_LAYOUTS:thirdparty:$ARTIFACT_LAYOUTS_CONTROLSFX")
+include(":$ARTIFACT_LAYOUTS:thirdparty:$ARTIFACT_LAYOUTS_JFOENIX")
 
 include(":testing")
-include(":example")
+include(":demo")

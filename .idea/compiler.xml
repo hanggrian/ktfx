@@ -6,8 +6,20 @@
       <module name="buildSrc_test" target="1.8" />
       <module name="controlsfx_main" target="1.8" />
       <module name="controlsfx_test" target="1.8" />
+      <module name="core-ktx_main" target="1.8" />
+      <module name="core-ktx_test" target="1.8" />
+      <module name="coroutines-ktx_main" target="1.8" />
+      <module name="coroutines-ktx_test" target="1.8" />
+      <module name="demo_main" target="1.8" />
+      <module name="demo_test" target="1.8" />
       <module name="example_main" target="1.8" />
       <module name="example_test" target="1.8" />
+      <module name="javafx-ktx-javafx-ktx_main" target="1.8" />
+      <module name="javafx-ktx-javafx-ktx_test" target="1.8" />
+      <module name="javafx-ktx_buildSrc_main" target="1.8" />
+      <module name="javafx-ktx_buildSrc_test" target="1.8" />
+      <module name="javafxx_main" target="1.8" />
+      <module name="javafxx_test" target="1.8" />
       <module name="jfoenix_main" target="1.8" />
       <module name="jfoenix_test" target="1.8" />
       <module name="kfx-commons_main" target="1.8" />
@@ -66,6 +78,18 @@
       <module name="ktfx-listeners_test" target="1.8" />
       <module name="ktfx-styles_main" target="1.8" />
       <module name="ktfx-styles_test" target="1.8" />
+      <module name="ktfx_main" target="1.8" />
+      <module name="ktfx_test" target="1.8" />
+      <module name="layouts-controlsfx-ktx_main" target="1.8" />
+      <module name="layouts-controlsfx-ktx_test" target="1.8" />
+      <module name="layouts-jfoenix-ktx_main" target="1.8" />
+      <module name="layouts-jfoenix-ktx_test" target="1.8" />
+      <module name="layouts-ktx_main" target="1.8" />
+      <module name="layouts-ktx_test" target="1.8" />
+      <module name="listeners-ktx_main" target="1.8" />
+      <module name="listeners-ktx_test" target="1.8" />
+      <module name="styles-ktx_main" target="1.8" />
+      <module name="styles-ktx_test" target="1.8" />
       <module name="testing_main" target="1.8" />
       <module name="testing_test" target="1.8" />
     </bytecodeTargetLevel>

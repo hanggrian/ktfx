@@ -10,16 +10,16 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/buildSrc" />
-            <option value="$PROJECT_DIR$/example" />
-            <option value="$PROJECT_DIR$/ktfx" />
-            <option value="$PROJECT_DIR$/ktfx-commons" />
-            <option value="$PROJECT_DIR$/ktfx-coroutines" />
-            <option value="$PROJECT_DIR$/ktfx-layouts" />
-            <option value="$PROJECT_DIR$/ktfx-layouts/thirdparty" />
-            <option value="$PROJECT_DIR$/ktfx-layouts/thirdparty/controlsfx" />
-            <option value="$PROJECT_DIR$/ktfx-layouts/thirdparty/jfoenix" />
-            <option value="$PROJECT_DIR$/ktfx-listeners" />
-            <option value="$PROJECT_DIR$/ktfx-styles" />
+            <option value="$PROJECT_DIR$/core-ktx" />
+            <option value="$PROJECT_DIR$/coroutines-ktx" />
+            <option value="$PROJECT_DIR$/demo" />
+            <option value="$PROJECT_DIR$/javafxx" />
+            <option value="$PROJECT_DIR$/layouts-ktx" />
+            <option value="$PROJECT_DIR$/layouts-ktx/thirdparty" />
+            <option value="$PROJECT_DIR$/layouts-ktx/thirdparty/layouts-controlsfx-ktx" />
+            <option value="$PROJECT_DIR$/layouts-ktx/thirdparty/layouts-jfoenix-ktx" />
+            <option value="$PROJECT_DIR$/listeners-ktx" />
+            <option value="$PROJECT_DIR$/styles-ktx" />
             <option value="$PROJECT_DIR$/testing" />
           </set>
         </option>

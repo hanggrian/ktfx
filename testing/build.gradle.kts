@@ -6,7 +6,7 @@ import org.gradle.kotlin.dsl.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
-group = "$RELEASE_ARTIFACT.test"
+group = "$RELEASE_GROUP.test"
 version = RELEASE_VERSION
 
 plugins {

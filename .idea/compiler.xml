@@ -4,6 +4,10 @@
     <bytecodeTargetLevel>
       <module name="buildSrc_main" target="1.8" />
       <module name="buildSrc_test" target="1.8" />
+      <module name="com.hendraanggrian.javafxx.layouts.controlsfx-layouts-controlsfx-ktx_main" target="1.8" />
+      <module name="com.hendraanggrian.javafxx.layouts.controlsfx-layouts-controlsfx-ktx_test" target="1.8" />
+      <module name="com.hendraanggrian.javafxx.layouts.jfoenix-layouts-jfoenix-ktx_main" target="1.8" />
+      <module name="com.hendraanggrian.javafxx.layouts.jfoenix-layouts-jfoenix-ktx_test" target="1.8" />
       <module name="controlsfx_main" target="1.8" />
       <module name="controlsfx_test" target="1.8" />
       <module name="core-ktx_main" target="1.8" />
@@ -18,6 +22,10 @@
       <module name="javafx-ktx-javafx-ktx_test" target="1.8" />
       <module name="javafx-ktx_buildSrc_main" target="1.8" />
       <module name="javafx-ktx_buildSrc_test" target="1.8" />
+      <module name="javafxx-javafxx_main" target="1.8" />
+      <module name="javafxx-javafxx_test" target="1.8" />
+      <module name="javafxx_buildSrc_main" target="1.8" />
+      <module name="javafxx_buildSrc_test" target="1.8" />
       <module name="javafxx_main" target="1.8" />
       <module name="javafxx_test" target="1.8" />
       <module name="jfoenix_main" target="1.8" />

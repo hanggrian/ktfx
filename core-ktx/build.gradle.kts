@@ -12,6 +12,7 @@ version = RELEASE_VERSION
 plugins {
     kotlin("jvm")
     dokka
+    bintray
     `bintray-release`
 }
 

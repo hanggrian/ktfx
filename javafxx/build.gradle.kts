@@ -12,6 +12,7 @@ version = RELEASE_VERSION
 plugins {
     kotlin("jvm")
     `git-publish`
+    bintray
     `bintray-release`
 }
 
@@ -26,12 +27,10 @@ gitPublish {
     branch = "gh-pages"
     contents.from(
         "pages",
-        *artifacts.map { "../$it/build/docs" }.toTypedArray(),
-        *ARTIFACTS_THIRDPARTY.map { "../${it.substringBeforeLast('-')}/thirdparty/${it.substringAfterLast('-')}/build/docs" }.toTypedArray())
+        *(artifacts + ARTIFACTS_THIRDPARTY).map { "../$it/build/docs" }.toTypedArray())
 }
 tasks["gitPublishCopy"].dependsOn(
-    *artifacts.map { ":$it:dokka" }.toTypedArray(),
-    *ARTIFACTS_THIRDPARTY.map { ":${it.substringBeforeLast('-')}:thirdparty:${it.substringAfterLast('-')}:dokka" }.toTypedArray()
+    *(artifacts + ARTIFACTS_THIRDPARTY).map { ":$it:dokka" }.toTypedArray()
 )
 
 publish {

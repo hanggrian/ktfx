@@ -14,10 +14,9 @@
             <option value="$PROJECT_DIR$/coroutines-ktx" />
             <option value="$PROJECT_DIR$/demo" />
             <option value="$PROJECT_DIR$/javafxx" />
+            <option value="$PROJECT_DIR$/layouts-controlsfx-ktx" />
+            <option value="$PROJECT_DIR$/layouts-jfoenix-ktx" />
             <option value="$PROJECT_DIR$/layouts-ktx" />
-            <option value="$PROJECT_DIR$/layouts-ktx/thirdparty" />
-            <option value="$PROJECT_DIR$/layouts-ktx/thirdparty/layouts-controlsfx-ktx" />
-            <option value="$PROJECT_DIR$/layouts-ktx/thirdparty/layouts-jfoenix-ktx" />
             <option value="$PROJECT_DIR$/listeners-ktx" />
             <option value="$PROJECT_DIR$/styles-ktx" />
             <option value="$PROJECT_DIR$/testing" />

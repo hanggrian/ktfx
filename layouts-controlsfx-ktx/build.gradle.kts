@@ -7,13 +7,13 @@ import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
-group = "$RELEASE_GROUP.layouts.jfoenix"
+group = "$RELEASE_GROUP.layouts.controlsfx"
 version = RELEASE_VERSION
 
 plugins {
-    `java-library`
     kotlin("jvm")
     dokka
+    bintray
     `bintray-release`
 }
 
@@ -27,7 +27,7 @@ val ktlint by configurations.creating
 dependencies {
     compile(project(":$ARTIFACT_LAYOUTS"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
-    compile(jfoenix())
+    compile(controlsFX())
 
     testImplementation(project(":testing"))
 
@@ -56,7 +56,6 @@ tasks {
     }
 
     withType<DokkaTask> {
-        moduleName = ARTIFACT_LAYOUTS_JFOENIX
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
     }
@@ -70,7 +69,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_LAYOUTS_JFOENIX
+    artifactId = ARTIFACT_LAYOUTS_CONTROLSFX
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

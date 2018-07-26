@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>CellBuilder - listeners-ktx</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">listeners-ktx</a>&nbsp;/&nbsp;<a href="../index.html">javafxx.listeners</a>&nbsp;/&nbsp;<a href="./index.html">CellBuilder</a><br/>
+<br/>
+<h1>CellBuilder</h1>
+<code><span class="keyword">interface </span><span class="identifier">CellBuilder</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Interface to build <a href="#">javafx.scene.control.Cell</a> with Kotlin DSL.</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="on-edit-cancel.html">onEditCancel</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onEditCancel</span><span class="symbol">(</span><span class="identifier" id="javafxx.listeners.CellBuilder$onEditCancel(kotlin.Function0((kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Invoked when cell edit is canceled.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-edit-commit.html">onEditCommit</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onEditCommit</span><span class="symbol">(</span><span class="identifier" id="javafxx.listeners.CellBuilder$onEditCommit(kotlin.Function1((javafxx.listeners.CellBuilder.T, kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Invoked when cell edit is being committed.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-edit-start.html">onEditStart</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onEditStart</span><span class="symbol">(</span><span class="identifier" id="javafxx.listeners.CellBuilder$onEditStart(kotlin.Function0((kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Invoked when cell is on editing mode.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="on-update.html">onUpdate</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">onUpdate</span><span class="symbol">(</span><span class="identifier" id="javafxx.listeners.CellBuilder$onUpdate(kotlin.Function2((javafxx.listeners.CellBuilder.T, kotlin.Boolean, kotlin.Unit)))/listener">listener</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">?</span><span class="symbol">,</span>&nbsp;<span class="identifier">empty</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Invoked when cell item is updating.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-list-cell-builder/index.html">ListCellBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">ListCellBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ListCell</span><span class="symbol">&lt;</span><a href="../-list-cell-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">CellBuilder</span></a><span class="symbol">&lt;</span><a href="../-list-cell-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p><a href="#">ListCell</a> builder with Kotlin DSL.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-table-cell-builder/index.html">TableCellBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">TableCellBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">, </span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TableCell</span><span class="symbol">&lt;</span><a href="../-table-cell-builder/index.html#S"><span class="identifier">S</span></a><span class="symbol">,</span>&nbsp;<a href="../-table-cell-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">CellBuilder</span></a><span class="symbol">&lt;</span><a href="../-table-cell-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p><a href="#">TableCell</a> builder with Kotlin DSL.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-table-row-builder/index.html">TableRowBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">TableRowBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TableRow</span><span class="symbol">&lt;</span><a href="../-table-row-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">CellBuilder</span></a><span class="symbol">&lt;</span><a href="../-table-row-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p><a href="#">TableRow</a> builder with Kotlin DSL.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-tree-table-cell-builder/index.html">TreeTableCellBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">TreeTableCellBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">, </span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TreeTableCell</span><span class="symbol">&lt;</span><a href="../-tree-table-cell-builder/index.html#S"><span class="identifier">S</span></a><span class="symbol">,</span>&nbsp;<a href="../-tree-table-cell-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">CellBuilder</span></a><span class="symbol">&lt;</span><a href="../-tree-table-cell-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p><a href="#">TreeTableCell</a> builder with Kotlin DSL.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-tree-table-row-builder/index.html">TreeTableRowBuilder</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">TreeTableRowBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TreeTableRow</span><span class="symbol">&lt;</span><a href="../-tree-table-row-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">CellBuilder</span></a><span class="symbol">&lt;</span><a href="../-tree-table-row-builder/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
+<p><a href="#">TreeTableRow</a> builder with Kotlin DSL.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

@@ -114,7 +114,7 @@ dialog<String>("Who's a little piggy?") {
 ```
 
 Layouts Extensions
----------------=--
+------------------
 Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. 
 It's a direct replacement of FXML files.
 

@@ -1,9 +1,10 @@
 javafxx
 =======
 [![bintray](https://img.shields.io/badge/bintray-javafxx-brightgreen.svg)](https://bintray.com/hendraanggrian/javafxx)
-[![download](https://api.bintray.com/packages/hendraanggrian/javafxx/javafxx/images/download.svg) ](https://bintray.com/hendraanggrian/javafxx/javafxx/_latestVersion)
+[![download](https://api.bintray.com/packages/hendraanggrian/javafxx/javafxx/images/download.svg)](https://bintray.com/hendraanggrian/javafxx/javafxx/_latestVersion)
 [![build](https://travis-ci.com/hendraanggrian/javafxx.svg)](https://travis-ci.com/hendraanggrian/javafxx)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/hendraanggrian/javafxx)
 
 [Kotlin] extensions for JavaFX app development and more.
 Written in spirit of [android-ktx] and [anko].

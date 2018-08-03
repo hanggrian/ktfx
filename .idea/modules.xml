@@ -8,26 +8,42 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-controlsfx-ktx/com.hendraanggrian.javafxx.layouts.controlsfx-layouts-controlsfx-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-controlsfx-ktx/com.hendraanggrian.javafxx.layouts.controlsfx-layouts-controlsfx-ktx.iml" group="layouts-controlsfx-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-jfoenix-ktx/com.hendraanggrian.javafxx.layouts.jfoenix-layouts-jfoenix-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-jfoenix-ktx/com.hendraanggrian.javafxx.layouts.jfoenix-layouts-jfoenix-ktx.iml" group="layouts-jfoenix-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx.iml" group="core-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx.iml" group="core-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx_main.iml" group="core-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx_main.iml" group="core-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx_test.iml" group="core-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/core-ktx/core-ktx_test.iml" group="core-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx.iml" group="coroutines-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx.iml" group="coroutines-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx_main.iml" group="coroutines-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx_main.iml" group="coroutines-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx_test.iml" group="coroutines-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/coroutines-ktx/coroutines-ktx_test.iml" group="coroutines-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo.iml" group="demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo.iml" group="demo" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo_main.iml" group="demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo_main.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo_main.iml" group="demo" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo_test.iml" group="demo" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/demo/demo_test.iml" filepath="$PROJECT_DIR$/.idea/modules/demo/demo_test.iml" group="demo" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafx-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/javafx-ktx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/javafx-ktx.layouts-ktx-thirdparty.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/javafx-ktx.layouts-ktx-thirdparty.iml" group="layouts-ktx/thirdparty" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafx-ktx_buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/javafx-ktx_buildSrc.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafx-ktx_buildSrc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/javafx-ktx_buildSrc_main.iml" group="javafx-ktx_buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafx-ktx_buildSrc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/javafx-ktx_buildSrc_test.iml" group="javafx-ktx_buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/javafxx.iml" filepath="$PROJECT_DIR$/.idea/javafxx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx.iml" group="javafxx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx.iml" group="javafxx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx.iml" group="javafxx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx_main.iml" group="javafxx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx_main.iml" group="javafxx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx_test.iml" group="javafxx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx-javafxx_test.iml" group="javafxx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx_buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx_buildSrc.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx_buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx_buildSrc.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx_buildSrc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx_buildSrc_main.iml" group="javafxx_buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx_buildSrc_main.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx_buildSrc_main.iml" group="javafxx_buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx_buildSrc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx_buildSrc_test.iml" group="javafxx_buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx_buildSrc_test.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx_buildSrc_test.iml" group="javafxx_buildSrc" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx_main.iml" group="javafxx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/javafxx/javafxx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/javafxx/javafxx_test.iml" group="javafxx" />
@@ -94,28 +110,47 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx/ktfx-ktfx.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx/ktfx-ktfx.iml" group="ktfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx/ktfx-ktfx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx/ktfx-ktfx_main.iml" group="ktfx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ktfx/ktfx-ktfx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/ktfx/ktfx-ktfx_test.iml" group="ktfx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx.iml" group="layouts-controlsfx-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-controlsfx-ktx/layouts-controlsfx-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-controlsfx-ktx/layouts-controlsfx-ktx.iml" group="layouts-ktx/thirdparty/layouts-controlsfx-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx_main.iml" group="layouts-controlsfx-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-controlsfx-ktx/layouts-controlsfx-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-controlsfx-ktx/layouts-controlsfx-ktx_main.iml" group="layouts-ktx/thirdparty/layouts-controlsfx-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx_main.iml" group="layouts-controlsfx-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx_test.iml" group="layouts-controlsfx-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-controlsfx-ktx/layouts-controlsfx-ktx_test.iml" group="layouts-controlsfx-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-controlsfx-ktx/layouts-controlsfx-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-controlsfx-ktx/layouts-controlsfx-ktx_test.iml" group="layouts-ktx/thirdparty/layouts-controlsfx-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx.iml" group="layouts-jfoenix-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-jfoenix-ktx/layouts-jfoenix-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-jfoenix-ktx/layouts-jfoenix-ktx.iml" group="layouts-ktx/thirdparty/layouts-jfoenix-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx_main.iml" group="layouts-jfoenix-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx_main.iml" group="layouts-jfoenix-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-jfoenix-ktx/layouts-jfoenix-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-jfoenix-ktx/layouts-jfoenix-ktx_main.iml" group="layouts-ktx/thirdparty/layouts-jfoenix-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx_test.iml" group="layouts-jfoenix-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-jfoenix-ktx/layouts-jfoenix-ktx_test.iml" group="layouts-jfoenix-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-jfoenix-ktx/layouts-jfoenix-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/thirdparty/layouts-jfoenix-ktx/layouts-jfoenix-ktx_test.iml" group="layouts-ktx/thirdparty/layouts-jfoenix-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx.iml" group="layouts-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx.iml" group="layouts-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx_main.iml" group="layouts-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx_main.iml" group="layouts-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx_test.iml" group="layouts-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/layouts-ktx/layouts-ktx_test.iml" group="layouts-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx.iml" group="listeners-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx.iml" group="listeners-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx_main.iml" group="listeners-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx_main.iml" group="listeners-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx_test.iml" group="listeners-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/listeners-ktx/listeners-ktx_test.iml" group="listeners-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx.iml" group="styles-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx.iml" filepath="$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx.iml" group="styles-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx_main.iml" group="styles-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx_main.iml" filepath="$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx_main.iml" group="styles-ktx" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx_test.iml" group="styles-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx_test.iml" filepath="$PROJECT_DIR$/.idea/modules/styles-ktx/styles-ktx_test.iml" group="styles-ktx" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing.iml" group="testing" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing.iml" group="testing" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_main.iml" group="testing" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/testing/testing_test.iml" group="testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/wiki/wiki.iml" filepath="$PROJECT_DIR$/.idea/modules/wiki/wiki.iml" group="wiki" />
     </modules>
   </component>
 </project>

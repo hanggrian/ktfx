@@ -1,6 +1,9 @@
-@file:Suppress("UsePropertyAccessSyntax")
+@file:Suppress("PackageDirectoryMismatch", "UsePropertyAccessSyntax")
 
+/* ktlint-disable package-name */
 package javafxx.listeners
+
+/* ktlint-enable package-name */
 
 import javafx.scene.chart.ValueAxis
 

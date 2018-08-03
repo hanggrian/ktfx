@@ -1,4 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
+/* ktlint-disable package-name */
 package javafxx.coroutines
+
+/* ktlint-enable package-name */
 
 import javafx.scene.control.TableColumn
 import kotlinx.coroutines.experimental.CoroutineScope

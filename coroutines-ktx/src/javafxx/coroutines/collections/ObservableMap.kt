@@ -1,4 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
+/* ktlint-disable package-name */
 package javafxx.coroutines
+
+/* ktlint-enable package-name */
 
 import javafx.collections.MapChangeListener
 import javafx.collections.MapChangeListener.Change

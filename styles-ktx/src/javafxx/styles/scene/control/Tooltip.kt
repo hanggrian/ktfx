@@ -1,4 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
+/* ktlint-disable package-name */
 package javafxx.styles
+
+/* ktlint-enable package-name */
 
 import javafx.scene.control.ContentDisplay
 import javafx.scene.control.OverrunStyle

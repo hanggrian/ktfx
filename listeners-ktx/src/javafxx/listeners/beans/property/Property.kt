@@ -1,6 +1,9 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
+/* ktlint-disable package-name */
 package javafxx.listeners
+
+/* ktlint-enable package-name */
 
 import javafx.beans.binding.Bindings.bindBidirectional
 import javafx.beans.property.Property

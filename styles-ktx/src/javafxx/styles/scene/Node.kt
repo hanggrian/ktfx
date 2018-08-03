@@ -1,6 +1,9 @@
-@file:Suppress("LeakingThis")
+@file:Suppress("PackageDirectoryMismatch", "LeakingThis")
 
+/* ktlint-disable package-name */
 package javafxx.styles
+
+/* ktlint-enable package-name */
 
 import javafx.scene.Cursor
 import javafx.scene.effect.BlendMode

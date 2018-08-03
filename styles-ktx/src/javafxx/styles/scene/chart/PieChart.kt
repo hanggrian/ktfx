@@ -1,4 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
+/* ktlint-disable package-name */
 package javafxx.styles
+
+/* ktlint-enable package-name */
 
 import javafxx.styles.internal._PieChartStyleBuilder
 

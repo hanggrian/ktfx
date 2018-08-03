@@ -1,4 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
+/* ktlint-disable package-name */
 package javafxx.styles
+
+/* ktlint-enable package-name */
 
 import javafx.geometry.VPos
 import javafx.scene.text.FontPosture

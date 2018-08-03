@@ -1,6 +1,9 @@
-@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
+/* ktlint-disable package-name */
 package javafxx.layouts
+
+/* ktlint-enable package-name */
 
 import javafx.scene.Node
 import javafx.scene.control.MenuButton

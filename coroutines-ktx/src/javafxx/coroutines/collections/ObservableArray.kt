@@ -1,4 +1,9 @@
+@file:Suppress("PackageDirectoryMismatch")
+
+/* ktlint-disable package-name */
 package javafxx.coroutines
+
+/* ktlint-enable package-name */
 
 import javafx.collections.ArrayChangeListener
 import javafx.collections.ObservableArray

@@ -12,7 +12,7 @@ import java.util.concurrent.Callable
 inline fun <T> bindingOf(
     vararg dependencies: Observable,
     noinline func: () -> T?
-): ObjectBinding<T?> = createObjectBinding(Callable(func), *dependencies)
+): ObjectBinding<T> = createObjectBinding<T>(Callable(func), *dependencies)
 
 /** Creates an object binding used to get a member. */
 inline fun <T> Any.select(vararg steps: String): ObjectBinding<T> = select(this, *steps)

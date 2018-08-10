@@ -1,3 +1,8 @@
+/**
+ * Part of this class are interacted with `Strings.kt` and `StringsJVM.kt`,
+ * mainly making JavaFX binding version of their extensions.
+ */
+
 @file:Suppress("NOTHING_TO_INLINE")
 
 package javafxx.beans.value
@@ -11,8 +16,14 @@ import javafx.beans.binding.Bindings.lessThanOrEqual
 import javafx.beans.binding.Bindings.notEqual
 import javafx.beans.binding.Bindings.notEqualIgnoreCase
 import javafx.beans.binding.BooleanBinding
+import javafx.beans.binding.IntegerBinding
+import javafx.beans.binding.ObjectBinding
+import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableStringValue
+import javafxx.beans.binding.bindingOf
 import javafxx.beans.binding.booleanBindingOf
+import javafxx.beans.binding.intBindingOf
+import javafxx.beans.binding.stringBindingOf
 
 inline infix fun ObservableStringValue.eq(op: ObservableStringValue): BooleanBinding = equal(this, op)
 inline infix fun ObservableStringValue.eq(op: String): BooleanBinding = equal(this, op)
@@ -46,6 +57,53 @@ inline infix fun ObservableStringValue.lessEq(op: ObservableStringValue): Boolea
 inline infix fun ObservableStringValue.lessEq(op: String): BooleanBinding = lessThanOrEqual(this, op)
 inline infix fun String.lessEq(op: ObservableStringValue): BooleanBinding = lessThanOrEqual(this, op)
 
-inline fun ObservableStringValue.isBlank(): BooleanBinding = booleanBindingOf(this) { get().isNullOrBlank() }
+/** Binding of [String.trim]. */
+inline fun ObservableStringValue.trim(
+    noinline predicate: (Char) -> Boolean
+): StringBinding = stringBindingOf(this) { get().trim(predicate) }
 
-inline fun ObservableStringValue.isNotBlank(): BooleanBinding = booleanBindingOf(this) { get().isNotBlank() }
+/** Binding of [String.trimStart]. */
+inline fun ObservableStringValue.trimStart(
+    noinline predicate: (Char) -> Boolean
+): StringBinding = stringBindingOf(this) { get().trimStart(predicate) }
+
+/** Binding of [String.trimEnd]. */
+inline fun ObservableStringValue.trimEnd(
+    noinline predicate: (Char) -> Boolean
+): StringBinding = stringBindingOf(this) { get().trimEnd(predicate) }
+
+/** Binding of [String.trim]. */
+inline fun ObservableStringValue.trim(): StringBinding = stringBindingOf(this) { get().trim() }
+
+/** Binding of [String.trimStart]. */
+inline fun ObservableStringValue.trimStart(): StringBinding = stringBindingOf(this) { get().trimStart() }
+
+/** Binding of [String.trimEnd]. */
+inline fun ObservableStringValue.trimEnd(): StringBinding = stringBindingOf(this) { get().trimEnd() }
+
+/** Binding of [String.padStart]. */
+inline fun ObservableStringValue.padStart(
+    length: Int,
+    padChar: Char = ' '
+): StringBinding = stringBindingOf(this) { get().padStart(length, padChar) }
+
+/** Binding of [String.padEnd]. */
+inline fun ObservableStringValue.padEnd(
+    length: Int,
+    padChar: Char = ' '
+): StringBinding = stringBindingOf(this) { get().padEnd(length, padChar) }
+
+/** Binding of [String.isNullOrBlank]. */
+inline fun ObservableStringValue.isNullOrBlank(): BooleanBinding = booleanBindingOf(this) { get().isNullOrBlank() }
+
+/** Binding of [String.isNullOrEmpty]. */
+inline fun ObservableStringValue.isNullOrEmpty(): BooleanBinding = booleanBindingOf(this) { get().isNullOrEmpty() }
+
+/** Binding of [String.orEmpty]. */
+inline fun ObservableStringValue.orEmpty(): StringBinding = stringBindingOf(this) { get().orEmpty() }
+
+/** Binding of [String.indices]. */
+inline val ObservableStringValue.indices: ObjectBinding<IntRange> get() = bindingOf(this) { get().indices }
+
+/** Binding of [String.indices]. */
+inline val ObservableStringValue.lastIndex: IntegerBinding get() = intBindingOf(this) { get().lastIndex }

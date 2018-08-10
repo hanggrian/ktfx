@@ -14,4 +14,5 @@ inline fun <T> T?.toProperty(): ReadOnlyObjectProperty<T> = ReadOnlyObjectWrappe
 /** Wrap this object in modifiable property. */
 inline fun <T> T?.toMutableProperty(): ObjectProperty<T> = SimpleObjectProperty(this)
 
+/** Checks whether this observable contains non-null value. */
 inline fun ObservableValue<*>.hasValue(): Boolean = value != null

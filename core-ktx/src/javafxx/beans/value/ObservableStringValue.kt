@@ -25,36 +25,76 @@ import javafxx.beans.binding.booleanBindingOf
 import javafxx.beans.binding.intBindingOf
 import javafxx.beans.binding.stringBindingOf
 
+/** Infix typing for [equal]. */
 inline infix fun ObservableStringValue.eq(op: ObservableStringValue): BooleanBinding = equal(this, op)
+
+/** Infix typing for [equal]. */
 inline infix fun ObservableStringValue.eq(op: String): BooleanBinding = equal(this, op)
+
+/** Infix typing for [equal]. */
 inline infix fun String.eq(op: ObservableStringValue): BooleanBinding = equal(this, op)
 
+/** Infix typing for [notEqual]. */
 inline infix fun ObservableStringValue.neq(op: ObservableStringValue): BooleanBinding = notEqual(this, op)
+
+/** Infix typing for [notEqual]. */
 inline infix fun ObservableStringValue.neq(op: String): BooleanBinding = notEqual(this, op)
+
+/** Infix typing for [notEqual]. */
 inline infix fun String.neq(op: ObservableStringValue): BooleanBinding = notEqual(this, op)
 
+/** Infix typing for [equalIgnoreCase]. */
 inline infix fun ObservableStringValue.eqIg(op: ObservableStringValue): BooleanBinding = equalIgnoreCase(this, op)
+
+/** Infix typing for [equalIgnoreCase]. */
 inline infix fun ObservableStringValue.eqIg(op: String): BooleanBinding = equalIgnoreCase(this, op)
+
+/** Infix typing for [equalIgnoreCase]. */
 inline infix fun String.eqIg(op: ObservableStringValue): BooleanBinding = equalIgnoreCase(this, op)
 
+/** Infix typing for [notEqualIgnoreCase]. */
 inline infix fun ObservableStringValue.neqIg(op: ObservableStringValue): BooleanBinding = notEqualIgnoreCase(this, op)
+
+/** Infix typing for [notEqualIgnoreCase]. */
 inline infix fun ObservableStringValue.neqIg(op: String): BooleanBinding = notEqualIgnoreCase(this, op)
+
+/** Infix typing for [notEqualIgnoreCase]. */
 inline infix fun String.neqIg(op: ObservableStringValue): BooleanBinding = notEqualIgnoreCase(this, op)
 
+/** Infix typing for [greaterThan]. */
 inline infix fun ObservableStringValue.greater(op: ObservableStringValue): BooleanBinding = greaterThan(this, op)
+
+/** Infix typing for [greaterThan]. */
 inline infix fun ObservableStringValue.greater(op: String): BooleanBinding = greaterThan(this, op)
+
+/** Infix typing for [greaterThan]. */
 inline infix fun String.greater(op: ObservableStringValue): BooleanBinding = greaterThan(this, op)
 
+/** Infix typing for [lessThan]. */
 inline infix fun ObservableStringValue.less(op: ObservableStringValue): BooleanBinding = lessThan(this, op)
+
+/** Infix typing for [lessThan]. */
 inline infix fun ObservableStringValue.less(op: String): BooleanBinding = lessThan(this, op)
+
+/** Infix typing for [lessThan]. */
 inline infix fun String.less(op: ObservableStringValue): BooleanBinding = lessThan(this, op)
 
+/** Infix typing for [greaterThanOrEqual]. */
 inline infix fun ObservableStringValue.greaterEq(op: ObservableStringValue): BooleanBinding = greaterThanOrEqual(this, op)
+
+/** Infix typing for [greaterThanOrEqual]. */
 inline infix fun ObservableStringValue.greaterEq(op: String): BooleanBinding = greaterThanOrEqual(this, op)
+
+/** Infix typing for [greaterThanOrEqual]. */
 inline infix fun String.greaterEq(op: ObservableStringValue): BooleanBinding = greaterThanOrEqual(this, op)
 
+/** Infix typing for [lessThanOrEqual]. */
 inline infix fun ObservableStringValue.lessEq(op: ObservableStringValue): BooleanBinding = lessThanOrEqual(this, op)
+
+/** Infix typing for [lessThanOrEqual]. */
 inline infix fun ObservableStringValue.lessEq(op: String): BooleanBinding = lessThanOrEqual(this, op)
+
+/** Infix typing for [lessThanOrEqual]. */
 inline infix fun String.lessEq(op: ObservableStringValue): BooleanBinding = lessThanOrEqual(this, op)
 
 /** Binding of [String.trim]. */

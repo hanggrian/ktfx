@@ -5,14 +5,15 @@ package javafxx.concurrent
 import javafx.concurrent.Service
 import javafx.concurrent.Task
 
+/** Receiver in [buildService], invoke [call] to customize what this Task do in the background. */
 class _Task<V> : Task<V>() {
-    private var onCall: (() -> V?) = { null }
+    private var _onCall: (() -> V?) = { null }
 
-    fun call(call: () -> V?) {
-        onCall = call
+    fun call(onCall: () -> V?) {
+        _onCall = onCall
     }
 
-    override fun call(): V? = onCall()
+    override fun call(): V? = _onCall()
 }
 
 /**

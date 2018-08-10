@@ -22,14 +22,25 @@ import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableValue
 import kotlin.reflect.KProperty
 
+/** Delegated property, use with `by` keyword. */
 inline operator fun <V> ObservableValue<V>.getValue(thisRef: Any?, property: KProperty<*>): V = value
 
+/** Infix typing for [equal]. */
 inline infix fun ObservableObjectValue<*>.eq(op: ObservableObjectValue<*>): BooleanBinding = equal(this, op)
+
+/** Infix typing for [equal]. */
 inline infix fun ObservableObjectValue<*>.eq(op: Any): BooleanBinding = equal(this, op)
+
+/** Infix typing for [equal]. */
 inline infix fun Any.eq(op: ObservableObjectValue<*>): BooleanBinding = equal(this, op)
 
+/** Infix typing for [notEqual]. */
 inline infix fun ObservableObjectValue<*>.neq(op: ObservableObjectValue<*>): BooleanBinding = notEqual(this, op)
+
+/** Infix typing for [notEqual]. */
 inline infix fun ObservableObjectValue<*>.neq(op: Any): BooleanBinding = notEqual(this, op)
+
+/** Infix typing for [notEqual]. */
 inline infix fun Any.neq(op: ObservableObjectValue<*>): BooleanBinding = notEqual(this, op)
 
 /** Creates an object binding used to get a member. */

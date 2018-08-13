@@ -10,34 +10,34 @@ import javafxx.internal.Internals.NO_GETTER
 import javafxx.internal.Internals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-/** Convenience method for overriding the stage's computed minimum width and height. */
+/** Convenient method for overriding the stage's computed minimum width and height. */
 inline var Stage.minSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMinSize(value, value)
 
-/** Convenience method for overriding the stage's computed minimum width and height. */
+/** Convenient method for overriding the stage's computed minimum width and height. */
 inline fun Stage.setMinSize(width: Double, height: Double) {
     minWidth = width
     minHeight = height
 }
 
-/** Convenience method for overriding the stage's computed width and height. */
+/** Convenient method for overriding the stage's computed width and height. */
 inline var Stage.size: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSize(value, value)
 
-/** Convenience method for overriding the stage's computed width and height. */
+/** Convenient method for overriding the stage's computed width and height. */
 inline fun Stage.setSize(width: Double, height: Double) {
     this.width = width
     this.height = height
 }
 
-/** Convenience method for overriding the stage's computed maximum width and height. */
+/** Convenient method for overriding the stage's computed maximum width and height. */
 inline var Stage.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMaxSize(value, value)
 
-/** Convenience method for overriding the stage's computed maximum width and height. */
+/** Convenient method for overriding the stage's computed maximum width and height. */
 inline fun Stage.setMaxSize(width: Double, height: Double) {
     maxWidth = width
     maxHeight = height

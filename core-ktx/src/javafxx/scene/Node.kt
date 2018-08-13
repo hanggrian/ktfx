@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "EXTENSION_SHADOWED_BY_MEMBER")
 
 package javafxx.scene
 
@@ -7,7 +7,6 @@ import javafx.scene.SnapshotParameters
 import javafx.scene.image.WritableImage
 
 /** Take a screenshot of this [Node] returning image it wrote. */
-@Suppress("EXTENSION_SHADOWED_BY_MEMBER")
 inline fun Node.snapshot(
     params: SnapshotParameters? = null,
     image: WritableImage? = null

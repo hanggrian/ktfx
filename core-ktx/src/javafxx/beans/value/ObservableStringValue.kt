@@ -1,5 +1,5 @@
 /**
- * Part of this class are interacted with `Strings.kt` and `StringsJVM.kt`,
+ * Part of this class are inter-connected with `Strings.kt` and `StringsJVM.kt`,
  * mainly making JavaFX binding version of their extensions.
  */
 
@@ -147,3 +147,9 @@ inline val ObservableStringValue.indices: ObjectBinding<IntRange> get() = bindin
 
 /** Binding of [String.indices]. */
 inline val ObservableStringValue.lastIndex: IntegerBinding get() = intBindingOf(this) { get().lastIndex }
+
+/** Binding of [String.isBlank]. */
+inline fun ObservableStringValue.isBlank(): BooleanBinding = booleanBindingOf(this) { get().isBlank() }
+
+/** Binding of [String.isNotBlank]. */
+inline fun ObservableStringValue.isNotBlank(): BooleanBinding = booleanBindingOf(this) { get().isNotBlank() }

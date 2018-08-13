@@ -21,9 +21,9 @@ class _Task<V> : Task<V>() {
  * By default, it will do nothing and returns null in the background, customize it by invoking `call`.
  */
 inline fun <V> buildService(
-    listener: (_Task<V>).() -> Unit = {}
+    builderAction: (_Task<V>).() -> Unit = {}
 ): Service<V> {
-    val task = _Task<V>().also(listener)
+    val task = _Task<V>().also(builderAction)
     return object : Service<V>() {
         override fun createTask(): Task<V> = task
     }

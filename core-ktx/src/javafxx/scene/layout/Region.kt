@@ -8,17 +8,17 @@ import javafxx.internal.Internals.NO_GETTER
 import javafxx.internal.Internals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-/** Convenience method for overriding the region's computed minimum width and height. */
+/** Convenient method for overriding the region's computed minimum width and height. */
 inline var Region.minSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMinSize(value, value)
 
-/** Convenience method for overriding the region's computed preferred width and height. */
+/** Convenient method for overriding the region's computed preferred width and height. */
 inline var Region.prefSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setPrefSize(value, value)
 
-/** Convenience method for overriding the region's computed maximum width and height. */
+/** Convenient method for overriding the region's computed maximum width and height. */
 inline var Region.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMaxSize(value, value)

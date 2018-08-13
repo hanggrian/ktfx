@@ -228,7 +228,6 @@ internal class _TooltipStyleBuilder(
 }
 
 @PublishedApi
-@Suppress("ClassName")
 internal class _TreeCellStyleBuilder(
     prettyPrint: Boolean
 ) : _CellStyleBuilder(prettyPrint), TreeCellStyleBuilder {

@@ -204,6 +204,8 @@ $dokka.location:javafxx.beans.value$greaterEq(kotlin.Int, javafx.beans.value.Obs
 $dokka.location:javafxx.beans.value$greaterEq(kotlin.Long, javafx.beans.value.ObservableNumberValue)javafxx.beans.value/kotlin.-long/greater-eq.html
 $dokka.location:javafxx.beans.value$greaterEq(kotlin.String, javafx.beans.value.ObservableStringValue)javafxx.beans.value/kotlin.-string/greater-eq.html
 $dokka.location:javafxx.beans.value$indices#javafx.beans.value.ObservableStringValuejavafxx.beans.value/javafx.beans.value.-observable-string-value/indices.html
+$dokka.location:javafxx.beans.value$isBlank(javafx.beans.value.ObservableStringValue)javafxx.beans.value/javafx.beans.value.-observable-string-value/is-blank.html
+$dokka.location:javafxx.beans.value$isNotBlank(javafx.beans.value.ObservableStringValue)javafxx.beans.value/javafx.beans.value.-observable-string-value/is-not-blank.html
 $dokka.location:javafxx.beans.value$isNullOrBlank(javafx.beans.value.ObservableStringValue)javafxx.beans.value/javafx.beans.value.-observable-string-value/is-null-or-blank.html
 $dokka.location:javafxx.beans.value$isNullOrEmpty(javafx.beans.value.ObservableStringValue)javafxx.beans.value/javafx.beans.value.-observable-string-value/is-null-or-empty.html
 $dokka.location:javafxx.beans.value$lastIndex#javafx.beans.value.ObservableStringValuejavafxx.beans.value/javafx.beans.value.-observable-string-value/last-index.html
@@ -490,6 +492,7 @@ $dokka.location:javafxx.scene.input$ifUrlPresent(javafx.scene.input.ClipboardCon
 $dokka.location:javafxx.scene.input$isDelete(javafx.scene.input.KeyCode)javafxx.scene.input/javafx.scene.input.-key-code/is-delete.html
 $dokka.location:javafxx.scene.input$isDoubleClick(javafx.scene.input.MouseEvent)javafxx.scene.input/javafx.scene.input.-mouse-event/is-double-click.html
 $dokka.location:javafxx.scene.input$isLeftClick(javafx.scene.input.MouseEvent)javafxx.scene.input/javafx.scene.input.-mouse-event/is-left-click.html
+$dokka.location:javafxx.scene.input$isMiddleClick(javafx.scene.input.MouseEvent)javafxx.scene.input/javafx.scene.input.-mouse-event/is-middle-click.html
 $dokka.location:javafxx.scene.input$isRightClick(javafx.scene.input.MouseEvent)javafxx.scene.input/javafx.scene.input.-mouse-event/is-right-click.html
 $dokka.location:javafxx.scene.input$plus(javafx.scene.input.KeyCode, javafx.scene.input.KeyCombination.Modifier)javafxx.scene.input/javafx.scene.input.-key-code/plus.html
 $dokka.location:javafxx.scene.input$plus(javafx.scene.input.KeyCode, kotlin.Array((javafx.scene.input.KeyCombination.Modifier)))javafxx.scene.input/javafx.scene.input.-key-code/plus.html

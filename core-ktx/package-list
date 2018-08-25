@@ -420,6 +420,10 @@ $dokka.location:javafxx.geometry$plus(javafx.geometry.Point2D, javafx.geometry.P
 $dokka.location:javafxx.geometry$plus(javafx.geometry.Point3D, javafx.geometry.Point3D)javafxx.geometry/javafx.geometry.-point3-d/plus.html
 $dokka.location:javafxx.geometry$plus(javafx.geometry.VPos, javafx.geometry.HPos)javafxx.geometry/javafx.geometry.-v-pos/plus.html
 $dokka.location:javafxx.geometry$times(javafx.geometry.Point3D, kotlin.Double)javafxx.geometry/javafx.geometry.-point3-d/times.html
+$dokka.location:javafxx.scene$find(javafx.scene.Node, kotlin.String)javafxx.scene/javafx.scene.-node/find.html
+$dokka.location:javafxx.scene$find(javafx.scene.Scene, kotlin.String)javafxx.scene/javafx.scene.-scene/find.html
+$dokka.location:javafxx.scene$get(javafx.scene.Node, kotlin.String)javafxx.scene/javafx.scene.-node/get.html
+$dokka.location:javafxx.scene$get(javafx.scene.Scene, kotlin.String)javafxx.scene/javafx.scene.-scene/get.html
 $dokka.location:javafxx.scene$snapshot(javafx.scene.Node, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage)javafxx.scene/javafx.scene.-node/snapshot.html
 $dokka.location:javafxx.scene$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage)javafxx.scene/javafx.scene.-scene/snapshot.html
 $dokka.location:javafxx.scene.control$applyButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))javafxx.scene.control/javafx.scene.control.-dialog/apply-button.html

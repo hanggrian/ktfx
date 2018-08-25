@@ -5,6 +5,7 @@ import org.gradle.kotlin.dsl.creating
 import org.gradle.kotlin.dsl.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
+import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
 group = "$RELEASE_GROUP.core"
 version = RELEASE_VERSION
@@ -21,12 +22,15 @@ java.sourceSets {
     "test" { java.srcDir("tests/src") }
 }
 
+kotlin.experimental.coroutines = Coroutines.ENABLE
+
 val ktlint by configurations.creating
 
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
     testImplementation(project(":testing"))
+    testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
     ktlint(ktlint())
 }

@@ -6,6 +6,13 @@ import javafx.scene.Node
 import javafx.scene.SnapshotParameters
 import javafx.scene.image.WritableImage
 
+/** Alias of [Node.lookup] with non-null return. */
+inline operator fun Node.get(selector: String): Node = checkNotNull(lookup(selector))
+
+/** Alias of [Node.lookup] with non-null return and specified type. */
+@Suppress("UNCHECKED_CAST")
+inline fun <T : Node> Node.find(selector: String): T = checkNotNull(this[selector] as? T)
+
 /** Take a screenshot of this [Node] returning image it wrote. */
 inline fun Node.snapshot(
     params: SnapshotParameters? = null,

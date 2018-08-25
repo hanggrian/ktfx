@@ -9,7 +9,9 @@ fun DependencyHandler.kotlinx(
 fun DependencyHandler.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:$VERSION_DOKKA"
 inline val PluginDependenciesSpec.dokka get() = id("org.jetbrains.dokka")
 
-fun DependencyHandler.controlsFX() = "org.controlsfx:controlsfx:$VERSION_CONTROLSFX"
+fun DependencyHandler.aquafx() = "com.aquafx-project:aquafx:$VERSION_AQUAFX"
+
+fun DependencyHandler.controlsfx() = "org.controlsfx:controlsfx:$VERSION_CONTROLSFX"
 
 fun DependencyHandler.jfoenix() = "com.jfoenix:jfoenix:$VERSION_JFOENIX"
 

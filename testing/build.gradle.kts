@@ -22,6 +22,7 @@ val ktlint by configurations.creating
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(kotlin("test", VERSION_KOTLIN))
+    compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
     compile(testFX("core"))
     compile(testFX("junit"))
     compile(truth())

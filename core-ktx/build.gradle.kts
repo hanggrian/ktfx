@@ -30,6 +30,7 @@ dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
     testImplementation(project(":testing"))
+    testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
     ktlint(ktlint())
 }

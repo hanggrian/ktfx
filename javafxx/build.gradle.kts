@@ -27,10 +27,10 @@ gitPublish {
     branch = "gh-pages"
     contents.from(
         "pages",
-        *(artifacts + ARTIFACTS_CORE_THIRDPARTY + ARTIFACTS_LAYOUTS_THIRDPARTY).map { "../$it/build/docs" }.toTypedArray())
+        *(artifacts + ARTIFACTS_THIRDPARTY).map { "../$it/build/docs" }.toTypedArray())
 }
 tasks["gitPublishCopy"].dependsOn(
-    *(artifacts + ARTIFACTS_CORE_THIRDPARTY + ARTIFACTS_LAYOUTS_THIRDPARTY).map { ":$it:dokka" }.toTypedArray()
+    *(artifacts + ARTIFACTS_THIRDPARTY).map { ":$it:dokka" }.toTypedArray()
 )
 
 publish {

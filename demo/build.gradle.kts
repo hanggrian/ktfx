@@ -15,5 +15,5 @@ kotlin.experimental.coroutines = ENABLE
 
 dependencies {
     implementation(project(":$RELEASE_ARTIFACT"))
-    implementation(controlsfx())
+    implementation(controlsFX())
 }

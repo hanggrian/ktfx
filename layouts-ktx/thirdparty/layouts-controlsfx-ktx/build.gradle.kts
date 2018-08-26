@@ -27,7 +27,7 @@ val ktlint by configurations.creating
 dependencies {
     compile(project(":$ARTIFACT_LAYOUTS"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
-    compile(controlsfx())
+    compile(controlsFX())
 
     testImplementation(project(":testing"))
 

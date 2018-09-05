@@ -16,7 +16,7 @@ open class _AnchorPane(
     vararg children: Node
 ) : AnchorPane(*children), LayoutManager<Node>, ConstrainedPane {
 
-    override val childs: MutableList<Node> get() = children
+    override val childs: MutableCollection<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 

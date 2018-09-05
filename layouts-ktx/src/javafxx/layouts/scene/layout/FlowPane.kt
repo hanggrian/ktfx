@@ -19,7 +19,7 @@ open class _FlowPane(
     vararg children: Node
 ) : FlowPane(orientation, hgap, vgap, *children), LayoutManager<Node>, MarginedPane {
 
-    override val childs: MutableList<Node> get() = children
+    override val childs: MutableCollection<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 

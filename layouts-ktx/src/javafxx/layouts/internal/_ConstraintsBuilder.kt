@@ -8,6 +8,7 @@ import javafxx.layouts.LayoutManager
 
 @PublishedApi
 internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, LayoutManager<T> {
+    
     override val childs: MutableList<T> = mutableListOf()
 
     abstract fun newInstance(): T

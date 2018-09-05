@@ -17,7 +17,7 @@ open class _VBox(
     vararg children: Node
 ) : VBox(spacing, *children), LayoutManager<Node>, VGrowedPane, MarginedPane {
 
-    override val childs: MutableList<Node> get() = children
+    override val childs: MutableCollection<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 

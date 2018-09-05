@@ -12,7 +12,7 @@ open class _ToolBar(
     vararg items: Node
 ) : ToolBar(*items), LayoutManager<Node> {
 
-    override val childs: MutableList<Node> get() = items
+    override val childs: MutableCollection<Node> get() = items
 }
 
 /** Creates a [ToolBar]. */

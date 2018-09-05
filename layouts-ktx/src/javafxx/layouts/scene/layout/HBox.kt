@@ -17,7 +17,7 @@ open class _HBox(
     vararg children: Node
 ) : HBox(spacing, *children), LayoutManager<Node>, HGrowedPane, MarginedPane {
 
-    override val childs: MutableList<Node> get() = children
+    override val childs: MutableCollection<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 

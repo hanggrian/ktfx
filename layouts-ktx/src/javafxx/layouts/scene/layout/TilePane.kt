@@ -21,7 +21,7 @@ open class _TilePane(
     vararg children: Node
 ) : TilePane(orientation, hgap, vgap, *children), LayoutManager<Node>, AlignedPane, MarginedPane {
 
-    override val childs: MutableList<Node> get() = children
+    override val childs: MutableCollection<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 

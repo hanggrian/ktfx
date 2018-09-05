@@ -15,7 +15,7 @@ open class _Menu(
     vararg items: MenuItem
 ) : Menu(text, graphic, *items), LayoutManager<MenuItem> {
 
-    override val childs: MutableList<MenuItem> get() = items
+    override val childs: MutableCollection<MenuItem> get() = items
 
     /** Creates a [MenuItem] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(

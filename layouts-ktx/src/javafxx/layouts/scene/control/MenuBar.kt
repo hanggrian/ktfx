@@ -14,7 +14,7 @@ class _MenuBar(
     vararg menus: Menu
 ) : MenuBar(*menus), LayoutManager<Menu> {
 
-    override val childs: MutableList<Menu> get() = menus
+    override val childs: MutableCollection<Menu> get() = menus
 
     /** Creates a [Menu] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(

@@ -1,13 +1,22 @@
 package javafxx.layouts
 
-import javafxx.internal.Internals.fail
+import javafxx.internal.Internals
 
 /** Base interface for all layout managers. */
 interface LayoutManager<T> {
 
-    /** Should return the actual collection of this parent. */
-    val childs: MutableList<T> get() = fail { "Childs is not initialized" }
+    /**
+     * Should return the actual collection of this layout.
+     *
+     * @see javafx.scene.Parent.getChildren
+     * @see javafx.scene.control.Accordion.getPanes
+     * @see javafx.scene.control.ButtonBar.getButtons
+     * @see javafx.scene.control.Menu.getItems
+     * @see javafx.scene.control.MenuBar.getMenus
+     * @see javafx.scene.control.TabPane.getTabs
+     */
+    val childs: MutableCollection<T> get() = Internals.fail { "Childs has not yet been initialized." }
 
-    /** Add item to collection, returning the item added. */
-    operator fun <E : T> E.invoke(): E = also { childs += it }
+    /** Add child, returning the child added. */
+    operator fun <R : T> R.invoke(): R = also { childs += it }
 }

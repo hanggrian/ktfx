@@ -12,7 +12,7 @@ open class _Pane(
     vararg children: Node
 ) : Pane(*children), LayoutManager<Node> {
 
-    override val childs: MutableList<Node> get() = children
+    override val childs: MutableCollection<Node> get() = children
 }
 
 /** Creates a [Pane]. */

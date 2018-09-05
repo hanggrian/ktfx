@@ -13,7 +13,7 @@ open class _ButtonBar(
     buttonOrder: String?
 ) : ButtonBar(buttonOrder), LayoutManager<Node> {
 
-    override val childs: MutableList<Node> get() = buttons
+    override val childs: MutableCollection<Node> get() = buttons
 
     /** Creates a [Button] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(

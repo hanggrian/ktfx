@@ -13,7 +13,7 @@ open class _TabPane(
     vararg tabs: Tab
 ) : TabPane(*tabs), LayoutManager<Tab> {
 
-    override val childs: MutableList<Tab> get() = tabs
+    override val childs: MutableCollection<Tab> get() = tabs
 
     /** Creates a [Tab] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(

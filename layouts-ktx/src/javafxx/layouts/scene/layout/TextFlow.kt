@@ -13,7 +13,7 @@ open class _TextFlow(
     vararg children: Node
 ) : TextFlow(*children), LayoutManager<Node> {
 
-    override val childs: MutableList<Node> get() = children
+    override val childs: MutableCollection<Node> get() = children
 
     /** Creates a [Text] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(

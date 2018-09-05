@@ -24,7 +24,7 @@ import javafxx.layouts.internal._ConstraintsBuilder
 open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane,
     VGrowedPane {
 
-    override val childs: MutableList<Node> get() = children
+    override val childs: MutableCollection<Node> get() = children
 
     override fun Node.reset() = clearConstraints(this)
 

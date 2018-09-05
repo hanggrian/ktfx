@@ -13,7 +13,7 @@ class _Accordion(
     vararg titledPanes: TitledPane
 ) : Accordion(*titledPanes), LayoutManager<TitledPane> {
 
-    override val childs: MutableList<TitledPane> get() = panes
+    override val childs: MutableCollection<TitledPane> get() = panes
 
     /** Creates a [TitledPane] and add it to this [LayoutManager]. */
     inline operator fun String.invoke(

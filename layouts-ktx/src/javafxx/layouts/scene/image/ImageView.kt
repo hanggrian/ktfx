@@ -9,7 +9,7 @@ import javafx.scene.Node
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 
-/** Creates a [ImageView]. */
+/** Creates an [ImageView]. */
 fun imageView(
     image: Image? = null,
     init: ((@LayoutDsl ImageView).() -> Unit)? = null
@@ -17,11 +17,25 @@ fun imageView(
     init?.invoke(it)
 }
 
-/** Creates a [ImageView] and add it to this [LayoutManager]. */
+/** Creates an [ImageView]. */
+fun imageView(
+    imageUrl: String,
+    init: ((@LayoutDsl ImageView).() -> Unit)? = null
+): ImageView = ImageView(imageUrl).also {
+    init?.invoke(it)
+}
+
+/** Creates an [ImageView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.imageView(
     image: Image? = null,
     noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
 ): ImageView = javafxx.layouts.imageView(image, init)()
+
+/** Creates an [ImageView] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.imageView(
+    imageUrl: String,
+    noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
+): ImageView = javafxx.layouts.imageView(imageUrl, init)()
 
 /** Create a styled [ImageView]. */
 fun styledImageView(
@@ -33,9 +47,26 @@ fun styledImageView(
     init?.invoke(it)
 }
 
+/** Create a styled [ImageView]. */
+fun styledImageView(
+    styleClass: String,
+    imageUrl: String,
+    init: ((@LayoutDsl ImageView).() -> Unit)? = null
+): ImageView = ImageView(imageUrl).also {
+    it.styleClass += styleClass
+    init?.invoke(it)
+}
+
 /** Creates a styled [ImageView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.styledImageView(
     styleClass: String,
     image: Image? = null,
     noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
 ): ImageView = javafxx.layouts.styledImageView(styleClass, image, init)()
+
+/** Creates a styled [ImageView] and add it to this [LayoutManager]. */
+inline fun LayoutManager<Node>.styledImageView(
+    styleClass: String,
+    imageUrl: String,
+    noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
+): ImageView = javafxx.layouts.styledImageView(styleClass, imageUrl, init)()

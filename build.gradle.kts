@@ -26,10 +26,10 @@ allprojects {
 }
 
 tasks {
-    "clean"(Delete::class) {
+    val clean by registering(Delete::class) {
         delete(buildDir)
     }
-    "wrapper"(Wrapper::class) {
+    val wrapper by registering(Wrapper::class) {
         gradleVersion = VERSION_GRADLE
     }
 }

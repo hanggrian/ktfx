@@ -9,7 +9,7 @@ plugins {
     kotlin("jvm")
 }
 
-java.sourceSets["main"].java.srcDir("src")
+sourceSets["main"].java.srcDir("src")
 
 kotlin.experimental.coroutines = ENABLE
 

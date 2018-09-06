@@ -13,11 +13,13 @@ plugins {
     kotlin("jvm")
 }
 
-java.sourceSets {
-    "main" { java.srcDir("src") }
+sourceSets {
+    getByName("main") {
+        java.srcDir("src")
+    }
 }
 
-val ktlint by configurations.creating
+val ktlint by configurations.registering
 
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
@@ -27,27 +29,27 @@ dependencies {
     compile(truth())
     compile(junit())
 
-    ktlint(ktlint())
+    ktlint(this, ktlint())
 }
 
 tasks {
-    "ktlint"(JavaExec::class) {
-        get("check").dependsOn(this)
+    register("ktlint", JavaExec::class) {
+        get("check").dependsOn(ktlint)
         group = VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."
-        classpath = ktlint
+        classpath(ktlint())
         main = "com.github.shyiko.ktlint.Main"
-        args("src/**/*.kt")
+        args("src/**.kt")
     }
-    "ktlintFormat"(JavaExec::class) {
+    register("ktlintformat", JavaExec::class) {
         group = "formatting"
         inputs.dir("src")
         outputs.dir("src")
         description = "Fix Kotlin code style deviations."
-        classpath = ktlint
+        classpath(ktlint())
         main = "com.github.shyiko.ktlint.Main"
-        args("-F", "src/**/*.kt")
+        args("-F", "src*.kt")
     }
 }

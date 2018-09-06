@@ -17,12 +17,16 @@ plugins {
     `bintray-release`
 }
 
-java.sourceSets {
-    "main" { java.srcDir("src") }
-    "test" { java.srcDir("tests/src") }
+sourceSets {
+    getByName("main") {
+        java.srcDir("src")
+    }
+    getByName("test") {
+        java.srcDir("tests/src")
+    }
 }
 
-val ktlint by configurations.creating
+val ktlint by configurations.registering
 
 dependencies {
     compile(project(":$ARTIFACT_CORE"))
@@ -30,28 +34,28 @@ dependencies {
 
     testImplementation(project(":testing"))
 
-    ktlint(ktlint())
+    ktlint(this, ktlint())
 }
 
 tasks {
-    val ktlint by creating(JavaExec::class) {
+    register("ktlint", JavaExec::class) {
+        get("check").dependsOn(ktlint)
         group = VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."
-        classpath = configurations["ktlint"]
+        classpath(ktlint())
         main = "com.github.shyiko.ktlint.Main"
-        args("src/**/*.kt")
+        args("src/**.kt")
     }
-    get("check").dependsOn(ktlint)
-    "ktlintFormat"(JavaExec::class) {
+    register("ktlintformat", JavaExec::class) {
         group = "formatting"
         inputs.dir("src")
         outputs.dir("src")
         description = "Fix Kotlin code style deviations."
-        classpath = configurations["ktlint"]
+        classpath(ktlint())
         main = "com.github.shyiko.ktlint.Main"
-        args("-F", "src/**/*.kt")
+        args("-F", "src*.kt")
     }
 
     withType<DokkaTask> {

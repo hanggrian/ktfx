@@ -1,8 +1,4 @@
-import org.gradle.api.plugins.ExtensionAware
 import org.gradle.api.tasks.JavaExec
-import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.creating
-import org.gradle.kotlin.dsl.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*

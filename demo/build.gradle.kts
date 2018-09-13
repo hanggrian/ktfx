@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.kotlin
 import org.jetbrains.kotlin.gradle.dsl.Coroutines.*
 
 group = "$RELEASE_GROUP.demo"

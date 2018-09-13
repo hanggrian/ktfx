@@ -13,14 +13,14 @@ class ObservableValueTest {
 
     private val observable: ObservableValue<String> = SimpleStringProperty()
 
-    @Test fun listener() = observable.run {
+    @Test fun listener() {
         val s = "Hello world"
-        val listener = listener { observable, oldValue, value ->
+        val listener = observable.listener { observable, oldValue, value ->
             assertTrue(observable is StringProperty)
             assertNull(oldValue)
             assertEquals(value, s)
         }
-        (this as StringProperty).set(s)
-        removeListener(listener)
+        (observable as StringProperty).set(s)
+        observable.removeListener(listener)
     }
 }

@@ -2,7 +2,7 @@ package javafxx.test
 
 import org.junit.Test
 
-abstract class PlatformLayoutTest : PlatformTest() {
+abstract class PlatformLayoutTest : PlatformTest {
 
     @Test abstract fun newInstance()
 

@@ -8,23 +8,26 @@ package javafxx.coroutines
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableColumn.CellEditEvent
 import kotlinx.coroutines.experimental.CoroutineScope
+import kotlinx.coroutines.experimental.Dispatchers
+import kotlinx.coroutines.experimental.GlobalScope
+import kotlinx.coroutines.experimental.javafx.JavaFx
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
 /** This event handler will be fired when the user cancels editing a cell. */
 fun <S, T> TreeTableColumn<S, T>.onEditCancel(
-    context: CoroutineContext = FX,
+    context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(CellEditEvent<S, T>) -> Unit
-) = setOnEditCancel { event -> launch(context) { action(event) } }
+) = setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
 
 /** This event handler will be fired when the user successfully commits their editing. */
 fun <S, T> TreeTableColumn<S, T>.onEditCommit(
-    context: CoroutineContext = FX,
+    context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(CellEditEvent<S, T>) -> Unit
-) = setOnEditCommit { event -> launch(context) { action(event) } }
+) = setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
 
 /** This event handler will be fired when the user successfully initiates editing. */
 fun <S, T> TreeTableColumn<S, T>.onEditStart(
-    context: CoroutineContext = FX,
+    context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(CellEditEvent<S, T>) -> Unit
-) = setOnEditStart { event -> launch(context) { action(event) } }
+) = setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }

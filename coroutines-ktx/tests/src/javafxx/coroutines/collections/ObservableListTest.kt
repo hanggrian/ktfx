@@ -14,6 +14,7 @@ class ObservableListTest {
     @Test fun listener() = observable.run {
         val s = "Hello"
         val listener = listener<String> {
+            it.next()
             assertEquals(it.from, 0)
             assertEquals(it.to, 1)
             assertTrue(it.wasAdded())

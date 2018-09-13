@@ -5,6 +5,8 @@ import javafx.scene.control.TabPane
 import javafx.scene.layout.StackPane
 import javafx.stage.Stage
 import javafxx.test.AppTest
+import kotlinx.coroutines.experimental.Dispatchers
+import kotlinx.coroutines.experimental.GlobalScope
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.javafx.JavaFx
 import kotlinx.coroutines.experimental.launch
@@ -21,7 +23,7 @@ class NodeTest : AppTest() {
     }
 
     @Test fun lookup() {
-        launch(JavaFx) {
+        GlobalScope.launch(Dispatchers.JavaFx) {
             delay(200)
             assertNotNull(tabPane[".tab-header-area"])
             assertNotNull(tabPane.find<StackPane>(".tab-content-area"))

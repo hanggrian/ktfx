@@ -7,13 +7,16 @@ package javafxx.coroutines
 
 import javafx.beans.InvalidationListener
 import javafx.beans.Observable
+import kotlinx.coroutines.experimental.Dispatchers
+import kotlinx.coroutines.experimental.GlobalScope
+import kotlinx.coroutines.experimental.javafx.JavaFx
 import kotlinx.coroutines.experimental.launch
 import kotlin.coroutines.experimental.CoroutineContext
 
 /** Adds an [InvalidationListener] which will be notified whenever the [Observable] becomes invalid. */
 fun Observable.listener(
-    context: CoroutineContext = FX,
+    context: CoroutineContext = Dispatchers.JavaFx,
     listener: suspend (Observable) -> Unit
 ): InvalidationListener = InvalidationListener { observable ->
-    launch(context) { listener(observable) }
+    GlobalScope.launch(context) { listener(observable) }
 }.also { addListener(it) }

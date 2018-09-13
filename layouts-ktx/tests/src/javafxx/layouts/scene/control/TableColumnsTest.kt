@@ -7,7 +7,7 @@ import javafxx.test.PlatformTest
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class TableColumnsTest : PlatformTest() {
+class TableColumnsTest : PlatformTest {
 
     @Test fun columns() {
         val tableView = tableView<Person> {

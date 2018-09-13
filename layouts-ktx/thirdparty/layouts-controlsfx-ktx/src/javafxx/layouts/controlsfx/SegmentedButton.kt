@@ -1,18 +1,34 @@
-@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("NOTHING_TO_INLINE", "ClassName", "UNCHECKED_CAST")
 
 package javafxx.layouts.controlsfx
 
 import javafx.scene.Node
+import javafx.scene.control.Button
 import javafx.scene.control.ToggleButton
 import javafxx.layouts.LayoutDsl
 import javafxx.layouts.LayoutManager
+import javafxx.layouts.button
+import javafxx.layouts.styledButton
 import org.controlsfx.control.SegmentedButton
 
 open class _SegmentedButton(
     vararg buttons: ToggleButton
-) : SegmentedButton(*buttons), LayoutManager<ToggleButton> {
+) : SegmentedButton(*buttons), LayoutManager<Node> {
 
-    override val childs: MutableList<ToggleButton> get() = buttons
+    override val childs: MutableList<Node> get() = buttons as MutableList<Node>
+
+    /** Creates a [Button] and add it to this [LayoutManager]. */
+    inline operator fun String.invoke(
+        graphic: Node? = null,
+        noinline init: ((@LayoutDsl Button).() -> Unit)? = null
+    ): Button = button(this, graphic, init)
+
+    /** Creates a styled [Button] and add it to this [LayoutManager]. */
+    inline operator fun String.invoke(
+        styleClass: String,
+        graphic: Node? = null,
+        noinline init: ((@LayoutDsl Button).() -> Unit)? = null
+    ): Button = styledButton(styleClass, this, graphic, init)
 }
 
 /** Creates a [SegmentedButton]. */

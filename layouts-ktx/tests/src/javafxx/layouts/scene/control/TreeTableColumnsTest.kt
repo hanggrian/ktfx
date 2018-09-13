@@ -7,7 +7,7 @@ import javafxx.test.PlatformTest
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class TreeTableColumnsTest : PlatformTest() {
+class TreeTableColumnsTest : PlatformTest {
 
     @Test fun columns() {
         val treeTableView = treeTableView<Person> {

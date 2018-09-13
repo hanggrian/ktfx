@@ -8,7 +8,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class GridConstraintsTest : PlatformTest() {
+class GridConstraintsTest : PlatformTest {
 
     @Test fun constraints() {
         val gridPane = gridPane {

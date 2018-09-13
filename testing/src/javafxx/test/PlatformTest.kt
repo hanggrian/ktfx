@@ -3,7 +3,7 @@ package javafxx.test
 import com.sun.javafx.application.PlatformImpl
 import org.junit.Before
 
-open class PlatformTest {
+interface PlatformTest {
 
     @Before fun init() = PlatformImpl.startup { }
 }

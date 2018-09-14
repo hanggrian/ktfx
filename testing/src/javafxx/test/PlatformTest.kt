@@ -5,5 +5,5 @@ import org.junit.Before
 
 interface PlatformTest {
 
-    @Before fun init() = PlatformImpl.startup { }
+    @Before fun initToolkit() = PlatformImpl.startup { }
 }

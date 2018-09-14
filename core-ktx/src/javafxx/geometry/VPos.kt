@@ -8,4 +8,4 @@ import javafx.geometry.VPos
 import javafxx.internal.Internals.posOf
 
 /** Construct a new position given the added horizontal position. */
-operator fun VPos.plus(hpos: HPos): Pos = posOf(this, hpos)
+inline operator fun VPos.plus(hpos: HPos): Pos = posOf(this, hpos)

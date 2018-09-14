@@ -44,15 +44,10 @@ inline fun Stage.setMaxSize(width: Double, height: Double) {
 }
 
 /** Removes old icons and set a new one to this stage. */
-var Stage.icon: Image
+inline var Stage.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = when (icons.size) {
-        0 -> icons += value
-        1 -> icons[0] = value
-        else -> {
-            icons.clear()
-            icons += value
-        }
+    set(value) {
+        icons.setAll(value)
     }
 
 /** Creates a stage with options. */

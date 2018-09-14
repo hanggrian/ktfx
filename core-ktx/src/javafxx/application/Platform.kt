@@ -9,7 +9,7 @@ import javafx.application.Platform
  * Returns true if the calling thread is the JavaFX thread.
  * Alias of `Platform.isFxApplicationThread`.
  */
-inline fun isFXThread(): Boolean = Platform.isFxApplicationThread()
+inline fun isFxThread(): Boolean = Platform.isFxApplicationThread()
 
 /**
  * Run the specified block on the JavaFX thread.

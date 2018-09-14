@@ -18,10 +18,10 @@ import javafx.scene.control.ButtonType.YES
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import javafx.stage.Stage
 import javafxx.internal.Internals.NO_GETTER
 import javafxx.internal.Internals.addButton
 import javafxx.internal.Internals.noGetter
+import javafxx.scene.stage
 import javafxx.stage.icon
 import kotlin.DeprecationLevel.ERROR
 
@@ -29,7 +29,7 @@ import kotlin.DeprecationLevel.ERROR
 inline var Dialog<*>.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        (dialogPane.scene.window as Stage).icon = value
+        dialogPane.scene.stage.icon = value
     }
 
 /** Apply [ImageView] as graphic and icon of this dialog. */

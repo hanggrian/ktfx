@@ -20,7 +20,7 @@ class _Task<V> : Task<V>() {
  * Returns a [Service] by invoking [Task] DSL.
  * By default, it will do nothing and returns null in the background, customize it by invoking `call`.
  */
-inline fun <V> buildService(
+fun <V> buildService(
     builderAction: (_Task<V>).() -> Unit = {}
 ): Service<V> {
     val task = _Task<V>().also(builderAction)

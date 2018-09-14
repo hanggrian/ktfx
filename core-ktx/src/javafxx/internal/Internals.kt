@@ -22,6 +22,7 @@ object Internals {
         lazyMessage: () -> Any = { "Fatal error" }
     ): Nothing = throw UnsupportedOperationException(lazyMessage().toString())
 
+    @PublishedApi
     internal fun posOf(vpos: VPos, hpos: HPos): Pos = "${vpos}_$hpos".let {
         if (it == "CENTER_CENTER") CENTER else valueOf(it)
     }

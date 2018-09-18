@@ -26,6 +26,7 @@ gitPublish {
         "pages",
         *(artifacts + ARTIFACTS_THIRDPARTY).map { "../$it/build/docs" }.toTypedArray())
 }
+
 tasks["gitPublishCopy"].dependsOn(
     *(artifacts + ARTIFACTS_THIRDPARTY).map { ":$it:dokka" }.toTypedArray()
 )

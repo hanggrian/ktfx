@@ -11,7 +11,7 @@ import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.cell.CheckBoxTreeTableCell
 import javafx.scene.control.cell.ChoiceBoxTreeTableCell
 import javafx.scene.control.cell.TextFieldTreeTableCell
-import javafxx.listeners.internal.build
+import javafxx.listeners.internal.Internals
 
 inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     noinline callback: (Int) -> ObservableValue<Boolean>,
@@ -44,4 +44,4 @@ inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
 
 inline fun <S, T> TreeTableColumn<S, T>.cellFactory(
     noinline cellFactory: TreeTableCellBuilder<S, T>.() -> Unit
-) = setCellFactory { cellFactory.build() }
+) = setCellFactory { Internals.build(cellFactory) }

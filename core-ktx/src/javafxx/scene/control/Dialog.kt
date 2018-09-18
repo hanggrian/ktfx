@@ -18,23 +18,21 @@ import javafx.scene.control.ButtonType.YES
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import javafxx.internal.Internals.NO_GETTER
-import javafxx.internal.Internals.addButton
-import javafxx.internal.Internals.noGetter
+import javafxx.internal.Internals
 import javafxx.scene.stage
 import javafxx.stage.icon
 import kotlin.DeprecationLevel.ERROR
 
 /** Removes old icons and set a new one to this dialog. */
 inline var Dialog<*>.icon: Image
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
     set(value) {
         dialogPane.scene.stage.icon = value
     }
 
 /** Apply [ImageView] as graphic and icon of this dialog. */
 inline var Dialog<*>.graphicIcon: ImageView
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
     set(value) {
         graphic = value
         icon = value.image
@@ -42,45 +40,54 @@ inline var Dialog<*>.graphicIcon: ImageView
 
 /** Apply string as header text and title of this dialog. */
 inline var Dialog<*>.headerTitle: String
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
     set(value) {
         headerText = value
         title = value
     }
 
 /** Add apply button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.applyButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(APPLY, init)
+inline fun Dialog<*>.applyButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, APPLY, init)
 
 /** Add ok button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.okButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(OK, init)
+inline fun Dialog<*>.okButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, OK, init)
 
 /** Add cancel button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.cancelButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(CANCEL, init)
+inline fun Dialog<*>.cancelButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, CANCEL, init)
 
 /** Add close button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.closeButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(CLOSE, init)
+inline fun Dialog<*>.closeButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, CLOSE, init)
 
 /** Add yes button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.yesButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(YES, init)
+inline fun Dialog<*>.yesButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, YES, init)
 
 /** Add no button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.noButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(NO, init)
+inline fun Dialog<*>.noButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, NO, init)
 
 /** Add finish button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.finishButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(FINISH, init)
+inline fun Dialog<*>.finishButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, FINISH, init)
 
 /** Add next button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.nextButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(NEXT, init)
+inline fun Dialog<*>.nextButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, NEXT, init)
 
 /** Add previous button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.previousButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(PREVIOUS, init)
+inline fun Dialog<*>.previousButton(noinline init: (Node.() -> Unit)? = null): Node =
+    Internals.addButton(this, PREVIOUS, init)
 
 /** Add custom button specifying text and type, invoking DSL to customize it as node. */
 inline fun Dialog<*>.customButton(
     text: String,
     data: ButtonData = OTHER,
     noinline init: (Node.() -> Unit)? = null
-): Node = addButton(ButtonType(text, data), init)
+): Node = Internals.addButton(this, ButtonType(text, data), init)
 
 /**
  * Build a custom dialog with Kotlin DSL.

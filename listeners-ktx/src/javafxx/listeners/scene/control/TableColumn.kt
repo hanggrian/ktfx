@@ -11,7 +11,7 @@ import javafx.scene.control.TableColumn
 import javafx.scene.control.cell.CheckBoxTableCell
 import javafx.scene.control.cell.ChoiceBoxTableCell
 import javafx.scene.control.cell.TextFieldTableCell
-import javafxx.listeners.internal.build
+import javafxx.listeners.internal.Internals
 
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     noinline callback: (Int) -> ObservableValue<Boolean>,
@@ -44,4 +44,4 @@ inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
 
 inline fun <S, T> TableColumn<S, T>.cellFactory(
     noinline cellFactory: TableCellBuilder<S, T>.() -> Unit
-) = setCellFactory { cellFactory.build() }
+) = setCellFactory { Internals.build(cellFactory) }

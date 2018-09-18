@@ -23,7 +23,7 @@ import javafx.scene.input.ScrollEvent
 import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
-import javafxx.coroutines.internal.Callbacks.noReturn
+import javafxx.coroutines.internal.Callbacks
 import kotlinx.coroutines.experimental.CoroutineScope
 import kotlinx.coroutines.experimental.Dispatchers
 import kotlinx.coroutines.experimental.GlobalScope
@@ -289,4 +289,4 @@ fun Node.snapshot(
     params: SnapshotParameters? = null,
     image: WritableImage? = null,
     callback: suspend CoroutineScope.(SnapshotResult) -> Unit
-) = snapshot(noReturn { param -> GlobalScope.launch(context) { callback(param) } }, params, image)
+) = snapshot(Callbacks.noReturn { param -> GlobalScope.launch(context) { callback(param) } }, params, image)

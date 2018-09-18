@@ -4,28 +4,27 @@ package javafxx.scene.layout
 
 import javafx.geometry.Insets
 import javafx.scene.layout.Region
-import javafxx.internal.Internals.NO_GETTER
-import javafxx.internal.Internals.noGetter
+import javafxx.internal.Internals
 import kotlin.DeprecationLevel.ERROR
 
 /** Convenient method for overriding the region's computed minimum width and height. */
 inline var Region.minSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
     set(value) = setMinSize(value, value)
 
 /** Convenient method for overriding the region's computed preferred width and height. */
 inline var Region.prefSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
     set(value) = setPrefSize(value, value)
 
 /** Convenient method for overriding the region's computed maximum width and height. */
 inline var Region.maxSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
     set(value) = setMaxSize(value, value)
 
 /** Sets padding to all sides with integer. */
 inline var Region.paddingAll: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
     set(value) = setPadding(Insets(value))
 
 /** Top padding in integer. */

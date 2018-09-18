@@ -1,37 +1,23 @@
-import org.gradle.api.tasks.JavaExec
-import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-
-group = "$RELEASE_GROUP.layouts"
+group = "$RELEASE_GROUP.rule"
 version = RELEASE_VERSION
 
 plugins {
     kotlin("jvm")
-    dokka
-    bintray
-    `bintray-release`
 }
 
-sourceSets {
-    getByName("main") {
-        java.srcDir("src")
-    }
-    getByName("test") {
-        java.srcDir("tests/src")
-    }
+sourceSets.getByName("main") {
+    java.srcDir("src")
+    resources.srcDir("res")
 }
 
 val ktlint by configurations.registering
 
 dependencies {
-    compile(project(":$ARTIFACT_CORE"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
-
-    testImplementation(project(":testing"))
+    compileOnly(ktlint("core"))
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":ruleset"))
     }
 }
 
@@ -57,23 +43,4 @@ tasks {
         main = "com.github.shyiko.ktlint.Main"
         args("-F", "src/**/*.kt")
     }
-
-    withType<DokkaTask> {
-        outputDirectory = "$buildDir/docs"
-        doFirst { file(outputDirectory).deleteRecursively() }
-    }
-}
-
-publish {
-    bintrayUser = BINTRAY_USER
-    bintrayKey = BINTRAY_KEY
-    dryRun = false
-    repoName = RELEASE_ARTIFACT
-
-    userOrg = RELEASE_USER
-    groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_LAYOUTS
-    publishVersion = RELEASE_VERSION
-    desc = RELEASE_DESC
-    website = RELEASE_WEB
 }

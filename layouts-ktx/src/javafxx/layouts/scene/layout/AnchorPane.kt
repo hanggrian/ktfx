@@ -7,8 +7,7 @@ package javafxx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
-import javafxx.internal.Internals.NO_GETTER
-import javafxx.internal.Internals.noGetter
+import javafxx.internal.Internals
 import javafxx.layouts.internal.ConstrainedPane
 import kotlin.DeprecationLevel.ERROR
 
@@ -31,7 +30,7 @@ open class _AnchorPane(
     inline infix fun <N : Node> N.anchorRight(anchorRight: Double?): N = also { it.anchorRight = anchorRight }
 
     inline var Node.anchorAll: Double?
-        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+        @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
         set(value) {
             anchorTop = value
             anchorLeft = value

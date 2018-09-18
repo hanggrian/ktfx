@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package javafxx.listeners.internal
 
@@ -7,43 +7,27 @@ import javafx.scene.control.TableCell
 import javafx.scene.control.TableRow
 import javafx.scene.control.TreeTableCell
 import javafx.scene.control.TreeTableRow
-import javafx.util.StringConverter
 import javafxx.listeners.ListCellBuilder
-import javafxx.listeners.StringConverterBuilder
 import javafxx.listeners.TableCellBuilder
 import javafxx.listeners.TableRowBuilder
 import javafxx.listeners.TreeTableCellBuilder
 import javafxx.listeners.TreeTableRowBuilder
 
 @PublishedApi
-internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilder<T> {
-    private var _toString: (T?) -> String = { it?.toString() ?: "" }
-    private var _fromString: (String) -> T? = { null }
+internal object Internals {
 
-    override fun toString(listener: (T?) -> String) {
-        _toString = listener
-    }
+    inline fun <T> build(builder: ListCellBuilder<T>.() -> Unit): ListCell<T> =
+        ListCellBuilder<T>().apply(builder)
 
-    override fun toString(any: T?): String = _toString(any)
+    inline fun <T> build(builder: TableRowBuilder<T>.() -> Unit): TableRow<T> =
+        TableRowBuilder<T>().apply(builder)
 
-    override fun fromString(listener: (String) -> T?) {
-        _fromString = listener
-    }
+    inline fun <S, T> build(builder: TableCellBuilder<S, T>.() -> Unit): TableCell<S, T> =
+        TableCellBuilder<S, T>().apply(builder)
 
-    override fun fromString(string: String): T? = _fromString(string)
+    inline fun <T> build(builder: TreeTableRowBuilder<T>.() -> Unit): TreeTableRow<T> =
+        TreeTableRowBuilder<T>().apply(builder)
+
+    inline fun <S, T> build(builder: TreeTableCellBuilder<S, T>.() -> Unit): TreeTableCell<S, T> =
+        TreeTableCellBuilder<S, T>().apply(builder)
 }
-
-@PublishedApi internal inline fun <T> (ListCellBuilder<T>.() -> Unit).build(): ListCell<T> =
-    ListCellBuilder<T>().apply(this)
-
-@PublishedApi internal inline fun <T> (TableRowBuilder<T>.() -> Unit).build(): TableRow<T> =
-    TableRowBuilder<T>().apply(this)
-
-@PublishedApi internal inline fun <S, T> (TableCellBuilder<S, T>.() -> Unit).build(): TableCell<S, T> =
-    TableCellBuilder<S, T>().apply(this)
-
-@PublishedApi internal inline fun <T> (TreeTableRowBuilder<T>.() -> Unit).build(): TreeTableRow<T> =
-    TreeTableRowBuilder<T>().apply(this)
-
-@PublishedApi internal inline fun <S, T> (TreeTableCellBuilder<S, T>.() -> Unit).build(): TreeTableCell<S, T> =
-    TreeTableCellBuilder<S, T>().apply(this)

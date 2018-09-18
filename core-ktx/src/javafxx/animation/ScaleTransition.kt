@@ -10,4 +10,4 @@ import javafx.util.Duration.millis
 /** Construct a [ScaleTransition] that animates this [Node]. */
 inline fun Node?.scaleTransition(
     duration: Duration = millis(400.0)
-) = ScaleTransition(duration, this)
+): ScaleTransition = ScaleTransition(duration, this)

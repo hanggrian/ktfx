@@ -6,7 +6,7 @@ package javafxx.listeners
 /* ktlint-enable package-name */
 
 import javafx.scene.control.ComboBox
-import javafxx.listeners.internal.build
+import javafxx.listeners.internal.Internals
 
 /** Converts the user-typed input. */
 inline fun <T> ComboBox<T>.converter(
@@ -16,4 +16,4 @@ inline fun <T> ComboBox<T>.converter(
 /** Providing a custom cell factory allows for complete customization of the rendering of items in the ComboBox. */
 inline fun <T> ComboBox<T>.cellFactory(
     noinline cellFactory: ListCellBuilder<T>.() -> Unit
-) = setCellFactory { cellFactory.build() }
+) = setCellFactory { Internals.build(cellFactory) }

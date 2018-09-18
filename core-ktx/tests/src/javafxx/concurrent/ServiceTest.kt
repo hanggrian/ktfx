@@ -39,7 +39,7 @@ class ServiceTest {
     }
 
     private companion object {
-        inline fun <V> testService(listener: (_Task<V>).() -> Unit) {
+        fun <V> testService(listener: (_Task<V>).() -> Unit) {
             buildService(listener).start()
             sleep(1000)
         }

@@ -29,7 +29,11 @@ object Internals {
 
     /** Invokes DSL to create a button in dialog, returning a Node. */
     @PublishedApi
-    internal fun Dialog<*>.addButton(type: ButtonType, init: (Node.() -> Unit)?): Node = dialogPane.run {
+    internal fun addButton(
+        dialog: Dialog<*>,
+        type: ButtonType,
+        init: (Node.() -> Unit)?
+    ): Node = dialog.dialogPane.run {
         buttonTypes += type
         return lookupButton(type).also { init?.invoke(it) }
     }

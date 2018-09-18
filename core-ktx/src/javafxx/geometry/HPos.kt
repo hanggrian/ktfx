@@ -5,7 +5,7 @@ package javafxx.geometry
 import javafx.geometry.HPos
 import javafx.geometry.Pos
 import javafx.geometry.VPos
-import javafxx.internal.Internals.posOf
+import javafxx.internal.Internals
 
 /** Construct a new position given the added vertical position. */
-inline operator fun HPos.plus(vpos: VPos): Pos = posOf(vpos, this)
+inline operator fun HPos.plus(vpos: VPos): Pos = Internals.posOf(vpos, this)

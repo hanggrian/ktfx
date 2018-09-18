@@ -12,7 +12,7 @@ import javafx.scene.control.cell.CheckBoxListCell
 import javafx.scene.control.cell.ChoiceBoxListCell
 import javafx.scene.control.cell.ComboBoxListCell
 import javafx.scene.control.cell.TextFieldListCell
-import javafxx.listeners.internal.build
+import javafxx.listeners.internal.Internals
 
 inline fun <T> ListView<T>.checkBoxCellFactory(
     noinline callback: (T) -> ObservableValue<Boolean>,
@@ -45,4 +45,4 @@ inline fun <T> ListView<T>.textFieldCellFactory(
 
 inline fun <T> ListView<T>.cellFactory(
     noinline cellFactory: ListCellBuilder<T>.() -> Unit
-) = setCellFactory { cellFactory.build() }
+) = setCellFactory { Internals.build(cellFactory) }

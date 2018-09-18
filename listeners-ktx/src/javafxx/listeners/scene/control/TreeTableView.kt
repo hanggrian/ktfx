@@ -6,9 +6,9 @@ package javafxx.listeners
 /* ktlint-enable package-name */
 
 import javafx.scene.control.TreeTableView
-import javafxx.listeners.internal.build
+import javafxx.listeners.internal.Internals
 
 /** A function which produces a TreeTableRow. */
 inline fun <S> TreeTableView<S>.rowFactory(
     noinline rowFactory: TreeTableRowBuilder<S>.() -> Unit
-) = setRowFactory { rowFactory.build() }
+) = setRowFactory { Internals.build(rowFactory) }

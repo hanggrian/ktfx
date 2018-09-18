@@ -14,4 +14,4 @@ inline operator fun <K, V> Pair<K, V>.component2(): V? = value
 inline fun <K, V> Pair<K, V>.toKotlinPair(): kotlin.Pair<K, V> = kotlin.Pair(key, value)
 
 /** Converts Kotlin's pair to JavaFX's. */
-inline fun <K, V> kotlin.Pair<K, V>.toFXPair(): Pair<K, V> = Pair(first, second)
+inline fun <K, V> kotlin.Pair<K, V>.toFxPair(): Pair<K, V> = Pair(first, second)

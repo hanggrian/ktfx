@@ -1,6 +1,5 @@
 import org.gradle.api.tasks.JavaExec
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
 group = "$RELEASE_GROUP.test"
@@ -10,10 +9,8 @@ plugins {
     kotlin("jvm")
 }
 
-sourceSets {
-    getByName("main") {
-        java.srcDir("src")
-    }
+sourceSets.getByName("main") {
+    java.srcDir("src")
 }
 
 val ktlint by configurations.registering
@@ -21,32 +18,37 @@ val ktlint by configurations.registering
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(kotlin("test", VERSION_KOTLIN))
-    compile(testFX("core"))
-    compile(testFX("junit"))
+    compile(testFx("core"))
+    compile(testFx("junit"))
     compile(truth())
     compile(junit())
 
-    ktlint(this, ktlint())
+    ktlint {
+        invoke(ktlint())
+        invoke(project(":ruleset"))
+    }
 }
 
 tasks {
-    register("ktlint", JavaExec::class) {
-        get("check").dependsOn(ktlint)
-        group = VERIFICATION_GROUP
+    val ktlint by registering(JavaExec::class) {
+        group = LifecycleBasePlugin.VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."
-        classpath(ktlint())
+        classpath(configurations["ktlint"])
         main = "com.github.shyiko.ktlint.Main"
-        args("src/**.kt")
+        args("src/**/*.kt")
     }
-    register("ktlintformat", JavaExec::class) {
+    "check" {
+        dependsOn(ktlint)
+    }
+    register("ktlintFormat", JavaExec::class) {
         group = "formatting"
         inputs.dir("src")
         outputs.dir("src")
         description = "Fix Kotlin code style deviations."
-        classpath(ktlint())
+        classpath(configurations["ktlint"])
         main = "com.github.shyiko.ktlint.Main"
-        args("-F", "src*.kt")
+        args("-F", "src/**/*.kt")
     }
 }

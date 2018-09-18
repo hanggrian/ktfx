@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.dsl.Coroutines.*
+import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
 group = "$RELEASE_GROUP.demo"
 version = RELEASE_VERSION
@@ -10,9 +10,9 @@ plugins {
 
 sourceSets["main"].java.srcDir("src")
 
-kotlin.experimental.coroutines = ENABLE
+kotlin.experimental.coroutines = Coroutines.ENABLE
 
 dependencies {
     implementation(project(":$RELEASE_ARTIFACT"))
-    implementation(controlsFX())
+    implementation(controlsFx())
 }

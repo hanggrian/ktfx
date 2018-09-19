@@ -5,16 +5,26 @@ plugins {
     kotlin("jvm")
 }
 
-sourceSets.getByName("main") {
-    java.srcDir("src")
-    resources.srcDir("res")
+sourceSets {
+    getByName("main") {
+        java.srcDir("src")
+        resources.srcDir("res")
+    }
+    getByName("test") {
+        java.srcDir("tests/src")
+    }
 }
 
 val ktlint by configurations.registering
 
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
-    compileOnly(ktlint("core"))
+    compile(ktlint("core"))
+
+    testImplementation(kotlin("test", VERSION_KOTLIN))
+    testImplementation(ktlint("test"))
+    testImplementation(truth())
+    testImplementation(junit())
 
     ktlint {
         invoke(ktlint())

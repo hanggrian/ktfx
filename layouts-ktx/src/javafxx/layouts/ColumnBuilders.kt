@@ -1,12 +1,9 @@
 @file:Suppress("ClassName")
 
-package javafxx.layouts.internal
+package javafxx.layouts
 
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TreeTableColumn
-import javafxx.layouts.LayoutManager
-import javafxx.layouts.TableColumnsBuilder
-import javafxx.layouts.TreeTableColumnsBuilder
 
 @PublishedApi
 internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, LayoutManager<TableColumn<S, *>> {

@@ -6,9 +6,8 @@ package javafxx.listeners
 /* ktlint-enable package-name */
 
 import javafx.scene.control.TableView
-import javafxx.listeners.internal.Internals
 
 /** A function which produces a TableRow. */
 inline fun <S> TableView<S>.rowFactory(
     noinline rowFactory: TableRowBuilder<S>.() -> Unit
-) = setRowFactory { Internals.build(rowFactory) }
+) = setRowFactory { rowFactory.build() }

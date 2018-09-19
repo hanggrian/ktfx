@@ -9,8 +9,6 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
-import javafxx.layouts.internal.AlignedPane
-import javafxx.layouts.internal.MarginedPane
 
 open class _StackPane(
     vararg children: Node

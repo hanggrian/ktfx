@@ -9,7 +9,6 @@ import javafx.scene.Node
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
-import javafxx.layouts.internal._TreeTableColumnsBuilder
 
 /** Creates a [TreeTableView]. */
 fun <S> treeTableView(

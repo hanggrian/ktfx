@@ -10,7 +10,6 @@ import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
-import javafxx.layouts.internal.MarginedPane
 
 open class _FlowPane(
     orientation: Orientation,

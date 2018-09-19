@@ -9,8 +9,6 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
-import javafxx.layouts.internal.HGrowedPane
-import javafxx.layouts.internal.MarginedPane
 
 open class _HBox(
     spacing: Double,

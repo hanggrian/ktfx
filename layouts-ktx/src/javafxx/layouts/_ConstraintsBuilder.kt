@@ -1,12 +1,9 @@
-@file:Suppress("ClassName")
-
-package javafxx.layouts.internal
+package javafxx.layouts
 
 import javafx.scene.layout.ConstraintsBase
-import javafxx.layouts.ConstraintsBuilder
-import javafxx.layouts.LayoutManager
 
 @PublishedApi
+@Suppress("ClassName")
 internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, LayoutManager<T> {
 
     override val childs: MutableList<T> = mutableListOf()

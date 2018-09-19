@@ -8,7 +8,6 @@ package javafxx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import javafxx.internal.Internals
-import javafxx.layouts.internal.ConstrainedPane
 import kotlin.DeprecationLevel.ERROR
 
 open class _AnchorPane(

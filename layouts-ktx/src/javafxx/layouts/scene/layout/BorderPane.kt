@@ -9,8 +9,6 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
-import javafxx.layouts.internal.AlignedPane
-import javafxx.layouts.internal.MarginedPane
 
 open class _BorderPane(
     center: Node?,
@@ -18,7 +16,8 @@ open class _BorderPane(
     right: Node?,
     bottom: Node?,
     left: Node?
-) : BorderPane(center, top, right, bottom, left), LayoutManager<Node>, AlignedPane, MarginedPane {
+) : BorderPane(center, top, right, bottom, left), LayoutManager<Node>, AlignedPane,
+    MarginedPane {
 
     override val childs: MutableCollection<Node> get() = children
 

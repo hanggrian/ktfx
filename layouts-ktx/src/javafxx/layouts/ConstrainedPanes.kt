@@ -1,4 +1,4 @@
-package javafxx.layouts.internal
+package javafxx.layouts
 
 import javafx.geometry.HPos
 import javafx.geometry.Insets

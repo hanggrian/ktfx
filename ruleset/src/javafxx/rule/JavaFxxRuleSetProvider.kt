@@ -5,5 +5,9 @@ import com.github.shyiko.ktlint.core.RuleSetProvider
 
 class JavaFxxRuleSetProvider : RuleSetProvider {
 
-    override fun get(): RuleSet = RuleSet("javafxx-rule", NoInternalClassMemberImportRule())
+    override fun get() = RuleSet(
+        "javafxx-rules",
+        NoInternalClassMemberImportRule(),
+        NoNullAssertionOperatorRule()
+    )
 }

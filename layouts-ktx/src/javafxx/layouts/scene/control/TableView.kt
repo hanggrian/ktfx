@@ -10,7 +10,6 @@ import javafx.scene.Node
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafxx.collections.mutableObservableListOf
-import javafxx.layouts.internal._TableColumnsBuilder
 
 /** Creates a [TableView]. */
 fun <S> tableView(

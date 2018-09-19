@@ -14,14 +14,9 @@ import javafx.scene.layout.ConstraintsBase
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
-import javafxx.layouts.internal.HAlignedPane
-import javafxx.layouts.internal.HGrowedPane
-import javafxx.layouts.internal.MarginedPane
-import javafxx.layouts.internal.VAlignedPane
-import javafxx.layouts.internal.VGrowedPane
-import javafxx.layouts.internal._ConstraintsBuilder
 
-open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane,
+open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPane,
+    VAlignedPane, HGrowedPane,
     VGrowedPane {
 
     override val childs: MutableCollection<Node> get() = children

@@ -1,14 +1,13 @@
-package javafxx.coroutines.internal;
+package javafxx.coroutines;
 
 import javafx.util.Callback;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
-public final class Callbacks {
+final class Callbacks {
 
     private Callbacks() {
-        // no instance
     }
 
     /**
@@ -19,7 +18,7 @@ public final class Callbacks {
      * @return callback with no return value.
      */
     @NotNull
-    public static <P> Callback<P, Void> noReturn(@NotNull Function1<P, Unit> function) {
+    static <P> Callback<P, Void> noReturn(@NotNull Function1<P, Unit> function) {
         return param -> {
             function.invoke(param);
             return null;

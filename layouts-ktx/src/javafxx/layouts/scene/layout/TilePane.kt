@@ -11,15 +11,14 @@ import javafx.geometry.Orientation.HORIZONTAL
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
-import javafxx.layouts.internal.AlignedPane
-import javafxx.layouts.internal.MarginedPane
 
 open class _TilePane(
     orientation: Orientation,
     hgap: Double,
     vgap: Double,
     vararg children: Node
-) : TilePane(orientation, hgap, vgap, *children), LayoutManager<Node>, AlignedPane, MarginedPane {
+) : TilePane(orientation, hgap, vgap, *children), LayoutManager<Node>, AlignedPane,
+    MarginedPane {
 
     override val childs: MutableCollection<Node> get() = children
 

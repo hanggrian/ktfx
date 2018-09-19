@@ -9,8 +9,6 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
-import javafxx.layouts.internal.MarginedPane
-import javafxx.layouts.internal.VGrowedPane
 
 open class _VBox(
     spacing: Double,

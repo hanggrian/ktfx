@@ -422,10 +422,9 @@ $dokka.location:javafxx.geometry$plus(javafx.geometry.VPos, javafx.geometry.HPos
 $dokka.location:javafxx.geometry$times(javafx.geometry.Point3D, kotlin.Double)javafxx.geometry/javafx.geometry.-point3-d/times.html
 $dokka.location:javafxx.scene$find(javafx.scene.Node, kotlin.String)javafxx.scene/javafx.scene.-node/find.html
 $dokka.location:javafxx.scene$find(javafx.scene.Scene, kotlin.String)javafxx.scene/javafx.scene.-scene/find.html
-$dokka.location:javafxx.scene$get(javafx.scene.Node, kotlin.String)javafxx.scene/javafx.scene.-node/get.html
-$dokka.location:javafxx.scene$get(javafx.scene.Scene, kotlin.String)javafxx.scene/javafx.scene.-scene/get.html
 $dokka.location:javafxx.scene$snapshot(javafx.scene.Node, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage)javafxx.scene/javafx.scene.-node/snapshot.html
 $dokka.location:javafxx.scene$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage)javafxx.scene/javafx.scene.-scene/snapshot.html
+$dokka.location:javafxx.scene$stage#javafx.scene.Scenejavafxx.scene/javafx.scene.-scene/stage.html
 $dokka.location:javafxx.scene.control$applyButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))javafxx.scene.control/javafx.scene.control.-dialog/apply-button.html
 $dokka.location:javafxx.scene.control$cancelButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))javafxx.scene.control/javafx.scene.control.-dialog/cancel-button.html
 $dokka.location:javafxx.scene.control$checkBoxCellFactory(javafx.scene.control.ListView((javafxx.scene.control.checkBoxCellFactory.T)), kotlin.Function1((javafxx.scene.control.checkBoxCellFactory.T, javafx.beans.value.ObservableValue((kotlin.Boolean)))))javafxx.scene.control/javafx.scene.control.-list-view/check-box-cell-factory.html
@@ -535,7 +534,7 @@ $dokka.location:javafxx.util$minus(javafx.util.Duration, javafx.util.Duration)j
 $dokka.location:javafxx.util$plus(javafx.util.Duration, javafx.util.Duration)javafxx.util/javafx.util.-duration/plus.html
 $dokka.location:javafxx.util$times(javafx.util.Duration, javafx.util.Duration)javafxx.util/javafx.util.-duration/times.html
 $dokka.location:javafxx.util$times(javafx.util.Duration, kotlin.Double)javafxx.util/javafx.util.-duration/times.html
-$dokka.location:javafxx.util$toFXPair(kotlin.Pair((javafxx.util.toFXPair.K, javafxx.util.toFXPair.V)))javafxx.util/kotlin.-pair/to-f-x-pair.html
+$dokka.location:javafxx.util$toFxPair(kotlin.Pair((javafxx.util.toFxPair.K, javafxx.util.toFxPair.V)))javafxx.util/kotlin.-pair/to-fx-pair.html
 $dokka.location:javafxx.util$toKotlinPair(javafx.util.Pair((javafxx.util.toKotlinPair.K, javafxx.util.toKotlinPair.V)))javafxx.util/javafx.util.-pair/to-kotlin-pair.html
 javafxx.animation
 javafxx.application

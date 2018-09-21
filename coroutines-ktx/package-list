@@ -174,4 +174,3 @@ $dokka.location:javafxx.coroutines$setOnTouchPressed(javafx.scene.Scene, kotlin.
 $dokka.location:javafxx.coroutines$snapshot(javafx.scene.Node, kotlin.coroutines.experimental.CoroutineContext, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, javafx.scene.SnapshotResult, kotlin.Unit)))javafxx.coroutines/javafx.scene.-node/snapshot.html
 $dokka.location:javafxx.coroutines$snapshot(javafx.scene.Scene, kotlin.coroutines.experimental.CoroutineContext, javafx.scene.image.WritableImage, kotlin.SuspendFunction2((kotlinx.coroutines.experimental.CoroutineScope, javafx.scene.SnapshotResult, kotlin.Unit)))javafxx.coroutines/javafx.scene.-scene/snapshot.html
 javafxx.coroutines
-javafxx.coroutines.internal

@@ -26,7 +26,6 @@ interface CellBuilder<out T> {
 
 /** [ListCell] builder with Kotlin DSL. */
 class ListCellBuilder<T> : ListCell<T>(), CellBuilder<T> {
-
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -71,7 +70,6 @@ class ListCellBuilder<T> : ListCell<T>(), CellBuilder<T> {
 
 /** [TableRow] builder with Kotlin DSL. */
 class TableRowBuilder<T> : TableRow<T>(), CellBuilder<T> {
-
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -116,7 +114,6 @@ class TableRowBuilder<T> : TableRow<T>(), CellBuilder<T> {
 
 /** [TableCell] builder with Kotlin DSL. */
 class TableCellBuilder<S, T> : TableCell<S, T>(), CellBuilder<T> {
-
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -161,7 +158,6 @@ class TableCellBuilder<S, T> : TableCell<S, T>(), CellBuilder<T> {
 
 /** [TreeTableRow] builder with Kotlin DSL. */
 class TreeTableRowBuilder<T> : TreeTableRow<T>(), CellBuilder<T> {
-
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -206,7 +202,6 @@ class TreeTableRowBuilder<T> : TreeTableRow<T>(), CellBuilder<T> {
 
 /** [TreeTableCell] builder with Kotlin DSL. */
 class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
-
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

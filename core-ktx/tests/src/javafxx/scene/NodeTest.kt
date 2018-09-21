@@ -25,7 +25,6 @@ class NodeTest : AppTest() {
     @Test fun lookup() {
         GlobalScope.launch(Dispatchers.JavaFx) {
             delay(200)
-            assertNotNull(tabPane[".tab-header-area"])
             assertNotNull(tabPane.find<StackPane>(".tab-content-area"))
         }
     }

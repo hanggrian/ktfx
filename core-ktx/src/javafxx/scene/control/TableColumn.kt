@@ -16,8 +16,10 @@ inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory() =
 inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(noinline callback: (Int) -> ObservableValue<Boolean>) =
     setCellFactory(CheckBoxTableCell.forTableColumn(callback))
 
-inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(showLabel: Boolean, noinline callback: (Int) -> ObservableValue<Boolean>) =
-    setCellFactory(CheckBoxTableCell.forTableColumn(callback, showLabel))
+inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
+    showLabel: Boolean,
+    noinline callback: (Int) -> ObservableValue<Boolean>
+) = setCellFactory(CheckBoxTableCell.forTableColumn(callback, showLabel))
 
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(vararg items: T) =
     setCellFactory(ChoiceBoxTableCell.forTableColumn(*items))

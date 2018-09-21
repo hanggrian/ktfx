@@ -34,6 +34,5 @@ internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilde
 }
 
 /** Build string converter with Kotlin DSL. */
-inline fun <T> stringConverter(
-    builder: StringConverterBuilder<T>.() -> Unit
-): StringConverter<T> = _StringConverter<T>().apply(builder)
+inline fun <T> stringConverter(builder: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
+    _StringConverter<T>().apply(builder)

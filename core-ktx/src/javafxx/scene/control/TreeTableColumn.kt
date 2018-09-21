@@ -16,8 +16,10 @@ inline fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory() =
 inline fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(noinline callback: (Int) -> ObservableValue<Boolean>) =
     setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback))
 
-inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(showLabel: Boolean, noinline callback: (Int) -> ObservableValue<Boolean>) =
-    setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, showLabel))
+inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
+    showLabel: Boolean,
+    noinline callback: (Int) -> ObservableValue<Boolean>
+) = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, showLabel))
 
 inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(vararg items: T) =
     setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(*items))

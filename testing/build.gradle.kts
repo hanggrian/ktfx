@@ -9,9 +9,7 @@ plugins {
     kotlin("jvm")
 }
 
-sourceSets.getByName("main") {
-    java.srcDir("src")
-}
+sourceSets["main"].java.srcDir("src")
 
 val ktlint by configurations.registering
 

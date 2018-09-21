@@ -11,14 +11,11 @@ import java.awt.image.BufferedImage
  * Snapshots the specified [BufferedImage] and stores a copy of its pixels into a JavaFX [Image] object,
  * creating a new object if needed.
  */
-inline fun BufferedImage.toWritableImage(
-    wimg: WritableImage? = null
-): WritableImage = SwingFXUtils.toFXImage(this, wimg)
+inline fun BufferedImage.toWritableImage(wimg: WritableImage? = null): WritableImage =
+    SwingFXUtils.toFXImage(this, wimg)
 
 /**
  * Snapshots the specified JavaFX [Image] object and stores a copy of its pixels into a [BufferedImage] object,
  * creating a new object if needed.
  */
-inline fun Image.toBufferedImage(
-    bimg: BufferedImage? = null
-): BufferedImage = SwingFXUtils.fromFXImage(this, bimg)
+inline fun Image.toBufferedImage(bimg: BufferedImage? = null): BufferedImage = SwingFXUtils.fromFXImage(this, bimg)

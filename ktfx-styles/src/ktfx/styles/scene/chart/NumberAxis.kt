@@ -1,11 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._NumberAxisStyleBuilder
+@PublishedApi
+internal class _NumberAxisStyleBuilder(
+    prettyPrint: Boolean
+) : _ValueAxisStyleBuilder(prettyPrint), NumberAxisStyleBuilder {
+    override var tickUnit: Number by map
+}
 
 interface NumberAxisStyleBuilder {
 

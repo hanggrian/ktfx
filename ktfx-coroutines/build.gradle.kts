@@ -22,15 +22,16 @@ kotlin.experimental.coroutines = Coroutines.ENABLE
 val ktlint by configurations.registering
 
 dependencies {
-    compile(project(":$ARTIFACT_CORE"))
+    compile(project(":$ARTIFACT_COMMONS"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
-    testImplementation(project(":testing"))
+    testImplementation(project(":$TESTING"))
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":ruleset"))
+        invoke(project(":$RULESET_BASE"))
+        invoke(project(":$RULESET_EXTENDED"))
     }
 }
 

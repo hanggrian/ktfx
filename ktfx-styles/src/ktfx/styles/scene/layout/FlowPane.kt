@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -9,7 +9,18 @@ import javafx.geometry.HPos
 import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import javafx.geometry.VPos
-import ktfx.styles.internal._FlowPaneStyleBuilder
+
+@PublishedApi
+internal class _FlowPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), FlowPaneStyleBuilder {
+    override var hgap: Number by map
+    override var vgap: Number by map
+    override var alignment: Pos by map
+    override var columnHalignment: HPos by map
+    override var rowValignment: VPos by map
+    override var orientation: Orientation by map
+}
 
 interface FlowPaneStyleBuilder {
 

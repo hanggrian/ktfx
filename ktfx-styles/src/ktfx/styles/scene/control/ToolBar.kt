@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -6,7 +6,13 @@ package ktfx.styles
 /* ktlint-enable package-name */
 
 import javafx.geometry.Orientation
-import ktfx.styles.internal._ToolBarStyleBuilder
+
+@PublishedApi
+internal class _ToolBarStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), ToolBarStyleBuilder {
+    override var orientation: Orientation by map
+}
 
 interface ToolBarStyleBuilder {
 

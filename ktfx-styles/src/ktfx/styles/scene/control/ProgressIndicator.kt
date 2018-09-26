@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -6,7 +6,12 @@ package ktfx.styles
 /* ktlint-enable package-name */
 
 import javafx.scene.paint.Color
-import ktfx.styles.internal._ProgressIndicatorStyleBuilder
+
+open class _ProgressIndicatorStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), ProgressIndicatorStyleBuilder {
+    override var progressColor: Color by map
+}
 
 interface ProgressIndicatorStyleBuilder {
 

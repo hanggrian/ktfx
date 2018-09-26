@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -6,7 +6,15 @@ package ktfx.styles
 /* ktlint-enable package-name */
 
 import javafx.geometry.Pos
-import ktfx.styles.internal._HBoxStyleBuilder
+
+@PublishedApi
+internal class _HBoxStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), HBoxStyleBuilder {
+    override var spacing: Number by map
+    override var alignment: Pos by map
+    override var fillHeight: Boolean by map
+}
 
 interface HBoxStyleBuilder : RegionStyleBuilder {
 

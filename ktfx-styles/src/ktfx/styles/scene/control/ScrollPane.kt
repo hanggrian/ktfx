@@ -1,12 +1,23 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
+import javafx.scene.control.ScrollPane
 import javafx.scene.control.ScrollPane.ScrollBarPolicy
-import ktfx.styles.internal._ScrollPaneStyleBuilder
+
+@PublishedApi
+internal class _ScrollPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), ScrollPaneStyleBuilder {
+    override var fitToWidth: Boolean by map
+    override var fitToHeight: Boolean by map
+    override var pannable: Boolean by map
+    override var hbarPolicy: ScrollPane.ScrollBarPolicy by map
+    override var vbarPolicy: ScrollPane.ScrollBarPolicy by map
+}
 
 interface ScrollPaneStyleBuilder {
 

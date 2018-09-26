@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -6,7 +6,13 @@ package ktfx.styles
 /* ktlint-enable package-name */
 
 import javafx.geometry.Pos
-import ktfx.styles.internal._TextFieldStyleBuilder
+
+@PublishedApi
+internal class _TextFieldStyleBuilder(
+    prettyPrint: Boolean
+) : _TextInputControlStyleBuilder(prettyPrint), TextFieldStyleBuilder {
+    override var alignment: Pos by map
+}
 
 interface TextFieldStyleBuilder {
 

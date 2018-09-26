@@ -1,11 +1,17 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._RectangleStyleBuilder
+@PublishedApi
+internal class _RectangleStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), RectangleStyleBuilder {
+    override var arcHeight: Number by map
+    override var arcWidth: Number by map
+}
 
 interface RectangleStyleBuilder {
 

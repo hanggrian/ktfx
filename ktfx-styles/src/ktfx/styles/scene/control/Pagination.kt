@@ -1,11 +1,20 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._PaginationStyleBuilder
+@PublishedApi
+internal class _PaginationStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), PaginationStyleBuilder {
+    override var maxPageIndicatorCount: Number by map
+    override var arrowsVisible: Boolean by map
+    override var tooltipVisible: Boolean by map
+    override var pageInformationVisible: Boolean by map
+    override var pageInformationAlignment: PageAlignment by map
+}
 
 interface PaginationStyleBuilder {
 

@@ -1,11 +1,15 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._CellStyleBuilder
+open class _CellStyleBuilder(
+    prettyPrint: Boolean
+) : _LabeledStyleBuilder(prettyPrint), CellStyleBuilder {
+    override var cellSize: Number by map
+}
 
 interface CellStyleBuilder {
 

@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -9,8 +9,21 @@ import javafx.scene.paint.Color
 import javafx.scene.shape.StrokeLineCap
 import javafx.scene.shape.StrokeLineJoin
 import javafx.scene.shape.StrokeType
-import ktfx.styles.internal.NotImplemented
-import ktfx.styles.internal._ShapeStyleBuilder
+
+open class _ShapeStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), ShapeStyleBuilder {
+    override var fill: Color by map
+    override var smooth: Boolean by map
+    override var stroke: Color by map
+    override var strokeType: StrokeType by map
+    override var strokeDashArray: String by map
+    override var strokeDashOffset: Number by map
+    override var strokeLineCap: StrokeLineCap by map
+    override var strokeLineJoin: StrokeLineJoin by map
+    override var strokeMiterLimit: Number by map
+    override var strokeWidth: Number by map
+}
 
 interface ShapeStyleBuilder {
 

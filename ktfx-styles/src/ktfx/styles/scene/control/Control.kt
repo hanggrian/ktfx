@@ -1,11 +1,15 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._ControlStyleBuilder
+open class _ControlStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), ControlStyleBuilder {
+    override var skin: String by map
+}
 
 interface ControlStyleBuilder {
 

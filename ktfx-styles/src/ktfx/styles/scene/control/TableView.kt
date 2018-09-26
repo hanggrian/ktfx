@@ -1,11 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._TableViewStyleBuilder
+@PublishedApi
+internal class _TableViewStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), TableViewStyleBuilder {
+    override var size: Number by map
+}
 
 interface TableViewStyleBuilder {
 

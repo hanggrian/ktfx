@@ -1,11 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._MenuBarStyleBuilder
+@PublishedApi
+internal class _MenuBarStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), MenuBarStyleBuilder {
+    override var useSystemMenuBar: Boolean by map
+}
 
 interface MenuBarStyleBuilder {
 

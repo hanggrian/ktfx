@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -8,7 +8,15 @@ package ktfx.styles
 import javafx.geometry.HPos
 import javafx.geometry.Orientation
 import javafx.geometry.VPos
-import ktfx.styles.internal._SeparatorStyleBuilder
+
+@PublishedApi
+internal class _SeparatorStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), SeparatorStyleBuilder {
+    override var orientation: Orientation by map
+    override var halignment: HPos by map
+    override var valignment: VPos by map
+}
 
 interface SeparatorStyleBuilder {
 

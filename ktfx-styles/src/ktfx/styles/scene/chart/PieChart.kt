@@ -1,11 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._PieChartStyleBuilder
+@PublishedApi
+internal class _PieChartStyleBuilder(
+    prettyPrint: Boolean
+) : _ChartStyleBuilder(prettyPrint), PieChartStyleBuilder {
+    override var clockwise: Boolean by map
+    override var pieLabelVisible: Boolean by map
+    override var labelLineLength: Number by map
+    override var startAngle: Number by map
+}
 
 interface PieChartStyleBuilder {
 

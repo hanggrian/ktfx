@@ -1,9 +1,5 @@
 import org.gradle.api.plugins.ExtensionAware
 import org.gradle.api.tasks.JavaExec
-import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.creating
-import org.gradle.kotlin.dsl.kotlin
-import org.jetbrains.kotlin.js.translate.context.Namer.kotlin
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
@@ -29,11 +25,12 @@ dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(jfoenix())
 
-    testImplementation(project(":testing"))
+    testImplementation(project(":$TESTING"))
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":ruleset"))
+        invoke(project(":$RULESET_BASE"))
+        invoke(project(":$RULESET_EXTENDED"))
     }
 }
 

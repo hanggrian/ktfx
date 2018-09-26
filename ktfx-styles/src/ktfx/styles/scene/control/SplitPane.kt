@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -6,7 +6,13 @@ package ktfx.styles
 /* ktlint-enable package-name */
 
 import javafx.geometry.Orientation
-import ktfx.styles.internal._SplitPaneStyleBuilder
+
+@PublishedApi
+internal class _SplitPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), SplitPaneStyleBuilder {
+    override var orientation: Orientation by map
+}
 
 interface SplitPaneStyleBuilder {
 

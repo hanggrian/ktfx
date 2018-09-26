@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -6,7 +6,16 @@ package ktfx.styles
 /* ktlint-enable package-name */
 
 import javafx.geometry.Pos
-import ktfx.styles.internal._GridPaneStyleBuilder
+
+@PublishedApi
+internal class _GridPaneStyleBuilder(
+    prettyPrint: Boolean
+) : _RegionStyleBuilder(prettyPrint), GridPaneStyleBuilder {
+    override var hgap: Number by map
+    override var vgap: Number by map
+    override var alignment: Pos by map
+    override var gridLinesVisible: Boolean by map
+}
 
 interface GridPaneStyleBuilder {
 

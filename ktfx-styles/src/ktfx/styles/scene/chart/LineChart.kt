@@ -1,11 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._LineChartStyleBuilder
+@PublishedApi
+internal class _LineChartStyleBuilder(
+    prettyPrint: Boolean
+) : _XYChartStyleBuilder(prettyPrint), LineChartStyleBuilder {
+    override var createSymbols: Boolean by map
+}
 
 interface LineChartStyleBuilder {
 

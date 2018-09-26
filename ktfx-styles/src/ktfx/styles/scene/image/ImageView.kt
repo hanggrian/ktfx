@@ -1,11 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._ImageViewStyleBuilder
+@PublishedApi
+internal class _ImageViewStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), ImageViewStyleBuilder {
+    override var image: Urls by map
+}
 
 interface ImageViewStyleBuilder {
 

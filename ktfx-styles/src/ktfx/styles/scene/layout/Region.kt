@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -7,8 +7,36 @@ package ktfx.styles
 
 import javafx.geometry.Insets
 import javafx.scene.paint.Color
-import ktfx.styles.internal.NotImplemented
-import ktfx.styles.internal._RegionStyleBuilder
+
+open class _RegionStyleBuilder(
+    prettyPrint: Boolean
+) : _NodeStyleBuilder(prettyPrint), RegionStyleBuilder {
+    override var backgroundColor: Color by map
+    override var backgroundInsets: Insets by map
+    override var backgroundRadius: Insets by map
+    override var backgroundImage: Urls by map
+    override var backgroundPosition: String by map
+    override var backgroundRepeat: String by map
+    override var backgroundSize: String by map
+    override var borderColor: Color by map
+    override var borderInsets: Insets by map
+    override var borderRadius: String by map
+    override var borderStyle: String by map
+    override var borderWidth: Number by map
+    override var borderImageSource: Urls by map
+    override var borderImageRepeat: String by map
+    override var borderImageSlice: String by map
+    override var borderImageWidth: Number by map
+    override var padding: Insets by map
+    override var positionShape: Boolean by map
+    override var scaleShape: Boolean by map
+    override var shape: String by map
+    override var snapToPixel: Boolean by map
+    override var backgroundFills: String by map
+    override var backgroundImages: String by map
+    override var strokeBorders: String by map
+    override var imageBorders: String by map
+}
 
 interface RegionStyleBuilder {
 

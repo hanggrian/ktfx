@@ -24,12 +24,12 @@ val ktlint by configurations.registering
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(project(":testing"))
+    testImplementation(project(":$TESTING"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":ruleset"))
+        invoke(project(":$RULESET_BASE"))
     }
 }
 
@@ -70,7 +70,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_CORE
+    artifactId = ARTIFACT_COMMONS
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

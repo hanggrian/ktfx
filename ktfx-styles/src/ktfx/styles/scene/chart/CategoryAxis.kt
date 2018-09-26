@@ -1,11 +1,18 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._CategoryAxisStyleBuilder
+@PublishedApi
+internal class _CategoryAxisStyleBuilder(
+    prettyPrint: Boolean
+) : _AxisStyleBuilder(prettyPrint), CategoryAxisStyleBuilder {
+    override var startMargin: Number by map
+    override var endMargin: Number by map
+    override var gapStartAndEnd: Boolean by map
+}
 
 interface CategoryAxisStyleBuilder {
 

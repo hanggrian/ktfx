@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -11,8 +11,23 @@ import javafx.scene.control.ContentDisplay
 import javafx.scene.control.OverrunStyle
 import javafx.scene.paint.Color
 import javafx.scene.text.TextAlignment
-import ktfx.styles.internal.NotImplemented
-import ktfx.styles.internal._LabeledStyleBuilder
+
+open class _LabeledStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), LabeledStyleBuilder {
+    override var alignment: Pos by map
+    override var textAlignment: TextAlignment by map
+    override var textOverrun: OverrunStyle by map
+    override var wrapText: Boolean by map
+    override var font: String by map
+    override var underline: Boolean by map
+    override var graphic: Url by map
+    override var contentDisplay: ContentDisplay by map
+    override var graphicTextGap: Number by map
+    override var labelPadding: Insets by map
+    override var textFill: Color by map
+    override var ellipsisString: String by map
+}
 
 interface LabeledStyleBuilder {
 

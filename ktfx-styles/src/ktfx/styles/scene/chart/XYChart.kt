@@ -1,11 +1,20 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import ktfx.styles.internal._XYChartStyleBuilder
+open class _XYChartStyleBuilder(
+    prettyPrint: Boolean
+) : _ChartStyleBuilder(prettyPrint), XYChartStyleBuilder {
+    override var alternativeColumnFillVisible: Boolean by map
+    override var alternativeRowFillVisible: Boolean by map
+    override var horizontalGridLinesVisible: Boolean by map
+    override var horizontalZeroLineVisible: Boolean by map
+    override var verticalGridLinesVisible: Boolean by map
+    override var verticalZeroLineVisible: Boolean by map
+}
 
 interface XYChartStyleBuilder {
 

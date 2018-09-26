@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.styles
@@ -6,8 +6,17 @@ package ktfx.styles
 /* ktlint-enable package-name */
 
 import javafx.scene.paint.Color
-import ktfx.styles.internal.NotImplemented
-import ktfx.styles.internal._TextInputControlStyleBuilder
+
+open class _TextInputControlStyleBuilder(
+    prettyPrint: Boolean
+) : _ControlStyleBuilder(prettyPrint), TextInputControlStyleBuilder {
+    override var font: String by map
+    override var textFill: Color by map
+    override var promptTextFill: Color by map
+    override var highlightFill: Color by map
+    override var highlightTextFill: Color by map
+    override var displayCaret: Boolean by map
+}
 
 interface TextInputControlStyleBuilder {
 

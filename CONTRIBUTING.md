@@ -11,7 +11,7 @@ How Can I Contribute?
 
 #### Report Bugs
 
-Try `javafxx` yourself, explore untouched corners and report misbehavior to [Issues](https://github.com/hendraanggrian/javafxx/issues).
+Try `ktfx` yourself, explore untouched corners and report misbehavior to [Issues](https://github.com/hendraanggrian/ktfx/issues).
 When doing so, always try to provide relevant information so we can start from there.
 
 #### Feature Request

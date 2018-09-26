@@ -20,14 +20,15 @@ sourceSets {
 val ktlint by configurations.registering
 
 dependencies {
-    compile(project(":$ARTIFACT_CORE"))
+    compile(project(":$ARTIFACT_COMMONS"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(project(":testing"))
+    testImplementation(project(":$TESTING"))
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":ruleset"))
+        invoke(project(":$RULESET_BASE"))
+        invoke(project(":$RULESET_EXTENDED"))
     }
 }
 

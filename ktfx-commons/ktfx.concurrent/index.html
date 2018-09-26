@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ktfx.concurrent - ktfx-commons</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">ktfx-commons</a>&nbsp;/&nbsp;<a href="./index.html">ktfx.concurrent</a><br/>
+<br/>
+<h2>Package ktfx.concurrent</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="_-task/index.html">_Task</a></p>
+</td>
+<td>
+<code><span class="keyword">class </span><span class="identifier">_Task</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Task</span><span class="symbol">&lt;</span><a href="_-task/index.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
+<p>Receiver in <a href="build-service.html">buildService</a>, invoke <a href="_-task/call.html">call</a> to customize what this Task do in the background.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="build-service.html">buildService</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">buildService</span><span class="symbol">(</span><span class="identifier" id="ktfx.concurrent$buildService(kotlin.Function1((ktfx.concurrent._Task((ktfx.concurrent.buildService.V)), kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="_-task/index.html"><span class="identifier">_Task</span></a><span class="symbol">&lt;</span><a href="build-service.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ }<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Service</span><span class="symbol">&lt;</span><a href="build-service.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
+<p>Returns a <a href="#">Service</a> by invoking <a href="#">Task</a> DSL.
+By default, it will do nothing and returns null in the background, customize it by invoking <code>call</code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

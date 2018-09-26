@@ -6,13 +6,9 @@ plugins {
 }
 
 sourceSets {
-    getByName("main") {
-        java.srcDir("src")
-        resources.srcDir("res")
-    }
-    getByName("test") {
-        java.srcDir("tests/src")
-    }
+    get("main").java.srcDir("src")
+    get("main").resources.srcDir("res")
+    get("test").java.srcDir("tests/src")
 }
 
 val ktlint by configurations.registering

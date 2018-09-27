@@ -19,18 +19,3 @@ fun <T : Task<*>> taskProgressView(
 inline fun <T : Task<*>> LayoutManager<Node>.taskProgressView(
     noinline init: ((@LayoutDsl TaskProgressView<T>).() -> Unit)? = null
 ): TaskProgressView<T> = ktfx.controlsfx.taskProgressView(init)()
-
-/** Create a styled [TaskProgressView]. */
-fun <T : Task<*>> styledTaskProgressView(
-    styleClass: String,
-    init: ((@LayoutDsl TaskProgressView<T>).() -> Unit)? = null
-): TaskProgressView<T> = TaskProgressView<T>().also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [TaskProgressView] and add it to this [LayoutManager]. */
-inline fun <T : Task<*>> LayoutManager<Node>.styledTaskProgressView(
-    styleClass: String,
-    noinline init: ((@LayoutDsl TaskProgressView<T>).() -> Unit)? = null
-): TaskProgressView<T> = ktfx.controlsfx.styledTaskProgressView(styleClass, init)()

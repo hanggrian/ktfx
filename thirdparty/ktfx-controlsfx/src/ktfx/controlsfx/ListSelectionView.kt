@@ -18,18 +18,3 @@ fun <T> listSelectionView(
 inline fun <T> LayoutManager<Node>.listSelectionView(
     noinline init: ((@LayoutDsl ListSelectionView<T>).() -> Unit)? = null
 ): ListSelectionView<T> = ktfx.controlsfx.listSelectionView(init)()
-
-/** Create a styled [ListSelectionView]. */
-fun <T> styledListSelectionView(
-    styleClass: String,
-    init: ((@LayoutDsl ListSelectionView<T>).() -> Unit)? = null
-): ListSelectionView<T> = ListSelectionView<T>().also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [ListSelectionView] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.styledListSelectionView(
-    styleClass: String,
-    noinline init: ((@LayoutDsl ListSelectionView<T>).() -> Unit)? = null
-): ListSelectionView<T> = ktfx.controlsfx.styledListSelectionView(styleClass, init)()

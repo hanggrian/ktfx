@@ -18,18 +18,3 @@ fun <T> prefixSelectionChoiceBox(
 inline fun <T> LayoutManager<Node>.prefixSelectionChoiceBox(
     noinline init: ((@LayoutDsl PrefixSelectionChoiceBox<T>).() -> Unit)? = null
 ): PrefixSelectionChoiceBox<T> = ktfx.controlsfx.prefixSelectionChoiceBox(init)()
-
-/** Create a styled [PrefixSelectionChoiceBox]. */
-fun <T> styledPrefixSelectionChoiceBox(
-    styleClass: String,
-    init: ((@LayoutDsl PrefixSelectionChoiceBox<T>).() -> Unit)? = null
-): PrefixSelectionChoiceBox<T> = PrefixSelectionChoiceBox<T>().also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [PrefixSelectionChoiceBox] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.styledPrefixSelectionChoiceBox(
-    styleClass: String,
-    noinline init: ((@LayoutDsl PrefixSelectionChoiceBox<T>).() -> Unit)? = null
-): PrefixSelectionChoiceBox<T> = ktfx.controlsfx.styledPrefixSelectionChoiceBox(styleClass, init)()

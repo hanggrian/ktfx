@@ -38,22 +38,3 @@ inline fun LayoutManager<Node>.masterDetailPane(
     showDetail: Boolean = true,
     noinline init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null
 ): MasterDetailPane = ktfx.controlsfx.masterDetailPane(side, showDetail, init = init)()
-
-/** Create a styled [MasterDetailPane]. */
-fun styledMasterDetailPane(
-    styleClass: String,
-    side: Side = RIGHT,
-    showDetail: Boolean = true,
-    init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null
-): MasterDetailPane = _MasterDetailPane(side, showDetail).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [MasterDetailPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledMasterDetailPane(
-    styleClass: String,
-    side: Side = RIGHT,
-    showDetail: Boolean = true,
-    noinline init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null
-): MasterDetailPane = ktfx.controlsfx.styledMasterDetailPane(styleClass, side, showDetail, init = init)()

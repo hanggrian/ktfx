@@ -23,20 +23,3 @@ inline fun LayoutManager<Node>.separator(
     orientation: Orientation = HORIZONTAL,
     noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
 ): Separator = ktfx.layouts.separator(orientation, init)()
-
-/** Create a styled [Separator]. */
-fun styledSeparator(
-    styleClass: String,
-    orientation: Orientation = HORIZONTAL,
-    init: ((@LayoutDsl Separator).() -> Unit)? = null
-): Separator = Separator(orientation).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [Separator] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledSeparator(
-    styleClass: String,
-    orientation: Orientation = HORIZONTAL,
-    noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
-): Separator = ktfx.layouts.styledSeparator(styleClass, orientation, init)()

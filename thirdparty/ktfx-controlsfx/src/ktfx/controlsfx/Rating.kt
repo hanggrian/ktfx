@@ -22,22 +22,3 @@ inline fun LayoutManager<Node>.rating(
     rating: Int = -1,
     noinline init: ((@LayoutDsl Rating).() -> Unit)? = null
 ): Rating = ktfx.controlsfx.rating(max, rating, init)()
-
-/** Create a styled [Rating]. */
-fun styledRating(
-    styleClass: String,
-    max: Int = 5,
-    rating: Int = -1,
-    init: ((@LayoutDsl Rating).() -> Unit)? = null
-): Rating = Rating(max, rating).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [Rating] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledRating(
-    styleClass: String,
-    max: Int = 5,
-    rating: Int = -1,
-    noinline init: ((@LayoutDsl Rating).() -> Unit)? = null
-): Rating = ktfx.controlsfx.styledRating(styleClass, max, rating, init)()

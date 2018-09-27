@@ -20,13 +20,6 @@ open class _SplitMenuButton(
         graphic: Node? = null,
         noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
     ): MenuItem = menuItem(this, graphic, init)
-
-    /** Creates a styled [MenuItem] and add it to this [LayoutManager]. */
-    inline operator fun String.invoke(
-        styleClass: String,
-        graphic: Node? = null,
-        noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
-    ): MenuItem = styledMenuItem(styleClass, this, graphic, init)
 }
 
 /** Creates a [SplitMenuButton]. */
@@ -42,20 +35,3 @@ inline fun LayoutManager<Node>.splitMenuButton(
     vararg items: MenuItem,
     noinline init: ((@LayoutDsl _SplitMenuButton).() -> Unit)? = null
 ): SplitMenuButton = ktfx.layouts.splitMenuButton(*items, init = init)()
-
-/** Create a styled [SplitMenuButton]. */
-fun styledSplitMenuButton(
-    styleClass: String,
-    vararg items: MenuItem,
-    init: ((@LayoutDsl _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = _SplitMenuButton(*items).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [SplitMenuButton] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledSplitMenuButton(
-    styleClass: String,
-    vararg items: MenuItem,
-    noinline init: ((@LayoutDsl _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = ktfx.layouts.styledSplitMenuButton(styleClass, *items, init = init)()

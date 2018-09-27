@@ -40,20 +40,3 @@ inline fun LayoutManager<Node>.stackPane(
     vararg children: Node,
     noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
 ): StackPane = ktfx.layouts.stackPane(*children, init = init)()
-
-/** Create a styled [StackPane]. */
-fun styledStackPane(
-    styleClass: String,
-    vararg children: Node,
-    init: ((@LayoutDsl _StackPane).() -> Unit)? = null
-): StackPane = _StackPane(*children).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [StackPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledStackPane(
-    styleClass: String,
-    vararg children: Node,
-    noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
-): StackPane = ktfx.layouts.styledStackPane(styleClass, *children, init = init)()

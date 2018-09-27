@@ -22,13 +22,6 @@ open class _MenuButton(
         graphic: Node? = null,
         noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
     ): MenuItem = menuItem(this, graphic, init)
-
-    /** Creates a styled [MenuItem] and add it to this [LayoutManager]. */
-    inline operator fun String.invoke(
-        styleClass: String,
-        graphic: Node? = null,
-        noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
-    ): MenuItem = styledMenuItem(styleClass, this, graphic, init)
 }
 
 /** Creates a [MenuButton]. */
@@ -46,22 +39,3 @@ inline fun LayoutManager<Node>.menuButton(
     graphic: Node? = null,
     noinline init: ((@LayoutDsl _MenuButton).() -> Unit)? = null
 ): MenuButton = ktfx.layouts.menuButton(text, graphic, init)()
-
-/** Create a styled [MenuButton]. */
-fun styledMenuButton(
-    styleClass: String,
-    text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDsl _MenuButton).() -> Unit)? = null
-): MenuButton = _MenuButton(text, graphic).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [MenuButton] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledMenuButton(
-    styleClass: String,
-    text: String? = null,
-    graphic: Node? = null,
-    noinline init: ((@LayoutDsl _MenuButton).() -> Unit)? = null
-): MenuButton = ktfx.layouts.styledMenuButton(styleClass, text, graphic, init)()

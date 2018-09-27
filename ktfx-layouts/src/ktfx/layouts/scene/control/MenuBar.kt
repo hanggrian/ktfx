@@ -22,14 +22,6 @@ class _MenuBar(
         vararg items: MenuItem,
         noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
     ): Menu = menu(this, graphic, *items, init = init)()
-
-    /** Creates a styled [Menu] and add it to this [LayoutManager]. */
-    inline operator fun String.invoke(
-        styleClass: String,
-        graphic: Node? = null,
-        vararg items: MenuItem,
-        noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
-    ): Menu = styledMenu(styleClass, this, graphic, *items, init = init)()
 }
 
 /** Creates a [MenuBar]. */

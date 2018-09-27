@@ -23,22 +23,3 @@ inline fun LayoutManager<MenuItem>.menuItem(
     graphic: Node? = null,
     noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
 ): MenuItem = ktfx.layouts.menuItem(text, graphic, init)()
-
-/** Create a styled [MenuItem]. */
-fun styledMenuItem(
-    styleClass: String,
-    text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDsl MenuItem).() -> Unit)? = null
-): MenuItem = MenuItem(text, graphic).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [MenuItem] and add it to this [LayoutManager]. */
-inline fun LayoutManager<MenuItem>.styledMenuItem(
-    styleClass: String,
-    text: String? = null,
-    graphic: Node? = null,
-    noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
-): MenuItem = ktfx.layouts.styledMenuItem(styleClass, text, graphic, init)()

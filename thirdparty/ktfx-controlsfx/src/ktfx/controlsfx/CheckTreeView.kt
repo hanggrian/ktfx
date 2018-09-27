@@ -21,20 +21,3 @@ inline fun <T> LayoutManager<Node>.checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
     noinline init: ((@LayoutDsl CheckTreeView<T>).() -> Unit)? = null
 ): CheckTreeView<T> = ktfx.controlsfx.checkTreeView(root, init)()
-
-/** Create a styled [CheckTreeView]. */
-fun <T> styledCheckTreeView(
-    styleClass: String,
-    root: CheckBoxTreeItem<T>? = null,
-    init: ((@LayoutDsl CheckTreeView<T>).() -> Unit)? = null
-): CheckTreeView<T> = CheckTreeView<T>(root).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [CheckTreeView] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.styledCheckTreeView(
-    styleClass: String,
-    root: CheckBoxTreeItem<T>? = null,
-    noinline init: ((@LayoutDsl CheckTreeView<T>).() -> Unit)? = null
-): CheckTreeView<T> = ktfx.controlsfx.styledCheckTreeView(styleClass, root, init)()

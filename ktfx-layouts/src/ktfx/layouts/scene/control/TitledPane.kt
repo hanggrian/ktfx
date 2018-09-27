@@ -31,22 +31,3 @@ inline fun LayoutManager<Node>.titledPane(
     content: Node? = null,
     noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
 ): TitledPane = ktfx.layouts.titledPane(text, content, init)()
-
-/** Create a styled [TitledPane]. */
-fun styledTitledPane(
-    styleClass: String,
-    text: String? = null,
-    content: Node? = null,
-    init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
-): TitledPane = _TitledPane(text, content).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [TitledPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledTitledPane(
-    styleClass: String,
-    text: String? = null,
-    content: Node? = null,
-    noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
-): TitledPane = ktfx.layouts.styledTitledPane(styleClass, text, content, init)()

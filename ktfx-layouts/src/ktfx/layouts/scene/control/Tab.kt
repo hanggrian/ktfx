@@ -31,22 +31,3 @@ inline fun LayoutManager<Tab>.tab(
     content: Node? = null,
     noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null
 ): Tab = ktfx.layouts.tab(text, content, init)()
-
-/** Create a styled [Tab]. */
-fun styledTab(
-    styleClass: String,
-    text: String? = null,
-    content: Node? = null,
-    init: ((@LayoutDsl _Tab).() -> Unit)? = null
-): Tab = _Tab(text, content).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [Tab] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Tab>.styledTab(
-    styleClass: String,
-    text: String? = null,
-    content: Node? = null,
-    noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null
-): Tab = ktfx.layouts.styledTab(styleClass, text, content, init)()

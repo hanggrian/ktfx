@@ -23,22 +23,3 @@ inline fun <T> LayoutManager<Node>.jfxChip(
     item: T,
     noinline init: ((@LayoutDsl JFXChip<T>).() -> Unit)? = null
 ): JFXChip<T> = ktfx.jfoenix.jfxChip(view, item, init)()
-
-/** Create a styled [JFXChip]. */
-fun <T> styledJFXChip(
-    styleClass: String,
-    view: JFXChipView<T>,
-    item: T,
-    init: ((@LayoutDsl JFXChip<T>).() -> Unit)? = null
-): JFXChip<T> = JFXChip<T>(view, item).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [JFXChip] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.styledJFXChip(
-    styleClass: String,
-    view: JFXChipView<T>,
-    item: T,
-    noinline init: ((@LayoutDsl JFXChip<T>).() -> Unit)? = null
-): JFXChip<T> = ktfx.jfoenix.styledJFXChip(styleClass, view, item, init)()

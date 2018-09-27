@@ -28,29 +28,3 @@ inline fun LayoutManager<Node>.hiddenSidesPane(
     left: Node? = null,
     noinline init: ((@LayoutDsl HiddenSidesPane).() -> Unit)? = null
 ): HiddenSidesPane = ktfx.controlsfx.hiddenSidesPane(content, top, right, bottom, left, init)()
-
-/** Create a styled [HiddenSidesPane]. */
-fun styledHiddenSidesPane(
-    styleClass: String,
-    content: Node? = null,
-    top: Node? = null,
-    right: Node? = null,
-    bottom: Node? = null,
-    left: Node? = null,
-    init: ((@LayoutDsl HiddenSidesPane).() -> Unit)? = null
-): HiddenSidesPane = HiddenSidesPane(content, top, right, bottom, left).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [HiddenSidesPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledHiddenSidesPane(
-    styleClass: String,
-    content: Node? = null,
-    top: Node? = null,
-    right: Node? = null,
-    bottom: Node? = null,
-    left: Node? = null,
-    noinline init: ((@LayoutDsl HiddenSidesPane).() -> Unit)? = null
-): HiddenSidesPane =
-    ktfx.controlsfx.styledHiddenSidesPane(styleClass, content, top, right, bottom, left, init)()

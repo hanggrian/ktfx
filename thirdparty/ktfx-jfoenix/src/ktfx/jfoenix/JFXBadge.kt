@@ -24,22 +24,3 @@ inline fun LayoutManager<Node>.jfxBadge(
     pos: Pos = TOP_RIGHT,
     noinline init: ((@LayoutDsl JFXBadge).() -> Unit)? = null
 ): JFXBadge = ktfx.jfoenix.jfxBadge(control, pos, init)()
-
-/** Create a styled [JFXBadge]. */
-fun styledJFXBadge(
-    styleClass: String,
-    control: Node? = null,
-    pos: Pos = TOP_RIGHT,
-    init: ((@LayoutDsl JFXBadge).() -> Unit)? = null
-): JFXBadge = JFXBadge(control, pos).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [JFXBadge] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledJFXBadge(
-    styleClass: String,
-    control: Node? = null,
-    pos: Pos = TOP_RIGHT,
-    noinline init: ((@LayoutDsl JFXBadge).() -> Unit)? = null
-): JFXBadge = ktfx.jfoenix.styledJFXBadge(styleClass, control, pos, init)()

@@ -26,26 +26,3 @@ inline fun LayoutManager<Node>.rangeSlider(
     highValue: Double = 0.75,
     noinline init: ((@LayoutDsl RangeSlider).() -> Unit)? = null
 ): RangeSlider = ktfx.controlsfx.rangeSlider(min, max, lowValue, highValue, init)()
-
-/** Create a styled [RangeSlider]. */
-fun styledRangeSlider(
-    styleClass: String,
-    min: Double = 0.0,
-    max: Double = 1.0,
-    lowValue: Double = 0.25,
-    highValue: Double = 0.75,
-    init: ((@LayoutDsl RangeSlider).() -> Unit)? = null
-): RangeSlider = RangeSlider(min, max, lowValue, highValue).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [RangeSlider] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledRangeSlider(
-    styleClass: String,
-    min: Double = 0.0,
-    max: Double = 1.0,
-    lowValue: Double = 0.25,
-    highValue: Double = 0.75,
-    noinline init: ((@LayoutDsl RangeSlider).() -> Unit)? = null
-): RangeSlider = ktfx.controlsfx.styledRangeSlider(styleClass, min, max, lowValue, highValue, init)()

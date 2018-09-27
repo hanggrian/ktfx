@@ -20,20 +20,3 @@ inline fun LayoutManager<Node>.hyperlinkLabel(
     text: String? = null,
     noinline init: ((@LayoutDsl HyperlinkLabel).() -> Unit)? = null
 ): HyperlinkLabel = ktfx.controlsfx.hyperlinkLabel(text, init)()
-
-/** Create a styled [HyperlinkLabel]. */
-fun styledHyperlinkLabel(
-    styleClass: String,
-    text: String? = null,
-    init: ((@LayoutDsl HyperlinkLabel).() -> Unit)? = null
-): HyperlinkLabel = HyperlinkLabel(text).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [HyperlinkLabel] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledHyperlinkLabel(
-    styleClass: String,
-    text: String? = null,
-    noinline init: ((@LayoutDsl HyperlinkLabel).() -> Unit)? = null
-): HyperlinkLabel = ktfx.controlsfx.styledHyperlinkLabel(styleClass, text, init)()

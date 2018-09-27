@@ -20,20 +20,3 @@ inline fun LayoutManager<Node>.notificationPane(
     content: Node? = null,
     noinline init: ((@LayoutDsl NotificationPane).() -> Unit)? = null
 ): NotificationPane = ktfx.controlsfx.notificationPane(content, init)()
-
-/** Create a styled [NotificationPane]. */
-fun styledNotificationPane(
-    styleClass: String,
-    content: Node? = null,
-    init: ((@LayoutDsl NotificationPane).() -> Unit)? = null
-): NotificationPane = NotificationPane(content).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [NotificationPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledNotificationPane(
-    styleClass: String,
-    content: Node? = null,
-    noinline init: ((@LayoutDsl NotificationPane).() -> Unit)? = null
-): NotificationPane = ktfx.controlsfx.styledNotificationPane(styleClass, content, init)()

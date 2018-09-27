@@ -18,18 +18,3 @@ fun <T> jfxChipView(
 inline fun <T> LayoutManager<Node>.jfxChipView(
     noinline init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
 ): JFXChipView<T> = ktfx.jfoenix.jfxChipView(init)()
-
-/** Create a styled [JFXChipView]. */
-fun <T> styledJFXChipView(
-    styleClass: String,
-    init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
-): JFXChipView<T> = JFXChipView<T>().also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [JFXChipView] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.styledJFXChipView(
-    styleClass: String,
-    noinline init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
-): JFXChipView<T> = ktfx.jfoenix.styledJFXChipView(styleClass, init)()

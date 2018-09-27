@@ -22,22 +22,3 @@ inline fun LayoutManager<Node>.infoOverlay(
     text: String? = null,
     noinline init: ((@LayoutDsl InfoOverlay).() -> Unit)? = null
 ): InfoOverlay = ktfx.controlsfx.infoOverlay(graphic, text, init)()
-
-/** Create a styled [InfoOverlay]. */
-fun styledInfoOverlay(
-    styleClass: String,
-    graphic: Node? = null,
-    text: String? = null,
-    init: ((@LayoutDsl InfoOverlay).() -> Unit)? = null
-): InfoOverlay = InfoOverlay(graphic, text).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [InfoOverlay] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledInfoOverlay(
-    styleClass: String,
-    graphic: Node? = null,
-    text: String? = null,
-    noinline init: ((@LayoutDsl InfoOverlay).() -> Unit)? = null
-): InfoOverlay = ktfx.controlsfx.styledInfoOverlay(styleClass, graphic, text, init)()

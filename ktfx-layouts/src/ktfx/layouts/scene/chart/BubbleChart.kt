@@ -29,24 +29,3 @@ inline fun <X, Y> LayoutManager<Node>.bubbleChart(
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl BubbleChart<X, Y>).() -> Unit)? = null
 ): BubbleChart<X, Y> = ktfx.layouts.bubbleChart(x, y, data, init)()
-
-/** Create a styled [BubbleChart]. */
-fun <X, Y> styledBubbleChart(
-    styleClass: String,
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: ((@LayoutDsl BubbleChart<X, Y>).() -> Unit)? = null
-): BubbleChart<X, Y> = BubbleChart(x, y, data).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [BubbleChart] and add it to this [LayoutManager]. */
-inline fun <X, Y> LayoutManager<Node>.styledBubbleChart(
-    styleClass: String,
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl BubbleChart<X, Y>).() -> Unit)? = null
-): BubbleChart<X, Y> = ktfx.layouts.styledBubbleChart(styleClass, x, y, data, init)()

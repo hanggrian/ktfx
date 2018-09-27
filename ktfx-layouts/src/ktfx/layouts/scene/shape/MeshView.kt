@@ -22,20 +22,3 @@ inline fun LayoutManager<Node>.meshView(
     mesh: Mesh? = null,
     noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null
 ): MeshView = ktfx.layouts.meshView(mesh, init)()
-
-/** Create a styled [MeshView]. */
-fun styledMeshView(
-    styleClass: String,
-    mesh: Mesh? = null,
-    init: ((@LayoutDsl MeshView).() -> Unit)? = null
-): MeshView = MeshView(mesh).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [MeshView] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledMeshView(
-    styleClass: String,
-    mesh: Mesh? = null,
-    noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null
-): MeshView = ktfx.layouts.styledMeshView(styleClass, mesh, init)()

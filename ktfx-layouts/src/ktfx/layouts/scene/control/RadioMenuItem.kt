@@ -24,22 +24,3 @@ inline fun LayoutManager<MenuItem>.radioMenuItem(
     graphic: Node? = null,
     noinline init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
 ): RadioMenuItem = ktfx.layouts.radioMenuItem(text, graphic, init)()
-
-/** Create a styled [RadioMenuItem]. */
-fun styledRadioMenuItem(
-    styleClass: String,
-    text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
-): RadioMenuItem = RadioMenuItem(text, graphic).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [RadioMenuItem] and add it to this [LayoutManager]. */
-inline fun LayoutManager<MenuItem>.styledRadioMenuItem(
-    styleClass: String,
-    text: String? = null,
-    graphic: Node? = null,
-    noinline init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
-): RadioMenuItem = ktfx.layouts.styledRadioMenuItem(styleClass, text, graphic, init)()

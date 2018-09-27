@@ -21,20 +21,3 @@ inline fun LayoutManager<Node>.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     noinline init: ((@LayoutDsl PropertySheet).() -> Unit)? = null
 ): PropertySheet = ktfx.controlsfx.propertySheet(items, init)()
-
-/** Create a styled [PropertySheet]. */
-fun styledPropertySheet(
-    styleClass: String,
-    items: ObservableList<PropertySheet.Item>? = null,
-    init: ((@LayoutDsl PropertySheet).() -> Unit)? = null
-): PropertySheet = PropertySheet(items).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [PropertySheet] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledPropertySheet(
-    styleClass: String,
-    items: ObservableList<PropertySheet.Item>? = null,
-    noinline init: ((@LayoutDsl PropertySheet).() -> Unit)? = null
-): PropertySheet = ktfx.controlsfx.styledPropertySheet(styleClass, items, init)()

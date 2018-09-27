@@ -25,23 +25,6 @@ inline fun <S> LayoutManager<Node>.tableView(
     noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
 ): TableView<S> = ktfx.layouts.tableView(items, init)()
 
-/** Create a styled [TableView]. */
-fun <S> styledTableView(
-    styleClass: String,
-    items: ObservableList<S> = mutableObservableListOf(),
-    init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
-): TableView<S> = TableView<S>(items).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [TableView] and add it to this [LayoutManager]. */
-inline fun <S> LayoutManager<Node>.styledTableView(
-    styleClass: String,
-    items: ObservableList<S> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
-): TableView<S> = ktfx.layouts.styledTableView(styleClass, items, init)()
-
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {
 

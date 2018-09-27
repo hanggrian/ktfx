@@ -23,22 +23,3 @@ inline fun LayoutManager<Node>.button(
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Button).() -> Unit)? = null
 ): Button = ktfx.layouts.button(text, graphic, init)()
-
-/** Create a styled [Button]. */
-fun styledButton(
-    styleClass: String,
-    text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDsl Button).() -> Unit)? = null
-): Button = Button(text, graphic).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [Button] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledButton(
-    styleClass: String,
-    text: String? = null,
-    graphic: Node? = null,
-    noinline init: ((@LayoutDsl Button).() -> Unit)? = null
-): Button = ktfx.layouts.styledButton(styleClass, text, graphic, init)()

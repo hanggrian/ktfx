@@ -28,20 +28,3 @@ inline fun LayoutManager<Node>.splitPane(
     vararg items: Node,
     noinline init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
 ): SplitPane = ktfx.layouts.splitPane(*items, init = init)()
-
-/** Create a styled [SplitPane]. */
-fun styledSplitPane(
-    styleClass: String,
-    vararg items: Node,
-    init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
-): SplitPane = _SplitPane(*items).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [SplitPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledSplitPane(
-    styleClass: String,
-    vararg items: Node,
-    noinline init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
-): SplitPane = ktfx.layouts.styledSplitPane(styleClass, *items, init = init)()

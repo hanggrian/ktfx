@@ -29,24 +29,3 @@ inline fun <X, Y> LayoutManager<Node>.scatterChart(
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
 ): ScatterChart<X, Y> = ktfx.layouts.scatterChart(x, y, data, init)()
-
-/** Create a styled [ScatterChart]. */
-fun <X, Y> styledScatterChart(
-    styleClass: String,
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
-): ScatterChart<X, Y> = ScatterChart(x, y, data).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [ScatterChart] and add it to this [LayoutManager]. */
-inline fun <X, Y> LayoutManager<Node>.styledScatterChart(
-    styleClass: String,
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl ScatterChart<X, Y>).() -> Unit)? = null
-): ScatterChart<X, Y> = ktfx.layouts.styledScatterChart(styleClass, x, y, data, init)()

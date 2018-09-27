@@ -28,20 +28,3 @@ inline fun LayoutManager<Node>.scrollPane(
     content: Node? = null,
     noinline init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
 ): ScrollPane = ktfx.layouts.scrollPane(content, init)()
-
-/** Create a styled [ScrollPane]. */
-fun styledScrollPane(
-    styleClass: String,
-    content: Node? = null,
-    init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
-): ScrollPane = _ScrollPane(content).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [ScrollPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledScrollPane(
-    styleClass: String,
-    content: Node? = null,
-    noinline init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
-): ScrollPane = ktfx.layouts.styledScrollPane(styleClass, content, init)()

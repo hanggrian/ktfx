@@ -22,20 +22,3 @@ inline fun <T> LayoutManager<Node>.gridView(
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl GridView<T>).() -> Unit)? = null
 ): GridView<T> = ktfx.controlsfx.gridView(items, init)()
-
-/** Create a styled [GridView]. */
-fun <T> styledGridView(
-    styleClass: String,
-    items: ObservableList<T> = mutableObservableListOf(),
-    init: ((@LayoutDsl GridView<T>).() -> Unit)? = null
-): GridView<T> = GridView(items).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [GridView] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.styledGridView(
-    styleClass: String,
-    items: ObservableList<T> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl GridView<T>).() -> Unit)? = null
-): GridView<T> = ktfx.controlsfx.styledGridView(styleClass, items, init)()

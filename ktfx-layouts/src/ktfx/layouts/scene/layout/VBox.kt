@@ -43,22 +43,3 @@ inline fun LayoutManager<Node>.vbox(
     vararg children: Node,
     noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
 ): VBox = ktfx.layouts.vbox(spacing, *children, init = init)()
-
-/** Create a styled [VBox]. */
-fun styledVbox(
-    styleClass: String,
-    spacing: Double = 0.0,
-    vararg children: Node,
-    init: ((@LayoutDsl _VBox).() -> Unit)? = null
-): VBox = _VBox(spacing, *children).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [VBox] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledVbox(
-    styleClass: String,
-    spacing: Double = 0.0,
-    vararg children: Node,
-    noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
-): VBox = ktfx.layouts.styledVbox(styleClass, spacing, *children, init = init)()

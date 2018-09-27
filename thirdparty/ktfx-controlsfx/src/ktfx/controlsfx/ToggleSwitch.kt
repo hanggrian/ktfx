@@ -20,20 +20,3 @@ inline fun LayoutManager<Node>.toggleSwitch(
     text: String? = null,
     noinline init: ((@LayoutDsl ToggleSwitch).() -> Unit)? = null
 ): ToggleSwitch = ktfx.controlsfx.toggleSwitch(text, init)()
-
-/** Create a styled [ToggleSwitch]. */
-fun styledToggleSwitch(
-    styleClass: String,
-    text: String? = null,
-    init: ((@LayoutDsl ToggleSwitch).() -> Unit)? = null
-): ToggleSwitch = ToggleSwitch(text).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [ToggleSwitch] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledToggleSwitch(
-    styleClass: String,
-    text: String? = null,
-    noinline init: ((@LayoutDsl ToggleSwitch).() -> Unit)? = null
-): ToggleSwitch = ktfx.controlsfx.styledToggleSwitch(styleClass, text, init)()

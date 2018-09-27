@@ -8,7 +8,6 @@ import javafx.scene.control.ToggleButton
 import ktfx.layouts.LayoutDsl
 import ktfx.layouts.LayoutManager
 import ktfx.layouts.button
-import ktfx.layouts.styledButton
 import org.controlsfx.control.SegmentedButton
 
 open class _SegmentedButton(
@@ -22,13 +21,6 @@ open class _SegmentedButton(
         graphic: Node? = null,
         noinline init: ((@LayoutDsl Button).() -> Unit)? = null
     ): Button = button(this, graphic, init)
-
-    /** Creates a styled [Button] and add it to this [LayoutManager]. */
-    inline operator fun String.invoke(
-        styleClass: String,
-        graphic: Node? = null,
-        noinline init: ((@LayoutDsl Button).() -> Unit)? = null
-    ): Button = styledButton(styleClass, this, graphic, init)
 }
 
 /** Creates a [SegmentedButton]. */
@@ -44,20 +36,3 @@ inline fun LayoutManager<Node>.segmentedButton(
     vararg buttons: ToggleButton,
     noinline init: ((@LayoutDsl _SegmentedButton).() -> Unit)? = null
 ): SegmentedButton = ktfx.controlsfx.segmentedButton(*buttons, init = init)()
-
-/** Create a styled [SegmentedButton]. */
-fun styledSegmentedButton(
-    styleClass: String,
-    vararg buttons: ToggleButton,
-    init: ((@LayoutDsl _SegmentedButton).() -> Unit)? = null
-): SegmentedButton = _SegmentedButton(*buttons).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [SegmentedButton] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledSegmentedButton(
-    styleClass: String,
-    vararg buttons: ToggleButton,
-    noinline init: ((@LayoutDsl _SegmentedButton).() -> Unit)? = null
-): SegmentedButton = ktfx.controlsfx.styledSegmentedButton(styleClass, *buttons, init = init)()

@@ -20,13 +20,6 @@ open class _ButtonBar(
         graphic: Node? = null,
         noinline init: ((@LayoutDsl Button).() -> Unit)? = null
     ): Button = button(this, graphic, init)
-
-    /** Creates a styled [Button] and add it to this [LayoutManager]. */
-    inline operator fun String.invoke(
-        styleClass: String,
-        graphic: Node? = null,
-        noinline init: ((@LayoutDsl Button).() -> Unit)? = null
-    ): Button = styledButton(styleClass, this, graphic, init)
 }
 
 /** Creates a [ButtonBar]. */
@@ -42,20 +35,3 @@ inline fun LayoutManager<Node>.buttonBar(
     buttonOrder: String? = null,
     noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
 ): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init)()
-
-/** Create a styled [ButtonBar]. */
-fun styledButtonBar(
-    styleClass: String,
-    buttonOrder: String? = null,
-    init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
-): ButtonBar = _ButtonBar(buttonOrder).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [ButtonBar] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledButtonBar(
-    styleClass: String,
-    buttonOrder: String? = null,
-    noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
-): ButtonBar = ktfx.layouts.styledButtonBar(styleClass, buttonOrder, init)()

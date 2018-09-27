@@ -22,20 +22,3 @@ inline fun <T> LayoutManager<Node>.checkComboBox(
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl CheckComboBox<T>).() -> Unit)? = null
 ): CheckComboBox<T> = ktfx.controlsfx.checkComboBox(items, init)()
-
-/** Create a styled [CheckComboBox]. */
-fun <T> styledCheckComboBox(
-    styleClass: String,
-    items: ObservableList<T> = mutableObservableListOf(),
-    init: ((@LayoutDsl CheckComboBox<T>).() -> Unit)? = null
-): CheckComboBox<T> = CheckComboBox(items).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [CheckComboBox] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.styledCheckComboBox(
-    styleClass: String,
-    items: ObservableList<T> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl CheckComboBox<T>).() -> Unit)? = null
-): CheckComboBox<T> = ktfx.controlsfx.styledCheckComboBox(styleClass, items, init)()

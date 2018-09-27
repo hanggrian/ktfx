@@ -19,18 +19,3 @@ fun <T : Segment> segmentedBar(
 inline fun <T : Segment> LayoutManager<Node>.segmentedBar(
     noinline init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
 ): SegmentedBar<T> = ktfx.controlsfx.segmentedBar(init)()
-
-/** Create a styled [SegmentedBar]. */
-fun <T : Segment> styledSegmentedBar(
-    styleClass: String,
-    init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
-): SegmentedBar<T> = SegmentedBar<T>().also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [SegmentedBar] and add it to this [LayoutManager]. */
-inline fun <T : Segment> LayoutManager<Node>.styledSegmentedBar(
-    styleClass: String,
-    noinline init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
-): SegmentedBar<T> = ktfx.controlsfx.styledSegmentedBar(styleClass, init)()

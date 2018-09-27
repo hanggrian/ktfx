@@ -23,13 +23,6 @@ open class _ContextMenu(
         graphic: Node? = null,
         noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
     ): MenuItem = menuItem(this, graphic, init)
-
-    /** Creates a styled [MenuItem] and add it to this [LayoutManager]. */
-    inline operator fun String.invoke(
-        styleClass: String,
-        graphic: Node? = null,
-        noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
-    ): MenuItem = styledMenuItem(styleClass, this, graphic, init)
 }
 
 /** Creates a [ContextMenu]. */
@@ -57,34 +50,3 @@ inline fun <S, T> TableColumnBase<S, T>.contextMenu(
     vararg items: MenuItem,
     noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
 ): ContextMenu = ktfx.layouts.contextMenu(*items, init = init).also { setContextMenu(it) }
-
-/** Creates a styled [ContextMenu]. */
-fun styledContextMenu(
-    styleClass: String,
-    vararg items: MenuItem,
-    init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = _ContextMenu(*items).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [ContextMenu] and set it to this [Control]. */
-inline fun Control.styledContextMenu(
-    styleClass: String,
-    vararg items: MenuItem,
-    noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.styledContextMenu(styleClass, *items, init = init).also { setContextMenu(it) }
-
-/** Creates a styled [ContextMenu] and set it to this [Tab]. */
-inline fun Tab.styledContextMenu(
-    styleClass: String,
-    vararg items: MenuItem,
-    noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.styledContextMenu(styleClass, *items, init = init).also { setContextMenu(it) }
-
-/** Creates a styled [ContextMenu] and set it to this [TableColumnBase]. */
-inline fun <S, T> TableColumnBase<S, T>.styledContextMenu(
-    styleClass: String,
-    vararg items: MenuItem,
-    noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.styledContextMenu(styleClass, *items, init = init).also { setContextMenu(it) }

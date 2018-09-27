@@ -67,20 +67,3 @@ inline fun LayoutManager<Node>.anchorPane(
     vararg children: Node,
     noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
 ): AnchorPane = ktfx.layouts.anchorPane(*children, init = init)()
-
-/** Create a styled [AnchorPane]. */
-fun styledAnchorPane(
-    styleClass: String,
-    vararg children: Node,
-    init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
-): AnchorPane = _AnchorPane(*children).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [AnchorPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledAnchorPane(
-    styleClass: String,
-    vararg children: Node,
-    noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
-): AnchorPane = ktfx.layouts.styledAnchorPane(styleClass, *children, init = init)()

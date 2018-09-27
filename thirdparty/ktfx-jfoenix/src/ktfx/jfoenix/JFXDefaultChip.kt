@@ -3,7 +3,6 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXChipView
-import com.jfoenix.controls.JFXComboBox
 import com.jfoenix.controls.JFXDefaultChip
 import javafx.scene.Node
 import ktfx.layouts.LayoutDsl

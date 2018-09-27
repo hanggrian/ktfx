@@ -20,4 +20,4 @@ fun jfxDatePicker(
 inline fun LayoutManager<Node>.jfxDatePicker(
     date: LocalDate? = null,
     noinline init: ((@LayoutDsl JFXDatePicker).() -> Unit)? = null
-): JFXDatePicker = ktfx.jfoenix.jfxDatePicker(date, init = init)()
+): JFXDatePicker = ktfx.jfoenix.jfxDatePicker(date, init)()

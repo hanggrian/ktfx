@@ -37,4 +37,4 @@ inline fun LayoutManager<Node>.masterDetailPane(
     side: Side = RIGHT,
     showDetail: Boolean = true,
     noinline init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null
-): MasterDetailPane = ktfx.controlsfx.masterDetailPane(side, showDetail, init = init)()
+): MasterDetailPane = ktfx.controlsfx.masterDetailPane(side, showDetail, init)()

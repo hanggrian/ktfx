@@ -4,7 +4,7 @@ Extensions supporting third-party libraries.
 Artifacts here are not included in ktfx main library.
 
 #### ktfx-controlsfx
-Layouts DSL.
+Common extensions and Layouts DSL.
 
 #### ktfx-jfoenix
-Layouts DSL.
+Common extensions and Layouts DSL.

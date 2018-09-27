@@ -1,4 +1,4 @@
-const val VERSION_GRADLE = "4.10.1"
+const val VERSION_GRADLE = "4.10.2"
 const val VERSION_KOTLIN = "1.2.71"
 const val VERSION_COROUTINES = "0.27.0"
 

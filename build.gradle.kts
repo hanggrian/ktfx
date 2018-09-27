@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 buildscript {
     repositories {
         jcenter()
@@ -15,8 +17,17 @@ allprojects {
     repositories {
         jcenter()
     }
-    tasks.withType<Delete> {
-        delete(projectDir.resolve("out"))
+    tasks {
+        withType<Delete> {
+            delete(projectDir.resolve("out"))
+        }
+        withType<KotlinCompile> {
+            kotlinOptions {
+                // languageVersion = '1.1'
+                // apiVersion = '1.1'
+                jvmTarget = "1.8"
+            }
+        }
     }
 }
 

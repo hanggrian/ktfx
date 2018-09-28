@@ -12,7 +12,7 @@ sourceSets {
 }
 
 dependencies {
-    compile(project(":$RULESET"))
+    compile(project(":$ARTIFACT_DEV_RULESET"))
 
-    testImplementation(project(":$TESTING_RULESET"))
+    testImplementation(project(":$ARTIFACT_DEV_TESTING_RULESET"))
 }

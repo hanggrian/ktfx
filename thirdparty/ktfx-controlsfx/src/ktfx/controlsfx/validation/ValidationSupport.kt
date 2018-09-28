@@ -10,49 +10,77 @@ import org.controlsfx.validation.Validator
 
 /* ktlint-enable package-name */
 
+private var internalSupport: ValidationSupport? = null
+
+@PublishedApi internal val singleton: ValidationSupport
+    get() {
+        var support = internalSupport
+        if (support == null) {
+            support = ValidationSupport().also { internalSupport = it }
+        }
+        return support
+    }
+
+/** Register empty validation. */
 inline fun <T> Control.registerEmptyValidator(
-    validation: ValidationSupport,
     message: String,
     severity: Severity = Severity.ERROR,
-    required: Boolean = true
-): Boolean = validation.registerValidator(
+    required: Boolean = true,
+    support: ValidationSupport = singleton
+): Boolean = support.registerValidator(
     this,
     required,
     Validator.createEmptyValidator<T>(message, severity)
 )
 
+/** Register equals validation. */
 inline fun <T> Control.registerEqualsValidator(
-    validation: ValidationSupport,
     message: String,
     colletion: Collection<T>,
     severity: Severity = Severity.ERROR,
-    required: Boolean = true
-): Boolean = validation.registerValidator(
+    required: Boolean = true,
+    support: ValidationSupport = singleton
+): Boolean = support.registerValidator(
     this,
     required,
     Validator.createEqualsValidator<T>(message, severity, colletion)
 )
 
+/** Register predicate validation. */
 inline fun <T> Control.registerPredicateValidator(
-    validation: ValidationSupport,
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
+    support: ValidationSupport = singleton,
     noinline predicate: (T) -> Boolean
-): Boolean = validation.registerValidator(
+): Boolean = support.registerValidator(
     this,
     required,
-    Validator.createPredicateValidator(predicate, message, severity)
+    Validator.createPredicateValidator<T>(predicate, message, severity)
 )
 
-inline fun <T> Control.registerRegexValidator(
-    validation: ValidationSupport,
+/** Register regex validation. */
+inline fun Control.registerRegexValidator(
     message: String,
+    regex: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    noinline predicate: (T) -> Boolean
-): Boolean = validation.registerValidator(
+    support: ValidationSupport = singleton
+): Boolean = support.registerValidator(
     this,
     required,
-    Validator.createPredicateValidator(predicate, message, severity)
+    Validator.createRegexValidator(message, regex, severity)
+)
+
+/** Register regex validation. */
+inline fun Control.registerRegexValidator(
+    message: String,
+    regex: Regex,
+    severity: Severity = Severity.ERROR,
+    required: Boolean = true,
+    support: ValidationSupport = singleton
+): Boolean = support.registerValidator(
+    this,
+    required,
+    Validator.createRegexValidator(message, regex.toPattern(), severity)
 )

@@ -25,12 +25,12 @@ dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(jfoenix())
 
-    testImplementation(project(":$TESTING"))
+    testImplementation(project(":$ARTIFACT_DEV_TESTING"))
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":$RULESET_BASE"))
-        invoke(project(":$RULESET_EXTENDED"))
+        invoke(project(":$ARTIFACT_DEV_RULESET_BASE"))
+        invoke(project(":$ARTIFACT_DEV_RULESET_EXTENDED"))
     }
 }
 
@@ -71,7 +71,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_THIRDPARTY_JFOENIX
+    artifactId = ARTIFACT_THIRDPARTY_JFOENIX()
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

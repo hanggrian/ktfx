@@ -24,12 +24,12 @@ val ktlint by configurations.registering
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(project(":$TESTING"))
+    testImplementation(project(":$ARTIFACT_DEV_TESTING"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":$RULESET_BASE"))
+        invoke(project(":$ARTIFACT_DEV_RULESET_BASE"))
     }
 }
 

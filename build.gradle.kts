@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 buildscript {
     repositories {
         jcenter()
@@ -10,6 +8,7 @@ buildscript {
         classpath(gitPublish())
         classpath(bintray())
         classpath(bintrayRelease())
+        classpath(hendraanggrian("generation", "buildconfig-gradle-plugin", VERSION_BUILDCONFIG))
     }
 }
 
@@ -21,7 +20,7 @@ allprojects {
         withType<Delete> {
             delete(projectDir.resolve("out"))
         }
-        withType<KotlinCompile> {
+        withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
             kotlinOptions {
                 // languageVersion = '1.1'
                 // apiVersion = '1.1'

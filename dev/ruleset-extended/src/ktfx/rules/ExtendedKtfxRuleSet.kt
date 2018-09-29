@@ -7,6 +7,6 @@ class ExtendedKtfxRuleSet : RuleSetProvider {
 
     override fun get() = RuleSet(
         "ktfx-extended-ruleset",
-        SingularPackageRule()
+        PredefinedPackageRule()
     )
 }

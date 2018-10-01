@@ -12,12 +12,7 @@ import ktfx.layouts.LayoutManager
 
 open class _JFXPopup(content: Region? = null) : JFXPopup(content), LayoutManager<Region> {
 
-    override fun <T : Region> T.invoke(): T = also {
-        when (null) {
-            popupContent -> popupContent = it
-            else -> error("Popup content is already set")
-        }
-    }
+    override fun <T : Region> T.invoke(): T = also { popupContent = it }
 }
 
 /** Creates a [JFXPopup]. */

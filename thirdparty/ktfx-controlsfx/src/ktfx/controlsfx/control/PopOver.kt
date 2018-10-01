@@ -12,12 +12,7 @@ import org.controlsfx.control.PopOver
 
 open class _PopOver(content: Node? = null) : PopOver(content), LayoutManager<Node> {
 
-    override fun <T : Node> T.invoke(): T = also {
-        when (null) {
-            contentNode -> contentNode = it
-            else -> error("PopOver content is already set")
-        }
-    }
+    override fun <T : Node> T.invoke(): T = also { contentNode = it }
 }
 
 /** Creates a [PopOver]. */

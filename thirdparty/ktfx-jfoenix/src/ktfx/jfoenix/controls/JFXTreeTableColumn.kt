@@ -1,23 +1,40 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.jfoenix
 
 /* ktlint-enable package-name */
 
-/** Creates a [JFXTreeTableColumn]. *//*
+import com.jfoenix.controls.JFXTreeTableColumn
+import com.jfoenix.controls.JFXTreeTableView
+import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
+import javafx.scene.control.TreeTableColumn
+import ktfx.layouts.LayoutManager
 
-fun <S, T> jfxTreeTableColumn(
-    text: String? = null,
-    init: ((@LayoutDsl JFXTreeTableColumn<S, T>).() -> Unit)? = null
-): JFXTreeTableColumn<S, T> = JFXTreeTableColumn<S, T>(text).also {
-    init?.invoke(it)
+/** Interface to build [JFXTreeTableColumn] with Kotlin DSL. */
+interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {
+
+    fun <T> column(
+        text: String? = null,
+        init: (JFXTreeTableColumn<S, T>.() -> Unit)? = null
+    ): JFXTreeTableColumn<S, T>
+
+    operator fun <T> String.invoke(
+        init: (JFXTreeTableColumn<S, T>.() -> Unit)? = null
+    ): JFXTreeTableColumn<S, T> = column(this, init)
 }
 
-*/
-/** Creates a [JFXTreeTableColumn] and add it to this [LayoutManager]. *//*
+@PublishedApi
+internal class _JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> : JFXTreeTableColumnsBuilder<S>,
+    LayoutManager<JFXTreeTableColumn<S, *>> {
 
-inline fun <S, T> LayoutManager<Node>.jfxTreeTableColumn(
-    text: String? = null,
-    noinline init: ((@LayoutDsl JFXTreeTableColumn<S, T>).() -> Unit)? = null
-): JFXTreeTableColumn<S, T> = ktfx.jfoenix.jfxTreeTableColumn(text, init)()*/
+    override val childs: MutableList<JFXTreeTableColumn<S, *>> = mutableListOf()
+
+    override fun <T> column(text: String?, init: (JFXTreeTableColumn<S, T>.() -> Unit)?): JFXTreeTableColumn<S, T> =
+        JFXTreeTableColumn<S, T>(text).also { init?.invoke(it) }()
+}
+
+/** Invokes a [TreeTableColumn] DSL builder. */
+inline fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(init: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
+    columns += _JFXTreeTableColumnsBuilder<S>().apply(init).childs
+}

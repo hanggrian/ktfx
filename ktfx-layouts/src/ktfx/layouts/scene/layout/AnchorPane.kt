@@ -16,7 +16,7 @@ open class _AnchorPane(
 
     override val childs: MutableCollection<Node> get() = children
 
-    override fun Node.reset() = clearConstraints(this)
+    override fun Node.reset(): Unit = clearConstraints(this)
 
     inline infix fun <N : Node> N.anchorAll(anchorAll: Double?): N = also { it.anchorAll = anchorAll }
 

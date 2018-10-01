@@ -2,7 +2,7 @@
 
 package ktfx.collections
 
-import javafx.beans.binding.Bindings.size
+import javafx.beans.binding.Bindings
 import javafx.beans.binding.IntegerBinding
 import javafx.collections.FXCollections
 import javafx.collections.ObservableArray
@@ -13,13 +13,13 @@ import javafx.collections.ObservableSet
 inline val ObservableArray<*>.size: Int get() = size()
 
 /** Returns `true` if the array is empty. */
-inline fun ObservableArray<*>.isEmpty() = size == 0
+inline fun ObservableArray<*>.isEmpty(): Boolean = size == 0
 
 /** Returns `true` if the array is not empty. */
-inline fun ObservableArray<*>.isNotEmpty() = size != 0
+inline fun ObservableArray<*>.isNotEmpty(): Boolean = size != 0
 
 /** Creates a new [IntegerBinding] that contains the size of this array. */
-inline fun ObservableArray<*>.sizeBinding(): IntegerBinding = size(this)
+inline fun ObservableArray<*>.sizeBinding(): IntegerBinding = Bindings.size(this)
 
 /** Converts this array to immutable [ObservableList]. */
 fun <T> Array<out T>.toObservableList(): ObservableList<T> = when (size) {

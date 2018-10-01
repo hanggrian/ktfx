@@ -16,7 +16,7 @@ open class _StackPane(
 
     override val childs: MutableCollection<Node> get() = children
 
-    override fun Node.reset() = clearConstraints(this)
+    override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.align: Pos?
         get() = getAlignment(this)

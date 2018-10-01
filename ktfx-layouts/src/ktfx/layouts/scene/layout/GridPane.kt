@@ -21,7 +21,7 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
 
     override val childs: MutableCollection<Node> get() = children
 
-    override fun Node.reset() = clearConstraints(this)
+    override fun Node.reset(): Unit = clearConstraints(this)
 
     infix fun <N : Node> N.row(row: Int?): N = also { it.row = row }
 

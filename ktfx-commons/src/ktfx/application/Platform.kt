@@ -15,7 +15,7 @@ inline fun isFxThread(): Boolean = Platform.isFxApplicationThread()
  * Run the specified block on the JavaFX thread.
  * Alias of `Platform.runLater`.
  */
-inline fun later(noinline block: () -> Unit) = Platform.runLater(block)
+inline fun later(noinline block: () -> Unit): Unit = Platform.runLater(block)
 
 /** Queries whether a specific conditional feature is supported by the platform. */
 inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)

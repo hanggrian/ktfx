@@ -18,4 +18,4 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun MediaPlayer.onMarker(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(MediaMarkerEvent) -> Unit
-) = setOnMarker { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnMarker { event -> GlobalScope.launch(context) { action(event) } }

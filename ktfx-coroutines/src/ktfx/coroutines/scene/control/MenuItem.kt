@@ -29,10 +29,10 @@ fun <E : Event> MenuItem.eventHandler(
 fun MenuItem.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ActionEvent) -> Unit
-) = setOnAction { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnAction { event -> GlobalScope.launch(context) { action(event) } }
 
 /** The event handler that is associated with invocation of an accelerator for a [MenuItem]. */
 fun MenuItem.onMenuValidation(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnMenuValidation { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnMenuValidation { event -> GlobalScope.launch(context) { action(event) } }

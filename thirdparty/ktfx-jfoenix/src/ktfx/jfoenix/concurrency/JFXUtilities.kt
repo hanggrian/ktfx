@@ -7,6 +7,6 @@ package ktfx.jfoenix
 
 import com.jfoenix.concurrency.JFXUtilities
 
-inline fun runFx(noinline block: () -> Unit) = JFXUtilities.runInFX(block)
+inline fun runFx(noinline block: () -> Unit): Unit = JFXUtilities.runInFX(block)
 
-inline fun runAndWaitFx(noinline block: () -> Unit) = JFXUtilities.runInFXAndWait(block)
+inline fun runAndWaitFx(noinline block: () -> Unit): Unit = JFXUtilities.runInFXAndWait(block)

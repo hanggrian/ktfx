@@ -18,4 +18,4 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun ButtonBase.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ActionEvent) -> Unit
-) = setOnAction { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnAction { event -> GlobalScope.launch(context) { action(event) } }

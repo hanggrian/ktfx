@@ -17,16 +17,16 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun <S, T> TableColumn<S, T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
-) = setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
 
 /** This event handler will be fired when the user successfully commits their editing. */
 fun <S, T> TableColumn<S, T>.onEditCommit(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
-) = setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
 
 /** This event handler will be fired when the user successfully initiates editing. */
 fun <S, T> TableColumn<S, T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
-) = setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }

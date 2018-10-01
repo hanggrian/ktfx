@@ -20,7 +20,7 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun TableView<*>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
-) = setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 
 /**
  * Called when there's a request to scroll a column into view using [TableView.scrollToColumn] or
@@ -29,10 +29,10 @@ fun TableView<*>.onScrollTo(
 fun <S> TableView<S>.onScrollToColumn(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<TableColumn<S, *>>) -> Unit
-) = setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called when there's a request to sort the control. */
 fun <S> TableView<S>.onSort(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(SortEvent<TableView<S>>) -> Unit
-) = setOnSort { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnSort { event -> GlobalScope.launch(context) { action(event) } }

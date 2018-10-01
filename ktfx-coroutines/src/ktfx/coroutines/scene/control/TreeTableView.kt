@@ -20,7 +20,7 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun TreeTableView<*>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
-) = setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 
 /**
  * Called when there's a request to scroll a column into view using [TreeTableView.scrollToColumn] or
@@ -29,10 +29,10 @@ fun TreeTableView<*>.onScrollTo(
 fun <T> TreeTableView<T>.onScrollToColumn(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<TreeTableColumn<T, *>>) -> Unit
-) = setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called when there's a request to sort the control. */
 fun <T> TreeTableView<T>.onSort(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(SortEvent<TreeTableView<T>>) -> Unit
-) = setOnSort { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnSort { event -> GlobalScope.launch(context) { action(event) } }

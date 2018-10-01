@@ -2,7 +2,7 @@
 
 package ktfx.collections
 
-import javafx.beans.binding.Bindings.floatValueAt
+import javafx.beans.binding.Bindings
 import javafx.beans.binding.FloatBinding
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableNumberValue
@@ -22,28 +22,40 @@ inline fun FloatArray.toObservableArray(): ObservableFloatArray = FXCollections.
 /** Creates a copy of this [ObservableFloatArray]. */
 inline fun ObservableFloatArray.toObservableArray(): ObservableFloatArray = FXCollections.observableFloatArray(this)
 
-inline fun ObservableFloatArray.getBinding(index: Int): FloatBinding = floatValueAt(this, index)
-inline fun ObservableFloatArray.getBinding(index: ObservableIntegerValue): FloatBinding = floatValueAt(this, index)
-inline fun ObservableFloatArray.getBinding(index: ObservableNumberValue): FloatBinding = floatValueAt(this, index)
+inline fun ObservableFloatArray.getBinding(index: Int): FloatBinding = Bindings.floatValueAt(this, index)
+
+inline fun ObservableFloatArray.getBinding(index: ObservableIntegerValue): FloatBinding =
+    Bindings.floatValueAt(this, index)
+
+inline fun ObservableFloatArray.getBinding(index: ObservableNumberValue): FloatBinding =
+    Bindings.floatValueAt(this, index)
 
 inline operator fun ObservableFloatArray.contains(value: Float): Boolean = (0 until size).any { get(it) == value }
 
-inline operator fun ObservableFloatArray.plusAssign(value: Float) = addAll(value)
-inline operator fun ObservableFloatArray.plusAssign(array: FloatArray) = addAll(*array)
-inline operator fun ObservableFloatArray.plusAssign(array: ObservableFloatArray) = addAll(array)
+inline operator fun ObservableFloatArray.plusAssign(value: Float): Unit = addAll(value)
+inline operator fun ObservableFloatArray.plusAssign(array: FloatArray): Unit = addAll(*array)
+inline operator fun ObservableFloatArray.plusAssign(array: ObservableFloatArray): Unit = addAll(array)
 
 inline fun ObservableFloatArray.forEach(action: (value: Float) -> Unit) {
-    for (index in 0 until size) action(get(index))
+    for (index in 0 until size) {
+        action(get(index))
+    }
 }
 
 inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, value: Float) -> Unit) {
-    for (index in 0 until size) action(index, get(index))
+    for (index in 0 until size) {
+        action(index, get(index))
+    }
 }
 
 inline fun ObservableFloatArray.forEachBinding(action: (value: FloatBinding) -> Unit) {
-    for (index in 0 until size) action(getBinding(index))
+    for (index in 0 until size) {
+        action(getBinding(index))
+    }
 }
 
 inline fun ObservableFloatArray.forEachBindingIndexed(action: (index: Int, value: FloatBinding) -> Unit) {
-    for (index in 0 until size) action(index, getBinding(index))
+    for (index in 0 until size) {
+        action(index, getBinding(index))
+    }
 }

@@ -11,14 +11,14 @@ import kotlin.DeprecationLevel.ERROR
 
 internal interface ConstrainedPane {
 
-    fun Node.reset()
+    fun Node.reset() // ktlint-disable
 }
 
 internal interface MarginedPane : ConstrainedPane {
 
     infix fun <N : Node> N.margins(margins: Insets?): N = also { it.margins = margins }
 
-    infix fun <N : Node> N.marginAll(marginAll: Double?) = also { it.marginAll = marginAll }
+    infix fun <N : Node> N.marginAll(marginAll: Double?): N = also { it.marginAll = marginAll }
 
     infix fun <N : Node> N.marginTop(marginTop: Double?): N = also { it.marginTop = marginTop }
 

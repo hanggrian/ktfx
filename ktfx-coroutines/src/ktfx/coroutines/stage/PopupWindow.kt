@@ -20,4 +20,4 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun PopupWindow.onAutoHide(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnAutoHide { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnAutoHide { event -> GlobalScope.launch(context) { action(event) } }

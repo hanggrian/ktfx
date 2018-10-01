@@ -12,16 +12,16 @@ import javafx.scene.control.TreeTableRow
 interface CellBuilder<out T> {
 
     /** Invoked when cell is on editing mode. */
-    fun onEditStart(listener: () -> Unit)
+    fun onEditStart(listener: () -> Unit) // ktlint-disable
 
     /** Invoked when cell edit is being committed. */
-    fun onEditCommit(listener: (T?) -> Unit)
+    fun onEditCommit(listener: (T?) -> Unit) // ktlint-disable
 
     /** Invoked when cell edit is canceled. */
-    fun onEditCancel(listener: () -> Unit)
+    fun onEditCancel(listener: () -> Unit) // ktlint-disable
 
     /** Invoked when cell item is updating. */
-    fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
+    fun onUpdate(listener: (T?, empty: Boolean) -> Unit) // ktlint-disable
 }
 
 /** [ListCell] builder with Kotlin DSL. */

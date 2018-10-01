@@ -6,4 +6,8 @@ import javafx.beans.value.WritableDoubleValue
 import kotlin.reflect.KProperty
 
 /** Delegated property, use with `by` keyword. */
-inline operator fun WritableDoubleValue.setValue(thisRef: Any?, property: KProperty<*>, value: Double) = set(value)
+inline operator fun WritableDoubleValue.setValue(
+    thisRef: Any?,
+    property: KProperty<*>,
+    value: Double
+): Unit = set(value)

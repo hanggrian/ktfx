@@ -17,7 +17,7 @@ open class _VBox(
 
     override val childs: MutableCollection<Node> get() = children
 
-    override fun Node.reset() = clearConstraints(this)
+    override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.vpriority: Priority?
         get() = getVgrow(this)

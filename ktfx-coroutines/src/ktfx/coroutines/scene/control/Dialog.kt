@@ -18,28 +18,28 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun Dialog<*>.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
-) = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [Dialog] has been hidden. */
 fun Dialog<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
-) = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the [Dialog] being hidden. */
 fun Dialog<*>.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
-) = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the [Dialog] being shown. */
 fun Dialog<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
-) = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [Dialog] is shown. */
 fun Dialog<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
-) = setOnShown { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShown { event -> GlobalScope.launch(context) { action(event) } }

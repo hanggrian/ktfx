@@ -19,28 +19,28 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun ChoiceBox<*>.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ActionEvent) -> Unit
-) = setOnAction { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnAction { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [ChoiceBox] popup has been hidden. */
 fun ChoiceBox<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the [ChoiceBox] popup being hidden. */
 fun ChoiceBox<*>.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the {@code ChoiceBox} popup being shown. */
 fun ChoiceBox<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [ChoiceBox] popup is shown. */
 fun ChoiceBox<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnShown { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShown { event -> GlobalScope.launch(context) { action(event) } }

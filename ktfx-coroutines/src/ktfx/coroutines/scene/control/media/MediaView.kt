@@ -18,4 +18,4 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun MediaView.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(MediaErrorEvent) -> Unit
-) = setOnError { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnError { event -> GlobalScope.launch(context) { action(event) } }

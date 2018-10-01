@@ -18,16 +18,16 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun Tab.onClosed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnClosed { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnClosed { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called when there is an external request to close this [Tab]. */
 fun Tab.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Defines a function to be called when a selection changed has occurred on the [Tab]. */
 fun Tab.onSelectionChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnSelectionChanged { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnSelectionChanged { event -> GlobalScope.launch(context) { action(event) } }

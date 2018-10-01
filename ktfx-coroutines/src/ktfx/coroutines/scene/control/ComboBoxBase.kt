@@ -19,28 +19,28 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun ComboBoxBase<*>.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ActionEvent) -> Unit
-) = setOnAction { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnAction { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [ComboBoxBase] popup/display has been hidden. */
 fun ComboBoxBase<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [ComboBoxBase] popup/display is shown. */
 fun ComboBoxBase<*>.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the [ComboBoxBase] popup/display being shown. */
 fun ComboBoxBase<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [ComboBoxBase] popup/display is shown. */
 fun ComboBoxBase<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnShown { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShown { event -> GlobalScope.launch(context) { action(event) } }

@@ -20,28 +20,28 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun WebEngine.onAlert(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WebEvent<String>) -> Unit
-) = setOnAlert { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnAlert { event -> GlobalScope.launch(context) { action(event) } }
 
 /** The event handler called when an error occurs. */
 fun WebEngine.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WebErrorEvent) -> Unit
-) = setOnError { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnError { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Sets the JavaScript window resize handler. */
 fun WebEngine.onResized(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WebEvent<Rectangle2D>) -> Unit
-) = setOnResized { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnResized { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Sets the JavaScript status handler. */
 fun WebEngine.onStatusChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WebEvent<String>) -> Unit
-) = setOnStatusChanged { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnStatusChanged { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Sets the JavaScript window visibility handler. */
 fun WebEngine.onVisibilityChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WebEvent<Boolean>) -> Unit
-) = setOnVisibilityChanged { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnVisibilityChanged { event -> GlobalScope.launch(context) { action(event) } }

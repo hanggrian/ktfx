@@ -15,4 +15,4 @@ import javafx.beans.property.Property
 inline fun <T> Property<String>.bindBidirectional(
     property: Property<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-) = bindBidirectional(this, property, stringConverter(converter))
+): Unit = bindBidirectional(this, property, stringConverter(converter))

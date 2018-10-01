@@ -21,7 +21,7 @@ open class StyleBuilder(private val prettyPrint: Boolean) {
 
     private companion object {
 
-        fun String.toKey() = when (this) {
+        fun String.toKey(): String = when (this) {
             "visibility" -> this
             else -> "-fx-${map { if (isUpperCase(it)) "-${it.toLowerCase()}" else "$it" }.joinToString("")}"
         }

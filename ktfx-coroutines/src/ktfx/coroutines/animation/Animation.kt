@@ -18,4 +18,4 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun Animation.onFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ActionEvent) -> Unit
-) = setOnFinished { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnFinished { event -> GlobalScope.launch(context) { action(event) } }

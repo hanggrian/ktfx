@@ -8,6 +8,7 @@ class BaseKtfxRuleSet : RuleSetProvider {
     override fun get() = RuleSet(
         "ktfx-base-ruleset",
         NoInternalClassMemberImportRule(),
-        NoNullAssertionOperatorRule()
+        NoNullAssertionOperatorRule(),
+        ExpressionFunctionReturnTypeRule()
     )
 }

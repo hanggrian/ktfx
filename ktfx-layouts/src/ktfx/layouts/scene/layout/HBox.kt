@@ -17,7 +17,7 @@ open class _HBox(
 
     override val childs: MutableCollection<Node> get() = children
 
-    override fun Node.reset() = clearConstraints(this)
+    override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.hpriority: Priority?
         get() = getHgrow(this)

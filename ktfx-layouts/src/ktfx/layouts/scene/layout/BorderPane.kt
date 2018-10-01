@@ -21,7 +21,7 @@ open class _BorderPane(
 
     override fun <R : Node> R.invoke(): R = error("Don't invoke in BorderPane, specify its side manually")
 
-    override fun Node.reset() = clearConstraints(this)
+    override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.align: Pos?
         get() = getAlignment(this)

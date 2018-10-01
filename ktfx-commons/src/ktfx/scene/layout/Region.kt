@@ -53,4 +53,4 @@ inline fun Region.updatePadding(
     right: Double = paddingRight,
     bottom: Double = paddingBottom,
     left: Double = paddingLeft
-) = setPadding(Insets(top, right, bottom, left))
+): Unit = setPadding(Insets(top, right, bottom, left))

@@ -20,7 +20,7 @@ open class _FlowPane(
 
     override val childs: MutableCollection<Node> get() = children
 
-    override fun Node.reset() = clearConstraints(this)
+    override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.margins: Insets?
         get() = getMargin(this)

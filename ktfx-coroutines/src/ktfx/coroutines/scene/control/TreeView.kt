@@ -19,22 +19,22 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun <T> TreeView<T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(EditEvent<T>) -> Unit
-) = setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Sets the handler that will be called when the user commits an edit. */
 fun <T> TreeView<T>.onEditCommit(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(EditEvent<T>) -> Unit
-) = setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Sets the handler that will be called when the user begins an edit. */
 fun <T> TreeView<T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(EditEvent<T>) -> Unit
-) = setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called when there's a request to scroll an index into view using [TreeView.scrollTo]. */
 fun TreeView<*>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
-) = setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }

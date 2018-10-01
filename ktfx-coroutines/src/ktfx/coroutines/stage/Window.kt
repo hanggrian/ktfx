@@ -37,28 +37,28 @@ fun <E : Event> Window.eventHandler(
 fun Window.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WindowEvent) -> Unit
-) = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [Window] has been hidden. */
 fun Window.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WindowEvent) -> Unit
-) = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the [Window] being hidden. */
 fun Window.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WindowEvent) -> Unit
-) = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the [Window] being shown. */
 fun Window.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WindowEvent) -> Unit
-) = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the Window is shown. */
 fun Window.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WindowEvent) -> Unit
-) = setOnShown { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShown { event -> GlobalScope.launch(context) { action(event) } }

@@ -14,6 +14,6 @@ import javafx.scene.paint.Paint
 inline fun Region.updateBackground(
     newBackground: Background,
     paint: Paint = Color.BLACK
-) = JFXNodeUtils.updateBackground(newBackground, this, paint)
+): Unit = JFXNodeUtils.updateBackground(newBackground, this, paint)
 
 inline fun Color.toHex(): String = JFXNodeUtils.colorToHex(this)

@@ -8,10 +8,10 @@ import javafx.util.StringConverter
 interface StringConverterBuilder<T> {
 
     /** Convert the object to String. */
-    fun toString(listener: (T?) -> String)
+    fun toString(listener: (T?) -> String) // ktlint-disable
 
     /** Convert String back to object. */
-    fun fromString(listener: (String) -> T?)
+    fun fromString(listener: (String) -> T?) // ktlint-disable
 }
 
 @PublishedApi

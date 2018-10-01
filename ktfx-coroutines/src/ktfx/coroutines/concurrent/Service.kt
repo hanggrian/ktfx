@@ -36,34 +36,34 @@ fun <E : Event> Service<*>.eventHandler(
 fun Service<*>.onCancelled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend (WorkerStateEvent) -> Unit
-) = setOnCancelled { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnCancelled { event -> GlobalScope.launch(context) { action(event) } }
 
 /** The onFailed event handler is called whenever the Task state transitions to the FAILED state. */
 fun Service<*>.onFailed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend (WorkerStateEvent) -> Unit
-) = setOnFailed { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnFailed { event -> GlobalScope.launch(context) { action(event) } }
 
 /** The onReady event handler is called whenever the Task state transitions to the READY state. */
 fun Service<*>.onReady(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend (WorkerStateEvent) -> Unit
-) = setOnReady { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnReady { event -> GlobalScope.launch(context) { action(event) } }
 
 /** The onRunning event handler is called whenever the Task state transitions to the RUNNING state. */
 fun Service<*>.onRunning(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend (WorkerStateEvent) -> Unit
-) = setOnRunning { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnRunning { event -> GlobalScope.launch(context) { action(event) } }
 
 /** The onSchedule event handler is called whenever the Task state transitions to the SCHEDULED state. */
 fun Service<*>.onScheduled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend (WorkerStateEvent) -> Unit
-) = setOnScheduled { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnScheduled { event -> GlobalScope.launch(context) { action(event) } }
 
 /** The onSucceeded event handler is called whenever the Task state transitions to the SUCCEEDED state. */
 fun Service<*>.onSucceeded(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend (WorkerStateEvent) -> Unit
-) = setOnSucceeded { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnSucceeded { event -> GlobalScope.launch(context) { action(event) } }

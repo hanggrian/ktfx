@@ -19,22 +19,22 @@ import kotlin.coroutines.experimental.CoroutineContext
 fun Menu.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the [ContextMenu] being hidden. */
 fun Menu.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just prior to the [ContextMenu] being shown, even if the menu has no items to show. */
 fun Menu.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Called just after the [ContextMenu] is shown. */
 fun Menu.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
-) = setOnShown { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnShown { event -> GlobalScope.launch(context) { action(event) } }

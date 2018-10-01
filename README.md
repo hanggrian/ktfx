@@ -1,40 +1,39 @@
-javafxx
-=======
-[![bintray](https://img.shields.io/badge/bintray-javafxx-brightgreen.svg)](https://bintray.com/hendraanggrian/javafxx)
-[![download](https://api.bintray.com/packages/hendraanggrian/javafxx/javafxx/images/download.svg) ](https://bintray.com/hendraanggrian/javafxx/javafxx/_latestVersion)
-[![build](https://travis-ci.com/hendraanggrian/javafxx.svg)](https://travis-ci.com/hendraanggrian/javafxx)
+ktfx
+====
+[![bintray](https://img.shields.io/badge/bintray-ktfx-brightgreen.svg)](https://bintray.com/hendraanggrian/ktfx)
+[![download](https://api.bintray.com/packages/hendraanggrian/ktfx/ktfx/images/download.svg)](https://bintray.com/hendraanggrian/ktfx/ktfx/_latestVersion)
+[![build](https://travis-ci.com/hendraanggrian/ktfx.svg)](https://travis-ci.com/hendraanggrian/ktfx)
 [![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
+[![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/hendraanggrian/ktfx) [![Join the chat at https://gitter.im/hendraanggrian/ktfx](https://badges.gitter.im/hendraanggrian/ktfx.svg)](https://gitter.im/hendraanggrian/ktfx?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[Kotlin] extensions for JavaFX app development and more.
-Written in spirit of [android-ktx] and [anko].
+[Kotlin] extensions for JavaFX app development. Written in spirit of [android-ktx] and [anko].
 
 Consists of several parts:
- * *core-ktx*: full of helpers for common JavaFX application logic.
- * *layouts-ktx*: dynamic JavaFX layout with Kotlin DSL.
- * *listeners-ktx*: write common JavaFX listeners with Kotlin DSL.
- * *coroutines-ktx*: utilities based on the experimental [kotlinx.coroutines] library.
- * *styles-ktx*: type-safe inline CSS styling.
+ * *ktfx-commons*: full of helpers for common JavaFX application logic.
+ * *ktfx-layouts*: dynamic JavaFX layout with Kotlin DSL.
+ * *ktfx-listeners*: write common JavaFX listeners with Kotlin DSL.
+ * *ktfx-coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
+ * *ktfx-styles*: type-safe inline CSS styling.
 
 Download
 --------
-All artifacts are hosted on [jcenter].
-To download all of them, use javafxx main library (see `version` in [releases]):
+All artifacts are hosted on [jcenter]. To download all of the main features, use:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.javafxx:javafxx:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx:$version'
 }
 ```
 
-Or download separate library if only specific feature is desired:
+Or download separate libraries if only specific features are desired:
 
 ```gradle
 dependencies {
-    compile 'com.hendraanggrian.javafxx:core-ktx:$version'
-    compile 'com.hendraanggrian.javafxx:layouts-ktx:$version'
-    compile 'com.hendraanggrian.javafxx:listeners-ktx:$version'
-    compile 'com.hendraanggrian.javafxx:coroutines-ktx:$version'
-    compile 'com.hendraanggrian.javafxx:styles-ktx:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-commons:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-layouts:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-listeners:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-styles:$version'
 }
 ```
 
@@ -136,15 +135,6 @@ gridPane {
 
 ![Layouts demo][demo_layouts]
 
-Third-party libraries are also supported. Though currently is limited.
-
-```gradle
-dependencies {
-    compile 'com.hendraanggrian.javafxx:layouts-controlsfx-ktx:$version'
-    compile 'com.hendraanggrian.javafxx:layouts-jfoenix-ktx:$version'
-}
-```
-
 Listeners Extensions
 --------------------
 Trade common JavaFX listener with Kotlin DSL.
@@ -209,6 +199,17 @@ label.style = labeledStyle {
 }
 ```
 
+Third-party Extensions
+----------------------
+Some popular libraries are also supported. Though currently is limited.
+
+```gradle
+dependencies {
+    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix:$version'
+}
+```
+
 License
 -------
     Copyright 2018 Hendra Anggrian
@@ -229,6 +230,6 @@ License
 [android-ktx]: https://github.com/android/android-ktx
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
-[releases]: https://github.com/hendraanggrian/javafxx/releases
-[jcenter]: https://bintray.com/hendraanggrian/javafxx
+[releases]: https://github.com/hendraanggrian/ktfx/releases
+[jcenter]: https://bintray.com/hendraanggrian/ktfx
 [demo_layouts]: /art/demo_layouts.png

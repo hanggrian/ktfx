@@ -1,7 +1,6 @@
 import org.gradle.api.plugins.ExtensionAware
 import org.gradle.api.tasks.JavaExec
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 
 group = "$RELEASE_GROUP.jfoenix"
 version = RELEASE_VERSION
@@ -29,14 +28,14 @@ dependencies {
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":$ARTIFACT_DEV_RULESET_BASE"))
-        invoke(project(":$ARTIFACT_DEV_RULESET_EXTENDED"))
+        invoke(project(":$ARTIFACT_DEV_RULESET_BASIC"))
+        invoke(project(":$ARTIFACT_DEV_RULESET_SINGLE_PACKAGE"))
     }
 }
 
 tasks {
     val ktlint by registering(JavaExec::class) {
-        group = LifecycleBasePlugin.VERIFICATION_GROUP
+        group = org.gradle.language.base.plugins.LifecycleBasePlugin.VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."

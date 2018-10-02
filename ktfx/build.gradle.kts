@@ -1,6 +1,5 @@
 import org.gradle.api.tasks.JavaExec
 import org.jetbrains.dokka.gradle.DokkaTask
-import org.gradle.language.base.plugins.LifecycleBasePlugin.*
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
 group = RELEASE_GROUP

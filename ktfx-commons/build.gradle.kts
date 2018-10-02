@@ -29,13 +29,13 @@ dependencies {
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":$ARTIFACT_DEV_RULESET_BASE"))
+        invoke(project(":$ARTIFACT_DEV_RULESET_BASIC"))
     }
 }
 
 tasks {
     val ktlint by registering(JavaExec::class) {
-        group = LifecycleBasePlugin.VERIFICATION_GROUP
+        group = org.gradle.language.base.plugins.LifecycleBasePlugin.VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."

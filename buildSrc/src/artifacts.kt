@@ -23,17 +23,17 @@ val ARTIFACTS_THIRDPARTY = listOf(
     ARTIFACT_THIRDPARTY_JFOENIX
 )
 
-const val ARTIFACT_DEV_RULESET = "dev:ruleset"
-const val ARTIFACT_DEV_RULESET_BASE = "dev:ruleset-base"
-const val ARTIFACT_DEV_RULESET_EXTENDED = "dev:ruleset-extended"
+const val ARTIFACT_DEV_RULESET_CORE = "dev:ruleset-core"
+const val ARTIFACT_DEV_RULESET_BASIC = "dev:ruleset-basic"
+const val ARTIFACT_DEV_RULESET_SINGLE_PACKAGE = "dev:ruleset-single-package"
 const val ARTIFACT_DEV_TESTING = "dev:testing"
 const val ARTIFACT_DEV_TESTING_RULESET = "dev:testing-ruleset"
 
 /** Internal modules. */
 val ARTIFACTS_DEV = listOf(
-    ARTIFACT_DEV_RULESET,
-    ARTIFACT_DEV_RULESET_BASE,
-    ARTIFACT_DEV_RULESET_EXTENDED,
+    ARTIFACT_DEV_RULESET_CORE,
+    ARTIFACT_DEV_RULESET_BASIC,
+    ARTIFACT_DEV_RULESET_SINGLE_PACKAGE,
     ARTIFACT_DEV_TESTING,
     ARTIFACT_DEV_TESTING_RULESET
 )

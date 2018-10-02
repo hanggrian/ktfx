@@ -14,7 +14,7 @@ sourceSets {
 }
 
 dependencies {
-    compile(project(":$ARTIFACT_DEV_RULESET"))
+    compile(project(":$ARTIFACT_DEV_RULESET_CORE"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(kotlin("test", VERSION_KOTLIN))
     compile(ktlint("core"))

@@ -3,13 +3,13 @@ Development Helpers
 Modules listed here are not included in any ktfx artifacts.
 They are internal tools to support code styling and testing.
 
-#### ruleset
+#### ruleset-core
 Core [ktlint](https://github.com/shyiko/ktlint) ruleset used by every other ruleset artifacts.
 
-#### ruleset-base
+#### ruleset-basic
 Ruleset being used by all ktfx artifacts.
 
-#### ruleset-extended
+#### ruleset-single-package
 Ruleset being used by all ktfx artifacts except `ktfx-commons`.
 
 #### testing

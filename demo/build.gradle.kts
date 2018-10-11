@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-
 group = "$RELEASE_GROUP.demo"
 version = RELEASE_VERSION
 
@@ -12,7 +10,7 @@ sourceSets {
     get("main").java.srcDir("src")
 }
 
-kotlin.experimental.coroutines = Coroutines.ENABLE
+kotlin.experimental.coroutines = org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
 
 dependencies {
     implementation(project(":$RELEASE_ARTIFACT"))

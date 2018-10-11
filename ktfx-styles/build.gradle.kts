@@ -1,7 +1,3 @@
-import org.gradle.api.tasks.JavaExec
-import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-
 group = "$RELEASE_GROUP.styles"
 version = RELEASE_VERSION
 
@@ -57,7 +53,7 @@ tasks {
         args("-F", "src/**/*.kt")
     }
 
-    withType<DokkaTask> {
+    withType<org.jetbrains.dokka.gradle.DokkaTask> {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
     }

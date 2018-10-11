@@ -1,7 +1,3 @@
-import org.gradle.api.tasks.JavaExec
-import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-
 group = RELEASE_GROUP
 version = RELEASE_VERSION
 

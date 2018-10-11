@@ -10,15 +10,14 @@ import org.controlsfx.validation.Validator
 
 /* ktlint-enable package-name */
 
-private var internalSupport: ValidationSupport? = null
+private lateinit var internalSupport: ValidationSupport
 
 @PublishedApi internal val singleton: ValidationSupport
     get() {
-        var support = internalSupport
-        if (support == null) {
-            support = ValidationSupport().also { internalSupport = it }
+        if (!::internalSupport.isInitialized) {
+            internalSupport = ValidationSupport()
         }
-        return support
+        return internalSupport
     }
 
 /** Register empty validation. */

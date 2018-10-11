@@ -1,7 +1,3 @@
-import org.gradle.api.tasks.JavaExec
-import org.jetbrains.dokka.gradle.DokkaTask
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-
 group = "$RELEASE_GROUP.coroutines"
 version = RELEASE_VERSION
 
@@ -17,7 +13,7 @@ sourceSets {
     get("test").java.srcDir("tests/src")
 }
 
-kotlin.experimental.coroutines = Coroutines.ENABLE
+kotlin.experimental.coroutines = org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
 
 val ktlint by configurations.registering
 
@@ -37,7 +33,7 @@ dependencies {
 
 tasks {
     val ktlint by registering(JavaExec::class) {
-        group = org.gradle.language.base.plugins.LifecycleBasePlugin.VERIFICATION_GROUP
+        group = LifecycleBasePlugin.VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."
@@ -58,7 +54,7 @@ tasks {
         args("-F", "src/**/*.kt")
     }
 
-    withType<DokkaTask> {
+    withType<org.jetbrains.dokka.gradle.DokkaTask> {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
     }

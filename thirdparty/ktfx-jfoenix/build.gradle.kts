@@ -1,7 +1,3 @@
-import org.gradle.api.plugins.ExtensionAware
-import org.gradle.api.tasks.JavaExec
-import org.jetbrains.dokka.gradle.DokkaTask
-
 group = "$RELEASE_GROUP.jfoenix"
 version = RELEASE_VERSION
 
@@ -35,7 +31,7 @@ dependencies {
 
 tasks {
     val ktlint by registering(JavaExec::class) {
-        group = org.gradle.language.base.plugins.LifecycleBasePlugin.VERIFICATION_GROUP
+        group = LifecycleBasePlugin.VERIFICATION_GROUP
         inputs.dir("src")
         outputs.dir("src")
         description = "Check Kotlin code style."
@@ -56,7 +52,7 @@ tasks {
         args("-F", "src/**/*.kt")
     }
 
-    withType<DokkaTask> {
+    withType<org.jetbrains.dokka.gradle.DokkaTask> {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
     }

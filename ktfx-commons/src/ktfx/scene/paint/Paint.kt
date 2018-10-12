@@ -2,6 +2,7 @@
 
 package ktfx.scene.paint
 
+import javafx.geometry.Insets
 import javafx.scene.effect.ColorInput
 import javafx.scene.layout.BackgroundFill
 import javafx.scene.layout.BorderStroke
@@ -9,7 +10,6 @@ import javafx.scene.layout.BorderStrokeStyle
 import javafx.scene.layout.BorderWidths
 import javafx.scene.layout.CornerRadii
 import javafx.scene.paint.Paint
-import ktfx.geometry.Padding
 
 /** Creates a new instance of [ColorInput] with the specified x, y, width, height, and paint. */
 inline fun Paint.toInput(
@@ -22,7 +22,7 @@ inline fun Paint.toInput(
 /** Creates a new [BackgroundFill] with the specified fill, radii, and padding. */
 inline fun Paint.toBackgroundFill(
     radii: CornerRadii = CornerRadii.EMPTY,
-    padding: Padding = Padding.EMPTY
+    padding: Insets = Insets.EMPTY
 ): BackgroundFill = BackgroundFill(this, radii, padding)
 
 /** Creates a new [BorderStroke]. */

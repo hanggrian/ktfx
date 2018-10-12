@@ -9,7 +9,7 @@ import kotlin.test.assertEquals
 
 class RegionTest : AppTest() {
 
-    lateinit var region: Region
+    private lateinit var region: Region
 
     override fun start(stage: Stage) {
         region = Region()

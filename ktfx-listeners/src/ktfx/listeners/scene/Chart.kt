@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "UsePropertyAccessSyntax")
+@file:Suppress("PackageDirectoryMismatch")
 
 /* ktlint-disable package-name */
 package ktfx.listeners

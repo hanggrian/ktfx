@@ -5,13 +5,12 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
+import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
-import ktfx.geometry.Padding
-import ktfx.geometry.toPadding
 
 open class _TilePane(
     orientation: Orientation,
@@ -29,8 +28,8 @@ open class _TilePane(
         get() = getAlignment(this)
         set(value) = setAlignment(this, value)
 
-    override var Node.margins: Padding?
-        get() = getMargin(this).toPadding()
+    override var Node.margins: Insets?
+        get() = getMargin(this)
         set(value) = setMargin(this, value)
 }
 

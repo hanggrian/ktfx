@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
 /* ktlint-disable package-name */
 package ktfx.listeners
@@ -8,6 +8,6 @@ package ktfx.listeners
 import javafx.scene.control.Slider
 
 /** A function for formatting the label for a major tick. */
-inline fun Slider.labelFormatter(
-    converter: StringConverterBuilder<Double>.() -> Unit
-): Unit = setLabelFormatter(stringConverter(converter))
+inline fun Slider.labelFormatter(converter: StringConverterBuilder<Double>.() -> Unit) {
+    labelFormatter = stringConverter(converter)
+}

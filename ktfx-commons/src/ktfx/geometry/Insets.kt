@@ -2,14 +2,16 @@
 
 package ktfx.geometry
 
+import javafx.geometry.Insets
+
 /** The inset on the top side. */
-inline operator fun Padding.component1(): Double = top
+inline operator fun Insets.component1(): Double = top
 
 /** The inset on the right side. */
-inline operator fun Padding.component2(): Double = right
+inline operator fun Insets.component2(): Double = right
 
 /** The inset on the bottom side. */
-inline operator fun Padding.component3(): Double = bottom
+inline operator fun Insets.component3(): Double = bottom
 
 /** The inset on the left side. */
-inline operator fun Padding.component4(): Double = left
+inline operator fun Insets.component4(): Double = left

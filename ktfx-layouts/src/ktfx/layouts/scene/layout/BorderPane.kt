@@ -5,11 +5,10 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
+import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
-import ktfx.geometry.Padding
-import ktfx.geometry.toPadding
 
 open class _BorderPane(
     center: Node?,
@@ -28,8 +27,8 @@ open class _BorderPane(
         get() = getAlignment(this)
         set(value) = setAlignment(this, value)
 
-    override var Node.margins: Padding?
-        get() = getMargin(this).toPadding()
+    override var Node.margins: Insets?
+        get() = getMargin(this)
         set(value) = setMargin(this, value)
 }
 

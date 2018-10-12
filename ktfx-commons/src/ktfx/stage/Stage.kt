@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.stage
 
@@ -56,7 +56,7 @@ fun stage(
     style: StageStyle = DECORATED,
     init: (Stage.() -> Unit)? = null
 ): Stage = Stage(style).also {
-    if (title != null) it.setTitle(title)
+    if (title != null) it.title = title
     if (icon != null) it.icon = icon
     init?.invoke(it)
 }

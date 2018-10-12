@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
 /* ktlint-disable package-name */
 package ktfx.layouts
@@ -27,10 +27,10 @@ inline fun Node.tooltip(
 inline fun Control.tooltip(
     text: String? = null,
     noinline init: ((@LayoutDsl Tooltip).() -> Unit)? = null
-): Tooltip = ktfx.layouts.tooltip(text, init).also { setTooltip(it) }
+): Tooltip = ktfx.layouts.tooltip(text, init).also { tooltip = it }
 
 /** Creates a [Tooltip] and set it to this [Tab]. */
 inline fun Tab.tooltip(
     text: String? = null,
     noinline init: ((@LayoutDsl Tooltip).() -> Unit)? = null
-): Tooltip = ktfx.layouts.tooltip(text, init).also { setTooltip(it) }
+): Tooltip = ktfx.layouts.tooltip(text, init).also { tooltip = it }

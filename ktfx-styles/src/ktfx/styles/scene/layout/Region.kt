@@ -5,21 +5,21 @@ package ktfx.styles
 
 /* ktlint-enable package-name */
 
+import javafx.geometry.Insets
 import javafx.scene.paint.Color
-import ktfx.geometry.Padding
 
 open class _RegionStyleBuilder(
     prettyPrint: Boolean
 ) : _NodeStyleBuilder(prettyPrint), RegionStyleBuilder {
     override var backgroundColor: Color by map
-    override var backgroundInsets: Padding by map
-    override var backgroundRadius: Padding by map
+    override var backgroundInsets: Insets by map
+    override var backgroundRadius: Insets by map
     override var backgroundImage: Urls by map
     override var backgroundPosition: String by map
     override var backgroundRepeat: String by map
     override var backgroundSize: String by map
     override var borderColor: Color by map
-    override var borderInsets: Padding by map
+    override var borderInsets: Insets by map
     override var borderRadius: String by map
     override var borderStyle: String by map
     override var borderWidth: Number by map
@@ -27,7 +27,7 @@ open class _RegionStyleBuilder(
     override var borderImageRepeat: String by map
     override var borderImageSlice: String by map
     override var borderImageWidth: Number by map
-    override var padding: Padding by map
+    override var padding: Insets by map
     override var positionShape: Boolean by map
     override var scaleShape: Boolean by map
     override var shape: String by map
@@ -49,7 +49,7 @@ interface RegionStyleBuilder {
      * Otherwise, the four values for each inset are given in the order top, right, bottom, left.
      * Each comma-separated value or set of values in the series applies to the corresponding background color.
      */
-    var backgroundInsets: Padding
+    var backgroundInsets: Insets
 
     /**
      * A series of radius values or sets of four radius values, separated by commas.
@@ -58,7 +58,7 @@ interface RegionStyleBuilder {
      * bottom-left corners, in that order.
      * Each comma-separated value or set of values in the series applies to the corresponding background color.
      */
-    var backgroundRadius: Padding
+    var backgroundRadius: Insets
 
     /** A series of image URIs separated by commas. */
     var backgroundImage: Urls
@@ -99,7 +99,7 @@ interface RegionStyleBuilder {
      * values is specified, they are used for the top, right, bottom, and left edges of the region, in that order.
      * Each item in the series of insets applies to the corresponding item in the series of border colors.
      */
-    var borderInsets: Padding
+    var borderInsets: Insets
 
     /**
      * A series of radius or sets of four radius values, separated by commas.
@@ -174,7 +174,7 @@ interface RegionStyleBuilder {
      * padding values is specified, they are used for the top, right, bottom, and left edges of the region, in that
      * order.
      */
-    var padding: Padding
+    var padding: Insets
 
     /**
      * If true means the shape centered within the region's width and height, otherwise the shape is positioned at its

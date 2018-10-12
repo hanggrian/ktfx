@@ -6,6 +6,7 @@ package ktfx.layouts
 /* ktlint-enable package-name */
 
 import javafx.geometry.HPos
+import javafx.geometry.Insets
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.ColumnConstraints
@@ -13,8 +14,6 @@ import javafx.scene.layout.ConstraintsBase
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
-import ktfx.geometry.Padding
-import ktfx.geometry.toPadding
 
 open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPane,
     VAlignedPane, HGrowedPane,
@@ -48,8 +47,8 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
         get() = getColumnSpan(this)
         set(value) = setColumnSpan(this, value)
 
-    override var Node.margins: Padding?
-        get() = getMargin(this).toPadding()
+    override var Node.margins: Insets?
+        get() = getMargin(this)
         set(value) = setMargin(this, value)
 
     override var Node.valign: VPos?

@@ -1,11 +1,12 @@
 package ktfx.geometry
 
+import javafx.geometry.Insets
 import org.junit.Test
 import kotlin.test.assertEquals
 
 class InsetsTest {
 
-    private val padding = Padding(10, 20, 30, 40)
+    private val padding = Insets(10.0, 20.0, 30.0, 40.0)
 
     @Test fun components() {
         val (top, right, bottom, left) = padding

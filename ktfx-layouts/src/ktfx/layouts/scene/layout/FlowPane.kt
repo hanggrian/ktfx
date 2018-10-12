@@ -5,12 +5,11 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
+import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
-import ktfx.geometry.Padding
-import ktfx.geometry.toPadding
 
 open class _FlowPane(
     orientation: Orientation,
@@ -23,8 +22,8 @@ open class _FlowPane(
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
-    override var Node.margins: Padding?
-        get() = getMargin(this).toPadding()
+    override var Node.margins: Insets?
+        get() = getMargin(this)
         set(value) = setMargin(this, value)
 }
 

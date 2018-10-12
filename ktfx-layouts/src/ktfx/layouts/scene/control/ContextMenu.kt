@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName", "UsePropertyAccessSyntax")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
 /* ktlint-disable package-name */
 package ktfx.layouts
@@ -35,13 +35,13 @@ fun contextMenu(
 inline fun Control.contextMenu(
     vararg items: MenuItem,
     noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.contextMenu(*items, init = init).also { setContextMenu(it) }
+): ContextMenu = ktfx.layouts.contextMenu(*items, init = init).also { contextMenu = it }
 
 /** Creates a [ContextMenu] and set it to this [Tab]. */
 inline fun Tab.contextMenu(
     vararg items: MenuItem,
     noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.contextMenu(*items, init = init).also { setContextMenu(it) }
+): ContextMenu = ktfx.layouts.contextMenu(*items, init = init).also { contextMenu = it }
 
 /** Creates a [ContextMenu] and set it to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(

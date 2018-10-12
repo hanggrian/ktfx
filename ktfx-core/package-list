@@ -1,0 +1,7 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:ktfx.geometry$toPadding(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/to-padding.html
+ktfx.geometry
+ktfx.internal
+ktfx.layouts
+ktfx.scene.text

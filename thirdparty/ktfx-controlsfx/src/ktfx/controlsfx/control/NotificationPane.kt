@@ -19,9 +19,7 @@ class _NotificationPane(content: Node?) : NotificationPane(content), LayoutManag
 fun notificationPane(
     content: Node? = null,
     init: ((@LayoutDsl _NotificationPane).() -> Unit)? = null
-): NotificationPane = _NotificationPane(content).also {
-    init?.invoke(it)
-}
+): NotificationPane = _NotificationPane(content).also { init?.invoke(it) }
 
 /** Creates a [NotificationPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.notificationPane(

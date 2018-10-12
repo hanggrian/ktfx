@@ -15,9 +15,7 @@ fun rectangle(
     width: Double = 0.0,
     height: Double = 0.0,
     init: ((@LayoutDsl Rectangle).() -> Unit)? = null
-): Rectangle = Rectangle(x, y, width, height).also {
-    init?.invoke(it)
-}
+): Rectangle = Rectangle(x, y, width, height).also { init?.invoke(it) }
 
 /** Creates a [Rectangle] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.rectangle(

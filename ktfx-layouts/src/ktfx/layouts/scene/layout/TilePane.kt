@@ -40,9 +40,7 @@ fun tilePane(
     vgap: Double = 0.0,
     vararg children: Node,
     init: ((@LayoutDsl _TilePane).() -> Unit)? = null
-): TilePane = _TilePane(orientation, hgap, vgap, *children).also {
-    init?.invoke(it)
-}
+): TilePane = _TilePane(orientation, hgap, vgap, *children).also { init?.invoke(it) }
 
 /** Creates a [TilePane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.tilePane(

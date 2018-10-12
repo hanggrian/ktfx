@@ -14,9 +14,7 @@ import ktfx.collections.mutableObservableListOf
 fun <S> tableView(
     items: ObservableList<S> = mutableObservableListOf(),
     init: ((@LayoutDsl TableView<S>).() -> Unit)? = null
-): TableView<S> = TableView<S>(items).also {
-    init?.invoke(it)
-}
+): TableView<S> = TableView<S>(items).also { init?.invoke(it) }
 
 /** Creates a [TableView] and add it to this [LayoutManager]. */
 inline fun <S> LayoutManager<Node>.tableView(

@@ -14,9 +14,7 @@ fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
-): CheckMenuItem = CheckMenuItem(text, graphic).also {
-    init?.invoke(it)
-}
+): CheckMenuItem = CheckMenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [CheckMenuItem] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.checkMenuItem(

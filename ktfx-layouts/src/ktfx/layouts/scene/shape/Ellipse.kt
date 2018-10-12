@@ -15,9 +15,7 @@ fun ellipse(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     init: ((@LayoutDsl Ellipse).() -> Unit)? = null
-): Ellipse = Ellipse(centerX, centerY, radiusX, radiusY).also {
-    init?.invoke(it)
-}
+): Ellipse = Ellipse(centerX, centerY, radiusX, radiusY).also { init?.invoke(it) }
 
 /** Creates a [Ellipse] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.ellipse(

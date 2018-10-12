@@ -15,9 +15,7 @@ fun rating(
     max: Int = 5,
     rating: Int = -1,
     init: ((@LayoutDsl Rating).() -> Unit)? = null
-): Rating = Rating(max, rating).also {
-    init?.invoke(it)
-}
+): Rating = Rating(max, rating).also { init?.invoke(it) }
 
 /** Creates a [Rating] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.rating(

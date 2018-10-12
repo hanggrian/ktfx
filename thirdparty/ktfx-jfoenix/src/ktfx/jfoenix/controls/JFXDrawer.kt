@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXDrawer]. */
 fun jfxDrawer(
     init: ((@LayoutDsl JFXDrawer).() -> Unit)? = null
-): JFXDrawer = JFXDrawer().also {
-    init?.invoke(it)
-}
+): JFXDrawer = JFXDrawer().also { init?.invoke(it) }
 
 /** Creates a [JFXDrawer] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxDrawer(

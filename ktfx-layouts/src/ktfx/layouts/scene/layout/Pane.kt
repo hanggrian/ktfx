@@ -19,9 +19,7 @@ open class _Pane(
 fun pane(
     vararg children: Node,
     init: ((@LayoutDsl _Pane).() -> Unit)? = null
-): Pane = _Pane(*children).also {
-    init?.invoke(it)
-}
+): Pane = _Pane(*children).also { init?.invoke(it) }
 
 /** Creates a [Pane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.pane(

@@ -14,9 +14,7 @@ fun cylinder(
     height: Double = 2.0,
     division: Int = 64,
     init: ((@LayoutDsl Cylinder).() -> Unit)? = null
-): Cylinder = Cylinder(radius, height, division).also {
-    init?.invoke(it)
-}
+): Cylinder = Cylinder(radius, height, division).also { init?.invoke(it) }
 
 /** Creates a [Cylinder] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.cylinder(

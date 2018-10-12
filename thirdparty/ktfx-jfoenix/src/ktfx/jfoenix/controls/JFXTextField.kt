@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXTextField]. */
 fun jfxTextField(
     init: ((@LayoutDsl JFXTextField).() -> Unit)? = null
-): JFXTextField = JFXTextField().also {
-    init?.invoke(it)
-}
+): JFXTextField = JFXTextField().also { init?.invoke(it) }
 
 /** Creates a [JFXTextField] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxPasswordField(

@@ -14,9 +14,7 @@ import ktfx.collections.mutableObservableListOf
 fun <T> listView(
     items: ObservableList<T> = mutableObservableListOf(),
     init: ((@LayoutDsl ListView<T>).() -> Unit)? = null
-): ListView<T> = ListView(items).also {
-    init?.invoke(it)
-}
+): ListView<T> = ListView(items).also { init?.invoke(it) }
 
 /** Creates a [ListView] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.listView(

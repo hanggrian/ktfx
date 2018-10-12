@@ -33,9 +33,7 @@ fun vbox(
     spacing: Double = 0.0,
     vararg children: Node,
     init: ((@LayoutDsl _VBox).() -> Unit)? = null
-): VBox = _VBox(spacing, *children).also {
-    init?.invoke(it)
-}
+): VBox = _VBox(spacing, *children).also { init?.invoke(it) }
 
 /** Creates a [VBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.vbox(

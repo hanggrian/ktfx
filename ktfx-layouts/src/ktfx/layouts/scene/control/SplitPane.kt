@@ -19,9 +19,7 @@ open class _SplitPane(
 fun splitPane(
     vararg items: Node,
     init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
-): SplitPane = _SplitPane(*items).also {
-    init?.invoke(it)
-}
+): SplitPane = _SplitPane(*items).also { init?.invoke(it) }
 
 /** Creates a [SplitPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.splitPane(

@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXListView]. */
 fun <T> jfxListView(
     init: ((@LayoutDsl JFXListView<T>).() -> Unit)? = null
-): JFXListView<T> = JFXListView<T>().also {
-    init?.invoke(it)
-}
+): JFXListView<T> = JFXListView<T>().also { init?.invoke(it) }
 
 /** Creates a [JFXListView] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.jfxListView(

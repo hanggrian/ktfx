@@ -15,6 +15,4 @@ class ColorTest {
         assertEquals(color.blue, blue)
         assertEquals(color.opacity, opacity)
     }
-
-    @Test fun webFormat() = assertEquals(color.webFormat, "#0000FF")
 }

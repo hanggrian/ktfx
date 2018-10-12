@@ -26,9 +26,7 @@ class _Accordion(
 fun accordion(
     vararg titledPanes: TitledPane,
     init: ((@LayoutDsl _Accordion).() -> Unit)? = null
-): Accordion = _Accordion(*titledPanes).also {
-    init?.invoke(it)
-}
+): Accordion = _Accordion(*titledPanes).also { init?.invoke(it) }
 
 /** Creates a [Accordion] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.accordion(

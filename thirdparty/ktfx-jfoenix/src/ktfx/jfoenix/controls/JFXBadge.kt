@@ -17,9 +17,7 @@ fun jfxBadge(
     control: Node? = null,
     pos: Pos = TOP_RIGHT,
     init: ((@LayoutDsl JFXBadge).() -> Unit)? = null
-): JFXBadge = JFXBadge(control, pos).also {
-    init?.invoke(it)
-}
+): JFXBadge = JFXBadge(control, pos).also { init?.invoke(it) }
 
 /** Creates a [JFXBadge] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxBadge(

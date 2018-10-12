@@ -11,9 +11,7 @@ import javafx.scene.control.SeparatorMenuItem
 /** Creates a [SeparatorMenuItem]. */
 fun separatorMenuItem(
     init: ((@LayoutDsl SeparatorMenuItem).() -> Unit)? = null
-): SeparatorMenuItem = SeparatorMenuItem().also {
-    init?.invoke(it)
-}
+): SeparatorMenuItem = SeparatorMenuItem().also { init?.invoke(it) }
 
 /** Creates a [SeparatorMenuItem] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.separatorMenuItem(

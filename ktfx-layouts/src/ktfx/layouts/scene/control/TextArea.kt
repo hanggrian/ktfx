@@ -12,9 +12,7 @@ import javafx.scene.control.TextArea
 fun textArea(
     text: String = "",
     init: ((@LayoutDsl TextArea).() -> Unit)? = null
-): TextArea = TextArea(text).also {
-    init?.invoke(it)
-}
+): TextArea = TextArea(text).also { init?.invoke(it) }
 
 /** Creates a [TextArea] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.textArea(

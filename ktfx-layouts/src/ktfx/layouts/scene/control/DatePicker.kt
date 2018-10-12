@@ -13,9 +13,7 @@ import java.time.LocalDate
 fun datePicker(
     date: LocalDate? = null,
     init: ((@LayoutDsl DatePicker).() -> Unit)? = null
-): DatePicker = DatePicker(date).also {
-    init?.invoke(it)
-}
+): DatePicker = DatePicker(date).also { init?.invoke(it) }
 
 /** Creates a [DatePicker] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.datePicker(

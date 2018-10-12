@@ -13,9 +13,7 @@ fun hyperlink(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl Hyperlink).() -> Unit)? = null
-): Hyperlink = Hyperlink(text, graphic).also {
-    init?.invoke(it)
-}
+): Hyperlink = Hyperlink(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Hyperlink] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.hyperlink(

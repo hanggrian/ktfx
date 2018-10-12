@@ -16,9 +16,7 @@ import org.controlsfx.control.GridView
 fun <T> gridView(
     items: ObservableList<T> = mutableObservableListOf(),
     init: ((@LayoutDsl GridView<T>).() -> Unit)? = null
-): GridView<T> = GridView(items).also {
-    init?.invoke(it)
-}
+): GridView<T> = GridView(items).also { init?.invoke(it) }
 
 /** Creates a [GridView] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.gridView(

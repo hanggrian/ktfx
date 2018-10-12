@@ -25,9 +25,7 @@ open class _TextFlow(
 fun textFlow(
     vararg children: Node,
     init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
-): TextFlow = _TextFlow(*children).also {
-    init?.invoke(it)
-}
+): TextFlow = _TextFlow(*children).also { init?.invoke(it) }
 
 /** Creates a [TextFlow] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.textFlow(

@@ -29,9 +29,7 @@ open class _ContextMenu(
 fun contextMenu(
     vararg items: MenuItem,
     init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = _ContextMenu(*items).also {
-    init?.invoke(it)
-}
+): ContextMenu = _ContextMenu(*items).also { init?.invoke(it) }
 
 /** Creates a [ContextMenu] and set it to this [Control]. */
 inline fun Control.contextMenu(

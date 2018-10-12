@@ -14,9 +14,7 @@ import org.controlsfx.control.SnapshotView
 fun snapshotView(
     node: Node? = null,
     init: ((@LayoutDsl SnapshotView).() -> Unit)? = null
-): SnapshotView = SnapshotView(node).also {
-    init?.invoke(it)
-}
+): SnapshotView = SnapshotView(node).also { init?.invoke(it) }
 
 /** Creates a [SnapshotView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.snapshotView(

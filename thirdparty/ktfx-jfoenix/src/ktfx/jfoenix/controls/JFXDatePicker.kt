@@ -15,9 +15,7 @@ import java.time.LocalDate
 fun jfxDatePicker(
     date: LocalDate? = null,
     init: ((@LayoutDsl JFXDatePicker).() -> Unit)? = null
-): JFXDatePicker = JFXDatePicker(date).also {
-    init?.invoke(it)
-}
+): JFXDatePicker = JFXDatePicker(date).also { init?.invoke(it) }
 
 /** Creates a [JFXDatePicker] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxDatePicker(

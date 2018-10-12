@@ -15,9 +15,7 @@ import java.time.LocalTime
 fun jfxTimePicker(
     localTime: LocalTime? = null,
     init: ((@LayoutDsl JFXTimePicker).() -> Unit)? = null
-): JFXTimePicker = JFXTimePicker(localTime).also {
-    init?.invoke(it)
-}
+): JFXTimePicker = JFXTimePicker(localTime).also { init?.invoke(it) }
 
 /** Creates a [JFXTimePicker] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxTimePicker(

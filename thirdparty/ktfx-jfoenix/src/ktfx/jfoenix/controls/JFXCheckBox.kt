@@ -14,9 +14,7 @@ import ktfx.layouts.LayoutManager
 fun jfxCheckBox(
     text: String? = null,
     init: ((@LayoutDsl JFXCheckBox).() -> Unit)? = null
-): JFXCheckBox = JFXCheckBox(text).also {
-    init?.invoke(it)
-}
+): JFXCheckBox = JFXCheckBox(text).also { init?.invoke(it) }
 
 /** Creates a [JFXCheckBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxCheckBox(

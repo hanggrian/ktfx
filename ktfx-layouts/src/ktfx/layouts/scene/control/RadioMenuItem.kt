@@ -14,9 +14,7 @@ fun radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
-): RadioMenuItem = RadioMenuItem(text, graphic).also {
-    init?.invoke(it)
-}
+): RadioMenuItem = RadioMenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [RadioMenuItem] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.radioMenuItem(

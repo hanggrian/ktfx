@@ -13,9 +13,7 @@ import org.controlsfx.control.WorldMapView
 /** Creates a [WorldMapView]. */
 fun worldMapView(
     init: ((@LayoutDsl WorldMapView).() -> Unit)? = null
-): WorldMapView = WorldMapView().also {
-    init?.invoke(it)
-}
+): WorldMapView = WorldMapView().also { init?.invoke(it) }
 
 /** Creates a [WorldMapView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.worldMapView(

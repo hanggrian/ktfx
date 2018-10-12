@@ -16,9 +16,7 @@ fun circle(
     radius: Double = 0.0,
     fill: Paint? = null,
     init: ((@LayoutDsl Circle).() -> Unit)? = null
-): Circle = Circle(centerX, centerY, radius, fill).also {
-    init?.invoke(it)
-}
+): Circle = Circle(centerX, centerY, radius, fill).also { init?.invoke(it) }
 
 /** Creates a [Circle] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.circle(

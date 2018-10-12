@@ -19,6 +19,4 @@ open class _JFXPopup(content: Region? = null) : JFXPopup(content), LayoutManager
 fun jfxPopup(
     content: Region? = null,
     init: ((@LayoutDsl _JFXPopup).() -> Unit)? = null
-): JFXPopup = _JFXPopup(content).also {
-    init?.invoke(it)
-}
+): JFXPopup = _JFXPopup(content).also { init?.invoke(it) }

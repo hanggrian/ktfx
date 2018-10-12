@@ -13,9 +13,7 @@ fun menuItem(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl MenuItem).() -> Unit)? = null
-): MenuItem = MenuItem(text, graphic).also {
-    init?.invoke(it)
-}
+): MenuItem = MenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [MenuItem] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.menuItem(

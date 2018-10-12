@@ -15,9 +15,7 @@ import org.controlsfx.control.BreadCrumbBar
 fun <T> breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     init: ((@LayoutDsl BreadCrumbBar<T>).() -> Unit)? = null
-): BreadCrumbBar<T> = BreadCrumbBar<T>(selectedCrumb).also {
-    init?.invoke(it)
-}
+): BreadCrumbBar<T> = BreadCrumbBar<T>(selectedCrumb).also { init?.invoke(it) }
 
 /** Creates a [BreadCrumbBar] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.breadCrumbBar(

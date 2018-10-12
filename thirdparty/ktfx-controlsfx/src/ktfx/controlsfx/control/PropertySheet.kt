@@ -15,9 +15,7 @@ import org.controlsfx.control.PropertySheet
 fun propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     init: ((@LayoutDsl PropertySheet).() -> Unit)? = null
-): PropertySheet = PropertySheet(items).also {
-    init?.invoke(it)
-}
+): PropertySheet = PropertySheet(items).also { init?.invoke(it) }
 
 /** Creates a [PropertySheet] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.propertySheet(

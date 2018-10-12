@@ -17,9 +17,7 @@ fun quadCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: ((@LayoutDsl QuadCurve).() -> Unit)? = null
-): QuadCurve = QuadCurve(startX, startY, controlX, controlY, endX, endY).also {
-    init?.invoke(it)
-}
+): QuadCurve = QuadCurve(startX, startY, controlX, controlY, endX, endY).also { init?.invoke(it) }
 
 /** Creates a [QuadCurve] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.quadCurve(

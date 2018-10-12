@@ -17,9 +17,7 @@ fun rangeSlider(
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
     init: ((@LayoutDsl RangeSlider).() -> Unit)? = null
-): RangeSlider = RangeSlider(min, max, lowValue, highValue).also {
-    init?.invoke(it)
-}
+): RangeSlider = RangeSlider(min, max, lowValue, highValue).also { init?.invoke(it) }
 
 /** Creates a [RangeSlider] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.rangeSlider(

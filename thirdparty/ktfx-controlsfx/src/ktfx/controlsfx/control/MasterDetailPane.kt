@@ -31,9 +31,7 @@ fun masterDetailPane(
     side: Side = RIGHT,
     showDetail: Boolean = true,
     init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null
-): MasterDetailPane = _MasterDetailPane(side, showDetail).also {
-    init?.invoke(it)
-}
+): MasterDetailPane = _MasterDetailPane(side, showDetail).also { init?.invoke(it) }
 
 /** Creates a [MasterDetailPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.masterDetailPane(

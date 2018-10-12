@@ -21,9 +21,7 @@ fun titledPane(
     text: String? = null,
     content: Node? = null,
     init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
-): TitledPane = _TitledPane(text, content).also {
-    init?.invoke(it)
-}
+): TitledPane = _TitledPane(text, content).also { init?.invoke(it) }
 
 /** Creates a [TitledPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.titledPane(

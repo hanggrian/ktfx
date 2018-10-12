@@ -15,9 +15,7 @@ import ktfx.layouts.LayoutManager
 fun <T> jfxTreeView(
     root: TreeItem<T>? = null,
     init: ((@LayoutDsl JFXTreeView<T>).() -> Unit)? = null
-): JFXTreeView<T> = JFXTreeView<T>(root).also {
-    init?.invoke(it)
-}
+): JFXTreeView<T> = JFXTreeView<T>(root).also { init?.invoke(it) }
 
 /** Creates a [JFXTreeView] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.jfxTreeView(

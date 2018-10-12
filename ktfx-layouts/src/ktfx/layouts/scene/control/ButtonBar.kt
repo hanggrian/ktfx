@@ -26,9 +26,7 @@ open class _ButtonBar(
 fun buttonBar(
     buttonOrder: String? = null,
     init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
-): ButtonBar = _ButtonBar(buttonOrder).also {
-    init?.invoke(it)
-}
+): ButtonBar = _ButtonBar(buttonOrder).also { init?.invoke(it) }
 
 /** Creates a [ButtonBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.buttonBar(

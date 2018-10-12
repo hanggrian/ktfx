@@ -12,9 +12,7 @@ import javafx.scene.shape.Polyline
 fun polyline(
     vararg points: Double,
     init: ((@LayoutDsl Polyline).() -> Unit)? = null
-): Polyline = Polyline(*points).also {
-    init?.invoke(it)
-}
+): Polyline = Polyline(*points).also { init?.invoke(it) }
 
 /** Creates a [Polyline] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.polyline(

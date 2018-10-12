@@ -16,9 +16,7 @@ fun <T> jfxChip(
     view: JFXChipView<T>,
     item: T,
     init: ((@LayoutDsl JFXChip<T>).() -> Unit)? = null
-): JFXChip<T> = JFXChip<T>(view, item).also {
-    init?.invoke(it)
-}
+): JFXChip<T> = JFXChip<T>(view, item).also { init?.invoke(it) }
 
 /** Creates a [JFXChip] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.jfxChip(

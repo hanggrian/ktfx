@@ -14,9 +14,7 @@ import org.controlsfx.control.HyperlinkLabel
 fun hyperlinkLabel(
     text: String? = null,
     init: ((@LayoutDsl HyperlinkLabel).() -> Unit)? = null
-): HyperlinkLabel = HyperlinkLabel(text).also {
-    init?.invoke(it)
-}
+): HyperlinkLabel = HyperlinkLabel(text).also { init?.invoke(it) }
 
 /** Creates a [HyperlinkLabel] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.hyperlinkLabel(

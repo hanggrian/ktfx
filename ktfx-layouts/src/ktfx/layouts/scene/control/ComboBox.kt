@@ -14,9 +14,7 @@ import ktfx.collections.mutableObservableListOf
 fun <T> comboBox(
     items: ObservableList<T> = mutableObservableListOf(),
     init: ((@LayoutDsl ComboBox<T>).() -> Unit)? = null
-): ComboBox<T> = ComboBox(items).also {
-    init?.invoke(it)
-}
+): ComboBox<T> = ComboBox(items).also { init?.invoke(it) }
 
 /** Creates a [ComboBox] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.comboBox(

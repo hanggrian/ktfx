@@ -13,9 +13,7 @@ import javafx.scene.control.ProgressIndicator
 fun progressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     init: ((@LayoutDsl ProgressIndicator).() -> Unit)? = null
-): ProgressIndicator = ProgressIndicator(progress).also {
-    init?.invoke(it)
-}
+): ProgressIndicator = ProgressIndicator(progress).also { init?.invoke(it) }
 
 /** Creates a [ProgressIndicator] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.progressIndicator(

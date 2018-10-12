@@ -31,9 +31,7 @@ open class _StackPane(
 fun stackPane(
     vararg children: Node,
     init: ((@LayoutDsl _StackPane).() -> Unit)? = null
-): StackPane = _StackPane(*children).also {
-    init?.invoke(it)
-}
+): StackPane = _StackPane(*children).also { init?.invoke(it) }
 
 /** Creates a [StackPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.stackPane(

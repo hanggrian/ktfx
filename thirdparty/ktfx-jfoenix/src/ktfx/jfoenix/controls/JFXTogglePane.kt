@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXTogglePane]. */
 fun jfxTogglePane(
     init: ((@LayoutDsl JFXTogglePane).() -> Unit)? = null
-): JFXTogglePane = JFXTogglePane().also {
-    init?.invoke(it)
-}
+): JFXTogglePane = JFXTogglePane().also { init?.invoke(it) }
 
 /** Creates a [JFXTogglePane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxTogglePane(

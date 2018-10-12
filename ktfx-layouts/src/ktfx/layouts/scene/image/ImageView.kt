@@ -13,17 +13,13 @@ import javafx.scene.image.ImageView
 fun imageView(
     image: Image? = null,
     init: ((@LayoutDsl ImageView).() -> Unit)? = null
-): ImageView = ImageView(image).also {
-    init?.invoke(it)
-}
+): ImageView = ImageView(image).also { init?.invoke(it) }
 
 /** Creates an [ImageView]. */
 fun imageView(
     imageUrl: String,
     init: ((@LayoutDsl ImageView).() -> Unit)? = null
-): ImageView = ImageView(imageUrl).also {
-    init?.invoke(it)
-}
+): ImageView = ImageView(imageUrl).also { init?.invoke(it) }
 
 /** Creates an [ImageView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.imageView(

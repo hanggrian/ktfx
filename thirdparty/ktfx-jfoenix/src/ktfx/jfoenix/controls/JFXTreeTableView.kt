@@ -16,9 +16,7 @@ import ktfx.layouts.LayoutManager
 fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
     root: TreeItem<S>? = null,
     init: ((@LayoutDsl JFXTreeTableView<S>).() -> Unit)? = null
-): JFXTreeTableView<S> = JFXTreeTableView<S>(root).also {
-    init?.invoke(it)
-}
+): JFXTreeTableView<S> = JFXTreeTableView<S>(root).also { init?.invoke(it) }
 
 /** Creates a [JFXTreeTableView] and add it to this [LayoutManager]. */
 inline fun <S : RecursiveTreeObject<S>> LayoutManager<Node>.jfxTreeTableView(

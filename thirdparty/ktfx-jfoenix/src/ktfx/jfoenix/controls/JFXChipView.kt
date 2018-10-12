@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXChipView]. */
 fun <T> jfxChipView(
     init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
-): JFXChipView<T> = JFXChipView<T>().also {
-    init?.invoke(it)
-}
+): JFXChipView<T> = JFXChipView<T>().also { init?.invoke(it) }
 
 /** Creates a [JFXChipView] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.jfxChipView(

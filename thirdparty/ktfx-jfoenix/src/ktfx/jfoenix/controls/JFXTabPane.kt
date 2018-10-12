@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXTabPane]. */
 fun jfxTabPane(
     init: ((@LayoutDsl JFXTabPane).() -> Unit)? = null
-): JFXTabPane = JFXTabPane().also {
-    init?.invoke(it)
-}
+): JFXTabPane = JFXTabPane().also { init?.invoke(it) }
 
 /** Creates a [JFXTabPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxTabPane(

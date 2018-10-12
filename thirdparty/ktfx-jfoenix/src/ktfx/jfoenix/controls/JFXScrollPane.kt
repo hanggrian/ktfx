@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXScrollPane]. */
 fun jfxScrollPane(
     init: ((@LayoutDsl JFXScrollPane).() -> Unit)? = null
-): JFXScrollPane = JFXScrollPane().also {
-    init?.invoke(it)
-}
+): JFXScrollPane = JFXScrollPane().also { init?.invoke(it) }
 
 /** Creates a [JFXScrollPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxScrollPane(

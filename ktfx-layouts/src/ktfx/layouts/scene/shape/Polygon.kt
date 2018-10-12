@@ -12,9 +12,7 @@ import javafx.scene.shape.Polygon
 fun polygon(
     vararg points: Double,
     init: ((@LayoutDsl Polygon).() -> Unit)? = null
-): Polygon = Polygon(*points).also {
-    init?.invoke(it)
-}
+): Polygon = Polygon(*points).also { init?.invoke(it) }
 
 /** Creates a [Polygon] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.polygon(

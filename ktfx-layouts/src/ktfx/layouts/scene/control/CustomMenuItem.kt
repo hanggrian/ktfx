@@ -14,9 +14,7 @@ fun customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
     init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
-): CustomMenuItem = CustomMenuItem(node, hideOnClick).also {
-    init?.invoke(it)
-}
+): CustomMenuItem = CustomMenuItem(node, hideOnClick).also { init?.invoke(it) }
 
 /** Creates a [CustomMenuItem] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.customMenuItem(

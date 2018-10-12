@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXDrawersStack]. */
 fun jfxDrawersStack(
     init: ((@LayoutDsl JFXDrawersStack).() -> Unit)? = null
-): JFXDrawersStack = JFXDrawersStack().also {
-    init?.invoke(it)
-}
+): JFXDrawersStack = JFXDrawersStack().also { init?.invoke(it) }
 
 /** Creates a [JFXDrawersStack] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxDrawersStack(

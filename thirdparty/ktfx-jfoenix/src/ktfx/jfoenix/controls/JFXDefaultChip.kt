@@ -16,9 +16,7 @@ fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     init: ((@LayoutDsl JFXDefaultChip<T>).() -> Unit)? = null
-): JFXDefaultChip<T> = JFXDefaultChip<T>(view, item).also {
-    init?.invoke(it)
-}
+): JFXDefaultChip<T> = JFXDefaultChip<T>(view, item).also { init?.invoke(it) }
 
 /** Creates a [JFXDefaultChip] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.jfxDefaultChip(

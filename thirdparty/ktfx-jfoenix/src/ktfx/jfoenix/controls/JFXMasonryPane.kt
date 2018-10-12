@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXMasonryPane]. */
 fun jfxMasonryPane(
     init: ((@LayoutDsl JFXMasonryPane).() -> Unit)? = null
-): JFXMasonryPane = JFXMasonryPane().also {
-    init?.invoke(it)
-}
+): JFXMasonryPane = JFXMasonryPane().also { init?.invoke(it) }
 
 /** Creates a [JFXMasonryPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxMasonryPane(

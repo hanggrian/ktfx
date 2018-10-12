@@ -16,9 +16,7 @@ fun jfxSlider(
     max: Double = 100.0,
     value: Double = 50.0,
     init: ((@LayoutDsl JFXSlider).() -> Unit)? = null
-): JFXSlider = JFXSlider(min, max, value).also {
-    init?.invoke(it)
-}
+): JFXSlider = JFXSlider(min, max, value).also { init?.invoke(it) }
 
 /** Creates a [JFXSlider] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxSlider(

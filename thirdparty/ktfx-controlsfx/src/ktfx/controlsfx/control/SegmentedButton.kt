@@ -30,9 +30,7 @@ open class _SegmentedButton(
 fun segmentedButton(
     vararg buttons: ToggleButton,
     init: ((@LayoutDsl _SegmentedButton).() -> Unit)? = null
-): SegmentedButton = _SegmentedButton(*buttons).also {
-    init?.invoke(it)
-}
+): SegmentedButton = _SegmentedButton(*buttons).also { init?.invoke(it) }
 
 /** Creates a [SegmentedButton] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.segmentedButton(

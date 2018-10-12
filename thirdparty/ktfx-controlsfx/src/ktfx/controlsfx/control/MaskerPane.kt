@@ -13,9 +13,7 @@ import org.controlsfx.control.MaskerPane
 /** Creates a [MaskerPane]. */
 fun maskerPane(
     init: ((@LayoutDsl MaskerPane).() -> Unit)? = null
-): MaskerPane = MaskerPane().also {
-    init?.invoke(it)
-}
+): MaskerPane = MaskerPane().also { init?.invoke(it) }
 
 /** Creates a [MaskerPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.maskerPane(

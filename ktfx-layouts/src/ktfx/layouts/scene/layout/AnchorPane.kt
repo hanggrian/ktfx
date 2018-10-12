@@ -58,9 +58,7 @@ open class _AnchorPane(
 fun anchorPane(
     vararg children: Node,
     init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
-): AnchorPane = _AnchorPane(*children).also {
-    init?.invoke(it)
-}
+): AnchorPane = _AnchorPane(*children).also { init?.invoke(it) }
 
 /** Creates a [AnchorPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.anchorPane(

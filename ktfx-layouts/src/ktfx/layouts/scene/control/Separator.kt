@@ -14,9 +14,7 @@ import javafx.scene.control.Separator
 fun separator(
     orientation: Orientation = HORIZONTAL,
     init: ((@LayoutDsl Separator).() -> Unit)? = null
-): Separator = Separator(orientation).also {
-    init?.invoke(it)
-}
+): Separator = Separator(orientation).also { init?.invoke(it) }
 
 /** Creates a [Separator] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.separator(

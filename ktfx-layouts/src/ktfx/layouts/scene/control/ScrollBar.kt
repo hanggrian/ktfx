@@ -11,9 +11,7 @@ import javafx.scene.control.ScrollBar
 /** Creates a [ScrollBar]. */
 fun scrollBar(
     init: ((@LayoutDsl ScrollBar).() -> Unit)? = null
-): ScrollBar = ScrollBar().also {
-    init?.invoke(it)
-}
+): ScrollBar = ScrollBar().also { init?.invoke(it) }
 
 /** Creates a [ScrollBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.scrollBar(

@@ -14,9 +14,7 @@ import ktfx.layouts.LayoutManager
 fun jfxClippedPane(
     vararg children: Node,
     init: ((@LayoutDsl JFXClippedPane).() -> Unit)? = null
-): JFXClippedPane = JFXClippedPane(*children).also {
-    init?.invoke(it)
-}
+): JFXClippedPane = JFXClippedPane(*children).also { init?.invoke(it) }
 
 /** Creates a [JFXClippedPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxClippedPane(

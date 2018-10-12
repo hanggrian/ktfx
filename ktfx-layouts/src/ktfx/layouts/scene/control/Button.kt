@@ -13,9 +13,7 @@ fun button(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl Button).() -> Unit)? = null
-): Button = Button(text, graphic).also {
-    init?.invoke(it)
-}
+): Button = Button(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Button] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.button(

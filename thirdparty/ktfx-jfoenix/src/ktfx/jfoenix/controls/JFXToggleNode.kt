@@ -14,9 +14,7 @@ import ktfx.layouts.LayoutManager
 fun jfxToggleNode(
     graphic: Node? = null,
     init: ((@LayoutDsl JFXToggleNode).() -> Unit)? = null
-): JFXToggleNode = JFXToggleNode(graphic).also {
-    init?.invoke(it)
-}
+): JFXToggleNode = JFXToggleNode(graphic).also { init?.invoke(it) }
 
 /** Creates a [JFXToggleNode] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxToggleNode(

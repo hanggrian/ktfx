@@ -83,9 +83,7 @@ open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPa
 /** Creates a [GridPane]. */
 fun gridPane(
     init: ((@LayoutDsl _GridPane).() -> Unit)? = null
-): GridPane = _GridPane().also {
-    init?.invoke(it)
-}
+): GridPane = _GridPane().also { init?.invoke(it) }
 
 /** Creates a [GridPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.gridPane(

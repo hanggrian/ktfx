@@ -14,9 +14,7 @@ import org.controlsfx.control.SegmentedBar.Segment
 /** Creates a [SegmentedBar]. */
 fun <T : Segment> segmentedBar(
     init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
-): SegmentedBar<T> = SegmentedBar<T>().also {
-    init?.invoke(it)
-}
+): SegmentedBar<T> = SegmentedBar<T>().also { init?.invoke(it) }
 
 /** Creates a [SegmentedBar] and add it to this [LayoutManager]. */
 inline fun <T : Segment> LayoutManager<Node>.segmentedBar(

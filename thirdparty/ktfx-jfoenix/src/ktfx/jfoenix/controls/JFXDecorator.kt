@@ -19,9 +19,7 @@ fun jfxDecorator(
     max: Boolean = true,
     min: Boolean = true,
     init: ((@LayoutDsl JFXDecorator).() -> Unit)? = null
-): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).also {
-    init?.invoke(it)
-}
+): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).also { init?.invoke(it) }
 
 /** Creates a [JFXDecorator] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxDecorator(

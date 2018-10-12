@@ -15,9 +15,7 @@ fun jfxButton(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl JFXButton).() -> Unit)? = null
-): JFXButton = JFXButton(text, graphic).also {
-    init?.invoke(it)
-}
+): JFXButton = JFXButton(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [JFXButton] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxButton(

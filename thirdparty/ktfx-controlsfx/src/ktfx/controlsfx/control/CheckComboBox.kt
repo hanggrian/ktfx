@@ -16,9 +16,7 @@ import org.controlsfx.control.CheckComboBox
 fun <T> checkComboBox(
     items: ObservableList<T> = mutableObservableListOf(),
     init: ((@LayoutDsl CheckComboBox<T>).() -> Unit)? = null
-): CheckComboBox<T> = CheckComboBox(items).also {
-    init?.invoke(it)
-}
+): CheckComboBox<T> = CheckComboBox(items).also { init?.invoke(it) }
 
 /** Creates a [CheckComboBox] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.checkComboBox(

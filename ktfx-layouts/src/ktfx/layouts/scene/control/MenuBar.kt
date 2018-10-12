@@ -28,9 +28,7 @@ class _MenuBar(
 fun menuBar(
     vararg menus: Menu,
     init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
-): MenuBar = _MenuBar(*menus).also {
-    init?.invoke(it)
-}
+): MenuBar = _MenuBar(*menus).also { init?.invoke(it) }
 
 /** Creates a [MenuBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.menuBar(

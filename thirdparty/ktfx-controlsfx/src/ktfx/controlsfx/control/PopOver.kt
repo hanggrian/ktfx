@@ -19,6 +19,4 @@ open class _PopOver(content: Node? = null) : PopOver(content), LayoutManager<Nod
 fun popOver(
     content: Node? = null,
     init: ((@LayoutDsl _PopOver).() -> Unit)? = null
-): PopOver = _PopOver(content).also {
-    init?.invoke(it)
-}
+): PopOver = _PopOver(content).also { init?.invoke(it) }

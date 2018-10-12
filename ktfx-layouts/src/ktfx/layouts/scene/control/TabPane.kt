@@ -26,9 +26,7 @@ open class _TabPane(
 fun tabPane(
     vararg tabs: Tab,
     init: ((@LayoutDsl _TabPane).() -> Unit)? = null
-): TabPane = _TabPane(*tabs).also {
-    init?.invoke(it)
-}
+): TabPane = _TabPane(*tabs).also { init?.invoke(it) }
 
 /** Creates a [TabPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.tabPane(

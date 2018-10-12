@@ -26,9 +26,7 @@ open class _SplitMenuButton(
 fun splitMenuButton(
     vararg items: MenuItem,
     init: ((@LayoutDsl _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = _SplitMenuButton(*items).also {
-    init?.invoke(it)
-}
+): SplitMenuButton = _SplitMenuButton(*items).also { init?.invoke(it) }
 
 /** Creates a [SplitMenuButton] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.splitMenuButton(

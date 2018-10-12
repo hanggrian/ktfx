@@ -18,9 +18,7 @@ fun <X, Y> bubbleChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     init: ((@LayoutDsl BubbleChart<X, Y>).() -> Unit)? = null
-): BubbleChart<X, Y> = BubbleChart(x, y, data).also {
-    init?.invoke(it)
-}
+): BubbleChart<X, Y> = BubbleChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [BubbleChart] and add it to this [LayoutManager]. */
 inline fun <X, Y> LayoutManager<Node>.bubbleChart(

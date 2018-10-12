@@ -12,9 +12,7 @@ import javafx.scene.control.CheckBox
 fun checkBox(
     text: String? = null,
     init: ((@LayoutDsl CheckBox).() -> Unit)? = null
-): CheckBox = CheckBox(text).also {
-    init?.invoke(it)
-}
+): CheckBox = CheckBox(text).also { init?.invoke(it) }
 
 /** Creates a [CheckBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.checkBox(

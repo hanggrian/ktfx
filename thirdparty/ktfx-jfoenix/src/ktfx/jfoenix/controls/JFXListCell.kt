@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXListCell]. */
 fun <T> jfxListCell(
     init: ((@LayoutDsl JFXListCell<T>).() -> Unit)? = null
-): JFXListCell<T> = JFXListCell<T>().also {
-    init?.invoke(it)
-}
+): JFXListCell<T> = JFXListCell<T>().also { init?.invoke(it) }
 
 /** Creates a [JFXListCell] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.jfxListCell(

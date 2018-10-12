@@ -14,9 +14,7 @@ import ktfx.layouts.LayoutManager
 fun jfxProgressBar(
     progress: Double = 0.0,
     init: ((@LayoutDsl JFXProgressBar).() -> Unit)? = null
-): JFXProgressBar = JFXProgressBar(progress).also {
-    init?.invoke(it)
-}
+): JFXProgressBar = JFXProgressBar(progress).also { init?.invoke(it) }
 
 /** Creates a [JFXProgressBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxProgressBar(

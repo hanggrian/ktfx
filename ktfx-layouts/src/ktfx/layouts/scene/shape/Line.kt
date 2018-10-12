@@ -15,9 +15,7 @@ fun line(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: ((@LayoutDsl Line).() -> Unit)? = null
-): Line = Line(centerX, centerY, endX, endY).also {
-    init?.invoke(it)
-}
+): Line = Line(centerX, centerY, endX, endY).also { init?.invoke(it) }
 
 /** Creates a [Line] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.line(

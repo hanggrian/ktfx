@@ -34,9 +34,7 @@ fun flowPane(
     vgap: Double = 0.0,
     vararg children: Node,
     init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
-): FlowPane = _FlowPane(orientation, hgap, vgap, *children).also {
-    init?.invoke(it)
-}
+): FlowPane = _FlowPane(orientation, hgap, vgap, *children).also { init?.invoke(it) }
 
 /** Creates a [FlowPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.flowPane(

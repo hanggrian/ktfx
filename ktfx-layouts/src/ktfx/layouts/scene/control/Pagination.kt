@@ -14,9 +14,7 @@ fun pagination(
     count: Int = INDETERMINATE,
     index: Int = 0,
     init: ((@LayoutDsl Pagination).() -> Unit)? = null
-): Pagination = Pagination(count, index).also {
-    init?.invoke(it)
-}
+): Pagination = Pagination(count, index).also { init?.invoke(it) }
 
 /** Creates a [Pagination] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.pagination(

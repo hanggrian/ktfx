@@ -12,9 +12,7 @@ import javafx.scene.control.RadioButton
 fun radioButton(
     text: String? = null,
     init: ((@LayoutDsl RadioButton).() -> Unit)? = null
-): RadioButton = RadioButton(text).also {
-    init?.invoke(it)
-}
+): RadioButton = RadioButton(text).also { init?.invoke(it) }
 
 /** Creates a [RadioButton] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.radioButton(

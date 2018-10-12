@@ -12,9 +12,7 @@ import javafx.scene.text.Text
 fun text(
     text: String? = null,
     init: ((@LayoutDsl Text).() -> Unit)? = null
-): Text = Text(text).also {
-    init?.invoke(it)
-}
+): Text = Text(text).also { init?.invoke(it) }
 
 /** Creates a [Text] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.text(

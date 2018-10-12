@@ -13,9 +13,7 @@ import org.controlsfx.control.PrefixSelectionComboBox
 /** Creates a [PrefixSelectionComboBox]. */
 fun <T> prefixSelectionComboBox(
     init: ((@LayoutDsl PrefixSelectionComboBox<T>).() -> Unit)? = null
-): PrefixSelectionComboBox<T> = PrefixSelectionComboBox<T>().also {
-    init?.invoke(it)
-}
+): PrefixSelectionComboBox<T> = PrefixSelectionComboBox<T>().also { init?.invoke(it) }
 
 /** Creates a [PrefixSelectionComboBox] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.prefixSelectionComboBox(

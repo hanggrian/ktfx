@@ -29,9 +29,7 @@ fun menuButton(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl _MenuButton).() -> Unit)? = null
-): MenuButton = _MenuButton(text, graphic).also {
-    init?.invoke(it)
-}
+): MenuButton = _MenuButton(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [MenuButton] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.menuButton(

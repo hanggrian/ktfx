@@ -13,9 +13,7 @@ fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl ToggleButton).() -> Unit)? = null
-): ToggleButton = ToggleButton(text, graphic).also {
-    init?.invoke(it)
-}
+): ToggleButton = ToggleButton(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [ToggleButton] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.toggleButton(

@@ -14,9 +14,7 @@ import javafx.scene.paint.Color.WHITE
 fun colorPicker(
     color: Color = WHITE,
     init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
-): ColorPicker = ColorPicker(color).also {
-    init?.invoke(it)
-}
+): ColorPicker = ColorPicker(color).also { init?.invoke(it) }
 
 /** Creates a [ColorPicker] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.colorPicker(

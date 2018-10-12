@@ -13,9 +13,7 @@ import org.controlsfx.control.ListSelectionView
 /** Creates a [ListSelectionView]. */
 fun <T> listSelectionView(
     init: ((@LayoutDsl ListSelectionView<T>).() -> Unit)? = null
-): ListSelectionView<T> = ListSelectionView<T>().also {
-    init?.invoke(it)
-}
+): ListSelectionView<T> = ListSelectionView<T>().also { init?.invoke(it) }
 
 /** Creates a [ListSelectionView] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.listSelectionView(

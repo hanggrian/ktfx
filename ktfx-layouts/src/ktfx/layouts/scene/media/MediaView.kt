@@ -13,9 +13,7 @@ import javafx.scene.media.MediaView
 fun mediaView(
     player: MediaPlayer? = null,
     init: ((@LayoutDsl MediaView).() -> Unit)? = null
-): MediaView = MediaView(player).also {
-    init?.invoke(it)
-}
+): MediaView = MediaView(player).also { init?.invoke(it) }
 
 /** Creates a [MediaView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.mediaView(

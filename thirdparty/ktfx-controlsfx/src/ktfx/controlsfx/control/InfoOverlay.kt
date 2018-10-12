@@ -15,9 +15,7 @@ fun infoOverlay(
     graphic: Node? = null,
     text: String? = null,
     init: ((@LayoutDsl InfoOverlay).() -> Unit)? = null
-): InfoOverlay = InfoOverlay(graphic, text).also {
-    init?.invoke(it)
-}
+): InfoOverlay = InfoOverlay(graphic, text).also { init?.invoke(it) }
 
 /** Creates a [InfoOverlay] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.infoOverlay(

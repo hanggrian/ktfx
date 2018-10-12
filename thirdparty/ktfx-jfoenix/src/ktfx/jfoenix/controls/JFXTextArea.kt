@@ -14,9 +14,7 @@ import ktfx.layouts.LayoutManager
 fun jfxTextArea(
     text: String? = null,
     init: ((@LayoutDsl JFXTextArea).() -> Unit)? = null
-): JFXTextArea = JFXTextArea(text).also {
-    init?.invoke(it)
-}
+): JFXTextArea = JFXTextArea(text).also { init?.invoke(it) }
 
 /** Creates a [JFXTextArea] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxTextArea(

@@ -13,9 +13,7 @@ fun label(
     text: String? = null,
     graphic: Node? = null,
     init: ((@LayoutDsl Label).() -> Unit)? = null
-): Label = Label(text, graphic).also {
-    init?.invoke(it)
-}
+): Label = Label(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Label] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.label(

@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXPasswordField]. */
 fun jfxPasswordField(
     init: ((@LayoutDsl JFXPasswordField).() -> Unit)? = null
-): JFXPasswordField = JFXPasswordField().also {
-    init?.invoke(it)
-}
+): JFXPasswordField = JFXPasswordField().also { init?.invoke(it) }
 
 /** Creates a [JFXPasswordField] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxPasswordField(

@@ -18,9 +18,7 @@ fun jfxRippler(
     mask: RipplerMask = RipplerMask.RECT,
     pos: RipplerPos = RipplerPos.FRONT,
     init: ((@LayoutDsl JFXRippler).() -> Unit)? = null
-): JFXRippler = JFXRippler(control, mask, pos).also {
-    init?.invoke(it)
-}
+): JFXRippler = JFXRippler(control, mask, pos).also { init?.invoke(it) }
 
 /** Creates a [JFXRippler] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxRippler(

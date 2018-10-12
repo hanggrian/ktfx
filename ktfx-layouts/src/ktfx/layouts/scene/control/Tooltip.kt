@@ -15,9 +15,7 @@ import javafx.scene.control.Tooltip.install
 fun tooltip(
     text: String? = null,
     init: ((@LayoutDsl Tooltip).() -> Unit)? = null
-): Tooltip = Tooltip(text).also {
-    init?.invoke(it)
-}
+): Tooltip = Tooltip(text).also { init?.invoke(it) }
 
 /** Creates a [Tooltip] and set it to this [Node]. */
 inline fun Node.tooltip(

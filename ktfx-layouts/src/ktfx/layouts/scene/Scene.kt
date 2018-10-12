@@ -34,6 +34,4 @@ fun scene(
     height: Double = -1.0,
     fill: Paint = WHITE,
     init: ((@LayoutDsl _Scene).() -> Unit)? = null
-): Scene = _Scene(root, width, height, fill).also {
-    init?.invoke(it)
-}
+): Scene = _Scene(root, width, height, fill).also { init?.invoke(it) }

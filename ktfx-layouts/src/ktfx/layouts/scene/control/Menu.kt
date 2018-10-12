@@ -30,9 +30,7 @@ fun menu(
     graphic: Node? = null,
     vararg items: MenuItem,
     init: ((@LayoutDsl _Menu).() -> Unit)? = null
-): Menu = _Menu(text, graphic, *items).also {
-    init?.invoke(it)
-}
+): Menu = _Menu(text, graphic, *items).also { init?.invoke(it) }
 
 /** Creates a [Menu] and add it to this [LayoutManager]. */
 inline fun LayoutManager<MenuItem>.menu(

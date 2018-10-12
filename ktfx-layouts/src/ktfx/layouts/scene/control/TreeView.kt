@@ -13,9 +13,7 @@ import javafx.scene.control.TreeView
 fun <T> treeView(
     root: TreeItem<T>? = null,
     init: ((@LayoutDsl TreeView<T>).() -> Unit)? = null
-): TreeView<T> = TreeView<T>(root).also {
-    init?.invoke(it)
-}
+): TreeView<T> = TreeView<T>(root).also { init?.invoke(it) }
 
 /** Creates a [TreeView] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.treeView(

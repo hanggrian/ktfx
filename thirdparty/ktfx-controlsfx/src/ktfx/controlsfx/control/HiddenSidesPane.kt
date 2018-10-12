@@ -18,9 +18,7 @@ fun hiddenSidesPane(
     bottom: Node? = null,
     left: Node? = null,
     init: ((@LayoutDsl HiddenSidesPane).() -> Unit)? = null
-): HiddenSidesPane = HiddenSidesPane(content, top, right, bottom, left).also {
-    init?.invoke(it)
-}
+): HiddenSidesPane = HiddenSidesPane(content, top, right, bottom, left).also { init?.invoke(it) }
 
 /** Creates a [HiddenSidesPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.hiddenSidesPane(

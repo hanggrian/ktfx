@@ -18,9 +18,7 @@ fun <X, Y> stackedAreaChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     init: ((@LayoutDsl StackedAreaChart<X, Y>).() -> Unit)? = null
-): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).also {
-    init?.invoke(it)
-}
+): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [StackedAreaChart] and add it to this [LayoutManager]. */
 inline fun <X, Y> LayoutManager<Node>.stackedAreaChart(

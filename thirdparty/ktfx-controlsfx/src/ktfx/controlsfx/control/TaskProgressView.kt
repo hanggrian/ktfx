@@ -14,9 +14,7 @@ import org.controlsfx.control.TaskProgressView
 /** Creates a [TaskProgressView]. */
 fun <T : Task<*>> taskProgressView(
     init: ((@LayoutDsl TaskProgressView<T>).() -> Unit)? = null
-): TaskProgressView<T> = TaskProgressView<T>().also {
-    init?.invoke(it)
-}
+): TaskProgressView<T> = TaskProgressView<T>().also { init?.invoke(it) }
 
 /** Creates a [TaskProgressView] and add it to this [LayoutManager]. */
 inline fun <T : Task<*>> LayoutManager<Node>.taskProgressView(

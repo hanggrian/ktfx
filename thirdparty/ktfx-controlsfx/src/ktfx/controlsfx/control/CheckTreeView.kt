@@ -15,9 +15,7 @@ import org.controlsfx.control.CheckTreeView
 fun <T> checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
     init: ((@LayoutDsl CheckTreeView<T>).() -> Unit)? = null
-): CheckTreeView<T> = CheckTreeView<T>(root).also {
-    init?.invoke(it)
-}
+): CheckTreeView<T> = CheckTreeView<T>(root).also { init?.invoke(it) }
 
 /** Creates a [CheckTreeView] and add it to this [LayoutManager]. */
 inline fun <T> LayoutManager<Node>.checkTreeView(

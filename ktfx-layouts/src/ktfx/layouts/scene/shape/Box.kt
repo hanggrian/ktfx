@@ -15,9 +15,7 @@ fun box(
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
     init: ((@LayoutDsl Box).() -> Unit)? = null
-): Box = Box(width, height, depth).also {
-    init?.invoke(it)
-}
+): Box = Box(width, height, depth).also { init?.invoke(it) }
 
 /** Creates a [Box] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.box(

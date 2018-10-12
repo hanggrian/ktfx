@@ -19,9 +19,7 @@ open class _ScrollPane(
 fun scrollPane(
     content: Node? = null,
     init: ((@LayoutDsl _ScrollPane).() -> Unit)? = null
-): ScrollPane = _ScrollPane(content).also {
-    init?.invoke(it)
-}
+): ScrollPane = _ScrollPane(content).also { init?.invoke(it) }
 
 /** Creates a [ScrollPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.scrollPane(

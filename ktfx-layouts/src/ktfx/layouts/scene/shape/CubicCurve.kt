@@ -19,9 +19,8 @@ fun cubicCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: ((@LayoutDsl CubicCurve).() -> Unit)? = null
-): CubicCurve = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY).also {
-    init?.invoke(it)
-}
+): CubicCurve = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
+    .also { init?.invoke(it) }
 
 /** Creates a [CubicCurve] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.cubicCurve(

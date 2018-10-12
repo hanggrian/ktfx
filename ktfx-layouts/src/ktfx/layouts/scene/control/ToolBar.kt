@@ -19,9 +19,7 @@ open class _ToolBar(
 fun toolBar(
     vararg items: Node,
     init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
-): ToolBar = _ToolBar(*items).also {
-    init?.invoke(it)
-}
+): ToolBar = _ToolBar(*items).also { init?.invoke(it) }
 
 /** Creates a [ToolBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.toolBar(

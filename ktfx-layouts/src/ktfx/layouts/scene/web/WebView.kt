@@ -11,9 +11,7 @@ import javafx.scene.web.WebView
 /** Creates a [WebView]. */
 fun webView(
     init: ((@LayoutDsl WebView).() -> Unit)? = null
-): WebView = WebView().also {
-    init?.invoke(it)
-}
+): WebView = WebView().also { init?.invoke(it) }
 
 /** Creates a [WebView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.webView(

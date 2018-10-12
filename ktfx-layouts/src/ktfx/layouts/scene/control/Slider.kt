@@ -14,9 +14,7 @@ fun slider(
     max: Double,
     value: Double,
     init: ((@LayoutDsl Slider).() -> Unit)? = null
-): Slider = Slider(min, max, value).also {
-    init?.invoke(it)
-}
+): Slider = Slider(min, max, value).also { init?.invoke(it) }
 
 /** Creates a [Slider] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.slider(

@@ -11,9 +11,7 @@ import javafx.scene.control.PasswordField
 /** Creates a [PasswordField]. */
 fun passwordField(
     init: ((@LayoutDsl PasswordField).() -> Unit)? = null
-): PasswordField = PasswordField().also {
-    init?.invoke(it)
-}
+): PasswordField = PasswordField().also { init?.invoke(it) }
 
 /** Creates a [PasswordField] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.passwordField(

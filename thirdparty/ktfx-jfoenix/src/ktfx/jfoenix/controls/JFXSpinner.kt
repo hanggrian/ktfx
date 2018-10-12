@@ -14,9 +14,7 @@ import ktfx.layouts.LayoutManager
 fun jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
     init: ((@LayoutDsl JFXSpinner).() -> Unit)? = null
-): JFXSpinner = JFXSpinner(progress).also {
-    init?.invoke(it)
-}
+): JFXSpinner = JFXSpinner(progress).also { init?.invoke(it) }
 
 /** Creates a [JFXSpinner] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxSpinner(

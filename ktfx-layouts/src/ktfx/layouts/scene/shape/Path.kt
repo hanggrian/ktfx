@@ -13,9 +13,7 @@ import javafx.scene.shape.PathElement
 fun path(
     vararg elements: PathElement,
     init: ((@LayoutDsl Path).() -> Unit)? = null
-): Path = Path(*elements).also {
-    init?.invoke(it)
-}
+): Path = Path(*elements).also { init?.invoke(it) }
 
 /** Creates a [Path] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.path(

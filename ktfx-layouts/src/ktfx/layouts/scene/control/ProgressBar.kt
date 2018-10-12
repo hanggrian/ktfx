@@ -13,9 +13,7 @@ import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 fun progressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     init: ((@LayoutDsl ProgressBar).() -> Unit)? = null
-): ProgressBar = ProgressBar(progress).also {
-    init?.invoke(it)
-}
+): ProgressBar = ProgressBar(progress).also { init?.invoke(it) }
 
 /** Creates a [ProgressBar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.progressBar(

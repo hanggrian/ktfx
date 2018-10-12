@@ -13,9 +13,7 @@ import javafx.scene.shape.MeshView
 fun meshView(
     mesh: Mesh? = null,
     init: ((@LayoutDsl MeshView).() -> Unit)? = null
-): MeshView = MeshView(mesh).also {
-    init?.invoke(it)
-}
+): MeshView = MeshView(mesh).also { init?.invoke(it) }
 
 /** Creates a [MeshView] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.meshView(

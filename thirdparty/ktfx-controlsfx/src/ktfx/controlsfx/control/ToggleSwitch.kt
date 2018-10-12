@@ -14,9 +14,7 @@ import org.controlsfx.control.ToggleSwitch
 fun toggleSwitch(
     text: String? = null,
     init: ((@LayoutDsl ToggleSwitch).() -> Unit)? = null
-): ToggleSwitch = ToggleSwitch(text).also {
-    init?.invoke(it)
-}
+): ToggleSwitch = ToggleSwitch(text).also { init?.invoke(it) }
 
 /** Creates a [ToggleSwitch] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.toggleSwitch(

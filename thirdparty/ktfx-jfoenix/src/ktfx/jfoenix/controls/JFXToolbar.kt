@@ -13,9 +13,7 @@ import ktfx.layouts.LayoutManager
 /** Creates a [JFXToolbar]. */
 fun jfxToolbar(
     init: ((@LayoutDsl JFXToolbar).() -> Unit)? = null
-): JFXToolbar = JFXToolbar().also {
-    init?.invoke(it)
-}
+): JFXToolbar = JFXToolbar().also { init?.invoke(it) }
 
 /** Creates a [JFXToolbar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxToolbar(

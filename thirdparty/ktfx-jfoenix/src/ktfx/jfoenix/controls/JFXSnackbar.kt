@@ -15,9 +15,7 @@ import ktfx.layouts.LayoutManager
 fun jfxSnackbar(
     snackbarContainer: Pane? = null,
     init: ((@LayoutDsl JFXSnackbar).() -> Unit)? = null
-): JFXSnackbar = JFXSnackbar(snackbarContainer).also {
-    init?.invoke(it)
-}
+): JFXSnackbar = JFXSnackbar(snackbarContainer).also { init?.invoke(it) }
 
 /** Creates a [JFXSnackbar] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxSnackbar(

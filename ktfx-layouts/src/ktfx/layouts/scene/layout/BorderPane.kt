@@ -40,9 +40,7 @@ fun borderPane(
     bottom: Node? = null,
     left: Node? = null,
     init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
-): BorderPane = _BorderPane(center, top, right, bottom, left).also {
-    init?.invoke(it)
-}
+): BorderPane = _BorderPane(center, top, right, bottom, left).also { init?.invoke(it) }
 
 /** Creates a [BorderPane] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.borderPane(

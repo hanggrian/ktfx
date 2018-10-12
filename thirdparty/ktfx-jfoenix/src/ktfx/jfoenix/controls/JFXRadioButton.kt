@@ -14,9 +14,7 @@ import ktfx.layouts.LayoutManager
 fun jfxRadioButton(
     text: String? = null,
     init: ((@LayoutDsl JFXRadioButton).() -> Unit)? = null
-): JFXRadioButton = JFXRadioButton(text).also {
-    init?.invoke(it)
-}
+): JFXRadioButton = JFXRadioButton(text).also { init?.invoke(it) }
 
 /** Creates a [JFXRadioButton] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxRadioButton(

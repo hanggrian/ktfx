@@ -33,9 +33,7 @@ fun hbox(
     spacing: Double = 0.0,
     vararg children: Node,
     init: ((@LayoutDsl _HBox).() -> Unit)? = null
-): HBox = _HBox(spacing, *children).also {
-    init?.invoke(it)
-}
+): HBox = _HBox(spacing, *children).also { init?.invoke(it) }
 
 /** Creates a [HBox] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.hbox(

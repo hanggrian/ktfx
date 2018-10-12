@@ -7,6 +7,7 @@ import javafx.beans.property.ReadOnlyObjectProperty
 import javafx.beans.property.ReadOnlyObjectWrapper
 import javafx.beans.property.SimpleObjectProperty
 import javafx.beans.value.ObservableValue
+import javafx.beans.value.WritableObjectValue
 
 /** Wrap this object in unmodifiable property. */
 inline fun <T> T?.toProperty(): ReadOnlyObjectProperty<T> = ReadOnlyObjectWrapper(this)
@@ -16,3 +17,8 @@ inline fun <T> T?.toMutableProperty(): ObjectProperty<T> = SimpleObjectProperty(
 
 /** Checks whether this observable contains non-null value. */
 inline fun ObservableValue<*>.hasValue(): Boolean = value != null
+
+/** Sets the value to null with mutable property. */
+inline fun WritableObjectValue<*>.clear() {
+    value = null
+}

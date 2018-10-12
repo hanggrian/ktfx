@@ -1,5 +1,6 @@
 package ktfx.controlsfx
 
+import ktfx.layouts.button
 import ktfx.test.PlatformLayoutTest
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -12,7 +13,7 @@ class SegmentedButtonTest : PlatformLayoutTest() {
 
     override fun newInstanceInitialized() {
         assertEquals(segmentedButton {
-            "Hello"()
+            button("Hello")
         }.buttons.size, 1)
     }
 

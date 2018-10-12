@@ -1,6 +1,6 @@
 package ktfx.internal
 
-object Internals {
+object KtfxInternals {
 
     const val NO_GETTER: String = "Property does not have a getter"
 

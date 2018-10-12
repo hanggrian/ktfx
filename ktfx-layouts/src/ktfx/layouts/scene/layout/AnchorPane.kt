@@ -7,7 +7,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
-import ktfx.internal.Internals
+import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
 open class _AnchorPane(
@@ -29,7 +29,7 @@ open class _AnchorPane(
     inline infix fun <N : Node> N.anchorRight(anchorRight: Double?): N = also { it.anchorRight = anchorRight }
 
     inline var Node.anchorAll: Double?
-        @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+        @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
             anchorTop = value
             anchorLeft = value

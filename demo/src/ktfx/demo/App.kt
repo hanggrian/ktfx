@@ -41,6 +41,7 @@ class App : Application() {
                             if (endsWithOperator) "..." else {
                                 val operators = calculationLabel.text
                                     .split("\\d".toRegex())
+                                    .asSequence()
                                     .filter { it.isNotEmpty() }
                                     .toMutableList()
                                 val values = calculationLabel.text

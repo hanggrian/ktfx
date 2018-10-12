@@ -1,6 +1,6 @@
 package ktfx.layouts
 
-import ktfx.internal.Internals
+import ktfx.internal.KtfxInternals
 
 /** Base interface for all layout managers. */
 interface LayoutManager<T> {
@@ -15,7 +15,7 @@ interface LayoutManager<T> {
      * @see javafx.scene.control.MenuBar.getMenus
      * @see javafx.scene.control.TabPane.getTabs
      */
-    val childs: MutableCollection<T> get() = Internals.fail { "Childs has not yet been initialized." }
+    val childs: MutableCollection<T> get() = KtfxInternals.fail { "Childs has not yet been initialized." }
 
     /** Add child, returning the child added. */
     operator fun <R : T> R.invoke(): R = also { childs += it }

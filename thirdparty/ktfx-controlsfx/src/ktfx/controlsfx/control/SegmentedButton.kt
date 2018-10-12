@@ -6,11 +6,9 @@ package ktfx.controlsfx
 /* ktlint-enable package-name */
 
 import javafx.scene.Node
-import javafx.scene.control.Button
 import javafx.scene.control.ToggleButton
 import ktfx.layouts.LayoutDsl
 import ktfx.layouts.LayoutManager
-import ktfx.layouts.button
 import org.controlsfx.control.SegmentedButton
 
 open class _SegmentedButton(
@@ -18,12 +16,6 @@ open class _SegmentedButton(
 ) : SegmentedButton(*buttons), LayoutManager<Node> {
 
     override val childs: MutableList<Node> get() = buttons as MutableList<Node>
-
-    /** Creates a [Button] and add it to this [LayoutManager]. */
-    inline operator fun String.invoke(
-        graphic: Node? = null,
-        noinline init: ((@LayoutDsl Button).() -> Unit)? = null
-    ): Button = button(this, graphic, init)
 }
 
 /** Creates a [SegmentedButton]. */

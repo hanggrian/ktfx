@@ -1,4 +1,5 @@
 const val ARTIFACT_COMMONS = "$RELEASE_ARTIFACT-commons"
+const val ARTIFACT_CORE = "$RELEASE_ARTIFACT-core"
 const val ARTIFACT_COROUTINES = "$RELEASE_ARTIFACT-coroutines"
 const val ARTIFACT_LAYOUTS = "$RELEASE_ARTIFACT-layouts"
 const val ARTIFACT_LISTENERS = "$RELEASE_ARTIFACT-listeners"
@@ -8,6 +9,7 @@ const val ARTIFACT_STYLES = "$RELEASE_ARTIFACT-styles"
 val ARTIFACTS = listOf(
     RELEASE_ARTIFACT,
     ARTIFACT_COMMONS,
+    ARTIFACT_CORE,
     ARTIFACT_COROUTINES,
     ARTIFACT_LAYOUTS,
     ARTIFACT_LISTENERS,
@@ -24,7 +26,8 @@ val ARTIFACTS_THIRDPARTY = listOf(
 )
 
 const val ARTIFACT_DEV_RULESET_CORE = "dev:ruleset-core"
-const val ARTIFACT_DEV_RULESET_BASIC = "dev:ruleset-basic"
+const val ARTIFACT_DEV_RULESET_ALL = "dev:ruleset-all"
+const val ARTIFACT_DEV_RULESET_NO_INSTANCE = "dev:ruleset-no-instance"
 const val ARTIFACT_DEV_RULESET_SINGLE_PACKAGE = "dev:ruleset-single-package"
 const val ARTIFACT_DEV_TESTING = "dev:testing"
 const val ARTIFACT_DEV_TESTING_RULESET = "dev:testing-ruleset"
@@ -32,7 +35,8 @@ const val ARTIFACT_DEV_TESTING_RULESET = "dev:testing-ruleset"
 /** Internal modules. */
 val ARTIFACTS_DEV = listOf(
     ARTIFACT_DEV_RULESET_CORE,
-    ARTIFACT_DEV_RULESET_BASIC,
+    ARTIFACT_DEV_RULESET_ALL,
+    ARTIFACT_DEV_RULESET_NO_INSTANCE,
     ARTIFACT_DEV_RULESET_SINGLE_PACKAGE,
     ARTIFACT_DEV_TESTING,
     ARTIFACT_DEV_TESTING_RULESET

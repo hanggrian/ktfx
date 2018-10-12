@@ -18,7 +18,7 @@ kotlin.experimental.coroutines = org.jetbrains.kotlin.gradle.dsl.Coroutines.ENAB
 val ktlint by configurations.registering
 
 dependencies {
-    compile(project(":$ARTIFACT_COMMONS"))
+    compile(project(":$ARTIFACT_CORE"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
@@ -26,7 +26,7 @@ dependencies {
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":$ARTIFACT_DEV_RULESET_BASIC"))
+        invoke(project(":$ARTIFACT_DEV_RULESET_ALL"))
         invoke(project(":$ARTIFACT_DEV_RULESET_SINGLE_PACKAGE"))
     }
 }

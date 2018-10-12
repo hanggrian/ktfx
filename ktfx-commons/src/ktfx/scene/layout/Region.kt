@@ -4,27 +4,27 @@ package ktfx.scene.layout
 
 import javafx.geometry.Insets
 import javafx.scene.layout.Region
-import ktfx.internal.Internals
+import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
 /** Convenient method for overriding the region's computed minimum width and height. */
 inline var Region.minSize: Double
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) = setMinSize(value, value)
 
 /** Convenient method for overriding the region's computed preferred width and height. */
 inline var Region.prefSize: Double
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) = setPrefSize(value, value)
 
 /** Convenient method for overriding the region's computed maximum width and height. */
 inline var Region.maxSize: Double
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) = setMaxSize(value, value)
 
 /** Sets padding to all sides with integer. */
 inline var Region.paddingAll: Double
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) = setPadding(Insets(value))
 
 /** Top padding in integer. */

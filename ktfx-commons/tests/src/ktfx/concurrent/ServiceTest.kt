@@ -1,6 +1,7 @@
 package ktfx.concurrent
 
 import com.sun.javafx.application.PlatformImpl
+import ktfx.internal._Task
 import org.junit.Before
 import org.junit.Test
 import java.lang.Thread.sleep

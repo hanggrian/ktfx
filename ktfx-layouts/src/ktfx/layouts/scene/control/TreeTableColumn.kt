@@ -22,7 +22,8 @@ interface TreeTableColumnsBuilder<S> {
 }
 
 @PublishedApi
-internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, LayoutManager<TreeTableColumn<S, *>> {
+internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>,
+    LayoutManager<TreeTableColumn<S, *>> {
 
     override val childs: MutableList<TreeTableColumn<S, *>> = mutableListOf()
 

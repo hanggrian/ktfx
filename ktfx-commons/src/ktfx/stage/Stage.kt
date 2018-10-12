@@ -6,12 +6,12 @@ import javafx.scene.image.Image
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.stage.StageStyle.DECORATED
-import ktfx.internal.Internals
+import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
 inline var Stage.minSize: Double
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) = setMinSize(value, value)
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
@@ -22,7 +22,7 @@ inline fun Stage.setMinSize(width: Double, height: Double) {
 
 /** Convenient method for overriding the stage's computed width and height. */
 inline var Stage.size: Double
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) = setSize(value, value)
 
 /** Convenient method for overriding the stage's computed width and height. */
@@ -33,7 +33,7 @@ inline fun Stage.setSize(width: Double, height: Double) {
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
 inline var Stage.maxSize: Double
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) = setMaxSize(value, value)
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
@@ -44,7 +44,7 @@ inline fun Stage.setMaxSize(width: Double, height: Double) {
 
 /** Removes old icons and set a new one to this stage. */
 inline var Stage.icon: Image
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) {
         icons.setAll(value)
     }

@@ -17,15 +17,16 @@ sourceSets {
 val ktlint by configurations.registering
 
 dependencies {
-    compile(project(":$ARTIFACT_COMMONS"))
+    compile(project(":$ARTIFACT_CORE"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
+    testImplementation(project(":$ARTIFACT_COMMONS"))
     testImplementation(project(":$ARTIFACT_DEV_TESTING"))
     testImplementation(kotlinx("coroutines-core", VERSION_COROUTINES))
 
     ktlint {
         invoke(ktlint())
-        invoke(project(":$ARTIFACT_DEV_RULESET_BASIC"))
+        invoke(project(":$ARTIFACT_DEV_RULESET_ALL"))
         invoke(project(":$ARTIFACT_DEV_RULESET_SINGLE_PACKAGE"))
     }
 }

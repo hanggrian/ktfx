@@ -5,18 +5,18 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
+import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedBarChart
 import javafx.scene.chart.XYChart.Series
-import ktfx.collections.mutableObservableListOf
 
 /** Creates a [StackedBarChart]. */
 fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     init: ((@LayoutDsl StackedBarChart<X, Y>).() -> Unit)? = null
 ): StackedBarChart<X, Y> = StackedBarChart(x, y, data).also { init?.invoke(it) }
 
@@ -24,6 +24,6 @@ fun <X, Y> stackedBarChart(
 inline fun <X, Y> LayoutManager<Node>.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     noinline init: ((@LayoutDsl StackedBarChart<X, Y>).() -> Unit)? = null
 ): StackedBarChart<X, Y> = ktfx.layouts.stackedBarChart(x, y, data, init)()

@@ -1,7 +1,7 @@
 package ktfx.coroutines.collections
 
+import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import ktfx.collections.mutableObservableListOf
 import ktfx.coroutines.listener
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -9,7 +9,7 @@ import kotlin.test.assertTrue
 
 class ObservableListTest {
 
-    private val observable: ObservableList<String> = mutableObservableListOf()
+    private val observable: ObservableList<String> = FXCollections.observableArrayList()
 
     @Test fun listener() = observable.run {
         val s = "Hello"

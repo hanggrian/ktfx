@@ -6,7 +6,7 @@ import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.Priority
-import ktfx.internal.Internals
+import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
 internal interface ConstrainedPane {
@@ -31,7 +31,7 @@ internal interface MarginedPane : ConstrainedPane {
     var Node.margins: Insets? // alias for reserved variable `margin`
 
     var Node.marginAll: Double?
-        @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+        @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
             margins = value?.let { Insets(it) }
         }

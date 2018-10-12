@@ -18,21 +18,21 @@ import javafx.scene.control.ButtonType.YES
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import ktfx.internal.Internals
+import ktfx.internal.KtfxInternals
 import ktfx.scene.stage
 import ktfx.stage.icon
 import kotlin.DeprecationLevel.ERROR
 
 /** Removes old icons and set a new one to this dialog. */
 inline var Dialog<*>.icon: Image
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) {
         dialogPane.scene.stage.icon = value
     }
 
 /** Apply [ImageView] as graphic and icon of this dialog. */
 inline var Dialog<*>.graphicIcon: ImageView
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) {
         graphic = value
         icon = value.image
@@ -40,7 +40,7 @@ inline var Dialog<*>.graphicIcon: ImageView
 
 /** Apply string as header text and title of this dialog. */
 inline var Dialog<*>.headerTitle: String
-    @Deprecated(Internals.NO_GETTER, level = ERROR) get() = Internals.noGetter()
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) {
         headerText = value
         title = value

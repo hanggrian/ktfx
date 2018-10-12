@@ -187,7 +187,7 @@ class App : Application() {
                     isDefaultButton = true
                     disableProperty().bind(booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator })
                     onAction {
-                        infoAlert("Result", contentText = resultLabel.text).showAndWait()
+                        infoAlert("Result", content = resultLabel.text).showAndWait()
                     }
                 } row 4 col 4
             }

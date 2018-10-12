@@ -107,23 +107,3 @@ fun <R> dialog(
     if (title != null && graphic != null) dialog.headerText = title
     init?.invoke(dialog)
 }
-
-/**
- * Build a styled custom dialog with Kotlin DSL.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param init custom initialization block.
- */
-fun <R> styledDialog(
-    stylesheet: String,
-    title: String? = null,
-    graphic: Node? = null,
-    init: (Dialog<R>.() -> Unit)? = null
-): Dialog<R> = Dialog<R>().also { dialog ->
-    dialog.dialogPane.stylesheets += stylesheet
-    if (title != null) dialog.title = title
-    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
-    if (title != null && graphic != null) dialog.headerText = title
-    init?.invoke(dialog)
-}

@@ -35,20 +35,3 @@ inline fun LayoutManager<Node>.menuBar(
     vararg menus: Menu,
     noinline init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
 ): MenuBar = ktfx.layouts.menuBar(*menus, init = init)()
-
-/** Create a styled [MenuBar]. */
-fun styledMenuBar(
-    styleClass: String,
-    vararg menus: Menu,
-    init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
-): MenuBar = _MenuBar(*menus).also {
-    it.styleClass += styleClass
-    init?.invoke(it)
-}
-
-/** Creates a styled [MenuBar] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.styledMenuBar(
-    styleClass: String,
-    vararg menus: Menu,
-    noinline init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
-): MenuBar = ktfx.layouts.styledMenuBar(styleClass, *menus, init = init)()

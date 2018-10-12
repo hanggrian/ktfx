@@ -39,9 +39,7 @@ dependencies {
 
 Core Extensions
 ---------------
-Full of extensions for JavaFX, packaged accordingly.
-The main goal of core library is not to add any new feature to the existing JavaFX APIs.
-Below are preview of some of the packages.
+Full of extensions for JavaFX, packaged accordingly. The main goal of core library is not to add any new feature to the existing JavaFX APIs. Below are preview of some of the packages.
 
 #### Collections
 
@@ -114,8 +112,7 @@ dialog<String>("Who's a little piggy?") {
 
 Layouts Extensions
 ------------------
-Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. 
-It's a direct replacement of FXML files.
+Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a direct replacement of FXML files.
 
 ```kotlin
 gridPane {
@@ -137,8 +134,7 @@ gridPane {
 
 Listeners Extensions
 --------------------
-Trade common JavaFX listener with Kotlin DSL.
-Currently includes string converters and table cells.
+Trade common JavaFX listener with Kotlin DSL. Currently includes string converters and table cells.
 
 ```kotlin
 // string converter
@@ -184,8 +180,7 @@ button.onAction(CommonPool) {
 
 Styles Extensions
 -----------------
-When writing inline styles, longer strings tend to be hard to read and more likely to cause error.
-Replace it with type-safe style builders.
+When writing inline styles, longer strings tend to be hard to read and more likely to cause error. Replace it with type-safe style builders.
 
 ```kotlin
 // error prone string

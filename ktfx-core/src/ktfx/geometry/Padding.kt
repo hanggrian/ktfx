@@ -1,9 +1,10 @@
-@file:Suppress("NOTHING_TO_INLINE", "unused")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.geometry
 
 import javafx.geometry.Insets
 
+/** Extended version of [Insets]. */
 class Padding(
     top: Double = 0.0,
     right: Double = 0.0,
@@ -11,16 +12,13 @@ class Padding(
     left: Double = 0.0
 ) : Insets(top, right, bottom, left) {
 
-    constructor(
-        top: Number = 0.0,
-        right: Number = 0.0,
-        bottom: Number = 0.0,
-        left: Number = 0.0
-    ) : this(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble())
-
     companion object {
 
         val EMPTY: Padding = Padding(0.0, 0.0, 0.0, 0.0)
+
+        inline fun all(all: Double): Padding = Padding(all, all, all, all)
+
+        fun all(all: Number): Padding = all(all.toDouble())
 
         inline fun top(top: Double): Padding = Padding(top, 0.0, 0.0, 0.0)
 
@@ -38,4 +36,14 @@ class Padding(
 
         fun left(left: Number): Padding = left(left.toDouble())
     }
+
+    constructor(
+        top: Number = 0.0,
+        right: Number = 0.0,
+        bottom: Number = 0.0,
+        left: Number = 0.0
+    ) : this(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble())
 }
+
+/** Converts inset to padding, if not already. */
+fun Insets.toPadding(): Padding = this as? Padding ?: Padding(top, right, bottom, left)

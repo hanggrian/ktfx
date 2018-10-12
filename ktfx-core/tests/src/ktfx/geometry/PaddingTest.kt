@@ -1,6 +1,5 @@
 package ktfx.geometry
 
-import javafx.geometry.Insets
 import org.junit.Test
 import kotlin.test.assertEquals
 
@@ -19,7 +18,7 @@ class PaddingTest {
         expectedRight: Double,
         expectedBottom: Double,
         expectedLeft: Double,
-        actualPadding: Insets
+        actualPadding: Padding
     ) {
         assertEquals(expectedTop, actualPadding.top)
         assertEquals(expectedRight, actualPadding.right)

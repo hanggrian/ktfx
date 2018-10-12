@@ -2,8 +2,8 @@
 
 package ktfx.scene.layout
 
-import javafx.geometry.Insets
 import javafx.scene.layout.Region
+import ktfx.geometry.Padding
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
@@ -25,7 +25,7 @@ inline var Region.maxSize: Double
 /** Sets padding to all sides with integer. */
 inline var Region.paddingAll: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = setPadding(Insets(value))
+    set(value) = setPadding(Padding.all(value))
 
 /** Top padding in integer. */
 inline var Region.paddingTop: Double
@@ -53,4 +53,4 @@ inline fun Region.updatePadding(
     right: Double = paddingRight,
     bottom: Double = paddingBottom,
     left: Double = paddingLeft
-): Unit = setPadding(Insets(top, right, bottom, left))
+): Unit = setPadding(Padding(top, right, bottom, left))

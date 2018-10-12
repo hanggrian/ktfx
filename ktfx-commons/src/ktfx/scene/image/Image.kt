@@ -2,7 +2,6 @@
 
 package ktfx.scene.image
 
-import javafx.geometry.Insets
 import javafx.scene.ImageCursor
 import javafx.scene.effect.ImageInput
 import javafx.scene.image.Image
@@ -14,6 +13,7 @@ import javafx.scene.layout.BorderImage
 import javafx.scene.layout.BorderRepeat
 import javafx.scene.layout.BorderWidths
 import javafx.scene.paint.ImagePattern
+import ktfx.geometry.Padding
 
 /** Constructs an [ImageCursor] from the specified image and hotspot coordinates. */
 inline fun Image.toCursor(
@@ -38,12 +38,12 @@ inline fun Image.toBackground(
 /** Creates a new [BorderImage]. */
 inline fun Image.toBorder(
     widths: BorderWidths,
-    insets: Insets,
+    padding: Padding,
     slices: BorderWidths,
     filled: Boolean,
     repeatX: BorderRepeat,
     repeatY: BorderRepeat
-): BorderImage = BorderImage(this, widths, insets, slices, filled, repeatX, repeatY)
+): BorderImage = BorderImage(this, widths, padding, slices, filled, repeatX, repeatY)
 
 /** Creates a new instance of [ImagePattern]. */
 inline fun Image.toPattern(

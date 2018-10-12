@@ -5,10 +5,11 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
+import ktfx.geometry.Padding
+import ktfx.geometry.toPadding
 
 open class _StackPane(
     vararg children: Node
@@ -22,8 +23,8 @@ open class _StackPane(
         get() = getAlignment(this)
         set(value) = setAlignment(this, value)
 
-    override var Node.margins: Insets?
-        get() = getMargin(this)
+    override var Node.margins: Padding?
+        get() = getMargin(this).toPadding()
         set(value) = setMargin(this, value)
 }
 

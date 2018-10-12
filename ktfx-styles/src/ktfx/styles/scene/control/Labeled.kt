@@ -5,12 +5,12 @@ package ktfx.styles
 
 /* ktlint-enable package-name */
 
-import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.control.ContentDisplay
 import javafx.scene.control.OverrunStyle
 import javafx.scene.paint.Color
 import javafx.scene.text.TextAlignment
+import ktfx.geometry.Padding
 
 open class _LabeledStyleBuilder(
     prettyPrint: Boolean
@@ -24,7 +24,7 @@ open class _LabeledStyleBuilder(
     override var graphic: Url by map
     override var contentDisplay: ContentDisplay by map
     override var graphicTextGap: Number by map
-    override var labelPadding: Insets by map
+    override var labelPadding: Padding by map
     override var textFill: Color by map
     override var ellipsisString: String by map
 }
@@ -51,7 +51,7 @@ interface LabeledStyleBuilder {
 
     var graphicTextGap: Number
 
-    var labelPadding: Insets
+    var labelPadding: Padding
 
     var textFill: Color
 

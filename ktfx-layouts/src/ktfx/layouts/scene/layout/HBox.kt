@@ -5,10 +5,11 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
+import ktfx.geometry.Padding
+import ktfx.geometry.toPadding
 
 open class _HBox(
     spacing: Double,
@@ -23,8 +24,8 @@ open class _HBox(
         get() = getHgrow(this)
         set(value) = setHgrow(this, value)
 
-    override var Node.margins: Insets?
-        get() = getMargin(this)
+    override var Node.margins: Padding?
+        get() = getMargin(this).toPadding()
         set(value) = setMargin(this, value)
 }
 

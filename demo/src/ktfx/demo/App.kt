@@ -2,7 +2,6 @@ package ktfx.demo
 
 import javafx.application.Application
 import javafx.scene.control.Label
-import javafx.scene.text.Font.font
 import javafx.scene.text.FontWeight.BOLD
 import javafx.stage.Stage
 import ktfx.application.launch
@@ -18,6 +17,7 @@ import ktfx.scene.control.errorAlert
 import ktfx.scene.control.infoAlert
 import ktfx.scene.layout.minSize
 import ktfx.scene.layout.updatePadding
+import ktfx.scene.text.Fonts
 
 class App : Application() {
 
@@ -144,7 +144,7 @@ class App : Application() {
                         errorAlert("Not yet supported.") {
                             title = ":("
                             dialogPane.expandableContent = ktfx.layouts.vbox {
-                                label("Suggestion") { font = font("Arial", BOLD, 14.0) }
+                                label("Suggestion") { font = Fonts(14, "Arial", BOLD) }
                                 label("Use an actual calculator.") marginTop 4.0
                             }
                         }.show()

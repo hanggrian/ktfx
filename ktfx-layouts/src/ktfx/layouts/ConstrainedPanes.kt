@@ -1,11 +1,11 @@
 package ktfx.layouts
 
 import javafx.geometry.HPos
-import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.Priority
+import ktfx.geometry.Padding
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
@@ -16,7 +16,7 @@ internal interface ConstrainedPane {
 
 internal interface MarginedPane : ConstrainedPane {
 
-    infix fun <N : Node> N.margins(margins: Insets?): N = also { it.margins = margins }
+    infix fun <N : Node> N.margins(margins: Padding?): N = also { it.margins = margins }
 
     infix fun <N : Node> N.marginAll(marginAll: Double?): N = also { it.marginAll = marginAll }
 
@@ -28,12 +28,12 @@ internal interface MarginedPane : ConstrainedPane {
 
     infix fun <N : Node> N.marginLeft(marginLeft: Double?): N = also { it.marginLeft = marginLeft }
 
-    var Node.margins: Insets? // alias for reserved variable `margin`
+    var Node.margins: Padding? // alias for reserved variable `margin`
 
     var Node.marginAll: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
-            margins = value?.let { Insets(it) }
+            margins = value?.let { Padding(it) }
         }
 
     var Node.marginTop: Double?
@@ -58,7 +58,7 @@ internal interface MarginedPane : ConstrainedPane {
         bottom: Double? = marginBottom,
         left: Double? = marginLeft
     ) {
-        margins = Insets(top ?: 0.0, right ?: 0.0, bottom ?: 0.0, left ?: 0.0)
+        margins = Padding(top ?: 0.0, right ?: 0.0, bottom ?: 0.0, left ?: 0.0)
     }
 }
 

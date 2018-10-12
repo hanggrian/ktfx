@@ -1,7 +1,7 @@
 package ktfx.styles
 
-import javafx.geometry.Insets
 import javafx.scene.paint.Color
+import ktfx.geometry.Padding
 import java.lang.Character.isUpperCase
 
 open class StyleBuilder(private val prettyPrint: Boolean) {
@@ -29,7 +29,7 @@ open class StyleBuilder(private val prettyPrint: Boolean) {
         fun Any.toValue(): String = when (this) {
             is String -> this
             is Color -> "#%02X%02X%02X".format((red * 255).toInt(), (green * 255).toInt(), (blue * 255).toInt())
-            is Insets -> "$top $right $bottom $left"
+            is Padding -> "$top $right $bottom $left"
             else -> toString()
         }.toLowerCase()
     }

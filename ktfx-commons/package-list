@@ -402,17 +402,21 @@ $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.O
 $dokka.location:ktfx.embed.swing$toBufferedImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.embed.swing/javafx.scene.image.-image/to-buffered-image.html
 $dokka.location:ktfx.embed.swing$toWritableImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.embed.swing/java.awt.image.-buffered-image/to-writable-image.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Dimension2D)ktfx.geometry/javafx.geometry.-dimension2-d/component1.html
+$dokka.location:ktfx.geometry$component1(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Pos)ktfx.geometry/javafx.geometry.-pos/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Rectangle2D)ktfx.geometry/javafx.geometry.-rectangle2-d/component1.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Dimension2D)ktfx.geometry/javafx.geometry.-dimension2-d/component2.html
+$dokka.location:ktfx.geometry$component2(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component2.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/component2.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component2.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Pos)ktfx.geometry/javafx.geometry.-pos/component2.html
 $dokka.location:ktfx.geometry$component2(javafx.geometry.Rectangle2D)ktfx.geometry/javafx.geometry.-rectangle2-d/component2.html
+$dokka.location:ktfx.geometry$component3(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component3.html
 $dokka.location:ktfx.geometry$component3(javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/component3.html
 $dokka.location:ktfx.geometry$component3(javafx.geometry.Rectangle2D)ktfx.geometry/javafx.geometry.-rectangle2-d/component3.html
+$dokka.location:ktfx.geometry$component4(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component4.html
 $dokka.location:ktfx.geometry$component4(javafx.geometry.Rectangle2D)ktfx.geometry/javafx.geometry.-rectangle2-d/component4.html
 $dokka.location:ktfx.geometry$component5(javafx.geometry.Rectangle2D)ktfx.geometry/javafx.geometry.-rectangle2-d/component5.html
 $dokka.location:ktfx.geometry$component6(javafx.geometry.Rectangle2D)ktfx.geometry/javafx.geometry.-rectangle2-d/component6.html
@@ -430,6 +434,16 @@ $dokka.location:ktfx.scene$find(javafx.scene.Scene, kotlin.String)ktfx.scene/ja
 $dokka.location:ktfx.scene$snapshot(javafx.scene.Node, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage)ktfx.scene/javafx.scene.-node/snapshot.html
 $dokka.location:ktfx.scene$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage)ktfx.scene/javafx.scene.-scene/snapshot.html
 $dokka.location:ktfx.scene$stage#javafx.scene.Scenektfx.scene/javafx.scene.-scene/stage.html
+$dokka.location:ktfx.scene.canvas$font(javafx.scene.canvas.GraphicsContext, java.io.InputStream, kotlin.Double)ktfx.scene.canvas/javafx.scene.canvas.-graphics-context/font.html
+$dokka.location:ktfx.scene.canvas$font(javafx.scene.canvas.GraphicsContext, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.scene.canvas/javafx.scene.canvas.-graphics-context/font.html
+$dokka.location:ktfx.scene.canvas$font(javafx.scene.canvas.GraphicsContext, kotlin.String, kotlin.Double)ktfx.scene.canvas/javafx.scene.canvas.-graphics-context/font.html
+$dokka.location:ktfx.scene.canvas$fontFamily#javafx.scene.canvas.GraphicsContextktfx.scene.canvas/javafx.scene.canvas.-graphics-context/font-family.html
+$dokka.location:ktfx.scene.canvas$fontSize#javafx.scene.canvas.GraphicsContextktfx.scene.canvas/javafx.scene.canvas.-graphics-context/font-size.html
+$dokka.location:ktfx.scene.chart$tickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), java.io.InputStream, kotlin.Double)ktfx.scene.chart/javafx.scene.chart.-axis/tick-label-font.html
+$dokka.location:ktfx.scene.chart$tickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.scene.chart/javafx.scene.chart.-axis/tick-label-font.html
+$dokka.location:ktfx.scene.chart$tickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.String, kotlin.Double)ktfx.scene.chart/javafx.scene.chart.-axis/tick-label-font.html
+$dokka.location:ktfx.scene.chart$tickLabelFontFamily#javafx.scene.chart.Axis((kotlin.Any))ktfx.scene.chart/javafx.scene.chart.-axis/tick-label-font-family.html
+$dokka.location:ktfx.scene.chart$tickLabelFontSize#javafx.scene.chart.Axis((kotlin.Any))ktfx.scene.chart/javafx.scene.chart.-axis/tick-label-font-size.html
 $dokka.location:ktfx.scene.control$applyButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/apply-button.html
 $dokka.location:ktfx.scene.control$cancelButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/cancel-button.html
 $dokka.location:ktfx.scene.control$checkBoxCellFactory(javafx.scene.control.ListView((ktfx.scene.control.checkBoxCellFactory.T)), kotlin.Function1((ktfx.scene.control.checkBoxCellFactory.T, javafx.beans.value.ObservableValue((kotlin.Boolean)))))ktfx.scene.control/javafx.scene.control.-list-view/check-box-cell-factory.html
@@ -477,7 +491,7 @@ $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.Tre
 $dokka.location:ktfx.scene.control$textFieldCellFactory(javafx.scene.control.TreeView((kotlin.String)))ktfx.scene.control/javafx.scene.control.-tree-view/text-field-cell-factory.html
 $dokka.location:ktfx.scene.control$yesButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.scene.control/javafx.scene.control.-dialog/yes-button.html
 $dokka.location:ktfx.scene.image$toBackground(javafx.scene.image.Image, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)ktfx.scene.image/javafx.scene.image.-image/to-background.html
-$dokka.location:ktfx.scene.image$toBorder(javafx.scene.image.Image, javafx.scene.layout.BorderWidths, ktfx.geometry.Padding, javafx.scene.layout.BorderWidths, kotlin.Boolean, javafx.scene.layout.BorderRepeat, javafx.scene.layout.BorderRepeat)ktfx.scene.image/javafx.scene.image.-image/to-border.html
+$dokka.location:ktfx.scene.image$toBorder(javafx.scene.image.Image, javafx.scene.layout.BorderWidths, javafx.geometry.Insets, javafx.scene.layout.BorderWidths, kotlin.Boolean, javafx.scene.layout.BorderRepeat, javafx.scene.layout.BorderRepeat)ktfx.scene.image/javafx.scene.image.-image/to-border.html
 $dokka.location:ktfx.scene.image$toCursor(javafx.scene.image.Image, kotlin.Double, kotlin.Double)ktfx.scene.image/javafx.scene.image.-image/to-cursor.html
 $dokka.location:ktfx.scene.image$toInput(javafx.scene.image.Image, kotlin.Double, kotlin.Double)ktfx.scene.image/javafx.scene.image.-image/to-input.html
 $dokka.location:ktfx.scene.image$toPattern(javafx.scene.image.Image, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Boolean)ktfx.scene.image/javafx.scene.image.-image/to-pattern.html
@@ -520,9 +534,24 @@ $dokka.location:ktfx.scene.paint$component1(javafx.scene.paint.Color)ktfx.scene
 $dokka.location:ktfx.scene.paint$component2(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component2.html
 $dokka.location:ktfx.scene.paint$component3(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component3.html
 $dokka.location:ktfx.scene.paint$component4(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component4.html
-$dokka.location:ktfx.scene.paint$toBackgroundFill(javafx.scene.paint.Paint, javafx.scene.layout.CornerRadii, ktfx.geometry.Padding)ktfx.scene.paint/javafx.scene.paint.-paint/to-background-fill.html
+$dokka.location:ktfx.scene.paint$toBackgroundFill(javafx.scene.paint.Paint, javafx.scene.layout.CornerRadii, javafx.geometry.Insets)ktfx.scene.paint/javafx.scene.paint.-paint/to-background-fill.html
 $dokka.location:ktfx.scene.paint$toBorderStroke(javafx.scene.paint.Paint, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.CornerRadii, javafx.scene.layout.BorderWidths)ktfx.scene.paint/javafx.scene.paint.-paint/to-border-stroke.html
 $dokka.location:ktfx.scene.paint$toInput(javafx.scene.paint.Paint, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.paint/javafx.scene.paint.-paint/to-input.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.Labeled, java.io.InputStream, kotlin.Double)ktfx.scene.text/javafx.scene.control.-labeled/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.Labeled, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.scene.text/javafx.scene.control.-labeled/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.Labeled, kotlin.String, kotlin.Double)ktfx.scene.text/javafx.scene.control.-labeled/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.TextInputControl, java.io.InputStream, kotlin.Double)ktfx.scene.text/javafx.scene.control.-text-input-control/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.TextInputControl, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.scene.text/javafx.scene.control.-text-input-control/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.TextInputControl, kotlin.String, kotlin.Double)ktfx.scene.text/javafx.scene.control.-text-input-control/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.Tooltip, java.io.InputStream, kotlin.Double)ktfx.scene.text/javafx.scene.control.-tooltip/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.Tooltip, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.scene.text/javafx.scene.control.-tooltip/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.control.Tooltip, kotlin.String, kotlin.Double)ktfx.scene.text/javafx.scene.control.-tooltip/font.html
+$dokka.location:ktfx.scene.text$fontFamily#javafx.scene.control.Labeledktfx.scene.text/javafx.scene.control.-labeled/font-family.html
+$dokka.location:ktfx.scene.text$fontFamily#javafx.scene.control.TextInputControlktfx.scene.text/javafx.scene.control.-text-input-control/font-family.html
+$dokka.location:ktfx.scene.text$fontFamily#javafx.scene.control.Tooltipktfx.scene.text/javafx.scene.control.-tooltip/font-family.html
+$dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.Labeledktfx.scene.text/javafx.scene.control.-labeled/font-size.html
+$dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.TextInputControlktfx.scene.text/javafx.scene.control.-text-input-control/font-size.html
+$dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.Tooltipktfx.scene.text/javafx.scene.control.-tooltip/font-size.html
 $dokka.location:ktfx.stage$icon#javafx.stage.Stagektfx.stage/javafx.stage.-stage/icon.html
 $dokka.location:ktfx.stage$maxSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/max-size.html
 $dokka.location:ktfx.stage$minSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/min-size.html
@@ -552,10 +581,13 @@ ktfx.concurrent
 ktfx.embed.swing
 ktfx.geometry
 ktfx.scene
+ktfx.scene.canvas
+ktfx.scene.chart
 ktfx.scene.control
 ktfx.scene.image
 ktfx.scene.input
 ktfx.scene.layout
 ktfx.scene.paint
+ktfx.scene.text
 ktfx.stage
 ktfx.util

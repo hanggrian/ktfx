@@ -12,10 +12,12 @@ import ktfx.layouts.LayoutManager
 
 /** Creates a [JFXTextField]. */
 fun jfxTextField(
+    text: String? = null,
     init: ((@LayoutDsl JFXTextField).() -> Unit)? = null
-): JFXTextField = JFXTextField().also { init?.invoke(it) }
+): JFXTextField = JFXTextField(text.orEmpty()).also { init?.invoke(it) }
 
 /** Creates a [JFXTextField] and add it to this [LayoutManager]. */
 inline fun LayoutManager<Node>.jfxTextField(
+    text: String? = null,
     noinline init: ((@LayoutDsl JFXTextField).() -> Unit)? = null
-): JFXTextField = ktfx.jfoenix.jfxTextField(init)()
+): JFXTextField = ktfx.jfoenix.jfxTextField(text, init)()

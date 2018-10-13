@@ -546,12 +546,17 @@ $dokka.location:ktfx.scene.text$font(javafx.scene.control.TextInputControl, kotl
 $dokka.location:ktfx.scene.text$font(javafx.scene.control.Tooltip, java.io.InputStream, kotlin.Double)ktfx.scene.text/javafx.scene.control.-tooltip/font.html
 $dokka.location:ktfx.scene.text$font(javafx.scene.control.Tooltip, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.scene.text/javafx.scene.control.-tooltip/font.html
 $dokka.location:ktfx.scene.text$font(javafx.scene.control.Tooltip, kotlin.String, kotlin.Double)ktfx.scene.text/javafx.scene.control.-tooltip/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.text.Text, java.io.InputStream, kotlin.Double)ktfx.scene.text/javafx.scene.text.-text/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.text.Text, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.scene.text/javafx.scene.text.-text/font.html
+$dokka.location:ktfx.scene.text$font(javafx.scene.text.Text, kotlin.String, kotlin.Double)ktfx.scene.text/javafx.scene.text.-text/font.html
 $dokka.location:ktfx.scene.text$fontFamily#javafx.scene.control.Labeledktfx.scene.text/javafx.scene.control.-labeled/font-family.html
 $dokka.location:ktfx.scene.text$fontFamily#javafx.scene.control.TextInputControlktfx.scene.text/javafx.scene.control.-text-input-control/font-family.html
 $dokka.location:ktfx.scene.text$fontFamily#javafx.scene.control.Tooltipktfx.scene.text/javafx.scene.control.-tooltip/font-family.html
+$dokka.location:ktfx.scene.text$fontFamily#javafx.scene.text.Textktfx.scene.text/javafx.scene.text.-text/font-family.html
 $dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.Labeledktfx.scene.text/javafx.scene.control.-labeled/font-size.html
 $dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.TextInputControlktfx.scene.text/javafx.scene.control.-text-input-control/font-size.html
 $dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.Tooltipktfx.scene.text/javafx.scene.control.-tooltip/font-size.html
+$dokka.location:ktfx.scene.text$fontSize#javafx.scene.text.Textktfx.scene.text/javafx.scene.text.-text/font-size.html
 $dokka.location:ktfx.stage$icon#javafx.stage.Stagektfx.stage/javafx.stage.-stage/icon.html
 $dokka.location:ktfx.stage$maxSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/max-size.html
 $dokka.location:ktfx.stage$minSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/min-size.html

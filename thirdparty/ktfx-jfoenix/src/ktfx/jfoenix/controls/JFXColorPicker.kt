@@ -18,7 +18,7 @@ fun jfxColorPicker(
 ): JFXColorPicker = JFXColorPicker(color).also { init?.invoke(it) }
 
 /** Creates a [JFXColorPicker] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxClippedPane(
+inline fun LayoutManager<Node>.jfxColorPicker(
     color: Color? = null,
     noinline init: ((@LayoutDsl JFXColorPicker).() -> Unit)? = null
 ): JFXColorPicker = ktfx.jfoenix.jfxColorPicker(color, init)()

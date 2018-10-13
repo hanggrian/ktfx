@@ -16,6 +16,6 @@ fun jfxTextField(
 ): JFXTextField = JFXTextField().also { init?.invoke(it) }
 
 /** Creates a [JFXTextField] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxPasswordField(
+inline fun LayoutManager<Node>.jfxTextField(
     noinline init: ((@LayoutDsl JFXTextField).() -> Unit)? = null
 ): JFXTextField = ktfx.jfoenix.jfxTextField(init)()

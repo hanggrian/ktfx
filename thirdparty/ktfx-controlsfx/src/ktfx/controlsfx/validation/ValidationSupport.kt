@@ -10,14 +10,14 @@ import org.controlsfx.validation.Validator
 
 /* ktlint-enable package-name */
 
-private lateinit var internalSupport: ValidationSupport
+private lateinit var support: ValidationSupport
 
-@PublishedApi internal val singleton: ValidationSupport
+@PublishedApi internal val singletonSupport: ValidationSupport
     get() {
-        if (!::internalSupport.isInitialized) {
-            internalSupport = ValidationSupport()
+        if (!::support.isInitialized) {
+            support = ValidationSupport()
         }
-        return internalSupport
+        return support
     }
 
 /** Register empty validation. */
@@ -25,7 +25,7 @@ inline fun <T> Control.registerEmptyValidator(
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singleton
+    support: ValidationSupport = singletonSupport
 ): Boolean = support.registerValidator(
     this,
     required,
@@ -38,7 +38,7 @@ inline fun <T> Control.registerEqualsValidator(
     colletion: Collection<T>,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singleton
+    support: ValidationSupport = singletonSupport
 ): Boolean = support.registerValidator(
     this,
     required,
@@ -50,7 +50,7 @@ inline fun <T> Control.registerPredicateValidator(
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singleton,
+    support: ValidationSupport = singletonSupport,
     noinline predicate: (T) -> Boolean
 ): Boolean = support.registerValidator(
     this,
@@ -64,7 +64,7 @@ inline fun Control.registerRegexValidator(
     regex: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singleton
+    support: ValidationSupport = singletonSupport
 ): Boolean = support.registerValidator(
     this,
     required,
@@ -77,7 +77,7 @@ inline fun Control.registerRegexValidator(
     regex: Regex,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
-    support: ValidationSupport = singleton
+    support: ValidationSupport = singletonSupport
 ): Boolean = support.registerValidator(
     this,
     required,

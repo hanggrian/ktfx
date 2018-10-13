@@ -14,7 +14,10 @@ sourceSets {
     get("test").resources.srcDir("tests/res")
 }
 
-val ktlint by configurations.registering
+ktlint { add ->
+    add(project(":$ARTIFACT_DEV_RULESET_ALL"))
+    add(project(":$ARTIFACT_DEV_RULESET_SINGLE_PACKAGE"))
+}
 
 dependencies {
     compile(project(":$ARTIFACT_CORE"))
@@ -23,37 +26,9 @@ dependencies {
     testImplementation(project(":$ARTIFACT_COMMONS"))
     testImplementation(project(":$ARTIFACT_DEV_TESTING"))
     testImplementation(kotlinx("coroutines-core", VERSION_COROUTINES))
-
-    ktlint {
-        invoke(ktlint())
-        invoke(project(":$ARTIFACT_DEV_RULESET_ALL"))
-        invoke(project(":$ARTIFACT_DEV_RULESET_SINGLE_PACKAGE"))
-    }
 }
 
 tasks {
-    val ktlint by registering(JavaExec::class) {
-        group = org.gradle.language.base.plugins.LifecycleBasePlugin.VERIFICATION_GROUP
-        inputs.dir("src")
-        outputs.dir("src")
-        description = "Check Kotlin code style."
-        classpath(configurations["ktlint"])
-        main = "com.github.shyiko.ktlint.Main"
-        args("src/**/*.kt")
-    }
-    "check" {
-        dependsOn(ktlint)
-    }
-    register("ktlintFormat", JavaExec::class) {
-        group = "formatting"
-        inputs.dir("src")
-        outputs.dir("src")
-        description = "Fix Kotlin code style deviations."
-        classpath(configurations["ktlint"])
-        main = "com.github.shyiko.ktlint.Main"
-        args("-F", "src/**/*.kt")
-    }
-
     withType<org.jetbrains.dokka.gradle.DokkaTask> {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }

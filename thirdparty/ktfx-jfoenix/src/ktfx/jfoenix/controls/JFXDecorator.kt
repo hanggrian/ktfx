@@ -29,4 +29,4 @@ inline fun LayoutManager<Node>.jfxDecorator(
     max: Boolean = true,
     min: Boolean = true,
     noinline init: ((@LayoutDsl JFXDecorator).() -> Unit)? = null
-): JFXDecorator = ktfx.jfoenix.jfxDecorator(stage, node, fullscreen, max, min, init)
+): JFXDecorator = ktfx.jfoenix.jfxDecorator(stage, node, fullscreen, max, min, init)()

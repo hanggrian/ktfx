@@ -22,8 +22,6 @@ allprojects {
         }
         withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
             kotlinOptions {
-                // languageVersion = '1.1'
-                // apiVersion = '1.1'
                 jvmTarget = "1.8"
             }
         }

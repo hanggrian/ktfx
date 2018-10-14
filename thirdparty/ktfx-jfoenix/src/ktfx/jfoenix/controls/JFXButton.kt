@@ -7,8 +7,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXButton
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXButton]. */
 fun jfxButton(
@@ -17,8 +17,8 @@ fun jfxButton(
     init: ((@LayoutDsl JFXButton).() -> Unit)? = null
 ): JFXButton = JFXButton(text, graphic).also { init?.invoke(it) }
 
-/** Creates a [JFXButton] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxButton(
+/** Creates a [JFXButton] and add it to this manager. */
+inline fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl JFXButton).() -> Unit)? = null

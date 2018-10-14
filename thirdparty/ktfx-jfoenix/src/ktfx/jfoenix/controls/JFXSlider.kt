@@ -6,9 +6,8 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXSlider
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXSlider]. */
 fun jfxSlider(
@@ -18,8 +17,8 @@ fun jfxSlider(
     init: ((@LayoutDsl JFXSlider).() -> Unit)? = null
 ): JFXSlider = JFXSlider(min, max, value).also { init?.invoke(it) }
 
-/** Creates a [JFXSlider] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxSlider(
+/** Creates a [JFXSlider] and add it to this manager. */
+inline fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,

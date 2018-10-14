@@ -8,14 +8,14 @@ package ktfx.controlsfx
 import javafx.geometry.Side
 import javafx.geometry.Side.RIGHT
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.MasterDetailPane
 
 open class _MasterDetailPane(
     side: Side = RIGHT,
     showDetail: Boolean = true
-) : MasterDetailPane(side, showDetail), LayoutManager<Node> {
+) : MasterDetailPane(side, showDetail), NodeManager {
 
     override fun <T : Node> T.invoke(): T = also {
         when (null) {
@@ -33,8 +33,8 @@ fun masterDetailPane(
     init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null
 ): MasterDetailPane = _MasterDetailPane(side, showDetail).also { init?.invoke(it) }
 
-/** Creates a [MasterDetailPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.masterDetailPane(
+/** Creates a [MasterDetailPane] and add it to this manager. */
+inline fun NodeManager.masterDetailPane(
     side: Side = RIGHT,
     showDetail: Boolean = true,
     noinline init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null

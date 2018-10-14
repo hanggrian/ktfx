@@ -6,9 +6,8 @@ package ktfx.controlsfx
 /* ktlint-enable package-name */
 
 import javafx.concurrent.Task
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.TaskProgressView
 
 /** Creates a [TaskProgressView]. */
@@ -16,7 +15,7 @@ fun <T : Task<*>> taskProgressView(
     init: ((@LayoutDsl TaskProgressView<T>).() -> Unit)? = null
 ): TaskProgressView<T> = TaskProgressView<T>().also { init?.invoke(it) }
 
-/** Creates a [TaskProgressView] and add it to this [LayoutManager]. */
-inline fun <T : Task<*>> LayoutManager<Node>.taskProgressView(
+/** Creates a [TaskProgressView] and add it to this manager. */
+inline fun <T : Task<*>> NodeManager.taskProgressView(
     noinline init: ((@LayoutDsl TaskProgressView<T>).() -> Unit)? = null
 ): TaskProgressView<T> = ktfx.controlsfx.taskProgressView(init)()

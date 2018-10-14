@@ -10,15 +10,15 @@ import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 open class _FlowPane(
     orientation: Orientation,
     hgap: Double,
     vgap: Double,
     vararg children: Node
-) : FlowPane(orientation, hgap, vgap, *children), LayoutManager<Node>, MarginedPane {
-
-    override val childs: MutableCollection<Node> get() = children
+) : FlowPane(orientation, hgap, vgap, *children), NodeManager, MarginedPane {
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -36,8 +36,8 @@ fun flowPane(
     init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
 ): FlowPane = _FlowPane(orientation, hgap, vgap, *children).also { init?.invoke(it) }
 
-/** Creates a [FlowPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.flowPane(
+/** Creates a [FlowPane] and add it to this manager. */
+inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,

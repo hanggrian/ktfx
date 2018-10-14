@@ -11,14 +11,12 @@ import javafx.scene.control.Control
 import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TableColumnBase
+import ktfx.MenuItemManager
+import ktfx.annotations.LayoutDsl
 
-open class _ContextMenu(
-    vararg items: MenuItem
-) : ContextMenu(*items), LayoutManager<MenuItem> {
+open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), MenuItemManager {
 
-    override val childs: MutableCollection<MenuItem> get() = items
-
-    /** Creates a [MenuItem] and add it to this [LayoutManager]. */
+    /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
         noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null

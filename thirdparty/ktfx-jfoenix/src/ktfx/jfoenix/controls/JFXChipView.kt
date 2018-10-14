@@ -6,16 +6,15 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXChipView
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXChipView]. */
 fun <T> jfxChipView(
     init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
 ): JFXChipView<T> = JFXChipView<T>().also { init?.invoke(it) }
 
-/** Creates a [JFXChipView] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.jfxChipView(
+/** Creates a [JFXChipView] and add it to this manager. */
+inline fun <T> NodeManager.jfxChipView(
     noinline init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
 ): JFXChipView<T> = ktfx.jfoenix.jfxChipView(init)()

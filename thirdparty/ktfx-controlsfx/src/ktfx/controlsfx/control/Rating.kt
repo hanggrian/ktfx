@@ -5,9 +5,8 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.annotations.LayoutDsl
+import ktfx.NodeManager
 import org.controlsfx.control.Rating
 
 /** Creates a [Rating]. */
@@ -17,8 +16,8 @@ fun rating(
     init: ((@LayoutDsl Rating).() -> Unit)? = null
 ): Rating = Rating(max, rating).also { init?.invoke(it) }
 
-/** Creates a [Rating] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.rating(
+/** Creates a [Rating] and add it to this manager. */
+inline fun NodeManager.rating(
     max: Int = 5,
     rating: Int = -1,
     noinline init: ((@LayoutDsl Rating).() -> Unit)? = null

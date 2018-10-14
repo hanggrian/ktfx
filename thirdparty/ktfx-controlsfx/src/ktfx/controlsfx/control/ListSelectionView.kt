@@ -5,9 +5,8 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.ListSelectionView
 
 /** Creates a [ListSelectionView]. */
@@ -15,7 +14,7 @@ fun <T> listSelectionView(
     init: ((@LayoutDsl ListSelectionView<T>).() -> Unit)? = null
 ): ListSelectionView<T> = ListSelectionView<T>().also { init?.invoke(it) }
 
-/** Creates a [ListSelectionView] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.listSelectionView(
+/** Creates a [ListSelectionView] and add it to this manager. */
+inline fun <T> NodeManager.listSelectionView(
     noinline init: ((@LayoutDsl ListSelectionView<T>).() -> Unit)? = null
 ): ListSelectionView<T> = ktfx.controlsfx.listSelectionView(init)()

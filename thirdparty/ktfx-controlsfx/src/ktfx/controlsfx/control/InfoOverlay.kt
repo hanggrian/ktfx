@@ -6,8 +6,8 @@ package ktfx.controlsfx
 /* ktlint-enable package-name */
 
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.InfoOverlay
 
 /** Creates a [InfoOverlay]. */
@@ -17,8 +17,8 @@ fun infoOverlay(
     init: ((@LayoutDsl InfoOverlay).() -> Unit)? = null
 ): InfoOverlay = InfoOverlay(graphic, text).also { init?.invoke(it) }
 
-/** Creates a [InfoOverlay] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.infoOverlay(
+/** Creates a [InfoOverlay] and add it to this manager. */
+inline fun NodeManager.infoOverlay(
     graphic: Node? = null,
     text: String? = null,
     noinline init: ((@LayoutDsl InfoOverlay).() -> Unit)? = null

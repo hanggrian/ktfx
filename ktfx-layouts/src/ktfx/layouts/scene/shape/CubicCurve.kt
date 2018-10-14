@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.shape.CubicCurve
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [CubicCurve]. */
 fun cubicCurve(
@@ -22,8 +23,8 @@ fun cubicCurve(
 ): CubicCurve = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
     .also { init?.invoke(it) }
 
-/** Creates a [CubicCurve] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.cubicCurve(
+/** Creates a [CubicCurve] and add it to this manager. */
+inline fun NodeManager.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,

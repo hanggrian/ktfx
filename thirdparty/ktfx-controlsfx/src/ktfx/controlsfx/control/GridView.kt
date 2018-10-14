@@ -7,9 +7,8 @@ package ktfx.controlsfx
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.GridView
 
 /** Creates a [GridView]. */
@@ -18,8 +17,8 @@ fun <T> gridView(
     init: ((@LayoutDsl GridView<T>).() -> Unit)? = null
 ): GridView<T> = GridView(items).also { init?.invoke(it) }
 
-/** Creates a [GridView] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.gridView(
+/** Creates a [GridView] and add it to this manager. */
+inline fun <T> NodeManager.gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     noinline init: ((@LayoutDsl GridView<T>).() -> Unit)? = null
 ): GridView<T> = ktfx.controlsfx.gridView(items, init)()

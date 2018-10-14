@@ -5,9 +5,10 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Circle]. */
 fun circle(
@@ -18,8 +19,8 @@ fun circle(
     init: ((@LayoutDsl Circle).() -> Unit)? = null
 ): Circle = Circle(centerX, centerY, radius, fill).also { init?.invoke(it) }
 
-/** Creates a [Circle] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.circle(
+/** Creates a [Circle] and add it to this manager. */
+inline fun NodeManager.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,

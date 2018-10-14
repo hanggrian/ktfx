@@ -7,6 +7,8 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Hyperlink]. */
 fun hyperlink(
@@ -15,8 +17,8 @@ fun hyperlink(
     init: ((@LayoutDsl Hyperlink).() -> Unit)? = null
 ): Hyperlink = Hyperlink(text, graphic).also { init?.invoke(it) }
 
-/** Creates a [Hyperlink] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.hyperlink(
+/** Creates a [Hyperlink] and add it to this manager. */
+inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null

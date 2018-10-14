@@ -5,9 +5,8 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.SegmentedBar
 import org.controlsfx.control.SegmentedBar.Segment
 
@@ -16,7 +15,7 @@ fun <T : Segment> segmentedBar(
     init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
 ): SegmentedBar<T> = SegmentedBar<T>().also { init?.invoke(it) }
 
-/** Creates a [SegmentedBar] and add it to this [LayoutManager]. */
-inline fun <T : Segment> LayoutManager<Node>.segmentedBar(
+/** Creates a [SegmentedBar] and add it to this manager. */
+inline fun <T : Segment> NodeManager.segmentedBar(
     noinline init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
 ): SegmentedBar<T> = ktfx.controlsfx.segmentedBar(init)()

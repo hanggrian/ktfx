@@ -5,17 +5,18 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
+import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
-open class _ButtonBar(
-    buttonOrder: String?
-) : ButtonBar(buttonOrder), LayoutManager<Node> {
+open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 
-    override val childs: MutableCollection<Node> get() = buttons
+    override fun getChildren(): ObservableList<Node> = buttons
 
-    /** Creates a [Button] and add it to this [LayoutManager]. */
+    /** Creates a [Button] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
         noinline init: ((@LayoutDsl Button).() -> Unit)? = null
@@ -28,8 +29,8 @@ fun buttonBar(
     init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
 ): ButtonBar = _ButtonBar(buttonOrder).also { init?.invoke(it) }
 
-/** Creates a [ButtonBar] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.buttonBar(
+/** Creates a [ButtonBar] and add it to this manager. */
+inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
     noinline init: ((@LayoutDsl _ButtonBar).() -> Unit)? = null
 ): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init)()

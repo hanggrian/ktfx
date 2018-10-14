@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.control.RadioButton
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [RadioButton]. */
 fun radioButton(
@@ -14,8 +15,8 @@ fun radioButton(
     init: ((@LayoutDsl RadioButton).() -> Unit)? = null
 ): RadioButton = RadioButton(text).also { init?.invoke(it) }
 
-/** Creates a [RadioButton] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.radioButton(
+/** Creates a [RadioButton] and add it to this manager. */
+inline fun NodeManager.radioButton(
     text: String? = null,
     noinline init: ((@LayoutDsl RadioButton).() -> Unit)? = null
 ): RadioButton = ktfx.layouts.radioButton(text, init)()

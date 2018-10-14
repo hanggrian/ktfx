@@ -5,9 +5,8 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.MaskerPane
 
 /** Creates a [MaskerPane]. */
@@ -15,7 +14,7 @@ fun maskerPane(
     init: ((@LayoutDsl MaskerPane).() -> Unit)? = null
 ): MaskerPane = MaskerPane().also { init?.invoke(it) }
 
-/** Creates a [MaskerPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.maskerPane(
+/** Creates a [MaskerPane] and add it to this manager. */
+inline fun NodeManager.maskerPane(
     noinline init: ((@LayoutDsl MaskerPane).() -> Unit)? = null
 ): MaskerPane = ktfx.controlsfx.maskerPane(init)()

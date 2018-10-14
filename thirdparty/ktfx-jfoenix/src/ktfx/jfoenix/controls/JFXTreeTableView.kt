@@ -7,10 +7,9 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
-import javafx.scene.Node
 import javafx.scene.control.TreeItem
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXTreeTableView]. */
 fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
@@ -18,8 +17,8 @@ fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
     init: ((@LayoutDsl JFXTreeTableView<S>).() -> Unit)? = null
 ): JFXTreeTableView<S> = JFXTreeTableView<S>(root).also { init?.invoke(it) }
 
-/** Creates a [JFXTreeTableView] and add it to this [LayoutManager]. */
-inline fun <S : RecursiveTreeObject<S>> LayoutManager<Node>.jfxTreeTableView(
+/** Creates a [JFXTreeTableView] and add it to this manager. */
+inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     root: TreeItem<S>? = null,
     noinline init: ((@LayoutDsl JFXTreeTableView<S>).() -> Unit)? = null
 ): JFXTreeTableView<S> = ktfx.jfoenix.jfxTreeTableView(root, init)()

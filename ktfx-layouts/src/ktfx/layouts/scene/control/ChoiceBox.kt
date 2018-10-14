@@ -7,8 +7,9 @@ package ktfx.layouts
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import javafx.scene.Node
 import javafx.scene.control.ChoiceBox
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [ChoiceBox]. */
 fun <T> choiceBox(
@@ -16,8 +17,8 @@ fun <T> choiceBox(
     init: ((@LayoutDsl ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = ChoiceBox(items).also { init?.invoke(it) }
 
-/** Creates a [ChoiceBox] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.choiceBox(
+/** Creates a [ChoiceBox] and add it to this manager. */
+inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     noinline init: ((@LayoutDsl ChoiceBox<T>).() -> Unit)? = null
 ): ChoiceBox<T> = ktfx.layouts.choiceBox(items, init)()

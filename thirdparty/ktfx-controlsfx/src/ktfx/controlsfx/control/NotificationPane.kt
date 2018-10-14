@@ -6,11 +6,11 @@ package ktfx.controlsfx
 /* ktlint-enable package-name */
 
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.NotificationPane
 
-class _NotificationPane(content: Node?) : NotificationPane(content), LayoutManager<Node> {
+class _NotificationPane(content: Node?) : NotificationPane(content), NodeManager {
 
     override fun <T : Node> T.invoke(): T = also { content = it }
 }
@@ -21,8 +21,8 @@ fun notificationPane(
     init: ((@LayoutDsl _NotificationPane).() -> Unit)? = null
 ): NotificationPane = _NotificationPane(content).also { init?.invoke(it) }
 
-/** Creates a [NotificationPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.notificationPane(
+/** Creates a [NotificationPane] and add it to this manager. */
+inline fun NodeManager.notificationPane(
     content: Node? = null,
     noinline init: ((@LayoutDsl _NotificationPane).() -> Unit)? = null
 ): NotificationPane = ktfx.controlsfx.notificationPane(content, init)()

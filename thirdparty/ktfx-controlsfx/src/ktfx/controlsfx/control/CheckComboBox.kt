@@ -7,9 +7,8 @@ package ktfx.controlsfx
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.CheckComboBox
 
 /** Creates a [CheckComboBox]. */
@@ -18,8 +17,8 @@ fun <T> checkComboBox(
     init: ((@LayoutDsl CheckComboBox<T>).() -> Unit)? = null
 ): CheckComboBox<T> = CheckComboBox(items).also { init?.invoke(it) }
 
-/** Creates a [CheckComboBox] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.checkComboBox(
+/** Creates a [CheckComboBox] and add it to this manager. */
+inline fun <T> NodeManager.checkComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     noinline init: ((@LayoutDsl CheckComboBox<T>).() -> Unit)? = null
 ): CheckComboBox<T> = ktfx.controlsfx.checkComboBox(items, init)()

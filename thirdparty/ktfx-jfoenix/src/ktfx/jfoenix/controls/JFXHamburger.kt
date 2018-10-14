@@ -6,16 +6,15 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXHamburger
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.annotations.LayoutDsl
+import ktfx.NodeManager
 
 /** Creates a [JFXHamburger]. */
 fun jfxHamburger(
     init: ((@LayoutDsl JFXHamburger).() -> Unit)? = null
 ): JFXHamburger = JFXHamburger().also { init?.invoke(it) }
 
-/** Creates a [JFXHamburger] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxHamburger(
+/** Creates a [JFXHamburger] and add it to this manager. */
+inline fun NodeManager.jfxHamburger(
     noinline init: ((@LayoutDsl JFXHamburger).() -> Unit)? = null
 ): JFXHamburger = ktfx.jfoenix.jfxHamburger(init)()

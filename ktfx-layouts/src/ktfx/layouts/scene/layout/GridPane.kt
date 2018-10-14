@@ -14,12 +14,11 @@ import javafx.scene.layout.ConstraintsBase
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
+import ktfx.internal.KtfxManager
 
-open class _GridPane : GridPane(), LayoutManager<Node>, MarginedPane, HAlignedPane,
-    VAlignedPane, HGrowedPane,
-    VGrowedPane {
-
-    override val childs: MutableCollection<Node> get() = children
+open class _GridPane : GridPane(), NodeManager, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane, VGrowedPane {
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -85,8 +84,8 @@ fun gridPane(
     init: ((@LayoutDsl _GridPane).() -> Unit)? = null
 ): GridPane = _GridPane().also { init?.invoke(it) }
 
-/** Creates a [GridPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.gridPane(
+/** Creates a [GridPane] and add it to this manager. */
+inline fun NodeManager.gridPane(
     noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
 ): GridPane = ktfx.layouts.gridPane(init)()
 
@@ -101,10 +100,11 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 }
 
 @PublishedApi
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>,
-    LayoutManager<T> {
+internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, KtfxManager<T> {
 
-    override val childs: MutableList<T> = mutableListOf()
+    val constraints: MutableList<T> = mutableListOf()
+
+    override fun <R : T> R.invoke(): R = also { constraints += it }
 
     abstract fun newInstance(): T
 
@@ -129,7 +129,7 @@ inline fun GridPane.rowConstraints(init: ConstraintsBuilder<RowConstraints>.() -
         override fun newInstance(width: Double): RowConstraints = RowConstraints(width)
         override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): RowConstraints =
             RowConstraints(width, prefWidth, maxWidth)
-    }.apply(init).childs
+    }.apply(init).constraints
 }
 
 /** Invokes a column constraints DSL builder. */
@@ -139,5 +139,5 @@ inline fun GridPane.columnConstraints(init: ConstraintsBuilder<ColumnConstraints
         override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
         override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
             ColumnConstraints(width, prefWidth, maxWidth)
-    }.apply(init).childs
+    }.apply(init).constraints
 }

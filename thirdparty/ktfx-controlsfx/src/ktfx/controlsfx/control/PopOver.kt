@@ -6,11 +6,11 @@ package ktfx.controlsfx
 /* ktlint-enable package-name */
 
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.PopOver
 
-open class _PopOver(content: Node? = null) : PopOver(content), LayoutManager<Node> {
+open class _PopOver(content: Node? = null) : PopOver(content), NodeManager {
 
     override fun <T : Node> T.invoke(): T = also { contentNode = it }
 }

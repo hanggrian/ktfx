@@ -6,13 +6,15 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXPopup
+import javafx.scene.Node
+import javafx.scene.layout.Pane
 import javafx.scene.layout.Region
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
-open class _JFXPopup(content: Region? = null) : JFXPopup(content), LayoutManager<Region> {
+open class _JFXPopup(content: Region? = null) : JFXPopup(content), NodeManager {
 
-    override fun <T : Region> T.invoke(): T = also { popupContent = it }
+    override fun <T : Node> T.invoke(): T = also { popupContent = it as? Region ?: Pane(it) }
 }
 
 /** Creates a [JFXPopup]. */

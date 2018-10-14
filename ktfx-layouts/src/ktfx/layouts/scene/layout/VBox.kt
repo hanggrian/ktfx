@@ -9,13 +9,11 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
-open class _VBox(
-    spacing: Double,
-    vararg children: Node
-) : VBox(spacing, *children), LayoutManager<Node>, VGrowedPane, MarginedPane {
-
-    override val childs: MutableCollection<Node> get() = children
+open class _VBox(spacing: Double, vararg children: Node) : VBox(spacing, *children), NodeManager, VGrowedPane,
+    MarginedPane {
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -35,8 +33,8 @@ fun vbox(
     init: ((@LayoutDsl _VBox).() -> Unit)? = null
 ): VBox = _VBox(spacing, *children).also { init?.invoke(it) }
 
-/** Creates a [VBox] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.vbox(
+/** Creates a [VBox] and add it to this manager. */
+inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null

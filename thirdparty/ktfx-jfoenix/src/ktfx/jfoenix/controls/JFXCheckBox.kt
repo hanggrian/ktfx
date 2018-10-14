@@ -6,9 +6,8 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXCheckBox
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXCheckBox]. */
 fun jfxCheckBox(
@@ -16,8 +15,8 @@ fun jfxCheckBox(
     init: ((@LayoutDsl JFXCheckBox).() -> Unit)? = null
 ): JFXCheckBox = JFXCheckBox(text).also { init?.invoke(it) }
 
-/** Creates a [JFXCheckBox] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxCheckBox(
+/** Creates a [JFXCheckBox] and add it to this manager. */
+inline fun NodeManager.jfxCheckBox(
     text: String? = null,
     noinline init: ((@LayoutDsl JFXCheckBox).() -> Unit)? = null
 ): JFXCheckBox = ktfx.jfoenix.jfxCheckBox(text, init)()

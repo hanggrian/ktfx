@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.shape.Cylinder
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Cylinder]. */
 fun cylinder(
@@ -16,8 +17,8 @@ fun cylinder(
     init: ((@LayoutDsl Cylinder).() -> Unit)? = null
 ): Cylinder = Cylinder(radius, height, division).also { init?.invoke(it) }
 
-/** Creates a [Cylinder] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.cylinder(
+/** Creates a [Cylinder] and add it to this manager. */
+inline fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,

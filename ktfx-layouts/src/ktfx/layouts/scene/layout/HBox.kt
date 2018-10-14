@@ -9,13 +9,11 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
-open class _HBox(
-    spacing: Double,
-    vararg children: Node
-) : HBox(spacing, *children), LayoutManager<Node>, HGrowedPane, MarginedPane {
-
-    override val childs: MutableCollection<Node> get() = children
+open class _HBox(spacing: Double, vararg children: Node) : HBox(spacing, *children), NodeManager, HGrowedPane,
+    MarginedPane {
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -35,8 +33,8 @@ fun hbox(
     init: ((@LayoutDsl _HBox).() -> Unit)? = null
 ): HBox = _HBox(spacing, *children).also { init?.invoke(it) }
 
-/** Creates a [HBox] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.hbox(
+/** Creates a [HBox] and add it to this manager. */
+inline fun NodeManager.hbox(
     spacing: Double = 0.0,
     vararg children: Node,
     noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null

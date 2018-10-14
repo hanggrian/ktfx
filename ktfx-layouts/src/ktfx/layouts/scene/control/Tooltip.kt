@@ -10,6 +10,7 @@ import javafx.scene.control.Control
 import javafx.scene.control.Tab
 import javafx.scene.control.Tooltip
 import javafx.scene.control.Tooltip.install
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Tooltip]. */
 fun tooltip(

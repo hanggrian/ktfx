@@ -1,4 +1,4 @@
-package ktfx.layouts
+package ktfx.annotations
 
 /** DSL marker for writing dynamic layouts. */
 @DslMarker

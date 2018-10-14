@@ -14,5 +14,7 @@ kotlin.experimental.coroutines = org.jetbrains.kotlin.gradle.dsl.Coroutines.ENAB
 
 dependencies {
     implementation(project(":$RELEASE_ARTIFACT"))
-    implementation(controlsFx())
+    ARTIFACTS_THIRDPARTY.forEach {
+        implementation(project(":$it"))
+    }
 }

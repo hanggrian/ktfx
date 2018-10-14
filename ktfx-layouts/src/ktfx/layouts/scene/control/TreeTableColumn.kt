@@ -7,6 +7,7 @@ package ktfx.layouts
 
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
+import ktfx.internal.KtfxManager
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {
@@ -22,10 +23,11 @@ interface TreeTableColumnsBuilder<S> {
 }
 
 @PublishedApi
-internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>,
-    LayoutManager<TreeTableColumn<S, *>> {
+internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, KtfxManager<TreeTableColumn<S, *>> {
 
-    override val childs: MutableList<TreeTableColumn<S, *>> = mutableListOf()
+    val cols: MutableList<TreeTableColumn<S, *>> = mutableListOf()
+
+    override fun <R : TreeTableColumn<S, *>> R.invoke(): R = also { cols += it }
 
     override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?): TreeTableColumn<S, T> =
         TreeTableColumn<S, T>(text).also { init?.invoke(it) }()
@@ -33,5 +35,5 @@ internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>,
 
 /** Invokes a [TreeTableColumn] DSL builder. */
 inline fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {
-    columns += _TreeTableColumnsBuilder<S>().apply(init).childs
+    columns += _TreeTableColumnsBuilder<S>().apply(init).cols
 }

@@ -6,8 +6,9 @@ package ktfx.layouts
 /* ktlint-enable package-name */
 
 import javafx.scene.Node
-import javafx.scene.control.MenuItem
 import javafx.scene.control.RadioMenuItem
+import ktfx.MenuItemManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [RadioMenuItem]. */
 fun radioMenuItem(
@@ -16,8 +17,8 @@ fun radioMenuItem(
     init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null
 ): RadioMenuItem = RadioMenuItem(text, graphic).also { init?.invoke(it) }
 
-/** Creates a [RadioMenuItem] and add it to this [LayoutManager]. */
-inline fun LayoutManager<MenuItem>.radioMenuItem(
+/** Creates a [RadioMenuItem] and add it to this manager. */
+inline fun MenuItemManager.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null

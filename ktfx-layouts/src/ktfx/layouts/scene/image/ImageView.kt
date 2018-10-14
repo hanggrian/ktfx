@@ -5,9 +5,10 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates an [ImageView]. */
 fun imageView(
@@ -21,14 +22,14 @@ fun imageView(
     init: ((@LayoutDsl ImageView).() -> Unit)? = null
 ): ImageView = ImageView(imageUrl).also { init?.invoke(it) }
 
-/** Creates an [ImageView] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.imageView(
+/** Creates an [ImageView] and add it to this manager. */
+inline fun NodeManager.imageView(
     image: Image? = null,
     noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
 ): ImageView = ktfx.layouts.imageView(image, init)()
 
-/** Creates an [ImageView] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.imageView(
+/** Creates an [ImageView] and add it to this manager. */
+inline fun NodeManager.imageView(
     imageUrl: String,
     noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
 ): ImageView = ktfx.layouts.imageView(imageUrl, init)()

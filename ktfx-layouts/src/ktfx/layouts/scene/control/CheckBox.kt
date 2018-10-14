@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.control.CheckBox
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [CheckBox]. */
 fun checkBox(
@@ -14,8 +15,8 @@ fun checkBox(
     init: ((@LayoutDsl CheckBox).() -> Unit)? = null
 ): CheckBox = CheckBox(text).also { init?.invoke(it) }
 
-/** Creates a [CheckBox] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.checkBox(
+/** Creates a [CheckBox] and add it to this manager. */
+inline fun NodeManager.checkBox(
     text: String? = null,
     noinline init: ((@LayoutDsl CheckBox).() -> Unit)? = null
 ): CheckBox = ktfx.layouts.checkBox(text, init)()

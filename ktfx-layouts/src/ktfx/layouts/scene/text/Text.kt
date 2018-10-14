@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.text.Text
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Text]. */
 fun text(
@@ -14,8 +15,8 @@ fun text(
     init: ((@LayoutDsl Text).() -> Unit)? = null
 ): Text = Text(text).also { init?.invoke(it) }
 
-/** Creates a [Text] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.text(
+/** Creates a [Text] and add it to this manager. */
+inline fun NodeManager.text(
     text: String? = null,
     noinline init: ((@LayoutDsl Text).() -> Unit)? = null
 ): Text = ktfx.layouts.text(text, init)()

@@ -6,9 +6,8 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXTextArea
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXTextArea]. */
 fun jfxTextArea(
@@ -16,8 +15,8 @@ fun jfxTextArea(
     init: ((@LayoutDsl JFXTextArea).() -> Unit)? = null
 ): JFXTextArea = JFXTextArea(text.orEmpty()).also { init?.invoke(it) }
 
-/** Creates a [JFXTextArea] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxTextArea(
+/** Creates a [JFXTextArea] and add it to this manager. */
+inline fun NodeManager.jfxTextArea(
     text: String? = null,
     noinline init: ((@LayoutDsl JFXTextArea).() -> Unit)? = null
 ): JFXTextArea = ktfx.jfoenix.jfxTextArea(text, init)()

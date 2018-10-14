@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.shape.Arc
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Arc]. */
 fun arc(
@@ -19,8 +20,8 @@ fun arc(
     init: ((@LayoutDsl Arc).() -> Unit)? = null
 ): Arc = Arc(centerX, centerY, radiusX, radiusY, startAngle, length).also { init?.invoke(it) }
 
-/** Creates a [Arc] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.arc(
+/** Creates a [Arc] and add it to this manager. */
+inline fun NodeManager.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

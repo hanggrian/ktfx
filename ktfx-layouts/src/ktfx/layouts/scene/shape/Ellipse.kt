@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.shape.Ellipse
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Ellipse]. */
 fun ellipse(
@@ -17,8 +18,8 @@ fun ellipse(
     init: ((@LayoutDsl Ellipse).() -> Unit)? = null
 ): Ellipse = Ellipse(centerX, centerY, radiusX, radiusY).also { init?.invoke(it) }
 
-/** Creates a [Ellipse] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.ellipse(
+/** Creates a [Ellipse] and add it to this manager. */
+inline fun NodeManager.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

@@ -8,8 +8,8 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXDecorator
 import javafx.scene.Node
 import javafx.stage.Stage
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXDecorator]. */
 fun jfxDecorator(
@@ -21,8 +21,8 @@ fun jfxDecorator(
     init: ((@LayoutDsl JFXDecorator).() -> Unit)? = null
 ): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).also { init?.invoke(it) }
 
-/** Creates a [JFXDecorator] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxDecorator(
+/** Creates a [JFXDecorator] and add it to this manager. */
+inline fun NodeManager.jfxDecorator(
     stage: Stage,
     node: Node,
     fullscreen: Boolean = true,

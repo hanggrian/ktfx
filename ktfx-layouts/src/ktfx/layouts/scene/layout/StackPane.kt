@@ -9,12 +9,10 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
-open class _StackPane(
-    vararg children: Node
-) : StackPane(*children), LayoutManager<Node>, AlignedPane, MarginedPane {
-
-    override val childs: MutableCollection<Node> get() = children
+open class _StackPane(vararg children: Node) : StackPane(*children), NodeManager, AlignedPane, MarginedPane {
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -33,8 +31,8 @@ fun stackPane(
     init: ((@LayoutDsl _StackPane).() -> Unit)? = null
 ): StackPane = _StackPane(*children).also { init?.invoke(it) }
 
-/** Creates a [StackPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.stackPane(
+/** Creates a [StackPane] and add it to this manager. */
+inline fun NodeManager.stackPane(
     vararg children: Node,
     noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
 ): StackPane = ktfx.layouts.stackPane(*children, init = init)()

@@ -7,7 +7,8 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
-import javafx.scene.control.MenuItem
+import ktfx.MenuItemManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [CheckMenuItem]. */
 fun checkMenuItem(
@@ -16,8 +17,8 @@ fun checkMenuItem(
     init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
 ): CheckMenuItem = CheckMenuItem(text, graphic).also { init?.invoke(it) }
 
-/** Creates a [CheckMenuItem] and add it to this [LayoutManager]. */
-inline fun LayoutManager<MenuItem>.checkMenuItem(
+/** Creates a [CheckMenuItem] and add it to this manager. */
+inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null

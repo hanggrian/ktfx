@@ -5,9 +5,10 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeView
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [TreeView]. */
 fun <T> treeView(
@@ -15,8 +16,8 @@ fun <T> treeView(
     init: ((@LayoutDsl TreeView<T>).() -> Unit)? = null
 ): TreeView<T> = TreeView<T>(root).also { init?.invoke(it) }
 
-/** Creates a [TreeView] and add it to this [LayoutManager]. */
-inline fun <T> LayoutManager<Node>.treeView(
+/** Creates a [TreeView] and add it to this manager. */
+inline fun <T> NodeManager.treeView(
     root: TreeItem<T>? = null,
     noinline init: ((@LayoutDsl TreeView<T>).() -> Unit)? = null
 ): TreeView<T> = ktfx.layouts.treeView(root, init)()

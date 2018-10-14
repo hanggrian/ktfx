@@ -11,13 +11,15 @@ import javafx.scene.Scene
 import javafx.scene.layout.Pane
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 open class _Scene(
     root: Parent,
     width: Double,
     height: Double,
     fill: Paint
-) : Scene(root, width, height, fill), LayoutManager<Node> {
+) : Scene(root, width, height, fill), NodeManager {
 
     override operator fun <T : Node> T.invoke(): T = also {
         root = when (it) {

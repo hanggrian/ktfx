@@ -5,10 +5,11 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [ColorPicker]. */
 fun colorPicker(
@@ -16,8 +17,8 @@ fun colorPicker(
     init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
 ): ColorPicker = ColorPicker(color).also { init?.invoke(it) }
 
-/** Creates a [ColorPicker] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.colorPicker(
+/** Creates a [ColorPicker] and add it to this manager. */
+inline fun NodeManager.colorPicker(
     color: Color = WHITE,
     noinline init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
 ): ColorPicker = ktfx.layouts.colorPicker(color, init)()

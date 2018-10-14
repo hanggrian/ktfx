@@ -9,8 +9,8 @@ import com.jfoenix.controls.JFXBadge
 import javafx.geometry.Pos
 import javafx.geometry.Pos.TOP_RIGHT
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXBadge]. */
 fun jfxBadge(
@@ -19,8 +19,8 @@ fun jfxBadge(
     init: ((@LayoutDsl JFXBadge).() -> Unit)? = null
 ): JFXBadge = JFXBadge(control, pos).also { init?.invoke(it) }
 
-/** Creates a [JFXBadge] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxBadge(
+/** Creates a [JFXBadge] and add it to this manager. */
+inline fun NodeManager.jfxBadge(
     control: Node? = null,
     pos: Pos = TOP_RIGHT,
     noinline init: ((@LayoutDsl JFXBadge).() -> Unit)? = null

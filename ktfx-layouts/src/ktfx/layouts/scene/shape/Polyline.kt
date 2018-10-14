@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.shape.Polyline
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Polyline]. */
 fun polyline(
@@ -14,8 +15,8 @@ fun polyline(
     init: ((@LayoutDsl Polyline).() -> Unit)? = null
 ): Polyline = Polyline(*points).also { init?.invoke(it) }
 
-/** Creates a [Polyline] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.polyline(
+/** Creates a [Polyline] and add it to this manager. */
+inline fun NodeManager.polyline(
     vararg points: Double,
     noinline init: ((@LayoutDsl Polyline).() -> Unit)? = null
 ): Polyline = ktfx.layouts.polyline(*points, init = init)()

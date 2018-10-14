@@ -6,9 +6,8 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXSpinner
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXSpinner]. */
 fun jfxSpinner(
@@ -16,8 +15,8 @@ fun jfxSpinner(
     init: ((@LayoutDsl JFXSpinner).() -> Unit)? = null
 ): JFXSpinner = JFXSpinner(progress).also { init?.invoke(it) }
 
-/** Creates a [JFXSpinner] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxSpinner(
+/** Creates a [JFXSpinner] and add it to this manager. */
+inline fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
     noinline init: ((@LayoutDsl JFXSpinner).() -> Unit)? = null
 ): JFXSpinner = ktfx.jfoenix.jfxSpinner(progress, init)()

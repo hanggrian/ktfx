@@ -8,14 +8,13 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
+import ktfx.NodeManager
+import ktfx.TitledPaneManager
+import ktfx.annotations.LayoutDsl
 
-class _Accordion(
-    vararg titledPanes: TitledPane
-) : Accordion(*titledPanes), LayoutManager<TitledPane> {
+open class _Accordion(vararg titledPanes: TitledPane) : Accordion(*titledPanes), TitledPaneManager {
 
-    override val childs: MutableCollection<TitledPane> get() = panes
-
-    /** Creates a [TitledPane] and add it to this [LayoutManager]. */
+    /** Creates a [TitledPane] and add it to this manager. */
     inline operator fun String.invoke(
         content: Node? = null,
         noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
@@ -28,8 +27,8 @@ fun accordion(
     init: ((@LayoutDsl _Accordion).() -> Unit)? = null
 ): Accordion = _Accordion(*titledPanes).also { init?.invoke(it) }
 
-/** Creates a [Accordion] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.accordion(
+/** Creates a [Accordion] and add it to this manager. */
+inline fun NodeManager.accordion(
     vararg titledPanes: TitledPane,
     noinline init: ((@LayoutDsl _Accordion).() -> Unit)? = null
 ): Accordion = ktfx.layouts.accordion(*titledPanes, init = init)()

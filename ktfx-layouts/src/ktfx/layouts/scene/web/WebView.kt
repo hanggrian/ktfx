@@ -5,15 +5,16 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.web.WebView
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [WebView]. */
 fun webView(
     init: ((@LayoutDsl WebView).() -> Unit)? = null
 ): WebView = WebView().also { init?.invoke(it) }
 
-/** Creates a [WebView] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.webView(
+/** Creates a [WebView] and add it to this manager. */
+inline fun NodeManager.webView(
     noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
 ): WebView = ktfx.layouts.webView(init)()

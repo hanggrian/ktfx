@@ -6,9 +6,8 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXTextField
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXTextField]. */
 fun jfxTextField(
@@ -16,8 +15,8 @@ fun jfxTextField(
     init: ((@LayoutDsl JFXTextField).() -> Unit)? = null
 ): JFXTextField = JFXTextField(text.orEmpty()).also { init?.invoke(it) }
 
-/** Creates a [JFXTextField] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxTextField(
+/** Creates a [JFXTextField] and add it to this manager. */
+inline fun NodeManager.jfxTextField(
     text: String? = null,
     noinline init: ((@LayoutDsl JFXTextField).() -> Unit)? = null
 ): JFXTextField = ktfx.jfoenix.jfxTextField(text, init)()

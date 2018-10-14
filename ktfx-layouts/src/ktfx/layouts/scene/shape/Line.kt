@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.shape.Line
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Line]. */
 fun line(
@@ -17,8 +18,8 @@ fun line(
     init: ((@LayoutDsl Line).() -> Unit)? = null
 ): Line = Line(centerX, centerY, endX, endY).also { init?.invoke(it) }
 
-/** Creates a [Line] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.line(
+/** Creates a [Line] and add it to this manager. */
+inline fun NodeManager.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,

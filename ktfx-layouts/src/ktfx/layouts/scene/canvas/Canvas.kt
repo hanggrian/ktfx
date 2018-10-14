@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.canvas.Canvas
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Canvas]. */
 fun canvas(
@@ -15,8 +16,8 @@ fun canvas(
     init: ((@LayoutDsl Canvas).() -> Unit)? = null
 ): Canvas = Canvas(width, height).also { init?.invoke(it) }
 
-/** Creates a [Canvas] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.canvas(
+/** Creates a [Canvas] and add it to this manager. */
+inline fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     noinline init: ((@LayoutDsl Canvas).() -> Unit)? = null

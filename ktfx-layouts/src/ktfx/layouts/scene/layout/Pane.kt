@@ -7,13 +7,10 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.Pane
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
-open class _Pane(
-    vararg children: Node
-) : Pane(*children), LayoutManager<Node> {
-
-    override val childs: MutableCollection<Node> get() = children
-}
+open class _Pane(vararg children: Node) : Pane(*children), NodeManager
 
 /** Creates a [Pane]. */
 fun pane(
@@ -21,8 +18,8 @@ fun pane(
     init: ((@LayoutDsl _Pane).() -> Unit)? = null
 ): Pane = _Pane(*children).also { init?.invoke(it) }
 
-/** Creates a [Pane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.pane(
+/** Creates a [Pane] and add it to this manager. */
+inline fun NodeManager.pane(
     vararg children: Node,
     noinline init: ((@LayoutDsl _Pane).() -> Unit)? = null
 ): Pane = ktfx.layouts.pane(*children, init = init)()

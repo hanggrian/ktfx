@@ -6,16 +6,15 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXNodesList
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXNodesList]. */
 fun jfxNodesList(
     init: ((@LayoutDsl JFXNodesList).() -> Unit)? = null
 ): JFXNodesList = JFXNodesList().also { init?.invoke(it) }
 
-/** Creates a [JFXNodesList] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxNodesList(
+/** Creates a [JFXNodesList] and add it to this manager. */
+inline fun NodeManager.jfxNodesList(
     noinline init: ((@LayoutDsl JFXNodesList).() -> Unit)? = null
 ): JFXNodesList = ktfx.jfoenix.jfxNodesList(init)()

@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.control.Slider
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Slider]. */
 fun slider(
@@ -16,8 +17,8 @@ fun slider(
     init: ((@LayoutDsl Slider).() -> Unit)? = null
 ): Slider = Slider(min, max, value).also { init?.invoke(it) }
 
-/** Creates a [Slider] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.slider(
+/** Creates a [Slider] and add it to this manager. */
+inline fun NodeManager.slider(
     min: Double,
     max: Double,
     value: Double,

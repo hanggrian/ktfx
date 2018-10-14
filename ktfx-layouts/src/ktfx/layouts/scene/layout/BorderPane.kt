@@ -9,6 +9,8 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 open class _BorderPane(
     center: Node?,
@@ -16,8 +18,7 @@ open class _BorderPane(
     right: Node?,
     bottom: Node?,
     left: Node?
-) : BorderPane(center, top, right, bottom, left), LayoutManager<Node>, AlignedPane,
-    MarginedPane {
+) : BorderPane(center, top, right, bottom, left), NodeManager, AlignedPane, MarginedPane {
 
     override fun <R : Node> R.invoke(): R = error("Don't invoke in BorderPane, specify its side manually")
 
@@ -42,8 +43,8 @@ fun borderPane(
     init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
 ): BorderPane = _BorderPane(center, top, right, bottom, left).also { init?.invoke(it) }
 
-/** Creates a [BorderPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.borderPane(
+/** Creates a [BorderPane] and add it to this manager. */
+inline fun NodeManager.borderPane(
     center: Node? = null,
     top: Node? = null,
     right: Node? = null,

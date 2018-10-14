@@ -9,14 +9,13 @@ import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
 import javafx.scene.control.MenuItem
+import ktfx.MenuManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
-class _MenuBar(
-    vararg menus: Menu
-) : MenuBar(*menus), LayoutManager<Menu> {
+open class _MenuBar(vararg menus: Menu) : MenuBar(*menus), MenuManager {
 
-    override val childs: MutableCollection<Menu> get() = menus
-
-    /** Creates a [Menu] and add it to this [LayoutManager]. */
+    /** Creates a [Menu] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
         vararg items: MenuItem,
@@ -30,8 +29,8 @@ fun menuBar(
     init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
 ): MenuBar = _MenuBar(*menus).also { init?.invoke(it) }
 
-/** Creates a [MenuBar] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.menuBar(
+/** Creates a [MenuBar] and add it to this manager. */
+inline fun NodeManager.menuBar(
     vararg menus: Menu,
     noinline init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
 ): MenuBar = ktfx.layouts.menuBar(*menus, init = init)()

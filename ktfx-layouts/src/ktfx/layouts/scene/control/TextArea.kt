@@ -5,8 +5,9 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.control.TextArea
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [TextArea]. */
 fun textArea(
@@ -14,8 +15,8 @@ fun textArea(
     init: ((@LayoutDsl TextArea).() -> Unit)? = null
 ): TextArea = TextArea(text).also { init?.invoke(it) }
 
-/** Creates a [TextArea] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.textArea(
+/** Creates a [TextArea] and add it to this manager. */
+inline fun NodeManager.textArea(
     text: String = "",
     noinline init: ((@LayoutDsl TextArea).() -> Unit)? = null
 ): TextArea = ktfx.layouts.textArea(text, init)()

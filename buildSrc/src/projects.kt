@@ -7,16 +7,16 @@ import org.gradle.kotlin.dsl.register
 import org.gradle.language.base.plugins.LifecycleBasePlugin
 
 fun Project.ktlint(
-    extraDependency: Configuration.(
+    extraDependency: (Configuration.(
         add: (dependencyNotation: Any) -> Unit
-    ) -> Unit
+    ) -> Unit)? = null
 ) {
     val configuration = configurations.register("ktlint")
 
     dependencies {
         configuration {
             invoke(ktlint())
-            extraDependency { dependencyNotation ->
+            extraDependency?.invoke(this) { dependencyNotation ->
                 invoke(dependencyNotation)
             }
         }

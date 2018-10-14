@@ -6,10 +6,9 @@ package ktfx.jfoenix
 /* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXColorPicker
-import javafx.scene.Node
 import javafx.scene.paint.Color
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXColorPicker]. */
 fun jfxColorPicker(
@@ -17,8 +16,8 @@ fun jfxColorPicker(
     init: ((@LayoutDsl JFXColorPicker).() -> Unit)? = null
 ): JFXColorPicker = JFXColorPicker(color).also { init?.invoke(it) }
 
-/** Creates a [JFXColorPicker] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.jfxColorPicker(
+/** Creates a [JFXColorPicker] and add it to this manager. */
+inline fun NodeManager.jfxColorPicker(
     color: Color? = null,
     noinline init: ((@LayoutDsl JFXColorPicker).() -> Unit)? = null
 ): JFXColorPicker = ktfx.jfoenix.jfxColorPicker(color, init)()

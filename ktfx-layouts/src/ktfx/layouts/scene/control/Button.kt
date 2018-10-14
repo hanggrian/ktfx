@@ -7,6 +7,8 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Button
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Button]. */
 fun button(
@@ -15,8 +17,8 @@ fun button(
     init: ((@LayoutDsl Button).() -> Unit)? = null
 ): Button = Button(text, graphic).also { init?.invoke(it) }
 
-/** Creates a [Button] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.button(
+/** Creates a [Button] and add it to this manager. */
+inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Button).() -> Unit)? = null

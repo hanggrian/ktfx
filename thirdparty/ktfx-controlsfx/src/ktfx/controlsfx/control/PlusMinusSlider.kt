@@ -5,9 +5,8 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.PlusMinusSlider
 
 /** Creates a [PlusMinusSlider]. */
@@ -15,7 +14,7 @@ fun plusMinusSlider(
     init: ((@LayoutDsl PlusMinusSlider).() -> Unit)? = null
 ): PlusMinusSlider = PlusMinusSlider().also { init?.invoke(it) }
 
-/** Creates a [PlusMinusSlider] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.plusMinusSlider(
+/** Creates a [PlusMinusSlider] and add it to this manager. */
+inline fun NodeManager.plusMinusSlider(
     noinline init: ((@LayoutDsl PlusMinusSlider).() -> Unit)? = null
 ): PlusMinusSlider = ktfx.controlsfx.plusMinusSlider(init)()

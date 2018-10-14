@@ -5,9 +5,8 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.RangeSlider
 
 /** Creates a [RangeSlider]. */
@@ -19,8 +18,8 @@ fun rangeSlider(
     init: ((@LayoutDsl RangeSlider).() -> Unit)? = null
 ): RangeSlider = RangeSlider(min, max, lowValue, highValue).also { init?.invoke(it) }
 
-/** Creates a [RangeSlider] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.rangeSlider(
+/** Creates a [RangeSlider] and add it to this manager. */
+inline fun NodeManager.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,

@@ -29,27 +29,37 @@ inline var Region.paddingAll: Double
         padding = Insets(value)
     }
 
-/** Top padding in integer. */
+/** Top and bottom padding. */
+inline var Region.paddingVertical: Double
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+    set(value) = updatePadding(top = value, bottom = value)
+
+/** Right and left padding. */
+inline var Region.paddingHorizontal: Double
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+    set(value) = updatePadding(right = value, left = value)
+
+/** Top padding. */
 inline var Region.paddingTop: Double
     get() = padding.top
     set(value) = updatePadding(top = value)
 
-/** Right padding in integer. */
+/** Right padding. */
 inline var Region.paddingRight: Double
     get() = padding.right
     set(value) = updatePadding(right = value)
 
-/** Bottom padding in integer. */
+/** Bottom padding. */
 inline var Region.paddingBottom: Double
     get() = padding.bottom
     set(value) = updatePadding(bottom = value)
 
-/** Left padding in integer. */
+/** Left padding. */
 inline var Region.paddingLeft: Double
     get() = padding.left
     set(value) = updatePadding(left = value)
 
-/** Sets padding to each side with integer. */
+/** Sets padding to each side. */
 inline fun Region.updatePadding(
     top: Double = paddingTop,
     right: Double = paddingRight,

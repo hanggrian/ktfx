@@ -5,9 +5,10 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [MeshView]. */
 fun meshView(
@@ -15,8 +16,8 @@ fun meshView(
     init: ((@LayoutDsl MeshView).() -> Unit)? = null
 ): MeshView = MeshView(mesh).also { init?.invoke(it) }
 
-/** Creates a [MeshView] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.meshView(
+/** Creates a [MeshView] and add it to this manager. */
+inline fun NodeManager.meshView(
     mesh: Mesh? = null,
     noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null
 ): MeshView = ktfx.layouts.meshView(mesh, init)()

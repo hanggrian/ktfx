@@ -7,6 +7,7 @@ package ktfx.layouts
 
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
+import ktfx.internal.KtfxManager
 
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {
@@ -22,9 +23,11 @@ interface TableColumnsBuilder<S> {
 }
 
 @PublishedApi
-internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, LayoutManager<TableColumn<S, *>> {
+internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, KtfxManager<TableColumn<S, *>> {
 
-    override val childs: MutableList<TableColumn<S, *>> = mutableListOf()
+    val cols: MutableList<TableColumn<S, *>> = mutableListOf()
+
+    override fun <R : TableColumn<S, *>> R.invoke(): R = also { cols += it }
 
     override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?): TableColumn<S, T> =
         TableColumn<S, T>(text).also { init?.invoke(it) }()
@@ -32,5 +35,5 @@ internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, LayoutManager<T
 
 /** Invokes a [TableColumn] DSL builder. */
 inline fun <S> TableView<S>.columns(init: TableColumnsBuilder<S>.() -> Unit) {
-    columns += _TableColumnsBuilder<S>().apply(init).childs
+    columns += _TableColumnsBuilder<S>().apply(init).cols
 }

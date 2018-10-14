@@ -6,8 +6,8 @@ package ktfx.controlsfx
 /* ktlint-enable package-name */
 
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
-import ktfx.layouts.LayoutManager
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.HiddenSidesPane
 
 /** Creates a [HiddenSidesPane]. */
@@ -20,8 +20,8 @@ fun hiddenSidesPane(
     init: ((@LayoutDsl HiddenSidesPane).() -> Unit)? = null
 ): HiddenSidesPane = HiddenSidesPane(content, top, right, bottom, left).also { init?.invoke(it) }
 
-/** Creates a [HiddenSidesPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.hiddenSidesPane(
+/** Creates a [HiddenSidesPane] and add it to this manager. */
+inline fun NodeManager.hiddenSidesPane(
     content: Node? = null,
     top: Node? = null,
     right: Node? = null,

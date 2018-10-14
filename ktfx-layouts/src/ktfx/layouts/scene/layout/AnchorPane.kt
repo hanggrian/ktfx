@@ -7,14 +7,12 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
-open class _AnchorPane(
-    vararg children: Node
-) : AnchorPane(*children), LayoutManager<Node>, ConstrainedPane {
-
-    override val childs: MutableCollection<Node> get() = children
+open class _AnchorPane(vararg children: Node) : AnchorPane(*children), NodeManager, ConstrainedPane {
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -60,8 +58,8 @@ fun anchorPane(
     init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
 ): AnchorPane = _AnchorPane(*children).also { init?.invoke(it) }
 
-/** Creates a [AnchorPane] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.anchorPane(
+/** Creates a [AnchorPane] and add it to this manager. */
+inline fun NodeManager.anchorPane(
     vararg children: Node,
     noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
 ): AnchorPane = ktfx.layouts.anchorPane(*children, init = init)()

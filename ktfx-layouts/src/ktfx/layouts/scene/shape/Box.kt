@@ -5,9 +5,10 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.scene.Node
 import javafx.scene.shape.Box
 import javafx.scene.shape.Box.DEFAULT_SIZE
+import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [Box]. */
 fun box(
@@ -17,8 +18,8 @@ fun box(
     init: ((@LayoutDsl Box).() -> Unit)? = null
 ): Box = Box(width, height, depth).also { init?.invoke(it) }
 
-/** Creates a [Box] and add it to this [LayoutManager]. */
-inline fun LayoutManager<Node>.box(
+/** Creates a [Box] and add it to this manager. */
+inline fun NodeManager.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,

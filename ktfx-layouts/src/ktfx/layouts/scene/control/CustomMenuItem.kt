@@ -7,7 +7,8 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
-import javafx.scene.control.MenuItem
+import ktfx.MenuItemManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [CustomMenuItem]. */
 fun customMenuItem(
@@ -16,8 +17,8 @@ fun customMenuItem(
     init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null
 ): CustomMenuItem = CustomMenuItem(node, hideOnClick).also { init?.invoke(it) }
 
-/** Creates a [CustomMenuItem] and add it to this [LayoutManager]. */
-inline fun LayoutManager<MenuItem>.customMenuItem(
+/** Creates a [CustomMenuItem] and add it to this manager. */
+inline fun MenuItemManager.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
     noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null

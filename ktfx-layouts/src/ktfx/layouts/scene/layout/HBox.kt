@@ -15,6 +15,8 @@ import ktfx.annotations.LayoutDsl
 open class _HBox(spacing: Double, vararg children: Node) : HBox(spacing, *children), NodeManager, HGrowedPane,
     MarginedPane {
 
+    override val collection: MutableCollection<Node> get() = children
+
     override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.hpriority: Priority?

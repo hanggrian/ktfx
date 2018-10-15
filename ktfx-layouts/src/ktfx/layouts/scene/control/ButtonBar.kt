@@ -5,7 +5,6 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
@@ -14,7 +13,7 @@ import ktfx.annotations.LayoutDsl
 
 open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 
-    override fun getChildren(): ObservableList<Node> = buttons
+    override val collection: MutableCollection<Node> get() = buttons
 
     /** Creates a [Button] and add it to this manager. */
     inline operator fun String.invoke(

@@ -14,6 +14,8 @@ import ktfx.annotations.LayoutDsl
 open class _Menu(text: String, graphic: Node?, vararg items: MenuItem) : Menu(text, graphic, *items),
     MenuItemManager {
 
+    override val collection: MutableCollection<MenuItem> get() = items
+
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,

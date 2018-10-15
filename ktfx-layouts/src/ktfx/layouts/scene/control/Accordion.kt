@@ -14,6 +14,8 @@ import ktfx.annotations.LayoutDsl
 
 open class _Accordion(vararg titledPanes: TitledPane) : Accordion(*titledPanes), TitledPaneManager {
 
+    override val collection: MutableCollection<TitledPane> get() = panes
+
     /** Creates a [TitledPane] and add it to this manager. */
     inline operator fun String.invoke(
         content: Node? = null,

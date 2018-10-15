@@ -14,6 +14,8 @@ import ktfx.annotations.LayoutDsl
 
 open class _StackPane(vararg children: Node) : StackPane(*children), NodeManager, AlignedPane, MarginedPane {
 
+    override val collection: MutableCollection<Node> get() = children
+
     override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.align: Pos?

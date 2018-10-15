@@ -20,6 +20,8 @@ open class _FlowPane(
     vararg children: Node
 ) : FlowPane(orientation, hgap, vgap, *children), NodeManager, MarginedPane {
 
+    override val collection: MutableCollection<Node> get() = children
+
     override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.margins: Insets?

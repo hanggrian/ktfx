@@ -8,8 +8,7 @@ class ManagerTest {
 
     @Suppress("FINAL_UPPER_BOUND")
     private val manager = object : KtfxManager<Int> {
-        val ints = mutableListOf<Int>()
-        override fun <R : Int> R.invoke(): R = also { ints += it }
+        override val collection = mutableListOf<Int>()
     }
 
     @Test fun test() {
@@ -17,6 +16,6 @@ class ManagerTest {
             1()
             2()
             3()
-        }.ints).containsExactly(1, 2, 3)
+        }.collection).containsExactly(1, 2, 3)
     }
 }

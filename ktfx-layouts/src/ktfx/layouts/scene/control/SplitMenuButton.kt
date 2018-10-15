@@ -14,6 +14,8 @@ import ktfx.annotations.LayoutDsl
 
 open class _SplitMenuButton(vararg items: MenuItem) : SplitMenuButton(*items), MenuItemManager {
 
+    override val collection: MutableCollection<MenuItem> get() = items
+
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,

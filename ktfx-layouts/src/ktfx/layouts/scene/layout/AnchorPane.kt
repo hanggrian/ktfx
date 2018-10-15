@@ -14,6 +14,8 @@ import kotlin.DeprecationLevel.ERROR
 
 open class _AnchorPane(vararg children: Node) : AnchorPane(*children), NodeManager, ConstrainedPane {
 
+    override val collection: MutableCollection<Node> get() = children
+
     override fun Node.reset(): Unit = clearConstraints(this)
 
     inline infix fun <N : Node> N.anchorAll(anchorAll: Double?): N = also { it.anchorAll = anchorAll }

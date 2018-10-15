@@ -5,7 +5,6 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
 import ktfx.NodeManager
@@ -13,7 +12,7 @@ import ktfx.annotations.LayoutDsl
 
 open class _ToolBar(vararg items: Node) : ToolBar(*items), NodeManager {
 
-    override fun getChildren(): ObservableList<Node> = items
+    override val collection: MutableCollection<Node> get() = items
 }
 
 /** Creates a [ToolBar]. */

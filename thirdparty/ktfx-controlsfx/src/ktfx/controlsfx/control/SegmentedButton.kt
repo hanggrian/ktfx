@@ -5,7 +5,6 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
 import ktfx.NodeManager
@@ -14,7 +13,7 @@ import org.controlsfx.control.SegmentedButton
 
 open class _SegmentedButton(vararg buttons: ToggleButton) : SegmentedButton(*buttons), NodeManager {
 
-    override fun getChildren(): ObservableList<Node> = buttons as ObservableList<Node>
+    override val collection: MutableCollection<Node> get() = buttons as MutableCollection<Node>
 }
 
 /** Creates a [SegmentedButton]. */

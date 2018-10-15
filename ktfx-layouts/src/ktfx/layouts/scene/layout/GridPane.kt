@@ -20,6 +20,8 @@ import ktfx.internal.KtfxManager
 
 open class _GridPane : GridPane(), NodeManager, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane, VGrowedPane {
 
+    override val collection: MutableCollection<Node> get() = children
+
     override fun Node.reset(): Unit = clearConstraints(this)
 
     infix fun <N : Node> N.row(row: Int?): N = also { it.row = row }
@@ -102,9 +104,9 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 @PublishedApi
 internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, KtfxManager<T> {
 
-    val constraints: MutableList<T> = mutableListOf()
+    override val collection: MutableList<T> = mutableListOf()
 
-    override fun <R : T> R.invoke(): R = also { constraints += it }
+    override fun <R : T> R.invoke(): R = also { collection += it }
 
     abstract fun newInstance(): T
 
@@ -129,7 +131,7 @@ inline fun GridPane.rowConstraints(init: ConstraintsBuilder<RowConstraints>.() -
         override fun newInstance(width: Double): RowConstraints = RowConstraints(width)
         override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): RowConstraints =
             RowConstraints(width, prefWidth, maxWidth)
-    }.apply(init).constraints
+    }.apply(init).collection
 }
 
 /** Invokes a column constraints DSL builder. */
@@ -139,5 +141,5 @@ inline fun GridPane.columnConstraints(init: ConstraintsBuilder<ColumnConstraints
         override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
         override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
             ColumnConstraints(width, prefWidth, maxWidth)
-    }.apply(init).constraints
+    }.apply(init).collection
 }

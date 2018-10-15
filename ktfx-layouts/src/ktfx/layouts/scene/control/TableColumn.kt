@@ -25,9 +25,9 @@ interface TableColumnsBuilder<S> {
 @PublishedApi
 internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, KtfxManager<TableColumn<S, *>> {
 
-    val cols: MutableList<TableColumn<S, *>> = mutableListOf()
+    override val collection: MutableList<TableColumn<S, *>> = mutableListOf()
 
-    override fun <R : TableColumn<S, *>> R.invoke(): R = also { cols += it }
+    override fun <R : TableColumn<S, *>> R.invoke(): R = also { collection += it }
 
     override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?): TableColumn<S, T> =
         TableColumn<S, T>(text).also { init?.invoke(it) }()
@@ -35,5 +35,5 @@ internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, KtfxManager<Tab
 
 /** Invokes a [TableColumn] DSL builder. */
 inline fun <S> TableView<S>.columns(init: TableColumnsBuilder<S>.() -> Unit) {
-    columns += _TableColumnsBuilder<S>().apply(init).cols
+    columns += _TableColumnsBuilder<S>().apply(init).collection
 }

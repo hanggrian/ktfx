@@ -13,6 +13,8 @@ import ktfx.annotations.LayoutDsl
 
 open class _TextFlow(vararg children: Node) : TextFlow(*children), NodeManager {
 
+    override val collection: MutableCollection<Node> get() = children
+
     /** Creates a [Text] and add it to this manager. */
     inline operator fun String.invoke(
         noinline init: ((@LayoutDsl Text).() -> Unit)? = null

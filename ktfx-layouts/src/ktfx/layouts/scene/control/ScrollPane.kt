@@ -5,15 +5,12 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager {
-
-    override fun getChildren(): ObservableList<Node> = NodeManager.InvokableOnly.getChildren()
+open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager by NodeManager.InvokableOnly {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }

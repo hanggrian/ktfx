@@ -5,15 +5,13 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.TitledPane
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _TitledPane(title: String?, content: Node?) : TitledPane(title, content), NodeManager {
-
-    override fun getChildren(): ObservableList<Node> = NodeManager.InvokableOnly.getChildren()
+open class _TitledPane(title: String?, content: Node?) : TitledPane(title, content),
+    NodeManager by NodeManager.InvokableOnly {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }

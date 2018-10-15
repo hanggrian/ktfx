@@ -10,7 +10,10 @@ import javafx.scene.layout.Pane
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _Pane(vararg children: Node) : Pane(*children), NodeManager
+open class _Pane(vararg children: Node) : Pane(*children), NodeManager {
+
+    override val collection: MutableCollection<Node> get() = children
+}
 
 /** Creates a [Pane]. */
 fun pane(

@@ -15,6 +15,8 @@ import ktfx.annotations.LayoutDsl
 open class _VBox(spacing: Double, vararg children: Node) : VBox(spacing, *children), NodeManager, VGrowedPane,
     MarginedPane {
 
+    override val collection: MutableCollection<Node> get() = children
+
     override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.vpriority: Priority?

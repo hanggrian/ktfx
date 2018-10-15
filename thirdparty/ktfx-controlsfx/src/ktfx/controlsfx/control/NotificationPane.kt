@@ -5,7 +5,6 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
@@ -13,7 +12,7 @@ import org.controlsfx.control.NotificationPane
 
 class _NotificationPane(content: Node?) : NotificationPane(content), NodeManager {
 
-    override fun getChildren(): ObservableList<Node> = NodeManager.InvokableOnly.getChildren()
+    override val collection: MutableCollection<Node> get() = children
 
     override fun <T : Node> T.invoke(): T = also { content = it }
 }

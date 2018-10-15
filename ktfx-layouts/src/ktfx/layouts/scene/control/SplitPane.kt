@@ -5,15 +5,14 @@ package ktfx.layouts
 
 /* ktlint-enable package-name */
 
-import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.SplitPane
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
 open class _SplitPane(vararg items: Node) : SplitPane(*items), NodeManager {
-    
-    override fun getChildren(): ObservableList<Node> = items
+
+    override val collection: MutableCollection<Node> get() = items
 }
 
 /** Creates a [SplitPane]. */

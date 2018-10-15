@@ -20,6 +20,8 @@ open class _BorderPane(
     left: Node?
 ) : BorderPane(center, top, right, bottom, left), NodeManager, AlignedPane, MarginedPane {
 
+    override val collection: MutableCollection<Node> get() = children
+
     override fun <R : Node> R.invoke(): R = error("Don't invoke in BorderPane, specify its side manually")
 
     override fun Node.reset(): Unit = clearConstraints(this)

@@ -15,6 +15,8 @@ import ktfx.annotations.LayoutDsl
 
 open class _MenuBar(vararg menus: Menu) : MenuBar(*menus), MenuManager {
 
+    override val collection: MutableCollection<Menu> get() = menus
+
     /** Creates a [Menu] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,

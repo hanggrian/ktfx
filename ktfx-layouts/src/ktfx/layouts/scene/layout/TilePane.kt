@@ -21,6 +21,8 @@ open class _TilePane(
     vararg children: Node
 ) : TilePane(orientation, hgap, vgap, *children), NodeManager, AlignedPane, MarginedPane {
 
+    override val collection: MutableCollection<Node> get() = children
+
     override fun Node.reset(): Unit = clearConstraints(this)
 
     override var Node.align: Pos?

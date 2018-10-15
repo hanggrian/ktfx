@@ -14,6 +14,8 @@ import ktfx.annotations.LayoutDsl
 
 open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), TabManager {
 
+    override val collection: MutableCollection<Tab> get() = tabs
+
     /** Creates a [Tab] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,

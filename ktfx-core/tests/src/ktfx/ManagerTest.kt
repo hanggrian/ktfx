@@ -1,13 +1,13 @@
 package ktfx
 
 import com.google.common.truth.Truth
-import ktfx.internal.KtfxManager
+import ktfx.internal.Manager
 import org.junit.Test
 
 class ManagerTest {
 
     @Suppress("FINAL_UPPER_BOUND")
-    private val manager = object : KtfxManager<Int> {
+    private val manager = object : Manager<Int> {
         override val collection = mutableListOf<Int>()
     }
 

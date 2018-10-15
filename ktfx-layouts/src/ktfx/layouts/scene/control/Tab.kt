@@ -11,7 +11,7 @@ import ktfx.NodeManager
 import ktfx.TabManager
 import ktfx.annotations.LayoutDsl
 
-open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManager by NodeManager.InvokableOnly {
+open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManager by NodeManager.INVOKABLE_ONLY {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }

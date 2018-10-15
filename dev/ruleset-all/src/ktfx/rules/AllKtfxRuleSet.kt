@@ -6,7 +6,7 @@ import com.github.shyiko.ktlint.core.RuleSetProvider
 class AllKtfxRuleSet : RuleSetProvider {
 
     override fun get() = RuleSet(
-        "ktfx-all-ruleset",
+        "all-ruleset",
         NoInternalClassMemberImportRule(),
         NoNullAssertionOperatorRule(),
         ExpressionFunctionReturnTypeRule()

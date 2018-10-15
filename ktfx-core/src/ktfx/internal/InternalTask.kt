@@ -4,6 +4,7 @@ import javafx.concurrent.Task
 
 /** Receiver in `ktfx.concurrent.buildService`, invoke [call] to customize what this Task do in the background. */
 class InternalTask<V> : Task<V>() {
+
     private var _call: () -> V? = { null }
 
     fun call(onCall: () -> V?) {

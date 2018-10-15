@@ -6,7 +6,7 @@ import com.github.shyiko.ktlint.core.RuleSetProvider
 class NoInstanceRuleSet : RuleSetProvider {
 
     override fun get() = RuleSet(
-        "ktfx-no-instance-ruleset",
+        "no-instance-ruleset",
         NoInstanceRule()
     )
 }

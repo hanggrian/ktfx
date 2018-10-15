@@ -16,7 +16,7 @@ import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
-import ktfx.internal.KtfxManager
+import ktfx.internal.Manager
 
 open class _GridPane : GridPane(), NodeManager, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane, VGrowedPane {
 
@@ -102,7 +102,7 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 }
 
 @PublishedApi
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, KtfxManager<T> {
+internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, Manager<T> {
 
     override val collection: MutableList<T> = mutableListOf()
 

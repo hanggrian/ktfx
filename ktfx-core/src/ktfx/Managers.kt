@@ -6,19 +6,31 @@ import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TitledPane
 import ktfx.internal.KtfxInternals
-import ktfx.internal.KtfxManager
+import ktfx.internal.Manager
 
-interface NodeManager : KtfxManager<Node> {
+/** Manager for most panes. */
+interface NodeManager : Manager<Node> {
 
-    object InvokableOnly : NodeManager {
-        override val collection: MutableCollection<Node> get() = KtfxInternals.fail()
+    companion object {
+
+        /**
+         * Managers delegated by this object must override `invoke` to
+         * avoid unsupported error operation.
+         */
+        val INVOKABLE_ONLY: NodeManager = object : NodeManager {
+            override val collection: MutableCollection<Node> get() = KtfxInternals.fail()
+        }
     }
 }
 
-interface TitledPaneManager : KtfxManager<TitledPane>
+/** Manager for [javafx.scene.control.Accordion]. */
+interface TitledPaneManager : Manager<TitledPane>
 
-interface MenuItemManager : KtfxManager<MenuItem>
+/** Manager for [javafx.scene.control.MenuBar]. */
+interface MenuManager : Manager<Menu>
 
-interface MenuManager : KtfxManager<Menu>
+/** Manager for [javafx.scene.control.SplitMenuButton]. */
+interface MenuItemManager : Manager<MenuItem>
 
-interface TabManager : KtfxManager<Tab>
+/** Manager for [javafx.scene.control.TabPane]. */
+interface TabManager : Manager<Tab>

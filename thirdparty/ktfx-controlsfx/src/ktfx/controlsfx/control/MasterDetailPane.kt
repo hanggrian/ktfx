@@ -12,10 +12,7 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.MasterDetailPane
 
-open class _MasterDetailPane(
-    side: Side = RIGHT,
-    showDetail: Boolean = true
-) : MasterDetailPane(side, showDetail), NodeManager {
+open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
 
     override val collection: MutableCollection<Node> get() = children
 

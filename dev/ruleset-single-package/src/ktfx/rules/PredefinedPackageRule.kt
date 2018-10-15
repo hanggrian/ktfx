@@ -12,7 +12,7 @@ class PredefinedPackageRule : Rule("predefined-package", { node, _, emit ->
                 else -> it.substringAfter(':')
             }.replace('-', '.')
         }
-        val name = (node.psi as KtPackageDirective).qualifiedName
+        val name = node.getPsi(KtPackageDirective::class.java).qualifiedName
         if (name != convert(BuildConfig.ARTIFACT_COROUTINES) &&
             name != convert(BuildConfig.ARTIFACT_LAYOUTS) &&
             name != convert(BuildConfig.ARTIFACT_LISTENERS) &&

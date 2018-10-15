@@ -10,7 +10,7 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.PopOver
 
-open class _PopOver(content: Node? = null) : PopOver(content), NodeManager {
+open class _PopOver(content: Node? = null) : PopOver(content), NodeManager by NodeManager.InvokableOnly {
 
     override fun <T : Node> T.invoke(): T = also { contentNode = it }
 }

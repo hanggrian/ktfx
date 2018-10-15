@@ -12,7 +12,7 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
 open class _SplitPane(vararg items: Node) : SplitPane(*items), NodeManager {
-
+    
     override fun getChildren(): ObservableList<Node> = items
 }
 

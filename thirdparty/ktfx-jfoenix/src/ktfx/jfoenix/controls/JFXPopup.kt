@@ -12,7 +12,7 @@ import javafx.scene.layout.Region
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _JFXPopup(content: Region? = null) : JFXPopup(content), NodeManager {
+open class _JFXPopup(content: Region? = null) : JFXPopup(content), NodeManager by NodeManager.InvokableOnly {
 
     override fun <T : Node> T.invoke(): T = also { popupContent = it as? Region ?: Pane(it) }
 }

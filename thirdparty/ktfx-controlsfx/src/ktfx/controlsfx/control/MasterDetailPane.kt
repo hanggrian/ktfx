@@ -5,6 +5,7 @@ package ktfx.controlsfx
 
 /* ktlint-enable package-name */
 
+import javafx.collections.ObservableList
 import javafx.geometry.Side
 import javafx.geometry.Side.RIGHT
 import javafx.scene.Node
@@ -16,6 +17,8 @@ open class _MasterDetailPane(
     side: Side = RIGHT,
     showDetail: Boolean = true
 ) : MasterDetailPane(side, showDetail), NodeManager {
+
+    override fun getChildren(): ObservableList<Node> = NodeManager.InvokableOnly.getChildren()
 
     override fun <T : Node> T.invoke(): T = also {
         when (null) {

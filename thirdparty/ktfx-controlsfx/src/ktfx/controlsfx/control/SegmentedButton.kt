@@ -14,7 +14,7 @@ import org.controlsfx.control.SegmentedButton
 
 open class _SegmentedButton(vararg buttons: ToggleButton) : SegmentedButton(*buttons), NodeManager {
 
-    override val children: MutableCollection<Node> get() = buttons as ObservableList<Node>
+    override fun getChildren(): ObservableList<Node> = buttons as ObservableList<Node>
 }
 
 /** Creates a [SegmentedButton]. */

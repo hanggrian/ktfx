@@ -1,5 +1,6 @@
 package ktfx
 
+import javafx.collections.ObservableList
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
@@ -10,35 +11,39 @@ import ktfx.internal.KtfxManager
 
 interface NodeManager : KtfxManager<Node> {
 
-    val children: MutableCollection<Node> get() = KtfxInternals.fail()
+    fun getChildren(): MutableList<Node>
 
-    override operator fun <T : Node> T.invoke(): T = also { children += it }
+    override operator fun <T : Node> T.invoke(): T = also { getChildren() += it }
+
+    object InvokableOnly : NodeManager {
+        override fun getChildren(): ObservableList<Node> = KtfxInternals.fail()
+    }
 }
 
 interface TitledPaneManager : KtfxManager<TitledPane> {
 
-    val panes: MutableCollection<TitledPane> get() = KtfxInternals.fail()
+    fun getPanes(): MutableList<TitledPane>
 
-    override fun <R : TitledPane> R.invoke(): R = also { panes += it }
+    override fun <R : TitledPane> R.invoke(): R = also { getPanes() += it }
 }
 
 interface MenuItemManager : KtfxManager<MenuItem> {
 
-    val items: MutableCollection<MenuItem> get() = KtfxInternals.fail()
+    fun getItems(): MutableList<MenuItem>
 
-    override fun <R : MenuItem> R.invoke(): R = also { items += it }
+    override fun <R : MenuItem> R.invoke(): R = also { getItems() += it }
 }
 
 interface MenuManager : KtfxManager<Menu> {
 
-    val menus: MutableCollection<Menu> get() = KtfxInternals.fail()
+    fun getMenus(): MutableList<Menu>
 
-    override fun <R : Menu> R.invoke(): R = also { menus += it }
+    override fun <R : Menu> R.invoke(): R = also { getMenus() += it }
 }
 
 interface TabManager : KtfxManager<Tab> {
 
-    val tabs: MutableCollection<Tab> get() = KtfxInternals.fail()
+    fun getTabs(): MutableList<Tab>
 
-    override fun <R : Tab> R.invoke(): R = also { tabs += it }
+    override fun <R : Tab> R.invoke(): R = also { getTabs() += it }
 }

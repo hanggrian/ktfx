@@ -19,7 +19,7 @@ open class _Scene(
     width: Double,
     height: Double,
     fill: Paint
-) : Scene(root, width, height, fill), NodeManager {
+) : Scene(root, width, height, fill), NodeManager by NodeManager.InvokableOnly {
 
     override operator fun <T : Node> T.invoke(): T = also {
         root = when (it) {

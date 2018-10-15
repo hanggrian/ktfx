@@ -1,5 +1,6 @@
 $dokka.format:html
 $dokka.linkExtension:html
 
+ktfx
+ktfx.annotations
 ktfx.internal
-ktfx.layouts

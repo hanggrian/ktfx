@@ -525,9 +525,11 @@ $dokka.location:ktfx.scene.layout$maxSize#javafx.scene.layout.Regionktfx.scene.
 $dokka.location:ktfx.scene.layout$minSize#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/min-size.html
 $dokka.location:ktfx.scene.layout$paddingAll#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-all.html
 $dokka.location:ktfx.scene.layout$paddingBottom#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-bottom.html
+$dokka.location:ktfx.scene.layout$paddingHorizontal#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-horizontal.html
 $dokka.location:ktfx.scene.layout$paddingLeft#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-left.html
 $dokka.location:ktfx.scene.layout$paddingRight#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-right.html
 $dokka.location:ktfx.scene.layout$paddingTop#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-top.html
+$dokka.location:ktfx.scene.layout$paddingVertical#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/padding-vertical.html
 $dokka.location:ktfx.scene.layout$prefSize#javafx.scene.layout.Regionktfx.scene.layout/javafx.scene.layout.-region/pref-size.html
 $dokka.location:ktfx.scene.layout$updatePadding(javafx.scene.layout.Region, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.layout/javafx.scene.layout.-region/update-padding.html
 $dokka.location:ktfx.scene.paint$component1(javafx.scene.paint.Color)ktfx.scene.paint/javafx.scene.paint.-color/component1.html

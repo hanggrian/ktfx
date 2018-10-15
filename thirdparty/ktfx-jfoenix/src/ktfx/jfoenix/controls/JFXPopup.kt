@@ -10,11 +10,11 @@ import javafx.scene.Node
 import javafx.scene.layout.Region
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
-import ktfx.scene.asRegion
+import ktfx.internal.KtfxInternals
 
 open class _JFXPopup(content: Region?) : JFXPopup(content), NodeManager by NodeManager.INVOKABLE_ONLY {
 
-    override fun <T : Node> T.invoke(): T = also { popupContent = it.asRegion() }
+    override fun <T : Node> T.invoke(): T = also { popupContent = KtfxInternals.asRegion(it) }
 }
 
 /** Creates a [JFXPopup]. */

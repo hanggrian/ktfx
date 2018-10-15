@@ -20,7 +20,7 @@ open class _TextFlow(vararg children: Node) : TextFlow(*children), NodeManager {
         noinline init: ((@LayoutDsl Text).() -> Unit)? = null
     ): Text = text(this, init)
 
-    inline fun newLine() = text(System.lineSeparator())
+    inline fun newLine(): Text = text(System.lineSeparator())
 }
 
 /** Creates a [TextFlow]. */

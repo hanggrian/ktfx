@@ -1,6 +1,5 @@
 package ktfx.layouts.scene.layout
 
-import javafx.scene.layout.Region
 import ktfx.layouts.anchorPane
 import ktfx.layouts.pane
 import ktfx.layouts.region
@@ -10,10 +9,6 @@ import kotlin.test.assertEquals
 class AnchorPaneTest : PlatformLayoutTest() {
 
     override fun newInstance() {
-        assertEquals(anchorPane(Region()).children.size, 1)
-    }
-
-    override fun newInstanceInitialized() {
         anchorPane {
             val region1 = region() anchorAll 10.0
             assertEquals(region1.anchorTop, 10.0)
@@ -50,12 +45,6 @@ class AnchorPaneTest : PlatformLayoutTest() {
     override fun withManager() {
         assertEquals(pane {
             anchorPane()
-        }.children.size, 1)
-    }
-
-    override fun withManagerInitialized() {
-        assertEquals(pane {
-            anchorPane { }
         }.children.size, 1)
     }
 }

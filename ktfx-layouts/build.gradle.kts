@@ -22,7 +22,7 @@ dependencies {
     compile(project(":$ARTIFACT_CORE"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(project(":$ARTIFACT_DEV_TESTING"))
+    testImplementation(project(":$ARTIFACT_DEV_TESTING_FX"))
 }
 
 tasks {

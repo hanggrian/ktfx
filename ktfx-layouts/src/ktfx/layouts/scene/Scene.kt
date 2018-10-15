@@ -8,11 +8,11 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.Parent
 import javafx.scene.Scene
-import javafx.scene.layout.Pane
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
+import ktfx.internal.KtfxInternals
 
 open class _Scene(
     root: Parent,
@@ -21,12 +21,7 @@ open class _Scene(
     fill: Paint
 ) : Scene(root, width, height, fill), NodeManager by NodeManager.INVOKABLE_ONLY {
 
-    override operator fun <T : Node> T.invoke(): T = also {
-        root = when (it) {
-            is Parent -> it
-            else -> Pane(it)
-        }
-    }
+    override operator fun <T : Node> T.invoke(): T = also { root = KtfxInternals.asRegion(it) }
 }
 
 /** Create a [Scene] with initialization. */

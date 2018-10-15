@@ -23,7 +23,7 @@ dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(jfoenix())
 
-    testImplementation(project(":$ARTIFACT_DEV_TESTING"))
+    testImplementation(project(":$ARTIFACT_DEV_TESTING_FX"))
 }
 
 tasks {

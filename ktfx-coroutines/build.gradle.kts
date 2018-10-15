@@ -25,7 +25,7 @@ dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
-    testImplementation(project(":$ARTIFACT_DEV_TESTING"))
+    testImplementation(project(":$ARTIFACT_DEV_TESTING_FX"))
 }
 
 tasks {

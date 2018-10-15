@@ -24,7 +24,7 @@ dependencies {
     compile(controlsFx())
 
     testImplementation(project(":$ARTIFACT_LAYOUTS"))
-    testImplementation(project(":$ARTIFACT_DEV_TESTING"))
+    testImplementation(project(":$ARTIFACT_DEV_TESTING_FX"))
 }
 
 tasks {

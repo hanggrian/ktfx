@@ -9,14 +9,6 @@ class JFXButtonTest : PlatformLayoutTest() {
         assertNull(jfxButton().text)
     }
 
-    override fun newInstanceInitialized() {
-        jfxButton {
-        }
-    }
-
     override fun withManager() {
-    }
-
-    override fun withManagerInitialized() {
     }
 }

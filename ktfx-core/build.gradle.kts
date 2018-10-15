@@ -22,7 +22,7 @@ ktlint { add ->
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(project(":$ARTIFACT_DEV_TESTING"))
+    testImplementation(project(":$ARTIFACT_DEV_TESTING_FX"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 }
 

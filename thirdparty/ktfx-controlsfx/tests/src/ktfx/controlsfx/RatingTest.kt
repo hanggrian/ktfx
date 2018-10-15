@@ -6,17 +6,9 @@ import kotlin.test.assertEquals
 class RatingTest : PlatformLayoutTest() {
 
     override fun newInstance() {
-        assertEquals(rating().max, 5)
-    }
-
-    override fun newInstanceInitialized() {
-        rating {
-        }
+        assertEquals(rating {}.max, 5)
     }
 
     override fun withManager() {
-    }
-
-    override fun withManagerInitialized() {
     }
 }

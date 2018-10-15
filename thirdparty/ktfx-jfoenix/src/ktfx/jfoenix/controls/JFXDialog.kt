@@ -7,7 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.Region
 import javafx.scene.layout.StackPane
 import ktfx.NodeManager
-import ktfx.scene.asRegion
+import ktfx.internal.KtfxInternals
 
 class _JFXDialog(
     dialogContainer: StackPane?,
@@ -16,7 +16,7 @@ class _JFXDialog(
     overlayClose: Boolean
 ) : JFXDialog(dialogContainer, content, transitionType, overlayClose), NodeManager by NodeManager.INVOKABLE_ONLY {
 
-    override fun <R : Node> R.invoke(): R = also { content = it.asRegion() }
+    override fun <R : Node> R.invoke(): R = also { content = KtfxInternals.asRegion(it) }
 }
 
 fun jfxDialog(

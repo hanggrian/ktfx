@@ -568,13 +568,11 @@ $dokka.location:ktfx.stage$setSize(javafx.stage.Stage, kotlin.Double, kotlin.Dou
 $dokka.location:ktfx.stage$size#javafx.stage.Stagektfx.stage/javafx.stage.-stage/size.html
 $dokka.location:ktfx.util$component1(javafx.util.Pair((ktfx.util.component1.K, ktfx.util.component1.V)))ktfx.util/javafx.util.-pair/component1.html
 $dokka.location:ktfx.util$component2(javafx.util.Pair((ktfx.util.component2.K, ktfx.util.component2.V)))ktfx.util/javafx.util.-pair/component2.html
-$dokka.location:ktfx.util$div(javafx.util.Duration, javafx.util.Duration)ktfx.util/javafx.util.-duration/div.html
 $dokka.location:ktfx.util$div(javafx.util.Duration, kotlin.Double)ktfx.util/javafx.util.-duration/div.html
 $dokka.location:ktfx.util$invoke(javafx.util.StringConverter((ktfx.util.invoke.T)), kotlin.String)ktfx.util/javafx.util.-string-converter/invoke.html
 $dokka.location:ktfx.util$invoke(javafx.util.StringConverter((ktfx.util.invoke.T)), ktfx.util.invoke.T)ktfx.util/javafx.util.-string-converter/invoke.html
 $dokka.location:ktfx.util$minus(javafx.util.Duration, javafx.util.Duration)ktfx.util/javafx.util.-duration/minus.html
 $dokka.location:ktfx.util$plus(javafx.util.Duration, javafx.util.Duration)ktfx.util/javafx.util.-duration/plus.html
-$dokka.location:ktfx.util$times(javafx.util.Duration, javafx.util.Duration)ktfx.util/javafx.util.-duration/times.html
 $dokka.location:ktfx.util$times(javafx.util.Duration, kotlin.Double)ktfx.util/javafx.util.-duration/times.html
 $dokka.location:ktfx.util$toFxPair(kotlin.Pair((ktfx.util.toFxPair.K, ktfx.util.toFxPair.V)))ktfx.util/kotlin.-pair/to-fx-pair.html
 $dokka.location:ktfx.util$toKotlinPair(javafx.util.Pair((ktfx.util.toKotlinPair.K, ktfx.util.toKotlinPair.V)))ktfx.util/javafx.util.-pair/to-kotlin-pair.html

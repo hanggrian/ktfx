@@ -48,21 +48,9 @@
 </HEAD>
 <BODY>
 <a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-internals/-n-o_-g-e-t-t-e-r.html"><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">NO_GETTER</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-internals/as-region.html"><span class="keyword">fun </span><span class="identifier">asRegion</span><span class="symbol">(</span><span class="identifier" id="ktfx.internal.KtfxInternals$asRegion(javafx.scene.Node)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Region</span></a></a><br/>
 <a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-internals/fail.html"><span class="keyword">fun </span><span class="identifier">fail</span><span class="symbol">(</span><span class="identifier" id="ktfx.internal.KtfxInternals$fail(kotlin.Function0((kotlin.Any)))/lazyMessage">lazyMessage</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ "Unsupported operation." }<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html"><span class="identifier">Nothing</span></a></a></a><br/>
 <a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-internals/no-getter.html"><span class="keyword">fun </span><span class="identifier">noGetter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html"><span class="identifier">Nothing</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-manager/index.html"><span class="keyword">interface </span><span class="identifier">KtfxManager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-manager/invoke.html"><span class="keyword">abstract</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span> <a href="ktfx.internal/-ktfx-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx.internal/-ktfx-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
@@ -79,7 +67,7 @@
 </BODY>
 </HTML>
 </ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-item-manager/index.html"><span class="keyword">interface </span><span class="identifier">MenuItemManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/index.html"><span class="keyword">interface </span><span class="identifier">Manager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></a></a><br/>
 <ul>
 <HTML>
 <HEAD>
@@ -88,12 +76,7 @@
 <link rel="stylesheet" href="../style.css">
 </HEAD>
 <BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-item-manager/get-items.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getItems</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-item-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MenuItem</span><span class="symbol">&gt;</span> <a href="ktfx/-menu-item-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-menu-item-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-manager/index.html"><span class="keyword">interface </span><span class="identifier">MenuManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/-empty/index.html"><span class="keyword">class </span><span class="identifier">Empty</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><a href="ktfx.internal/-manager/-empty/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></a></a><br/>
 <ul>
 <HTML>
 <HEAD>
@@ -102,12 +85,19 @@
 <link rel="stylesheet" href="../style.css">
 </HEAD>
 <BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-manager/get-menus.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMenus</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Menu</span><span class="symbol">&gt;</span> <a href="ktfx/-menu-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-menu-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/-empty/-init-.html"><span class="identifier">Empty</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/-empty/collection.html"><span class="keyword">val </span><span class="identifier">collection</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><a href="ktfx.internal/-manager/-empty/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></a></a><br/>
 </BODY>
 </HTML>
 </ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/index.html"><span class="keyword">interface </span><span class="identifier">NodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/collection.html"><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">collection</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><a href="ktfx.internal/-manager/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span> <a href="ktfx.internal/-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx.internal/-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-item-manager.html"><span class="keyword">interface </span><span class="identifier">MenuItemManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-manager.html"><span class="keyword">interface </span><span class="identifier">MenuManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/index.html"><span class="keyword">interface </span><span class="identifier">NodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></a></a><br/>
 <ul>
 <HTML>
 <HEAD>
@@ -116,52 +106,13 @@
 <link rel="stylesheet" href="../style.css">
 </HEAD>
 <BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/-invokable-only/index.html"><span class="keyword">object </span><span class="identifier">InvokableOnly</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx/-node-manager/index.html"><span class="identifier">NodeManager</span></a></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/-invokable-only/get-children.html"><span class="keyword">fun </span><span class="identifier">getChildren</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/-i-n-v-o-k-a-b-l-e_-o-n-l-y.html"><span class="keyword">val </span><span class="identifier">INVOKABLE_ONLY</span><span class="symbol">: </span><a href="ktfx/-node-manager/index.html"><span class="identifier">NodeManager</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/get-children.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getChildren</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="ktfx/-node-manager/invoke.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-node-manager/invoke.html#T"><span class="identifier">T</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-tab-manager/index.html"><span class="keyword">interface </span><span class="identifier">TabManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-tab-manager/get-tabs.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getTabs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-tab-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Tab</span><span class="symbol">&gt;</span> <a href="ktfx/-tab-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-tab-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-titled-pane-manager/index.html"><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-titled-pane-manager/get-panes.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getPanes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-titled-pane-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TitledPane</span><span class="symbol">&gt;</span> <a href="ktfx/-titled-pane-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-titled-pane-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-path-element-manager.html"><span class="keyword">interface </span><span class="identifier">PathElementManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">PathElement</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-tab-manager.html"><span class="keyword">interface </span><span class="identifier">TabManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-titled-pane-manager.html"><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></a></a><br/>
 </BODY>
 </HTML>
 </ul>
@@ -174,7 +125,9 @@
 <link rel="stylesheet" href="../style.css">
 </HEAD>
 <BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-item-manager/index.html"><span class="keyword">interface </span><span class="identifier">MenuItemManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-item-manager.html"><span class="keyword">interface </span><span class="identifier">MenuItemManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-manager.html"><span class="keyword">interface </span><span class="identifier">MenuManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/index.html"><span class="keyword">interface </span><span class="identifier">NodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></a></a><br/>
 <ul>
 <HTML>
 <HEAD>
@@ -183,80 +136,13 @@
 <link rel="stylesheet" href="../style.css">
 </HEAD>
 <BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-item-manager/get-items.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getItems</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-item-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MenuItem</span><span class="symbol">&gt;</span> <a href="ktfx/-menu-item-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-menu-item-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/-i-n-v-o-k-a-b-l-e_-o-n-l-y.html"><span class="keyword">val </span><span class="identifier">INVOKABLE_ONLY</span><span class="symbol">: </span><a href="ktfx/-node-manager/index.html"><span class="identifier">NodeManager</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-manager/index.html"><span class="keyword">interface </span><span class="identifier">MenuManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-manager/get-menus.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getMenus</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-menu-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Menu</span><span class="symbol">&gt;</span> <a href="ktfx/-menu-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-menu-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/index.html"><span class="keyword">interface </span><span class="identifier">NodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/-invokable-only/index.html"><span class="keyword">object </span><span class="identifier">InvokableOnly</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx/-node-manager/index.html"><span class="identifier">NodeManager</span></a></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/-invokable-only/get-children.html"><span class="keyword">fun </span><span class="identifier">getChildren</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></a></a><br/>
-</BODY>
-</HTML>
-</ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/get-children.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getChildren</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-node-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="ktfx/-node-manager/invoke.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-node-manager/invoke.html#T"><span class="identifier">T</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-tab-manager/index.html"><span class="keyword">interface </span><span class="identifier">TabManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-tab-manager/get-tabs.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getTabs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-tab-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Tab</span><span class="symbol">&gt;</span> <a href="ktfx/-tab-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-tab-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-titled-pane-manager/index.html"><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></a></a><br/>
-<ul>
-<HTML>
-<HEAD>
-<meta charset="UTF-8">
-<title>Module Contents</title>
-<link rel="stylesheet" href="../style.css">
-</HEAD>
-<BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-titled-pane-manager/get-panes.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getPanes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></a></a><br/>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-titled-pane-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TitledPane</span><span class="symbol">&gt;</span> <a href="ktfx/-titled-pane-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx/-titled-pane-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
-</BODY>
-</HTML>
-</ul>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-path-element-manager.html"><span class="keyword">interface </span><span class="identifier">PathElementManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">PathElement</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-tab-manager.html"><span class="keyword">interface </span><span class="identifier">TabManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx/-titled-pane-manager.html"><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></a></a><br/>
 </BODY>
 </HTML>
 </ul>
@@ -319,12 +205,13 @@
 </HEAD>
 <BODY>
 <a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-internals/-n-o_-g-e-t-t-e-r.html"><span class="keyword">const</span> <span class="keyword">val </span><span class="identifier">NO_GETTER</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-internals/as-region.html"><span class="keyword">fun </span><span class="identifier">asRegion</span><span class="symbol">(</span><span class="identifier" id="ktfx.internal.KtfxInternals$asRegion(javafx.scene.Node)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Region</span></a></a><br/>
 <a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-internals/fail.html"><span class="keyword">fun </span><span class="identifier">fail</span><span class="symbol">(</span><span class="identifier" id="ktfx.internal.KtfxInternals$fail(kotlin.Function0((kotlin.Any)))/lazyMessage">lazyMessage</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{ "Unsupported operation." }<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html"><span class="identifier">Nothing</span></a></a></a><br/>
 <a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-internals/no-getter.html"><span class="keyword">fun </span><span class="identifier">noGetter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing/index.html"><span class="identifier">Nothing</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-manager/index.html"><span class="keyword">interface </span><span class="identifier">KtfxManager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/index.html"><span class="keyword">interface </span><span class="identifier">Manager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></a></a><br/>
 <ul>
 <HTML>
 <HEAD>
@@ -333,7 +220,22 @@
 <link rel="stylesheet" href="../style.css">
 </HEAD>
 <BODY>
-<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-ktfx-manager/invoke.html"><span class="keyword">abstract</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-ktfx-manager/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span> <a href="ktfx.internal/-ktfx-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx.internal/-ktfx-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/-empty/index.html"><span class="keyword">class </span><span class="identifier">Empty</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html"><span class="identifier">Manager</span></a><span class="symbol">&lt;</span><a href="ktfx.internal/-manager/-empty/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/-empty/-init-.html"><span class="identifier">Empty</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/-empty/collection.html"><span class="keyword">val </span><span class="identifier">collection</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><a href="ktfx.internal/-manager/-empty/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/collection.html"><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">collection</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><a href="ktfx.internal/-manager/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/hendraanggrian/Documents/GitHub/ktfx/ktfx-core/build/docs/ktfx-core/index"><a href="ktfx.internal/-manager/invoke.html"><span class="keyword">open</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="ktfx.internal/-manager/index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span> <a href="ktfx.internal/-manager/invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="ktfx.internal/-manager/invoke.html#R"><span class="identifier">R</span></a></a></a><br/>
 </BODY>
 </HTML>
 </ul>

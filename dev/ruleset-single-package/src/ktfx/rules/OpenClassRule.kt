@@ -1,17 +1,23 @@
 package ktfx.rules
 
 import org.jetbrains.kotlin.lexer.KtTokens
+import org.jetbrains.kotlin.psi.KtClass
+import org.jetbrains.kotlin.psi.KtDeclarationModifierList
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
 class OpenClassRule : Rule("open-class", { node, _, emit ->
-    val type = node.elementType
-    if (type == KtStubElementTypes.CLASS) {
-        val child = node.findChildByType(KtTokens.CLASS_KEYWORD)
-        if (child != null &&
-            child.treeNext.elementType == KtTokens.WHITE_SPACE &&
-            child.treeNext.treeNext.elementType != KtTokens.OPEN_KEYWORD
-        ) {
-            emit(node.startOffset, "Expression function need return type", false)
+    if (node.elementType == KtStubElementTypes.CLASS && !node.psi<KtClass>().isInterface()) {
+        val child = node.findChildByType(KtStubElementTypes.MODIFIER_LIST)
+        if (child == null) {
+            emit(node.startOffset, "Empty modifiers, need open.", false)
+        } else {
+            val modifiers = child.psi<KtDeclarationModifierList>()
+            if (!modifiers.hasModifier(KtTokens.OPEN_KEYWORD) &&
+                !modifiers.hasModifier(KtTokens.PRIVATE_KEYWORD) &&
+                !modifiers.hasModifier(KtTokens.INTERNAL_KEYWORD)
+            ) {
+                emit(node.startOffset, "Public classes need open modifier.", false)
+            }
         }
     }
 })

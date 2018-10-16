@@ -12,8 +12,7 @@ import ktfx.MenuItemManager
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _MenuButton(text: String?, graphic: Node?, vararg items: MenuItem) : MenuButton(text, graphic, *items),
-    MenuItemManager {
+open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
 
     override val collection: MutableCollection<MenuItem> get() = items
 

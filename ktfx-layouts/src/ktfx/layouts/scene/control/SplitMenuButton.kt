@@ -12,7 +12,7 @@ import ktfx.MenuItemManager
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _SplitMenuButton(vararg items: MenuItem) : SplitMenuButton(*items), MenuItemManager {
+open class _SplitMenuButton : SplitMenuButton(), MenuItemManager {
 
     override val collection: MutableCollection<MenuItem> get() = items
 
@@ -25,12 +25,10 @@ open class _SplitMenuButton(vararg items: MenuItem) : SplitMenuButton(*items), M
 
 /** Creates a [SplitMenuButton]. */
 fun splitMenuButton(
-    vararg items: MenuItem,
     init: ((@LayoutDsl _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = _SplitMenuButton(*items).also { init?.invoke(it) }
+): SplitMenuButton = _SplitMenuButton().also { init?.invoke(it) }
 
 /** Creates a [SplitMenuButton] and add it to this manager. */
 inline fun NodeManager.splitMenuButton(
-    vararg items: MenuItem,
     noinline init: ((@LayoutDsl _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = ktfx.layouts.splitMenuButton(*items, init = init)()
+): SplitMenuButton = ktfx.layouts.splitMenuButton(init)()

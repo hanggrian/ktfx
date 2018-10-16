@@ -14,12 +14,8 @@ import javafx.scene.layout.TilePane
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _TilePane(
-    orientation: Orientation,
-    hgap: Double,
-    vgap: Double,
-    vararg children: Node
-) : TilePane(orientation, hgap, vgap, *children), NodeManager, AlignedPane, MarginedPane {
+open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
+    NodeManager, AlignedPane, MarginedPane {
 
     override val collection: MutableCollection<Node> get() = children
 
@@ -39,15 +35,13 @@ fun tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    vararg children: Node,
     init: ((@LayoutDsl _TilePane).() -> Unit)? = null
-): TilePane = _TilePane(orientation, hgap, vgap, *children).also { init?.invoke(it) }
+): TilePane = _TilePane(orientation, hgap, vgap).also { init?.invoke(it) }
 
 /** Creates a [TilePane] and add it to this manager. */
 inline fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    vararg children: Node,
     noinline init: ((@LayoutDsl _TilePane).() -> Unit)? = null
-): TilePane = ktfx.layouts.tilePane(orientation, hgap, vgap, *children, init = init)()
+): TilePane = ktfx.layouts.tilePane(orientation, hgap, vgap, init)()

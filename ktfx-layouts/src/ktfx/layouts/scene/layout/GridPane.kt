@@ -102,9 +102,7 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 }
 
 @PublishedApi
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, Manager<T> {
-
-    override val collection: MutableList<T> = mutableListOf()
+internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, Manager<T> by Manager.Empty() {
 
     override fun <R : T> R.invoke(): R = also { collection += it }
 

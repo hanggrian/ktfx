@@ -11,7 +11,7 @@ import javafx.scene.text.TextFlow
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _TextFlow(vararg children: Node) : TextFlow(*children), NodeManager {
+open class _TextFlow : TextFlow(), NodeManager {
 
     override val collection: MutableCollection<Node> get() = children
 
@@ -25,12 +25,10 @@ open class _TextFlow(vararg children: Node) : TextFlow(*children), NodeManager {
 
 /** Creates a [TextFlow]. */
 fun textFlow(
-    vararg children: Node,
     init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
-): TextFlow = _TextFlow(*children).also { init?.invoke(it) }
+): TextFlow = _TextFlow().also { init?.invoke(it) }
 
 /** Creates a [TextFlow] and add it to this manager. */
 inline fun NodeManager.textFlow(
-    vararg children: Node,
     noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
-): TextFlow = ktfx.layouts.textFlow(*children, init = init)()
+): TextFlow = ktfx.layouts.textFlow(init)()

@@ -10,21 +10,17 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.NotificationPane
 
-class _NotificationPane(content: Node?) : NotificationPane(content), NodeManager {
-
-    override val collection: MutableCollection<Node> get() = children
+open class _NotificationPane : NotificationPane(), NodeManager by NodeManager.INVOKABLE_ONLY {
 
     override fun <T : Node> T.invoke(): T = also { content = it }
 }
 
 /** Creates a [NotificationPane]. */
 fun notificationPane(
-    content: Node? = null,
     init: ((@LayoutDsl _NotificationPane).() -> Unit)? = null
-): NotificationPane = _NotificationPane(content).also { init?.invoke(it) }
+): NotificationPane = _NotificationPane().also { init?.invoke(it) }
 
 /** Creates a [NotificationPane] and add it to this manager. */
 inline fun NodeManager.notificationPane(
-    content: Node? = null,
     noinline init: ((@LayoutDsl _NotificationPane).() -> Unit)? = null
-): NotificationPane = ktfx.controlsfx.notificationPane(content, init)()
+): NotificationPane = ktfx.controlsfx.notificationPane(init)()

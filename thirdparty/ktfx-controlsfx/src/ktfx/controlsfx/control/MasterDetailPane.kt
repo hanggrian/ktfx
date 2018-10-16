@@ -12,9 +12,8 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.MasterDetailPane
 
-open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
-
-    override val collection: MutableCollection<Node> get() = children
+open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail),
+    NodeManager by NodeManager.INVOKABLE_ONLY {
 
     override fun <T : Node> T.invoke(): T = also {
         when (null) {

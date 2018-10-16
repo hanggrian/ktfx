@@ -10,13 +10,12 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.PopOver
 
-open class _PopOver(content: Node? = null) : PopOver(content), NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _PopOver : PopOver(), NodeManager by NodeManager.INVOKABLE_ONLY {
 
     override fun <T : Node> T.invoke(): T = also { contentNode = it }
 }
 
 /** Creates a [PopOver]. */
 fun popOver(
-    content: Node? = null,
     init: ((@LayoutDsl _PopOver).() -> Unit)? = null
-): PopOver = _PopOver(content).also { init?.invoke(it) }
+): PopOver = _PopOver().also { init?.invoke(it) }

@@ -1,0 +1,24 @@
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+
+/* ktlint-disable package-name */
+package ktfx.layouts
+
+/* ktlint-enable package-name */
+
+import javafx.scene.shape.LineTo
+import ktfx.PathElementManager
+import ktfx.annotations.LayoutDsl
+
+/** Creates a [LineTo]. */
+fun lineTo(
+    x: Double = 0.0,
+    y: Double = 0.0,
+    init: ((@LayoutDsl LineTo).() -> Unit)? = null
+): LineTo = LineTo(x, y).also { init?.invoke(it) }
+
+/** Creates a [LineTo] and add it to this manager. */
+inline fun PathElementManager.lineTo(
+    x: Double = 0.0,
+    y: Double = 0.0,
+    noinline init: ((@LayoutDsl LineTo).() -> Unit)? = null
+): LineTo = ktfx.layouts.lineTo(x, y, init)()

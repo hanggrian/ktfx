@@ -12,7 +12,7 @@ import javafx.scene.layout.StackPane
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _StackPane(vararg children: Node) : StackPane(*children), NodeManager, AlignedPane, MarginedPane {
+open class _StackPane : StackPane(), NodeManager, AlignedPane, MarginedPane {
 
     override val collection: MutableCollection<Node> get() = children
 
@@ -29,12 +29,10 @@ open class _StackPane(vararg children: Node) : StackPane(*children), NodeManager
 
 /** Creates a [StackPane]. */
 fun stackPane(
-    vararg children: Node,
     init: ((@LayoutDsl _StackPane).() -> Unit)? = null
-): StackPane = _StackPane(*children).also { init?.invoke(it) }
+): StackPane = _StackPane().also { init?.invoke(it) }
 
 /** Creates a [StackPane] and add it to this manager. */
 inline fun NodeManager.stackPane(
-    vararg children: Node,
     noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
-): StackPane = ktfx.layouts.stackPane(*children, init = init)()
+): StackPane = ktfx.layouts.stackPane(init)()

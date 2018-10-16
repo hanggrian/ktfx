@@ -11,8 +11,7 @@ import javafx.scene.control.MenuItem
 import ktfx.MenuItemManager
 import ktfx.annotations.LayoutDsl
 
-open class _Menu(text: String, graphic: Node?, vararg items: MenuItem) : Menu(text, graphic, *items),
-    MenuItemManager {
+open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
 
     override val collection: MutableCollection<MenuItem> get() = items
 
@@ -27,14 +26,12 @@ open class _Menu(text: String, graphic: Node?, vararg items: MenuItem) : Menu(te
 fun menu(
     text: String = "",
     graphic: Node? = null,
-    vararg items: MenuItem,
     init: ((@LayoutDsl _Menu).() -> Unit)? = null
-): Menu = _Menu(text, graphic, *items).also { init?.invoke(it) }
+): Menu = _Menu(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Menu] and add it to this manager. */
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
-    vararg items: MenuItem,
     noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
-): Menu = ktfx.layouts.menu(text, graphic, *items, init = init)()
+): Menu = ktfx.layouts.menu(text, graphic, init)()

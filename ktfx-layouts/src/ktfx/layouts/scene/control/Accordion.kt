@@ -12,7 +12,7 @@ import ktfx.NodeManager
 import ktfx.TitledPaneManager
 import ktfx.annotations.LayoutDsl
 
-open class _Accordion(vararg titledPanes: TitledPane) : Accordion(*titledPanes), TitledPaneManager {
+open class _Accordion : Accordion(), TitledPaneManager {
 
     override val collection: MutableCollection<TitledPane> get() = panes
 
@@ -25,12 +25,10 @@ open class _Accordion(vararg titledPanes: TitledPane) : Accordion(*titledPanes),
 
 /** Creates a [Accordion]. */
 fun accordion(
-    vararg titledPanes: TitledPane,
     init: ((@LayoutDsl _Accordion).() -> Unit)? = null
-): Accordion = _Accordion(*titledPanes).also { init?.invoke(it) }
+): Accordion = _Accordion().also { init?.invoke(it) }
 
 /** Creates a [Accordion] and add it to this manager. */
 inline fun NodeManager.accordion(
-    vararg titledPanes: TitledPane,
     noinline init: ((@LayoutDsl _Accordion).() -> Unit)? = null
-): Accordion = ktfx.layouts.accordion(*titledPanes, init = init)()
+): Accordion = ktfx.layouts.accordion(init)()

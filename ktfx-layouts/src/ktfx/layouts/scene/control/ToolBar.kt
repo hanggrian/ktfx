@@ -10,19 +10,17 @@ import javafx.scene.control.ToolBar
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _ToolBar(vararg items: Node) : ToolBar(*items), NodeManager {
+open class _ToolBar : ToolBar(), NodeManager {
 
     override val collection: MutableCollection<Node> get() = items
 }
 
 /** Creates a [ToolBar]. */
 fun toolBar(
-    vararg items: Node,
     init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
-): ToolBar = _ToolBar(*items).also { init?.invoke(it) }
+): ToolBar = _ToolBar().also { init?.invoke(it) }
 
 /** Creates a [ToolBar] and add it to this manager. */
 inline fun NodeManager.toolBar(
-    vararg items: Node,
     noinline init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
-): ToolBar = ktfx.layouts.toolBar(*items, init = init)()
+): ToolBar = ktfx.layouts.toolBar(init)()

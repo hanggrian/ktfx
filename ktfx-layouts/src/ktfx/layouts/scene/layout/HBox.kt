@@ -12,8 +12,7 @@ import javafx.scene.layout.Priority
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _HBox(spacing: Double, vararg children: Node) : HBox(spacing, *children), NodeManager, HGrowedPane,
-    MarginedPane {
+open class _HBox(spacing: Double) : HBox(spacing), NodeManager, HGrowedPane, MarginedPane {
 
     override val collection: MutableCollection<Node> get() = children
 
@@ -31,13 +30,11 @@ open class _HBox(spacing: Double, vararg children: Node) : HBox(spacing, *childr
 /** Creates a [HBox]. */
 fun hbox(
     spacing: Double = 0.0,
-    vararg children: Node,
     init: ((@LayoutDsl _HBox).() -> Unit)? = null
-): HBox = _HBox(spacing, *children).also { init?.invoke(it) }
+): HBox = _HBox(spacing).also { init?.invoke(it) }
 
 /** Creates a [HBox] and add it to this manager. */
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
-    vararg children: Node,
     noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
-): HBox = ktfx.layouts.hbox(spacing, *children, init = init)()
+): HBox = ktfx.layouts.hbox(spacing, init)()

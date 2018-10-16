@@ -12,7 +12,7 @@ import ktfx.NodeManager
 import ktfx.TabManager
 import ktfx.annotations.LayoutDsl
 
-open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), TabManager {
+open class _TabPane : TabPane(), TabManager {
 
     override val collection: MutableCollection<Tab> get() = tabs
 
@@ -25,12 +25,10 @@ open class _TabPane(vararg tabs: Tab) : TabPane(*tabs), TabManager {
 
 /** Creates a [TabPane]. */
 fun tabPane(
-    vararg tabs: Tab,
     init: ((@LayoutDsl _TabPane).() -> Unit)? = null
-): TabPane = _TabPane(*tabs).also { init?.invoke(it) }
+): TabPane = _TabPane().also { init?.invoke(it) }
 
 /** Creates a [TabPane] and add it to this manager. */
 inline fun NodeManager.tabPane(
-    vararg tabs: Tab,
     noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
-): TabPane = ktfx.layouts.tabPane(*tabs, init = init)()
+): TabPane = ktfx.layouts.tabPane(init)()

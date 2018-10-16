@@ -4,25 +4,22 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXDialog
 import javafx.scene.Node
-import javafx.scene.layout.Region
 import javafx.scene.layout.StackPane
 import ktfx.NodeManager
 import ktfx.internal.KtfxInternals
 
-class _JFXDialog(
+open class _JFXDialog(
     dialogContainer: StackPane?,
-    content: Region?,
     transitionType: DialogTransition,
     overlayClose: Boolean
-) : JFXDialog(dialogContainer, content, transitionType, overlayClose), NodeManager by NodeManager.INVOKABLE_ONLY {
+) : JFXDialog(dialogContainer, null, transitionType, overlayClose), NodeManager by NodeManager.INVOKABLE_ONLY {
 
     override fun <R : Node> R.invoke(): R = also { content = KtfxInternals.asRegion(it) }
 }
 
 fun jfxDialog(
     dialogContainer: StackPane? = null,
-    content: Region? = null,
     transitionType: JFXDialog.DialogTransition = JFXDialog.DialogTransition.CENTER,
     overlayClose: Boolean = true,
     init: (_JFXDialog.() -> Unit)? = null
-): JFXDialog = _JFXDialog(dialogContainer, content, transitionType, overlayClose).also { init?.invoke(it) }
+): JFXDialog = _JFXDialog(dialogContainer, transitionType, overlayClose).also { init?.invoke(it) }

@@ -7,9 +7,7 @@ import org.junit.Test
 class ManagerTest {
 
     @Suppress("FINAL_UPPER_BOUND")
-    private val manager = object : Manager<Int> {
-        override val collection = mutableListOf<Int>()
-    }
+    private val manager = Manager.Empty<Int>()
 
     @Test fun test() {
         Truth.assertThat(manager.apply {

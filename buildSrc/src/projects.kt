@@ -23,10 +23,7 @@ fun Project.ktlint(
     }
 
     tasks {
-        register("ktlint", JavaExec::class) {
-            "check" {
-                dependsOn(this@register)
-            }
+        val ktlint = register("ktlint", JavaExec::class) {
             group = LifecycleBasePlugin.VERIFICATION_GROUP
             inputs.dir("src")
             outputs.dir("src")
@@ -34,6 +31,9 @@ fun Project.ktlint(
             classpath(configuration)
             main = "com.github.shyiko.ktlint.Main"
             args("src/**/*.kt")
+        }
+        "check" {
+            dependsOn(ktlint.get())
         }
         register("ktlintFormat", JavaExec::class) {
             group = "formatting"

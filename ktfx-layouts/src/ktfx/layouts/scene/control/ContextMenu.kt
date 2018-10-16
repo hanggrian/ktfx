@@ -14,7 +14,7 @@ import javafx.scene.control.TableColumnBase
 import ktfx.MenuItemManager
 import ktfx.annotations.LayoutDsl
 
-open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), MenuItemManager {
+open class _ContextMenu : ContextMenu(), MenuItemManager {
 
     override val collection: MutableCollection<MenuItem> get() = items
 
@@ -27,24 +27,20 @@ open class _ContextMenu(vararg items: MenuItem) : ContextMenu(*items), MenuItemM
 
 /** Creates a [ContextMenu]. */
 fun contextMenu(
-    vararg items: MenuItem,
     init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = _ContextMenu(*items).also { init?.invoke(it) }
+): ContextMenu = _ContextMenu().also { init?.invoke(it) }
 
 /** Creates a [ContextMenu] and set it to this [Control]. */
 inline fun Control.contextMenu(
-    vararg items: MenuItem,
     noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.contextMenu(*items, init = init).also { contextMenu = it }
+): ContextMenu = ktfx.layouts.contextMenu(init).also { contextMenu = it }
 
 /** Creates a [ContextMenu] and set it to this [Tab]. */
 inline fun Tab.contextMenu(
-    vararg items: MenuItem,
     noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.contextMenu(*items, init = init).also { contextMenu = it }
+): ContextMenu = ktfx.layouts.contextMenu(init).also { contextMenu = it }
 
 /** Creates a [ContextMenu] and set it to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
-    vararg items: MenuItem,
     noinline init: ((@LayoutDsl _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.contextMenu(*items, init = init).also { setContextMenu(it) }
+): ContextMenu = ktfx.layouts.contextMenu(init).also { setContextMenu(it) }

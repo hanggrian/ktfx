@@ -12,8 +12,7 @@ import javafx.scene.layout.VBox
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _VBox(spacing: Double, vararg children: Node) : VBox(spacing, *children), NodeManager, VGrowedPane,
-    MarginedPane {
+open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowedPane, MarginedPane {
 
     override val collection: MutableCollection<Node> get() = children
 
@@ -31,13 +30,11 @@ open class _VBox(spacing: Double, vararg children: Node) : VBox(spacing, *childr
 /** Creates a [VBox]. */
 fun vbox(
     spacing: Double = 0.0,
-    vararg children: Node,
     init: ((@LayoutDsl _VBox).() -> Unit)? = null
-): VBox = _VBox(spacing, *children).also { init?.invoke(it) }
+): VBox = _VBox(spacing).also { init?.invoke(it) }
 
 /** Creates a [VBox] and add it to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
-    vararg children: Node,
     noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
-): VBox = ktfx.layouts.vbox(spacing, *children, init = init)()
+): VBox = ktfx.layouts.vbox(spacing, init)()

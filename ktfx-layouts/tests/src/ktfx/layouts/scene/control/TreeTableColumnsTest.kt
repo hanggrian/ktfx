@@ -3,11 +3,11 @@ package ktfx.layouts.scene.control
 import ktfx.layouts.Person
 import ktfx.layouts.columns
 import ktfx.layouts.treeTableView
-import ktfx.test.PlatformTest
+import ktfx.test.ToolkitTest
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class TreeTableColumnsTest : PlatformTest {
+class TreeTableColumnsTest : ToolkitTest {
 
     @Test fun columns() {
         val treeTableView = treeTableView<Person> {

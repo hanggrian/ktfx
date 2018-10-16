@@ -1,10 +1,10 @@
 package ktfx.controlsfx
 
 import ktfx.layouts.button
-import ktfx.test.PlatformLayoutTest
+import ktfx.test.ToolkitLayoutTest
 import kotlin.test.assertEquals
 
-class SegmentedButtonTest : PlatformLayoutTest() {
+class SegmentedButtonTest : ToolkitLayoutTest() {
 
     override fun newInstance() {
         assertEquals(segmentedButton {

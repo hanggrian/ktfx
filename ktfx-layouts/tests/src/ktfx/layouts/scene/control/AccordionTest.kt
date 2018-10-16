@@ -4,11 +4,11 @@ import javafx.scene.control.Label
 import ktfx.layouts.accordion
 import ktfx.layouts.label
 import ktfx.layouts.pane
-import ktfx.test.PlatformLayoutTest
+import ktfx.test.ToolkitLayoutTest
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class AccordionTest : PlatformLayoutTest() {
+class AccordionTest : ToolkitLayoutTest() {
 
     override fun newInstance() {
         accordion {

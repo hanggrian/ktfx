@@ -17,5 +17,15 @@ inline fun isFxThread(): Boolean = Platform.isFxApplicationThread()
  */
 inline fun later(noinline block: () -> Unit): Unit = Platform.runLater(block)
 
+/**
+ * @see kotlin.run
+ */
+inline fun <T> T.runLater(noinline block: T.() -> Unit) = later { run(block) }
+
+/**
+ * @see kotlin.let
+ */
+inline fun <T> T.letLater(noinline block: (T) -> Unit) = later { let(block) }
+
 /** Queries whether a specific conditional feature is supported by the platform. */
 inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)

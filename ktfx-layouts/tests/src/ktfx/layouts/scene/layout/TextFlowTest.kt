@@ -3,10 +3,10 @@ package ktfx.layouts.scene.layout
 import javafx.scene.paint.Color.RED
 import ktfx.layouts.pane
 import ktfx.layouts.textFlow
-import ktfx.test.PlatformLayoutTest
+import ktfx.test.ToolkitLayoutTest
 import kotlin.test.assertEquals
 
-class TextFlowTest : PlatformLayoutTest() {
+class TextFlowTest : ToolkitLayoutTest() {
 
     override fun newInstance() {
         textFlow {

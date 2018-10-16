@@ -1,9 +1,9 @@
 package ktfx.controlsfx
 
-import ktfx.test.PlatformLayoutTest
+import ktfx.test.ToolkitLayoutTest
 import kotlin.test.assertEquals
 
-class RatingTest : PlatformLayoutTest() {
+class RatingTest : ToolkitLayoutTest() {
 
     override fun newInstance() {
         assertEquals(rating {}.max, 5)

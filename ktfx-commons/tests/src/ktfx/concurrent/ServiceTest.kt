@@ -1,8 +1,7 @@
 package ktfx.concurrent
 
-import com.sun.javafx.application.PlatformImpl
 import ktfx.internal.InternalTask
-import org.junit.Before
+import ktfx.test.ToolkitTest
 import org.junit.Test
 import java.lang.Thread.sleep
 import kotlin.test.assertEquals
@@ -11,9 +10,7 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlin.test.fail
 
-class ServiceTest {
-
-    @Before fun startup() = PlatformImpl.startup { }
+class ServiceTest : ToolkitTest {
 
     @Test fun nullTest() = testService<Any> {
         setOnSucceeded {

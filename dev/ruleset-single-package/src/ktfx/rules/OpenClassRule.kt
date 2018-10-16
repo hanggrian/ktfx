@@ -4,9 +4,14 @@ import org.jetbrains.kotlin.lexer.KtTokens
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
 class OpenClassRule : Rule("open-class", { node, _, emit ->
-    if (node.elementType == KtStubElementTypes.CLASS &&
-        node.treePrev.elementType == KtTokens.WHITE_SPACE &&
-        node.treePrev.treePrev.elementType != KtTokens.OPEN_KEYWORD) {
-        emit(node.startOffset, "Public classes must be open.", false)
+    val type = node.elementType
+    if (type == KtStubElementTypes.CLASS) {
+        val child = node.findChildByType(KtTokens.CLASS_KEYWORD)
+        if (child != null &&
+            child.treeNext.elementType == KtTokens.WHITE_SPACE &&
+            child.treeNext.treeNext.elementType != KtTokens.OPEN_KEYWORD
+        ) {
+            emit(node.startOffset, "Expression function need return type", false)
+        }
     }
 })

@@ -7,16 +7,10 @@ class OpenClassRuleTest : RuleTest {
 
     override val rule = OpenClassRule()
 
-    @Test fun test() = assert(
-        of(2, 1, "Public classes must be open."),
-        of(3, 1, "Public classes must be open."),
-        of(4, 1, "Public classes must be open.")
-    ) {
+    @Test fun test() = assert(of(1, 1, "Public classes must be open.")) {
         """
-            open class Correct
-            private inner class OkayBecausePrivate
-            inner internal class AlsoOkay
             class Failing
+            open class Correct
         """
     }
 }

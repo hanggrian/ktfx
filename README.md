@@ -13,7 +13,6 @@ Consists of several parts:
  * *ktfx-layouts*: dynamic JavaFX layout with Kotlin DSL.
  * *ktfx-listeners*: write common JavaFX listeners with Kotlin DSL.
  * *ktfx-coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
- * *ktfx-styles*: type-safe inline CSS styling.
 
 Download
 --------
@@ -175,22 +174,6 @@ button.onAction(CommonPool) {
     launch(FX) {
         celebrateCompletion()
     }
-}
-```
-
-Styles Extensions
------------------
-When writing inline styles, longer strings tend to be hard to read and more likely to cause error. Replace it with type-safe style builders.
-
-```kotlin
-// error prone string
-label.style = "-fx-alignment: right; -fx-wrap-text: true; -fx-text-fill: red;"
-
-// type-safe DSL
-label.style = labeledStyle {
-    alignment = Pos.CENTER_RIGHT
-    wrapText = true
-    textFill = Color.RED
 }
 ```
 

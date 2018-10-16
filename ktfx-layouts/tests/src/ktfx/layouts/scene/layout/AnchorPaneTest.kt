@@ -3,10 +3,10 @@ package ktfx.layouts.scene.layout
 import ktfx.layouts.anchorPane
 import ktfx.layouts.pane
 import ktfx.layouts.region
-import ktfx.test.PlatformLayoutTest
+import ktfx.test.ToolkitLayoutTest
 import kotlin.test.assertEquals
 
-class AnchorPaneTest : PlatformLayoutTest() {
+class AnchorPaneTest : ToolkitLayoutTest() {
 
     override fun newInstance() {
         anchorPane {

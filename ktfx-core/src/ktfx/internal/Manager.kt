@@ -9,7 +9,7 @@ interface Manager<T> {
     /** Allows item to be added dynamically with Kotlin DSL. */
     operator fun <R : T> R.invoke(): R = also { collection += it }
 
-    /** Default implementation of manager where the items are newly created empty modifiable list. */
+    /** Implementation of manager where the items are newly created empty modifiable list. */
     class Empty<T> : Manager<T> {
 
         override val collection: MutableCollection<T> = mutableListOf()

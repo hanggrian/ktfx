@@ -1,23 +1,23 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.controlsfx
-
-/* ktlint-enable package-name */
 
 import javafx.scene.Node
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.SnapshotView
 
+open class _SnapshotView : SnapshotView(), NodeManager by NodeManager.INVOKABLE_ONLY {
+
+    override fun <R : Node> R.invoke(): R = also { node = it }
+}
+
 /** Creates a [SnapshotView]. */
 fun snapshotView(
-    node: Node? = null,
-    init: ((@LayoutDsl SnapshotView).() -> Unit)? = null
-): SnapshotView = SnapshotView(node).also { init?.invoke(it) }
+    init: ((@LayoutDsl _SnapshotView).() -> Unit)? = null
+): SnapshotView = _SnapshotView().also { init?.invoke(it) }
 
 /** Creates a [SnapshotView] and add it to this manager. */
 inline fun NodeManager.snapshotView(
-    node: Node? = null,
-    noinline init: ((@LayoutDsl SnapshotView).() -> Unit)? = null
-): SnapshotView = ktfx.controlsfx.snapshotView(node, init)()
+    noinline init: ((@LayoutDsl _SnapshotView).() -> Unit)? = null
+): SnapshotView = ktfx.controlsfx.snapshotView(init)()

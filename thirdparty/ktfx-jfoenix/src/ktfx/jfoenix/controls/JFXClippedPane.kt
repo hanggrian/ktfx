@@ -1,23 +1,23 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.jfoenix
-
-/* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXClippedPane
 import javafx.scene.Node
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
+open class _JFXClippedPane : JFXClippedPane(), NodeManager {
+
+    override val collection: MutableCollection<Node> get() = children
+}
+
 /** Creates a [JFXClippedPane]. */
 fun jfxClippedPane(
-    vararg children: Node,
-    init: ((@LayoutDsl JFXClippedPane).() -> Unit)? = null
-): JFXClippedPane = JFXClippedPane(*children).also { init?.invoke(it) }
+    init: ((@LayoutDsl _JFXClippedPane).() -> Unit)? = null
+): JFXClippedPane = _JFXClippedPane().also { init?.invoke(it) }
 
 /** Creates a [JFXClippedPane] and add it to this manager. */
 inline fun NodeManager.jfxClippedPane(
-    vararg children: Node,
-    noinline init: ((@LayoutDsl JFXClippedPane).() -> Unit)? = null
-): JFXClippedPane = ktfx.jfoenix.jfxClippedPane(*children, init = init)()
+    noinline init: ((@LayoutDsl _JFXClippedPane).() -> Unit)? = null
+): JFXClippedPane = ktfx.jfoenix.jfxClippedPane(init)()

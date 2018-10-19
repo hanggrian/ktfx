@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.controlsfx
-
-/* ktlint-enable package-name */
 
 import javafx.geometry.Side
 import javafx.geometry.Side.RIGHT

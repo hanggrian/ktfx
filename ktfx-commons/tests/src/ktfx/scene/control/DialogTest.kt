@@ -9,7 +9,7 @@ import kotlin.test.assertNotNull
 
 class DialogTest : AppTest() {
 
-    lateinit var dialog: Dialog<String>
+    private lateinit var dialog: Dialog<String>
 
     override fun start(stage: Stage) {
         dialog = dialog("Title") {

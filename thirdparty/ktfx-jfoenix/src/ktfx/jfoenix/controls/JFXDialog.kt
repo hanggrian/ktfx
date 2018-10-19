@@ -14,7 +14,7 @@ open class _JFXDialog(
     overlayClose: Boolean
 ) : JFXDialog(dialogContainer, null, transitionType, overlayClose), NodeManager by NodeManager.INVOKABLE_ONLY {
 
-    override fun <R : Node> R.invoke(): R = also { content = KtfxInternals.asRegion(it) }
+    override fun <R : Node> R.invoke(): R = also { content = KtfxInternals.asPane(it) }
 }
 
 fun jfxDialog(

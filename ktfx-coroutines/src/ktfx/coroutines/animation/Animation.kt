@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-/* ktlint-disable package-name */
 package ktfx.coroutines
-
-/* ktlint-enable package-name */
 
 import javafx.animation.Animation
 import javafx.event.ActionEvent

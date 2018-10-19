@@ -1,13 +1,10 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Dialog
 import ktfx.NodeManager
-
-/* ktlint-enable package-name */
 
 open class _Dialog<R> : Dialog<R>(), NodeManager by NodeManager.INVOKABLE_ONLY {
 

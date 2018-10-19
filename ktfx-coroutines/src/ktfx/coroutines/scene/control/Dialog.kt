@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-/* ktlint-disable package-name */
 package ktfx.coroutines
-
-/* ktlint-enable package-name */
 
 import javafx.scene.control.Dialog
 import javafx.scene.control.DialogEvent

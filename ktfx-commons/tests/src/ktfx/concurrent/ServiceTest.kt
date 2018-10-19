@@ -1,6 +1,6 @@
 package ktfx.concurrent
 
-import ktfx.internal.InternalTask
+import ktfx.internal.KtfxTask
 import ktfx.test.ToolkitTest
 import org.junit.Test
 import java.lang.Thread.sleep
@@ -37,7 +37,7 @@ class ServiceTest : ToolkitTest {
     }
 
     private companion object {
-        fun <V> testService(listener: (InternalTask<V>).() -> Unit) {
+        fun <V> testService(listener: (KtfxTask<V>).() -> Unit) {
             buildService(listener).start()
             sleep(1000)
         }

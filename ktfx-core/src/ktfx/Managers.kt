@@ -7,17 +7,13 @@ import javafx.scene.control.Tab
 import javafx.scene.control.TitledPane
 import javafx.scene.shape.PathElement
 import ktfx.internal.KtfxInternals
-import ktfx.internal.Manager
+import ktfx.internal.KtfxManager
 
 /** Manager for most panes. */
-interface NodeManager : Manager<Node> {
+interface NodeManager : KtfxManager<Node> {
 
     companion object {
-
-        /**
-         * Managers delegated by this object must override `invoke` to
-         * avoid unsupported error operation.
-         */
+        /** Managers delegated by this object must override `invoke` to avoid unsupported error operation. */
         val INVOKABLE_ONLY: NodeManager = object : NodeManager {
             override val collection: MutableCollection<Node>
                 get() = KtfxInternals.fail {
@@ -28,16 +24,16 @@ interface NodeManager : Manager<Node> {
 }
 
 /** Manager for [javafx.scene.control.Accordion]. */
-interface TitledPaneManager : Manager<TitledPane>
+interface TitledPaneManager : KtfxManager<TitledPane>
 
 /** Manager for [javafx.scene.control.MenuBar]. */
-interface MenuManager : Manager<Menu>
+interface MenuManager : KtfxManager<Menu>
 
 /** Manager for [javafx.scene.control.SplitMenuButton]. */
-interface MenuItemManager : Manager<MenuItem>
+interface MenuItemManager : KtfxManager<MenuItem>
 
 /** Manager for [javafx.scene.control.TabPane]. */
-interface TabManager : Manager<Tab>
+interface TabManager : KtfxManager<Tab>
 
 /** Manager for [javafx.scene.shape.Path]. */
-interface PathElementManager : Manager<PathElement>
+interface PathElementManager : KtfxManager<PathElement>

@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
-/* ktlint-disable package-name */
 package ktfx.jfoenix
-
-/* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXScrollPane
 import ktfx.NodeManager

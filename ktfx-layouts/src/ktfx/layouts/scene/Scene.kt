@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.layouts
-
-/* ktlint-enable package-name */
 
 import javafx.scene.Node
 import javafx.scene.Parent
@@ -22,7 +19,7 @@ open class _Scene(
     fill: Paint
 ) : Scene(root, width, height, fill), NodeManager by NodeManager.INVOKABLE_ONLY {
 
-    override operator fun <T : Node> T.invoke(): T = also { root = KtfxInternals.asRegion(it) }
+    override operator fun <T : Node> T.invoke(): T = also { root = KtfxInternals.asPane(it) }
 }
 
 /** Create a [Scene] with initialization. */

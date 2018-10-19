@@ -1,13 +1,10 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
-/* ktlint-disable package-name */
 package ktfx.jfoenix
 
-/* ktlint-enable package-name */
-
 import com.jfoenix.controls.JFXHamburger
-import ktfx.annotations.LayoutDsl
 import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 
 /** Creates a [JFXHamburger]. */
 fun jfxHamburger(

@@ -1,12 +1,9 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
-/* ktlint-disable package-name */
 package ktfx.controlsfx
 
-/* ktlint-enable package-name */
-
-import ktfx.annotations.LayoutDsl
 import ktfx.NodeManager
+import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.Rating
 
 /** Creates a [Rating]. */

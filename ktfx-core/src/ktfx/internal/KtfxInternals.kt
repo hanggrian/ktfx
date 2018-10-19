@@ -2,7 +2,6 @@ package ktfx.internal
 
 import javafx.scene.Node
 import javafx.scene.layout.Pane
-import javafx.scene.layout.Region
 
 object KtfxInternals {
 
@@ -15,5 +14,5 @@ object KtfxInternals {
     fun fail(lazyMessage: () -> Any = { "Unsupported operation." }): Nothing =
         throw UnsupportedOperationException(lazyMessage().toString())
 
-    fun asRegion(node: Node): Region = node as? Region ?: Pane(node)
+    fun asPane(node: Node): Pane = node as? Pane ?: Pane(node)
 }

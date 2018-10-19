@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
-/* ktlint-disable package-name */
 package ktfx.controlsfx
-
-/* ktlint-enable package-name */
 
 import javafx.collections.ObservableList
 import ktfx.NodeManager

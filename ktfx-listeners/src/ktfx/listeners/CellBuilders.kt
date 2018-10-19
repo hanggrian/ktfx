@@ -201,6 +201,7 @@ class TreeTableRowBuilder<T> : TreeTableRow<T>(), CellBuilder<T> {
 }
 
 /** [TreeTableCell] builder with Kotlin DSL. */
+
 class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null

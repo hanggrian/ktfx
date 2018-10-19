@@ -1,13 +1,10 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.layouts
-
-/* ktlint-enable package-name */
 
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
-import ktfx.internal.Manager
+import ktfx.internal.KtfxManager
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {
@@ -24,7 +21,7 @@ interface TreeTableColumnsBuilder<S> {
 
 @PublishedApi
 internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>,
-    Manager<TreeTableColumn<S, *>> by Manager.Empty() {
+    KtfxManager<TreeTableColumn<S, *>> by KtfxManager.Empty() {
 
     override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?): TreeTableColumn<S, T> =
         TreeTableColumn<S, T>(text).also { init?.invoke(it) }()

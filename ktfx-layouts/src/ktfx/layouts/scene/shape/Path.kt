@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.layouts
-
-/* ktlint-enable package-name */
 
 import javafx.scene.shape.Path
 import javafx.scene.shape.PathElement

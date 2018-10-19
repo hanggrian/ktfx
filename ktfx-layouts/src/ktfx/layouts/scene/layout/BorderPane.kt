@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.layouts
-
-/* ktlint-enable package-name */
 
 import javafx.geometry.Insets
 import javafx.geometry.Pos
@@ -13,10 +10,12 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
 /**
- * Not extending [NodeManager] because DSL is discouraged.
- * Use `center`, `top`, `right`, `bottom`, and/or `left`.
+ * Invoking layout DSL will only set content to center.
+ * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _BorderPane : BorderPane(), AlignedPane, MarginedPane {
+open class _BorderPane : BorderPane(), AlignedPane, MarginedPane, NodeManager by NodeManager.INVOKABLE_ONLY {
+
+    override fun <R : Node> R.invoke(): R = also { center = it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 

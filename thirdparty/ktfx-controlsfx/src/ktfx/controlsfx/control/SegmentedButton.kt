@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName", "UNCHECKED_CAST")
 
-/* ktlint-disable package-name */
 package ktfx.controlsfx
-
-/* ktlint-enable package-name */
 
 import javafx.scene.Node
 import ktfx.NodeManager

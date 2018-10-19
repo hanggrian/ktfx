@@ -28,7 +28,7 @@ fun Project.ktlint(
             inputs.dir("src")
             outputs.dir("src")
             description = "Check Kotlin code style."
-            classpath(configuration)
+            classpath(configuration.get())
             main = "com.github.shyiko.ktlint.Main"
             args("src/**/*.kt")
         }
@@ -40,7 +40,7 @@ fun Project.ktlint(
             inputs.dir("src")
             outputs.dir("src")
             description = "Fix Kotlin code style deviations."
-            classpath(configuration)
+            classpath(configuration.get())
             main = "com.github.shyiko.ktlint.Main"
             args("-F", "src/**/*.kt")
         }

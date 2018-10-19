@@ -1,14 +1,11 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
-/* ktlint-disable package-name */
 package ktfx.controlsfx
 
 import javafx.scene.control.Control
 import org.controlsfx.validation.Severity
 import org.controlsfx.validation.ValidationSupport
 import org.controlsfx.validation.Validator
-
-/* ktlint-enable package-name */
 
 private lateinit var support: ValidationSupport
 

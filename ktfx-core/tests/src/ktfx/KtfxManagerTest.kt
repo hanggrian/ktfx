@@ -1,13 +1,13 @@
 package ktfx
 
 import com.google.common.truth.Truth
-import ktfx.internal.Manager
+import ktfx.internal.KtfxManager
 import org.junit.Test
 
-class ManagerTest {
+class KtfxManagerTest {
 
     @Suppress("FINAL_UPPER_BOUND")
-    private val manager = Manager.Empty<Int>()
+    private val manager = KtfxManager.Empty<Int>()
 
     @Test fun test() {
         Truth.assertThat(manager.apply {

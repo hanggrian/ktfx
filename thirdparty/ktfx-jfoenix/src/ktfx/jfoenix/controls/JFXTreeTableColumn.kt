@@ -1,15 +1,12 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.jfoenix
-
-/* ktlint-enable package-name */
 
 import com.jfoenix.controls.JFXTreeTableColumn
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeTableColumn
-import ktfx.internal.Manager
+import ktfx.internal.KtfxManager
 
 /** Interface to build [JFXTreeTableColumn] with Kotlin DSL. */
 interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {
@@ -26,7 +23,7 @@ interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {
 
 @PublishedApi
 internal class _JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> : JFXTreeTableColumnsBuilder<S>,
-    Manager<JFXTreeTableColumn<S, *>> by Manager.Empty() {
+    KtfxManager<JFXTreeTableColumn<S, *>> by KtfxManager.Empty() {
 
     override fun <T> column(text: String?, init: (JFXTreeTableColumn<S, T>.() -> Unit)?): JFXTreeTableColumn<S, T> =
         JFXTreeTableColumn<S, T>(text).also { init?.invoke(it) }()

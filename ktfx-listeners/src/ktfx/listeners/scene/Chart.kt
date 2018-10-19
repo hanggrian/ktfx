@@ -1,9 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-/* ktlint-disable package-name */
 package ktfx.listeners
-
-/* ktlint-enable package-name */
 
 import javafx.scene.chart.ValueAxis
 

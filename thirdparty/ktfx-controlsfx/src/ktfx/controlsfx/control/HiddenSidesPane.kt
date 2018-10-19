@@ -1,31 +1,27 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
-/* ktlint-disable package-name */
 package ktfx.controlsfx
-
-/* ktlint-enable package-name */
 
 import javafx.scene.Node
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.HiddenSidesPane
 
+/**
+ * Invoking layout DSL will only set content.
+ * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
+ */
+open class _HiddenSidesPane : HiddenSidesPane(), NodeManager by NodeManager.INVOKABLE_ONLY {
+
+    override fun <R : Node> R.invoke(): R = also { content = it }
+}
+
 /** Creates a [HiddenSidesPane]. */
 fun hiddenSidesPane(
-    content: Node? = null,
-    top: Node? = null,
-    right: Node? = null,
-    bottom: Node? = null,
-    left: Node? = null,
-    init: ((@LayoutDsl HiddenSidesPane).() -> Unit)? = null
-): HiddenSidesPane = HiddenSidesPane(content, top, right, bottom, left).also { init?.invoke(it) }
+    init: ((@LayoutDsl _HiddenSidesPane).() -> Unit)? = null
+): HiddenSidesPane = _HiddenSidesPane().also { init?.invoke(it) }
 
 /** Creates a [HiddenSidesPane] and add it to this manager. */
 inline fun NodeManager.hiddenSidesPane(
-    content: Node? = null,
-    top: Node? = null,
-    right: Node? = null,
-    bottom: Node? = null,
-    left: Node? = null,
-    noinline init: ((@LayoutDsl HiddenSidesPane).() -> Unit)? = null
-): HiddenSidesPane = ktfx.controlsfx.hiddenSidesPane(content, top, right, bottom, left, init)()
+    noinline init: ((@LayoutDsl _HiddenSidesPane).() -> Unit)? = null
+): HiddenSidesPane = ktfx.controlsfx.hiddenSidesPane(init)()

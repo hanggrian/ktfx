@@ -8,7 +8,7 @@ internal const val VERSION_CONTROLSFX = "8.40.14"
 internal const val VERSION_JFOENIX = "8.0.7"
 
 internal const val VERSION_DOKKA = "0.9.17"
-internal const val VERSION_TESTFX = "4.0.14-alpha"
+internal const val VERSION_TESTFX = "4.0.15-alpha"
 internal const val VERSION_TRUTH = "0.42"
 internal const val VERSION_JUNIT = "4.12"
 internal const val VERSION_BINTRAY = "1.8.4"

@@ -1,5 +1,6 @@
-package ktfx.controlsfx
+package ktfx.controlsfx.control
 
+import ktfx.controlsfx.segmentedButton
 import ktfx.layouts.button
 import ktfx.test.ToolkitLayoutTest
 import kotlin.test.assertEquals

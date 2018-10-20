@@ -8,7 +8,7 @@ plugins {
     `bintray-release`
 }
 
-val artifacts: List<String> = ARTIFACTS - RELEASE_ARTIFACT
+val artifacts = ARTIFACTS - RELEASE_ARTIFACT
 
 dependencies {
     artifacts.forEach { compile(project(":$it")) }

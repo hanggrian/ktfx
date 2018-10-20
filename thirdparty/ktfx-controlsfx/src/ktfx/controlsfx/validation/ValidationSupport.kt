@@ -32,14 +32,14 @@ inline fun <T> Control.registerEmptyValidator(
 /** Register equals validation. */
 inline fun <T> Control.registerEqualsValidator(
     message: String,
-    colletion: Collection<T>,
+    collection: Collection<T>,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
     support: ValidationSupport = singletonSupport
 ): Boolean = support.registerValidator(
     this,
     required,
-    Validator.createEqualsValidator<T>(message, severity, colletion)
+    Validator.createEqualsValidator<T>(message, severity, collection)
 )
 
 /** Register predicate validation. */

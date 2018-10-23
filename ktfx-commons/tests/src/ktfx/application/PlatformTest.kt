@@ -3,7 +3,6 @@ package ktfx.application
 import javafx.application.ConditionalFeature
 import ktfx.test.ToolkitTest
 import org.junit.Test
-import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
@@ -14,13 +13,8 @@ class PlatformTest : ToolkitTest {
         later {
             assertTrue(ktfx.application.isFxThread())
         }
-        "Hello".runLater {
+        wait {
             assertTrue(ktfx.application.isFxThread())
-            assertEquals("Hello", this)
-        }
-        "World".letLater {
-            assertTrue(ktfx.application.isFxThread())
-            assertEquals("World", it)
         }
     }
 

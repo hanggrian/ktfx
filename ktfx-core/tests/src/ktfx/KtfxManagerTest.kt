@@ -6,7 +6,6 @@ import org.junit.Test
 
 class KtfxManagerTest {
 
-    @Suppress("FINAL_UPPER_BOUND")
     private val manager = KtfxManager.Empty<Int>()
 
     @Test fun test() {

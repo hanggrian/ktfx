@@ -5,6 +5,8 @@ package ktfx.scene
 import javafx.scene.Node
 import javafx.scene.SnapshotParameters
 import javafx.scene.image.WritableImage
+import javafx.scene.layout.Pane
+import ktfx.internal.KtfxInternals
 
 /** Alias of [Node.lookup] with non-null return and specified type. */
 @Suppress("UNCHECKED_CAST")
@@ -15,3 +17,6 @@ inline fun Node.snapshot(
     params: SnapshotParameters? = null,
     image: WritableImage? = null
 ): WritableImage = snapshot(params, image)
+
+/** Wraps this child in pane, if not already. */
+inline fun Node.asPane(): Pane = KtfxInternals.asPane(this)

@@ -429,6 +429,7 @@ $dokka.location:ktfx.geometry$plus(javafx.geometry.Point2D, javafx.geometry.Poin
 $dokka.location:ktfx.geometry$plus(javafx.geometry.Point3D, javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/plus.html
 $dokka.location:ktfx.geometry$plus(javafx.geometry.VPos, javafx.geometry.HPos)ktfx.geometry/javafx.geometry.-v-pos/plus.html
 $dokka.location:ktfx.geometry$times(javafx.geometry.Point3D, kotlin.Double)ktfx.geometry/javafx.geometry.-point3-d/times.html
+$dokka.location:ktfx.scene$asPane(javafx.scene.Node)ktfx.scene/javafx.scene.-node/as-pane.html
 $dokka.location:ktfx.scene$find(javafx.scene.Node, kotlin.String)ktfx.scene/javafx.scene.-node/find.html
 $dokka.location:ktfx.scene$find(javafx.scene.Scene, kotlin.String)ktfx.scene/javafx.scene.-scene/find.html
 $dokka.location:ktfx.scene$snapshot(javafx.scene.Node, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage)ktfx.scene/javafx.scene.-node/snapshot.html

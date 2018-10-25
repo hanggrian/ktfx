@@ -1,24 +1,33 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXSnackbar
-import javafx.scene.Node
-import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
-import ktfx.internal.KtfxInternals
+import javafx.event.ActionEvent
+import javafx.scene.layout.Pane
 
-open class _JFXSnackbar : JFXSnackbar(), NodeManager by NodeManager.INVOKABLE_ONLY {
+/** Create and show a snackbar. */
+inline fun Pane.snackbar(
+    text: String,
+    timeout: Long
+): JFXSnackbar = JFXSnackbar(this).apply { show(text, timeout) }
 
-    override fun <R : Node> R.invoke(): R = also { registerSnackbarContainer(KtfxInternals.asPane(it)) }
-}
+/** Create and show a snackbar with action. */
+inline fun Pane.snackbar(
+    text: String,
+    timeout: Long,
+    actionText: String,
+    noinline action: ((ActionEvent) -> Unit)? = null
+): JFXSnackbar = JFXSnackbar(this).apply { show(text, actionText, timeout, action) }
 
-/** Creates a [JFXSnackbar]. */
-fun jfxSnackbar(
-    init: ((@LayoutDsl _JFXSnackbar).() -> Unit)? = null
-): JFXSnackbar = _JFXSnackbar().also { init?.invoke(it) }
+/** Create and show an indefinite snackbar. */
+inline fun Pane.indefiniteSnackbar(
+    text: String
+): JFXSnackbar = JFXSnackbar(this).apply { show(text, -1) }
 
-/** Creates a [JFXSnackbar] and add it to this manager. */
-inline fun NodeManager.jfxSnackbar(
-    noinline init: ((@LayoutDsl _JFXSnackbar).() -> Unit)? = null
-): JFXSnackbar = ktfx.jfoenix.jfxSnackbar(init)()
+/** Create and show an indefinite snackbar with action. */
+inline fun Pane.indefiniteSnackbar(
+    text: String,
+    actionText: String,
+    noinline action: ((ActionEvent) -> Unit)? = null
+): JFXSnackbar = JFXSnackbar(this).apply { show(text, actionText, -1, action) }

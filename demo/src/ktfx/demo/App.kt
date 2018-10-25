@@ -9,11 +9,9 @@ import ktfx.application.launch
 import ktfx.beans.binding.booleanBindingOf
 import ktfx.beans.binding.stringBindingOf
 import ktfx.coroutines.onAction
-import ktfx.jfoenix.jfxPopup
 import ktfx.layouts.button
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
-import ktfx.layouts.pane
 import ktfx.layouts.scene
 import ktfx.layouts.vbox
 import ktfx.scene.control.errorAlert
@@ -33,12 +31,6 @@ class App : Application() {
     private lateinit var resultLabel: Label
 
     override fun start(stage: Stage) {
-        jfxPopup {
-            label()
-            pane {
-
-            }
-        }
         stage.scene = scene {
             gridPane {
                 vbox {

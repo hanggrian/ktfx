@@ -10,13 +10,13 @@ import java.util.concurrent.CountDownLatch
 inline fun isFxThread(): Boolean = Platform.isFxApplicationThread()
 
 /** Run the specified block on the JavaFX thread, if not already. */
-fun later(block: () -> Unit) = when {
+fun later(block: () -> Unit): Unit = when {
     isFxThread() -> block()
     else -> Platform.runLater(block)
 }
 
 /** Run the specified block on the JavaFX thread and wait until it finishes, if not already. */
-fun wait(block: () -> Unit) = when {
+fun wait(block: () -> Unit): Unit = when {
     isFxThread() -> block()
     else -> {
         val doneLatch = CountDownLatch(1)

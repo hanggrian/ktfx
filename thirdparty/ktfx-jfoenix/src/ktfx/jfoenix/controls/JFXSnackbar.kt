@@ -6,46 +6,49 @@ import com.jfoenix.controls.JFXSnackbar
 import javafx.event.ActionEvent
 import javafx.scene.layout.Pane
 
-/** Taken from `androidx.design.widget.SnackbarManager`. */
-@PublishedApi
-internal object SnackbarDuration {
-    const val SHORT = 1500L
-    const val LONG = 2750L
-    const val INDEFINITE = -1L
+/** Show this snackbar with an action. */
+fun JFXSnackbar.show(
+    text: String,
+    duration: Long,
+    actionText: String?,
+    action: ((ActionEvent) -> Unit)? = null
+): Unit = show(text, actionText, duration) {
+    close()
+    action?.invoke(it)
 }
+
+/** Show this snackbar with an action indefinitely. */
+inline fun JFXSnackbar.showIndefinite(
+    text: String,
+    actionText: String?,
+    noinline action: ((ActionEvent) -> Unit)? = null
+): Unit = show(text, -1, actionText, action)
+
+/** Show this snackbar indefinitely. */
+inline fun JFXSnackbar.showIndefinite(text: String): Unit = showIndefinite(text, null, null)
+
+/** Create and show a snackbar with an action. */
+fun Pane.jfxSnackbar(
+    text: String,
+    duration: Long,
+    actionText: String?,
+    action: ((ActionEvent) -> Unit)? = null
+): JFXSnackbar = JFXSnackbar(this).apply { show(text, duration, actionText, action) }
 
 /** Create and show a snackbar. */
 inline fun Pane.jfxSnackbar(
-    text: String
-): JFXSnackbar = JFXSnackbar(this).apply { show(text, SnackbarDuration.SHORT) }
-
-/** Create and show a snackbar with action. */
-inline fun Pane.jfxSnackbar(
     text: String,
-    actionText: String,
-    noinline action: ((ActionEvent) -> Unit)? = null
-): JFXSnackbar = JFXSnackbar(this).apply { show(text, actionText, SnackbarDuration.SHORT, action) }
+    duration: Long
+): JFXSnackbar = jfxSnackbar(text, duration, null, null)
 
-/** Create and show a long snackbar. */
-inline fun Pane.jfxLongSnackbar(
-    text: String
-): JFXSnackbar = JFXSnackbar(this).apply { show(text, SnackbarDuration.LONG) }
-
-/** Create and show a long snackbar with action. */
-inline fun Pane.jfxLongSnackbar(
-    text: String,
-    actionText: String,
-    noinline action: ((ActionEvent) -> Unit)? = null
-): JFXSnackbar = JFXSnackbar(this).apply { show(text, actionText, SnackbarDuration.LONG, action) }
-
-/** Create and show an indefinite snackbar. */
-inline fun Pane.jfxIndefiniteSnackbar(
-    text: String
-): JFXSnackbar = JFXSnackbar(this).apply { show(text, SnackbarDuration.INDEFINITE) }
-
-/** Create and show an indefinite snackbar with action. */
+/** Create and show a snackbar with an action indefinitely. */
 inline fun Pane.jfxIndefiniteSnackbar(
     text: String,
-    actionText: String,
+    actionText: String?,
     noinline action: ((ActionEvent) -> Unit)? = null
-): JFXSnackbar = JFXSnackbar(this).apply { show(text, actionText, SnackbarDuration.INDEFINITE, action) }
+): JFXSnackbar = jfxSnackbar(text, -1, actionText, action)
+
+/** Create and show a snackbar indefinitely. */
+inline fun Pane.jfxIndefiniteSnackbar(
+    text: String
+): JFXSnackbar = jfxIndefiniteSnackbar(text, null, null)

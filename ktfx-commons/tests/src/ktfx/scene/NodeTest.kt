@@ -5,11 +5,11 @@ import javafx.scene.control.TabPane
 import javafx.scene.layout.StackPane
 import javafx.stage.Stage
 import ktfx.test.AppTest
-import kotlinx.coroutines.experimental.Dispatchers
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.delay
-import kotlinx.coroutines.experimental.javafx.JavaFx
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
 import org.junit.Test
 import kotlin.test.assertNotNull
 

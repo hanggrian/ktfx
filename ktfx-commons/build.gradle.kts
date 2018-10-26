@@ -13,8 +13,6 @@ sourceSets {
     get("test").java.srcDir("tests/src")
 }
 
-kotlin.experimental.coroutines = org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
-
 ktlint { add ->
     add(project(":$ARTIFACT_DEV_RULESET_ALL"))
     add(project(":$ARTIFACT_DEV_RULESET_NO_INSTANCE"))

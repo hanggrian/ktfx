@@ -13,7 +13,7 @@ import ktfx.annotations.LayoutDsl
  * Invoking layout DSL will only set content to center.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _BorderPane : BorderPane(), AlignedPane, MarginedPane, NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _BorderPane : BorderPane(), AlignedPane, MarginedPane, NodeManager by NodeManager.invokableOnly() {
 
     override fun <R : Node> R.invoke(): R = also { center = it }
 

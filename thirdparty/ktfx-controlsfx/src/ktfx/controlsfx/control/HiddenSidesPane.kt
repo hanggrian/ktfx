@@ -11,7 +11,7 @@ import org.controlsfx.control.HiddenSidesPane
  * Invoking layout DSL will only set content.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _HiddenSidesPane : HiddenSidesPane(), NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _HiddenSidesPane : HiddenSidesPane(), NodeManager by NodeManager.invokableOnly() {
 
     override fun <R : Node> R.invoke(): R = also { content = it }
 }

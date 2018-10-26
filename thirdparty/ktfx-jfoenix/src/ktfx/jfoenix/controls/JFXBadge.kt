@@ -7,7 +7,7 @@ import javafx.scene.Node
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _JFXBadge : JFXBadge(), NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _JFXBadge : JFXBadge(), NodeManager by NodeManager.invokableOnly() {
 
     override fun <R : Node> R.invoke(): R = also { control = it }
 }

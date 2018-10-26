@@ -3,16 +3,33 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXDialog
+import com.jfoenix.controls.events.JFXDialogEvent
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
 import ktfx.NodeManager
 import ktfx.internal.KtfxInternals
+import kotlin.coroutines.CoroutineContext
+
+fun JFXDialog.onDialogClosed(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(JFXDialogEvent) -> Unit
+): Unit = setOnDialogClosed { event -> GlobalScope.launch(context) { action(event) } }
+
+fun JFXDialog.onDialogOpened(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(JFXDialogEvent) -> Unit
+): Unit = setOnDialogOpened { event -> GlobalScope.launch(context) { action(event) } }
 
 open class _JFXDialog(
     dialogContainer: StackPane?,
     transitionType: DialogTransition,
     overlayClose: Boolean
-) : JFXDialog(dialogContainer, null, transitionType, overlayClose), NodeManager by NodeManager.INVOKABLE_ONLY {
+) : JFXDialog(dialogContainer, null, transitionType, overlayClose), NodeManager by NodeManager.invokableOnly() {
 
     override fun <R : Node> R.invoke(): R = also { content = KtfxInternals.asPane(it) }
 }

@@ -5,12 +5,12 @@ package ktfx.coroutines
 import javafx.event.Event
 import javafx.scene.control.ContextMenu
 import javafx.scene.control.Menu
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.Dispatchers
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.javafx.JavaFx
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Called just after the [ContextMenu] has been hidden. */
 fun Menu.onHidden(

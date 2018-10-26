@@ -2,9 +2,18 @@
 
 package ktfx.controlsfx
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.PlusMinusSlider
+import kotlin.coroutines.CoroutineContext
+
+fun PlusMinusSlider.onValueChanged(
+    context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(PlusMinusSlider.PlusMinusEvent) -> Unit
+): Unit = setOnValueChanged { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
 /** Creates a [PlusMinusSlider]. */
 fun plusMinusSlider(

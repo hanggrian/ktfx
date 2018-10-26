@@ -4,12 +4,12 @@ package ktfx.coroutines
 
 import javafx.scene.control.ListView
 import javafx.scene.control.ScrollToEvent
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.Dispatchers
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.javafx.JavaFx
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Sets the handler that will be called when the user cancels */
 fun <T> ListView<T>.onEditCancel(

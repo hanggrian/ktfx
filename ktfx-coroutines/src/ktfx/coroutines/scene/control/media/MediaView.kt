@@ -4,12 +4,12 @@ package ktfx.coroutines
 
 import javafx.scene.media.MediaErrorEvent
 import javafx.scene.media.MediaView
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.Dispatchers
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.javafx.JavaFx
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Sets the error event handler. */
 fun MediaView.onError(

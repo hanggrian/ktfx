@@ -21,7 +21,7 @@ interface TreeTableColumnsBuilder<S> {
 
 @PublishedApi
 internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>,
-    KtfxManager<TreeTableColumn<S, *>> by KtfxManager.Empty() {
+    KtfxManager<TreeTableColumn<S, *>> by KtfxManager.empty() {
 
     override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?): TreeTableColumn<S, T> =
         TreeTableColumn<S, T>(text).also { init?.invoke(it) }()

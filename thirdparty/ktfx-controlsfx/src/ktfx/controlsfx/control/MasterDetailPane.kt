@@ -10,7 +10,7 @@ import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.MasterDetailPane
 
 open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail),
-    NodeManager by NodeManager.INVOKABLE_ONLY {
+    NodeManager by NodeManager.invokableOnly() {
 
     override fun <T : Node> T.invoke(): T = also {
         when (null) {

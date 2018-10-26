@@ -8,7 +8,7 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import ktfx.internal.KtfxInternals
 
-open class _JFXPopup : JFXPopup(), NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _JFXPopup : JFXPopup(), NodeManager by NodeManager.invokableOnly() {
 
     override fun <T : Node> T.invoke(): T = also { popupContent = KtfxInternals.asPane(it) }
 }

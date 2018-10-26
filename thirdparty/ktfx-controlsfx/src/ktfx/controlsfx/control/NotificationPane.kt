@@ -2,12 +2,37 @@
 
 package ktfx.controlsfx
 
+import javafx.event.Event
 import javafx.scene.Node
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.NotificationPane
+import kotlin.coroutines.CoroutineContext
 
-open class _NotificationPane : NotificationPane(), NodeManager by NodeManager.INVOKABLE_ONLY {
+fun NotificationPane.onShowing(
+    context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(Event) -> Unit
+): Unit = setOnShowing { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
+
+fun NotificationPane.onShown(
+    context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(Event) -> Unit
+): Unit = setOnShown { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
+
+fun NotificationPane.onHiding(
+    context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(Event) -> Unit
+): Unit = setOnHiding { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
+
+fun NotificationPane.onHidden(
+    context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(Event) -> Unit
+): Unit = setOnHidden { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
+
+open class _NotificationPane : NotificationPane(), NodeManager by NodeManager.invokableOnly() {
 
     override fun <T : Node> T.invoke(): T = also { content = it }
 }

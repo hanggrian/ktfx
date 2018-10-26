@@ -8,7 +8,7 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
 open class _TitledPane(title: String?, content: Node?) : TitledPane(title, content),
-    NodeManager by NodeManager.INVOKABLE_ONLY {
+    NodeManager by NodeManager.invokableOnly() {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }

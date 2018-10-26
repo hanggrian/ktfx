@@ -20,7 +20,7 @@ interface TableColumnsBuilder<S> {
 }
 
 @PublishedApi
-internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, KtfxManager<TableColumn<S, *>> by KtfxManager.Empty() {
+internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, KtfxManager<TableColumn<S, *>> by KtfxManager.empty() {
 
     override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?): TableColumn<S, T> =
         TableColumn<S, T>(text).also { init?.invoke(it) }()

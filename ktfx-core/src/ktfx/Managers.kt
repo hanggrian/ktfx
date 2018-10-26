@@ -13,12 +13,20 @@ import ktfx.internal.KtfxManager
 interface NodeManager : KtfxManager<Node> {
 
     companion object {
-        /** Managers delegated by this object must override `invoke` to avoid unsupported error operation. */
-        val INVOKABLE_ONLY: NodeManager = object : NodeManager {
+
+        private val invokableOnly = object : NodeManager {
             override val collection: MutableCollection<Node>
                 get() = KtfxInternals.fail {
                     "This manager has no children, because it is intended to be invokable only."
                 }
+        }
+
+        /** Managers delegated by this object must override `invoke` to avoid unsupported error operation. */
+        fun invokableOnly(): NodeManager = invokableOnly
+
+        /** Implementation of manager where collection are newly created empty modifiable list. */
+        fun empty(): NodeManager = object : NodeManager {
+            override val collection: MutableCollection<Node> = mutableListOf()
         }
     }
 }

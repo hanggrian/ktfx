@@ -7,7 +7,7 @@ import javafx.scene.control.ScrollPane
 import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
-open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager by NodeManager.invokableOnly() {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }

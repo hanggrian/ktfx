@@ -4,11 +4,11 @@ package ktfx.coroutines
 
 import javafx.beans.InvalidationListener
 import javafx.beans.Observable
-import kotlinx.coroutines.experimental.Dispatchers
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.javafx.JavaFx
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Adds an [InvalidationListener] which will be notified whenever the [Observable] becomes invalid. */
 fun Observable.listener(

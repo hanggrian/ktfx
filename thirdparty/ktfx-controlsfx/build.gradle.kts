@@ -21,6 +21,7 @@ ktlint { add ->
 dependencies {
     compile(project(":$ARTIFACT_CORE"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
+    compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
     compile(controlsFx())
 
     testImplementation(project(":$ARTIFACT_LAYOUTS"))

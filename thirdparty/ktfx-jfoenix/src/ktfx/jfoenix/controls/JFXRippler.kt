@@ -8,7 +8,7 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 
 // TODO: should include mask & pos in constructor?
-open class _JFXRippler : JFXRippler(), NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _JFXRippler : JFXRippler(), NodeManager by NodeManager.invokableOnly() {
 
     override fun <R : Node> R.invoke(): R = also { control = it }
 }

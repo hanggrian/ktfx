@@ -14,8 +14,11 @@ interface KtfxManager<T> {
      */
     operator fun <R : T> R.invoke(): R = also { collection += it }
 
-    /** Implementation of manager where collection are newly created empty modifiable list. */
-    class Empty<T> : KtfxManager<T> {
-        override val collection: MutableCollection<T> = mutableListOf()
+    companion object {
+
+        /** Implementation of manager where collection are newly created empty modifiable list. */
+        fun <T> empty(): KtfxManager<T> = object : KtfxManager<T> {
+            override val collection: MutableCollection<T> = mutableListOf()
+        }
     }
 }

@@ -7,7 +7,7 @@ import ktfx.NodeManager
 import ktfx.annotations.LayoutDsl
 import org.controlsfx.control.SnapshotView
 
-open class _SnapshotView : SnapshotView(), NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _SnapshotView : SnapshotView(), NodeManager by NodeManager.invokableOnly() {
 
     override fun <R : Node> R.invoke(): R = also { node = it }
 }

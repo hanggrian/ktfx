@@ -4,12 +4,12 @@ package ktfx.coroutines
 
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableColumn.CellEditEvent
-import kotlinx.coroutines.experimental.CoroutineScope
-import kotlinx.coroutines.experimental.Dispatchers
-import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.javafx.JavaFx
-import kotlinx.coroutines.experimental.launch
-import kotlin.coroutines.experimental.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** This event handler will be fired when the user cancels editing a cell. */
 fun <S, T> TreeTableColumn<S, T>.onEditCancel(

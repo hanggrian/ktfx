@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.control.Dialog
 import ktfx.NodeManager
 
-open class _Dialog<R> : Dialog<R>(), NodeManager by NodeManager.INVOKABLE_ONLY {
+open class _Dialog<R> : Dialog<R>(), NodeManager by NodeManager.invokableOnly() {
 
     override fun <R : Node> R.invoke(): R = also {
         when (null) {

@@ -6,7 +6,7 @@ import org.junit.Test
 
 class KtfxManagerTest {
 
-    private val manager = KtfxManager.Empty<Int>()
+    private val manager = KtfxManager.empty<Int>()
 
     @Test fun test() {
         Truth.assertThat(manager.apply {

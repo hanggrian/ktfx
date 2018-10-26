@@ -99,9 +99,8 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 }
 
 @PublishedApi
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, KtfxManager<T> by KtfxManager.Empty() {
-
-    override fun <R : T> R.invoke(): R = also { collection += it }
+internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>,
+    KtfxManager<T> by KtfxManager.empty() {
 
     abstract fun newInstance(): T
 

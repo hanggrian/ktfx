@@ -9,5 +9,5 @@ import kotlin.reflect.KProperty
 inline operator fun <V> WritableValue<in V>.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: V
+    value: V?
 ): Unit = setValue(value)

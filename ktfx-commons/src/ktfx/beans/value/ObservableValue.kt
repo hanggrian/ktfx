@@ -23,7 +23,7 @@ import javafx.beans.value.ObservableValue
 import kotlin.reflect.KProperty
 
 /** Delegated property, use with `by` keyword. */
-inline operator fun <V> ObservableValue<V>.getValue(thisRef: Any?, property: KProperty<*>): V = value
+inline operator fun <V> ObservableValue<V>.getValue(thisRef: Any?, property: KProperty<*>): V? = value
 
 /** Infix typing for [equal]. */
 inline infix fun ObservableObjectValue<*>.eq(op: ObservableObjectValue<*>): BooleanBinding = equal(this, op)

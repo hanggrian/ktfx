@@ -8,7 +8,7 @@ import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 class OpenClassRule : Rule("open-class", { node, _, emit ->
     if (node.elementType == KtStubElementTypes.CLASS) {
         val ktClass = node.psi<KtClass>()
-        if (!ktClass.isInterface() && "Builder" !in ktClass.name!!) { // builder indicates that the class is only used within DSL context only
+        if (ktClass.isClass() && "Builder" !in ktClass.name!!) { // builder indicates that the class is only used within DSL context only
             val child = node.findChildByType(KtStubElementTypes.MODIFIER_LIST)
             if (child == null) {
                 emit(node.startOffset, "Empty modifiers, need open.", false)
@@ -24,3 +24,5 @@ class OpenClassRule : Rule("open-class", { node, _, emit ->
         }
     }
 })
+
+fun KtClass.isClass(): Boolean = !isInterface() && !isAnnotation()

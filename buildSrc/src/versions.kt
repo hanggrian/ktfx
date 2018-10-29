@@ -1,6 +1,6 @@
 const val VERSION_GRADLE = "4.10.2"
 const val VERSION_KOTLIN = "1.3.0-rc-198"
-const val VERSION_COROUTINES = "1.0.0-RC1"
+const val VERSION_COROUTINES = "1.0.0"
 
 const val VERSION_BUILDCONFIG = "0.4"
 

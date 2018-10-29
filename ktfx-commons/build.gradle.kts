@@ -15,7 +15,6 @@ sourceSets {
 
 ktlint { add ->
     add(project(":$ARTIFACT_DEV_RULESET_ALL"))
-    add(project(":$ARTIFACT_DEV_RULESET_NO_INSTANCE"))
 }
 
 dependencies {

@@ -25,8 +25,8 @@ val ARTIFACTS_THIRDPARTY = listOf(
 
 const val ARTIFACT_DEV_RULESET_CORE = "dev:ruleset-core"
 const val ARTIFACT_DEV_RULESET_ALL = "dev:ruleset-all"
-const val ARTIFACT_DEV_RULESET_NO_INSTANCE = "dev:ruleset-no-instance"
 const val ARTIFACT_DEV_RULESET_SINGLE_PACKAGE = "dev:ruleset-single-package"
+const val ARTIFACT_DEV_TESTING_CORE = "dev:testing-core"
 const val ARTIFACT_DEV_TESTING_FX = "dev:testing-fx"
 const val ARTIFACT_DEV_TESTING_RULESET = "dev:testing-ruleset"
 
@@ -34,8 +34,8 @@ const val ARTIFACT_DEV_TESTING_RULESET = "dev:testing-ruleset"
 val ARTIFACTS_DEV = listOf(
     ARTIFACT_DEV_RULESET_CORE,
     ARTIFACT_DEV_RULESET_ALL,
-    ARTIFACT_DEV_RULESET_NO_INSTANCE,
     ARTIFACT_DEV_RULESET_SINGLE_PACKAGE,
+    ARTIFACT_DEV_TESTING_CORE,
     ARTIFACT_DEV_TESTING_FX,
     ARTIFACT_DEV_TESTING_RULESET
 )

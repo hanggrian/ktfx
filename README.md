@@ -12,7 +12,7 @@ Consists of several parts:
  * *ktfx-commons*: full of helpers for common JavaFX application logic.
  * *ktfx-layouts*: dynamic JavaFX layout with Kotlin DSL.
  * *ktfx-listeners*: write common JavaFX listeners with Kotlin DSL.
- * *ktfx-coroutines*: utilities based on the experimental [kotlinx.coroutines] library.
+ * *ktfx-coroutines*: utilities based on the [kotlinx.coroutines] library.
 
 Download
 --------
@@ -36,8 +36,8 @@ dependencies {
 }
 ```
 
-Core Extensions
----------------
+Commons extensions
+------------------
 Full of extensions for JavaFX, packaged accordingly. The main goal of core library is not to add any new feature to the existing JavaFX APIs. Below are preview of some of the packages.
 
 #### Collections
@@ -109,7 +109,7 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-Layouts Extensions
+Layouts extensions
 ------------------
 Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a direct replacement of FXML files.
 
@@ -131,7 +131,7 @@ gridPane {
 
 ![Layouts demo][demo_layouts]
 
-Listeners Extensions
+Listeners extensions
 --------------------
 Trade common JavaFX listener with Kotlin DSL. Currently includes string converters and table cells.
 
@@ -159,9 +159,9 @@ personList.cellFactory {
 }
 ```
 
-Coroutines Extensions
+Coroutines extensions
 ---------------------
-Based on the experimental [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
+Based on the [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
 ```kotlin
 button.setOnAction {
@@ -177,7 +177,7 @@ button.onAction(CommonPool) {
 }
 ```
 
-Third-party Extensions
+Third-party extensions
 ----------------------
 Some popular libraries are also supported. Though currently is limited.
 

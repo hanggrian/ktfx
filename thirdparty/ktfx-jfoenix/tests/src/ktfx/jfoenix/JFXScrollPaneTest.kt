@@ -1,7 +1,7 @@
 package ktfx.jfoenix
 
-import com.google.common.truth.Truth
 import ktfx.test.ToolkitLayoutTest
+import ktfx.test.assertContains
 
 class JFXScrollPaneTest : ToolkitLayoutTest() {
 
@@ -36,11 +36,11 @@ class JFXScrollPaneTest : ToolkitLayoutTest() {
                 condensed2()
             }
         }
-        Truth.assertThat(pane.topBar.children).containsExactly(top1).inOrder()
-        Truth.assertThat(pane.midBar.children).containsExactly(mid1, mid2).inOrder()
-        Truth.assertThat(pane.bottomBar.children).containsExactly(bottom1, bottom2, bottom3).inOrder()
-        Truth.assertThat(pane.mainHeader.children).containsExactly(main1).inOrder()
-        Truth.assertThat(pane.condensedHeader.children).containsExactly(condensed1, condensed2).inOrder()
+        assertContains(pane.topBar.children, top1).inOrder()
+        assertContains(pane.midBar.children, mid1, mid2).inOrder()
+        assertContains(pane.bottomBar.children, bottom1, bottom2, bottom3).inOrder()
+        assertContains(pane.mainHeader.children, main1).inOrder()
+        assertContains(pane.condensedHeader.children, condensed1, condensed2).inOrder()
     }
 
     override fun withManager() {

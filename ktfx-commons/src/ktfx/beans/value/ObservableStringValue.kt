@@ -24,6 +24,10 @@ import ktfx.beans.binding.bindingOf
 import ktfx.beans.binding.booleanBindingOf
 import ktfx.beans.binding.intBindingOf
 import ktfx.beans.binding.stringBindingOf
+import kotlin.reflect.KProperty
+
+/** Delegated property, use with `by` keyword. */
+inline operator fun ObservableStringValue.getValue(thisRef: Any?, property: KProperty<*>): String = get()
 
 /** Infix typing for [equal]. */
 inline infix fun ObservableStringValue.eq(op: ObservableStringValue): BooleanBinding = equal(this, op)
@@ -80,7 +84,8 @@ inline infix fun ObservableStringValue.less(op: String): BooleanBinding = lessTh
 inline infix fun String.less(op: ObservableStringValue): BooleanBinding = lessThan(this, op)
 
 /** Infix typing for [greaterThanOrEqual]. */
-inline infix fun ObservableStringValue.greaterEq(op: ObservableStringValue): BooleanBinding = greaterThanOrEqual(this, op)
+inline infix fun ObservableStringValue.greaterEq(op: ObservableStringValue): BooleanBinding =
+    greaterThanOrEqual(this, op)
 
 /** Infix typing for [greaterThanOrEqual]. */
 inline infix fun ObservableStringValue.greaterEq(op: String): BooleanBinding = greaterThanOrEqual(this, op)

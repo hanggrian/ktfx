@@ -1,7 +1,7 @@
 package ktfx.jfoenix
 
-import com.google.common.truth.Truth
 import ktfx.test.ToolkitLayoutTest
+import ktfx.test.assertContains
 
 class JFXToolbarTest : ToolkitLayoutTest() {
 
@@ -18,8 +18,8 @@ class JFXToolbarTest : ToolkitLayoutTest() {
                 right2()
             }
         }
-        Truth.assertThat(toolbar.leftItems).containsExactly(left1).inOrder()
-        Truth.assertThat(toolbar.rightItems).containsExactly(right1, right2).inOrder()
+        assertContains(toolbar.leftItems, left1).inOrder()
+        assertContains(toolbar.rightItems, right1, right2).inOrder()
     }
 
     override fun withManager() {

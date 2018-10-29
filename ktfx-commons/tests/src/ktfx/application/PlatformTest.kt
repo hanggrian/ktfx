@@ -1,8 +1,8 @@
 package ktfx.application
 
-import com.google.common.truth.Truth
 import javafx.application.ConditionalFeature
 import ktfx.test.ToolkitTest
+import ktfx.test.assertContains
 import org.junit.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -23,7 +23,7 @@ class PlatformTest : ToolkitTest {
         val list = mutableListOf<Int>()
         later {
             list += 1
-            Truth.assertThat(list).containsExactly(2, 1).inOrder()
+            assertContains(list, 2, 1).inOrder()
         }
         list += 2
     }
@@ -34,7 +34,7 @@ class PlatformTest : ToolkitTest {
             list += 1
         }
         list += 2
-        Truth.assertThat(list).containsExactly(1, 2).inOrder()
+        assertContains(list, 1, 2).inOrder()
     }
 
     @Test fun isSupported() = assertTrue(ConditionalFeature.CONTROLS.isSupported())

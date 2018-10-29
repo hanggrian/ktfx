@@ -10,7 +10,8 @@ sourceSets {
 }
 
 dependencies {
-    compile(project(":$ARTIFACT_DEV_TESTING_CORE"))
-    compile(testFx("core"))
-    compile(testFx("junit"))
+    compile(kotlin("stdlib", VERSION_KOTLIN))
+    compile(kotlin("test", VERSION_KOTLIN))
+    compile(truth())
+    compile(junit())
 }

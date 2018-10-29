@@ -1,7 +1,7 @@
 package ktfx
 
-import com.google.common.truth.Truth
 import ktfx.internal.KtfxManager
+import ktfx.test.assertContains
 import org.junit.Test
 
 class KtfxManagerTest {
@@ -9,10 +9,10 @@ class KtfxManagerTest {
     private val manager = KtfxManager.empty<Int>()
 
     @Test fun test() {
-        Truth.assertThat(manager.apply {
+        assertContains(manager.apply {
             1()
             2()
             3()
-        }.collection).containsExactly(1, 2, 3)
+        }.collection, 1, 2, 3)
     }
 }

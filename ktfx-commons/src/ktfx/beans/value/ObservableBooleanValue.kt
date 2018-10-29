@@ -8,6 +8,10 @@ import javafx.beans.binding.Bindings.notEqual
 import javafx.beans.binding.Bindings.or
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.value.ObservableBooleanValue
+import kotlin.reflect.KProperty
+
+/** Delegated property, use with `by` keyword. */
+inline operator fun ObservableBooleanValue.getValue(thisRef: Any?, property: KProperty<*>): Boolean = get()
 
 /**
  * Creates a [BooleanBinding] that calculates the conditional-AND

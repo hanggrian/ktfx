@@ -1,6 +1,6 @@
 package ktfx.rules
 
-import com.hendraanggrian.ktfx.rules.BuildConfig
+import ktfx.dev.BuildConfig
 import org.jetbrains.kotlin.psi.KtPackageDirective
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 

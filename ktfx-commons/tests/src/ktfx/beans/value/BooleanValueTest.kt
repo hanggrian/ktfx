@@ -6,6 +6,7 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class BooleanValueTest {
+
     private val property = SimpleBooleanProperty(false)
     private var value: Boolean by property
 

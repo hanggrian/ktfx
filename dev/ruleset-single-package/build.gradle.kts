@@ -1,6 +1,3 @@
-group = "$RELEASE_GROUP.rules"
-version = RELEASE_VERSION
-
 plugins {
     kotlin("jvm")
     idea

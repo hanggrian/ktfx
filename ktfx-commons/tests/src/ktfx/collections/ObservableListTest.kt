@@ -1,17 +1,17 @@
 package ktfx.collections
 
 import ktfx.test.assertContains
+import ktfx.test.assertEmpty
 import org.junit.Test
-import kotlin.test.assertTrue
 
 class ObservableListTest {
 
     @Test fun emptyObservableList() {
-        assertTrue(emptyObservableList<Int>().isEmpty())
+        assertEmpty(emptyObservableList<Int>())
     }
 
     @Test fun observableListOf() {
-        assertTrue(observableListOf<Int>().isEmpty())
+        assertEmpty(observableListOf<Int>())
         assertContains(observableListOf(1), 1).inOrder()
         assertContains(observableListOf(1, 2, 3), 1, 2, 3).inOrder()
     }

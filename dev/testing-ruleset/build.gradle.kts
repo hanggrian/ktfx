@@ -1,6 +1,3 @@
-group = "$RELEASE_GROUP.test"
-version = RELEASE_VERSION
-
 plugins {
     kotlin("jvm")
 }

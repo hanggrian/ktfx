@@ -5,6 +5,7 @@ import org.junit.Test
 import kotlin.test.assertEquals
 
 class IntegerValueTest {
+
     private var property = SimpleIntegerProperty(1)
     private var value: Int by property
 

@@ -175,10 +175,12 @@ $dokka.location:ktfx.beans.value$eq(kotlin.String, javafx.beans.value.Observable
 $dokka.location:ktfx.beans.value$eqIg(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.beans.value/javafx.beans.value.-observable-string-value/eq-ig.html
 $dokka.location:ktfx.beans.value$eqIg(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.beans.value/javafx.beans.value.-observable-string-value/eq-ig.html
 $dokka.location:ktfx.beans.value$eqIg(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.beans.value/kotlin.-string/eq-ig.html
+$dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-boolean-value/get-value.html
 $dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-double-value/get-value.html
 $dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-float-value/get-value.html
 $dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableIntegerValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-integer-value/get-value.html
 $dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableLongValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-long-value/get-value.html
+$dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-string-value/get-value.html
 $dokka.location:ktfx.beans.value$getValue(javafx.beans.value.ObservableValue((ktfx.beans.value.getValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx.beans.value/javafx.beans.value.-observable-value/get-value.html
 $dokka.location:ktfx.beans.value$greater(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.beans.value/javafx.beans.value.-observable-number-value/greater.html
 $dokka.location:ktfx.beans.value$greater(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.beans.value/javafx.beans.value.-observable-number-value/greater.html
@@ -282,10 +284,12 @@ $dokka.location:ktfx.beans.value$selectFloat(javafx.beans.value.ObservableValue(
 $dokka.location:ktfx.beans.value$selectInt(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.beans.value/javafx.beans.value.-observable-value/select-int.html
 $dokka.location:ktfx.beans.value$selectLong(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.beans.value/javafx.beans.value.-observable-value/select-long.html
 $dokka.location:ktfx.beans.value$selectString(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.beans.value/javafx.beans.value.-observable-value/select-string.html
+$dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Boolean)ktfx.beans.value/javafx.beans.value.-writable-boolean-value/set-value.html
 $dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Double)ktfx.beans.value/javafx.beans.value.-writable-double-value/set-value.html
 $dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Float)ktfx.beans.value/javafx.beans.value.-writable-float-value/set-value.html
 $dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableIntegerValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Int)ktfx.beans.value/javafx.beans.value.-writable-integer-value/set-value.html
 $dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableLongValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Long)ktfx.beans.value/javafx.beans.value.-writable-long-value/set-value.html
+$dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.String)ktfx.beans.value/javafx.beans.value.-writable-string-value/set-value.html
 $dokka.location:ktfx.beans.value$setValue(javafx.beans.value.WritableValue((ktfx.beans.value.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), ktfx.beans.value.setValue.V)ktfx.beans.value/javafx.beans.value.-writable-value/set-value.html
 $dokka.location:ktfx.beans.value$trim(javafx.beans.value.ObservableStringValue)ktfx.beans.value/javafx.beans.value.-observable-string-value/trim.html
 $dokka.location:ktfx.beans.value$trim(javafx.beans.value.ObservableStringValue, kotlin.Function1((kotlin.Char, kotlin.Boolean)))ktfx.beans.value/javafx.beans.value.-observable-string-value/trim.html
@@ -399,8 +403,8 @@ $dokka.location:ktfx.collections$unbindContent(kotlin.collections.Set((ktfx.coll
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-list/unbind-content-bidirectional.html
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableMap((ktfx.collections.unbindContentBidirectional.K, ktfx.collections.unbindContentBidirectional.V)), javafx.collections.ObservableMap((ktfx.collections.unbindContentBidirectional.K, ktfx.collections.unbindContentBidirectional.V)))ktfx.collections/javafx.collections.-observable-map/unbind-content-bidirectional.html
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-set/unbind-content-bidirectional.html
-$dokka.location:ktfx.embed.swing$toBufferedImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.embed.swing/javafx.scene.image.-image/to-buffered-image.html
-$dokka.location:ktfx.embed.swing$toWritableImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.embed.swing/java.awt.image.-buffered-image/to-writable-image.html
+$dokka.location:ktfx.embed.swing$toFxImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.embed.swing/java.awt.image.-buffered-image/to-fx-image.html
+$dokka.location:ktfx.embed.swing$toSwingImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.embed.swing/javafx.scene.image.-image/to-swing-image.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Dimension2D)ktfx.geometry/javafx.geometry.-dimension2-d/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/component1.html

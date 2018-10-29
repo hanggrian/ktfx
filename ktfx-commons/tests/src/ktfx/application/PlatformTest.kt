@@ -9,17 +9,24 @@ import kotlin.test.assertTrue
 
 class PlatformTest : ToolkitTest {
 
-    @Test fun fxThread() {
-        assertFalse(ktfx.application.isFxThread())
-        later {
-            assertTrue(ktfx.application.isFxThread())
-        }
-        wait {
-            assertTrue(ktfx.application.isFxThread())
-        }
+    @Test fun isInFx2() {
+        assertFalse(isInFx())
+        later { assertTrue(isInFx()) }
+        now { assertTrue(isInFx()) }
+        wait { assertTrue(isInFx()) }
     }
 
     @Test fun later() {
+        val list = mutableListOf<Int>()
+        later {
+            list += 1
+            assertContains(list, 2, 1).inOrder()
+        }
+        list += 2
+    }
+
+    /** Exactly like [later] because junit does not run in fx thread.*/
+    @Test fun now() {
         val list = mutableListOf<Int>()
         later {
             list += 1

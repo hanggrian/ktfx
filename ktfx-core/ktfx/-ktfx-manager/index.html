@@ -5,25 +5,11 @@
 <link rel="stylesheet" href="../../../style.css">
 </HEAD>
 <BODY>
-<a href="../../index.html">ktfx-core</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.internal</a>&nbsp;/&nbsp;<a href="./index.html">KtfxManager</a><br/>
+<a href="../../index.html">ktfx-core</a>&nbsp;/&nbsp;<a href="../index.html">ktfx</a>&nbsp;/&nbsp;<a href="./index.html">KtfxManager</a><br/>
 <br/>
 <h1>KtfxManager</h1>
 <code><span class="keyword">interface </span><span class="identifier">KtfxManager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
 <p>Base interface for all layout managers.</p>
-<h3>Properties</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="collection.html">collection</a></p>
-</td>
-<td>
-<code><span class="keyword">abstract</span> <span class="keyword">val </span><span class="identifier">collection</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-collection/index.html"><span class="identifier">MutableCollection</span></a><span class="symbol">&lt;</span><a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
-<p>Actual collection that this manager holds.</p>
-</td>
-</tr>
-</tbody>
-</table>
 <h3>Functions</h3>
 <table>
 <tbody>
@@ -32,22 +18,8 @@
 <p><a href="invoke.html">invoke</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span> <a href="invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="invoke.html#R"><span class="identifier">R</span></a></code>
+<code><span class="keyword">abstract</span> <span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span> <a href="invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="invoke.html#R"><span class="identifier">R</span></a></code>
 <p>Allows item to be added dynamically with Kotlin DSL in the context of this manager.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3>Companion Object Functions</h3>
-<table>
-<tbody>
-<tr>
-<td>
-<p><a href="empty.html">empty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">empty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="./index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><a href="empty.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span></code>
-<p>Implementation of manager where collection are newly created empty modifiable list.</p>
 </td>
 </tr>
 </tbody>
@@ -57,7 +29,7 @@
 <tbody>
 <tr>
 <td>
-<p><a href="../../ktfx/-menu-item-manager.html">MenuItemManager</a></p>
+<p><a href="../-menu-item-manager.html">MenuItemManager</a></p>
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">MenuItemManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></code>
@@ -66,7 +38,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="../../ktfx/-menu-manager.html">MenuManager</a></p>
+<p><a href="../-menu-manager.html">MenuManager</a></p>
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">MenuManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></code>
@@ -75,7 +47,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="../../ktfx/-node-manager/index.html">NodeManager</a></p>
+<p><a href="../-node-manager.html">NodeManager</a></p>
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">NodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></code>
@@ -84,7 +56,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="../../ktfx/-path-element-manager.html">PathElementManager</a></p>
+<p><a href="../-path-element-manager.html">PathElementManager</a></p>
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">PathElementManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">PathElement</span><span class="symbol">&gt;</span></code>
@@ -93,7 +65,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="../../ktfx/-tab-manager.html">TabManager</a></p>
+<p><a href="../-tab-manager.html">TabManager</a></p>
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">TabManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></code>
@@ -102,7 +74,7 @@
 </tr>
 <tr>
 <td>
-<p><a href="../../ktfx/-titled-pane-manager.html">TitledPaneManager</a></p>
+<p><a href="../-titled-pane-manager.html">TitledPaneManager</a></p>
 </td>
 <td>
 <code><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></code>

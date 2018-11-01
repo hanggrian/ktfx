@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXToolbar
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _JFXToolbar : JFXToolbar() {
 

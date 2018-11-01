@@ -4,7 +4,7 @@ package ktfx.controlsfx
 
 import javafx.scene.control.CheckBoxTreeItem
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import org.controlsfx.control.CheckTreeView
 
 /** Creates a [CheckTreeView]. */

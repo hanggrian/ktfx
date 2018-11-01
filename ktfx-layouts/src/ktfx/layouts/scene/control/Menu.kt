@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
 import ktfx.MenuItemManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
 

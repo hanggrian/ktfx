@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXListCell
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [JFXListCell]. */
 fun <T> jfxListCell(

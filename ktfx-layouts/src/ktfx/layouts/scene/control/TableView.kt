@@ -6,7 +6,7 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.control.TableView
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [TableView]. */
 fun <S> tableView(

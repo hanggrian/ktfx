@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.MoveTo
 import ktfx.PathElementManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [MoveTo]. */
 fun moveTo(

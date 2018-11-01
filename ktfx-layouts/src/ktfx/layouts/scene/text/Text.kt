@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.text.Text
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [Text]. */
 fun text(

@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.Sphere
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [Sphere]. */
 fun sphere(

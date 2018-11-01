@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _Pane : Pane(), NodeManager {
 

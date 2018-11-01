@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [MeshView]. */
 fun meshView(

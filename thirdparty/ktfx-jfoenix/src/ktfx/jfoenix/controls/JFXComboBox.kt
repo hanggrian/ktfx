@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXComboBox
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [JFXComboBox]. */
 fun <T> jfxComboBox(

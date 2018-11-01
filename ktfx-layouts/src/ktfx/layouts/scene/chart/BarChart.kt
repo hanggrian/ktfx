@@ -8,7 +8,7 @@ import javafx.scene.chart.Axis
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.XYChart.Series
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [BarChart]. */
 fun <X, Y> barChart(

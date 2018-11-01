@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.SVGPath
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [SVGPath]. */
 fun svgPath(

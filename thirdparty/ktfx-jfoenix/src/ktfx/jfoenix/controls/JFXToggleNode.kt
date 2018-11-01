@@ -5,7 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXToggleNode
 import javafx.scene.Node
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [JFXToggleNode]. */
 fun jfxToggleNode(

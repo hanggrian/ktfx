@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.CheckBox
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [CheckBox]. */
 fun checkBox(

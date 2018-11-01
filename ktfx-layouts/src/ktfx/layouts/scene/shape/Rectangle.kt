@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.Rectangle
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [Rectangle]. */
 fun rectangle(

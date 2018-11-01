@@ -3,7 +3,7 @@
 package ktfx.controlsfx
 
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import org.controlsfx.control.ToggleSwitch
 
 /** Creates a [ToggleSwitch]. */

@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Button
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [Button]. */
 fun button(

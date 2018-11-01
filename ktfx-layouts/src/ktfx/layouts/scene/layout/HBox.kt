@@ -7,7 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _HBox(spacing: Double) : HBox(spacing), NodeManager, HGrowedPane, MarginedPane {
 

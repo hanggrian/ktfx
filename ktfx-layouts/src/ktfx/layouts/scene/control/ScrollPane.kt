@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager by NodeManager.invokableOnly() {
 

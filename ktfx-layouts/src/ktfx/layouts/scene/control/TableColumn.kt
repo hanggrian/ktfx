@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
-import ktfx.internal.KtfxManager
+import ktfx.KtfxManager
 
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {

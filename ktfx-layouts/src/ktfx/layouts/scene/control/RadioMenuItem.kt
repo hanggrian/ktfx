@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.RadioMenuItem
 import ktfx.MenuItemManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [RadioMenuItem]. */
 fun radioMenuItem(

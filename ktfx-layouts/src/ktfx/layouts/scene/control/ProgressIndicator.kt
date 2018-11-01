@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressIndicator
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [ProgressIndicator]. */
 fun progressIndicator(

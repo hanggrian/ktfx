@@ -5,7 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXBadge
 import javafx.scene.Node
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _JFXBadge : JFXBadge(), NodeManager by NodeManager.invokableOnly() {
 

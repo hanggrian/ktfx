@@ -7,7 +7,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.PieChart
 import javafx.scene.chart.PieChart.Data
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [PieChart]. */
 fun pieChart(

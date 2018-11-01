@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.Polygon
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [Polygon]. */
 fun polygon(

@@ -7,7 +7,7 @@ import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
 import ktfx.MenuManager
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _MenuBar : MenuBar(), MenuManager {
 

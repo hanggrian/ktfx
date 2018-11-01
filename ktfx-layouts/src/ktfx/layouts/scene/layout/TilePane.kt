@@ -9,7 +9,7 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
     NodeManager, AlignedPane, MarginedPane {

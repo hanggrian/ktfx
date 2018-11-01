@@ -4,7 +4,7 @@ package ktfx.controlsfx
 
 import javafx.collections.ObservableList
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import org.controlsfx.control.PropertySheet
 
 /** Creates a [PropertySheet]. */

@@ -6,7 +6,7 @@ import javafx.geometry.Side
 import javafx.geometry.Side.RIGHT
 import javafx.scene.Node
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import org.controlsfx.control.MasterDetailPane
 
 open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail),

@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.RadioButton
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [RadioButton]. */
 fun radioButton(

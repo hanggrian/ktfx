@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 

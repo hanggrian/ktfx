@@ -5,7 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXRippler
 import javafx.scene.Node
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 // TODO: should include mask & pos in constructor?
 open class _JFXRippler : JFXRippler(), NodeManager by NodeManager.invokableOnly() {

@@ -8,7 +8,7 @@ import javafx.scene.chart.Axis
 import javafx.scene.chart.BubbleChart
 import javafx.scene.chart.XYChart.Series
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [BubbleChart]. */
 fun <X, Y> bubbleChart(

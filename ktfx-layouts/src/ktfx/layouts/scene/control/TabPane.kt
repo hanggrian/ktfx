@@ -7,7 +7,7 @@ import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
 import ktfx.NodeManager
 import ktfx.TabManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _TabPane : TabPane(), TabManager {
 

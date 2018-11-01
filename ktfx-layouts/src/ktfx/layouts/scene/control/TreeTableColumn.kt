@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
-import ktfx.internal.KtfxManager
+import ktfx.KtfxManager
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {

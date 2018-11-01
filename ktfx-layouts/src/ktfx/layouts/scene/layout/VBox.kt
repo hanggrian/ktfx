@@ -7,7 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowedPane, MarginedPane {
 

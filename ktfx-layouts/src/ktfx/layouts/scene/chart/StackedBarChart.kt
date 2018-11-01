@@ -8,7 +8,7 @@ import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedBarChart
 import javafx.scene.chart.XYChart.Series
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [StackedBarChart]. */
 fun <X, Y> stackedBarChart(

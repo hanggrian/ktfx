@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.shape.Box
 import javafx.scene.shape.Box.DEFAULT_SIZE
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [Box]. */
 fun box(

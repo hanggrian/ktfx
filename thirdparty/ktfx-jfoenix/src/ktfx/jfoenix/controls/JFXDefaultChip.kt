@@ -5,7 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXChipView
 import com.jfoenix.controls.JFXDefaultChip
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [JFXDefaultChip]. */
 fun <T> jfxDefaultChip(

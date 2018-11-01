@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeItem
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [JFXTreeTableView]. */
 fun <S : RecursiveTreeObject<S>> jfxTreeTableView(

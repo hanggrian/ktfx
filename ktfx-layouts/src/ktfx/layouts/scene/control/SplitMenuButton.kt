@@ -7,7 +7,7 @@ import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton
 import ktfx.MenuItemManager
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _SplitMenuButton : SplitMenuButton(), MenuItemManager {
 

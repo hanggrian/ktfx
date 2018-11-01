@@ -6,7 +6,7 @@ import javafx.scene.shape.Path
 import javafx.scene.shape.PathElement
 import ktfx.NodeManager
 import ktfx.PathElementManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _Path : Path(), PathElementManager {
 

@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates an [ImageView]. */
 fun imageView(

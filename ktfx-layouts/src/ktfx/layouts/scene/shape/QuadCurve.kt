@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [QuadCurve]. */
 fun quadCurve(

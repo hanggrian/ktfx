@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.web.WebView
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [WebView]. */
 fun webView(

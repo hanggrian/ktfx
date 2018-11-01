@@ -7,7 +7,7 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _StackPane : StackPane(), NodeManager, AlignedPane, MarginedPane {
 

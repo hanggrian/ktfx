@@ -7,7 +7,7 @@ import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
 import ktfx.NodeManager
 import ktfx.TitledPaneManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _Accordion : Accordion(), TitledPaneManager {
 

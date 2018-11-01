@@ -5,7 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXPopup
 import javafx.scene.Node
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import ktfx.internal.KtfxInternals
 
 open class _JFXPopup : JFXPopup(), NodeManager by NodeManager.invokableOnly() {

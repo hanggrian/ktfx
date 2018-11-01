@@ -9,7 +9,7 @@ import javafx.scene.layout.Pane
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import ktfx.internal.KtfxInternals
 
 open class _Scene(

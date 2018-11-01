@@ -7,7 +7,7 @@ import javafx.scene.control.MenuButton
 import javafx.scene.control.MenuItem
 import ktfx.MenuItemManager
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
 

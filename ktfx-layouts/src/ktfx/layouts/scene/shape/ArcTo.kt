@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.ArcTo
 import ktfx.PathElementManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [ArcTo]. */
 fun arcTo(

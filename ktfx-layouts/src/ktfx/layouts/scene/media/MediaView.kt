@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [MediaView]. */
 fun mediaView(

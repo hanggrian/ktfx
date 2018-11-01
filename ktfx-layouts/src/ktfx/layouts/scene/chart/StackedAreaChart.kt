@@ -8,7 +8,7 @@ import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedAreaChart
 import javafx.scene.chart.XYChart.Series
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [StackedAreaChart]. */
 fun <X, Y> stackedAreaChart(

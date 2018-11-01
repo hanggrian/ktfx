@@ -1,6 +1,5 @@
 package ktfx
 
-import ktfx.internal.KtfxManager
 import ktfx.test.assertContains
 import ktfx.test.assertEmpty
 import ktfx.test.assertNotEmpty

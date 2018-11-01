@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.PasswordField
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [PasswordField]. */
 fun passwordField(

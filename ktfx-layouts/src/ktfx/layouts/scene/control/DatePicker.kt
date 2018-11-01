@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.DatePicker
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import java.time.LocalDate
 
 /** Creates a [DatePicker]. */

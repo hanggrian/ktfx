@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.Group
 import javafx.scene.Node
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _Group : Group(), NodeManager {
 

@@ -4,7 +4,7 @@ package ktfx.controlsfx
 
 import javafx.scene.Node
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import org.controlsfx.control.InfoOverlay
 
 /** Creates a [InfoOverlay]. */

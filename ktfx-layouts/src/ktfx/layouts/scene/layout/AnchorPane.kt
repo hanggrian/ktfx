@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 

@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.layout.Region
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [Region]. */
 fun region(

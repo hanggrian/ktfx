@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.control.Tab
 import ktfx.NodeManager
 import ktfx.TabManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManager by NodeManager.invokableOnly() {
 

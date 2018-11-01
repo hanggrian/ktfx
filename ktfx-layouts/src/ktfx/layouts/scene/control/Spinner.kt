@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.Spinner
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [Spinner]. */
 fun <T> spinner(

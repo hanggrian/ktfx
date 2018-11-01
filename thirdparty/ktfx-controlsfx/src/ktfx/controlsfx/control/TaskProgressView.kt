@@ -4,7 +4,7 @@ package ktfx.controlsfx
 
 import javafx.concurrent.Task
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 import org.controlsfx.control.TaskProgressView
 
 /** Creates a [TaskProgressView]. */

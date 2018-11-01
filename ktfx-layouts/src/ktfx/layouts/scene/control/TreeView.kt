@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeView
 import ktfx.NodeManager
-import ktfx.annotations.LayoutDsl
+import ktfx.LayoutDsl
 
 /** Creates a [TreeView]. */
 fun <T> treeView(

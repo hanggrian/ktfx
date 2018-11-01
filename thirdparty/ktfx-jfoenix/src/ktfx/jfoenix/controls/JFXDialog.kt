@@ -29,7 +29,7 @@ open class _JFXDialog(
     dialogContainer: StackPane?,
     transitionType: DialogTransition,
     overlayClose: Boolean
-) : JFXDialog(dialogContainer, null, transitionType, overlayClose), NodeManager by NodeManager.invokableOnly() {
+) : JFXDialog(dialogContainer, null, transitionType, overlayClose), NodeManager {
 
     override fun <R : Node> R.invoke(): R = also { content = KtfxInternals.asPane(it) }
 }

@@ -3,17 +3,28 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXToolbar
-import ktfx.NodeManager
+import javafx.scene.Node
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _JFXToolbar : JFXToolbar() {
 
+    val collection: MutableCollection<Node> = mutableListOf()
+
     fun leftItems(init: (@LayoutDsl NodeManager).() -> Unit) {
-        leftItems.addAll(NodeManager.empty().apply(init).collection)
+        collection.clear()
+        object : NodeManager {
+            override fun <R : Node> R.invoke(): R = also { collection += it }
+        }.apply(init)
+        leftItems.addAll(collection)
     }
 
     fun rightItems(init: (@LayoutDsl NodeManager).() -> Unit) {
-        rightItems.addAll(NodeManager.empty().apply(init).collection)
+        collection.clear()
+        object : NodeManager {
+            override fun <R : Node> R.invoke(): R = also { collection += it }
+        }.apply(init)
+        rightItems.addAll(collection)
     }
 }
 

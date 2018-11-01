@@ -3,15 +3,15 @@
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 import org.controlsfx.control.HiddenSidesPane
 
 /**
  * Invoking layout DSL will only set content.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _HiddenSidesPane : HiddenSidesPane(), NodeManager by NodeManager.invokableOnly() {
+open class _HiddenSidesPane : HiddenSidesPane(), NodeManager {
 
     override fun <R : Node> R.invoke(): R = also { content = it }
 }

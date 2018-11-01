@@ -4,12 +4,12 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.Pane
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _Pane : Pane(), NodeManager {
 
-    override val collection: MutableCollection<Node> get() = children
+    override fun <R : Node> R.invoke(): R = also { children += it }
 }
 
 /** Creates a [Pane]. */

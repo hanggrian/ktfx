@@ -4,10 +4,10 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXBadge
 import javafx.scene.Node
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
-open class _JFXBadge : JFXBadge(), NodeManager by NodeManager.invokableOnly() {
+open class _JFXBadge : JFXBadge(), NodeManager {
 
     override fun <R : Node> R.invoke(): R = also { control = it }
 }

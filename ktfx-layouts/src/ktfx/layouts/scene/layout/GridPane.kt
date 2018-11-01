@@ -11,13 +11,13 @@ import javafx.scene.layout.ConstraintsBase
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
-import ktfx.NodeManager
-import ktfx.LayoutDsl
 import ktfx.KtfxManager
+import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _GridPane : GridPane(), NodeManager, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane, VGrowedPane {
 
-    override val collection: MutableCollection<Node> get() = children
+    override fun <R : Node> R.invoke(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -99,8 +99,11 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 }
 
 @PublishedApi
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>,
-    KtfxManager<T> by KtfxManager.empty() {
+internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, KtfxManager<T> {
+
+    val collection: MutableCollection<T> = mutableListOf()
+
+    override fun <R : T> R.invoke(): R = also { collection += it }
 
     abstract fun newInstance(): T
 

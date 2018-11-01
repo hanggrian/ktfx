@@ -5,13 +5,13 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
+import ktfx.LayoutDsl
 import ktfx.NodeManager
 import ktfx.TabManager
-import ktfx.LayoutDsl
 
 open class _TabPane : TabPane(), TabManager {
 
-    override val collection: MutableCollection<Tab> get() = tabs
+    override fun <R : Tab> R.invoke(): R = also { tabs += it }
 
     /** Creates a [Tab] and add it to this manager. */
     inline operator fun String.invoke(

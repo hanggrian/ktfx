@@ -5,12 +5,12 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _TextFlow : TextFlow(), NodeManager {
 
-    override val collection: MutableCollection<Node> get() = children
+    override fun <R : Node> R.invoke(): R = also { children += it }
 
     /** Creates a [Text] and add it to this manager. */
     inline operator fun String.invoke(

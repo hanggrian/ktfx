@@ -23,7 +23,11 @@ interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {
 
 @PublishedApi
 internal class _JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> : JFXTreeTableColumnsBuilder<S>,
-    KtfxManager<JFXTreeTableColumn<S, *>> by KtfxManager.empty() {
+    KtfxManager<JFXTreeTableColumn<S, *>> {
+
+    val collection: MutableCollection<JFXTreeTableColumn<S, *>> = mutableListOf()
+
+    override fun <R : JFXTreeTableColumn<S, *>> R.invoke(): R = also { collection += it }
 
     override fun <T> column(text: String?, init: (JFXTreeTableColumn<S, T>.() -> Unit)?): JFXTreeTableColumn<S, T> =
         JFXTreeTableColumn<S, T>(text).also { init?.invoke(it) }()

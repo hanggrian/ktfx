@@ -5,12 +5,11 @@ package ktfx.controlsfx
 import javafx.geometry.Side
 import javafx.geometry.Side.RIGHT
 import javafx.scene.Node
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 import org.controlsfx.control.MasterDetailPane
 
-open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail),
-    NodeManager by NodeManager.invokableOnly() {
+open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
 
     override fun <T : Node> T.invoke(): T = also {
         when (null) {

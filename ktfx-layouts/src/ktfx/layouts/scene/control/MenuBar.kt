@@ -5,13 +5,13 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
+import ktfx.LayoutDsl
 import ktfx.MenuManager
 import ktfx.NodeManager
-import ktfx.LayoutDsl
 
 open class _MenuBar : MenuBar(), MenuManager {
 
-    override val collection: MutableCollection<Menu> get() = menus
+    override fun <R : Menu> R.invoke(): R = also { menus += it }
 
     /** Creates a [Menu] and add it to this manager. */
     inline operator fun String.invoke(

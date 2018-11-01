@@ -8,8 +8,8 @@ import javafx.scene.Scene
 import javafx.scene.layout.Pane
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 import ktfx.internal.KtfxInternals
 
 open class _Scene(
@@ -17,7 +17,7 @@ open class _Scene(
     width: Double,
     height: Double,
     fill: Paint
-) : Scene(root, width, height, fill), NodeManager by NodeManager.invokableOnly() {
+) : Scene(root, width, height, fill), NodeManager {
 
     override operator fun <T : Node> T.invoke(): T = also { root = KtfxInternals.asPane(it) }
 }

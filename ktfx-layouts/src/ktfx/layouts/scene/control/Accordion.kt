@@ -5,13 +5,13 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
+import ktfx.LayoutDsl
 import ktfx.NodeManager
 import ktfx.TitledPaneManager
-import ktfx.LayoutDsl
 
 open class _Accordion : Accordion(), TitledPaneManager {
 
-    override val collection: MutableCollection<TitledPane> get() = panes
+    override fun <R : TitledPane> R.invoke(): R = also { panes += it }
 
     /** Creates a [TitledPane] and add it to this manager. */
     inline operator fun String.invoke(

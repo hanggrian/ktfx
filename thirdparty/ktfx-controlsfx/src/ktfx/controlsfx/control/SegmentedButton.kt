@@ -3,13 +3,17 @@
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import ktfx.NodeManager
+import javafx.scene.control.ToggleButton
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 import org.controlsfx.control.SegmentedButton
 
 open class _SegmentedButton : SegmentedButton(), NodeManager {
 
-    override val collection: MutableCollection<Node> get() = buttons as MutableCollection<Node>
+    override fun <R : Node> R.invoke(): R = also {
+        check(it is ToggleButton) { "Only toggle button is permitted" }
+        buttons += it
+    }
 }
 
 /** Creates a [SegmentedButton]. */

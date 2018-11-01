@@ -8,13 +8,13 @@ import javafx.geometry.Orientation.HORIZONTAL
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
     NodeManager, AlignedPane, MarginedPane {
 
-    override val collection: MutableCollection<Node> get() = children
+    override fun <R : Node> R.invoke(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 

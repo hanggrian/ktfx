@@ -3,11 +3,11 @@
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 import org.controlsfx.control.SnapshotView
 
-open class _SnapshotView : SnapshotView(), NodeManager by NodeManager.invokableOnly() {
+open class _SnapshotView : SnapshotView(), NodeManager {
 
     override fun <R : Node> R.invoke(): R = also { node = it }
 }

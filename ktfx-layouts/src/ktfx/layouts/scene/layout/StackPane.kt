@@ -6,12 +6,12 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _StackPane : StackPane(), NodeManager, AlignedPane, MarginedPane {
 
-    override val collection: MutableCollection<Node> get() = children
+    override fun <R : Node> R.invoke(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 

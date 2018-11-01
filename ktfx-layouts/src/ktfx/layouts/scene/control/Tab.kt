@@ -4,11 +4,11 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Tab
+import ktfx.LayoutDsl
 import ktfx.NodeManager
 import ktfx.TabManager
-import ktfx.LayoutDsl
 
-open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManager by NodeManager.invokableOnly() {
+open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManager {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }

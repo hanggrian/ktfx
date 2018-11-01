@@ -4,11 +4,10 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.TitledPane
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
-open class _TitledPane(title: String?, content: Node?) : TitledPane(title, content),
-    NodeManager by NodeManager.invokableOnly() {
+open class _TitledPane(title: String?, content: Node?) : TitledPane(title, content), NodeManager {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }

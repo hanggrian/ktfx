@@ -5,12 +5,12 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 
-    override val collection: MutableCollection<Node> get() = buttons
+    override fun <R : Node> R.invoke(): R = also { buttons += it }
 
     /** Creates a [Button] and add it to this manager. */
     inline operator fun String.invoke(

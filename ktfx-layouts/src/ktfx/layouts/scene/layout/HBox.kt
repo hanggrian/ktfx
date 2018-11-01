@@ -6,12 +6,12 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _HBox(spacing: Double) : HBox(spacing), NodeManager, HGrowedPane, MarginedPane {
 
-    override val collection: MutableCollection<Node> get() = children
+    override fun <R : Node> R.invoke(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 

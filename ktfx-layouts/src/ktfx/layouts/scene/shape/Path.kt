@@ -4,13 +4,13 @@ package ktfx.layouts
 
 import javafx.scene.shape.Path
 import javafx.scene.shape.PathElement
+import ktfx.LayoutDsl
 import ktfx.NodeManager
 import ktfx.PathElementManager
-import ktfx.LayoutDsl
 
 open class _Path : Path(), PathElementManager {
 
-    override val collection: MutableCollection<PathElement> = elements
+    override fun <R : PathElement> R.invoke(): R = also { elements += it }
 }
 
 /** Creates a [Path]. */

@@ -4,11 +4,11 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXRippler
 import javafx.scene.Node
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 // TODO: should include mask & pos in constructor?
-open class _JFXRippler : JFXRippler(), NodeManager by NodeManager.invokableOnly() {
+open class _JFXRippler : JFXRippler(), NodeManager {
 
     override fun <R : Node> R.invoke(): R = also { control = it }
 }

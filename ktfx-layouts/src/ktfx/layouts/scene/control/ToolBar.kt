@@ -4,12 +4,12 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _ToolBar : ToolBar(), NodeManager {
 
-    override val collection: MutableCollection<Node> get() = items
+    override fun <R : Node> R.invoke(): R = also { items += it }
 }
 
 /** Creates a [ToolBar]. */

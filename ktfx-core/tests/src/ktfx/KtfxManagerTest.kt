@@ -1,25 +1,22 @@
 package ktfx
 
-import ktfx.test.assertContains
-import ktfx.test.assertEmpty
-import ktfx.test.assertNotEmpty
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class KtfxManagerTest {
 
+    var total = 0
+    val manager = object : KtfxManager<Int> {
+        @Suppress("FINAL_UPPER_BOUND") override fun <R : Int> R.invoke(): R = also { total += it }
+    }
+
     @Test fun empty() {
-        val manager = KtfxManager.empty<Int>()
-        assertEmpty(manager.collection)
-        assertContains(manager.apply {
+        assertEquals(0, total)
+        manager.apply {
             1()
             2()
             3()
-        }.collection, 1, 2, 3)
-        assertNotEmpty(manager.collection)
-    }
-
-    @Test(expected = UnsupportedOperationException::class)
-    fun invokableOnly() {
-        NodeManager.invokableOnly().collection
+        }
+        assertEquals(6, total)
     }
 }

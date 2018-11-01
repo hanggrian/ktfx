@@ -5,13 +5,13 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.MenuButton
 import javafx.scene.control.MenuItem
+import ktfx.LayoutDsl
 import ktfx.MenuItemManager
 import ktfx.NodeManager
-import ktfx.LayoutDsl
 
 open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
 
-    override val collection: MutableCollection<MenuItem> get() = items
+    override fun <R : MenuItem> R.invoke(): R = also { items + it }
 
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(

@@ -4,12 +4,12 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXClippedPane
 import javafx.scene.Node
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _JFXClippedPane : JFXClippedPane(), NodeManager {
 
-    override val collection: MutableCollection<Node> get() = children
+    override fun <R : Node> R.invoke(): R = also { children += it }
 }
 
 /** Creates a [JFXClippedPane]. */

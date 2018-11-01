@@ -3,29 +3,52 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXScrollPane
-import ktfx.NodeManager
+import javafx.scene.Node
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
 open class _JFXScrollPane : JFXScrollPane() {
 
+    val collection: MutableCollection<Node> = mutableListOf()
+
     fun topBar(init: (@LayoutDsl NodeManager).() -> Unit) {
-        topBar.children.addAll(NodeManager.empty().apply(init).collection)
+        collection.clear()
+        object : NodeManager {
+            override fun <R : Node> R.invoke(): R = also { collection += it }
+        }.apply(init)
+        topBar.children.addAll(collection)
     }
 
     fun midBar(init: (@LayoutDsl NodeManager).() -> Unit) {
-        midBar.children.addAll(NodeManager.empty().apply(init).collection)
+        collection.clear()
+        object : NodeManager {
+            override fun <R : Node> R.invoke(): R = also { collection += it }
+        }.apply(init)
+        midBar.children.addAll(collection)
     }
 
     fun bottomBar(init: (@LayoutDsl NodeManager).() -> Unit) {
-        bottomBar.children.addAll(NodeManager.empty().apply(init).collection)
+        collection.clear()
+        object : NodeManager {
+            override fun <R : Node> R.invoke(): R = also { collection += it }
+        }.apply(init)
+        bottomBar.children.addAll(collection)
     }
 
     fun mainHeader(init: (@LayoutDsl NodeManager).() -> Unit) {
-        mainHeader.children.addAll(NodeManager.empty().apply(init).collection)
+        collection.clear()
+        object : NodeManager {
+            override fun <R : Node> R.invoke(): R = also { collection += it }
+        }.apply(init)
+        mainHeader.children.addAll(collection)
     }
 
     fun condensedHeader(init: (@LayoutDsl NodeManager).() -> Unit) {
-        condensedHeader.children.addAll(NodeManager.empty().apply(init).collection)
+        collection.clear()
+        object : NodeManager {
+            override fun <R : Node> R.invoke(): R = also { collection += it }
+        }.apply(init)
+        condensedHeader.children.addAll(collection)
     }
 }
 

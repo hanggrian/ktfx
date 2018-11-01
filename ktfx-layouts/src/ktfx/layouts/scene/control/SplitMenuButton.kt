@@ -5,13 +5,13 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton
+import ktfx.LayoutDsl
 import ktfx.MenuItemManager
 import ktfx.NodeManager
-import ktfx.LayoutDsl
 
 open class _SplitMenuButton : SplitMenuButton(), MenuItemManager {
 
-    override val collection: MutableCollection<MenuItem> get() = items
+    override fun <R : MenuItem> R.invoke(): R = also { items += it }
 
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(

@@ -4,14 +4,14 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
 open class _AnchorPane : AnchorPane(), NodeManager, ConstrainedPane {
 
-    override val collection: MutableCollection<Node> get() = children
+    override fun <R : Node> R.invoke(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 

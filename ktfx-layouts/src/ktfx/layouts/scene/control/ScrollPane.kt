@@ -4,10 +4,10 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
-import ktfx.NodeManager
 import ktfx.LayoutDsl
+import ktfx.NodeManager
 
-open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager by NodeManager.invokableOnly() {
+open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }

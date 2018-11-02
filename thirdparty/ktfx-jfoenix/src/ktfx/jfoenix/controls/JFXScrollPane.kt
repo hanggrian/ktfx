@@ -7,7 +7,9 @@ import javafx.scene.Node
 import ktfx.LayoutDsl
 import ktfx.NodeInvokable
 
-open class _JFXScrollPane : JFXScrollPane() {
+open class _JFXScrollPane : JFXScrollPane(), NodeInvokable {
+
+    override fun <R : Node> R.invoke(): R = also { content = it }
 
     val collection: MutableCollection<Node> = mutableListOf()
 

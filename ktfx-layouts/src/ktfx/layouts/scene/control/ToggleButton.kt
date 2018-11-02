@@ -4,8 +4,9 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
-import ktfx.NodeInvokable
 import ktfx.LayoutDsl
+import ktfx.NodeInvokable
+import ktfx.ToggleButtonInvokable
 
 /** Creates a [ToggleButton]. */
 fun toggleButton(
@@ -16,6 +17,13 @@ fun toggleButton(
 
 /** Creates a [ToggleButton] and add it to this manager. */
 inline fun NodeInvokable.toggleButton(
+    text: String? = null,
+    graphic: Node? = null,
+    noinline init: ((@LayoutDsl ToggleButton).() -> Unit)? = null
+): ToggleButton = ktfx.layouts.toggleButton(text, graphic, init)()
+
+/** Creates a [ToggleButton] and add it to this manager. */
+inline fun ToggleButtonInvokable.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl ToggleButton).() -> Unit)? = null

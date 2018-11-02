@@ -5,6 +5,7 @@ import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TitledPane
+import javafx.scene.control.ToggleButton
 import javafx.scene.shape.PathElement
 
 /** Base interface for all layout managers. */
@@ -21,6 +22,9 @@ interface KtfxInvokable<T> {
 
 /** Manager for most panes. */
 interface NodeInvokable : KtfxInvokable<Node>
+
+/** Manager for ControlsFX segmented button. */
+interface ToggleButtonInvokable : KtfxInvokable<ToggleButton>
 
 /** Manager for [javafx.scene.control.Accordion]. */
 interface TitledPaneInvokable : KtfxInvokable<TitledPane>

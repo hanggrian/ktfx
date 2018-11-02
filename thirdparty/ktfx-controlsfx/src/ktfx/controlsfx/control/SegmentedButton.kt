@@ -5,10 +5,10 @@ package ktfx.controlsfx
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import org.controlsfx.control.SegmentedButton
 
-open class _SegmentedButton : SegmentedButton(), NodeManager {
+open class _SegmentedButton : SegmentedButton(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also {
         check(it is ToggleButton) { "Only toggle button is permitted" }
@@ -22,6 +22,6 @@ fun segmentedButton(
 ): SegmentedButton = _SegmentedButton().also { init?.invoke(it) }
 
 /** Creates a [SegmentedButton] and add it to this manager. */
-inline fun NodeManager.segmentedButton(
+inline fun NodeInvokable.segmentedButton(
     noinline init: ((@LayoutDsl _SegmentedButton).() -> Unit)? = null
 ): SegmentedButton = ktfx.controlsfx.segmentedButton(init)()

@@ -9,7 +9,7 @@ import javafx.beans.binding.StringBinding
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [StringBinding]. */
-inline fun stringBindingOf(
+inline fun buildStringBinding(
     vararg dependencies: Observable,
     noinline func: () -> String?
 ): StringBinding = createStringBinding(Callable(func), *dependencies)

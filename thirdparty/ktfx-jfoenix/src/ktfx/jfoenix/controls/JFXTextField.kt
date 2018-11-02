@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTextField
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXTextField]. */
@@ -13,7 +13,7 @@ fun jfxTextField(
 ): JFXTextField = JFXTextField(text.orEmpty()).also { init?.invoke(it) }
 
 /** Creates a [JFXTextField] and add it to this manager. */
-inline fun NodeManager.jfxTextField(
+inline fun NodeInvokable.jfxTextField(
     text: String? = null,
     noinline init: ((@LayoutDsl JFXTextField).() -> Unit)? = null
 ): JFXTextField = ktfx.jfoenix.jfxTextField(text, init)()

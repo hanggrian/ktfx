@@ -5,7 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXDecorator
 import javafx.scene.Node
 import javafx.stage.Stage
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXDecorator]. */
@@ -19,7 +19,7 @@ fun jfxDecorator(
 ): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).also { init?.invoke(it) }
 
 /** Creates a [JFXDecorator] and add it to this manager. */
-inline fun NodeManager.jfxDecorator(
+inline fun NodeInvokable.jfxDecorator(
     stage: Stage,
     node: Node,
     fullscreen: Boolean = true,

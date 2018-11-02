@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.MoveTo
-import ktfx.PathElementManager
+import ktfx.PathElementInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [MoveTo]. */
@@ -14,7 +14,7 @@ fun moveTo(
 ): MoveTo = MoveTo(x, y).also { init?.invoke(it) }
 
 /** Creates a [MoveTo] and add it to this manager. */
-inline fun PathElementManager.moveTo(
+inline fun PathElementInvokable.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     noinline init: ((@LayoutDsl MoveTo).() -> Unit)? = null

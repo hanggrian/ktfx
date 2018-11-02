@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Ellipse
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Ellipse]. */
@@ -16,7 +16,7 @@ fun ellipse(
 ): Ellipse = Ellipse(centerX, centerY, radiusX, radiusY).also { init?.invoke(it) }
 
 /** Creates a [Ellipse] and add it to this manager. */
-inline fun NodeManager.ellipse(
+inline fun NodeInvokable.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

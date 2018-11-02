@@ -5,9 +5,9 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXBadge
 import javafx.scene.Node
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _JFXBadge : JFXBadge(), NodeManager {
+open class _JFXBadge : JFXBadge(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { control = it }
 }
@@ -18,6 +18,6 @@ fun jfxBadge(
 ): JFXBadge = _JFXBadge().also { init?.invoke(it) }
 
 /** Creates a [JFXBadge] and add it to this manager. */
-inline fun NodeManager.jfxBadge(
+inline fun NodeInvokable.jfxBadge(
     noinline init: ((@LayoutDsl _JFXBadge).() -> Unit)? = null
 ): JFXBadge = ktfx.jfoenix.jfxBadge(init)()

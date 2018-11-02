@@ -8,10 +8,10 @@ import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
 open class _FlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
-    NodeManager, MarginedPane {
+    NodeInvokable, MarginedPane {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -31,7 +31,7 @@ fun flowPane(
 ): FlowPane = _FlowPane(orientation, hgap, vgap).also { init?.invoke(it) }
 
 /** Creates a [FlowPane] and add it to this manager. */
-inline fun NodeManager.flowPane(
+inline fun NodeInvokable.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,

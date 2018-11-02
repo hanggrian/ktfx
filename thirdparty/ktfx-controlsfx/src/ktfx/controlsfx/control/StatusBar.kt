@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.StatusBar
 
@@ -12,6 +12,6 @@ fun statusBar(
 ): StatusBar = StatusBar().also { init?.invoke(it) }
 
 /** Creates a [StatusBar] and add it to this manager. */
-inline fun NodeManager.statusBar(
+inline fun NodeInvokable.statusBar(
     noinline init: ((@LayoutDsl StatusBar).() -> Unit)? = null
 ): StatusBar = ktfx.controlsfx.statusBar(init)()

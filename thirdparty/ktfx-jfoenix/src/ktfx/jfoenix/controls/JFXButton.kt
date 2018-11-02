@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXButton
 import javafx.scene.Node
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXButton]. */
@@ -15,7 +15,7 @@ fun jfxButton(
 ): JFXButton = JFXButton(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [JFXButton] and add it to this manager. */
-inline fun NodeManager.jfxButton(
+inline fun NodeInvokable.jfxButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl JFXButton).() -> Unit)? = null

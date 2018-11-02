@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.PrefixSelectionChoiceBox
 
@@ -12,6 +12,6 @@ fun <T> prefixSelectionChoiceBox(
 ): PrefixSelectionChoiceBox<T> = PrefixSelectionChoiceBox<T>().also { init?.invoke(it) }
 
 /** Creates a [PrefixSelectionChoiceBox] and add it to this manager. */
-inline fun <T> NodeManager.prefixSelectionChoiceBox(
+inline fun <T> NodeInvokable.prefixSelectionChoiceBox(
     noinline init: ((@LayoutDsl PrefixSelectionChoiceBox<T>).() -> Unit)? = null
 ): PrefixSelectionChoiceBox<T> = ktfx.controlsfx.prefixSelectionChoiceBox(init)()

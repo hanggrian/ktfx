@@ -3,7 +3,7 @@
 package ktfx.controlsfx
 
 import javafx.collections.ObservableList
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.PropertySheet
 
@@ -14,7 +14,7 @@ fun propertySheet(
 ): PropertySheet = PropertySheet(items).also { init?.invoke(it) }
 
 /** Creates a [PropertySheet] and add it to this manager. */
-inline fun NodeManager.propertySheet(
+inline fun NodeInvokable.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     noinline init: ((@LayoutDsl PropertySheet).() -> Unit)? = null
 ): PropertySheet = ktfx.controlsfx.propertySheet(items, init)()

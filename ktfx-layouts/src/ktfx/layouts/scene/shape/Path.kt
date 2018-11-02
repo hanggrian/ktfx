@@ -5,10 +5,10 @@ package ktfx.layouts
 import javafx.scene.shape.Path
 import javafx.scene.shape.PathElement
 import ktfx.LayoutDsl
-import ktfx.NodeManager
-import ktfx.PathElementManager
+import ktfx.NodeInvokable
+import ktfx.PathElementInvokable
 
-open class _Path : Path(), PathElementManager {
+open class _Path : Path(), PathElementInvokable {
 
     override fun <R : PathElement> R.invoke(): R = also { elements += it }
 }
@@ -19,6 +19,6 @@ fun path(
 ): Path = _Path().also { init?.invoke(it) }
 
 /** Creates a [Path] and add it to this manager. */
-inline fun NodeManager.path(
+inline fun NodeInvokable.path(
     noinline init: ((@LayoutDsl _Path).() -> Unit)? = null
 ): Path = ktfx.layouts.path(init)()

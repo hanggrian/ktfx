@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Line
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Line]. */
@@ -16,7 +16,7 @@ fun line(
 ): Line = Line(centerX, centerY, endX, endY).also { init?.invoke(it) }
 
 /** Creates a [Line] and add it to this manager. */
-inline fun NodeManager.line(
+inline fun NodeInvokable.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,

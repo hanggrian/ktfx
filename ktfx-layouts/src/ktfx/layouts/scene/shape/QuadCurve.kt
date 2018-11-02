@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [QuadCurve]. */
@@ -18,7 +18,7 @@ fun quadCurve(
 ): QuadCurve = QuadCurve(startX, startY, controlX, controlY, endX, endY).also { init?.invoke(it) }
 
 /** Creates a [QuadCurve] and add it to this manager. */
-inline fun NodeManager.quadCurve(
+inline fun NodeInvokable.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,

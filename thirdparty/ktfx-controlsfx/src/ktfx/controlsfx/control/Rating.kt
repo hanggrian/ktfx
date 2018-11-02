@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.Rating
 
@@ -14,7 +14,7 @@ fun rating(
 ): Rating = Rating(max, rating).also { init?.invoke(it) }
 
 /** Creates a [Rating] and add it to this manager. */
-inline fun NodeManager.rating(
+inline fun NodeInvokable.rating(
     max: Int = 5,
     rating: Int = -1,
     noinline init: ((@LayoutDsl Rating).() -> Unit)? = null

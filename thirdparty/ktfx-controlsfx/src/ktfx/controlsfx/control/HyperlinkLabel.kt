@@ -6,7 +6,7 @@ import javafx.event.ActionEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.HyperlinkLabel
 import kotlin.coroutines.CoroutineContext
@@ -23,7 +23,7 @@ fun hyperlinkLabel(
 ): HyperlinkLabel = HyperlinkLabel(text).also { init?.invoke(it) }
 
 /** Creates a [HyperlinkLabel] and add it to this manager. */
-inline fun NodeManager.hyperlinkLabel(
+inline fun NodeInvokable.hyperlinkLabel(
     text: String? = null,
     noinline init: ((@LayoutDsl HyperlinkLabel).() -> Unit)? = null
 ): HyperlinkLabel = ktfx.controlsfx.hyperlinkLabel(text, init)()

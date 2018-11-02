@@ -4,9 +4,9 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Dialog
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _Dialog<R> : Dialog<R>(), NodeManager {
+open class _Dialog<R> : Dialog<R>(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also {
         when (null) {

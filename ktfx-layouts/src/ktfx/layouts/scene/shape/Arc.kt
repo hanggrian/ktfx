@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Arc
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Arc]. */
@@ -18,7 +18,7 @@ fun arc(
 ): Arc = Arc(centerX, centerY, radiusX, radiusY, startAngle, length).also { init?.invoke(it) }
 
 /** Creates a [Arc] and add it to this manager. */
-inline fun NodeManager.arc(
+inline fun NodeInvokable.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

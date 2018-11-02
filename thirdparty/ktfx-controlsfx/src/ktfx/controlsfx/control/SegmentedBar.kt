@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.SegmentedBar
 import org.controlsfx.control.SegmentedBar.Segment
@@ -13,6 +13,6 @@ fun <T : Segment> segmentedBar(
 ): SegmentedBar<T> = SegmentedBar<T>().also { init?.invoke(it) }
 
 /** Creates a [SegmentedBar] and add it to this manager. */
-inline fun <T : Segment> NodeManager.segmentedBar(
+inline fun <T : Segment> NodeInvokable.segmentedBar(
     noinline init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
 ): SegmentedBar<T> = ktfx.controlsfx.segmentedBar(init)()

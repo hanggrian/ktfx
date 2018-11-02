@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.VLineTo
-import ktfx.PathElementManager
+import ktfx.PathElementInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [VLineTo]. */
@@ -13,7 +13,7 @@ fun vlineTo(
 ): VLineTo = VLineTo(y).also { init?.invoke(it) }
 
 /** Creates a [VLineTo] and add it to this manager. */
-inline fun PathElementManager.vlineTo(
+inline fun PathElementInvokable.vlineTo(
     y: Double = 0.0,
     noinline init: ((@LayoutDsl VLineTo).() -> Unit)? = null
 ): VLineTo = ktfx.layouts.vlineTo(y, init)()

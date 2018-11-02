@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTimePicker
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import java.time.LocalTime
 
@@ -14,7 +14,7 @@ fun jfxTimePicker(
 ): JFXTimePicker = JFXTimePicker(localTime).also { init?.invoke(it) }
 
 /** Creates a [JFXTimePicker] and add it to this manager. */
-inline fun NodeManager.jfxTimePicker(
+inline fun NodeInvokable.jfxTimePicker(
     localTime: LocalTime? = null,
     noinline init: ((@LayoutDsl JFXTimePicker).() -> Unit)? = null
 ): JFXTimePicker = ktfx.jfoenix.jfxTimePicker(localTime, init)()

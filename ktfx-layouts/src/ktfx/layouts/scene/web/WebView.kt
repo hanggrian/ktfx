@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.web.WebView
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [WebView]. */
@@ -12,6 +12,6 @@ fun webView(
 ): WebView = WebView().also { init?.invoke(it) }
 
 /** Creates a [WebView] and add it to this manager. */
-inline fun NodeManager.webView(
+inline fun NodeInvokable.webView(
     noinline init: ((@LayoutDsl WebView).() -> Unit)? = null
 ): WebView = ktfx.layouts.webView(init)()

@@ -3,7 +3,7 @@
 package ktfx.controlsfx
 
 import javafx.scene.control.CheckBoxTreeItem
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.CheckTreeView
 
@@ -14,7 +14,7 @@ fun <T> checkTreeView(
 ): CheckTreeView<T> = CheckTreeView<T>(root).also { init?.invoke(it) }
 
 /** Creates a [CheckTreeView] and add it to this manager. */
-inline fun <T> NodeManager.checkTreeView(
+inline fun <T> NodeInvokable.checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
     noinline init: ((@LayoutDsl CheckTreeView<T>).() -> Unit)? = null
 ): CheckTreeView<T> = ktfx.controlsfx.checkTreeView(root, init)()

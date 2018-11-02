@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.control.Separator
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Separator]. */
@@ -15,7 +15,7 @@ fun separator(
 ): Separator = Separator(orientation).also { init?.invoke(it) }
 
 /** Creates a [Separator] and add it to this manager. */
-inline fun NodeManager.separator(
+inline fun NodeInvokable.separator(
     orientation: Orientation = HORIZONTAL,
     noinline init: ((@LayoutDsl Separator).() -> Unit)? = null
 ): Separator = ktfx.layouts.separator(orientation, init)()

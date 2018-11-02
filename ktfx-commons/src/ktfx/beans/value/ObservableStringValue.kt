@@ -20,10 +20,10 @@ import javafx.beans.binding.IntegerBinding
 import javafx.beans.binding.ObjectBinding
 import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableStringValue
-import ktfx.beans.binding.bindingOf
-import ktfx.beans.binding.booleanBindingOf
-import ktfx.beans.binding.intBindingOf
-import ktfx.beans.binding.stringBindingOf
+import ktfx.beans.binding.buildBinding
+import ktfx.beans.binding.buildBooleanBinding
+import ktfx.beans.binding.buildIntBinding
+import ktfx.beans.binding.buildStringBinding
 import kotlin.reflect.KProperty
 
 /** Delegated property, use with `by` keyword. */
@@ -105,56 +105,56 @@ inline infix fun String.lessEq(op: ObservableStringValue): BooleanBinding = less
 /** Binding of [String.trim]. */
 inline fun ObservableStringValue.trim(
     noinline predicate: (Char) -> Boolean
-): StringBinding = stringBindingOf(this) { get().trim(predicate) }
+): StringBinding = buildStringBinding(this) { get().trim(predicate) }
 
 /** Binding of [String.trimStart]. */
 inline fun ObservableStringValue.trimStart(
     noinline predicate: (Char) -> Boolean
-): StringBinding = stringBindingOf(this) { get().trimStart(predicate) }
+): StringBinding = buildStringBinding(this) { get().trimStart(predicate) }
 
 /** Binding of [String.trimEnd]. */
 inline fun ObservableStringValue.trimEnd(
     noinline predicate: (Char) -> Boolean
-): StringBinding = stringBindingOf(this) { get().trimEnd(predicate) }
+): StringBinding = buildStringBinding(this) { get().trimEnd(predicate) }
 
 /** Binding of [String.trim]. */
-inline fun ObservableStringValue.trim(): StringBinding = stringBindingOf(this) { get().trim() }
+inline fun ObservableStringValue.trim(): StringBinding = buildStringBinding(this) { get().trim() }
 
 /** Binding of [String.trimStart]. */
-inline fun ObservableStringValue.trimStart(): StringBinding = stringBindingOf(this) { get().trimStart() }
+inline fun ObservableStringValue.trimStart(): StringBinding = buildStringBinding(this) { get().trimStart() }
 
 /** Binding of [String.trimEnd]. */
-inline fun ObservableStringValue.trimEnd(): StringBinding = stringBindingOf(this) { get().trimEnd() }
+inline fun ObservableStringValue.trimEnd(): StringBinding = buildStringBinding(this) { get().trimEnd() }
 
 /** Binding of [String.padStart]. */
 inline fun ObservableStringValue.padStart(
     length: Int,
     padChar: Char = ' '
-): StringBinding = stringBindingOf(this) { get().padStart(length, padChar) }
+): StringBinding = buildStringBinding(this) { get().padStart(length, padChar) }
 
 /** Binding of [String.padEnd]. */
 inline fun ObservableStringValue.padEnd(
     length: Int,
     padChar: Char = ' '
-): StringBinding = stringBindingOf(this) { get().padEnd(length, padChar) }
+): StringBinding = buildStringBinding(this) { get().padEnd(length, padChar) }
 
 /** Binding of [String.isNullOrBlank]. */
-inline fun ObservableStringValue.isNullOrBlank(): BooleanBinding = booleanBindingOf(this) { get().isNullOrBlank() }
+inline fun ObservableStringValue.isNullOrBlank(): BooleanBinding = buildBooleanBinding(this) { get().isNullOrBlank() }
 
 /** Binding of [String.isNullOrEmpty]. */
-inline fun ObservableStringValue.isNullOrEmpty(): BooleanBinding = booleanBindingOf(this) { get().isNullOrEmpty() }
+inline fun ObservableStringValue.isNullOrEmpty(): BooleanBinding = buildBooleanBinding(this) { get().isNullOrEmpty() }
 
 /** Binding of [String.orEmpty]. */
-inline fun ObservableStringValue.orEmpty(): StringBinding = stringBindingOf(this) { get().orEmpty() }
+inline fun ObservableStringValue.orEmpty(): StringBinding = buildStringBinding(this) { get().orEmpty() }
 
 /** Binding of [String.indices]. */
-inline val ObservableStringValue.indices: ObjectBinding<IntRange> get() = bindingOf(this) { get().indices }
+inline val ObservableStringValue.indices: ObjectBinding<IntRange> get() = buildBinding(this) { get().indices }
 
 /** Binding of [String.indices]. */
-inline val ObservableStringValue.lastIndex: IntegerBinding get() = intBindingOf(this) { get().lastIndex }
+inline val ObservableStringValue.lastIndex: IntegerBinding get() = buildIntBinding(this) { get().lastIndex }
 
 /** Binding of [String.isBlank]. */
-inline fun ObservableStringValue.isBlank(): BooleanBinding = booleanBindingOf(this) { get().isBlank() }
+inline fun ObservableStringValue.isBlank(): BooleanBinding = buildBooleanBinding(this) { get().isBlank() }
 
 /** Binding of [String.isNotBlank]. */
-inline fun ObservableStringValue.isNotBlank(): BooleanBinding = booleanBindingOf(this) { get().isNotBlank() }
+inline fun ObservableStringValue.isNotBlank(): BooleanBinding = buildBooleanBinding(this) { get().isNotBlank() }

@@ -4,7 +4,7 @@ package ktfx.controlsfx
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.CheckListView
 
@@ -15,7 +15,7 @@ fun <T> checkListView(
 ): CheckListView<T> = CheckListView(items).also { init?.invoke(it) }
 
 /** Creates a [CheckListView] and add it to this manager. */
-inline fun <T> NodeManager.checkListView(
+inline fun <T> NodeInvokable.checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     noinline init: ((@LayoutDsl CheckListView<T>).() -> Unit)? = null
 ): CheckListView<T> = ktfx.controlsfx.checkListView(items, init)()

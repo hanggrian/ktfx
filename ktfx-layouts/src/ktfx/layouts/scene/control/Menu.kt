@@ -6,9 +6,9 @@ import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
 import ktfx.LayoutDsl
-import ktfx.MenuItemManager
+import ktfx.MenuItemInvokable
 
-open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
+open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemInvokable {
 
     override fun <R : MenuItem> R.invoke(): R = also { items += it }
 
@@ -27,7 +27,7 @@ fun menu(
 ): Menu = _Menu(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Menu] and add it to this manager. */
-inline fun MenuItemManager.menu(
+inline fun MenuItemInvokable.menu(
     text: String = "",
     graphic: Node? = null,
     noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null

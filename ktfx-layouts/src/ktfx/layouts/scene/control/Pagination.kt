@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.Pagination
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Pagination]. */
@@ -14,7 +14,7 @@ fun pagination(
 ): Pagination = Pagination(count, index).also { init?.invoke(it) }
 
 /** Creates a [Pagination] and add it to this manager. */
-inline fun NodeManager.pagination(
+inline fun NodeInvokable.pagination(
     count: Int = Pagination.INDETERMINATE,
     index: Int = 0,
     noinline init: ((@LayoutDsl Pagination).() -> Unit)? = null

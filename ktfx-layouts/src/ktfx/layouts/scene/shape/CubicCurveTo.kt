@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurveTo
-import ktfx.PathElementManager
+import ktfx.PathElementInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [CubicCurveTo]. */
@@ -18,7 +18,7 @@ fun cubicCurveTo(
 ): CubicCurveTo = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).also { init?.invoke(it) }
 
 /** Creates a [CubicCurveTo] and add it to this manager. */
-inline fun PathElementManager.cubicCurveTo(
+inline fun PathElementInvokable.cubicCurveTo(
     controlX1: Double = 0.0,
     controlY1: Double = 0.0,
     controlX2: Double = 0.0,

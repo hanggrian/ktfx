@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ArcTo
-import ktfx.PathElementManager
+import ktfx.PathElementInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [ArcTo]. */
@@ -19,7 +19,7 @@ fun arcTo(
 ): ArcTo = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag).also { init?.invoke(it) }
 
 /** Creates a [ArcTo] and add it to this manager. */
-inline fun PathElementManager.arcTo(
+inline fun PathElementInvokable.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,

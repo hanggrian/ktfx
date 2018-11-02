@@ -7,9 +7,9 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowedPane, MarginedPane {
+open class _VBox(spacing: Double) : VBox(spacing), NodeInvokable, VGrowedPane, MarginedPane {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -31,7 +31,7 @@ fun vbox(
 ): VBox = _VBox(spacing).also { init?.invoke(it) }
 
 /** Creates a [VBox] and add it to this manager. */
-inline fun NodeManager.vbox(
+inline fun NodeInvokable.vbox(
     spacing: Double = 0.0,
     noinline init: ((@LayoutDsl _VBox).() -> Unit)? = null
 ): VBox = ktfx.layouts.vbox(spacing, init)()

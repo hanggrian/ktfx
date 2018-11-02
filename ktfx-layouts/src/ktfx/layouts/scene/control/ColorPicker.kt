@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [ColorPicker]. */
@@ -15,7 +15,7 @@ fun colorPicker(
 ): ColorPicker = ColorPicker(color).also { init?.invoke(it) }
 
 /** Creates a [ColorPicker] and add it to this manager. */
-inline fun NodeManager.colorPicker(
+inline fun NodeInvokable.colorPicker(
     color: Color = WHITE,
     noinline init: ((@LayoutDsl ColorPicker).() -> Unit)? = null
 ): ColorPicker = ktfx.layouts.colorPicker(color, init)()

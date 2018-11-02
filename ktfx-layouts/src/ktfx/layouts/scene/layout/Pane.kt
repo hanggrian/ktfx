@@ -5,9 +5,9 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _Pane : Pane(), NodeManager {
+open class _Pane : Pane(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 }
@@ -18,6 +18,6 @@ fun pane(
 ): Pane = _Pane().also { init?.invoke(it) }
 
 /** Creates a [Pane] and add it to this manager. */
-inline fun NodeManager.pane(
+inline fun NodeInvokable.pane(
     noinline init: ((@LayoutDsl _Pane).() -> Unit)? = null
 ): Pane = ktfx.layouts.pane(init)()

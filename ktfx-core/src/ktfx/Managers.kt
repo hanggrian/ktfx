@@ -8,7 +8,7 @@ import javafx.scene.control.TitledPane
 import javafx.scene.shape.PathElement
 
 /** Base interface for all layout managers. */
-interface KtfxManager<T> {
+interface KtfxInvokable<T> {
 
     /**
      * Allows item to be added dynamically with Kotlin DSL in the context of this manager.
@@ -20,19 +20,19 @@ interface KtfxManager<T> {
 }
 
 /** Manager for most panes. */
-interface NodeManager : KtfxManager<Node>
+interface NodeInvokable : KtfxInvokable<Node>
 
 /** Manager for [javafx.scene.control.Accordion]. */
-interface TitledPaneManager : KtfxManager<TitledPane>
+interface TitledPaneInvokable : KtfxInvokable<TitledPane>
 
 /** Manager for [javafx.scene.control.MenuBar]. */
-interface MenuManager : KtfxManager<Menu>
+interface MenuInvokable : KtfxInvokable<Menu>
 
 /** Manager for [javafx.scene.control.SplitMenuButton]. */
-interface MenuItemManager : KtfxManager<MenuItem>
+interface MenuItemInvokable : KtfxInvokable<MenuItem>
 
 /** Manager for [javafx.scene.control.TabPane]. */
-interface TabManager : KtfxManager<Tab>
+interface TabInvokable : KtfxInvokable<Tab>
 
 /** Manager for [javafx.scene.shape.Path]. */
-interface PathElementManager : KtfxManager<PathElement>
+interface PathElementInvokable : KtfxInvokable<PathElement>

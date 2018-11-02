@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurve
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [CubicCurve]. */
@@ -21,7 +21,7 @@ fun cubicCurve(
     .also { init?.invoke(it) }
 
 /** Creates a [CubicCurve] and add it to this manager. */
-inline fun NodeManager.cubicCurve(
+inline fun NodeInvokable.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,

@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.PasswordField
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [PasswordField]. */
@@ -12,6 +12,6 @@ fun passwordField(
 ): PasswordField = PasswordField().also { init?.invoke(it) }
 
 /** Creates a [PasswordField] and add it to this manager. */
-inline fun NodeManager.passwordField(
+inline fun NodeInvokable.passwordField(
     noinline init: ((@LayoutDsl PasswordField).() -> Unit)? = null
 ): PasswordField = ktfx.layouts.passwordField(init)()

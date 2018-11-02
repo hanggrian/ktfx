@@ -7,9 +7,9 @@ import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _HBox(spacing: Double) : HBox(spacing), NodeManager, HGrowedPane, MarginedPane {
+open class _HBox(spacing: Double) : HBox(spacing), NodeInvokable, HGrowedPane, MarginedPane {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -31,7 +31,7 @@ fun hbox(
 ): HBox = _HBox(spacing).also { init?.invoke(it) }
 
 /** Creates a [HBox] and add it to this manager. */
-inline fun NodeManager.hbox(
+inline fun NodeInvokable.hbox(
     spacing: Double = 0.0,
     noinline init: ((@LayoutDsl _HBox).() -> Unit)? = null
 ): HBox = ktfx.layouts.hbox(spacing, init)()

@@ -7,7 +7,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.ScatterChart
 import javafx.scene.chart.XYChart.Series
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [ScatterChart]. */
@@ -19,7 +19,7 @@ fun <X, Y> scatterChart(
 ): ScatterChart<X, Y> = ScatterChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [ScatterChart] and add it to this manager. */
-inline fun <X, Y> NodeManager.scatterChart(
+inline fun <X, Y> NodeInvokable.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),

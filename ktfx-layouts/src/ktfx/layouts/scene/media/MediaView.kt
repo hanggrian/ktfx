@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [MediaView]. */
@@ -14,7 +14,7 @@ fun mediaView(
 ): MediaView = MediaView(player).also { init?.invoke(it) }
 
 /** Creates a [MediaView] and add it to this manager. */
-inline fun NodeManager.mediaView(
+inline fun NodeInvokable.mediaView(
     player: MediaPlayer? = null,
     noinline init: ((@LayoutDsl MediaView).() -> Unit)? = null
 ): MediaView = ktfx.layouts.mediaView(player, init)()

@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.text.Text
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Text]. */
@@ -13,7 +13,7 @@ fun text(
 ): Text = Text(text).also { init?.invoke(it) }
 
 /** Creates a [Text] and add it to this manager. */
-inline fun NodeManager.text(
+inline fun NodeInvokable.text(
     text: String? = null,
     noinline init: ((@LayoutDsl Text).() -> Unit)? = null
 ): Text = ktfx.layouts.text(text, init)()

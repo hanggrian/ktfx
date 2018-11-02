@@ -5,11 +5,11 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
-open class _AnchorPane : AnchorPane(), NodeManager, ConstrainedPane {
+open class _AnchorPane : AnchorPane(), NodeInvokable, ConstrainedPane {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -57,6 +57,6 @@ fun anchorPane(
 ): AnchorPane = _AnchorPane().also { init?.invoke(it) }
 
 /** Creates a [AnchorPane] and add it to this manager. */
-inline fun NodeManager.anchorPane(
+inline fun NodeInvokable.anchorPane(
     noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
 ): AnchorPane = ktfx.layouts.anchorPane(init)()

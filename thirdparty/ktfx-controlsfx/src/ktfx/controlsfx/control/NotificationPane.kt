@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import org.controlsfx.control.NotificationPane
 import kotlin.coroutines.CoroutineContext
 
@@ -32,7 +32,7 @@ fun NotificationPane.onHidden(
     action: suspend CoroutineScope.(Event) -> Unit
 ): Unit = setOnHidden { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
-open class _NotificationPane : NotificationPane(), NodeManager {
+open class _NotificationPane : NotificationPane(), NodeInvokable {
 
     override fun <T : Node> T.invoke(): T = also { content = it }
 }
@@ -43,6 +43,6 @@ fun notificationPane(
 ): NotificationPane = _NotificationPane().also { init?.invoke(it) }
 
 /** Creates a [NotificationPane] and add it to this manager. */
-inline fun NodeManager.notificationPane(
+inline fun NodeInvokable.notificationPane(
     noinline init: ((@LayoutDsl _NotificationPane).() -> Unit)? = null
 ): NotificationPane = ktfx.controlsfx.notificationPane(init)()

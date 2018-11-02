@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Sphere
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Sphere]. */
@@ -14,7 +14,7 @@ fun sphere(
 ): Sphere = Sphere(radius, division).also { init?.invoke(it) }
 
 /** Creates a [Sphere] and add it to this manager. */
-inline fun NodeManager.sphere(
+inline fun NodeInvokable.sphere(
     radius: Double = 1.0,
     division: Int = 64,
     noinline init: ((@LayoutDsl Sphere).() -> Unit)? = null

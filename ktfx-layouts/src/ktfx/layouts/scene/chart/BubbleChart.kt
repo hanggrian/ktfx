@@ -7,7 +7,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.BubbleChart
 import javafx.scene.chart.XYChart.Series
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [BubbleChart]. */
@@ -19,7 +19,7 @@ fun <X, Y> bubbleChart(
 ): BubbleChart<X, Y> = BubbleChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [BubbleChart] and add it to this manager. */
-inline fun <X, Y> NodeManager.bubbleChart(
+inline fun <X, Y> NodeInvokable.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),

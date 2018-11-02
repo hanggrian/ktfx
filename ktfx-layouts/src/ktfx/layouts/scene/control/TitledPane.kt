@@ -5,9 +5,9 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.TitledPane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _TitledPane(title: String?, content: Node?) : TitledPane(title, content), NodeManager {
+open class _TitledPane(title: String?, content: Node?) : TitledPane(title, content), NodeInvokable {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }
@@ -20,7 +20,7 @@ fun titledPane(
 ): TitledPane = _TitledPane(text, content).also { init?.invoke(it) }
 
 /** Creates a [TitledPane] and add it to this manager. */
-inline fun NodeManager.titledPane(
+inline fun NodeInvokable.titledPane(
     text: String? = null,
     content: Node? = null,
     noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null

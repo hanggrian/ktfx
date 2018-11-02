@@ -28,25 +28,25 @@ import javafx.beans.value.ObservableNumberValue
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [DoubleBinding]. */
-inline fun doubleBindingOf(
+inline fun buildDoubleBinding(
     vararg dependencies: Observable,
     noinline func: () -> Double?
 ): DoubleBinding = createDoubleBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [FloatBinding]. */
-inline fun floatBindingOf(
+inline fun buildFloatBinding(
     vararg dependencies: Observable,
     noinline func: () -> Float?
 ): FloatBinding = createFloatBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [IntegerBinding]. */
-inline fun intBindingOf(
+inline fun buildIntBinding(
     vararg dependencies: Observable,
     noinline func: () -> Int?
 ): IntegerBinding = createIntegerBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [LongBinding]. */
-inline fun longBindingOf(
+inline fun buildLongBinding(
     vararg dependencies: Observable,
     noinline func: () -> Long?
 ): LongBinding = createLongBinding(Callable(func), *dependencies)

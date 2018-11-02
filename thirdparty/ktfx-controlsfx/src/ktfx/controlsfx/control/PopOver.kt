@@ -4,10 +4,10 @@ package ktfx.controlsfx
 
 import javafx.scene.Node
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import org.controlsfx.control.PopOver
 
-open class _PopOver : PopOver(), NodeManager {
+open class _PopOver : PopOver(), NodeInvokable {
 
     override fun <T : Node> T.invoke(): T = also { contentNode = it }
 }

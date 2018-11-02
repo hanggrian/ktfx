@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXSpinner
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXSpinner]. */
@@ -13,7 +13,7 @@ fun jfxSpinner(
 ): JFXSpinner = JFXSpinner(progress).also { init?.invoke(it) }
 
 /** Creates a [JFXSpinner] and add it to this manager. */
-inline fun NodeManager.jfxSpinner(
+inline fun NodeInvokable.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
     noinline init: ((@LayoutDsl JFXSpinner).() -> Unit)? = null
 ): JFXSpinner = ktfx.jfoenix.jfxSpinner(progress, init)()

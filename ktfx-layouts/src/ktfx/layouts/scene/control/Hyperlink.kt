@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Hyperlink]. */
@@ -15,7 +15,7 @@ fun hyperlink(
 ): Hyperlink = Hyperlink(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Hyperlink] and add it to this manager. */
-inline fun NodeManager.hyperlink(
+inline fun NodeInvokable.hyperlink(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Hyperlink).() -> Unit)? = null

@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXChipView
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXChipView]. */
@@ -12,6 +12,6 @@ fun <T> jfxChipView(
 ): JFXChipView<T> = JFXChipView<T>().also { init?.invoke(it) }
 
 /** Creates a [JFXChipView] and add it to this manager. */
-inline fun <T> NodeManager.jfxChipView(
+inline fun <T> NodeInvokable.jfxChipView(
     noinline init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
 ): JFXChipView<T> = ktfx.jfoenix.jfxChipView(init)()

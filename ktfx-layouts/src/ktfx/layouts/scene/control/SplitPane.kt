@@ -5,9 +5,9 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.SplitPane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _SplitPane : SplitPane(), NodeManager {
+open class _SplitPane : SplitPane(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { items += it }
 }
@@ -18,6 +18,6 @@ fun splitPane(
 ): SplitPane = _SplitPane().also { init?.invoke(it) }
 
 /** Creates a [SplitPane] and add it to this manager. */
-inline fun NodeManager.splitPane(
+inline fun NodeInvokable.splitPane(
     noinline init: ((@LayoutDsl _SplitPane).() -> Unit)? = null
 ): SplitPane = ktfx.layouts.splitPane(init)()

@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.Slider
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Slider]. */
@@ -15,7 +15,7 @@ fun slider(
 ): Slider = Slider(min, max, value).also { init?.invoke(it) }
 
 /** Creates a [Slider] and add it to this manager. */
-inline fun NodeManager.slider(
+inline fun NodeInvokable.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,

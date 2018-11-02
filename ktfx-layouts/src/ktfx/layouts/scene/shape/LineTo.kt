@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.LineTo
-import ktfx.PathElementManager
+import ktfx.PathElementInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [LineTo]. */
@@ -14,7 +14,7 @@ fun lineTo(
 ): LineTo = LineTo(x, y).also { init?.invoke(it) }
 
 /** Creates a [LineTo] and add it to this manager. */
-inline fun PathElementManager.lineTo(
+inline fun PathElementInvokable.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
     noinline init: ((@LayoutDsl LineTo).() -> Unit)? = null

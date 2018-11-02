@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.Region
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Region]. */
@@ -12,6 +12,6 @@ fun region(
 ): Region = Region().also { init?.invoke(it) }
 
 /** Creates a [Region] and add it to this manager. */
-inline fun NodeManager.region(
+inline fun NodeInvokable.region(
     noinline init: ((@LayoutDsl Region).() -> Unit)? = null
 ): Region = ktfx.layouts.region(init)()

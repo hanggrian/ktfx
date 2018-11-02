@@ -7,9 +7,9 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _StackPane : StackPane(), NodeManager, AlignedPane, MarginedPane {
+open class _StackPane : StackPane(), NodeInvokable, AlignedPane, MarginedPane {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -30,6 +30,6 @@ fun stackPane(
 ): StackPane = _StackPane().also { init?.invoke(it) }
 
 /** Creates a [StackPane] and add it to this manager. */
-inline fun NodeManager.stackPane(
+inline fun NodeInvokable.stackPane(
     noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
 ): StackPane = ktfx.layouts.stackPane(init)()

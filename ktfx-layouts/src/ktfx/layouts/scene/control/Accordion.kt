@@ -6,10 +6,10 @@ import javafx.scene.Node
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
-import ktfx.TitledPaneManager
+import ktfx.NodeInvokable
+import ktfx.TitledPaneInvokable
 
-open class _Accordion : Accordion(), TitledPaneManager {
+open class _Accordion : Accordion(), TitledPaneInvokable {
 
     override fun <R : TitledPane> R.invoke(): R = also { panes += it }
 
@@ -26,6 +26,6 @@ fun accordion(
 ): Accordion = _Accordion().also { init?.invoke(it) }
 
 /** Creates a [Accordion] and add it to this manager. */
-inline fun NodeManager.accordion(
+inline fun NodeInvokable.accordion(
     noinline init: ((@LayoutDsl _Accordion).() -> Unit)? = null
 ): Accordion = ktfx.layouts.accordion(init)()

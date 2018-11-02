@@ -5,10 +5,10 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import ktfx.LayoutDsl
-import ktfx.NodeManager
-import ktfx.TabManager
+import ktfx.NodeInvokable
+import ktfx.TabInvokable
 
-open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManager {
+open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeInvokable {
 
     override operator fun <T : Node> T.invoke(): T = also { content = it }
 }
@@ -21,7 +21,7 @@ fun tab(
 ): Tab = _Tab(text, content).also { init?.invoke(it) }
 
 /** Creates a [Tab] and add it to this manager. */
-inline fun TabManager.tab(
+inline fun TabInvokable.tab(
     text: String? = null,
     content: Node? = null,
     noinline init: ((@LayoutDsl _Tab).() -> Unit)? = null

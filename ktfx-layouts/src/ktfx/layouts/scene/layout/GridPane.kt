@@ -11,11 +11,11 @@ import javafx.scene.layout.ConstraintsBase
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
-import ktfx.KtfxManager
+import ktfx.KtfxInvokable
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _GridPane : GridPane(), NodeManager, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane, VGrowedPane {
+open class _GridPane : GridPane(), NodeInvokable, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane, VGrowedPane {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -84,7 +84,7 @@ fun gridPane(
 ): GridPane = _GridPane().also { init?.invoke(it) }
 
 /** Creates a [GridPane] and add it to this manager. */
-inline fun NodeManager.gridPane(
+inline fun NodeInvokable.gridPane(
     noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
 ): GridPane = ktfx.layouts.gridPane(init)()
 
@@ -99,7 +99,7 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 }
 
 @PublishedApi
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, KtfxManager<T> {
+internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, KtfxInvokable<T> {
 
     val collection: MutableCollection<T> = mutableListOf()
 

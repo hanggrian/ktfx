@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polyline
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Polyline]. */
@@ -13,7 +13,7 @@ fun polyline(
 ): Polyline = Polyline(*points).also { init?.invoke(it) }
 
 /** Creates a [Polyline] and add it to this manager. */
-inline fun NodeManager.polyline(
+inline fun NodeInvokable.polyline(
     vararg points: Double,
     noinline init: ((@LayoutDsl Polyline).() -> Unit)? = null
 ): Polyline = ktfx.layouts.polyline(*points, init = init)()

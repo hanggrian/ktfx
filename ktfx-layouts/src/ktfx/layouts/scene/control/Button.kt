@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Button
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Button]. */
@@ -15,7 +15,7 @@ fun button(
 ): Button = Button(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Button] and add it to this manager. */
-inline fun NodeManager.button(
+inline fun NodeInvokable.button(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Button).() -> Unit)? = null

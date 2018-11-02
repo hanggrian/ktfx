@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.RadioMenuItem
-import ktfx.MenuItemManager
+import ktfx.MenuItemInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [RadioMenuItem]. */
@@ -15,7 +15,7 @@ fun radioMenuItem(
 ): RadioMenuItem = RadioMenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [RadioMenuItem] and add it to this manager. */
-inline fun MenuItemManager.radioMenuItem(
+inline fun MenuItemInvokable.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl RadioMenuItem).() -> Unit)? = null

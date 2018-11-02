@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [ProgressBar]. */
@@ -13,7 +13,7 @@ fun progressBar(
 ): ProgressBar = ProgressBar(progress).also { init?.invoke(it) }
 
 /** Creates a [ProgressBar] and add it to this manager. */
-inline fun NodeManager.progressBar(
+inline fun NodeInvokable.progressBar(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
     noinline init: ((@LayoutDsl ProgressBar).() -> Unit)? = null
 ): ProgressBar = ktfx.layouts.progressBar(progress, init)()

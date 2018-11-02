@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXRadioButton
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXRadioButton]. */
@@ -13,7 +13,7 @@ fun jfxRadioButton(
 ): JFXRadioButton = JFXRadioButton(text).also { init?.invoke(it) }
 
 /** Creates a [JFXRadioButton] and add it to this manager. */
-inline fun NodeManager.jfxRadioButton(
+inline fun NodeInvokable.jfxRadioButton(
     text: String? = null,
     noinline init: ((@LayoutDsl JFXRadioButton).() -> Unit)? = null
 ): JFXRadioButton = ktfx.jfoenix.jfxRadioButton(text, init)()

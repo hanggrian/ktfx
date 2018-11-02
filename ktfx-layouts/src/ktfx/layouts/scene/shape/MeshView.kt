@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [MeshView]. */
@@ -14,7 +14,7 @@ fun meshView(
 ): MeshView = MeshView(mesh).also { init?.invoke(it) }
 
 /** Creates a [MeshView] and add it to this manager. */
-inline fun NodeManager.meshView(
+inline fun NodeInvokable.meshView(
     mesh: Mesh? = null,
     noinline init: ((@LayoutDsl MeshView).() -> Unit)? = null
 ): MeshView = ktfx.layouts.meshView(mesh, init)()

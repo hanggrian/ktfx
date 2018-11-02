@@ -9,7 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import kotlin.coroutines.CoroutineContext
 
@@ -39,6 +39,6 @@ fun jfxDrawer(
 ): JFXDrawer = JFXDrawer().also { init?.invoke(it) }
 
 /** Creates a [JFXDrawer] and add it to this manager. */
-inline fun NodeManager.jfxDrawer(
+inline fun NodeInvokable.jfxDrawer(
     noinline init: ((@LayoutDsl JFXDrawer).() -> Unit)? = null
 ): JFXDrawer = ktfx.jfoenix.jfxDrawer(init)()

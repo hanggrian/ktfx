@@ -6,10 +6,10 @@ import javafx.scene.Node
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
-import ktfx.TabManager
+import ktfx.NodeInvokable
+import ktfx.TabInvokable
 
-open class _TabPane : TabPane(), TabManager {
+open class _TabPane : TabPane(), TabInvokable {
 
     override fun <R : Tab> R.invoke(): R = also { tabs += it }
 
@@ -26,6 +26,6 @@ fun tabPane(
 ): TabPane = _TabPane().also { init?.invoke(it) }
 
 /** Creates a [TabPane] and add it to this manager. */
-inline fun NodeManager.tabPane(
+inline fun NodeInvokable.tabPane(
     noinline init: ((@LayoutDsl _TabPane).() -> Unit)? = null
 ): TabPane = ktfx.layouts.tabPane(init)()

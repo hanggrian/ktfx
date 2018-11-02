@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Cylinder
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Cylinder]. */
@@ -15,7 +15,7 @@ fun cylinder(
 ): Cylinder = Cylinder(radius, height, division).also { init?.invoke(it) }
 
 /** Creates a [Cylinder] and add it to this manager. */
-inline fun NodeManager.cylinder(
+inline fun NodeInvokable.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,

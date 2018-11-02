@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.HLineTo
-import ktfx.PathElementManager
+import ktfx.PathElementInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [HLineTo]. */
@@ -13,7 +13,7 @@ fun hlineTo(
 ): HLineTo = HLineTo(x).also { init?.invoke(it) }
 
 /** Creates a [HLineTo] and add it to this manager. */
-inline fun PathElementManager.hlineTo(
+inline fun PathElementInvokable.hlineTo(
     x: Double = 0.0,
     noinline init: ((@LayoutDsl HLineTo).() -> Unit)? = null
 ): HLineTo = ktfx.layouts.hlineTo(x, init)()

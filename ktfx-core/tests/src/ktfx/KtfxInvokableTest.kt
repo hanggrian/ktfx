@@ -3,16 +3,16 @@ package ktfx
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class KtfxManagerTest {
+class KtfxInvokableTest {
 
     var total = 0
-    val manager = object : KtfxManager<Int> {
+    val invokable = object : KtfxInvokable<Int> {
         @Suppress("FINAL_UPPER_BOUND") override fun <R : Int> R.invoke(): R = also { total += it }
     }
 
     @Test fun empty() {
         assertEquals(0, total)
-        manager.apply {
+        invokable.apply {
             1()
             2()
             3()

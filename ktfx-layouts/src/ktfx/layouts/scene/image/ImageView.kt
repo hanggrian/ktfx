@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates an [ImageView]. */
@@ -20,13 +20,13 @@ fun imageView(
 ): ImageView = ImageView(imageUrl).also { init?.invoke(it) }
 
 /** Creates an [ImageView] and add it to this manager. */
-inline fun NodeManager.imageView(
+inline fun NodeInvokable.imageView(
     image: Image? = null,
     noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
 ): ImageView = ktfx.layouts.imageView(image, init)()
 
 /** Creates an [ImageView] and add it to this manager. */
-inline fun NodeManager.imageView(
+inline fun NodeInvokable.imageView(
     imageUrl: String,
     noinline init: ((@LayoutDsl ImageView).() -> Unit)? = null
 ): ImageView = ktfx.layouts.imageView(imageUrl, init)()

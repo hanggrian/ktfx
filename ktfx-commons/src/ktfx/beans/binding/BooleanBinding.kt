@@ -9,7 +9,7 @@ import javafx.beans.binding.BooleanBinding
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [BooleanBinding]. */
-inline fun booleanBindingOf(
+inline fun buildBooleanBinding(
     vararg dependencies: Observable,
     noinline func: () -> Boolean?
 ): BooleanBinding = createBooleanBinding(Callable(func), *dependencies)

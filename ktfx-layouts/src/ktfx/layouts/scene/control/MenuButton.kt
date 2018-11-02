@@ -6,10 +6,10 @@ import javafx.scene.Node
 import javafx.scene.control.MenuButton
 import javafx.scene.control.MenuItem
 import ktfx.LayoutDsl
-import ktfx.MenuItemManager
-import ktfx.NodeManager
+import ktfx.MenuItemInvokable
+import ktfx.NodeInvokable
 
-open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
+open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemInvokable {
 
     override fun <R : MenuItem> R.invoke(): R = also { items + it }
 
@@ -28,7 +28,7 @@ fun menuButton(
 ): MenuButton = _MenuButton(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [MenuButton] and add it to this manager. */
-inline fun NodeManager.menuButton(
+inline fun NodeInvokable.menuButton(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl _MenuButton).() -> Unit)? = null

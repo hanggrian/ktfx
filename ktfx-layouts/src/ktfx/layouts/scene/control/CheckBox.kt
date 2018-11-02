@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.CheckBox
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [CheckBox]. */
@@ -13,7 +13,7 @@ fun checkBox(
 ): CheckBox = CheckBox(text).also { init?.invoke(it) }
 
 /** Creates a [CheckBox] and add it to this manager. */
-inline fun NodeManager.checkBox(
+inline fun NodeInvokable.checkBox(
     text: String? = null,
     noinline init: ((@LayoutDsl CheckBox).() -> Unit)? = null
 ): CheckBox = ktfx.layouts.checkBox(text, init)()

@@ -9,7 +9,7 @@ import javafx.beans.binding.ObjectBinding
 import java.util.concurrent.Callable
 
 /** Helper function to create a custom [ObjectBinding]. */
-inline fun <T> bindingOf(
+inline fun <T> buildBinding(
     vararg dependencies: Observable,
     noinline func: () -> T?
 ): ObjectBinding<T> = createObjectBinding<T>(Callable(func), *dependencies)

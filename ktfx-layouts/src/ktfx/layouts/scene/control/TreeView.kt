@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeView
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [TreeView]. */
@@ -14,7 +14,7 @@ fun <T> treeView(
 ): TreeView<T> = TreeView<T>(root).also { init?.invoke(it) }
 
 /** Creates a [TreeView] and add it to this manager. */
-inline fun <T> NodeManager.treeView(
+inline fun <T> NodeInvokable.treeView(
     root: TreeItem<T>? = null,
     noinline init: ((@LayoutDsl TreeView<T>).() -> Unit)? = null
 ): TreeView<T> = ktfx.layouts.treeView(root, init)()

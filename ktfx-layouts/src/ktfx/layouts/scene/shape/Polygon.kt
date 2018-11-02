@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polygon
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Polygon]. */
@@ -13,7 +13,7 @@ fun polygon(
 ): Polygon = Polygon(*points).also { init?.invoke(it) }
 
 /** Creates a [Polygon] and add it to this manager. */
-inline fun NodeManager.polygon(
+inline fun NodeInvokable.polygon(
     vararg points: Double,
     noinline init: ((@LayoutDsl Polygon).() -> Unit)? = null
 ): Polygon = ktfx.layouts.polygon(*points, init = init)()

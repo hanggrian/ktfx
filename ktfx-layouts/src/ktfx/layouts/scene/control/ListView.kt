@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.control.ListView
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [ListView]. */
@@ -15,7 +15,7 @@ fun <T> listView(
 ): ListView<T> = ListView(items).also { init?.invoke(it) }
 
 /** Creates a [ListView] and add it to this manager. */
-inline fun <T> NodeManager.listView(
+inline fun <T> NodeInvokable.listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     noinline init: ((@LayoutDsl ListView<T>).() -> Unit)? = null
 ): ListView<T> = ktfx.layouts.listView(items, init)()

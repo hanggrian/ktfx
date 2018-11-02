@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.Box
 import javafx.scene.shape.Box.DEFAULT_SIZE
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Box]. */
@@ -16,7 +16,7 @@ fun box(
 ): Box = Box(width, height, depth).also { init?.invoke(it) }
 
 /** Creates a [Box] and add it to this manager. */
-inline fun NodeManager.box(
+inline fun NodeInvokable.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,

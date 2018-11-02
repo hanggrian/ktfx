@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXChipView
 import com.jfoenix.controls.JFXDefaultChip
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXDefaultChip]. */
@@ -15,7 +15,7 @@ fun <T> jfxDefaultChip(
 ): JFXDefaultChip<T> = JFXDefaultChip<T>(view, item).also { init?.invoke(it) }
 
 /** Creates a [JFXDefaultChip] and add it to this manager. */
-inline fun <T> NodeManager.jfxDefaultChip(
+inline fun <T> NodeInvokable.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     noinline init: ((@LayoutDsl JFXDefaultChip<T>).() -> Unit)? = null

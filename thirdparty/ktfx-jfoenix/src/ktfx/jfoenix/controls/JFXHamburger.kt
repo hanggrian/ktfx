@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXHamburger
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXHamburger]. */
@@ -12,6 +12,6 @@ fun jfxHamburger(
 ): JFXHamburger = JFXHamburger().also { init?.invoke(it) }
 
 /** Creates a [JFXHamburger] and add it to this manager. */
-inline fun NodeManager.jfxHamburger(
+inline fun NodeInvokable.jfxHamburger(
     noinline init: ((@LayoutDsl JFXHamburger).() -> Unit)? = null
 ): JFXHamburger = ktfx.jfoenix.jfxHamburger(init)()

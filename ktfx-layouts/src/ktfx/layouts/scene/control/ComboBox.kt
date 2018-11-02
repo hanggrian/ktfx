@@ -5,7 +5,7 @@ package ktfx.layouts
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.control.ComboBox
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [ComboBox]. */
@@ -15,7 +15,7 @@ fun <T> comboBox(
 ): ComboBox<T> = ComboBox(items).also { init?.invoke(it) }
 
 /** Creates a [ComboBox] and add it to this manager. */
-inline fun <T> NodeManager.comboBox(
+inline fun <T> NodeInvokable.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     noinline init: ((@LayoutDsl ComboBox<T>).() -> Unit)? = null
 ): ComboBox<T> = ktfx.layouts.comboBox(items, init)()

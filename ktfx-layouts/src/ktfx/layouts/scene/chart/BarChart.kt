@@ -7,7 +7,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.XYChart.Series
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [BarChart]. */
@@ -20,7 +20,7 @@ fun <X, Y> barChart(
 ): BarChart<X, Y> = BarChart(x, y, data, gap).also { init?.invoke(it) }
 
 /** Creates a [BarChart] and add it to this manager. */
-inline fun <X, Y> NodeManager.barChart(
+inline fun <X, Y> NodeInvokable.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),

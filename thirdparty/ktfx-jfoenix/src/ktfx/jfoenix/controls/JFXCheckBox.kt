@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXCheckBox
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXCheckBox]. */
@@ -13,7 +13,7 @@ fun jfxCheckBox(
 ): JFXCheckBox = JFXCheckBox(text).also { init?.invoke(it) }
 
 /** Creates a [JFXCheckBox] and add it to this manager. */
-inline fun NodeManager.jfxCheckBox(
+inline fun NodeInvokable.jfxCheckBox(
     text: String? = null,
     noinline init: ((@LayoutDsl JFXCheckBox).() -> Unit)? = null
 ): JFXCheckBox = ktfx.jfoenix.jfxCheckBox(text, init)()

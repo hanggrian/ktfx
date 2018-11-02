@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
-import ktfx.KtfxManager
+import ktfx.KtfxInvokable
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {
@@ -20,7 +20,7 @@ interface TreeTableColumnsBuilder<S> {
 }
 
 @PublishedApi
-internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, KtfxManager<TreeTableColumn<S, *>> {
+internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, KtfxInvokable<TreeTableColumn<S, *>> {
 
     val collection: MutableCollection<TreeTableColumn<S, *>> = mutableListOf()
 

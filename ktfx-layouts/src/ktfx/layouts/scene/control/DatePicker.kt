@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.DatePicker
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import java.time.LocalDate
 
@@ -14,7 +14,7 @@ fun datePicker(
 ): DatePicker = DatePicker(date).also { init?.invoke(it) }
 
 /** Creates a [DatePicker] and add it to this manager. */
-inline fun NodeManager.datePicker(
+inline fun NodeInvokable.datePicker(
     date: LocalDate? = null,
     noinline init: ((@LayoutDsl DatePicker).() -> Unit)? = null
 ): DatePicker = ktfx.layouts.datePicker(date, init)()

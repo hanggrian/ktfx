@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
-import ktfx.MenuItemManager
+import ktfx.MenuItemInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [MenuItem]. */
@@ -15,7 +15,7 @@ fun menuItem(
 ): MenuItem = MenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [MenuItem] and add it to this manager. */
-inline fun MenuItemManager.menuItem(
+inline fun MenuItemInvokable.menuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null

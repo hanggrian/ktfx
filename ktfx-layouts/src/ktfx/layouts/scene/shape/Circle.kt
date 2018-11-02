@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Circle]. */
@@ -17,7 +17,7 @@ fun circle(
 ): Circle = Circle(centerX, centerY, radius, fill).also { init?.invoke(it) }
 
 /** Creates a [Circle] and add it to this manager. */
-inline fun NodeManager.circle(
+inline fun NodeInvokable.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,

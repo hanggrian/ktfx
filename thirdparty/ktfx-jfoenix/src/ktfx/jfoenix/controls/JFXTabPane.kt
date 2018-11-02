@@ -1,17 +1,24 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
 
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTabPane
-import ktfx.NodeManager
+import javafx.scene.control.Tab
 import ktfx.LayoutDsl
+import ktfx.NodeInvokable
+import ktfx.TabInvokable
+
+open class _JFXTabPane : JFXTabPane(), TabInvokable {
+
+    override fun <R : Tab> R.invoke(): R = also { tabs += it }
+}
 
 /** Creates a [JFXTabPane]. */
 fun jfxTabPane(
-    init: ((@LayoutDsl JFXTabPane).() -> Unit)? = null
-): JFXTabPane = JFXTabPane().also { init?.invoke(it) }
+    init: ((@LayoutDsl _JFXTabPane).() -> Unit)? = null
+): JFXTabPane = _JFXTabPane().also { init?.invoke(it) }
 
 /** Creates a [JFXTabPane] and add it to this manager. */
-inline fun NodeManager.jfxTabPane(
-    noinline init: ((@LayoutDsl JFXTabPane).() -> Unit)? = null
+inline fun NodeInvokable.jfxTabPane(
+    noinline init: ((@LayoutDsl _JFXTabPane).() -> Unit)? = null
 ): JFXTabPane = ktfx.jfoenix.jfxTabPane(init)()

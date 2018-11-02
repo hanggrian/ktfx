@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXNodesList
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXNodesList]. */
@@ -12,6 +12,6 @@ fun jfxNodesList(
 ): JFXNodesList = JFXNodesList().also { init?.invoke(it) }
 
 /** Creates a [JFXNodesList] and add it to this manager. */
-inline fun NodeManager.jfxNodesList(
+inline fun NodeInvokable.jfxNodesList(
     noinline init: ((@LayoutDsl JFXNodesList).() -> Unit)? = null
 ): JFXNodesList = ktfx.jfoenix.jfxNodesList(init)()

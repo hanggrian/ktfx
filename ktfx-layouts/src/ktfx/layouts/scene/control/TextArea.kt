@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextArea
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [TextArea]. */
@@ -13,7 +13,7 @@ fun textArea(
 ): TextArea = TextArea(text).also { init?.invoke(it) }
 
 /** Creates a [TextArea] and add it to this manager. */
-inline fun NodeManager.textArea(
+inline fun NodeInvokable.textArea(
     text: String = "",
     noinline init: ((@LayoutDsl TextArea).() -> Unit)? = null
 ): TextArea = ktfx.layouts.textArea(text, init)()

@@ -5,23 +5,23 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXToolbar
 import javafx.scene.Node
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
 open class _JFXToolbar : JFXToolbar() {
 
     val collection: MutableCollection<Node> = mutableListOf()
 
-    fun leftItems(init: (@LayoutDsl NodeManager).() -> Unit) {
+    fun leftItems(init: (@LayoutDsl NodeInvokable).() -> Unit) {
         collection.clear()
-        object : NodeManager {
+        object : NodeInvokable {
             override fun <R : Node> R.invoke(): R = also { collection += it }
         }.apply(init)
         leftItems.addAll(collection)
     }
 
-    fun rightItems(init: (@LayoutDsl NodeManager).() -> Unit) {
+    fun rightItems(init: (@LayoutDsl NodeInvokable).() -> Unit) {
         collection.clear()
-        object : NodeManager {
+        object : NodeInvokable {
             override fun <R : Node> R.invoke(): R = also { collection += it }
         }.apply(init)
         rightItems.addAll(collection)
@@ -34,6 +34,6 @@ fun jfxToolbar(
 ): JFXToolbar = _JFXToolbar().also { init?.invoke(it) }
 
 /** Creates a [JFXToolbar] and add it to this manager. */
-inline fun NodeManager.jfxToolbar(
+inline fun NodeInvokable.jfxToolbar(
     noinline init: ((@LayoutDsl _JFXToolbar).() -> Unit)? = null
 ): JFXToolbar = ktfx.jfoenix.jfxToolbar(init)()

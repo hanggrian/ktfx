@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurveTo
-import ktfx.PathElementManager
+import ktfx.PathElementInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [QuadCurveTo]. */
@@ -16,7 +16,7 @@ fun quadCurveTo(
 ): QuadCurveTo = QuadCurveTo(controlX, controlY, x, y).also { init?.invoke(it) }
 
 /** Creates a [QuadCurveTo] and add it to this manager. */
-inline fun PathElementManager.quadCurveTo(
+inline fun PathElementInvokable.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,

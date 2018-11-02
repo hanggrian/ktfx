@@ -9,10 +9,10 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
 open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
-    NodeManager, AlignedPane, MarginedPane {
+    NodeInvokable, AlignedPane, MarginedPane {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -36,7 +36,7 @@ fun tilePane(
 ): TilePane = _TilePane(orientation, hgap, vgap).also { init?.invoke(it) }
 
 /** Creates a [TilePane] and add it to this manager. */
-inline fun NodeManager.tilePane(
+inline fun NodeInvokable.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,

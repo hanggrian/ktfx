@@ -3,7 +3,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Rectangle
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Rectangle]. */
@@ -16,7 +16,7 @@ fun rectangle(
 ): Rectangle = Rectangle(x, y, width, height).also { init?.invoke(it) }
 
 /** Creates a [Rectangle] and add it to this manager. */
-inline fun NodeManager.rectangle(
+inline fun NodeInvokable.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,

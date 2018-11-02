@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXSlider
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXSlider]. */
@@ -15,7 +15,7 @@ fun jfxSlider(
 ): JFXSlider = JFXSlider(min, max, value).also { init?.invoke(it) }
 
 /** Creates a [JFXSlider] and add it to this manager. */
-inline fun NodeManager.jfxSlider(
+inline fun NodeInvokable.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,

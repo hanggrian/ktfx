@@ -6,9 +6,9 @@ import javafx.scene.Node
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _TextFlow : TextFlow(), NodeManager {
+open class _TextFlow : TextFlow(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -26,6 +26,6 @@ fun textFlow(
 ): TextFlow = _TextFlow().also { init?.invoke(it) }
 
 /** Creates a [TextFlow] and add it to this manager. */
-inline fun NodeManager.textFlow(
+inline fun NodeInvokable.textFlow(
     noinline init: ((@LayoutDsl _TextFlow).() -> Unit)? = null
 ): TextFlow = ktfx.layouts.textFlow(init)()

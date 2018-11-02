@@ -4,14 +4,14 @@ package ktfx.controlsfx
 
 import javafx.scene.Node
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import org.controlsfx.control.HiddenSidesPane
 
 /**
  * Invoking layout DSL will only set content.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _HiddenSidesPane : HiddenSidesPane(), NodeManager {
+open class _HiddenSidesPane : HiddenSidesPane(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { content = it }
 }
@@ -22,6 +22,6 @@ fun hiddenSidesPane(
 ): HiddenSidesPane = _HiddenSidesPane().also { init?.invoke(it) }
 
 /** Creates a [HiddenSidesPane] and add it to this manager. */
-inline fun NodeManager.hiddenSidesPane(
+inline fun NodeInvokable.hiddenSidesPane(
     noinline init: ((@LayoutDsl _HiddenSidesPane).() -> Unit)? = null
 ): HiddenSidesPane = ktfx.controlsfx.hiddenSidesPane(init)()

@@ -6,8 +6,8 @@ import javafx.scene.text.Font
 import javafx.scene.text.FontWeight.BOLD
 import javafx.stage.Stage
 import ktfx.application.launch
-import ktfx.beans.binding.booleanBindingOf
-import ktfx.beans.binding.stringBindingOf
+import ktfx.beans.binding.buildBooleanBinding
+import ktfx.beans.binding.buildStringBinding
 import ktfx.coroutines.onAction
 import ktfx.layouts.button
 import ktfx.layouts.gridPane
@@ -37,7 +37,7 @@ class App : Application() {
                     updatePadding(right = 20.0, left = 20.0)
                     calculationLabel = label("")
                     resultLabel = label {
-                        textProperty().bind(stringBindingOf(calculationLabel.textProperty()) {
+                        textProperty().bind(buildStringBinding(calculationLabel.textProperty()) {
                             if (endsWithOperator) "..." else {
                                 val operators = calculationLabel.text
                                     .split("\\d".toRegex())
@@ -185,7 +185,7 @@ class App : Application() {
                 button("=") {
                     minSize = 40.0
                     isDefaultButton = true
-                    disableProperty().bind(booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator })
+                    disableProperty().bind(buildBooleanBinding(calculationLabel.textProperty()) { endsWithOperator })
                     onAction {
                         infoAlert("Result", content = resultLabel.text).showAndWait()
                     }

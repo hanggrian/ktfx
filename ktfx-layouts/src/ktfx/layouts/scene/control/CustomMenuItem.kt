@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
-import ktfx.MenuItemManager
+import ktfx.MenuItemInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [CustomMenuItem]. */
@@ -15,7 +15,7 @@ fun customMenuItem(
 ): CustomMenuItem = CustomMenuItem(node, hideOnClick).also { init?.invoke(it) }
 
 /** Creates a [CustomMenuItem] and add it to this manager. */
-inline fun MenuItemManager.customMenuItem(
+inline fun MenuItemInvokable.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
     noinline init: ((@LayoutDsl CustomMenuItem).() -> Unit)? = null

@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Label
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [Label]. */
@@ -15,7 +15,7 @@ fun label(
 ): Label = Label(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Label] and add it to this manager. */
-inline fun NodeManager.label(
+inline fun NodeInvokable.label(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutDsl Label).() -> Unit)? = null

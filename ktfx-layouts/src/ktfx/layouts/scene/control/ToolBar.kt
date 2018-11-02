@@ -5,9 +5,9 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
-open class _ToolBar : ToolBar(), NodeManager {
+open class _ToolBar : ToolBar(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { items += it }
 }
@@ -18,6 +18,6 @@ fun toolBar(
 ): ToolBar = _ToolBar().also { init?.invoke(it) }
 
 /** Creates a [ToolBar] and add it to this manager. */
-inline fun NodeManager.toolBar(
+inline fun NodeInvokable.toolBar(
     noinline init: ((@LayoutDsl _ToolBar).() -> Unit)? = null
 ): ToolBar = ktfx.layouts.toolBar(init)()

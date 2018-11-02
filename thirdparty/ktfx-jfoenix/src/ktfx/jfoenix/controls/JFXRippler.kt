@@ -5,10 +5,10 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXRippler
 import javafx.scene.Node
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
 // TODO: should include mask & pos in constructor?
-open class _JFXRippler : JFXRippler(), NodeManager {
+open class _JFXRippler : JFXRippler(), NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { control = it }
 }
@@ -19,6 +19,6 @@ fun jfxRippler(
 ): JFXRippler = _JFXRippler().also { init?.invoke(it) }
 
 /** Creates a [JFXRippler] and add it to this manager. */
-inline fun NodeManager.jfxRippler(
+inline fun NodeInvokable.jfxRippler(
     noinline init: ((@LayoutDsl _JFXRippler).() -> Unit)? = null
 ): JFXRippler = ktfx.jfoenix.jfxRippler(init)()

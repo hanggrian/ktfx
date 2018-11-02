@@ -7,7 +7,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedAreaChart
 import javafx.scene.chart.XYChart.Series
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [StackedAreaChart]. */
@@ -19,7 +19,7 @@ fun <X, Y> stackedAreaChart(
 ): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [StackedAreaChart] and add it to this manager. */
-inline fun <X, Y> NodeManager.stackedAreaChart(
+inline fun <X, Y> NodeInvokable.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),

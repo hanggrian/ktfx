@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTextArea
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [JFXTextArea]. */
@@ -13,7 +13,7 @@ fun jfxTextArea(
 ): JFXTextArea = JFXTextArea(text.orEmpty()).also { init?.invoke(it) }
 
 /** Creates a [JFXTextArea] and add it to this manager. */
-inline fun NodeManager.jfxTextArea(
+inline fun NodeInvokable.jfxTextArea(
     text: String? = null,
     noinline init: ((@LayoutDsl JFXTextArea).() -> Unit)? = null
 ): JFXTextArea = ktfx.jfoenix.jfxTextArea(text, init)()

@@ -7,13 +7,13 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 
 /**
  * Invoking layout DSL will only set content to center.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _BorderPane : BorderPane(), AlignedPane, MarginedPane, NodeManager {
+open class _BorderPane : BorderPane(), AlignedPane, MarginedPane, NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { center = it }
 
@@ -34,6 +34,6 @@ fun borderPane(
 ): BorderPane = _BorderPane().also { init?.invoke(it) }
 
 /** Creates a [BorderPane] and add it to this manager. */
-inline fun NodeManager.borderPane(
+inline fun NodeInvokable.borderPane(
     noinline init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
 ): BorderPane = ktfx.layouts.borderPane(init)()

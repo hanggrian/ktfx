@@ -4,7 +4,7 @@ package ktfx.layouts
 
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
-import ktfx.KtfxManager
+import ktfx.KtfxInvokable
 
 /** Interface to build [TableColumn] with Kotlin DSL. */
 interface TableColumnsBuilder<S> {
@@ -20,7 +20,7 @@ interface TableColumnsBuilder<S> {
 }
 
 @PublishedApi
-internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, KtfxManager<TableColumn<S, *>> {
+internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, KtfxInvokable<TableColumn<S, *>> {
 
     val collection: MutableCollection<TableColumn<S, *>> = mutableListOf()
 

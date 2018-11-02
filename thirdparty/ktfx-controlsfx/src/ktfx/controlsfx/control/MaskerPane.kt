@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 import org.controlsfx.control.MaskerPane
 
@@ -12,6 +12,6 @@ fun maskerPane(
 ): MaskerPane = MaskerPane().also { init?.invoke(it) }
 
 /** Creates a [MaskerPane] and add it to this manager. */
-inline fun NodeManager.maskerPane(
+inline fun NodeInvokable.maskerPane(
     noinline init: ((@LayoutDsl MaskerPane).() -> Unit)? = null
 ): MaskerPane = ktfx.controlsfx.maskerPane(init)()

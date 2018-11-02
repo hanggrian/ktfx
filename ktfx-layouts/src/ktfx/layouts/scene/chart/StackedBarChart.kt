@@ -7,7 +7,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedBarChart
 import javafx.scene.chart.XYChart.Series
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import ktfx.LayoutDsl
 
 /** Creates a [StackedBarChart]. */
@@ -19,7 +19,7 @@ fun <X, Y> stackedBarChart(
 ): StackedBarChart<X, Y> = StackedBarChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [StackedBarChart] and add it to this manager. */
-inline fun <X, Y> NodeManager.stackedBarChart(
+inline fun <X, Y> NodeInvokable.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),

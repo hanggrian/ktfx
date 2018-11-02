@@ -6,10 +6,10 @@ import javafx.geometry.Side
 import javafx.geometry.Side.RIGHT
 import javafx.scene.Node
 import ktfx.LayoutDsl
-import ktfx.NodeManager
+import ktfx.NodeInvokable
 import org.controlsfx.control.MasterDetailPane
 
-open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
+open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeInvokable {
 
     override fun <T : Node> T.invoke(): T = also {
         when (null) {
@@ -28,7 +28,7 @@ fun masterDetailPane(
 ): MasterDetailPane = _MasterDetailPane(side, showDetail).also { init?.invoke(it) }
 
 /** Creates a [MasterDetailPane] and add it to this manager. */
-inline fun NodeManager.masterDetailPane(
+inline fun NodeInvokable.masterDetailPane(
     side: Side = RIGHT,
     showDetail: Boolean = true,
     noinline init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null

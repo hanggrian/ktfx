@@ -5,6 +5,7 @@ import ktfx.layouts.accordion
 import ktfx.layouts.label
 import ktfx.layouts.pane
 import ktfx.test.ToolkitLayoutTest
+import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
@@ -12,12 +13,12 @@ class AccordionTest : ToolkitLayoutTest() {
 
     override fun newInstance() {
         accordion {
+            assertEmpty(panes)
             "Hello"()
             "World" {
                 label("haha")
             }
-
-            assertEquals(panes.size, 2)
+            assertEquals(2, panes.size)
             assertTrue(panes[1].content is Label)
         }
     }

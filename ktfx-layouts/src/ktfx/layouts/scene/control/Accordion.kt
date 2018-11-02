@@ -2,7 +2,6 @@
 
 package ktfx.layouts
 
-import javafx.scene.Node
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
 import ktfx.LayoutDsl
@@ -15,9 +14,8 @@ open class _Accordion : Accordion(), TitledPaneInvokable {
 
     /** Creates a [TitledPane] and add it to this manager. */
     inline operator fun String.invoke(
-        content: Node? = null,
         noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
-    ): TitledPane = titledPane(this, content, init)()
+    ): TitledPane = titledPane(this, init)
 }
 
 /** Creates a [Accordion]. */

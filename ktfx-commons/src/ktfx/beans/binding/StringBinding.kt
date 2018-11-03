@@ -3,8 +3,7 @@
 package ktfx.beans.binding
 
 import javafx.beans.Observable
-import javafx.beans.binding.Bindings.createStringBinding
-import javafx.beans.binding.Bindings.selectString
+import javafx.beans.binding.Bindings
 import javafx.beans.binding.StringBinding
 import java.util.concurrent.Callable
 
@@ -12,7 +11,7 @@ import java.util.concurrent.Callable
 inline fun buildStringBinding(
     vararg dependencies: Observable,
     noinline func: () -> String?
-): StringBinding = createStringBinding(Callable(func), *dependencies)
+): StringBinding = Bindings.createStringBinding(Callable(func), *dependencies)
 
 /** Creates a string binding used to get a member. */
-inline fun Any.selectString(vararg steps: String): StringBinding = selectString(this, *steps)
+inline fun Any.selectString(vararg steps: String): StringBinding = Bindings.selectString(this, *steps)

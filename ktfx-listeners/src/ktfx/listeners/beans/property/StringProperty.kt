@@ -12,4 +12,4 @@ import javafx.beans.property.StringProperty
 inline fun <T> StringProperty.bindBidirectional(
     property: Property<T>,
     converter: StringConverterBuilder<T>.() -> Unit
-): Unit = bindBidirectional(property, stringConverter(converter))
+): Unit = bindBidirectional(property, buildStringConverter(converter))

@@ -3,8 +3,7 @@
 package ktfx.beans.binding
 
 import javafx.beans.Observable
-import javafx.beans.binding.Bindings.createObjectBinding
-import javafx.beans.binding.Bindings.select
+import javafx.beans.binding.Bindings
 import javafx.beans.binding.ObjectBinding
 import java.util.concurrent.Callable
 
@@ -12,7 +11,7 @@ import java.util.concurrent.Callable
 inline fun <T> buildBinding(
     vararg dependencies: Observable,
     noinline func: () -> T?
-): ObjectBinding<T> = createObjectBinding<T>(Callable(func), *dependencies)
+): ObjectBinding<T> = Bindings.createObjectBinding<T>(Callable(func), *dependencies)
 
 /** Creates an object binding used to get a member. */
-inline fun <T> Any.select(vararg steps: String): ObjectBinding<T> = select(this, *steps)
+inline fun <T> Any.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)

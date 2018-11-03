@@ -16,7 +16,7 @@ class ObservableTest {
         val s = "Hello world"
         val listener = listener {
             assertTrue(it is StringProperty)
-            assertEquals((it as StringProperty).get(), s)
+            assertEquals(it.get(), s)
         }
         (this as StringProperty).set(s)
         removeListener(listener)

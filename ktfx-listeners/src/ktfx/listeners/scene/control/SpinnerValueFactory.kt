@@ -7,4 +7,4 @@ import javafx.scene.control.SpinnerValueFactory
 /** Converts the user-typed input. */
 inline fun <T> SpinnerValueFactory<T>.converter(
     converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setConverter(stringConverter(converter))
+): Unit = setConverter(buildStringConverter(converter))

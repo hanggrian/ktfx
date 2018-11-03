@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 class StringConverterTest {
 
     @Test fun primitive() {
-        val converter = stringConverter<Int> {
+        val converter = buildStringConverter<Int> {
             fromString { it.toInt() }
         }
         assertEquals(converter.toString(123), "123")
@@ -14,7 +14,7 @@ class StringConverterTest {
     }
 
     @Test fun custom() {
-        val converter = stringConverter<Person> {
+        val converter = buildStringConverter<Person> {
             toString { it!!.name }
             fromString { Person(it) }
         }

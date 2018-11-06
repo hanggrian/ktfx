@@ -32,7 +32,6 @@ dependencies {
     compile 'com.hendraanggrian.ktfx:ktfx-layouts:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-listeners:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-coroutines:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-styles:$version'
 }
 ```
 

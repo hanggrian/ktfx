@@ -13,5 +13,11 @@ inline fun <T> buildBinding(
     noinline func: () -> T?
 ): ObjectBinding<T> = Bindings.createObjectBinding<T>(Callable(func), *dependencies)
 
+/** Helper function to create a custom [ObjectBinding]. */
+fun <T> buildBinding(
+    dependencies: Iterable<Observable>,
+    func: () -> T?
+): ObjectBinding<T> = buildBinding(*dependencies.toList().toTypedArray(), func = func)
+
 /** Creates an object binding used to get a member. */
 inline fun <T> Any.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)

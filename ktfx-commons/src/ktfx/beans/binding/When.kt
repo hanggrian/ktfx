@@ -6,7 +6,7 @@
 
 package ktfx.beans.binding
 
-import javafx.beans.binding.Bindings.`when`
+import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.DoubleBinding
 import javafx.beans.binding.NumberBinding
@@ -23,7 +23,7 @@ import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableStringValue
 
 /** Start a conditional if else binding. */
-inline fun `when`(condition: ObservableBooleanValue): When = `when`(condition)
+inline fun conditional(condition: ObservableBooleanValue): When = Bindings.`when`(condition)
 
 /** Public alias for infix typing. */
 inline infix fun When.then(value: ObservableNumberValue): NumberConditionBuilder = then(value)

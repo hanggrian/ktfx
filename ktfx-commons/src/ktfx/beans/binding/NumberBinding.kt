@@ -22,11 +22,23 @@ inline fun buildDoubleBinding(
     noinline func: () -> Double?
 ): DoubleBinding = Bindings.createDoubleBinding(Callable(func), *dependencies)
 
+/** Helper function to create a custom [DoubleBinding]. */
+fun buildDoubleBinding(
+    dependencies: Iterable<Observable>,
+    func: () -> Double?
+): DoubleBinding = buildDoubleBinding(*dependencies.toList().toTypedArray(), func = func)
+
 /** Helper function to create a custom [FloatBinding]. */
 inline fun buildFloatBinding(
     vararg dependencies: Observable,
     noinline func: () -> Float?
 ): FloatBinding = Bindings.createFloatBinding(Callable(func), *dependencies)
+
+/** Helper function to create a custom [FloatBinding]. */
+fun buildFloatBinding(
+    dependencies: Iterable<Observable>,
+    func: () -> Float?
+): FloatBinding = buildFloatBinding(*dependencies.toList().toTypedArray(), func = func)
 
 /** Helper function to create a custom [IntegerBinding]. */
 inline fun buildIntBinding(
@@ -34,11 +46,23 @@ inline fun buildIntBinding(
     noinline func: () -> Int?
 ): IntegerBinding = Bindings.createIntegerBinding(Callable(func), *dependencies)
 
+/** Helper function to create a custom [IntegerBinding]. */
+fun buildIntBinding(
+    dependencies: Iterable<Observable>,
+    func: () -> Int?
+): IntegerBinding = buildIntBinding(*dependencies.toList().toTypedArray(), func = func)
+
 /** Helper function to create a custom [LongBinding]. */
 inline fun buildLongBinding(
     vararg dependencies: Observable,
     noinline func: () -> Long?
 ): LongBinding = Bindings.createLongBinding(Callable(func), *dependencies)
+
+/** Helper function to create a custom [LongBinding]. */
+fun buildLongBinding(
+    dependencies: Iterable<Observable>,
+    func: () -> Long?
+): LongBinding = buildLongBinding(*dependencies.toList().toTypedArray(), func = func)
 
 /** Creates a double binding used to get a member. */
 inline fun Any.selectDouble(vararg steps: String): DoubleBinding = Bindings.selectDouble(this, *steps)

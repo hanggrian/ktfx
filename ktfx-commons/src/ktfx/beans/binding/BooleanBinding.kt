@@ -13,5 +13,11 @@ inline fun buildBooleanBinding(
     noinline func: () -> Boolean?
 ): BooleanBinding = Bindings.createBooleanBinding(Callable(func), *dependencies)
 
+/** Helper function to create a custom [BooleanBinding]. */
+fun buildBooleanBinding(
+    dependencies: Iterable<Observable>,
+    func: () -> Boolean?
+): BooleanBinding = buildBooleanBinding(*dependencies.toList().toTypedArray(), func = func)
+
 /** Creates a boolean binding used to get a member. */
 inline fun Any.selectBoolean(vararg steps: String): BooleanBinding = Bindings.selectBoolean(this, *steps)

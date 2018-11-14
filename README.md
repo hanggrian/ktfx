@@ -184,6 +184,7 @@ Some popular libraries are also supported. Though currently is limited.
 dependencies {
     compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-jfoenix:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-testfx:$version'
 }
 ```
 

@@ -20,16 +20,22 @@ gitPublish {
     branch = "gh-pages"
     contents.from(
         "pages",
-        *getKtfxArtifacts().map { "../$it/build/docs" }.toTypedArray()
+        *getKtfxArtifacts()
+            .map { "../$it/build/docs" }
+            .toTypedArray()
     )
 }
 
 tasks["gitPublishCopy"].dependsOn(
-    *getKtfxArtifacts().map { ":$it:dokka" }.toTypedArray()
+    *getKtfxArtifacts()
+        .map { it.replace('/', ':') }
+        .map { ":$it:dokka" }
+        .toTypedArray()
 )
 
-fun getKtfxArtifacts() = RELEASE_ARTIFACT +
-    listOf("commons", "coroutines", "layouts", "listeners").map { "$RELEASE_ARTIFACT-it" }
+fun getKtfxArtifacts(): List<String> =
+    listOf("commons", "coroutines", "layouts", "listeners").map { "$RELEASE_ARTIFACT-$it" } +
+        listOf("controlsfx", "jfoenix", "testfx").map { "$RELEASE_ARTIFACT-thirdparty/$it" }
 
 publish {
     bintrayUser = BINTRAY_USER

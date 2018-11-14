@@ -16,7 +16,8 @@ class PredefinedPackageRule : Rule("predefined-package", { node, _, emit ->
             name != convert("ktfx-layouts") &&
             name != convert("ktfx-listeners") &&
             name != convert("ktfx-controlsfx") &&
-            name != convert("ktfx-jfoenix")
+            name != convert("ktfx-jfoenix") &&
+            name != convert("ktfx-testfx")
         ) {
             emit(node.startOffset, "See artifacts.kt for pre-defined packages", false)
         }

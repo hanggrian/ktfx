@@ -15,9 +15,9 @@ inline fun buildBooleanBinding(
 
 /** Helper function to create a custom [BooleanBinding]. */
 fun buildBooleanBinding(
-    dependencies: Iterable<Observable>,
+    dependencies: Collection<Observable>,
     func: () -> Boolean?
-): BooleanBinding = buildBooleanBinding(*dependencies.toList().toTypedArray(), func = func)
+): BooleanBinding = buildBooleanBinding(*dependencies.toTypedArray(), func = func)
 
 /** Creates a boolean binding used to get a member. */
 inline fun Any.selectBoolean(vararg steps: String): BooleanBinding = Bindings.selectBoolean(this, *steps)

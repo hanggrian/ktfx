@@ -22,9 +22,6 @@ import javafx.beans.value.ObservableNumberValue
 import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableStringValue
 
-/** Start a conditional if else binding. */
-inline fun conditional(condition: ObservableBooleanValue): When = Bindings.`when`(condition)
-
 /** Public alias for infix typing. */
 inline infix fun When.then(value: ObservableNumberValue): NumberConditionBuilder = then(value)
 

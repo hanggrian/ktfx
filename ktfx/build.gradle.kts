@@ -8,10 +8,11 @@ plugins {
     `bintray-release`
 }
 
-val artifacts = ARTIFACTS - RELEASE_ARTIFACT
-
 dependencies {
-    artifacts.forEach { compile(project(":$it")) }
+    compile(project(":$RELEASE_ARTIFACT-commons"))
+    compile(project(":$RELEASE_ARTIFACT-coroutines"))
+    compile(project(":$RELEASE_ARTIFACT-layouts"))
+    compile(project(":$RELEASE_ARTIFACT-listeners"))
 }
 
 gitPublish {
@@ -19,12 +20,16 @@ gitPublish {
     branch = "gh-pages"
     contents.from(
         "pages",
-        *(artifacts + ARTIFACTS_THIRDPARTY).map { "../$it/build/docs" }.toTypedArray())
+        *getKtfxArtifacts().map { "../$it/build/docs" }.toTypedArray()
+    )
 }
 
 tasks["gitPublishCopy"].dependsOn(
-    *(artifacts + ARTIFACTS_THIRDPARTY).map { ":$it:dokka" }.toTypedArray()
+    *getKtfxArtifacts().map { ":$it:dokka" }.toTypedArray()
 )
+
+fun getKtfxArtifacts() = RELEASE_ARTIFACT +
+    listOf("commons", "coroutines", "layouts", "listeners").map { "$RELEASE_ARTIFACT-it" }
 
 publish {
     bintrayUser = BINTRAY_USER

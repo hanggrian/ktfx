@@ -14,13 +14,13 @@ sourceSets {
 }
 
 ktlint { add ->
-    add(project(":$ARTIFACT_DEV_RULESET_ALL"))
+    add(project(":ruleset:all"))
 }
 
 dependencies {
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(project(":$ARTIFACT_DEV_TESTING_FX"))
+    testImplementation(project(":testing:fx"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 }
 
@@ -39,7 +39,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_COMMONS
+    artifactId = "$RELEASE_ARTIFACT-commons"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

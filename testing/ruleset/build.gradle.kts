@@ -7,8 +7,8 @@ sourceSets {
 }
 
 dependencies {
-    compile(project(":$ARTIFACT_DEV_TESTING_CORE"))
-    compile(project(":$ARTIFACT_DEV_RULESET_CORE"))
+    compile(project(":testing:core"))
+    compile(project(":ruleset:core"))
     compile(ktlint("core"))
     compile(ktlint("test"))
 }

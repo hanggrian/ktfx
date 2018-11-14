@@ -7,7 +7,7 @@ sourceSets {
 }
 
 dependencies {
-    compile(project(":$ARTIFACT_DEV_TESTING_CORE"))
+    compile(project(":testing:core"))
     compile(testFx("core"))
     compile(testFx("junit"))
 }

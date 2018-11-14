@@ -11,8 +11,7 @@ sourceSets {
 }
 
 dependencies {
-    implementation(project(":$RELEASE_ARTIFACT"))
-    ARTIFACTS_THIRDPARTY.forEach {
-        implementation(project(":$it"))
-    }
+    implementation(project(":ktfx"))
+    implementation(project(":ktfx-thirdparty:controlsfx"))
+    implementation(project(":ktfx-thirdparty:jfoenix"))
 }

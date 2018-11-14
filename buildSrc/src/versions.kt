@@ -2,8 +2,6 @@ const val VERSION_GRADLE = "4.10.2"
 const val VERSION_KOTLIN = "1.3.10"
 const val VERSION_COROUTINES = "1.0.0"
 
-const val VERSION_BUILDCONFIG = "0.4"
-
 internal const val VERSION_CONTROLSFX = "8.40.14"
 internal const val VERSION_JFOENIX = "8.0.7"
 

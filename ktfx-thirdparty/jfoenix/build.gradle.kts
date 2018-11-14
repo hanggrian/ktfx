@@ -1,4 +1,4 @@
-group = "$RELEASE_GROUP.controlsfx"
+group = "$RELEASE_GROUP.jfoenix"
 version = RELEASE_VERSION
 
 plugins {
@@ -14,18 +14,17 @@ sourceSets {
 }
 
 ktlint { add ->
-    add(project(":$ARTIFACT_DEV_RULESET_ALL"))
-    add(project(":$ARTIFACT_DEV_RULESET_SINGLE_PACKAGE"))
+    add(project(":ruleset:all"))
+    add(project(":ruleset:single-package"))
 }
 
 dependencies {
-    compile(project(":$ARTIFACT_LAYOUTS"))
+    compile(project(":ktfx-layouts"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
     compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
-    compile(controlsFx())
+    compile(jfoenix())
 
-    testImplementation(project(":$ARTIFACT_LAYOUTS"))
-    testImplementation(project(":$ARTIFACT_DEV_TESTING_FX"))
+    testImplementation(project(":testing:fx"))
 }
 
 tasks {
@@ -43,7 +42,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_THIRDPARTY_CONTROLSFX()
+    artifactId = "$RELEASE_ARTIFACT-jfoenix"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

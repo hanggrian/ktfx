@@ -1,6 +1,5 @@
 package ktfx.rules
 
-import ktfx.dev.BuildConfig
 import org.jetbrains.kotlin.psi.KtPackageDirective
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
@@ -13,11 +12,11 @@ class PredefinedPackageRule : Rule("predefined-package", { node, _, emit ->
             }.replace('-', '.')
         }
         val name = node.psi<KtPackageDirective>().qualifiedName
-        if (name != convert(BuildConfig.ARTIFACT_COROUTINES) &&
-            name != convert(BuildConfig.ARTIFACT_LAYOUTS) &&
-            name != convert(BuildConfig.ARTIFACT_LISTENERS) &&
-            name != convert(BuildConfig.ARTIFACT_THIRDPARTY_CONTROLSFX) &&
-            name != convert(BuildConfig.ARTIFACT_THIRDPARTY_JFOENIX)
+        if (name != convert("ktfx-coroutines") &&
+            name != convert("ktfx-layouts") &&
+            name != convert("ktfx-listeners") &&
+            name != convert("ktfx-controlsfx") &&
+            name != convert("ktfx-jfoenix")
         ) {
             emit(node.startOffset, "See artifacts.kt for pre-defined packages", false)
         }

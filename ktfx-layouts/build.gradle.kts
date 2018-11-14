@@ -14,15 +14,15 @@ sourceSets {
 }
 
 ktlint { add ->
-    add(project(":$ARTIFACT_DEV_RULESET_ALL"))
-    add(project(":$ARTIFACT_DEV_RULESET_SINGLE_PACKAGE"))
+    add(project(":ruleset:all"))
+    add(project(":ruleset:single-package"))
 }
 
 dependencies {
-    compile(project(":$ARTIFACT_COMMONS"))
+    compile(project(":ktfx-commons"))
     compile(kotlin("stdlib", VERSION_KOTLIN))
 
-    testImplementation(project(":$ARTIFACT_DEV_TESTING_FX"))
+    testImplementation(project(":testing:fx"))
 }
 
 tasks {
@@ -40,7 +40,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = ARTIFACT_LAYOUTS
+    artifactId = "$RELEASE_ARTIFACT-layouts"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

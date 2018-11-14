@@ -6,13 +6,6 @@ fun DependencyHandler.kotlinx(
     version: String? = null
 ) = "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$it" } ?: ""}"
 
-fun DependencyHandler.hendraanggrian(
-    repository: String,
-    module: String = repository,
-    version: String
-): String = "com.hendraanggrian.$repository:$module:$version"
-inline val PluginDependenciesSpec.buildconfig get() = id("com.hendraanggrian.generation.buildconfig")
-
 fun DependencyHandler.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:$VERSION_DOKKA"
 inline val PluginDependenciesSpec.dokka get() = id("org.jetbrains.dokka")
 

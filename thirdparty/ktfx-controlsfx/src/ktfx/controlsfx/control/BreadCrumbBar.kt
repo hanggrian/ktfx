@@ -6,8 +6,8 @@ import javafx.scene.control.TreeItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 import org.controlsfx.control.BreadCrumbBar
 import kotlin.coroutines.CoroutineContext
 

@@ -5,8 +5,6 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 open class _TextFlow : TextFlow(), NodeInvokable {
 

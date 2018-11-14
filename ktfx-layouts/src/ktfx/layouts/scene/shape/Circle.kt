@@ -4,8 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Circle]. */
 fun circle(

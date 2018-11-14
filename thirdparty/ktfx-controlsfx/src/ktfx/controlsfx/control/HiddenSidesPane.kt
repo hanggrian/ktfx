@@ -3,8 +3,8 @@
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
+import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 import org.controlsfx.control.HiddenSidesPane
 
 /**

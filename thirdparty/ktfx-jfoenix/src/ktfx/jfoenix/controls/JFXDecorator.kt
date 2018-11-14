@@ -5,8 +5,8 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXDecorator
 import javafx.scene.Node
 import javafx.stage.Stage
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 
 /** Creates a [JFXDecorator]. */
 fun jfxDecorator(

@@ -5,9 +5,6 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton
-import ktfx.LayoutDsl
-import ktfx.MenuItemInvokable
-import ktfx.NodeInvokable
 
 open class _SplitMenuButton : SplitMenuButton(), MenuItemInvokable {
 

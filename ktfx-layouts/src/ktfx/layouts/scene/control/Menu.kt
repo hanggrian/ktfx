@@ -5,8 +5,6 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
-import ktfx.LayoutDsl
-import ktfx.MenuItemInvokable
 
 open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemInvokable {
 

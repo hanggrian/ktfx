@@ -3,8 +3,8 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXNodesList
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 
 /** Creates a [JFXNodesList]. */
 fun jfxNodesList(

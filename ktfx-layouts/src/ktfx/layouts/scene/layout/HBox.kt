@@ -6,8 +6,6 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 open class _HBox(spacing: Double) : HBox(spacing), NodeInvokable, HGrowedPane, MarginedPane {
 

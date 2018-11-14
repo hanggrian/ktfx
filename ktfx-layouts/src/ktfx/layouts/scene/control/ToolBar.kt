@@ -4,8 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 open class _ToolBar : ToolBar(), NodeInvokable {
 

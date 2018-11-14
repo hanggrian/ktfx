@@ -23,9 +23,9 @@ inline fun buildDoubleBinding(
 ): DoubleBinding = Bindings.createDoubleBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [DoubleBinding]. */
-fun buildDoubleBinding(
+inline fun buildDoubleBinding(
     dependencies: Collection<Observable>,
-    func: () -> Double?
+    noinline func: () -> Double?
 ): DoubleBinding = buildDoubleBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [FloatBinding]. */
@@ -35,9 +35,9 @@ inline fun buildFloatBinding(
 ): FloatBinding = Bindings.createFloatBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [FloatBinding]. */
-fun buildFloatBinding(
+inline fun buildFloatBinding(
     dependencies: Collection<Observable>,
-    func: () -> Float?
+    noinline func: () -> Float?
 ): FloatBinding = buildFloatBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [IntegerBinding]. */
@@ -47,9 +47,9 @@ inline fun buildIntBinding(
 ): IntegerBinding = Bindings.createIntegerBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [IntegerBinding]. */
-fun buildIntBinding(
+inline fun buildIntBinding(
     dependencies: Collection<Observable>,
-    func: () -> Int?
+    noinline func: () -> Int?
 ): IntegerBinding = buildIntBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [LongBinding]. */
@@ -59,9 +59,9 @@ inline fun buildLongBinding(
 ): LongBinding = Bindings.createLongBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [LongBinding]. */
-fun buildLongBinding(
+inline fun buildLongBinding(
     dependencies: Collection<Observable>,
-    func: () -> Long?
+    noinline func: () -> Long?
 ): LongBinding = buildLongBinding(*dependencies.toTypedArray(), func = func)
 
 /** Creates a double binding used to get a member. */

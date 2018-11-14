@@ -4,8 +4,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXColorPicker
 import javafx.scene.paint.Color
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 
 /** Creates a [JFXColorPicker]. */
 fun jfxColorPicker(

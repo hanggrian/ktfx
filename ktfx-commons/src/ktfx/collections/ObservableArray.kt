@@ -19,7 +19,7 @@ inline fun ObservableArray<*>.isEmpty(): Boolean = size == 0
 inline fun ObservableArray<*>.isNotEmpty(): Boolean = size != 0
 
 /** Creates a new [IntegerBinding] that contains the size of this array. */
-inline fun ObservableArray<*>.sizeBinding(): IntegerBinding = Bindings.size(this)
+inline val ObservableArray<*>.sizeBinding: IntegerBinding get() = Bindings.size(this)
 
 /** Converts this array to immutable [ObservableList]. */
 fun <T> Array<out T>.toObservableList(): ObservableList<T> = when (size) {

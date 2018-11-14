@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXTreeTableColumn
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeTableColumn
-import ktfx.KtfxInvokable
+import ktfx.layouts.KtfxInvokable
 
 /** Interface to build [JFXTreeTableColumn] with Kotlin DSL. */
 interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {

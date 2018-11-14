@@ -5,8 +5,6 @@ package ktfx.layouts
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.control.TableView
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [TableView]. */
 fun <S> tableView(

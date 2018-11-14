@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.CheckBox
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [CheckBox]. */
 fun checkBox(

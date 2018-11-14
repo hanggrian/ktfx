@@ -4,8 +4,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTreeViewPath
 import javafx.scene.control.TreeView
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 
 /** Creates a [JFXTreeViewPath]. */
 fun jfxTreeViewPath(

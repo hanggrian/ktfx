@@ -11,7 +11,7 @@ class ObservableArrayBindingsTest {
 
     fun sizeBinding(array: ObservableArray<*>) {
         Bindings.size(array)
-        array.sizeBinding()
+        array.sizeBinding
     }
 
     fun floatValueAt(array: ObservableFloatArray) {

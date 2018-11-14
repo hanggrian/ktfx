@@ -14,9 +14,9 @@ inline fun <T> buildBinding(
 ): ObjectBinding<T> = Bindings.createObjectBinding<T>(Callable(func), *dependencies)
 
 /** Helper function to create a custom [ObjectBinding]. */
-fun <T> buildBinding(
+inline fun <T> buildBinding(
     dependencies: Collection<Observable>,
-    func: () -> T?
+    noinline func: () -> T?
 ): ObjectBinding<T> = buildBinding(*dependencies.toTypedArray(), func = func)
 
 /** Creates an object binding used to get a member. */

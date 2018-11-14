@@ -7,8 +7,8 @@ import javafx.scene.Node
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
+import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 import org.controlsfx.control.NotificationPane
 import kotlin.coroutines.CoroutineContext
 

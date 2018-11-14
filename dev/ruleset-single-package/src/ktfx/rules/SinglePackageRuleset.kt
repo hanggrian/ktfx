@@ -7,6 +7,7 @@ class SinglePackageRuleset : RuleSetProvider {
 
     override fun get() = RuleSet(
         "single-package-ruleset",
-        PredefinedPackageRule()
+        PredefinedPackageRule(),
+        OpenClassRule()
     )
 }

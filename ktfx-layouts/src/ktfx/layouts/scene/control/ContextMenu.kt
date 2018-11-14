@@ -8,8 +8,6 @@ import javafx.scene.control.Control
 import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TableColumnBase
-import ktfx.LayoutDsl
-import ktfx.MenuItemInvokable
 
 open class _ContextMenu : ContextMenu(), MenuItemInvokable {
 

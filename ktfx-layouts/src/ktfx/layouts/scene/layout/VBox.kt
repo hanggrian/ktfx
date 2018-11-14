@@ -6,8 +6,6 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 open class _VBox(spacing: Double) : VBox(spacing), NodeInvokable, VGrowedPane, MarginedPane {
 

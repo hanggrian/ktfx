@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polygon
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Polygon]. */
 fun polygon(

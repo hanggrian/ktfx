@@ -4,8 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
-import ktfx.MenuItemInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [MenuItem]. */
 fun menuItem(

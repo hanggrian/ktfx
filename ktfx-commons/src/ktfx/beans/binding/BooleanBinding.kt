@@ -14,9 +14,9 @@ inline fun buildBooleanBinding(
 ): BooleanBinding = Bindings.createBooleanBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [BooleanBinding]. */
-fun buildBooleanBinding(
+inline fun buildBooleanBinding(
     dependencies: Collection<Observable>,
-    func: () -> Boolean?
+    noinline func: () -> Boolean?
 ): BooleanBinding = buildBooleanBinding(*dependencies.toTypedArray(), func = func)
 
 /** Creates a boolean binding used to get a member. */

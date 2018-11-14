@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurve
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [CubicCurve]. */
 fun cubicCurve(

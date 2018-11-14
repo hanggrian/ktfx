@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.SeparatorMenuItem
-import ktfx.MenuItemInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [SeparatorMenuItem]. */
 fun separatorMenuItem(

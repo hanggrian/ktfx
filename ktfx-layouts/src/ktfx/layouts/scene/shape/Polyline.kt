@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polyline
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Polyline]. */
 fun polyline(

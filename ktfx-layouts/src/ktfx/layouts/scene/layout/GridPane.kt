@@ -11,9 +11,6 @@ import javafx.scene.layout.ConstraintsBase
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
-import ktfx.KtfxInvokable
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 open class _GridPane : GridPane(), NodeInvokable, MarginedPane, HAlignedPane, VAlignedPane, HGrowedPane, VGrowedPane {
 

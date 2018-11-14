@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Cylinder
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Cylinder]. */
 fun cylinder(

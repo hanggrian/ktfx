@@ -5,8 +5,6 @@ package ktfx.layouts
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.control.Separator
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Separator]. */
 fun separator(

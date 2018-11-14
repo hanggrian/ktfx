@@ -7,8 +7,6 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.ScatterChart
 import javafx.scene.chart.XYChart.Series
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [ScatterChart]. */
 fun <X, Y> scatterChart(

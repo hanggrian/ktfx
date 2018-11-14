@@ -3,8 +3,8 @@
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 import org.controlsfx.control.InfoOverlay
 
 /** Creates a [InfoOverlay]. */

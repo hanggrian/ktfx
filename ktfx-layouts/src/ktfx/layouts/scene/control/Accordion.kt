@@ -4,9 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
-import ktfx.TitledPaneInvokable
 
 open class _Accordion : Accordion(), TitledPaneInvokable {
 

@@ -5,9 +5,6 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
-import ktfx.LayoutDsl
-import ktfx.MenuInvokable
-import ktfx.NodeInvokable
 
 open class _MenuBar : MenuBar(), MenuInvokable {
 

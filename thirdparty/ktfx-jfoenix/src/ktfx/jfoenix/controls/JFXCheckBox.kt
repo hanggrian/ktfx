@@ -3,8 +3,8 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXCheckBox
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 
 /** Creates a [JFXCheckBox]. */
 fun jfxCheckBox(

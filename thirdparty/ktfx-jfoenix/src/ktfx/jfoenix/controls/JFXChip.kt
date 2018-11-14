@@ -4,8 +4,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXChip
 import com.jfoenix.controls.JFXChipView
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 
 /** Creates a [JFXChip]. */
 fun <T> jfxChip(

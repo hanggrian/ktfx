@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Rectangle
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Rectangle]. */
 fun rectangle(

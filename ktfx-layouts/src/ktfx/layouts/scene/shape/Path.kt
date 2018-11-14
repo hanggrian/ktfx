@@ -4,9 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.shape.Path
 import javafx.scene.shape.PathElement
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
-import ktfx.PathElementInvokable
 
 open class _Path : Path(), PathElementInvokable {
 

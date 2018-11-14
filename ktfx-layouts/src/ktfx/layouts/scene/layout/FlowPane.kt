@@ -7,8 +7,6 @@ import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 open class _FlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
     NodeInvokable, MarginedPane {

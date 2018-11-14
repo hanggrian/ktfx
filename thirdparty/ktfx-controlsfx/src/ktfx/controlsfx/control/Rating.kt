@@ -2,8 +2,8 @@
 
 package ktfx.controlsfx
 
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 import org.controlsfx.control.Rating
 
 /** Creates a [Rating]. */

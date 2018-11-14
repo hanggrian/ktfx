@@ -4,7 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Dialog
-import ktfx.NodeInvokable
 
 open class _Dialog<R> : Dialog<R>(), NodeInvokable {
 

@@ -5,9 +5,9 @@ package ktfx.controlsfx
 import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ToggleButton
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
-import ktfx.ToggleButtonInvokable
+import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.ToggleButtonInvokable
 import ktfx.layouts.toggleButton
 import org.controlsfx.control.SegmentedButton
 

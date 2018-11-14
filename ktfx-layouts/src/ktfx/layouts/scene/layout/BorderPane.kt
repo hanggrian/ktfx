@@ -6,8 +6,6 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 /**
  * Invoking layout DSL will only set content to center.

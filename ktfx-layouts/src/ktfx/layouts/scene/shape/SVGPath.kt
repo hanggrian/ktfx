@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.SVGPath
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [SVGPath]. */
 fun svgPath(

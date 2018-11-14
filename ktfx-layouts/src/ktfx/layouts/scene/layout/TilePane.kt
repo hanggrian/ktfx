@@ -8,8 +8,6 @@ import javafx.geometry.Orientation.HORIZONTAL
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
     NodeInvokable, AlignedPane, MarginedPane {

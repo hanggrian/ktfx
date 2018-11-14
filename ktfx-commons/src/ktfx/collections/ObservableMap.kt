@@ -50,11 +50,11 @@ inline fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>): Unit = Bind
 
 inline fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>): Unit = Bindings.unbindContent(this, other)
 
-inline fun <K, V> ObservableMap<K, V>.sizeBinding(): IntegerBinding = Bindings.size(this)
+inline val <K, V> ObservableMap<K, V>.sizeBinding: IntegerBinding get() = Bindings.size(this)
 
-inline fun <K, V> ObservableMap<K, V>.emptyBinding(): BooleanBinding = Bindings.isEmpty(this)
+inline val <K, V> ObservableMap<K, V>.isEmptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
 
-inline fun <K, V> ObservableMap<K, V>.notEmptyBinding(): BooleanBinding = Bindings.isNotEmpty(this)
+inline val <K, V> ObservableMap<K, V>.isNotEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)
 
 inline fun <K, V> ObservableMap<K, V>.getBinding(key: K): ObjectBinding<V> = Bindings.valueAt(this, key)
 inline fun <K, V> ObservableMap<K, V>.getBinding(key: ObservableValue<K>): ObjectBinding<V> =

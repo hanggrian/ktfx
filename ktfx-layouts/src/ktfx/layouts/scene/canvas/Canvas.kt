@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.canvas.Canvas
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Canvas]. */
 fun canvas(

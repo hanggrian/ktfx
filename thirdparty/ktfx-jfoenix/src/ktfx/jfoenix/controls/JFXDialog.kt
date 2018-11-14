@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.NodeInvokable
+import ktfx.layouts.NodeInvokable
 import ktfx.internal.KtfxInternals
 import kotlin.coroutines.CoroutineContext
 

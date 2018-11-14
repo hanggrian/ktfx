@@ -4,8 +4,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXPopup
 import javafx.scene.Node
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
+import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 import ktfx.internal.KtfxInternals
 
 open class _JFXPopup : JFXPopup(), NodeInvokable {

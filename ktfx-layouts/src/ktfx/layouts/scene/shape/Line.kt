@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Line
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Line]. */
 fun line(

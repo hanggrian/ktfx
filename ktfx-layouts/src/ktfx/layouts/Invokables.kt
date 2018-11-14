@@ -1,4 +1,4 @@
-package ktfx
+package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Menu

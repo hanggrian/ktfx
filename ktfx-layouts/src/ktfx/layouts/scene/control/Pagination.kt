@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Pagination
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Pagination]. */
 fun pagination(

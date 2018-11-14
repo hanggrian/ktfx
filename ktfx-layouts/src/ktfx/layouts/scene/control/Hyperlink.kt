@@ -4,8 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Hyperlink]. */
 fun hyperlink(

@@ -8,7 +8,7 @@ import javafx.beans.property.ReadOnlyFloatWrapper
 import javafx.beans.property.SimpleFloatProperty
 
 /** Wrap this float in unmodifiable property. */
-inline fun Float?.toProperty(): ReadOnlyFloatProperty = ReadOnlyFloatWrapper(this ?: 0f)
+inline fun Float?.asProperty(): ReadOnlyFloatProperty = ReadOnlyFloatWrapper(this ?: 0f)
 
 /** Wrap this float in modifiable property. */
-inline fun Float?.toMutableProperty(): FloatProperty = SimpleFloatProperty(this ?: 0f)
+inline fun Float?.asMutableProperty(): FloatProperty = SimpleFloatProperty(this ?: 0f)

@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [ProgressBar]. */
 fun progressBar(

@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Slider
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Slider]. */
 fun slider(

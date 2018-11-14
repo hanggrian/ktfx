@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Spinner
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Spinner]. */
 fun <T> spinner(

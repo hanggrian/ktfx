@@ -8,7 +8,7 @@ import javafx.beans.property.ReadOnlyIntegerWrapper
 import javafx.beans.property.SimpleIntegerProperty
 
 /** Wrap this int in unmodifiable property. */
-inline fun Int?.toProperty(): ReadOnlyIntegerProperty = ReadOnlyIntegerWrapper(this ?: 0)
+inline fun Int?.asProperty(): ReadOnlyIntegerProperty = ReadOnlyIntegerWrapper(this ?: 0)
 
 /** Wrap this int in modifiable property. */
-inline fun Int?.toMutableProperty(): IntegerProperty = SimpleIntegerProperty(this ?: 0)
+inline fun Int?.asMutableProperty(): IntegerProperty = SimpleIntegerProperty(this ?: 0)

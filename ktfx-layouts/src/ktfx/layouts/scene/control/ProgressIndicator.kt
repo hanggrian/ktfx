@@ -4,8 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressIndicator
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [ProgressIndicator]. */
 fun progressIndicator(

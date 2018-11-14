@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurveTo
-import ktfx.PathElementInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [QuadCurveTo]. */
 fun quadCurveTo(

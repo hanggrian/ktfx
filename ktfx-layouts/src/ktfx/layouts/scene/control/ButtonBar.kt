@@ -5,8 +5,6 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 
 open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeInvokable {
 

@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.web.WebView
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [WebView]. */
 fun webView(

@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Sphere
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Sphere]. */
 fun sphere(

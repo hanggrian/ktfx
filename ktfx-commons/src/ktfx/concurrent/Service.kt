@@ -4,7 +4,8 @@ import javafx.concurrent.Service
 import javafx.concurrent.Task
 
 /** Receiver in `ktfx.concurrent.buildService`, invoke [call] to customize what this Task do in the background. */
-open class _Task<V> : Task<V>() {
+@Suppress("ClassName")
+class _Task<V> : Task<V>() {
 
     private var _call: () -> V? = { null }
 

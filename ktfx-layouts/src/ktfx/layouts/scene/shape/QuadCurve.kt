@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [QuadCurve]. */
 fun quadCurve(

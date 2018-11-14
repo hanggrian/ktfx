@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.text.Text
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [Text]. */
 fun text(

@@ -5,8 +5,6 @@ package ktfx.layouts
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.control.ListView
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [ListView]. */
 fun <T> listView(

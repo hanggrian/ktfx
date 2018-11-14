@@ -4,8 +4,8 @@ package ktfx.controlsfx
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
+import ktfx.layouts.NodeInvokable
+import ktfx.layouts.LayoutDsl
 import org.controlsfx.control.GridView
 
 /** Creates a [GridView]. */

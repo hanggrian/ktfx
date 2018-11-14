@@ -4,9 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Tab
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
-import ktfx.TabInvokable
 
 open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeInvokable {
 

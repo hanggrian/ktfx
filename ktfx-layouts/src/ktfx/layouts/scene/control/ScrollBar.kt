@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.ScrollBar
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [ScrollBar]. */
 fun scrollBar(

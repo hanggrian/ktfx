@@ -14,9 +14,9 @@ inline fun buildStringBinding(
 ): StringBinding = Bindings.createStringBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [StringBinding]. */
-fun buildStringBinding(
+inline fun buildStringBinding(
     dependencies: Collection<Observable>,
-    func: () -> String?
+    noinline func: () -> String?
 ): StringBinding = buildStringBinding(*dependencies.toTypedArray(), func = func)
 
 /** Creates a string binding used to get a member. */

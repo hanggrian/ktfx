@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.HLineTo
-import ktfx.PathElementInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [HLineTo]. */
 fun hlineTo(

@@ -4,8 +4,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXScrollPane
 import javafx.scene.Node
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
+import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 
 open class _JFXScrollPane : JFXScrollPane(), NodeInvokable {
 

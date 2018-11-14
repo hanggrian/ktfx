@@ -4,8 +4,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXRippler
 import javafx.scene.Node
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
+import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 
 // TODO: should include mask & pos in constructor?
 open class _JFXRippler : JFXRippler(), NodeInvokable {

@@ -5,8 +5,6 @@ package ktfx.layouts
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
-import ktfx.NodeInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [ChoiceBox]. */
 fun <T> choiceBox(

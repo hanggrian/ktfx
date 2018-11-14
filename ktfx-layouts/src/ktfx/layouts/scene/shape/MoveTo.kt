@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.MoveTo
-import ktfx.PathElementInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [MoveTo]. */
 fun moveTo(

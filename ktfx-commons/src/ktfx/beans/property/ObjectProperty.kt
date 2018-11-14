@@ -10,10 +10,10 @@ import javafx.beans.value.ObservableValue
 import javafx.beans.value.WritableObjectValue
 
 /** Wrap this object in unmodifiable property. */
-inline fun <T> T?.toProperty(): ReadOnlyObjectProperty<T> = ReadOnlyObjectWrapper(this)
+inline fun <T> T?.asProperty(): ReadOnlyObjectProperty<T> = ReadOnlyObjectWrapper(this)
 
 /** Wrap this object in modifiable property. */
-inline fun <T> T?.toMutableProperty(): ObjectProperty<T> = SimpleObjectProperty(this)
+inline fun <T> T?.asMutableProperty(): ObjectProperty<T> = SimpleObjectProperty(this)
 
 /** Checks whether this observable contains non-null value. */
 inline fun ObservableValue<*>.hasValue(): Boolean = value != null

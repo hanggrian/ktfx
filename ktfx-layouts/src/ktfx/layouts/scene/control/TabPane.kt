@@ -5,9 +5,6 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
-import ktfx.TabInvokable
 
 open class _TabPane : TabPane(), TabInvokable {
 

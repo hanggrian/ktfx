@@ -8,7 +8,7 @@ import javafx.beans.property.ReadOnlyBooleanWrapper
 import javafx.beans.property.SimpleBooleanProperty
 
 /** Wrap this boolean in unmodifiable property. */
-inline fun Boolean?.toProperty(): ReadOnlyBooleanProperty = ReadOnlyBooleanWrapper(this ?: false)
+inline fun Boolean?.asProperty(): ReadOnlyBooleanProperty = ReadOnlyBooleanWrapper(this ?: false)
 
 /** Wrap this boolean in modifiable property. */
-inline fun Boolean?.toMutableProperty(): BooleanProperty = SimpleBooleanProperty(this ?: false)
+inline fun Boolean?.asMutableProperty(): BooleanProperty = SimpleBooleanProperty(this ?: false)

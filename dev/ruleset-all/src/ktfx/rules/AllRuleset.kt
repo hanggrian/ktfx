@@ -9,7 +9,6 @@ class AllRuleset : RuleSetProvider {
         "all-ruleset",
         NoInternalClassMemberImportRule(),
         NoNullAssertionOperatorRule(),
-        ExpressionFunctionReturnTypeRule(),
-        OpenClassRule()
+        ExpressionFunctionReturnTypeRule()
     )
 }

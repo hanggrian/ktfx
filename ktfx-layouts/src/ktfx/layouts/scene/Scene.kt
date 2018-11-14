@@ -8,8 +8,6 @@ import javafx.scene.Scene
 import javafx.scene.layout.Pane
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
 import ktfx.internal.KtfxInternals
 
 open class _Scene(

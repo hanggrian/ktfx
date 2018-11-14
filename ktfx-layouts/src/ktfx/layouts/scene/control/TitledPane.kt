@@ -4,9 +4,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.TitledPane
-import ktfx.LayoutDsl
-import ktfx.NodeInvokable
-import ktfx.TitledPaneInvokable
 
 open class _TitledPane(title: String?) : TitledPane(title, null), NodeInvokable {
 

@@ -3,8 +3,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurveTo
-import ktfx.PathElementInvokable
-import ktfx.LayoutDsl
 
 /** Creates a [CubicCurveTo]. */
 fun cubicCurveTo(

@@ -36,3 +36,8 @@ private inline fun ifInFx(block: () -> Unit, fallback: () -> Unit): Unit = if (i
 
 /** Queries whether a specific conditional feature is supported by the platform. */
 inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)
+
+/** Executes action if a feature is supported. */
+inline fun ConditionalFeature.ifSupported(block: () -> Unit) {
+    if (isSupported()) block()
+}

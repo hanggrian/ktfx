@@ -136,15 +136,6 @@ $dokka.location:ktfx.beans.binding$times(kotlin.Double, javafx.beans.value.Obser
 $dokka.location:ktfx.beans.binding$times(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/kotlin.-float/times.html
 $dokka.location:ktfx.beans.binding$times(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/kotlin.-int/times.html
 $dokka.location:ktfx.beans.binding$times(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx.beans.binding/kotlin.-long/times.html
-$dokka.location:ktfx.beans.property$asMutableProperty(javafx.collections.ObservableList((ktfx.beans.property.asMutableProperty.E)))ktfx.beans.property/javafx.collections.-observable-list/as-mutable-property.html
-$dokka.location:ktfx.beans.property$asMutableProperty(javafx.collections.ObservableMap((ktfx.beans.property.asMutableProperty.K, ktfx.beans.property.asMutableProperty.V)))ktfx.beans.property/javafx.collections.-observable-map/as-mutable-property.html
-$dokka.location:ktfx.beans.property$asMutableProperty(javafx.collections.ObservableSet((ktfx.beans.property.asMutableProperty.E)))ktfx.beans.property/javafx.collections.-observable-set/as-mutable-property.html
-$dokka.location:ktfx.beans.property$asMutableProperty(kotlin.Boolean)ktfx.beans.property/kotlin.-boolean/as-mutable-property.html
-$dokka.location:ktfx.beans.property$asMutableProperty(kotlin.Double)ktfx.beans.property/kotlin.-double/as-mutable-property.html
-$dokka.location:ktfx.beans.property$asMutableProperty(kotlin.Float)ktfx.beans.property/kotlin.-float/as-mutable-property.html
-$dokka.location:ktfx.beans.property$asMutableProperty(kotlin.Int)ktfx.beans.property/kotlin.-int/as-mutable-property.html
-$dokka.location:ktfx.beans.property$asMutableProperty(kotlin.Long)ktfx.beans.property/kotlin.-long/as-mutable-property.html
-$dokka.location:ktfx.beans.property$asMutableProperty(kotlin.String)ktfx.beans.property/kotlin.-string/as-mutable-property.html
 $dokka.location:ktfx.beans.property$asProperty(javafx.collections.ObservableList((ktfx.beans.property.asProperty.E)))ktfx.beans.property/javafx.collections.-observable-list/as-property.html
 $dokka.location:ktfx.beans.property$asProperty(javafx.collections.ObservableMap((ktfx.beans.property.asProperty.K, ktfx.beans.property.asProperty.V)))ktfx.beans.property/javafx.collections.-observable-map/as-property.html
 $dokka.location:ktfx.beans.property$asProperty(javafx.collections.ObservableSet((ktfx.beans.property.asProperty.E)))ktfx.beans.property/javafx.collections.-observable-set/as-property.html
@@ -154,6 +145,15 @@ $dokka.location:ktfx.beans.property$asProperty(kotlin.Float)ktfx.beans.property
 $dokka.location:ktfx.beans.property$asProperty(kotlin.Int)ktfx.beans.property/kotlin.-int/as-property.html
 $dokka.location:ktfx.beans.property$asProperty(kotlin.Long)ktfx.beans.property/kotlin.-long/as-property.html
 $dokka.location:ktfx.beans.property$asProperty(kotlin.String)ktfx.beans.property/kotlin.-string/as-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(javafx.collections.ObservableList((ktfx.beans.property.asReadOnlyProperty.E)))ktfx.beans.property/javafx.collections.-observable-list/as-read-only-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(javafx.collections.ObservableMap((ktfx.beans.property.asReadOnlyProperty.K, ktfx.beans.property.asReadOnlyProperty.V)))ktfx.beans.property/javafx.collections.-observable-map/as-read-only-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(javafx.collections.ObservableSet((ktfx.beans.property.asReadOnlyProperty.E)))ktfx.beans.property/javafx.collections.-observable-set/as-read-only-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(kotlin.Boolean)ktfx.beans.property/kotlin.-boolean/as-read-only-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(kotlin.Double)ktfx.beans.property/kotlin.-double/as-read-only-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(kotlin.Float)ktfx.beans.property/kotlin.-float/as-read-only-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(kotlin.Int)ktfx.beans.property/kotlin.-int/as-read-only-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(kotlin.Long)ktfx.beans.property/kotlin.-long/as-read-only-property.html
+$dokka.location:ktfx.beans.property$asReadOnlyProperty(kotlin.String)ktfx.beans.property/kotlin.-string/as-read-only-property.html
 $dokka.location:ktfx.beans.property$clear(javafx.beans.value.WritableObjectValue((kotlin.Any)))ktfx.beans.property/javafx.beans.value.-writable-object-value/clear.html
 $dokka.location:ktfx.beans.property$hasValue(javafx.beans.value.ObservableValue((kotlin.Any)))ktfx.beans.property/javafx.beans.value.-observable-value/has-value.html
 $dokka.location:ktfx.beans.value$and(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.beans.value/javafx.beans.value.-observable-boolean-value/and.html

@@ -9,9 +9,9 @@ includeDir("ruleset")
 includeDir("testing")
 include("demo")
 
-fun includeDir(dir: String) = File(dir).walkEach { include("$dir:${it.name}") }
+fun includeDir(dir: String) = file(dir).walkEach { include("$dir:${it.name}") }
 
 fun File.walkEach(
     filter: (File) -> Boolean = { it.isDirectory },
     forEach: (File) -> Unit
-) = walk().filter(filter).forEach(forEach)
+) = listFiles().filter(filter).forEach(forEach)

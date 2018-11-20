@@ -8,7 +8,7 @@ import javafx.beans.property.ReadOnlyLongWrapper
 import javafx.beans.property.SimpleLongProperty
 
 /** Wrap this long in unmodifiable property. */
-inline fun Long?.asProperty(): ReadOnlyLongProperty = ReadOnlyLongWrapper(this ?: 0)
+inline fun Long?.asReadOnlyProperty(): ReadOnlyLongProperty = ReadOnlyLongWrapper(this ?: 0)
 
 /** Wrap this long in modifiable property. */
-inline fun Long?.asMutableProperty(): LongProperty = SimpleLongProperty(this ?: 0)
+inline fun Long?.asProperty(): LongProperty = SimpleLongProperty(this ?: 0)

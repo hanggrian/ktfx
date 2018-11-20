@@ -9,7 +9,7 @@ import javafx.beans.property.SimpleMapProperty
 import javafx.collections.ObservableMap
 
 /** Wrap this map in unmodifiable property. */
-inline fun <K, V> ObservableMap<K, V>?.asProperty(): ReadOnlyMapProperty<K, V> = ReadOnlyMapWrapper(this)
+inline fun <K, V> ObservableMap<K, V>?.asReadOnlyProperty(): ReadOnlyMapProperty<K, V> = ReadOnlyMapWrapper(this)
 
 /** Wrap this map in modifiable property. */
-inline fun <K, V> ObservableMap<K, V>?.asMutableProperty(): MapProperty<K, V> = SimpleMapProperty(this)
+inline fun <K, V> ObservableMap<K, V>?.asProperty(): MapProperty<K, V> = SimpleMapProperty(this)

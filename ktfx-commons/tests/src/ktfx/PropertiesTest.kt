@@ -1,6 +1,6 @@
 package ktfx
 
-import ktfx.beans.property.asMutableProperty
+import ktfx.beans.property.asProperty
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -8,9 +8,9 @@ import kotlin.test.assertTrue
 
 class PropertiesTest {
 
-    private val textProperty = "".asMutableProperty()
-    private val intProperty1 = 0.asMutableProperty()
-    private val intProperty2 = 10.asMutableProperty()
+    private val textProperty = "".asProperty()
+    private val intProperty1 = 0.asProperty()
+    private val intProperty2 = 10.asProperty()
 
     @Test fun bind() {
         textProperty.bind(intProperty1.asString())

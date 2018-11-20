@@ -9,7 +9,7 @@ import javafx.beans.property.SimpleListProperty
 import javafx.collections.ObservableList
 
 /** Wrap this list in unmodifiable property. */
-inline fun <E> ObservableList<E>?.asProperty(): ReadOnlyListProperty<E> = ReadOnlyListWrapper(this)
+inline fun <E> ObservableList<E>?.asReadOnlyProperty(): ReadOnlyListProperty<E> = ReadOnlyListWrapper(this)
 
 /** Wrap this list in modifiable property. */
-inline fun <E> ObservableList<E>?.asMutableProperty(): ListProperty<E> = SimpleListProperty(this)
+inline fun <E> ObservableList<E>?.asProperty(): ListProperty<E> = SimpleListProperty(this)

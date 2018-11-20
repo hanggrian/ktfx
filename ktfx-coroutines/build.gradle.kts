@@ -27,6 +27,9 @@ dependencies {
 }
 
 tasks {
+    withType<Javadoc> {
+        isEnabled = false
+    }
     withType<org.jetbrains.dokka.gradle.DokkaTask> {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }

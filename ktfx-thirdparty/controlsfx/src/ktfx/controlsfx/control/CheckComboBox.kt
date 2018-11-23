@@ -2,20 +2,20 @@
 
 package ktfx.controlsfx
 
-import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import ktfx.layouts.NodeInvokable
+import ktfx.collections.mutableObservableListOf
 import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 import org.controlsfx.control.CheckComboBox
 
 /** Creates a [CheckComboBox]. */
 fun <T> checkComboBox(
-    items: ObservableList<T> = FXCollections.observableArrayList(),
+    items: ObservableList<T> = mutableObservableListOf(),
     init: ((@LayoutDsl CheckComboBox<T>).() -> Unit)? = null
 ): CheckComboBox<T> = CheckComboBox(items).also { init?.invoke(it) }
 
 /** Creates a [CheckComboBox] and add it to this manager. */
 inline fun <T> NodeInvokable.checkComboBox(
-    items: ObservableList<T> = FXCollections.observableArrayList(),
+    items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl CheckComboBox<T>).() -> Unit)? = null
 ): CheckComboBox<T> = ktfx.controlsfx.checkComboBox(items, init)()

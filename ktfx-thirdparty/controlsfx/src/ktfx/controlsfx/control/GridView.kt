@@ -2,20 +2,20 @@
 
 package ktfx.controlsfx
 
-import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import ktfx.layouts.NodeInvokable
+import ktfx.collections.mutableObservableListOf
 import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 import org.controlsfx.control.GridView
 
 /** Creates a [GridView]. */
 fun <T> gridView(
-    items: ObservableList<T> = FXCollections.observableArrayList(),
+    items: ObservableList<T> = mutableObservableListOf(),
     init: ((@LayoutDsl GridView<T>).() -> Unit)? = null
 ): GridView<T> = GridView(items).also { init?.invoke(it) }
 
 /** Creates a [GridView] and add it to this manager. */
 inline fun <T> NodeInvokable.gridView(
-    items: ObservableList<T> = FXCollections.observableArrayList(),
+    items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl GridView<T>).() -> Unit)? = null
 ): GridView<T> = ktfx.controlsfx.gridView(items, init)()

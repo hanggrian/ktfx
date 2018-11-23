@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane
  * Invoking layout DSL will only set content to center.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _BorderPane : BorderPane(), AlignedPane, MarginedPane, NodeInvokable {
+open class _BorderPane : BorderPane(), AlignableConstraints, MarginableConstraints, NodeInvokable {
 
     override fun <R : Node> R.invoke(): R = also { center = it }
 

@@ -9,7 +9,7 @@ import javafx.scene.Node
 import javafx.scene.layout.FlowPane
 
 open class _FlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
-    NodeInvokable, MarginedPane {
+    NodeInvokable, MarginableConstraints {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 

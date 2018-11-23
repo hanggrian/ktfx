@@ -4,15 +4,16 @@ package ktfx.controlsfx
 
 import javafx.scene.control.TreeItem
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.layouts.NodeInvokable
 import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 import org.controlsfx.control.BreadCrumbBar
 import kotlin.coroutines.CoroutineContext
 
 fun <T> BreadCrumbBar<T>.onCrumbAction(
-    context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,
+    context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(BreadCrumbBar.BreadCrumbActionEvent<T>) -> Unit
 ): Unit = setOnCrumbAction { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 

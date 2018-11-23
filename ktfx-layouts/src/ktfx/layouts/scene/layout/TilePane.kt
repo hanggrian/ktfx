@@ -10,7 +10,7 @@ import javafx.scene.Node
 import javafx.scene.layout.TilePane
 
 open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
-    NodeInvokable, AlignedPane, MarginedPane {
+    NodeInvokable, AlignableConstraints, MarginableConstraints {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 

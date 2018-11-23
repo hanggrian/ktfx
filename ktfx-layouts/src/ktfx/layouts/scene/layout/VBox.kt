@@ -7,7 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 
-open class _VBox(spacing: Double) : VBox(spacing), NodeInvokable, VGrowedPane, MarginedPane {
+open class _VBox(spacing: Double) : VBox(spacing), NodeInvokable, VGrowableConstraints, MarginableConstraints {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 

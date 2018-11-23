@@ -5,16 +5,17 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
+import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
-internal interface ConstrainedPane {
+interface Constraints {
 
     fun Node.reset() // ktlint-disable
 }
 
-internal interface MarginedPane : ConstrainedPane {
+interface MarginableConstraints : Constraints {
 
     infix fun <N : Node> N.margins(margins: Insets?): N = also { it.margins = margins }
 
@@ -62,37 +63,50 @@ internal interface MarginedPane : ConstrainedPane {
     }
 }
 
-internal interface AlignedPane : ConstrainedPane {
+interface AlignableConstraints : Constraints {
 
     infix fun <N : Node> N.align(pos: Pos?): N = also { it.align = pos }
 
     var Node.align: Pos?
 }
 
-internal interface HAlignedPane : ConstrainedPane {
+interface HAlignableConstraints : Constraints {
 
     infix fun <N : Node> N.halign(hpos: HPos?): N = also { it.halign = hpos }
 
     var Node.halign: HPos?
 }
 
-internal interface VAlignedPane : ConstrainedPane {
+interface VAlignableConstraints : Constraints {
 
     infix fun <N : Node> N.valign(vpos: VPos?): N = also { it.valign = vpos }
 
     var Node.valign: VPos?
 }
 
-internal interface HGrowedPane : ConstrainedPane {
+interface HGrowableConstraints : Constraints {
 
     infix fun <N : Node> N.hpriority(hpriority: Priority?): N = also { it.hpriority = hpriority }
 
     var Node.hpriority: Priority?
 }
 
-internal interface VGrowedPane : ConstrainedPane {
+interface VGrowableConstraints : Constraints {
 
     infix fun <N : Node> N.vpriority(vpriority: Priority?): N = also { it.vpriority = vpriority }
 
     var Node.vpriority: Priority?
+}
+
+interface HBoxConstraints : NodeInvokable, HGrowableConstraints, MarginableConstraints {
+
+    override fun Node.reset(): Unit = HBox.clearConstraints(this)
+
+    override var Node.hpriority: Priority?
+        get() = HBox.getHgrow(this)
+        set(value) = HBox.setHgrow(this, value)
+
+    override var Node.margins: Insets?
+        get() = HBox.getMargin(this)
+        set(value) = HBox.setMargin(this, value)
 }

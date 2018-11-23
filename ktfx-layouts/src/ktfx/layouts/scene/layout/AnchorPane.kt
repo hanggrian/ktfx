@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
-open class _AnchorPane : AnchorPane(), NodeInvokable, ConstrainedPane {
+open class _AnchorPane : AnchorPane(), NodeInvokable, Constraints {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 

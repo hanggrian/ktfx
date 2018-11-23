@@ -2,17 +2,17 @@
 
 package ktfx.layouts
 
-import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.chart.AreaChart
 import javafx.scene.chart.Axis
 import javafx.scene.chart.XYChart.Series
+import ktfx.collections.mutableObservableListOf
 
 /** Creates a [AreaChart]. */
 fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
 ): AreaChart<X, Y> = AreaChart(x, y, data).also { init?.invoke(it) }
 
@@ -20,6 +20,6 @@ fun <X, Y> areaChart(
 inline fun <X, Y> NodeInvokable.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl AreaChart<X, Y>).() -> Unit)? = null
 ): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data, init)()

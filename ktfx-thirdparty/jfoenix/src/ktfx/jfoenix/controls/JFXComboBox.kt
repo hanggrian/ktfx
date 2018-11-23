@@ -3,19 +3,19 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXComboBox
-import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import ktfx.layouts.NodeInvokable
+import ktfx.collections.mutableObservableListOf
 import ktfx.layouts.LayoutDsl
+import ktfx.layouts.NodeInvokable
 
 /** Creates a [JFXComboBox]. */
 fun <T> jfxComboBox(
-    items: ObservableList<T> = FXCollections.observableArrayList(),
+    items: ObservableList<T> = mutableObservableListOf(),
     init: ((@LayoutDsl JFXComboBox<T>).() -> Unit)? = null
 ): JFXComboBox<T> = JFXComboBox<T>(items).also { init?.invoke(it) }
 
 /** Creates a [JFXComboBox] and add it to this manager. */
 inline fun <T> NodeInvokable.jfxComboBox(
-    items: ObservableList<T> = FXCollections.observableArrayList(),
+    items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutDsl JFXComboBox<T>).() -> Unit)? = null
 ): JFXComboBox<T> = ktfx.jfoenix.jfxComboBox(items, init)()

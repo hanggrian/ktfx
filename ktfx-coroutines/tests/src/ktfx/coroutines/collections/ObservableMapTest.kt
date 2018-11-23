@@ -1,7 +1,6 @@
 package ktfx.coroutines.collections
 
-import javafx.collections.FXCollections
-import javafx.collections.ObservableMap
+import ktfx.collections.mutableObservableMapOf
 import ktfx.coroutines.listener
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -9,7 +8,7 @@ import kotlin.test.assertTrue
 
 class ObservableMapTest {
 
-    private val observable: ObservableMap<Int, String> = FXCollections.observableHashMap()
+    private val observable = mutableObservableMapOf<Int, String>()
 
     @Test fun listener() = observable.run {
         val i = 1

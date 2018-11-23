@@ -7,7 +7,7 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
 
-open class _StackPane : StackPane(), NodeInvokable, AlignedPane, MarginedPane {
+open class _StackPane : StackPane(), NodeInvokable, AlignableConstraints, MarginableConstraints {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 

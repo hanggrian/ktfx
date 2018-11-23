@@ -2,17 +2,17 @@
 
 package ktfx.layouts
 
-import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.XYChart.Series
+import ktfx.collections.mutableObservableListOf
 
 /** Creates a [BarChart]. */
 fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     gap: Double = 10.0,
     init: ((@LayoutDsl BarChart<X, Y>).() -> Unit)? = null
 ): BarChart<X, Y> = BarChart(x, y, data, gap).also { init?.invoke(it) }
@@ -21,7 +21,7 @@ fun <X, Y> barChart(
 inline fun <X, Y> NodeInvokable.barChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     gap: Double = 10.0,
     noinline init: ((@LayoutDsl BarChart<X, Y>).() -> Unit)? = null
 ): BarChart<X, Y> = ktfx.layouts.barChart(x, y, data, gap, init)()

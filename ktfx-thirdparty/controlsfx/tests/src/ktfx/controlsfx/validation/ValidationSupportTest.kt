@@ -1,10 +1,10 @@
 package ktfx.controlsfx.validation
 
-import com.sun.javafx.application.PlatformImpl
-import javafx.application.Platform
 import javafx.scene.Scene
 import javafx.scene.control.TextField
 import javafx.stage.Stage
+import ktfx.application.later
+import ktfx.application.wait
 import ktfx.controlsfx.registerEmptyValidator
 import ktfx.controlsfx.registerEqualsValidator
 import ktfx.controlsfx.registerPredicateValidator
@@ -30,31 +30,27 @@ class ValidationSupportTest : AppTest() {
     @Test fun registerEmptyValidator() {
         textField.registerEmptyValidator<String>("", support = support)
         assertEquals(support.registeredControls.size, 1)
-        runAndWait { textField.clear() }
-        run { assertTrue(support.isInvalid) }
-        runAndWait { textField.text = "Hello world" }
-        run { assertFalse(support.isInvalid) }
+        wait { textField.clear() }
+        later { assertTrue(support.isInvalid) }
+        wait { textField.text = "Hello world" }
+        later { assertFalse(support.isInvalid) }
     }
 
     @Test fun registerEqualsValidator() {
         textField.registerEqualsValidator("", listOf("Hello", "world"), support = support)
         assertEquals(support.registeredControls.size, 1)
-        runAndWait { textField.clear() }
-        run { assertTrue(support.isInvalid) }
-        runAndWait { textField.text = "Hello" }
-        run { assertFalse(support.isInvalid) }
+        wait { textField.clear() }
+        later { assertTrue(support.isInvalid) }
+        wait { textField.text = "Hello" }
+        later { assertFalse(support.isInvalid) }
     }
 
     @Test fun registerPredicateValidator() {
         textField.registerPredicateValidator<String>("", support = support) { it.toIntOrNull() != null }
         assertEquals(support.registeredControls.size, 1)
-        runAndWait { textField.clear() }
-        run { assertTrue(support.isInvalid) }
-        runAndWait { textField.text = "123" }
-        run { assertFalse(support.isInvalid) }
+        wait { textField.clear() }
+        later { assertTrue(support.isInvalid) }
+        wait { textField.text = "123" }
+        later { assertFalse(support.isInvalid) }
     }
-
-    private fun run(block: () -> Unit) = Platform.runLater(block)
-
-    private fun runAndWait(block: () -> Unit) = PlatformImpl.runAndWait(block)
 }

@@ -1,7 +1,7 @@
 package ktfx.coroutines.collections
 
-import javafx.collections.FXCollections
 import javafx.collections.ObservableIntegerArray
+import ktfx.collections.observableIntArrayOf
 import ktfx.coroutines.listener
 import org.junit.Test
 import kotlin.test.assertEquals
@@ -9,7 +9,7 @@ import kotlin.test.assertTrue
 
 class ObservableArrayTest {
 
-    private val observable: ObservableIntegerArray = FXCollections.observableIntegerArray()
+    private val observable = observableIntArrayOf()
 
     @Test fun listener() = observable.run {
         val i = 1

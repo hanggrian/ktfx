@@ -7,6 +7,7 @@ rootDir.walkEach({ it.isDirectory && "ktfx" in it.name }) {
 
 includeDir("ruleset")
 includeDir("testing")
+include("website")
 include("demo")
 
 fun includeDir(dir: String) = file(dir).walkEach { include("$dir:${it.name}") }

@@ -6,7 +6,7 @@ gitPublish {
     repoUri = RELEASE_WEB
     branch = "gh-pages"
     contents.from(
-        "pages",
+        "src",
         *getKtfxArtifacts()
             .map { "../$it/build/docs" }
             .toTypedArray()

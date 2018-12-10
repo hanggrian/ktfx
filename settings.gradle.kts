@@ -1,6 +1,6 @@
 rootDir.walkEach({ it.isDirectory && "ktfx" in it.name }) {
     when {
-        it.isDirectory -> includeDir(it.name)
+        "thirdparty" in it.name -> includeDir(it.name)
         else -> include(it.name)
     }
 }

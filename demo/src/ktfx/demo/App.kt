@@ -5,7 +5,7 @@ import javafx.scene.control.Label
 import javafx.scene.text.Font
 import javafx.scene.text.FontWeight.BOLD
 import javafx.stage.Stage
-import ktfx.application.launchApp
+import ktfx.application.launch
 import ktfx.beans.binding.buildBooleanBinding
 import ktfx.beans.binding.buildStringBinding
 import ktfx.coroutines.onAction
@@ -24,7 +24,7 @@ class App : Application() {
     companion object {
         private val OPERATORS = arrayOf("+", "-", "/", "*")
 
-        @JvmStatic fun main(vararg args: String) = launchApp<App>(*args)
+        @JvmStatic fun main(vararg args: String) = launch<App>(*args)
     }
 
     private lateinit var calculationLabel: Label

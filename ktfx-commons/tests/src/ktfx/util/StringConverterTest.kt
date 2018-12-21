@@ -10,5 +10,5 @@ class StringConverterTest {
 
     @Test fun invoke() = assertEquals(converter.toString(123), converter(123))
 
-    @Test fun get() = assertEquals(converter.fromString("123"), converter("123"))
+    @Test fun get() = assertEquals(converter.fromString("123"), converter["123"])
 }

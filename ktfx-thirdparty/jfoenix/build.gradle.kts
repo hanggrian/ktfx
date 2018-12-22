@@ -1,4 +1,4 @@
-group = "$RELEASE_GROUP.jfoenix"
+group = RELEASE_GROUP
 version = RELEASE_VERSION
 
 plugins {

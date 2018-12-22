@@ -1,4 +1,4 @@
-group = "$RELEASE_GROUP.controlsfx"
+group = RELEASE_GROUP
 version = RELEASE_VERSION
 
 plugins {

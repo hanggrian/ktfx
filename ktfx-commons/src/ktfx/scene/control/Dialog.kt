@@ -89,21 +89,3 @@ internal fun Dialog<*>.addButton(
     buttonTypes += type
     return lookupButton(type).also { init?.invoke(it) }
 }
-
-/**
- * Build a custom dialog with Kotlin DSL.
- *
- * @param title title of the dialog.
- * @param graphic node to be displayed in header.
- * @param init custom initialization block.
- */
-fun <R> dialog(
-    title: String? = null,
-    graphic: Node? = null,
-    init: (Dialog<R>.() -> Unit)? = null
-): Dialog<R> = Dialog<R>().also { dialog ->
-    if (title != null) dialog.title = title
-    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
-    if (title != null && graphic != null) dialog.headerText = title
-    init?.invoke(dialog)
-}

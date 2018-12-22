@@ -4,31 +4,68 @@ package ktfx.stage
 
 import javafx.stage.FileChooser
 import javafx.stage.FileChooser.ExtensionFilter
+import javafx.stage.Window
+import java.io.File
 
 /**
- * Build a file chooser dialog with Kotlin DSL.
+ * Choose a file to open.
  *
  * @param title title of the dialog.
+ * @param initialDirectory starting point of chooser.
+ * @param initialFileName starting name of file to be choosen.
  * @param filters expected file extensions.
- * @param init custom initialization block.
+ * @return chosen file.
  */
-fun fileChooser(
+fun Window.chooseFile(
     title: String? = null,
-    vararg filters: ExtensionFilter,
-    init: (FileChooser.() -> Unit)? = null
-): FileChooser = FileChooser().also {
+    initialDirectory: File? = null,
+    initialFileName: String? = null,
+    vararg filters: ExtensionFilter
+): File = FileChooser().also {
     if (title != null) it.title = title
+    if (initialDirectory != null) it.initialDirectory = initialDirectory
+    if (initialFileName != null) it.initialFileName = initialFileName
     if (filters.isNotEmpty()) it.extensionFilters += filters
-    init?.invoke(it)
-}
+}.showOpenDialog(this)
 
 /**
- * Build a file chooser dialog with Kotlin DSL.
+ * Choose multiple files to open.
  *
+ * @param title title of the dialog.
+ * @param initialDirectory starting point of chooser.
+ * @param initialFileName starting name of file to be choosen.
  * @param filters expected file extensions.
- * @param init custom initialization block.
+ * @return chosen files.
  */
-inline fun fileChooser(
-    vararg filters: ExtensionFilter,
-    noinline init: (FileChooser.() -> Unit)? = null
-): FileChooser = fileChooser(null, *filters, init = init)
+fun Window.chooseFiles(
+    title: String? = null,
+    initialDirectory: File? = null,
+    initialFileName: String? = null,
+    vararg filters: ExtensionFilter
+): List<File> = FileChooser().also {
+    if (title != null) it.title = title
+    if (initialDirectory != null) it.initialDirectory = initialDirectory
+    if (initialFileName != null) it.initialFileName = initialFileName
+    if (filters.isNotEmpty()) it.extensionFilters += filters
+}.showOpenMultipleDialog(this)
+
+/**
+ * Choose a file to save.
+ *
+ * @param title title of the dialog.
+ * @param initialDirectory starting point of chooser.
+ * @param initialFileName starting name of file to be choosen.
+ * @param filters expected file extensions.
+ * @return chosen file.
+ */
+fun Window.chooseSaveFile(
+    title: String? = null,
+    initialDirectory: File? = null,
+    initialFileName: String? = null,
+    vararg filters: ExtensionFilter
+): File = FileChooser().also {
+    if (title != null) it.title = title
+    if (initialDirectory != null) it.initialDirectory = initialDirectory
+    if (initialFileName != null) it.initialFileName = initialFileName
+    if (filters.isNotEmpty()) it.extensionFilters += filters
+}.showSaveDialog(this)

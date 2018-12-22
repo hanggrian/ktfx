@@ -2,8 +2,6 @@ package ktfx.demo
 
 import javafx.application.Application
 import javafx.scene.control.Label
-import javafx.scene.text.Font
-import javafx.scene.text.FontWeight.BOLD
 import javafx.stage.Stage
 import ktfx.application.launch
 import ktfx.beans.binding.buildBooleanBinding
@@ -141,13 +139,7 @@ class App : Application() {
                 button("") {
                     minSize = 40.0
                     onAction {
-                        errorAlert("Not yet supported.") {
-                            title = ":("
-                            dialogPane.expandableContent = ktfx.layouts.vbox {
-                                label("Suggestion") { font = Font.font("Arial", BOLD, 14.0) }
-                                label("Use an actual calculator.") marginTop 4.0
-                            }
-                        }.show()
+                        errorAlert(":(", content = "Not yet supported.")
                     }
                 } row 4 col 2
 
@@ -187,7 +179,7 @@ class App : Application() {
                     isDefaultButton = true
                     disableProperty().bind(buildBooleanBinding(calculationLabel.textProperty()) { endsWithOperator })
                     onAction {
-                        infoAlert("Result", content = resultLabel.text).showAndWait()
+                        infoAlert("Result", content = resultLabel.text)
                     }
                 } row 4 col 4
             }

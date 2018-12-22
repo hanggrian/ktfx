@@ -7,173 +7,159 @@ import javafx.scene.control.Alert
 import javafx.scene.control.Alert.AlertType
 import javafx.scene.control.ButtonType
 import javafx.scene.image.ImageView
+import java.util.Optional
 
 /**
- * Build an alert with Kotlin DSL.
+ * Show an alert with title and graphic.
  *
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 fun alert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    init: (Alert.() -> Unit)? = null
-): Alert = Alert(AlertType.NONE, content, *buttonTypes).also { dialog ->
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = Alert(AlertType.NONE, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
-    init?.invoke(dialog)
-}
+}.showAndWait()
 
 /**
- * Build an alert with Kotlin DSL.
+ * Show an alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 inline fun alert(
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    noinline init: (Alert.() -> Unit)? = null
-): Alert = alert(null, null, content, *buttonTypes, init = init)
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = alert(null, null, content, *buttonTypes)
 
 /**
- * Build an information alert with Kotlin DSL.
+ * Show an information alert with title and graphic.
  *
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 fun infoAlert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    init: (Alert.() -> Unit)? = null
-): Alert = Alert(AlertType.INFORMATION, content, *buttonTypes).also { dialog ->
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = Alert(AlertType.INFORMATION, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
-    init?.invoke(dialog)
-}
+}.showAndWait()
 
 /**
- * Build an information alert with Kotlin DSL.
+ * Show an information alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 inline fun infoAlert(
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    noinline init: (Alert.() -> Unit)? = null
-): Alert = infoAlert(null, null, content, *buttonTypes, init = init)
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = infoAlert(null, null, content, *buttonTypes)
 
 /**
- * Build a warning alert with Kotlin DSL.
+ * Show a warning alert with title and graphic.
  *
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 fun warningAlert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    init: (Alert.() -> Unit)? = null
-): Alert = Alert(AlertType.WARNING, content, *buttonTypes).also { dialog ->
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = Alert(AlertType.WARNING, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
-    init?.invoke(dialog)
-}
+}.showAndWait()
 
 /**
- * Build a warning alert with Kotlin DSL.
+ * Show a warning alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 inline fun warningAlert(
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    noinline init: (Alert.() -> Unit)? = null
-): Alert = warningAlert(null, null, content, *buttonTypes, init = init)
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = warningAlert(null, null, content, *buttonTypes)
 
 /**
- * Build a confirmation alert with Kotlin DSL.
+ * Show a confirmation alert with title and graphic.
  *
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 fun confirmAlert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    init: (Alert.() -> Unit)? = null
-): Alert = Alert(AlertType.CONFIRMATION, content, *buttonTypes).also { dialog ->
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = Alert(AlertType.CONFIRMATION, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
-    init?.invoke(dialog)
-}
+}.showAndWait()
 
 /**
- * Build a confirmation alert with Kotlin DSL.
+ * Show a confirmation alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 inline fun confirmAlert(
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    noinline init: (Alert.() -> Unit)? = null
-): Alert = confirmAlert(null, null, content, *buttonTypes, init = init)
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = confirmAlert(null, null, content, *buttonTypes)
 
 /**
- * Build an error alert with Kotlin DSL.
+ * Show an error alert with title and graphic.
  *
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 fun errorAlert(
     title: String? = null,
     graphic: Node? = null,
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    init: (Alert.() -> Unit)? = null
-): Alert = Alert(AlertType.ERROR, content, *buttonTypes).also { dialog ->
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = Alert(AlertType.ERROR, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
-    init?.invoke(dialog)
-}
+}.showAndWait()
 
 /**
- * Build an error alert with Kotlin DSL.
+ * Show an error alert.
  *
  * @param content alert message.
  * @param buttonTypes alert buttons.
- * @param init custom initialization block.
+ * @return selected alert button.
  */
 inline fun errorAlert(
     content: String = "",
-    vararg buttonTypes: ButtonType,
-    noinline init: (Alert.() -> Unit)? = null
-): Alert = errorAlert(null, null, content, *buttonTypes, init = init)
+    vararg buttonTypes: ButtonType
+): Optional<ButtonType> = errorAlert(null, null, content, *buttonTypes)

@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.print
 
 import javafx.print.JobSettings
@@ -5,45 +7,65 @@ import javafx.print.PageLayout
 import javafx.print.Printer
 import javafx.print.PrinterJob
 import javafx.scene.Node
-import javafx.scene.transform.Scale
-import ktfx.internal.Experimental
+import ktfx.scene.transform.scale
 
-enum class DialogOption {
-    NONE,
-    DEFAULT,
-    COMPLETE
-}
-
-@Experimental
-fun Printer.print(
-    node: Node,
-    layout: PageLayout = defaultPageLayout,
-    scale: Scale = Scale(
-        (layout.printableWidth - layout.leftMargin - layout.rightMargin) / node.boundsInParent.width,
-        (layout.printableHeight - layout.bottomMargin) / node.boundsInParent.height
-    ),
-    option: DialogOption = DialogOption.DEFAULT,
+fun Node.print(
+    printer: Printer = Printer.getDefaultPrinter(),
+    layout: PageLayout = printer.defaultPageLayout,
+    scaleX: Double = (layout.printableWidth - layout.rightMargin) / boundsInParent.width,
+    scaleY: Double = (layout.printableHeight - layout.bottomMargin) / boundsInParent.height,
     settings: JobSettings.() -> Unit = {
         copies = 1
         setPageRanges(1 untilPage 1)
         pageLayout = layout
     }
+): Boolean = printNewJob(printer, scaleX, scaleY, settings) {
+    printPage(this@print)
+}
+
+fun Node.printDialog(
+    printer: Printer = Printer.getDefaultPrinter(),
+    layout: PageLayout = printer.defaultPageLayout,
+    scaleX: Double = (layout.printableWidth - layout.rightMargin) / boundsInParent.width,
+    scaleY: Double = (layout.printableHeight - layout.bottomMargin) / boundsInParent.height,
+    settings: JobSettings.() -> Unit = {
+        copies = 1
+        setPageRanges(1 untilPage 1)
+        pageLayout = layout
+    }
+): Boolean = printNewJob(printer, scaleX, scaleY, settings) {
+    showPrintDialog(scene.window) && printPage(this@printDialog)
+}
+
+fun Node.printSetupDialog(
+    printer: Printer = Printer.getDefaultPrinter(),
+    layout: PageLayout = printer.defaultPageLayout,
+    scaleX: Double = (layout.printableWidth - layout.rightMargin) / boundsInParent.width,
+    scaleY: Double = (layout.printableHeight - layout.bottomMargin) / boundsInParent.height,
+    settings: JobSettings.() -> Unit = {
+        copies = 1
+        setPageRanges(1 untilPage 1)
+        pageLayout = layout
+    }
+): Boolean = printNewJob(printer, scaleX, scaleY, settings) {
+    showPageSetupDialog(scene.window) && showPrintDialog(scene.window) && printPage(this@printSetupDialog)
+}
+
+private inline fun Node.printNewJob(
+    printer: Printer,
+    scaleX: Double,
+    scaleY: Double,
+    settings: JobSettings.() -> Unit,
+    print: PrinterJob.() -> Boolean
 ): Boolean {
-    val job = checkNotNull(PrinterJob.createPrinterJob(this)) { "Unable to create printer job" }
+    val job = checkNotNull(PrinterJob.createPrinterJob(printer)) { "Unable to create printer job" }
     job.jobSettings.settings()
-    node.transforms += scale
-    if (when (option) {
-            DialogOption.NONE -> job.printPage(node)
-            DialogOption.DEFAULT -> job.showPrintDialog(node.scene.window) && job.printPage(node)
-            DialogOption.COMPLETE -> job.showPageSetupDialog(node.scene.window) &&
-                job.showPrintDialog(node.scene.window) &&
-                job.printPage(node)
-        }
-    ) {
+    val scale = scale(scaleX, scaleY)
+    if (job.print()) {
         job.endJob()
-        node.transforms -= scale
+        transforms -= scale
         return true
     }
-    node.transforms -= scale
+    transforms -= scale
     return false
 }

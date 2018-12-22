@@ -592,8 +592,11 @@ $dokka.location:ktfx.scene.transform$translate(javafx.scene.Node)ktfx.scene.tra
 $dokka.location:ktfx.scene.transform$translate(javafx.scene.Node, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/translate.html
 $dokka.location:ktfx.scene.transform$translate(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/translate.html
 $dokka.location:ktfx.stage$chooseDirectory(javafx.stage.Window, kotlin.String, java.io.File)ktfx.stage/javafx.stage.-window/choose-directory.html
+$dokka.location:ktfx.stage$chooseFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-file.html
 $dokka.location:ktfx.stage$chooseFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-file.html
+$dokka.location:ktfx.stage$chooseFiles(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-files.html
 $dokka.location:ktfx.stage$chooseFiles(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-files.html
+$dokka.location:ktfx.stage$chooseSaveFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-save-file.html
 $dokka.location:ktfx.stage$chooseSaveFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-save-file.html
 $dokka.location:ktfx.stage$icon#javafx.stage.Stagektfx.stage/javafx.stage.-stage/icon.html
 $dokka.location:ktfx.stage$maxSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/max-size.html

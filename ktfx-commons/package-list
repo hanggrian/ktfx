@@ -406,6 +406,7 @@ $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.O
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-set/unbind-content-bidirectional.html
 $dokka.location:ktfx.embed.swing$toFxImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.embed.swing/java.awt.image.-buffered-image/to-fx-image.html
 $dokka.location:ktfx.embed.swing$toSwingImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.embed.swing/javafx.scene.image.-image/to-swing-image.html
+$dokka.location:ktfx.fxml$use(javafx.fxml.FXMLLoader, kotlin.Function1((ktfx.fxml.use.C, kotlin.Unit)))ktfx.fxml/javafx.fxml.-f-x-m-l-loader/use.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Dimension2D)ktfx.geometry/javafx.geometry.-dimension2-d/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Insets)ktfx.geometry/javafx.geometry.-insets/component1.html
 $dokka.location:ktfx.geometry$component1(javafx.geometry.Point2D)ktfx.geometry/javafx.geometry.-point2-d/component1.html
@@ -434,7 +435,9 @@ $dokka.location:ktfx.geometry$plus(javafx.geometry.Point2D, javafx.geometry.Poin
 $dokka.location:ktfx.geometry$plus(javafx.geometry.Point3D, javafx.geometry.Point3D)ktfx.geometry/javafx.geometry.-point3-d/plus.html
 $dokka.location:ktfx.geometry$plus(javafx.geometry.VPos, javafx.geometry.HPos)ktfx.geometry/javafx.geometry.-v-pos/plus.html
 $dokka.location:ktfx.geometry$times(javafx.geometry.Point3D, kotlin.Double)ktfx.geometry/javafx.geometry.-point3-d/times.html
-$dokka.location:ktfx.print$print(javafx.print.Printer, javafx.scene.Node, javafx.print.PageLayout, javafx.scene.transform.Scale, ktfx.print.DialogOption, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.print.-printer/print.html
+$dokka.location:ktfx.print$print(javafx.scene.Node, javafx.print.Printer, javafx.print.PageLayout, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.scene.-node/print.html
+$dokka.location:ktfx.print$printDialog(javafx.scene.Node, javafx.print.Printer, javafx.print.PageLayout, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.scene.-node/print-dialog.html
+$dokka.location:ktfx.print$printSetupDialog(javafx.scene.Node, javafx.print.Printer, javafx.print.PageLayout, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.scene.-node/print-setup-dialog.html
 $dokka.location:ktfx.print$untilPage(kotlin.Int, kotlin.Int)ktfx.print/kotlin.-int/until-page.html
 $dokka.location:ktfx.scene$asPane(javafx.scene.Node)ktfx.scene/javafx.scene.-node/as-pane.html
 $dokka.location:ktfx.scene$find(javafx.scene.Node, kotlin.String)ktfx.scene/javafx.scene.-node/find.html
@@ -567,6 +570,31 @@ $dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.Labeledktfx.scene
 $dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.TextInputControlktfx.scene.text/javafx.scene.control.-text-input-control/font-size.html
 $dokka.location:ktfx.scene.text$fontSize#javafx.scene.control.Tooltipktfx.scene.text/javafx.scene.control.-tooltip/font-size.html
 $dokka.location:ktfx.scene.text$fontSize#javafx.scene.text.Textktfx.scene.text/javafx.scene.text.-text/font-size.html
+$dokka.location:ktfx.scene.transform$affine(javafx.scene.Node)ktfx.scene.transform/javafx.scene.-node/affine.html
+$dokka.location:ktfx.scene.transform$affine(javafx.scene.Node, javafx.scene.transform.Transform)ktfx.scene.transform/javafx.scene.-node/affine.html
+$dokka.location:ktfx.scene.transform$affine(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/affine.html
+$dokka.location:ktfx.scene.transform$affine(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/affine.html
+$dokka.location:ktfx.scene.transform$affine(javafx.scene.Node, kotlin.DoubleArray, javafx.scene.transform.MatrixType, kotlin.Int)ktfx.scene.transform/javafx.scene.-node/affine.html
+$dokka.location:ktfx.scene.transform$rotate(javafx.scene.Node)ktfx.scene.transform/javafx.scene.-node/rotate.html
+$dokka.location:ktfx.scene.transform$rotate(javafx.scene.Node, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/rotate.html
+$dokka.location:ktfx.scene.transform$rotate(javafx.scene.Node, kotlin.Double, javafx.geometry.Point3D)ktfx.scene.transform/javafx.scene.-node/rotate.html
+$dokka.location:ktfx.scene.transform$rotate(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/rotate.html
+$dokka.location:ktfx.scene.transform$rotate(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/rotate.html
+$dokka.location:ktfx.scene.transform$rotate(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, javafx.geometry.Point3D)ktfx.scene.transform/javafx.scene.-node/rotate.html
+$dokka.location:ktfx.scene.transform$scale(javafx.scene.Node, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/scale.html
+$dokka.location:ktfx.scene.transform$scale(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/scale.html
+$dokka.location:ktfx.scene.transform$scale(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/scale.html
+$dokka.location:ktfx.scene.transform$scale(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/scale.html
+$dokka.location:ktfx.scene.transform$shear(javafx.scene.Node)ktfx.scene.transform/javafx.scene.-node/shear.html
+$dokka.location:ktfx.scene.transform$shear(javafx.scene.Node, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/shear.html
+$dokka.location:ktfx.scene.transform$shear(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/shear.html
+$dokka.location:ktfx.scene.transform$translate(javafx.scene.Node)ktfx.scene.transform/javafx.scene.-node/translate.html
+$dokka.location:ktfx.scene.transform$translate(javafx.scene.Node, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/translate.html
+$dokka.location:ktfx.scene.transform$translate(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.scene.transform/javafx.scene.-node/translate.html
+$dokka.location:ktfx.stage$chooseDirectory(javafx.stage.Window, kotlin.String, java.io.File)ktfx.stage/javafx.stage.-window/choose-directory.html
+$dokka.location:ktfx.stage$chooseFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-file.html
+$dokka.location:ktfx.stage$chooseFiles(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-files.html
+$dokka.location:ktfx.stage$chooseSaveFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.stage/javafx.stage.-window/choose-save-file.html
 $dokka.location:ktfx.stage$icon#javafx.stage.Stagektfx.stage/javafx.stage.-stage/icon.html
 $dokka.location:ktfx.stage$maxSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/max-size.html
 $dokka.location:ktfx.stage$minSize#javafx.stage.Stagektfx.stage/javafx.stage.-stage/min-size.html
@@ -605,5 +633,6 @@ ktfx.scene.input
 ktfx.scene.layout
 ktfx.scene.paint
 ktfx.scene.text
+ktfx.scene.transform
 ktfx.stage
 ktfx.util

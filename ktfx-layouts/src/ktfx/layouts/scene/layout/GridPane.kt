@@ -12,7 +12,13 @@ import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
 
-open class _GridConstraints : GridPane(), NodeInvokable, MarginableConstraints, HAlignableConstraints, VAlignableConstraints, HGrowableConstraints, VGrowableConstraints {
+open class _GridPane : GridPane(),
+    NodeInvokable,
+    MarginableConstraints,
+    HAlignableConstraints,
+    VAlignableConstraints,
+    HGrowableConstraints,
+    VGrowableConstraints {
 
     override fun <R : Node> R.invoke(): R = also { children += it }
 
@@ -77,12 +83,12 @@ open class _GridConstraints : GridPane(), NodeInvokable, MarginableConstraints, 
 
 /** Creates a [GridPane]. */
 fun gridPane(
-    init: ((@LayoutDsl _GridConstraints).() -> Unit)? = null
-): GridPane = _GridConstraints().also { init?.invoke(it) }
+    init: ((@LayoutDsl _GridPane).() -> Unit)? = null
+): GridPane = _GridPane().also { init?.invoke(it) }
 
 /** Creates a [GridPane] and add it to this manager. */
 inline fun NodeInvokable.gridPane(
-    noinline init: ((@LayoutDsl _GridConstraints).() -> Unit)? = null
+    noinline init: ((@LayoutDsl _GridPane).() -> Unit)? = null
 ): GridPane = ktfx.layouts.gridPane(init)()
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */

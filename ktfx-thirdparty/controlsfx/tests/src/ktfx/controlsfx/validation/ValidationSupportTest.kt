@@ -3,8 +3,8 @@ package ktfx.controlsfx.validation
 import javafx.scene.Scene
 import javafx.scene.control.TextField
 import javafx.stage.Stage
-import ktfx.application.later
-import ktfx.application.wait
+import ktfx.later
+import ktfx.wait
 import ktfx.controlsfx.registerEmptyValidator
 import ktfx.controlsfx.registerEqualsValidator
 import ktfx.controlsfx.registerPredicateValidator

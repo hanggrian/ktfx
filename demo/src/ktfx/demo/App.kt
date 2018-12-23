@@ -3,19 +3,19 @@ package ktfx.demo
 import javafx.application.Application
 import javafx.scene.control.Label
 import javafx.stage.Stage
-import ktfx.application.launch
-import ktfx.beans.binding.buildBooleanBinding
-import ktfx.beans.binding.buildStringBinding
+import ktfx.buildBooleanBinding
+import ktfx.buildStringBinding
+import ktfx.controls.minSize
+import ktfx.controls.updatePadding
 import ktfx.coroutines.onAction
+import ktfx.dialogs.errorAlert
+import ktfx.dialogs.infoAlert
+import ktfx.launch
 import ktfx.layouts.button
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
 import ktfx.layouts.scene
 import ktfx.layouts.vbox
-import ktfx.scene.control.errorAlert
-import ktfx.scene.control.infoAlert
-import ktfx.scene.layout.minSize
-import ktfx.scene.layout.updatePadding
 
 class App : Application() {
 

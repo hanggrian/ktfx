@@ -10,7 +10,7 @@ class StageTest : AppTest() {
     private lateinit var stage: Stage
 
     override fun start(stage: Stage) {
-        this.stage = ktfx.stage("Title") {
+        this.stage = stage("Title") {
         }
     }
 

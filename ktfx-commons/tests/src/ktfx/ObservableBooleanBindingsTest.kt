@@ -1,6 +1,10 @@
 package ktfx
 
 import javafx.scene.control.Label
+import ktfx.bindings.and
+import ktfx.bindings.eq
+import ktfx.bindings.neq
+import ktfx.bindings.or
 
 class ObservableBooleanBindingsTest {
 

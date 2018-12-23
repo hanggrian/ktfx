@@ -18,9 +18,9 @@ import javafx.scene.control.ButtonType.YES
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import ktfx.icon
+import ktfx.controls.icon
 import ktfx.internal.KtfxInternals
-import ktfx.stage
+import ktfx.controls.stage
 import kotlin.DeprecationLevel.ERROR
 
 /** Removes old icons and set a new one to this dialog. */

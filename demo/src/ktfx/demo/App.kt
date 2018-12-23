@@ -3,8 +3,8 @@ package ktfx.demo
 import javafx.application.Application
 import javafx.scene.control.Label
 import javafx.stage.Stage
-import ktfx.buildBooleanBinding
-import ktfx.buildStringBinding
+import ktfx.bindings.buildBooleanBinding
+import ktfx.bindings.buildStringBinding
 import ktfx.controls.minSize
 import ktfx.controls.updatePadding
 import ktfx.coroutines.onAction

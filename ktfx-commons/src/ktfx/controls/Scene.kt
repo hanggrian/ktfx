@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "EXTENSION_SHADOWED_BY_MEMBER")
 
-package ktfx
+package ktfx.controls
 
 import javafx.scene.Node
 import javafx.scene.Scene

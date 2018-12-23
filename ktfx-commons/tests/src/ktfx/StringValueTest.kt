@@ -1,6 +1,11 @@
 package ktfx
 
 import javafx.beans.property.SimpleStringProperty
+import ktfx.bindings.indices
+import ktfx.bindings.isNullOrBlank
+import ktfx.bindings.isNullOrEmpty
+import ktfx.bindings.lastIndex
+import ktfx.bindings.orEmpty
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse

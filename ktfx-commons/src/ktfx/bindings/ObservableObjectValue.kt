@@ -1,8 +1,6 @@
-@file:JvmMultifileClass
-@file:JvmName("ObservableValuesKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package ktfx
+package ktfx.bindings
 
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.Bindings.equal

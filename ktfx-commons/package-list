@@ -45,6 +45,7 @@ $dokka.location:ktfx$eq(kotlin.String, javafx.beans.value.ObservableStringValue)
 $dokka.location:ktfx$eqIg(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/eq-ig.html
 $dokka.location:ktfx$eqIg(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/eq-ig.html
 $dokka.location:ktfx$eqIg(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/eq-ig.html
+$dokka.location:ktfx$find(javafx.scene.Scene, kotlin.String)ktfx/javafx.scene.-scene/find.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-boolean-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-double-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-float-value/get-value.html
@@ -77,6 +78,7 @@ $dokka.location:ktfx$greaterEq(kotlin.Int, javafx.beans.value.ObservableNumberVa
 $dokka.location:ktfx$greaterEq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/greater-eq.html
 $dokka.location:ktfx$greaterEq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/greater-eq.html
 $dokka.location:ktfx$hasValue(javafx.beans.value.ObservableValue((kotlin.Any)))ktfx/javafx.beans.value.-observable-value/has-value.html
+$dokka.location:ktfx$icon#javafx.stage.Stagektfx/javafx.stage.-stage/icon.html
 $dokka.location:ktfx$ifSupported(javafx.application.ConditionalFeature, kotlin.Function0((kotlin.Unit)))ktfx/javafx.application.-conditional-feature/if-supported.html
 $dokka.location:ktfx$indices#javafx.beans.value.ObservableStringValuektfx/javafx.beans.value.-observable-string-value/indices.html
 $dokka.location:ktfx$isBlank(javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/is-blank.html
@@ -118,6 +120,7 @@ $dokka.location:ktfx$max(kotlin.Double, javafx.beans.value.ObservableNumberValue
 $dokka.location:ktfx$max(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/max.html
 $dokka.location:ktfx$max(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/max.html
 $dokka.location:ktfx$max(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/max.html
+$dokka.location:ktfx$maxSize#javafx.stage.Stagektfx/javafx.stage.-stage/max-size.html
 $dokka.location:ktfx$min(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/min.html
 $dokka.location:ktfx$min(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/min.html
 $dokka.location:ktfx$min(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/min.html
@@ -127,6 +130,7 @@ $dokka.location:ktfx$min(kotlin.Double, javafx.beans.value.ObservableNumberValue
 $dokka.location:ktfx$min(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/min.html
 $dokka.location:ktfx$min(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/min.html
 $dokka.location:ktfx$min(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/min.html
+$dokka.location:ktfx$minSize#javafx.stage.Stagektfx/javafx.stage.-stage/min-size.html
 $dokka.location:ktfx$minus(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-double-expression/minus.html
 $dokka.location:ktfx$minus(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx/javafx.beans.binding.-double-expression/minus.html
 $dokka.location:ktfx$minus(javafx.beans.binding.DoubleExpression, kotlin.Float)ktfx/javafx.beans.binding.-double-expression/minus.html
@@ -223,6 +227,9 @@ $dokka.location:ktfx$selectLong(javafx.beans.value.ObservableValue((kotlin.Any))
 $dokka.location:ktfx$selectLong(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select-long.html
 $dokka.location:ktfx$selectString(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx/javafx.beans.value.-observable-value/select-string.html
 $dokka.location:ktfx$selectString(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select-string.html
+$dokka.location:ktfx$setMaxSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx/javafx.stage.-stage/set-max-size.html
+$dokka.location:ktfx$setMinSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx/javafx.stage.-stage/set-min-size.html
+$dokka.location:ktfx$setSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx/javafx.stage.-stage/set-size.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Boolean)ktfx/javafx.beans.value.-writable-boolean-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Double)ktfx/javafx.beans.value.-writable-double-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Float)ktfx/javafx.beans.value.-writable-float-value/set-value.html
@@ -230,6 +237,9 @@ $dokka.location:ktfx$setValue(javafx.beans.value.WritableIntegerValue, kotlin.An
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableLongValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Long)ktfx/javafx.beans.value.-writable-long-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.String)ktfx/javafx.beans.value.-writable-string-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableValue((ktfx.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), ktfx.setValue.V)ktfx/javafx.beans.value.-writable-value/set-value.html
+$dokka.location:ktfx$size#javafx.stage.Stagektfx/javafx.stage.-stage/size.html
+$dokka.location:ktfx$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage)ktfx/javafx.scene.-scene/snapshot.html
+$dokka.location:ktfx$stage#javafx.scene.Scenektfx/javafx.scene.-scene/stage.html
 $dokka.location:ktfx$then(javafx.beans.binding.When, javafx.beans.value.ObservableBooleanValue)ktfx/javafx.beans.binding.-when/then.html
 $dokka.location:ktfx$then(javafx.beans.binding.When, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-when/then.html
 $dokka.location:ktfx$then(javafx.beans.binding.When, javafx.beans.value.ObservableObjectValue((ktfx.then.T)))ktfx/javafx.beans.binding.-when/then.html
@@ -417,17 +427,13 @@ $dokka.location:ktfx.controls$asPane(javafx.scene.Node)ktfx.controls/javafx.sce
 $dokka.location:ktfx.controls$fadeTransition(javafx.scene.Node, javafx.util.Duration)ktfx.controls/javafx.scene.-node/fade-transition.html
 $dokka.location:ktfx.controls$fillTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color)ktfx.controls/javafx.scene.shape.-shape/fill-transition.html
 $dokka.location:ktfx.controls$find(javafx.scene.Node, kotlin.String)ktfx.controls/javafx.scene.-node/find.html
-$dokka.location:ktfx.controls$find(javafx.scene.Scene, kotlin.String)ktfx.controls/javafx.scene.-scene/find.html
 $dokka.location:ktfx.controls$gap#javafx.scene.layout.FlowPanektfx.controls/javafx.scene.layout.-flow-pane/gap.html
 $dokka.location:ktfx.controls$gap#javafx.scene.layout.GridPanektfx.controls/javafx.scene.layout.-grid-pane/gap.html
 $dokka.location:ktfx.controls$gap#javafx.scene.layout.TilePanektfx.controls/javafx.scene.layout.-tile-pane/gap.html
-$dokka.location:ktfx.controls$icon#javafx.stage.Stagektfx.controls/javafx.stage.-stage/icon.html
 $dokka.location:ktfx.controls$isNotSelected(javafx.scene.control.SelectionModel((ktfx.controls.isNotSelected.T)))ktfx.controls/javafx.scene.control.-selection-model/is-not-selected.html
 $dokka.location:ktfx.controls$isSelected(javafx.scene.control.SelectionModel((ktfx.controls.isSelected.T)))ktfx.controls/javafx.scene.control.-selection-model/is-selected.html
 $dokka.location:ktfx.controls$maxSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/max-size.html
-$dokka.location:ktfx.controls$maxSize#javafx.stage.Stagektfx.controls/javafx.stage.-stage/max-size.html
 $dokka.location:ktfx.controls$minSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/min-size.html
-$dokka.location:ktfx.controls$minSize#javafx.stage.Stagektfx.controls/javafx.stage.-stage/min-size.html
 $dokka.location:ktfx.controls$paddingAll#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-all.html
 $dokka.location:ktfx.controls$paddingBottom#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-bottom.html
 $dokka.location:ktfx.controls$paddingHorizontal#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-horizontal.html
@@ -451,16 +457,10 @@ $dokka.location:ktfx.controls$scale(javafx.scene.Node, kotlin.Double, kotlin.Dou
 $dokka.location:ktfx.controls$scale(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/scale.html
 $dokka.location:ktfx.controls$scaleTransition(javafx.scene.Node, javafx.util.Duration)ktfx.controls/javafx.scene.-node/scale-transition.html
 $dokka.location:ktfx.controls$sequentialTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)))ktfx.controls/javafx.scene.-node/sequential-transition.html
-$dokka.location:ktfx.controls$setMaxSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.controls/javafx.stage.-stage/set-max-size.html
-$dokka.location:ktfx.controls$setMinSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.controls/javafx.stage.-stage/set-min-size.html
-$dokka.location:ktfx.controls$setSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.controls/javafx.stage.-stage/set-size.html
 $dokka.location:ktfx.controls$shear(javafx.scene.Node)ktfx.controls/javafx.scene.-node/shear.html
 $dokka.location:ktfx.controls$shear(javafx.scene.Node, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/shear.html
 $dokka.location:ktfx.controls$shear(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/shear.html
-$dokka.location:ktfx.controls$size#javafx.stage.Stagektfx.controls/javafx.stage.-stage/size.html
 $dokka.location:ktfx.controls$snapshot(javafx.scene.Node, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage)ktfx.controls/javafx.scene.-node/snapshot.html
-$dokka.location:ktfx.controls$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage)ktfx.controls/javafx.scene.-scene/snapshot.html
-$dokka.location:ktfx.controls$stage#javafx.scene.Scenektfx.controls/javafx.scene.-scene/stage.html
 $dokka.location:ktfx.controls$strokeTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color)ktfx.controls/javafx.scene.shape.-shape/stroke-transition.html
 $dokka.location:ktfx.controls$translate(javafx.scene.Node)ktfx.controls/javafx.scene.-node/translate.html
 $dokka.location:ktfx.controls$translate(javafx.scene.Node, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/translate.html

@@ -1,6 +1,8 @@
 package ktfx.util
 
 import javafx.util.converter.IntegerStringConverter
+import ktfx.get
+import ktfx.invoke
 import org.junit.Test
 import kotlin.test.assertEquals
 

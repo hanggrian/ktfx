@@ -1,6 +1,10 @@
 package ktfx.util
 
 import javafx.util.Duration
+import ktfx.div
+import ktfx.minus
+import ktfx.plus
+import ktfx.times
 import org.junit.Test
 import kotlin.test.assertEquals
 

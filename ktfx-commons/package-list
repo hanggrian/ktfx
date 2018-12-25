@@ -500,45 +500,37 @@ $dokka.location:ktfx.inputs$contains(javafx.scene.input.KeyCharacterCombination,
 $dokka.location:ktfx.inputs$contains(javafx.scene.input.KeyCodeCombination, javafx.scene.input.KeyEvent)ktfx.inputs/javafx.scene.input.-key-code-combination/contains.html
 $dokka.location:ktfx.inputs$contains(javafx.scene.input.KeyCombination, javafx.scene.input.KeyEvent)ktfx.inputs/javafx.scene.input.-key-combination/contains.html
 $dokka.location:ktfx.inputs$get(javafx.scene.input.Clipboard, javafx.scene.input.DataFormat)ktfx.inputs/javafx.scene.input.-clipboard/get.html
+$dokka.location:ktfx.inputs$isClicked(javafx.scene.input.MouseEvent)ktfx.inputs/javafx.scene.input.-mouse-event/is-clicked.html
 $dokka.location:ktfx.inputs$isDelete(javafx.scene.input.KeyCode)ktfx.inputs/javafx.scene.input.-key-code/is-delete.html
 $dokka.location:ktfx.inputs$isDoubleClick(javafx.scene.input.MouseEvent)ktfx.inputs/javafx.scene.input.-mouse-event/is-double-click.html
+$dokka.location:ktfx.inputs$isDoubleClicked(javafx.scene.input.MouseEvent)ktfx.inputs/javafx.scene.input.-mouse-event/is-double-clicked.html
 $dokka.location:ktfx.inputs$isLeftClick(javafx.scene.input.MouseEvent)ktfx.inputs/javafx.scene.input.-mouse-event/is-left-click.html
 $dokka.location:ktfx.inputs$isMiddleClick(javafx.scene.input.MouseEvent)ktfx.inputs/javafx.scene.input.-mouse-event/is-middle-click.html
 $dokka.location:ktfx.inputs$isRightClick(javafx.scene.input.MouseEvent)ktfx.inputs/javafx.scene.input.-mouse-event/is-right-click.html
 $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCode, javafx.scene.input.KeyCombination.Modifier)ktfx.inputs/javafx.scene.input.-key-code/plus.html
 $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCode, kotlin.Array((javafx.scene.input.KeyCombination.Modifier)))ktfx.inputs/javafx.scene.input.-key-code/plus.html
+$dokka.location:ktfx.print$createJob(javafx.print.Printer, kotlin.String, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.print.-printer/create-job.html
+$dokka.location:ktfx.print$untilPage(kotlin.Int, kotlin.Int)ktfx.print/kotlin.-int/until-page.html
 $dokka.location:ktfx.swing$toFxImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.swing/java.awt.image.-buffered-image/to-fx-image.html
 $dokka.location:ktfx.swing$toSwingImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.swing/javafx.scene.image.-image/to-swing-image.html
-$dokka.location:ktfx.text$font(javafx.scene.canvas.GraphicsContext, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.canvas.-graphics-context/font.html
-$dokka.location:ktfx.text$font(javafx.scene.canvas.GraphicsContext, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.text/javafx.scene.canvas.-graphics-context/font.html
-$dokka.location:ktfx.text$font(javafx.scene.canvas.GraphicsContext, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.canvas.-graphics-context/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.Labeled, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-labeled/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.Labeled, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.text/javafx.scene.control.-labeled/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.Labeled, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-labeled/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.TextInputControl, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-text-input-control/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.TextInputControl, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.text/javafx.scene.control.-text-input-control/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.TextInputControl, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-text-input-control/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.Tooltip, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-tooltip/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.Tooltip, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.text/javafx.scene.control.-tooltip/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.Tooltip, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-tooltip/font.html
-$dokka.location:ktfx.text$font(javafx.scene.text.Text, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.text.-text/font.html
-$dokka.location:ktfx.text$font(javafx.scene.text.Text, kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.text/javafx.scene.text.-text/font.html
-$dokka.location:ktfx.text$font(javafx.scene.text.Text, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.text.-text/font.html
-$dokka.location:ktfx.text$fontFamily#javafx.scene.canvas.GraphicsContextktfx.text/javafx.scene.canvas.-graphics-context/font-family.html
-$dokka.location:ktfx.text$fontFamily#javafx.scene.control.Labeledktfx.text/javafx.scene.control.-labeled/font-family.html
-$dokka.location:ktfx.text$fontFamily#javafx.scene.control.TextInputControlktfx.text/javafx.scene.control.-text-input-control/font-family.html
-$dokka.location:ktfx.text$fontFamily#javafx.scene.control.Tooltipktfx.text/javafx.scene.control.-tooltip/font-family.html
-$dokka.location:ktfx.text$fontFamily#javafx.scene.text.Textktfx.text/javafx.scene.text.-text/font-family.html
-$dokka.location:ktfx.text$fontSize#javafx.scene.canvas.GraphicsContextktfx.text/javafx.scene.canvas.-graphics-context/font-size.html
-$dokka.location:ktfx.text$fontSize#javafx.scene.control.Labeledktfx.text/javafx.scene.control.-labeled/font-size.html
-$dokka.location:ktfx.text$fontSize#javafx.scene.control.TextInputControlktfx.text/javafx.scene.control.-text-input-control/font-size.html
-$dokka.location:ktfx.text$fontSize#javafx.scene.control.Tooltipktfx.text/javafx.scene.control.-tooltip/font-size.html
-$dokka.location:ktfx.text$fontSize#javafx.scene.text.Textktfx.text/javafx.scene.text.-text/font-size.html
-$dokka.location:ktfx.text$tickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.chart.-axis/tick-label-font.html
-$dokka.location:ktfx.text$tickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.Double, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture)ktfx.text/javafx.scene.chart.-axis/tick-label-font.html
-$dokka.location:ktfx.text$tickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.String, kotlin.Double)ktfx.text/javafx.scene.chart.-axis/tick-label-font.html
-$dokka.location:ktfx.text$tickLabelFontFamily#javafx.scene.chart.Axis((kotlin.Any))ktfx.text/javafx.scene.chart.-axis/tick-label-font-family.html
-$dokka.location:ktfx.text$tickLabelFontSize#javafx.scene.chart.Axis((kotlin.Any))ktfx.text/javafx.scene.chart.-axis/tick-label-font-size.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.canvas.GraphicsContext, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.canvas.-graphics-context/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.canvas.GraphicsContext, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.canvas.-graphics-context/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.control.Labeled, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-labeled/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.control.Labeled, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-labeled/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.control.TextInputControl, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-text-input-control/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.control.TextInputControl, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-text-input-control/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.control.Tooltip, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-tooltip/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.control.Tooltip, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-tooltip/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.text.Text, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.text.-text/load-font.html
+$dokka.location:ktfx.text$loadFont(javafx.scene.text.Text, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.text.-text/load-font.html
+$dokka.location:ktfx.text$loadTickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.chart.-axis/load-tick-label-font.html
+$dokka.location:ktfx.text$loadTickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.String, kotlin.Double)ktfx.text/javafx.scene.chart.-axis/load-tick-label-font.html
+$dokka.location:ktfx.text$updateFont(javafx.scene.canvas.GraphicsContext, kotlin.Function1((javafx.scene.text.Font, kotlin.Unit)))ktfx.text/javafx.scene.canvas.-graphics-context/update-font.html
+$dokka.location:ktfx.text$updateFont(javafx.scene.control.Labeled, kotlin.Function1((javafx.scene.text.Font, kotlin.Unit)))ktfx.text/javafx.scene.control.-labeled/update-font.html
+$dokka.location:ktfx.text$updateFont(javafx.scene.control.TextInputControl, kotlin.Function1((javafx.scene.text.Font, kotlin.Unit)))ktfx.text/javafx.scene.control.-text-input-control/update-font.html
+$dokka.location:ktfx.text$updateFont(javafx.scene.control.Tooltip, kotlin.Function1((javafx.scene.text.Font, kotlin.Unit)))ktfx.text/javafx.scene.control.-tooltip/update-font.html
+$dokka.location:ktfx.text$updateFont(javafx.scene.text.Text, kotlin.Function1((javafx.scene.text.Font, kotlin.Unit)))ktfx.text/javafx.scene.text.-text/update-font.html
+$dokka.location:ktfx.text$updateTickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.Function1((javafx.scene.text.Font, kotlin.Unit)))ktfx.text/javafx.scene.chart.-axis/update-tick-label-font.html
 $dokka.location:ktfx.windows$chooseDirectory(javafx.stage.Window, kotlin.String, java.io.File)ktfx.windows/javafx.stage.-window/choose-directory.html
 $dokka.location:ktfx.windows$chooseFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.windows/javafx.stage.-window/choose-file.html
 $dokka.location:ktfx.windows$chooseFile(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.windows/javafx.stage.-window/choose-file.html
@@ -569,6 +561,7 @@ ktfx.dialogs
 ktfx.geometries
 ktfx.inputs
 ktfx.internal
+ktfx.print
 ktfx.swing
 ktfx.text
 ktfx.windows

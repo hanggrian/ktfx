@@ -20,23 +20,23 @@ class RegionTest : AppTest() {
     }
 
     @Test fun padding() {
-        region.updatePadding(bottom = 20.0, top = 20.0)
-        assertEquals(region.paddingTop, 20.0)
-        assertEquals(region.paddingLeft, 0.0)
-        assertEquals(region.paddingRight, 0.0)
-        assertEquals(region.paddingBottom, 20.0)
-        region.paddingAll = 10.0
-        assertEquals(region.paddingTop, 10.0)
-        assertEquals(region.paddingLeft, 10.0)
-        assertEquals(region.paddingRight, 10.0)
-        assertEquals(region.paddingBottom, 10.0)
-        region.paddingTop = 15.0
-        assertEquals(region.paddingTop, 15.0)
-        region.paddingLeft = 20.0
-        assertEquals(region.paddingLeft, 20.0)
-        region.paddingRight = 25.0
-        assertEquals(region.paddingRight, 25.0)
-        region.paddingBottom = 30.0
-        assertEquals(region.paddingBottom, 30.0)
+        region.updatePadding(bottom = 20, top = 20)
+        assertEquals(20.0, region.paddingTop)
+        assertEquals(0.0, region.paddingLeft)
+        assertEquals(0.0, region.paddingRight)
+        assertEquals(20.0, region.paddingBottom)
+        region.paddingAll = 10
+        assertEquals(10.0, region.paddingTop)
+        assertEquals(10.0, region.paddingLeft)
+        assertEquals(10.0, region.paddingRight)
+        assertEquals(10.0, region.paddingBottom)
+        region.paddingTop = 15
+        assertEquals(15.0, region.paddingTop)
+        region.paddingLeft = 20
+        assertEquals(20.0, region.paddingLeft)
+        region.paddingRight = 25
+        assertEquals(25.0, region.paddingRight)
+        region.paddingBottom = 30
+        assertEquals(30.0, region.paddingBottom)
     }
 }

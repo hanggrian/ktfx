@@ -10,19 +10,19 @@ class AnchorPaneTest : ToolkitLayoutTest() {
 
     override fun newInstance() {
         anchorPane {
-            val region1 = region() anchorAll 10.0
-            assertEquals(region1.anchorTop, 10.0)
-            assertEquals(region1.anchorLeft, 10.0)
-            assertEquals(region1.anchorBottom, 10.0)
-            assertEquals(region1.anchorRight, 10.0)
-            val region2 = region() anchorTop 10.0
-            assertEquals(region2.anchorTop, 10.0)
-            val region3 = region() anchorLeft 10.0
-            assertEquals(region3.anchorLeft, 10.0)
-            val region4 = region() anchorBottom 10.0
-            assertEquals(region4.anchorBottom, 10.0)
-            val region5 = region() anchorRight 10.0
-            assertEquals(region5.anchorRight, 10.0)
+            val region1 = region() anchorAll 10
+            assertEquals(10.0, region1.anchorTop)
+            assertEquals(10.0, region1.anchorLeft)
+            assertEquals(10.0, region1.anchorBottom)
+            assertEquals(10.0, region1.anchorRight)
+            val region2 = region() anchorTop 10
+            assertEquals(10.0, region2.anchorTop)
+            val region3 = region() anchorLeft 10
+            assertEquals(10.0, region3.anchorLeft)
+            val region4 = region() anchorBottom 10
+            assertEquals(10.0, region4.anchorBottom)
+            val region5 = region() anchorRight 10
+            assertEquals(10.0, region5.anchorRight)
 
             region1.reset()
             assertEquals(region1.anchorTop, null)

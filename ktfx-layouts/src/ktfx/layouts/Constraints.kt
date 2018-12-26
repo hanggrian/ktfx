@@ -19,48 +19,50 @@ interface MarginableConstraints : Constraints {
 
     infix fun <N : Node> N.margins(margins: Insets?): N = also { it.margins = margins }
 
-    infix fun <N : Node> N.marginAll(marginAll: Double?): N = also { it.marginAll = marginAll }
+    infix fun <N : Node> N.marginAll(marginAll: Number?): N = also { it.marginAll = marginAll }
 
-    infix fun <N : Node> N.marginTop(marginTop: Double?): N = also { it.marginTop = marginTop }
+    infix fun <N : Node> N.marginTop(marginTop: Number?): N = also { it.marginTop = marginTop }
 
-    infix fun <N : Node> N.marginRight(marginRight: Double?): N = also { it.marginRight = marginRight }
+    infix fun <N : Node> N.marginRight(marginRight: Number?): N = also { it.marginRight = marginRight }
 
-    infix fun <N : Node> N.marginBottom(marginBottom: Double?): N = also { it.marginBottom = marginBottom }
+    infix fun <N : Node> N.marginBottom(marginBottom: Number?): N = also { it.marginBottom = marginBottom }
 
-    infix fun <N : Node> N.marginLeft(marginLeft: Double?): N = also { it.marginLeft = marginLeft }
+    infix fun <N : Node> N.marginLeft(marginLeft: Number?): N = also { it.marginLeft = marginLeft }
 
     var Node.margins: Insets? // alias for reserved variable `margin`
 
-    var Node.marginAll: Double?
+    var Node.marginAll: Number?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
-            margins = value?.let { Insets(it) }
+            margins = value?.let { Insets(it.toDouble()) }
         }
 
-    var Node.marginTop: Double?
+    var Node.marginTop: Number?
         get() = margins?.top
         set(value) = updateMargin(top = value)
 
-    var Node.marginRight: Double?
+    var Node.marginRight: Number?
         get() = margins?.right
         set(value) = updateMargin(right = value)
 
-    var Node.marginBottom: Double?
+    var Node.marginBottom: Number?
         get() = margins?.bottom
         set(value) = updateMargin(bottom = value)
 
-    var Node.marginLeft: Double?
+    var Node.marginLeft: Number?
         get() = margins?.left
         set(value) = updateMargin(left = value)
 
     fun Node.updateMargin(
-        top: Double? = marginTop,
-        right: Double? = marginRight,
-        bottom: Double? = marginBottom,
-        left: Double? = marginLeft
+        top: Number? = marginTop,
+        right: Number? = marginRight,
+        bottom: Number? = marginBottom,
+        left: Number? = marginLeft
     ) {
-        margins = Insets(top ?: 0.0, right ?: 0.0, bottom ?: 0.0, left ?: 0.0)
+        margins = Insets(top.toDoubleOrZero(), right.toDoubleOrZero(), bottom.toDoubleOrZero(), left.toDoubleOrZero())
     }
+
+    private fun Number?.toDoubleOrZero(): Double = this?.toDouble() ?: 0.0
 }
 
 interface AlignableConstraints : Constraints {

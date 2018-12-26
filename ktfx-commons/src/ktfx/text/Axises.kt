@@ -4,16 +4,27 @@ package ktfx.text
 
 import javafx.scene.chart.Axis
 import javafx.scene.text.Font
+import javafx.scene.text.FontPosture
+import javafx.scene.text.FontWeight
 import java.io.InputStream
 
-inline fun Axis<*>.updateTickLabelFont(fontBuilder: Font.() -> Unit) {
-    tickLabelFont = tickLabelFont.apply { fontBuilder() }
+fun Axis<*>.updateTickLabelFont(size: Number) {
+    tickLabelFont = Font.font(size.toDouble())
 }
 
-inline fun Axis<*>.loadTickLabelFont(url: String, size: Double = -1.0) {
-    tickLabelFont = Font.loadFont(url, size)
+fun Axis<*>.updateTickLabelFont(
+    family: String = "System",
+    weight: FontWeight? = null,
+    posture: FontPosture? = null,
+    size: Number = -1
+) {
+    tickLabelFont = Font.font(family, weight, posture, size.toDouble())
 }
 
-inline fun Axis<*>.loadTickLabelFont(stream: InputStream, size: Double = -1.0) {
-    tickLabelFont = Font.loadFont(stream, size)
+fun Axis<*>.loadTickLabelFont(url: String, size: Number = -1) {
+    tickLabelFont = Font.loadFont(url, size.toDouble())
+}
+
+fun Axis<*>.loadTickLabelFont(stream: InputStream, size: Number = -1) {
+    tickLabelFont = Font.loadFont(stream, size.toDouble())
 }

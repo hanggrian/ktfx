@@ -13,16 +13,16 @@ open class _MenuBar : MenuBar(), MenuInvokable {
     /** Creates a [Menu] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDsl _Menu).() -> Unit)? = null
+        noinline init: ((@LayoutMarker _Menu).() -> Unit)? = null
     ): Menu = menu(this, graphic, init)()
 }
 
 /** Creates a [MenuBar]. */
 fun menuBar(
-    init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
+    init: ((@LayoutMarker _MenuBar).() -> Unit)? = null
 ): MenuBar = _MenuBar().also { init?.invoke(it) }
 
 /** Creates a [MenuBar] and add it to this manager. */
 inline fun NodeInvokable.menuBar(
-    noinline init: ((@LayoutDsl _MenuBar).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _MenuBar).() -> Unit)? = null
 ): MenuBar = ktfx.layouts.menuBar(init)()

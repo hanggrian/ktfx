@@ -8,12 +8,12 @@ import javafx.scene.shape.LineTo
 fun lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: ((@LayoutDsl LineTo).() -> Unit)? = null
+    init: ((@LayoutMarker LineTo).() -> Unit)? = null
 ): LineTo = LineTo(x, y).also { init?.invoke(it) }
 
 /** Creates a [LineTo] and add it to this manager. */
 inline fun PathElementInvokable.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    noinline init: ((@LayoutDsl LineTo).() -> Unit)? = null
+    noinline init: ((@LayoutMarker LineTo).() -> Unit)? = null
 ): LineTo = ktfx.layouts.lineTo(x, y, init)()

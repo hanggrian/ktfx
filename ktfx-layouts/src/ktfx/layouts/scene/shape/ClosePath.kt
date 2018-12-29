@@ -6,10 +6,10 @@ import javafx.scene.shape.ClosePath
 
 /** Creates a [ClosePath]. */
 fun closePath(
-    init: ((@LayoutDsl ClosePath).() -> Unit)? = null
+    init: ((@LayoutMarker ClosePath).() -> Unit)? = null
 ): ClosePath = ClosePath().also { init?.invoke(it) }
 
 /** Creates a [ClosePath] and add it to this manager. */
 inline fun PathElementInvokable.closePath(
-    noinline init: ((@LayoutDsl ClosePath).() -> Unit)? = null
+    noinline init: ((@LayoutMarker ClosePath).() -> Unit)? = null
 ): ClosePath = ktfx.layouts.closePath(init)()

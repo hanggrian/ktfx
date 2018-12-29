@@ -9,12 +9,12 @@ import javafx.scene.control.CheckMenuItem
 fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
+    init: ((@LayoutMarker CheckMenuItem).() -> Unit)? = null
 ): CheckMenuItem = CheckMenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [CheckMenuItem] and add it to this manager. */
 inline fun MenuItemInvokable.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl CheckMenuItem).() -> Unit)? = null
+    noinline init: ((@LayoutMarker CheckMenuItem).() -> Unit)? = null
 ): CheckMenuItem = ktfx.layouts.checkMenuItem(text, graphic, init)()

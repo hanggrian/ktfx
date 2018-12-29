@@ -25,7 +25,7 @@ fun flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
+    init: ((@LayoutMarker _FlowPane).() -> Unit)? = null
 ): FlowPane = _FlowPane(orientation, hgap, vgap).also { init?.invoke(it) }
 
 /** Creates a [FlowPane] and add it to this manager. */
@@ -33,5 +33,5 @@ inline fun NodeInvokable.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    noinline init: ((@LayoutDsl _FlowPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _FlowPane).() -> Unit)? = null
 ): FlowPane = ktfx.layouts.flowPane(orientation, hgap, vgap, init)()

@@ -12,10 +12,10 @@ open class _Group : Group(), NodeInvokable {
 
 /** Creates a [Group]. */
 fun group(
-    init: ((@LayoutDsl _Group).() -> Unit)? = null
+    init: ((@LayoutMarker _Group).() -> Unit)? = null
 ): Group = _Group().also { init?.invoke(it) }
 
 /** Creates a [Group] and add it to this manager. */
 inline fun NodeInvokable.group(
-    noinline init: ((@LayoutDsl _Group).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _Group).() -> Unit)? = null
 ): Group = ktfx.layouts.group(init)()

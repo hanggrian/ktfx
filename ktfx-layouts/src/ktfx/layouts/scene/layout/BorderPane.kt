@@ -28,10 +28,10 @@ open class _BorderPane : BorderPane(), AlignableConstraints, MarginableConstrain
 
 /** Creates a [BorderPane]. */
 fun borderPane(
-    init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
+    init: ((@LayoutMarker _BorderPane).() -> Unit)? = null
 ): BorderPane = _BorderPane().also { init?.invoke(it) }
 
 /** Creates a [BorderPane] and add it to this manager. */
 inline fun NodeInvokable.borderPane(
-    noinline init: ((@LayoutDsl _BorderPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _BorderPane).() -> Unit)? = null
 ): BorderPane = ktfx.layouts.borderPane(init)()

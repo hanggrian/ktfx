@@ -9,11 +9,11 @@ import ktfx.collections.observableListOf
 /** Creates a [ComboBox]. */
 fun <T> comboBox(
     items: ObservableList<T> = observableListOf(),
-    init: ((@LayoutDsl ComboBox<T>).() -> Unit)? = null
+    init: ((@LayoutMarker ComboBox<T>).() -> Unit)? = null
 ): ComboBox<T> = ComboBox(items).also { init?.invoke(it) }
 
 /** Creates a [ComboBox] and add it to this manager. */
 inline fun <T> NodeInvokable.comboBox(
     items: ObservableList<T> = observableListOf(),
-    noinline init: ((@LayoutDsl ComboBox<T>).() -> Unit)? = null
+    noinline init: ((@LayoutMarker ComboBox<T>).() -> Unit)? = null
 ): ComboBox<T> = ktfx.layouts.comboBox(items, init)()

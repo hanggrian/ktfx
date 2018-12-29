@@ -12,10 +12,10 @@ open class _Path : Path(), PathElementInvokable {
 
 /** Creates a [Path]. */
 fun path(
-    init: ((@LayoutDsl _Path).() -> Unit)? = null
+    init: ((@LayoutMarker _Path).() -> Unit)? = null
 ): Path = _Path().also { init?.invoke(it) }
 
 /** Creates a [Path] and add it to this manager. */
 inline fun NodeInvokable.path(
-    noinline init: ((@LayoutDsl _Path).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _Path).() -> Unit)? = null
 ): Path = ktfx.layouts.path(init)()

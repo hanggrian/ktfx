@@ -7,7 +7,7 @@ import javafx.scene.Node
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import ktfx.layouts.NodeInvokable
 import org.controlsfx.control.NotificationPane
 import kotlin.coroutines.CoroutineContext
@@ -39,10 +39,10 @@ open class _NotificationPane : NotificationPane(), NodeInvokable {
 
 /** Creates a [NotificationPane]. */
 fun notificationPane(
-    init: ((@LayoutDsl _NotificationPane).() -> Unit)? = null
+    init: ((@LayoutMarker _NotificationPane).() -> Unit)? = null
 ): NotificationPane = _NotificationPane().also { init?.invoke(it) }
 
 /** Creates a [NotificationPane] and add it to this manager. */
 inline fun NodeInvokable.notificationPane(
-    noinline init: ((@LayoutDsl _NotificationPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _NotificationPane).() -> Unit)? = null
 ): NotificationPane = ktfx.controlsfx.notificationPane(init)()

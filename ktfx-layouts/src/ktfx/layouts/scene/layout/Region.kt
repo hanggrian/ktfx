@@ -6,10 +6,10 @@ import javafx.scene.layout.Region
 
 /** Creates a [Region]. */
 fun region(
-    init: ((@LayoutDsl Region).() -> Unit)? = null
+    init: ((@LayoutMarker Region).() -> Unit)? = null
 ): Region = Region().also { init?.invoke(it) }
 
 /** Creates a [Region] and add it to this manager. */
 inline fun NodeInvokable.region(
-    noinline init: ((@LayoutDsl Region).() -> Unit)? = null
+    noinline init: ((@LayoutMarker Region).() -> Unit)? = null
 ): Region = ktfx.layouts.region(init)()

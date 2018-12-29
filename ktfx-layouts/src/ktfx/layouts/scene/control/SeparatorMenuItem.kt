@@ -6,10 +6,10 @@ import javafx.scene.control.SeparatorMenuItem
 
 /** Creates a [SeparatorMenuItem]. */
 fun separatorMenuItem(
-    init: ((@LayoutDsl SeparatorMenuItem).() -> Unit)? = null
+    init: ((@LayoutMarker SeparatorMenuItem).() -> Unit)? = null
 ): SeparatorMenuItem = SeparatorMenuItem().also { init?.invoke(it) }
 
 /** Creates a [SeparatorMenuItem] and add it to this manager. */
 inline fun MenuItemInvokable.separatorMenuItem(
-    noinline init: ((@LayoutDsl SeparatorMenuItem).() -> Unit)? = null
+    noinline init: ((@LayoutMarker SeparatorMenuItem).() -> Unit)? = null
 ): SeparatorMenuItem = ktfx.layouts.separatorMenuItem(init)()

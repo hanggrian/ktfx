@@ -6,10 +6,10 @@ import javafx.scene.shape.SVGPath
 
 /** Creates a [SVGPath]. */
 fun svgPath(
-    init: ((@LayoutDsl SVGPath).() -> Unit)? = null
+    init: ((@LayoutMarker SVGPath).() -> Unit)? = null
 ): SVGPath = SVGPath().also { init?.invoke(it) }
 
 /** Creates a [SVGPath] and add it to this manager. */
 inline fun NodeInvokable.svgPath(
-    noinline init: ((@LayoutDsl SVGPath).() -> Unit)? = null
+    noinline init: ((@LayoutMarker SVGPath).() -> Unit)? = null
 ): SVGPath = ktfx.layouts.svgPath(init)()

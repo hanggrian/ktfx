@@ -13,17 +13,17 @@ open class _TitledPane(title: String?) : TitledPane(title, null), NodeInvokable 
 /** Creates a [TitledPane]. */
 fun titledPane(
     title: String? = null,
-    init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
+    init: ((@LayoutMarker _TitledPane).() -> Unit)? = null
 ): TitledPane = _TitledPane(title).also { init?.invoke(it) }
 
 /** Creates a [TitledPane] and add it to this manager. */
 inline fun NodeInvokable.titledPane(
     title: String? = null,
-    noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _TitledPane).() -> Unit)? = null
 ): TitledPane = ktfx.layouts.titledPane(title, init)()
 
 /** Creates a [TitledPane] and add it to this manager. */
 inline fun TitledPaneInvokable.titledPane(
     title: String? = null,
-    noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _TitledPane).() -> Unit)? = null
 ): TitledPane = ktfx.layouts.titledPane(title, init)()

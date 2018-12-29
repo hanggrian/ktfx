@@ -4,14 +4,14 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXPasswordField
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 
 /** Creates a [JFXPasswordField]. */
 fun jfxPasswordField(
-    init: ((@LayoutDsl JFXPasswordField).() -> Unit)? = null
+    init: ((@LayoutMarker JFXPasswordField).() -> Unit)? = null
 ): JFXPasswordField = JFXPasswordField().also { init?.invoke(it) }
 
 /** Creates a [JFXPasswordField] and add it to this manager. */
 inline fun NodeInvokable.jfxPasswordField(
-    noinline init: ((@LayoutDsl JFXPasswordField).() -> Unit)? = null
+    noinline init: ((@LayoutMarker JFXPasswordField).() -> Unit)? = null
 ): JFXPasswordField = ktfx.jfoenix.jfxPasswordField(init)()

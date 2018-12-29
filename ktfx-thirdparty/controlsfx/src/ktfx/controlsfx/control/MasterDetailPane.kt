@@ -4,7 +4,7 @@ package ktfx.controlsfx
 
 import javafx.geometry.Side
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import ktfx.layouts.NodeInvokable
 import org.controlsfx.control.MasterDetailPane
 
@@ -17,12 +17,12 @@ open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane
 fun masterDetailPane(
     side: Side = Side.RIGHT,
     showDetail: Boolean = true,
-    init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null
+    init: ((@LayoutMarker _MasterDetailPane).() -> Unit)? = null
 ): MasterDetailPane = _MasterDetailPane(side, showDetail).also { init?.invoke(it) }
 
 /** Creates a [MasterDetailPane] and add it to this manager. */
 inline fun NodeInvokable.masterDetailPane(
     side: Side = Side.RIGHT,
     showDetail: Boolean = true,
-    noinline init: ((@LayoutDsl _MasterDetailPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _MasterDetailPane).() -> Unit)? = null
 ): MasterDetailPane = ktfx.controlsfx.masterDetailPane(side, showDetail, init)()

@@ -9,7 +9,7 @@ fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    init: ((@LayoutDsl Slider).() -> Unit)? = null
+    init: ((@LayoutMarker Slider).() -> Unit)? = null
 ): Slider = Slider(min, max, value).also { init?.invoke(it) }
 
 /** Creates a [Slider] and add it to this manager. */
@@ -17,5 +17,5 @@ inline fun NodeInvokable.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    noinline init: ((@LayoutDsl Slider).() -> Unit)? = null
+    noinline init: ((@LayoutMarker Slider).() -> Unit)? = null
 ): Slider = ktfx.layouts.slider(min, max, value, init)()

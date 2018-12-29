@@ -7,11 +7,11 @@ import javafx.scene.control.RadioButton
 /** Creates a [RadioButton]. */
 fun radioButton(
     text: String? = null,
-    init: ((@LayoutDsl RadioButton).() -> Unit)? = null
+    init: ((@LayoutMarker RadioButton).() -> Unit)? = null
 ): RadioButton = RadioButton(text).also { init?.invoke(it) }
 
 /** Creates a [RadioButton] and add it to this manager. */
 inline fun NodeInvokable.radioButton(
     text: String? = null,
-    noinline init: ((@LayoutDsl RadioButton).() -> Unit)? = null
+    noinline init: ((@LayoutMarker RadioButton).() -> Unit)? = null
 ): RadioButton = ktfx.layouts.radioButton(text, init)()

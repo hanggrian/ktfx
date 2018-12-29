@@ -24,10 +24,10 @@ open class _StackPane : StackPane(), NodeInvokable, AlignableConstraints, Margin
 
 /** Creates a [StackPane]. */
 fun stackPane(
-    init: ((@LayoutDsl _StackPane).() -> Unit)? = null
+    init: ((@LayoutMarker _StackPane).() -> Unit)? = null
 ): StackPane = _StackPane().also { init?.invoke(it) }
 
 /** Creates a [StackPane] and add it to this manager. */
 inline fun NodeInvokable.stackPane(
-    noinline init: ((@LayoutDsl _StackPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _StackPane).() -> Unit)? = null
 ): StackPane = ktfx.layouts.stackPane(init)()

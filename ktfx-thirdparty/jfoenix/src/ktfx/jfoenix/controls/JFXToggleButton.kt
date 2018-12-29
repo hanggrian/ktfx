@@ -4,14 +4,14 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXToggleButton
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 
 /** Creates a [JFXToggleButton]. */
 fun jfxToggleButton(
-    init: ((@LayoutDsl JFXToggleButton).() -> Unit)? = null
+    init: ((@LayoutMarker JFXToggleButton).() -> Unit)? = null
 ): JFXToggleButton = JFXToggleButton().also { init?.invoke(it) }
 
 /** Creates a [JFXToggleButton] and add it to this manager. */
 inline fun NodeInvokable.jfxToggleButton(
-    noinline init: ((@LayoutDsl JFXToggleButton).() -> Unit)? = null
+    noinline init: ((@LayoutMarker JFXToggleButton).() -> Unit)? = null
 ): JFXToggleButton = ktfx.jfoenix.jfxToggleButton(init)()

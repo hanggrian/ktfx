@@ -30,7 +30,7 @@ fun tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    init: ((@LayoutDsl _TilePane).() -> Unit)? = null
+    init: ((@LayoutMarker _TilePane).() -> Unit)? = null
 ): TilePane = _TilePane(orientation, hgap, vgap).also { init?.invoke(it) }
 
 /** Creates a [TilePane] and add it to this manager. */
@@ -38,5 +38,5 @@ inline fun NodeInvokable.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    noinline init: ((@LayoutDsl _TilePane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _TilePane).() -> Unit)? = null
 ): TilePane = ktfx.layouts.tilePane(orientation, hgap, vgap, init)()

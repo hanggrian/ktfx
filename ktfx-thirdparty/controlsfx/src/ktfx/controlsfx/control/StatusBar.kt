@@ -3,15 +3,15 @@
 package ktfx.controlsfx
 
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.StatusBar
 
 /** Creates a [StatusBar]. */
 fun statusBar(
-    init: ((@LayoutDsl StatusBar).() -> Unit)? = null
+    init: ((@LayoutMarker StatusBar).() -> Unit)? = null
 ): StatusBar = StatusBar().also { init?.invoke(it) }
 
 /** Creates a [StatusBar] and add it to this manager. */
 inline fun NodeInvokable.statusBar(
-    noinline init: ((@LayoutDsl StatusBar).() -> Unit)? = null
+    noinline init: ((@LayoutMarker StatusBar).() -> Unit)? = null
 ): StatusBar = ktfx.controlsfx.statusBar(init)()

@@ -10,7 +10,7 @@ fun line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: ((@LayoutDsl Line).() -> Unit)? = null
+    init: ((@LayoutMarker Line).() -> Unit)? = null
 ): Line = Line(centerX, centerY, endX, endY).also { init?.invoke(it) }
 
 /** Creates a [Line] and add it to this manager. */
@@ -19,5 +19,5 @@ inline fun NodeInvokable.line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    noinline init: ((@LayoutDsl Line).() -> Unit)? = null
+    noinline init: ((@LayoutMarker Line).() -> Unit)? = null
 ): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init)()

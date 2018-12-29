@@ -13,7 +13,7 @@ open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDsl MenuItem).() -> Unit)? = null
+        noinline init: ((@LayoutMarker MenuItem).() -> Unit)? = null
     ): MenuItem = menuItem(this, graphic, init)
 }
 
@@ -21,12 +21,12 @@ open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic
 fun menuButton(
     text: String? = null,
     graphic: Node? = null,
-    init: ((@LayoutDsl _MenuButton).() -> Unit)? = null
+    init: ((@LayoutMarker _MenuButton).() -> Unit)? = null
 ): MenuButton = _MenuButton(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [MenuButton] and add it to this manager. */
 inline fun NodeInvokable.menuButton(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl _MenuButton).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _MenuButton).() -> Unit)? = null
 ): MenuButton = ktfx.layouts.menuButton(text, graphic, init)()

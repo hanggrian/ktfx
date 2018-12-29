@@ -7,7 +7,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.HyperlinkLabel
 import kotlin.coroutines.CoroutineContext
 
@@ -19,11 +19,11 @@ fun HyperlinkLabel.onAction(
 /** Creates a [HyperlinkLabel]. */
 fun hyperlinkLabel(
     text: String? = null,
-    init: ((@LayoutDsl HyperlinkLabel).() -> Unit)? = null
+    init: ((@LayoutMarker HyperlinkLabel).() -> Unit)? = null
 ): HyperlinkLabel = HyperlinkLabel(text).also { init?.invoke(it) }
 
 /** Creates a [HyperlinkLabel] and add it to this manager. */
 inline fun NodeInvokable.hyperlinkLabel(
     text: String? = null,
-    noinline init: ((@LayoutDsl HyperlinkLabel).() -> Unit)? = null
+    noinline init: ((@LayoutMarker HyperlinkLabel).() -> Unit)? = null
 ): HyperlinkLabel = ktfx.controlsfx.hyperlinkLabel(text, init)()

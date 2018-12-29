@@ -51,10 +51,10 @@ open class _AnchorPane : AnchorPane(), NodeInvokable, Constraints {
 
 /** Creates a [AnchorPane]. */
 fun anchorPane(
-    init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
+    init: ((@LayoutMarker _AnchorPane).() -> Unit)? = null
 ): AnchorPane = _AnchorPane().also { init?.invoke(it) }
 
 /** Creates a [AnchorPane] and add it to this manager. */
 inline fun NodeInvokable.anchorPane(
-    noinline init: ((@LayoutDsl _AnchorPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _AnchorPane).() -> Unit)? = null
 ): AnchorPane = ktfx.layouts.anchorPane(init)()

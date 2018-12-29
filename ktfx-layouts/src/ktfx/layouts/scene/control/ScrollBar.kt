@@ -6,10 +6,10 @@ import javafx.scene.control.ScrollBar
 
 /** Creates a [ScrollBar]. */
 fun scrollBar(
-    init: ((@LayoutDsl ScrollBar).() -> Unit)? = null
+    init: ((@LayoutMarker ScrollBar).() -> Unit)? = null
 ): ScrollBar = ScrollBar().also { init?.invoke(it) }
 
 /** Creates a [ScrollBar] and add it to this manager. */
 inline fun NodeInvokable.scrollBar(
-    noinline init: ((@LayoutDsl ScrollBar).() -> Unit)? = null
+    noinline init: ((@LayoutMarker ScrollBar).() -> Unit)? = null
 ): ScrollBar = ktfx.layouts.scrollBar(init)()

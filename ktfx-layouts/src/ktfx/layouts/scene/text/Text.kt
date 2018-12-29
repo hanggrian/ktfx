@@ -7,11 +7,11 @@ import javafx.scene.text.Text
 /** Creates a [Text]. */
 fun text(
     text: String? = null,
-    init: ((@LayoutDsl Text).() -> Unit)? = null
+    init: ((@LayoutMarker Text).() -> Unit)? = null
 ): Text = Text(text).also { init?.invoke(it) }
 
 /** Creates a [Text] and add it to this manager. */
 inline fun NodeInvokable.text(
     text: String? = null,
-    noinline init: ((@LayoutDsl Text).() -> Unit)? = null
+    noinline init: ((@LayoutMarker Text).() -> Unit)? = null
 ): Text = ktfx.layouts.text(text, init)()

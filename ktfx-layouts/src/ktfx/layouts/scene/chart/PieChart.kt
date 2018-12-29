@@ -10,11 +10,11 @@ import ktfx.collections.mutableObservableListOf
 /** Creates a [PieChart]. */
 fun pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
-    init: ((@LayoutDsl PieChart).() -> Unit)? = null
+    init: ((@LayoutMarker PieChart).() -> Unit)? = null
 ): PieChart = PieChart(data).also { init?.invoke(it) }
 
 /** Creates a [PieChart] and add it to this manager. */
 inline fun NodeInvokable.pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl PieChart).() -> Unit)? = null
+    noinline init: ((@LayoutMarker PieChart).() -> Unit)? = null
 ): PieChart = ktfx.layouts.pieChart(data, init)()

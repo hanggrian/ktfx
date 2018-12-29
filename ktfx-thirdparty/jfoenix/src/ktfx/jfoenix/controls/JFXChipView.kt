@@ -4,14 +4,14 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXChipView
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 
 /** Creates a [JFXChipView]. */
 fun <T> jfxChipView(
-    init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
+    init: ((@LayoutMarker JFXChipView<T>).() -> Unit)? = null
 ): JFXChipView<T> = JFXChipView<T>().also { init?.invoke(it) }
 
 /** Creates a [JFXChipView] and add it to this manager. */
 inline fun <T> NodeInvokable.jfxChipView(
-    noinline init: ((@LayoutDsl JFXChipView<T>).() -> Unit)? = null
+    noinline init: ((@LayoutMarker JFXChipView<T>).() -> Unit)? = null
 ): JFXChipView<T> = ktfx.jfoenix.jfxChipView(init)()

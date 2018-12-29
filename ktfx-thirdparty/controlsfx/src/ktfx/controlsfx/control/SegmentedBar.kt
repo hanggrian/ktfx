@@ -3,16 +3,16 @@
 package ktfx.controlsfx
 
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.SegmentedBar
 import org.controlsfx.control.SegmentedBar.Segment
 
 /** Creates a [SegmentedBar]. */
 fun <T : Segment> segmentedBar(
-    init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
+    init: ((@LayoutMarker SegmentedBar<T>).() -> Unit)? = null
 ): SegmentedBar<T> = SegmentedBar<T>().also { init?.invoke(it) }
 
 /** Creates a [SegmentedBar] and add it to this manager. */
 inline fun <T : Segment> NodeInvokable.segmentedBar(
-    noinline init: ((@LayoutDsl SegmentedBar<T>).() -> Unit)? = null
+    noinline init: ((@LayoutMarker SegmentedBar<T>).() -> Unit)? = null
 ): SegmentedBar<T> = ktfx.controlsfx.segmentedBar(init)()

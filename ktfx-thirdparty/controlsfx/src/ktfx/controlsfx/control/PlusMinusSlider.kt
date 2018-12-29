@@ -6,7 +6,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.PlusMinusSlider
 import kotlin.coroutines.CoroutineContext
 
@@ -17,10 +17,10 @@ fun PlusMinusSlider.onValueChanged(
 
 /** Creates a [PlusMinusSlider]. */
 fun plusMinusSlider(
-    init: ((@LayoutDsl PlusMinusSlider).() -> Unit)? = null
+    init: ((@LayoutMarker PlusMinusSlider).() -> Unit)? = null
 ): PlusMinusSlider = PlusMinusSlider().also { init?.invoke(it) }
 
 /** Creates a [PlusMinusSlider] and add it to this manager. */
 inline fun NodeInvokable.plusMinusSlider(
-    noinline init: ((@LayoutDsl PlusMinusSlider).() -> Unit)? = null
+    noinline init: ((@LayoutMarker PlusMinusSlider).() -> Unit)? = null
 ): PlusMinusSlider = ktfx.controlsfx.plusMinusSlider(init)()

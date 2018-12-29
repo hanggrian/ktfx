@@ -13,7 +13,7 @@ fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: ((@LayoutDsl StackedBarChart<X, Y>).() -> Unit)? = null
+    init: ((@LayoutMarker StackedBarChart<X, Y>).() -> Unit)? = null
 ): StackedBarChart<X, Y> = StackedBarChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [StackedBarChart] and add it to this manager. */
@@ -21,5 +21,5 @@ inline fun <X, Y> NodeInvokable.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDsl StackedBarChart<X, Y>).() -> Unit)? = null
+    noinline init: ((@LayoutMarker StackedBarChart<X, Y>).() -> Unit)? = null
 ): StackedBarChart<X, Y> = ktfx.layouts.stackedBarChart(x, y, data, init)()

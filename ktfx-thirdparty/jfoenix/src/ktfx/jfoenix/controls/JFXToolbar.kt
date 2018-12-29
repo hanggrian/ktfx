@@ -5,18 +5,18 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXToolbar
 import javafx.scene.Node
 import ktfx.layouts.HBoxConstraints
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import ktfx.layouts.NodeInvokable
 
 open class _JFXToolbar : JFXToolbar() {
 
-    fun leftItems(init: (@LayoutDsl HBoxConstraints).() -> Unit) {
+    fun leftItems(init: (@LayoutMarker HBoxConstraints).() -> Unit) {
         object : HBoxConstraints {
             override fun <R : Node> R.invoke(): R = also { leftItems += it }
         }.apply(init)
     }
 
-    fun rightItems(init: (@LayoutDsl HBoxConstraints).() -> Unit) {
+    fun rightItems(init: (@LayoutMarker HBoxConstraints).() -> Unit) {
         object : HBoxConstraints {
             override fun <R : Node> R.invoke(): R = also { rightItems += it }
         }.apply(init)
@@ -25,10 +25,10 @@ open class _JFXToolbar : JFXToolbar() {
 
 /** Creates a [JFXToolbar]. */
 fun jfxToolbar(
-    init: ((@LayoutDsl _JFXToolbar).() -> Unit)? = null
+    init: ((@LayoutMarker _JFXToolbar).() -> Unit)? = null
 ): JFXToolbar = _JFXToolbar().also { init?.invoke(it) }
 
 /** Creates a [JFXToolbar] and add it to this manager. */
 inline fun NodeInvokable.jfxToolbar(
-    noinline init: ((@LayoutDsl _JFXToolbar).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _JFXToolbar).() -> Unit)? = null
 ): JFXToolbar = ktfx.jfoenix.jfxToolbar(init)()

@@ -9,12 +9,12 @@ import javafx.scene.control.Button
 fun button(
     text: String? = null,
     graphic: Node? = null,
-    init: ((@LayoutDsl Button).() -> Unit)? = null
+    init: ((@LayoutMarker Button).() -> Unit)? = null
 ): Button = Button(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Button] and add it to this manager. */
 inline fun NodeInvokable.button(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl Button).() -> Unit)? = null
+    noinline init: ((@LayoutMarker Button).() -> Unit)? = null
 ): Button = ktfx.layouts.button(text, graphic, init)()

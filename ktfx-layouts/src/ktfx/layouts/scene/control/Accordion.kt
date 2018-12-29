@@ -11,16 +11,16 @@ open class _Accordion : Accordion(), TitledPaneInvokable {
 
     /** Creates a [TitledPane] and add it to this manager. */
     inline operator fun String.invoke(
-        noinline init: ((@LayoutDsl _TitledPane).() -> Unit)? = null
+        noinline init: ((@LayoutMarker _TitledPane).() -> Unit)? = null
     ): TitledPane = titledPane(this, init)
 }
 
 /** Creates a [Accordion]. */
 fun accordion(
-    init: ((@LayoutDsl _Accordion).() -> Unit)? = null
+    init: ((@LayoutMarker _Accordion).() -> Unit)? = null
 ): Accordion = _Accordion().also { init?.invoke(it) }
 
 /** Creates a [Accordion] and add it to this manager. */
 inline fun NodeInvokable.accordion(
-    noinline init: ((@LayoutDsl _Accordion).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _Accordion).() -> Unit)? = null
 ): Accordion = ktfx.layouts.accordion(init)()

@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXRippler
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import ktfx.layouts.NodeInvokable
 
 // TODO: should include mask & pos in constructor?
@@ -15,10 +15,10 @@ open class _JFXRippler : JFXRippler(), NodeInvokable {
 
 /** Creates a [JFXRippler]. */
 fun jfxRippler(
-    init: ((@LayoutDsl _JFXRippler).() -> Unit)? = null
+    init: ((@LayoutMarker _JFXRippler).() -> Unit)? = null
 ): JFXRippler = _JFXRippler().also { init?.invoke(it) }
 
 /** Creates a [JFXRippler] and add it to this manager. */
 inline fun NodeInvokable.jfxRippler(
-    noinline init: ((@LayoutDsl _JFXRippler).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _JFXRippler).() -> Unit)? = null
 ): JFXRippler = ktfx.jfoenix.jfxRippler(init)()

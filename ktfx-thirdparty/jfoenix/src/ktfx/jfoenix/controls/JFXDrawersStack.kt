@@ -4,14 +4,14 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXDrawersStack
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 
 /** Creates a [JFXDrawersStack]. */
 fun jfxDrawersStack(
-    init: ((@LayoutDsl JFXDrawersStack).() -> Unit)? = null
+    init: ((@LayoutMarker JFXDrawersStack).() -> Unit)? = null
 ): JFXDrawersStack = JFXDrawersStack().also { init?.invoke(it) }
 
 /** Creates a [JFXDrawersStack] and add it to this manager. */
 inline fun NodeInvokable.jfxDrawersStack(
-    noinline init: ((@LayoutDsl JFXDrawersStack).() -> Unit)? = null
+    noinline init: ((@LayoutMarker JFXDrawersStack).() -> Unit)? = null
 ): JFXDrawersStack = ktfx.jfoenix.jfxDrawersStack(init)()

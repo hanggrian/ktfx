@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXClippedPane
 import javafx.scene.Node
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 import ktfx.layouts.NodeInvokable
 
 open class _JFXClippedPane : JFXClippedPane(), NodeInvokable {
@@ -14,10 +14,10 @@ open class _JFXClippedPane : JFXClippedPane(), NodeInvokable {
 
 /** Creates a [JFXClippedPane]. */
 fun jfxClippedPane(
-    init: ((@LayoutDsl _JFXClippedPane).() -> Unit)? = null
+    init: ((@LayoutMarker _JFXClippedPane).() -> Unit)? = null
 ): JFXClippedPane = _JFXClippedPane().also { init?.invoke(it) }
 
 /** Creates a [JFXClippedPane] and add it to this manager. */
 inline fun NodeInvokable.jfxClippedPane(
-    noinline init: ((@LayoutDsl _JFXClippedPane).() -> Unit)? = null
+    noinline init: ((@LayoutMarker _JFXClippedPane).() -> Unit)? = null
 ): JFXClippedPane = ktfx.jfoenix.jfxClippedPane(init)()

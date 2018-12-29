@@ -5,16 +5,16 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXToggleNode
 import javafx.scene.Node
 import ktfx.layouts.NodeInvokable
-import ktfx.layouts.LayoutDsl
+import ktfx.layouts.LayoutMarker
 
 /** Creates a [JFXToggleNode]. */
 fun jfxToggleNode(
     graphic: Node? = null,
-    init: ((@LayoutDsl JFXToggleNode).() -> Unit)? = null
+    init: ((@LayoutMarker JFXToggleNode).() -> Unit)? = null
 ): JFXToggleNode = JFXToggleNode(graphic).also { init?.invoke(it) }
 
 /** Creates a [JFXToggleNode] and add it to this manager. */
 inline fun NodeInvokable.jfxToggleNode(
     graphic: Node? = null,
-    noinline init: ((@LayoutDsl JFXToggleNode).() -> Unit)? = null
+    noinline init: ((@LayoutMarker JFXToggleNode).() -> Unit)? = null
 ): JFXToggleNode = ktfx.jfoenix.jfxToggleNode(graphic, init)()

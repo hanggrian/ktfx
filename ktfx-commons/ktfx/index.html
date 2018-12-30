@@ -368,15 +368,6 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<p><a href="later.html">later</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">later</span><span class="symbol">(</span><span class="identifier" id="ktfx$later(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Run the specified block on the JavaFX thread later.</p>
-</td>
-</tr>
-<tr>
-<td>
 <p><a href="launch.html">launch</a></p>
 </td>
 <td>
@@ -413,11 +404,20 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<p><a href="now.html">now</a></p>
+<p><a href="run-in-fx.html">runInFx</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">now</span><span class="symbol">(</span><span class="identifier" id="ktfx$now(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<code><span class="keyword">fun </span><span class="identifier">runInFx</span><span class="symbol">(</span><span class="identifier" id="ktfx$runInFx(kotlin.Boolean, kotlin.Function0((kotlin.Unit)))/wait">wait</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="ktfx$runInFx(kotlin.Boolean, kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
 <p>Run the specified block immediately if caller is already in JavaFX thread, or later if it's not.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="run-later.html">runLater</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">runLater</span><span class="symbol">(</span><span class="identifier" id="ktfx$runLater(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block on the JavaFX thread runLater.</p>
 </td>
 </tr>
 <tr>
@@ -436,15 +436,6 @@ By default, it will do nothing and returns null in the background, customize it 
 <td>
 <code><span class="keyword">fun </span><span class="identifier">string</span><span class="symbol">(</span><span class="identifier" id="ktfx$string(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringProperty</span></code>
 <p>Wrap this string in modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="wait.html">wait</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">wait</span><span class="symbol">(</span><span class="identifier" id="ktfx$wait(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Run the specified block immediately if caller is already in JavaFX thread, or later and wait until it finishes.</p>
 </td>
 </tr>
 </tbody>

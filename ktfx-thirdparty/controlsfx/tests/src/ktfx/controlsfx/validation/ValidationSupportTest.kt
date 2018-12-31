@@ -3,11 +3,11 @@ package ktfx.controlsfx.validation
 import javafx.scene.Scene
 import javafx.scene.control.TextField
 import javafx.stage.Stage
-import ktfx.later
-import ktfx.wait
 import ktfx.controlsfx.registerEmptyValidator
 import ktfx.controlsfx.registerEqualsValidator
 import ktfx.controlsfx.registerPredicateValidator
+import ktfx.runInFx
+import ktfx.runLater
 import ktfx.test.AppTest
 import org.controlsfx.validation.ValidationSupport
 import org.junit.Test
@@ -30,27 +30,27 @@ class ValidationSupportTest : AppTest() {
     @Test fun registerEmptyValidator() {
         textField.registerEmptyValidator<String>("", support = support)
         assertEquals(support.registeredControls.size, 1)
-        wait { textField.clear() }
-        later { assertTrue(support.isInvalid) }
-        wait { textField.text = "Hello world" }
-        later { assertFalse(support.isInvalid) }
+        runInFx(true) { textField.clear() }
+        runLater { assertTrue(support.isInvalid) }
+        runInFx(true) { textField.text = "Hello world" }
+        runLater { assertFalse(support.isInvalid) }
     }
 
     @Test fun registerEqualsValidator() {
         textField.registerEqualsValidator("", listOf("Hello", "world"), support = support)
         assertEquals(support.registeredControls.size, 1)
-        wait { textField.clear() }
-        later { assertTrue(support.isInvalid) }
-        wait { textField.text = "Hello" }
-        later { assertFalse(support.isInvalid) }
+        runInFx(true) { textField.clear() }
+        runLater { assertTrue(support.isInvalid) }
+        runInFx(true) { textField.text = "Hello" }
+        runLater { assertFalse(support.isInvalid) }
     }
 
     @Test fun registerPredicateValidator() {
         textField.registerPredicateValidator<String>("", support = support) { it.toIntOrNull() != null }
         assertEquals(support.registeredControls.size, 1)
-        wait { textField.clear() }
-        later { assertTrue(support.isInvalid) }
-        wait { textField.text = "123" }
-        later { assertFalse(support.isInvalid) }
+        runInFx(true) { textField.clear() }
+        runLater { assertTrue(support.isInvalid) }
+        runInFx(true) { textField.text = "123" }
+        runLater { assertFalse(support.isInvalid) }
     }
 }

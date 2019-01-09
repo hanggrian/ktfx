@@ -10,10 +10,9 @@ import kotlin.test.assertTrue
 class PlatformTest : ToolkitTest {
 
     @Test fun isInFx2() {
-        assertFalse(isInFx())
-        runLater { assertTrue(isInFx()) }
-        runInFx { assertTrue(isInFx()) }
-        runInFx(true) { assertTrue(isInFx()) }
+        assertFalse(isFxThread())
+        runLater { assertTrue(isFxThread()) }
+        runAndWait { assertTrue(isFxThread()) }
     }
 
     @Test fun later() {
@@ -37,7 +36,7 @@ class PlatformTest : ToolkitTest {
 
     @Test fun wait2() {
         val list = mutableListOf<Int>()
-        runInFx(true) {
+        runAndWait {
             list += 1
         }
         list += 2

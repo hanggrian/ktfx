@@ -30,3 +30,10 @@ inline fun MenuInvokable.menu(
     graphic: Node? = null,
     noinline init: ((@LayoutMarker _Menu).() -> Unit)? = null
 ): Menu = ktfx.layouts.menu(text, graphic, init)()
+
+/** Creates a [Menu] and add it to this manager. */
+inline fun MenuItemInvokable.menu(
+    text: String = "",
+    graphic: Node? = null,
+    noinline init: ((@LayoutMarker _Menu).() -> Unit)? = null
+): Menu = ktfx.layouts.menu(text, graphic, init)()

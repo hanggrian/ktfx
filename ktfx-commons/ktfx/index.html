@@ -359,19 +359,19 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<p><a href="is-in-fx.html">isInFx</a></p>
+<p><a href="is-fx-thread.html">isFxThread</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">isInFx</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<code><span class="keyword">fun </span><span class="identifier">isFxThread</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
 <p>Returns true if the calling thread is the JavaFX thread.</p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="launch.html">launch</a></p>
+<p><a href="launch-application.html">launchApplication</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Application</span><span class="symbol">&gt;</span> <span class="identifier">launch</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$launch(kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Application</span><span class="symbol">&gt;</span> <span class="identifier">launchApplication</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$launchApplication(kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
 <p>Launch a JavaFX application with reified type.</p>
 </td>
 </tr>
@@ -404,10 +404,10 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<p><a href="run-in-fx.html">runInFx</a></p>
+<p><a href="run-and-wait.html">runAndWait</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">runInFx</span><span class="symbol">(</span><span class="identifier" id="ktfx$runInFx(kotlin.Boolean, kotlin.Function0((kotlin.Unit)))/wait">wait</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="ktfx$runInFx(kotlin.Boolean, kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<code><span class="keyword">fun </span><span class="identifier">runAndWait</span><span class="symbol">(</span><span class="identifier" id="ktfx$runAndWait(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
 <p>Run the specified block immediately if caller is already in JavaFX thread, or later if it's not.</p>
 </td>
 </tr>

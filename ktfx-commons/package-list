@@ -3,6 +3,7 @@ $dokka.linkExtension:html
 $dokka.location:ktfx$clear(javafx.beans.value.WritableObjectValue((kotlin.Any)))ktfx/javafx.beans.value.-writable-object-value/clear.html
 $dokka.location:ktfx$component1(javafx.util.Pair((ktfx.component1.K, ktfx.component1.V)))ktfx/javafx.util.-pair/component1.html
 $dokka.location:ktfx$component2(javafx.util.Pair((ktfx.component2.K, ktfx.component2.V)))ktfx/javafx.util.-pair/component2.html
+$dokka.location:ktfx$div(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/div.html
 $dokka.location:ktfx$div(javafx.util.Duration, kotlin.Double)ktfx/javafx.util.-duration/div.html
 $dokka.location:ktfx$get(javafx.util.StringConverter((ktfx.get.T)), kotlin.String)ktfx/javafx.util.-string-converter/get.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-boolean-value/get-value.html
@@ -30,6 +31,7 @@ $dokka.location:ktfx$setValue(javafx.beans.value.WritableMapValue((ktfx.setValue
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableSetValue((ktfx.setValue.E)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), javafx.collections.ObservableSet((ktfx.setValue.E)))ktfx/javafx.beans.value.-writable-set-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.String)ktfx/javafx.beans.value.-writable-string-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableValue((ktfx.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), ktfx.setValue.V)ktfx/javafx.beans.value.-writable-value/set-value.html
+$dokka.location:ktfx$times(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/times.html
 $dokka.location:ktfx$times(javafx.util.Duration, kotlin.Double)ktfx/javafx.util.-duration/times.html
 $dokka.location:ktfx$toFxPair(kotlin.Pair((ktfx.toFxPair.K, ktfx.toFxPair.V)))ktfx/kotlin.-pair/to-fx-pair.html
 $dokka.location:ktfx$toKotlinPair(javafx.util.Pair((ktfx.toKotlinPair.K, ktfx.toKotlinPair.V)))ktfx/javafx.util.-pair/to-kotlin-pair.html
@@ -506,6 +508,8 @@ $dokka.location:ktfx.inputs$isMiddleClick(javafx.scene.input.MouseEvent)ktfx.in
 $dokka.location:ktfx.inputs$isRightClick(javafx.scene.input.MouseEvent)ktfx.inputs/javafx.scene.input.-mouse-event/is-right-click.html
 $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCode, javafx.scene.input.KeyCombination.Modifier)ktfx.inputs/javafx.scene.input.-key-code/plus.html
 $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCode, kotlin.Array((javafx.scene.input.KeyCombination.Modifier)))ktfx.inputs/javafx.scene.input.-key-code/plus.html
+$dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCombination.Modifier, javafx.scene.input.KeyCode)ktfx.inputs/javafx.scene.input.-key-combination.-modifier/plus.html
+$dokka.location:ktfx.inputs$plus(kotlin.Array((javafx.scene.input.KeyCombination.Modifier)), javafx.scene.input.KeyCode)ktfx.inputs/kotlin.-array/plus.html
 $dokka.location:ktfx.print$createJob(javafx.print.Printer, kotlin.String, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.print.-printer/create-job.html
 $dokka.location:ktfx.print$untilPage(kotlin.Int, kotlin.Int)ktfx.print/kotlin.-int/until-page.html
 $dokka.location:ktfx.swing$toFxImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.swing/java.awt.image.-buffered-image/to-fx-image.html

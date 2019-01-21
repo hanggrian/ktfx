@@ -25,7 +25,7 @@ fun menu(
 ): Menu = _Menu(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Menu] and add it to this manager. */
-inline fun MenuItemInvokable.menu(
+inline fun MenuInvokable.menu(
     text: String = "",
     graphic: Node? = null,
     noinline init: ((@LayoutMarker _Menu).() -> Unit)? = null

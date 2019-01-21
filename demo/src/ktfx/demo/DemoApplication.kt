@@ -9,19 +9,19 @@ import ktfx.controls.updatePadding
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
 import ktfx.dialogs.infoAlert
-import ktfx.launch
+import ktfx.launchApplication
 import ktfx.layouts.button
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
 import ktfx.layouts.scene
 import ktfx.layouts.vbox
 
-class App : Application() {
+class DemoApplication : Application() {
 
     companion object {
         private val OPERATORS = arrayOf("+", "-", "/", "*")
 
-        @JvmStatic fun main(vararg args: String) = launch<App>(*args)
+        @JvmStatic fun main(vararg args: String) = launchApplication<DemoApplication>(*args)
     }
 
     private lateinit var calculationLabel: Label
@@ -33,6 +33,7 @@ class App : Application() {
                 vbox {
                     updatePadding(right = 20.0, left = 20.0)
                     calculationLabel = label("")
+
                     resultLabel = label {
                         textProperty().bind(buildStringBinding(calculationLabel.textProperty()) {
                             if (endsWithOperator) "..." else {

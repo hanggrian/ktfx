@@ -160,7 +160,7 @@ fun Window.chooseSaveFile(
  * @param filters expected file extensions.
  * @return chosen file.
  */
-fun Window.chooseSaveFile(
+inline fun Window.chooseSaveFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
@@ -173,7 +173,7 @@ fun Window.chooseSaveFile(
  * @param filters expected file extensions.
  * @return chosen file.
  */
-fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? = chooseSaveFile(null, null, null, *filters)
+inline fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? = chooseSaveFile(null, null, null, *filters)
 
 /**
  * Choose a file to save.
@@ -181,7 +181,8 @@ fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? = chooseSaveFi
  * @param filters expected file extensions.
  * @return chosen file.
  */
-fun Window.chooseSaveFile(vararg filters: Pair<String, String>): File? = chooseSaveFile(null, null, null, *filters)
+inline fun Window.chooseSaveFile(vararg filters: Pair<String, String>): File? =
+    chooseSaveFile(null, null, null, *filters)
 
 @PublishedApi
 internal inline fun Array<out Pair<String, String>>.asExtensionFilters(): Array<ExtensionFilter> =

@@ -30,11 +30,11 @@ inline operator fun <V> WritableValue<in V>.setValue(
 ): Unit = setValue(value)
 
 /** Delegated property, use with `by` keyword. */
-inline operator fun ObservableStringValue.getValue(thisRef: Any?, property: KProperty<*>): String = get()
+inline operator fun ObservableStringValue.getValue(thisRef: Any?, property: KProperty<*>): String? = get()
 
 /** Delegated property, use with `by` keyword. */
 inline operator fun WritableStringValue.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: String
+    value: String?
 ): Unit = set(value)

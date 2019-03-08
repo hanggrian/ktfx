@@ -13,7 +13,7 @@ import javafx.collections.ObservableSet
 inline fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObservableSet()
 
 /** Returns an empty immutable [ObservableSet]. */
-inline fun <T> observableSetOf(): ObservableSet<T> = FXCollections.emptyObservableSet()
+inline fun <T> observableSetOf(): ObservableSet<T> = emptyObservableSet()
 
 /** Returns an immutable [ObservableList] containing all [elements]. */
 inline fun <T> observableSetOf(vararg elements: T): ObservableSet<T> = elements.toObservableSet()

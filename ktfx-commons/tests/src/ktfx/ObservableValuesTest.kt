@@ -15,16 +15,16 @@ class ObservableValuesTest {
 
     private val person1 = Person("Hendra", 24)
     private val person2 = Person("Hobo", 50)
-    private val person = any(person1)
+    private val person = propertyOf(person1)
     private var personValue: Person? by person
 
-    private val boolean = boolean(false)
+    private val boolean = booleanPropertyOf(false)
     private var booleanValue: Boolean by boolean
 
-    private var integer = int(1)
+    private var integer = intPropertyOf(1)
     private var integerValue: Int by integer
 
-    private val string = string("Hello")
+    private val string = stringPropertyOf("Hello")
     private var stringValue: String? by string
 
     private val emptyString = SimpleStringProperty()

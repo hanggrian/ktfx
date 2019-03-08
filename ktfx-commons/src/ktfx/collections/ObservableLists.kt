@@ -24,7 +24,7 @@ import java.util.Random
 inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
 
 /** Returns an empty immutable [ObservableList]. */
-inline fun <T> observableListOf(): ObservableList<T> = FXCollections.emptyObservableList()
+inline fun <T> observableListOf(): ObservableList<T> = emptyObservableList()
 
 /** Returns an immutable [ObservableList] of one [element]. */
 inline fun <T> observableListOf(element: T): ObservableList<T> = FXCollections.singletonObservableList(element)

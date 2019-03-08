@@ -18,7 +18,7 @@ import javafx.collections.ObservableMap
 inline fun <K, V> emptyObservableMap(): ObservableMap<K, V> = FXCollections.emptyObservableMap()
 
 /** Returns an empty immutable [ObservableMap]. */
-inline fun <K, V> observableMapOf(): ObservableMap<K, V> = FXCollections.emptyObservableMap()
+inline fun <K, V> observableMapOf(): ObservableMap<K, V> = emptyObservableMap()
 
 /** Returns an empty observable map of containing all [pairs]. */
 fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = when {

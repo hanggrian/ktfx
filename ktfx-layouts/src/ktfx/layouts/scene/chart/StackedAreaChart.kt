@@ -17,9 +17,9 @@ fun <X, Y> stackedAreaChart(
 ): StackedAreaChart<X, Y> = StackedAreaChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [StackedAreaChart] and add it to this manager. */
-inline fun <X, Y> NodeInvokable.stackedAreaChart(
+inline fun <X, Y> NodeManager.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutMarker StackedAreaChart<X, Y>).() -> Unit)? = null
-): StackedAreaChart<X, Y> = ktfx.layouts.stackedAreaChart(x, y, data, init)()
+): StackedAreaChart<X, Y> = ktfx.layouts.stackedAreaChart(x, y, data, init).add()

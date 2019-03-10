@@ -6,14 +6,14 @@ import com.jfoenix.controls.JFXTabPane
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import ktfx.layouts.LayoutMarker
-import ktfx.layouts.NodeInvokable
-import ktfx.layouts.TabInvokable
+import ktfx.layouts.NodeManager
+import ktfx.layouts.TabManager
 import ktfx.layouts._Tab
 import ktfx.layouts.tab
 
-open class _JFXTabPane : JFXTabPane(), TabInvokable {
+open class _JFXTabPane : JFXTabPane(), TabManager {
 
-    override fun <R : Tab> R.invoke(): R = also { tabs += it }
+    override fun <R : Tab> R.add(): R = also { tabs += it }
 
     /** Creates a [Tab] and add it to this manager. */
     inline operator fun String.invoke(
@@ -28,6 +28,6 @@ fun jfxTabPane(
 ): JFXTabPane = _JFXTabPane().also { init?.invoke(it) }
 
 /** Creates a [JFXTabPane] and add it to this manager. */
-inline fun NodeInvokable.jfxTabPane(
+inline fun NodeManager.jfxTabPane(
     noinline init: ((@LayoutMarker _JFXTabPane).() -> Unit)? = null
-): JFXTabPane = ktfx.jfoenix.jfxTabPane(init)()
+): JFXTabPane = ktfx.jfoenix.jfxTabPane(init).add()

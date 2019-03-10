@@ -5,9 +5,9 @@ package ktfx.layouts
 import javafx.scene.Group
 import javafx.scene.Node
 
-open class _Group : Group(), NodeInvokable {
+open class _Group : Group(), NodeManager {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 }
 
 /** Creates a [Group]. */
@@ -16,6 +16,6 @@ fun group(
 ): Group = _Group().also { init?.invoke(it) }
 
 /** Creates a [Group] and add it to this manager. */
-inline fun NodeInvokable.group(
+inline fun NodeManager.group(
     noinline init: ((@LayoutMarker _Group).() -> Unit)? = null
-): Group = ktfx.layouts.group(init)()
+): Group = ktfx.layouts.group(init).add()

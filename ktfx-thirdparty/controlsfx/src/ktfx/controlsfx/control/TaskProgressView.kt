@@ -3,7 +3,7 @@
 package ktfx.controlsfx
 
 import javafx.concurrent.Task
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.TaskProgressView
 
@@ -13,6 +13,6 @@ fun <T : Task<*>> taskProgressView(
 ): TaskProgressView<T> = TaskProgressView<T>().also { init?.invoke(it) }
 
 /** Creates a [TaskProgressView] and add it to this manager. */
-inline fun <T : Task<*>> NodeInvokable.taskProgressView(
+inline fun <T : Task<*>> NodeManager.taskProgressView(
     noinline init: ((@LayoutMarker TaskProgressView<T>).() -> Unit)? = null
-): TaskProgressView<T> = ktfx.controlsfx.taskProgressView(init)()
+): TaskProgressView<T> = ktfx.controlsfx.taskProgressView(init).add()

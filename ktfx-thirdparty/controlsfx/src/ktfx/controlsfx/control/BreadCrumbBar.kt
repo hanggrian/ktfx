@@ -8,7 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.layouts.LayoutMarker
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import org.controlsfx.control.BreadCrumbBar
 import kotlin.coroutines.CoroutineContext
 
@@ -24,7 +24,7 @@ fun <T> breadCrumbBar(
 ): BreadCrumbBar<T> = BreadCrumbBar<T>(selectedCrumb).also { init?.invoke(it) }
 
 /** Creates a [BreadCrumbBar] and add it to this manager. */
-inline fun <T> NodeInvokable.breadCrumbBar(
+inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     noinline init: ((@LayoutMarker BreadCrumbBar<T>).() -> Unit)? = null
-): BreadCrumbBar<T> = ktfx.controlsfx.breadCrumbBar(selectedCrumb, init)()
+): BreadCrumbBar<T> = ktfx.controlsfx.breadCrumbBar(selectedCrumb, init).add()

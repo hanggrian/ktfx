@@ -42,3 +42,9 @@ inline fun <E> finalSetPropertyOf(element: E): ReadOnlySetProperty<E> = finalSet
 /** Create a set unmodifiable property. */
 inline fun <E> finalSetPropertyOf(vararg elements: E): ReadOnlySetProperty<E> =
     finalSetPropertyOf(observableSetOf(*elements))
+
+/** Converts this set to property. */
+inline fun <E> ObservableSet<E>?.toProperty(): SetProperty<E> = setPropertyOf(this)
+
+/** Converts this set to final property. */
+inline fun <E> ObservableSet<E>?.toFinalProperty(): ReadOnlySetProperty<E> = finalSetPropertyOf(this)

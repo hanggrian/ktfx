@@ -17,9 +17,9 @@ fun <X, Y> areaChart(
 ): AreaChart<X, Y> = AreaChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [AreaChart] and add it to this manager. */
-inline fun <X, Y> NodeInvokable.areaChart(
+inline fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutMarker AreaChart<X, Y>).() -> Unit)? = null
-): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data, init)()
+): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data, init).add()

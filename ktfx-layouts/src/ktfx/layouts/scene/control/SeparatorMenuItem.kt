@@ -10,6 +10,6 @@ fun separatorMenuItem(
 ): SeparatorMenuItem = SeparatorMenuItem().also { init?.invoke(it) }
 
 /** Creates a [SeparatorMenuItem] and add it to this manager. */
-inline fun MenuItemInvokable.separatorMenuItem(
+inline fun MenuItemManager.separatorMenuItem(
     noinline init: ((@LayoutMarker SeparatorMenuItem).() -> Unit)? = null
-): SeparatorMenuItem = ktfx.layouts.separatorMenuItem(init)()
+): SeparatorMenuItem = ktfx.layouts.separatorMenuItem(init).add()

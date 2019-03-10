@@ -10,6 +10,6 @@ fun <T> spinner(
 ): Spinner<T> = Spinner<T>().also { init?.invoke(it) }
 
 /** Creates a [Spinner] and add it to this manager. */
-inline fun <T> NodeInvokable.spinner(
+inline fun <T> NodeManager.spinner(
     noinline init: ((@LayoutMarker Spinner<T>).() -> Unit)? = null
-): Spinner<T> = ktfx.layouts.spinner(init)()
+): Spinner<T> = ktfx.layouts.spinner(init).add()

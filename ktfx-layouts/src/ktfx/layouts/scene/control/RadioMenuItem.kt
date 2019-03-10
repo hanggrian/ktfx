@@ -13,8 +13,8 @@ fun radioMenuItem(
 ): RadioMenuItem = RadioMenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [RadioMenuItem] and add it to this manager. */
-inline fun MenuItemInvokable.radioMenuItem(
+inline fun MenuItemManager.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutMarker RadioMenuItem).() -> Unit)? = null
-): RadioMenuItem = ktfx.layouts.radioMenuItem(text, graphic, init)()
+): RadioMenuItem = ktfx.layouts.radioMenuItem(text, graphic, init).add()

@@ -5,11 +5,11 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXClippedPane
 import javafx.scene.Node
 import ktfx.layouts.LayoutMarker
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 
-open class _JFXClippedPane : JFXClippedPane(), NodeInvokable {
+open class _JFXClippedPane : JFXClippedPane(), NodeManager {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 }
 
 /** Creates a [JFXClippedPane]. */
@@ -18,6 +18,6 @@ fun jfxClippedPane(
 ): JFXClippedPane = _JFXClippedPane().also { init?.invoke(it) }
 
 /** Creates a [JFXClippedPane] and add it to this manager. */
-inline fun NodeInvokable.jfxClippedPane(
+inline fun NodeManager.jfxClippedPane(
     noinline init: ((@LayoutMarker _JFXClippedPane).() -> Unit)? = null
-): JFXClippedPane = ktfx.jfoenix.jfxClippedPane(init)()
+): JFXClippedPane = ktfx.jfoenix.jfxClippedPane(init).add()

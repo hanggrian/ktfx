@@ -13,7 +13,7 @@ fun <T> choiceBox(
 ): ChoiceBox<T> = ChoiceBox(items).also { init?.invoke(it) }
 
 /** Creates a [ChoiceBox] and add it to this manager. */
-inline fun <T> NodeInvokable.choiceBox(
+inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = mutableObservableListOf(),
     noinline init: ((@LayoutMarker ChoiceBox<T>).() -> Unit)? = null
-): ChoiceBox<T> = ktfx.layouts.choiceBox(items, init)()
+): ChoiceBox<T> = ktfx.layouts.choiceBox(items, init).add()

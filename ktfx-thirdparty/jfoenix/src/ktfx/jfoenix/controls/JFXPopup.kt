@@ -5,12 +5,12 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXPopup
 import javafx.scene.Node
 import ktfx.layouts.LayoutMarker
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.internal.KtfxInternals
 
-open class _JFXPopup : JFXPopup(), NodeInvokable {
+open class _JFXPopup : JFXPopup(), NodeManager {
 
-    override fun <T : Node> T.invoke(): T = also { popupContent = KtfxInternals.asPane(it) }
+    override fun <T : Node> T.add(): T = also { popupContent = KtfxInternals.asPane(it) }
 }
 
 /** Creates a [JFXPopup]. */

@@ -14,9 +14,9 @@ fun box(
 ): Box = Box(width, height, depth).also { init?.invoke(it) }
 
 /** Creates a [Box] and add it to this manager. */
-inline fun NodeInvokable.box(
+inline fun NodeManager.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
     noinline init: ((@LayoutMarker Box).() -> Unit)? = null
-): Box = ktfx.layouts.box(width, height, depth, init)()
+): Box = ktfx.layouts.box(width, height, depth, init).add()

@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.ListSelectionView
 
@@ -12,6 +12,6 @@ fun <T> listSelectionView(
 ): ListSelectionView<T> = ListSelectionView<T>().also { init?.invoke(it) }
 
 /** Creates a [ListSelectionView] and add it to this manager. */
-inline fun <T> NodeInvokable.listSelectionView(
+inline fun <T> NodeManager.listSelectionView(
     noinline init: ((@LayoutMarker ListSelectionView<T>).() -> Unit)? = null
-): ListSelectionView<T> = ktfx.controlsfx.listSelectionView(init)()
+): ListSelectionView<T> = ktfx.controlsfx.listSelectionView(init).add()

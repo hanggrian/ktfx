@@ -10,6 +10,6 @@ fun closePath(
 ): ClosePath = ClosePath().also { init?.invoke(it) }
 
 /** Creates a [ClosePath] and add it to this manager. */
-inline fun PathElementInvokable.closePath(
+inline fun PathElementManager.closePath(
     noinline init: ((@LayoutMarker ClosePath).() -> Unit)? = null
-): ClosePath = ktfx.layouts.closePath(init)()
+): ClosePath = ktfx.layouts.closePath(init).add()

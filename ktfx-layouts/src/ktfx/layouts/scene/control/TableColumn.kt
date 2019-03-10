@@ -19,14 +19,14 @@ interface TableColumnsBuilder<S> {
 }
 
 @PublishedApi
-internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, KtfxInvokable<TableColumn<S, *>> {
+internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, LayoutManager<TableColumn<S, *>> {
 
     val collection: MutableCollection<TableColumn<S, *>> = mutableListOf()
 
-    override fun <R : TableColumn<S, *>> R.invoke(): R = also { collection += it }
+    override fun <R : TableColumn<S, *>> R.add(): R = also { collection += it }
 
     override fun <T> column(text: String?, init: (TableColumn<S, T>.() -> Unit)?): TableColumn<S, T> =
-        TableColumn<S, T>(text).also { init?.invoke(it) }()
+        TableColumn<S, T>(text).also { init?.invoke(it) }.add()
 }
 
 /** Invokes a [TableColumn] DSL builder. */

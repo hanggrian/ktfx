@@ -7,9 +7,9 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
 
-open class _StackPane : StackPane(), NodeInvokable, AlignableConstraints, MarginableConstraints {
+open class _StackPane : StackPane(), NodeManager, AlignableConstraints, MarginableConstraints {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -28,6 +28,6 @@ fun stackPane(
 ): StackPane = _StackPane().also { init?.invoke(it) }
 
 /** Creates a [StackPane] and add it to this manager. */
-inline fun NodeInvokable.stackPane(
+inline fun NodeManager.stackPane(
     noinline init: ((@LayoutMarker _StackPane).() -> Unit)? = null
-): StackPane = ktfx.layouts.stackPane(init)()
+): StackPane = ktfx.layouts.stackPane(init).add()

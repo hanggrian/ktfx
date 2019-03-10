@@ -19,14 +19,14 @@ interface TreeTableColumnsBuilder<S> {
 }
 
 @PublishedApi
-internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, KtfxInvokable<TreeTableColumn<S, *>> {
+internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, LayoutManager<TreeTableColumn<S, *>> {
 
     val collection: MutableCollection<TreeTableColumn<S, *>> = mutableListOf()
 
-    override fun <R : TreeTableColumn<S, *>> R.invoke(): R = also { collection += it }
+    override fun <R : TreeTableColumn<S, *>> R.add(): R = also { collection += it }
 
     override fun <T> column(text: String?, init: (TreeTableColumn<S, T>.() -> Unit)?): TreeTableColumn<S, T> =
-        TreeTableColumn<S, T>(text).also { init?.invoke(it) }()
+        TreeTableColumn<S, T>(text).also { init?.invoke(it) }.add()
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */

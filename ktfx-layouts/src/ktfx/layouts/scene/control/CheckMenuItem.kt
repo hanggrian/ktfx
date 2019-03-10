@@ -13,8 +13,8 @@ fun checkMenuItem(
 ): CheckMenuItem = CheckMenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [CheckMenuItem] and add it to this manager. */
-inline fun MenuItemInvokable.checkMenuItem(
+inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutMarker CheckMenuItem).() -> Unit)? = null
-): CheckMenuItem = ktfx.layouts.checkMenuItem(text, graphic, init)()
+): CheckMenuItem = ktfx.layouts.checkMenuItem(text, graphic, init).add()

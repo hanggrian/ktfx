@@ -10,6 +10,6 @@ fun webView(
 ): WebView = WebView().also { init?.invoke(it) }
 
 /** Creates a [WebView] and add it to this manager. */
-inline fun NodeInvokable.webView(
+inline fun NodeManager.webView(
     noinline init: ((@LayoutMarker WebView).() -> Unit)? = null
-): WebView = ktfx.layouts.webView(init)()
+): WebView = ktfx.layouts.webView(init).add()

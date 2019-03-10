@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.ToggleSwitch
 
@@ -13,7 +13,7 @@ fun toggleSwitch(
 ): ToggleSwitch = ToggleSwitch(text).also { init?.invoke(it) }
 
 /** Creates a [ToggleSwitch] and add it to this manager. */
-inline fun NodeInvokable.toggleSwitch(
+inline fun NodeManager.toggleSwitch(
     text: String? = null,
     noinline init: ((@LayoutMarker ToggleSwitch).() -> Unit)? = null
-): ToggleSwitch = ktfx.controlsfx.toggleSwitch(text, init)()
+): ToggleSwitch = ktfx.controlsfx.toggleSwitch(text, init).add()

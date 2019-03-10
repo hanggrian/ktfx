@@ -4,12 +4,12 @@ package ktfx.controlsfx
 
 import javafx.scene.Node
 import ktfx.layouts.LayoutMarker
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import org.controlsfx.control.SnapshotView
 
-open class _SnapshotView : SnapshotView(), NodeInvokable {
+open class _SnapshotView : SnapshotView(), NodeManager {
 
-    override fun <R : Node> R.invoke(): R = also { node = it }
+    override fun <R : Node> R.add(): R = also { node = it }
 }
 
 /** Creates a [SnapshotView]. */
@@ -18,6 +18,6 @@ fun snapshotView(
 ): SnapshotView = _SnapshotView().also { init?.invoke(it) }
 
 /** Creates a [SnapshotView] and add it to this manager. */
-inline fun NodeInvokable.snapshotView(
+inline fun NodeManager.snapshotView(
     noinline init: ((@LayoutMarker _SnapshotView).() -> Unit)? = null
-): SnapshotView = ktfx.controlsfx.snapshotView(init)()
+): SnapshotView = ktfx.controlsfx.snapshotView(init).add()

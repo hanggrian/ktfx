@@ -11,7 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.internal.KtfxInternals
 import kotlin.coroutines.CoroutineContext
 
@@ -29,9 +29,9 @@ open class _JFXDialog(
     dialogContainer: StackPane?,
     transitionType: DialogTransition,
     overlayClose: Boolean
-) : JFXDialog(dialogContainer, null, transitionType, overlayClose), NodeInvokable {
+) : JFXDialog(dialogContainer, null, transitionType, overlayClose), NodeManager {
 
-    override fun <R : Node> R.invoke(): R = also { content = KtfxInternals.asPane(it) }
+    override fun <R : Node> R.add(): R = also { content = KtfxInternals.asPane(it) }
 }
 
 fun jfxDialog(

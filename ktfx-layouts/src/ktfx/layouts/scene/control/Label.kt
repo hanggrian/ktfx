@@ -13,8 +13,8 @@ fun label(
 ): Label = Label(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Label] and add it to this manager. */
-inline fun NodeInvokable.label(
+inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutMarker Label).() -> Unit)? = null
-): Label = ktfx.layouts.label(text, graphic, init)()
+): Label = ktfx.layouts.label(text, graphic, init).add()

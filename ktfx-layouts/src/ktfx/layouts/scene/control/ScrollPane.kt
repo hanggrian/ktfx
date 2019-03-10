@@ -5,9 +5,9 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 
-open class _ScrollPane(content: Node?) : ScrollPane(content), NodeInvokable {
+open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 
-    override operator fun <T : Node> T.invoke(): T = also { content = it }
+    override fun <T : Node> T.add(): T = also { content = it }
 }
 
 /** Creates a [ScrollPane]. */
@@ -17,7 +17,7 @@ fun scrollPane(
 ): ScrollPane = _ScrollPane(content).also { init?.invoke(it) }
 
 /** Creates a [ScrollPane] and add it to this manager. */
-inline fun NodeInvokable.scrollPane(
+inline fun NodeManager.scrollPane(
     content: Node? = null,
     noinline init: ((@LayoutMarker _ScrollPane).() -> Unit)? = null
-): ScrollPane = ktfx.layouts.scrollPane(content, init)()
+): ScrollPane = ktfx.layouts.scrollPane(content, init).add()

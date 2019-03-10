@@ -11,7 +11,7 @@ fun radioButton(
 ): RadioButton = RadioButton(text).also { init?.invoke(it) }
 
 /** Creates a [RadioButton] and add it to this manager. */
-inline fun NodeInvokable.radioButton(
+inline fun NodeManager.radioButton(
     text: String? = null,
     noinline init: ((@LayoutMarker RadioButton).() -> Unit)? = null
-): RadioButton = ktfx.layouts.radioButton(text, init)()
+): RadioButton = ktfx.layouts.radioButton(text, init).add()

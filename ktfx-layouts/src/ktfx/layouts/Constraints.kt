@@ -100,7 +100,7 @@ interface VGrowableConstraints : Constraints {
     var Node.vpriority: Priority?
 }
 
-interface HBoxConstraints : NodeInvokable, HGrowableConstraints, MarginableConstraints {
+interface HBoxConstraints : NodeManager, HGrowableConstraints, MarginableConstraints {
 
     override fun Node.reset(): Unit = HBox.clearConstraints(this)
 

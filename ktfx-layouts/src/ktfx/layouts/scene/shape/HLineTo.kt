@@ -11,7 +11,7 @@ fun hlineTo(
 ): HLineTo = HLineTo(x).also { init?.invoke(it) }
 
 /** Creates a [HLineTo] and add it to this manager. */
-inline fun PathElementInvokable.hlineTo(
+inline fun PathElementManager.hlineTo(
     x: Double = 0.0,
     noinline init: ((@LayoutMarker HLineTo).() -> Unit)? = null
-): HLineTo = ktfx.layouts.hlineTo(x, init)()
+): HLineTo = ktfx.layouts.hlineTo(x, init).add()

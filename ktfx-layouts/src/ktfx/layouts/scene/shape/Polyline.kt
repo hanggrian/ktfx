@@ -11,7 +11,7 @@ fun polyline(
 ): Polyline = Polyline(*points).also { init?.invoke(it) }
 
 /** Creates a [Polyline] and add it to this manager. */
-inline fun NodeInvokable.polyline(
+inline fun NodeManager.polyline(
     vararg points: Double,
     noinline init: ((@LayoutMarker Polyline).() -> Unit)? = null
-): Polyline = ktfx.layouts.polyline(*points, init = init)()
+): Polyline = ktfx.layouts.polyline(*points, init = init).add()

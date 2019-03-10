@@ -13,7 +13,7 @@ fun <T> comboBox(
 ): ComboBox<T> = ComboBox(items).also { init?.invoke(it) }
 
 /** Creates a [ComboBox] and add it to this manager. */
-inline fun <T> NodeInvokable.comboBox(
+inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = observableListOf(),
     noinline init: ((@LayoutMarker ComboBox<T>).() -> Unit)? = null
-): ComboBox<T> = ktfx.layouts.comboBox(items, init)()
+): ComboBox<T> = ktfx.layouts.comboBox(items, init).add()

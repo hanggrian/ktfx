@@ -6,9 +6,9 @@ import javafx.scene.Node
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
 
-open class _TabPane : TabPane(), TabInvokable {
+open class _TabPane : TabPane(), TabManager {
 
-    override fun <R : Tab> R.invoke(): R = also { tabs += it }
+    override fun <R : Tab> R.add(): R = also { tabs += it }
 
     /** Creates a [Tab] and add it to this manager. */
     inline operator fun String.invoke(
@@ -23,6 +23,6 @@ fun tabPane(
 ): TabPane = _TabPane().also { init?.invoke(it) }
 
 /** Creates a [TabPane] and add it to this manager. */
-inline fun NodeInvokable.tabPane(
+inline fun NodeManager.tabPane(
     noinline init: ((@LayoutMarker _TabPane).() -> Unit)? = null
-): TabPane = ktfx.layouts.tabPane(init)()
+): TabPane = ktfx.layouts.tabPane(init).add()

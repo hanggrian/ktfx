@@ -13,14 +13,14 @@ import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
 
 open class _GridPane : GridPane(),
-    NodeInvokable,
+    NodeManager,
     MarginableConstraints,
     HAlignableConstraints,
     VAlignableConstraints,
     HGrowableConstraints,
     VGrowableConstraints {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -87,9 +87,9 @@ fun gridPane(
 ): GridPane = _GridPane().also { init?.invoke(it) }
 
 /** Creates a [GridPane] and add it to this manager. */
-inline fun NodeInvokable.gridPane(
+inline fun NodeManager.gridPane(
     noinline init: ((@LayoutMarker _GridPane).() -> Unit)? = null
-): GridPane = ktfx.layouts.gridPane(init)()
+): GridPane = ktfx.layouts.gridPane(init).add()
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {
@@ -102,11 +102,11 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 }
 
 @PublishedApi
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, KtfxInvokable<T> {
+internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, LayoutManager<T> {
 
     val collection: MutableCollection<T> = mutableListOf()
 
-    override fun <R : T> R.invoke(): R = also { collection += it }
+    override fun <R : T> R.add(): R = also { collection += it }
 
     abstract fun newInstance(): T
 
@@ -115,13 +115,13 @@ internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBu
     abstract fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): T
 
     override fun constraints(init: (T.() -> Unit)?): T =
-        newInstance().also { init?.invoke(it) }()
+        newInstance().also { init?.invoke(it) }.add()
 
     override fun constraints(size: Double, init: (T.() -> Unit)?): T =
-        newInstance(size).also { init?.invoke(it) }()
+        newInstance(size).also { init?.invoke(it) }.add()
 
     override fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: (T.() -> Unit)?): T =
-        newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }()
+        newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }.add()
 }
 
 /** Invokes a row constraints DSL builder. */

@@ -12,8 +12,8 @@ fun canvas(
 ): Canvas = Canvas(width, height).also { init?.invoke(it) }
 
 /** Creates a [Canvas] and add it to this manager. */
-inline fun NodeInvokable.canvas(
+inline fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     noinline init: ((@LayoutMarker Canvas).() -> Unit)? = null
-): Canvas = ktfx.layouts.canvas(width, height, init)()
+): Canvas = ktfx.layouts.canvas(width, height, init).add()

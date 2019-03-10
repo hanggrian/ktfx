@@ -14,10 +14,10 @@ fun line(
 ): Line = Line(centerX, centerY, endX, endY).also { init?.invoke(it) }
 
 /** Creates a [Line] and add it to this manager. */
-inline fun NodeInvokable.line(
+inline fun NodeManager.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
     noinline init: ((@LayoutMarker Line).() -> Unit)? = null
-): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init)()
+): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init).add()

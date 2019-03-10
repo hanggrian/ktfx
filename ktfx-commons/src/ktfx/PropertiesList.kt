@@ -42,3 +42,9 @@ inline fun <E> finalListPropertyOf(element: E): ReadOnlyListProperty<E> = finalL
 /** Create a list unmodifiable property. */
 inline fun <E> finalListPropertyOf(vararg elements: E): ReadOnlyListProperty<E> =
     finalListPropertyOf(observableListOf(*elements))
+
+/** Converts this list to property. */
+inline fun <E> ObservableList<E>?.toProperty(): ListProperty<E> = listPropertyOf(this)
+
+/** Converts this list to final property. */
+inline fun <E> ObservableList<E>?.toFinalProperty(): ReadOnlyListProperty<E> = finalListPropertyOf(this)

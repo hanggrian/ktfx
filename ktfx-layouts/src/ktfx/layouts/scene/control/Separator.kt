@@ -13,7 +13,7 @@ fun separator(
 ): Separator = Separator(orientation).also { init?.invoke(it) }
 
 /** Creates a [Separator] and add it to this manager. */
-inline fun NodeInvokable.separator(
+inline fun NodeManager.separator(
     orientation: Orientation = HORIZONTAL,
     noinline init: ((@LayoutMarker Separator).() -> Unit)? = null
-): Separator = ktfx.layouts.separator(orientation, init)()
+): Separator = ktfx.layouts.separator(orientation, init).add()

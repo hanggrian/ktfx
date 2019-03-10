@@ -12,7 +12,7 @@ fun <T> treeView(
 ): TreeView<T> = TreeView<T>(root).also { init?.invoke(it) }
 
 /** Creates a [TreeView] and add it to this manager. */
-inline fun <T> NodeInvokable.treeView(
+inline fun <T> NodeManager.treeView(
     root: TreeItem<T>? = null,
     noinline init: ((@LayoutMarker TreeView<T>).() -> Unit)? = null
-): TreeView<T> = ktfx.layouts.treeView(root, init)()
+): TreeView<T> = ktfx.layouts.treeView(root, init).add()

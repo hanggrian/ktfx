@@ -9,9 +9,9 @@ import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TableColumnBase
 
-open class _ContextMenu : ContextMenu(), MenuItemInvokable {
+open class _ContextMenu : ContextMenu(), MenuItemManager {
 
-    override fun <R : MenuItem> R.invoke(): R = also { items += it }
+    override fun <R : MenuItem> R.add(): R = also { items += it }
 
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(

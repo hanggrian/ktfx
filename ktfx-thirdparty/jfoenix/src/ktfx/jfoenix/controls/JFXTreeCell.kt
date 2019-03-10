@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTreeCell
 import ktfx.layouts.LayoutMarker
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 
 /** Creates a [JFXTreeCell]. */
 fun <T> jfxTreeCell(
@@ -12,6 +12,6 @@ fun <T> jfxTreeCell(
 ): JFXTreeCell<T> = JFXTreeCell<T>().also { init?.invoke(it) }
 
 /** Creates a [JFXTreeCell] and add it to this manager. */
-inline fun <T> NodeInvokable.jfxTreeCell(
+inline fun <T> NodeManager.jfxTreeCell(
     noinline init: ((@LayoutMarker JFXTreeCell<T>).() -> Unit)? = null
-): JFXTreeCell<T> = ktfx.jfoenix.jfxTreeCell(init)()
+): JFXTreeCell<T> = ktfx.jfoenix.jfxTreeCell(init).add()

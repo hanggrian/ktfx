@@ -19,7 +19,7 @@ fun cubicCurve(
     .also { init?.invoke(it) }
 
 /** Creates a [CubicCurve] and add it to this manager. */
-inline fun NodeInvokable.cubicCurve(
+inline fun NodeManager.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -29,4 +29,5 @@ inline fun NodeInvokable.cubicCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     noinline init: ((@LayoutMarker CubicCurve).() -> Unit)? = null
-): CubicCurve = ktfx.layouts.cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY, init)()
+): CubicCurve =
+    ktfx.layouts.cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY, init).add()

@@ -13,7 +13,7 @@ fun colorPicker(
 ): ColorPicker = ColorPicker(color).also { init?.invoke(it) }
 
 /** Creates a [ColorPicker] and add it to this manager. */
-inline fun NodeInvokable.colorPicker(
+inline fun NodeManager.colorPicker(
     color: Color = WHITE,
     noinline init: ((@LayoutMarker ColorPicker).() -> Unit)? = null
-): ColorPicker = ktfx.layouts.colorPicker(color, init)()
+): ColorPicker = ktfx.layouts.colorPicker(color, init).add()

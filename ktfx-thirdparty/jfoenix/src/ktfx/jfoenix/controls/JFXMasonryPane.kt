@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXMasonryPane
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 
 /** Creates a [JFXMasonryPane]. */
@@ -12,6 +12,6 @@ fun jfxMasonryPane(
 ): JFXMasonryPane = JFXMasonryPane().also { init?.invoke(it) }
 
 /** Creates a [JFXMasonryPane] and add it to this manager. */
-inline fun NodeInvokable.jfxMasonryPane(
+inline fun NodeManager.jfxMasonryPane(
     noinline init: ((@LayoutMarker JFXMasonryPane).() -> Unit)? = null
-): JFXMasonryPane = ktfx.jfoenix.jfxMasonryPane(init)()
+): JFXMasonryPane = ktfx.jfoenix.jfxMasonryPane(init).add()

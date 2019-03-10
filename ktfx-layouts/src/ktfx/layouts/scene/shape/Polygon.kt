@@ -11,7 +11,7 @@ fun polygon(
 ): Polygon = Polygon(*points).also { init?.invoke(it) }
 
 /** Creates a [Polygon] and add it to this manager. */
-inline fun NodeInvokable.polygon(
+inline fun NodeManager.polygon(
     vararg points: Double,
     noinline init: ((@LayoutMarker Polygon).() -> Unit)? = null
-): Polygon = ktfx.layouts.polygon(*points, init = init)()
+): Polygon = ktfx.layouts.polygon(*points, init = init).add()

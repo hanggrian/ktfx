@@ -12,8 +12,8 @@ fun pagination(
 ): Pagination = Pagination(count, index).also { init?.invoke(it) }
 
 /** Creates a [Pagination] and add it to this manager. */
-inline fun NodeInvokable.pagination(
+inline fun NodeManager.pagination(
     count: Int = Pagination.INDETERMINATE,
     index: Int = 0,
     noinline init: ((@LayoutMarker Pagination).() -> Unit)? = null
-): Pagination = ktfx.layouts.pagination(count, index, init)()
+): Pagination = ktfx.layouts.pagination(count, index, init).add()

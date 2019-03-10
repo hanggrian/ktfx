@@ -7,9 +7,9 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 
-open class _VBox(spacing: Double) : VBox(spacing), NodeInvokable, VGrowableConstraints, MarginableConstraints {
+open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowableConstraints, MarginableConstraints {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -29,7 +29,7 @@ fun vbox(
 ): VBox = _VBox(spacing).also { init?.invoke(it) }
 
 /** Creates a [VBox] and add it to this manager. */
-inline fun NodeInvokable.vbox(
+inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     noinline init: ((@LayoutMarker _VBox).() -> Unit)? = null
-): VBox = ktfx.layouts.vbox(spacing, init)()
+): VBox = ktfx.layouts.vbox(spacing, init).add()

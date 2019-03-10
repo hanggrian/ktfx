@@ -16,7 +16,7 @@ fun quadCurve(
 ): QuadCurve = QuadCurve(startX, startY, controlX, controlY, endX, endY).also { init?.invoke(it) }
 
 /** Creates a [QuadCurve] and add it to this manager. */
-inline fun NodeInvokable.quadCurve(
+inline fun NodeManager.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -24,4 +24,4 @@ inline fun NodeInvokable.quadCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     noinline init: ((@LayoutMarker QuadCurve).() -> Unit)? = null
-): QuadCurve = ktfx.layouts.quadCurve(startX, startY, controlX, controlY, endX, endY, init)()
+): QuadCurve = ktfx.layouts.quadCurve(startX, startY, controlX, controlY, endX, endY, init).add()

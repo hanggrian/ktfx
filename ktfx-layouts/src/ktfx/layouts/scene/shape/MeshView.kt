@@ -12,7 +12,7 @@ fun meshView(
 ): MeshView = MeshView(mesh).also { init?.invoke(it) }
 
 /** Creates a [MeshView] and add it to this manager. */
-inline fun NodeInvokable.meshView(
+inline fun NodeManager.meshView(
     mesh: Mesh? = null,
     noinline init: ((@LayoutMarker MeshView).() -> Unit)? = null
-): MeshView = ktfx.layouts.meshView(mesh, init)()
+): MeshView = ktfx.layouts.meshView(mesh, init).add()

@@ -18,13 +18,13 @@ fun imageView(
 ): ImageView = ImageView(imageUrl).also { init?.invoke(it) }
 
 /** Creates an [ImageView] and add it to this manager. */
-inline fun NodeInvokable.imageView(
+inline fun NodeManager.imageView(
     image: Image? = null,
     noinline init: ((@LayoutMarker ImageView).() -> Unit)? = null
-): ImageView = ktfx.layouts.imageView(image, init)()
+): ImageView = ktfx.layouts.imageView(image, init).add()
 
 /** Creates an [ImageView] and add it to this manager. */
-inline fun NodeInvokable.imageView(
+inline fun NodeManager.imageView(
     imageUrl: String,
     noinline init: ((@LayoutMarker ImageView).() -> Unit)? = null
-): ImageView = ktfx.layouts.imageView(imageUrl, init)()
+): ImageView = ktfx.layouts.imageView(imageUrl, init).add()

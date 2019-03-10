@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.RangeSlider
 
@@ -16,10 +16,10 @@ fun rangeSlider(
 ): RangeSlider = RangeSlider(min, max, lowValue, highValue).also { init?.invoke(it) }
 
 /** Creates a [RangeSlider] and add it to this manager. */
-inline fun NodeInvokable.rangeSlider(
+inline fun NodeManager.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
     noinline init: ((@LayoutMarker RangeSlider).() -> Unit)? = null
-): RangeSlider = ktfx.controlsfx.rangeSlider(min, max, lowValue, highValue, init)()
+): RangeSlider = ktfx.controlsfx.rangeSlider(min, max, lowValue, highValue, init).add()

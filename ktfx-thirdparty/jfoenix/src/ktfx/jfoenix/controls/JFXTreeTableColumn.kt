@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXTreeTableColumn
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeTableColumn
-import ktfx.layouts.KtfxInvokable
+import ktfx.layouts.LayoutManager
 
 /** Interface to build [JFXTreeTableColumn] with Kotlin DSL. */
 interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {
@@ -23,14 +23,14 @@ interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {
 
 @PublishedApi
 internal class _JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> : JFXTreeTableColumnsBuilder<S>,
-    KtfxInvokable<JFXTreeTableColumn<S, *>> {
+    LayoutManager<JFXTreeTableColumn<S, *>> {
 
     val collection: MutableCollection<JFXTreeTableColumn<S, *>> = mutableListOf()
 
-    override fun <R : JFXTreeTableColumn<S, *>> R.invoke(): R = also { collection += it }
+    override fun <R : JFXTreeTableColumn<S, *>> R.add(): R = also { collection += it }
 
     override fun <T> column(text: String?, init: (JFXTreeTableColumn<S, T>.() -> Unit)?): JFXTreeTableColumn<S, T> =
-        JFXTreeTableColumn<S, T>(text).also { init?.invoke(it) }()
+        JFXTreeTableColumn<S, T>(text).also { init?.invoke(it) }.add()
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */

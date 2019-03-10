@@ -3,7 +3,7 @@
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.InfoOverlay
 
@@ -15,8 +15,8 @@ fun infoOverlay(
 ): InfoOverlay = InfoOverlay(graphic, text).also { init?.invoke(it) }
 
 /** Creates a [InfoOverlay] and add it to this manager. */
-inline fun NodeInvokable.infoOverlay(
+inline fun NodeManager.infoOverlay(
     graphic: Node? = null,
     text: String? = null,
     noinline init: ((@LayoutMarker InfoOverlay).() -> Unit)? = null
-): InfoOverlay = ktfx.controlsfx.infoOverlay(graphic, text, init)()
+): InfoOverlay = ktfx.controlsfx.infoOverlay(graphic, text, init).add()

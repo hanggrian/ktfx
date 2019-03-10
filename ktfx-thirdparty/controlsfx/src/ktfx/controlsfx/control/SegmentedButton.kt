@@ -6,14 +6,14 @@ import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ToggleButton
 import ktfx.layouts.LayoutMarker
-import ktfx.layouts.NodeInvokable
-import ktfx.layouts.ToggleButtonInvokable
+import ktfx.layouts.NodeManager
+import ktfx.layouts.ToggleButtonManager
 import ktfx.layouts.toggleButton
 import org.controlsfx.control.SegmentedButton
 
-open class _SegmentedButton : SegmentedButton(), ToggleButtonInvokable {
+open class _SegmentedButton : SegmentedButton(), ToggleButtonManager {
 
-    override fun <R : ToggleButton> R.invoke(): R = also { buttons += it }
+    override fun <R : ToggleButton> R.add(): R = also { buttons += it }
 
     /** Creates a [Button] and add it to this manager. */
     inline operator fun String.invoke(
@@ -28,6 +28,6 @@ fun segmentedButton(
 ): SegmentedButton = _SegmentedButton().also { init?.invoke(it) }
 
 /** Creates a [SegmentedButton] and add it to this manager. */
-inline fun NodeInvokable.segmentedButton(
+inline fun NodeManager.segmentedButton(
     noinline init: ((@LayoutMarker _SegmentedButton).() -> Unit)? = null
-): SegmentedButton = ktfx.controlsfx.segmentedButton(init)()
+): SegmentedButton = ktfx.controlsfx.segmentedButton(init).add()

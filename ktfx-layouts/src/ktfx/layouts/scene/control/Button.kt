@@ -13,8 +13,8 @@ fun button(
 ): Button = Button(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Button] and add it to this manager. */
-inline fun NodeInvokable.button(
+inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutMarker Button).() -> Unit)? = null
-): Button = ktfx.layouts.button(text, graphic, init)()
+): Button = ktfx.layouts.button(text, graphic, init).add()

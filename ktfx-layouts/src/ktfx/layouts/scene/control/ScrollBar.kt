@@ -10,6 +10,6 @@ fun scrollBar(
 ): ScrollBar = ScrollBar().also { init?.invoke(it) }
 
 /** Creates a [ScrollBar] and add it to this manager. */
-inline fun NodeInvokable.scrollBar(
+inline fun NodeManager.scrollBar(
     noinline init: ((@LayoutMarker ScrollBar).() -> Unit)? = null
-): ScrollBar = ktfx.layouts.scrollBar(init)()
+): ScrollBar = ktfx.layouts.scrollBar(init).add()

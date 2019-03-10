@@ -17,7 +17,7 @@ fun arcTo(
 ): ArcTo = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag).also { init?.invoke(it) }
 
 /** Creates a [ArcTo] and add it to this manager. */
-inline fun PathElementInvokable.arcTo(
+inline fun PathElementManager.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,
@@ -26,4 +26,4 @@ inline fun PathElementInvokable.arcTo(
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
     noinline init: ((@LayoutMarker ArcTo).() -> Unit)? = null
-): ArcTo = ktfx.layouts.arcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag, init)()
+): ArcTo = ktfx.layouts.arcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag, init).add()

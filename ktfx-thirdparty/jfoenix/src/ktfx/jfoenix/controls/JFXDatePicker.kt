@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXDatePicker
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import java.time.LocalDate
 
@@ -14,7 +14,7 @@ fun jfxDatePicker(
 ): JFXDatePicker = JFXDatePicker(date).also { init?.invoke(it) }
 
 /** Creates a [JFXDatePicker] and add it to this manager. */
-inline fun NodeInvokable.jfxDatePicker(
+inline fun NodeManager.jfxDatePicker(
     date: LocalDate? = null,
     noinline init: ((@LayoutMarker JFXDatePicker).() -> Unit)? = null
-): JFXDatePicker = ktfx.jfoenix.jfxDatePicker(date, init)()
+): JFXDatePicker = ktfx.jfoenix.jfxDatePicker(date, init).add()

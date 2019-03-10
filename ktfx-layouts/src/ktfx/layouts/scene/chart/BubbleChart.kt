@@ -17,9 +17,9 @@ fun <X, Y> bubbleChart(
 ): BubbleChart<X, Y> = BubbleChart(x, y, data).also { init?.invoke(it) }
 
 /** Creates a [BubbleChart] and add it to this manager. */
-inline fun <X, Y> NodeInvokable.bubbleChart(
+inline fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     noinline init: ((@LayoutMarker BubbleChart<X, Y>).() -> Unit)? = null
-): BubbleChart<X, Y> = ktfx.layouts.bubbleChart(x, y, data, init)()
+): BubbleChart<X, Y> = ktfx.layouts.bubbleChart(x, y, data, init).add()

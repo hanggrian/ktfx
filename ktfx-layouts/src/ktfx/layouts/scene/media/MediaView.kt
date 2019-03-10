@@ -12,7 +12,7 @@ fun mediaView(
 ): MediaView = MediaView(player).also { init?.invoke(it) }
 
 /** Creates a [MediaView] and add it to this manager. */
-inline fun NodeInvokable.mediaView(
+inline fun NodeManager.mediaView(
     player: MediaPlayer? = null,
     noinline init: ((@LayoutMarker MediaView).() -> Unit)? = null
-): MediaView = ktfx.layouts.mediaView(player, init)()
+): MediaView = ktfx.layouts.mediaView(player, init).add()

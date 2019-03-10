@@ -15,9 +15,9 @@ open class _Scene(
     width: Double,
     height: Double,
     fill: Paint
-) : Scene(root, width, height, fill), NodeInvokable {
+) : Scene(root, width, height, fill), NodeManager {
 
-    override operator fun <T : Node> T.invoke(): T = also { root = KtfxInternals.asPane(it) }
+    override fun <T : Node> T.add(): T = also { root = KtfxInternals.asPane(it) }
 }
 
 /** Create a [Scene] with initialization. */

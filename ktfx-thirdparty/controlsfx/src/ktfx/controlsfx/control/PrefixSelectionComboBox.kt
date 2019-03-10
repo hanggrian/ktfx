@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.PrefixSelectionComboBox
 
@@ -12,6 +12,6 @@ fun <T> prefixSelectionComboBox(
 ): PrefixSelectionComboBox<T> = PrefixSelectionComboBox<T>().also { init?.invoke(it) }
 
 /** Creates a [PrefixSelectionComboBox] and add it to this manager. */
-inline fun <T> NodeInvokable.prefixSelectionComboBox(
+inline fun <T> NodeManager.prefixSelectionComboBox(
     noinline init: ((@LayoutMarker PrefixSelectionComboBox<T>).() -> Unit)? = null
-): PrefixSelectionComboBox<T> = ktfx.controlsfx.prefixSelectionComboBox(init)()
+): PrefixSelectionComboBox<T> = ktfx.controlsfx.prefixSelectionComboBox(init).add()

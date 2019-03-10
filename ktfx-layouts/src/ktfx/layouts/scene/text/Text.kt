@@ -11,7 +11,7 @@ fun text(
 ): Text = Text(text).also { init?.invoke(it) }
 
 /** Creates a [Text] and add it to this manager. */
-inline fun NodeInvokable.text(
+inline fun NodeManager.text(
     text: String? = null,
     noinline init: ((@LayoutMarker Text).() -> Unit)? = null
-): Text = ktfx.layouts.text(text, init)()
+): Text = ktfx.layouts.text(text, init).add()

@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.WorldMapView
 
@@ -12,6 +12,6 @@ fun worldMapView(
 ): WorldMapView = WorldMapView().also { init?.invoke(it) }
 
 /** Creates a [WorldMapView] and add it to this manager. */
-inline fun NodeInvokable.worldMapView(
+inline fun NodeManager.worldMapView(
     noinline init: ((@LayoutMarker WorldMapView).() -> Unit)? = null
-): WorldMapView = ktfx.controlsfx.worldMapView(init)()
+): WorldMapView = ktfx.controlsfx.worldMapView(init).add()

@@ -13,7 +13,7 @@ fun <T> listView(
 ): ListView<T> = ListView(items).also { init?.invoke(it) }
 
 /** Creates a [ListView] and add it to this manager. */
-inline fun <T> NodeInvokable.listView(
+inline fun <T> NodeManager.listView(
     items: ObservableList<T> = observableListOf(),
     noinline init: ((@LayoutMarker ListView<T>).() -> Unit)? = null
-): ListView<T> = ktfx.layouts.listView(items, init)()
+): ListView<T> = ktfx.layouts.listView(items, init).add()

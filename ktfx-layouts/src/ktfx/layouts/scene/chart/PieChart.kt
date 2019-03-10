@@ -14,7 +14,7 @@ fun pieChart(
 ): PieChart = PieChart(data).also { init?.invoke(it) }
 
 /** Creates a [PieChart] and add it to this manager. */
-inline fun NodeInvokable.pieChart(
+inline fun NodeManager.pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
     noinline init: ((@LayoutMarker PieChart).() -> Unit)? = null
-): PieChart = ktfx.layouts.pieChart(data, init)()
+): PieChart = ktfx.layouts.pieChart(data, init).add()

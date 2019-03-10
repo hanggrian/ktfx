@@ -6,9 +6,9 @@ import javafx.scene.Node
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
 
-open class _TextFlow : TextFlow(), NodeInvokable {
+open class _TextFlow : TextFlow(), NodeManager {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 
     /** Creates a [Text] and add it to this manager. */
     inline operator fun String.invoke(
@@ -24,6 +24,6 @@ fun textFlow(
 ): TextFlow = _TextFlow().also { init?.invoke(it) }
 
 /** Creates a [TextFlow] and add it to this manager. */
-inline fun NodeInvokable.textFlow(
+inline fun NodeManager.textFlow(
     noinline init: ((@LayoutMarker _TextFlow).() -> Unit)? = null
-): TextFlow = ktfx.layouts.textFlow(init)()
+): TextFlow = ktfx.layouts.textFlow(init).add()

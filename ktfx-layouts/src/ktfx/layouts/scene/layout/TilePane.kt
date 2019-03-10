@@ -10,9 +10,9 @@ import javafx.scene.Node
 import javafx.scene.layout.TilePane
 
 open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
-    NodeInvokable, AlignableConstraints, MarginableConstraints {
+    NodeManager, AlignableConstraints, MarginableConstraints {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -34,9 +34,9 @@ fun tilePane(
 ): TilePane = _TilePane(orientation, hgap, vgap).also { init?.invoke(it) }
 
 /** Creates a [TilePane] and add it to this manager. */
-inline fun NodeInvokable.tilePane(
+inline fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
     noinline init: ((@LayoutMarker _TilePane).() -> Unit)? = null
-): TilePane = ktfx.layouts.tilePane(orientation, hgap, vgap, init)()
+): TilePane = ktfx.layouts.tilePane(orientation, hgap, vgap, init).add()

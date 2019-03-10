@@ -11,7 +11,7 @@ fun checkBox(
 ): CheckBox = CheckBox(text).also { init?.invoke(it) }
 
 /** Creates a [CheckBox] and add it to this manager. */
-inline fun NodeInvokable.checkBox(
+inline fun NodeManager.checkBox(
     text: String? = null,
     noinline init: ((@LayoutMarker CheckBox).() -> Unit)? = null
-): CheckBox = ktfx.layouts.checkBox(text, init)()
+): CheckBox = ktfx.layouts.checkBox(text, init).add()

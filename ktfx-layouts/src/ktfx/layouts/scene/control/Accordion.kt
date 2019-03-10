@@ -5,9 +5,9 @@ package ktfx.layouts
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
 
-open class _Accordion : Accordion(), TitledPaneInvokable {
+open class _Accordion : Accordion(), TitledPaneManager {
 
-    override fun <R : TitledPane> R.invoke(): R = also { panes += it }
+    override fun <R : TitledPane> R.add(): R = also { panes += it }
 
     /** Creates a [TitledPane] and add it to this manager. */
     inline operator fun String.invoke(
@@ -21,6 +21,6 @@ fun accordion(
 ): Accordion = _Accordion().also { init?.invoke(it) }
 
 /** Creates a [Accordion] and add it to this manager. */
-inline fun NodeInvokable.accordion(
+inline fun NodeManager.accordion(
     noinline init: ((@LayoutMarker _Accordion).() -> Unit)? = null
-): Accordion = ktfx.layouts.accordion(init)()
+): Accordion = ktfx.layouts.accordion(init).add()

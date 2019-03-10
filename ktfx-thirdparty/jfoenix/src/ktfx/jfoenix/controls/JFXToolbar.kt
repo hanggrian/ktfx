@@ -6,19 +6,19 @@ import com.jfoenix.controls.JFXToolbar
 import javafx.scene.Node
 import ktfx.layouts.HBoxConstraints
 import ktfx.layouts.LayoutMarker
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 
 open class _JFXToolbar : JFXToolbar() {
 
     fun leftItems(init: (@LayoutMarker HBoxConstraints).() -> Unit) {
         object : HBoxConstraints {
-            override fun <R : Node> R.invoke(): R = also { leftItems += it }
+            override fun <R : Node> R.add(): R = also { leftItems += it }
         }.apply(init)
     }
 
     fun rightItems(init: (@LayoutMarker HBoxConstraints).() -> Unit) {
         object : HBoxConstraints {
-            override fun <R : Node> R.invoke(): R = also { rightItems += it }
+            override fun <R : Node> R.add(): R = also { rightItems += it }
         }.apply(init)
     }
 }
@@ -29,6 +29,6 @@ fun jfxToolbar(
 ): JFXToolbar = _JFXToolbar().also { init?.invoke(it) }
 
 /** Creates a [JFXToolbar] and add it to this manager. */
-inline fun NodeInvokable.jfxToolbar(
+inline fun NodeManager.jfxToolbar(
     noinline init: ((@LayoutMarker _JFXToolbar).() -> Unit)? = null
-): JFXToolbar = ktfx.jfoenix.jfxToolbar(init)()
+): JFXToolbar = ktfx.jfoenix.jfxToolbar(init).add()

@@ -9,9 +9,9 @@ import javafx.scene.Node
 import javafx.scene.layout.FlowPane
 
 open class _FlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
-    NodeInvokable, MarginableConstraints {
+    NodeManager, MarginableConstraints {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -29,9 +29,9 @@ fun flowPane(
 ): FlowPane = _FlowPane(orientation, hgap, vgap).also { init?.invoke(it) }
 
 /** Creates a [FlowPane] and add it to this manager. */
-inline fun NodeInvokable.flowPane(
+inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
     noinline init: ((@LayoutMarker _FlowPane).() -> Unit)? = null
-): FlowPane = ktfx.layouts.flowPane(orientation, hgap, vgap, init)()
+): FlowPane = ktfx.layouts.flowPane(orientation, hgap, vgap, init).add()

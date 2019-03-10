@@ -7,9 +7,9 @@ import javafx.scene.layout.AnchorPane
 import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 
-open class _AnchorPane : AnchorPane(), NodeInvokable, Constraints {
+open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
 
-    override fun <R : Node> R.invoke(): R = also { children += it }
+    override fun <R : Node> R.add(): R = also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -55,6 +55,6 @@ fun anchorPane(
 ): AnchorPane = _AnchorPane().also { init?.invoke(it) }
 
 /** Creates a [AnchorPane] and add it to this manager. */
-inline fun NodeInvokable.anchorPane(
+inline fun NodeManager.anchorPane(
     noinline init: ((@LayoutMarker _AnchorPane).() -> Unit)? = null
-): AnchorPane = ktfx.layouts.anchorPane(init)()
+): AnchorPane = ktfx.layouts.anchorPane(init).add()

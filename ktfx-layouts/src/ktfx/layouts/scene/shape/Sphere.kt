@@ -12,8 +12,8 @@ fun sphere(
 ): Sphere = Sphere(radius, division).also { init?.invoke(it) }
 
 /** Creates a [Sphere] and add it to this manager. */
-inline fun NodeInvokable.sphere(
+inline fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64,
     noinline init: ((@LayoutMarker Sphere).() -> Unit)? = null
-): Sphere = ktfx.layouts.sphere(radius, division, init)()
+): Sphere = ktfx.layouts.sphere(radius, division, init).add()

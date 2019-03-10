@@ -11,7 +11,7 @@ fun vlineTo(
 ): VLineTo = VLineTo(y).also { init?.invoke(it) }
 
 /** Creates a [VLineTo] and add it to this manager. */
-inline fun PathElementInvokable.vlineTo(
+inline fun PathElementManager.vlineTo(
     y: Double = 0.0,
     noinline init: ((@LayoutMarker VLineTo).() -> Unit)? = null
-): VLineTo = ktfx.layouts.vlineTo(y, init)()
+): VLineTo = ktfx.layouts.vlineTo(y, init).add()

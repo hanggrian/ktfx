@@ -2,7 +2,7 @@
 
 package ktfx.controlsfx
 
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 import org.controlsfx.control.Rating
 
@@ -14,8 +14,8 @@ fun rating(
 ): Rating = Rating(max, rating).also { init?.invoke(it) }
 
 /** Creates a [Rating] and add it to this manager. */
-inline fun NodeInvokable.rating(
+inline fun NodeManager.rating(
     max: Int = 5,
     rating: Int = -1,
     noinline init: ((@LayoutMarker Rating).() -> Unit)? = null
-): Rating = ktfx.controlsfx.rating(max, rating, init)()
+): Rating = ktfx.controlsfx.rating(max, rating, init).add()

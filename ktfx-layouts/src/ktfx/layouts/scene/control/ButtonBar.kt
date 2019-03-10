@@ -6,9 +6,9 @@ import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
 
-open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeInvokable {
+open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 
-    override fun <R : Node> R.invoke(): R = also { buttons += it }
+    override fun <R : Node> R.add(): R = also { buttons += it }
 
     /** Creates a [Button] and add it to this manager. */
     inline operator fun String.invoke(
@@ -24,7 +24,7 @@ fun buttonBar(
 ): ButtonBar = _ButtonBar(buttonOrder).also { init?.invoke(it) }
 
 /** Creates a [ButtonBar] and add it to this manager. */
-inline fun NodeInvokable.buttonBar(
+inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
     noinline init: ((@LayoutMarker _ButtonBar).() -> Unit)? = null
-): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init)()
+): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init).add()

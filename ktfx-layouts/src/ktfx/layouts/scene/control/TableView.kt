@@ -13,7 +13,7 @@ fun <S> tableView(
 ): TableView<S> = TableView<S>(items).also { init?.invoke(it) }
 
 /** Creates a [TableView] and add it to this manager. */
-inline fun <S> NodeInvokable.tableView(
+inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = observableListOf(),
     noinline init: ((@LayoutMarker TableView<S>).() -> Unit)? = null
-): TableView<S> = ktfx.layouts.tableView(items, init)()
+): TableView<S> = ktfx.layouts.tableView(items, init).add()

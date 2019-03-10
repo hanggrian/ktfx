@@ -3,7 +3,7 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXProgressBar
-import ktfx.layouts.NodeInvokable
+import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutMarker
 
 /** Creates a [JFXProgressBar]. */
@@ -13,7 +13,7 @@ fun jfxProgressBar(
 ): JFXProgressBar = JFXProgressBar(progress).also { init?.invoke(it) }
 
 /** Creates a [JFXProgressBar] and add it to this manager. */
-inline fun NodeInvokable.jfxProgressBar(
+inline fun NodeManager.jfxProgressBar(
     progress: Double = 0.0,
     noinline init: ((@LayoutMarker JFXProgressBar).() -> Unit)? = null
-): JFXProgressBar = ktfx.jfoenix.jfxProgressBar(progress, init)()
+): JFXProgressBar = ktfx.jfoenix.jfxProgressBar(progress, init).add()

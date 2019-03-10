@@ -11,7 +11,7 @@ fun textArea(
 ): TextArea = TextArea(text).also { init?.invoke(it) }
 
 /** Creates a [TextArea] and add it to this manager. */
-inline fun NodeInvokable.textArea(
+inline fun NodeManager.textArea(
     text: String = "",
     noinline init: ((@LayoutMarker TextArea).() -> Unit)? = null
-): TextArea = ktfx.layouts.textArea(text, init)()
+): TextArea = ktfx.layouts.textArea(text, init).add()

@@ -10,6 +10,6 @@ fun passwordField(
 ): PasswordField = PasswordField().also { init?.invoke(it) }
 
 /** Creates a [PasswordField] and add it to this manager. */
-inline fun NodeInvokable.passwordField(
+inline fun NodeManager.passwordField(
     noinline init: ((@LayoutMarker PasswordField).() -> Unit)? = null
-): PasswordField = ktfx.layouts.passwordField(init)()
+): PasswordField = ktfx.layouts.passwordField(init).add()

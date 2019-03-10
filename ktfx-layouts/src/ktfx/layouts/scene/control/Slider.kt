@@ -13,9 +13,9 @@ fun slider(
 ): Slider = Slider(min, max, value).also { init?.invoke(it) }
 
 /** Creates a [Slider] and add it to this manager. */
-inline fun NodeInvokable.slider(
+inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
     noinline init: ((@LayoutMarker Slider).() -> Unit)? = null
-): Slider = ktfx.layouts.slider(min, max, value, init)()
+): Slider = ktfx.layouts.slider(min, max, value, init).add()

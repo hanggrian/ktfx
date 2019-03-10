@@ -12,7 +12,7 @@ fun progressIndicator(
 ): ProgressIndicator = ProgressIndicator(progress).also { init?.invoke(it) }
 
 /** Creates a [ProgressIndicator] and add it to this manager. */
-inline fun NodeInvokable.progressIndicator(
+inline fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
     noinline init: ((@LayoutMarker ProgressIndicator).() -> Unit)? = null
-): ProgressIndicator = ktfx.layouts.progressIndicator(progress, init)()
+): ProgressIndicator = ktfx.layouts.progressIndicator(progress, init).add()

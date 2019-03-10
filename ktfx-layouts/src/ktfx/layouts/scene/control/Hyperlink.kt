@@ -13,8 +13,8 @@ fun hyperlink(
 ): Hyperlink = Hyperlink(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Hyperlink] and add it to this manager. */
-inline fun NodeInvokable.hyperlink(
+inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutMarker Hyperlink).() -> Unit)? = null
-): Hyperlink = ktfx.layouts.hyperlink(text, graphic, init)()
+): Hyperlink = ktfx.layouts.hyperlink(text, graphic, init).add()

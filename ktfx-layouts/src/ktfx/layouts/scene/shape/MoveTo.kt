@@ -12,8 +12,8 @@ fun moveTo(
 ): MoveTo = MoveTo(x, y).also { init?.invoke(it) }
 
 /** Creates a [MoveTo] and add it to this manager. */
-inline fun PathElementInvokable.moveTo(
+inline fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     noinline init: ((@LayoutMarker MoveTo).() -> Unit)? = null
-): MoveTo = ktfx.layouts.moveTo(x, y, init)()
+): MoveTo = ktfx.layouts.moveTo(x, y, init).add()

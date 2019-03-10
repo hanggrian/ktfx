@@ -12,7 +12,7 @@ fun datePicker(
 ): DatePicker = DatePicker(date).also { init?.invoke(it) }
 
 /** Creates a [DatePicker] and add it to this manager. */
-inline fun NodeInvokable.datePicker(
+inline fun NodeManager.datePicker(
     date: LocalDate? = null,
     noinline init: ((@LayoutMarker DatePicker).() -> Unit)? = null
-): DatePicker = ktfx.layouts.datePicker(date, init)()
+): DatePicker = ktfx.layouts.datePicker(date, init).add()

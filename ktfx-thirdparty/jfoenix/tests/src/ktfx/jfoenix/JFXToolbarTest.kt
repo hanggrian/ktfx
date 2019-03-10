@@ -11,11 +11,11 @@ class JFXToolbarTest : ToolkitLayoutTest() {
         val right2 = jfxButton()
         val toolbar = jfxToolbar {
             leftItems {
-                left1()
+                left1.add()
             }
             rightItems {
-                right1()
-                right2()
+                right1.add()
+                right2.add()
             }
         }
         assertContains(toolbar.leftItems, left1).inOrder()

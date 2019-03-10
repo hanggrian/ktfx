@@ -10,6 +10,6 @@ fun region(
 ): Region = Region().also { init?.invoke(it) }
 
 /** Creates a [Region] and add it to this manager. */
-inline fun NodeInvokable.region(
+inline fun NodeManager.region(
     noinline init: ((@LayoutMarker Region).() -> Unit)? = null
-): Region = ktfx.layouts.region(init)()
+): Region = ktfx.layouts.region(init).add()

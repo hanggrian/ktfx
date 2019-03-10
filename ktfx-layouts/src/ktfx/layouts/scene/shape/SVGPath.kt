@@ -10,6 +10,6 @@ fun svgPath(
 ): SVGPath = SVGPath().also { init?.invoke(it) }
 
 /** Creates a [SVGPath] and add it to this manager. */
-inline fun NodeInvokable.svgPath(
+inline fun NodeManager.svgPath(
     noinline init: ((@LayoutMarker SVGPath).() -> Unit)? = null
-): SVGPath = ktfx.layouts.svgPath(init)()
+): SVGPath = ktfx.layouts.svgPath(init).add()

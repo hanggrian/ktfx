@@ -13,8 +13,8 @@ fun menuItem(
 ): MenuItem = MenuItem(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [MenuItem] and add it to this manager. */
-inline fun MenuItemInvokable.menuItem(
+inline fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null,
     noinline init: ((@LayoutMarker MenuItem).() -> Unit)? = null
-): MenuItem = ktfx.layouts.menuItem(text, graphic, init)()
+): MenuItem = ktfx.layouts.menuItem(text, graphic, init).add()

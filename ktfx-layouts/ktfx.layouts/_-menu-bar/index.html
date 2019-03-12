@@ -8,7 +8,7 @@
 <a href="../../index.html">ktfx-layouts</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.layouts</a>&nbsp;/&nbsp;<a href="./index.html">_MenuBar</a><br/>
 <br/>
 <h1>_MenuBar</h1>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_MenuBar</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MenuBar</span><span class="symbol">, </span><a href="../-menu-invokable.html"><span class="identifier">MenuInvokable</span></a></code>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_MenuBar</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MenuBar</span><span class="symbol">, </span><a href="../-menu-manager.html"><span class="identifier">MenuManager</span></a></code>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -26,11 +26,18 @@
 <tbody>
 <tr>
 <td>
+<p><a href="add.html">add</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Menu</span><span class="symbol">&gt;</span> <a href="add.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">add</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="add.html#R"><span class="identifier">R</span></a></code>
+<p>Allows child to be added dynamically with Kotlin DSL in the context of this manager.</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="invoke.html">invoke</a></p>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Menu</span><span class="symbol">&gt;</span> <a href="invoke.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="invoke.html#R"><span class="identifier">R</span></a></code>
-<p>Allows item to be added dynamically with Kotlin DSL in the context of this manager.</p>
 <code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts._MenuBar$invoke(kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts._Menu, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts._MenuBar$invoke(kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts._Menu, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../_-menu/index.html"><span class="identifier">_Menu</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Menu</span></code>
 <p>Creates a <a href="#">Menu</a> and add it to this manager.</p>
 </td>
@@ -54,7 +61,7 @@
 <p><a href="../menu.html">menu</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><a href="../-menu-invokable.html"><span class="identifier">MenuInvokable</span></a><span class="symbol">.</span><span class="identifier">menu</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuInvokable, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts._Menu, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuInvokable, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts._Menu, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuInvokable, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts._Menu, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../_-menu/index.html"><span class="identifier">_Menu</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Menu</span></code>
+<code><span class="keyword">fun </span><a href="../-menu-manager.html"><span class="identifier">MenuManager</span></a><span class="symbol">.</span><span class="identifier">menu</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts._Menu, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts._Menu, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts._Menu, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../_-menu/index.html"><span class="identifier">_Menu</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Menu</span></code>
 <p>Creates a <a href="#">Menu</a> and add it to this manager.</p>
 </td>
 </tr>

@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>LayoutManager - ktfx-layouts</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ktfx-layouts</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.layouts</a>&nbsp;/&nbsp;<a href="./index.html">LayoutManager</a><br/>
+<br/>
+<h1>LayoutManager</h1>
+<code><span class="keyword">interface </span><span class="identifier">LayoutManager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Base interface for all layout managers.</p>
+<h3>Parameters</h3>
+<p><a name="T"></a>
+<code>T</code> - child of this parent</p>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="add.html">add</a></p>
+</td>
+<td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">R</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="index.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span> <a href="add.html#R"><span class="identifier">R</span></a><span class="symbol">.</span><span class="identifier">add</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="add.html#R"><span class="identifier">R</span></a></code>
+<p>Allows child to be added dynamically with Kotlin DSL in the context of this manager.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Inheritors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../-menu-item-manager.html">MenuItemManager</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">MenuItemManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></code>
+<p>Manager for <a href="#">javafx.scene.control.SplitMenuButton</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-menu-manager.html">MenuManager</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">MenuManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></code>
+<p>Manager for <a href="#">javafx.scene.control.MenuBar</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-node-manager.html">NodeManager</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">NodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></code>
+<p>Manager for most panes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-path-element-manager.html">PathElementManager</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">PathElementManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">PathElement</span><span class="symbol">&gt;</span></code>
+<p>Manager for <a href="#">javafx.scene.shape.Path</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-tab-manager.html">TabManager</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TabManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></code>
+<p>Manager for <a href="#">javafx.scene.control.TabPane</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-titled-pane-manager.html">TitledPaneManager</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></code>
+<p>Manager for <a href="#">javafx.scene.control.Accordion</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-toggle-button-manager.html">ToggleButtonManager</a></p>
+</td>
+<td>
+<code><span class="keyword">interface </span><span class="identifier">ToggleButtonManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">ToggleButton</span><span class="symbol">&gt;</span></code>
+<p>Manager for ControlsFX segmented button.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

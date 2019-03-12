@@ -1,5 +1,10 @@
 $dokka.format:html
 $dokka.linkExtension:html
+$dokka.location:ktfx$asProperty(javafx.beans.property.Property((kotlin.Boolean)))ktfx/javafx.beans.property.-property/as-property.html
+$dokka.location:ktfx$asProperty(javafx.beans.property.Property((kotlin.Double)))ktfx/javafx.beans.property.-property/as-property.html
+$dokka.location:ktfx$asProperty(javafx.beans.property.Property((kotlin.Float)))ktfx/javafx.beans.property.-property/as-property.html
+$dokka.location:ktfx$asProperty(javafx.beans.property.Property((kotlin.Int)))ktfx/javafx.beans.property.-property/as-property.html
+$dokka.location:ktfx$asProperty(javafx.beans.property.Property((kotlin.Long)))ktfx/javafx.beans.property.-property/as-property.html
 $dokka.location:ktfx$clear(javafx.beans.value.WritableObjectValue((kotlin.Any)))ktfx/javafx.beans.value.-writable-object-value/clear.html
 $dokka.location:ktfx$component1(javafx.util.Pair((ktfx.component1.K, ktfx.component1.V)))ktfx/javafx.util.-pair/component1.html
 $dokka.location:ktfx$component2(javafx.util.Pair((ktfx.component2.K, ktfx.component2.V)))ktfx/javafx.util.-pair/component2.html
@@ -33,8 +38,26 @@ $dokka.location:ktfx$setValue(javafx.beans.value.WritableStringValue, kotlin.Any
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableValue((ktfx.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), ktfx.setValue.V)ktfx/javafx.beans.value.-writable-value/set-value.html
 $dokka.location:ktfx$times(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/times.html
 $dokka.location:ktfx$times(javafx.util.Duration, kotlin.Double)ktfx/javafx.util.-duration/times.html
+$dokka.location:ktfx$toFinalProperty(javafx.collections.ObservableList((ktfx.toFinalProperty.E)))ktfx/javafx.collections.-observable-list/to-final-property.html
+$dokka.location:ktfx$toFinalProperty(javafx.collections.ObservableMap((ktfx.toFinalProperty.K, ktfx.toFinalProperty.V)))ktfx/javafx.collections.-observable-map/to-final-property.html
+$dokka.location:ktfx$toFinalProperty(javafx.collections.ObservableSet((ktfx.toFinalProperty.E)))ktfx/javafx.collections.-observable-set/to-final-property.html
+$dokka.location:ktfx$toFinalProperty(kotlin.Boolean)ktfx/kotlin.-boolean/to-final-property.html
+$dokka.location:ktfx$toFinalProperty(kotlin.Double)ktfx/kotlin.-double/to-final-property.html
+$dokka.location:ktfx$toFinalProperty(kotlin.Float)ktfx/kotlin.-float/to-final-property.html
+$dokka.location:ktfx$toFinalProperty(kotlin.Int)ktfx/kotlin.-int/to-final-property.html
+$dokka.location:ktfx$toFinalProperty(kotlin.Long)ktfx/kotlin.-long/to-final-property.html
+$dokka.location:ktfx$toFinalProperty(kotlin.String)ktfx/kotlin.-string/to-final-property.html
 $dokka.location:ktfx$toFxPair(kotlin.Pair((ktfx.toFxPair.K, ktfx.toFxPair.V)))ktfx/kotlin.-pair/to-fx-pair.html
 $dokka.location:ktfx$toKotlinPair(javafx.util.Pair((ktfx.toKotlinPair.K, ktfx.toKotlinPair.V)))ktfx/javafx.util.-pair/to-kotlin-pair.html
+$dokka.location:ktfx$toProperty(javafx.collections.ObservableList((ktfx.toProperty.E)))ktfx/javafx.collections.-observable-list/to-property.html
+$dokka.location:ktfx$toProperty(javafx.collections.ObservableMap((ktfx.toProperty.K, ktfx.toProperty.V)))ktfx/javafx.collections.-observable-map/to-property.html
+$dokka.location:ktfx$toProperty(javafx.collections.ObservableSet((ktfx.toProperty.E)))ktfx/javafx.collections.-observable-set/to-property.html
+$dokka.location:ktfx$toProperty(kotlin.Boolean)ktfx/kotlin.-boolean/to-property.html
+$dokka.location:ktfx$toProperty(kotlin.Double)ktfx/kotlin.-double/to-property.html
+$dokka.location:ktfx$toProperty(kotlin.Float)ktfx/kotlin.-float/to-property.html
+$dokka.location:ktfx$toProperty(kotlin.Int)ktfx/kotlin.-int/to-property.html
+$dokka.location:ktfx$toProperty(kotlin.Long)ktfx/kotlin.-long/to-property.html
+$dokka.location:ktfx$toProperty(kotlin.String)ktfx/kotlin.-string/to-property.html
 $dokka.location:ktfx.bindings$and(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.value.-observable-boolean-value/and.html
 $dokka.location:ktfx.bindings$div(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.binding.-double-expression/div.html
 $dokka.location:ktfx.bindings$div(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx.bindings/javafx.beans.binding.-double-expression/div.html

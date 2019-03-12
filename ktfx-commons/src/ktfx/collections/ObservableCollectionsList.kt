@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("ObservableCollectionsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.collections
@@ -15,9 +17,7 @@ import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableNumberValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import javafx.collections.ObservableSet
 import java.util.Comparator
-import java.util.LinkedHashSet
 import java.util.Random
 
 /** Returns an empty immutable [ObservableList]. */
@@ -30,13 +30,18 @@ inline fun <T> observableListOf(): ObservableList<T> = emptyObservableList()
 inline fun <T> observableListOf(element: T): ObservableList<T> = FXCollections.singletonObservableList(element)
 
 /** Returns an immutable [ObservableList] containing all [elements]. */
-inline fun <T> observableListOf(vararg elements: T): ObservableList<T> = elements.toObservableList()
+fun <T> observableListOf(vararg elements: T): ObservableList<T> = when (elements.size) {
+    0 -> emptyObservableList()
+    1 -> observableListOf(elements[0])
+    else -> FXCollections.unmodifiableObservableList(mutableObservableListOf(*elements))
+}
 
 /** Returns an empty [ObservableList]. */
 inline fun <T> mutableObservableListOf(): ObservableList<T> = FXCollections.observableArrayList()
 
 /** Returns an [ObservableList] containing all [elements]. */
-inline fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> = elements.toMutableObservableList()
+inline fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
+    FXCollections.observableArrayList(*elements)
 
 /** Converts this collection to immutable [ObservableList]. */
 inline fun <T> Iterable<T>.toObservableList(): ObservableList<T> =
@@ -45,14 +50,6 @@ inline fun <T> Iterable<T>.toObservableList(): ObservableList<T> =
 /** Converts this collection to [ObservableList]. */
 fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> =
     FXCollections.observableArrayList(this as? Collection ?: toCollection(ArrayList()))
-
-/** Converts this collection to immutable [ObservableSet]. */
-inline fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> =
-    FXCollections.unmodifiableObservableSet(toMutableObservableSet())
-
-/** Converts this collection to [ObservableSet]. */
-fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> =
-    FXCollections.observableSet(this as? Set ?: toCollection(LinkedHashSet()))
 
 /** Copies elements from src to list, firing change notification once. */
 inline fun <T> ObservableList<T>.copy(src: List<T>): Unit = FXCollections.copy(this, src)

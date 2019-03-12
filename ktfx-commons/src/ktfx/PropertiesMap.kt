@@ -21,9 +21,6 @@ inline fun <K, V> emptyMapProperty(): MapProperty<K, V> = mapPropertyOf(emptyObs
 /** Create an empty map modifiable property. */
 inline fun <K, V> mapPropertyOf(): MapProperty<K, V> = emptyMapProperty()
 
-/** Create a singleton map modifiable property. */
-inline fun <K, V> mapPropertyOf(pair: Pair<K, V>): MapProperty<K, V> = mapPropertyOf(observableMapOf(pair))
-
 /** Create a map modifiable property. */
 inline fun <K, V> mapPropertyOf(vararg pairs: Pair<K, V>): MapProperty<K, V> = mapPropertyOf(observableMapOf(*pairs))
 
@@ -36,10 +33,6 @@ inline fun <K, V> finalEmptyMapProperty(): ReadOnlyMapProperty<K, V> = finalMapP
 
 /** Create an empty map unmodifiable property. */
 inline fun <K, V> finalMapPropertyOf(): ReadOnlyMapProperty<K, V> = finalEmptyMapProperty()
-
-/** Create a singleton map unmodifiable property. */
-inline fun <K, V> finalMapPropertyOf(pair: Pair<K, V>): ReadOnlyMapProperty<K, V> =
-    finalMapPropertyOf(observableMapOf(pair))
 
 /** Create a map unmodifiable property. */
 inline fun <K, V> finalMapPropertyOf(vararg pairs: Pair<K, V>): ReadOnlyMapProperty<K, V> =

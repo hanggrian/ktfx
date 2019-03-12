@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("ObservableCollectionsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.collections
@@ -22,8 +24,8 @@ inline fun <K, V> observableMapOf(): ObservableMap<K, V> = emptyObservableMap()
 
 /** Returns an empty observable map of containing all [pairs]. */
 fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = when {
-    pairs.isNotEmpty() -> FXCollections.unmodifiableObservableMap(mutableObservableMapOf(*pairs))
-    else -> FXCollections.emptyObservableMap()
+    pairs.isEmpty() -> emptyObservableMap()
+    else -> FXCollections.unmodifiableObservableMap(mutableObservableMapOf(*pairs))
 }
 
 /** Converts this map to immutable [ObservableMap]. */

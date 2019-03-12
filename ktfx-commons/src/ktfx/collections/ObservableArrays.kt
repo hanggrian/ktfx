@@ -6,7 +6,6 @@ package ktfx.collections
 
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.IntegerBinding
-import javafx.collections.FXCollections
 import javafx.collections.ObservableArray
 import javafx.collections.ObservableList
 import javafx.collections.ObservableSet
@@ -24,20 +23,13 @@ inline fun ObservableArray<*>.isNotEmpty(): Boolean = size != 0
 inline val ObservableArray<*>.sizeBinding: IntegerBinding get() = Bindings.size(this)
 
 /** Converts this array to immutable [ObservableList]. */
-fun <T> Array<out T>.toObservableList(): ObservableList<T> = when (size) {
-    0 -> emptyObservableList()
-    1 -> observableListOf(this[0])
-    else -> FXCollections.unmodifiableObservableList(toMutableObservableList())
-}
+inline fun <T> Array<out T>.toObservableList(): ObservableList<T> = observableListOf(*this)
 
 /** Converts this array to [ObservableList]. */
-inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> = FXCollections.observableArrayList(*this)
+inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> = mutableObservableListOf(*this)
 
 /** Converts this array to immutable [ObservableSet]. */
-fun <T> Array<out T>.toObservableSet(): ObservableSet<T> = when (size) {
-    0 -> emptyObservableSet()
-    else -> FXCollections.unmodifiableObservableSet(toMutableObservableSet())
-}
+inline fun <T> Array<out T>.toObservableSet(): ObservableSet<T> = observableSetOf(*this)
 
 /** Converts this array to [ObservableSet]. */
-inline fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> = FXCollections.observableSet(*this)
+inline fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> = mutableObservableSetOf(*this)

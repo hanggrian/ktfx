@@ -21,9 +21,6 @@ inline fun <E> emptySetProperty(): SetProperty<E> = setPropertyOf(emptyObservabl
 /** Create an empty set modifiable property. */
 inline fun <E> setPropertyOf(): SetProperty<E> = emptySetProperty()
 
-/** Create a singleton set modifiable property. */
-inline fun <E> setPropertyOf(element: E): SetProperty<E> = setPropertyOf(observableSetOf(element))
-
 /** Create a set modifiable property. */
 inline fun <E> setPropertyOf(vararg elements: E): SetProperty<E> = setPropertyOf(observableSetOf(*elements))
 
@@ -35,9 +32,6 @@ inline fun <E> finalEmptySetProperty(): ReadOnlySetProperty<E> = finalSetPropert
 
 /** Create an empty set unmodifiable property. */
 inline fun <E> finalSetPropertyOf(): ReadOnlySetProperty<E> = finalEmptySetProperty()
-
-/** Create a singleton set unmodifiable property. */
-inline fun <E> finalSetPropertyOf(element: E): ReadOnlySetProperty<E> = finalSetPropertyOf(observableSetOf(element))
 
 /** Create a set unmodifiable property. */
 inline fun <E> finalSetPropertyOf(vararg elements: E): ReadOnlySetProperty<E> =

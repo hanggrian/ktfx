@@ -6,7 +6,7 @@ import com.jfoenix.controls.JFXDecorator
 import javafx.scene.Node
 import javafx.stage.Stage
 import ktfx.layouts.NodeManager
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 
 /** Creates a [JFXDecorator]. */
 fun jfxDecorator(
@@ -15,7 +15,7 @@ fun jfxDecorator(
     fullscreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    init: ((@LayoutMarker JFXDecorator).() -> Unit)? = null
+    init: ((@LayoutDslMarker JFXDecorator).() -> Unit)? = null
 ): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).also { init?.invoke(it) }
 
 /** Creates a [JFXDecorator] and add it to this manager. */
@@ -25,5 +25,5 @@ inline fun NodeManager.jfxDecorator(
     fullscreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    noinline init: ((@LayoutMarker JFXDecorator).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker JFXDecorator).() -> Unit)? = null
 ): JFXDecorator = ktfx.jfoenix.jfxDecorator(stage, node, fullscreen, max, min, init).add()

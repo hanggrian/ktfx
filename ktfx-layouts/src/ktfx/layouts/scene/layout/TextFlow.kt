@@ -12,7 +12,7 @@ open class _TextFlow : TextFlow(), NodeManager {
 
     /** Creates a [Text] and add it to this manager. */
     inline operator fun String.invoke(
-        noinline init: ((@LayoutMarker Text).() -> Unit)? = null
+        noinline init: ((@LayoutDslMarker Text).() -> Unit)? = null
     ): Text = text(this, init)
 
     inline fun newLine(): Text = text(System.lineSeparator())
@@ -20,10 +20,10 @@ open class _TextFlow : TextFlow(), NodeManager {
 
 /** Creates a [TextFlow]. */
 fun textFlow(
-    init: ((@LayoutMarker _TextFlow).() -> Unit)? = null
+    init: ((@LayoutDslMarker _TextFlow).() -> Unit)? = null
 ): TextFlow = _TextFlow().also { init?.invoke(it) }
 
 /** Creates a [TextFlow] and add it to this manager. */
 inline fun NodeManager.textFlow(
-    noinline init: ((@LayoutMarker _TextFlow).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _TextFlow).() -> Unit)? = null
 ): TextFlow = ktfx.layouts.textFlow(init).add()

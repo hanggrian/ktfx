@@ -59,10 +59,11 @@ interface MarginableConstraints : Constraints {
         bottom: Number? = marginBottom,
         left: Number? = marginLeft
     ) {
-        margins = Insets(top.toDoubleOrZero(), right.toDoubleOrZero(), bottom.toDoubleOrZero(), left.toDoubleOrZero())
+        margins = Insets(
+            top?.toDouble() ?: 0.0, right?.toDouble() ?: 0.0,
+            bottom?.toDouble() ?: 0.0, left?.toDouble() ?: 0.0
+        )
     }
-
-    private fun Number?.toDoubleOrZero(): Double = this?.toDouble() ?: 0.0
 }
 
 interface AlignableConstraints : Constraints {

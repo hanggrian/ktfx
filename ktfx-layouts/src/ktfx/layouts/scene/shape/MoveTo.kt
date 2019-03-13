@@ -8,12 +8,12 @@ import javafx.scene.shape.MoveTo
 fun moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: ((@LayoutMarker MoveTo).() -> Unit)? = null
+    init: ((@LayoutDslMarker MoveTo).() -> Unit)? = null
 ): MoveTo = MoveTo(x, y).also { init?.invoke(it) }
 
 /** Creates a [MoveTo] and add it to this manager. */
 inline fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    noinline init: ((@LayoutMarker MoveTo).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker MoveTo).() -> Unit)? = null
 ): MoveTo = ktfx.layouts.moveTo(x, y, init).add()

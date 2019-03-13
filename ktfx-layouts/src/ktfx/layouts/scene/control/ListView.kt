@@ -9,11 +9,11 @@ import ktfx.collections.observableListOf
 /** Creates a [ListView]. */
 fun <T> listView(
     items: ObservableList<T> = observableListOf(),
-    init: ((@LayoutMarker ListView<T>).() -> Unit)? = null
+    init: ((@LayoutDslMarker ListView<T>).() -> Unit)? = null
 ): ListView<T> = ListView(items).also { init?.invoke(it) }
 
 /** Creates a [ListView] and add it to this manager. */
 inline fun <T> NodeManager.listView(
     items: ObservableList<T> = observableListOf(),
-    noinline init: ((@LayoutMarker ListView<T>).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker ListView<T>).() -> Unit)? = null
 ): ListView<T> = ktfx.layouts.listView(items, init).add()

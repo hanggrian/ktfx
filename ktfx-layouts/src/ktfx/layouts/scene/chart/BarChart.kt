@@ -14,7 +14,7 @@ fun <X, Y> barChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     gap: Double = 10.0,
-    init: ((@LayoutMarker BarChart<X, Y>).() -> Unit)? = null
+    init: ((@LayoutDslMarker BarChart<X, Y>).() -> Unit)? = null
 ): BarChart<X, Y> = BarChart(x, y, data, gap).also { init?.invoke(it) }
 
 /** Creates a [BarChart] and add it to this manager. */
@@ -23,5 +23,5 @@ inline fun <X, Y> NodeManager.barChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     gap: Double = 10.0,
-    noinline init: ((@LayoutMarker BarChart<X, Y>).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker BarChart<X, Y>).() -> Unit)? = null
 ): BarChart<X, Y> = ktfx.layouts.barChart(x, y, data, gap, init).add()

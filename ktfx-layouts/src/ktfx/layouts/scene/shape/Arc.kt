@@ -12,7 +12,7 @@ fun arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-    init: ((@LayoutMarker Arc).() -> Unit)? = null
+    init: ((@LayoutDslMarker Arc).() -> Unit)? = null
 ): Arc = Arc(centerX, centerY, radiusX, radiusY, startAngle, length).also { init?.invoke(it) }
 
 /** Creates a [Arc] and add it to this manager. */
@@ -23,5 +23,5 @@ inline fun NodeManager.arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-    noinline init: ((@LayoutMarker Arc).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker Arc).() -> Unit)? = null
 ): Arc = ktfx.layouts.arc(centerX, centerY, radiusX, radiusY, startAngle, length, init).add()

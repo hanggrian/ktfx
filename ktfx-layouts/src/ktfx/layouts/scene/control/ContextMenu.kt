@@ -16,26 +16,26 @@ open class _ContextMenu : ContextMenu(), MenuItemManager {
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutMarker MenuItem).() -> Unit)? = null
+        noinline init: ((@LayoutDslMarker MenuItem).() -> Unit)? = null
     ): MenuItem = menuItem(this, graphic, init)
 }
 
 /** Creates a [ContextMenu]. */
 fun contextMenu(
-    init: ((@LayoutMarker _ContextMenu).() -> Unit)? = null
+    init: ((@LayoutDslMarker _ContextMenu).() -> Unit)? = null
 ): ContextMenu = _ContextMenu().also { init?.invoke(it) }
 
 /** Creates a [ContextMenu] and set it to this [Control]. */
 inline fun Control.contextMenu(
-    noinline init: ((@LayoutMarker _ContextMenu).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _ContextMenu).() -> Unit)? = null
 ): ContextMenu = ktfx.layouts.contextMenu(init).also { contextMenu = it }
 
 /** Creates a [ContextMenu] and set it to this [Tab]. */
 inline fun Tab.contextMenu(
-    noinline init: ((@LayoutMarker _ContextMenu).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _ContextMenu).() -> Unit)? = null
 ): ContextMenu = ktfx.layouts.contextMenu(init).also { contextMenu = it }
 
 /** Creates a [ContextMenu] and set it to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
-    noinline init: ((@LayoutMarker _ContextMenu).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _ContextMenu).() -> Unit)? = null
 ): ContextMenu = ktfx.layouts.contextMenu(init).also { setContextMenu(it) }

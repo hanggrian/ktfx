@@ -13,11 +13,11 @@ open class _HBox(spacing: Double) : HBox(spacing), HBoxConstraints {
 /** Creates a [HBox]. */
 fun hbox(
     spacing: Double = 0.0,
-    init: ((@LayoutMarker _HBox).() -> Unit)? = null
+    init: ((@LayoutDslMarker _HBox).() -> Unit)? = null
 ): HBox = _HBox(spacing).also { init?.invoke(it) }
 
 /** Creates a [HBox] and add it to this manager. */
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
-    noinline init: ((@LayoutMarker _HBox).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _HBox).() -> Unit)? = null
 ): HBox = ktfx.layouts.hbox(spacing, init).add()

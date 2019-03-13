@@ -3,7 +3,7 @@
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.HiddenSidesPane
 
@@ -18,10 +18,10 @@ open class _HiddenSidesPane : HiddenSidesPane(), NodeManager {
 
 /** Creates a [HiddenSidesPane]. */
 fun hiddenSidesPane(
-    init: ((@LayoutMarker _HiddenSidesPane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _HiddenSidesPane).() -> Unit)? = null
 ): HiddenSidesPane = _HiddenSidesPane().also { init?.invoke(it) }
 
 /** Creates a [HiddenSidesPane] and add it to this manager. */
 inline fun NodeManager.hiddenSidesPane(
-    noinline init: ((@LayoutMarker _HiddenSidesPane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _HiddenSidesPane).() -> Unit)? = null
 ): HiddenSidesPane = ktfx.controlsfx.hiddenSidesPane(init).add()

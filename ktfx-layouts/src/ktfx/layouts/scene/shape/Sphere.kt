@@ -8,12 +8,12 @@ import javafx.scene.shape.Sphere
 fun sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    init: ((@LayoutMarker Sphere).() -> Unit)? = null
+    init: ((@LayoutDslMarker Sphere).() -> Unit)? = null
 ): Sphere = Sphere(radius, division).also { init?.invoke(it) }
 
 /** Creates a [Sphere] and add it to this manager. */
 inline fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    noinline init: ((@LayoutMarker Sphere).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker Sphere).() -> Unit)? = null
 ): Sphere = ktfx.layouts.sphere(radius, division, init).add()

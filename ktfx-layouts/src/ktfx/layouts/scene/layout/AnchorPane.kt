@@ -13,17 +13,17 @@ open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
-    inline infix fun <N : Node> N.anchorAll(anchorAll: Number?): N = also { it.anchorAll = anchorAll }
+    infix fun <N : Node> N.anchorAll(anchorAll: Number?): N = also { it.anchorAll = anchorAll }
 
-    inline infix fun <N : Node> N.anchorTop(anchorTop: Number?): N = also { it.anchorTop = anchorTop }
+    infix fun <N : Node> N.anchorTop(anchorTop: Number?): N = also { it.anchorTop = anchorTop }
 
-    inline infix fun <N : Node> N.anchorLeft(anchorLeft: Number?): N = also { it.anchorLeft = anchorLeft }
+    infix fun <N : Node> N.anchorLeft(anchorLeft: Number?): N = also { it.anchorLeft = anchorLeft }
 
-    inline infix fun <N : Node> N.anchorBottom(anchorBottom: Number?): N = also { it.anchorBottom = anchorBottom }
+    infix fun <N : Node> N.anchorBottom(anchorBottom: Number?): N = also { it.anchorBottom = anchorBottom }
 
-    inline infix fun <N : Node> N.anchorRight(anchorRight: Number?): N = also { it.anchorRight = anchorRight }
+    infix fun <N : Node> N.anchorRight(anchorRight: Number?): N = also { it.anchorRight = anchorRight }
 
-    inline var Node.anchorAll: Number?
+    var Node.anchorAll: Number?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
             anchorTop = value
@@ -32,29 +32,29 @@ open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
             anchorRight = value
         }
 
-    inline var Node.anchorTop: Number?
+    var Node.anchorTop: Number?
         get() = getTopAnchor(this)
         set(value) = setTopAnchor(this, value?.toDouble())
 
-    inline var Node.anchorLeft: Number?
+    var Node.anchorLeft: Number?
         get() = getLeftAnchor(this)
         set(value) = setLeftAnchor(this, value?.toDouble())
 
-    inline var Node.anchorBottom: Number?
+    var Node.anchorBottom: Number?
         get() = getBottomAnchor(this)
         set(value) = setBottomAnchor(this, value?.toDouble())
 
-    inline var Node.anchorRight: Number?
+    var Node.anchorRight: Number?
         get() = getRightAnchor(this)
         set(value) = setRightAnchor(this, value?.toDouble())
 }
 
 /** Creates a [AnchorPane]. */
 fun anchorPane(
-    init: ((@LayoutMarker _AnchorPane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _AnchorPane).() -> Unit)? = null
 ): AnchorPane = _AnchorPane().also { init?.invoke(it) }
 
 /** Creates a [AnchorPane] and add it to this manager. */
 inline fun NodeManager.anchorPane(
-    noinline init: ((@LayoutMarker _AnchorPane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _AnchorPane).() -> Unit)? = null
 ): AnchorPane = ktfx.layouts.anchorPane(init).add()

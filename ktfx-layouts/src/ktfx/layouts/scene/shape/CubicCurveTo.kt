@@ -12,7 +12,7 @@ fun cubicCurveTo(
     controlY2: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    init: ((@LayoutMarker CubicCurveTo).() -> Unit)? = null
+    init: ((@LayoutDslMarker CubicCurveTo).() -> Unit)? = null
 ): CubicCurveTo = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).also { init?.invoke(it) }
 
 /** Creates a [CubicCurveTo] and add it to this manager. */
@@ -23,5 +23,5 @@ inline fun PathElementManager.cubicCurveTo(
     controlY2: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    noinline init: ((@LayoutMarker CubicCurveTo).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker CubicCurveTo).() -> Unit)? = null
 ): CubicCurveTo = ktfx.layouts.cubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y, init).add()

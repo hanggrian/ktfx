@@ -3,15 +3,15 @@
 package ktfx.controlsfx
 
 import ktfx.layouts.NodeManager
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 import org.controlsfx.control.ListSelectionView
 
 /** Creates a [ListSelectionView]. */
 fun <T> listSelectionView(
-    init: ((@LayoutMarker ListSelectionView<T>).() -> Unit)? = null
+    init: ((@LayoutDslMarker ListSelectionView<T>).() -> Unit)? = null
 ): ListSelectionView<T> = ListSelectionView<T>().also { init?.invoke(it) }
 
 /** Creates a [ListSelectionView] and add it to this manager. */
 inline fun <T> NodeManager.listSelectionView(
-    noinline init: ((@LayoutMarker ListSelectionView<T>).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker ListSelectionView<T>).() -> Unit)? = null
 ): ListSelectionView<T> = ktfx.controlsfx.listSelectionView(init).add()

@@ -12,10 +12,10 @@ open class _SplitPane : SplitPane(), NodeManager {
 
 /** Creates a [SplitPane]. */
 fun splitPane(
-    init: ((@LayoutMarker _SplitPane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _SplitPane).() -> Unit)? = null
 ): SplitPane = _SplitPane().also { init?.invoke(it) }
 
 /** Creates a [SplitPane] and add it to this manager. */
 inline fun NodeManager.splitPane(
-    noinline init: ((@LayoutMarker _SplitPane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _SplitPane).() -> Unit)? = null
 ): SplitPane = ktfx.layouts.splitPane(init).add()

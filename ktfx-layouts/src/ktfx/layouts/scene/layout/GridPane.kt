@@ -83,12 +83,12 @@ open class _GridPane : GridPane(),
 
 /** Creates a [GridPane]. */
 fun gridPane(
-    init: ((@LayoutMarker _GridPane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _GridPane).() -> Unit)? = null
 ): GridPane = _GridPane().also { init?.invoke(it) }
 
 /** Creates a [GridPane] and add it to this manager. */
 inline fun NodeManager.gridPane(
-    noinline init: ((@LayoutMarker _GridPane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _GridPane).() -> Unit)? = null
 ): GridPane = ktfx.layouts.gridPane(init).add()
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */

@@ -25,11 +25,11 @@ open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowableConstra
 /** Creates a [VBox]. */
 fun vbox(
     spacing: Double = 0.0,
-    init: ((@LayoutMarker _VBox).() -> Unit)? = null
+    init: ((@LayoutDslMarker _VBox).() -> Unit)? = null
 ): VBox = _VBox(spacing).also { init?.invoke(it) }
 
 /** Creates a [VBox] and add it to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
-    noinline init: ((@LayoutMarker _VBox).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _VBox).() -> Unit)? = null
 ): VBox = ktfx.layouts.vbox(spacing, init).add()

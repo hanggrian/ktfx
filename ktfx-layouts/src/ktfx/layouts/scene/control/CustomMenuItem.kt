@@ -9,12 +9,12 @@ import javafx.scene.control.CustomMenuItem
 fun customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
-    init: ((@LayoutMarker CustomMenuItem).() -> Unit)? = null
+    init: ((@LayoutDslMarker CustomMenuItem).() -> Unit)? = null
 ): CustomMenuItem = CustomMenuItem(node, hideOnClick).also { init?.invoke(it) }
 
 /** Creates a [CustomMenuItem] and add it to this manager. */
 inline fun MenuItemManager.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
-    noinline init: ((@LayoutMarker CustomMenuItem).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker CustomMenuItem).() -> Unit)? = null
 ): CustomMenuItem = ktfx.layouts.customMenuItem(node, hideOnClick, init).add()

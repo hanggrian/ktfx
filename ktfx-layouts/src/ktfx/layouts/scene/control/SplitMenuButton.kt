@@ -13,16 +13,16 @@ open class _SplitMenuButton : SplitMenuButton(), MenuItemManager {
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutMarker MenuItem).() -> Unit)? = null
+        noinline init: ((@LayoutDslMarker MenuItem).() -> Unit)? = null
     ): MenuItem = menuItem(this, graphic, init)
 }
 
 /** Creates a [SplitMenuButton]. */
 fun splitMenuButton(
-    init: ((@LayoutMarker _SplitMenuButton).() -> Unit)? = null
+    init: ((@LayoutDslMarker _SplitMenuButton).() -> Unit)? = null
 ): SplitMenuButton = _SplitMenuButton().also { init?.invoke(it) }
 
 /** Creates a [SplitMenuButton] and add it to this manager. */
 inline fun NodeManager.splitMenuButton(
-    noinline init: ((@LayoutMarker _SplitMenuButton).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _SplitMenuButton).() -> Unit)? = null
 ): SplitMenuButton = ktfx.layouts.splitMenuButton(init).add()

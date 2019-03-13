@@ -4,14 +4,14 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXListCell
 import ktfx.layouts.NodeManager
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 
 /** Creates a [JFXListCell]. */
 fun <T> jfxListCell(
-    init: ((@LayoutMarker JFXListCell<T>).() -> Unit)? = null
+    init: ((@LayoutDslMarker JFXListCell<T>).() -> Unit)? = null
 ): JFXListCell<T> = JFXListCell<T>().also { init?.invoke(it) }
 
 /** Creates a [JFXListCell] and add it to this manager. */
 inline fun <T> NodeManager.jfxListCell(
-    noinline init: ((@LayoutMarker JFXListCell<T>).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker JFXListCell<T>).() -> Unit)? = null
 ): JFXListCell<T> = ktfx.jfoenix.jfxListCell(init).add()

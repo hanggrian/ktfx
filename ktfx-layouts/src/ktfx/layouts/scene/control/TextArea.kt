@@ -7,11 +7,11 @@ import javafx.scene.control.TextArea
 /** Creates a [TextArea]. */
 fun textArea(
     text: String = "",
-    init: ((@LayoutMarker TextArea).() -> Unit)? = null
+    init: ((@LayoutDslMarker TextArea).() -> Unit)? = null
 ): TextArea = TextArea(text).also { init?.invoke(it) }
 
 /** Creates a [TextArea] and add it to this manager. */
 inline fun NodeManager.textArea(
     text: String = "",
-    noinline init: ((@LayoutMarker TextArea).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker TextArea).() -> Unit)? = null
 ): TextArea = ktfx.layouts.textArea(text, init).add()

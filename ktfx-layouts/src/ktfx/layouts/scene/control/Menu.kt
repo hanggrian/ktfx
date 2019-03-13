@@ -13,7 +13,7 @@ open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemMa
     /** Creates a [MenuItem] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutMarker MenuItem).() -> Unit)? = null
+        noinline init: ((@LayoutDslMarker MenuItem).() -> Unit)? = null
     ): MenuItem = menuItem(this, graphic, init)
 }
 
@@ -21,19 +21,19 @@ open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemMa
 fun menu(
     text: String = "",
     graphic: Node? = null,
-    init: ((@LayoutMarker _Menu).() -> Unit)? = null
+    init: ((@LayoutDslMarker _Menu).() -> Unit)? = null
 ): Menu = _Menu(text, graphic).also { init?.invoke(it) }
 
 /** Creates a [Menu] and add it to this manager. */
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
-    noinline init: ((@LayoutMarker _Menu).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _Menu).() -> Unit)? = null
 ): Menu = ktfx.layouts.menu(text, graphic, init).add()
 
 /** Creates a [Menu] and add it to this manager. */
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
-    noinline init: ((@LayoutMarker _Menu).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _Menu).() -> Unit)? = null
 ): Menu = ktfx.layouts.menu(text, graphic, init).add()

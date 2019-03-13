@@ -10,7 +10,7 @@ fun rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: ((@LayoutMarker Rectangle).() -> Unit)? = null
+    init: ((@LayoutDslMarker Rectangle).() -> Unit)? = null
 ): Rectangle = Rectangle(x, y, width, height).also { init?.invoke(it) }
 
 /** Creates a [Rectangle] and add it to this manager. */
@@ -19,5 +19,5 @@ inline fun NodeManager.rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    noinline init: ((@LayoutMarker Rectangle).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker Rectangle).() -> Unit)? = null
 ): Rectangle = ktfx.layouts.rectangle(x, y, width, height, init).add()

@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXScrollPane
 import javafx.scene.Node
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
 open class _JFXScrollPane : JFXScrollPane(), NodeManager {
@@ -13,7 +13,7 @@ open class _JFXScrollPane : JFXScrollPane(), NodeManager {
 
     val collection: MutableCollection<Node> = mutableListOf()
 
-    fun topBar(init: (@LayoutMarker NodeManager).() -> Unit) {
+    fun topBar(init: (@LayoutDslMarker NodeManager).() -> Unit) {
         collection.clear()
         object : NodeManager {
             override fun <R : Node> R.add(): R = also { collection += it }
@@ -21,7 +21,7 @@ open class _JFXScrollPane : JFXScrollPane(), NodeManager {
         topBar.children.addAll(collection)
     }
 
-    fun midBar(init: (@LayoutMarker NodeManager).() -> Unit) {
+    fun midBar(init: (@LayoutDslMarker NodeManager).() -> Unit) {
         collection.clear()
         object : NodeManager {
             override fun <R : Node> R.add(): R = also { collection += it }
@@ -29,7 +29,7 @@ open class _JFXScrollPane : JFXScrollPane(), NodeManager {
         midBar.children.addAll(collection)
     }
 
-    fun bottomBar(init: (@LayoutMarker NodeManager).() -> Unit) {
+    fun bottomBar(init: (@LayoutDslMarker NodeManager).() -> Unit) {
         collection.clear()
         object : NodeManager {
             override fun <R : Node> R.add(): R = also { collection += it }
@@ -37,7 +37,7 @@ open class _JFXScrollPane : JFXScrollPane(), NodeManager {
         bottomBar.children.addAll(collection)
     }
 
-    fun mainHeader(init: (@LayoutMarker NodeManager).() -> Unit) {
+    fun mainHeader(init: (@LayoutDslMarker NodeManager).() -> Unit) {
         collection.clear()
         object : NodeManager {
             override fun <R : Node> R.add(): R = also { collection += it }
@@ -45,7 +45,7 @@ open class _JFXScrollPane : JFXScrollPane(), NodeManager {
         mainHeader.children.addAll(collection)
     }
 
-    fun condensedHeader(init: (@LayoutMarker NodeManager).() -> Unit) {
+    fun condensedHeader(init: (@LayoutDslMarker NodeManager).() -> Unit) {
         collection.clear()
         object : NodeManager {
             override fun <R : Node> R.add(): R = also { collection += it }
@@ -56,10 +56,10 @@ open class _JFXScrollPane : JFXScrollPane(), NodeManager {
 
 /** Creates a [JFXScrollPane]. */
 fun jfxScrollPane(
-    init: ((@LayoutMarker _JFXScrollPane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _JFXScrollPane).() -> Unit)? = null
 ): JFXScrollPane = _JFXScrollPane().also { init?.invoke(it) }
 
 /** Creates a [JFXScrollPane] and add it to this manager. */
 inline fun NodeManager.jfxScrollPane(
-    noinline init: ((@LayoutMarker _JFXScrollPane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _JFXScrollPane).() -> Unit)? = null
 ): JFXScrollPane = ktfx.jfoenix.jfxScrollPane(init).add()

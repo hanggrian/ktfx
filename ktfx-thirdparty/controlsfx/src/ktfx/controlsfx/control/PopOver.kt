@@ -3,7 +3,7 @@
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.PopOver
 
@@ -14,5 +14,5 @@ open class _PopOver : PopOver(), NodeManager {
 
 /** Creates a [PopOver]. */
 fun popOver(
-    init: ((@LayoutMarker _PopOver).() -> Unit)? = null
+    init: ((@LayoutDslMarker _PopOver).() -> Unit)? = null
 ): PopOver = _PopOver().also { init?.invoke(it) }

@@ -4,7 +4,7 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXBadge
 import javafx.scene.Node
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
 open class _JFXBadge : JFXBadge(), NodeManager {
@@ -14,10 +14,10 @@ open class _JFXBadge : JFXBadge(), NodeManager {
 
 /** Creates a [JFXBadge]. */
 fun jfxBadge(
-    init: ((@LayoutMarker _JFXBadge).() -> Unit)? = null
+    init: ((@LayoutDslMarker _JFXBadge).() -> Unit)? = null
 ): JFXBadge = _JFXBadge().also { init?.invoke(it) }
 
 /** Creates a [JFXBadge] and add it to this manager. */
 inline fun NodeManager.jfxBadge(
-    noinline init: ((@LayoutMarker _JFXBadge).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _JFXBadge).() -> Unit)? = null
 ): JFXBadge = ktfx.jfoenix.jfxBadge(init).add()

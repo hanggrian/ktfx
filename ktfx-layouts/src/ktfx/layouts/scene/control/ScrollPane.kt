@@ -13,11 +13,11 @@ open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 /** Creates a [ScrollPane]. */
 fun scrollPane(
     content: Node? = null,
-    init: ((@LayoutMarker _ScrollPane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _ScrollPane).() -> Unit)? = null
 ): ScrollPane = _ScrollPane(content).also { init?.invoke(it) }
 
 /** Creates a [ScrollPane] and add it to this manager. */
 inline fun NodeManager.scrollPane(
     content: Node? = null,
-    noinline init: ((@LayoutMarker _ScrollPane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _ScrollPane).() -> Unit)? = null
 ): ScrollPane = ktfx.layouts.scrollPane(content, init).add()

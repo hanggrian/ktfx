@@ -10,7 +10,7 @@ fun quadCurveTo(
     controlY: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    init: ((@LayoutMarker QuadCurveTo).() -> Unit)? = null
+    init: ((@LayoutDslMarker QuadCurveTo).() -> Unit)? = null
 ): QuadCurveTo = QuadCurveTo(controlX, controlY, x, y).also { init?.invoke(it) }
 
 /** Creates a [QuadCurveTo] and add it to this manager. */
@@ -19,5 +19,5 @@ inline fun PathElementManager.quadCurveTo(
     controlY: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    noinline init: ((@LayoutMarker QuadCurveTo).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker QuadCurveTo).() -> Unit)? = null
 ): QuadCurveTo = ktfx.layouts.quadCurveTo(controlX, controlY, x, y, init).add()

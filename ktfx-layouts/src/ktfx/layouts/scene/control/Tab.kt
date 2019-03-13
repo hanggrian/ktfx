@@ -14,12 +14,12 @@ open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManag
 fun tab(
     text: String? = null,
     content: Node? = null,
-    init: ((@LayoutMarker _Tab).() -> Unit)? = null
+    init: ((@LayoutDslMarker _Tab).() -> Unit)? = null
 ): Tab = _Tab(text, content).also { init?.invoke(it) }
 
 /** Creates a [Tab] and add it to this manager. */
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
-    noinline init: ((@LayoutMarker _Tab).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _Tab).() -> Unit)? = null
 ): Tab = ktfx.layouts.tab(text, content, init).add()

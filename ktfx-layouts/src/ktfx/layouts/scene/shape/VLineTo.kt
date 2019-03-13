@@ -7,11 +7,11 @@ import javafx.scene.shape.VLineTo
 /** Creates a [VLineTo]. */
 fun vlineTo(
     y: Double = 0.0,
-    init: ((@LayoutMarker VLineTo).() -> Unit)? = null
+    init: ((@LayoutDslMarker VLineTo).() -> Unit)? = null
 ): VLineTo = VLineTo(y).also { init?.invoke(it) }
 
 /** Creates a [VLineTo] and add it to this manager. */
 inline fun PathElementManager.vlineTo(
     y: Double = 0.0,
-    noinline init: ((@LayoutMarker VLineTo).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker VLineTo).() -> Unit)? = null
 ): VLineTo = ktfx.layouts.vlineTo(y, init).add()

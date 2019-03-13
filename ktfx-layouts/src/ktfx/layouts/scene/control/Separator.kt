@@ -9,11 +9,11 @@ import javafx.scene.control.Separator
 /** Creates a [Separator]. */
 fun separator(
     orientation: Orientation = HORIZONTAL,
-    init: ((@LayoutMarker Separator).() -> Unit)? = null
+    init: ((@LayoutDslMarker Separator).() -> Unit)? = null
 ): Separator = Separator(orientation).also { init?.invoke(it) }
 
 /** Creates a [Separator] and add it to this manager. */
 inline fun NodeManager.separator(
     orientation: Orientation = HORIZONTAL,
-    noinline init: ((@LayoutMarker Separator).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker Separator).() -> Unit)? = null
 ): Separator = ktfx.layouts.separator(orientation, init).add()

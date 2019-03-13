@@ -25,5 +25,5 @@ fun scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = WHITE,
-    init: ((@LayoutMarker _Scene).() -> Unit)? = null
+    init: ((@LayoutDslMarker _Scene).() -> Unit)? = null
 ): Scene = _Scene(Pane(), width, height, fill).also { init?.invoke(it) }

@@ -10,7 +10,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.layouts.NodeManager
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 import kotlin.coroutines.CoroutineContext
 
 fun JFXDrawer.onDrawerClosed(
@@ -35,10 +35,10 @@ fun JFXDrawer.onDrawerOpening(
 
 /** Creates a [JFXDrawer]. */
 fun jfxDrawer(
-    init: ((@LayoutMarker JFXDrawer).() -> Unit)? = null
+    init: ((@LayoutDslMarker JFXDrawer).() -> Unit)? = null
 ): JFXDrawer = JFXDrawer().also { init?.invoke(it) }
 
 /** Creates a [JFXDrawer] and add it to this manager. */
 inline fun NodeManager.jfxDrawer(
-    noinline init: ((@LayoutMarker JFXDrawer).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker JFXDrawer).() -> Unit)? = null
 ): JFXDrawer = ktfx.jfoenix.jfxDrawer(init).add()

@@ -10,7 +10,7 @@ fun ellipse(
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
-    init: ((@LayoutMarker Ellipse).() -> Unit)? = null
+    init: ((@LayoutDslMarker Ellipse).() -> Unit)? = null
 ): Ellipse = Ellipse(centerX, centerY, radiusX, radiusY).also { init?.invoke(it) }
 
 /** Creates a [Ellipse] and add it to this manager. */
@@ -19,5 +19,5 @@ inline fun NodeManager.ellipse(
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
-    noinline init: ((@LayoutMarker Ellipse).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker Ellipse).() -> Unit)? = null
 ): Ellipse = ktfx.layouts.ellipse(centerX, centerY, radiusX, radiusY, init).add()

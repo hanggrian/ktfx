@@ -14,7 +14,7 @@ fun cubicCurve(
     controlY2: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: ((@LayoutMarker CubicCurve).() -> Unit)? = null
+    init: ((@LayoutDslMarker CubicCurve).() -> Unit)? = null
 ): CubicCurve = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
     .also { init?.invoke(it) }
 
@@ -28,6 +28,6 @@ inline fun NodeManager.cubicCurve(
     controlY2: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    noinline init: ((@LayoutMarker CubicCurve).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker CubicCurve).() -> Unit)? = null
 ): CubicCurve =
     ktfx.layouts.cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY, init).add()

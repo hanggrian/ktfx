@@ -12,10 +12,10 @@ open class _Pane : Pane(), NodeManager {
 
 /** Creates a [Pane]. */
 fun pane(
-    init: ((@LayoutMarker _Pane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _Pane).() -> Unit)? = null
 ): Pane = _Pane().also { init?.invoke(it) }
 
 /** Creates a [Pane] and add it to this manager. */
 inline fun NodeManager.pane(
-    noinline init: ((@LayoutMarker _Pane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _Pane).() -> Unit)? = null
 ): Pane = ktfx.layouts.pane(init).add()

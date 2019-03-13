@@ -12,10 +12,10 @@ open class _ToolBar : ToolBar(), NodeManager {
 
 /** Creates a [ToolBar]. */
 fun toolBar(
-    init: ((@LayoutMarker _ToolBar).() -> Unit)? = null
+    init: ((@LayoutDslMarker _ToolBar).() -> Unit)? = null
 ): ToolBar = _ToolBar().also { init?.invoke(it) }
 
 /** Creates a [ToolBar] and add it to this manager. */
 inline fun NodeManager.toolBar(
-    noinline init: ((@LayoutMarker _ToolBar).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _ToolBar).() -> Unit)? = null
 ): ToolBar = ktfx.layouts.toolBar(init).add()

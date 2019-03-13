@@ -13,16 +13,16 @@ open class _TabPane : TabPane(), TabManager {
     /** Creates a [Tab] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutMarker _Tab).() -> Unit)? = null
+        noinline init: ((@LayoutDslMarker _Tab).() -> Unit)? = null
     ): Tab = tab(this, graphic, init)
 }
 
 /** Creates a [TabPane]. */
 fun tabPane(
-    init: ((@LayoutMarker _TabPane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _TabPane).() -> Unit)? = null
 ): TabPane = _TabPane().also { init?.invoke(it) }
 
 /** Creates a [TabPane] and add it to this manager. */
 inline fun NodeManager.tabPane(
-    noinline init: ((@LayoutMarker _TabPane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _TabPane).() -> Unit)? = null
 ): TabPane = ktfx.layouts.tabPane(init).add()

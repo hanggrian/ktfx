@@ -5,7 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXTabPane
 import javafx.scene.Node
 import javafx.scene.control.Tab
-import ktfx.layouts.LayoutMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.TabManager
 import ktfx.layouts._Tab
@@ -18,16 +18,16 @@ open class _JFXTabPane : JFXTabPane(), TabManager {
     /** Creates a [Tab] and add it to this manager. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutMarker _Tab).() -> Unit)? = null
+        noinline init: ((@LayoutDslMarker _Tab).() -> Unit)? = null
     ): Tab = tab(this, graphic, init)
 }
 
 /** Creates a [JFXTabPane]. */
 fun jfxTabPane(
-    init: ((@LayoutMarker _JFXTabPane).() -> Unit)? = null
+    init: ((@LayoutDslMarker _JFXTabPane).() -> Unit)? = null
 ): JFXTabPane = _JFXTabPane().also { init?.invoke(it) }
 
 /** Creates a [JFXTabPane] and add it to this manager. */
 inline fun NodeManager.jfxTabPane(
-    noinline init: ((@LayoutMarker _JFXTabPane).() -> Unit)? = null
+    noinline init: ((@LayoutDslMarker _JFXTabPane).() -> Unit)? = null
 ): JFXTabPane = ktfx.jfoenix.jfxTabPane(init).add()

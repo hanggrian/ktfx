@@ -1,9 +1,7 @@
-package ktfx.util
+package ktfx
 
 import ktfx.component1
 import ktfx.component2
-import ktfx.toFxPair
-import ktfx.toKotlinPair
 import org.junit.Test
 import kotlin.test.assertEquals
 

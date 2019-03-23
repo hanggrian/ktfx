@@ -4,8 +4,10 @@ plugins {
 }
 
 sourceSets {
-    get("main").java.srcDir("src")
-    get("main").resources.srcDir("res")
+    getByName("main") {
+        java.srcDir("src")
+        resources.srcDir("res")   
+    }
     get("test").java.srcDir("tests/src")
 }
 

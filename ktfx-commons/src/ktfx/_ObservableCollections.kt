@@ -16,8 +16,10 @@ import javafx.collections.ObservableSet
 import kotlin.reflect.KProperty
 
 /** Delegated property, use with `by` keyword. */
-inline operator fun <E> ObservableListValue<E>.getValue(thisRef: Any?, property: KProperty<*>): ObservableList<E> =
-    get()
+inline operator fun <E> ObservableListValue<E>.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): ObservableList<E> = get()
 
 /** Delegated property, use with `by` keyword. */
 inline operator fun <E> WritableListValue<E>.setValue(
@@ -27,8 +29,10 @@ inline operator fun <E> WritableListValue<E>.setValue(
 ): Unit = set(value)
 
 /** Delegated property, use with `by` keyword. */
-inline operator fun <E> ObservableSetValue<E>.getValue(thisRef: Any?, property: KProperty<*>): ObservableSet<E> =
-    get()
+inline operator fun <E> ObservableSetValue<E>.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): ObservableSet<E> = get()
 
 /** Delegated property, use with `by` keyword. */
 inline operator fun <E> WritableSetValue<E>.setValue(
@@ -41,8 +45,7 @@ inline operator fun <E> WritableSetValue<E>.setValue(
 inline operator fun <K, V> ObservableMapValue<K, V>.getValue(
     thisRef: Any?,
     property: KProperty<*>
-): ObservableMap<K, V> =
-    get()
+): ObservableMap<K, V> = get()
 
 /** Delegated property, use with `by` keyword. */
 inline operator fun <K, V> WritableMapValue<K, V>.setValue(

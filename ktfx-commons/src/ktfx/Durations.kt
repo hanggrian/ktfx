@@ -23,3 +23,6 @@ inline operator fun Duration.div(other: Duration): Duration = divide(other)
 
 /** Convenient method to divide duration in millis with `/` operator. */
 inline operator fun Duration.div(n: Double): Duration = divide(n)
+
+/** Convenient method to negate duration. */
+inline operator fun Duration.unaryMinus(): Duration = negate()

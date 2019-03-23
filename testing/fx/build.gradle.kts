@@ -2,9 +2,7 @@ plugins {
     kotlin("jvm")
 }
 
-sourceSets {
-    get("main").java.srcDir("src")
-}
+sourceSets["main"].java.srcDir("src")
 
 dependencies {
     compile(project(":testing:core"))

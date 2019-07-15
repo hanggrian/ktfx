@@ -5,11 +5,11 @@ package ktfx.coroutines
 import javafx.collections.MapChangeListener
 import javafx.collections.MapChangeListener.Change
 import javafx.collections.ObservableMap
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 /** Add a listener to this observable map. */
 fun <K, V> ObservableMap<K, V>.listener(

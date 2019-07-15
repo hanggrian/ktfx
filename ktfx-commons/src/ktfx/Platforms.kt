@@ -2,12 +2,9 @@
 
 package ktfx
 
+import java.util.concurrent.CountDownLatch
 import javafx.application.ConditionalFeature
 import javafx.application.Platform
-import java.util.concurrent.CountDownLatch
-
-/** Returns true if the calling thread is the JavaFX thread. */
-inline fun isFxThread(): Boolean = Platform.isFxApplicationThread()
 
 /** Run the specified block on the JavaFX thread runLater. */
 inline fun runLater(noinline block: () -> Unit): Unit = Platform.runLater(block)
@@ -31,6 +28,9 @@ fun runAndWait(block: () -> Unit): Unit = when {
         }
     }
 }
+
+/** Returns true if the calling thread is the JavaFX thread. */
+inline fun isFxThread(): Boolean = Platform.isFxApplicationThread()
 
 /** Queries whether a specific conditional feature is supported by the platform. */
 inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)

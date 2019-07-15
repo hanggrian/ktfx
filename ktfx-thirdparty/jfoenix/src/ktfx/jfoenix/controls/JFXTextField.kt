@@ -3,8 +3,8 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTextField
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /** Creates a [JFXTextField]. */
 fun jfxTextField(

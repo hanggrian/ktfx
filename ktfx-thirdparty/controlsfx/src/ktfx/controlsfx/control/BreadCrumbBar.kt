@@ -3,6 +3,7 @@
 package ktfx.controlsfx
 
 import javafx.scene.control.TreeItem
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
@@ -10,7 +11,6 @@ import kotlinx.coroutines.launch
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.BreadCrumbBar
-import kotlin.coroutines.CoroutineContext
 
 fun <T> BreadCrumbBar<T>.onCrumbAction(
     context: CoroutineContext = Dispatchers.JavaFx,

@@ -3,13 +3,13 @@
 package ktfx.controlsfx
 
 import javafx.event.ActionEvent
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import org.controlsfx.control.HyperlinkLabel
-import kotlin.coroutines.CoroutineContext
 
 fun HyperlinkLabel.onAction(
     context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,

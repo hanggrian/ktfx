@@ -4,8 +4,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXButton
 import javafx.scene.Node
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /** Creates a [JFXButton]. */
 fun jfxButton(

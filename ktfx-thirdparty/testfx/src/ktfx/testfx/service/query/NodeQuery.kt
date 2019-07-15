@@ -2,10 +2,10 @@
 
 package ktfx.testfx
 
+import java.util.Optional
 import javafx.scene.Node
 import org.hamcrest.Matcher
 import org.testfx.service.query.NodeQuery
-import java.util.Optional
 
 /** Stores all given `parentNode` within this NodeQuery. */
 inline infix fun NodeQuery.from(parentNode: Node): NodeQuery =

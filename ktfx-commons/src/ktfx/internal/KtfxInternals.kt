@@ -11,7 +11,7 @@ object KtfxInternals {
     fun noGetter(): Nothing = fail { NO_GETTER }
 
     /** Equivalent to [error] but throws [UnsupportedOperationException] instead. */
-    fun fail(lazyMessage: () -> Any = { "Unsupported operation." }): Nothing =
+    inline fun fail(lazyMessage: () -> Any = { "Unsupported operation." }): Nothing =
         throw UnsupportedOperationException(lazyMessage().toString())
 
     fun asPane(node: Node): Pane = node as? Pane ?: Pane(node)

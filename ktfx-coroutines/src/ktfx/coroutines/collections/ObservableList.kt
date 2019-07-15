@@ -5,11 +5,11 @@ package ktfx.coroutines
 import javafx.collections.ListChangeListener
 import javafx.collections.ListChangeListener.Change
 import javafx.collections.ObservableList
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 /** Add a listener to this observable list. */
 fun <E> ObservableList<E>.listener(

@@ -23,10 +23,7 @@ inline operator fun VPos.plus(hpos: HPos): Pos = mergePos(this, hpos)
  * @see VPos.plus
  */
 @PublishedApi
-internal fun mergePos(vpos: VPos, hpos: HPos): Pos {
-    val pos = "${vpos}_$hpos"
-    return when (pos) {
-        "CENTER_CENTER" -> Pos.CENTER
-        else -> Pos.valueOf(pos)
-    }
+internal fun mergePos(vpos: VPos, hpos: HPos): Pos = when (val pos = "${vpos}_$hpos") {
+    "CENTER_CENTER" -> Pos.CENTER
+    else -> Pos.valueOf(pos)
 }

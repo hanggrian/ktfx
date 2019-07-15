@@ -3,8 +3,8 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXSlider
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /** Creates a [JFXSlider]. */
 fun jfxSlider(

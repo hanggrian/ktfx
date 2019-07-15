@@ -3,8 +3,8 @@
 package ktfx.controlsfx
 
 import javafx.concurrent.Task
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import org.controlsfx.control.TaskProgressView
 
 /** Creates a [TaskProgressView]. */

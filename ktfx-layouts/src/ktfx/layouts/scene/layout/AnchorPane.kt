@@ -4,8 +4,8 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
-import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
+import ktfx.internal.KtfxInternals
 
 open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
 

@@ -9,9 +9,7 @@ import ktfx.layouts.scene
 import ktfx.layouts.vbox
 import ktfx.test.AppTest
 import org.junit.Test
-import org.testfx.api.FxAssert
 import org.testfx.matcher.control.LabeledMatchers
-import org.testfx.util.WaitForAsyncUtils
 
 class FxRoboticInterfaceTest : AppTest() {
 
@@ -34,10 +32,7 @@ class FxRoboticInterfaceTest : AppTest() {
 
     @Test
     fun buttonClick() {
-         clickOn(button)
-        //moveTo(button) press MouseButton.PRIMARY release MouseButton.PRIMARY moveTo Point2D(0.0, 0.0)
-        WaitForAsyncUtils.waitForFxEvents()
-        FxAssert.verifyThat(label, LabeledMatchers.hasText("Tapped."))
-        // assertEquals("Tapped.", label.text)
+        clickOn(button)
+        assertThat(label, LabeledMatchers.hasText("Tapped."))
     }
 }

@@ -3,8 +3,8 @@
 package ktfx.controlsfx
 
 import javafx.scene.control.CheckBoxTreeItem
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import org.controlsfx.control.CheckTreeView
 
 /** Creates a [CheckTreeView]. */

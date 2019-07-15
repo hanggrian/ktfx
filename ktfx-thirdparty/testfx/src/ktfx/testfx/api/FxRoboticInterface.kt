@@ -2,6 +2,7 @@
 
 package ktfx.testfx
 
+import java.util.regex.Pattern
 import javafx.geometry.Bounds
 import javafx.geometry.HorizontalDirection
 import javafx.geometry.Point2D
@@ -33,7 +34,6 @@ import org.testfx.service.query.NodeQuery
 import org.testfx.service.query.PointQuery
 import org.testfx.util.BoundsQueryUtils
 import org.testfx.util.WaitForAsyncUtils
-import java.util.regex.Pattern
 
 /** Calls [WindowFinder.targetWindow] and returns itself for method chaining. */
 inline infix fun FxRobotInterface.targetWindow(window: Window): FxRobotInterface =

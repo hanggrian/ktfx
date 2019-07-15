@@ -3,9 +3,9 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXTimePicker
-import ktfx.layouts.NodeManager
-import ktfx.layouts.LayoutDslMarker
 import java.time.LocalTime
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /** Creates a [JFXTimePicker]. */
 fun jfxTimePicker(

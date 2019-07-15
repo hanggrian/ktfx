@@ -4,8 +4,8 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXChipView
 import com.jfoenix.controls.JFXDefaultChip
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /** Creates a [JFXDefaultChip]. */
 fun <T> jfxDefaultChip(

@@ -34,6 +34,7 @@ tasks {
     }
 }
 
+bintrayReleaseFix()
 publish {
     bintrayUser = BINTRAY_USER
     bintrayKey = BINTRAY_KEY

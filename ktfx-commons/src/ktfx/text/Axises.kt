@@ -2,11 +2,11 @@
 
 package ktfx.text
 
+import java.io.InputStream
 import javafx.scene.chart.Axis
 import javafx.scene.text.Font
 import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
-import java.io.InputStream
 
 fun Axis<*>.updateTickLabelFont(size: Number) {
     tickLabelFont = Font.font(size.toDouble())

@@ -7,12 +7,12 @@ import javafx.event.EventHandler
 import javafx.event.EventType
 import javafx.stage.Window
 import javafx.stage.WindowEvent
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 /** Registers an event filter to this node. */
 fun <E : Event> Window.eventFilter(

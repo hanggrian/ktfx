@@ -1,4 +1,4 @@
-rootDir.walkEach({ it.isDirectory && "ktfx" in it.name }) {
+rootDir.walkEach({ it.isDirectory && RELEASE_ARTIFACT in it.name }) {
     when {
         "thirdparty" in it.name -> includeDir(it.name)
         else -> include(it.name)

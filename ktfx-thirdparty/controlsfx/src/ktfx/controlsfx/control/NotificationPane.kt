@@ -4,13 +4,13 @@ package ktfx.controlsfx
 
 import javafx.event.Event
 import javafx.scene.Node
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.NotificationPane
-import kotlin.coroutines.CoroutineContext
 
 fun NotificationPane.onShowing(
     context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,

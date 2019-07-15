@@ -14,6 +14,7 @@ dependencies {
     compile(project(":$RELEASE_ARTIFACT-listeners"))
 }
 
+bintrayReleaseFix()
 publish {
     bintrayUser = BINTRAY_USER
     bintrayKey = BINTRAY_KEY

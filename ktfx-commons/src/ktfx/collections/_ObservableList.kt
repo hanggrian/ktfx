@@ -4,6 +4,8 @@
 
 package ktfx.collections
 
+import java.util.Comparator
+import java.util.Random
 import javafx.beans.binding.Binding
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding
@@ -17,8 +19,6 @@ import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableNumberValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
-import java.util.Comparator
-import java.util.Random
 
 /** Returns an empty immutable [ObservableList]. */
 inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()

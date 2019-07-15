@@ -4,6 +4,7 @@
 
 package ktfx.bindings
 
+import java.util.concurrent.Callable
 import javafx.beans.Observable
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding
@@ -13,7 +14,6 @@ import javafx.beans.binding.IntegerBinding
 import javafx.beans.binding.LongBinding
 import javafx.beans.binding.ObjectBinding
 import javafx.beans.binding.StringBinding
-import java.util.concurrent.Callable
 
 /** Helper function to create a custom [ObjectBinding]. */
 inline fun <T> buildBinding(

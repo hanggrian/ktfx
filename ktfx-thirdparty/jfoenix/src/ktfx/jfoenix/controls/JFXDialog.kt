@@ -6,14 +6,14 @@ import com.jfoenix.controls.JFXDialog
 import com.jfoenix.controls.events.JFXDialogEvent
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.layouts.NodeManager
 import ktfx.internal.KtfxInternals
-import kotlin.coroutines.CoroutineContext
+import ktfx.layouts.NodeManager
 
 fun JFXDialog.onDialogClosed(
     context: CoroutineContext = Dispatchers.JavaFx,

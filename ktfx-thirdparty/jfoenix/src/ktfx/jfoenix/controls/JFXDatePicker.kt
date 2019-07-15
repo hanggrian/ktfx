@@ -3,9 +3,9 @@
 package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXDatePicker
-import ktfx.layouts.NodeManager
-import ktfx.layouts.LayoutDslMarker
 import java.time.LocalDate
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /** Creates a [JFXDatePicker]. */
 fun jfxDatePicker(

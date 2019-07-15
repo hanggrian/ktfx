@@ -2,8 +2,8 @@
 
 package ktfx.controlsfx
 
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import org.controlsfx.control.ListSelectionView
 
 /** Creates a [ListSelectionView]. */

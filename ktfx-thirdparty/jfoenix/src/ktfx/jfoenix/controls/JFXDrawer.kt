@@ -4,14 +4,14 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXDrawer
 import com.jfoenix.controls.events.JFXDrawerEvent
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
-import kotlin.coroutines.CoroutineContext
+import ktfx.layouts.NodeManager
 
 fun JFXDrawer.onDrawerClosed(
     context: CoroutineContext = Dispatchers.JavaFx,

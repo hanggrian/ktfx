@@ -7,11 +7,11 @@ import javafx.concurrent.WorkerStateEvent
 import javafx.event.Event
 import javafx.event.EventHandler
 import javafx.event.EventType
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 /** Registers an event filter to this task. */
 fun <E : Event> Service<*>.eventFilter(

@@ -2,10 +2,10 @@
 
 package ktfx.dialogs
 
+import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.control.ChoiceDialog
 import javafx.scene.image.ImageView
-import java.util.Optional
 
 /**
  * Show a selector with title and graphic.

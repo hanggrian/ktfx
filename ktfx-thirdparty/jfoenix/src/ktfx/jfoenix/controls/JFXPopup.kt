@@ -4,9 +4,9 @@ package ktfx.jfoenix
 
 import com.jfoenix.controls.JFXPopup
 import javafx.scene.Node
+import ktfx.internal.KtfxInternals
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.internal.KtfxInternals
 
 open class _JFXPopup : JFXPopup(), NodeManager {
 

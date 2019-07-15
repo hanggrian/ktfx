@@ -5,8 +5,8 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeItem
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /** Creates a [JFXTreeTableView]. */
 fun <S : RecursiveTreeObject<S>> jfxTreeTableView(

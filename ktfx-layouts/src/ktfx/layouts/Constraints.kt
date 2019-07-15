@@ -7,8 +7,8 @@ import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
-import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
+import ktfx.internal.KtfxInternals
 
 interface Constraints {
 

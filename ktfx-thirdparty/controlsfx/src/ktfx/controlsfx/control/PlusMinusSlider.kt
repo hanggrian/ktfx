@@ -2,13 +2,13 @@
 
 package ktfx.controlsfx
 
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.layouts.NodeManager
 import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import org.controlsfx.control.PlusMinusSlider
-import kotlin.coroutines.CoroutineContext
 
 fun PlusMinusSlider.onValueChanged(
     context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,

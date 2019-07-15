@@ -1,0 +1,3 @@
+[*.{kt, kts}]
+# IntelliJ automatically place java package imports on the bottom of import lines.
+disabled_rules=import-ordering

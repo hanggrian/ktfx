@@ -3,7 +3,7 @@ package ktfx.rules
 import org.jetbrains.kotlin.psi.KtPackageDirective
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
-class PredefinedPackageRule : Rule("predefined-package", { node, _, emit ->
+class PredefinedPackageRule : KtfxRule("predefined-package", { node, _, emit ->
     if (node.elementType == KtStubElementTypes.PACKAGE_DIRECTIVE) {
         val convert: (String) -> String = {
             when {

@@ -27,6 +27,6 @@ fun DependencyHandler.gitPublish() = "org.ajoberstar:gradle-git-publish:$VERSION
 inline val PluginDependenciesSpec.`git-publish` get() = id("org.ajoberstar.git-publish")
 
 fun DependencyHandler.ktlint(module: String? = null) = when (module) {
-    null -> "com.github.shyiko:ktlint:$VERSION_KTLINT"
-    else -> "com.github.shyiko.ktlint:ktlint-$module:$VERSION_KTLINT"
+    null -> "com.pinterest:ktlint:$VERSION_KTLINT"
+    else -> "com.pinterest.ktlint:ktlint-$module:$VERSION_KTLINT"
 }

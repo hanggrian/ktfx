@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.psi.KtClass
 import org.jetbrains.kotlin.psi.KtDeclarationModifierList
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
-class OpenClassRule : Rule("open-class", { node, _, emit ->
+class OpenClassRule : KtfxRule("open-class", { node, _, emit ->
     if (node.elementType == KtStubElementTypes.CLASS) {
         val ktClass = node.psi<KtClass>()
         // builder indicates that the class is only used within DSL context only

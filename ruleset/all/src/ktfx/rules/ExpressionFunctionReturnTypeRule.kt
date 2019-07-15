@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.KtNodeTypes
 import org.jetbrains.kotlin.lexer.KtTokens
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
-class ExpressionFunctionReturnTypeRule : Rule("expression-function-return-type", { node, _, emit ->
+class ExpressionFunctionReturnTypeRule : KtfxRule("expression-function-return-type", { node, _, emit ->
     val type = node.elementType
     if (type == KtStubElementTypes.FUNCTION ||
         type == KtStubElementTypes.PROPERTY ||

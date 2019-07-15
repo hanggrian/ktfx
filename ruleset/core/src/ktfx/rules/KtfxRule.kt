@@ -1,10 +1,10 @@
 package ktfx.rules
 
-import com.github.shyiko.ktlint.core.Rule
+import com.pinterest.ktlint.core.Rule
 import org.jetbrains.kotlin.com.intellij.lang.ASTNode
 
 /** Declare ktlint rule like `Spek` test framework. */
-open class Rule(
+open class KtfxRule(
     id: String,
     private val action: (
         node: ASTNode,

@@ -2,7 +2,6 @@ package ktfx.testfx
 
 import javafx.scene.control.Button
 import javafx.scene.control.Label
-import javafx.scene.input.MouseButton
 import javafx.stage.Stage
 import ktfx.layouts.button
 import ktfx.layouts.label
@@ -10,7 +9,9 @@ import ktfx.layouts.scene
 import ktfx.layouts.vbox
 import ktfx.test.AppTest
 import org.junit.Test
-import kotlin.test.assertEquals
+import org.testfx.api.FxAssert
+import org.testfx.matcher.control.LabeledMatchers
+import org.testfx.util.WaitForAsyncUtils
 
 class FxRoboticInterfaceTest : AppTest() {
 
@@ -20,10 +21,10 @@ class FxRoboticInterfaceTest : AppTest() {
     override fun start(stage: Stage) {
         stage.scene = scene {
             vbox {
-                label = label()
-                button = button("Tap here") {
+                label = label("Tap here.")
+                button = button("Tap") {
                     setOnAction {
-                        label.text = "${label.text.orEmpty()}A"
+                        label.text = "Tapped."
                     }
                 }
             }
@@ -31,8 +32,12 @@ class FxRoboticInterfaceTest : AppTest() {
         stage.show()
     }
 
-    @Test fun buttonClick() {
-        moveTo(button) press MouseButton.PRIMARY release MouseButton.PRIMARY
-        assertEquals("A", label.text)
+    @Test
+    fun buttonClick() {
+         clickOn(button)
+        //moveTo(button) press MouseButton.PRIMARY release MouseButton.PRIMARY moveTo Point2D(0.0, 0.0)
+        WaitForAsyncUtils.waitForFxEvents()
+        FxAssert.verifyThat(label, LabeledMatchers.hasText("Tapped."))
+        // assertEquals("Tapped.", label.text)
     }
 }

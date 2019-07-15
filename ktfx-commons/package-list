@@ -58,6 +58,7 @@ $dokka.location:ktfx$toProperty(kotlin.Float)ktfx/kotlin.-float/to-property.htm
 $dokka.location:ktfx$toProperty(kotlin.Int)ktfx/kotlin.-int/to-property.html
 $dokka.location:ktfx$toProperty(kotlin.Long)ktfx/kotlin.-long/to-property.html
 $dokka.location:ktfx$toProperty(kotlin.String)ktfx/kotlin.-string/to-property.html
+$dokka.location:ktfx$unaryMinus(javafx.util.Duration)ktfx/javafx.util.-duration/unary-minus.html
 $dokka.location:ktfx.bindings$and(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.value.-observable-boolean-value/and.html
 $dokka.location:ktfx.bindings$div(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.binding.-double-expression/div.html
 $dokka.location:ktfx.bindings$div(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx.bindings/javafx.beans.binding.-double-expression/div.html
@@ -517,6 +518,7 @@ $dokka.location:ktfx.geometries$plus(javafx.geometry.HPos, javafx.geometry.VPos)
 $dokka.location:ktfx.geometries$plus(javafx.geometry.Point2D, javafx.geometry.Point2D)ktfx.geometries/javafx.geometry.-point2-d/plus.html
 $dokka.location:ktfx.geometries$plus(javafx.geometry.Point3D, javafx.geometry.Point3D)ktfx.geometries/javafx.geometry.-point3-d/plus.html
 $dokka.location:ktfx.geometries$plus(javafx.geometry.VPos, javafx.geometry.HPos)ktfx.geometries/javafx.geometry.-v-pos/plus.html
+$dokka.location:ktfx.geometries$times(javafx.geometry.Point2D, kotlin.Double)ktfx.geometries/javafx.geometry.-point2-d/times.html
 $dokka.location:ktfx.geometries$times(javafx.geometry.Point3D, kotlin.Double)ktfx.geometries/javafx.geometry.-point3-d/times.html
 $dokka.location:ktfx.inputs$contains(javafx.scene.input.KeyCharacterCombination, javafx.scene.input.KeyEvent)ktfx.inputs/javafx.scene.input.-key-character-combination/contains.html
 $dokka.location:ktfx.inputs$contains(javafx.scene.input.KeyCodeCombination, javafx.scene.input.KeyEvent)ktfx.inputs/javafx.scene.input.-key-code-combination/contains.html

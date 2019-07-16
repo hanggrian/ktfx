@@ -19,7 +19,8 @@ class RegionTest : AppTest() {
         }
     }
 
-    @Test fun padding() {
+    @Test
+    fun padding() {
         region.updatePadding(bottom = 20, top = 20)
         assertEquals(20.0, region.paddingTop)
         assertEquals(0.0, region.paddingLeft)

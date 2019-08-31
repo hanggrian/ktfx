@@ -3,7 +3,6 @@ version = RELEASE_VERSION
 
 plugins {
     kotlin("jvm")
-    bintray
     `bintray-release`
 }
 

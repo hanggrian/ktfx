@@ -14,7 +14,7 @@ open class _MenuBar : MenuBar(), MenuManager {
     inline operator fun String.invoke(
         graphic: Node? = null,
         noinline init: ((@LayoutDslMarker _Menu).() -> Unit)? = null
-    ): Menu = menu(this, graphic, init).add()
+    ): Menu = menu(this, graphic, init)
 }
 
 /** Creates a [MenuBar]. */

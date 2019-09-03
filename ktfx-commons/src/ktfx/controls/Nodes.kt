@@ -12,7 +12,8 @@ import ktfx.internal.KtfxInternals
 
 /** Alias of [Node.lookup] with non-null return and specified type. */
 @Suppress("UNCHECKED_CAST")
-inline fun <T : Node> Node.find(selector: String): T = lookup(selector) as T
+inline fun <T : Node> Node.find(selector: String): T =
+    lookup(selector) as T
 
 /** Take a screenshot of this [Node] returning image it wrote. */
 inline fun Node.snapshot(
@@ -21,4 +22,5 @@ inline fun Node.snapshot(
 ): WritableImage = snapshot(params, image)
 
 /** Wraps this child in pane, if not already. */
-inline fun Node.asPane(): Pane = KtfxInternals.asPane(this)
+inline fun Node.asPane(): Pane =
+    KtfxInternals.asPane(this)

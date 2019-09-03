@@ -14,36 +14,36 @@ import ktfx.internal.KtfxInternals
 inline val Scene.stage get() = window as Stage
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
-inline var Stage.minSize: Double
+inline var Stage.minSize: Number
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = setMinSize(value, value)
+    set(value) = value.toDouble().let { setMinSize(it, it) }
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
-inline fun Stage.setMinSize(width: Double, height: Double) {
-    minWidth = width
-    minHeight = height
+inline fun Stage.setMinSize(width: Number, height: Number) {
+    minWidth = width.toDouble()
+    minHeight = height.toDouble()
 }
 
 /** Convenient method for overriding the stage's computed width and height. */
-inline var Stage.size: Double
+inline var Stage.size: Number
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = setSize(value, value)
+    set(value) = value.toDouble().let { setSize(it, it) }
 
 /** Convenient method for overriding the stage's computed width and height. */
-inline fun Stage.setSize(width: Double, height: Double) {
-    this.width = width
-    this.height = height
+inline fun Stage.setSize(width: Number, height: Number) {
+    this.width = width.toDouble()
+    this.height = height.toDouble()
 }
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
-inline var Stage.maxSize: Double
+inline var Stage.maxSize: Number
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = setMaxSize(value, value)
+    set(value) = value.toDouble().let { setMaxSize(it, it) }
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
-inline fun Stage.setMaxSize(width: Double, height: Double) {
-    maxWidth = width
-    maxHeight = height
+inline fun Stage.setMaxSize(width: Number, height: Number) {
+    maxWidth = width.toDouble()
+    maxHeight = height.toDouble()
 }
 
 /** Removes old icons and set a new one to this stage. */

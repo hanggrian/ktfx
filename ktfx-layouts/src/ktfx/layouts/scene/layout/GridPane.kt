@@ -14,11 +14,11 @@ import javafx.scene.layout.RowConstraints
 
 open class _GridPane : GridPane(),
     NodeManager,
-    MarginableConstraints,
-    HAlignableConstraints,
-    VAlignableConstraints,
-    HGrowableConstraints,
-    VGrowableConstraints {
+    MarginConstraints,
+    HAlignConstraints,
+    VAlignConstraints,
+    HGrowConstraints,
+    VGrowConstraints {
 
     override fun <R : Node> R.add(): R = also { children += it }
 

@@ -42,8 +42,11 @@ inline infix fun <T : Node> NodeQuery.match(noinline predicate: (T) -> Boolean):
 inline infix fun NodeQuery.nth(index: Int): NodeQuery =
     nth(index)
 
-inline fun <reified T : Node> NodeQuery.queryAs(): T = queryAs(T::class.java)
+inline fun <reified T : Node> NodeQuery.queryAs(): T =
+    queryAs(T::class.java)
 
-inline fun <reified T : Node> NodeQuery.tryQueryAs(): Optional<T> = tryQueryAs(T::class.java)
+inline fun <reified T : Node> NodeQuery.tryQueryAs(): Optional<T> =
+    tryQueryAs(T::class.java)
 
-inline fun <reified T : Node> NodeQuery.queryAllAs(): Set<T> = queryAllAs(T::class.java)
+inline fun <reified T : Node> NodeQuery.queryAllAs(): Set<T> =
+    queryAllAs(T::class.java)

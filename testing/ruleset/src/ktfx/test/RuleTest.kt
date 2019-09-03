@@ -26,5 +26,6 @@ interface RuleTest {
             }.toTypedArray())
     }
 
-    fun of(line: Int, col: Int, message: String): Triple<Int, Int, String> = Triple(line, col, message)
+    fun of(line: Int, col: Int, message: String): Triple<Int, Int, String> =
+        Triple(line, col, message)
 }

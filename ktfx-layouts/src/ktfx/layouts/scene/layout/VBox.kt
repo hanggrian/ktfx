@@ -7,7 +7,7 @@ import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 
-open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowableConstraints, MarginableConstraints {
+open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints, MarginConstraints {
 
     override fun <R : Node> R.add(): R = also { children += it }
 

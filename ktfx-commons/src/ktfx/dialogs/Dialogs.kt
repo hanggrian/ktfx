@@ -47,31 +47,40 @@ inline var Dialog<*>.headerTitle: String
     }
 
 /** Add apply button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.applyButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(APPLY, init)
+inline fun Dialog<*>.applyButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(APPLY, init)
 
 /** Add ok button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.okButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(OK, init)
+inline fun Dialog<*>.okButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(OK, init)
 
 /** Add cancel button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.cancelButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(CANCEL, init)
+inline fun Dialog<*>.cancelButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(CANCEL, init)
 
 /** Add close button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.closeButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(CLOSE, init)
+inline fun Dialog<*>.closeButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(CLOSE, init)
 
 /** Add yes button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.yesButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(YES, init)
+inline fun Dialog<*>.yesButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(YES, init)
 
 /** Add no button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.noButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(NO, init)
+inline fun Dialog<*>.noButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(NO, init)
 
 /** Add finish button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.finishButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(FINISH, init)
+inline fun Dialog<*>.finishButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(FINISH, init)
 
 /** Add next button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.nextButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(NEXT, init)
+inline fun Dialog<*>.nextButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(NEXT, init)
 
 /** Add previous button, invoking DSL to customize it as node. */
-inline fun Dialog<*>.previousButton(noinline init: (Node.() -> Unit)? = null): Node = addButton(PREVIOUS, init)
+inline fun Dialog<*>.previousButton(noinline init: (Node.() -> Unit)? = null): Node =
+    addButton(PREVIOUS, init)
 
 /** Add custom button specifying text and type, invoking DSL to customize it as node. */
 inline fun Dialog<*>.customButton(

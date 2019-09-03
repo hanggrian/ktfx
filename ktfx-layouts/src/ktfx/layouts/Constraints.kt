@@ -15,19 +15,25 @@ interface Constraints {
     fun Node.reset() // ktlint-disable
 }
 
-interface MarginableConstraints : Constraints {
+interface MarginConstraints : Constraints {
 
-    infix fun <N : Node> N.margins(margins: Insets?): N = also { it.margins = margins }
+    infix fun <N : Node> N.margins(margins: Insets?): N =
+        also { it.margins = margins }
 
-    infix fun <N : Node> N.marginAll(marginAll: Number?): N = also { it.marginAll = marginAll }
+    infix fun <N : Node> N.marginAll(marginAll: Number?): N =
+        also { it.marginAll = marginAll }
 
-    infix fun <N : Node> N.marginTop(marginTop: Number?): N = also { it.marginTop = marginTop }
+    infix fun <N : Node> N.marginTop(marginTop: Number?): N =
+        also { it.marginTop = marginTop }
 
-    infix fun <N : Node> N.marginRight(marginRight: Number?): N = also { it.marginRight = marginRight }
+    infix fun <N : Node> N.marginRight(marginRight: Number?): N =
+        also { it.marginRight = marginRight }
 
-    infix fun <N : Node> N.marginBottom(marginBottom: Number?): N = also { it.marginBottom = marginBottom }
+    infix fun <N : Node> N.marginBottom(marginBottom: Number?): N =
+        also { it.marginBottom = marginBottom }
 
-    infix fun <N : Node> N.marginLeft(marginLeft: Number?): N = also { it.marginLeft = marginLeft }
+    infix fun <N : Node> N.marginLeft(marginLeft: Number?): N =
+        also { it.marginLeft = marginLeft }
 
     var Node.margins: Insets? // alias for reserved variable `margin`
 
@@ -66,44 +72,50 @@ interface MarginableConstraints : Constraints {
     }
 }
 
-interface AlignableConstraints : Constraints {
+interface AlignConstraints : Constraints {
 
-    infix fun <N : Node> N.align(pos: Pos?): N = also { it.align = pos }
+    infix fun <N : Node> N.align(pos: Pos?): N =
+        also { it.align = pos }
 
     var Node.align: Pos?
 }
 
-interface HAlignableConstraints : Constraints {
+interface HAlignConstraints : Constraints {
 
-    infix fun <N : Node> N.halign(hpos: HPos?): N = also { it.halign = hpos }
+    infix fun <N : Node> N.halign(hpos: HPos?): N =
+        also { it.halign = hpos }
 
     var Node.halign: HPos?
 }
 
-interface VAlignableConstraints : Constraints {
+interface VAlignConstraints : Constraints {
 
-    infix fun <N : Node> N.valign(vpos: VPos?): N = also { it.valign = vpos }
+    infix fun <N : Node> N.valign(vpos: VPos?): N =
+        also { it.valign = vpos }
 
     var Node.valign: VPos?
 }
 
-interface HGrowableConstraints : Constraints {
+interface HGrowConstraints : Constraints {
 
-    infix fun <N : Node> N.hpriority(hpriority: Priority?): N = also { it.hpriority = hpriority }
+    infix fun <N : Node> N.hpriority(hpriority: Priority?): N =
+        also { it.hpriority = hpriority }
 
     var Node.hpriority: Priority?
 }
 
-interface VGrowableConstraints : Constraints {
+interface VGrowConstraints : Constraints {
 
-    infix fun <N : Node> N.vpriority(vpriority: Priority?): N = also { it.vpriority = vpriority }
+    infix fun <N : Node> N.vpriority(vpriority: Priority?): N =
+        also { it.vpriority = vpriority }
 
     var Node.vpriority: Priority?
 }
 
-interface HBoxConstraints : NodeManager, HGrowableConstraints, MarginableConstraints {
+interface HBoxConstraints : NodeManager, HGrowConstraints, MarginConstraints {
 
-    override fun Node.reset(): Unit = HBox.clearConstraints(this)
+    override fun Node.reset(): Unit =
+        HBox.clearConstraints(this)
 
     override var Node.hpriority: Priority?
         get() = HBox.getHgrow(this)

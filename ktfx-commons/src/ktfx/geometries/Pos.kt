@@ -7,16 +7,20 @@ import javafx.geometry.Pos
 import javafx.geometry.VPos
 
 /** Returns true if vertical positions matches. */
-inline operator fun Pos.contains(vpos: VPos): Boolean = this.vpos == vpos
+inline operator fun Pos.contains(vpos: VPos): Boolean =
+    this.vpos == vpos
 
 /** Returns true if horizontal positions matches. */
-inline operator fun Pos.contains(hpos: HPos): Boolean = this.hpos == hpos
+inline operator fun Pos.contains(hpos: HPos): Boolean =
+    this.hpos == hpos
 
 /** Construct a new position given the added vertical position. */
-inline operator fun HPos.plus(vpos: VPos): Pos = mergePos(vpos, this)
+inline operator fun HPos.plus(vpos: VPos): Pos =
+    mergePos(vpos, this)
 
 /** Construct a new position given the added horizontal position. */
-inline operator fun VPos.plus(hpos: HPos): Pos = mergePos(this, hpos)
+inline operator fun VPos.plus(hpos: HPos): Pos =
+    mergePos(this, hpos)
 
 /**
  * @see HPos.plus

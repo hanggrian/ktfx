@@ -5,7 +5,9 @@ package ktfx
 import javafx.util.StringConverter
 
 /** Converts the object provided into its string form. */
-inline operator fun <T> StringConverter<T>.invoke(obj: T): String = toString(obj)
+inline operator fun <T> StringConverter<T>.invoke(obj: T): String =
+    toString(obj)
 
 /** Converts the string provided into an object defined by the specific converter. */
-inline operator fun <T> StringConverter<T>.get(s: String): T = fromString(s)
+inline operator fun <T> StringConverter<T>.get(s: String): T =
+    fromString(s)

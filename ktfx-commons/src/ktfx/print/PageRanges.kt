@@ -4,4 +4,5 @@ package ktfx.print
 
 import javafx.print.PageRange
 
-inline infix fun Int.untilPage(endPage: Int): PageRange = PageRange(this, endPage)
+inline infix fun Int.untilPage(endPage: Int): PageRange =
+    PageRange(this, endPage)

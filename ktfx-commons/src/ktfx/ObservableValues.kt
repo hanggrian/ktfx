@@ -22,10 +22,12 @@ import javafx.beans.value.WritableValue
 import kotlin.reflect.KProperty
 
 /** Checks whether this observable contains non-null value. */
-inline fun ObservableValue<*>.hasValue(): Boolean = value != null
+inline fun ObservableValue<*>.hasValue(): Boolean =
+    value != null
 
 /** Sets the value to null with mutable property. */
-inline fun WritableObjectValue<*>.clear(): Unit = setValue(null)
+inline fun WritableObjectValue<*>.clear(): Unit =
+    setValue(null)
 
 /** Delegated property, use with `by` keyword. */
 inline operator fun <V> ObservableValue<V>.getValue(
@@ -52,6 +54,7 @@ inline operator fun WritableStringValue.setValue(
     property: KProperty<*>,
     value: String?
 ): Unit = set(value)
+
 /** Delegated property, use with `by` keyword. */
 inline operator fun ObservableBooleanValue.getValue(
     thisRef: Any?,

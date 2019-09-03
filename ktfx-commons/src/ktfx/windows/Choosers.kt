@@ -66,7 +66,8 @@ inline fun Window.chooseFile(
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseFile(vararg filters: ExtensionFilter): File? = chooseFile(null, null, null, *filters)
+inline fun Window.chooseFile(vararg filters: ExtensionFilter): File? =
+    chooseFile(null, null, null, *filters)
 
 /**
  * Choose a file to open.
@@ -74,7 +75,8 @@ inline fun Window.chooseFile(vararg filters: ExtensionFilter): File? = chooseFil
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseFile(vararg filters: Pair<String, String>): File? = chooseFile(null, null, null, *filters)
+inline fun Window.chooseFile(vararg filters: Pair<String, String>): File? =
+    chooseFile(null, null, null, *filters)
 
 /**
  * Choose multiple files to open.
@@ -119,7 +121,8 @@ inline fun Window.chooseFiles(
  * @param filters expected file extensions.
  * @return chosen files.
  */
-inline fun Window.chooseFiles(vararg filters: ExtensionFilter): List<File> = chooseFiles(null, null, null, *filters)
+inline fun Window.chooseFiles(vararg filters: ExtensionFilter): List<File> =
+    chooseFiles(null, null, null, *filters)
 
 /**
  * Choose multiple files to open.
@@ -173,7 +176,8 @@ inline fun Window.chooseSaveFile(
  * @param filters expected file extensions.
  * @return chosen file.
  */
-inline fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? = chooseSaveFile(null, null, null, *filters)
+inline fun Window.chooseSaveFile(vararg filters: ExtensionFilter): File? =
+    chooseSaveFile(null, null, null, *filters)
 
 /**
  * Choose a file to save.

@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.listeners
 
@@ -9,7 +9,7 @@ import javafx.beans.property.StringProperty
  * Create a bidirectional binding between this `StringProperty` and another
  * arbitrary property. Relies on an implementation of converter DSL builder for conversion.
  */
-inline fun <T> StringProperty.bindBidirectional(
+fun <T> StringProperty.bindBidirectional(
     property: Property<T>,
     converter: StringConverterBuilder<T>.() -> Unit
 ): Unit = bindBidirectional(property, buildStringConverter(converter))

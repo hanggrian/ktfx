@@ -8,7 +8,7 @@ import javafx.scene.layout.TilePane
 import ktfx.internal.KtfxInternals
 
 /** Sets horizontal and vertical gap. */
-var FlowPane.gap: Number
+inline var FlowPane.gap: Number
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
     set(value) = value.toDouble().let {
         vgap = it
@@ -16,7 +16,7 @@ var FlowPane.gap: Number
     }
 
 /** Sets a horizontal and vertical gap. */
-var GridPane.gap: Number
+inline var GridPane.gap: Number
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
     set(value) = value.toDouble().let {
         vgap = it
@@ -24,7 +24,7 @@ var GridPane.gap: Number
     }
 
 /** Sets a horizontal and vertical gap. */
-var TilePane.gap: Number
+inline var TilePane.gap: Number
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
     set(value) = value.toDouble().let {
         vgap = it

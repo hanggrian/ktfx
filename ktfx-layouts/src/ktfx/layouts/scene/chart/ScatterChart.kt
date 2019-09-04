@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -12,14 +12,28 @@ import ktfx.collections.mutableObservableListOf
 fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: ((@LayoutDslMarker ScatterChart<X, Y>).() -> Unit)? = null
-): ScatterChart<X, Y> = ScatterChart(x, y, data).also { init?.invoke(it) }
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): ScatterChart<X, Y> = ScatterChart(x, y, data)
 
-/** Creates a [ScatterChart] and add it to this manager. */
+/** Creates a [ScatterChart] with initialization block. */
+inline fun <X, Y> scatterChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    init: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
+): ScatterChart<X, Y> = scatterChart(x, y, data).apply(init)
+
+/** Creates and add a [ScatterChart] to this manager. */
+fun <X, Y> NodeManager.scatterChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): ScatterChart<X, Y> = ktfx.layouts.scatterChart(x, y, data).add()
+
+/** Creates and add a [ScatterChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDslMarker ScatterChart<X, Y>).() -> Unit)? = null
+    init: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> = ktfx.layouts.scatterChart(x, y, data, init).add()

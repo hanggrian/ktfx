@@ -12,31 +12,31 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableIntegerArray
 
 /** Returns an empty [ObservableIntegerArray]. */
-inline fun observableIntArrayOf(): ObservableIntegerArray =
+fun observableIntArrayOf(): ObservableIntegerArray =
     FXCollections.observableIntegerArray()
 
 /** Returns an [ObservableIntegerArray] of [elements]. */
-inline fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
+fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
     FXCollections.observableIntegerArray(*elements)
 
 /** Converts this [IntArray] to [ObservableIntegerArray]. */
 inline fun IntArray.toObservableArray(): ObservableIntegerArray =
-    FXCollections.observableIntegerArray(*this)
+    observableIntArrayOf(*this)
 
 /** Creates a copy of this [ObservableIntegerArray]. */
-inline fun ObservableIntegerArray.toObservableArray(): ObservableIntegerArray =
+fun ObservableIntegerArray.toObservableArray(): ObservableIntegerArray =
     FXCollections.observableIntegerArray(this)
 
-inline fun ObservableIntegerArray.getBinding(index: Int): IntegerBinding =
+fun ObservableIntegerArray.getBinding(index: Int): IntegerBinding =
     Bindings.integerValueAt(this, index)
 
-inline fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
+fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
     Bindings.integerValueAt(this, index)
 
-inline fun ObservableIntegerArray.getBinding(index: ObservableNumberValue): IntegerBinding =
+fun ObservableIntegerArray.getBinding(index: ObservableNumberValue): IntegerBinding =
     Bindings.integerValueAt(this, index)
 
-inline operator fun ObservableIntegerArray.contains(value: Int): Boolean =
+operator fun ObservableIntegerArray.contains(value: Int): Boolean =
     (0 until size).any { get(it) == value }
 
 inline operator fun ObservableIntegerArray.plusAssign(value: Int): Unit =

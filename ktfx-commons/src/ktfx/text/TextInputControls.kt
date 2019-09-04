@@ -1,12 +1,10 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.text
 
-import java.io.InputStream
 import javafx.scene.control.TextInputControl
 import javafx.scene.text.Font
 import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
+import java.io.InputStream
 
 fun TextInputControl.updateFont(size: Number) {
     font = Font.font(size.toDouble())

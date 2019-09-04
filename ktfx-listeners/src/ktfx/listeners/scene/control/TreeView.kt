@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.listeners
 
@@ -10,31 +10,31 @@ import javafx.scene.control.cell.CheckBoxTreeCell
 import javafx.scene.control.cell.ChoiceBoxTreeCell
 import javafx.scene.control.cell.TextFieldTreeCell
 
-inline fun <T> TreeView<T>.checkBoxCellFactory(
-    noinline callback: (TreeItem<T>) -> ObservableValue<Boolean>,
+fun <T> TreeView<T>.checkBoxCellFactory(
+    callback: (TreeItem<T>) -> ObservableValue<Boolean>,
     converter: StringConverterBuilder<TreeItem<T>>.() -> Unit
 ): Unit = setCellFactory(CheckBoxTreeCell.forTreeView(callback, buildStringConverter(converter)))
 
-inline fun <T> TreeView<T>.choiceBoxCellFactory(
+fun <T> TreeView<T>.choiceBoxCellFactory(
     vararg items: T,
     converter: StringConverterBuilder<T>.() -> Unit
 ): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(buildStringConverter(converter), *items))
 
-inline fun <T> TreeView<T>.choiceBoxCellFactory(
+fun <T> TreeView<T>.choiceBoxCellFactory(
     items: ObservableList<T>,
     converter: StringConverterBuilder<T>.() -> Unit
 ): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(buildStringConverter(converter), items))
 
-inline fun <T> TreeView<T>.comboBoxCellFactory(
+fun <T> TreeView<T>.comboBoxCellFactory(
     vararg items: T,
     converter: StringConverterBuilder<T>.() -> Unit
 ): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(buildStringConverter(converter), *items))
 
-inline fun <T> TreeView<T>.comboBoxCellFactory(
+fun <T> TreeView<T>.comboBoxCellFactory(
     items: ObservableList<T>,
     converter: StringConverterBuilder<T>.() -> Unit
 ): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(buildStringConverter(converter), items))
 
-inline fun <T> TreeView<T>.textFieldCellFactory(
+fun <T> TreeView<T>.textFieldCellFactory(
     converter: StringConverterBuilder<T>.() -> Unit
 ): Unit = setCellFactory(TextFieldTreeCell.forTreeView(buildStringConverter(converter)))

@@ -1,12 +1,10 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.print
 
 import javafx.print.JobSettings
 import javafx.print.Printer
 import javafx.print.PrinterJob
 
-inline val defaultPrinter: Printer
+val defaultPrinter: Printer
     get() = checkNotNull(Printer.getDefaultPrinter())
 
 fun Printer.createJob(

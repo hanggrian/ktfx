@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -8,18 +8,32 @@ import javafx.scene.chart.Axis
 import javafx.scene.chart.XYChart.Series
 import ktfx.collections.mutableObservableListOf
 
-/** Creates a [AreaChart]. */
+/** Creates an [AreaChart]. */
 fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: ((@LayoutDslMarker AreaChart<X, Y>).() -> Unit)? = null
-): AreaChart<X, Y> = AreaChart(x, y, data).also { init?.invoke(it) }
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): AreaChart<X, Y> = AreaChart(x, y, data)
 
-/** Creates a [AreaChart] and add it to this manager. */
+/** Creates an [AreaChart] with initialization block. */
+inline fun <X, Y> areaChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    init: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+): AreaChart<X, Y> = areaChart(x, y, data).apply(init)
+
+/** Creates and add a [AreaChart] to this manager. */
+fun <X, Y> NodeManager.areaChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data).add()
+
+/** Creates and add a [AreaChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDslMarker AreaChart<X, Y>).() -> Unit)? = null
+    init: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> = ktfx.layouts.areaChart(x, y, data, init).add()

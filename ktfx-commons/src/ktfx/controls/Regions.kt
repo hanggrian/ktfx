@@ -68,14 +68,14 @@ fun Region.updateBackground(vararg fills: BackgroundFill) {
 }
 
 /** Update region's fill with native [Insets]. */
-fun Region.updateBackground(
+inline fun Region.updateBackground(
     fill: Paint? = null,
     radii: CornerRadii? = null,
     padding: Insets? = null
 ): Unit = updateBackground(BackgroundFill(fill, radii, padding))
 
 /** Update region's fill with parameterized padding. */
-fun Region.updateBackground(
+inline fun Region.updateBackground(
     fill: Paint? = null,
     radii: CornerRadii? = null,
     topPadding: Number = paddingLeft,
@@ -94,7 +94,7 @@ fun Region.updateBackground(vararg images: BackgroundImage) {
 }
 
 /** Update region's image. */
-fun Region.updateBackground(
+inline fun Region.updateBackground(
     image: Image,
     repeatX: BackgroundRepeat? = null,
     repeatY: BackgroundRepeat? = null,

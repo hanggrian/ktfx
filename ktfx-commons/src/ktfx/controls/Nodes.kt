@@ -22,5 +22,5 @@ inline fun Node.snapshot(
 ): WritableImage = snapshot(params, image)
 
 /** Wraps this child in pane, if not already. */
-inline fun Node.asPane(): Pane =
+fun Node.asPane(): Pane =
     KtfxInternals.asPane(this)

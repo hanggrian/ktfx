@@ -13,7 +13,7 @@ import ktfx.collections.emptyObservableList
 import ktfx.collections.observableListOf
 
 /** Wrap this list in modifiable property. */
-inline fun <E> listPropertyOf(list: ObservableList<E>? = null): ListProperty<E> =
+fun <E> listPropertyOf(list: ObservableList<E>? = null): ListProperty<E> =
     SimpleListProperty(list)
 
 /** Create an empty list modifiable property. */
@@ -33,7 +33,7 @@ inline fun <E> listPropertyOf(vararg elements: E): ListProperty<E> =
     listPropertyOf(observableListOf(*elements))
 
 /** Wrap this list in unmodifiable property. */
-inline fun <E> finalListPropertyOf(list: ObservableList<E>? = null): ReadOnlyListProperty<E> =
+fun <E> finalListPropertyOf(list: ObservableList<E>? = null): ReadOnlyListProperty<E> =
     ReadOnlyListWrapper(list)
 
 /** Create an empty list unmodifiable property. */

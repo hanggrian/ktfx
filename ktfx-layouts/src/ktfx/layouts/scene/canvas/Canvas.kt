@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -6,14 +6,26 @@ import javafx.scene.canvas.Canvas
 
 /** Creates a [Canvas]. */
 fun canvas(
-    width: Double = 0.0,
-    height: Double = 0.0,
-    init: ((@LayoutDslMarker Canvas).() -> Unit)? = null
-): Canvas = Canvas(width, height).also { init?.invoke(it) }
+    width: Number = 0,
+    height: Number = 0
+): Canvas = Canvas(width.toDouble(), height.toDouble())
 
-/** Creates a [Canvas] and add it to this manager. */
+/** Creates a [Canvas] with initialization block. */
+inline fun canvas(
+    width: Number = 0,
+    height: Number = 0,
+    init: (@LayoutDslMarker Canvas).() -> Unit
+): Canvas = canvas(width, height).apply(init)
+
+/** Creates and add a [Canvas] to this manager. */
+fun NodeManager.canvas(
+    width: Number = 0,
+    height: Number = 0
+): Canvas = ktfx.layouts.canvas(width, height).add()
+
+/** Creates and add a [Canvas] with initialization block to this manager. */
 inline fun NodeManager.canvas(
-    width: Double = 0.0,
-    height: Double = 0.0,
-    noinline init: ((@LayoutDslMarker Canvas).() -> Unit)? = null
+    width: Number = 0,
+    height: Number = 0,
+    init: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas = ktfx.layouts.canvas(width, height, init).add()

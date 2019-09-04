@@ -13,7 +13,7 @@ import ktfx.collections.emptyObservableMap
 import ktfx.collections.observableMapOf
 
 /** Wrap this map in modifiable property. */
-inline fun <K, V> mapPropertyOf(map: ObservableMap<K, V>? = null): MapProperty<K, V> =
+fun <K, V> mapPropertyOf(map: ObservableMap<K, V>? = null): MapProperty<K, V> =
     SimpleMapProperty(map)
 
 /** Create an empty map modifiable property. */
@@ -29,7 +29,7 @@ inline fun <K, V> mapPropertyOf(vararg pairs: Pair<K, V>): MapProperty<K, V> =
     mapPropertyOf(observableMapOf(*pairs))
 
 /** Wrap this map in unmodifiable property. */
-inline fun <K, V> finalMapPropertyOf(map: ObservableMap<K, V>? = null): ReadOnlyMapProperty<K, V> =
+fun <K, V> finalMapPropertyOf(map: ObservableMap<K, V>? = null): ReadOnlyMapProperty<K, V> =
     ReadOnlyMapWrapper(map)
 
 /** Create an empty map unmodifiable property. */

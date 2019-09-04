@@ -17,7 +17,7 @@ inline operator fun KeyCharacterCombination.contains(event: KeyEvent): Boolean =
     match(event)
 
 /** Constructs a combination based on main key code and additional modifier. */
-inline operator fun KeyCode.plus(modifier: KeyCombination.Modifier): KeyCodeCombination =
+operator fun KeyCode.plus(modifier: KeyCombination.Modifier): KeyCodeCombination =
     KeyCodeCombination(this, modifier)
 
 /** Constructs a combination based on main key code and additional modifier. */
@@ -25,7 +25,7 @@ inline operator fun KeyCombination.Modifier.plus(code: KeyCode): KeyCodeCombinat
     code + this
 
 /** Constructs a combination based on main key code and additional modifiers. */
-inline operator fun KeyCode.plus(modifiers: Array<KeyCombination.Modifier>): KeyCodeCombination =
+operator fun KeyCode.plus(modifiers: Array<KeyCombination.Modifier>): KeyCodeCombination =
     KeyCodeCombination(this, *modifiers)
 
 /** Constructs a combination based on main key code and additional modifiers. */

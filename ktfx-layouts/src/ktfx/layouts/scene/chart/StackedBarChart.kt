@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -12,14 +12,28 @@ import ktfx.collections.mutableObservableListOf
 fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: ((@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit)? = null
-): StackedBarChart<X, Y> = StackedBarChart(x, y, data).also { init?.invoke(it) }
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): StackedBarChart<X, Y> = StackedBarChart(x, y, data)
 
-/** Creates a [StackedBarChart] and add it to this manager. */
+/** Creates a [StackedBarChart] with initialization block. */
+inline fun <X, Y> stackedBarChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    init: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+): StackedBarChart<X, Y> = stackedBarChart(x, y, data).apply(init)
+
+/** Creates and add a [StackedBarChart] to this manager. */
+fun <X, Y> NodeManager.stackedBarChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): StackedBarChart<X, Y> = ktfx.layouts.stackedBarChart(x, y, data).add()
+
+/** Creates and add a [StackedBarChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit)? = null
+    init: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> = ktfx.layouts.stackedBarChart(x, y, data, init).add()

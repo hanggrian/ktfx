@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -9,12 +9,22 @@ import ktfx.collections.mutableObservableListOf
 
 /** Creates a [PieChart]. */
 fun pieChart(
-    data: ObservableList<Data> = mutableObservableListOf(),
-    init: ((@LayoutDslMarker PieChart).() -> Unit)? = null
-): PieChart = PieChart(data).also { init?.invoke(it) }
+    data: ObservableList<Data> = mutableObservableListOf()
+): PieChart = PieChart(data)
 
-/** Creates a [PieChart] and add it to this manager. */
+/** Creates a [PieChart] with initialization block. */
+inline fun pieChart(
+    data: ObservableList<Data> = mutableObservableListOf(),
+    init: (@LayoutDslMarker PieChart).() -> Unit
+): PieChart = pieChart(data).apply(init)
+
+/** Creates and add a [PieChart] to this manager. */
+fun NodeManager.pieChart(
+    data: ObservableList<Data> = mutableObservableListOf()
+): PieChart = ktfx.layouts.pieChart(data).add()
+
+/** Creates and add a [PieChart] with initialization block to this manager. */
 inline fun NodeManager.pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
-    noinline init: ((@LayoutDslMarker PieChart).() -> Unit)? = null
+    init: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart = ktfx.layouts.pieChart(data, init).add()

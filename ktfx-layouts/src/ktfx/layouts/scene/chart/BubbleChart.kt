@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -12,14 +12,28 @@ import ktfx.collections.mutableObservableListOf
 fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    init: ((@LayoutDslMarker BubbleChart<X, Y>).() -> Unit)? = null
-): BubbleChart<X, Y> = BubbleChart(x, y, data).also { init?.invoke(it) }
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): BubbleChart<X, Y> = BubbleChart(x, y, data)
 
-/** Creates a [BubbleChart] and add it to this manager. */
+/** Creates a [BubbleChart] with initialization block. */
+inline fun <X, Y> bubbleChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    init: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+): BubbleChart<X, Y> = bubbleChart(x, y, data).apply(init)
+
+/** Creates and add a [BubbleChart] to this manager. */
+fun <X, Y> NodeManager.bubbleChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf()
+): BubbleChart<X, Y> = ktfx.layouts.bubbleChart(x, y, data).add()
+
+/** Creates and add a [BubbleChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    noinline init: ((@LayoutDslMarker BubbleChart<X, Y>).() -> Unit)? = null
+    init: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> = ktfx.layouts.bubbleChart(x, y, data, init).add()

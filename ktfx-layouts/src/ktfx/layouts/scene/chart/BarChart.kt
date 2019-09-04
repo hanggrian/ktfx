@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -13,15 +13,31 @@ fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    gap: Double = 10.0,
-    init: ((@LayoutDslMarker BarChart<X, Y>).() -> Unit)? = null
-): BarChart<X, Y> = BarChart(x, y, data, gap).also { init?.invoke(it) }
+    gap: Number = 10
+): BarChart<X, Y> = BarChart(x, y, data, gap.toDouble())
 
-/** Creates a [BarChart] and add it to this manager. */
+/** Creates a [BarChart] with initialization block. */
+inline fun <X, Y> barChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    gap: Number = 10,
+    init: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+): BarChart<X, Y> = barChart(x, y, data, gap).apply(init)
+
+/** Creates and add a [BarChart] to this manager. */
+fun <X, Y> NodeManager.barChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    gap: Number = 10
+): BarChart<X, Y> = ktfx.layouts.barChart(x, y, data, gap).add()
+
+/** Creates and add a [BarChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    gap: Double = 10.0,
-    noinline init: ((@LayoutDslMarker BarChart<X, Y>).() -> Unit)? = null
+    gap: Number = 10,
+    init: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> = ktfx.layouts.barChart(x, y, data, gap, init).add()

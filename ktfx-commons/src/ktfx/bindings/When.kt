@@ -15,7 +15,7 @@ import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableStringValue
 
 /** Opens up conditional binding. */
-inline fun conditional(condition: ObservableBooleanValue): When =
+fun conditional(condition: ObservableBooleanValue): When =
     Bindings.`when`(condition)
 
 /** Public alias for infix typing. */

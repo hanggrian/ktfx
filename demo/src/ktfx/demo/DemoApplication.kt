@@ -5,6 +5,7 @@ import javafx.scene.control.Label
 import javafx.stage.Stage
 import ktfx.bindings.buildBooleanBinding
 import ktfx.bindings.buildStringBinding
+import ktfx.controls.minSize
 import ktfx.controls.updatePadding
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
@@ -46,7 +47,7 @@ class DemoApplication : Application() {
                                     .split("[+\\-/*]".toRegex())
                                     .toMutableList()
                                 var total: Double? = null
-                                while (!values.isEmpty() && !operators.isEmpty()) {
+                                while (values.isNotEmpty() && operators.isNotEmpty()) {
                                     val value = values[0].toDouble()
                                     if (total != null) {
                                         total = when (operators[0]) {
@@ -68,76 +69,76 @@ class DemoApplication : Application() {
                 } row 0 col 0 colSpans 5 hfill true
 
                 button("1") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("1")
                     }
                 } row 1 col 0
                 button("2") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("2")
                     }
                 } row 1 col 1
                 button("3") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("3")
                     }
                 } row 1 col 2
 
                 button("4") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("4")
                     }
                 } row 2 col 0
                 button("5") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("5")
                     }
                 } row 2 col 1
                 button("6") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("6")
                     }
                 } row 2 col 2
 
                 button("7") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("7")
                     }
                 } row 3 col 0
                 button("8") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("8")
                     }
                 } row 3 col 1
                 button("9") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("9")
                     }
                 } row 3 col 2
 
                 button("0") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("0")
                     }
                 } row 4 col 0
                 button("00") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("00")
                     }
                 } row 4 col 1
                 button("") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         errorAlert(":(", content = "Not yet supported.")
                     }
@@ -151,13 +152,13 @@ class DemoApplication : Application() {
                     }
                 } row 1 col 3 colSpans 2
                 button("*") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("*")
                     }
                 } row 2 col 3
                 button("/") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("/")
                     }
@@ -169,13 +170,13 @@ class DemoApplication : Application() {
                     }
                 } row 3 col 3 rowSpans 2
                 button("-") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     onAction {
                         appendText("-")
                     }
                 } row 3 col 4
                 button("=") {
-                    setMinSize(40.0, 40.0)
+                    minSize = 40
                     isDefaultButton = true
                     disableProperty().bind(buildBooleanBinding(calculationLabel.textProperty()) { endsWithOperator })
                     onAction {

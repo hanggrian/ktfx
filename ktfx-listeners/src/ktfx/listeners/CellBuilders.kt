@@ -201,7 +201,6 @@ class TreeTableRowBuilder<T> : TreeTableRow<T>(), CellBuilder<T> {
 }
 
 /** [TreeTableCell] builder with Kotlin DSL. */
-
 class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
@@ -245,22 +244,17 @@ class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
     }
 }
 
-@PublishedApi
-internal inline fun <T> (ListCellBuilder<T>.() -> Unit).build(): ListCell<T> =
+internal fun <T> (ListCellBuilder<T>.() -> Unit).build(): ListCell<T> =
     ListCellBuilder<T>().apply(this)
 
-@PublishedApi
-internal inline fun <T> (TableRowBuilder<T>.() -> Unit).build(): TableRow<T> =
+internal fun <T> (TableRowBuilder<T>.() -> Unit).build(): TableRow<T> =
     TableRowBuilder<T>().apply(this)
 
-@PublishedApi
-internal inline fun <S, T> (TableCellBuilder<S, T>.() -> Unit).build(): TableCell<S, T> =
+internal fun <S, T> (TableCellBuilder<S, T>.() -> Unit).build(): TableCell<S, T> =
     TableCellBuilder<S, T>().apply(this)
 
-@PublishedApi
-internal inline fun <T> (TreeTableRowBuilder<T>.() -> Unit).build(): TreeTableRow<T> =
+internal fun <T> (TreeTableRowBuilder<T>.() -> Unit).build(): TreeTableRow<T> =
     TreeTableRowBuilder<T>().apply(this)
 
-@PublishedApi
-internal inline fun <S, T> (TreeTableCellBuilder<S, T>.() -> Unit).build(): TreeTableCell<S, T> =
+internal fun <S, T> (TreeTableCellBuilder<S, T>.() -> Unit).build(): TreeTableCell<S, T> =
     TreeTableCellBuilder<S, T>().apply(this)

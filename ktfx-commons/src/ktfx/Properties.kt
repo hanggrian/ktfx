@@ -14,11 +14,11 @@ import javafx.beans.property.SimpleStringProperty
 import javafx.beans.property.StringProperty
 
 /** Wrap this object in modifiable property. */
-inline fun <E> propertyOf(value: E? = null): ObjectProperty<E> =
+fun <E> propertyOf(value: E? = null): ObjectProperty<E> =
     SimpleObjectProperty(value)
 
 /** Wrap this object in unmodifiable property. */
-inline fun <E> finalPropertyOf(value: E? = null): ReadOnlyObjectProperty<E> =
+fun <E> finalPropertyOf(value: E? = null): ReadOnlyObjectProperty<E> =
     ReadOnlyObjectWrapper(value)
 
 /** Converts this object to property. */
@@ -30,11 +30,11 @@ inline fun <E> E?.toFinalProperty(): ReadOnlyObjectProperty<E> =
     finalPropertyOf(this)
 
 /** Wrap this string in modifiable property. */
-inline fun stringPropertyOf(value: String? = null): StringProperty =
+fun stringPropertyOf(value: String? = null): StringProperty =
     SimpleStringProperty(value)
 
 /** Wrap this string in unmodifiable property. */
-inline fun finalStringPropertyOf(value: String? = null): ReadOnlyStringProperty =
+fun finalStringPropertyOf(value: String? = null): ReadOnlyStringProperty =
     ReadOnlyStringWrapper(value)
 
 /** Converts this string to property. */

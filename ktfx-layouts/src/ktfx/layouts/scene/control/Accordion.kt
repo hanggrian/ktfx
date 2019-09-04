@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -9,18 +9,24 @@ open class _Accordion : Accordion(), TitledPaneManager {
 
     override fun <R : TitledPane> R.add(): R = also { panes += it }
 
-    /** Creates a [TitledPane] and add it to this manager. */
+    /** Call [NodeManager.accordion] by string invocation. */
     inline operator fun String.invoke(
-        noinline init: ((@LayoutDslMarker _TitledPane).() -> Unit)? = null
+        init: (@LayoutDslMarker _TitledPane).() -> Unit
     ): TitledPane = titledPane(this, init)
 }
 
 /** Creates a [Accordion]. */
-fun accordion(
-    init: ((@LayoutDslMarker _Accordion).() -> Unit)? = null
-): Accordion = _Accordion().also { init?.invoke(it) }
+fun accordion(): Accordion = _Accordion()
 
-/** Creates a [Accordion] and add it to this manager. */
+/** Creates a [Accordion] with initialization block. */
+inline fun accordion(
+    init: (@LayoutDslMarker _Accordion).() -> Unit
+): Accordion = (accordion() as _Accordion).apply(init)
+
+/** Creates and add a [Accordion] to this manager. */
+fun NodeManager.accordion(): Accordion = ktfx.layouts.accordion().add()
+
+/** Creates and add a [Accordion] with initialization block to this manager. */
 inline fun NodeManager.accordion(
-    noinline init: ((@LayoutDslMarker _Accordion).() -> Unit)? = null
+    init: (@LayoutDslMarker _Accordion).() -> Unit
 ): Accordion = ktfx.layouts.accordion(init).add()

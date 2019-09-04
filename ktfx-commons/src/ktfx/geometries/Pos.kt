@@ -15,19 +15,18 @@ inline operator fun Pos.contains(hpos: HPos): Boolean =
     this.hpos == hpos
 
 /** Construct a new position given the added vertical position. */
-inline operator fun HPos.plus(vpos: VPos): Pos =
+operator fun HPos.plus(vpos: VPos): Pos =
     mergePos(vpos, this)
 
 /** Construct a new position given the added horizontal position. */
-inline operator fun VPos.plus(hpos: HPos): Pos =
+operator fun VPos.plus(hpos: HPos): Pos =
     mergePos(this, hpos)
 
 /**
  * @see HPos.plus
  * @see VPos.plus
  */
-@PublishedApi
-internal fun mergePos(vpos: VPos, hpos: HPos): Pos = when (val pos = "${vpos}_$hpos") {
+private fun mergePos(vpos: VPos, hpos: HPos): Pos = when (val pos = "${vpos}_$hpos") {
     "CENTER_CENTER" -> Pos.CENTER
     else -> Pos.valueOf(pos)
 }

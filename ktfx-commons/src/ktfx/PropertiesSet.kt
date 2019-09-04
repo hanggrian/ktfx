@@ -13,7 +13,7 @@ import ktfx.collections.emptyObservableSet
 import ktfx.collections.observableSetOf
 
 /** Wrap this list in modifiable property. */
-inline fun <E> setPropertyOf(set: ObservableSet<E>? = null): SetProperty<E> =
+fun <E> setPropertyOf(set: ObservableSet<E>? = null): SetProperty<E> =
     SimpleSetProperty(set)
 
 /** Create an empty set modifiable property. */
@@ -29,7 +29,7 @@ inline fun <E> setPropertyOf(vararg elements: E): SetProperty<E> =
     setPropertyOf(observableSetOf(*elements))
 
 /** Wrap this list in unmodifiable property. */
-inline fun <E> finalSetPropertyOf(set: ObservableSet<E>? = null): ReadOnlySetProperty<E> =
+fun <E> finalSetPropertyOf(set: ObservableSet<E>? = null): ReadOnlySetProperty<E> =
     ReadOnlySetWrapper(set)
 
 /** Create an empty set unmodifiable property. */

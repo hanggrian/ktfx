@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -22,12 +22,11 @@ open class _StackPane : StackPane(), NodeManager, AlignConstraints, MarginConstr
         set(value) = setMargin(this, value)
 }
 
-/** Creates a [StackPane]. */
-fun stackPane(
-    init: ((@LayoutDslMarker _StackPane).() -> Unit)? = null
-): StackPane = _StackPane().also { init?.invoke(it) }
+/** Add a [StackPane] to this manager. */
+fun NodeManager.stackPane(): StackPane =
+    StackPane().add()
 
-/** Creates a [StackPane] and add it to this manager. */
+/** Add a [StackPane] with initialization block to this manager. */
 inline fun NodeManager.stackPane(
-    noinline init: ((@LayoutDslMarker _StackPane).() -> Unit)? = null
-): StackPane = ktfx.layouts.stackPane(init).add()
+    init: (@LayoutDslMarker _StackPane).() -> Unit
+): StackPane = (stackPane() as _StackPane).apply(init)

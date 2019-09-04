@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -22,14 +22,13 @@ open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints
         set(value) = setMargin(this, value)
 }
 
-/** Creates a [VBox]. */
-fun vbox(
-    spacing: Double = 0.0,
-    init: ((@LayoutDslMarker _VBox).() -> Unit)? = null
-): VBox = _VBox(spacing).also { init?.invoke(it) }
+/** Add a [VBox] to this manager. */
+fun NodeManager.vbox(
+    spacing: Double = 0.0
+): VBox = VBox(spacing).add()
 
-/** Creates a [VBox] and add it to this manager. */
+/** Add a [VBox] with initialization block to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
-    noinline init: ((@LayoutDslMarker _VBox).() -> Unit)? = null
-): VBox = ktfx.layouts.vbox(spacing, init).add()
+    init: (@LayoutDslMarker _VBox).() -> Unit
+): VBox = (vbox(spacing) as _VBox).apply(init)

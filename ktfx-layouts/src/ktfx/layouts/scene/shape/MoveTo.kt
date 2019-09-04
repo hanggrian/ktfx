@@ -1,19 +1,18 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.MoveTo
 
-/** Creates a [MoveTo]. */
-fun moveTo(
+/** Add a [MoveTo] to this manager. */
+fun PathElementManager.moveTo(
     x: Double = 0.0,
-    y: Double = 0.0,
-    init: ((@LayoutDslMarker MoveTo).() -> Unit)? = null
-): MoveTo = MoveTo(x, y).also { init?.invoke(it) }
+    y: Double = 0.0
+): MoveTo = MoveTo(x, y).add()
 
-/** Creates a [MoveTo] and add it to this manager. */
+/** Add a [MoveTo] with initialization block to this manager. */
 inline fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    noinline init: ((@LayoutDslMarker MoveTo).() -> Unit)? = null
-): MoveTo = ktfx.layouts.moveTo(x, y, init).add()
+    init: (@LayoutDslMarker MoveTo).() -> Unit
+): MoveTo = moveTo(x, y).apply(init)

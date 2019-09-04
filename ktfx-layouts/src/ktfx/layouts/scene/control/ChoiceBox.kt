@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -6,14 +6,13 @@ import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
 import ktfx.collections.mutableObservableListOf
 
-/** Creates a [ChoiceBox]. */
-fun <T> choiceBox(
-    items: ObservableList<T> = mutableObservableListOf(),
-    init: ((@LayoutDslMarker ChoiceBox<T>).() -> Unit)? = null
-): ChoiceBox<T> = ChoiceBox(items).also { init?.invoke(it) }
+/** Add a [ChoiceBox] to this manager. */
+fun <T> NodeManager.choiceBox(
+    items: ObservableList<T> = mutableObservableListOf()
+): ChoiceBox<T> = ChoiceBox(items).add()
 
-/** Creates a [ChoiceBox] and add it to this manager. */
+/** Add a [ChoiceBox] with initialization block to this manager. */
 inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = mutableObservableListOf(),
-    noinline init: ((@LayoutDslMarker ChoiceBox<T>).() -> Unit)? = null
-): ChoiceBox<T> = ktfx.layouts.choiceBox(items, init).add()
+    init: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
+): ChoiceBox<T> = choiceBox(items).apply(init)

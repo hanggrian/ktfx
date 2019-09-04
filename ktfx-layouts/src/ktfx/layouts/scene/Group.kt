@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,12 +10,11 @@ open class _Group : Group(), NodeManager {
     override fun <R : Node> R.add(): R = also { children += it }
 }
 
-/** Creates a [Group]. */
-fun group(
-    init: ((@LayoutDslMarker _Group).() -> Unit)? = null
-): Group = _Group().also { init?.invoke(it) }
+/** Add a [Group] to this manager. */
+fun NodeManager.group(): Group =
+    Group().add()
 
-/** Creates a [Group] and add it to this manager. */
+/** Add a [Group] with initialization block to this manager. */
 inline fun NodeManager.group(
-    noinline init: ((@LayoutDslMarker _Group).() -> Unit)? = null
-): Group = ktfx.layouts.group(init).add()
+    init: (@LayoutDslMarker _Group).() -> Unit
+): Group = (group() as _Group).apply(init)

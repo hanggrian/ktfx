@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,14 +10,13 @@ open class _HBox(spacing: Double) : HBox(spacing), HBoxConstraints {
     override fun <R : Node> R.add(): R = also { children += it }
 }
 
-/** Creates a [HBox]. */
-fun hbox(
-    spacing: Double = 0.0,
-    init: ((@LayoutDslMarker _HBox).() -> Unit)? = null
-): HBox = _HBox(spacing).also { init?.invoke(it) }
+/** Add an [HBox] to this manager. */
+fun NodeManager.hbox(
+    spacing: Double = 0.0
+): HBox = HBox(spacing).add()
 
-/** Creates a [HBox] and add it to this manager. */
+/** Add an [HBox] with initialization block to this manager. */
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
-    noinline init: ((@LayoutDslMarker _HBox).() -> Unit)? = null
-): HBox = ktfx.layouts.hbox(spacing, init).add()
+    init: (@LayoutDslMarker _HBox).() -> Unit
+): HBox = (hbox(spacing) as _HBox).apply(init)

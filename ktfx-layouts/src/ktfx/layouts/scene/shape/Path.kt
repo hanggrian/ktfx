@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,12 +10,11 @@ open class _Path : Path(), PathElementManager {
     override fun <R : PathElement> R.add(): R = also { elements += it }
 }
 
-/** Creates a [Path]. */
-fun path(
-    init: ((@LayoutDslMarker _Path).() -> Unit)? = null
-): Path = _Path().also { init?.invoke(it) }
+/** Add a [Path] to this manager. */
+fun NodeManager.path(): Path =
+    Path().add()
 
-/** Creates a [Path] and add it to this manager. */
+/** Add a [Path] with initialization block to this manager. */
 inline fun NodeManager.path(
-    noinline init: ((@LayoutDslMarker _Path).() -> Unit)? = null
-): Path = ktfx.layouts.path(init).add()
+    init: (@LayoutDslMarker _Path).() -> Unit
+): Path = (path() as _Path).apply(init)

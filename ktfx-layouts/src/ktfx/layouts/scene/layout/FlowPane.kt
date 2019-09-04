@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -20,18 +20,17 @@ open class _FlowPane(orientation: Orientation, hgap: Double, vgap: Double) : Flo
         set(value) = setMargin(this, value)
 }
 
-/** Creates a [FlowPane]. */
-fun flowPane(
+/** Add a [FlowPane] to this manager. */
+fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
-    vgap: Double = 0.0,
-    init: ((@LayoutDslMarker _FlowPane).() -> Unit)? = null
-): FlowPane = _FlowPane(orientation, hgap, vgap).also { init?.invoke(it) }
+    vgap: Double = 0.0
+): FlowPane = FlowPane(orientation, hgap, vgap).add()
 
-/** Creates a [FlowPane] and add it to this manager. */
+/** Add a [FlowPane] with initialization block to this manager. */
 inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    noinline init: ((@LayoutDslMarker _FlowPane).() -> Unit)? = null
-): FlowPane = ktfx.layouts.flowPane(orientation, hgap, vgap, init).add()
+    init: (@LayoutDslMarker _FlowPane).() -> Unit
+): FlowPane = (flowPane(orientation, hgap, vgap) as _FlowPane).apply(init)

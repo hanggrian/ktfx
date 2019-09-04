@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -26,12 +26,11 @@ open class _BorderPane : BorderPane(), AlignConstraints, MarginConstraints, Node
         set(value) = setMargin(this, value)
 }
 
-/** Creates a [BorderPane]. */
-fun borderPane(
-    init: ((@LayoutDslMarker _BorderPane).() -> Unit)? = null
-): BorderPane = _BorderPane().also { init?.invoke(it) }
+/** Add a [BorderPane] to this manager. */
+fun NodeManager.borderPane(): BorderPane =
+    BorderPane().add()
 
-/** Creates a [BorderPane] and add it to this manager. */
+/** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
-    noinline init: ((@LayoutDslMarker _BorderPane).() -> Unit)? = null
-): BorderPane = ktfx.layouts.borderPane(init).add()
+    init: (@LayoutDslMarker _BorderPane).() -> Unit
+): BorderPane = (borderPane() as _BorderPane).apply(init)

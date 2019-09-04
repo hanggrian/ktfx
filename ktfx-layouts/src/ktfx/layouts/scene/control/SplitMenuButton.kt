@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,19 +10,18 @@ open class _SplitMenuButton : SplitMenuButton(), MenuItemManager {
 
     override fun <R : MenuItem> R.add(): R = also { items += it }
 
-    /** Creates a [MenuItem] and add it to this manager. */
+    /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDslMarker MenuItem).() -> Unit)? = null
+        init: (@LayoutDslMarker MenuItem).() -> Unit
     ): MenuItem = menuItem(this, graphic, init)
 }
 
-/** Creates a [SplitMenuButton]. */
-fun splitMenuButton(
-    init: ((@LayoutDslMarker _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = _SplitMenuButton().also { init?.invoke(it) }
+/** Add a [SplitMenuButton] to this manager. */
+fun NodeManager.splitMenuButton(): SplitMenuButton =
+    SplitMenuButton().add()
 
-/** Creates a [SplitMenuButton] and add it to this manager. */
+/** Add a [SplitMenuButton] with initialization block to this manager. */
 inline fun NodeManager.splitMenuButton(
-    noinline init: ((@LayoutDslMarker _SplitMenuButton).() -> Unit)? = null
-): SplitMenuButton = ktfx.layouts.splitMenuButton(init).add()
+    init: (@LayoutDslMarker _SplitMenuButton).() -> Unit
+): SplitMenuButton = (splitMenuButton() as _SplitMenuButton).apply(init)

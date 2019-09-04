@@ -1,17 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.TextArea
 
-/** Creates a [TextArea]. */
-fun textArea(
-    text: String = "",
-    init: ((@LayoutDslMarker TextArea).() -> Unit)? = null
-): TextArea = TextArea(text).also { init?.invoke(it) }
+/** Add a [TextArea] to this manager. */
+fun NodeManager.textArea(
+    text: String = ""
+): TextArea = TextArea(text).add()
 
-/** Creates a [TextArea] and add it to this manager. */
+/** Add a [TextArea] with initialization block to this manager. */
 inline fun NodeManager.textArea(
     text: String = "",
-    noinline init: ((@LayoutDslMarker TextArea).() -> Unit)? = null
-): TextArea = ktfx.layouts.textArea(text, init).add()
+    init: (@LayoutDslMarker TextArea).() -> Unit
+): TextArea = textArea(text).apply(init)

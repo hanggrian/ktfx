@@ -1,23 +1,22 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurveTo
 
-/** Creates a [QuadCurveTo]. */
-fun quadCurveTo(
+/** Add a [QuadCurveTo] to this manager. */
+fun PathElementManager.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,
-    y: Double = 0.0,
-    init: ((@LayoutDslMarker QuadCurveTo).() -> Unit)? = null
-): QuadCurveTo = QuadCurveTo(controlX, controlY, x, y).also { init?.invoke(it) }
+    y: Double = 0.0
+): QuadCurveTo = QuadCurveTo(controlX, controlY, x, y).add()
 
-/** Creates a [QuadCurveTo] and add it to this manager. */
+/** Add a [QuadCurveTo]  with initialization block to this manager. */
 inline fun PathElementManager.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    noinline init: ((@LayoutDslMarker QuadCurveTo).() -> Unit)? = null
-): QuadCurveTo = ktfx.layouts.quadCurveTo(controlX, controlY, x, y, init).add()
+    init: (@LayoutDslMarker QuadCurveTo).() -> Unit
+): QuadCurveTo = quadCurveTo(controlX, controlY, x, y).apply(init)

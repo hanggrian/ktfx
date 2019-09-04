@@ -1,15 +1,14 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.Spinner
 
-/** Creates a [Spinner]. */
-fun <T> spinner(
-    init: ((@LayoutDslMarker Spinner<T>).() -> Unit)? = null
-): Spinner<T> = Spinner<T>().also { init?.invoke(it) }
+/** Add a [Spinner] to this manager. */
+fun <T> NodeManager.spinner(): Spinner<T> =
+    Spinner<T>().add()
 
-/** Creates a [Spinner] and add it to this manager. */
+/** Add a [Spinner] with initialization block to this manager. */
 inline fun <T> NodeManager.spinner(
-    noinline init: ((@LayoutDslMarker Spinner<T>).() -> Unit)? = null
-): Spinner<T> = ktfx.layouts.spinner(init).add()
+    init: (@LayoutDslMarker Spinner<T>).() -> Unit
+): Spinner<T> = spinner<T>().apply(init)

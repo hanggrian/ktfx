@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,19 +10,18 @@ open class _TabPane : TabPane(), TabManager {
 
     override fun <R : Tab> R.add(): R = also { tabs += it }
 
-    /** Creates a [Tab] and add it to this manager. */
+    /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDslMarker _Tab).() -> Unit)? = null
+        init: (@LayoutDslMarker _Tab).() -> Unit
     ): Tab = tab(this, graphic, init)
 }
 
-/** Creates a [TabPane]. */
-fun tabPane(
-    init: ((@LayoutDslMarker _TabPane).() -> Unit)? = null
-): TabPane = _TabPane().also { init?.invoke(it) }
+/** Add a [TabPane] to this manager. */
+fun NodeManager.tabPane(): TabPane =
+    TabPane().add()
 
-/** Creates a [TabPane] and add it to this manager. */
+/** Add a [TabPane] with initialization block to this manager. */
 inline fun NodeManager.tabPane(
-    noinline init: ((@LayoutDslMarker _TabPane).() -> Unit)? = null
-): TabPane = ktfx.layouts.tabPane(init).add()
+    init: (@LayoutDslMarker _TabPane).() -> Unit
+): TabPane = (tabPane() as _TabPane).apply(init)

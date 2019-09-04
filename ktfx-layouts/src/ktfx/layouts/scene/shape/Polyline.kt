@@ -1,17 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.Polyline
 
-/** Creates a [Polyline]. */
-fun polyline(
-    vararg points: Double,
-    init: ((@LayoutDslMarker Polyline).() -> Unit)? = null
-): Polyline = Polyline(*points).also { init?.invoke(it) }
+/** Add a [Polyline] to this manager. */
+fun NodeManager.polyline(
+    vararg points: Double
+): Polyline = Polyline(*points).add()
 
-/** Creates a [Polyline] and add it to this manager. */
+/** Add a [Polyline] with initialization block to this manager. */
 inline fun NodeManager.polyline(
     vararg points: Double,
-    noinline init: ((@LayoutDslMarker Polyline).() -> Unit)? = null
-): Polyline = ktfx.layouts.polyline(*points, init = init).add()
+    init: (@LayoutDslMarker Polyline).() -> Unit
+): Polyline = polyline(*points).apply(init)

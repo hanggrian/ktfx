@@ -1,23 +1,22 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.Line
 
-/** Creates a [Line]. */
-fun line(
+/** Add a [Line] to this manager. */
+fun NodeManager.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
-    endY: Double = 0.0,
-    init: ((@LayoutDslMarker Line).() -> Unit)? = null
-): Line = Line(centerX, centerY, endX, endY).also { init?.invoke(it) }
+    endY: Double = 0.0
+): Line = Line(centerX, centerY, endX, endY).add()
 
-/** Creates a [Line] and add it to this manager. */
+/** Add a [Line] with initialization block to this manager. */
 inline fun NodeManager.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    noinline init: ((@LayoutDslMarker Line).() -> Unit)? = null
-): Line = ktfx.layouts.line(centerX, centerY, endX, endY, init).add()
+    init: (@LayoutDslMarker Line).() -> Unit
+): Line = line(centerX, centerY, endX, endY).apply(init)

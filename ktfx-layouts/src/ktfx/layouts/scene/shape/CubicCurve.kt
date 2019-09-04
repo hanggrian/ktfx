@@ -1,11 +1,11 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurve
 
-/** Creates a [CubicCurve]. */
-fun cubicCurve(
+/** Add a [CubicCurve] to this manager. */
+fun NodeManager.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -13,12 +13,11 @@ fun cubicCurve(
     controlX2: Double = 0.0,
     controlY2: Double = 0.0,
     endX: Double = 0.0,
-    endY: Double = 0.0,
-    init: ((@LayoutDslMarker CubicCurve).() -> Unit)? = null
-): CubicCurve = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
-    .also { init?.invoke(it) }
+    endY: Double = 0.0
+): CubicCurve =
+    cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY).add()
 
-/** Creates a [CubicCurve] and add it to this manager. */
+/** Add a [CubicCurve] with initialization block to this manager. */
 inline fun NodeManager.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
@@ -28,6 +27,6 @@ inline fun NodeManager.cubicCurve(
     controlY2: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    noinline init: ((@LayoutDslMarker CubicCurve).() -> Unit)? = null
+    init: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve =
-    ktfx.layouts.cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY, init).add()
+    cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY).apply(init)

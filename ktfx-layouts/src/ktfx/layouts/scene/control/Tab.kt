@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,16 +10,15 @@ open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManag
     override fun <T : Node> T.add(): T = also { content = it }
 }
 
-/** Creates a [Tab]. */
-fun tab(
+/** Add a [Tab] to this manager. */
+fun TabManager.tab(
     text: String? = null,
-    content: Node? = null,
-    init: ((@LayoutDslMarker _Tab).() -> Unit)? = null
-): Tab = _Tab(text, content).also { init?.invoke(it) }
+    content: Node? = null
+): Tab = Tab(text, content).add()
 
-/** Creates a [Tab] and add it to this manager. */
+/** Add a [Tab] with initialization block to this manager. */
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
-    noinline init: ((@LayoutDslMarker _Tab).() -> Unit)? = null
-): Tab = ktfx.layouts.tab(text, content, init).add()
+    init: (@LayoutDslMarker _Tab).() -> Unit
+): Tab = (tab(text, content) as _Tab).apply(init)

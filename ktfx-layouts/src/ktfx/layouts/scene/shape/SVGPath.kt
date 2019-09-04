@@ -1,15 +1,14 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.SVGPath
 
-/** Creates a [SVGPath]. */
-fun svgPath(
-    init: ((@LayoutDslMarker SVGPath).() -> Unit)? = null
-): SVGPath = SVGPath().also { init?.invoke(it) }
+/** Add a [SVGPath] to this manager. */
+fun NodeManager.svgPath(): SVGPath =
+    SVGPath().add()
 
-/** Creates a [SVGPath] and add it to this manager. */
+/** Add a [SVGPath] with initialization block to this manager. */
 inline fun NodeManager.svgPath(
-    noinline init: ((@LayoutDslMarker SVGPath).() -> Unit)? = null
-): SVGPath = ktfx.layouts.svgPath(init).add()
+    init: (@LayoutDslMarker SVGPath).() -> Unit
+): SVGPath = svgPath().apply(init)

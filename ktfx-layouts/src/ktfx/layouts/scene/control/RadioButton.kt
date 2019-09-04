@@ -1,17 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.RadioButton
 
-/** Creates a [RadioButton]. */
-fun radioButton(
-    text: String? = null,
-    init: ((@LayoutDslMarker RadioButton).() -> Unit)? = null
-): RadioButton = RadioButton(text).also { init?.invoke(it) }
+/** Add a [RadioButton] to this manager. */
+fun NodeManager.radioButton(
+    text: String? = null
+): RadioButton = RadioButton(text).add()
 
-/** Creates a [RadioButton] and add it to this manager. */
+/** Add a [RadioButton] with initialization block to this manager. */
 inline fun NodeManager.radioButton(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker RadioButton).() -> Unit)? = null
-): RadioButton = ktfx.layouts.radioButton(text, init).add()
+    init: (@LayoutDslMarker RadioButton).() -> Unit
+): RadioButton = radioButton(text).apply(init)

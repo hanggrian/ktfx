@@ -1,18 +1,17 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
 
-/** Creates a [MeshView]. */
-fun meshView(
-    mesh: Mesh? = null,
-    init: ((@LayoutDslMarker MeshView).() -> Unit)? = null
-): MeshView = MeshView(mesh).also { init?.invoke(it) }
+/** Add a [MeshView] to this manager. */
+fun NodeManager.meshView(
+    mesh: Mesh? = null
+): MeshView = MeshView(mesh).add()
 
-/** Creates a [MeshView] and add it to this manager. */
+/** Add a [MeshView] with initialization block to this manager. */
 inline fun NodeManager.meshView(
     mesh: Mesh? = null,
-    noinline init: ((@LayoutDslMarker MeshView).() -> Unit)? = null
-): MeshView = ktfx.layouts.meshView(mesh, init).add()
+    init: (@LayoutDslMarker MeshView).() -> Unit
+): MeshView = meshView(mesh).apply(init)

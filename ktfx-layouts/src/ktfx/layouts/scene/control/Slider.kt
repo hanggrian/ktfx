@@ -1,21 +1,20 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.Slider
 
-/** Creates a [Slider]. */
-fun slider(
+/** Add a [Slider] to this manager. */
+fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 0.0,
-    init: ((@LayoutDslMarker Slider).() -> Unit)? = null
-): Slider = Slider(min, max, value).also { init?.invoke(it) }
+    value: Double = 0.0
+): Slider = Slider(min, max, value).add()
 
-/** Creates a [Slider] and add it to this manager. */
+/** Add a [Slider] with initialization block to this manager. */
 inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    noinline init: ((@LayoutDslMarker Slider).() -> Unit)? = null
-): Slider = ktfx.layouts.slider(min, max, value, init).add()
+    init: (@LayoutDslMarker Slider).() -> Unit
+): Slider = slider(min, max, value).apply(init)

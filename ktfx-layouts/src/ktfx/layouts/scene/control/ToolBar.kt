@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,12 +10,11 @@ open class _ToolBar : ToolBar(), NodeManager {
     override fun <R : Node> R.add(): R = also { items += it }
 }
 
-/** Creates a [ToolBar]. */
-fun toolBar(
-    init: ((@LayoutDslMarker _ToolBar).() -> Unit)? = null
-): ToolBar = _ToolBar().also { init?.invoke(it) }
+/** Add a [ToolBar] to this manager. */
+fun NodeManager.toolBar(): ToolBar =
+    ToolBar().add()
 
-/** Creates a [ToolBar] and add it to this manager. */
+/** Add a [ToolBar] with initialization block to this manager. */
 inline fun NodeManager.toolBar(
-    noinline init: ((@LayoutDslMarker _ToolBar).() -> Unit)? = null
-): ToolBar = ktfx.layouts.toolBar(init).add()
+    init: (@LayoutDslMarker _ToolBar).() -> Unit
+): ToolBar = (toolBar() as _ToolBar).apply(init)

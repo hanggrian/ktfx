@@ -1,17 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.TextField
 
-/** Creates a [TextField]. */
-fun textField(
-    text: String = "",
-    init: ((@LayoutDslMarker TextField).() -> Unit)? = null
-): TextField = TextField(text).also { init?.invoke(it) }
+/** Add a [TextField] to this manager. */
+fun NodeManager.textField(
+    text: String = ""
+): TextField = TextField(text).add()
 
-/** Creates a [TextField] and add it to this manager. */
+/** Add a [TextField] with initialization block to this manager. */
 inline fun NodeManager.textField(
     text: String = "",
-    noinline init: ((@LayoutDslMarker TextField).() -> Unit)? = null
-): TextField = ktfx.layouts.textField(text, init).add()
+    init: (@LayoutDslMarker TextField).() -> Unit
+): TextField = textField(text).apply(init)

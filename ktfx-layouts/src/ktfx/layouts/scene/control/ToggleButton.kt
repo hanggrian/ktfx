@@ -1,27 +1,32 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
 
-/** Creates a [ToggleButton]. */
-fun toggleButton(
+/** Add a [ToggleButton] to this manager. */
+fun NodeManager.toggleButton(
     text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker ToggleButton).() -> Unit)? = null
-): ToggleButton = ToggleButton(text, graphic).also { init?.invoke(it) }
+    graphic: Node? = null
+): ToggleButton = ToggleButton(text, graphic).add()
 
-/** Creates a [ToggleButton] and add it to this manager. */
+/** Add a [ToggleButton] with initialization block to this manager. */
 inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker ToggleButton).() -> Unit)? = null
-): ToggleButton = ktfx.layouts.toggleButton(text, graphic, init).add()
+    init: (@LayoutDslMarker ToggleButton).() -> Unit
+): ToggleButton = toggleButton(text, graphic).apply(init)
 
-/** Creates a [ToggleButton] and add it to this manager. */
+/** Add a [ToggleButton] to this manager. */
+fun ToggleButtonManager.toggleButton(
+    text: String? = null,
+    graphic: Node? = null
+): ToggleButton = ToggleButton(text, graphic).add()
+
+/** Add a [ToggleButton] with initialization block to this manager. */
 inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker ToggleButton).() -> Unit)? = null
-): ToggleButton = ktfx.layouts.toggleButton(text, graphic, init).add()
+    init: (@LayoutDslMarker ToggleButton).() -> Unit
+): ToggleButton = toggleButton(text, graphic).apply(init)

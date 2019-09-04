@@ -1,23 +1,22 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.Ellipse
 
-/** Creates a [Ellipse]. */
-fun ellipse(
+/** Add an [Ellipse] to this manager. */
+fun NodeManager.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
-    radiusY: Double = 0.0,
-    init: ((@LayoutDslMarker Ellipse).() -> Unit)? = null
-): Ellipse = Ellipse(centerX, centerY, radiusX, radiusY).also { init?.invoke(it) }
+    radiusY: Double = 0.0
+): Ellipse = ellipse(centerX, centerY, radiusX, radiusY).add()
 
-/** Creates a [Ellipse] and add it to this manager. */
+/** Add an [Ellipse] with initialization block to this manager. */
 inline fun NodeManager.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
-    noinline init: ((@LayoutDslMarker Ellipse).() -> Unit)? = null
-): Ellipse = ktfx.layouts.ellipse(centerX, centerY, radiusX, radiusY, init).add()
+    init: (@LayoutDslMarker Ellipse).() -> Unit
+): Ellipse = ellipse(centerX, centerY, radiusX, radiusY).apply(init)

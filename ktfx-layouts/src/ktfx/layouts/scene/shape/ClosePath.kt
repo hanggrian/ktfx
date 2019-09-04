@@ -1,15 +1,14 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.ClosePath
 
-/** Creates a [ClosePath]. */
-fun closePath(
-    init: ((@LayoutDslMarker ClosePath).() -> Unit)? = null
-): ClosePath = ClosePath().also { init?.invoke(it) }
+/** Add a [ClosePath] to this manager. */
+fun PathElementManager.closePath(): ClosePath =
+    ClosePath().add()
 
-/** Creates a [ClosePath] and add it to this manager. */
+/** Add a [ClosePath] with initialization block to this manager. */
 inline fun PathElementManager.closePath(
-    noinline init: ((@LayoutDslMarker ClosePath).() -> Unit)? = null
-): ClosePath = ktfx.layouts.closePath(init).add()
+    init: (@LayoutDslMarker ClosePath).() -> Unit
+): ClosePath = closePath().apply(init)

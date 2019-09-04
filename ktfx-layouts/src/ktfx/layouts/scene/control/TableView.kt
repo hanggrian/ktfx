@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -6,14 +6,13 @@ import javafx.collections.ObservableList
 import javafx.scene.control.TableView
 import ktfx.collections.observableListOf
 
-/** Creates a [TableView]. */
-fun <S> tableView(
-    items: ObservableList<S> = observableListOf(),
-    init: ((@LayoutDslMarker TableView<S>).() -> Unit)? = null
-): TableView<S> = TableView<S>(items).also { init?.invoke(it) }
+/** Add a [TableView] to this manager. */
+fun <S> NodeManager.tableView(
+    items: ObservableList<S> = observableListOf()
+): TableView<S> = TableView(items).add()
 
-/** Creates a [TableView] and add it to this manager. */
+/** Add a [TableView] with initialization block to this manager. */
 inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = observableListOf(),
-    noinline init: ((@LayoutDslMarker TableView<S>).() -> Unit)? = null
-): TableView<S> = ktfx.layouts.tableView(items, init).add()
+    init: (@LayoutDslMarker TableView<S>).() -> Unit
+): TableView<S> = tableView(items).apply(init)

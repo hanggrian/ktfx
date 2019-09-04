@@ -1,15 +1,14 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.layout.Region
 
-/** Creates a [Region]. */
-fun region(
-    init: ((@LayoutDslMarker Region).() -> Unit)? = null
-): Region = Region().also { init?.invoke(it) }
+/** Add a [Region] to this manager. */
+fun NodeManager.region(): Region =
+    Region().add()
 
-/** Creates a [Region] and add it to this manager. */
+/** Add a [Region] with initialization block to this manager. */
 inline fun NodeManager.region(
-    noinline init: ((@LayoutDslMarker Region).() -> Unit)? = null
-): Region = ktfx.layouts.region(init).add()
+    init: (@LayoutDslMarker Region).() -> Unit
+): Region = region().apply(init)

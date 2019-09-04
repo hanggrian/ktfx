@@ -1,21 +1,20 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
 
-/** Creates a [QuadCurve]. */
-fun quadCurve(
+/** Add a [QuadCurve] to this manager. */
+fun NodeManager.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     endX: Double = 0.0,
-    endY: Double = 0.0,
-    init: ((@LayoutDslMarker QuadCurve).() -> Unit)? = null
-): QuadCurve = QuadCurve(startX, startY, controlX, controlY, endX, endY).also { init?.invoke(it) }
+    endY: Double = 0.0
+): QuadCurve = QuadCurve(startX, startY, controlX, controlY, endX, endY).add()
 
-/** Creates a [QuadCurve] and add it to this manager. */
+/** Add a [QuadCurve] with initialization block to this manager. */
 inline fun NodeManager.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
@@ -23,5 +22,5 @@ inline fun NodeManager.quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    noinline init: ((@LayoutDslMarker QuadCurve).() -> Unit)? = null
-): QuadCurve = ktfx.layouts.quadCurve(startX, startY, controlX, controlY, endX, endY, init).add()
+    init: (@LayoutDslMarker QuadCurve).() -> Unit
+): QuadCurve = quadCurve(startX, startY, controlX, controlY, endX, endY).apply(init)

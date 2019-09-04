@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,19 +10,18 @@ open class _MenuBar : MenuBar(), MenuManager {
 
     override fun <R : Menu> R.add(): R = also { menus += it }
 
-    /** Creates a [Menu] and add it to this manager. */
+    /** Call [MenuManager.menu] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDslMarker _Menu).() -> Unit)? = null
+        init: (@LayoutDslMarker _Menu).() -> Unit
     ): Menu = menu(this, graphic, init)
 }
 
-/** Creates a [MenuBar]. */
-fun menuBar(
-    init: ((@LayoutDslMarker _MenuBar).() -> Unit)? = null
-): MenuBar = _MenuBar().also { init?.invoke(it) }
+/** Add a [MenuBar] to this manager. */
+fun NodeManager.menuBar(): MenuBar =
+    _MenuBar().add()
 
-/** Creates a [MenuBar] and add it to this manager. */
+/** Add a [MenuBar] with initialization block to this manager. */
 inline fun NodeManager.menuBar(
-    noinline init: ((@LayoutDslMarker _MenuBar).() -> Unit)? = null
-): MenuBar = ktfx.layouts.menuBar(init).add()
+    init: (@LayoutDslMarker _MenuBar).() -> Unit
+): MenuBar = (menuBar() as _MenuBar).apply(init)

@@ -1,19 +1,18 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.Pagination
 
-/** Creates a [Pagination]. */
-fun pagination(
+/** Add a [Pagination] to this manager. */
+fun NodeManager.pagination(
     count: Int = Pagination.INDETERMINATE,
-    index: Int = 0,
-    init: ((@LayoutDslMarker Pagination).() -> Unit)? = null
-): Pagination = Pagination(count, index).also { init?.invoke(it) }
+    index: Int = 0
+): Pagination = Pagination(count, index).add()
 
-/** Creates a [Pagination] and add it to this manager. */
+/** Add a [Pagination] with initialization block to this manager. */
 inline fun NodeManager.pagination(
     count: Int = Pagination.INDETERMINATE,
     index: Int = 0,
-    noinline init: ((@LayoutDslMarker Pagination).() -> Unit)? = null
-): Pagination = ktfx.layouts.pagination(count, index, init).add()
+    init: (@LayoutDslMarker Pagination).() -> Unit
+): Pagination = pagination(count, index).apply(init)

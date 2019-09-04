@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -18,7 +18,6 @@ interface TreeTableColumnsBuilder<S> {
     ): TreeTableColumn<S, T> = column(this, init)
 }
 
-@PublishedApi
 internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, LayoutManager<TreeTableColumn<S, *>> {
 
     val collection: MutableCollection<TreeTableColumn<S, *>> = mutableListOf()
@@ -30,6 +29,6 @@ internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, LayoutM
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
-inline fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {
+fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {
     columns += _TreeTableColumnsBuilder<S>().apply(init).collection
 }

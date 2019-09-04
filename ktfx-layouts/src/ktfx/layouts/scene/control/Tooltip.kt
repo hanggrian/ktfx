@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -6,28 +6,36 @@ import javafx.scene.Node
 import javafx.scene.control.Control
 import javafx.scene.control.Tab
 import javafx.scene.control.Tooltip
-import javafx.scene.control.Tooltip.install
 
-/** Creates a [Tooltip]. */
-fun tooltip(
-    text: String? = null,
-    init: ((@LayoutDslMarker Tooltip).() -> Unit)? = null
-): Tooltip = Tooltip(text).also { init?.invoke(it) }
+/** Set a [Tooltip] to this [Node]. */
+fun Node.tooltip(
+    text: String? = null
+): Tooltip = Tooltip(text).also { Tooltip.install(this, it) }
 
-/** Creates a [Tooltip] and set it to this [Node]. */
+/** Set a [Tooltip] with initialization block to this [Node]. */
 inline fun Node.tooltip(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker Tooltip).() -> Unit)? = null
-): Tooltip = ktfx.layouts.tooltip(text, init).also { install(this, it) }
+    init: (@LayoutDslMarker Tooltip).() -> Unit
+): Tooltip = tooltip(text).apply(init)
 
-/** Creates a [Tooltip] and set it to this [Control]. */
+/** Set a [Tooltip] to this [Control]. */
+fun Control.tooltip(
+    text: String? = null
+): Tooltip = Tooltip(text).also { tooltip = it }
+
+/** Set a [Tooltip] with initialization block to this [Control]. */
 inline fun Control.tooltip(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker Tooltip).() -> Unit)? = null
-): Tooltip = ktfx.layouts.tooltip(text, init).also { tooltip = it }
+    init: (@LayoutDslMarker Tooltip).() -> Unit
+): Tooltip = tooltip(text).apply(init)
 
-/** Creates a [Tooltip] and set it to this [Tab]. */
+/** Set a [Tooltip] to this [Tab]. */
+fun Tab.tooltip(
+    text: String? = null
+): Tooltip = Tooltip(text).also { tooltip = it }
+
+/** Set a [Tooltip] with initialization block to this [Tab]. */
 inline fun Tab.tooltip(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker Tooltip).() -> Unit)? = null
-): Tooltip = ktfx.layouts.tooltip(text, init).also { tooltip = it }
+    init: (@LayoutDslMarker Tooltip).() -> Unit
+): Tooltip = tooltip(text).apply(init)

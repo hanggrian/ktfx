@@ -1,20 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
 
-/** Creates a [Hyperlink]. */
-fun hyperlink(
+/** Add a [Hyperlink] to this manager. */
+fun NodeManager.hyperlink(
     text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker Hyperlink).() -> Unit)? = null
-): Hyperlink = Hyperlink(text, graphic).also { init?.invoke(it) }
+    graphic: Node? = null
+): Hyperlink = Hyperlink(text, graphic).add()
 
-/** Creates a [Hyperlink] and add it to this manager. */
+/** Add a [Hyperlink] with initialization block to this manager. */
 inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker Hyperlink).() -> Unit)? = null
-): Hyperlink = ktfx.layouts.hyperlink(text, graphic, init).add()
+    init: (@LayoutDslMarker Hyperlink).() -> Unit
+): Hyperlink = hyperlink(text, graphic).apply(init)

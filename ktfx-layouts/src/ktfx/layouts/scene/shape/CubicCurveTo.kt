@@ -1,21 +1,20 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurveTo
 
-/** Creates a [CubicCurveTo]. */
-fun cubicCurveTo(
+/** Add a [CubicCurveTo] to this manager. */
+fun PathElementManager.cubicCurveTo(
     controlX1: Double = 0.0,
     controlY1: Double = 0.0,
     controlX2: Double = 0.0,
     controlY2: Double = 0.0,
     x: Double = 0.0,
-    y: Double = 0.0,
-    init: ((@LayoutDslMarker CubicCurveTo).() -> Unit)? = null
-): CubicCurveTo = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).also { init?.invoke(it) }
+    y: Double = 0.0
+): CubicCurveTo = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).add()
 
-/** Creates a [CubicCurveTo] and add it to this manager. */
+/** Add a [CubicCurveTo] with initialization block to this manager. */
 inline fun PathElementManager.cubicCurveTo(
     controlX1: Double = 0.0,
     controlY1: Double = 0.0,
@@ -23,5 +22,5 @@ inline fun PathElementManager.cubicCurveTo(
     controlY2: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    noinline init: ((@LayoutDslMarker CubicCurveTo).() -> Unit)? = null
-): CubicCurveTo = ktfx.layouts.cubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y, init).add()
+    init: (@LayoutDslMarker CubicCurveTo).() -> Unit
+): CubicCurveTo = cubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).apply(init)

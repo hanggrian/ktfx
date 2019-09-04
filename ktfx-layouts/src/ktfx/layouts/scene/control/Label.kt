@@ -1,20 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Label
 
-/** Creates a [Label]. */
-fun label(
+/** Add a [Label] to this manager. */
+fun NodeManager.label(
     text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker Label).() -> Unit)? = null
-): Label = Label(text, graphic).also { init?.invoke(it) }
+    graphic: Node? = null
+): Label = Label(text, graphic).add()
 
-/** Creates a [Label] and add it to this manager. */
+/** Add a [Label] with initialization block to this manager. */
 inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker Label).() -> Unit)? = null
-): Label = ktfx.layouts.label(text, graphic, init).add()
+    init: (@LayoutDslMarker Label).() -> Unit
+): Label = label(text, graphic).apply(init)

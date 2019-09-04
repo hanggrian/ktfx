@@ -1,18 +1,17 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressIndicator
 
-/** Creates a [ProgressIndicator]. */
-fun progressIndicator(
-    progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
-    init: ((@LayoutDslMarker ProgressIndicator).() -> Unit)? = null
-): ProgressIndicator = ProgressIndicator(progress).also { init?.invoke(it) }
+/** Add a [ProgressIndicator] to this manager. */
+fun NodeManager.progressIndicator(
+    progress: Double = ProgressBar.INDETERMINATE_PROGRESS
+): ProgressIndicator = ProgressIndicator(progress).add()
 
-/** Creates a [ProgressIndicator] and add it to this manager. */
+/** Add a [ProgressIndicator] with initialization block to this manager. */
 inline fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
-    noinline init: ((@LayoutDslMarker ProgressIndicator).() -> Unit)? = null
-): ProgressIndicator = ktfx.layouts.progressIndicator(progress, init).add()
+    init: (@LayoutDslMarker ProgressIndicator).() -> Unit
+): ProgressIndicator = progressIndicator(progress).apply(init)

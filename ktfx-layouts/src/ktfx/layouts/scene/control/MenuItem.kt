@@ -1,20 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
 
-/** Creates a [MenuItem]. */
-fun menuItem(
+/** Add a [MenuItem] to this manager. */
+fun MenuItemManager.menuItem(
     text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker MenuItem).() -> Unit)? = null
-): MenuItem = MenuItem(text, graphic).also { init?.invoke(it) }
+    graphic: Node? = null
+): MenuItem = MenuItem(text, graphic).add()
 
-/** Creates a [MenuItem] and add it to this manager. */
+/** Add a [MenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker MenuItem).() -> Unit)? = null
-): MenuItem = ktfx.layouts.menuItem(text, graphic, init).add()
+    init: (@LayoutDslMarker MenuItem).() -> Unit
+): MenuItem = menuItem(text, graphic).apply(init)

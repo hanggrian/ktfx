@@ -1,15 +1,14 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.web.WebView
 
-/** Creates a [WebView]. */
-fun webView(
-    init: ((@LayoutDslMarker WebView).() -> Unit)? = null
-): WebView = WebView().also { init?.invoke(it) }
+/** Add a [WebView] to this manager. */
+fun NodeManager.webView(): WebView =
+    WebView().add()
 
-/** Creates a [WebView] and add it to this manager. */
+/** Add a [WebView] with initialization block to this manager. */
 inline fun NodeManager.webView(
-    noinline init: ((@LayoutDslMarker WebView).() -> Unit)? = null
-): WebView = ktfx.layouts.webView(init).add()
+    init: (@LayoutDslMarker WebView).() -> Unit
+): WebView = webView().apply(init)

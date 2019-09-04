@@ -1,17 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.CheckBox
 
-/** Creates a [CheckBox]. */
-fun checkBox(
-    text: String? = null,
-    init: ((@LayoutDslMarker CheckBox).() -> Unit)? = null
-): CheckBox = CheckBox(text).also { init?.invoke(it) }
+/** Add a [CheckBox] to this manager. */
+fun NodeManager.checkBox(
+    text: String? = null
+): CheckBox = CheckBox(text).add()
 
-/** Creates a [CheckBox] and add it to this manager. */
+/** Add a [CheckBox] with initialization block to this manager. */
 inline fun NodeManager.checkBox(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker CheckBox).() -> Unit)? = null
-): CheckBox = ktfx.layouts.checkBox(text, init).add()
+    init: (@LayoutDslMarker CheckBox).() -> Unit
+): CheckBox = checkBox(text).apply(init)

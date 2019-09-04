@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,14 +10,13 @@ open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager {
     override fun <T : Node> T.add(): T = also { content = it }
 }
 
-/** Creates a [ScrollPane]. */
-fun scrollPane(
-    content: Node? = null,
-    init: ((@LayoutDslMarker _ScrollPane).() -> Unit)? = null
-): ScrollPane = _ScrollPane(content).also { init?.invoke(it) }
+/** Add a [ScrollPane] to this manager. */
+fun NodeManager.scrollPane(
+    content: Node? = null
+): ScrollPane = ScrollPane(content).add()
 
-/** Creates a [ScrollPane] and add it to this manager. */
+/** Add a [ScrollPane] with initialization block to this manager. */
 inline fun NodeManager.scrollPane(
     content: Node? = null,
-    noinline init: ((@LayoutDslMarker _ScrollPane).() -> Unit)? = null
-): ScrollPane = ktfx.layouts.scrollPane(content, init).add()
+    init: (@LayoutDslMarker _ScrollPane).() -> Unit
+): ScrollPane = (scrollPane(content) as _ScrollPane).apply(init)

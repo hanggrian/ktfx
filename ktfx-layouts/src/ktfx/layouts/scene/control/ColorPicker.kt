@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -6,14 +6,13 @@ import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
 
-/** Creates a [ColorPicker]. */
-fun colorPicker(
-    color: Color = WHITE,
-    init: ((@LayoutDslMarker ColorPicker).() -> Unit)? = null
-): ColorPicker = ColorPicker(color).also { init?.invoke(it) }
+/** Add a [ColorPicker] to this manager. */
+fun NodeManager.colorPicker(
+    color: Color = WHITE
+): ColorPicker = ColorPicker(color).add()
 
-/** Creates a [ColorPicker] and add it to this manager. */
+/** Add a [ColorPicker] with initialization block to this manager. */
 inline fun NodeManager.colorPicker(
     color: Color = WHITE,
-    noinline init: ((@LayoutDslMarker ColorPicker).() -> Unit)? = null
-): ColorPicker = ktfx.layouts.colorPicker(color, init).add()
+    init: (@LayoutDslMarker ColorPicker).() -> Unit
+): ColorPicker = colorPicker(color).apply(init)

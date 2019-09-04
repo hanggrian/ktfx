@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,12 +10,11 @@ open class _SplitPane : SplitPane(), NodeManager {
     override fun <R : Node> R.add(): R = also { items += it }
 }
 
-/** Creates a [SplitPane]. */
-fun splitPane(
-    init: ((@LayoutDslMarker _SplitPane).() -> Unit)? = null
-): SplitPane = _SplitPane().also { init?.invoke(it) }
+/** Add a [SplitPane] to this manager. */
+fun NodeManager.splitPane(): SplitPane =
+    SplitPane().add()
 
-/** Creates a [SplitPane] and add it to this manager. */
+/** Add a [SplitPane] with initialization block to this manager. */
 inline fun NodeManager.splitPane(
-    noinline init: ((@LayoutDslMarker _SplitPane).() -> Unit)? = null
-): SplitPane = ktfx.layouts.splitPane(init).add()
+    init: (@LayoutDslMarker _SplitPane).() -> Unit
+): SplitPane = (splitPane() as _SplitPane).apply(init)

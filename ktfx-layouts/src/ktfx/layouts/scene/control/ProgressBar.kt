@@ -1,17 +1,16 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
 
-/** Creates a [ProgressBar]. */
-fun progressBar(
-    progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
-    init: ((@LayoutDslMarker ProgressBar).() -> Unit)? = null
-): ProgressBar = ProgressBar(progress).also { init?.invoke(it) }
+/** Add a [ProgressBar] to this manager. */
+fun NodeManager.progressBar(
+    progress: Double = ProgressBar.INDETERMINATE_PROGRESS
+): ProgressBar = ProgressBar(progress).add()
 
-/** Creates a [ProgressBar] and add it to this manager. */
+/** Add a [ProgressBar] with initialization block to this manager. */
 inline fun NodeManager.progressBar(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
-    noinline init: ((@LayoutDslMarker ProgressBar).() -> Unit)? = null
-): ProgressBar = ktfx.layouts.progressBar(progress, init).add()
+    init: (@LayoutDslMarker ProgressBar).() -> Unit
+): ProgressBar = progressBar(progress).apply(init)

@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,20 +10,20 @@ open class _TextFlow : TextFlow(), NodeManager {
 
     override fun <R : Node> R.add(): R = also { children += it }
 
-    /** Creates a [Text] and add it to this manager. */
+    /** Call [NodeManager.text] by string invocation. */
     inline operator fun String.invoke(
-        noinline init: ((@LayoutDslMarker Text).() -> Unit)? = null
+        init: (@LayoutDslMarker Text).() -> Unit
     ): Text = text(this, init)
 
-    inline fun newLine(): Text = text(System.lineSeparator())
+    /** Append a new line to this flow. */
+    fun newLine(): Text = text(System.lineSeparator())
 }
 
-/** Creates a [TextFlow]. */
-fun textFlow(
-    init: ((@LayoutDslMarker _TextFlow).() -> Unit)? = null
-): TextFlow = _TextFlow().also { init?.invoke(it) }
+/** Add a [TextFlow] to this manager. */
+fun NodeManager.textFlow(): TextFlow =
+    TextFlow().add()
 
-/** Creates a [TextFlow] and add it to this manager. */
+/** Add a [TextFlow] with initialization block to this manager. */
 inline fun NodeManager.textFlow(
-    noinline init: ((@LayoutDslMarker _TextFlow).() -> Unit)? = null
-): TextFlow = ktfx.layouts.textFlow(init).add()
+    init: (@LayoutDslMarker _TextFlow).() -> Unit
+): TextFlow = (textFlow() as _TextFlow).apply(init)

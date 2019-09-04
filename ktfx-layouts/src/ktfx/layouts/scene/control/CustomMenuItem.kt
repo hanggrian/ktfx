@@ -1,20 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
 
-/** Creates a [CustomMenuItem]. */
-fun customMenuItem(
+/** Add a [CustomMenuItem] to this manager. */
+fun MenuItemManager.customMenuItem(
     node: Node? = null,
-    hideOnClick: Boolean = true,
-    init: ((@LayoutDslMarker CustomMenuItem).() -> Unit)? = null
-): CustomMenuItem = CustomMenuItem(node, hideOnClick).also { init?.invoke(it) }
+    hideOnClick: Boolean = true
+): CustomMenuItem = CustomMenuItem(node, hideOnClick).add()
 
-/** Creates a [CustomMenuItem] and add it to this manager. */
+/** Add a [CustomMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
-    noinline init: ((@LayoutDslMarker CustomMenuItem).() -> Unit)? = null
-): CustomMenuItem = ktfx.layouts.customMenuItem(node, hideOnClick, init).add()
+    init: (@LayoutDslMarker CustomMenuItem).() -> Unit
+): CustomMenuItem = customMenuItem(node, hideOnClick).apply(init)

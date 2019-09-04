@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,30 +10,35 @@ open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemMa
 
     override fun <R : MenuItem> R.add(): R = also { items += it }
 
-    /** Creates a [MenuItem] and add it to this manager. */
+    /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDslMarker MenuItem).() -> Unit)? = null
+        init: (@LayoutDslMarker MenuItem).() -> Unit
     ): MenuItem = menuItem(this, graphic, init)
 }
 
-/** Creates a [Menu]. */
-fun menu(
+/** Add a [Menu] to this manager. */
+fun MenuManager.menu(
     text: String = "",
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker _Menu).() -> Unit)? = null
-): Menu = _Menu(text, graphic).also { init?.invoke(it) }
+    graphic: Node? = null
+): Menu = _Menu(text, graphic).add()
 
-/** Creates a [Menu] and add it to this manager. */
+/** Add a [Menu] with initialization block to this manager. */
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker _Menu).() -> Unit)? = null
-): Menu = ktfx.layouts.menu(text, graphic, init).add()
+    init: (@LayoutDslMarker _Menu).() -> Unit
+): Menu = (menu(text, graphic) as _Menu).apply(init)
 
-/** Creates a [Menu] and add it to this manager. */
+/** Add a [Menu] to this manager. */
+fun MenuItemManager.menu(
+    text: String = "",
+    graphic: Node? = null
+): Menu = _Menu(text, graphic).add()
+
+/** Add a [Menu] with initialization block to this manager. */
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker _Menu).() -> Unit)? = null
-): Menu = ktfx.layouts.menu(text, graphic, init).add()
+    init: (@LayoutDslMarker _Menu).() -> Unit
+): Menu = (menu(text, graphic) as _Menu).apply(init)

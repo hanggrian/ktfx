@@ -1,20 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
 
-/** Creates a [CheckMenuItem]. */
-fun checkMenuItem(
+/** Add a [CheckMenuItem] to this manager. */
+fun MenuItemManager.checkMenuItem(
     text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker CheckMenuItem).() -> Unit)? = null
-): CheckMenuItem = CheckMenuItem(text, graphic).also { init?.invoke(it) }
+    graphic: Node? = null
+): CheckMenuItem = CheckMenuItem(text, graphic).add()
 
-/** Creates a [CheckMenuItem] and add it to this manager. */
+/** Add a [CheckMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker CheckMenuItem).() -> Unit)? = null
-): CheckMenuItem = ktfx.layouts.checkMenuItem(text, graphic, init).add()
+    init: (@LayoutDslMarker CheckMenuItem).() -> Unit
+): CheckMenuItem = checkMenuItem(text, graphic).apply(init)

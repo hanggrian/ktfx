@@ -9,24 +9,16 @@ open class _Accordion : Accordion(), TitledPaneManager {
 
     override fun <R : TitledPane> R.add(): R = also { panes += it }
 
-    /** Call [NodeManager.accordion] by string invocation. */
+    /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(
         init: (@LayoutDslMarker _TitledPane).() -> Unit
     ): TitledPane = titledPane(this, init)
 }
 
-/** Creates a [Accordion]. */
-fun accordion(): Accordion = _Accordion()
+/** Add a [Accordion] to this manager. */
+fun NodeManager.accordion(): Accordion = _Accordion().add()
 
-/** Creates a [Accordion] with initialization block. */
-inline fun accordion(
-    init: (@LayoutDslMarker _Accordion).() -> Unit
-): Accordion = (accordion() as _Accordion).apply(init)
-
-/** Creates and add a [Accordion] to this manager. */
-fun NodeManager.accordion(): Accordion = ktfx.layouts.accordion().add()
-
-/** Creates and add a [Accordion] with initialization block to this manager. */
+/** Add a [Accordion] with initialization block to this manager. */
 inline fun NodeManager.accordion(
     init: (@LayoutDslMarker _Accordion).() -> Unit
-): Accordion = ktfx.layouts.accordion(init).add()
+): Accordion = (accordion() as _Accordion).apply(init)

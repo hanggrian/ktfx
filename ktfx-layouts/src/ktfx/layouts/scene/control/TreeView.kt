@@ -1,18 +1,17 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeView
 
-/** Creates a [TreeView]. */
-fun <T> treeView(
-    root: TreeItem<T>? = null,
-    init: ((@LayoutDslMarker TreeView<T>).() -> Unit)? = null
-): TreeView<T> = TreeView<T>(root).also { init?.invoke(it) }
+/** Add a [TreeView] to this manager. */
+fun <T> NodeManager.treeView(
+    root: TreeItem<T>? = null
+): TreeView<T> = TreeView(root).add()
 
-/** Creates a [TreeView] and add it to this manager. */
+/** Add a [TreeView] with initialization block to this manager. */
 inline fun <T> NodeManager.treeView(
     root: TreeItem<T>? = null,
-    noinline init: ((@LayoutDslMarker TreeView<T>).() -> Unit)? = null
-): TreeView<T> = ktfx.layouts.treeView(root, init).add()
+    init: (@LayoutDslMarker TreeView<T>).() -> Unit
+): TreeView<T> = treeView(root).apply(init)

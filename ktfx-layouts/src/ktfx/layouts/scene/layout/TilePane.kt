@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -25,18 +25,17 @@ open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : Til
         set(value) = setMargin(this, value)
 }
 
-/** Creates a [TilePane]. */
-fun tilePane(
+/** Add a [TilePane] to this manager. */
+fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
-    vgap: Double = 0.0,
-    init: ((@LayoutDslMarker _TilePane).() -> Unit)? = null
-): TilePane = _TilePane(orientation, hgap, vgap).also { init?.invoke(it) }
+    vgap: Double = 0.0
+): TilePane = TilePane(orientation, hgap, vgap).add()
 
-/** Creates a [TilePane] and add it to this manager. */
+/** Add a [TilePane] with initialization block to this manager. */
 inline fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    noinline init: ((@LayoutDslMarker _TilePane).() -> Unit)? = null
-): TilePane = ktfx.layouts.tilePane(orientation, hgap, vgap, init).add()
+    init: (@LayoutDslMarker _TilePane).() -> Unit
+): TilePane = (tilePane(orientation, hgap, vgap) as _TilePane).apply(init)

@@ -5,30 +5,15 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.Button
 
-/** Creates a [Button]. */
-fun button(
+/** Add a [Button] to this manager. */
+fun NodeManager.button(
     text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker Button).() -> Unit)? = null
-): Button = Button(text, graphic).also { init?.invoke(it) }
+    graphic: Node? = null
+): Button = Button(text, graphic).add()
 
-/** Creates a [Button] with initialization block. */
-fun button(
-    text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker Button).() -> Unit)? = null
-): Button = Button(text, graphic).also { init?.invoke(it) }
-
-/** Creates and add a [Button] to this manager. */
+/** Add a [Button] with initialization block to this manager. */
 inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker Button).() -> Unit)? = null
-): Button = ktfx.layouts.button(text, graphic, init).add()
-
-/** Creates and add a [Button] with initialization block to this manager. */
-inline fun NodeManager.button(
-    text: String? = null,
-    graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker Button).() -> Unit)? = null
-): Button = ktfx.layouts.button(text, graphic, init).add()
+    init: (@LayoutDslMarker Button).() -> Unit
+): Button = button(text, graphic).also(init).add()

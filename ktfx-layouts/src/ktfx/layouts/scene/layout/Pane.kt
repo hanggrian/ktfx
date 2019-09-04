@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,12 +10,11 @@ open class _Pane : Pane(), NodeManager {
     override fun <R : Node> R.add(): R = also { children += it }
 }
 
-/** Creates a [Pane]. */
-fun pane(
-    init: ((@LayoutDslMarker _Pane).() -> Unit)? = null
-): Pane = _Pane().also { init?.invoke(it) }
+/** Add a [Pane] to this manager. */
+fun NodeManager.pane(): Pane =
+    Pane().add()
 
-/** Creates a [Pane] and add it to this manager. */
+/** Add a [Pane] with initialization block to this manager. */
 inline fun NodeManager.pane(
-    noinline init: ((@LayoutDslMarker _Pane).() -> Unit)? = null
-): Pane = ktfx.layouts.pane(init).add()
+    init: (@LayoutDslMarker _Pane).() -> Unit
+): Pane = (pane() as _Pane).apply(init)

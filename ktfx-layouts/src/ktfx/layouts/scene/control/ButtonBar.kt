@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -10,21 +10,20 @@ open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManage
 
     override fun <R : Node> R.add(): R = also { buttons += it }
 
-    /** Creates a [Button] and add it to this manager. */
+    /** Call [NodeManager.button] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDslMarker Button).() -> Unit)? = null
+        init: (@LayoutDslMarker Button).() -> Unit
     ): Button = button(this, graphic, init)
 }
 
-/** Creates a [ButtonBar]. */
-fun buttonBar(
-    buttonOrder: String? = null,
-    init: ((@LayoutDslMarker _ButtonBar).() -> Unit)? = null
-): ButtonBar = _ButtonBar(buttonOrder).also { init?.invoke(it) }
+/** Add a [ButtonBar] to this manager. */
+fun NodeManager.buttonBar(
+    buttonOrder: String? = null
+): ButtonBar = _ButtonBar(buttonOrder).add()
 
-/** Creates a [ButtonBar] and add it to this manager. */
+/** Add a [ButtonBar] with initialization block to this manager. */
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
-    noinline init: ((@LayoutDslMarker _ButtonBar).() -> Unit)? = null
-): ButtonBar = ktfx.layouts.buttonBar(buttonOrder, init).add()
+    init: (@LayoutDslMarker _ButtonBar).() -> Unit
+): ButtonBar = (buttonBar(buttonOrder) as _ButtonBar).apply(init)

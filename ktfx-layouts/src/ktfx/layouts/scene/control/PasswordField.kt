@@ -1,15 +1,14 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.PasswordField
 
-/** Creates a [PasswordField]. */
-fun passwordField(
-    init: ((@LayoutDslMarker PasswordField).() -> Unit)? = null
-): PasswordField = PasswordField().also { init?.invoke(it) }
+/** Add a [PasswordField] to this manager. */
+fun NodeManager.passwordField(): PasswordField =
+    PasswordField().add()
 
-/** Creates a [PasswordField] and add it to this manager. */
+/** Add a [PasswordField] with initialization block to this manager. */
 inline fun NodeManager.passwordField(
-    noinline init: ((@LayoutDslMarker PasswordField).() -> Unit)? = null
-): PasswordField = ktfx.layouts.passwordField(init).add()
+    init: (@LayoutDslMarker PasswordField).() -> Unit
+): PasswordField = passwordField().apply(init)

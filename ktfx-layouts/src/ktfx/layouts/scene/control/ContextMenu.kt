@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
@@ -13,29 +13,36 @@ open class _ContextMenu : ContextMenu(), MenuItemManager {
 
     override fun <R : MenuItem> R.add(): R = also { items += it }
 
-    /** Creates a [MenuItem] and add it to this manager. */
+    /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDslMarker MenuItem).() -> Unit)? = null
+        init: (@LayoutDslMarker MenuItem).() -> Unit
     ): MenuItem = menuItem(this, graphic, init)
 }
 
-/** Creates a [ContextMenu]. */
-fun contextMenu(
-    init: ((@LayoutDslMarker _ContextMenu).() -> Unit)? = null
-): ContextMenu = _ContextMenu().also { init?.invoke(it) }
+/** Set a [ContextMenu] to this [Control]. */
+fun Control.contextMenu(): ContextMenu =
+    _ContextMenu().also { contextMenu = it }
 
-/** Creates a [ContextMenu] and set it to this [Control]. */
+/** Set a [ContextMenu] with initialization block to this [Control]. */
 inline fun Control.contextMenu(
-    noinline init: ((@LayoutDslMarker _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.contextMenu(init).also { contextMenu = it }
+    init: (@LayoutDslMarker _ContextMenu).() -> Unit
+): ContextMenu = (contextMenu() as _ContextMenu).apply(init).also { contextMenu = it }
 
-/** Creates a [ContextMenu] and set it to this [Tab]. */
+/** Set a [ContextMenu] to this [Tab]. */
+fun Tab.contextMenu(): ContextMenu =
+    _ContextMenu().also { contextMenu = it }
+
+/** Set a [ContextMenu] with initialization block to this [Tab]. */
 inline fun Tab.contextMenu(
-    noinline init: ((@LayoutDslMarker _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.contextMenu(init).also { contextMenu = it }
+    init: (@LayoutDslMarker _ContextMenu).() -> Unit
+): ContextMenu = (contextMenu() as _ContextMenu).apply(init).also { contextMenu = it }
 
-/** Creates a [ContextMenu] and set it to this [TableColumnBase]. */
+/** Set a [ContextMenu] to this [TableColumnBase]. */
+fun <S, T> TableColumnBase<S, T>.contextMenu(): ContextMenu =
+    _ContextMenu().also { contextMenu = it }
+
+/** Set a [ContextMenu] with initialization block to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
-    noinline init: ((@LayoutDslMarker _ContextMenu).() -> Unit)? = null
-): ContextMenu = ktfx.layouts.contextMenu(init).also { setContextMenu(it) }
+    init: (@LayoutDslMarker _ContextMenu).() -> Unit
+): ContextMenu = (contextMenu() as _ContextMenu).apply(init).also { contextMenu = it }

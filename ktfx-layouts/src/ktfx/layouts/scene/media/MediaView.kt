@@ -1,18 +1,17 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
 
-/** Creates a [MediaView]. */
-fun mediaView(
-    player: MediaPlayer? = null,
-    init: ((@LayoutDslMarker MediaView).() -> Unit)? = null
-): MediaView = MediaView(player).also { init?.invoke(it) }
+/** Add a [MediaView] to this manager. */
+fun NodeManager.mediaView(
+    player: MediaPlayer? = null
+): MediaView = MediaView(player).add()
 
-/** Creates a [MediaView] and add it to this manager. */
+/** Add a [MediaView] with initialization block to this manager. */
 inline fun NodeManager.mediaView(
     player: MediaPlayer? = null,
-    noinline init: ((@LayoutDslMarker MediaView).() -> Unit)? = null
-): MediaView = ktfx.layouts.mediaView(player, init).add()
+    init: (@LayoutDslMarker MediaView).() -> Unit
+): MediaView = mediaView(player).apply(init)

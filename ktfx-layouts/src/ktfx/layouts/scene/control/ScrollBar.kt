@@ -1,15 +1,14 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
 import javafx.scene.control.ScrollBar
 
-/** Creates a [ScrollBar]. */
-fun scrollBar(
-    init: ((@LayoutDslMarker ScrollBar).() -> Unit)? = null
-): ScrollBar = ScrollBar().also { init?.invoke(it) }
+/** Add a [ScrollBar] to this manager. */
+fun NodeManager.scrollBar(): ScrollBar =
+    ScrollBar().add()
 
-/** Creates a [ScrollBar] and add it to this manager. */
+/** Add a [ScrollBar] with initialization block to this manager. */
 inline fun NodeManager.scrollBar(
-    noinline init: ((@LayoutDslMarker ScrollBar).() -> Unit)? = null
-): ScrollBar = ktfx.layouts.scrollBar(init).add()
+    init: (@LayoutDslMarker ScrollBar).() -> Unit
+): ScrollBar = scrollBar().apply(init)

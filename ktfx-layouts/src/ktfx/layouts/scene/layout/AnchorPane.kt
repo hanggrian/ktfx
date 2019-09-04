@@ -1,11 +1,11 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
-import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals
+import kotlin.DeprecationLevel.ERROR
 
 open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
 
@@ -49,12 +49,11 @@ open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
         set(value) = setRightAnchor(this, value?.toDouble())
 }
 
-/** Creates a [AnchorPane]. */
-fun anchorPane(
-    init: ((@LayoutDslMarker _AnchorPane).() -> Unit)? = null
-): AnchorPane = _AnchorPane().also { init?.invoke(it) }
+/** Add an [AnchorPane] to this manager. */
+fun NodeManager.anchorPane(): AnchorPane =
+    AnchorPane().add()
 
-/** Creates a [AnchorPane] and add it to this manager. */
+/** Add an [AnchorPane] with initialization block to this manager. */
 inline fun NodeManager.anchorPane(
-    noinline init: ((@LayoutDslMarker _AnchorPane).() -> Unit)? = null
-): AnchorPane = ktfx.layouts.anchorPane(init).add()
+    init: (@LayoutDslMarker _AnchorPane).() -> Unit
+): AnchorPane = (anchorPane() as _AnchorPane).apply(init)

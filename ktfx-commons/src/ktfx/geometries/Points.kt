@@ -14,8 +14,8 @@ inline operator fun Point2D.minus(point: Point2D): Point2D =
     subtract(point)
 
 /** The point with multiplied coordinates. */
-inline operator fun Point2D.times(factor: Number): Point2D =
-    multiply(factor.toDouble())
+inline operator fun Point2D.times(factor: Double): Point2D =
+    multiply(factor)
 
 /** The point with added coordinates. */
 inline operator fun Point3D.plus(point: Point3D): Point3D =
@@ -26,5 +26,5 @@ inline operator fun Point3D.minus(point: Point3D): Point3D =
     subtract(point)
 
 /** The point with multiplied coordinates. */
-inline operator fun Point3D.times(factor: Number): Point3D =
-    multiply(factor.toDouble())
+inline operator fun Point3D.times(factor: Double): Point3D =
+    multiply(factor)

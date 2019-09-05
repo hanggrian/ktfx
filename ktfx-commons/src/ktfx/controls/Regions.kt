@@ -16,50 +16,50 @@ import javafx.scene.paint.Paint
 import ktfx.internal.KtfxInternals
 
 /** Sets padding to all sides with integer. */
-var Region.paddingAll: Number
+var Region.paddingAll: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
     set(value) {
-        padding = Insets(value.toDouble())
+        padding = Insets(value)
     }
 
 /** Top and bottom padding. */
-inline var Region.paddingVertical: Number
+inline var Region.paddingVertical: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
     set(value) = updatePadding(top = value, bottom = value)
 
 /** Right and left padding. */
-inline var Region.paddingHorizontal: Number
+inline var Region.paddingHorizontal: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
     set(value) = updatePadding(right = value, left = value)
 
 /** Top padding. */
-inline var Region.paddingTop: Number
+inline var Region.paddingTop: Double
     get() = padding.top
     set(value) = updatePadding(top = value)
 
 /** Right padding. */
-inline var Region.paddingRight: Number
+inline var Region.paddingRight: Double
     get() = padding.right
     set(value) = updatePadding(right = value)
 
 /** Bottom padding. */
-inline var Region.paddingBottom: Number
+inline var Region.paddingBottom: Double
     get() = padding.bottom
     set(value) = updatePadding(bottom = value)
 
 /** Left padding. */
-inline var Region.paddingLeft: Number
+inline var Region.paddingLeft: Double
     get() = padding.left
     set(value) = updatePadding(left = value)
 
 /** Sets padding to each side. */
 fun Region.updatePadding(
-    top: Number = paddingLeft,
-    right: Number = paddingRight,
-    bottom: Number = paddingBottom,
-    left: Number = paddingLeft
+    top: Double = paddingLeft,
+    right: Double = paddingRight,
+    bottom: Double = paddingBottom,
+    left: Double = paddingLeft
 ) {
-    padding = Insets(top.toDouble(), right.toDouble(), bottom.toDouble(), left.toDouble())
+    padding = Insets(top, right, bottom, left)
 }
 
 /** Set multiple fills to region. */
@@ -78,14 +78,14 @@ inline fun Region.updateBackground(
 inline fun Region.updateBackground(
     fill: Paint? = null,
     radii: CornerRadii? = null,
-    topPadding: Number = paddingLeft,
-    rightPadding: Number = paddingRight,
-    bottomPadding: Number = paddingBottom,
-    leftPadding: Number = paddingLeft
+    topPadding: Double = paddingLeft,
+    rightPadding: Double = paddingRight,
+    bottomPadding: Double = paddingBottom,
+    leftPadding: Double = paddingLeft
 ): Unit = updateBackground(
     fill,
     radii,
-    Insets(topPadding.toDouble(), rightPadding.toDouble(), bottomPadding.toDouble(), leftPadding.toDouble())
+    Insets(topPadding, rightPadding, bottomPadding, leftPadding)
 )
 
 /** Set multiple images to region. */
@@ -103,16 +103,16 @@ inline fun Region.updateBackground(
 ): Unit = updateBackground(BackgroundImage(image, repeatX, repeatY, position, size))
 
 /** Sets min width and height of region. */
-var Region.minSize: Number
+inline var Region.minSize: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-    set(value) = value.toDouble().let { setMinSize(it, it) }
+    set(value) = setMinSize(value, value)
 
 /** Sets pref width and height of region. */
-var Region.prefSize: Number
+inline var Region.prefSize: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-    set(value) = value.toDouble().let { setPrefSize(it, it) }
+    set(value) = setPrefSize(value, value)
 
 /** Sets max width and height of region. */
-var Region.maxSize: Number
+inline var Region.maxSize: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-    set(value) = value.toDouble().let { setMaxSize(it, it) }
+    set(value) = setMaxSize(value, value)

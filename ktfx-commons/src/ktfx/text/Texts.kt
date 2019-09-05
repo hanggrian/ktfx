@@ -6,23 +6,23 @@ import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 import javafx.scene.text.Text
 
-fun Text.updateFont(size: Number) {
-    font = Font.font(size.toDouble())
+fun Text.updateFont(size: Double) {
+    font = Font.font(size)
 }
 
 fun Text.updateFont(
     family: String = "System",
     weight: FontWeight? = null,
     posture: FontPosture? = null,
-    size: Number = -1
+    size: Double = -1.0
 ) {
-    font = Font.font(family, weight, posture, size.toDouble())
+    font = Font.font(family, weight, posture, size)
 }
 
-fun Text.loadFont(url: String, size: Number = -1) {
-    font = Font.loadFont(url, size.toDouble())
+fun Text.loadFont(url: String, size: Double = -1.0) {
+    font = Font.loadFont(url, size)
 }
 
-fun Text.loadFont(stream: InputStream, size: Number = -1) {
-    font = Font.loadFont(stream, size.toDouble())
+fun Text.loadFont(stream: InputStream, size: Double = -1.0) {
+    font = Font.loadFont(stream, size)
 }

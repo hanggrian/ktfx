@@ -13,17 +13,17 @@ open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
-    infix fun <N : Node> N.anchorAll(anchorAll: Number?): N = also { it.anchorAll = anchorAll }
+    infix fun <N : Node> N.anchorAll(anchorAll: Double?): N = also { it.anchorAll = anchorAll }
 
-    infix fun <N : Node> N.anchorTop(anchorTop: Number?): N = also { it.anchorTop = anchorTop }
+    infix fun <N : Node> N.anchorTop(anchorTop: Double?): N = also { it.anchorTop = anchorTop }
 
-    infix fun <N : Node> N.anchorLeft(anchorLeft: Number?): N = also { it.anchorLeft = anchorLeft }
+    infix fun <N : Node> N.anchorLeft(anchorLeft: Double?): N = also { it.anchorLeft = anchorLeft }
 
-    infix fun <N : Node> N.anchorBottom(anchorBottom: Number?): N = also { it.anchorBottom = anchorBottom }
+    infix fun <N : Node> N.anchorBottom(anchorBottom: Double?): N = also { it.anchorBottom = anchorBottom }
 
-    infix fun <N : Node> N.anchorRight(anchorRight: Number?): N = also { it.anchorRight = anchorRight }
+    infix fun <N : Node> N.anchorRight(anchorRight: Double?): N = also { it.anchorRight = anchorRight }
 
-    var Node.anchorAll: Number?
+    var Node.anchorAll: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
             anchorTop = value
@@ -32,21 +32,21 @@ open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
             anchorRight = value
         }
 
-    var Node.anchorTop: Number?
+    var Node.anchorTop: Double?
         get() = getTopAnchor(this)
-        set(value) = setTopAnchor(this, value?.toDouble())
+        set(value) = setTopAnchor(this, value)
 
-    var Node.anchorLeft: Number?
+    var Node.anchorLeft: Double?
         get() = getLeftAnchor(this)
-        set(value) = setLeftAnchor(this, value?.toDouble())
+        set(value) = setLeftAnchor(this, value)
 
-    var Node.anchorBottom: Number?
+    var Node.anchorBottom: Double?
         get() = getBottomAnchor(this)
-        set(value) = setBottomAnchor(this, value?.toDouble())
+        set(value) = setBottomAnchor(this, value)
 
-    var Node.anchorRight: Number?
+    var Node.anchorRight: Double?
         get() = getRightAnchor(this)
-        set(value) = setRightAnchor(this, value?.toDouble())
+        set(value) = setRightAnchor(this, value)
 }
 
 /** Add an [AnchorPane] to this manager. */

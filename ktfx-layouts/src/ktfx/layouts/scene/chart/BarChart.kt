@@ -13,14 +13,14 @@ fun <X, Y> NodeManager.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    gap: Number = 10
-): BarChart<X, Y> = BarChart(x, y, data, gap.toDouble()).add()
+    gap: Double = 10.0
+): BarChart<X, Y> = BarChart(x, y, data, gap).add()
 
 /** Add a [BarChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
-    gap: Number = 10,
+    gap: Double = 10.0,
     init: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> = barChart(x, y, data, gap).apply(init)

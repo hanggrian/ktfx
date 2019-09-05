@@ -69,76 +69,76 @@ class DemoApplication : Application() {
                 } row 0 col 0 colSpans 5 hfill true
 
                 button("1") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("1")
                     }
                 } row 1 col 0
                 button("2") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("2")
                     }
                 } row 1 col 1
                 button("3") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("3")
                     }
                 } row 1 col 2
 
                 button("4") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("4")
                     }
                 } row 2 col 0
                 button("5") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("5")
                     }
                 } row 2 col 1
                 button("6") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("6")
                     }
                 } row 2 col 2
 
                 button("7") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("7")
                     }
                 } row 3 col 0
                 button("8") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("8")
                     }
                 } row 3 col 1
                 button("9") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("9")
                     }
                 } row 3 col 2
 
                 button("0") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("0")
                     }
                 } row 4 col 0
                 button("00") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("00")
                     }
                 } row 4 col 1
                 button("") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         errorAlert(":(", content = "Not yet supported.")
                     }
@@ -152,13 +152,13 @@ class DemoApplication : Application() {
                     }
                 } row 1 col 3 colSpans 2
                 button("*") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("*")
                     }
                 } row 2 col 3
                 button("/") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("/")
                     }
@@ -170,13 +170,13 @@ class DemoApplication : Application() {
                     }
                 } row 3 col 3 rowSpans 2
                 button("-") {
-                    minSize = 40
+                    minSize = 40.0
                     onAction {
                         appendText("-")
                     }
                 } row 3 col 4
                 button("=") {
-                    minSize = 40
+                    minSize = 40.0
                     isDefaultButton = true
                     disableProperty().bind(buildBooleanBinding(calculationLabel.textProperty()) { endsWithOperator })
                     onAction {

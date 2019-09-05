@@ -15,36 +15,36 @@ inline val Scene.stage: Stage
     get() = window as Stage
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
-inline var Stage.minSize: Number
+inline var Stage.minSize: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = value.toDouble().let { setMinSize(it, it) }
+    set(value) = setMinSize(value, value)
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
-inline fun Stage.setMinSize(width: Number, height: Number) {
-    minWidth = width.toDouble()
-    minHeight = height.toDouble()
+inline fun Stage.setMinSize(width: Double, height: Double) {
+    minWidth = width
+    minHeight = height
 }
 
 /** Convenient method for overriding the stage's computed width and height. */
-inline var Stage.size: Number
+inline var Stage.size: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = value.toDouble().let { setSize(it, it) }
+    set(value) = setSize(value, value)
 
 /** Convenient method for overriding the stage's computed width and height. */
-inline fun Stage.setSize(width: Number, height: Number) {
-    this.width = width.toDouble()
-    this.height = height.toDouble()
+inline fun Stage.setSize(width: Double, height: Double) {
+    this.width = width
+    this.height = height
 }
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
-inline var Stage.maxSize: Number
+inline var Stage.maxSize: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = value.toDouble().let { setMaxSize(it, it) }
+    set(value) = setMaxSize(value, value)
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
-inline fun Stage.setMaxSize(width: Number, height: Number) {
-    maxWidth = width.toDouble()
-    maxHeight = height.toDouble()
+inline fun Stage.setMaxSize(width: Double, height: Double) {
+    maxWidth = width
+    maxHeight = height
 }
 
 /** Removes old icons and set a new one to this stage. */

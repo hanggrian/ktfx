@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -33,12 +33,11 @@ fun JFXDrawer.onDrawerOpening(
     action: suspend CoroutineScope.(JFXDrawerEvent) -> Unit
 ): Unit = setOnDrawerOpening { event -> GlobalScope.launch(context) { action(event) } }
 
-/** Creates a [JFXDrawer]. */
-fun jfxDrawer(
-    init: ((@LayoutDslMarker JFXDrawer).() -> Unit)? = null
-): JFXDrawer = JFXDrawer().also { init?.invoke(it) }
+/** Add a [JFXDrawer] to this manager. */
+fun NodeManager.jfxDrawer(): JFXDrawer =
+    JFXDrawer().add()
 
-/** Creates a [JFXDrawer] and add it to this manager. */
+/** Add a [JFXDrawer] with initialization block to this manager. */
 inline fun NodeManager.jfxDrawer(
-    noinline init: ((@LayoutDslMarker JFXDrawer).() -> Unit)? = null
-): JFXDrawer = ktfx.jfoenix.jfxDrawer(init).add()
+    init: (@LayoutDslMarker JFXDrawer).() -> Unit
+): JFXDrawer = jfxDrawer().apply(init)

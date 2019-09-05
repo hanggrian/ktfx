@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.controlsfx
 
@@ -16,12 +16,11 @@ open class _HiddenSidesPane : HiddenSidesPane(), NodeManager {
     override fun <R : Node> R.add(): R = also { content = it }
 }
 
-/** Creates a [HiddenSidesPane]. */
-fun hiddenSidesPane(
-    init: ((@LayoutDslMarker _HiddenSidesPane).() -> Unit)? = null
-): HiddenSidesPane = _HiddenSidesPane().also { init?.invoke(it) }
+/** Add a [HiddenSidesPane] to this manager. */
+fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
+    _HiddenSidesPane().add()
 
-/** Creates a [HiddenSidesPane] and add it to this manager. */
+/** Add a [HiddenSidesPane] with initialization block to this manager. */
 inline fun NodeManager.hiddenSidesPane(
-    noinline init: ((@LayoutDslMarker _HiddenSidesPane).() -> Unit)? = null
-): HiddenSidesPane = ktfx.controlsfx.hiddenSidesPane(init).add()
+    init: (@LayoutDslMarker _HiddenSidesPane).() -> Unit
+): HiddenSidesPane = (hiddenSidesPane() as _HiddenSidesPane).apply(init)

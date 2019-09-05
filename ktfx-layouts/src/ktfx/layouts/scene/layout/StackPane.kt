@@ -24,7 +24,7 @@ open class _StackPane : StackPane(), NodeManager, AlignConstraints, MarginConstr
 
 /** Add a [StackPane] to this manager. */
 fun NodeManager.stackPane(): StackPane =
-    StackPane().add()
+    _StackPane().add()
 
 /** Add a [StackPane] with initialization block to this manager. */
 inline fun NodeManager.stackPane(

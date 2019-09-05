@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,14 +6,13 @@ import com.jfoenix.controls.JFXTextField
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXTextField]. */
-fun jfxTextField(
-    text: String? = null,
-    init: ((@LayoutDslMarker JFXTextField).() -> Unit)? = null
-): JFXTextField = JFXTextField(text.orEmpty()).also { init?.invoke(it) }
+/** Add a [JFXTextField] to this manager. */
+fun NodeManager.jfxTextField(
+    text: String? = null
+): JFXTextField = JFXTextField(text).add()
 
-/** Creates a [JFXTextField] and add it to this manager. */
+/** Add a [JFXTextField] with initialization block to this manager. */
 inline fun NodeManager.jfxTextField(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker JFXTextField).() -> Unit)? = null
-): JFXTextField = ktfx.jfoenix.jfxTextField(text, init).add()
+    init: (@LayoutDslMarker JFXTextField).() -> Unit
+): JFXTextField = jfxTextField(text).apply(init)

@@ -30,7 +30,7 @@ fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0
-): TilePane = TilePane(orientation, hgap, vgap).add()
+): TilePane = _TilePane(orientation, hgap, vgap).add()
 
 /** Add a [TilePane] with initialization block to this manager. */
 inline fun NodeManager.tilePane(

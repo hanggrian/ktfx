@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -7,16 +7,15 @@ import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXButton]. */
-fun jfxButton(
+/** Add a [JFXButton] to this manager. */
+fun NodeManager.jfxButton(
     text: String? = null,
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker JFXButton).() -> Unit)? = null
-): JFXButton = JFXButton(text, graphic).also { init?.invoke(it) }
+    graphic: Node? = null
+): JFXButton = JFXButton(text, graphic).add()
 
-/** Creates a [JFXButton] and add it to this manager. */
+/** Add a [JFXButton] with initialization block to this manager. */
 inline fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker JFXButton).() -> Unit)? = null
-): JFXButton = ktfx.jfoenix.jfxButton(text, graphic, init).add()
+    init: (@LayoutDslMarker JFXButton).() -> Unit
+): JFXButton = jfxButton(text, graphic).apply(init)

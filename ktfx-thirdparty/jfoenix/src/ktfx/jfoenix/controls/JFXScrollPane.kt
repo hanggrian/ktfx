@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.jfoenix
 
@@ -54,12 +54,11 @@ open class _JFXScrollPane : JFXScrollPane(), NodeManager {
     }
 }
 
-/** Creates a [JFXScrollPane]. */
-fun jfxScrollPane(
-    init: ((@LayoutDslMarker _JFXScrollPane).() -> Unit)? = null
-): JFXScrollPane = _JFXScrollPane().also { init?.invoke(it) }
+/** Add a [JFXScrollPane] to this manager. */
+fun NodeManager.jfxScrollPane(): JFXScrollPane =
+    _JFXScrollPane().add()
 
-/** Creates a [JFXScrollPane] and add it to this manager. */
+/** Add a [JFXScrollPane] with initialization to this manager. */
 inline fun NodeManager.jfxScrollPane(
-    noinline init: ((@LayoutDslMarker _JFXScrollPane).() -> Unit)? = null
-): JFXScrollPane = ktfx.jfoenix.jfxScrollPane(init).add()
+    init: (@LayoutDslMarker _JFXScrollPane).() -> Unit
+): JFXScrollPane = (jfxScrollPane() as _JFXScrollPane).apply(init)

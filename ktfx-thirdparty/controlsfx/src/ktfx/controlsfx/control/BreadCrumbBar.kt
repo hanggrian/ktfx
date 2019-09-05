@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -17,14 +17,13 @@ fun <T> BreadCrumbBar<T>.onCrumbAction(
     action: suspend CoroutineScope.(BreadCrumbBar.BreadCrumbActionEvent<T>) -> Unit
 ): Unit = setOnCrumbAction { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
-/** Creates a [BreadCrumbBar]. */
-fun <T> breadCrumbBar(
-    selectedCrumb: TreeItem<T>? = null,
-    init: ((@LayoutDslMarker BreadCrumbBar<T>).() -> Unit)? = null
-): BreadCrumbBar<T> = BreadCrumbBar<T>(selectedCrumb).also { init?.invoke(it) }
+/** Add a [BreadCrumbBar] to this manager. */
+fun <T> NodeManager.breadCrumbBar(
+    selectedCrumb: TreeItem<T>? = null
+): BreadCrumbBar<T> = BreadCrumbBar(selectedCrumb).add()
 
-/** Creates a [BreadCrumbBar] and add it to this manager. */
+/** Add a [BreadCrumbBar] with initialization block to this manager. */
 inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
-    noinline init: ((@LayoutDslMarker BreadCrumbBar<T>).() -> Unit)? = null
-): BreadCrumbBar<T> = ktfx.controlsfx.breadCrumbBar(selectedCrumb, init).add()
+    init: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
+): BreadCrumbBar<T> = breadCrumbBar(selectedCrumb).apply(init)

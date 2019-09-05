@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -7,14 +7,13 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.CheckTreeView
 
-/** Creates a [CheckTreeView]. */
-fun <T> checkTreeView(
-    root: CheckBoxTreeItem<T>? = null,
-    init: ((@LayoutDslMarker CheckTreeView<T>).() -> Unit)? = null
-): CheckTreeView<T> = CheckTreeView<T>(root).also { init?.invoke(it) }
+/** Add a [CheckTreeView] to this manager. */
+fun <T> NodeManager.checkTreeView(
+    root: CheckBoxTreeItem<T>? = null
+): CheckTreeView<T> = CheckTreeView(root).add()
 
-/** Creates a [CheckTreeView] and add it to this manager. */
+/** Add a [CheckTreeView] with initialization block to this manager. */
 inline fun <T> NodeManager.checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
-    noinline init: ((@LayoutDslMarker CheckTreeView<T>).() -> Unit)? = null
-): CheckTreeView<T> = ktfx.controlsfx.checkTreeView(root, init).add()
+    init: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
+): CheckTreeView<T> = checkTreeView(root).apply(init)

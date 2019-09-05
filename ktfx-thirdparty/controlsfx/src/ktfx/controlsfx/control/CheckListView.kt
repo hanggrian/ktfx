@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -8,14 +8,13 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.CheckListView
 
-/** Creates a [CheckListView]. */
-fun <T> checkListView(
-    items: ObservableList<T> = mutableObservableListOf(),
-    init: ((@LayoutDslMarker CheckListView<T>).() -> Unit)? = null
-): CheckListView<T> = CheckListView(items).also { init?.invoke(it) }
+/** Add a [CheckListView] to this manager. */
+fun <T> NodeManager.checkListView(
+    items: ObservableList<T> = mutableObservableListOf()
+): CheckListView<T> = CheckListView(items).add()
 
-/** Creates a [CheckListView] and add it to this manager. */
+/** Add a [CheckListView] with initialization block to this manager. */
 inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = mutableObservableListOf(),
-    noinline init: ((@LayoutDslMarker CheckListView<T>).() -> Unit)? = null
-): CheckListView<T> = ktfx.controlsfx.checkListView(items, init).add()
+    init: (@LayoutDslMarker CheckListView<T>).() -> Unit
+): CheckListView<T> = checkListView(items).apply(init)

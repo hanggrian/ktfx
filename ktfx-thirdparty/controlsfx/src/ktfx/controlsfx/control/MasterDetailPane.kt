@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.controlsfx
 
@@ -13,16 +13,15 @@ open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane
     override fun <T : Node> T.add(): T = also { masterNode = it }
 }
 
-/** Creates a [MasterDetailPane]. */
-fun masterDetailPane(
+/** Add a [MasterDetailPane] to this manager. */
+fun NodeManager.masterDetailPane(
     side: Side = Side.RIGHT,
-    showDetail: Boolean = true,
-    init: ((@LayoutDslMarker _MasterDetailPane).() -> Unit)? = null
-): MasterDetailPane = _MasterDetailPane(side, showDetail).also { init?.invoke(it) }
+    showDetail: Boolean = true
+): MasterDetailPane = _MasterDetailPane(side, showDetail).add()
 
-/** Creates a [MasterDetailPane] and add it to this manager. */
+/** Add a [MasterDetailPane] with initialization block to this manager. */
 inline fun NodeManager.masterDetailPane(
     side: Side = Side.RIGHT,
     showDetail: Boolean = true,
-    noinline init: ((@LayoutDslMarker _MasterDetailPane).() -> Unit)? = null
-): MasterDetailPane = ktfx.controlsfx.masterDetailPane(side, showDetail, init).add()
+    init: (@LayoutDslMarker _MasterDetailPane).() -> Unit
+): MasterDetailPane = (masterDetailPane(side, showDetail) as _MasterDetailPane).apply(init)

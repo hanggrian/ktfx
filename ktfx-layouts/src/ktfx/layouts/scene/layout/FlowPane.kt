@@ -25,7 +25,7 @@ fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0
-): FlowPane = FlowPane(orientation, hgap, vgap).add()
+): FlowPane = _FlowPane(orientation, hgap, vgap).add()
 
 /** Add a [FlowPane] with initialization block to this manager. */
 inline fun NodeManager.flowPane(

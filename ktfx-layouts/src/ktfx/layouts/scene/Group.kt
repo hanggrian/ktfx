@@ -12,7 +12,7 @@ open class _Group : Group(), NodeManager {
 
 /** Add a [Group] to this manager. */
 fun NodeManager.group(): Group =
-    Group().add()
+    _Group().add()
 
 /** Add a [Group] with initialization block to this manager. */
 inline fun NodeManager.group(

@@ -2,8 +2,8 @@
 
 package ktfx.layouts
 
-import javafx.scene.control.DatePicker
 import java.time.LocalDate
+import javafx.scene.control.DatePicker
 
 /** Add a [DatePicker] to this manager. */
 fun NodeManager.datePicker(

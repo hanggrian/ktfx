@@ -19,7 +19,7 @@ open class _SplitMenuButton : SplitMenuButton(), MenuItemManager {
 
 /** Add a [SplitMenuButton] to this manager. */
 fun NodeManager.splitMenuButton(): SplitMenuButton =
-    SplitMenuButton().add()
+    _SplitMenuButton().add()
 
 /** Add a [SplitMenuButton] with initialization block to this manager. */
 inline fun NodeManager.splitMenuButton(

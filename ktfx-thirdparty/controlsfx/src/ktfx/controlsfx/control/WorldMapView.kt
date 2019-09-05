@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -6,12 +6,11 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.WorldMapView
 
-/** Creates a [WorldMapView]. */
-fun worldMapView(
-    init: ((@LayoutDslMarker WorldMapView).() -> Unit)? = null
-): WorldMapView = WorldMapView().also { init?.invoke(it) }
+/** Add a [WorldMapView] to this manager. */
+fun NodeManager.worldMapView(): WorldMapView =
+    WorldMapView().add()
 
-/** Creates a [WorldMapView] and add it to this manager. */
+/** Add a [WorldMapView] with initialization block to this manager. */
 inline fun NodeManager.worldMapView(
-    noinline init: ((@LayoutDslMarker WorldMapView).() -> Unit)? = null
-): WorldMapView = ktfx.controlsfx.worldMapView(init).add()
+    init: (@LayoutDslMarker WorldMapView).() -> Unit
+): WorldMapView = worldMapView().apply(init)

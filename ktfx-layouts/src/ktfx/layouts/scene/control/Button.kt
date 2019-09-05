@@ -16,4 +16,4 @@ inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker Button).() -> Unit
-): Button = button(text, graphic).also(init).add()
+): Button = button(text, graphic).apply(init)

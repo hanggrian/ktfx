@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -15,12 +15,11 @@ fun PlusMinusSlider.onValueChanged(
     action: suspend CoroutineScope.(PlusMinusSlider.PlusMinusEvent) -> Unit
 ): Unit = setOnValueChanged { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
-/** Creates a [PlusMinusSlider]. */
-fun plusMinusSlider(
-    init: ((@LayoutDslMarker PlusMinusSlider).() -> Unit)? = null
-): PlusMinusSlider = PlusMinusSlider().also { init?.invoke(it) }
+/** Add a [PlusMinusSlider] to this manager. */
+fun NodeManager.plusMinusSlider(): PlusMinusSlider =
+    PlusMinusSlider().add()
 
-/** Creates a [PlusMinusSlider] and add it to this manager. */
+/** Add a [PlusMinusSlider] with initialization block to this manager. */
 inline fun NodeManager.plusMinusSlider(
-    noinline init: ((@LayoutDslMarker PlusMinusSlider).() -> Unit)? = null
-): PlusMinusSlider = ktfx.controlsfx.plusMinusSlider(init).add()
+    init: (@LayoutDslMarker PlusMinusSlider).() -> Unit
+): PlusMinusSlider = plusMinusSlider().apply(init)

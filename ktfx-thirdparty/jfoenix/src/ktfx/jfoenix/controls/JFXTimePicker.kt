@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -7,14 +7,13 @@ import java.time.LocalTime
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXTimePicker]. */
-fun jfxTimePicker(
-    localTime: LocalTime? = null,
-    init: ((@LayoutDslMarker JFXTimePicker).() -> Unit)? = null
-): JFXTimePicker = JFXTimePicker(localTime).also { init?.invoke(it) }
+/** Add a [JFXTimePicker] to this manager. */
+fun NodeManager.jfxTimePicker(
+    localTime: LocalTime? = null
+): JFXTimePicker = JFXTimePicker(localTime).add()
 
-/** Creates a [JFXTimePicker] and add it to this manager. */
+/** Add a [JFXTimePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxTimePicker(
     localTime: LocalTime? = null,
-    noinline init: ((@LayoutDslMarker JFXTimePicker).() -> Unit)? = null
-): JFXTimePicker = ktfx.jfoenix.jfxTimePicker(localTime, init).add()
+    init: (@LayoutDslMarker JFXTimePicker).() -> Unit
+): JFXTimePicker = jfxTimePicker(localTime).apply(init)

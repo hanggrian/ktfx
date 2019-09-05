@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -16,14 +16,13 @@ fun HyperlinkLabel.onAction(
     action: suspend CoroutineScope.(ActionEvent) -> Unit
 ): Unit = setOnAction { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
-/** Creates a [HyperlinkLabel]. */
-fun hyperlinkLabel(
-    text: String? = null,
-    init: ((@LayoutDslMarker HyperlinkLabel).() -> Unit)? = null
-): HyperlinkLabel = HyperlinkLabel(text).also { init?.invoke(it) }
+/** Add a [HyperlinkLabel] to this manager. */
+fun NodeManager.hyperlinkLabel(
+    text: String? = null
+): HyperlinkLabel = HyperlinkLabel(text).add()
 
-/** Creates a [HyperlinkLabel] and add it to this manager. */
+/** Add a [HyperlinkLabel] with initialization block to this manager. */
 inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker HyperlinkLabel).() -> Unit)? = null
-): HyperlinkLabel = ktfx.controlsfx.hyperlinkLabel(text, init).add()
+    init: (@LayoutDslMarker HyperlinkLabel).() -> Unit
+): HyperlinkLabel = hyperlinkLabel(text).apply(init)

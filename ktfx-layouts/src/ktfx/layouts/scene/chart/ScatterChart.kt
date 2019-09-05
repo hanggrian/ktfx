@@ -21,4 +21,4 @@ inline fun <X, Y> NodeManager.scatterChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     init: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
-): ScatterChart<X, Y> = scatterChart(x, y, data).also(init)
+): ScatterChart<X, Y> = scatterChart(x, y, data).apply(init)

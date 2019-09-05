@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,14 +6,13 @@ import com.jfoenix.controls.JFXSpinner
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXSpinner]. */
-fun jfxSpinner(
-    progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
-    init: ((@LayoutDslMarker JFXSpinner).() -> Unit)? = null
-): JFXSpinner = JFXSpinner(progress).also { init?.invoke(it) }
+/** Add a [JFXSpinner] to this manager. */
+fun NodeManager.jfxSpinner(
+    progress: Double = JFXSpinner.INDETERMINATE_PROGRESS
+): JFXSpinner = JFXSpinner(progress).add()
 
-/** Creates a [JFXSpinner] and add it to this manager. */
+/** Add a [JFXSpinner] with initialization block to this manager. */
 inline fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
-    noinline init: ((@LayoutDslMarker JFXSpinner).() -> Unit)? = null
-): JFXSpinner = ktfx.jfoenix.jfxSpinner(progress, init).add()
+    init: (@LayoutDslMarker JFXSpinner).() -> Unit
+): JFXSpinner = jfxSpinner(progress).apply(init)

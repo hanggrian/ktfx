@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -6,12 +6,11 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.PrefixSelectionChoiceBox
 
-/** Creates a [PrefixSelectionChoiceBox]. */
-fun <T> prefixSelectionChoiceBox(
-    init: ((@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit)? = null
-): PrefixSelectionChoiceBox<T> = PrefixSelectionChoiceBox<T>().also { init?.invoke(it) }
+/** Add a [PrefixSelectionChoiceBox] to this manager. */
+fun <T> NodeManager.prefixSelectionChoiceBox(): PrefixSelectionChoiceBox<T> =
+    PrefixSelectionChoiceBox<T>().add()
 
-/** Creates a [PrefixSelectionChoiceBox] and add it to this manager. */
+/** Add a [PrefixSelectionChoiceBox] with initialization block to this manager. */
 inline fun <T> NodeManager.prefixSelectionChoiceBox(
-    noinline init: ((@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit)? = null
-): PrefixSelectionChoiceBox<T> = ktfx.controlsfx.prefixSelectionChoiceBox(init).add()
+    init: (@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
+): PrefixSelectionChoiceBox<T> = prefixSelectionChoiceBox<T>().apply(init)

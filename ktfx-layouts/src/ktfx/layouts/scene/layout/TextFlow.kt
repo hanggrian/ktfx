@@ -21,7 +21,7 @@ open class _TextFlow : TextFlow(), NodeManager {
 
 /** Add a [TextFlow] to this manager. */
 fun NodeManager.textFlow(): TextFlow =
-    TextFlow().add()
+    _TextFlow().add()
 
 /** Add a [TextFlow] with initialization block to this manager. */
 inline fun NodeManager.textFlow(

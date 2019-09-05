@@ -12,7 +12,7 @@ open class _SplitPane : SplitPane(), NodeManager {
 
 /** Add a [SplitPane] to this manager. */
 fun NodeManager.splitPane(): SplitPane =
-    SplitPane().add()
+    _SplitPane().add()
 
 /** Add a [SplitPane] with initialization block to this manager. */
 inline fun NodeManager.splitPane(

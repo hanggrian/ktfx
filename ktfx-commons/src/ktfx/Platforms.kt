@@ -1,8 +1,8 @@
 package ktfx
 
+import java.util.concurrent.CountDownLatch
 import javafx.application.ConditionalFeature
 import javafx.application.Platform
-import java.util.concurrent.CountDownLatch
 
 /** Run the specified block on the JavaFX thread runLater. */
 fun runLater(block: () -> Unit): Unit =

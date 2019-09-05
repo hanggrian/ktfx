@@ -78,7 +78,7 @@ open class _GridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstra
 
 /** Add a [GridPane] to this manager. */
 fun NodeManager.gridPane(): GridPane =
-    GridPane().add()
+    _GridPane().add()
 
 /** Add a [GridPane] with initialization block to this manager. */
 inline fun NodeManager.gridPane(
@@ -95,7 +95,7 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
     fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: (T.() -> Unit)? = null): T
 }
 
-internal abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, LayoutManager<T> {
+private abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, LayoutManager<T> {
 
     val collection: MutableCollection<T> = mutableListOf()
 

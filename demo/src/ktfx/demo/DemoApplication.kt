@@ -29,7 +29,7 @@ class DemoApplication : Application() {
     private lateinit var resultLabel: Label
 
     override fun start(stage: Stage) {
-        stage.scene = scene {
+        stage.scene {
             gridPane {
                 vbox {
                     updatePadding(right = 20.0, left = 20.0)

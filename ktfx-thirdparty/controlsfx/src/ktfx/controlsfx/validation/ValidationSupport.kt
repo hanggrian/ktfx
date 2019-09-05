@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -8,8 +8,7 @@ import org.controlsfx.validation.ValidationSupport
 import org.controlsfx.validation.Validator
 
 private lateinit var support: ValidationSupport
-
-@PublishedApi internal val singletonSupport: ValidationSupport
+private val singletonSupport: ValidationSupport
     get() {
         if (!::support.isInitialized) {
             support = ValidationSupport()
@@ -18,7 +17,7 @@ private lateinit var support: ValidationSupport
     }
 
 /** Register empty validation. */
-inline fun <T> Control.registerEmptyValidator(
+fun <T> Control.registerEmptyValidator(
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
@@ -30,7 +29,7 @@ inline fun <T> Control.registerEmptyValidator(
 )
 
 /** Register equals validation. */
-inline fun <T> Control.registerEqualsValidator(
+fun <T> Control.registerEqualsValidator(
     message: String,
     collection: Collection<T>,
     severity: Severity = Severity.ERROR,
@@ -43,12 +42,12 @@ inline fun <T> Control.registerEqualsValidator(
 )
 
 /** Register predicate validation. */
-inline fun <T> Control.registerPredicateValidator(
+fun <T> Control.registerPredicateValidator(
     message: String,
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
     support: ValidationSupport = singletonSupport,
-    noinline predicate: (T) -> Boolean
+    predicate: (T) -> Boolean
 ): Boolean = support.registerValidator(
     this,
     required,
@@ -56,7 +55,7 @@ inline fun <T> Control.registerPredicateValidator(
 )
 
 /** Register regex validation. */
-inline fun Control.registerRegexValidator(
+fun Control.registerRegexValidator(
     message: String,
     regex: String,
     severity: Severity = Severity.ERROR,
@@ -69,7 +68,7 @@ inline fun Control.registerRegexValidator(
 )
 
 /** Register regex validation. */
-inline fun Control.registerRegexValidator(
+fun Control.registerRegexValidator(
     message: String,
     regex: Regex,
     severity: Severity = Severity.ERROR,

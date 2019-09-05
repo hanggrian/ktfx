@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.jfoenix
 
@@ -12,12 +12,11 @@ open class _JFXBadge : JFXBadge(), NodeManager {
     override fun <R : Node> R.add(): R = also { control = it }
 }
 
-/** Creates a [JFXBadge]. */
-fun jfxBadge(
-    init: ((@LayoutDslMarker _JFXBadge).() -> Unit)? = null
-): JFXBadge = _JFXBadge().also { init?.invoke(it) }
+/** Add a [JFXBadge] to this manager. */
+fun NodeManager.jfxBadge(): JFXBadge =
+    _JFXBadge().add()
 
-/** Creates a [JFXBadge] and add it to this manager. */
+/** Add a [JFXBadge] with initialization block to this manager. */
 inline fun NodeManager.jfxBadge(
-    noinline init: ((@LayoutDslMarker _JFXBadge).() -> Unit)? = null
-): JFXBadge = ktfx.jfoenix.jfxBadge(init).add()
+    init: (@LayoutDslMarker _JFXBadge).() -> Unit
+): JFXBadge = (jfxBadge() as _JFXBadge).apply(init)

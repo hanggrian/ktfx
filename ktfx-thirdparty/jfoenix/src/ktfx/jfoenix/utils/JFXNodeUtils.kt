@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -16,37 +16,37 @@ import javafx.scene.paint.Color
 import javafx.scene.paint.Paint
 import javafx.util.Duration
 
-inline fun Region.updateBackground(
+fun Region.updateBackground(
     newBackground: Background,
     paint: Paint = Color.BLACK
 ): Unit = JFXNodeUtils.updateBackground(newBackground, this, paint)
 
-inline fun Color.toHex(): String = JFXNodeUtils.colorToHex(this)
+fun Color.toHex(): String = JFXNodeUtils.colorToHex(this)
 
-inline fun Node.pressAndHoldHandler(
+fun Node.pressAndHoldHandler(
     holdTime: Duration,
-    noinline handler: (MouseEvent) -> Unit
+    handler: (MouseEvent) -> Unit
 ): Unit = JFXNodeUtils.addPressAndHoldHandler(this, holdTime, handler)
 
-inline fun Node.pressAndHoldFilter(
+fun Node.pressAndHoldFilter(
     holdTime: Duration,
-    noinline handler: (MouseEvent) -> Unit
+    handler: (MouseEvent) -> Unit
 ): Unit = JFXNodeUtils.addPressAndHoldFilter(this, holdTime, handler)
 
-inline fun <T> ObservableValue<T>.delayedPropertyInvalidationListener(
+fun <T> ObservableValue<T>.delayedPropertyInvalidationListener(
     delayTime: Duration,
-    noinline consumer: (T) -> Unit
+    consumer: (T) -> Unit
 ): InvalidationListener = JFXNodeUtils.addDelayedPropertyInvalidationListener(this, delayTime, consumer)
 
-inline fun <T> ObservableValue<T>.delayedPropertyInvalidationListener(
+fun <T> ObservableValue<T>.delayedPropertyInvalidationListener(
     delayTime: Duration,
-    noinline justInTimeConsumer: (T) -> Unit,
-    noinline consumer: (T) -> Unit
+    justInTimeConsumer: (T) -> Unit,
+    consumer: (T) -> Unit
 ): InvalidationListener =
     JFXNodeUtils.addDelayedPropertyInvalidationListener(this, delayTime, justInTimeConsumer, consumer)
 
-inline fun <T : Event> Node.delayedEventHandler(
+fun <T : Event> Node.delayedEventHandler(
     delayTime: Duration,
     eventType: EventType<T>,
-    noinline handler: (T) -> Unit
+    handler: (T) -> Unit
 ): EventHandler<in T> = JFXNodeUtils.addDelayedEventHandler(this, delayTime, eventType, handler)

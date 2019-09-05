@@ -11,12 +11,8 @@ import javafx.scene.paint.Paint
 import javafx.stage.Stage
 import ktfx.internal.KtfxInternals
 
-open class _Scene(
-    root: Parent,
-    width: Double,
-    height: Double,
-    fill: Paint
-) : Scene(root, width, height, fill), NodeManager {
+open class _Scene(root: Parent, width: Double, height: Double, fill: Paint) :
+    Scene(root, width, height, fill), NodeManager {
 
     override fun <T : Node> T.add(): T = also { root = KtfxInternals.asPane(it) }
 }

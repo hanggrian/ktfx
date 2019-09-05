@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.jfoenix
 
@@ -21,8 +21,7 @@ interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {
     ): JFXTreeTableColumn<S, T> = column(this, init)
 }
 
-@PublishedApi
-internal class _JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> : JFXTreeTableColumnsBuilder<S>,
+private class _JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> : JFXTreeTableColumnsBuilder<S>,
     LayoutManager<JFXTreeTableColumn<S, *>> {
 
     val collection: MutableCollection<JFXTreeTableColumn<S, *>> = mutableListOf()
@@ -34,6 +33,6 @@ internal class _JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> : JFXTree
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
-inline fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(init: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
+fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(init: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
     columns += _JFXTreeTableColumnsBuilder<S>().apply(init).collection
 }

@@ -18,7 +18,7 @@ interface TableColumnsBuilder<S> {
     ): TableColumn<S, T> = column(this, init)
 }
 
-internal class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, LayoutManager<TableColumn<S, *>> {
+private class _TableColumnsBuilder<S> : TableColumnsBuilder<S>, LayoutManager<TableColumn<S, *>> {
 
     val collection: MutableCollection<TableColumn<S, *>> = mutableListOf()
 

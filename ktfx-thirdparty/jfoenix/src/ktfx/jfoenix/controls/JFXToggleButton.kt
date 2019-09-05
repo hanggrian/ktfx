@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,12 +6,11 @@ import com.jfoenix.controls.JFXToggleButton
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXToggleButton]. */
-fun jfxToggleButton(
-    init: ((@LayoutDslMarker JFXToggleButton).() -> Unit)? = null
-): JFXToggleButton = JFXToggleButton().also { init?.invoke(it) }
+/** Add a [JFXToggleButton] to this manager. */
+fun NodeManager.jfxToggleButton(): JFXToggleButton =
+    JFXToggleButton().add()
 
-/** Creates a [JFXToggleButton] and add it to this manager. */
+/** Add a [JFXToggleButton] with initialization block to this manager. */
 inline fun NodeManager.jfxToggleButton(
-    noinline init: ((@LayoutDslMarker JFXToggleButton).() -> Unit)? = null
-): JFXToggleButton = ktfx.jfoenix.jfxToggleButton(init).add()
+    init: (@LayoutDslMarker JFXToggleButton).() -> Unit
+): JFXToggleButton = jfxToggleButton().apply(init)

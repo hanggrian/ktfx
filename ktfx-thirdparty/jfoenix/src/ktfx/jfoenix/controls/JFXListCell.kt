@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,12 +6,11 @@ import com.jfoenix.controls.JFXListCell
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXListCell]. */
-fun <T> jfxListCell(
-    init: ((@LayoutDslMarker JFXListCell<T>).() -> Unit)? = null
-): JFXListCell<T> = JFXListCell<T>().also { init?.invoke(it) }
+/** Add a [JFXListCell] to this manager. */
+fun <T> NodeManager.jfxListCell(): JFXListCell<T> =
+    JFXListCell<T>().add()
 
-/** Creates a [JFXListCell] and add it to this manager. */
+/** Add a [JFXListCell] with initialization to this manager. */
 inline fun <T> NodeManager.jfxListCell(
-    noinline init: ((@LayoutDslMarker JFXListCell<T>).() -> Unit)? = null
-): JFXListCell<T> = ktfx.jfoenix.jfxListCell(init).add()
+    init: (@LayoutDslMarker JFXListCell<T>).() -> Unit
+): JFXListCell<T> = jfxListCell<T>().apply(init)

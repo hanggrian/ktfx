@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,12 +6,11 @@ import com.jfoenix.controls.JFXPasswordField
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXPasswordField]. */
-fun jfxPasswordField(
-    init: ((@LayoutDslMarker JFXPasswordField).() -> Unit)? = null
-): JFXPasswordField = JFXPasswordField().also { init?.invoke(it) }
+/** Add a [JFXPasswordField] to this manager. */
+fun NodeManager.jfxPasswordField(): JFXPasswordField =
+    JFXPasswordField().add()
 
-/** Creates a [JFXPasswordField] and add it to this manager. */
+/** Add a [JFXPasswordField] with initialization to this manager. */
 inline fun NodeManager.jfxPasswordField(
-    noinline init: ((@LayoutDslMarker JFXPasswordField).() -> Unit)? = null
-): JFXPasswordField = ktfx.jfoenix.jfxPasswordField(init).add()
+    init: (@LayoutDslMarker JFXPasswordField).() -> Unit
+): JFXPasswordField = jfxPasswordField().apply(init)

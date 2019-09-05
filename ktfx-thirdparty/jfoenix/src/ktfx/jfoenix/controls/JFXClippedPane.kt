@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.jfoenix
 
@@ -12,12 +12,11 @@ open class _JFXClippedPane : JFXClippedPane(), NodeManager {
     override fun <R : Node> R.add(): R = also { children += it }
 }
 
-/** Creates a [JFXClippedPane]. */
-fun jfxClippedPane(
-    init: ((@LayoutDslMarker _JFXClippedPane).() -> Unit)? = null
-): JFXClippedPane = _JFXClippedPane().also { init?.invoke(it) }
+/** Add a [JFXClippedPane] to this manager. */
+fun NodeManager.jfxClippedPane(): JFXClippedPane =
+    _JFXClippedPane().add()
 
-/** Creates a [JFXClippedPane] and add it to this manager. */
+/** Add a [JFXClippedPane] with initialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
-    noinline init: ((@LayoutDslMarker _JFXClippedPane).() -> Unit)? = null
-): JFXClippedPane = ktfx.jfoenix.jfxClippedPane(init).add()
+    init: (@LayoutDslMarker _JFXClippedPane).() -> Unit
+): JFXClippedPane = (jfxClippedPane() as _JFXClippedPane).apply(init)

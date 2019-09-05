@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.jfoenix
 
@@ -13,12 +13,11 @@ open class _JFXRippler : JFXRippler(), NodeManager {
     override fun <R : Node> R.add(): R = also { control = it }
 }
 
-/** Creates a [JFXRippler]. */
-fun jfxRippler(
-    init: ((@LayoutDslMarker _JFXRippler).() -> Unit)? = null
-): JFXRippler = _JFXRippler().also { init?.invoke(it) }
+/** Add a [JFXRippler] to this manager. */
+fun NodeManager.jfxRippler(): JFXRippler =
+    _JFXRippler().add()
 
-/** Creates a [JFXRippler] and add it to this manager. */
+/** Add a [JFXRippler] with initialization to this manager. */
 inline fun NodeManager.jfxRippler(
-    noinline init: ((@LayoutDslMarker _JFXRippler).() -> Unit)? = null
-): JFXRippler = ktfx.jfoenix.jfxRippler(init).add()
+    init: (@LayoutDslMarker _JFXRippler).() -> Unit
+): JFXRippler = (jfxRippler() as _JFXRippler).apply(init)

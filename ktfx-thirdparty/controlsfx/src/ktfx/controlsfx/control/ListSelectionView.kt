@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -6,12 +6,11 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.ListSelectionView
 
-/** Creates a [ListSelectionView]. */
-fun <T> listSelectionView(
-    init: ((@LayoutDslMarker ListSelectionView<T>).() -> Unit)? = null
-): ListSelectionView<T> = ListSelectionView<T>().also { init?.invoke(it) }
+/** Add a [ListSelectionView] to this manager. */
+fun <T> NodeManager.listSelectionView(): ListSelectionView<T> =
+    ListSelectionView<T>().add()
 
-/** Creates a [ListSelectionView] and add it to this manager. */
+/** Add a [ListSelectionView] with initialization block to this manager. */
 inline fun <T> NodeManager.listSelectionView(
-    noinline init: ((@LayoutDslMarker ListSelectionView<T>).() -> Unit)? = null
-): ListSelectionView<T> = ktfx.controlsfx.listSelectionView(init).add()
+    init: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
+): ListSelectionView<T> = listSelectionView<T>().apply(init)

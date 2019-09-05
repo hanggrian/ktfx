@@ -12,7 +12,7 @@ open class _ToolBar : ToolBar(), NodeManager {
 
 /** Add a [ToolBar] to this manager. */
 fun NodeManager.toolBar(): ToolBar =
-    ToolBar().add()
+    _ToolBar().add()
 
 /** Add a [ToolBar] with initialization block to this manager. */
 inline fun NodeManager.toolBar(

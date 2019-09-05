@@ -1,21 +1,23 @@
 package ktfx.layouts.scene.control
 
+import ktfx.layouts.NodeManager
+import ktfx.layouts._Pane
+import ktfx.layouts.button
 import ktfx.layouts.buttonBar
 import ktfx.test.ToolkitLayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class ButtonBarTest : ToolkitLayoutTest() {
+class ButtonBarTest : ToolkitLayoutTest<NodeManager>(_Pane()) {
 
-    override fun newInstance() {
-        buttonBar {
-            assertEmpty(buttons)
-            "Hello"()
-            "World"()
-            assertEquals(2, buttons.size)
+    override fun test() {
+        manage {
+            buttonBar {
+                assertEmpty(buttons)
+                button("Hello")
+                button("World")
+                assertEquals(2, buttons.size)
+            }
         }
-    }
-
-    override fun withManager() {
     }
 }

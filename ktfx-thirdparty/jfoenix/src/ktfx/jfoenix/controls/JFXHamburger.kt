@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,12 +6,11 @@ import com.jfoenix.controls.JFXHamburger
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXHamburger]. */
-fun jfxHamburger(
-    init: ((@LayoutDslMarker JFXHamburger).() -> Unit)? = null
-): JFXHamburger = JFXHamburger().also { init?.invoke(it) }
+/** Add a [JFXHamburger] to this manager. */
+fun NodeManager.jfxHamburger(): JFXHamburger =
+    JFXHamburger().add()
 
-/** Creates a [JFXHamburger] and add it to this manager. */
+/** Add a [JFXHamburger] with initialization block to this manager. */
 inline fun NodeManager.jfxHamburger(
-    noinline init: ((@LayoutDslMarker JFXHamburger).() -> Unit)? = null
-): JFXHamburger = ktfx.jfoenix.jfxHamburger(init).add()
+    init: (@LayoutDslMarker JFXHamburger).() -> Unit
+): JFXHamburger = jfxHamburger().apply(init)

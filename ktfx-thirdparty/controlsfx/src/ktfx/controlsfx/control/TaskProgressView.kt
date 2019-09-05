@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -7,12 +7,11 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.TaskProgressView
 
-/** Creates a [TaskProgressView]. */
-fun <T : Task<*>> taskProgressView(
-    init: ((@LayoutDslMarker TaskProgressView<T>).() -> Unit)? = null
-): TaskProgressView<T> = TaskProgressView<T>().also { init?.invoke(it) }
+/** Add a [TaskProgressView] to this manager. */
+fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> =
+    TaskProgressView<T>().add()
 
-/** Creates a [TaskProgressView] and add it to this manager. */
+/** Add a [TaskProgressView] with initialization block to this manager. */
 inline fun <T : Task<*>> NodeManager.taskProgressView(
-    noinline init: ((@LayoutDslMarker TaskProgressView<T>).() -> Unit)? = null
-): TaskProgressView<T> = ktfx.controlsfx.taskProgressView(init).add()
+    init: (@LayoutDslMarker TaskProgressView<T>).() -> Unit
+): TaskProgressView<T> = taskProgressView<T>().apply(init)

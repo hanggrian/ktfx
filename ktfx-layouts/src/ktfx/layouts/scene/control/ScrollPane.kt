@@ -13,7 +13,7 @@ open class _ScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 /** Add a [ScrollPane] to this manager. */
 fun NodeManager.scrollPane(
     content: Node? = null
-): ScrollPane = ScrollPane(content).add()
+): ScrollPane = _ScrollPane(content).add()
 
 /** Add a [ScrollPane] with initialization block to this manager. */
 inline fun NodeManager.scrollPane(

@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,12 +6,11 @@ import com.jfoenix.controls.JFXChipView
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXChipView]. */
-fun <T> jfxChipView(
-    init: ((@LayoutDslMarker JFXChipView<T>).() -> Unit)? = null
-): JFXChipView<T> = JFXChipView<T>().also { init?.invoke(it) }
+/** Add a [JFXChipView] to this manager. */
+fun <T> NodeManager.jfxChipView(): JFXChipView<T> =
+    JFXChipView<T>().add()
 
-/** Creates a [JFXChipView] and add it to this manager. */
+/** Add a [JFXChipView] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxChipView(
-    noinline init: ((@LayoutDslMarker JFXChipView<T>).() -> Unit)? = null
-): JFXChipView<T> = ktfx.jfoenix.jfxChipView(init).add()
+    init: (@LayoutDslMarker JFXChipView<T>).() -> Unit
+): JFXChipView<T> = jfxChipView<T>().apply(init)

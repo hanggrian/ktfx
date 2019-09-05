@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -7,14 +7,13 @@ import javafx.scene.paint.Color
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXColorPicker]. */
-fun jfxColorPicker(
-    color: Color? = null,
-    init: ((@LayoutDslMarker JFXColorPicker).() -> Unit)? = null
-): JFXColorPicker = JFXColorPicker(color).also { init?.invoke(it) }
+/** Add a [JFXColorPicker] to this manager. */
+fun NodeManager.jfxColorPicker(
+    color: Color? = null
+): JFXColorPicker = JFXColorPicker(color).add()
 
-/** Creates a [JFXColorPicker] and add it to this manager. */
+/** Add a [JFXColorPicker] with initialization block to this manager. */
 inline fun NodeManager.jfxColorPicker(
     color: Color? = null,
-    noinline init: ((@LayoutDslMarker JFXColorPicker).() -> Unit)? = null
-): JFXColorPicker = ktfx.jfoenix.jfxColorPicker(color, init).add()
+    init: (@LayoutDslMarker JFXColorPicker).() -> Unit
+): JFXColorPicker = jfxColorPicker(color).apply(init)

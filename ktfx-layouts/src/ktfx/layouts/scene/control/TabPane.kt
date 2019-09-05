@@ -19,7 +19,7 @@ open class _TabPane : TabPane(), TabManager {
 
 /** Add a [TabPane] to this manager. */
 fun NodeManager.tabPane(): TabPane =
-    TabPane().add()
+    _TabPane().add()
 
 /** Add a [TabPane] with initialization block to this manager. */
 inline fun NodeManager.tabPane(

@@ -17,7 +17,7 @@ class FxRoboticInterfaceTest : AppTest() {
     private lateinit var button: Button
 
     override fun start(stage: Stage) {
-        stage.scene = scene {
+        stage.scene {
             vbox {
                 label = label("Tap here.")
                 button = button("Tap") {

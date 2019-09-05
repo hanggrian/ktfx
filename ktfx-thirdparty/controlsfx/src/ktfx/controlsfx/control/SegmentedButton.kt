@@ -1,9 +1,8 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName", "UNCHECKED_CAST")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.controlsfx
 
 import javafx.scene.Node
-import javafx.scene.control.Button
 import javafx.scene.control.ToggleButton
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
@@ -15,19 +14,18 @@ open class _SegmentedButton : SegmentedButton(), ToggleButtonManager {
 
     override fun <R : ToggleButton> R.add(): R = also { buttons += it }
 
-    /** Creates a [Button] and add it to this manager. */
+    /** Call [ToggleButtonManager.toggleButton] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDslMarker ToggleButton).() -> Unit)? = null
+        init: (@LayoutDslMarker ToggleButton).() -> Unit
     ): ToggleButton = toggleButton(this, graphic, init)
 }
 
-/** Creates a [SegmentedButton]. */
-fun segmentedButton(
-    init: ((@LayoutDslMarker _SegmentedButton).() -> Unit)? = null
-): SegmentedButton = _SegmentedButton().also { init?.invoke(it) }
+/** Add a [SegmentedButton] to this manager. */
+fun NodeManager.segmentedButton(): SegmentedButton =
+    _SegmentedButton().add()
 
-/** Creates a [SegmentedButton] and add it to this manager. */
+/** Add a [SegmentedButton] with initialization block to this manager. */
 inline fun NodeManager.segmentedButton(
-    noinline init: ((@LayoutDslMarker _SegmentedButton).() -> Unit)? = null
-): SegmentedButton = ktfx.controlsfx.segmentedButton(init).add()
+    init: (@LayoutDslMarker _SegmentedButton).() -> Unit
+): SegmentedButton = (segmentedButton() as _SegmentedButton).apply(init)

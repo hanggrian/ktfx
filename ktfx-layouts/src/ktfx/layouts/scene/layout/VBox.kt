@@ -25,7 +25,7 @@ open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints
 /** Add a [VBox] to this manager. */
 fun NodeManager.vbox(
     spacing: Double = 0.0
-): VBox = VBox(spacing).add()
+): VBox = _VBox(spacing).add()
 
 /** Add a [VBox] with initialization block to this manager. */
 inline fun NodeManager.vbox(

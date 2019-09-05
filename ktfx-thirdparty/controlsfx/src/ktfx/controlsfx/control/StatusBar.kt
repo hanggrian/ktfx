@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -6,12 +6,11 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.StatusBar
 
-/** Creates a [StatusBar]. */
-fun statusBar(
-    init: ((@LayoutDslMarker StatusBar).() -> Unit)? = null
-): StatusBar = StatusBar().also { init?.invoke(it) }
+/** Add a [StatusBar] to this manager. */
+fun NodeManager.statusBar(): StatusBar =
+    StatusBar().add()
 
-/** Creates a [StatusBar] and add it to this manager. */
+/** Add a [StatusBar] with initialization block to this manager. */
 inline fun NodeManager.statusBar(
-    noinline init: ((@LayoutDslMarker StatusBar).() -> Unit)? = null
-): StatusBar = ktfx.controlsfx.statusBar(init).add()
+    init: (@LayoutDslMarker StatusBar).() -> Unit
+): StatusBar = statusBar().apply(init)

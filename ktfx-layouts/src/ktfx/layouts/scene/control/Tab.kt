@@ -14,7 +14,7 @@ open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManag
 fun TabManager.tab(
     text: String? = null,
     content: Node? = null
-): Tab = Tab(text, content).add()
+): Tab = _Tab(text, content).add()
 
 /** Add a [Tab] with initialization block to this manager. */
 inline fun TabManager.tab(

@@ -25,7 +25,8 @@ inline fun JFXSnackbar.showIndefinite(
 ): Unit = show(text, -1, actionText, action)
 
 /** Show this snackbar indefinitely. */
-inline fun JFXSnackbar.showIndefinite(text: String): Unit = showIndefinite(text, null, null)
+inline fun JFXSnackbar.showIndefinite(text: String): Unit =
+    showIndefinite(text, null, null)
 
 /** Create and show a snackbar with an action. */
 fun Pane.jfxSnackbar(

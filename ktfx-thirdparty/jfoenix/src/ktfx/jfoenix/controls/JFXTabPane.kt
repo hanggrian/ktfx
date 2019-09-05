@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.jfoenix
 
@@ -15,19 +15,18 @@ open class _JFXTabPane : JFXTabPane(), TabManager {
 
     override fun <R : Tab> R.add(): R = also { tabs += it }
 
-    /** Creates a [Tab] and add it to this manager. */
+    /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        noinline init: ((@LayoutDslMarker _Tab).() -> Unit)? = null
+        init: (@LayoutDslMarker _Tab).() -> Unit
     ): Tab = tab(this, graphic, init)
 }
 
-/** Creates a [JFXTabPane]. */
-fun jfxTabPane(
-    init: ((@LayoutDslMarker _JFXTabPane).() -> Unit)? = null
-): JFXTabPane = _JFXTabPane().also { init?.invoke(it) }
+/** Add a [JFXTabPane] to this manager. */
+fun NodeManager.jfxTabPane(): JFXTabPane =
+    _JFXTabPane().add()
 
-/** Creates a [JFXTabPane] and add it to this manager. */
+/** Add a [JFXTabPane] with initialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
-    noinline init: ((@LayoutDslMarker _JFXTabPane).() -> Unit)? = null
-): JFXTabPane = ktfx.jfoenix.jfxTabPane(init).add()
+    init: (@LayoutDslMarker _JFXTabPane).() -> Unit
+): JFXTabPane = (jfxTabPane() as _JFXTabPane).apply(init)

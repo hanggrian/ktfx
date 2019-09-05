@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,14 +6,13 @@ import com.jfoenix.controls.JFXRadioButton
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXRadioButton]. */
-fun jfxRadioButton(
-    text: String? = null,
-    init: ((@LayoutDslMarker JFXRadioButton).() -> Unit)? = null
-): JFXRadioButton = JFXRadioButton(text).also { init?.invoke(it) }
+/** Add a [JFXRadioButton] to this manager. */
+fun NodeManager.jfxRadioButton(
+    text: String? = null
+): JFXRadioButton = JFXRadioButton(text).add()
 
-/** Creates a [JFXRadioButton] and add it to this manager. */
+/** Add a [JFXRadioButton] with initialization to this manager. */
 inline fun NodeManager.jfxRadioButton(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker JFXRadioButton).() -> Unit)? = null
-): JFXRadioButton = ktfx.jfoenix.jfxRadioButton(text, init).add()
+    init: (@LayoutDslMarker JFXRadioButton).() -> Unit
+): JFXRadioButton = jfxRadioButton(text).apply(init)

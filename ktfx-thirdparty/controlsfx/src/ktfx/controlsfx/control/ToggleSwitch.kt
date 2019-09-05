@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -6,14 +6,13 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.ToggleSwitch
 
-/** Creates a [ToggleSwitch]. */
-fun toggleSwitch(
-    text: String? = null,
-    init: ((@LayoutDslMarker ToggleSwitch).() -> Unit)? = null
-): ToggleSwitch = ToggleSwitch(text).also { init?.invoke(it) }
+/** Add a [ToggleSwitch] to this manager. */
+fun NodeManager.toggleSwitch(
+    text: String? = null
+): ToggleSwitch = ToggleSwitch(text).add()
 
-/** Creates a [ToggleSwitch] and add it to this manager. */
+/** Add a [ToggleSwitch] with initialization block to this manager. */
 inline fun NodeManager.toggleSwitch(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker ToggleSwitch).() -> Unit)? = null
-): ToggleSwitch = ktfx.controlsfx.toggleSwitch(text, init).add()
+    init: (@LayoutDslMarker ToggleSwitch).() -> Unit
+): ToggleSwitch = toggleSwitch(text).apply(init)

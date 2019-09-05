@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -6,12 +6,11 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.MaskerPane
 
-/** Creates a [MaskerPane]. */
-fun maskerPane(
-    init: ((@LayoutDslMarker MaskerPane).() -> Unit)? = null
-): MaskerPane = MaskerPane().also { init?.invoke(it) }
+/** Add a [MaskerPane] to this manager. */
+fun NodeManager.maskerPane(): MaskerPane =
+    MaskerPane().add()
 
-/** Creates a [MaskerPane] and add it to this manager. */
+/** Add a [MaskerPane] with initialization block to this manager. */
 inline fun NodeManager.maskerPane(
-    noinline init: ((@LayoutDslMarker MaskerPane).() -> Unit)? = null
-): MaskerPane = ktfx.controlsfx.maskerPane(init).add()
+    init: (@LayoutDslMarker MaskerPane).() -> Unit
+): MaskerPane = maskerPane().apply(init)

@@ -28,7 +28,7 @@ open class _BorderPane : BorderPane(), AlignConstraints, MarginConstraints, Node
 
 /** Add a [BorderPane] to this manager. */
 fun NodeManager.borderPane(): BorderPane =
-    BorderPane().add()
+    _BorderPane().add()
 
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(

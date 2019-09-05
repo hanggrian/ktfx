@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -7,14 +7,13 @@ import javafx.scene.control.TreeItem
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXTreeView]. */
-fun <T> jfxTreeView(
-    root: TreeItem<T>? = null,
-    init: ((@LayoutDslMarker JFXTreeView<T>).() -> Unit)? = null
-): JFXTreeView<T> = JFXTreeView<T>(root).also { init?.invoke(it) }
+/** Add a [JFXTreeView] to this manager. */
+fun <T> NodeManager.jfxTreeView(
+    root: TreeItem<T>? = null
+): JFXTreeView<T> = JFXTreeView(root).add()
 
-/** Creates a [JFXTreeView] and add it to this manager. */
+/** Add a [JFXTreeView] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null,
-    noinline init: ((@LayoutDslMarker JFXTreeView<T>).() -> Unit)? = null
-): JFXTreeView<T> = ktfx.jfoenix.jfxTreeView(root, init).add()
+    init: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
+): JFXTreeView<T> = jfxTreeView(root).apply(init)

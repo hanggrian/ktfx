@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.controlsfx
 
@@ -7,14 +7,13 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.PropertySheet
 
-/** Creates a [PropertySheet]. */
-fun propertySheet(
-    items: ObservableList<PropertySheet.Item>? = null,
-    init: ((@LayoutDslMarker PropertySheet).() -> Unit)? = null
-): PropertySheet = PropertySheet(items).also { init?.invoke(it) }
+/** Add a [PropertySheet] to this manager. */
+fun NodeManager.propertySheet(
+    items: ObservableList<PropertySheet.Item>? = null
+): PropertySheet = PropertySheet(items).add()
 
-/** Creates a [PropertySheet] and add it to this manager. */
+/** Add a [PropertySheet] with initialization block to this manager. */
 inline fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
-    noinline init: ((@LayoutDslMarker PropertySheet).() -> Unit)? = null
-): PropertySheet = ktfx.controlsfx.propertySheet(items, init).add()
+    init: (@LayoutDslMarker PropertySheet).() -> Unit
+): PropertySheet = propertySheet(items).apply(init)

@@ -4,13 +4,13 @@
 
 package ktfx.collections
 
+import java.util.LinkedHashSet
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.IntegerBinding
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.collections.ObservableSet
-import java.util.LinkedHashSet
 
 /** Returns an empty immutable [ObservableSet]. */
 fun <T> emptyObservableSet(): ObservableSet<T> =

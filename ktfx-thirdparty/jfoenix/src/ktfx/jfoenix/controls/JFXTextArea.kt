@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,14 +6,13 @@ import com.jfoenix.controls.JFXTextArea
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXTextArea]. */
-fun jfxTextArea(
-    text: String? = null,
-    init: ((@LayoutDslMarker JFXTextArea).() -> Unit)? = null
-): JFXTextArea = JFXTextArea(text.orEmpty()).also { init?.invoke(it) }
+/** Add a [JFXTextArea] to this manager. */
+fun NodeManager.jfxTextArea(
+    text: String? = null
+): JFXTextArea = JFXTextArea(text).add()
 
-/** Creates a [JFXTextArea] and add it to this manager. */
+/** Add a [JFXTextArea] with initialization block to this manager. */
 inline fun NodeManager.jfxTextArea(
     text: String? = null,
-    noinline init: ((@LayoutDslMarker JFXTextArea).() -> Unit)? = null
-): JFXTextArea = ktfx.jfoenix.jfxTextArea(text, init).add()
+    init: (@LayoutDslMarker JFXTextArea).() -> Unit
+): JFXTextArea = jfxTextArea(text).apply(init)

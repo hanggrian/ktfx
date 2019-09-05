@@ -13,7 +13,7 @@ open class _HBox(spacing: Double) : HBox(spacing), HBoxConstraints {
 /** Add an [HBox] to this manager. */
 fun NodeManager.hbox(
     spacing: Double = 0.0
-): HBox = HBox(spacing).add()
+): HBox = _HBox(spacing).add()
 
 /** Add an [HBox] with initialization block to this manager. */
 inline fun NodeManager.hbox(

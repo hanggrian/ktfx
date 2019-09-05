@@ -15,4 +15,4 @@ fun NodeManager.separator(
 inline fun NodeManager.separator(
     orientation: Orientation = HORIZONTAL,
     init: (@LayoutDslMarker Separator).() -> Unit
-): Separator = separator(orientation).apply(init).add()
+): Separator = separator(orientation).apply(init)

@@ -16,7 +16,8 @@ open class _Accordion : Accordion(), TitledPaneManager {
 }
 
 /** Add a [Accordion] to this manager. */
-fun NodeManager.accordion(): Accordion = _Accordion().add()
+fun NodeManager.accordion(): Accordion =
+    _Accordion().add()
 
 /** Add a [Accordion] with initialization block to this manager. */
 inline fun NodeManager.accordion(

@@ -7,8 +7,8 @@ import javafx.scene.image.Image
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.stage.StageStyle.DECORATED
-import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
+import ktfx.internal.KtfxInternals
 
 /** Get window as [Stage]. */
 inline val Scene.stage: Stage

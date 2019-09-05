@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -7,14 +7,13 @@ import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXToggleNode]. */
-fun jfxToggleNode(
-    graphic: Node? = null,
-    init: ((@LayoutDslMarker JFXToggleNode).() -> Unit)? = null
-): JFXToggleNode = JFXToggleNode(graphic).also { init?.invoke(it) }
+/** Add a [JFXToggleNode] to this manager. */
+fun NodeManager.jfxToggleNode(
+    graphic: Node? = null
+): JFXToggleNode = JFXToggleNode(graphic).add()
 
-/** Creates a [JFXToggleNode] and add it to this manager. */
+/** Add a [JFXToggleNode] with initialization block to this manager. */
 inline fun NodeManager.jfxToggleNode(
     graphic: Node? = null,
-    noinline init: ((@LayoutDslMarker JFXToggleNode).() -> Unit)? = null
-): JFXToggleNode = ktfx.jfoenix.jfxToggleNode(graphic, init).add()
+    init: (@LayoutDslMarker JFXToggleNode).() -> Unit
+): JFXToggleNode = jfxToggleNode(graphic).apply(init)

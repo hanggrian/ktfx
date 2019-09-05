@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.controlsfx
 
@@ -12,12 +12,11 @@ open class _SnapshotView : SnapshotView(), NodeManager {
     override fun <R : Node> R.add(): R = also { node = it }
 }
 
-/** Creates a [SnapshotView]. */
-fun snapshotView(
-    init: ((@LayoutDslMarker _SnapshotView).() -> Unit)? = null
-): SnapshotView = _SnapshotView().also { init?.invoke(it) }
+/** Add a [SnapshotView] to this manager. */
+fun NodeManager.snapshotView(): SnapshotView =
+    _SnapshotView().add()
 
-/** Creates a [SnapshotView] and add it to this manager. */
+/** Add a [SnapshotView] with initialization block to this manager. */
 inline fun NodeManager.snapshotView(
-    noinline init: ((@LayoutDslMarker _SnapshotView).() -> Unit)? = null
-): SnapshotView = ktfx.controlsfx.snapshotView(init).add()
+    init: (@LayoutDslMarker _SnapshotView).() -> Unit
+): SnapshotView = (snapshotView() as _SnapshotView).apply(init)

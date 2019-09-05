@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.jfoenix
 
@@ -23,12 +23,11 @@ open class _JFXToolbar : JFXToolbar() {
     }
 }
 
-/** Creates a [JFXToolbar]. */
-fun jfxToolbar(
-    init: ((@LayoutDslMarker _JFXToolbar).() -> Unit)? = null
-): JFXToolbar = _JFXToolbar().also { init?.invoke(it) }
+/** Add a [JFXToolbar] to this manager. */
+fun NodeManager.jfxToolbar(): JFXToolbar =
+    _JFXToolbar().add()
 
-/** Creates a [JFXToolbar] and add it to this manager. */
+/** Add a [JFXToolbar] with initialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
-    noinline init: ((@LayoutDslMarker _JFXToolbar).() -> Unit)? = null
-): JFXToolbar = ktfx.jfoenix.jfxToolbar(init).add()
+    init: (@LayoutDslMarker _JFXToolbar).() -> Unit
+): JFXToolbar = (jfxToolbar() as _JFXToolbar).apply(init)

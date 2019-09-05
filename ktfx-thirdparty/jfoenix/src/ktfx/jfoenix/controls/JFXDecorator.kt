@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -8,22 +8,21 @@ import javafx.stage.Stage
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXDecorator]. */
-fun jfxDecorator(
+/** Add a [JFXDecorator] to this manager. */
+fun NodeManager.jfxDecorator(
     stage: Stage,
     node: Node,
     fullscreen: Boolean = true,
     max: Boolean = true,
-    min: Boolean = true,
-    init: ((@LayoutDslMarker JFXDecorator).() -> Unit)? = null
-): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).also { init?.invoke(it) }
+    min: Boolean = true
+): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).add()
 
-/** Creates a [JFXDecorator] and add it to this manager. */
+/** Add a [JFXDecorator] with initialization block to this manager. */
 inline fun NodeManager.jfxDecorator(
     stage: Stage,
     node: Node,
     fullscreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    noinline init: ((@LayoutDslMarker JFXDecorator).() -> Unit)? = null
-): JFXDecorator = ktfx.jfoenix.jfxDecorator(stage, node, fullscreen, max, min, init).add()
+    init: (@LayoutDslMarker JFXDecorator).() -> Unit
+): JFXDecorator = jfxDecorator(stage, node, fullscreen, max, min).apply(init)

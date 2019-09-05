@@ -18,7 +18,7 @@ interface TreeTableColumnsBuilder<S> {
     ): TreeTableColumn<S, T> = column(this, init)
 }
 
-internal class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, LayoutManager<TreeTableColumn<S, *>> {
+private class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>, LayoutManager<TreeTableColumn<S, *>> {
 
     val collection: MutableCollection<TreeTableColumn<S, *>> = mutableListOf()
 

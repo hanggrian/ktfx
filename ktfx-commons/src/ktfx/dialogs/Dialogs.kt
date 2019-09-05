@@ -18,10 +18,10 @@ import javafx.scene.control.ButtonType.YES
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals
 import ktfx.windows.icon
 import ktfx.windows.stage
-import kotlin.DeprecationLevel.ERROR
 
 /** Removes old icons and set a new one to this dialog. */
 inline var Dialog<*>.icon: Image

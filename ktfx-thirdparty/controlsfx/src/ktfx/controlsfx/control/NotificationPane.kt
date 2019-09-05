@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "ClassName")
 
 package ktfx.controlsfx
 
@@ -37,12 +37,11 @@ open class _NotificationPane : NotificationPane(), NodeManager {
     override fun <T : Node> T.add(): T = also { content = it }
 }
 
-/** Creates a [NotificationPane]. */
-fun notificationPane(
-    init: ((@LayoutDslMarker _NotificationPane).() -> Unit)? = null
-): NotificationPane = _NotificationPane().also { init?.invoke(it) }
+/** Add a [NotificationPane] to this manager. */
+fun NodeManager.notificationPane(): NotificationPane =
+    _NotificationPane().add()
 
-/** Creates a [NotificationPane] and add it to this manager. */
+/** Add a [NotificationPane] with initialization block to this manager. */
 inline fun NodeManager.notificationPane(
-    noinline init: ((@LayoutDslMarker _NotificationPane).() -> Unit)? = null
-): NotificationPane = ktfx.controlsfx.notificationPane(init).add()
+    init: (@LayoutDslMarker _NotificationPane).() -> Unit
+): NotificationPane = (notificationPane() as _NotificationPane).apply(init)

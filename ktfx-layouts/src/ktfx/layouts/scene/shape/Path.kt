@@ -12,7 +12,7 @@ open class _Path : Path(), PathElementManager {
 
 /** Add a [Path] to this manager. */
 fun NodeManager.path(): Path =
-    Path().add()
+    _Path().add()
 
 /** Add a [Path] with initialization block to this manager. */
 inline fun NodeManager.path(

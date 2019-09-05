@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -6,12 +6,11 @@ import com.jfoenix.controls.JFXMasonryPane
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXMasonryPane]. */
-fun jfxMasonryPane(
-    init: ((@LayoutDslMarker JFXMasonryPane).() -> Unit)? = null
-): JFXMasonryPane = JFXMasonryPane().also { init?.invoke(it) }
+/** Add a [JFXMasonryPane] to this manager. */
+fun NodeManager.jfxMasonryPane(): JFXMasonryPane =
+    JFXMasonryPane().add()
 
-/** Creates a [JFXMasonryPane] and add it to this manager. */
+/** Add a [JFXMasonryPane] with initialization to this manager. */
 inline fun NodeManager.jfxMasonryPane(
-    noinline init: ((@LayoutDslMarker JFXMasonryPane).() -> Unit)? = null
-): JFXMasonryPane = ktfx.jfoenix.jfxMasonryPane(init).add()
+    init: (@LayoutDslMarker JFXMasonryPane).() -> Unit
+): JFXMasonryPane = jfxMasonryPane().apply(init)

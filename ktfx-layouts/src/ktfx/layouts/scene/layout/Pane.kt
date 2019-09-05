@@ -12,7 +12,7 @@ open class _Pane : Pane(), NodeManager {
 
 /** Add a [Pane] to this manager. */
 fun NodeManager.pane(): Pane =
-    Pane().add()
+    _Pane().add()
 
 /** Add a [Pane] with initialization block to this manager. */
 inline fun NodeManager.pane(

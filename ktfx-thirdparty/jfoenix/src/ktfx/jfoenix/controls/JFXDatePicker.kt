@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.jfoenix
 
@@ -7,14 +7,13 @@ import java.time.LocalDate
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-/** Creates a [JFXDatePicker]. */
-fun jfxDatePicker(
-    date: LocalDate? = null,
-    init: ((@LayoutDslMarker JFXDatePicker).() -> Unit)? = null
-): JFXDatePicker = JFXDatePicker(date).also { init?.invoke(it) }
+/** Add a [JFXDatePicker] to this manager. */
+fun NodeManager.jfxDatePicker(
+    date: LocalDate? = null
+): JFXDatePicker = JFXDatePicker(date).add()
 
-/** Creates a [JFXDatePicker] and add it to this manager. */
+/** Add a [JFXDatePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxDatePicker(
     date: LocalDate? = null,
-    noinline init: ((@LayoutDslMarker JFXDatePicker).() -> Unit)? = null
-): JFXDatePicker = ktfx.jfoenix.jfxDatePicker(date, init).add()
+    init: (@LayoutDslMarker JFXDatePicker).() -> Unit
+): JFXDatePicker = jfxDatePicker(date).apply(init)

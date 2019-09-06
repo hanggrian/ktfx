@@ -10,18 +10,25 @@ import org.controlsfx.control.MasterDetailPane
 
 open class _MasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
 
-    override fun <T : Node> T.add(): T = also { masterNode = it }
+    override fun <T : Node> addNode(node: T): T = node.also { masterNode = it }
 }
+
+/** Create a [MasterDetailPane] with initialization block. */
+inline fun masterDetailPane(
+    side: Side = Side.RIGHT,
+    showDetail: Boolean = true,
+    init: (@LayoutDslMarker _MasterDetailPane).() -> Unit
+): MasterDetailPane = _MasterDetailPane(side, showDetail).apply(init)
 
 /** Add a [MasterDetailPane] to this manager. */
 fun NodeManager.masterDetailPane(
     side: Side = Side.RIGHT,
     showDetail: Boolean = true
-): MasterDetailPane = _MasterDetailPane(side, showDetail).add()
+): MasterDetailPane = addNode(ktfx.controlsfx.masterDetailPane(side, showDetail) { })
 
 /** Add a [MasterDetailPane] with initialization block to this manager. */
 inline fun NodeManager.masterDetailPane(
     side: Side = Side.RIGHT,
     showDetail: Boolean = true,
     init: (@LayoutDslMarker _MasterDetailPane).() -> Unit
-): MasterDetailPane = (masterDetailPane(side, showDetail) as _MasterDetailPane).apply(init)
+): MasterDetailPane = addNode(ktfx.controlsfx.masterDetailPane(side, showDetail, init))

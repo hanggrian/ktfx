@@ -4,11 +4,16 @@ package ktfx.layouts
 
 import javafx.scene.control.Spinner
 
+/** Create a [Spinner] with initialization block. */
+inline fun <T> spinner(
+    init: (@LayoutDslMarker Spinner<T>).() -> Unit
+): Spinner<T> = Spinner<T>().apply(init)
+
 /** Add a [Spinner] to this manager. */
 fun <T> NodeManager.spinner(): Spinner<T> =
-    Spinner<T>().add()
+    addNode(ktfx.layouts.spinner { })
 
 /** Add a [Spinner] with initialization block to this manager. */
 inline fun <T> NodeManager.spinner(
     init: (@LayoutDslMarker Spinner<T>).() -> Unit
-): Spinner<T> = spinner<T>().apply(init)
+): Spinner<T> = addNode(ktfx.layouts.spinner(init))

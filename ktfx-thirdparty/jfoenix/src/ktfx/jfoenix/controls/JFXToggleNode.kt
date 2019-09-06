@@ -7,13 +7,19 @@ import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
+/** Create a [JFXToggleNode] with initialization block. */
+inline fun jfxToggleNode(
+    graphic: Node? = null,
+    init: (@LayoutDslMarker JFXToggleNode).() -> Unit
+): JFXToggleNode = JFXToggleNode(graphic).apply(init)
+
 /** Add a [JFXToggleNode] to this manager. */
 fun NodeManager.jfxToggleNode(
     graphic: Node? = null
-): JFXToggleNode = JFXToggleNode(graphic).add()
+): JFXToggleNode = addNode(ktfx.jfoenix.jfxToggleNode(graphic) { })
 
 /** Add a [JFXToggleNode] with initialization block to this manager. */
 inline fun NodeManager.jfxToggleNode(
     graphic: Node? = null,
     init: (@LayoutDslMarker JFXToggleNode).() -> Unit
-): JFXToggleNode = jfxToggleNode(graphic).apply(init)
+): JFXToggleNode = addNode(ktfx.jfoenix.jfxToggleNode(graphic, init))

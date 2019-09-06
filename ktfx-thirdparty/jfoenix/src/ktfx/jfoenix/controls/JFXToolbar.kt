@@ -12,22 +12,27 @@ open class _JFXToolbar : JFXToolbar() {
 
     fun leftItems(init: (@LayoutDslMarker HBoxConstraints).() -> Unit) {
         object : HBoxConstraints {
-            override fun <R : Node> R.add(): R = also { leftItems += it }
+            override fun <T : Node> addNode(node: T): T = node.also { leftItems += it }
         }.apply(init)
     }
 
     fun rightItems(init: (@LayoutDslMarker HBoxConstraints).() -> Unit) {
         object : HBoxConstraints {
-            override fun <R : Node> R.add(): R = also { rightItems += it }
+            override fun <T : Node> addNode(node: T): T = node.also { rightItems += it }
         }.apply(init)
     }
 }
 
+/** Create a [JFXToolbar] with initialization block. */
+inline fun jfxToolbar(
+    init: (@LayoutDslMarker _JFXToolbar).() -> Unit
+): JFXToolbar = _JFXToolbar().apply(init)
+
 /** Add a [JFXToolbar] to this manager. */
 fun NodeManager.jfxToolbar(): JFXToolbar =
-    _JFXToolbar().add()
+    addNode(ktfx.jfoenix.jfxToolbar { })
 
 /** Add a [JFXToolbar] with initialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
     init: (@LayoutDslMarker _JFXToolbar).() -> Unit
-): JFXToolbar = (jfxToolbar() as _JFXToolbar).apply(init)
+): JFXToolbar = addNode(ktfx.jfoenix.jfxToolbar(init))

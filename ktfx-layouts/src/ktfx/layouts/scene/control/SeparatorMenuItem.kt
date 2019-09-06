@@ -4,11 +4,16 @@ package ktfx.layouts
 
 import javafx.scene.control.SeparatorMenuItem
 
+/** Create a [SeparatorMenuItem] with initialization block. */
+inline fun separatorMenuItem(
+    init: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
+): SeparatorMenuItem = SeparatorMenuItem().apply(init)
+
 /** Add a [SeparatorMenuItem] to this manager. */
 fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem =
-    SeparatorMenuItem().add()
+    addItem(ktfx.layouts.separatorMenuItem { })
 
 /** Add a [SeparatorMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.separatorMenuItem(
     init: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
-): SeparatorMenuItem = separatorMenuItem().apply(init)
+): SeparatorMenuItem = addItem(ktfx.layouts.separatorMenuItem(init))

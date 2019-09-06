@@ -7,13 +7,19 @@ import java.time.LocalDate
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
+/** Create a [JFXDatePicker] with initialization block. */
+inline fun jfxDatePicker(
+    date: LocalDate? = null,
+    init: (@LayoutDslMarker JFXDatePicker).() -> Unit
+): JFXDatePicker = JFXDatePicker(date).apply(init)
+
 /** Add a [JFXDatePicker] to this manager. */
 fun NodeManager.jfxDatePicker(
     date: LocalDate? = null
-): JFXDatePicker = JFXDatePicker(date).add()
+): JFXDatePicker = addNode(ktfx.jfoenix.jfxDatePicker(date) { })
 
 /** Add a [JFXDatePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxDatePicker(
     date: LocalDate? = null,
     init: (@LayoutDslMarker JFXDatePicker).() -> Unit
-): JFXDatePicker = jfxDatePicker(date).apply(init)
+): JFXDatePicker = addNode(ktfx.jfoenix.jfxDatePicker(date, init))

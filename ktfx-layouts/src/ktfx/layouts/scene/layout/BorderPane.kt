@@ -13,7 +13,7 @@ import javafx.scene.layout.BorderPane
  */
 open class _BorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
 
-    override fun <R : Node> R.add(): R = also { center = it }
+    override fun <T : Node> addNode(node: T): T = node.also { center = it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -26,11 +26,16 @@ open class _BorderPane : BorderPane(), AlignConstraints, MarginConstraints, Node
         set(value) = setMargin(this, value)
 }
 
+/** Create a [BorderPane] with initialization block. */
+inline fun borderPane(
+    init: (@LayoutDslMarker _BorderPane).() -> Unit
+): BorderPane = _BorderPane().apply(init)
+
 /** Add a [BorderPane] to this manager. */
 fun NodeManager.borderPane(): BorderPane =
-    _BorderPane().add()
+    addNode(ktfx.layouts.borderPane { })
 
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
     init: (@LayoutDslMarker _BorderPane).() -> Unit
-): BorderPane = (borderPane() as _BorderPane).apply(init)
+): BorderPane = addNode(ktfx.layouts.borderPane(init))

@@ -4,11 +4,16 @@ package ktfx.layouts
 
 import javafx.scene.shape.SVGPath
 
+/** Create a [SVGPath] with initialization block. */
+inline fun svgPath(
+    init: (@LayoutDslMarker SVGPath).() -> Unit
+): SVGPath = SVGPath().apply(init)
+
 /** Add a [SVGPath] to this manager. */
 fun NodeManager.svgPath(): SVGPath =
-    SVGPath().add()
+    addNode(ktfx.layouts.svgPath { })
 
 /** Add a [SVGPath] with initialization block to this manager. */
 inline fun NodeManager.svgPath(
     init: (@LayoutDslMarker SVGPath).() -> Unit
-): SVGPath = svgPath().apply(init)
+): SVGPath = addNode(ktfx.layouts.svgPath(init))

@@ -7,35 +7,41 @@ import javafx.scene.control.Control
 import javafx.scene.control.Tab
 import javafx.scene.control.Tooltip
 
+/** Create a [Tooltip] with initialization block. */
+inline fun tooltip(
+    text: String? = null,
+    init: (@LayoutDslMarker Tooltip).() -> Unit
+): Tooltip = Tooltip(text).apply(init)
+
 /** Set a [Tooltip] to this [Node]. */
 fun Node.tooltip(
     text: String? = null
-): Tooltip = Tooltip(text).also { Tooltip.install(this, it) }
+): Tooltip = ktfx.layouts.tooltip(text) { }.also { Tooltip.install(this, it) }
 
 /** Set a [Tooltip] with initialization block to this [Node]. */
 inline fun Node.tooltip(
     text: String? = null,
     init: (@LayoutDslMarker Tooltip).() -> Unit
-): Tooltip = tooltip(text).apply(init)
+): Tooltip = ktfx.layouts.tooltip(text, init).also { Tooltip.install(this, it) }
 
 /** Set a [Tooltip] to this [Control]. */
 fun Control.tooltip(
     text: String? = null
-): Tooltip = Tooltip(text).also { tooltip = it }
+): Tooltip = ktfx.layouts.tooltip(text) { }.also { tooltip = it }
 
 /** Set a [Tooltip] with initialization block to this [Control]. */
 inline fun Control.tooltip(
     text: String? = null,
     init: (@LayoutDslMarker Tooltip).() -> Unit
-): Tooltip = tooltip(text).apply(init)
+): Tooltip = ktfx.layouts.tooltip(text, init).also { tooltip = it }
 
 /** Set a [Tooltip] to this [Tab]. */
 fun Tab.tooltip(
     text: String? = null
-): Tooltip = Tooltip(text).also { tooltip = it }
+): Tooltip = ktfx.layouts.tooltip(text) { }.also { tooltip = it }
 
 /** Set a [Tooltip] with initialization block to this [Tab]. */
 inline fun Tab.tooltip(
     text: String? = null,
     init: (@LayoutDslMarker Tooltip).() -> Unit
-): Tooltip = tooltip(text).apply(init)
+): Tooltip = ktfx.layouts.tooltip(text, init).also { tooltip = it }

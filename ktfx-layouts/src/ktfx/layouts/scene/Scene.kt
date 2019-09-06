@@ -14,15 +14,23 @@ import ktfx.internal.KtfxInternals
 open class _Scene(root: Parent, width: Double, height: Double, fill: Paint) :
     Scene(root, width, height, fill), NodeManager {
 
-    override fun <T : Node> T.add(): T = also { root = KtfxInternals.asPane(it) }
+    override fun <T : Node> addNode(node: T): T = node.also { root = KtfxInternals.asPane(it) }
 }
+
+/** Create a [Scene] with initialization block. */
+inline fun scene(
+    width: Double = -1.0,
+    height: Double = -1.0,
+    fill: Paint = WHITE,
+    init: (@LayoutDslMarker _Scene).() -> Unit
+): Scene = _Scene(Pane(), width, height, fill).apply(init)
 
 /** Add a [Scene] to this window. */
 fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = WHITE
-): Scene = _Scene(Pane(), width, height, fill).also { scene = it }
+): Scene = ktfx.layouts.scene(width, height, fill) { }.also { scene = it }
 
 /** Add a [Scene] with initialization block to this window. */
 inline fun Stage.scene(
@@ -30,4 +38,4 @@ inline fun Stage.scene(
     height: Double = -1.0,
     fill: Paint = WHITE,
     init: (@LayoutDslMarker _Scene).() -> Unit
-): Scene = (scene(width, height, fill) as _Scene).apply(init)
+): Scene = ktfx.layouts.scene(width, height, fill, init).also { scene = it }

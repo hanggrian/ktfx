@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane
 
 open class _StackPane : StackPane(), NodeManager, AlignConstraints, MarginConstraints {
 
-    override fun <R : Node> R.add(): R = also { children += it }
+    override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -22,11 +22,16 @@ open class _StackPane : StackPane(), NodeManager, AlignConstraints, MarginConstr
         set(value) = setMargin(this, value)
 }
 
+/** Create a [StackPane] with initialization block. */
+inline fun stackPane(
+    init: (@LayoutDslMarker _StackPane).() -> Unit
+): StackPane = _StackPane().apply(init)
+
 /** Add a [StackPane] to this manager. */
 fun NodeManager.stackPane(): StackPane =
-    _StackPane().add()
+    addNode(ktfx.layouts.stackPane { })
 
 /** Add a [StackPane] with initialization block to this manager. */
 inline fun NodeManager.stackPane(
     init: (@LayoutDslMarker _StackPane).() -> Unit
-): StackPane = (stackPane() as _StackPane).apply(init)
+): StackPane = addNode(ktfx.layouts.stackPane(init))

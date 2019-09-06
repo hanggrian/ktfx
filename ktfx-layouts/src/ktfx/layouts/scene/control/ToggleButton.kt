@@ -5,28 +5,35 @@ package ktfx.layouts
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
 
+/** Create a [ToggleButton] with initialization block. */
+inline fun toggleButton(
+    text: String? = null,
+    graphic: Node? = null,
+    init: (@LayoutDslMarker ToggleButton).() -> Unit
+): ToggleButton = ToggleButton(text, graphic).apply(init)
+
 /** Add a [ToggleButton] to this manager. */
 fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null
-): ToggleButton = ToggleButton(text, graphic).add()
+): ToggleButton = addNode(ktfx.layouts.toggleButton(text, graphic) { })
 
 /** Add a [ToggleButton] with initialization block to this manager. */
 inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton = toggleButton(text, graphic).apply(init)
+): ToggleButton = addNode(ktfx.layouts.toggleButton(text, graphic, init))
 
 /** Add a [ToggleButton] to this manager. */
 fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null
-): ToggleButton = ToggleButton(text, graphic).add()
+): ToggleButton = addButton(ktfx.layouts.toggleButton(text, graphic) { })
 
 /** Add a [ToggleButton] with initialization block to this manager. */
 inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton = toggleButton(text, graphic).apply(init)
+): ToggleButton = addButton(ktfx.layouts.toggleButton(text, graphic, init))

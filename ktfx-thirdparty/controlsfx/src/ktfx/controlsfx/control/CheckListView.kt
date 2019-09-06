@@ -8,13 +8,19 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.CheckListView
 
+/** Create a [CheckListView] with initialization block. */
+inline fun <T> checkListView(
+    items: ObservableList<T> = mutableObservableListOf(),
+    init: (@LayoutDslMarker CheckListView<T>).() -> Unit
+): CheckListView<T> = CheckListView(items).apply(init)
+
 /** Add a [CheckListView] to this manager. */
 fun <T> NodeManager.checkListView(
     items: ObservableList<T> = mutableObservableListOf()
-): CheckListView<T> = CheckListView(items).add()
+): CheckListView<T> = addNode(ktfx.controlsfx.checkListView(items) { })
 
 /** Add a [CheckListView] with initialization block to this manager. */
 inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = mutableObservableListOf(),
     init: (@LayoutDslMarker CheckListView<T>).() -> Unit
-): CheckListView<T> = checkListView(items).apply(init)
+): CheckListView<T> = addNode(ktfx.controlsfx.checkListView(items, init))

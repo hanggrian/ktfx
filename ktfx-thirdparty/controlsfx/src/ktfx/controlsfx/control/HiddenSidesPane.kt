@@ -13,14 +13,19 @@ import org.controlsfx.control.HiddenSidesPane
  */
 open class _HiddenSidesPane : HiddenSidesPane(), NodeManager {
 
-    override fun <R : Node> R.add(): R = also { content = it }
+    override fun <T : Node> addNode(node: T): T = node.also { content = it }
 }
+
+/** Create a [HiddenSidesPane] with initialization block. */
+inline fun hiddenSidesPane(
+    init: (@LayoutDslMarker _HiddenSidesPane).() -> Unit
+): HiddenSidesPane = _HiddenSidesPane().apply(init)
 
 /** Add a [HiddenSidesPane] to this manager. */
 fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
-    _HiddenSidesPane().add()
+    addNode(ktfx.controlsfx.hiddenSidesPane { })
 
 /** Add a [HiddenSidesPane] with initialization block to this manager. */
 inline fun NodeManager.hiddenSidesPane(
     init: (@LayoutDslMarker _HiddenSidesPane).() -> Unit
-): HiddenSidesPane = (hiddenSidesPane() as _HiddenSidesPane).apply(init)
+): HiddenSidesPane = addNode(ktfx.controlsfx.hiddenSidesPane(init))

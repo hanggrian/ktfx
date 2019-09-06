@@ -9,14 +9,19 @@ import ktfx.layouts.NodeManager
 
 open class _JFXClippedPane : JFXClippedPane(), NodeManager {
 
-    override fun <R : Node> R.add(): R = also { children += it }
+    override fun <T : Node> addNode(node: T): T = node.also { children += it }
 }
+
+/** Create a [JFXClippedPane] with initialization block. */
+inline fun jfxClippedPane(
+    init: (@LayoutDslMarker _JFXClippedPane).() -> Unit
+): JFXClippedPane = _JFXClippedPane().apply(init)
 
 /** Add a [JFXClippedPane] to this manager. */
 fun NodeManager.jfxClippedPane(): JFXClippedPane =
-    _JFXClippedPane().add()
+    addNode(ktfx.jfoenix.jfxClippedPane { })
 
 /** Add a [JFXClippedPane] with initialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
     init: (@LayoutDslMarker _JFXClippedPane).() -> Unit
-): JFXClippedPane = (jfxClippedPane() as _JFXClippedPane).apply(init)
+): JFXClippedPane = addNode(ktfx.jfoenix.jfxClippedPane(init))

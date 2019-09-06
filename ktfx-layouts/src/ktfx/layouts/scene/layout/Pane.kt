@@ -7,14 +7,19 @@ import javafx.scene.layout.Pane
 
 open class _Pane : Pane(), NodeManager {
 
-    override fun <R : Node> R.add(): R = also { children += it }
+    override fun <T : Node> addNode(node: T): T = node.also { children += it }
 }
+
+/** Create a [Pane] with initialization block. */
+inline fun pane(
+    init: (@LayoutDslMarker _Pane).() -> Unit
+): Pane = _Pane().apply(init)
 
 /** Add a [Pane] to this manager. */
 fun NodeManager.pane(): Pane =
-    _Pane().add()
+    addNode(ktfx.layouts.pane { })
 
 /** Add a [Pane] with initialization block to this manager. */
 inline fun NodeManager.pane(
     init: (@LayoutDslMarker _Pane).() -> Unit
-): Pane = (pane() as _Pane).apply(init)
+): Pane = addNode(ktfx.layouts.pane(init))

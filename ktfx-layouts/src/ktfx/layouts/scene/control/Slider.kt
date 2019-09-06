@@ -4,12 +4,20 @@ package ktfx.layouts
 
 import javafx.scene.control.Slider
 
+/** Create a [Slider] with initialization block. */
+inline fun slider(
+    min: Double = 0.0,
+    max: Double = 100.0,
+    value: Double = 0.0,
+    init: (@LayoutDslMarker Slider).() -> Unit
+): Slider = Slider(min, max, value).apply(init)
+
 /** Add a [Slider] to this manager. */
 fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0
-): Slider = Slider(min, max, value).add()
+): Slider = addNode(ktfx.layouts.slider(min, max, value) { })
 
 /** Add a [Slider] with initialization block to this manager. */
 inline fun NodeManager.slider(
@@ -17,4 +25,4 @@ inline fun NodeManager.slider(
     max: Double = 100.0,
     value: Double = 0.0,
     init: (@LayoutDslMarker Slider).() -> Unit
-): Slider = slider(min, max, value).apply(init)
+): Slider = addNode(ktfx.layouts.slider(min, max, value, init))

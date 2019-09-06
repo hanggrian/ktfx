@@ -6,13 +6,19 @@ import com.jfoenix.controls.JFXProgressBar
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
+/** Create a [JFXProgressBar] with initialization block. */
+inline fun jfxProgressBar(
+    progress: Double = 0.0,
+    init: (@LayoutDslMarker JFXProgressBar).() -> Unit
+): JFXProgressBar = JFXProgressBar(progress).apply(init)
+
 /** Add a [JFXProgressBar] to this manager. */
 fun NodeManager.jfxProgressBar(
     progress: Double = 0.0
-): JFXProgressBar = JFXProgressBar(progress).add()
+): JFXProgressBar = addNode(ktfx.jfoenix.jfxProgressBar(progress) { })
 
-/** Add a [JFXProgressBar] with initialization to this manager. */
+/** Add a [JFXProgressBar] with initialization block to this manager. */
 inline fun NodeManager.jfxProgressBar(
     progress: Double = 0.0,
     init: (@LayoutDslMarker JFXProgressBar).() -> Unit
-): JFXProgressBar = jfxProgressBar(progress).apply(init)
+): JFXProgressBar = addNode(ktfx.jfoenix.jfxProgressBar(progress, init))

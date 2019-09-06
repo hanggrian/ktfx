@@ -15,17 +15,17 @@ import javafx.scene.layout.RowConstraints
 open class _GridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstraints, VAlignConstraints,
     HGrowConstraints, VGrowConstraints {
 
-    override fun <R : Node> R.add(): R = also { children += it }
+    override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
-    infix fun <N : Node> N.row(row: Int?): N = also { it.row = row }
+    infix fun <T : Node> T.row(row: Int?): T = also { it.row = row }
 
-    infix fun <N : Node> N.col(col: Int?): N = also { it.col = col }
+    infix fun <T : Node> T.col(col: Int?): T = also { it.col = col }
 
-    infix fun <N : Node> N.rowSpans(rowSpans: Int?): N = also { it.rowSpans = rowSpans }
+    infix fun <T : Node> T.rowSpans(rowSpans: Int?): T = also { it.rowSpans = rowSpans }
 
-    infix fun <N : Node> N.colSpans(colSpans: Int?): N = also { it.colSpans = colSpans }
+    infix fun <T : Node> T.colSpans(colSpans: Int?): T = also { it.colSpans = colSpans }
 
     var Node.row: Int?
         get() = getRowIndex(this)
@@ -55,9 +55,9 @@ open class _GridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstra
         get() = getHalignment(this)
         set(value) = setHalignment(this, value)
 
-    infix fun <N : Node> N.hfill(value: Boolean): N = apply { hfill = value }
+    infix fun <T : Node> T.hfill(value: Boolean): T = apply { hfill = value }
 
-    infix fun <N : Node> N.vfill(value: Boolean): N = apply { vfill = value }
+    infix fun <T : Node> T.vfill(value: Boolean): T = apply { vfill = value }
 
     var Node.hfill: Boolean?
         get() = isFillWidth(this)
@@ -76,14 +76,19 @@ open class _GridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstra
         set(value) = setVgrow(this, value)
 }
 
+/** Create a [GridPane] with initialization block. */
+inline fun gridPane(
+    init: (@LayoutDslMarker _GridPane).() -> Unit
+): GridPane = _GridPane().apply(init)
+
 /** Add a [GridPane] to this manager. */
 fun NodeManager.gridPane(): GridPane =
-    _GridPane().add()
+    addNode(ktfx.layouts.gridPane { })
 
 /** Add a [GridPane] with initialization block to this manager. */
 inline fun NodeManager.gridPane(
     init: (@LayoutDslMarker _GridPane).() -> Unit
-): GridPane = (gridPane() as _GridPane).apply(init)
+): GridPane = addNode(ktfx.layouts.gridPane(init))
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {

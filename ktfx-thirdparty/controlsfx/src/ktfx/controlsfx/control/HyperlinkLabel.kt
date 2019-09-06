@@ -16,13 +16,19 @@ fun HyperlinkLabel.onAction(
     action: suspend CoroutineScope.(ActionEvent) -> Unit
 ): Unit = setOnAction { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
+/** Create a [HyperlinkLabel] with initialization block. */
+inline fun hyperlinkLabel(
+    text: String? = null,
+    init: (@LayoutDslMarker HyperlinkLabel).() -> Unit
+): HyperlinkLabel = HyperlinkLabel(text).apply(init)
+
 /** Add a [HyperlinkLabel] to this manager. */
 fun NodeManager.hyperlinkLabel(
     text: String? = null
-): HyperlinkLabel = HyperlinkLabel(text).add()
+): HyperlinkLabel = addNode(ktfx.controlsfx.hyperlinkLabel(text) { })
 
 /** Add a [HyperlinkLabel] with initialization block to this manager. */
 inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
     init: (@LayoutDslMarker HyperlinkLabel).() -> Unit
-): HyperlinkLabel = hyperlinkLabel(text).apply(init)
+): HyperlinkLabel = addNode(ktfx.controlsfx.hyperlinkLabel(text, init))

@@ -20,23 +20,23 @@ class JFXScrollPaneTest : ToolkitLayoutTest<NodeManager>(_Pane()) {
             val condensed2 = jfxButton()
             val pane = jfxScrollPane {
                 topBar {
-                    top1.add()
+                    addNode(top1)
                 }
                 midBar {
-                    mid1.add()
-                    mid2.add()
+                    addNode(mid1)
+                    addNode(mid2)
                 }
                 bottomBar {
-                    bottom1.add()
-                    bottom2.add()
-                    bottom3.add()
+                    addNode(bottom1)
+                    addNode(bottom2)
+                    addNode(bottom3)
                 }
                 mainHeader {
-                    main1.add()
+                    addNode(main1)
                 }
                 condensedHeader {
-                    condensed1.add()
-                    condensed2.add()
+                    addNode(condensed1)
+                    addNode(condensed2)
                 }
             }
             assertContains(pane.topBar.children, top1).inOrder()

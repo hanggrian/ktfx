@@ -4,13 +4,19 @@ package ktfx.layouts
 
 import javafx.scene.text.Text
 
+/** Create a [Text] with initialization block. */
+inline fun text(
+    text: String? = null,
+    init: (@LayoutDslMarker Text).() -> Unit
+): Text = Text(text).apply(init)
+
 /** Add a [Text] to this manager. */
 fun NodeManager.text(
     text: String? = null
-): Text = Text(text).add()
+): Text = addNode(ktfx.layouts.text(text) { })
 
 /** Add a [Text] with initialization block to this manager. */
 inline fun NodeManager.text(
     text: String? = null,
     init: (@LayoutDslMarker Text).() -> Unit
-): Text = text(text).apply(init)
+): Text = addNode(ktfx.layouts.text(text, init))

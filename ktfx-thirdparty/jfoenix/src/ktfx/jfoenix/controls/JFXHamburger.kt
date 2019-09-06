@@ -6,11 +6,16 @@ import com.jfoenix.controls.JFXHamburger
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
+/** Create a [JFXHamburger] with initialization block. */
+inline fun jfxHamburger(
+    init: (@LayoutDslMarker JFXHamburger).() -> Unit
+): JFXHamburger = JFXHamburger().apply(init)
+
 /** Add a [JFXHamburger] to this manager. */
 fun NodeManager.jfxHamburger(): JFXHamburger =
-    JFXHamburger().add()
+    addNode(ktfx.jfoenix.jfxHamburger { })
 
 /** Add a [JFXHamburger] with initialization block to this manager. */
 inline fun NodeManager.jfxHamburger(
     init: (@LayoutDslMarker JFXHamburger).() -> Unit
-): JFXHamburger = jfxHamburger().apply(init)
+): JFXHamburger = addNode(ktfx.jfoenix.jfxHamburger(init))

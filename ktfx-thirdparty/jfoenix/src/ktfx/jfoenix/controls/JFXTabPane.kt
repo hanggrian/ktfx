@@ -13,7 +13,7 @@ import ktfx.layouts.tab
 
 open class _JFXTabPane : JFXTabPane(), TabManager {
 
-    override fun <R : Tab> R.add(): R = also { tabs += it }
+    override fun <T : Tab> addTab(tab: T): T = tab.also { tabs += it }
 
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
@@ -22,11 +22,16 @@ open class _JFXTabPane : JFXTabPane(), TabManager {
     ): Tab = tab(this, graphic, init)
 }
 
+/** Create a [JFXTabPane] with initialization block. */
+inline fun jfxTabPane(
+    init: (@LayoutDslMarker _JFXTabPane).() -> Unit
+): JFXTabPane = _JFXTabPane().apply(init)
+
 /** Add a [JFXTabPane] to this manager. */
 fun NodeManager.jfxTabPane(): JFXTabPane =
-    _JFXTabPane().add()
+    addNode(ktfx.jfoenix.jfxTabPane { })
 
 /** Add a [JFXTabPane] with initialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
     init: (@LayoutDslMarker _JFXTabPane).() -> Unit
-): JFXTabPane = (jfxTabPane() as _JFXTabPane).apply(init)
+): JFXTabPane = addNode(ktfx.jfoenix.jfxTabPane(init))

@@ -17,13 +17,19 @@ fun <T> BreadCrumbBar<T>.onCrumbAction(
     action: suspend CoroutineScope.(BreadCrumbBar.BreadCrumbActionEvent<T>) -> Unit
 ): Unit = setOnCrumbAction { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
+/** Create a [BreadCrumbBar] with initialization block. */
+inline fun <T> breadCrumbBar(
+    selectedCrumb: TreeItem<T>? = null,
+    init: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
+): BreadCrumbBar<T> = BreadCrumbBar(selectedCrumb).apply(init)
+
 /** Add a [BreadCrumbBar] to this manager. */
 fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null
-): BreadCrumbBar<T> = BreadCrumbBar(selectedCrumb).add()
+): BreadCrumbBar<T> = addNode(ktfx.controlsfx.breadCrumbBar(selectedCrumb) { })
 
 /** Add a [BreadCrumbBar] with initialization block to this manager. */
 inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     init: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
-): BreadCrumbBar<T> = breadCrumbBar(selectedCrumb).apply(init)
+): BreadCrumbBar<T> = addNode(ktfx.controlsfx.breadCrumbBar(selectedCrumb, init))

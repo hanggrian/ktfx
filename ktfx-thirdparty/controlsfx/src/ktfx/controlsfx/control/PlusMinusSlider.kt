@@ -15,11 +15,16 @@ fun PlusMinusSlider.onValueChanged(
     action: suspend CoroutineScope.(PlusMinusSlider.PlusMinusEvent) -> Unit
 ): Unit = setOnValueChanged { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
+/** Create a [PlusMinusSlider] with initialization block. */
+inline fun plusMinusSlider(
+    init: (@LayoutDslMarker PlusMinusSlider).() -> Unit
+): PlusMinusSlider = PlusMinusSlider().apply(init)
+
 /** Add a [PlusMinusSlider] to this manager. */
 fun NodeManager.plusMinusSlider(): PlusMinusSlider =
-    PlusMinusSlider().add()
+    addNode(ktfx.controlsfx.plusMinusSlider { })
 
 /** Add a [PlusMinusSlider] with initialization block to this manager. */
 inline fun NodeManager.plusMinusSlider(
     init: (@LayoutDslMarker PlusMinusSlider).() -> Unit
-): PlusMinusSlider = plusMinusSlider().apply(init)
+): PlusMinusSlider = addNode(ktfx.controlsfx.plusMinusSlider(init))

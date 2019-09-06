@@ -8,17 +8,25 @@ import javafx.scene.chart.Axis
 import javafx.scene.chart.XYChart.Series
 import ktfx.collections.mutableObservableListOf
 
-/** Add a [AreaChart] to this manager. */
+/** Create an [AreaChart] with initialization block. */
+inline fun <X, Y> areaChart(
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
+    init: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+): AreaChart<X, Y> = AreaChart(x, y, data).apply(init)
+
+/** Add an [AreaChart] to this manager. */
 fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf()
-): AreaChart<X, Y> = AreaChart(x, y, data).add()
+): AreaChart<X, Y> = addNode(ktfx.layouts.areaChart(x, y, data) { })
 
-/** Add a [AreaChart] with initialization block to this manager. */
+/** Add an [AreaChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     init: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
-): AreaChart<X, Y> = areaChart(x, y, data).apply(init)
+): AreaChart<X, Y> = addNode(ktfx.layouts.areaChart(x, y, data, init))

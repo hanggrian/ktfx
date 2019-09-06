@@ -8,7 +8,7 @@ import javafx.scene.control.MenuItem
 
 open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
 
-    override fun <R : MenuItem> R.add(): R = also { items += it }
+    override fun <T : MenuItem> addItem(item: T): T = item.also { items += it }
 
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
@@ -17,28 +17,35 @@ open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemMa
     ): MenuItem = menuItem(this, graphic, init)
 }
 
+/** Create a [Menu] with initialization block. */
+inline fun menu(
+    text: String = "",
+    graphic: Node? = null,
+    init: (@LayoutDslMarker _Menu).() -> Unit
+): Menu = _Menu(text, graphic).apply(init)
+
 /** Add a [Menu] to this manager. */
 fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null
-): Menu = _Menu(text, graphic).add()
+): Menu = addMenu(ktfx.layouts.menu(text, graphic) { })
 
 /** Add a [Menu] with initialization block to this manager. */
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
     init: (@LayoutDslMarker _Menu).() -> Unit
-): Menu = (menu(text, graphic) as _Menu).apply(init)
+): Menu = addMenu(ktfx.layouts.menu(text, graphic, init))
 
 /** Add a [Menu] to this manager. */
 fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null
-): Menu = _Menu(text, graphic).add()
+): Menu = addItem(ktfx.layouts.menu(text, graphic) { })
 
 /** Add a [Menu] with initialization block to this manager. */
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
     init: (@LayoutDslMarker _Menu).() -> Unit
-): Menu = (menu(text, graphic) as _Menu).apply(init)
+): Menu = addItem(ktfx.layouts.menu(text, graphic, init))

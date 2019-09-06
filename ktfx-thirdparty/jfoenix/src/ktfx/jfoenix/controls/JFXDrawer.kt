@@ -33,11 +33,16 @@ fun JFXDrawer.onDrawerOpening(
     action: suspend CoroutineScope.(JFXDrawerEvent) -> Unit
 ): Unit = setOnDrawerOpening { event -> GlobalScope.launch(context) { action(event) } }
 
+/** Create a [JFXDrawer] with initialization block. */
+inline fun jfxDrawer(
+    init: (@LayoutDslMarker JFXDrawer).() -> Unit
+): JFXDrawer = JFXDrawer().apply(init)
+
 /** Add a [JFXDrawer] to this manager. */
 fun NodeManager.jfxDrawer(): JFXDrawer =
-    JFXDrawer().add()
+    addNode(ktfx.jfoenix.jfxDrawer { })
 
 /** Add a [JFXDrawer] with initialization block to this manager. */
 inline fun NodeManager.jfxDrawer(
     init: (@LayoutDslMarker JFXDrawer).() -> Unit
-): JFXDrawer = jfxDrawer().apply(init)
+): JFXDrawer = addNode(ktfx.jfoenix.jfxDrawer(init))

@@ -12,7 +12,7 @@ import javafx.scene.layout.TilePane
 open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
     NodeManager, AlignConstraints, MarginConstraints {
 
-    override fun <R : Node> R.add(): R = also { children += it }
+    override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -25,12 +25,20 @@ open class _TilePane(orientation: Orientation, hgap: Double, vgap: Double) : Til
         set(value) = setMargin(this, value)
 }
 
+/** Create a [TilePane] with initialization block. */
+inline fun tilePane(
+    orientation: Orientation = HORIZONTAL,
+    hgap: Double = 0.0,
+    vgap: Double = 0.0,
+    init: (@LayoutDslMarker _TilePane).() -> Unit
+): TilePane = _TilePane(orientation, hgap, vgap).apply(init)
+
 /** Add a [TilePane] to this manager. */
 fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0
-): TilePane = _TilePane(orientation, hgap, vgap).add()
+): TilePane = addNode(ktfx.layouts.tilePane(orientation, hgap, vgap) { })
 
 /** Add a [TilePane] with initialization block to this manager. */
 inline fun NodeManager.tilePane(
@@ -38,4 +46,4 @@ inline fun NodeManager.tilePane(
     hgap: Double = 0.0,
     vgap: Double = 0.0,
     init: (@LayoutDslMarker _TilePane).() -> Unit
-): TilePane = (tilePane(orientation, hgap, vgap) as _TilePane).apply(init)
+): TilePane = addNode(ktfx.layouts.tilePane(orientation, hgap, vgap, init))

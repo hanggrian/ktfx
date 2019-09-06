@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox
 
 open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints, MarginConstraints {
 
-    override fun <R : Node> R.add(): R = also { children += it }
+    override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
     override fun Node.reset(): Unit = clearConstraints(this)
 
@@ -22,13 +22,19 @@ open class _VBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints
         set(value) = setMargin(this, value)
 }
 
+/** Create a [VBox] with initialization block. */
+inline fun vbox(
+    spacing: Double = 0.0,
+    init: (@LayoutDslMarker _VBox).() -> Unit
+): VBox = _VBox(spacing).apply(init)
+
 /** Add a [VBox] to this manager. */
 fun NodeManager.vbox(
     spacing: Double = 0.0
-): VBox = _VBox(spacing).add()
+): VBox = addNode(ktfx.layouts.vbox(spacing) { })
 
 /** Add a [VBox] with initialization block to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker _VBox).() -> Unit
-): VBox = (vbox(spacing) as _VBox).apply(init)
+): VBox = addNode(ktfx.layouts.vbox(spacing, init))

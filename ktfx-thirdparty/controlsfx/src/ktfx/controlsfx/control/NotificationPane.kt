@@ -34,14 +34,19 @@ fun NotificationPane.onHidden(
 
 open class _NotificationPane : NotificationPane(), NodeManager {
 
-    override fun <T : Node> T.add(): T = also { content = it }
+    override fun <T : Node> addNode(node: T): T = node.also { content = it }
 }
+
+/** Create a [NotificationPane] with initialization block. */
+inline fun notificationPane(
+    init: (@LayoutDslMarker _NotificationPane).() -> Unit
+): NotificationPane = _NotificationPane().apply(init)
 
 /** Add a [NotificationPane] to this manager. */
 fun NodeManager.notificationPane(): NotificationPane =
-    _NotificationPane().add()
+    addNode(ktfx.controlsfx.notificationPane { })
 
 /** Add a [NotificationPane] with initialization block to this manager. */
 inline fun NodeManager.notificationPane(
     init: (@LayoutDslMarker _NotificationPane).() -> Unit
-): NotificationPane = (notificationPane() as _NotificationPane).apply(init)
+): NotificationPane = addNode(ktfx.controlsfx.notificationPane(init))

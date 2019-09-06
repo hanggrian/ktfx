@@ -9,14 +9,19 @@ import ktfx.layouts.NodeManager
 
 open class _JFXBadge : JFXBadge(), NodeManager {
 
-    override fun <R : Node> R.add(): R = also { control = it }
+    override fun <T : Node> addNode(node: T): T = node.also { control = it }
 }
+
+/** Create a [JFXBadge] with initialization block. */
+inline fun jfxBadge(
+    init: (@LayoutDslMarker _JFXBadge).() -> Unit
+): JFXBadge = _JFXBadge().apply(init)
 
 /** Add a [JFXBadge] to this manager. */
 fun NodeManager.jfxBadge(): JFXBadge =
-    _JFXBadge().add()
+    addNode(ktfx.jfoenix.jfxBadge { })
 
 /** Add a [JFXBadge] with initialization block to this manager. */
 inline fun NodeManager.jfxBadge(
     init: (@LayoutDslMarker _JFXBadge).() -> Unit
-): JFXBadge = (jfxBadge() as _JFXBadge).apply(init)
+): JFXBadge = addNode(ktfx.jfoenix.jfxBadge(init))

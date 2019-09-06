@@ -8,6 +8,16 @@ import javafx.stage.Stage
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
+/** Create a [JFXDecorator] with initialization block. */
+inline fun jfxDecorator(
+    stage: Stage,
+    node: Node,
+    fullscreen: Boolean = true,
+    max: Boolean = true,
+    min: Boolean = true,
+    init: (@LayoutDslMarker JFXDecorator).() -> Unit
+): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).apply(init)
+
 /** Add a [JFXDecorator] to this manager. */
 fun NodeManager.jfxDecorator(
     stage: Stage,
@@ -15,7 +25,7 @@ fun NodeManager.jfxDecorator(
     fullscreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true
-): JFXDecorator = JFXDecorator(stage, node, fullscreen, max, min).add()
+): JFXDecorator = addNode(ktfx.jfoenix.jfxDecorator(stage, node, fullscreen, max, min) { })
 
 /** Add a [JFXDecorator] with initialization block to this manager. */
 inline fun NodeManager.jfxDecorator(
@@ -25,4 +35,4 @@ inline fun NodeManager.jfxDecorator(
     max: Boolean = true,
     min: Boolean = true,
     init: (@LayoutDslMarker JFXDecorator).() -> Unit
-): JFXDecorator = jfxDecorator(stage, node, fullscreen, max, min).apply(init)
+): JFXDecorator = addNode(ktfx.jfoenix.jfxDecorator(stage, node, fullscreen, max, min, init))

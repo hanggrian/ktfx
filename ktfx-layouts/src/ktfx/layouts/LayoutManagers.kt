@@ -25,22 +25,85 @@ interface LayoutManager<T> {
 }
 
 /** Manager for most panes. */
-interface NodeManager : LayoutManager<Node>
+interface NodeManager {
+
+    /**
+     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
+     *
+     * @param node child to add
+     * @return the child added
+     */
+    fun <T : Node> addNode(node: T): T
+}
 
 /** Manager for ControlsFX segmented button. */
-interface ToggleButtonManager : LayoutManager<ToggleButton>
+interface ToggleButtonManager {
+
+    /**
+     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
+     *
+     * @param button child to add
+     * @return the child added
+     */
+    fun <T : ToggleButton> addButton(button: T): T
+}
 
 /** Manager for [javafx.scene.control.Accordion]. */
-interface TitledPaneManager : LayoutManager<TitledPane>
+interface TitledPaneManager {
+
+    /**
+     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
+     *
+     * @param pane child to add
+     * @return the child added
+     */
+    fun <T : TitledPane> addPane(pane: T): T
+}
 
 /** Manager for [javafx.scene.control.MenuBar]. */
-interface MenuManager : LayoutManager<Menu>
+interface MenuManager {
+
+    /**
+     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
+     *
+     * @param menu child to add
+     * @return the child added
+     */
+    fun <T : Menu> addMenu(menu: T): T
+}
 
 /** Manager for [javafx.scene.control.SplitMenuButton]. */
-interface MenuItemManager : LayoutManager<MenuItem>
+interface MenuItemManager {
+
+    /**
+     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
+     *
+     * @param item child to add
+     * @return the child added
+     */
+    fun <T : MenuItem> addItem(item: T): T
+}
 
 /** Manager for [javafx.scene.control.TabPane]. */
-interface TabManager : LayoutManager<Tab>
+interface TabManager {
+
+    /**
+     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
+     *
+     * @param tab child to add
+     * @return the child added
+     */
+    fun <T : Tab> addTab(tab: T): T
+}
 
 /** Manager for [javafx.scene.shape.Path]. */
-interface PathElementManager : LayoutManager<PathElement>
+interface PathElementManager {
+
+    /**
+     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
+     *
+     * @param element child to add
+     * @return the child added
+     */
+    fun <T : PathElement> addElement(element: T): T
+}

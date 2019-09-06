@@ -12,7 +12,7 @@ import org.controlsfx.control.SegmentedButton
 
 open class _SegmentedButton : SegmentedButton(), ToggleButtonManager {
 
-    override fun <R : ToggleButton> R.add(): R = also { buttons += it }
+    override fun <T : ToggleButton> addButton(button: T): T = button.also { buttons += it }
 
     /** Call [ToggleButtonManager.toggleButton] by string invocation. */
     inline operator fun String.invoke(
@@ -21,11 +21,16 @@ open class _SegmentedButton : SegmentedButton(), ToggleButtonManager {
     ): ToggleButton = toggleButton(this, graphic, init)
 }
 
+/** Create a [SegmentedButton] with initialization block. */
+inline fun segmentedButton(
+    init: (@LayoutDslMarker _SegmentedButton).() -> Unit
+): SegmentedButton = _SegmentedButton().apply(init)
+
 /** Add a [SegmentedButton] to this manager. */
 fun NodeManager.segmentedButton(): SegmentedButton =
-    _SegmentedButton().add()
+    addNode(ktfx.controlsfx.segmentedButton { })
 
 /** Add a [SegmentedButton] with initialization block to this manager. */
 inline fun NodeManager.segmentedButton(
     init: (@LayoutDslMarker _SegmentedButton).() -> Unit
-): SegmentedButton = (segmentedButton() as _SegmentedButton).apply(init)
+): SegmentedButton = addNode(ktfx.controlsfx.segmentedButton(init))

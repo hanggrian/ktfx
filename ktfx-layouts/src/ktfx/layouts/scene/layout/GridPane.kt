@@ -91,20 +91,43 @@ inline fun NodeManager.gridPane(
 ): GridPane = addNode(ktfx.layouts.gridPane(init))
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
-interface ConstraintsBuilder<out T : ConstraintsBase> {
+sealed class ConstraintsBuilder<out T : ConstraintsBase> {
 
-    fun constraints(init: (T.() -> Unit)? = null): T
+    abstract fun constraints(): T
 
-    fun constraints(size: Double, init: (T.() -> Unit)? = null): T
+    inline fun constraints(init: T.() -> Unit): T =
+        constraints().apply(init)
 
-    fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: (T.() -> Unit)? = null): T
+    abstract fun constraints(size: Double): T
+
+    inline fun constraints(size: Double, init: T.() -> Unit): T =
+        constraints(size).apply(init)
+
+    abstract fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T
+
+    inline fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: T.() -> Unit): T =
+        constraints(minSize, prefSize, maxSize).apply(init)
 }
 
-private abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>, LayoutManager<T> {
+private abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>() {
+
+    companion object {
+        fun ofRow(): _ConstraintsBuilder<RowConstraints> = object : _ConstraintsBuilder<RowConstraints>() {
+            override fun newInstance(): RowConstraints = RowConstraints()
+            override fun newInstance(width: Double): RowConstraints = RowConstraints(width)
+            override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): RowConstraints =
+                RowConstraints(width, prefWidth, maxWidth)
+        }
+
+        fun ofColumn(): _ConstraintsBuilder<ColumnConstraints> = object : _ConstraintsBuilder<ColumnConstraints>() {
+            override fun newInstance(): ColumnConstraints = ColumnConstraints()
+            override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
+            override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
+                ColumnConstraints(width, prefWidth, maxWidth)
+        }
+    }
 
     val collection: MutableCollection<T> = mutableListOf()
-
-    override fun <R : T> R.add(): R = also { collection += it }
 
     abstract fun newInstance(): T
 
@@ -112,32 +135,22 @@ private abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBui
 
     abstract fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): T
 
-    override fun constraints(init: (T.() -> Unit)?): T =
-        newInstance().also { init?.invoke(it) }.add()
+    override fun constraints(): T =
+        newInstance().also { collection += it }
 
-    override fun constraints(size: Double, init: (T.() -> Unit)?): T =
-        newInstance(size).also { init?.invoke(it) }.add()
+    override fun constraints(size: Double): T =
+        newInstance(size).also { collection += it }
 
-    override fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: (T.() -> Unit)?): T =
-        newInstance(minSize, prefSize, maxSize).also { init?.invoke(it) }.add()
+    override fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T =
+        newInstance(minSize, prefSize, maxSize).also { collection += it }
 }
 
 /** Invokes a row constraints DSL builder. */
 fun GridPane.rowConstraints(init: ConstraintsBuilder<RowConstraints>.() -> Unit) {
-    rowConstraints += object : _ConstraintsBuilder<RowConstraints>() {
-        override fun newInstance(): RowConstraints = RowConstraints()
-        override fun newInstance(width: Double): RowConstraints = RowConstraints(width)
-        override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): RowConstraints =
-            RowConstraints(width, prefWidth, maxWidth)
-    }.apply(init).collection
+    rowConstraints += _ConstraintsBuilder.ofRow().apply(init).collection
 }
 
 /** Invokes a column constraints DSL builder. */
 fun GridPane.columnConstraints(init: ConstraintsBuilder<ColumnConstraints>.() -> Unit) {
-    columnConstraints += object : _ConstraintsBuilder<ColumnConstraints>() {
-        override fun newInstance(): ColumnConstraints = ColumnConstraints()
-        override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
-        override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
-            ColumnConstraints(width, prefWidth, maxWidth)
-    }.apply(init).collection
+    columnConstraints += _ConstraintsBuilder.ofColumn().apply(init).collection
 }

@@ -5,21 +5,19 @@ import ktfx.layouts.Person
 import ktfx.layouts._Pane
 import ktfx.layouts.columns
 import ktfx.layouts.treeTableView
-import ktfx.test.ToolkitLayoutTest
+import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
-class TreeTableColumnsTest : ToolkitLayoutTest<NodeManager>(_Pane()) {
+class TreeTableColumnsTest : LayoutToolkitTest<NodeManager>(_Pane()) {
 
-    override fun test() {
-        manage {
-            val treeTableView = treeTableView<Person> {
-                columns {
-                    "Name"<String>()
-                    "Age"<Int>()
-                }
+    override fun NodeManager.layout() {
+        val treeTableView = treeTableView<Person> {
+            columns {
+                column<String>("Name")
+                column<Int>("Age")
             }
-            assertEquals(treeTableView.columns[0].text, "Name")
-            assertEquals(treeTableView.columns[1].text, "Age")
         }
+        assertEquals(treeTableView.columns[0].text, "Name")
+        assertEquals(treeTableView.columns[1].text, "Age")
     }
 }

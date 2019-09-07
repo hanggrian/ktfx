@@ -8,22 +8,6 @@ import javafx.scene.control.TitledPane
 import javafx.scene.control.ToggleButton
 import javafx.scene.shape.PathElement
 
-/**
- * Base interface for all layout managers.
- *
- * @param T child of this parent
- */
-interface LayoutManager<T> {
-
-    /**
-     * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
-     *
-     * @receiver the child to add
-     * @return the child added
-     */
-    fun <R : T> R.add(): R
-}
-
 /** Manager for most panes. */
 interface NodeManager {
 

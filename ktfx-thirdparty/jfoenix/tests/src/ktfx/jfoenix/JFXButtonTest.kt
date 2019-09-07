@@ -2,14 +2,12 @@ package ktfx.jfoenix
 
 import ktfx.layouts.NodeManager
 import ktfx.layouts._Pane
-import ktfx.test.ToolkitLayoutTest
+import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertNull
 
-class JFXButtonTest : ToolkitLayoutTest<NodeManager>(_Pane()) {
+class JFXButtonTest : LayoutToolkitTest<NodeManager>(_Pane()) {
 
-    override fun test() {
-        manage {
-            assertNull(jfxButton().text)
-        }
+    override fun NodeManager.layout() {
+        assertNull(jfxButton().text)
     }
 }

@@ -5,22 +5,20 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts._Pane
 import ktfx.layouts.label
 import ktfx.layouts.textFlow
-import ktfx.test.ToolkitLayoutTest
+import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
-class TextFlowTes : ToolkitLayoutTest<NodeManager>(_Pane()) {
+class TextFlowTest : LayoutToolkitTest<NodeManager>(_Pane()) {
 
-    override fun test() {
-        manage {
-            textFlow {
-                label("Hello")
-                "World" {
-                    fill = RED
-                    assertEquals(fill, RED)
-                }
-
-                assertEquals(children.size, 2)
+    override fun NodeManager.layout() {
+        textFlow {
+            label("Hello")
+            "World" {
+                fill = RED
+                assertEquals(fill, RED)
             }
+
+            assertEquals(children.size, 2)
         }
     }
 }

@@ -1,7 +1,7 @@
 package ktfx.geometries
 
 import javafx.geometry.Point2D
-import org.junit.Test
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class Point2DTest {

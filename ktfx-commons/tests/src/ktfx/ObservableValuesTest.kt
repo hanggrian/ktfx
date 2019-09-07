@@ -6,7 +6,7 @@ import ktfx.bindings.isNullOrBlank
 import ktfx.bindings.isNullOrEmpty
 import ktfx.bindings.lastIndex
 import ktfx.bindings.orEmpty
-import org.junit.Test
+import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue

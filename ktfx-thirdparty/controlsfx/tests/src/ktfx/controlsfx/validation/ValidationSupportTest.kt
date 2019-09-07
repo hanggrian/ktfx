@@ -10,7 +10,7 @@ import ktfx.runAndWait
 import ktfx.runLater
 import ktfx.test.AppTest
 import org.controlsfx.validation.ValidationSupport
-import org.junit.Test
+import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue

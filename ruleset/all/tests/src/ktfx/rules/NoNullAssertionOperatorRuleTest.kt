@@ -1,13 +1,14 @@
 package ktfx.rules
 
 import ktfx.test.RuleTest
-import org.junit.Test
+import kotlin.test.Test
 
 class NoNullAssertionOperatorRuleTest : RuleTest {
 
     override val rule = NoNullAssertionOperatorRule()
 
-    @Test fun test() = assert(of(3, 29, "Replace `!!` with `checkNotNull` with helpful message")) {
+    @Test
+    fun test() = assert(of(3, 29, "Replace `!!` with `checkNotNull` with helpful message")) {
         """
             fun getItem(): Any? = null
 

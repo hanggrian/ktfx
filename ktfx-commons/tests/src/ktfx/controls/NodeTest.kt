@@ -10,7 +10,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.test.AppTest
-import org.junit.Test
+import kotlin.test.Test
 import kotlin.test.assertNotNull
 
 class NodeTest : AppTest() {

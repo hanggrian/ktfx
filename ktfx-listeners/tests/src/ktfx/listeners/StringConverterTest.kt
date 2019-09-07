@@ -1,11 +1,12 @@
 package ktfx.listeners
 
-import org.junit.Test
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class StringConverterTest {
 
-    @Test fun primitive() {
+    @Test
+    fun primitive() {
         val converter = buildStringConverter<Int> {
             fromString { it.toInt() }
         }
@@ -13,7 +14,8 @@ class StringConverterTest {
         assertEquals(converter.fromString("123"), 123)
     }
 
-    @Test fun custom() {
+    @Test
+    fun custom() {
         val converter = buildStringConverter<Person> {
             toString { it!!.name }
             fromString { Person(it) }

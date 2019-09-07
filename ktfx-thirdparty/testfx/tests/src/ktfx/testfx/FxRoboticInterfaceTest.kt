@@ -8,8 +8,8 @@ import ktfx.layouts.label
 import ktfx.layouts.scene
 import ktfx.layouts.vbox
 import ktfx.test.AppTest
-import org.junit.Test
 import org.testfx.matcher.control.LabeledMatchers
+import kotlin.test.Test
 
 class FxRoboticInterfaceTest : AppTest() {
 

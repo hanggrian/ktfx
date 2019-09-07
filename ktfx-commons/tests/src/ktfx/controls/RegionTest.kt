@@ -2,13 +2,14 @@ package ktfx.controls
 
 import javafx.scene.Scene
 import javafx.scene.layout.Region
+import javafx.scene.paint.Color
 import javafx.stage.Stage
 import ktfx.test.AppTest
-import org.junit.Test
+import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class RegionTest : AppTest() {
-
     private lateinit var region: Region
 
     override fun start(stage: Stage) {
@@ -39,5 +40,23 @@ class RegionTest : AppTest() {
         assertEquals(25.0, region.paddingRight)
         region.paddingBottom = 30.0
         assertEquals(30.0, region.paddingBottom)
+    }
+
+    @Test
+    fun background() {
+        assertNull(region.background)
+        region.updateBackground(Color.RED)
+        assertEquals(Color.RED, region.background.fills.first().fill)
+        region.updateBackground()
+        assertEquals(Color.TRANSPARENT, region.background.fills.first().fill)
+    }
+
+    @Test
+    fun border() {
+        assertNull(region.background)
+        region.updateBackground(Color.RED)
+        assertEquals(Color.RED, region.background.fills.first().fill)
+        region.updateBackground()
+        assertEquals(Color.TRANSPARENT, region.background.fills.first().fill)
     }
 }

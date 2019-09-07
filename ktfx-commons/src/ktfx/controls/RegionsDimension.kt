@@ -1,18 +1,11 @@
+@file:JvmMultifileClass
+@file:JvmName("RegionsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controls
 
 import javafx.geometry.Insets
-import javafx.scene.image.Image
-import javafx.scene.layout.Background
-import javafx.scene.layout.BackgroundFill
-import javafx.scene.layout.BackgroundImage
-import javafx.scene.layout.BackgroundPosition
-import javafx.scene.layout.BackgroundRepeat
-import javafx.scene.layout.BackgroundSize
-import javafx.scene.layout.CornerRadii
 import javafx.scene.layout.Region
-import javafx.scene.paint.Paint
 import ktfx.internal.KtfxInternals
 
 /** Sets padding to all sides with integer. */
@@ -61,46 +54,6 @@ fun Region.updatePadding(
 ) {
     padding = Insets(top, right, bottom, left)
 }
-
-/** Set multiple fills to region. */
-fun Region.updateBackground(vararg fills: BackgroundFill) {
-    background = Background(*fills)
-}
-
-/** Update region's fill with native [Insets]. */
-inline fun Region.updateBackground(
-    fill: Paint? = null,
-    radii: CornerRadii? = null,
-    padding: Insets? = null
-): Unit = updateBackground(BackgroundFill(fill, radii, padding))
-
-/** Update region's fill with parameterized padding. */
-inline fun Region.updateBackground(
-    fill: Paint? = null,
-    radii: CornerRadii? = null,
-    topPadding: Double = paddingLeft,
-    rightPadding: Double = paddingRight,
-    bottomPadding: Double = paddingBottom,
-    leftPadding: Double = paddingLeft
-): Unit = updateBackground(
-    fill,
-    radii,
-    Insets(topPadding, rightPadding, bottomPadding, leftPadding)
-)
-
-/** Set multiple images to region. */
-fun Region.updateBackground(vararg images: BackgroundImage) {
-    background = Background(*images)
-}
-
-/** Update region's image. */
-inline fun Region.updateBackground(
-    image: Image,
-    repeatX: BackgroundRepeat? = null,
-    repeatY: BackgroundRepeat? = null,
-    position: BackgroundPosition? = null,
-    size: BackgroundSize? = null
-): Unit = updateBackground(BackgroundImage(image, repeatX, repeatY, position, size))
 
 /** Sets min width and height of region. */
 inline var Region.minSize: Double

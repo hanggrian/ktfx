@@ -1,29 +1,33 @@
 package ktfx.collections
 
 import ktfx.test.assertContains
-import org.junit.Test
+import kotlin.test.Test
 
 class ObservableArrayTest {
 
     private val array = arrayOf(1, 2, 2, 3)
 
-    @Test fun toObservableList() {
+    @Test
+    fun toObservableList() {
         val list = array.toObservableList()
         assertContains(list, 1, 2, 2, 3).inOrder()
     }
 
-    @Test fun toMutableObservableList() {
+    @Test
+    fun toMutableObservableList() {
         val list = array.toMutableObservableList()
         list += 4
         assertContains(list, 1, 2, 2, 3, 4).inOrder()
     }
 
-    @Test fun toObservableSet() {
+    @Test
+    fun toObservableSet() {
         val set = array.toObservableSet()
         assertContains(set, 1, 2, 3).inOrder()
     }
 
-    @Test fun toMutableObservableSet() {
+    @Test
+    fun toMutableObservableSet() {
         val set = array.toMutableObservableSet()
         set += 3
         set += 4

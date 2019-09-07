@@ -1,13 +1,14 @@
 package ktfx.rules
 
 import ktfx.test.RuleTest
-import org.junit.Test
+import kotlin.test.Test
 
 class OpenClassRuleTest : RuleTest {
 
     override val rule = OpenClassRule()
 
-    @Test fun test() = assert(
+    @Test
+    fun test() = assert(
         of(1, 1, "Empty modifiers, need open."),
         of(5, 1, "Public classes need open modifier.")
     ) {

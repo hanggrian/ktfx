@@ -5,7 +5,7 @@ import javafx.print.Printer
 import javafx.print.PrinterJob
 
 val defaultPrinter: Printer
-    get() = checkNotNull(Printer.getDefaultPrinter())
+    get() = checkNotNull(Printer.getDefaultPrinter()) { "Default printer not found." }
 
 fun Printer.createJob(
     name: String? = null,

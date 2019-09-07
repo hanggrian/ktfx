@@ -1,6 +1,6 @@
 package ktfx
 
-import org.junit.Test
+import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -11,7 +11,8 @@ class PropertiesTest {
     private val intProperty1 = intPropertyOf(0)
     private val intProperty2 = intPropertyOf(10)
 
-    @Test fun bind() {
+    @Test
+    fun bind() {
         textProperty.bind(intProperty1.asString())
         textProperty.bind(intProperty2.asString())
 

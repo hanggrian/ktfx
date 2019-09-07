@@ -3,7 +3,7 @@ package ktfx.geometries
 import javafx.geometry.HPos
 import javafx.geometry.Pos
 import javafx.geometry.VPos
-import org.junit.Test
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class VPosTest {

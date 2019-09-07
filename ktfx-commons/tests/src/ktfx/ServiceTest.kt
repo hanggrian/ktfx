@@ -1,8 +1,8 @@
 package ktfx
 
 import ktfx.test.ToolkitTest
-import org.junit.Test
 import java.lang.Thread.sleep
+import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 import kotlin.test.assertNull
@@ -11,13 +11,15 @@ import kotlin.test.fail
 
 class ServiceTest : ToolkitTest {
 
-    @Test fun nullTest() = testService<Any> {
+    @Test
+    fun nullTest() = testService<Any> {
         setOnSucceeded {
             assertNull(value)
         }
     }
 
-    @Test fun simple() = testService<Int> {
+    @Test
+    fun simple() = testService<Int> {
         call { 17 }
         setOnSucceeded {
             assertEquals(17, value)
@@ -25,7 +27,8 @@ class ServiceTest : ToolkitTest {
         }
     }
 
-    @Test fun expectFailure() = testService<String> {
+    @Test
+    fun expectFailure() = testService<String> {
         call { error("Sad face") }
         setOnFailed {
             assertTrue(it.source.exception is IllegalStateException)

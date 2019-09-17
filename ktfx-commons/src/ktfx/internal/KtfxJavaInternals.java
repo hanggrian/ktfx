@@ -1,13 +1,13 @@
-package ktfx.coroutines;
+package ktfx.internal;
 
 import javafx.util.Callback;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
-final class Callbacks {
+public final class KtfxJavaInternals {
 
-    private Callbacks() {
+    private KtfxJavaInternals() {
     }
 
     /**
@@ -18,7 +18,7 @@ final class Callbacks {
      * @return callback with no return value.
      */
     @NotNull
-    static <P> Callback<P, Void> noReturn(@NotNull Function1<P, Unit> function) {
+    public static <P> Callback<P, Void> noReturn(@NotNull Function1<P, Unit> function) {
         return param -> {
             function.invoke(param);
             return null;

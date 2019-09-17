@@ -25,6 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
+import ktfx.internal.KtfxJavaInternals
 
 /** Registers an event filter to this scene. */
 fun <E : Event> Scene.eventFilter(
@@ -283,4 +284,4 @@ fun Scene.snapshot(
     context: CoroutineContext = Dispatchers.JavaFx,
     image: WritableImage? = null,
     callback: suspend CoroutineScope.(SnapshotResult) -> Unit
-): Unit = snapshot(Callbacks.noReturn { param -> GlobalScope.launch(context) { callback(param) } }, image)
+): Unit = snapshot(KtfxJavaInternals.noReturn { param -> GlobalScope.launch(context) { callback(param) } }, image)

@@ -1,9 +1,9 @@
 package ktfx.test
 
 import com.sun.javafx.application.PlatformImpl
-import org.junit.Before
+import kotlin.test.BeforeTest
 
 interface ToolkitTest {
 
-    @Before fun initToolkit() = PlatformImpl.startup { }
+    @BeforeTest fun initToolkit() = PlatformImpl.startup { }
 }

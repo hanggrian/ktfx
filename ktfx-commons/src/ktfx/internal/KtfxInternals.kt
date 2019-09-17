@@ -14,5 +14,6 @@ object KtfxInternals {
     inline fun fail(lazyMessage: () -> Any = { "Unsupported operation." }): Nothing =
         throw UnsupportedOperationException(lazyMessage().toString())
 
-    fun asPane(node: Node): Pane = node as? Pane ?: Pane(node)
+    fun asPane(node: Node): Pane =
+        node as? Pane ?: Pane(node)
 }

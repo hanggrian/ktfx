@@ -20,7 +20,7 @@ import org.controlsfx.dialog.FontSelectorDialog
 fun fontSelectorDialog(
     title: String? = null,
     graphic: Node? = null,
-    defaultFont: Font?
+    defaultFont: Font? = null
 ): Optional<Font> = FontSelectorDialog(defaultFont).also { dialog ->
     if (title != null) dialog.headerTitle = title
     if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
@@ -32,5 +32,5 @@ fun fontSelectorDialog(
  * @param defaultFont initially selected font.
  */
 inline fun fontSelectorDialog(
-    defaultFont: Font?
+    defaultFont: Font? = null
 ): Optional<Font> = fontSelectorDialog(null, null, defaultFont)

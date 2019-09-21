@@ -10,4 +10,4 @@ inline fun <T> SelectionModel<T>.isSelected(): Boolean =
 
 /** Returns `true` if the model is not selected. */
 inline fun <T> SelectionModel<T>.isNotSelected(): Boolean =
-    selectedItem == null
+    !isSelected()

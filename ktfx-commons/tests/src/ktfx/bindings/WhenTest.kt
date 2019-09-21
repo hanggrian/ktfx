@@ -1,7 +1,7 @@
 package ktfx.bindings
 
 import javafx.beans.binding.When
-import ktfx.booleanPropertyOf
+import ktfx.asProperty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -9,7 +9,7 @@ class WhenTest {
 
     @Test
     fun `when`() {
-        assertEquals(0, (When(booleanPropertyOf()) then 1 otherwise 0).value)
-        assertEquals("Hello", (When(booleanPropertyOf(true)) then "Hello" otherwise "World").value)
+        assertEquals(0, (When(false.asProperty()) then 1 otherwise 0).value)
+        assertEquals("Hello", (When(true.asProperty()) then "Hello" otherwise "World").value)
     }
 }

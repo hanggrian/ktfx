@@ -13,7 +13,7 @@ dependencies {
     compile(project(":$RELEASE_ARTIFACT-listeners"))
 }
 
-bintrayReleaseFix()
+publishKotlinFix()
 publish {
     bintrayUser = BINTRAY_USER
     bintrayKey = BINTRAY_KEY

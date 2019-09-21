@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("PropertiesKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx
 
@@ -27,101 +26,61 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleLongProperty
 
 /** Wrap this boolean in modifiable property. */
-fun booleanPropertyOf(value: Boolean? = null): BooleanProperty =
-    SimpleBooleanProperty(value ?: false)
+fun Boolean?.asProperty(): BooleanProperty =
+    SimpleBooleanProperty(this ?: false)
 
 /** Wrap this boolean in unmodifiable property. */
-fun finalBooleanPropertyOf(value: Boolean? = null): ReadOnlyBooleanProperty =
-    ReadOnlyBooleanWrapper(value ?: false)
-
-/** Converts this boolean to property. */
-inline fun Boolean?.toProperty(): BooleanProperty =
-    booleanPropertyOf(this)
-
-/** Converts this boolean to final property. */
-inline fun Boolean?.toFinalProperty(): ReadOnlyBooleanProperty =
-    finalBooleanPropertyOf(this)
+fun Boolean?.asFinalProperty(): ReadOnlyBooleanProperty =
+    ReadOnlyBooleanWrapper(this ?: false)
 
 /** Returns [BooleanProperty] that wraps a [Property]. */
-fun Property<Boolean>.asProperty(): BooleanProperty =
+fun Property<Boolean>.unbox(): BooleanProperty =
     BooleanProperty.booleanProperty(this)
 
 /** Wrap this double in modifiable property. */
-fun doublePropertyOf(value: Double? = null): DoubleProperty =
-    SimpleDoubleProperty(value ?: 0.0)
+fun Double?.asProperty(): DoubleProperty =
+    SimpleDoubleProperty(this ?: 0.0)
 
 /** Wrap this double in unmodifiable property. */
-fun finalDoublePropertyOf(value: Double? = null): ReadOnlyDoubleProperty =
-    ReadOnlyDoubleWrapper(value ?: 0.0)
-
-/** Converts this double to property. */
-inline fun Double?.toProperty(): DoubleProperty =
-    doublePropertyOf(this)
-
-/** Converts this double to final property. */
-inline fun Double?.toFinalProperty(): ReadOnlyDoubleProperty =
-    finalDoublePropertyOf(this)
+fun Double?.asFinalProperty(): ReadOnlyDoubleProperty =
+    ReadOnlyDoubleWrapper(this ?: 0.0)
 
 /** Returns [DoubleProperty] that wraps a [Property]. */
-fun Property<Double>.asProperty(): DoubleProperty =
+fun Property<Double>.unbox(): DoubleProperty =
     DoubleProperty.doubleProperty(this)
 
 /** Wrap this float in unmodifiable property. */
-fun floatPropertyOf(value: Float? = null): FloatProperty =
-    SimpleFloatProperty(value ?: 0f)
+fun Float?.asProperty(): FloatProperty =
+    SimpleFloatProperty(this ?: 0f)
 
 /** Wrap this float in modifiable property. */
-fun finalFloatPropertyOf(value: Float? = null): ReadOnlyFloatProperty =
-    ReadOnlyFloatWrapper(value ?: 0f)
-
-/** Converts this float to property. */
-inline fun Float?.toProperty(): FloatProperty =
-    floatPropertyOf(this)
-
-/** Converts this float to final property. */
-inline fun Float?.toFinalProperty(): ReadOnlyFloatProperty =
-    finalFloatPropertyOf(this)
+fun Float?.asFinalProperty(): ReadOnlyFloatProperty =
+    ReadOnlyFloatWrapper(this ?: 0f)
 
 /** Returns [FloatProperty] that wraps a [Property]. */
-fun Property<Float>.asProperty(): FloatProperty =
+fun Property<Float>.unbox(): FloatProperty =
     FloatProperty.floatProperty(this)
 
 /** Wrap this int in modifiable property. */
-fun intPropertyOf(value: Int? = null): IntegerProperty =
-    SimpleIntegerProperty(value ?: 0)
+fun Int?.asProperty(): IntegerProperty =
+    SimpleIntegerProperty(this ?: 0)
 
 /** Wrap this int in unmodifiable property. */
-fun finalIntPropertyOf(value: Int? = null): ReadOnlyIntegerProperty =
-    ReadOnlyIntegerWrapper(value ?: 0)
-
-/** Converts this int to property. */
-inline fun Int?.toProperty(): IntegerProperty =
-    intPropertyOf(this)
-
-/** Converts this int to final property. */
-inline fun Int?.toFinalProperty(): ReadOnlyIntegerProperty =
-    finalIntPropertyOf(this)
+fun Int?.asFinalProperty(): ReadOnlyIntegerProperty =
+    ReadOnlyIntegerWrapper(this ?: 0)
 
 /** Returns [IntegerProperty] that wraps a [Property]. */
-fun Property<Int>.asProperty(): IntegerProperty =
+fun Property<Int>.unbox(): IntegerProperty =
     IntegerProperty.integerProperty(this)
 
 /** Wrap this long in modifiable property. */
-fun longPropertyOf(value: Long? = null): LongProperty =
-    SimpleLongProperty(value ?: 0)
+fun Long?.asProperty(): LongProperty =
+    SimpleLongProperty(this ?: 0)
 
 /** Wrap this long in unmodifiable property. */
-fun finalLongPropertyOf(value: Long? = null): ReadOnlyLongProperty =
-    ReadOnlyLongWrapper(value ?: 0)
-
-/** Converts this long to property. */
-inline fun Long?.toProperty(): LongProperty =
-    longPropertyOf(this)
-
-/** Converts this long to final property. */
-inline fun Long?.toFinalProperty(): ReadOnlyLongProperty =
-    finalLongPropertyOf(this)
+fun Long?.asFinalProperty(): ReadOnlyLongProperty =
+    ReadOnlyLongWrapper(this ?: 0)
 
 /** Returns [LongProperty] that wraps a [Property]. */
-fun Property<Long>.asProperty(): LongProperty =
+fun Property<Long>.unbox(): LongProperty =
     LongProperty.longProperty(this)

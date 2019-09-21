@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("NodesKt")
-@file:Suppress("EXTENSION_SHADOWED_BY_MEMBER")
 
 package ktfx.controls
 

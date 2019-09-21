@@ -7,9 +7,9 @@ import kotlin.test.assertTrue
 
 class PropertiesTest {
 
-    private val textProperty = stringPropertyOf("")
-    private val intProperty1 = intPropertyOf(0)
-    private val intProperty2 = intPropertyOf(10)
+    private val textProperty = "".asProperty()
+    private val intProperty1 = 0.asProperty()
+    private val intProperty2 = 10.asProperty()
 
     @Test
     fun bind() {

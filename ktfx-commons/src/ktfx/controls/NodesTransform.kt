@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("NodesKt")
-@file:Suppress("EXTENSION_SHADOWED_BY_MEMBER")
 
 package ktfx.controls
 
@@ -108,8 +107,8 @@ fun Node.shear(): Shear =
 fun Node.shear(x: Double, y: Double): Shear =
     Shear(x, y).also { transforms += it }
 
-fun Node.shear(x: Double, y: Double, pivotX: Double, pixotY: Double): Shear =
-    Shear(x, y, pivotX, pixotY).also { transforms += it }
+fun Node.shear(x: Double, y: Double, pivotX: Double, pivotY: Double): Shear =
+    Shear(x, y, pivotX, pivotY).also { transforms += it }
 
 fun Node.translate(): Translate =
     Translate().also { transforms += it }

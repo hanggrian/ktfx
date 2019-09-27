@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("BindingsKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.bindings
 
@@ -22,9 +21,9 @@ fun <T> buildBinding(
 ): ObjectBinding<T> = Bindings.createObjectBinding<T>(Callable(func), *dependencies)
 
 /** Helper function to create a custom [ObjectBinding]. */
-inline fun <T> buildBinding(
+fun <T> buildBinding(
     dependencies: Collection<Observable>,
-    noinline func: () -> T?
+    func: () -> T?
 ): ObjectBinding<T> = buildBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [BooleanBinding]. */
@@ -34,9 +33,9 @@ fun buildBooleanBinding(
 ): BooleanBinding = Bindings.createBooleanBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [BooleanBinding]. */
-inline fun buildBooleanBinding(
+fun buildBooleanBinding(
     dependencies: Collection<Observable>,
-    noinline func: () -> Boolean?
+    func: () -> Boolean?
 ): BooleanBinding = buildBooleanBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [StringBinding]. */
@@ -46,9 +45,9 @@ fun buildStringBinding(
 ): StringBinding = Bindings.createStringBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [StringBinding]. */
-inline fun buildStringBinding(
+fun buildStringBinding(
     dependencies: Collection<Observable>,
-    noinline func: () -> String?
+    func: () -> String?
 ): StringBinding = buildStringBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [DoubleBinding]. */
@@ -58,9 +57,9 @@ fun buildDoubleBinding(
 ): DoubleBinding = Bindings.createDoubleBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [DoubleBinding]. */
-inline fun buildDoubleBinding(
+fun buildDoubleBinding(
     dependencies: Collection<Observable>,
-    noinline func: () -> Double?
+    func: () -> Double?
 ): DoubleBinding = buildDoubleBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [FloatBinding]. */
@@ -70,9 +69,9 @@ fun buildFloatBinding(
 ): FloatBinding = Bindings.createFloatBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [FloatBinding]. */
-inline fun buildFloatBinding(
+fun buildFloatBinding(
     dependencies: Collection<Observable>,
-    noinline func: () -> Float?
+    func: () -> Float?
 ): FloatBinding = buildFloatBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [IntegerBinding]. */
@@ -82,9 +81,9 @@ fun buildIntBinding(
 ): IntegerBinding = Bindings.createIntegerBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [IntegerBinding]. */
-inline fun buildIntBinding(
+fun buildIntBinding(
     dependencies: Collection<Observable>,
-    noinline func: () -> Int?
+    func: () -> Int?
 ): IntegerBinding = buildIntBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [LongBinding]. */
@@ -94,9 +93,9 @@ fun buildLongBinding(
 ): LongBinding = Bindings.createLongBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [LongBinding]. */
-inline fun buildLongBinding(
+fun buildLongBinding(
     dependencies: Collection<Observable>,
-    noinline func: () -> Long?
+    func: () -> Long?
 ): LongBinding = buildLongBinding(*dependencies.toTypedArray(), func = func)
 
 /** Creates a string binding used to get a member. */

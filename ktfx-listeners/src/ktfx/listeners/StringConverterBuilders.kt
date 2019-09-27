@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.listeners
 
 import javafx.util.StringConverter
@@ -8,14 +6,13 @@ import javafx.util.StringConverter
 interface StringConverterBuilder<T> {
 
     /** Convert the object to String. */
-    fun toString(listener: (T?) -> String) // ktlint-disable
+    fun toString(listener: (T?) -> String)
 
     /** Convert String back to object. */
-    fun fromString(listener: (String) -> T?) // ktlint-disable
+    fun fromString(listener: (String) -> T?)
 }
 
-@Suppress("ClassName")
-internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilder<T> {
+private class StringConverterImpl<T> : StringConverter<T>(), StringConverterBuilder<T> {
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
 
@@ -34,4 +31,4 @@ internal class _StringConverter<T> : StringConverter<T>(), StringConverterBuilde
 
 /** Build string converter with Kotlin DSL. */
 fun <T> buildStringConverter(builder: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
-    _StringConverter<T>().apply(builder)
+    StringConverterImpl<T>().apply(builder)

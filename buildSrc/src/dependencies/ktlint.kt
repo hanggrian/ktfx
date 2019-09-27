@@ -6,6 +6,13 @@ import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.register
 import org.gradle.language.base.plugins.LifecycleBasePlugin
 
+private const val VERSION_KTLINT: String = "0.34.2"
+
+fun Dependencies.ktlint(module: String? = null) = when (module) {
+    null -> "com.pinterest:ktlint:$VERSION_KTLINT"
+    else -> "com.pinterest.ktlint:ktlint-$module:$VERSION_KTLINT"
+}
+
 fun Project.ktlint(
     extraDependency: (Configuration.(
         add: (dependencyNotation: Any) -> Unit

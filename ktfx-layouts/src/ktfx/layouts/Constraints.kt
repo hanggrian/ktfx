@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package ktfx.layouts
 
 import javafx.geometry.HPos
@@ -12,9 +14,20 @@ import ktfx.internal.KtfxInternals
 
 interface Constraints {
 
-    fun Node.reset() // ktlint-disable
+    fun Node.reset()
 }
 
+/**
+ * Marks a layout manager with modifiable children's margin.
+ *
+ * @see KtfxBorderPane
+ * @see KtfxFlowPane
+ * @see KtfxGridPane
+ * @see KtfxStackPane
+ * @see KtfxTilePane
+ * @see KtfxHBox
+ * @see KtfxVBox
+ */
 interface MarginConstraints : Constraints {
 
     infix fun <N : Node> N.margins(margins: Insets?): N =
@@ -35,7 +48,8 @@ interface MarginConstraints : Constraints {
     infix fun <N : Node> N.marginLeft(marginLeft: Double?): N =
         also { it.marginLeft = marginLeft }
 
-    var Node.margins: Insets? // alias for reserved variable `margin`
+    /** Alias for reserved variable `margin`. */
+    var Node.margins: Insets?
 
     var Node.marginAll: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
@@ -68,15 +82,17 @@ interface MarginConstraints : Constraints {
         bottom: Double? = marginBottom,
         left: Double? = marginLeft
     ) {
-        margins = Insets(
-            top ?: 0.0,
-            right ?: 0.0,
-            bottom ?: 0.0,
-            left ?: 0.0
-        )
+        margins = Insets(top ?: 0.0, right ?: 0.0, bottom ?: 0.0, left ?: 0.0)
     }
 }
 
+/**
+ * Marks a layout manager with alignable children's position.
+ *
+ * @see KtfxBorderPane
+ * @see KtfxStackPane
+ * @see KtfxTilePane
+ */
 interface AlignConstraints : Constraints {
 
     infix fun <N : Node> N.align(pos: Pos?): N =
@@ -85,6 +101,11 @@ interface AlignConstraints : Constraints {
     var Node.align: Pos?
 }
 
+/**
+ * Marks a layout manager with alignable children's horizontal position.
+ *
+ * @see KtfxGridPane
+ */
 interface HAlignConstraints : Constraints {
 
     infix fun <N : Node> N.halign(hpos: HPos?): N =
@@ -93,6 +114,11 @@ interface HAlignConstraints : Constraints {
     var Node.halign: HPos?
 }
 
+/**
+ * Marks a layout manager with alignable children's vertical position.
+ *
+ * @see KtfxGridPane
+ */
 interface VAlignConstraints : Constraints {
 
     infix fun <N : Node> N.valign(vpos: VPos?): N =
@@ -101,6 +127,14 @@ interface VAlignConstraints : Constraints {
     var Node.valign: VPos?
 }
 
+/**
+ * Marks a layout manager with growable children's width.
+ * It uses `hpriority` name since `hgrow` would clash with [javafx.scene.layout.GridPane.setHgrow]
+ * and [javafx.scene.layout.GridPane.getHgrow].
+ *
+ * @see KtfxHBox
+ * @see KtfxGridPane
+ */
 interface HGrowConstraints : Constraints {
 
     infix fun <N : Node> N.hpriority(hpriority: Priority?): N =
@@ -109,6 +143,14 @@ interface HGrowConstraints : Constraints {
     var Node.hpriority: Priority?
 }
 
+/**
+ * Marks a layout manager with growable children's height.
+ * It uses `vpriority` name since `vgrow` would clash with [javafx.scene.layout.GridPane.setHgrow]
+ * and [javafx.scene.layout.GridPane.getHgrow].
+ *
+ * @see KtfxVBox
+ * @see KtfxGridPane
+ */
 interface VGrowConstraints : Constraints {
 
     infix fun <N : Node> N.vpriority(vpriority: Priority?): N =
@@ -117,6 +159,7 @@ interface VGrowConstraints : Constraints {
     var Node.vpriority: Priority?
 }
 
+/** [javafx.scene.layout.HBox] constraints. */
 interface HBoxConstraints : NodeManager, HGrowConstraints, MarginConstraints {
 
     override fun Node.reset(): Unit =

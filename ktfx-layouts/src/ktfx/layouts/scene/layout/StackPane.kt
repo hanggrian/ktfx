@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -7,7 +7,7 @@ import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
 
-open class _StackPane : StackPane(), NodeManager, AlignConstraints, MarginConstraints {
+open class KtfxStackPane : StackPane(), NodeManager, AlignConstraints, MarginConstraints {
 
     override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
@@ -24,8 +24,8 @@ open class _StackPane : StackPane(), NodeManager, AlignConstraints, MarginConstr
 
 /** Create a [StackPane] with initialization block. */
 inline fun stackPane(
-    init: (@LayoutDslMarker _StackPane).() -> Unit
-): StackPane = _StackPane().apply(init)
+    init: (@LayoutDslMarker KtfxStackPane).() -> Unit
+): StackPane = KtfxStackPane().apply(init)
 
 /** Add a [StackPane] to this manager. */
 fun NodeManager.stackPane(): StackPane =
@@ -33,5 +33,5 @@ fun NodeManager.stackPane(): StackPane =
 
 /** Add a [StackPane] with initialization block to this manager. */
 inline fun NodeManager.stackPane(
-    init: (@LayoutDslMarker _StackPane).() -> Unit
+    init: (@LayoutDslMarker KtfxStackPane).() -> Unit
 ): StackPane = addNode(ktfx.layouts.stackPane(init))

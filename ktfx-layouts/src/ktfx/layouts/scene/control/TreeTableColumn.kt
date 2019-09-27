@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -6,23 +6,23 @@ import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
-sealed class TreeTableColumnsBuilder<S> {
+interface TreeTableColumnsBuilder<S> {
 
-    abstract fun <T> column(
+    fun <T> column(
         text: String? = null
     ): TreeTableColumn<S, T>
 
-    inline fun <T> column(
+    fun <T> column(
         text: String? = null,
         init: TreeTableColumn<S, T>.() -> Unit
     ): TreeTableColumn<S, T> = column<T>(text).apply(init)
 
-    inline operator fun <T> String.invoke(
+    operator fun <T> String.invoke(
         init: TreeTableColumn<S, T>.() -> Unit
     ): TreeTableColumn<S, T> = column(this, init)
 }
 
-private class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>() {
+private class TreeTableColumnsBuilderImpl<S> : TreeTableColumnsBuilder<S> {
 
     val collection: MutableCollection<TreeTableColumn<S, *>> = mutableListOf()
 
@@ -32,5 +32,5 @@ private class _TreeTableColumnsBuilder<S> : TreeTableColumnsBuilder<S>() {
 
 /** Invokes a [TreeTableColumn] DSL builder. */
 fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {
-    columns += _TreeTableColumnsBuilder<S>().apply(init).collection
+    columns += TreeTableColumnsBuilderImpl<S>().apply(init).collection
 }

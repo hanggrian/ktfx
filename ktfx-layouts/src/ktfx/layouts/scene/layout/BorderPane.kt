@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane
  * Invoking layout DSL will only set content to center.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _BorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
+open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { center = it }
 
@@ -28,8 +28,8 @@ open class _BorderPane : BorderPane(), AlignConstraints, MarginConstraints, Node
 
 /** Create a [BorderPane] with initialization block. */
 inline fun borderPane(
-    init: (@LayoutDslMarker _BorderPane).() -> Unit
-): BorderPane = _BorderPane().apply(init)
+    init: (@LayoutDslMarker KtfxBorderPane).() -> Unit
+): BorderPane = KtfxBorderPane().apply(init)
 
 /** Add a [BorderPane] to this manager. */
 fun NodeManager.borderPane(): BorderPane =
@@ -37,5 +37,5 @@ fun NodeManager.borderPane(): BorderPane =
 
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
-    init: (@LayoutDslMarker _BorderPane).() -> Unit
+    init: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane = addNode(ktfx.layouts.borderPane(init))

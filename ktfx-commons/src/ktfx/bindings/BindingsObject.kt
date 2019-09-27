@@ -1,12 +1,9 @@
 @file:JvmMultifileClass
 @file:JvmName("BindingsKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.bindings
 
 import javafx.beans.binding.Bindings
-import javafx.beans.binding.Bindings.equal
-import javafx.beans.binding.Bindings.notEqual
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.DoubleBinding
 import javafx.beans.binding.FloatBinding
@@ -17,29 +14,29 @@ import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableValue
 
-/** Infix typing for [equal]. */
-inline infix fun ObservableObjectValue<*>.eq(op: ObservableObjectValue<*>): BooleanBinding =
-    equal(this, op)
+/** Infix typing for [Bindings.equal]. */
+infix fun ObservableObjectValue<*>.eq(op: ObservableObjectValue<*>): BooleanBinding =
+    Bindings.equal(this, op)
 
-/** Infix typing for [equal]. */
-inline infix fun ObservableObjectValue<*>.eq(op: Any): BooleanBinding =
-    equal(this, op)
+/** Infix typing for [Bindings.equal]. */
+infix fun ObservableObjectValue<*>.eq(op: Any): BooleanBinding =
+    Bindings.equal(this, op)
 
-/** Infix typing for [equal]. */
-inline infix fun Any.eq(op: ObservableObjectValue<*>): BooleanBinding =
-    equal(this, op)
+/** Infix typing for [Bindings.equal]. */
+infix fun Any.eq(op: ObservableObjectValue<*>): BooleanBinding =
+    Bindings.equal(this, op)
 
-/** Infix typing for [notEqual]. */
-inline infix fun ObservableObjectValue<*>.neq(op: ObservableObjectValue<*>): BooleanBinding =
-    notEqual(this, op)
+/** Infix typing for [Bindings.notEqual]. */
+infix fun ObservableObjectValue<*>.neq(op: ObservableObjectValue<*>): BooleanBinding =
+    Bindings.notEqual(this, op)
 
-/** Infix typing for [notEqual]. */
-inline infix fun ObservableObjectValue<*>.neq(op: Any): BooleanBinding =
-    notEqual(this, op)
+/** Infix typing for [Bindings.notEqual]. */
+infix fun ObservableObjectValue<*>.neq(op: Any): BooleanBinding =
+    Bindings.notEqual(this, op)
 
-/** Infix typing for [notEqual]. */
-inline infix fun Any.neq(op: ObservableObjectValue<*>): BooleanBinding =
-    notEqual(this, op)
+/** Infix typing for [Bindings.notEqual]. */
+infix fun Any.neq(op: ObservableObjectValue<*>): BooleanBinding =
+    Bindings.notEqual(this, op)
 
 /** Creates an object binding used to get a member. */
 fun <T> ObservableValue<*>.select(vararg steps: String): ObjectBinding<T> =

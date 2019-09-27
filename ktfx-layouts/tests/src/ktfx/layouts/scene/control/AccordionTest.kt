@@ -2,7 +2,7 @@ package ktfx.layouts.scene.control
 
 import javafx.scene.control.Label
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.layouts.accordion
 import ktfx.layouts.label
 import ktfx.layouts.titledPane
@@ -11,7 +11,7 @@ import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class AccordionTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class AccordionTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         accordion {

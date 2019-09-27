@@ -12,8 +12,8 @@ class ExpressionFunctionReturnTypeRule : KtfxRule("expression-function-return-ty
     ) {
         val child = node.findChildByType(KtNodeTypes.VALUE_PARAMETER_LIST)
         if (child != null &&
-            child.treeNext.elementType == KtTokens.WHITE_SPACE &&
-            child.treeNext.treeNext.elementType == KtTokens.EQ
+            child.treeNext?.elementType == KtTokens.WHITE_SPACE &&
+            child.treeNext?.treeNext?.elementType == KtTokens.EQ
         ) {
             emit(node.startOffset, "Expression function need return type", false)
         }

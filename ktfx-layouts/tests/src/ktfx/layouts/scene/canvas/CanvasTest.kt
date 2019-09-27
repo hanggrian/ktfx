@@ -1,12 +1,12 @@
 package ktfx.layouts.scene.canvas
 
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.layouts.canvas
 import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
-class CanvasTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class CanvasTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         val canvas = canvas(10.0, 20.0)

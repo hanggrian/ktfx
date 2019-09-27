@@ -1,11 +1,11 @@
 package ktfx.jfoenix
 
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.test.LayoutToolkitTest
 import ktfx.test.assertContains
 
-class JFXToolbarTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class JFXToolbarTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         val left1 = jfxButton()

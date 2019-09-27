@@ -2,11 +2,11 @@ package ktfx.controlsfx.control
 
 import ktfx.controlsfx.rating
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
-class RatingTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class RatingTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         assertEquals(rating {}.max, 5)

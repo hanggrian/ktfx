@@ -2,13 +2,13 @@ package ktfx.layouts.scene.control
 
 import ktfx.layouts.NodeManager
 import ktfx.layouts.Person
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.layouts.columns
 import ktfx.layouts.tableView
 import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
-class TableColumnsTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class TableColumnsTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         val tableView = tableView<Person> {

@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.jfoenix
 
@@ -7,7 +7,7 @@ import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-open class _JFXScrollPane : JFXScrollPane(), NodeManager {
+open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { content = it }
 
@@ -56,8 +56,8 @@ open class _JFXScrollPane : JFXScrollPane(), NodeManager {
 
 /** Create a [JFXScrollPane] with initialization block. */
 inline fun jfxScrollPane(
-    init: (@LayoutDslMarker _JFXScrollPane).() -> Unit
-): JFXScrollPane = _JFXScrollPane().apply(init)
+    init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
+): JFXScrollPane = KtfxJFXScrollPane().apply(init)
 
 /** Add a [JFXScrollPane] to this manager. */
 fun NodeManager.jfxScrollPane(): JFXScrollPane =
@@ -65,5 +65,5 @@ fun NodeManager.jfxScrollPane(): JFXScrollPane =
 
 /** Add a [JFXScrollPane] with initialization block to this manager. */
 inline fun NodeManager.jfxScrollPane(
-    init: (@LayoutDslMarker _JFXScrollPane).() -> Unit
+    init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane = addNode(ktfx.jfoenix.jfxScrollPane(init))

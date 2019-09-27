@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.jfoenix
 
@@ -7,15 +7,15 @@ import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-open class _JFXClippedPane : JFXClippedPane(), NodeManager {
+open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { children += it }
 }
 
 /** Create a [JFXClippedPane] with initialization block. */
 inline fun jfxClippedPane(
-    init: (@LayoutDslMarker _JFXClippedPane).() -> Unit
-): JFXClippedPane = _JFXClippedPane().apply(init)
+    init: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
+): JFXClippedPane = KtfxJFXClippedPane().apply(init)
 
 /** Add a [JFXClippedPane] to this manager. */
 fun NodeManager.jfxClippedPane(): JFXClippedPane =
@@ -23,5 +23,5 @@ fun NodeManager.jfxClippedPane(): JFXClippedPane =
 
 /** Add a [JFXClippedPane] with initialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
-    init: (@LayoutDslMarker _JFXClippedPane).() -> Unit
+    init: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane = addNode(ktfx.jfoenix.jfxClippedPane(init))

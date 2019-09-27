@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -8,7 +8,7 @@ import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
 
-open class _FlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
+open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
     NodeManager, MarginConstraints {
 
     override fun <T : Node> addNode(node: T): T = node.also { children += it }
@@ -25,8 +25,8 @@ inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    init: (@LayoutDslMarker _FlowPane).() -> Unit
-): FlowPane = _FlowPane(orientation, hgap, vgap).apply(init)
+    init: (@LayoutDslMarker KtfxFlowPane).() -> Unit
+): FlowPane = KtfxFlowPane(orientation, hgap, vgap).apply(init)
 
 /** Add a [FlowPane] to this manager. */
 fun NodeManager.flowPane(
@@ -40,5 +40,5 @@ inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    init: (@LayoutDslMarker _FlowPane).() -> Unit
+    init: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane = addNode(ktfx.layouts.flowPane(orientation, hgap, vgap, init))

@@ -1,19 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToolBar
 
-open class _ToolBar : ToolBar(), NodeManager {
+open class KtfxToolBar : ToolBar(), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { items += it }
 }
 
 /** Create a [ToolBar] with initialization block. */
 inline fun toolBar(
-    init: (@LayoutDslMarker _ToolBar).() -> Unit
-): ToolBar = _ToolBar().apply(init)
+    init: (@LayoutDslMarker KtfxToolBar).() -> Unit
+): ToolBar = KtfxToolBar().apply(init)
 
 /** Add a [ToolBar] to this manager. */
 fun NodeManager.toolBar(): ToolBar =
@@ -21,5 +21,5 @@ fun NodeManager.toolBar(): ToolBar =
 
 /** Add a [ToolBar] with initialization block to this manager. */
 inline fun NodeManager.toolBar(
-    init: (@LayoutDslMarker _ToolBar).() -> Unit
+    init: (@LayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar = addNode(ktfx.layouts.toolBar(init))

@@ -1,19 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
 import javafx.scene.shape.Path
 import javafx.scene.shape.PathElement
 
-open class _Path : Path(), PathElementManager {
+open class KtfxPath : Path(), PathElementManager {
 
     override fun <T : PathElement> addElement(element: T): T = element.also { elements += it }
 }
 
 /** Create a [Path] with initialization block. */
 inline fun path(
-    init: (@LayoutDslMarker _Path).() -> Unit
-): Path = _Path().apply(init)
+    init: (@LayoutDslMarker KtfxPath).() -> Unit
+): Path = KtfxPath().apply(init)
 
 /** Add a [Path] to this manager. */
 fun NodeManager.path(): Path =
@@ -21,5 +21,5 @@ fun NodeManager.path(): Path =
 
 /** Add a [Path] with initialization block to this manager. */
 inline fun NodeManager.path(
-    init: (@LayoutDslMarker _Path).() -> Unit
+    init: (@LayoutDslMarker KtfxPath).() -> Unit
 ): Path = addNode(ktfx.layouts.path(init))

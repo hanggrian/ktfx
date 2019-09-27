@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.jfoenix
 
@@ -8,15 +8,15 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
 // TODO: should include mask & pos in constructor?
-open class _JFXRippler : JFXRippler(), NodeManager {
+open class KtfxJFXRippler : JFXRippler(), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { control = it }
 }
 
 /** Create a [JFXRippler] with initialization block. */
 inline fun jfxRippler(
-    init: (@LayoutDslMarker _JFXRippler).() -> Unit
-): JFXRippler = _JFXRippler().apply(init)
+    init: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
+): JFXRippler = KtfxJFXRippler().apply(init)
 
 /** Add a [JFXRippler] to this manager. */
 fun NodeManager.jfxRippler(): JFXRippler =
@@ -24,5 +24,5 @@ fun NodeManager.jfxRippler(): JFXRippler =
 
 /** Add a [JFXRippler] with initialization block to this manager. */
 inline fun NodeManager.jfxRippler(
-    init: (@LayoutDslMarker _JFXRippler).() -> Unit
+    init: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler = addNode(ktfx.jfoenix.jfxRippler(init))

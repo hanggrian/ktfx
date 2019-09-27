@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane
 import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals
 
-open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
+open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
 
     override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
@@ -51,8 +51,8 @@ open class _AnchorPane : AnchorPane(), NodeManager, Constraints {
 
 /** Create an [AnchorPane] with initialization block. */
 inline fun anchorPane(
-    init: (@LayoutDslMarker _AnchorPane).() -> Unit
-): AnchorPane = _AnchorPane().apply(init)
+    init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
+): AnchorPane = KtfxAnchorPane().apply(init)
 
 /** Add an [AnchorPane] to this manager. */
 fun NodeManager.anchorPane(): AnchorPane =
@@ -60,5 +60,5 @@ fun NodeManager.anchorPane(): AnchorPane =
 
 /** Add an [AnchorPane] with initialization block to this manager. */
 inline fun NodeManager.anchorPane(
-    init: (@LayoutDslMarker _AnchorPane).() -> Unit
+    init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane = addNode(ktfx.layouts.anchorPane(init))

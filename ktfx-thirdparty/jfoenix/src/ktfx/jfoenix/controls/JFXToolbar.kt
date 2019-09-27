@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.jfoenix
 
@@ -8,7 +8,7 @@ import ktfx.layouts.HBoxConstraints
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 
-open class _JFXToolbar : JFXToolbar() {
+open class KtfxJFXToolbar : JFXToolbar() {
 
     fun leftItems(init: (@LayoutDslMarker HBoxConstraints).() -> Unit) {
         object : HBoxConstraints {
@@ -25,8 +25,8 @@ open class _JFXToolbar : JFXToolbar() {
 
 /** Create a [JFXToolbar] with initialization block. */
 inline fun jfxToolbar(
-    init: (@LayoutDslMarker _JFXToolbar).() -> Unit
-): JFXToolbar = _JFXToolbar().apply(init)
+    init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
+): JFXToolbar = KtfxJFXToolbar().apply(init)
 
 /** Add a [JFXToolbar] to this manager. */
 fun NodeManager.jfxToolbar(): JFXToolbar =
@@ -34,5 +34,5 @@ fun NodeManager.jfxToolbar(): JFXToolbar =
 
 /** Add a [JFXToolbar] with initialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
-    init: (@LayoutDslMarker _JFXToolbar).() -> Unit
+    init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar = addNode(ktfx.jfoenix.jfxToolbar(init))

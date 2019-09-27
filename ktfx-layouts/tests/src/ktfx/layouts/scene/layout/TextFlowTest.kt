@@ -2,13 +2,13 @@ package ktfx.layouts.scene.layout
 
 import javafx.scene.paint.Color.RED
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.layouts.label
 import ktfx.layouts.textFlow
 import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
-class TextFlowTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class TextFlowTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         textFlow {

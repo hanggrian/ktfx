@@ -1,13 +1,13 @@
 package ktfx.layouts.scene.layout
 
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.layouts.anchorPane
 import ktfx.layouts.region
 import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
-class AnchorPaneTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class AnchorPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         anchorPane {

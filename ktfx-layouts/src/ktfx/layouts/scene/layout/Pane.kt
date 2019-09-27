@@ -1,19 +1,19 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.Pane
 
-open class _Pane : Pane(), NodeManager {
+open class KtfxPane : Pane(), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { children += it }
 }
 
 /** Create a [Pane] with initialization block. */
 inline fun pane(
-    init: (@LayoutDslMarker _Pane).() -> Unit
-): Pane = _Pane().apply(init)
+    init: (@LayoutDslMarker KtfxPane).() -> Unit
+): Pane = KtfxPane().apply(init)
 
 /** Add a [Pane] to this manager. */
 fun NodeManager.pane(): Pane =
@@ -21,5 +21,5 @@ fun NodeManager.pane(): Pane =
 
 /** Add a [Pane] with initialization block to this manager. */
 inline fun NodeManager.pane(
-    init: (@LayoutDslMarker _Pane).() -> Unit
+    init: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane = addNode(ktfx.layouts.pane(init))

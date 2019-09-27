@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.controlsfx
 
@@ -11,15 +11,15 @@ import org.controlsfx.control.HiddenSidesPane
  * Invoking layout DSL will only set content.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class _HiddenSidesPane : HiddenSidesPane(), NodeManager {
+open class KtfxHiddenSidesPane : HiddenSidesPane(), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { content = it }
 }
 
 /** Create a [HiddenSidesPane] with initialization block. */
 inline fun hiddenSidesPane(
-    init: (@LayoutDslMarker _HiddenSidesPane).() -> Unit
-): HiddenSidesPane = _HiddenSidesPane().apply(init)
+    init: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
+): HiddenSidesPane = KtfxHiddenSidesPane().apply(init)
 
 /** Add a [HiddenSidesPane] to this manager. */
 fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
@@ -27,5 +27,5 @@ fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
 
 /** Add a [HiddenSidesPane] with initialization block to this manager. */
 inline fun NodeManager.hiddenSidesPane(
-    init: (@LayoutDslMarker _HiddenSidesPane).() -> Unit
+    init: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane = addNode(ktfx.controlsfx.hiddenSidesPane(init))

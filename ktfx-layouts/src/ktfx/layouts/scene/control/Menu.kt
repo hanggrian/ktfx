@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
 
-open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
+open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
 
     override fun <T : MenuItem> addItem(item: T): T = item.also { items += it }
 
@@ -21,8 +21,8 @@ open class _Menu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemMa
 inline fun menu(
     text: String = "",
     graphic: Node? = null,
-    init: (@LayoutDslMarker _Menu).() -> Unit
-): Menu = _Menu(text, graphic).apply(init)
+    init: (@LayoutDslMarker KtfxMenu).() -> Unit
+): Menu = KtfxMenu(text, graphic).apply(init)
 
 /** Add a [Menu] to this manager. */
 fun MenuManager.menu(
@@ -34,7 +34,7 @@ fun MenuManager.menu(
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
-    init: (@LayoutDslMarker _Menu).() -> Unit
+    init: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu = addMenu(ktfx.layouts.menu(text, graphic, init))
 
 /** Add a [Menu] to this manager. */
@@ -47,5 +47,5 @@ fun MenuItemManager.menu(
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
-    init: (@LayoutDslMarker _Menu).() -> Unit
+    init: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu = addItem(ktfx.layouts.menu(text, graphic, init))

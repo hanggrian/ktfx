@@ -1,11 +1,11 @@
 package ktfx.jfoenix
 
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.test.LayoutToolkitTest
 import ktfx.test.assertContains
 
-class JFXScrollPaneTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class JFXScrollPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         val top1 = jfxButton()

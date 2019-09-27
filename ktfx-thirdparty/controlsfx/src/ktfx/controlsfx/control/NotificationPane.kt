@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.controlsfx
 
@@ -32,15 +32,15 @@ fun NotificationPane.onHidden(
     action: suspend CoroutineScope.(Event) -> Unit
 ): Unit = setOnHidden { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
-open class _NotificationPane : NotificationPane(), NodeManager {
+open class KtfxNotificationPane : NotificationPane(), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { content = it }
 }
 
 /** Create a [NotificationPane] with initialization block. */
 inline fun notificationPane(
-    init: (@LayoutDslMarker _NotificationPane).() -> Unit
-): NotificationPane = _NotificationPane().apply(init)
+    init: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
+): NotificationPane = KtfxNotificationPane().apply(init)
 
 /** Add a [NotificationPane] to this manager. */
 fun NodeManager.notificationPane(): NotificationPane =
@@ -48,5 +48,5 @@ fun NodeManager.notificationPane(): NotificationPane =
 
 /** Add a [NotificationPane] with initialization block to this manager. */
 inline fun NodeManager.notificationPane(
-    init: (@LayoutDslMarker _NotificationPane).() -> Unit
+    init: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane = addNode(ktfx.controlsfx.notificationPane(init))

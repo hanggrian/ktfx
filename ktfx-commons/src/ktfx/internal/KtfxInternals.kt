@@ -1,8 +1,6 @@
 package ktfx.internal
 
-import javafx.scene.Node
-import javafx.scene.layout.Pane
-
+@Suppress("SpellCheckingInspection")
 object KtfxInternals {
 
     const val NO_GETTER: String = "Property does not have a getter."
@@ -13,7 +11,4 @@ object KtfxInternals {
     /** Equivalent to [error] but throws [UnsupportedOperationException] instead. */
     inline fun fail(lazyMessage: () -> Any = { "Unsupported operation." }): Nothing =
         throw UnsupportedOperationException(lazyMessage().toString())
-
-    fun asPane(node: Node): Pane =
-        node as? Pane ?: Pane(node)
 }

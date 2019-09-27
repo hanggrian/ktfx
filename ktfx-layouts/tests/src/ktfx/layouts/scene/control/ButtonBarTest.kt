@@ -1,14 +1,14 @@
 package ktfx.layouts.scene.control
 
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.layouts.button
 import ktfx.layouts.buttonBar
 import ktfx.test.LayoutToolkitTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class ButtonBarTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class ButtonBarTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         buttonBar {

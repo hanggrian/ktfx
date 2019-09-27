@@ -1,11 +1,11 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Tab
 
-open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManager {
+open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { content = it }
 }
@@ -14,8 +14,8 @@ open class _Tab(title: String?, content: Node?) : Tab(title, content), NodeManag
 inline fun tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutDslMarker _Tab).() -> Unit
-): Tab = _Tab(text, content).apply(init)
+    init: (@LayoutDslMarker KtfxTab).() -> Unit
+): Tab = KtfxTab(text, content).apply(init)
 
 /** Add a [Tab] to this manager. */
 fun TabManager.tab(
@@ -27,5 +27,5 @@ fun TabManager.tab(
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutDslMarker _Tab).() -> Unit
+    init: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab = addTab(ktfx.layouts.tab(text, content, init))

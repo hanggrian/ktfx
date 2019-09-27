@@ -1,7 +1,7 @@
 package ktfx.layouts.scene.layout
 
 import ktfx.layouts.NodeManager
-import ktfx.layouts._Pane
+import ktfx.layouts.KtfxPane
 import ktfx.layouts.columnConstraints
 import ktfx.layouts.gridPane
 import ktfx.layouts.rowConstraints
@@ -9,7 +9,7 @@ import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class GridConstraintsTest : LayoutToolkitTest<NodeManager>(_Pane()) {
+class GridConstraintsTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         val gridPane = gridPane {

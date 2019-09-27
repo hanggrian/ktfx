@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.controlsfx
 
@@ -10,7 +10,7 @@ import ktfx.layouts.ToggleButtonManager
 import ktfx.layouts.toggleButton
 import org.controlsfx.control.SegmentedButton
 
-open class _SegmentedButton : SegmentedButton(), ToggleButtonManager {
+open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
 
     override fun <T : ToggleButton> addButton(button: T): T = button.also { buttons += it }
 
@@ -23,8 +23,8 @@ open class _SegmentedButton : SegmentedButton(), ToggleButtonManager {
 
 /** Create a [SegmentedButton] with initialization block. */
 inline fun segmentedButton(
-    init: (@LayoutDslMarker _SegmentedButton).() -> Unit
-): SegmentedButton = _SegmentedButton().apply(init)
+    init: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
+): SegmentedButton = KtfxSegmentedButton().apply(init)
 
 /** Add a [SegmentedButton] to this manager. */
 fun NodeManager.segmentedButton(): SegmentedButton =
@@ -32,5 +32,5 @@ fun NodeManager.segmentedButton(): SegmentedButton =
 
 /** Add a [SegmentedButton] with initialization block to this manager. */
 inline fun NodeManager.segmentedButton(
-    init: (@LayoutDslMarker _SegmentedButton).() -> Unit
+    init: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton = addNode(ktfx.controlsfx.segmentedButton(init))

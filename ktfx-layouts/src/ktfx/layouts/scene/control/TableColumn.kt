@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch")
 
 package ktfx.layouts
 
@@ -6,23 +6,23 @@ import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 
 /** Interface to build [TableColumn] with Kotlin DSL. */
-sealed class TableColumnsBuilder<S> {
+interface TableColumnsBuilder<S> {
 
-    abstract fun <T> column(
+    fun <T> column(
         text: String? = null
     ): TableColumn<S, T>
 
-    inline fun <T> column(
+    fun <T> column(
         text: String? = null,
         init: TableColumn<S, T>.() -> Unit
     ): TableColumn<S, T> = column<T>(text).apply(init)
 
-    inline operator fun <T> String.invoke(
+    operator fun <T> String.invoke(
         init: TableColumn<S, T>.() -> Unit
     ): TableColumn<S, T> = column(this, init)
 }
 
-private class _TableColumnsBuilder<S> : TableColumnsBuilder<S>() {
+private class TableColumnsBuilderImpl<S> : TableColumnsBuilder<S> {
 
     val collection: MutableCollection<TableColumn<S, *>> = mutableListOf()
 
@@ -32,5 +32,5 @@ private class _TableColumnsBuilder<S> : TableColumnsBuilder<S>() {
 
 /** Invokes a [TableColumn] DSL builder. */
 fun <S> TableView<S>.columns(init: TableColumnsBuilder<S>.() -> Unit) {
-    columns += _TableColumnsBuilder<S>().apply(init).collection
+    columns += TableColumnsBuilderImpl<S>().apply(init).collection
 }

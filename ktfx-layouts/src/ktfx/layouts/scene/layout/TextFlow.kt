@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
 
-open class _TextFlow : TextFlow(), NodeManager {
+open class KtfxTextFlow : TextFlow(), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
@@ -21,8 +21,8 @@ open class _TextFlow : TextFlow(), NodeManager {
 
 /** Create a [TextFlow] with initialization block. */
 inline fun textFlow(
-    init: (@LayoutDslMarker _TextFlow).() -> Unit
-): TextFlow = _TextFlow().apply(init)
+    init: (@LayoutDslMarker KtfxTextFlow).() -> Unit
+): TextFlow = KtfxTextFlow().apply(init)
 
 /** Add a [TextFlow] to this manager. */
 fun NodeManager.textFlow(): TextFlow =
@@ -30,5 +30,5 @@ fun NodeManager.textFlow(): TextFlow =
 
 /** Add a [TextFlow] with initialization block to this manager. */
 inline fun NodeManager.textFlow(
-    init: (@LayoutDslMarker _TextFlow).() -> Unit
+    init: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow = addNode(ktfx.layouts.textFlow(init))

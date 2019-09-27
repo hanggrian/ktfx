@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.control.MenuButton
 import javafx.scene.control.MenuItem
 
-open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
+open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
 
     override fun <T : MenuItem> addItem(item: T): T = item.also { items + it }
 
@@ -21,8 +21,8 @@ open class _MenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic
 inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutDslMarker _MenuButton).() -> Unit
-): MenuButton = _MenuButton(text, graphic).apply(init)
+    init: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+): MenuButton = KtfxMenuButton(text, graphic).apply(init)
 
 /** Add a [MenuButton] to this manager. */
 fun NodeManager.menuButton(
@@ -34,5 +34,5 @@ fun NodeManager.menuButton(
 inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutDslMarker _MenuButton).() -> Unit
+    init: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton = addNode(ktfx.layouts.menuButton(text, graphic, init))

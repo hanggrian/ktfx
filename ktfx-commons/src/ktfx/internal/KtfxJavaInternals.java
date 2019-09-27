@@ -5,6 +5,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("SpellCheckingInspection")
 public final class KtfxJavaInternals {
 
     private KtfxJavaInternals() {

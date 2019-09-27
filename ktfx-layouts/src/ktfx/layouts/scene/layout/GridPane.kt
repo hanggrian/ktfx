@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -12,7 +12,7 @@ import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
 
-open class _GridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstraints, VAlignConstraints,
+open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstraints, VAlignConstraints,
     HGrowConstraints, VGrowConstraints {
 
     override fun <T : Node> addNode(node: T): T = node.also { children += it }
@@ -78,8 +78,8 @@ open class _GridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstra
 
 /** Create a [GridPane] with initialization block. */
 inline fun gridPane(
-    init: (@LayoutDslMarker _GridPane).() -> Unit
-): GridPane = _GridPane().apply(init)
+    init: (@LayoutDslMarker KtfxGridPane).() -> Unit
+): GridPane = KtfxGridPane().apply(init)
 
 /** Add a [GridPane] to this manager. */
 fun NodeManager.gridPane(): GridPane =
@@ -87,39 +87,39 @@ fun NodeManager.gridPane(): GridPane =
 
 /** Add a [GridPane] with initialization block to this manager. */
 inline fun NodeManager.gridPane(
-    init: (@LayoutDslMarker _GridPane).() -> Unit
+    init: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane = addNode(ktfx.layouts.gridPane(init))
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
-sealed class ConstraintsBuilder<out T : ConstraintsBase> {
+interface ConstraintsBuilder<out T : ConstraintsBase> {
 
-    abstract fun constraints(): T
+    fun constraints(): T
 
-    inline fun constraints(init: T.() -> Unit): T =
+    fun constraints(init: T.() -> Unit): T =
         constraints().apply(init)
 
-    abstract fun constraints(size: Double): T
+    fun constraints(size: Double): T
 
-    inline fun constraints(size: Double, init: T.() -> Unit): T =
+    fun constraints(size: Double, init: T.() -> Unit): T =
         constraints(size).apply(init)
 
-    abstract fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T
+    fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T
 
-    inline fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: T.() -> Unit): T =
+    fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: T.() -> Unit): T =
         constraints(minSize, prefSize, maxSize).apply(init)
 }
 
-private abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBuilder<T>() {
+private abstract class ConstraintsBuilderImpl<T : ConstraintsBase> : ConstraintsBuilder<T> {
 
     companion object {
-        fun ofRow(): _ConstraintsBuilder<RowConstraints> = object : _ConstraintsBuilder<RowConstraints>() {
+        fun ofRow(): ConstraintsBuilderImpl<RowConstraints> = object : ConstraintsBuilderImpl<RowConstraints>() {
             override fun newInstance(): RowConstraints = RowConstraints()
             override fun newInstance(width: Double): RowConstraints = RowConstraints(width)
             override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): RowConstraints =
                 RowConstraints(width, prefWidth, maxWidth)
         }
 
-        fun ofColumn(): _ConstraintsBuilder<ColumnConstraints> = object : _ConstraintsBuilder<ColumnConstraints>() {
+        fun ofColumn(): ConstraintsBuilderImpl<ColumnConstraints> = object : ConstraintsBuilderImpl<ColumnConstraints>() {
             override fun newInstance(): ColumnConstraints = ColumnConstraints()
             override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
             override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
@@ -147,10 +147,10 @@ private abstract class _ConstraintsBuilder<T : ConstraintsBase> : ConstraintsBui
 
 /** Invokes a row constraints DSL builder. */
 fun GridPane.rowConstraints(init: ConstraintsBuilder<RowConstraints>.() -> Unit) {
-    rowConstraints += _ConstraintsBuilder.ofRow().apply(init).collection
+    rowConstraints += ConstraintsBuilderImpl.ofRow().apply(init).collection
 }
 
 /** Invokes a column constraints DSL builder. */
 fun GridPane.columnConstraints(init: ConstraintsBuilder<ColumnConstraints>.() -> Unit) {
-    columnConstraints += _ConstraintsBuilder.ofColumn().apply(init).collection
+    columnConstraints += ConstraintsBuilderImpl.ofColumn().apply(init).collection
 }

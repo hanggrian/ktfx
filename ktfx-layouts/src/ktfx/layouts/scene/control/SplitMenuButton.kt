@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton
 
-open class _SplitMenuButton : SplitMenuButton(), MenuItemManager {
+open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
 
     override fun <T : MenuItem> addItem(item: T): T = item.also { items += it }
 
@@ -19,8 +19,8 @@ open class _SplitMenuButton : SplitMenuButton(), MenuItemManager {
 
 /** Create a [SplitMenuButton] with initialization block. */
 inline fun splitMenuButton(
-    init: (@LayoutDslMarker _SplitMenuButton).() -> Unit
-): SplitMenuButton = _SplitMenuButton().apply(init)
+    init: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
+): SplitMenuButton = KtfxSplitMenuButton().apply(init)
 
 /** Add a [SplitMenuButton] to this manager. */
 fun NodeManager.splitMenuButton(): SplitMenuButton =
@@ -28,5 +28,5 @@ fun NodeManager.splitMenuButton(): SplitMenuButton =
 
 /** Add a [SplitMenuButton] with initialization block to this manager. */
 inline fun NodeManager.splitMenuButton(
-    init: (@LayoutDslMarker _SplitMenuButton).() -> Unit
+    init: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton = addNode(ktfx.layouts.splitMenuButton(init))

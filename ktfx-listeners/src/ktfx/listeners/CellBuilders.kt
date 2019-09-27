@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE", "ClassName")
-
 package ktfx.listeners
 
 import javafx.scene.control.ListCell
@@ -12,16 +10,16 @@ import javafx.scene.control.TreeTableRow
 interface CellBuilder<out T> {
 
     /** Invoked when cell is on editing mode. */
-    fun onEditStart(listener: () -> Unit) // ktlint-disable
+    fun onEditStart(listener: () -> Unit)
 
     /** Invoked when cell edit is being committed. */
-    fun onEditCommit(listener: (T?) -> Unit) // ktlint-disable
+    fun onEditCommit(listener: (T?) -> Unit)
 
     /** Invoked when cell edit is canceled. */
-    fun onEditCancel(listener: () -> Unit) // ktlint-disable
+    fun onEditCancel(listener: () -> Unit)
 
     /** Invoked when cell item is updating. */
-    fun onUpdate(listener: (T?, empty: Boolean) -> Unit) // ktlint-disable
+    fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
 }
 
 /** [ListCell] builder with Kotlin DSL. */

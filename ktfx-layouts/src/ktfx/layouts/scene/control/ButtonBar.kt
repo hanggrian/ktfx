@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch", "ClassName")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -6,7 +6,7 @@ import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.ButtonBar
 
-open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
+open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 
     override fun <T : Node> addNode(node: T): T = node.also { buttons += it }
 
@@ -20,8 +20,8 @@ open class _ButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManage
 /** Create a [ButtonBar] with initialization block. */
 inline fun buttonBar(
     buttonOrder: String? = null,
-    init: (@LayoutDslMarker _ButtonBar).() -> Unit
-): ButtonBar = _ButtonBar(buttonOrder).apply(init)
+    init: (@LayoutDslMarker KtfxButtonBar).() -> Unit
+): ButtonBar = KtfxButtonBar(buttonOrder).apply(init)
 
 /** Add a [ButtonBar] to this manager. */
 fun NodeManager.buttonBar(
@@ -31,5 +31,5 @@ fun NodeManager.buttonBar(
 /** Add a [ButtonBar] with initialization block to this manager. */
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
-    init: (@LayoutDslMarker _ButtonBar).() -> Unit
+    init: (@LayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar = addNode(ktfx.layouts.buttonBar(buttonOrder, init))

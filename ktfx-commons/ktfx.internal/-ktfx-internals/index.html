@@ -26,13 +26,6 @@
 <tbody>
 <tr>
 <td>
-<p><a href="as-pane.html">asPane</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">asPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.internal.KtfxInternals$asPane(javafx.scene.Node)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Pane</span></code></td>
-</tr>
-<tr>
-<td>
 <p><a href="fail.html">fail</a></p>
 </td>
 <td>
@@ -56,11 +49,49 @@
 <tbody>
 <tr>
 <td>
+<p><a href="../../ktfx/as-final-property.html">asFinalProperty</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="../../ktfx/as-final-property.html#E"><span class="identifier">E</span></a><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">asFinalProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyObjectProperty</span><span class="symbol">&lt;</span><a href="../../ktfx/as-final-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
+<p>Wrap this object in unmodifiable property.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../ktfx/as-property.html">asProperty</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="../../ktfx/as-property.html#E"><span class="identifier">E</span></a><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">asProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><a href="../../ktfx/as-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
+<p>Wrap this object in modifiable property.</p>
+</td>
+</tr>
+<tr>
+<td>
 <p><a href="../../ktfx.bindings/kotlin.-any/eq.html">eq</a></p>
 </td>
 <td>
 <code><span class="keyword">infix</span> <span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">.</span><span class="identifier">eq</span><span class="symbol">(</span><span class="identifier" id="ktfx.bindings$eq(kotlin.Any, javafx.beans.value.ObservableObjectValue((kotlin.Any)))/op">op</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableObjectValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code>
-<p>Infix typing for <a href="#">equal</a>.</p>
+<p>Infix typing for <a href="#">Bindings.equal</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../ktfx/let-and-wait.html">letAndWait</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="../../ktfx/let-and-wait.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">letAndWait</span><span class="symbol">(</span><span class="identifier" id="ktfx$letAndWait(ktfx.letAndWait.T, kotlin.Function1((ktfx.letAndWait.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="../../ktfx/let-and-wait.html#T"><span class="identifier">T</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread blocking main thread until <a href="../../ktfx/let-and-wait.html#ktfx$letAndWait(ktfx.letAndWait.T, kotlin.Function1((ktfx.letAndWait.T, kotlin.Unit)))/block">block</a> is finished,
+bringing parameter type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html">kotlin.let</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../ktfx/let-later.html">letLater</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="../../ktfx/let-later.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">letLater</span><span class="symbol">(</span><span class="identifier" id="ktfx$letLater(ktfx.letLater.T, kotlin.Function1((ktfx.letLater.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="../../ktfx/let-later.html#T"><span class="identifier">T</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread,
+bringing parameter type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html">kotlin.let</a>.</p>
 </td>
 </tr>
 <tr>
@@ -69,7 +100,27 @@
 </td>
 <td>
 <code><span class="keyword">infix</span> <span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">.</span><span class="identifier">neq</span><span class="symbol">(</span><span class="identifier" id="ktfx.bindings$neq(kotlin.Any, javafx.beans.value.ObservableObjectValue((kotlin.Any)))/op">op</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableObjectValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code>
-<p>Infix typing for <a href="#">notEqual</a>.</p>
+<p>Infix typing for <a href="#">Bindings.notEqual</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../ktfx/run-and-wait.html">runAndWait</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="../../ktfx/run-and-wait.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">runAndWait</span><span class="symbol">(</span><span class="identifier" id="ktfx$runAndWait(ktfx.runAndWait.T, kotlin.Function1((ktfx.runAndWait.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="../../ktfx/run-and-wait.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread blocking main thread until <a href="../../ktfx/run-and-wait.html#ktfx$runAndWait(ktfx.runAndWait.T, kotlin.Function1((ktfx.runAndWait.T, kotlin.Unit)))/block">block</a> is finished,
+bringing receiver type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html">kotlin.run</a>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../../ktfx/run-later.html">runLater</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="../../ktfx/run-later.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">runLater</span><span class="symbol">(</span><span class="identifier" id="ktfx$runLater(ktfx.runLater.T, kotlin.Function1((ktfx.runLater.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="../../ktfx/run-later.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread,
+bringing receiver type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html">kotlin.run</a>.</p>
 </td>
 </tr>
 <tr>
@@ -133,24 +184,6 @@
 <td>
 <code><span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">.</span><span class="identifier">selectString</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.bindings$selectString(kotlin.Any, kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringBinding</span></code>
 <p>Creates a string binding used to get a member.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx/to-final-property.html">toFinalProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="../../ktfx/to-final-property.html#E"><span class="identifier">E</span></a><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">toFinalProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyObjectProperty</span><span class="symbol">&lt;</span><a href="../../ktfx/to-final-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Converts this object to final property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="../../ktfx/to-property.html">toProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="../../ktfx/to-property.html#E"><span class="identifier">E</span></a><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">toProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><a href="../../ktfx/to-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Converts this object to property.</p>
 </td>
 </tr>
 </tbody>

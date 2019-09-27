@@ -11,7 +11,7 @@ $dokka.location:ktfx.controlsfx$checkTreeView(ktfx.layouts.NodeManager, javafx.s
 $dokka.location:ktfx.controlsfx$gridView(ktfx.layouts.NodeManager, javafx.collections.ObservableList((ktfx.controlsfx.gridView.T)))ktfx.controlsfx/ktfx.layouts.-node-manager/grid-view.html
 $dokka.location:ktfx.controlsfx$gridView(ktfx.layouts.NodeManager, javafx.collections.ObservableList((ktfx.controlsfx.gridView.T)), kotlin.Function1((org.controlsfx.control.GridView((ktfx.controlsfx.gridView.T)), kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/grid-view.html
 $dokka.location:ktfx.controlsfx$hiddenSidesPane(ktfx.layouts.NodeManager)ktfx.controlsfx/ktfx.layouts.-node-manager/hidden-sides-pane.html
-$dokka.location:ktfx.controlsfx$hiddenSidesPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.controlsfx._HiddenSidesPane, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/hidden-sides-pane.html
+$dokka.location:ktfx.controlsfx$hiddenSidesPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.controlsfx.KtfxHiddenSidesPane, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/hidden-sides-pane.html
 $dokka.location:ktfx.controlsfx$hyperlinkLabel(ktfx.layouts.NodeManager, kotlin.String)ktfx.controlsfx/ktfx.layouts.-node-manager/hyperlink-label.html
 $dokka.location:ktfx.controlsfx$hyperlinkLabel(ktfx.layouts.NodeManager, kotlin.String, kotlin.Function1((org.controlsfx.control.HyperlinkLabel, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/hyperlink-label.html
 $dokka.location:ktfx.controlsfx$infoOverlay(ktfx.layouts.NodeManager, javafx.scene.Node, kotlin.String)ktfx.controlsfx/ktfx.layouts.-node-manager/info-overlay.html
@@ -21,9 +21,9 @@ $dokka.location:ktfx.controlsfx$listSelectionView(ktfx.layouts.NodeManager, kotl
 $dokka.location:ktfx.controlsfx$maskerPane(ktfx.layouts.NodeManager)ktfx.controlsfx/ktfx.layouts.-node-manager/masker-pane.html
 $dokka.location:ktfx.controlsfx$maskerPane(ktfx.layouts.NodeManager, kotlin.Function1((org.controlsfx.control.MaskerPane, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/masker-pane.html
 $dokka.location:ktfx.controlsfx$masterDetailPane(ktfx.layouts.NodeManager, javafx.geometry.Side, kotlin.Boolean)ktfx.controlsfx/ktfx.layouts.-node-manager/master-detail-pane.html
-$dokka.location:ktfx.controlsfx$masterDetailPane(ktfx.layouts.NodeManager, javafx.geometry.Side, kotlin.Boolean, kotlin.Function1((ktfx.controlsfx._MasterDetailPane, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/master-detail-pane.html
+$dokka.location:ktfx.controlsfx$masterDetailPane(ktfx.layouts.NodeManager, javafx.geometry.Side, kotlin.Boolean, kotlin.Function1((ktfx.controlsfx.KtfxMasterDetailPane, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/master-detail-pane.html
 $dokka.location:ktfx.controlsfx$notificationPane(ktfx.layouts.NodeManager)ktfx.controlsfx/ktfx.layouts.-node-manager/notification-pane.html
-$dokka.location:ktfx.controlsfx$notificationPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.controlsfx._NotificationPane, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/notification-pane.html
+$dokka.location:ktfx.controlsfx$notificationPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.controlsfx.KtfxNotificationPane, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/notification-pane.html
 $dokka.location:ktfx.controlsfx$onAction(org.controlsfx.control.HyperlinkLabel, kotlin.coroutines.CoroutineContext, kotlin.coroutines.SuspendFunction2((kotlinx.coroutines.CoroutineScope, javafx.event.ActionEvent, kotlin.Unit)))ktfx.controlsfx/org.controlsfx.control.-hyperlink-label/on-action.html
 $dokka.location:ktfx.controlsfx$onCrumbAction(org.controlsfx.control.BreadCrumbBar((ktfx.controlsfx.onCrumbAction.T)), kotlin.coroutines.CoroutineContext, kotlin.coroutines.SuspendFunction2((kotlinx.coroutines.CoroutineScope, org.controlsfx.control.BreadCrumbBar.BreadCrumbActionEvent((ktfx.controlsfx.onCrumbAction.T)), kotlin.Unit)))ktfx.controlsfx/org.controlsfx.control.-bread-crumb-bar/on-crumb-action.html
 $dokka.location:ktfx.controlsfx$onHidden(org.controlsfx.control.NotificationPane, kotlin.coroutines.CoroutineContext, kotlin.coroutines.SuspendFunction2((kotlinx.coroutines.CoroutineScope, javafx.event.Event, kotlin.Unit)))ktfx.controlsfx/org.controlsfx.control.-notification-pane/on-hidden.html
@@ -51,9 +51,9 @@ $dokka.location:ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Cont
 $dokka.location:ktfx.controlsfx$segmentedBar(ktfx.layouts.NodeManager)ktfx.controlsfx/ktfx.layouts.-node-manager/segmented-bar.html
 $dokka.location:ktfx.controlsfx$segmentedBar(ktfx.layouts.NodeManager, kotlin.Function1((org.controlsfx.control.SegmentedBar((ktfx.controlsfx.segmentedBar.T)), kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/segmented-bar.html
 $dokka.location:ktfx.controlsfx$segmentedButton(ktfx.layouts.NodeManager)ktfx.controlsfx/ktfx.layouts.-node-manager/segmented-button.html
-$dokka.location:ktfx.controlsfx$segmentedButton(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.controlsfx._SegmentedButton, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/segmented-button.html
+$dokka.location:ktfx.controlsfx$segmentedButton(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.controlsfx.KtfxSegmentedButton, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/segmented-button.html
 $dokka.location:ktfx.controlsfx$snapshotView(ktfx.layouts.NodeManager)ktfx.controlsfx/ktfx.layouts.-node-manager/snapshot-view.html
-$dokka.location:ktfx.controlsfx$snapshotView(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.controlsfx._SnapshotView, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/snapshot-view.html
+$dokka.location:ktfx.controlsfx$snapshotView(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.controlsfx.KtfxSnapshotView, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/snapshot-view.html
 $dokka.location:ktfx.controlsfx$statusBar(ktfx.layouts.NodeManager)ktfx.controlsfx/ktfx.layouts.-node-manager/status-bar.html
 $dokka.location:ktfx.controlsfx$statusBar(ktfx.layouts.NodeManager, kotlin.Function1((org.controlsfx.control.StatusBar, kotlin.Unit)))ktfx.controlsfx/ktfx.layouts.-node-manager/status-bar.html
 $dokka.location:ktfx.controlsfx$taskProgressView(ktfx.layouts.NodeManager)ktfx.controlsfx/ktfx.layouts.-node-manager/task-progress-view.html

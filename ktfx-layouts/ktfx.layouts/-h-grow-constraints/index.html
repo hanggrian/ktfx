@@ -9,6 +9,13 @@
 <br/>
 <h1>HGrowConstraints</h1>
 <code><span class="keyword">interface </span><span class="identifier">HGrowConstraints</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-constraints/index.html"><span class="identifier">Constraints</span></a></code>
+<p>Marks a layout manager with growable children's width.
+It uses <code>hpriority</code> name since <code>hgrow</code> would clash with <a href="#">javafx.scene.layout.GridPane.setHgrow</a>
+and <a href="#">javafx.scene.layout.GridPane.getHgrow</a>.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="../-ktfx-h-box/index.html">KtfxHBox</a></p>
+<p><a href="../-ktfx-grid-pane/index.html">KtfxGridPane</a></p>
+</p>
 <h3>Properties</h3>
 <table>
 <tbody>
@@ -50,17 +57,19 @@
 <tbody>
 <tr>
 <td>
-<p><a href="../_-grid-pane/index.html">_GridPane</a></p>
-</td>
-<td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">_GridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-h-align-constraints/index.html"><span class="identifier">HAlignConstraints</span></a><span class="symbol">, </span><a href="../-v-align-constraints/index.html"><span class="identifier">VAlignConstraints</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a></code></td>
-</tr>
-<tr>
-<td>
 <p><a href="../-h-box-constraints/index.html">HBoxConstraints</a></p>
 </td>
 <td>
-<code><span class="keyword">interface </span><span class="identifier">HBoxConstraints</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
+<code><span class="keyword">interface </span><span class="identifier">HBoxConstraints</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code>
+<p><a href="#">javafx.scene.layout.HBox</a> constraints.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../-ktfx-grid-pane/index.html">KtfxGridPane</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-h-align-constraints/index.html"><span class="identifier">HAlignConstraints</span></a><span class="symbol">, </span><a href="../-v-align-constraints/index.html"><span class="identifier">VAlignConstraints</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a></code></td>
 </tr>
 </tbody>
 </table>

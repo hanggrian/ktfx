@@ -5,7 +5,7 @@ $dokka.location:ktfx.jfoenix$delayedEventHandler(javafx.scene.Node, javafx.util.
 $dokka.location:ktfx.jfoenix$delayedPropertyInvalidationListener(javafx.beans.value.ObservableValue((ktfx.jfoenix.delayedPropertyInvalidationListener.T)), javafx.util.Duration, kotlin.Function1((ktfx.jfoenix.delayedPropertyInvalidationListener.T, kotlin.Unit)))ktfx.jfoenix/javafx.beans.value.-observable-value/delayed-property-invalidation-listener.html
 $dokka.location:ktfx.jfoenix$delayedPropertyInvalidationListener(javafx.beans.value.ObservableValue((ktfx.jfoenix.delayedPropertyInvalidationListener.T)), javafx.util.Duration, kotlin.Function1((ktfx.jfoenix.delayedPropertyInvalidationListener.T, kotlin.Unit)), kotlin.Function1((ktfx.jfoenix.delayedPropertyInvalidationListener.T, kotlin.Unit)))ktfx.jfoenix/javafx.beans.value.-observable-value/delayed-property-invalidation-listener.html
 $dokka.location:ktfx.jfoenix$jfxBadge(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-badge.html
-$dokka.location:ktfx.jfoenix$jfxBadge(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix._JFXBadge, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-badge.html
+$dokka.location:ktfx.jfoenix$jfxBadge(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.KtfxJFXBadge, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-badge.html
 $dokka.location:ktfx.jfoenix$jfxButton(ktfx.layouts.NodeManager, kotlin.String, javafx.scene.Node)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-button.html
 $dokka.location:ktfx.jfoenix$jfxButton(ktfx.layouts.NodeManager, kotlin.String, javafx.scene.Node, kotlin.Function1((com.jfoenix.controls.JFXButton, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-button.html
 $dokka.location:ktfx.jfoenix$jfxCheckBox(ktfx.layouts.NodeManager, kotlin.String)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-check-box.html
@@ -15,7 +15,7 @@ $dokka.location:ktfx.jfoenix$jfxChip(ktfx.layouts.NodeManager, com.jfoenix.contr
 $dokka.location:ktfx.jfoenix$jfxChipView(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-chip-view.html
 $dokka.location:ktfx.jfoenix$jfxChipView(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXChipView((ktfx.jfoenix.jfxChipView.T)), kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-chip-view.html
 $dokka.location:ktfx.jfoenix$jfxClippedPane(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-clipped-pane.html
-$dokka.location:ktfx.jfoenix$jfxClippedPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix._JFXClippedPane, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-clipped-pane.html
+$dokka.location:ktfx.jfoenix$jfxClippedPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.KtfxJFXClippedPane, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-clipped-pane.html
 $dokka.location:ktfx.jfoenix$jfxColorPicker(ktfx.layouts.NodeManager, javafx.scene.paint.Color)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-color-picker.html
 $dokka.location:ktfx.jfoenix$jfxColorPicker(ktfx.layouts.NodeManager, javafx.scene.paint.Color, kotlin.Function1((com.jfoenix.controls.JFXColorPicker, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-color-picker.html
 $dokka.location:ktfx.jfoenix$jfxComboBox(ktfx.layouts.NodeManager, javafx.collections.ObservableList((ktfx.jfoenix.jfxComboBox.T)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-combo-box.html
@@ -49,9 +49,9 @@ $dokka.location:ktfx.jfoenix$jfxProgressBar(ktfx.layouts.NodeManager, kotlin.Dou
 $dokka.location:ktfx.jfoenix$jfxRadioButton(ktfx.layouts.NodeManager, kotlin.String)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-radio-button.html
 $dokka.location:ktfx.jfoenix$jfxRadioButton(ktfx.layouts.NodeManager, kotlin.String, kotlin.Function1((com.jfoenix.controls.JFXRadioButton, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-radio-button.html
 $dokka.location:ktfx.jfoenix$jfxRippler(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-rippler.html
-$dokka.location:ktfx.jfoenix$jfxRippler(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix._JFXRippler, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-rippler.html
+$dokka.location:ktfx.jfoenix$jfxRippler(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.KtfxJFXRippler, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-rippler.html
 $dokka.location:ktfx.jfoenix$jfxScrollPane(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-scroll-pane.html
-$dokka.location:ktfx.jfoenix$jfxScrollPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix._JFXScrollPane, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-scroll-pane.html
+$dokka.location:ktfx.jfoenix$jfxScrollPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.KtfxJFXScrollPane, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-scroll-pane.html
 $dokka.location:ktfx.jfoenix$jfxSlider(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-slider.html
 $dokka.location:ktfx.jfoenix$jfxSlider(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((com.jfoenix.controls.JFXSlider, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-slider.html
 $dokka.location:ktfx.jfoenix$jfxSnackbar(javafx.scene.layout.Pane, kotlin.String, kotlin.Long)ktfx.jfoenix/javafx.scene.layout.-pane/jfx-snackbar.html
@@ -59,7 +59,7 @@ $dokka.location:ktfx.jfoenix$jfxSnackbar(javafx.scene.layout.Pane, kotlin.String
 $dokka.location:ktfx.jfoenix$jfxSpinner(ktfx.layouts.NodeManager, kotlin.Double)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-spinner.html
 $dokka.location:ktfx.jfoenix$jfxSpinner(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Function1((com.jfoenix.controls.JFXSpinner, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-spinner.html
 $dokka.location:ktfx.jfoenix$jfxTabPane(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-tab-pane.html
-$dokka.location:ktfx.jfoenix$jfxTabPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix._JFXTabPane, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-tab-pane.html
+$dokka.location:ktfx.jfoenix$jfxTabPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.KtfxJFXTabPane, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-tab-pane.html
 $dokka.location:ktfx.jfoenix$jfxTextArea(ktfx.layouts.NodeManager, kotlin.String)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-text-area.html
 $dokka.location:ktfx.jfoenix$jfxTextArea(ktfx.layouts.NodeManager, kotlin.String, kotlin.Function1((com.jfoenix.controls.JFXTextArea, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-text-area.html
 $dokka.location:ktfx.jfoenix$jfxTextField(ktfx.layouts.NodeManager, kotlin.String)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-text-field.html
@@ -73,7 +73,7 @@ $dokka.location:ktfx.jfoenix$jfxToggleNode(ktfx.layouts.NodeManager, javafx.scen
 $dokka.location:ktfx.jfoenix$jfxTogglePane(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-toggle-pane.html
 $dokka.location:ktfx.jfoenix$jfxTogglePane(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXTogglePane, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-toggle-pane.html
 $dokka.location:ktfx.jfoenix$jfxToolbar(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-toolbar.html
-$dokka.location:ktfx.jfoenix$jfxToolbar(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix._JFXToolbar, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-toolbar.html
+$dokka.location:ktfx.jfoenix$jfxToolbar(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.KtfxJFXToolbar, kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-toolbar.html
 $dokka.location:ktfx.jfoenix$jfxTreeCell(ktfx.layouts.NodeManager)ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-tree-cell.html
 $dokka.location:ktfx.jfoenix$jfxTreeCell(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXTreeCell((ktfx.jfoenix.jfxTreeCell.T)), kotlin.Unit)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-tree-cell.html
 $dokka.location:ktfx.jfoenix$jfxTreeTableView(ktfx.layouts.NodeManager, javafx.scene.control.TreeItem((ktfx.jfoenix.jfxTreeTableView.S)))ktfx.jfoenix/ktfx.layouts.-node-manager/jfx-tree-table-view.html

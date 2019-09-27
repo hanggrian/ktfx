@@ -13,11 +13,11 @@
 <tbody>
 <tr>
 <td>
-<p><a href="_-task/index.html">_Task</a></p>
+<p><a href="-ktfx-task/index.html">KtfxTask</a></p>
 </td>
 <td>
-<code><span class="keyword">class </span><span class="identifier">_Task</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Task</span><span class="symbol">&lt;</span><a href="_-task/index.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Receiver in <code>ktfx.buildService</code>, invoke <a href="_-task/call.html">call</a> to customize what this Task do in the background.</p>
+<code><span class="keyword">class </span><span class="identifier">KtfxTask</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Task</span><span class="symbol">&lt;</span><a href="-ktfx-task/index.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
+<p>Receiver in <code>ktfx.buildService</code>, invoke <a href="-ktfx-task/call.html">call</a> to customize what this Task do in the background.</p>
 </td>
 </tr>
 </tbody>
@@ -284,11 +284,20 @@
 <tbody>
 <tr>
 <td>
-<p><a href="boolean-property-of.html">booleanPropertyOf</a></p>
+<p><a href="as-final-property.html">asFinalProperty</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">booleanPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$booleanPropertyOf(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanProperty</span></code>
-<p>Wrap this boolean in modifiable property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="as-final-property.html#E"><span class="identifier">E</span></a><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">asFinalProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyObjectProperty</span><span class="symbol">&lt;</span><a href="as-final-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
+<p>Wrap this object in unmodifiable property.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="as-property.html">asProperty</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="as-property.html#E"><span class="identifier">E</span></a><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">asProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><a href="as-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
+<p>Wrap this object in modifiable property.</p>
 </td>
 </tr>
 <tr>
@@ -296,194 +305,9 @@
 <p><a href="build-service.html">buildService</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">buildService</span><span class="symbol">(</span><span class="identifier" id="ktfx$buildService(kotlin.Function1((ktfx._Task((ktfx.buildService.V)), kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="_-task/index.html"><span class="identifier">_Task</span></a><span class="symbol">&lt;</span><a href="build-service.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Service</span><span class="symbol">&lt;</span><a href="build-service.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">buildService</span><span class="symbol">(</span><span class="identifier" id="ktfx$buildService(kotlin.Function1((ktfx.KtfxTask((ktfx.buildService.V)), kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="-ktfx-task/index.html"><span class="identifier">KtfxTask</span></a><span class="symbol">&lt;</span><a href="build-service.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Service</span><span class="symbol">&lt;</span><a href="build-service.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
 <p>Returns a <a href="#">Service</a> by invoking <a href="#">Task</a> DSL.
 By default, it will do nothing and returns null in the background, customize it by invoking <code>call</code>.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="double-property-of.html">doublePropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">doublePropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$doublePropertyOf(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleProperty</span></code>
-<p>Wrap this double in modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="empty-list-property.html">emptyListProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">emptyListProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><a href="empty-list-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty list modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="empty-map-property.html">emptyMapProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">emptyMapProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><a href="empty-map-property.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="empty-map-property.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty map modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="empty-set-property.html">emptySetProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">emptySetProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><a href="empty-set-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty set modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-boolean-property-of.html">finalBooleanPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">finalBooleanPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalBooleanPropertyOf(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyBooleanProperty</span></code>
-<p>Wrap this boolean in unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-double-property-of.html">finalDoublePropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">finalDoublePropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalDoublePropertyOf(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyDoubleProperty</span></code>
-<p>Wrap this double in unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-empty-list-property.html">finalEmptyListProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalEmptyListProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyListProperty</span><span class="symbol">&lt;</span><a href="final-empty-list-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty list unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-empty-map-property.html">finalEmptyMapProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">finalEmptyMapProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyMapProperty</span><span class="symbol">&lt;</span><a href="final-empty-map-property.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="final-empty-map-property.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty map unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-empty-set-property.html">finalEmptySetProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalEmptySetProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlySetProperty</span><span class="symbol">&lt;</span><a href="final-empty-set-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty set unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-float-property-of.html">finalFloatPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">finalFloatPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalFloatPropertyOf(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyFloatProperty</span></code>
-<p>Wrap this float in modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-int-property-of.html">finalIntPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">finalIntPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalIntPropertyOf(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyIntegerProperty</span></code>
-<p>Wrap this int in unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-list-property-of.html">finalListPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalListPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalListPropertyOf(javafx.collections.ObservableList((ktfx.finalListPropertyOf.E)))/list">list</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><a href="final-list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyListProperty</span><span class="symbol">&lt;</span><a href="final-list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Wrap this list in unmodifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalListPropertyOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyListProperty</span><span class="symbol">&lt;</span><a href="final-list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty list unmodifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalListPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalListPropertyOf(ktfx.finalListPropertyOf.E)/element">element</span><span class="symbol">:</span>&nbsp;<a href="final-list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyListProperty</span><span class="symbol">&lt;</span><a href="final-list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create a singleton list unmodifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalListPropertyOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$finalListPropertyOf(kotlin.Array((ktfx.finalListPropertyOf.E)))/elements">elements</span><span class="symbol">:</span>&nbsp;<a href="final-list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyListProperty</span><span class="symbol">&lt;</span><a href="final-list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create a list unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-long-property-of.html">finalLongPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">finalLongPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalLongPropertyOf(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyLongProperty</span></code>
-<p>Wrap this long in unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-map-property-of.html">finalMapPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">finalMapPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalMapPropertyOf(javafx.collections.ObservableMap((ktfx.finalMapPropertyOf.K, ktfx.finalMapPropertyOf.V)))/map">map</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><a href="final-map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="final-map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyMapProperty</span><span class="symbol">&lt;</span><a href="final-map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="final-map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Wrap this map in unmodifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">finalMapPropertyOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyMapProperty</span><span class="symbol">&lt;</span><a href="final-map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="final-map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty map unmodifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">finalMapPropertyOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$finalMapPropertyOf(kotlin.Array((kotlin.Pair((ktfx.finalMapPropertyOf.K, ktfx.finalMapPropertyOf.V)))))/pairs">pairs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="final-map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="final-map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyMapProperty</span><span class="symbol">&lt;</span><a href="final-map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="final-map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Create a map unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-property-of.html">finalPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalPropertyOf(ktfx.finalPropertyOf.E)/value">value</span><span class="symbol">:</span>&nbsp;<a href="final-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyObjectProperty</span><span class="symbol">&lt;</span><a href="final-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Wrap this object in unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-set-property-of.html">finalSetPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalSetPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalSetPropertyOf(javafx.collections.ObservableSet((ktfx.finalSetPropertyOf.E)))/set">set</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><a href="final-set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlySetProperty</span><span class="symbol">&lt;</span><a href="final-set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Wrap this list in unmodifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalSetPropertyOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlySetProperty</span><span class="symbol">&lt;</span><a href="final-set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty set unmodifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalSetPropertyOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$finalSetPropertyOf(kotlin.Array((ktfx.finalSetPropertyOf.E)))/elements">elements</span><span class="symbol">:</span>&nbsp;<a href="final-set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlySetProperty</span><span class="symbol">&lt;</span><a href="final-set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create a set unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="final-string-property-of.html">finalStringPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">finalStringPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalStringPropertyOf(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyStringProperty</span></code>
-<p>Wrap this string in unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="float-property-of.html">floatPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">floatPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$floatPropertyOf(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatProperty</span></code>
-<p>Wrap this float in unmodifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="int-property-of.html">intPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">intPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$intPropertyOf(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerProperty</span></code>
-<p>Wrap this int in modifiable property.</p>
 </td>
 </tr>
 <tr>
@@ -508,48 +332,22 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<p><a href="list-property-of.html">listPropertyOf</a></p>
+<p><a href="let-and-wait.html">letAndWait</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$listPropertyOf(javafx.collections.ObservableList((ktfx.listPropertyOf.E)))/list">list</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><a href="list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><a href="list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Wrap this list in modifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listPropertyOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><a href="list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty list modifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$listPropertyOf(ktfx.listPropertyOf.E)/element">element</span><span class="symbol">:</span>&nbsp;<a href="list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><a href="list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create a singleton list modifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listPropertyOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$listPropertyOf(kotlin.Array((ktfx.listPropertyOf.E)))/elements">elements</span><span class="symbol">:</span>&nbsp;<a href="list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><a href="list-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create a list modifiable property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="let-and-wait.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">letAndWait</span><span class="symbol">(</span><span class="identifier" id="ktfx$letAndWait(ktfx.letAndWait.T, kotlin.Function1((ktfx.letAndWait.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="let-and-wait.html#T"><span class="identifier">T</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread blocking main thread until <a href="let-and-wait.html#ktfx$letAndWait(ktfx.letAndWait.T, kotlin.Function1((ktfx.letAndWait.T, kotlin.Unit)))/block">block</a> is finished,
+bringing parameter type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html">kotlin.let</a>.</p>
 </td>
 </tr>
 <tr>
 <td>
-<p><a href="long-property-of.html">longPropertyOf</a></p>
+<p><a href="let-later.html">letLater</a></p>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">longPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$longPropertyOf(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongProperty</span></code>
-<p>Wrap this long in modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="map-property-of.html">mapPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mapPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$mapPropertyOf(javafx.collections.ObservableMap((ktfx.mapPropertyOf.K, ktfx.mapPropertyOf.V)))/map">map</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><a href="map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><a href="map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Wrap this map in modifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mapPropertyOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><a href="map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty map modifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mapPropertyOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$mapPropertyOf(kotlin.Array((kotlin.Pair((ktfx.mapPropertyOf.K, ktfx.mapPropertyOf.V)))))/pairs">pairs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><a href="map-property-of.html#K"><span class="identifier">K</span></a><span class="symbol">,</span>&nbsp;<a href="map-property-of.html#V"><span class="identifier">V</span></a><span class="symbol">&gt;</span></code>
-<p>Create a map modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="property-of.html">propertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">propertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$propertyOf(ktfx.propertyOf.E)/value">value</span><span class="symbol">:</span>&nbsp;<a href="property-of.html#E"><span class="identifier">E</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><a href="property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Wrap this object in modifiable property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="let-later.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">letLater</span><span class="symbol">(</span><span class="identifier" id="ktfx$letLater(ktfx.letLater.T, kotlin.Function1((ktfx.letLater.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="let-later.html#T"><span class="identifier">T</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread,
+bringing parameter type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html">kotlin.let</a>.</p>
 </td>
 </tr>
 <tr>
@@ -558,7 +356,10 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">runAndWait</span><span class="symbol">(</span><span class="identifier" id="ktfx$runAndWait(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Run the specified block immediately if caller is already in JavaFX thread, or later if it's not.</p>
+<p>Run the specified block in JavaFX thread blocking main thread until <a href="run-and-wait.html#ktfx$runAndWait(kotlin.Function0((kotlin.Unit)))/block">block</a> is finished.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="run-and-wait.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">runAndWait</span><span class="symbol">(</span><span class="identifier" id="ktfx$runAndWait(ktfx.runAndWait.T, kotlin.Function1((ktfx.runAndWait.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="run-and-wait.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread blocking main thread until <a href="run-and-wait.html#ktfx$runAndWait(ktfx.runAndWait.T, kotlin.Function1((ktfx.runAndWait.T, kotlin.Unit)))/block">block</a> is finished,
+bringing receiver type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html">kotlin.run</a>.</p>
 </td>
 </tr>
 <tr>
@@ -567,47 +368,10 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <code><span class="keyword">fun </span><span class="identifier">runLater</span><span class="symbol">(</span><span class="identifier" id="ktfx$runLater(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Run the specified block on the JavaFX thread runLater.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="set-property-of.html">setPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">setPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$setPropertyOf(javafx.collections.ObservableSet((ktfx.setPropertyOf.E)))/set">set</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><a href="set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><a href="set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Wrap this list in modifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">setPropertyOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><a href="set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create an empty set modifiable property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">setPropertyOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$setPropertyOf(kotlin.Array((ktfx.setPropertyOf.E)))/elements">elements</span><span class="symbol">:</span>&nbsp;<a href="set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><a href="set-property-of.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Create a set modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="string-property-of.html">stringPropertyOf</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">stringPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$stringPropertyOf(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringProperty</span></code>
-<p>Wrap this string in modifiable property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="to-final-property.html">toFinalProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="to-final-property.html#E"><span class="identifier">E</span></a><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">toFinalProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyObjectProperty</span><span class="symbol">&lt;</span><a href="to-final-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Converts this object to final property.</p>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="to-property.html">toProperty</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <a href="to-property.html#E"><span class="identifier">E</span></a><span class="symbol">?</span><span class="symbol">.</span><span class="identifier">toProperty</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><a href="to-property.html#E"><span class="identifier">E</span></a><span class="symbol">&gt;</span></code>
-<p>Converts this object to property.</p>
+<p>Run the specified block in JavaFX thread.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="run-later.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">runLater</span><span class="symbol">(</span><span class="identifier" id="ktfx$runLater(ktfx.runLater.T, kotlin.Function1((ktfx.runLater.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="run-later.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread,
+bringing receiver type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html">kotlin.run</a>.</p>
 </td>
 </tr>
 </tbody>

@@ -1,0 +1,88 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>KtfxSegmentedButton - controlsfx</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">controlsfx</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.controlsfx</a>&nbsp;/&nbsp;<a href="./index.html">KtfxSegmentedButton</a><br/>
+<br/>
+<h1>KtfxSegmentedButton</h1>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxSegmentedButton</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">SegmentedButton</span><span class="symbol">, </span><span class="identifier">ToggleButtonManager</span></code>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="-init-.html">&lt;init&gt;</a></p>
+</td>
+<td>
+<code><span class="identifier">KtfxSegmentedButton</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="add-button.html">addButton</a></p>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ToggleButton</span><span class="symbol">&gt;</span> <span class="identifier">addButton</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.KtfxSegmentedButton$addButton(ktfx.controlsfx.KtfxSegmentedButton.addButton.T)/button">button</span><span class="symbol">:</span>&nbsp;<a href="add-button.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="add-button.html#T"><span class="identifier">T</span></a></code></td>
+</tr>
+<tr>
+<td>
+<p><a href="invoke.html">invoke</a></p>
+</td>
+<td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.KtfxSegmentedButton$invoke(kotlin.String, javafx.scene.Node, kotlin.Function1((javafx.scene.control.ToggleButton, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.KtfxSegmentedButton$invoke(kotlin.String, javafx.scene.Node, kotlin.Function1((javafx.scene.control.ToggleButton, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">ToggleButton</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ToggleButton</span></code>
+<p>Call <a href="#">ToggleButtonManager.toggleButton</a> by string invocation.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="../javafx.scene.control.-control/register-empty-validator.html">registerEmptyValidator</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">Control</span><span class="symbol">.</span><span class="identifier">registerEmptyValidator</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx$registerEmptyValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerEmptyValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/severity">severity</span><span class="symbol">:</span>&nbsp;<span class="identifier">Severity</span>&nbsp;<span class="symbol">=</span>&nbsp;Severity.ERROR<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerEmptyValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/required">required</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerEmptyValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/support">support</span><span class="symbol">:</span>&nbsp;<span class="identifier">ValidationSupport</span>&nbsp;<span class="symbol">=</span>&nbsp;singletonSupport<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Register empty validation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../javafx.scene.control.-control/register-equals-validator.html">registerEqualsValidator</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">Control</span><span class="symbol">.</span><span class="identifier">registerEqualsValidator</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx$registerEqualsValidator(javafx.scene.control.Control, kotlin.String, kotlin.collections.Collection((ktfx.controlsfx.registerEqualsValidator.T)), org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerEqualsValidator(javafx.scene.control.Control, kotlin.String, kotlin.collections.Collection((ktfx.controlsfx.registerEqualsValidator.T)), org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/collection">collection</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><a href="../javafx.scene.control.-control/register-equals-validator.html#T"><span class="identifier">T</span></a><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerEqualsValidator(javafx.scene.control.Control, kotlin.String, kotlin.collections.Collection((ktfx.controlsfx.registerEqualsValidator.T)), org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/severity">severity</span><span class="symbol">:</span>&nbsp;<span class="identifier">Severity</span>&nbsp;<span class="symbol">=</span>&nbsp;Severity.ERROR<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerEqualsValidator(javafx.scene.control.Control, kotlin.String, kotlin.collections.Collection((ktfx.controlsfx.registerEqualsValidator.T)), org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/required">required</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerEqualsValidator(javafx.scene.control.Control, kotlin.String, kotlin.collections.Collection((ktfx.controlsfx.registerEqualsValidator.T)), org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/support">support</span><span class="symbol">:</span>&nbsp;<span class="identifier">ValidationSupport</span>&nbsp;<span class="symbol">=</span>&nbsp;singletonSupport<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Register equals validation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../javafx.scene.control.-control/register-predicate-validator.html">registerPredicateValidator</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">Control</span><span class="symbol">.</span><span class="identifier">registerPredicateValidator</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx$registerPredicateValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport, kotlin.Function1((ktfx.controlsfx.registerPredicateValidator.T, kotlin.Boolean)))/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerPredicateValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport, kotlin.Function1((ktfx.controlsfx.registerPredicateValidator.T, kotlin.Boolean)))/severity">severity</span><span class="symbol">:</span>&nbsp;<span class="identifier">Severity</span>&nbsp;<span class="symbol">=</span>&nbsp;Severity.ERROR<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerPredicateValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport, kotlin.Function1((ktfx.controlsfx.registerPredicateValidator.T, kotlin.Boolean)))/required">required</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerPredicateValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport, kotlin.Function1((ktfx.controlsfx.registerPredicateValidator.T, kotlin.Boolean)))/support">support</span><span class="symbol">:</span>&nbsp;<span class="identifier">ValidationSupport</span>&nbsp;<span class="symbol">=</span>&nbsp;singletonSupport<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerPredicateValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport, kotlin.Function1((ktfx.controlsfx.registerPredicateValidator.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="../javafx.scene.control.-control/register-predicate-validator.html#T"><span class="identifier">T</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Register predicate validation.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="../javafx.scene.control.-control/register-regex-validator.html">registerRegexValidator</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Control</span><span class="symbol">.</span><span class="identifier">registerRegexValidator</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/regex">regex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/severity">severity</span><span class="symbol">:</span>&nbsp;<span class="identifier">Severity</span>&nbsp;<span class="symbol">=</span>&nbsp;Severity.ERROR<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/required">required</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/support">support</span><span class="symbol">:</span>&nbsp;<span class="identifier">ValidationSupport</span>&nbsp;<span class="symbol">=</span>&nbsp;singletonSupport<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">Control</span><span class="symbol">.</span><span class="identifier">registerRegexValidator</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/message">message</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/regex">regex</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/index.html"><span class="identifier">Regex</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/severity">severity</span><span class="symbol">:</span>&nbsp;<span class="identifier">Severity</span>&nbsp;<span class="symbol">=</span>&nbsp;Severity.ERROR<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/required">required</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)/support">support</span><span class="symbol">:</span>&nbsp;<span class="identifier">ValidationSupport</span>&nbsp;<span class="symbol">=</span>&nbsp;singletonSupport<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code>
+<p>Register regex validation.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

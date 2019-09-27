@@ -10,6 +10,10 @@
 <h1>runLater</h1>
 <a name="ktfx$runLater(kotlin.Function0((kotlin.Unit)))"></a>
 <code><span class="keyword">fun </span><span class="identifier">runLater</span><span class="symbol">(</span><span class="identifier" id="ktfx$runLater(kotlin.Function0((kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Run the specified block on the JavaFX thread runLater.</p>
+<p>Run the specified block in JavaFX thread.</p>
+<a name="ktfx$runLater(ktfx.runLater.T, kotlin.Function1((ktfx.runLater.T, kotlin.Unit)))"></a>
+<code><span class="keyword">inline</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <a href="run-later.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="identifier">runLater</span><span class="symbol">(</span><span class="keyword">crossinline</span> <span class="identifier" id="ktfx$runLater(ktfx.runLater.T, kotlin.Function1((ktfx.runLater.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<a href="run-later.html#T"><span class="identifier">T</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Run the specified block in JavaFX thread,
+bringing receiver type similar to <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/run.html">kotlin.run</a>.</p>
 </BODY>
 </HTML>

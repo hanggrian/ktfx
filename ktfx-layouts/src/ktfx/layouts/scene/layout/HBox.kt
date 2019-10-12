@@ -7,7 +7,8 @@ import javafx.scene.layout.HBox
 
 open class KtfxHBox(spacing: Double) : HBox(spacing), HBoxConstraints {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 }
 
 /** Create an [HBox] with initialization block. */

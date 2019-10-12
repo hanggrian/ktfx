@@ -11,11 +11,13 @@ import javafx.scene.layout.FlowPane
 open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
     NodeManager, MarginConstraints {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 
-    override fun Node.reset(): Unit = clearConstraints(this)
+    final override fun Node.reset(): Unit =
+        clearConstraints(this)
 
-    override var Node.margins: Insets?
+    final override var Node.margins: Insets?
         get() = getMargin(this)
         set(value) = setMargin(this, value)
 }

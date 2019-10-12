@@ -7,7 +7,8 @@ import javafx.scene.control.ScrollPane
 
 open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { content = it }
 }
 
 /** Create a [ScrollPane] with initialization block. */

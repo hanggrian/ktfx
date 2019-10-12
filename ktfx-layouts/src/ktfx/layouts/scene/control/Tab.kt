@@ -7,7 +7,8 @@ import javafx.scene.control.Tab
 
 open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { content = it }
 }
 
 /** Create a [Tab] with initialization block. */

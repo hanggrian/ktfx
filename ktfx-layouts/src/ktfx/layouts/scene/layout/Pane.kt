@@ -7,7 +7,8 @@ import javafx.scene.layout.Pane
 
 open class KtfxPane : Pane(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 }
 
 /** Create a [Pane] with initialization block. */

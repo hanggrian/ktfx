@@ -13,7 +13,8 @@ import javafx.stage.Stage
 open class KtfxScene(root: Parent, width: Double, height: Double, fill: Paint) :
     Scene(root, width, height, fill), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { root = it as? Pane ?: Pane(it) }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { root = it as? Pane ?: Pane(it) }
 }
 
 /** Create a [Scene] with initialization block. */

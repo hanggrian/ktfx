@@ -13,7 +13,8 @@ import ktfx.layouts.tab
 
 open class KtfxJFXTabPane : JFXTabPane(), TabManager {
 
-    override fun <T : Tab> addTab(tab: T): T = tab.also { tabs += it }
+    final override fun <T : Tab> addTab(tab: T): T =
+        tab.also { tabs += it }
 
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(

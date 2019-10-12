@@ -8,7 +8,8 @@ import javafx.scene.control.MenuItem
 
 open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
 
-    override fun <T : MenuItem> addItem(item: T): T = item.also { items + it }
+    final override fun <T : MenuItem> addItem(item: T): T =
+        item.also { items + it }
 
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(

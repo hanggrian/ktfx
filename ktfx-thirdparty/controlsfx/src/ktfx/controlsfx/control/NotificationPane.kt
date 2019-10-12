@@ -34,7 +34,8 @@ fun NotificationPane.onHidden(
 
 open class KtfxNotificationPane : NotificationPane(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { content = it }
 }
 
 /** Create a [NotificationPane] with initialization block. */

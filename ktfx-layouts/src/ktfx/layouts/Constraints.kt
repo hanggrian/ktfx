@@ -12,8 +12,10 @@ import javafx.scene.layout.Priority
 import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals
 
+/** Marks a layout manager with constrained children. */
 interface Constraints {
 
+    /** Clear children constraints. */
     fun Node.reset()
 }
 

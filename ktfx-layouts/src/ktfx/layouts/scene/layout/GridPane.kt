@@ -15,17 +15,23 @@ import javafx.scene.layout.RowConstraints
 open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstraints, VAlignConstraints,
     HGrowConstraints, VGrowConstraints {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 
-    override fun Node.reset(): Unit = clearConstraints(this)
+    final override fun Node.reset(): Unit =
+        clearConstraints(this)
 
-    infix fun <T : Node> T.row(row: Int?): T = also { it.row = row }
+    infix fun <T : Node> T.row(row: Int?): T =
+        also { it.row = row }
 
-    infix fun <T : Node> T.col(col: Int?): T = also { it.col = col }
+    infix fun <T : Node> T.col(col: Int?): T =
+        also { it.col = col }
 
-    infix fun <T : Node> T.rowSpans(rowSpans: Int?): T = also { it.rowSpans = rowSpans }
+    infix fun <T : Node> T.rowSpans(rowSpans: Int?): T =
+        also { it.rowSpans = rowSpans }
 
-    infix fun <T : Node> T.colSpans(colSpans: Int?): T = also { it.colSpans = colSpans }
+    infix fun <T : Node> T.colSpans(colSpans: Int?): T =
+        also { it.colSpans = colSpans }
 
     var Node.row: Int?
         get() = getRowIndex(this)
@@ -43,21 +49,23 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignCons
         get() = getColumnSpan(this)
         set(value) = setColumnSpan(this, value)
 
-    override var Node.margins: Insets?
+    final override var Node.margins: Insets?
         get() = getMargin(this)
         set(value) = setMargin(this, value)
 
-    override var Node.valign: VPos?
+    final override var Node.valign: VPos?
         get() = getValignment(this)
         set(value) = setValignment(this, value)
 
-    override var Node.halign: HPos?
+    final override var Node.halign: HPos?
         get() = getHalignment(this)
         set(value) = setHalignment(this, value)
 
-    infix fun <T : Node> T.hfill(value: Boolean): T = apply { hfill = value }
+    infix fun <T : Node> T.hfill(value: Boolean): T =
+        apply { hfill = value }
 
-    infix fun <T : Node> T.vfill(value: Boolean): T = apply { vfill = value }
+    infix fun <T : Node> T.vfill(value: Boolean): T =
+        apply { vfill = value }
 
     var Node.hfill: Boolean?
         get() = isFillWidth(this)
@@ -67,11 +75,11 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignCons
         get() = isFillHeight(this)
         set(value) = setFillHeight(this, value)
 
-    override var Node.hpriority: Priority?
+    final override var Node.hpriority: Priority?
         get() = getHgrow(this)
         set(value) = setHgrow(this, value)
 
-    override var Node.vpriority: Priority?
+    final override var Node.vpriority: Priority?
         get() = getVgrow(this)
         set(value) = setVgrow(this, value)
 }
@@ -119,12 +127,13 @@ private abstract class ConstraintsBuilderImpl<T : ConstraintsBase> : Constraints
                 RowConstraints(width, prefWidth, maxWidth)
         }
 
-        fun ofColumn(): ConstraintsBuilderImpl<ColumnConstraints> = object : ConstraintsBuilderImpl<ColumnConstraints>() {
-            override fun newInstance(): ColumnConstraints = ColumnConstraints()
-            override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
-            override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
-                ColumnConstraints(width, prefWidth, maxWidth)
-        }
+        fun ofColumn(): ConstraintsBuilderImpl<ColumnConstraints> =
+            object : ConstraintsBuilderImpl<ColumnConstraints>() {
+                override fun newInstance(): ColumnConstraints = ColumnConstraints()
+                override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
+                override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
+                    ColumnConstraints(width, prefWidth, maxWidth)
+            }
     }
 
     val collection: MutableCollection<T> = mutableListOf()

@@ -17,5 +17,5 @@ open class KtfxRule(
         node: ASTNode,
         autoCorrect: Boolean,
         emit: (offset: Int, errorMessage: String, canBeAutoCorrected: Boolean) -> Unit
-    ) = action(node, autoCorrect, emit)
+    ): Unit = action(node, autoCorrect, emit)
 }

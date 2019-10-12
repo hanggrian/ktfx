@@ -7,7 +7,8 @@ import javafx.scene.control.SplitPane
 
 open class KtfxSplitPane : SplitPane(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { items += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { items += it }
 }
 
 /** Create a [SplitPane] with initialization block. */

@@ -8,7 +8,8 @@ import javafx.scene.text.TextFlow
 
 open class KtfxTextFlow : TextFlow(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 
     /** Call [NodeManager.text] by string invocation. */
     inline operator fun String.invoke(
@@ -16,7 +17,8 @@ open class KtfxTextFlow : TextFlow(), NodeManager {
     ): Text = text(this, init)
 
     /** Append a new line to this flow. */
-    fun newLine(): Text = text(System.lineSeparator())
+    fun newLine(): Text =
+        text(System.lineSeparator())
 }
 
 /** Create a [TextFlow] with initialization block. */

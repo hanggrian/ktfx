@@ -7,7 +7,8 @@ import javafx.scene.Node
 
 open class KtfxGroup : Group(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 }
 
 /** Create a [Group] with initialization block. */

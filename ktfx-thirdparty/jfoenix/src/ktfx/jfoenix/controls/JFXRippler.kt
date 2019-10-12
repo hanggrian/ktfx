@@ -10,7 +10,8 @@ import ktfx.layouts.NodeManager
 // TODO: should include mask & pos in constructor?
 open class KtfxJFXRippler : JFXRippler(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { control = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { control = it }
 }
 
 /** Create a [JFXRippler] with initialization block. */

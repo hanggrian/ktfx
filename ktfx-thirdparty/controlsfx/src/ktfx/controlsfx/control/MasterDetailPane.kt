@@ -10,7 +10,8 @@ import org.controlsfx.control.MasterDetailPane
 
 open class KtfxMasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { masterNode = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { masterNode = it }
 }
 
 /** Create a [MasterDetailPane] with initialization block. */

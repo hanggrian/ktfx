@@ -9,15 +9,17 @@ import javafx.scene.layout.StackPane
 
 open class KtfxStackPane : StackPane(), NodeManager, AlignConstraints, MarginConstraints {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 
-    override fun Node.reset(): Unit = clearConstraints(this)
+    final override fun Node.reset(): Unit =
+        clearConstraints(this)
 
-    override var Node.align: Pos?
+    final override var Node.align: Pos?
         get() = getAlignment(this)
         set(value) = setAlignment(this, value)
 
-    override var Node.margins: Insets?
+    final override var Node.margins: Insets?
         get() = getMargin(this)
         set(value) = setMargin(this, value)
 }

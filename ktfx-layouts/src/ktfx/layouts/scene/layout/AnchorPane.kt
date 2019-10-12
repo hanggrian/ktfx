@@ -9,19 +9,26 @@ import ktfx.internal.KtfxInternals
 
 open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 
-    override fun Node.reset(): Unit = clearConstraints(this)
+    final override fun Node.reset(): Unit =
+        clearConstraints(this)
 
-    infix fun <T : Node> T.anchorAll(anchorAll: Double?): T = also { it.anchorAll = anchorAll }
+    infix fun <T : Node> T.anchorAll(anchorAll: Double?): T =
+        also { it.anchorAll = anchorAll }
 
-    infix fun <T : Node> T.anchorTop(anchorTop: Double?): T = also { it.anchorTop = anchorTop }
+    infix fun <T : Node> T.anchorTop(anchorTop: Double?): T =
+        also { it.anchorTop = anchorTop }
 
-    infix fun <T : Node> T.anchorLeft(anchorLeft: Double?): T = also { it.anchorLeft = anchorLeft }
+    infix fun <T : Node> T.anchorLeft(anchorLeft: Double?): T =
+        also { it.anchorLeft = anchorLeft }
 
-    infix fun <T : Node> T.anchorBottom(anchorBottom: Double?): T = also { it.anchorBottom = anchorBottom }
+    infix fun <T : Node> T.anchorBottom(anchorBottom: Double?): T =
+        also { it.anchorBottom = anchorBottom }
 
-    infix fun <T : Node> T.anchorRight(anchorRight: Double?): T = also { it.anchorRight = anchorRight }
+    infix fun <T : Node> T.anchorRight(anchorRight: Double?): T =
+        also { it.anchorRight = anchorRight }
 
     var Node.anchorAll: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()

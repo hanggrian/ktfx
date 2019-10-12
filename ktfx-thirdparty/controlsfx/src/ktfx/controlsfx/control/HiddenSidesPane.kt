@@ -13,7 +13,8 @@ import org.controlsfx.control.HiddenSidesPane
  */
 open class KtfxHiddenSidesPane : HiddenSidesPane(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { content = it }
 }
 
 /** Create a [HiddenSidesPane] with initialization block. */

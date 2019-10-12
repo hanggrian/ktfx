@@ -8,7 +8,8 @@ import javafx.scene.control.ButtonBar
 
 open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { buttons += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { buttons += it }
 
     /** Call [NodeManager.button] by string invocation. */
     inline operator fun String.invoke(

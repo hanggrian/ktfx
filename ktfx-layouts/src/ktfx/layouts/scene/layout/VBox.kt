@@ -9,15 +9,17 @@ import javafx.scene.layout.VBox
 
 open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints, MarginConstraints {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { children += it }
 
-    override fun Node.reset(): Unit = clearConstraints(this)
+    final override fun Node.reset(): Unit =
+        clearConstraints(this)
 
-    override var Node.vpriority: Priority?
+    final override var Node.vpriority: Priority?
         get() = getVgrow(this)
         set(value) = setVgrow(this, value)
 
-    override var Node.margins: Insets?
+    final override var Node.margins: Insets?
         get() = getMargin(this)
         set(value) = setMargin(this, value)
 }

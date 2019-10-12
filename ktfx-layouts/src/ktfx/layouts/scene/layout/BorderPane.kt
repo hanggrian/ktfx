@@ -13,15 +13,17 @@ import javafx.scene.layout.BorderPane
  */
 open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { center = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { center = it }
 
-    override fun Node.reset(): Unit = clearConstraints(this)
+    final override fun Node.reset(): Unit =
+        clearConstraints(this)
 
-    override var Node.align: Pos?
+    final override var Node.align: Pos?
         get() = getAlignment(this)
         set(value) = setAlignment(this, value)
 
-    override var Node.margins: Insets?
+    final override var Node.margins: Insets?
         get() = getMargin(this)
         set(value) = setMargin(this, value)
 }

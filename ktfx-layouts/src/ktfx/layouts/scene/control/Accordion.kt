@@ -7,7 +7,8 @@ import javafx.scene.control.TitledPane
 
 open class KtfxAccordion : Accordion(), TitledPaneManager {
 
-    override fun <T : TitledPane> addPane(pane: T): T = pane.also { panes += it }
+    final override fun <T : TitledPane> addPane(pane: T): T =
+        pane.also { panes += it }
 
     /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(

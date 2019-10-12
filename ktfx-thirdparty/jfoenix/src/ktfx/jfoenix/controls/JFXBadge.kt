@@ -9,7 +9,8 @@ import ktfx.layouts.NodeManager
 
 open class KtfxJFXBadge : JFXBadge(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { control = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { control = it }
 }
 
 /** Create a [JFXBadge] with initialization block. */

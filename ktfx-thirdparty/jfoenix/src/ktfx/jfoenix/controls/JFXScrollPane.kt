@@ -9,7 +9,8 @@ import ktfx.layouts.NodeManager
 
 open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { content = it }
 
     val collection: MutableCollection<Node> = mutableListOf()
 

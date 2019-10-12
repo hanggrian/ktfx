@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.test
 
 import com.google.common.truth.Ordered
@@ -14,5 +12,5 @@ fun assertEmpty(actual: Iterable<Any>) =
 fun assertNotEmpty(actual: Iterable<Any>) =
     actual().isNotEmpty()
 
-private inline operator fun Iterable<Any>.invoke() =
+private operator fun Iterable<Any>.invoke() =
     Truth.assertThat(this)

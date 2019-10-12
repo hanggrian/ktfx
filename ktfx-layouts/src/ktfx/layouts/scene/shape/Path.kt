@@ -7,7 +7,8 @@ import javafx.scene.shape.PathElement
 
 open class KtfxPath : Path(), PathElementManager {
 
-    override fun <T : PathElement> addElement(element: T): T = element.also { elements += it }
+    final override fun <T : PathElement> addElement(element: T): T =
+        element.also { elements += it }
 }
 
 /** Create a [Path] with initialization block. */

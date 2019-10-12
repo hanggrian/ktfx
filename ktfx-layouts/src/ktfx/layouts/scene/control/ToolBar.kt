@@ -7,7 +7,8 @@ import javafx.scene.control.ToolBar
 
 open class KtfxToolBar : ToolBar(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { items += it }
+    final override fun <T : Node> addNode(node: T): T =
+        node.also { items += it }
 }
 
 /** Create a [ToolBar] with initialization block. */

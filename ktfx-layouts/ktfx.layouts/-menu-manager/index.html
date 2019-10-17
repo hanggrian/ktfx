@@ -9,18 +9,20 @@
 <br/>
 <h1>MenuManager</h1>
 <code><span class="keyword">interface </span><span class="identifier">MenuManager</span></code>
-<p>Manager for <a href="#">javafx.scene.control.MenuBar</a>.</p>
+<p>Container of <a href="#">Menu</a>.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="#">javafx.scene.control.MenuBar</a></p>
+</p>
 <h3>Functions</h3>
 <table>
 <tbody>
 <tr>
 <td>
-<p><a href="add-menu.html">addMenu</a></p>
+<h4><a href="add-menu.html">addMenu</a></h4>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Menu</span><span class="symbol">&gt;</span> <span class="identifier">addMenu</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.MenuManager$addMenu(ktfx.layouts.MenuManager.addMenu.T)/menu">menu</span><span class="symbol">:</span>&nbsp;<a href="add-menu.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="add-menu.html#T"><span class="identifier">T</span></a></code>
 <p>Allows child to be added dynamically with Kotlin DSL in the context of this manager.</p>
-</td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Menu</span><span class="symbol">&gt;</span> <span class="identifier">addMenu</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.MenuManager$addMenu(ktfx.layouts.MenuManager.addMenu.T)/menu">menu</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -29,14 +31,13 @@
 <tbody>
 <tr>
 <td>
-<p><a href="../menu.html">menu</a></p>
+<h4><a href="../menu.html">menu</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">MenuManager</span></a><span class="symbol">.</span><span class="identifier">menu</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node)/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Menu</span></code>
 <p>Add a <a href="#">Menu</a> to this manager.</p>
-<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">MenuManager</span></a><span class="symbol">.</span><span class="identifier">menu</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxMenu, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxMenu, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxMenu, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../-ktfx-menu/index.html"><span class="identifier">KtfxMenu</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Menu</span></code>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">MenuManager</span></a><span class="symbol">.</span><span class="identifier">menu</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node)/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Menu</span></code>
 <p>Add a <a href="#">Menu</a> with initialization block to this manager.</p>
-</td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">MenuManager</span></a><span class="symbol">.</span><span class="identifier">menu</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxMenu, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a>&nbsp;<span class="symbol">=</span>&nbsp;""<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxMenu, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$menu(ktfx.layouts.MenuManager, kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxMenu, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../-ktfx-menu/index.html"><span class="identifier">KtfxMenu</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Menu</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -45,7 +46,7 @@
 <tbody>
 <tr>
 <td>
-<p><a href="../-ktfx-menu-bar/index.html">KtfxMenuBar</a></p>
+<h4><a href="../-ktfx-menu-bar/index.html">KtfxMenuBar</a></h4>
 </td>
 <td>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxMenuBar</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MenuBar</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">MenuManager</span></a></code></td>

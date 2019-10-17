@@ -12,11 +12,11 @@
 <tbody>
 <tr>
 <td>
-<p><a href="create-job.html">createJob</a></p>
+<h4><a href="create-job.html">createJob</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">Printer</span><span class="symbol">.</span><span class="identifier">createJob</span><span class="symbol">(</span><span class="identifier" id="ktfx.print$createJob(javafx.print.Printer, kotlin.String, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))/name">name</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.print$createJob(javafx.print.Printer, kotlin.String, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))/settings">settings</span><span class="symbol">:</span>&nbsp;<span class="identifier">JobSettings</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{
-        if (name != null) jobName = name
+<p>Create a new printer job with specified job settings.</p>
+<code><span class="keyword">fun </span><span class="identifier">Printer</span><span class="symbol">.</span><span class="identifier">createJob</span><span class="symbol">(</span><span class="identifier" id="ktfx.print$createJob(javafx.print.Printer, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))/settings">settings</span><span class="symbol">:</span>&nbsp;<span class="identifier">JobSettings</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a>&nbsp;<span class="symbol">=</span>&nbsp;{
         copies = 1
         setPageRanges(1 untilPage 1)
     }<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PrinterJob</span></code></td>

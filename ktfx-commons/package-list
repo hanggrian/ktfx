@@ -39,6 +39,8 @@ $dokka.location:ktfx$invoke(javafx.util.StringConverter((ktfx.invoke.T)), ktfx.i
 $dokka.location:ktfx$isSupported(javafx.application.ConditionalFeature)ktfx/javafx.application.-conditional-feature/is-supported.html
 $dokka.location:ktfx$minus(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/minus.html
 $dokka.location:ktfx$plus(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/plus.html
+$dokka.location:ktfx$resolveCodeURI(javafx.application.Application, kotlin.String)ktfx/javafx.application.-application/resolve-code-u-r-i.html
+$dokka.location:ktfx$resolveDocumentURI(javafx.application.Application, kotlin.String)ktfx/javafx.application.-application/resolve-document-u-r-i.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Boolean)ktfx/javafx.beans.value.-writable-boolean-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Double)ktfx/javafx.beans.value.-writable-double-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Float)ktfx/javafx.beans.value.-writable-float-value/set-value.html
@@ -49,6 +51,7 @@ $dokka.location:ktfx$setValue(javafx.beans.value.WritableMapValue((ktfx.setValue
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableSetValue((ktfx.setValue.E)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), javafx.collections.ObservableSet((ktfx.setValue.E)))ktfx/javafx.beans.value.-writable-set-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.String)ktfx/javafx.beans.value.-writable-string-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableValue((ktfx.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), ktfx.setValue.V)ktfx/javafx.beans.value.-writable-value/set-value.html
+$dokka.location:ktfx$showDocument(javafx.application.Application, kotlin.String)ktfx/javafx.application.-application/show-document.html
 $dokka.location:ktfx$times(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/times.html
 $dokka.location:ktfx$times(javafx.util.Duration, kotlin.Double)ktfx/javafx.util.-duration/times.html
 $dokka.location:ktfx$toFxPair(kotlin.Pair((ktfx.toFxPair.K, ktfx.toFxPair.V)))ktfx/kotlin.-pair/to-fx-pair.html
@@ -59,6 +62,7 @@ $dokka.location:ktfx$unbox(javafx.beans.property.Property((kotlin.Double)))ktfx
 $dokka.location:ktfx$unbox(javafx.beans.property.Property((kotlin.Float)))ktfx/javafx.beans.property.-property/unbox.html
 $dokka.location:ktfx$unbox(javafx.beans.property.Property((kotlin.Int)))ktfx/javafx.beans.property.-property/unbox.html
 $dokka.location:ktfx$unbox(javafx.beans.property.Property((kotlin.Long)))ktfx/javafx.beans.property.-property/unbox.html
+$dokka.location:ktfx$webContext#javafx.application.Applicationktfx/javafx.application.-application/web-context.html
 $dokka.location:ktfx.bindings$and(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.value.-observable-boolean-value/and.html
 $dokka.location:ktfx.bindings$div(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.binding.-double-expression/div.html
 $dokka.location:ktfx.bindings$div(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx.bindings/javafx.beans.binding.-double-expression/div.html
@@ -526,6 +530,17 @@ $dokka.location:ktfx.dialogs$noButton(javafx.scene.control.Dialog((kotlin.Any)),
 $dokka.location:ktfx.dialogs$okButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.dialogs/javafx.scene.control.-dialog/ok-button.html
 $dokka.location:ktfx.dialogs$previousButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.dialogs/javafx.scene.control.-dialog/previous-button.html
 $dokka.location:ktfx.dialogs$yesButton(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.Node, kotlin.Unit)))ktfx.dialogs/javafx.scene.control.-dialog/yes-button.html
+$dokka.location:ktfx.geometries$component1(javafx.geometry.Dimension2D)ktfx.geometries/javafx.geometry.-dimension2-d/component1.html
+$dokka.location:ktfx.geometries$component1(javafx.geometry.Insets)ktfx.geometries/javafx.geometry.-insets/component1.html
+$dokka.location:ktfx.geometries$component1(javafx.geometry.Point2D)ktfx.geometries/javafx.geometry.-point2-d/component1.html
+$dokka.location:ktfx.geometries$component1(javafx.geometry.Point3D)ktfx.geometries/javafx.geometry.-point3-d/component1.html
+$dokka.location:ktfx.geometries$component2(javafx.geometry.Dimension2D)ktfx.geometries/javafx.geometry.-dimension2-d/component2.html
+$dokka.location:ktfx.geometries$component2(javafx.geometry.Insets)ktfx.geometries/javafx.geometry.-insets/component2.html
+$dokka.location:ktfx.geometries$component2(javafx.geometry.Point2D)ktfx.geometries/javafx.geometry.-point2-d/component2.html
+$dokka.location:ktfx.geometries$component2(javafx.geometry.Point3D)ktfx.geometries/javafx.geometry.-point3-d/component2.html
+$dokka.location:ktfx.geometries$component3(javafx.geometry.Insets)ktfx.geometries/javafx.geometry.-insets/component3.html
+$dokka.location:ktfx.geometries$component3(javafx.geometry.Point3D)ktfx.geometries/javafx.geometry.-point3-d/component3.html
+$dokka.location:ktfx.geometries$component4(javafx.geometry.Insets)ktfx.geometries/javafx.geometry.-insets/component4.html
 $dokka.location:ktfx.geometries$contains(javafx.geometry.Pos, javafx.geometry.HPos)ktfx.geometries/javafx.geometry.-pos/contains.html
 $dokka.location:ktfx.geometries$contains(javafx.geometry.Pos, javafx.geometry.VPos)ktfx.geometries/javafx.geometry.-pos/contains.html
 $dokka.location:ktfx.geometries$minus(javafx.geometry.Point2D, javafx.geometry.Point2D)ktfx.geometries/javafx.geometry.-point2-d/minus.html
@@ -551,7 +566,7 @@ $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCode, javafx.scene.input.
 $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCode, kotlin.Array((javafx.scene.input.KeyCombination.Modifier)))ktfx.inputs/javafx.scene.input.-key-code/plus.html
 $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCombination.Modifier, javafx.scene.input.KeyCode)ktfx.inputs/javafx.scene.input.-key-combination.-modifier/plus.html
 $dokka.location:ktfx.inputs$plus(kotlin.Array((javafx.scene.input.KeyCombination.Modifier)), javafx.scene.input.KeyCode)ktfx.inputs/kotlin.-array/plus.html
-$dokka.location:ktfx.print$createJob(javafx.print.Printer, kotlin.String, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.print.-printer/create-job.html
+$dokka.location:ktfx.print$createJob(javafx.print.Printer, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.print.-printer/create-job.html
 $dokka.location:ktfx.print$untilPage(kotlin.Int, kotlin.Int)ktfx.print/kotlin.-int/until-page.html
 $dokka.location:ktfx.swing$toFxImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.swing/java.awt.image.-buffered-image/to-fx-image.html
 $dokka.location:ktfx.swing$toSwingImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.swing/javafx.scene.image.-image/to-swing-image.html

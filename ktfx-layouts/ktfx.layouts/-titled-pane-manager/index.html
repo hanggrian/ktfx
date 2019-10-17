@@ -9,18 +9,20 @@
 <br/>
 <h1>TitledPaneManager</h1>
 <code><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span></code>
-<p>Manager for <a href="#">javafx.scene.control.Accordion</a>.</p>
+<p>Container of <a href="#">TitledPane</a>.</p>
+<p><strong>See Also</strong><br/>
+<p><a href="#">javafx.scene.control.Accordion</a></p>
+</p>
 <h3>Functions</h3>
 <table>
 <tbody>
 <tr>
 <td>
-<p><a href="add-pane.html">addPane</a></p>
+<h4><a href="add-pane.html">addPane</a></h4>
 </td>
 <td>
-<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TitledPane</span><span class="symbol">&gt;</span> <span class="identifier">addPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.TitledPaneManager$addPane(ktfx.layouts.TitledPaneManager.addPane.T)/pane">pane</span><span class="symbol">:</span>&nbsp;<a href="add-pane.html#T"><span class="identifier">T</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="add-pane.html#T"><span class="identifier">T</span></a></code>
 <p>Allows child to be added dynamically with Kotlin DSL in the context of this manager.</p>
-</td>
+<code><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TitledPane</span><span class="symbol">&gt;</span> <span class="identifier">addPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.TitledPaneManager$addPane(ktfx.layouts.TitledPaneManager.addPane.T)/pane">pane</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -29,14 +31,13 @@
 <tbody>
 <tr>
 <td>
-<p><a href="../titled-pane.html">titledPane</a></p>
+<h4><a href="../titled-pane.html">titledPane</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">TitledPaneManager</span></a><span class="symbol">.</span><span class="identifier">titledPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$titledPane(ktfx.layouts.TitledPaneManager, kotlin.String)/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TitledPane</span></code>
 <p>Add a <a href="#">TitledPane</a> to this manager.</p>
-<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">TitledPaneManager</span></a><span class="symbol">.</span><span class="identifier">titledPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$titledPane(ktfx.layouts.TitledPaneManager, kotlin.String, kotlin.Function1((ktfx.layouts.KtfxTitledPane, kotlin.Unit)))/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$titledPane(ktfx.layouts.TitledPaneManager, kotlin.String, kotlin.Function1((ktfx.layouts.KtfxTitledPane, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../-ktfx-titled-pane/index.html"><span class="identifier">KtfxTitledPane</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TitledPane</span></code>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">TitledPaneManager</span></a><span class="symbol">.</span><span class="identifier">titledPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$titledPane(ktfx.layouts.TitledPaneManager, kotlin.String)/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TitledPane</span></code>
 <p>Add a <a href="#">TitledPane</a> with initialization block to this manager.</p>
-</td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">TitledPaneManager</span></a><span class="symbol">.</span><span class="identifier">titledPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$titledPane(ktfx.layouts.TitledPaneManager, kotlin.String, kotlin.Function1((ktfx.layouts.KtfxTitledPane, kotlin.Unit)))/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$titledPane(ktfx.layouts.TitledPaneManager, kotlin.String, kotlin.Function1((ktfx.layouts.KtfxTitledPane, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../-ktfx-titled-pane/index.html"><span class="identifier">KtfxTitledPane</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TitledPane</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -45,7 +46,7 @@
 <tbody>
 <tr>
 <td>
-<p><a href="../-ktfx-accordion/index.html">KtfxAccordion</a></p>
+<h4><a href="../-ktfx-accordion/index.html">KtfxAccordion</a></h4>
 </td>
 <td>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxAccordion</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Accordion</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">TitledPaneManager</span></a></code></td>

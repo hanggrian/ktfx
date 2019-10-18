@@ -13,7 +13,7 @@ open class KtfxRule(
     ) -> Unit
 ) : Rule(id) {
 
-    override fun visit(
+    final override fun visit(
         node: ASTNode,
         autoCorrect: Boolean,
         emit: (offset: Int, errorMessage: String, canBeAutoCorrected: Boolean) -> Unit

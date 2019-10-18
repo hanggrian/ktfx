@@ -8,7 +8,10 @@ import javafx.scene.control.TitledPane
 import javafx.scene.control.ToggleButton
 import javafx.scene.shape.PathElement
 
-/** Manager for most panes. */
+/**
+ * Container of [Node].
+ * Most subclasses of [javafx.scene.Parent] uses it.
+ */
 interface NodeManager {
 
     /**
@@ -20,7 +23,10 @@ interface NodeManager {
     fun <T : Node> addNode(node: T): T
 }
 
-/** Manager for ControlsFX segmented button. */
+/**
+ * Container of [ToggleButton].
+ * Used for `SegmentedButton.kt`.
+ */
 interface ToggleButtonManager {
 
     /**
@@ -32,7 +38,11 @@ interface ToggleButtonManager {
     fun <T : ToggleButton> addButton(button: T): T
 }
 
-/** Manager for [javafx.scene.control.Accordion]. */
+/**
+ * Container of [TitledPane].
+ *
+ * @see javafx.scene.control.Accordion
+ */
 interface TitledPaneManager {
 
     /**
@@ -44,7 +54,11 @@ interface TitledPaneManager {
     fun <T : TitledPane> addPane(pane: T): T
 }
 
-/** Manager for [javafx.scene.control.MenuBar]. */
+/**
+ * Container of [Menu].
+ *
+ * @see javafx.scene.control.MenuBar
+ */
 interface MenuManager {
 
     /**
@@ -56,7 +70,14 @@ interface MenuManager {
     fun <T : Menu> addMenu(menu: T): T
 }
 
-/** Manager for [javafx.scene.control.SplitMenuButton]. */
+/**
+ * Container of [MenuItem].
+ *
+ * @see javafx.scene.control.ContextMenu
+ * @see javafx.scene.control.Menu
+ * @see javafx.scene.control.MenuButton
+ * @see javafx.scene.control.SplitMenuButton
+ */
 interface MenuItemManager {
 
     /**
@@ -68,7 +89,12 @@ interface MenuItemManager {
     fun <T : MenuItem> addItem(item: T): T
 }
 
-/** Manager for [javafx.scene.control.TabPane]. */
+/**
+ * Container of [Tab].
+ * Also being used in `JFXTabPane.kt`.
+ *
+ * @see javafx.scene.control.TabPane
+ */
 interface TabManager {
 
     /**
@@ -80,7 +106,11 @@ interface TabManager {
     fun <T : Tab> addTab(tab: T): T
 }
 
-/** Manager for [javafx.scene.shape.Path]. */
+/**
+ * Container of [PathElement].
+ *
+ * @see javafx.scene.shape.Path
+ */
 interface PathElementManager {
 
     /**

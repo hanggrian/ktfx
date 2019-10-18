@@ -8,8 +8,8 @@ import javafx.scene.control.cell.ChoiceBoxListCell
 import javafx.scene.control.cell.ComboBoxListCell
 import javafx.scene.control.cell.TextFieldListCell
 
-fun <T> ListView<T>.checkBoxCellFactory(callback: (T) -> ObservableValue<Boolean>): Unit =
-    setCellFactory(CheckBoxListCell.forListView(callback))
+fun <T> ListView<T>.checkBoxCellFactory(selectedProperty: (T) -> ObservableValue<Boolean>): Unit =
+    setCellFactory(CheckBoxListCell.forListView(selectedProperty))
 
 fun <T> ListView<T>.choiceBoxCellFactory(vararg items: T): Unit =
     setCellFactory(ChoiceBoxListCell.forListView(*items))

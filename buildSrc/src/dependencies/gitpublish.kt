@@ -1,4 +1,4 @@
-private const val VERSION_GIT_PUBLISH = "0.3.3"
+private const val VERSION_GIT_PUBLISH = "2.1.1"
 
 fun Dependencies.gitPublish() =
     "org.ajoberstar:gradle-git-publish:$VERSION_GIT_PUBLISH"

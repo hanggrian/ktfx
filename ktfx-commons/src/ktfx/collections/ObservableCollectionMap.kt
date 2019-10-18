@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("ObservableCollectionsKt")
+@file:JvmName("ObservableCollectionKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.collections

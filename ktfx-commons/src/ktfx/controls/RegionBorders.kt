@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("RegionsKt")
+@file:JvmName("RegionKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controls

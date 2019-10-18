@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("BindingsKt")
+@file:JvmName("BindingKt")
 
 package ktfx.bindings
 

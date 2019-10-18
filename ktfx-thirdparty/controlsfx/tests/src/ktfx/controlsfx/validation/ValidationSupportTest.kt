@@ -1,12 +1,15 @@
 package ktfx.controlsfx.validation
 
-import javafx.scene.Scene
 import javafx.scene.control.TextField
 import javafx.stage.Stage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.runBlocking
 import ktfx.controlsfx.registerEmptyValidator
 import ktfx.controlsfx.registerEqualsValidator
 import ktfx.controlsfx.registerPredicateValidator
-import ktfx.runAndWait
+import ktfx.layouts.scene
+import ktfx.layouts.textField
 import ktfx.runLater
 import ktfx.test.AppTest
 import org.controlsfx.validation.ValidationSupport
@@ -22,8 +25,7 @@ class ValidationSupportTest : AppTest() {
 
     override fun start(stage: Stage) {
         support = ValidationSupport()
-        textField = TextField()
-        stage.scene = Scene(textField)
+        stage.scene { textField = textField() }
         stage.show()
     }
 
@@ -31,9 +33,9 @@ class ValidationSupportTest : AppTest() {
     fun registerEmptyValidator() {
         textField.registerEmptyValidator<String>("", support = support)
         assertEquals(support.registeredControls.size, 1)
-        runAndWait { textField.clear() }
+        runBlocking(Dispatchers.JavaFx) { textField.clear() }
         runLater { assertTrue(support.isInvalid) }
-        runAndWait { textField.text = "Hello world" }
+        runBlocking(Dispatchers.JavaFx) { textField.text = "Hello world" }
         runLater { assertFalse(support.isInvalid) }
     }
 
@@ -41,9 +43,9 @@ class ValidationSupportTest : AppTest() {
     fun registerEqualsValidator() {
         textField.registerEqualsValidator("", listOf("Hello", "world"), support = support)
         assertEquals(support.registeredControls.size, 1)
-        runAndWait { textField.clear() }
+        runBlocking(Dispatchers.JavaFx) { textField.clear() }
         runLater { assertTrue(support.isInvalid) }
-        runAndWait { textField.text = "Hello" }
+        runBlocking(Dispatchers.JavaFx) { textField.text = "Hello" }
         runLater { assertFalse(support.isInvalid) }
     }
 
@@ -51,9 +53,9 @@ class ValidationSupportTest : AppTest() {
     fun registerPredicateValidator() {
         textField.registerPredicateValidator<String>("", support = support) { it.toIntOrNull() != null }
         assertEquals(support.registeredControls.size, 1)
-        runAndWait { textField.clear() }
+        runBlocking(Dispatchers.JavaFx) { textField.clear() }
         runLater { assertTrue(support.isInvalid) }
-        runAndWait { textField.text = "123" }
+        runBlocking(Dispatchers.JavaFx) { textField.text = "123" }
         runLater { assertFalse(support.isInvalid) }
     }
 }

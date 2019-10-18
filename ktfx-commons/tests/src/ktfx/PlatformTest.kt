@@ -1,6 +1,9 @@
 package ktfx
 
 import javafx.application.ConditionalFeature
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.runBlocking
 import ktfx.test.ToolkitTest
 import ktfx.test.assertContains
 import kotlin.test.Test
@@ -10,43 +13,72 @@ import kotlin.test.assertTrue
 class PlatformTest : ToolkitTest {
 
     @Test
-    fun isInFx2() {
-        assertFalse(isFxThread())
-        runLater { assertTrue(isFxThread()) }
-        runAndWait { assertTrue(isFxThread()) }
+    fun isFxThread() {
+        val check = { ktfx.isFxThread() }
+        assertFalse(check())
+        ktfx.runLater { assertTrue(check()) }
+        runBlocking(Dispatchers.JavaFx) { assertTrue(check()) }
+        runBlocking(Dispatchers.IO) { assertFalse(check()) }
     }
 
     @Test
-    fun later() {
+    fun runLater() {
+        // without receiver
         val list = mutableListOf<Int>()
-        runLater {
+        ktfx.runLater {
             list += 1
             assertContains(list, 2, 1).inOrder()
         }
         list += 2
-    }
 
-    /** Exactly like [runLater] because junit does not run in fx thread.*/
-    @Test
-    fun now() {
-        val list = mutableListOf<Int>()
-        runLater {
+        // with receiver
+        val receiverList = mutableListOf<Int>()
+        receiverList.runLater {
             list += 1
             assertContains(list, 2, 1).inOrder()
         }
-        list += 2
+        receiverList += 2
     }
 
     @Test
-    fun wait2() {
+    fun withLater() {
         val list = mutableListOf<Int>()
-        runAndWait {
-            list += 1
+        withLater(list) {
+            this += 1
+            assertContains(this, 2, 1).inOrder()
         }
         list += 2
-        assertContains(list, 1, 2).inOrder()
     }
 
     @Test
-    fun isSupported() = assertTrue(ConditionalFeature.CONTROLS.isSupported())
+    fun applyLater() {
+        mutableListOf<Int>().applyLater {
+            this += 1
+            assertContains(this, 2, 1).inOrder()
+        } += 2
+    }
+
+    @Test
+    fun alsoLater() {
+        mutableListOf<Int>().alsoLater {
+            it += 1
+            assertContains(it, 2, 1).inOrder()
+        } += 2
+    }
+
+    @Test
+    fun letLater() {
+        val list = mutableListOf<Int>()
+        list.letLater {
+            it += 1
+            assertContains(it, 2, 1).inOrder()
+        }
+        list += 2
+    }
+
+    @Test
+    fun isSupported() {
+        assertTrue(ConditionalFeature.CONTROLS.isSupported())
+        assertTrue(isSupported(ConditionalFeature.GRAPHICS, ConditionalFeature.CONTROLS))
+    }
 }

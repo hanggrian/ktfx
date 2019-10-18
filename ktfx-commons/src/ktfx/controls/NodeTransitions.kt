@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("NodesKt")
+@file:JvmName("NodeKt")
 
 package ktfx.controls
 

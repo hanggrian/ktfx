@@ -1,27 +1,17 @@
 $dokka.format:html
 $dokka.linkExtension:html
-$dokka.location:ktfx$asFinalProperty(javafx.collections.ObservableList((ktfx.asFinalProperty.E)))ktfx/javafx.collections.-observable-list/as-final-property.html
-$dokka.location:ktfx$asFinalProperty(javafx.collections.ObservableMap((ktfx.asFinalProperty.K, ktfx.asFinalProperty.V)))ktfx/javafx.collections.-observable-map/as-final-property.html
-$dokka.location:ktfx$asFinalProperty(javafx.collections.ObservableSet((ktfx.asFinalProperty.E)))ktfx/javafx.collections.-observable-set/as-final-property.html
-$dokka.location:ktfx$asFinalProperty(kotlin.Boolean)ktfx/kotlin.-boolean/as-final-property.html
-$dokka.location:ktfx$asFinalProperty(kotlin.Double)ktfx/kotlin.-double/as-final-property.html
-$dokka.location:ktfx$asFinalProperty(kotlin.Float)ktfx/kotlin.-float/as-final-property.html
-$dokka.location:ktfx$asFinalProperty(kotlin.Int)ktfx/kotlin.-int/as-final-property.html
-$dokka.location:ktfx$asFinalProperty(kotlin.Long)ktfx/kotlin.-long/as-final-property.html
-$dokka.location:ktfx$asFinalProperty(kotlin.String)ktfx/kotlin.-string/as-final-property.html
-$dokka.location:ktfx$asProperty(javafx.collections.ObservableList((ktfx.asProperty.E)))ktfx/javafx.collections.-observable-list/as-property.html
-$dokka.location:ktfx$asProperty(javafx.collections.ObservableMap((ktfx.asProperty.K, ktfx.asProperty.V)))ktfx/javafx.collections.-observable-map/as-property.html
-$dokka.location:ktfx$asProperty(javafx.collections.ObservableSet((ktfx.asProperty.E)))ktfx/javafx.collections.-observable-set/as-property.html
-$dokka.location:ktfx$asProperty(kotlin.Boolean)ktfx/kotlin.-boolean/as-property.html
-$dokka.location:ktfx$asProperty(kotlin.Double)ktfx/kotlin.-double/as-property.html
-$dokka.location:ktfx$asProperty(kotlin.Float)ktfx/kotlin.-float/as-property.html
-$dokka.location:ktfx$asProperty(kotlin.Int)ktfx/kotlin.-int/as-property.html
-$dokka.location:ktfx$asProperty(kotlin.Long)ktfx/kotlin.-long/as-property.html
-$dokka.location:ktfx$asProperty(kotlin.String)ktfx/kotlin.-string/as-property.html
+$dokka.location:ktfx$asProperty(javafx.collections.ObservableList((ktfx.asProperty.E)), kotlin.Boolean)ktfx/javafx.collections.-observable-list/as-property.html
+$dokka.location:ktfx$asProperty(javafx.collections.ObservableMap((ktfx.asProperty.K, ktfx.asProperty.V)), kotlin.Boolean)ktfx/javafx.collections.-observable-map/as-property.html
+$dokka.location:ktfx$asProperty(javafx.collections.ObservableSet((ktfx.asProperty.E)), kotlin.Boolean)ktfx/javafx.collections.-observable-set/as-property.html
+$dokka.location:ktfx$asProperty(kotlin.Boolean, kotlin.Boolean)ktfx/kotlin.-boolean/as-property.html
+$dokka.location:ktfx$asProperty(kotlin.Double, kotlin.Boolean)ktfx/kotlin.-double/as-property.html
+$dokka.location:ktfx$asProperty(kotlin.Float, kotlin.Boolean)ktfx/kotlin.-float/as-property.html
+$dokka.location:ktfx$asProperty(kotlin.Int, kotlin.Boolean)ktfx/kotlin.-int/as-property.html
+$dokka.location:ktfx$asProperty(kotlin.Long, kotlin.Boolean)ktfx/kotlin.-long/as-property.html
+$dokka.location:ktfx$asProperty(kotlin.String, kotlin.Boolean)ktfx/kotlin.-string/as-property.html
 $dokka.location:ktfx$clear(javafx.beans.value.WritableObjectValue((kotlin.Any)))ktfx/javafx.beans.value.-writable-object-value/clear.html
 $dokka.location:ktfx$component1(javafx.util.Pair((ktfx.component1.K, ktfx.component1.V)))ktfx/javafx.util.-pair/component1.html
 $dokka.location:ktfx$component2(javafx.util.Pair((ktfx.component2.K, ktfx.component2.V)))ktfx/javafx.util.-pair/component2.html
-$dokka.location:ktfx$div(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/div.html
 $dokka.location:ktfx$div(javafx.util.Duration, kotlin.Double)ktfx/javafx.util.-duration/div.html
 $dokka.location:ktfx$get(javafx.util.StringConverter((ktfx.get.T)), kotlin.String)ktfx/javafx.util.-string-converter/get.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-boolean-value/get-value.html
@@ -35,12 +25,16 @@ $dokka.location:ktfx$getValue(javafx.beans.value.ObservableSetValue((ktfx.getVal
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-string-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableValue((ktfx.getValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-value/get-value.html
 $dokka.location:ktfx$hasValue(javafx.beans.value.ObservableValue((kotlin.Any)))ktfx/javafx.beans.value.-observable-value/has-value.html
+$dokka.location:ktfx$hours#kotlin.Doublektfx/kotlin.-double/hours.html
 $dokka.location:ktfx$invoke(javafx.util.StringConverter((ktfx.invoke.T)), ktfx.invoke.T)ktfx/javafx.util.-string-converter/invoke.html
 $dokka.location:ktfx$isSupported(javafx.application.ConditionalFeature)ktfx/javafx.application.-conditional-feature/is-supported.html
+$dokka.location:ktfx$millis#kotlin.Doublektfx/kotlin.-double/millis.html
 $dokka.location:ktfx$minus(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/minus.html
+$dokka.location:ktfx$minutes#kotlin.Doublektfx/kotlin.-double/minutes.html
 $dokka.location:ktfx$plus(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/plus.html
 $dokka.location:ktfx$resolveCodeURI(javafx.application.Application, kotlin.String)ktfx/javafx.application.-application/resolve-code-u-r-i.html
 $dokka.location:ktfx$resolveDocumentURI(javafx.application.Application, kotlin.String)ktfx/javafx.application.-application/resolve-document-u-r-i.html
+$dokka.location:ktfx$seconds#kotlin.Doublektfx/kotlin.-double/seconds.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Boolean)ktfx/javafx.beans.value.-writable-boolean-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Double)ktfx/javafx.beans.value.-writable-double-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Float)ktfx/javafx.beans.value.-writable-float-value/set-value.html
@@ -52,7 +46,6 @@ $dokka.location:ktfx$setValue(javafx.beans.value.WritableSetValue((ktfx.setValue
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.String)ktfx/javafx.beans.value.-writable-string-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableValue((ktfx.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), ktfx.setValue.V)ktfx/javafx.beans.value.-writable-value/set-value.html
 $dokka.location:ktfx$showDocument(javafx.application.Application, kotlin.String)ktfx/javafx.application.-application/show-document.html
-$dokka.location:ktfx$times(javafx.util.Duration, javafx.util.Duration)ktfx/javafx.util.-duration/times.html
 $dokka.location:ktfx$times(javafx.util.Duration, kotlin.Double)ktfx/javafx.util.-duration/times.html
 $dokka.location:ktfx$toFxPair(kotlin.Pair((ktfx.toFxPair.K, ktfx.toFxPair.V)))ktfx/kotlin.-pair/to-fx-pair.html
 $dokka.location:ktfx$toKotlinPair(javafx.util.Pair((ktfx.toKotlinPair.K, ktfx.toKotlinPair.V)))ktfx/javafx.util.-pair/to-kotlin-pair.html

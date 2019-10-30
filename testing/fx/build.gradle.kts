@@ -5,7 +5,7 @@ plugins {
 sourceSets["main"].java.srcDir("src")
 
 dependencies {
-    compile(project(":testing:core"))
-    compile(testFx("core"))
-    compile(testFx("junit"))
+    api(project(":testing:core"))
+    api(testFx("core"))
+    api(testFx("junit"))
 }

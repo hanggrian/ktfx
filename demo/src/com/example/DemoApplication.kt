@@ -1,4 +1,4 @@
-package ktfx.demo
+package com.example
 
 import javafx.application.Application
 import javafx.scene.control.Label

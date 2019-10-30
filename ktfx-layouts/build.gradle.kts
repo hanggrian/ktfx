@@ -18,8 +18,7 @@ ktlint { add ->
 }
 
 dependencies {
-    compile(project(":ktfx-commons"))
-    compile(kotlin("stdlib", VERSION_KOTLIN))
+    api(project(":$RELEASE_ARTIFACT-commons"))
 
     testImplementation(project(":testing:fx"))
 }

@@ -18,10 +18,10 @@ ktlint { add ->
 }
 
 dependencies {
-    compile(project(":ktfx-commons"))
-    compile(kotlin("stdlib", VERSION_KOTLIN))
-    compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
+    api(project(":$RELEASE_ARTIFACT-core"))
+    api(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
+    testImplementation(project(":$RELEASE_ARTIFACT-commons"))
     testImplementation(project(":testing:fx"))
 }
 

@@ -5,8 +5,8 @@ plugins {
 sourceSets["main"].java.srcDir("src")
 
 dependencies {
-    compile(project(":testing:core"))
-    compile(project(":ruleset:core"))
-    compile(ktlint("core"))
-    compile(ktlint("test"))
+    api(project(":testing:core"))
+    api(project(":ruleset:core"))
+    api(ktlint("core"))
+    api(ktlint("test"))
 }

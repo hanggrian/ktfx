@@ -18,10 +18,9 @@ ktlint { add ->
 }
 
 dependencies {
-    compile(project(":ktfx-layouts"))
-    compile(kotlin("stdlib", VERSION_KOTLIN))
-    compile(kotlinx("coroutines-javafx", VERSION_COROUTINES))
-    compile(controlsFx())
+    api(project(":$RELEASE_ARTIFACT-layouts"))
+    api(kotlinx("coroutines-javafx", VERSION_COROUTINES))
+    api(controlsFx())
 
     testImplementation(project(":testing:fx"))
 }

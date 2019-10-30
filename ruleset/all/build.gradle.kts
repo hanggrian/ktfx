@@ -11,7 +11,7 @@ sourceSets {
 }
 
 dependencies {
-    compile(project(":ruleset:core"))
+    api(project(":ruleset:core"))
 
     testImplementation(project(":testing:ruleset"))
 }

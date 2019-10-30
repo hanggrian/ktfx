@@ -1,6 +1,3 @@
-group = RELEASE_GROUP
-version = RELEASE_VERSION
-
 plugins {
     java
     kotlin("jvm")

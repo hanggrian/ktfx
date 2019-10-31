@@ -13,10 +13,10 @@ inline fun checkBox(
 /** Add a [CheckBox] to this manager. */
 fun NodeManager.checkBox(
     text: String? = null
-): CheckBox = addNode(ktfx.layouts.checkBox(text) { })
+): CheckBox = addNode(CheckBox(text))
 
 /** Add a [CheckBox] with initialization block to this manager. */
 inline fun NodeManager.checkBox(
     text: String? = null,
     init: (@LayoutDslMarker CheckBox).() -> Unit
-): CheckBox = addNode(ktfx.layouts.checkBox(text, init))
+): CheckBox = addNode(CheckBox(text), init)

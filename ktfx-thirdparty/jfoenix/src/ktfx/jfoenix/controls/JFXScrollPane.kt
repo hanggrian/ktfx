@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXScrollPane
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 
@@ -62,9 +63,9 @@ inline fun jfxScrollPane(
 
 /** Add a [JFXScrollPane] to this manager. */
 fun NodeManager.jfxScrollPane(): JFXScrollPane =
-    addNode(ktfx.jfoenix.jfxScrollPane { })
+    addNode(KtfxJFXScrollPane())
 
 /** Add a [JFXScrollPane] with initialization block to this manager. */
 inline fun NodeManager.jfxScrollPane(
     init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
-): JFXScrollPane = addNode(ktfx.jfoenix.jfxScrollPane(init))
+): JFXScrollPane = addNode(KtfxJFXScrollPane(), init)

@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXTogglePane
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXTogglePane] with initialization block. */
 inline fun jfxTogglePane(
@@ -13,9 +14,9 @@ inline fun jfxTogglePane(
 
 /** Add a [JFXTogglePane] to this manager. */
 fun NodeManager.jfxTogglePane(): JFXTogglePane =
-    addNode(ktfx.jfoenix.jfxTogglePane { })
+    addNode(JFXTogglePane())
 
 /** Add a [JFXTogglePane] with initialization block to this manager. */
 inline fun NodeManager.jfxTogglePane(
     init: (@LayoutDslMarker JFXTogglePane).() -> Unit
-): JFXTogglePane = addNode(ktfx.jfoenix.jfxTogglePane(init))
+): JFXTogglePane = addNode(JFXTogglePane(), init)

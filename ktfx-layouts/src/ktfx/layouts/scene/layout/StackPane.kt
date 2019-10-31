@@ -31,9 +31,9 @@ inline fun stackPane(
 
 /** Add a [StackPane] to this manager. */
 fun NodeManager.stackPane(): StackPane =
-    addNode(ktfx.layouts.stackPane { })
+    addNode(KtfxStackPane())
 
 /** Add a [StackPane] with initialization block to this manager. */
 inline fun NodeManager.stackPane(
     init: (@LayoutDslMarker KtfxStackPane).() -> Unit
-): StackPane = addNode(ktfx.layouts.stackPane(init))
+): StackPane = addNode(KtfxStackPane(), init)

@@ -15,10 +15,10 @@ inline fun separator(
 /** Add a [Separator] to this manager. */
 fun NodeManager.separator(
     orientation: Orientation = HORIZONTAL
-): Separator = addNode(ktfx.layouts.separator(orientation) { })
+): Separator = addNode(Separator(orientation))
 
 /** Add a [Separator] with initialization block to this manager. */
 inline fun NodeManager.separator(
     orientation: Orientation = HORIZONTAL,
     init: (@LayoutDslMarker Separator).() -> Unit
-): Separator = addNode(ktfx.layouts.separator(orientation, init))
+): Separator = addNode(Separator(orientation), init)

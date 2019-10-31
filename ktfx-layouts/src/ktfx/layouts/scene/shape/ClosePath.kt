@@ -11,9 +11,9 @@ inline fun closePath(
 
 /** Add a [ClosePath] to this manager. */
 fun PathElementManager.closePath(): ClosePath =
-    addElement(ktfx.layouts.closePath { })
+    addElement(ClosePath())
 
 /** Add a [ClosePath] with initialization block to this manager. */
 inline fun PathElementManager.closePath(
     init: (@LayoutDslMarker ClosePath).() -> Unit
-): ClosePath = addElement(ktfx.layouts.closePath(init))
+): ClosePath = addElement(ClosePath(), init)

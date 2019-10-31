@@ -16,11 +16,11 @@ inline fun hyperlink(
 fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null
-): Hyperlink = addNode(ktfx.layouts.hyperlink(text, graphic) { })
+): Hyperlink = addNode(Hyperlink(text, graphic))
 
 /** Add a [Hyperlink] with initialization block to this manager. */
 inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker Hyperlink).() -> Unit
-): Hyperlink = addNode(ktfx.layouts.hyperlink(text, graphic, init))
+): Hyperlink = addNode(Hyperlink(text, graphic), init)

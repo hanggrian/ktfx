@@ -4,6 +4,7 @@ package ktfx.controlsfx
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.WorldMapView
 
 /** Create a [WorldMapView] with initialization block. */
@@ -13,9 +14,9 @@ inline fun worldMapView(
 
 /** Add a [WorldMapView] to this manager. */
 fun NodeManager.worldMapView(): WorldMapView =
-    addNode(ktfx.controlsfx.worldMapView { })
+    addNode(WorldMapView())
 
 /** Add a [WorldMapView] with initialization block to this manager. */
 inline fun NodeManager.worldMapView(
     init: (@LayoutDslMarker WorldMapView).() -> Unit
-): WorldMapView = addNode(ktfx.controlsfx.worldMapView(init))
+): WorldMapView = addNode(WorldMapView(), init)

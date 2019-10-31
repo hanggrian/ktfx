@@ -5,6 +5,7 @@ package ktfx.controlsfx
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.InfoOverlay
 
 /** Create a [InfoOverlay] with initialization block. */
@@ -18,11 +19,11 @@ inline fun infoOverlay(
 fun NodeManager.infoOverlay(
     graphic: Node? = null,
     text: String? = null
-): InfoOverlay = addNode(ktfx.controlsfx.infoOverlay(graphic, text) { })
+): InfoOverlay = addNode(InfoOverlay(graphic, text))
 
 /** Add a [InfoOverlay] with initialization block to this manager. */
 inline fun NodeManager.infoOverlay(
     graphic: Node? = null,
     text: String? = null,
     init: (@LayoutDslMarker InfoOverlay).() -> Unit
-): InfoOverlay = addNode(ktfx.controlsfx.infoOverlay(graphic, text, init))
+): InfoOverlay = addNode(InfoOverlay(graphic, text), init)

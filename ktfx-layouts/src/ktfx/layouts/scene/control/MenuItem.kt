@@ -16,11 +16,11 @@ inline fun menuItem(
 fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null
-): MenuItem = addItem(ktfx.layouts.menuItem(text, graphic) { })
+): MenuItem = addItem(MenuItem(text, graphic))
 
 /** Add a [MenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker MenuItem).() -> Unit
-): MenuItem = addItem(ktfx.layouts.menuItem(text, graphic, init))
+): MenuItem = addItem(MenuItem(text, graphic), init)

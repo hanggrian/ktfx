@@ -25,9 +25,7 @@ dependencies {
 
 tasks {
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions {
-            freeCompilerArgs = listOf("-Xuse-experimental=kotlin.Experimental")
-        }
+        kotlinOptions.freeCompilerArgs = listOf("-Xuse-experimental=kotlin.Experimental")
     }
     withType<org.jetbrains.dokka.gradle.DokkaTask> {
         outputDirectory = "$buildDir/docs"

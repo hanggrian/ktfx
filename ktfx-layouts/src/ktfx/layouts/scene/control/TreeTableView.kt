@@ -14,10 +14,10 @@ inline fun <S> treeTableView(
 /** Add a [TreeTableView] to this manager. */
 fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null
-): TreeTableView<S> = addNode(ktfx.layouts.treeTableView(root) { })
+): TreeTableView<S> = addNode(TreeTableView(root))
 
 /** Add a [TreeTableView] with initialization block to this manager. */
 inline fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null,
     init: (@LayoutDslMarker TreeTableView<S>).() -> Unit
-): TreeTableView<S> = addNode(ktfx.layouts.treeTableView(root, init))
+): TreeTableView<S> = addNode(TreeTableView(root), init)

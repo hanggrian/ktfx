@@ -4,6 +4,7 @@ package ktfx.controlsfx
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.ToggleSwitch
 
 /** Create a [ToggleSwitch] with initialization block. */
@@ -15,10 +16,10 @@ inline fun toggleSwitch(
 /** Add a [ToggleSwitch] to this manager. */
 fun NodeManager.toggleSwitch(
     text: String? = null
-): ToggleSwitch = addNode(ktfx.controlsfx.toggleSwitch(text) { })
+): ToggleSwitch = addNode(ToggleSwitch(text))
 
 /** Add a [ToggleSwitch] with initialization block to this manager. */
 inline fun NodeManager.toggleSwitch(
     text: String? = null,
     init: (@LayoutDslMarker ToggleSwitch).() -> Unit
-): ToggleSwitch = addNode(ktfx.controlsfx.toggleSwitch(text, init))
+): ToggleSwitch = addNode(ToggleSwitch(text), init)

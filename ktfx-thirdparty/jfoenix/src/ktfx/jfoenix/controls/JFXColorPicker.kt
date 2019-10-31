@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXColorPicker
 import javafx.scene.paint.Color
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXColorPicker] with initialization block. */
 inline fun jfxColorPicker(
@@ -16,10 +17,10 @@ inline fun jfxColorPicker(
 /** Add a [JFXColorPicker] to this manager. */
 fun NodeManager.jfxColorPicker(
     color: Color? = null
-): JFXColorPicker = addNode(ktfx.jfoenix.jfxColorPicker(color) { })
+): JFXColorPicker = addNode(JFXColorPicker(color))
 
 /** Add a [JFXColorPicker] with initialization block to this manager. */
 inline fun NodeManager.jfxColorPicker(
     color: Color? = null,
     init: (@LayoutDslMarker JFXColorPicker).() -> Unit
-): JFXColorPicker = addNode(ktfx.jfoenix.jfxColorPicker(color, init))
+): JFXColorPicker = addNode(JFXColorPicker(color), init)

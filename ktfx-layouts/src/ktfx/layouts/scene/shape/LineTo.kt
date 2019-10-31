@@ -15,11 +15,11 @@ inline fun lineTo(
 fun PathElementManager.lineTo(
     x: Double = 0.0,
     y: Double = 0.0
-): LineTo = addElement(ktfx.layouts.lineTo(x, y) { })
+): LineTo = addElement(LineTo(x, y))
 
 /** Add a [LineTo] with initialization block to this manager. */
 inline fun PathElementManager.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
     init: (@LayoutDslMarker LineTo).() -> Unit
-): LineTo = addElement(ktfx.layouts.lineTo(x, y, init))
+): LineTo = addElement(LineTo(x, y), init)

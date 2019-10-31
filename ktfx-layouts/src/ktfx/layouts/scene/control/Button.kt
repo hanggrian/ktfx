@@ -16,11 +16,11 @@ inline fun button(
 fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null
-): Button = addNode(ktfx.layouts.button(text, graphic) { })
+): Button = addNode(Button(text, graphic))
 
 /** Add a [Button] with initialization block to this manager. */
 inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker Button).() -> Unit
-): Button = addNode(ktfx.layouts.button(text, graphic, init))
+): Button = addNode(Button(text, graphic), init)

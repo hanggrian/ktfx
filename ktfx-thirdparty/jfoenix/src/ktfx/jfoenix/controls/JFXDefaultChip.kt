@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXChipView
 import com.jfoenix.controls.JFXDefaultChip
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXDefaultChip] with initialization block. */
 inline fun <T> jfxDefaultChip(
@@ -18,11 +19,11 @@ inline fun <T> jfxDefaultChip(
 fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T
-): JFXDefaultChip<T> = addNode(ktfx.jfoenix.jfxDefaultChip(view, item) { })
+): JFXDefaultChip<T> = addNode(JFXDefaultChip(view, item))
 
 /** Add a [JFXDefaultChip] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     init: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
-): JFXDefaultChip<T> = addNode(ktfx.jfoenix.jfxDefaultChip(view, item, init))
+): JFXDefaultChip<T> = addNode(JFXDefaultChip(view, item), init)

@@ -15,8 +15,7 @@ inline fun cubicCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: (@LayoutDslMarker CubicCurve).() -> Unit
-): CubicCurve =
-    CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY).apply(init)
+): CubicCurve = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY).apply(init)
 
 /** Add a [CubicCurve] to this manager. */
 fun NodeManager.cubicCurve(
@@ -28,8 +27,7 @@ fun NodeManager.cubicCurve(
     controlY2: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0
-): CubicCurve =
-    addNode(ktfx.layouts.cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY) { })
+): CubicCurve = addNode(CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY))
 
 /** Add a [CubicCurve] with initialization block to this manager. */
 inline fun NodeManager.cubicCurve(
@@ -42,5 +40,4 @@ inline fun NodeManager.cubicCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: (@LayoutDslMarker CubicCurve).() -> Unit
-): CubicCurve =
-    addNode(ktfx.layouts.cubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY, init))
+): CubicCurve = addNode(CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY), init)

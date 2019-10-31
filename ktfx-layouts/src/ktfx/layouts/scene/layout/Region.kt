@@ -11,9 +11,9 @@ inline fun region(
 
 /** Add a [Region] to this manager. */
 fun NodeManager.region(): Region =
-    addNode(ktfx.layouts.region { })
+    addNode(Region())
 
 /** Add a [Region] with initialization block to this manager. */
 inline fun NodeManager.region(
     init: (@LayoutDslMarker Region).() -> Unit
-): Region = addNode(ktfx.layouts.region(init))
+): Region = addNode(Region(), init)

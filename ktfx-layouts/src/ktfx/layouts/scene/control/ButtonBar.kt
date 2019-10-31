@@ -27,10 +27,10 @@ inline fun buttonBar(
 /** Add a [ButtonBar] to this manager. */
 fun NodeManager.buttonBar(
     buttonOrder: String? = null
-): ButtonBar = addNode(ktfx.layouts.buttonBar(buttonOrder) { })
+): ButtonBar = addNode(KtfxButtonBar(buttonOrder))
 
 /** Add a [ButtonBar] with initialization block to this manager. */
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
     init: (@LayoutDslMarker KtfxButtonBar).() -> Unit
-): ButtonBar = addNode(ktfx.layouts.buttonBar(buttonOrder, init))
+): ButtonBar = addNode(KtfxButtonBar(buttonOrder), init)

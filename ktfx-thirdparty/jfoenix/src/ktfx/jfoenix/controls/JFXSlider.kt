@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXSlider
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXSlider] with initialization block. */
 inline fun jfxSlider(
@@ -19,7 +20,7 @@ fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0
-): JFXSlider = addNode(ktfx.jfoenix.jfxSlider(min, max, value) { })
+): JFXSlider = addNode(JFXSlider(min, max, value))
 
 /** Add a [JFXSlider] with initialization block to this manager. */
 inline fun NodeManager.jfxSlider(
@@ -27,4 +28,4 @@ inline fun NodeManager.jfxSlider(
     max: Double = 100.0,
     value: Double = 50.0,
     init: (@LayoutDslMarker JFXSlider).() -> Unit
-): JFXSlider = addNode(ktfx.jfoenix.jfxSlider(min, max, value, init))
+): JFXSlider = addNode(JFXSlider(min, max, value), init)

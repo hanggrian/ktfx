@@ -15,11 +15,11 @@ inline fun sphere(
 fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64
-): Sphere = addNode(ktfx.layouts.sphere(radius, division) { })
+): Sphere = addNode(Sphere(radius, division))
 
 /** Add a [Sphere] with initialization block to this manager. */
 inline fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64,
     init: (@LayoutDslMarker Sphere).() -> Unit
-): Sphere = addNode(ktfx.layouts.sphere(radius, division, init))
+): Sphere = addNode(Sphere(radius, division), init)

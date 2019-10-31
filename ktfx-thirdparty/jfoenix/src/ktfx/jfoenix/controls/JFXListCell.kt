@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXListCell
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXListCell] with initialization block. */
 inline fun <T> jfxListCell(
@@ -13,9 +14,9 @@ inline fun <T> jfxListCell(
 
 /** Add a [JFXListCell] to this manager. */
 fun <T> NodeManager.jfxListCell(): JFXListCell<T> =
-    addNode(ktfx.jfoenix.jfxListCell { })
+    addNode(JFXListCell())
 
 /** Add a [JFXListCell] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxListCell(
     init: (@LayoutDslMarker JFXListCell<T>).() -> Unit
-): JFXListCell<T> = addNode(ktfx.jfoenix.jfxListCell(init))
+): JFXListCell<T> = addNode(JFXListCell(), init)

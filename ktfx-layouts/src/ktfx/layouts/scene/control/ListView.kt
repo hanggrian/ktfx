@@ -15,10 +15,10 @@ inline fun <T> listView(
 /** Add a [ListView] to this manager. */
 fun <T> NodeManager.listView(
     items: ObservableList<T> = observableListOf()
-): ListView<T> = addNode(ktfx.layouts.listView(items) { })
+): ListView<T> = addNode(ListView(items))
 
 /** Add a [ListView] with initialization block to this manager. */
 inline fun <T> NodeManager.listView(
     items: ObservableList<T> = observableListOf(),
     init: (@LayoutDslMarker ListView<T>).() -> Unit
-): ListView<T> = addNode(ktfx.layouts.listView(items, init))
+): ListView<T> = addNode(ListView(items), init)

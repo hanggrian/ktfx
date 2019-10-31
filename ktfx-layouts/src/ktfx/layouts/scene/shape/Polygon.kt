@@ -13,10 +13,10 @@ inline fun polygon(
 /** Add a [Polygon] to this manager. */
 fun NodeManager.polygon(
     vararg points: Double
-): Polygon = addNode(ktfx.layouts.polygon(*points) { })
+): Polygon = addNode(Polygon(*points))
 
 /** Add a [Polygon] with initialization block to this manager. */
 inline fun NodeManager.polygon(
     vararg points: Double,
     init: (@LayoutDslMarker Polygon).() -> Unit
-): Polygon = addNode(ktfx.layouts.polygon(*points, init = init))
+): Polygon = addNode(Polygon(*points), init)

@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXTreeCell
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXTreeCell] with initialization block. */
 inline fun <T> jfxTreeCell(
@@ -13,9 +14,9 @@ inline fun <T> jfxTreeCell(
 
 /** Add a [JFXTreeCell] to this manager. */
 fun <T> NodeManager.jfxTreeCell(): JFXTreeCell<T> =
-    addNode(ktfx.jfoenix.jfxTreeCell { })
+    addNode(JFXTreeCell())
 
 /** Add a [JFXTreeCell] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxTreeCell(
     init: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit
-): JFXTreeCell<T> = addNode(ktfx.jfoenix.jfxTreeCell(init))
+): JFXTreeCell<T> = addNode(JFXTreeCell(), init)

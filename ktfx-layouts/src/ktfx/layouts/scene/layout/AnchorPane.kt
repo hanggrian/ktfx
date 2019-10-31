@@ -63,9 +63,9 @@ inline fun anchorPane(
 
 /** Add an [AnchorPane] to this manager. */
 fun NodeManager.anchorPane(): AnchorPane =
-    addNode(ktfx.layouts.anchorPane { })
+    addNode(KtfxAnchorPane())
 
 /** Add an [AnchorPane] with initialization block to this manager. */
 inline fun NodeManager.anchorPane(
     init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
-): AnchorPane = addNode(ktfx.layouts.anchorPane(init))
+): AnchorPane = addNode(KtfxAnchorPane(), init)

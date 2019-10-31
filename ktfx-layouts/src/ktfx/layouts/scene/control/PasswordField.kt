@@ -11,9 +11,9 @@ inline fun passwordField(
 
 /** Add a [PasswordField] to this manager. */
 fun NodeManager.passwordField(): PasswordField =
-    addNode(ktfx.layouts.passwordField { })
+    addNode(PasswordField())
 
 /** Add a [PasswordField] with initialization block to this manager. */
 inline fun NodeManager.passwordField(
     init: (@LayoutDslMarker PasswordField).() -> Unit
-): PasswordField = addNode(ktfx.layouts.passwordField(init))
+): PasswordField = addNode(PasswordField(), init)

@@ -13,10 +13,10 @@ inline fun textField(
 /** Add a [TextField] to this manager. */
 fun NodeManager.textField(
     text: String = ""
-): TextField = addNode(ktfx.layouts.textField(text) { })
+): TextField = addNode(TextField(text))
 
 /** Add a [TextField] with initialization block to this manager. */
 inline fun NodeManager.textField(
     text: String = "",
     init: (@LayoutDslMarker TextField).() -> Unit
-): TextField = addNode(ktfx.layouts.textField(text, init))
+): TextField = addNode(TextField(text), init)

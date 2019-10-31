@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXToggleButton
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXToggleButton] with initialization block. */
 inline fun jfxToggleButton(
@@ -13,9 +14,9 @@ inline fun jfxToggleButton(
 
 /** Add a [JFXToggleButton] to this manager. */
 fun NodeManager.jfxToggleButton(): JFXToggleButton =
-    addNode(ktfx.jfoenix.jfxToggleButton { })
+    addNode(JFXToggleButton())
 
 /** Add a [JFXToggleButton] with initialization block to this manager. */
 inline fun NodeManager.jfxToggleButton(
     init: (@LayoutDslMarker JFXToggleButton).() -> Unit
-): JFXToggleButton = addNode(ktfx.jfoenix.jfxToggleButton(init))
+): JFXToggleButton = addNode(JFXToggleButton(), init)

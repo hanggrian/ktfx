@@ -18,5 +18,5 @@ object KtfxInternals {
      * @return callback with no return value.
      */
     fun <P> noReturn(callback: (P) -> Unit): Callback<P, Void> =
-        JavaInterop.noReturn(callback)
+        Utils.noReturn(callback)
 }

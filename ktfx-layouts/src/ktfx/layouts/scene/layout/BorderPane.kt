@@ -35,9 +35,9 @@ inline fun borderPane(
 
 /** Add a [BorderPane] to this manager. */
 fun NodeManager.borderPane(): BorderPane =
-    addNode(ktfx.layouts.borderPane { })
+    addNode(KtfxBorderPane())
 
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
     init: (@LayoutDslMarker KtfxBorderPane).() -> Unit
-): BorderPane = addNode(ktfx.layouts.borderPane(init))
+): BorderPane = addNode(KtfxBorderPane(), init)

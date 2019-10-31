@@ -19,7 +19,7 @@ fun NodeManager.line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0
-): Line = addNode(ktfx.layouts.line(centerX, centerY, endX, endY) { })
+): Line = addNode(Line(centerX, centerY, endX, endY))
 
 /** Add a [Line] with initialization block to this manager. */
 inline fun NodeManager.line(
@@ -28,4 +28,4 @@ inline fun NodeManager.line(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: (@LayoutDslMarker Line).() -> Unit
-): Line = addNode(ktfx.layouts.line(centerX, centerY, endX, endY, init))
+): Line = addNode(Line(centerX, centerY, endX, endY), init)

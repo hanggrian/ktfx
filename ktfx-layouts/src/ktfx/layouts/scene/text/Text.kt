@@ -13,10 +13,10 @@ inline fun text(
 /** Add a [Text] to this manager. */
 fun NodeManager.text(
     text: String? = null
-): Text = addNode(ktfx.layouts.text(text) { })
+): Text = addNode(Text(text))
 
 /** Add a [Text] with initialization block to this manager. */
 inline fun NodeManager.text(
     text: String? = null,
     init: (@LayoutDslMarker Text).() -> Unit
-): Text = addNode(ktfx.layouts.text(text, init))
+): Text = addNode(Text(text), init)

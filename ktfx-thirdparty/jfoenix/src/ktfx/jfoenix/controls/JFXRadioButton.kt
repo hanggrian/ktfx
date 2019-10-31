@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXRadioButton
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXRadioButton] with initialization block. */
 inline fun jfxRadioButton(
@@ -15,10 +16,10 @@ inline fun jfxRadioButton(
 /** Add a [JFXRadioButton] to this manager. */
 fun NodeManager.jfxRadioButton(
     text: String? = null
-): JFXRadioButton = addNode(ktfx.jfoenix.jfxRadioButton(text) { })
+): JFXRadioButton = addNode(JFXRadioButton(text))
 
 /** Add a [JFXRadioButton] with initialization block to this manager. */
 inline fun NodeManager.jfxRadioButton(
     text: String? = null,
     init: (@LayoutDslMarker JFXRadioButton).() -> Unit
-): JFXRadioButton = addNode(ktfx.jfoenix.jfxRadioButton(text, init))
+): JFXRadioButton = addNode(JFXRadioButton(text), init)

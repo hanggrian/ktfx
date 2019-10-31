@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -13,10 +13,10 @@ inline fun polyline(
 /** Add a [Polyline] to this manager. */
 fun NodeManager.polyline(
     vararg points: Double
-): Polyline = addNode(ktfx.layouts.polyline(*points) { })
+): Polyline = addNode(Polyline(*points))
 
 /** Add a [Polyline] with initialization block to this manager. */
 inline fun NodeManager.polyline(
     vararg points: Double,
     init: (@LayoutDslMarker Polyline).() -> Unit
-): Polyline = addNode(ktfx.layouts.polyline(*points, init = init))
+): Polyline = addNode(Polyline(*points), init)

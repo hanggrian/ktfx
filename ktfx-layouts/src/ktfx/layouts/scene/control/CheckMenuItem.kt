@@ -16,11 +16,11 @@ inline fun checkMenuItem(
 fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null
-): CheckMenuItem = addItem(ktfx.layouts.checkMenuItem(text, graphic) { })
+): CheckMenuItem = addItem(CheckMenuItem(text, graphic))
 
 /** Add a [CheckMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker CheckMenuItem).() -> Unit
-): CheckMenuItem = addItem(ktfx.layouts.checkMenuItem(text, graphic, init))
+): CheckMenuItem = addItem(CheckMenuItem(text, graphic), init)

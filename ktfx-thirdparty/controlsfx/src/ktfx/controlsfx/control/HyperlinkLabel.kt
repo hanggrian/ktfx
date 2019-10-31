@@ -9,6 +9,7 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.HyperlinkLabel
 
 fun HyperlinkLabel.onAction(
@@ -25,10 +26,10 @@ inline fun hyperlinkLabel(
 /** Add a [HyperlinkLabel] to this manager. */
 fun NodeManager.hyperlinkLabel(
     text: String? = null
-): HyperlinkLabel = addNode(ktfx.controlsfx.hyperlinkLabel(text) { })
+): HyperlinkLabel = addNode(HyperlinkLabel(text))
 
 /** Add a [HyperlinkLabel] with initialization block to this manager. */
 inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
     init: (@LayoutDslMarker HyperlinkLabel).() -> Unit
-): HyperlinkLabel = addNode(ktfx.controlsfx.hyperlinkLabel(text, init))
+): HyperlinkLabel = addNode(HyperlinkLabel(text), init)

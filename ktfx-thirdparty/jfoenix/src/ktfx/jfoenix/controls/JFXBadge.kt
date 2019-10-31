@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXBadge
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 open class KtfxJFXBadge : JFXBadge(), NodeManager {
 
@@ -20,9 +21,9 @@ inline fun jfxBadge(
 
 /** Add a [JFXBadge] to this manager. */
 fun NodeManager.jfxBadge(): JFXBadge =
-    addNode(ktfx.jfoenix.jfxBadge { })
+    addNode(KtfxJFXBadge())
 
 /** Add a [JFXBadge] with initialization block to this manager. */
 inline fun NodeManager.jfxBadge(
     init: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
-): JFXBadge = addNode(ktfx.jfoenix.jfxBadge(init))
+): JFXBadge = addNode(KtfxJFXBadge(), init)

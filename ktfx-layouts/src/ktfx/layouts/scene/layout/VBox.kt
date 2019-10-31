@@ -33,10 +33,10 @@ inline fun vbox(
 /** Add a [VBox] to this manager. */
 fun NodeManager.vbox(
     spacing: Double = 0.0
-): VBox = addNode(ktfx.layouts.vbox(spacing) { })
+): VBox = addNode(KtfxVBox(spacing))
 
 /** Add a [VBox] with initialization block to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxVBox).() -> Unit
-): VBox = addNode(ktfx.layouts.vbox(spacing, init))
+): VBox = addNode(KtfxVBox(spacing), init)

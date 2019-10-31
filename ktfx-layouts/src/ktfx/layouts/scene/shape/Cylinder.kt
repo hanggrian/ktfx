@@ -17,7 +17,7 @@ fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64
-): Cylinder = addNode(ktfx.layouts.cylinder(radius, height, division) { })
+): Cylinder = addNode(Cylinder(radius, height, division))
 
 /** Add a [Cylinder] with initialization block to this manager. */
 inline fun NodeManager.cylinder(
@@ -25,4 +25,4 @@ inline fun NodeManager.cylinder(
     height: Double = 2.0,
     division: Int = 64,
     init: (@LayoutDslMarker Cylinder).() -> Unit
-): Cylinder = addNode(ktfx.layouts.cylinder(radius, height, division, init))
+): Cylinder = addNode(Cylinder(radius, height, division), init)

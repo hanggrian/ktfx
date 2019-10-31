@@ -9,6 +9,7 @@ import ktfx.layouts.KtfxTab
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.TabManager
+import ktfx.layouts.addNode
 import ktfx.layouts.tab
 
 open class KtfxJFXTabPane : JFXTabPane(), TabManager {
@@ -30,9 +31,9 @@ inline fun jfxTabPane(
 
 /** Add a [JFXTabPane] to this manager. */
 fun NodeManager.jfxTabPane(): JFXTabPane =
-    addNode(ktfx.jfoenix.jfxTabPane { })
+    addNode(KtfxJFXTabPane())
 
 /** Add a [JFXTabPane] with initialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
     init: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
-): JFXTabPane = addNode(ktfx.jfoenix.jfxTabPane(init))
+): JFXTabPane = addNode(KtfxJFXTabPane(), init)

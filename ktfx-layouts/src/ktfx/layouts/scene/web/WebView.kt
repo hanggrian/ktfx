@@ -11,9 +11,9 @@ inline fun webView(
 
 /** Add a [WebView] to this manager. */
 fun NodeManager.webView(): WebView =
-    addNode(ktfx.layouts.webView { })
+    addNode(WebView())
 
 /** Add a [WebView] with initialization block to this manager. */
 inline fun NodeManager.webView(
     init: (@LayoutDslMarker WebView).() -> Unit
-): WebView = addNode(ktfx.layouts.webView(init))
+): WebView = addNode(WebView(), init)

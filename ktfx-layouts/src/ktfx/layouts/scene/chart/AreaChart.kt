@@ -21,7 +21,7 @@ fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf()
-): AreaChart<X, Y> = addNode(ktfx.layouts.areaChart(x, y, data) { })
+): AreaChart<X, Y> = addNode(AreaChart(x, y, data))
 
 /** Add an [AreaChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.areaChart(
@@ -29,4 +29,4 @@ inline fun <X, Y> NodeManager.areaChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     init: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
-): AreaChart<X, Y> = addNode(ktfx.layouts.areaChart(x, y, data, init))
+): AreaChart<X, Y> = addNode(AreaChart(x, y, data), init)

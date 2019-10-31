@@ -11,9 +11,9 @@ inline fun svgPath(
 
 /** Add a [SVGPath] to this manager. */
 fun NodeManager.svgPath(): SVGPath =
-    addNode(ktfx.layouts.svgPath { })
+    addNode(SVGPath())
 
 /** Add a [SVGPath] with initialization block to this manager. */
 inline fun NodeManager.svgPath(
     init: (@LayoutDslMarker SVGPath).() -> Unit
-): SVGPath = addNode(ktfx.layouts.svgPath(init))
+): SVGPath = addNode(SVGPath(), init)

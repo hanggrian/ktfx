@@ -7,6 +7,7 @@ import javafx.collections.ObservableList
 import ktfx.collections.mutableObservableListOf
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXComboBox] with initialization block. */
 inline fun <T> jfxComboBox(
@@ -17,10 +18,10 @@ inline fun <T> jfxComboBox(
 /** Add a [JFXComboBox] to this manager. */
 fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = mutableObservableListOf()
-): JFXComboBox<T> = addNode(ktfx.jfoenix.jfxComboBox(items) { })
+): JFXComboBox<T> = addNode(JFXComboBox(items))
 
 /** Add a [JFXComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = mutableObservableListOf(),
     init: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
-): JFXComboBox<T> = addNode(ktfx.jfoenix.jfxComboBox(items, init))
+): JFXComboBox<T> = addNode(JFXComboBox(items), init)

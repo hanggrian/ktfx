@@ -4,6 +4,7 @@ package ktfx.controlsfx
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.ListSelectionView
 
 /** Create a [ListSelectionView] with initialization block. */
@@ -13,9 +14,9 @@ inline fun <T> listSelectionView(
 
 /** Add a [ListSelectionView] to this manager. */
 fun <T> NodeManager.listSelectionView(): ListSelectionView<T> =
-    addNode(ktfx.controlsfx.listSelectionView { })
+    addNode(ListSelectionView())
 
 /** Add a [ListSelectionView] with initialization block to this manager. */
 inline fun <T> NodeManager.listSelectionView(
     init: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
-): ListSelectionView<T> = addNode(ktfx.controlsfx.listSelectionView(init))
+): ListSelectionView<T> = addNode(ListSelectionView(), init)

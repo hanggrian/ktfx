@@ -6,6 +6,7 @@ import javafx.collections.ObservableList
 import ktfx.collections.mutableObservableListOf
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.GridView
 
 /** Create a [GridView] with initialization block. */
@@ -17,10 +18,10 @@ inline fun <T> gridView(
 /** Add a [GridView] to this manager. */
 fun <T> NodeManager.gridView(
     items: ObservableList<T> = mutableObservableListOf()
-): GridView<T> = addNode(ktfx.controlsfx.gridView(items) { })
+): GridView<T> = addNode(GridView(items))
 
 /** Add a [GridView] with initialization block to this manager. */
 inline fun <T> NodeManager.gridView(
     items: ObservableList<T> = mutableObservableListOf(),
     init: (@LayoutDslMarker GridView<T>).() -> Unit
-): GridView<T> = addNode(ktfx.controlsfx.gridView(items, init))
+): GridView<T> = addNode(GridView(items), init)

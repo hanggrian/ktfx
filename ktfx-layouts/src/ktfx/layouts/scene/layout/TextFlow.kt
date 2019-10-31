@@ -28,9 +28,9 @@ inline fun textFlow(
 
 /** Add a [TextFlow] to this manager. */
 fun NodeManager.textFlow(): TextFlow =
-    addNode(ktfx.layouts.textFlow { })
+    addNode(KtfxTextFlow())
 
 /** Add a [TextFlow] with initialization block to this manager. */
 inline fun NodeManager.textFlow(
     init: (@LayoutDslMarker KtfxTextFlow).() -> Unit
-): TextFlow = addNode(ktfx.layouts.textFlow(init))
+): TextFlow = addNode(KtfxTextFlow(), init)

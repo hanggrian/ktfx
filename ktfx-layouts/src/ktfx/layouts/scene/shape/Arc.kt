@@ -23,7 +23,7 @@ fun NodeManager.arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0
-): Arc = addNode(ktfx.layouts.arc(centerX, centerY, radiusX, radiusY, startAngle, length) { })
+): Arc = addNode(Arc(centerX, centerY, radiusX, radiusY, startAngle, length))
 
 /** Add an [Arc] with initialization block to this manager. */
 inline fun NodeManager.arc(
@@ -34,4 +34,4 @@ inline fun NodeManager.arc(
     startAngle: Double = 0.0,
     length: Double = 0.0,
     init: (@LayoutDslMarker Arc).() -> Unit
-): Arc = addNode(ktfx.layouts.arc(centerX, centerY, radiusX, radiusY, startAngle, length, init))
+): Arc = addNode(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), init)

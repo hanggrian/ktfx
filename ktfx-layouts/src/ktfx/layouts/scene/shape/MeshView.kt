@@ -14,10 +14,10 @@ inline fun meshView(
 /** Add a [MeshView] to this manager. */
 fun NodeManager.meshView(
     mesh: Mesh? = null
-): MeshView = addNode(ktfx.layouts.meshView(mesh) { })
+): MeshView = addNode(MeshView(mesh))
 
 /** Add a [MeshView] with initialization block to this manager. */
 inline fun NodeManager.meshView(
     mesh: Mesh? = null,
     init: (@LayoutDslMarker MeshView).() -> Unit
-): MeshView = addNode(ktfx.layouts.meshView(mesh, init))
+): MeshView = addNode(MeshView(mesh), init)

@@ -15,11 +15,11 @@ inline fun moveTo(
 fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0
-): MoveTo = addElement(ktfx.layouts.moveTo(x, y) { })
+): MoveTo = addElement(MoveTo(x, y))
 
 /** Add a [MoveTo] with initialization block to this manager. */
 inline fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     init: (@LayoutDslMarker MoveTo).() -> Unit
-): MoveTo = addElement(ktfx.layouts.moveTo(x, y, init))
+): MoveTo = addElement(MoveTo(x, y), init)

@@ -4,6 +4,7 @@ package ktfx.controlsfx
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.MaskerPane
 
 /** Create a [MaskerPane] with initialization block. */
@@ -13,9 +14,9 @@ inline fun maskerPane(
 
 /** Add a [MaskerPane] to this manager. */
 fun NodeManager.maskerPane(): MaskerPane =
-    addNode(ktfx.controlsfx.maskerPane { })
+    addNode(MaskerPane())
 
 /** Add a [MaskerPane] with initialization block to this manager. */
 inline fun NodeManager.maskerPane(
     init: (@LayoutDslMarker MaskerPane).() -> Unit
-): MaskerPane = addNode(ktfx.controlsfx.maskerPane(init))
+): MaskerPane = addNode(MaskerPane(), init)

@@ -28,7 +28,7 @@ inline fun contextMenu(
 
 /** Set a [ContextMenu] to this [Control]. */
 fun Control.contextMenu(): ContextMenu =
-    ktfx.layouts.contextMenu { }.also { contextMenu = it }
+    KtfxContextMenu().also { contextMenu = it }
 
 /** Set a [ContextMenu] with initialization block to this [Control]. */
 inline fun Control.contextMenu(
@@ -37,7 +37,7 @@ inline fun Control.contextMenu(
 
 /** Set a [ContextMenu] to this [Tab]. */
 fun Tab.contextMenu(): ContextMenu =
-    ktfx.layouts.contextMenu { }.also { contextMenu = it }
+    KtfxContextMenu().also { contextMenu = it }
 
 /** Set a [ContextMenu] with initialization block to this [Tab]. */
 inline fun Tab.contextMenu(

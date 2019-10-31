@@ -17,7 +17,7 @@ fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0
-): Slider = addNode(ktfx.layouts.slider(min, max, value) { })
+): Slider = addNode(Slider(min, max, value))
 
 /** Add a [Slider] with initialization block to this manager. */
 inline fun NodeManager.slider(
@@ -25,4 +25,4 @@ inline fun NodeManager.slider(
     max: Double = 100.0,
     value: Double = 0.0,
     init: (@LayoutDslMarker Slider).() -> Unit
-): Slider = addNode(ktfx.layouts.slider(min, max, value, init))
+): Slider = addNode(Slider(min, max, value), init)

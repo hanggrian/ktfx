@@ -23,7 +23,7 @@ fun NodeManager.quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0
-): QuadCurve = addNode(ktfx.layouts.quadCurve(startX, startY, controlX, controlY, endX, endY) { })
+): QuadCurve = addNode(QuadCurve(startX, startY, controlX, controlY, endX, endY))
 
 /** Add a [QuadCurve] with initialization block to this manager. */
 inline fun NodeManager.quadCurve(
@@ -34,4 +34,4 @@ inline fun NodeManager.quadCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: (@LayoutDslMarker QuadCurve).() -> Unit
-): QuadCurve = addNode(ktfx.layouts.quadCurve(startX, startY, controlX, controlY, endX, endY, init))
+): QuadCurve = addNode(QuadCurve(startX, startY, controlX, controlY, endX, endY), init)

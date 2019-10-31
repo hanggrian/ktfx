@@ -1,4 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.layouts
 
@@ -13,10 +13,10 @@ inline fun hlineTo(
 /** Add a [HLineTo] to this manager. */
 fun PathElementManager.hlineTo(
     x: Double = 0.0
-): HLineTo = addElement(ktfx.layouts.hlineTo(x) { })
+): HLineTo = addElement(HLineTo(x))
 
 /** Add a [HLineTo] with initialization block to this manager. */
 inline fun PathElementManager.hlineTo(
     x: Double = 0.0,
     init: (@LayoutDslMarker HLineTo).() -> Unit
-): HLineTo = addElement(ktfx.layouts.hlineTo(x, init))
+): HLineTo = addElement(HLineTo(x), init)

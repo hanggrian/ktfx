@@ -6,6 +6,7 @@ import javafx.geometry.Side
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.MasterDetailPane
 
 open class KtfxMasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
@@ -25,11 +26,11 @@ inline fun masterDetailPane(
 fun NodeManager.masterDetailPane(
     side: Side = Side.RIGHT,
     showDetail: Boolean = true
-): MasterDetailPane = addNode(ktfx.controlsfx.masterDetailPane(side, showDetail) { })
+): MasterDetailPane = addNode(KtfxMasterDetailPane(side, showDetail))
 
 /** Add a [MasterDetailPane] with initialization block to this manager. */
 inline fun NodeManager.masterDetailPane(
     side: Side = Side.RIGHT,
     showDetail: Boolean = true,
     init: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
-): MasterDetailPane = addNode(ktfx.controlsfx.masterDetailPane(side, showDetail, init))
+): MasterDetailPane = addNode(KtfxMasterDetailPane(side, showDetail), init)

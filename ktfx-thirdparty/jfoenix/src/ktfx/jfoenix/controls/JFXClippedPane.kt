@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXClippedPane
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 
@@ -20,9 +21,9 @@ inline fun jfxClippedPane(
 
 /** Add a [JFXClippedPane] to this manager. */
 fun NodeManager.jfxClippedPane(): JFXClippedPane =
-    addNode(ktfx.jfoenix.jfxClippedPane { })
+    addNode(KtfxJFXClippedPane())
 
 /** Add a [JFXClippedPane] with initialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
     init: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
-): JFXClippedPane = addNode(ktfx.jfoenix.jfxClippedPane(init))
+): JFXClippedPane = addNode(KtfxJFXClippedPane(), init)

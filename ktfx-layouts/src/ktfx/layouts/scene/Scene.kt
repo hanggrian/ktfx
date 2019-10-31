@@ -30,7 +30,7 @@ fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = WHITE
-): Scene = ktfx.layouts.scene(width, height, fill) { }.also { scene = it }
+): Scene = KtfxScene(Pane(), width, height, fill).also { scene = it }
 
 /** Add a [Scene] with initialization block to this window. */
 inline fun Stage.scene(

@@ -5,6 +5,7 @@ package ktfx.controlsfx
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.HiddenSidesPane
 
 /**
@@ -24,9 +25,9 @@ inline fun hiddenSidesPane(
 
 /** Add a [HiddenSidesPane] to this manager. */
 fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
-    addNode(ktfx.controlsfx.hiddenSidesPane { })
+    addNode(KtfxHiddenSidesPane())
 
 /** Add a [HiddenSidesPane] with initialization block to this manager. */
 inline fun NodeManager.hiddenSidesPane(
     init: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
-): HiddenSidesPane = addNode(ktfx.controlsfx.hiddenSidesPane(init))
+): HiddenSidesPane = addNode(KtfxHiddenSidesPane(), init)

@@ -16,7 +16,7 @@ inline fun tooltip(
 /** Set a [Tooltip] to this [Node]. */
 fun Node.tooltip(
     text: String? = null
-): Tooltip = ktfx.layouts.tooltip(text) { }.also { Tooltip.install(this, it) }
+): Tooltip = Tooltip(text).also { Tooltip.install(this, it) }
 
 /** Set a [Tooltip] with initialization block to this [Node]. */
 inline fun Node.tooltip(
@@ -27,7 +27,7 @@ inline fun Node.tooltip(
 /** Set a [Tooltip] to this [Control]. */
 fun Control.tooltip(
     text: String? = null
-): Tooltip = ktfx.layouts.tooltip(text) { }.also { tooltip = it }
+): Tooltip = Tooltip(text).also { tooltip = it }
 
 /** Set a [Tooltip] with initialization block to this [Control]. */
 inline fun Control.tooltip(
@@ -38,7 +38,7 @@ inline fun Control.tooltip(
 /** Set a [Tooltip] to this [Tab]. */
 fun Tab.tooltip(
     text: String? = null
-): Tooltip = ktfx.layouts.tooltip(text) { }.also { tooltip = it }
+): Tooltip = Tooltip(text).also { tooltip = it }
 
 /** Set a [Tooltip] with initialization block to this [Tab]. */
 inline fun Tab.tooltip(

@@ -35,7 +35,7 @@ fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0
-): FlowPane = addNode(ktfx.layouts.flowPane(orientation, hgap, vgap) { })
+): FlowPane = addNode(KtfxFlowPane(orientation, hgap, vgap))
 
 /** Add a [FlowPane] with initialization block to this manager. */
 inline fun NodeManager.flowPane(
@@ -43,4 +43,4 @@ inline fun NodeManager.flowPane(
     hgap: Double = 0.0,
     vgap: Double = 0.0,
     init: (@LayoutDslMarker KtfxFlowPane).() -> Unit
-): FlowPane = addNode(ktfx.layouts.flowPane(orientation, hgap, vgap, init))
+): FlowPane = addNode(KtfxFlowPane(orientation, hgap, vgap), init)

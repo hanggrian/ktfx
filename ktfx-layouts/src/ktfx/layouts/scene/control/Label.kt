@@ -16,11 +16,11 @@ inline fun label(
 fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null
-): Label = addNode(ktfx.layouts.label(text, graphic) { })
+): Label = addNode(Label(text, graphic))
 
 /** Add a [Label] with initialization block to this manager. */
 inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker Label).() -> Unit
-): Label = addNode(ktfx.layouts.label(text, graphic, init))
+): Label = addNode(Label(text, graphic), init)

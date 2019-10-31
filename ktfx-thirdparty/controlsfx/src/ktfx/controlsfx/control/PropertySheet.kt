@@ -5,6 +5,7 @@ package ktfx.controlsfx
 import javafx.collections.ObservableList
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.PropertySheet
 
 /** Create a [PropertySheet] with initialization block. */
@@ -16,10 +17,10 @@ inline fun propertySheet(
 /** Add a [PropertySheet] to this manager. */
 fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null
-): PropertySheet = addNode(ktfx.controlsfx.propertySheet(items) { })
+): PropertySheet = addNode(PropertySheet(items))
 
 /** Add a [PropertySheet] with initialization block to this manager. */
 inline fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     init: (@LayoutDslMarker PropertySheet).() -> Unit
-): PropertySheet = addNode(ktfx.controlsfx.propertySheet(items, init))
+): PropertySheet = addNode(PropertySheet(items), init)

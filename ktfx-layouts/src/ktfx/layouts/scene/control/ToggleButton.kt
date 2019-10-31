@@ -16,24 +16,24 @@ inline fun toggleButton(
 fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null
-): ToggleButton = addNode(ktfx.layouts.toggleButton(text, graphic) { })
+): ToggleButton = addNode(ToggleButton(text, graphic))
 
 /** Add a [ToggleButton] with initialization block to this manager. */
 inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton = addNode(ktfx.layouts.toggleButton(text, graphic, init))
+): ToggleButton = addNode(ToggleButton(text, graphic), init)
 
 /** Add a [ToggleButton] to this manager. */
 fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null
-): ToggleButton = addButton(ktfx.layouts.toggleButton(text, graphic) { })
+): ToggleButton = addButton(ToggleButton(text, graphic))
 
 /** Add a [ToggleButton] with initialization block to this manager. */
 inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton = addButton(ktfx.layouts.toggleButton(text, graphic, init))
+): ToggleButton = addButton(ToggleButton(text, graphic), init)

@@ -14,10 +14,10 @@ inline fun datePicker(
 /** Add a [DatePicker] to this manager. */
 fun NodeManager.datePicker(
     date: LocalDate? = null
-): DatePicker = addNode(ktfx.layouts.datePicker(date) { })
+): DatePicker = addNode(DatePicker(date))
 
 /** Add a [DatePicker] with initialization block to this manager. */
 inline fun NodeManager.datePicker(
     date: LocalDate? = null,
     init: (@LayoutDslMarker DatePicker).() -> Unit
-): DatePicker = addNode(ktfx.layouts.datePicker(date, init))
+): DatePicker = addNode(DatePicker(date), init)

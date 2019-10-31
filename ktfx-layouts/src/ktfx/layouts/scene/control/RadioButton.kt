@@ -13,10 +13,10 @@ inline fun radioButton(
 /** Add a [RadioButton] to this manager. */
 fun NodeManager.radioButton(
     text: String? = null
-): RadioButton = addNode(ktfx.layouts.radioButton(text) { })
+): RadioButton = addNode(RadioButton(text))
 
 /** Add a [RadioButton] with initialization block to this manager. */
 inline fun NodeManager.radioButton(
     text: String? = null,
     init: (@LayoutDslMarker RadioButton).() -> Unit
-): RadioButton = addNode(ktfx.layouts.radioButton(text, init))
+): RadioButton = addNode(RadioButton(text), init)

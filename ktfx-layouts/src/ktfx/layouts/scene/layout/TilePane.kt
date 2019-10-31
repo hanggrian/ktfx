@@ -39,7 +39,7 @@ fun NodeManager.tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0
-): TilePane = addNode(ktfx.layouts.tilePane(orientation, hgap, vgap) { })
+): TilePane = addNode(KtfxTilePane(orientation, hgap, vgap))
 
 /** Add a [TilePane] with initialization block to this manager. */
 inline fun NodeManager.tilePane(
@@ -47,4 +47,4 @@ inline fun NodeManager.tilePane(
     hgap: Double = 0.0,
     vgap: Double = 0.0,
     init: (@LayoutDslMarker KtfxTilePane).() -> Unit
-): TilePane = addNode(ktfx.layouts.tilePane(orientation, hgap, vgap, init))
+): TilePane = addNode(KtfxTilePane(orientation, hgap, vgap), init)

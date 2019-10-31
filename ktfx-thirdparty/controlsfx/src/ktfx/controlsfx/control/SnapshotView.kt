@@ -5,6 +5,7 @@ package ktfx.controlsfx
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.SnapshotView
 
 open class KtfxSnapshotView : SnapshotView(), NodeManager {
@@ -20,9 +21,9 @@ inline fun snapshotView(
 
 /** Add a [SnapshotView] to this manager. */
 fun NodeManager.snapshotView(): SnapshotView =
-    addNode(ktfx.controlsfx.snapshotView { })
+    addNode(KtfxSnapshotView())
 
 /** Add a [SnapshotView] with initialization block to this manager. */
 inline fun NodeManager.snapshotView(
     init: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
-): SnapshotView = addNode(ktfx.controlsfx.snapshotView(init))
+): SnapshotView = addNode(KtfxSnapshotView(), init)

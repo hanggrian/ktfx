@@ -29,24 +29,24 @@ inline fun menu(
 fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null
-): Menu = addMenu(ktfx.layouts.menu(text, graphic) { })
+): Menu = addMenu(KtfxMenu(text, graphic))
 
 /** Add a [Menu] with initialization block to this manager. */
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenu).() -> Unit
-): Menu = addMenu(ktfx.layouts.menu(text, graphic, init))
+): Menu = addMenu(KtfxMenu(text, graphic), init)
 
 /** Add a [Menu] to this manager. */
 fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null
-): Menu = addItem(ktfx.layouts.menu(text, graphic) { })
+): Menu = addItem(KtfxMenu(text, graphic))
 
 /** Add a [Menu] with initialization block to this manager. */
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenu).() -> Unit
-): Menu = addItem(ktfx.layouts.menu(text, graphic, init))
+): Menu = addItem(KtfxMenu(text, graphic), init)

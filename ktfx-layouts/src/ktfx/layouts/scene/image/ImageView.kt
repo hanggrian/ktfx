@@ -20,21 +20,21 @@ inline fun imageView(
 /** Add an [ImageView] to this manager. */
 fun NodeManager.imageView(
     image: Image? = null
-): ImageView = addNode(ktfx.layouts.imageView(image) { })
+): ImageView = addNode(ImageView(image))
 
 /** Add an [ImageView] with initialization block to this manager. */
 inline fun NodeManager.imageView(
     image: Image? = null,
     init: (@LayoutDslMarker ImageView).() -> Unit
-): ImageView = addNode(ktfx.layouts.imageView(image, init))
+): ImageView = addNode(ImageView(image), init)
 
 /** Add an [ImageView] to this manager. */
 fun NodeManager.imageView(
     imageUrl: String
-): ImageView = addNode(ktfx.layouts.imageView(imageUrl) { })
+): ImageView = addNode(ImageView(imageUrl))
 
 /** Add an [ImageView] with initialization block to this manager. */
 inline fun NodeManager.imageView(
     imageUrl: String,
     init: (@LayoutDslMarker ImageView).() -> Unit
-): ImageView = addNode(ktfx.layouts.imageView(imageUrl, init))
+): ImageView = addNode(ImageView(imageUrl), init)

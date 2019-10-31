@@ -4,6 +4,7 @@ package ktfx.controlsfx
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.PrefixSelectionComboBox
 
 /** Create a [PrefixSelectionComboBox] with initialization block. */
@@ -13,9 +14,9 @@ inline fun <T> prefixSelectionComboBox(
 
 /** Add a [PrefixSelectionComboBox] to this manager. */
 fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
-    addNode(ktfx.controlsfx.prefixSelectionComboBox { })
+    addNode(PrefixSelectionComboBox())
 
 /** Add a [PrefixSelectionComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.prefixSelectionComboBox(
     init: (@LayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit
-): PrefixSelectionComboBox<T> = addNode(ktfx.controlsfx.prefixSelectionComboBox(init))
+): PrefixSelectionComboBox<T> = addNode(PrefixSelectionComboBox(), init)

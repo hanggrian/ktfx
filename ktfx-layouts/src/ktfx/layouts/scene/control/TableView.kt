@@ -15,10 +15,10 @@ inline fun <S> tableView(
 /** Add a [TableView] to this manager. */
 fun <S> NodeManager.tableView(
     items: ObservableList<S> = observableListOf()
-): TableView<S> = addNode(ktfx.layouts.tableView(items) { })
+): TableView<S> = addNode(TableView(items))
 
 /** Add a [TableView] with initialization block to this manager. */
 inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = observableListOf(),
     init: (@LayoutDslMarker TableView<S>).() -> Unit
-): TableView<S> = addNode(ktfx.layouts.tableView(items, init))
+): TableView<S> = addNode(TableView(items), init)

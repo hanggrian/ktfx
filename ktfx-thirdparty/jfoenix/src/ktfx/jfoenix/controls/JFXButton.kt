@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXButton
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXButton] with initialization block. */
 inline fun jfxButton(
@@ -18,11 +19,11 @@ inline fun jfxButton(
 fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null
-): JFXButton = addNode(ktfx.jfoenix.jfxButton(text, graphic) { })
+): JFXButton = addNode(JFXButton(text, graphic))
 
 /** Add a [JFXButton] with initialization block to this manager. */
 inline fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker JFXButton).() -> Unit
-): JFXButton = addNode(ktfx.jfoenix.jfxButton(text, graphic, init))
+): JFXButton = addNode(JFXButton(text, graphic), init)

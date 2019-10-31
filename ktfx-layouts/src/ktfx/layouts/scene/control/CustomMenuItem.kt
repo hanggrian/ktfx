@@ -16,11 +16,11 @@ inline fun customMenuItem(
 fun MenuItemManager.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true
-): CustomMenuItem = addItem(ktfx.layouts.customMenuItem(node, hideOnClick) { })
+): CustomMenuItem = addItem(CustomMenuItem(node, hideOnClick))
 
 /** Add a [CustomMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true,
     init: (@LayoutDslMarker CustomMenuItem).() -> Unit
-): CustomMenuItem = addItem(ktfx.layouts.customMenuItem(node, hideOnClick, init))
+): CustomMenuItem = addItem(CustomMenuItem(node, hideOnClick), init)

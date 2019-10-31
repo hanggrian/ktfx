@@ -25,9 +25,9 @@ inline fun splitMenuButton(
 
 /** Add a [SplitMenuButton] to this manager. */
 fun NodeManager.splitMenuButton(): SplitMenuButton =
-    addNode(ktfx.layouts.splitMenuButton { })
+    addNode(KtfxSplitMenuButton())
 
 /** Add a [SplitMenuButton] with initialization block to this manager. */
 inline fun NodeManager.splitMenuButton(
     init: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
-): SplitMenuButton = addNode(ktfx.layouts.splitMenuButton(init))
+): SplitMenuButton = addNode(KtfxSplitMenuButton(), init)

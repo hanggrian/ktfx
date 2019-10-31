@@ -18,9 +18,9 @@ inline fun pane(
 
 /** Add a [Pane] to this manager. */
 fun NodeManager.pane(): Pane =
-    addNode(ktfx.layouts.pane { })
+    addNode(KtfxPane())
 
 /** Add a [Pane] with initialization block to this manager. */
 inline fun NodeManager.pane(
     init: (@LayoutDslMarker KtfxPane).() -> Unit
-): Pane = addNode(ktfx.layouts.pane(init))
+): Pane = addNode(KtfxPane(), init)

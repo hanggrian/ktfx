@@ -16,10 +16,10 @@ inline fun pieChart(
 /** Add a [PieChart] to this manager. */
 fun NodeManager.pieChart(
     data: ObservableList<Data> = mutableObservableListOf()
-): PieChart = addNode(ktfx.layouts.pieChart(data) { })
+): PieChart = addNode(PieChart(data))
 
 /** Add a [PieChart] with initialization block to this manager. */
 inline fun NodeManager.pieChart(
     data: ObservableList<Data> = mutableObservableListOf(),
     init: (@LayoutDslMarker PieChart).() -> Unit
-): PieChart = addNode(ktfx.layouts.pieChart(data, init))
+): PieChart = addNode(PieChart(data), init)

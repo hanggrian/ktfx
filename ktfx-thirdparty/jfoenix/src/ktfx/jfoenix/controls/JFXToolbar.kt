@@ -7,6 +7,7 @@ import javafx.scene.Node
 import ktfx.layouts.HBoxConstraints
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 open class KtfxJFXToolbar : JFXToolbar() {
 
@@ -30,9 +31,9 @@ inline fun jfxToolbar(
 
 /** Add a [JFXToolbar] to this manager. */
 fun NodeManager.jfxToolbar(): JFXToolbar =
-    addNode(ktfx.jfoenix.jfxToolbar { })
+    addNode(KtfxJFXToolbar())
 
 /** Add a [JFXToolbar] with initialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
     init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
-): JFXToolbar = addNode(ktfx.jfoenix.jfxToolbar(init))
+): JFXToolbar = addNode(KtfxJFXToolbar(), init)

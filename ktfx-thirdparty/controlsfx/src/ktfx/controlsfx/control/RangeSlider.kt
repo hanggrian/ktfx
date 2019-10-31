@@ -4,6 +4,7 @@ package ktfx.controlsfx
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.RangeSlider
 
 /** Create a [RangeSlider] with initialization block. */
@@ -21,7 +22,7 @@ fun NodeManager.rangeSlider(
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75
-): RangeSlider = addNode(ktfx.controlsfx.rangeSlider(min, max, lowValue, highValue) { })
+): RangeSlider = addNode(RangeSlider(min, max, lowValue, highValue))
 
 /** Add a [RangeSlider] with initialization block to this manager. */
 inline fun NodeManager.rangeSlider(
@@ -30,4 +31,4 @@ inline fun NodeManager.rangeSlider(
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
     init: (@LayoutDslMarker RangeSlider).() -> Unit
-): RangeSlider = addNode(ktfx.controlsfx.rangeSlider(min, max, lowValue, highValue, init))
+): RangeSlider = addNode(RangeSlider(min, max, lowValue, highValue), init)

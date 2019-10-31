@@ -17,15 +17,13 @@ open class KtfxAccordion : Accordion(), TitledPaneManager {
 }
 
 /** Create an [Accordion] with initialization block. */
-inline fun accordion(
-    init: (@LayoutDslMarker KtfxAccordion).() -> Unit
-): Accordion = KtfxAccordion().apply(init)
+inline fun accordion(init: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion =
+    KtfxAccordion().apply(init)
 
 /** Add an [Accordion] to this manager. */
 fun NodeManager.accordion(): Accordion =
-    addNode(ktfx.layouts.accordion { })
+    addNode(KtfxAccordion())
 
 /** Add an [Accordion] with initialization block to this manager. */
-inline fun NodeManager.accordion(
-    init: (@LayoutDslMarker KtfxAccordion).() -> Unit
-): Accordion = addNode(ktfx.layouts.accordion(init))
+inline fun NodeManager.accordion(init: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion =
+    addNode(KtfxAccordion(), init)

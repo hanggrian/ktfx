@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXPasswordField
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXPasswordField] with initialization block. */
 inline fun jfxPasswordField(
@@ -13,9 +14,9 @@ inline fun jfxPasswordField(
 
 /** Add a [JFXPasswordField] to this manager. */
 fun NodeManager.jfxPasswordField(): JFXPasswordField =
-    addNode(ktfx.jfoenix.jfxPasswordField { })
+    addNode(JFXPasswordField())
 
 /** Add a [JFXPasswordField] with initialization block to this manager. */
 inline fun NodeManager.jfxPasswordField(
     init: (@LayoutDslMarker JFXPasswordField).() -> Unit
-): JFXPasswordField = addNode(ktfx.jfoenix.jfxPasswordField(init))
+): JFXPasswordField = addNode(JFXPasswordField(), init)

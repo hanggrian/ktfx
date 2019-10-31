@@ -14,10 +14,10 @@ inline fun mediaView(
 /** Add a [MediaView] to this manager. */
 fun NodeManager.mediaView(
     player: MediaPlayer? = null
-): MediaView = addNode(ktfx.layouts.mediaView(player) { })
+): MediaView = addNode(MediaView(player))
 
 /** Add a [MediaView] with initialization block to this manager. */
 inline fun NodeManager.mediaView(
     player: MediaPlayer? = null,
     init: (@LayoutDslMarker MediaView).() -> Unit
-): MediaView = addNode(ktfx.layouts.mediaView(player, init))
+): MediaView = addNode(MediaView(player), init)

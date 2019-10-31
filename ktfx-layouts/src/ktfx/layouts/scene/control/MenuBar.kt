@@ -25,9 +25,9 @@ inline fun menuBar(
 
 /** Add a [MenuBar] to this manager. */
 fun NodeManager.menuBar(): MenuBar =
-    addNode(ktfx.layouts.menuBar { })
+    addNode(KtfxMenuBar())
 
 /** Add a [MenuBar] with initialization block to this manager. */
 inline fun NodeManager.menuBar(
     init: (@LayoutDslMarker KtfxMenuBar).() -> Unit
-): MenuBar = addNode(ktfx.layouts.menuBar(init))
+): MenuBar = addNode(KtfxMenuBar(), init)

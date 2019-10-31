@@ -4,6 +4,7 @@ package ktfx.controlsfx
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.SegmentedBar
 import org.controlsfx.control.SegmentedBar.Segment
 
@@ -14,9 +15,9 @@ inline fun <T : Segment> segmentedBar(
 
 /** Add a [SegmentedBar] to this manager. */
 fun <T : Segment> NodeManager.segmentedBar(): SegmentedBar<T> =
-    addNode(ktfx.controlsfx.segmentedBar { })
+    addNode(SegmentedBar())
 
 /** Add a [SegmentedBar] with initialization block to this manager. */
 inline fun <T : Segment> NodeManager.segmentedBar(
     init: (@LayoutDslMarker SegmentedBar<T>).() -> Unit
-): SegmentedBar<T> = addNode(ktfx.controlsfx.segmentedBar(init))
+): SegmentedBar<T> = addNode(SegmentedBar(), init)

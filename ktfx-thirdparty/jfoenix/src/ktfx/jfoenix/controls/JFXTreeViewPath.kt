@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTreeViewPath
 import javafx.scene.control.TreeView
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXTreeViewPath] with initialization block. */
 inline fun jfxTreeViewPath(
@@ -16,10 +17,10 @@ inline fun jfxTreeViewPath(
 /** Add a [JFXTreeViewPath] to this manager. */
 fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null
-): JFXTreeViewPath = addNode(ktfx.jfoenix.jfxTreeViewPath(treeView) { })
+): JFXTreeViewPath = addNode(JFXTreeViewPath(treeView))
 
 /** Add a [JFXTreeViewPath] with initialization block to this manager. */
 inline fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null,
     init: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
-): JFXTreeViewPath = addNode(ktfx.jfoenix.jfxTreeViewPath(treeView, init))
+): JFXTreeViewPath = addNode(JFXTreeViewPath(treeView), init)

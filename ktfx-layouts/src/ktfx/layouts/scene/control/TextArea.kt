@@ -13,10 +13,10 @@ inline fun textArea(
 /** Add a [TextArea] to this manager. */
 fun NodeManager.textArea(
     text: String = ""
-): TextArea = addNode(ktfx.layouts.textArea(text) { })
+): TextArea = addNode(TextArea(text))
 
 /** Add a [TextArea] with initialization block to this manager. */
 inline fun NodeManager.textArea(
     text: String = "",
     init: (@LayoutDslMarker TextArea).() -> Unit
-): TextArea = addNode(ktfx.layouts.textArea(text, init))
+): TextArea = addNode(TextArea(text), init)

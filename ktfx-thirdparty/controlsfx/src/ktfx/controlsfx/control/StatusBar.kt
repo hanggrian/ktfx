@@ -4,6 +4,7 @@ package ktfx.controlsfx
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.StatusBar
 
 /** Create a [StatusBar] with initialization block. */
@@ -13,9 +14,9 @@ inline fun statusBar(
 
 /** Add a [StatusBar] to this manager. */
 fun NodeManager.statusBar(): StatusBar =
-    addNode(ktfx.controlsfx.statusBar { })
+    addNode(StatusBar())
 
 /** Add a [StatusBar] with initialization block to this manager. */
 inline fun NodeManager.statusBar(
     init: (@LayoutDslMarker StatusBar).() -> Unit
-): StatusBar = addNode(ktfx.controlsfx.statusBar(init))
+): StatusBar = addNode(StatusBar(), init)

@@ -29,11 +29,11 @@ inline fun menuButton(
 fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null
-): MenuButton = addNode(ktfx.layouts.menuButton(text, graphic) { })
+): MenuButton = addNode(KtfxMenuButton(text, graphic))
 
 /** Add a [MenuButton] with initialization block to this manager. */
 inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenuButton).() -> Unit
-): MenuButton = addNode(ktfx.layouts.menuButton(text, graphic, init))
+): MenuButton = addNode(KtfxMenuButton(text, graphic), init)

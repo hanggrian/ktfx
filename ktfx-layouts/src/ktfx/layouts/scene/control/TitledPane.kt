@@ -20,21 +20,21 @@ inline fun titledPane(
 /** Add a [TitledPane] to this manager. */
 fun NodeManager.titledPane(
     title: String? = null
-): TitledPane = addNode(ktfx.layouts.titledPane(title) { })
+): TitledPane = addNode(KtfxTitledPane(title))
 
 /** Add a [TitledPane] with initialization block to this manager. */
 inline fun NodeManager.titledPane(
     title: String? = null,
     init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
-): TitledPane = addNode(ktfx.layouts.titledPane(title, init))
+): TitledPane = addNode(KtfxTitledPane(title), init)
 
 /** Add a [TitledPane] to this manager. */
 fun TitledPaneManager.titledPane(
     title: String? = null
-): TitledPane = addPane(ktfx.layouts.titledPane(title) { })
+): TitledPane = addPane(KtfxTitledPane(title))
 
 /** Add a [TitledPane] with initialization block to this manager. */
 inline fun TitledPaneManager.titledPane(
     title: String? = null,
     init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
-): TitledPane = addPane(ktfx.layouts.titledPane(title, init))
+): TitledPane = addPane(KtfxTitledPane(title), init)

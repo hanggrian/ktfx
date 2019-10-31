@@ -20,10 +20,10 @@ inline fun scrollPane(
 /** Add a [ScrollPane] to this manager. */
 fun NodeManager.scrollPane(
     content: Node? = null
-): ScrollPane = addNode(ktfx.layouts.scrollPane(content) { })
+): ScrollPane = addNode(KtfxScrollPane(content))
 
 /** Add a [ScrollPane] with initialization block to this manager. */
 inline fun NodeManager.scrollPane(
     content: Node? = null,
     init: (@LayoutDslMarker KtfxScrollPane).() -> Unit
-): ScrollPane = addNode(ktfx.layouts.scrollPane(content, init))
+): ScrollPane = addNode(KtfxScrollPane(content), init)

@@ -15,10 +15,10 @@ inline fun <T> choiceBox(
 /** Add a [ChoiceBox] to this manager. */
 fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = mutableObservableListOf()
-): ChoiceBox<T> = addNode(ktfx.layouts.choiceBox(items) { })
+): ChoiceBox<T> = addNode(ChoiceBox(items))
 
 /** Add a [ChoiceBox] with initialization block to this manager. */
 inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = mutableObservableListOf(),
     init: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
-): ChoiceBox<T> = addNode(ktfx.layouts.choiceBox(items, init))
+): ChoiceBox<T> = addNode(ChoiceBox(items), init)

@@ -22,11 +22,11 @@ inline fun tab(
 fun TabManager.tab(
     text: String? = null,
     content: Node? = null
-): Tab = addTab(ktfx.layouts.tab(text, content) { })
+): Tab = addTab(KtfxTab(text, content))
 
 /** Add a [Tab] with initialization block to this manager. */
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
     init: (@LayoutDslMarker KtfxTab).() -> Unit
-): Tab = addTab(ktfx.layouts.tab(text, content, init))
+): Tab = addTab(KtfxTab(text, content), init)

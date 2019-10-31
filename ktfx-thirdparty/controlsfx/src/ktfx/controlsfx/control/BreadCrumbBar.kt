@@ -10,6 +10,7 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.BreadCrumbBar
 
 fun <T> BreadCrumbBar<T>.onCrumbAction(
@@ -26,10 +27,10 @@ inline fun <T> breadCrumbBar(
 /** Add a [BreadCrumbBar] to this manager. */
 fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null
-): BreadCrumbBar<T> = addNode(ktfx.controlsfx.breadCrumbBar(selectedCrumb) { })
+): BreadCrumbBar<T> = addNode(BreadCrumbBar(selectedCrumb))
 
 /** Add a [BreadCrumbBar] with initialization block to this manager. */
 inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     init: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
-): BreadCrumbBar<T> = addNode(ktfx.controlsfx.breadCrumbBar(selectedCrumb, init))
+): BreadCrumbBar<T> = addNode(BreadCrumbBar(selectedCrumb), init)

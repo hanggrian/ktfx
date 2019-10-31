@@ -21,7 +21,7 @@ fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf()
-): BubbleChart<X, Y> = addNode(ktfx.layouts.bubbleChart(x, y, data) { })
+): BubbleChart<X, Y> = addNode(BubbleChart(x, y, data))
 
 /** Add a [BubbleChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.bubbleChart(
@@ -29,4 +29,4 @@ inline fun <X, Y> NodeManager.bubbleChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     init: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
-): BubbleChart<X, Y> = addNode(ktfx.layouts.bubbleChart(x, y, data, init))
+): BubbleChart<X, Y> = addNode(BubbleChart(x, y, data), init)

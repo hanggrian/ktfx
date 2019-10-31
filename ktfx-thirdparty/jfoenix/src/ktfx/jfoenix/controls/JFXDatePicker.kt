@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXDatePicker
 import java.time.LocalDate
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXDatePicker] with initialization block. */
 inline fun jfxDatePicker(
@@ -16,10 +17,10 @@ inline fun jfxDatePicker(
 /** Add a [JFXDatePicker] to this manager. */
 fun NodeManager.jfxDatePicker(
     date: LocalDate? = null
-): JFXDatePicker = addNode(ktfx.jfoenix.jfxDatePicker(date) { })
+): JFXDatePicker = addNode(JFXDatePicker(date))
 
 /** Add a [JFXDatePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxDatePicker(
     date: LocalDate? = null,
     init: (@LayoutDslMarker JFXDatePicker).() -> Unit
-): JFXDatePicker = addNode(ktfx.jfoenix.jfxDatePicker(date, init))
+): JFXDatePicker = addNode(JFXDatePicker(date), init)

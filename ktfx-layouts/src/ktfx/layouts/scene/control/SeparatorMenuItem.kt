@@ -11,9 +11,9 @@ inline fun separatorMenuItem(
 
 /** Add a [SeparatorMenuItem] to this manager. */
 fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem =
-    addItem(ktfx.layouts.separatorMenuItem { })
+    addItem(SeparatorMenuItem())
 
 /** Add a [SeparatorMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.separatorMenuItem(
     init: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
-): SeparatorMenuItem = addItem(ktfx.layouts.separatorMenuItem(init))
+): SeparatorMenuItem = addItem(SeparatorMenuItem(), init)

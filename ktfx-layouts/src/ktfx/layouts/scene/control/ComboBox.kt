@@ -15,10 +15,10 @@ inline fun <T> comboBox(
 /** Add a [ComboBox] to this manager. */
 fun <T> NodeManager.comboBox(
     items: ObservableList<T> = observableListOf()
-): ComboBox<T> = addNode(ktfx.layouts.comboBox(items) { })
+): ComboBox<T> = addNode(ComboBox(items))
 
 /** Add a [ComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = observableListOf(),
     init: (@LayoutDslMarker ComboBox<T>).() -> Unit
-): ComboBox<T> = addNode(ktfx.layouts.comboBox(items, init))
+): ComboBox<T> = addNode(ComboBox(items), init)

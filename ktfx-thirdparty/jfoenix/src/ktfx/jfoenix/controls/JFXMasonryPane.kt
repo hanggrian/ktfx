@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXMasonryPane
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXMasonryPane] with initialization block. */
 inline fun jfxMasonryPane(
@@ -13,9 +14,9 @@ inline fun jfxMasonryPane(
 
 /** Add a [JFXMasonryPane] to this manager. */
 fun NodeManager.jfxMasonryPane(): JFXMasonryPane =
-    addNode(ktfx.jfoenix.jfxMasonryPane { })
+    addNode(JFXMasonryPane())
 
 /** Add a [JFXMasonryPane] with initialization block to this manager. */
 inline fun NodeManager.jfxMasonryPane(
     init: (@LayoutDslMarker JFXMasonryPane).() -> Unit
-): JFXMasonryPane = addNode(ktfx.jfoenix.jfxMasonryPane(init))
+): JFXMasonryPane = addNode(JFXMasonryPane(), init)

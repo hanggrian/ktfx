@@ -15,10 +15,10 @@ inline fun colorPicker(
 /** Add a [ColorPicker] to this manager. */
 fun NodeManager.colorPicker(
     color: Color = WHITE
-): ColorPicker = addNode(ktfx.layouts.colorPicker(color) { })
+): ColorPicker = addNode(ColorPicker(color))
 
 /** Add a [ColorPicker] with initialization block to this manager. */
 inline fun NodeManager.colorPicker(
     color: Color = WHITE,
     init: (@LayoutDslMarker ColorPicker).() -> Unit
-): ColorPicker = addNode(ktfx.layouts.colorPicker(color, init))
+): ColorPicker = addNode(ColorPicker(color), init)

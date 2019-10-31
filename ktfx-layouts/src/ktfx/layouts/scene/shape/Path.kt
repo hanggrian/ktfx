@@ -18,9 +18,9 @@ inline fun path(
 
 /** Add a [Path] to this manager. */
 fun NodeManager.path(): Path =
-    addNode(ktfx.layouts.path { })
+    addNode(KtfxPath())
 
 /** Add a [Path] with initialization block to this manager. */
 inline fun NodeManager.path(
     init: (@LayoutDslMarker KtfxPath).() -> Unit
-): Path = addNode(ktfx.layouts.path(init))
+): Path = addNode(KtfxPath(), init)

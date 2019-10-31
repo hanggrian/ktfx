@@ -11,9 +11,9 @@ inline fun <T> spinner(
 
 /** Add a [Spinner] to this manager. */
 fun <T> NodeManager.spinner(): Spinner<T> =
-    addNode(ktfx.layouts.spinner { })
+    addNode(Spinner())
 
 /** Add a [Spinner] with initialization block to this manager. */
 inline fun <T> NodeManager.spinner(
     init: (@LayoutDslMarker Spinner<T>).() -> Unit
-): Spinner<T> = addNode(ktfx.layouts.spinner(init))
+): Spinner<T> = addNode(Spinner(), init)

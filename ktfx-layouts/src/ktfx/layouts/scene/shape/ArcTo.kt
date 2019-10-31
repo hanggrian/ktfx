@@ -25,7 +25,7 @@ fun PathElementManager.arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false
-): ArcTo = addElement(ktfx.layouts.arcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag) { })
+): ArcTo = addElement(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag))
 
 /** Add an [ArcTo] with initialization block to this manager. */
 inline fun PathElementManager.arcTo(
@@ -37,4 +37,4 @@ inline fun PathElementManager.arcTo(
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
     init: (@LayoutDslMarker ArcTo).() -> Unit
-): ArcTo = addElement(ktfx.layouts.arcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag, init))
+): ArcTo = addElement(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag), init)

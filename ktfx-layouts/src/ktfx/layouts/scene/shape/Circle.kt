@@ -20,7 +20,7 @@ fun NodeManager.circle(
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null
-): Circle = addNode(ktfx.layouts.circle(centerX, centerY, radius, fill) { })
+): Circle = addNode(Circle(centerX, centerY, radius, fill))
 
 /** Add a [Circle] with initialization block to this manager. */
 inline fun NodeManager.circle(
@@ -29,4 +29,4 @@ inline fun NodeManager.circle(
     radius: Double = 0.0,
     fill: Paint? = null,
     init: (@LayoutDslMarker Circle).() -> Unit
-): Circle = addNode(ktfx.layouts.circle(centerX, centerY, radius, fill, init))
+): Circle = addNode(Circle(centerX, centerY, radius, fill), init)

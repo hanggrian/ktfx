@@ -10,6 +10,7 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 import org.controlsfx.control.NotificationPane
 
 fun NotificationPane.onShowing(
@@ -45,9 +46,9 @@ inline fun notificationPane(
 
 /** Add a [NotificationPane] to this manager. */
 fun NodeManager.notificationPane(): NotificationPane =
-    addNode(ktfx.controlsfx.notificationPane { })
+    addNode(KtfxNotificationPane())
 
 /** Add a [NotificationPane] with initialization block to this manager. */
 inline fun NodeManager.notificationPane(
     init: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
-): NotificationPane = addNode(ktfx.controlsfx.notificationPane(init))
+): NotificationPane = addNode(KtfxNotificationPane(), init)

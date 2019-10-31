@@ -15,11 +15,11 @@ inline fun canvas(
 fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0
-): Canvas = addNode(ktfx.layouts.canvas(width, height) { })
+): Canvas = addNode(Canvas(width, height))
 
 /** Add a [Canvas] with initialization block to this manager. */
 inline fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     init: (@LayoutDslMarker Canvas).() -> Unit
-): Canvas = addNode(ktfx.layouts.canvas(width, height, init))
+): Canvas = addNode(Canvas(width, height), init)

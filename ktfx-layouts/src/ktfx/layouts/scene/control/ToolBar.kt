@@ -18,9 +18,9 @@ inline fun toolBar(
 
 /** Add a [ToolBar] to this manager. */
 fun NodeManager.toolBar(): ToolBar =
-    addNode(ktfx.layouts.toolBar { })
+    addNode(KtfxToolBar())
 
 /** Add a [ToolBar] with initialization block to this manager. */
 inline fun NodeManager.toolBar(
     init: (@LayoutDslMarker KtfxToolBar).() -> Unit
-): ToolBar = addNode(ktfx.layouts.toolBar(init))
+): ToolBar = addNode(KtfxToolBar(), init)

@@ -14,10 +14,10 @@ inline fun progressIndicator(
 /** Add a [ProgressIndicator] to this manager. */
 fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS
-): ProgressIndicator = addNode(ktfx.layouts.progressIndicator(progress) { })
+): ProgressIndicator = addNode(ProgressIndicator(progress))
 
 /** Add a [ProgressIndicator] with initialization block to this manager. */
 inline fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
     init: (@LayoutDslMarker ProgressIndicator).() -> Unit
-): ProgressIndicator = addNode(ktfx.layouts.progressIndicator(progress, init))
+): ProgressIndicator = addNode(ProgressIndicator(progress), init)

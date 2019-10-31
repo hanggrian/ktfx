@@ -16,11 +16,11 @@ inline fun radioMenuItem(
 fun MenuItemManager.radioMenuItem(
     text: String? = null,
     graphic: Node? = null
-): RadioMenuItem = addItem(ktfx.layouts.radioMenuItem(text, graphic) { })
+): RadioMenuItem = addItem(RadioMenuItem(text, graphic))
 
 /** Add a [RadioMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker RadioMenuItem).() -> Unit
-): RadioMenuItem = addItem(ktfx.layouts.radioMenuItem(text, graphic, init))
+): RadioMenuItem = addItem(RadioMenuItem(text, graphic), init)

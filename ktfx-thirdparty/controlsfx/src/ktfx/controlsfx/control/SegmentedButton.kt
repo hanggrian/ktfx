@@ -7,6 +7,7 @@ import javafx.scene.control.ToggleButton
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.ToggleButtonManager
+import ktfx.layouts.addNode
 import ktfx.layouts.toggleButton
 import org.controlsfx.control.SegmentedButton
 
@@ -29,9 +30,9 @@ inline fun segmentedButton(
 
 /** Add a [SegmentedButton] to this manager. */
 fun NodeManager.segmentedButton(): SegmentedButton =
-    addNode(ktfx.controlsfx.segmentedButton { })
+    addNode(KtfxSegmentedButton())
 
 /** Add a [SegmentedButton] with initialization block to this manager. */
 inline fun NodeManager.segmentedButton(
     init: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
-): SegmentedButton = addNode(ktfx.controlsfx.segmentedButton(init))
+): SegmentedButton = addNode(KtfxSegmentedButton(), init)

@@ -11,9 +11,9 @@ inline fun scrollBar(
 
 /** Add a [ScrollBar] to this manager. */
 fun NodeManager.scrollBar(): ScrollBar =
-    addNode(ktfx.layouts.scrollBar { })
+    addNode(ScrollBar())
 
 /** Add a [ScrollBar] with initialization block to this manager. */
 inline fun NodeManager.scrollBar(
     init: (@LayoutDslMarker ScrollBar).() -> Unit
-): ScrollBar = addNode(ktfx.layouts.scrollBar(init))
+): ScrollBar = addNode(ScrollBar(), init)

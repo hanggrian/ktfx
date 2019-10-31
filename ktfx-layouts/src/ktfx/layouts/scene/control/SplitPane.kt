@@ -18,9 +18,9 @@ inline fun splitPane(
 
 /** Add a [SplitPane] to this manager. */
 fun NodeManager.splitPane(): SplitPane =
-    addNode(ktfx.layouts.splitPane { })
+    addNode(KtfxSplitPane())
 
 /** Add a [SplitPane] with initialization block to this manager. */
 inline fun NodeManager.splitPane(
     init: (@LayoutDslMarker KtfxSplitPane).() -> Unit
-): SplitPane = addNode(ktfx.layouts.splitPane(init))
+): SplitPane = addNode(KtfxSplitPane(), init)

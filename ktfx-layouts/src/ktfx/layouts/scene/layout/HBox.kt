@@ -20,10 +20,10 @@ inline fun hbox(
 /** Add an [HBox] to this manager. */
 fun NodeManager.hbox(
     spacing: Double = 0.0
-): HBox = addNode(ktfx.layouts.hbox(spacing) { })
+): HBox = addNode(KtfxHBox(spacing))
 
 /** Add an [HBox] with initialization block to this manager. */
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxHBox).() -> Unit
-): HBox = addNode(ktfx.layouts.hbox(spacing, init))
+): HBox = addNode(KtfxHBox(spacing), init)

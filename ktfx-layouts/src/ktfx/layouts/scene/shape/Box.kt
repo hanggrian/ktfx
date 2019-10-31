@@ -18,7 +18,7 @@ fun NodeManager.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE
-): Box = addNode(ktfx.layouts.box(width, height, depth) { })
+): Box = addNode(Box(width, height, depth))
 
 /** Add a [Box] with initialization block to this manager. */
 inline fun NodeManager.box(
@@ -26,4 +26,4 @@ inline fun NodeManager.box(
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
     init: (@LayoutDslMarker Box).() -> Unit
-): Box = addNode(ktfx.layouts.box(width, height, depth, init))
+): Box = addNode(Box(width, height, depth), init)

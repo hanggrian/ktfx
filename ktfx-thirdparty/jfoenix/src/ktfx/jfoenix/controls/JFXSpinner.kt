@@ -5,6 +5,7 @@ package ktfx.jfoenix
 import com.jfoenix.controls.JFXSpinner
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
+import ktfx.layouts.addNode
 
 /** Create a [JFXSpinner] with initialization block to this manager. */
 inline fun jfxSpinner(
@@ -15,10 +16,10 @@ inline fun jfxSpinner(
 /** Add a [JFXSpinner] to this manager. */
 fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS
-): JFXSpinner = addNode(ktfx.jfoenix.jfxSpinner(progress) { })
+): JFXSpinner = addNode(JFXSpinner(progress))
 
 /** Add a [JFXSpinner] with initialization block to this manager. */
 inline fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
     init: (@LayoutDslMarker JFXSpinner).() -> Unit
-): JFXSpinner = addNode(ktfx.jfoenix.jfxSpinner(progress, init))
+): JFXSpinner = addNode(JFXSpinner(progress), init)

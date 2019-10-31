@@ -19,7 +19,7 @@ fun NodeManager.rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0
-): Rectangle = addNode(ktfx.layouts.rectangle(x, y, width, height) { })
+): Rectangle = addNode(Rectangle(x, y, width, height))
 
 /** Add a [Rectangle] with initialization block to this manager. */
 inline fun NodeManager.rectangle(
@@ -28,4 +28,4 @@ inline fun NodeManager.rectangle(
     width: Double = 0.0,
     height: Double = 0.0,
     init: (@LayoutDslMarker Rectangle).() -> Unit
-): Rectangle = addNode(ktfx.layouts.rectangle(x, y, width, height, init))
+): Rectangle = addNode(Rectangle(x, y, width, height), init)

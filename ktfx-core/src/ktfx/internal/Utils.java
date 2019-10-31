@@ -5,10 +5,9 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
-@SuppressWarnings("SpellCheckingInspection")
-final class JavaInterop {
+final class Utils {
 
-    private JavaInterop() {
+    private Utils() {
     }
 
     @NotNull

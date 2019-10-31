@@ -18,9 +18,9 @@ inline fun group(
 
 /** Add a [Group] to this manager. */
 fun NodeManager.group(): Group =
-    addNode(ktfx.layouts.group { })
+    addNode(KtfxGroup())
 
 /** Add a [Group] with initialization block to this manager. */
 inline fun NodeManager.group(
     init: (@LayoutDslMarker KtfxGroup).() -> Unit
-): Group = addNode(ktfx.layouts.group(init))
+): Group = addNode(KtfxGroup(), init)

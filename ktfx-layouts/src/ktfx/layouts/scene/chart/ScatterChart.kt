@@ -21,7 +21,7 @@ fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf()
-): ScatterChart<X, Y> = addNode(ktfx.layouts.scatterChart(x, y, data) { })
+): ScatterChart<X, Y> = addNode(ScatterChart(x, y, data))
 
 /** Add a [ScatterChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.scatterChart(
@@ -29,4 +29,4 @@ inline fun <X, Y> NodeManager.scatterChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = mutableObservableListOf(),
     init: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
-): ScatterChart<X, Y> = addNode(ktfx.layouts.scatterChart(x, y, data, init))
+): ScatterChart<X, Y> = addNode(ScatterChart(x, y, data), init)

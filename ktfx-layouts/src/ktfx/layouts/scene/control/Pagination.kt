@@ -15,11 +15,11 @@ inline fun pagination(
 fun NodeManager.pagination(
     count: Int = Pagination.INDETERMINATE,
     index: Int = 0
-): Pagination = addNode(ktfx.layouts.pagination(count, index) { })
+): Pagination = addNode(Pagination(count, index))
 
 /** Add a [Pagination] with initialization block to this manager. */
 inline fun NodeManager.pagination(
     count: Int = Pagination.INDETERMINATE,
     index: Int = 0,
     init: (@LayoutDslMarker Pagination).() -> Unit
-): Pagination = addNode(ktfx.layouts.pagination(count, index, init))
+): Pagination = addNode(Pagination(count, index), init)

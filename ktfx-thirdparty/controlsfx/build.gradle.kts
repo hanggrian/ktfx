@@ -19,6 +19,7 @@ ktlint { add ->
 
 dependencies {
     api(project(":$RELEASE_ARTIFACT-layouts"))
+    api(project(":$RELEASE_ARTIFACT-commons"))
     api(kotlinx("coroutines-javafx", VERSION_COROUTINES))
     api(controlsFx())
 

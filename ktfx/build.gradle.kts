@@ -7,10 +7,10 @@ plugins {
 }
 
 dependencies {
-    compile(project(":$RELEASE_ARTIFACT-commons"))
-    compile(project(":$RELEASE_ARTIFACT-coroutines"))
-    compile(project(":$RELEASE_ARTIFACT-layouts"))
-    compile(project(":$RELEASE_ARTIFACT-listeners"))
+    api(project(":$RELEASE_ARTIFACT-commons"))
+    api(project(":$RELEASE_ARTIFACT-coroutines"))
+    api(project(":$RELEASE_ARTIFACT-layouts"))
+    api(project(":$RELEASE_ARTIFACT-listeners"))
 }
 
 publishKotlinFix()

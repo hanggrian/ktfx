@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
-package ktfx.controlsfx
+package ktfx.thirdparty.controlsfx.layouts
 
 import javafx.scene.Node
 import ktfx.layouts.LayoutDslMarker

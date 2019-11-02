@@ -1,22 +1,12 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-package ktfx.controlsfx
+package ktfx.thirdparty.controlsfx.layouts
 
 import javafx.scene.control.TreeItem
-import kotlin.coroutines.CoroutineContext
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.javafx.JavaFx
-import kotlinx.coroutines.launch
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.BreadCrumbBar
-
-fun <T> BreadCrumbBar<T>.onCrumbAction(
-    context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(BreadCrumbBar.BreadCrumbActionEvent<T>) -> Unit
-): Unit = setOnCrumbAction { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
 /** Create a [BreadCrumbBar] with initialization block. */
 inline fun <T> breadCrumbBar(

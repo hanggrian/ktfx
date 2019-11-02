@@ -1,20 +1,11 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-package ktfx.controlsfx
+package ktfx.thirdparty.controlsfx.layouts
 
-import kotlin.coroutines.CoroutineContext
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.javafx.JavaFx
-import kotlinx.coroutines.launch
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.PlusMinusSlider
-
-fun PlusMinusSlider.onValueChanged(
-    context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(PlusMinusSlider.PlusMinusEvent) -> Unit
-): Unit = setOnValueChanged { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
 
 /** Create a [PlusMinusSlider] with initialization block. */
 inline fun plusMinusSlider(

@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-package ktfx.controlsfx
+package ktfx.thirdparty.controlsfx.layouts
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList

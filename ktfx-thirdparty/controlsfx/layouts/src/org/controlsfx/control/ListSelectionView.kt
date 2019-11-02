@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-package ktfx.controlsfx
+package ktfx.thirdparty.controlsfx.layouts
 
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager

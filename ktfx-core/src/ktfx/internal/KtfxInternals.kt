@@ -2,7 +2,6 @@ package ktfx.internal
 
 import javafx.util.Callback
 
-@Suppress("SpellCheckingInspection")
 object KtfxInternals {
 
     const val NO_GETTER: String = "Property does not have a getter."

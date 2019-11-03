@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("ManagerKt")
-@file:Suppress("PackageDirectoryMismatch")
 @file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts

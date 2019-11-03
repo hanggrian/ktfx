@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
-@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.thirdparty.controlsfx.layouts
 

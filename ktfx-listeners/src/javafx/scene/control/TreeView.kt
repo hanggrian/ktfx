@@ -1,42 +1,29 @@
 @file:JvmMultifileClass
 @file:JvmName("ListenersKt")
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.listeners
 
-import javafx.beans.value.ObservableValue
-import javafx.collections.ObservableList
-import javafx.scene.control.TreeItem
+import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.TreeView
-import javafx.scene.control.cell.CheckBoxTreeCell
-import javafx.scene.control.cell.ChoiceBoxTreeCell
-import javafx.scene.control.cell.TextFieldTreeCell
+import javafx.scene.control.TreeView.EditEvent
 
-fun <T> TreeView<T>.checkBoxCellFactory(
-    callback: (TreeItem<T>) -> ObservableValue<Boolean>,
-    converter: StringConverterBuilder<TreeItem<T>>.() -> Unit
-): Unit = setCellFactory(CheckBoxTreeCell.forTreeView(callback, buildStringConverter(converter)))
+/** Sets the handler that will be called when the user cancels an edit. */
+inline fun <T> TreeView<T>.onEditCancel(
+    noinline action: (EditEvent<T>) -> Unit
+): Unit = setOnEditCancel { event -> action(event) }
 
-fun <T> TreeView<T>.choiceBoxCellFactory(
-    vararg items: T,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(buildStringConverter(converter), *items))
+/** Sets the handler that will be called when the user commits an edit. */
+inline fun <T> TreeView<T>.onEditCommit(
+    noinline action: (EditEvent<T>) -> Unit
+): Unit = setOnEditCommit { event -> action(event) }
 
-fun <T> TreeView<T>.choiceBoxCellFactory(
-    items: ObservableList<T>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(buildStringConverter(converter), items))
+/** Sets the handler that will be called when the user begins an edit. */
+inline fun <T> TreeView<T>.onEditStart(
+    noinline action: (EditEvent<T>) -> Unit
+): Unit = setOnEditStart { event -> action(event) }
 
-fun <T> TreeView<T>.comboBoxCellFactory(
-    vararg items: T,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(buildStringConverter(converter), *items))
-
-fun <T> TreeView<T>.comboBoxCellFactory(
-    items: ObservableList<T>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(buildStringConverter(converter), items))
-
-fun <T> TreeView<T>.textFieldCellFactory(
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(TextFieldTreeCell.forTreeView(buildStringConverter(converter)))
+/** Called when there's a request to scroll an index into view using [TreeView.scrollTo]. */
+inline fun TreeView<*>.onScrollTo(
+    noinline action: (ScrollToEvent<Int>) -> Unit
+): Unit = setOnScrollTo { event -> action(event) }

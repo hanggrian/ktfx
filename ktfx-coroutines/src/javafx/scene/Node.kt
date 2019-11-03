@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("CoroutinesKt")
-@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.coroutines
 
@@ -288,5 +287,4 @@ fun Node.snapshot(
     params: SnapshotParameters? = null,
     image: WritableImage? = null,
     callback: suspend CoroutineScope.(SnapshotResult) -> Unit
-): Unit =
-    snapshot(KtfxInternals.noReturn { param -> GlobalScope.launch(context) { callback(param) } }, params, image)
+): Unit = snapshot(KtfxInternals.noReturn { param -> GlobalScope.launch(context) { callback(param) } }, params, image)

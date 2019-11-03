@@ -1,45 +1,23 @@
 @file:JvmMultifileClass
 @file:JvmName("ListenersKt")
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.listeners
 
-import javafx.beans.value.ObservableValue
-import javafx.collections.ObservableList
 import javafx.scene.control.TreeTableColumn
-import javafx.scene.control.cell.CheckBoxTreeTableCell
-import javafx.scene.control.cell.ChoiceBoxTreeTableCell
-import javafx.scene.control.cell.TextFieldTreeTableCell
+import javafx.scene.control.TreeTableColumn.CellEditEvent
 
-fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
-    callback: (Int) -> ObservableValue<Boolean>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, buildStringConverter(converter)))
+/** This event handler will be fired when the user cancels editing a cell. */
+inline fun <S, T> TreeTableColumn<S, T>.onEditCancel(
+    noinline action: (CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditCancel { event -> action(event) }
 
-fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
-    vararg items: T,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(buildStringConverter(converter), *items))
+/** This event handler will be fired when the user successfully commits their editing. */
+inline fun <S, T> TreeTableColumn<S, T>.onEditCommit(
+    noinline action: (CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditCommit { event -> action(event) }
 
-fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
-    items: ObservableList<T>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(buildStringConverter(converter), items))
-
-fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
-    vararg items: T,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(buildStringConverter(converter), *items))
-
-fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
-    items: ObservableList<T>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(buildStringConverter(converter), items))
-
-fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(buildStringConverter(converter)))
-
-fun <S, T> TreeTableColumn<S, T>.cellFactory(
-    cellFactory: TreeTableCellBuilder<S, T>.() -> Unit
-): Unit = setCellFactory { cellFactory.build() }
+/** This event handler will be fired when the user successfully initiates editing. */
+inline fun <S, T> TreeTableColumn<S, T>.onEditStart(
+    noinline action: (CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditStart { event -> action(event) }

@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE", "SpellCheckingInspection")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.geometries
 

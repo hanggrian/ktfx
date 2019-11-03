@@ -26,6 +26,7 @@ fun getKtfxArtifacts(): List<String> =
             listOf(
                 "$RELEASE_ARTIFACT-thirdparty/$it-commons",
                 "$RELEASE_ARTIFACT-thirdparty/$it-coroutines",
-                "$RELEASE_ARTIFACT-thirdparty/$it-layouts"
+                "$RELEASE_ARTIFACT-thirdparty/$it-layouts",
+                "$RELEASE_ARTIFACT-thirdparty/$it-listeners"
             )
         }

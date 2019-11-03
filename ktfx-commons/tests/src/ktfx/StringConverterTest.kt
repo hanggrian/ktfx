@@ -21,4 +21,27 @@ class StringConverterTest {
         assertEquals(intConverter.fromString("123"), intConverter["123"])
         assertEquals(defaultConverter.fromString("Hello world"), defaultConverter["Hello world"])
     }
+
+    @Test
+    fun buildStringConverterPrimitive() {
+        val converter = buildStringConverter<Int> {
+            fromString { it.toInt() }
+        }
+        assertEquals(converter.toString(123), "123")
+        assertEquals(converter.fromString("123"), 123)
+    }
+
+    @Test
+    fun buildStringConverterCustom() {
+        val converter = buildStringConverter<Person> {
+            toString { it!!.name }
+            fromString { Person(it) }
+        }
+        assertEquals(converter.toString(Person("Hendra")), "Hendra")
+        assertEquals(converter.fromString("Hendra"), Person("Hendra"))
+    }
+
+    data class Person(
+        val name: String
+    )
 }

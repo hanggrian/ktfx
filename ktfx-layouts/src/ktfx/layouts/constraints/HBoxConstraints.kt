@@ -1,5 +1,3 @@
-@file:Suppress("PackageDirectoryMismatch")
-
 package ktfx.layouts
 
 import javafx.geometry.Insets

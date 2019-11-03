@@ -18,8 +18,7 @@ ktlint { add ->
 }
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-layouts"))
-    api(kotlinx("coroutines-javafx", VERSION_COROUTINES))
+    api(project(":$RELEASE_ARTIFACT-coroutines"))
     api(jfoenix())
 
     testImplementation(project(":testing:fx"))

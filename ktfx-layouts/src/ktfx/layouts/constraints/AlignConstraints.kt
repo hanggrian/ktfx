@@ -1,5 +1,3 @@
-@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
-
 package ktfx.layouts
 
 import javafx.geometry.Pos

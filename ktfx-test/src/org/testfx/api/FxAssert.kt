@@ -1,5 +1,3 @@
-@file:Suppress("PackageDirectoryMismatch")
-
 package ktfx.test
 
 import javafx.scene.Node

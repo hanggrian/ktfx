@@ -1,46 +1,28 @@
 @file:JvmMultifileClass
 @file:JvmName("ListenersKt")
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.listeners
 
-import javafx.beans.value.ObservableValue
-import javafx.collections.ObservableList
 import javafx.scene.control.ListView
-import javafx.scene.control.cell.CheckBoxListCell
-import javafx.scene.control.cell.ChoiceBoxListCell
-import javafx.scene.control.cell.ComboBoxListCell
-import javafx.scene.control.cell.TextFieldListCell
+import javafx.scene.control.ScrollToEvent
 
-fun <T> ListView<T>.checkBoxCellFactory(
-    callback: (T) -> ObservableValue<Boolean>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(CheckBoxListCell.forListView(callback, buildStringConverter(converter)))
+/** Sets the handler that will be called when the user cancels */
+inline fun <T> ListView<T>.onEditCancel(
+    noinline action: (ListView.EditEvent<T>) -> Unit
+): Unit = setOnEditCancel { event -> action(event) }
 
-fun <T> ListView<T>.choiceBoxCellFactory(
-    vararg items: T,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxListCell.forListView(buildStringConverter(converter), *items))
+/** Sets the handler that will be called when the user has completed their editing. */
+inline fun <T> ListView<T>.onEditCommit(
+    noinline action: (ListView.EditEvent<T>) -> Unit
+): Unit = setOnEditCommit { event -> action(event) }
 
-fun <T> ListView<T>.choiceBoxCellFactory(
-    items: ObservableList<T>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxListCell.forListView(buildStringConverter(converter), items))
+/** Sets the handler that will be called when the user begins an edit. */
+inline fun <T> ListView<T>.onEditStart(
+    noinline action: (ListView.EditEvent<T>) -> Unit
+): Unit = setOnEditStart { event -> action(event) }
 
-fun <T> ListView<T>.comboBoxCellFactory(
-    vararg items: T,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ComboBoxListCell.forListView(buildStringConverter(converter), *items))
-
-fun <T> ListView<T>.comboBoxCellFactory(
-    items: ObservableList<T>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ComboBoxListCell.forListView(buildStringConverter(converter), items))
-
-fun <T> ListView<T>.textFieldCellFactory(
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(TextFieldListCell.forListView(buildStringConverter(converter)))
-
-fun <T> ListView<T>.cellFactory(
-    cellFactory: ListCellBuilder<T>.() -> Unit
-): Unit = setCellFactory { cellFactory.build() }
+/** Called when there's a request to scroll an index into view using [ListView.scrollTo]. */
+inline fun ListView<*>.onScrollTo(
+    noinline action: (ScrollToEvent<Int>) -> Unit
+): Unit = setOnScrollTo { event -> action(event) }

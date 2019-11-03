@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("CoroutinesKt")
-@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.coroutines
 

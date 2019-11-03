@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixCoroutinesKt")
-@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.thirdparty.jfoenix.coroutines
 
@@ -8,10 +7,12 @@ import com.jfoenix.controls.JFXAutoCompletePopup
 import com.jfoenix.controls.events.JFXAutoCompleteEvent
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
 fun <T> JFXAutoCompletePopup<T>.selectionHandler(
-    context: CoroutineContext = kotlinx.coroutines.Dispatchers.JavaFx,
+    context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(JFXAutoCompleteEvent<T>) -> Unit
-): Unit = setSelectionHandler { event -> kotlinx.coroutines.GlobalScope.launch(context) { action(event) } }
+): Unit = setSelectionHandler { event -> GlobalScope.launch(context) { action(event) } }

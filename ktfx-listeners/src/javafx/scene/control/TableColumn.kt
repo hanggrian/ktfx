@@ -1,45 +1,22 @@
 @file:JvmMultifileClass
 @file:JvmName("ListenersKt")
-@file:Suppress("PackageDirectoryMismatch")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.listeners
 
-import javafx.beans.value.ObservableValue
-import javafx.collections.ObservableList
 import javafx.scene.control.TableColumn
-import javafx.scene.control.cell.CheckBoxTableCell
-import javafx.scene.control.cell.ChoiceBoxTableCell
-import javafx.scene.control.cell.TextFieldTableCell
 
-fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
-    callback: (Int) -> ObservableValue<Boolean>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(callback, buildStringConverter(converter)))
+/** This event handler will be fired when the user cancels editing a cell. */
+inline fun <S, T> TableColumn<S, T>.onEditCancel(
+    noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditCancel { event -> action(event) }
 
-fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
-    vararg items: T,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(buildStringConverter(converter), *items))
+/** This event handler will be fired when the user successfully commits their editing. */
+inline fun <S, T> TableColumn<S, T>.onEditCommit(
+    noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditCommit { event -> action(event) }
 
-fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
-    items: ObservableList<T>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(buildStringConverter(converter), items))
-
-fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
-    vararg items: T,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(buildStringConverter(converter), *items))
-
-fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
-    items: ObservableList<T>,
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(buildStringConverter(converter), items))
-
-fun <S, T> TableColumn<S, T>.textFieldCellFactory(
-    converter: StringConverterBuilder<T>.() -> Unit
-): Unit = setCellFactory(TextFieldTableCell.forTableColumn(buildStringConverter(converter)))
-
-fun <S, T> TableColumn<S, T>.cellFactory(
-    cellFactory: TableCellBuilder<S, T>.() -> Unit
-): Unit = setCellFactory { cellFactory.build() }
+/** This event handler will be fired when the user successfully initiates editing. */
+inline fun <S, T> TableColumn<S, T>.onEditStart(
+    noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
+): Unit = setOnEditStart { event -> action(event) }

@@ -1,0 +1,15 @@
+@file:JvmMultifileClass
+@file:JvmName("ListenersKt")
+@file:Suppress("NOTHING_TO_INLINE")
+
+package ktfx.listeners
+
+import javafx.beans.InvalidationListener
+import javafx.beans.Observable
+
+/** Adds an [InvalidationListener] which will be notified whenever the [Observable] becomes invalid. */
+inline fun Observable.listener(
+    noinline listener: (Observable) -> Unit
+): InvalidationListener = InvalidationListener { observable ->
+    listener(observable)
+}.also { addListener(it) }

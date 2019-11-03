@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("JfoenixLayoutsKt")
 @file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.thirdparty.jfoenix.layouts

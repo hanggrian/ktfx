@@ -10,10 +10,8 @@ class PredefinedPackageRule : Rule("predefined-package") {
         "ktfx.coroutines",
         "ktfx.layouts",
         "ktfx.listeners",
-        "ktfx.thirdparty.controlsfx",
         "ktfx.thirdparty.controlsfx.coroutines",
         "ktfx.thirdparty.controlsfx.layouts",
-        "ktfx.thirdparty.jfoenix",
         "ktfx.thirdparty.jfoenix.coroutines",
         "ktfx.thirdparty.jfoenix.layouts",
         "ktfx.testfx"

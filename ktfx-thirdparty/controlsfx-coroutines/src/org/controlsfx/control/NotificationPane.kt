@@ -1,4 +1,6 @@
-@file:Suppress("PackageDirectoryMismatch")
+@file:JvmMultifileClass
+@file:JvmName("ControlsFxCoroutinesKt")
+@file:Suppress("PackageDirectoryMismatch", "SpellCheckingInspection")
 
 package ktfx.thirdparty.controlsfx.coroutines
 

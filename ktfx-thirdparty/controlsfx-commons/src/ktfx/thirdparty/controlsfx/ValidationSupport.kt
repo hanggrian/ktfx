@@ -1,5 +1,3 @@
-@file:Suppress("PackageDirectoryMismatch")
-
 package ktfx.thirdparty.controlsfx
 
 import javafx.scene.control.Control

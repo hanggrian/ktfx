@@ -1,6 +1,6 @@
-@file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE")
 
-package ktfx.thirdparty.jfoenix
+package ktfx.thirdparty.jfoenix.controls
 
 import com.jfoenix.controls.JFXSnackbar
 import javafx.event.ActionEvent

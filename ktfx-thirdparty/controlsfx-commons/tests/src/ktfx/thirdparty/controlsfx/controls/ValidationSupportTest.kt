@@ -1,4 +1,4 @@
-package ktfx.thirdparty.controlsfx.validation
+package ktfx.thirdparty.controlsfx.controls
 
 import javafx.scene.control.TextField
 import javafx.stage.Stage

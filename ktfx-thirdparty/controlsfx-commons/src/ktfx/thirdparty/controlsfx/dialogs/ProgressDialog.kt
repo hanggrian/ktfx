@@ -1,6 +1,6 @@
-@file:Suppress("NOTHING_TO_INLINE", "PackageDirectoryMismatch", "UsePropertyAccessSyntax")
+@file:Suppress("NOTHING_TO_INLINE", "UsePropertyAccessSyntax")
 
-package ktfx.thirdparty.controlsfx
+package ktfx.thirdparty.controlsfx.dialogs
 
 import java.util.Optional
 import javafx.concurrent.Worker

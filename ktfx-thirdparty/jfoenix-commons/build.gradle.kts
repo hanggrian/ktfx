@@ -14,7 +14,6 @@ sourceSets {
 
 ktlint { add ->
     add(project(":ruleset:all"))
-    add(project(":ruleset:single-package"))
 }
 
 dependencies {

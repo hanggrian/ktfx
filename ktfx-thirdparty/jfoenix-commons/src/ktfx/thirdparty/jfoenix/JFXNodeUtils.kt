@@ -1,5 +1,3 @@
-@file:Suppress("PackageDirectoryMismatch")
-
 package ktfx.thirdparty.jfoenix
 
 import com.jfoenix.utils.JFXNodeUtils

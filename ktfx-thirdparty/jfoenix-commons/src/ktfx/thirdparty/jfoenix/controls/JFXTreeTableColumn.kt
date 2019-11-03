@@ -1,6 +1,4 @@
-@file:Suppress("PackageDirectoryMismatch")
-
-package ktfx.thirdparty.jfoenix
+package ktfx.thirdparty.jfoenix.controls
 
 import com.jfoenix.controls.JFXTreeTableColumn
 import com.jfoenix.controls.JFXTreeTableView

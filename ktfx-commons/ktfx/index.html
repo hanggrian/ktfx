@@ -19,6 +19,14 @@
 <p>Receiver in <code>ktfx.buildService</code>, invoke <a href="-ktfx-task/call.html">call</a> to customize what this Task do in the background.</p>
 <code><span class="keyword">class </span><span class="identifier">KtfxTask</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Task</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
 </tr>
+<tr>
+<td>
+<h4><a href="-string-converter-builder/index.html">StringConverterBuilder</a></h4>
+</td>
+<td>
+<p>Interface to build <a href="#">StringConverter</a> with Kotlin DSL.</p>
+<code><span class="keyword">interface </span><span class="identifier">StringConverterBuilder</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
 </tbody>
 </table>
 <h3>Extensions for External Classes</h3>
@@ -320,6 +328,14 @@
 <p>Returns a <a href="#">Service</a> by invoking <a href="#">Task</a> DSL.
 By default, it will do nothing and returns null in the background, customize it by invoking <code>call</code>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">buildService</span><span class="symbol">(</span><span class="identifier" id="ktfx$buildService(kotlin.Function1((ktfx.KtfxTask((ktfx.buildService.V)), kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="-ktfx-task/index.html"><span class="identifier">KtfxTask</span></a><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Service</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="build-string-converter.html">buildStringConverter</a></h4>
+</td>
+<td>
+<p>Build string converter with Kotlin DSL.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">buildStringConverter</span><span class="symbol">(</span><span class="identifier" id="ktfx$buildStringConverter(kotlin.Function1((ktfx.StringConverterBuilder((ktfx.buildStringConverter.T)), kotlin.Unit)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="-string-converter-builder/index.html"><span class="identifier">StringConverterBuilder</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringConverter</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>

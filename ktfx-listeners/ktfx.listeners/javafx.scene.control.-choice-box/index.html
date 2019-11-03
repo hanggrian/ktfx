@@ -12,11 +12,43 @@
 <tbody>
 <tr>
 <td>
-<h4><a href="converter.html">converter</a></h4>
+<h4><a href="on-action.html">onAction</a></h4>
 </td>
 <td>
-<p>Allows a way to specify how to represent objects in the items list.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">ChoiceBox</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">converter</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners$converter(javafx.scene.control.ChoiceBox((ktfx.listeners.converter.T)), kotlin.Function1((ktfx.listeners.StringConverterBuilder((ktfx.listeners.converter.T)), kotlin.Unit)))/converter">converter</span><span class="symbol">:</span>&nbsp;<a href="../-string-converter-builder/index.html"><span class="identifier">StringConverterBuilder</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>The ChoiceBox action, which is invoked whenever the <a href="#">ChoiceBox.valueProperty</a> is changed.</p>
+<code><span class="keyword">fun </span><span class="identifier">ChoiceBox</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">onAction</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners$onAction(javafx.scene.control.ChoiceBox((kotlin.Any)), kotlin.Function1((javafx.event.ActionEvent, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">ActionEvent</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-hidden.html">onHidden</a></h4>
+</td>
+<td>
+<p>Called just after the <a href="#">ChoiceBox</a> popup has been hidden.</p>
+<code><span class="keyword">fun </span><span class="identifier">ChoiceBox</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">onHidden</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners$onHidden(javafx.scene.control.ChoiceBox((kotlin.Any)), kotlin.Function1((javafx.event.Event, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Event</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-hiding.html">onHiding</a></h4>
+</td>
+<td>
+<p>Called just prior to the <a href="#">ChoiceBox</a> popup being hidden.</p>
+<code><span class="keyword">fun </span><span class="identifier">ChoiceBox</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">onHiding</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners$onHiding(javafx.scene.control.ChoiceBox((kotlin.Any)), kotlin.Function1((javafx.event.Event, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Event</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-showing.html">onShowing</a></h4>
+</td>
+<td>
+<p>Called just prior to the {@code ChoiceBox} popup being shown.</p>
+<code><span class="keyword">fun </span><span class="identifier">ChoiceBox</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">onShowing</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners$onShowing(javafx.scene.control.ChoiceBox((kotlin.Any)), kotlin.Function1((javafx.event.Event, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Event</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-shown.html">onShown</a></h4>
+</td>
+<td>
+<p>Called just after the <a href="#">ChoiceBox</a> popup is shown.</p>
+<code><span class="keyword">fun </span><span class="identifier">ChoiceBox</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">onShown</span><span class="symbol">(</span><span class="identifier" id="ktfx.listeners$onShown(javafx.scene.control.ChoiceBox((kotlin.Any)), kotlin.Function1((javafx.event.Event, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Event</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>

@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
-package ktfx.testfx
+package ktfx.test
 
 import java.util.regex.Pattern
 import javafx.geometry.Bounds

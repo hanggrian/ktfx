@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch", "NOTHING_TO_INLINE")
 
-package ktfx.testfx
+package ktfx.test
 
 import javafx.geometry.Point2D
 import javafx.geometry.Pos

@@ -4,12 +4,11 @@ include("$RELEASE_ARTIFACT-core")
 include("$RELEASE_ARTIFACT-coroutines")
 include("$RELEASE_ARTIFACT-layouts")
 include("$RELEASE_ARTIFACT-listeners")
-
-includeDir("$RELEASE_ARTIFACT-test")
+include("$RELEASE_ARTIFACT-test")
 includeDir("$RELEASE_ARTIFACT-thirdparty")
 
-//include("website")
-//include("demo")
+include("website")
+include("demo")
 
 includeDir("ruleset")
 includeDir("testing")

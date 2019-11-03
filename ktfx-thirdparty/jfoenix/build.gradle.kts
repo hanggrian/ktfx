@@ -21,7 +21,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-jfoenix"
+    artifactId = "$RELEASE_ARTIFACT-thirdparty-jfoenix"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

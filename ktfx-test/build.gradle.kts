@@ -22,7 +22,7 @@ dependencies {
     api(testFx("core"))
 
     testImplementation(project(":testing:fx"))
-    testImplementation(project(":ktfx-layouts"))
+    testImplementation(project(":$RELEASE_ARTIFACT-layouts"))
 }
 
 tasks {
@@ -41,7 +41,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-testfx"
+    artifactId = "$RELEASE_ARTIFACT-test"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

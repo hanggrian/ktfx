@@ -41,7 +41,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-controlsfx"
+    artifactId = "$RELEASE_ARTIFACT-thirdparty-controlsfx-commons"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

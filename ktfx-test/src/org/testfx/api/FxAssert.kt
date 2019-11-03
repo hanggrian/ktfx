@@ -1,6 +1,6 @@
 @file:Suppress("PackageDirectoryMismatch")
 
-package ktfx.testfx
+package ktfx.test
 
 import javafx.scene.Node
 import org.hamcrest.Matcher

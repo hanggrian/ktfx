@@ -10,11 +10,11 @@ class PredefinedPackageRule : Rule("predefined-package") {
         "ktfx.coroutines",
         "ktfx.layouts",
         "ktfx.listeners",
+        "ktfx.test",
         "ktfx.thirdparty.controlsfx.coroutines",
         "ktfx.thirdparty.controlsfx.layouts",
         "ktfx.thirdparty.jfoenix.coroutines",
-        "ktfx.thirdparty.jfoenix.layouts",
-        "ktfx.testfx"
+        "ktfx.thirdparty.jfoenix.layouts"
     )
 
     override fun visit(

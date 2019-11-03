@@ -24,9 +24,9 @@ fun getKtfxArtifacts(): List<String> =
     listOf("commons", "coroutines", "layouts", "listeners", "test").map { "$RELEASE_ARTIFACT-$it" } +
         listOf("controlsfx", "jfoenix").flatMap {
             listOf(
-                "$RELEASE_ARTIFACT-thirdparty/$it-commons",
-                "$RELEASE_ARTIFACT-thirdparty/$it-coroutines",
-                "$RELEASE_ARTIFACT-thirdparty/$it-layouts",
-                "$RELEASE_ARTIFACT-thirdparty/$it-listeners"
+                "$RELEASE_ARTIFACT-features/$it-commons",
+                "$RELEASE_ARTIFACT-features/$it-coroutines",
+                "$RELEASE_ARTIFACT-features/$it-layouts",
+                "$RELEASE_ARTIFACT-features/$it-listeners"
             )
         }

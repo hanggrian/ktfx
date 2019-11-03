@@ -3,6 +3,7 @@ version = RELEASE_VERSION
 
 plugins {
     kotlin("jvm")
+    dokka()
     `bintray-release`
 }
 
@@ -16,13 +17,20 @@ ktlint { add ->
 }
 
 dependencies {
-    api(kotlin("stdlib"))
+    api(project(":$RELEASE_ARTIFACT-commons"))
+    api(controlsFx())
 
     testImplementation(project(":testing:fx"))
+    testImplementation(project(":$RELEASE_ARTIFACT-layouts"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 }
 
-tasks.withType<Javadoc> { enabled = false }
+tasks {
+    withType<org.jetbrains.dokka.gradle.DokkaTask> {
+        outputDirectory = "$buildDir/docs"
+        doFirst { file(outputDirectory).deleteRecursively() }
+    }
+}
 
 publishKotlinFix()
 publish {
@@ -33,7 +41,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-core"
+    artifactId = "$RELEASE_ARTIFACT-controlsfx-commons"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

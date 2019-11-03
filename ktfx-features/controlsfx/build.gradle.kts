@@ -1,3 +1,5 @@
+import javax.xml.ws.Endpoint.publish
+
 group = RELEASE_GROUP
 version = RELEASE_VERSION
 
@@ -6,23 +8,11 @@ plugins {
     `bintray-release`
 }
 
-sourceSets {
-    get("main").java.srcDir("src")
-    get("test").java.srcDir("tests/src")
-}
-
-ktlint { add ->
-    add(project(":ruleset:all"))
-}
-
 dependencies {
-    api(kotlin("stdlib"))
-
-    testImplementation(project(":testing:fx"))
-    testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
+    api(project(":$RELEASE_ARTIFACT-features:controlsfx-commons"))
+    api(project(":$RELEASE_ARTIFACT-features:controlsfx-coroutines"))
+    api(project(":$RELEASE_ARTIFACT-features:controlsfx-layouts"))
 }
-
-tasks.withType<Javadoc> { enabled = false }
 
 publishKotlinFix()
 publish {
@@ -33,7 +23,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-core"
+    artifactId = "$RELEASE_ARTIFACT-controlsfx"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

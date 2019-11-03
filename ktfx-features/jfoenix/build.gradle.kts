@@ -6,23 +6,11 @@ plugins {
     `bintray-release`
 }
 
-sourceSets {
-    get("main").java.srcDir("src")
-    get("test").java.srcDir("tests/src")
-}
-
-ktlint { add ->
-    add(project(":ruleset:all"))
-}
-
 dependencies {
-    api(kotlin("stdlib"))
-
-    testImplementation(project(":testing:fx"))
-    testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
+    api(project(":$RELEASE_ARTIFACT-features:jfoenix-commons"))
+    api(project(":$RELEASE_ARTIFACT-features:jfoenix-coroutines"))
+    api(project(":$RELEASE_ARTIFACT-features:jfoenix-layouts"))
 }
-
-tasks.withType<Javadoc> { enabled = false }
 
 publishKotlinFix()
 publish {
@@ -33,7 +21,7 @@ publish {
 
     userOrg = RELEASE_USER
     groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-core"
+    artifactId = "$RELEASE_ARTIFACT-jfoenix"
     publishVersion = RELEASE_VERSION
     desc = RELEASE_DESC
     website = RELEASE_WEB

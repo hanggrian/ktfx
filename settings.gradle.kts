@@ -5,7 +5,7 @@ include("$RELEASE_ARTIFACT-coroutines")
 include("$RELEASE_ARTIFACT-layouts")
 include("$RELEASE_ARTIFACT-listeners")
 include("$RELEASE_ARTIFACT-test")
-includeDir("$RELEASE_ARTIFACT-thirdparty")
+includeDir("$RELEASE_ARTIFACT-features")
 
 include("website")
 include("demo")

@@ -1,0 +1,9 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:ktfx.thirdparty.controlsfx$registerEmptyValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.thirdparty.controlsfx/javafx.scene.control.-control/register-empty-validator.html
+$dokka.location:ktfx.thirdparty.controlsfx$registerEqualsValidator(javafx.scene.control.Control, kotlin.String, kotlin.collections.Collection((ktfx.thirdparty.controlsfx.registerEqualsValidator.T)), org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.thirdparty.controlsfx/javafx.scene.control.-control/register-equals-validator.html
+$dokka.location:ktfx.thirdparty.controlsfx$registerPredicateValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport, kotlin.Function1((ktfx.thirdparty.controlsfx.registerPredicateValidator.T, kotlin.Boolean)))ktfx.thirdparty.controlsfx/javafx.scene.control.-control/register-predicate-validator.html
+$dokka.location:ktfx.thirdparty.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.thirdparty.controlsfx/javafx.scene.control.-control/register-regex-validator.html
+$dokka.location:ktfx.thirdparty.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.thirdparty.controlsfx/javafx.scene.control.-control/register-regex-validator.html
+ktfx.thirdparty.controlsfx
+ktfx.thirdparty.controlsfx.dialogs

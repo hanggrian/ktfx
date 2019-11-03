@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>lookup - ktfx-test</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">ktfx-test</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.test</a>&nbsp;/&nbsp;<a href="index.html">org.testfx.service.query.NodeQuery</a>&nbsp;/&nbsp;<a href="./lookup.html">lookup</a><br/>
+<br/>
+<h1>lookup</h1>
+<a name="ktfx.test$lookup(org.testfx.service.query.NodeQuery, kotlin.String)"></a>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$lookup(org.testfx.service.query.NodeQuery, kotlin.String)/query">query</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code>
+<p>Sifts through stored nodes by their id ("#id"), their class (".class"), or the text it has ("text"),
+depending on the query used, and keeps only those {@code Node}s that meet the query.</p>
+<a name="ktfx.test$lookup(org.testfx.service.query.NodeQuery, org.hamcrest.Matcher((ktfx.test.lookup.T)))"></a>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$lookup(org.testfx.service.query.NodeQuery, org.hamcrest.Matcher((ktfx.test.lookup.T)))/matcher">matcher</span><span class="symbol">:</span>&nbsp;<span class="identifier">Matcher</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code>
+<p>Sifts through stored nodes and keeps only those {@code Node}s that match the given matcher.</p>
+<a name="ktfx.test$lookup(org.testfx.service.query.NodeQuery, kotlin.Function1((ktfx.test.lookup.T, kotlin.Boolean)))"></a>
+<code><span class="keyword">infix</span> <span class="keyword">inline</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">lookup</span><span class="symbol">(</span><span class="keyword">noinline</span> <span class="identifier" id="ktfx.test$lookup(org.testfx.service.query.NodeQuery, kotlin.Function1((ktfx.test.lookup.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code>
+<p>Sifts through stored nodes and keeps only those {@code Node}s that pass the given {@code predicate}.</p>
+</BODY>
+</HTML>

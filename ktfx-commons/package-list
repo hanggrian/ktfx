@@ -616,7 +616,6 @@ ktfx.controls
 ktfx.dialogs
 ktfx.geometries
 ktfx.inputs
-ktfx.internal
 ktfx.print
 ktfx.swing
 ktfx.text

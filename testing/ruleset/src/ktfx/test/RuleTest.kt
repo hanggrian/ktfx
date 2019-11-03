@@ -2,13 +2,13 @@ package ktfx.test
 
 import com.google.common.truth.Truth
 import com.pinterest.ktlint.core.LintError
+import com.pinterest.ktlint.core.Rule
 import com.pinterest.ktlint.test.lint
-import ktfx.rules.KtfxRule
 
 /** For testing single rule, not multiple rules at the same time. */
 interface RuleTest {
 
-    val rule: KtfxRule
+    val rule: Rule
 
     fun assert(
         vararg exactly: Triple<Int, Int, String>,

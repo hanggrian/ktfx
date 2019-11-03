@@ -5,19 +5,15 @@ include("$RELEASE_ARTIFACT-coroutines")
 include("$RELEASE_ARTIFACT-layouts")
 include("$RELEASE_ARTIFACT-listeners")
 
+includeDir("$RELEASE_ARTIFACT-test")
+includeDir("$RELEASE_ARTIFACT-thirdparty")
+
 //include("website")
 //include("demo")
 
-includeAll("test")
-includeAll("thirdparty")
-fun includeAll(module: String) = file("$RELEASE_ARTIFACT-$module").walkEach { dir ->
-    dir.walkEach { innerDir ->
-        include("$RELEASE_ARTIFACT-$module:${dir.name}:${innerDir.name}")
-    }
-}
-
 includeDir("ruleset")
 includeDir("testing")
+
 fun includeDir(dir: String) = file(dir).walkEach { include("$dir:${it.name}") }
 
 fun File.walkEach(

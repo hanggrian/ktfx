@@ -19,7 +19,6 @@ fun Project.ktlint(
     ) -> Unit)? = null
 ) {
     val configuration = configurations.register("ktlint")
-
     dependencies {
         configuration {
             invoke(ktlint())
@@ -28,7 +27,6 @@ fun Project.ktlint(
             }
         }
     }
-
     tasks {
         val ktlint = register("ktlint", JavaExec::class) {
             group = LifecycleBasePlugin.VERIFICATION_GROUP

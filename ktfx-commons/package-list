@@ -340,8 +340,6 @@ $dokka.location:ktfx.cells$comboBoxCellFactory(javafx.scene.control.TreeView((kt
 $dokka.location:ktfx.cells$comboBoxCellFactory(javafx.scene.control.TreeView((ktfx.cells.comboBoxCellFactory.T)), javafx.util.StringConverter((ktfx.cells.comboBoxCellFactory.T)), kotlin.Array((ktfx.cells.comboBoxCellFactory.T)))ktfx.cells/javafx.scene.control.-tree-view/combo-box-cell-factory.html
 $dokka.location:ktfx.cells$progressBarCellFactory(javafx.scene.control.TableColumn((ktfx.cells.progressBarCellFactory.S, kotlin.Double)))ktfx.cells/javafx.scene.control.-table-column/progress-bar-cell-factory.html
 $dokka.location:ktfx.cells$progressBarCellFactory(javafx.scene.control.TreeTableColumn((ktfx.cells.progressBarCellFactory.S, kotlin.Double)))ktfx.cells/javafx.scene.control.-tree-table-column/progress-bar-cell-factory.html
-$dokka.location:ktfx.cells$rowFactory(javafx.scene.control.TableView((ktfx.cells.rowFactory.S)), kotlin.Function1((ktfx.cells.TableRowBuilder((ktfx.cells.rowFactory.S)), kotlin.Unit)))ktfx.cells/javafx.scene.control.-table-view/row-factory.html
-$dokka.location:ktfx.cells$rowFactory(javafx.scene.control.TreeTableView((ktfx.cells.rowFactory.S)), kotlin.Function1((ktfx.cells.TreeTableRowBuilder((ktfx.cells.rowFactory.S)), kotlin.Unit)))ktfx.cells/javafx.scene.control.-tree-table-view/row-factory.html
 $dokka.location:ktfx.cells$textFieldCellFactory(javafx.scene.control.ListView((kotlin.String)), javafx.util.StringConverter((kotlin.String)))ktfx.cells/javafx.scene.control.-list-view/text-field-cell-factory.html
 $dokka.location:ktfx.cells$textFieldCellFactory(javafx.scene.control.TableColumn((ktfx.cells.textFieldCellFactory.S, kotlin.String)), javafx.util.StringConverter((kotlin.String)))ktfx.cells/javafx.scene.control.-table-column/text-field-cell-factory.html
 $dokka.location:ktfx.cells$textFieldCellFactory(javafx.scene.control.TreeTableColumn((ktfx.cells.textFieldCellFactory.S, kotlin.String)), javafx.util.StringConverter((kotlin.String)))ktfx.cells/javafx.scene.control.-tree-table-column/text-field-cell-factory.html
@@ -457,6 +455,8 @@ $dokka.location:ktfx.controls$affine(javafx.scene.Node, javafx.scene.transform.T
 $dokka.location:ktfx.controls$affine(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/affine.html
 $dokka.location:ktfx.controls$affine(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/affine.html
 $dokka.location:ktfx.controls$affine(javafx.scene.Node, kotlin.DoubleArray, javafx.scene.transform.MatrixType, kotlin.Int)ktfx.controls/javafx.scene.-node/affine.html
+$dokka.location:ktfx.controls$columns(javafx.scene.control.TableView((ktfx.controls.columns.S)), kotlin.Function1((ktfx.controls.TableColumnsBuilder((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-table-view/columns.html
+$dokka.location:ktfx.controls$columns(javafx.scene.control.TreeTableView((ktfx.controls.columns.S)), kotlin.Function1((ktfx.controls.TreeTableColumnsBuilder((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-tree-table-view/columns.html
 $dokka.location:ktfx.controls$fadeTransition(javafx.scene.Node, javafx.util.Duration)ktfx.controls/javafx.scene.-node/fade-transition.html
 $dokka.location:ktfx.controls$fillTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color)ktfx.controls/javafx.scene.shape.-shape/fill-transition.html
 $dokka.location:ktfx.controls$find(javafx.scene.Node, kotlin.String)ktfx.controls/javafx.scene.-node/find.html
@@ -487,6 +487,8 @@ $dokka.location:ktfx.controls$rotate(javafx.scene.Node, kotlin.Double, kotlin.Do
 $dokka.location:ktfx.controls$rotate(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/rotate.html
 $dokka.location:ktfx.controls$rotate(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, javafx.geometry.Point3D)ktfx.controls/javafx.scene.-node/rotate.html
 $dokka.location:ktfx.controls$rotateTransition(javafx.scene.Node, javafx.util.Duration)ktfx.controls/javafx.scene.-node/rotate-transition.html
+$dokka.location:ktfx.controls$rowFactory(javafx.scene.control.TableView((ktfx.controls.rowFactory.S)), kotlin.Function1((ktfx.cells.TableRowBuilder((ktfx.controls.rowFactory.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-table-view/row-factory.html
+$dokka.location:ktfx.controls$rowFactory(javafx.scene.control.TreeTableView((ktfx.controls.rowFactory.S)), kotlin.Function1((ktfx.cells.TreeTableRowBuilder((ktfx.controls.rowFactory.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-tree-table-view/row-factory.html
 $dokka.location:ktfx.controls$scale(javafx.scene.Node, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/scale.html
 $dokka.location:ktfx.controls$scale(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/scale.html
 $dokka.location:ktfx.controls$scale(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/scale.html

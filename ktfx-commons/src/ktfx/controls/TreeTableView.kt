@@ -1,10 +1,19 @@
-@file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
-
-package ktfx.layouts
+package ktfx.controls
 
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
+import ktfx.cells.TreeTableRowBuilder
+import ktfx.cells.build
+
+/** A function which produces a TreeTableRow. */
+fun <S> TreeTableView<S>.rowFactory(
+    rowFactory: TreeTableRowBuilder<S>.() -> Unit
+): Unit = setRowFactory { rowFactory.build() }
+
+/** Invokes a [TreeTableColumn] DSL builder. */
+fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {
+    columns += TreeTableColumnsBuilderImpl<S>().apply(init).collection
+}
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
 interface TreeTableColumnsBuilder<S> {
@@ -29,9 +38,4 @@ private class TreeTableColumnsBuilderImpl<S> : TreeTableColumnsBuilder<S> {
 
     override fun <T> column(text: String?): TreeTableColumn<S, T> =
         TreeTableColumn<S, T>(text).also { collection += it }
-}
-
-/** Invokes a [TreeTableColumn] DSL builder. */
-fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {
-    columns += TreeTableColumnsBuilderImpl<S>().apply(init).collection
 }

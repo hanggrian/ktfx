@@ -1,0 +1,271 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>ktfx.controlsfx.layouts - controlsfx-layouts</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../index.html">controlsfx-layouts</a>&nbsp;/&nbsp;<a href="./index.html">ktfx.controlsfx.layouts</a><br/>
+<br/>
+<h2>Package ktfx.controlsfx.layouts</h2>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-ktfx-hidden-sides-pane/index.html">KtfxHiddenSidesPane</a></h4>
+</td>
+<td>
+<p>Invoking layout DSL will only set content.
+To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bottom</code>, or <code>right</code>.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxHiddenSidesPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">HiddenSidesPane</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ktfx-master-detail-pane/index.html">KtfxMasterDetailPane</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxMasterDetailPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MasterDetailPane</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ktfx-notification-pane/index.html">KtfxNotificationPane</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxNotificationPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NotificationPane</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ktfx-segmented-button/index.html">KtfxSegmentedButton</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxSegmentedButton</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">SegmentedButton</span><span class="symbol">, </span><span class="identifier">ToggleButtonManager</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ktfx-snapshot-view/index.html">KtfxSnapshotView</a></h4>
+</td>
+<td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxSnapshotView</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">SnapshotView</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extensions for External Classes</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="ktfx.layouts.-node-manager/index.html">ktfx.layouts.NodeManager</a></h4>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="bread-crumb-bar.html">breadCrumbBar</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">BreadCrumbBar</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">breadCrumbBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$breadCrumbBar(javafx.scene.control.TreeItem((ktfx.controlsfx.layouts.breadCrumbBar.T)), kotlin.Function1((org.controlsfx.control.BreadCrumbBar((ktfx.controlsfx.layouts.breadCrumbBar.T)), kotlin.Unit)))/selectedCrumb">selectedCrumb</span><span class="symbol">:</span>&nbsp;<span class="identifier">TreeItem</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$breadCrumbBar(javafx.scene.control.TreeItem((ktfx.controlsfx.layouts.breadCrumbBar.T)), kotlin.Function1((org.controlsfx.control.BreadCrumbBar((ktfx.controlsfx.layouts.breadCrumbBar.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">BreadCrumbBar</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BreadCrumbBar</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-combo-box.html">checkComboBox</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">CheckComboBox</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">checkComboBox</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$checkComboBox(javafx.collections.ObservableList((ktfx.controlsfx.layouts.checkComboBox.T)), kotlin.Function1((org.controlsfx.control.CheckComboBox((ktfx.controlsfx.layouts.checkComboBox.T)), kotlin.Unit)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$checkComboBox(javafx.collections.ObservableList((ktfx.controlsfx.layouts.checkComboBox.T)), kotlin.Function1((org.controlsfx.control.CheckComboBox((ktfx.controlsfx.layouts.checkComboBox.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">CheckComboBox</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CheckComboBox</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-list-view.html">checkListView</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">CheckListView</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">checkListView</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$checkListView(javafx.collections.ObservableList((ktfx.controlsfx.layouts.checkListView.T)), kotlin.Function1((org.controlsfx.control.CheckListView((ktfx.controlsfx.layouts.checkListView.T)), kotlin.Unit)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;FXCollections.observableArrayList()<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$checkListView(javafx.collections.ObservableList((ktfx.controlsfx.layouts.checkListView.T)), kotlin.Function1((org.controlsfx.control.CheckListView((ktfx.controlsfx.layouts.checkListView.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">CheckListView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CheckListView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="check-tree-view.html">checkTreeView</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">CheckTreeView</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">checkTreeView</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$checkTreeView(javafx.scene.control.CheckBoxTreeItem((ktfx.controlsfx.layouts.checkTreeView.T)), kotlin.Function1((org.controlsfx.control.CheckTreeView((ktfx.controlsfx.layouts.checkTreeView.T)), kotlin.Unit)))/root">root</span><span class="symbol">:</span>&nbsp;<span class="identifier">CheckBoxTreeItem</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$checkTreeView(javafx.scene.control.CheckBoxTreeItem((ktfx.controlsfx.layouts.checkTreeView.T)), kotlin.Function1((org.controlsfx.control.CheckTreeView((ktfx.controlsfx.layouts.checkTreeView.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">CheckTreeView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">CheckTreeView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="grid-view.html">gridView</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">GridView</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">gridView</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$gridView(javafx.collections.ObservableList((ktfx.controlsfx.layouts.gridView.T)), kotlin.Function1((org.controlsfx.control.GridView((ktfx.controlsfx.layouts.gridView.T)), kotlin.Unit)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;FXCollections.observableArrayList()<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$gridView(javafx.collections.ObservableList((ktfx.controlsfx.layouts.gridView.T)), kotlin.Function1((org.controlsfx.control.GridView((ktfx.controlsfx.layouts.gridView.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">GridView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">GridView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hidden-sides-pane.html">hiddenSidesPane</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">HiddenSidesPane</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">hiddenSidesPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$hiddenSidesPane(kotlin.Function1((ktfx.controlsfx.layouts.KtfxHiddenSidesPane, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="-ktfx-hidden-sides-pane/index.html"><span class="identifier">KtfxHiddenSidesPane</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HiddenSidesPane</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hyperlink-label.html">hyperlinkLabel</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">HyperlinkLabel</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">hyperlinkLabel</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$hyperlinkLabel(kotlin.String, kotlin.Function1((org.controlsfx.control.HyperlinkLabel, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$hyperlinkLabel(kotlin.String, kotlin.Function1((org.controlsfx.control.HyperlinkLabel, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">HyperlinkLabel</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">HyperlinkLabel</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="info-overlay.html">infoOverlay</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">InfoOverlay</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">infoOverlay</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((org.controlsfx.control.InfoOverlay, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((org.controlsfx.control.InfoOverlay, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((org.controlsfx.control.InfoOverlay, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">InfoOverlay</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">InfoOverlay</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="list-selection-view.html">listSelectionView</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">ListSelectionView</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">listSelectionView</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$listSelectionView(kotlin.Function1((org.controlsfx.control.ListSelectionView((ktfx.controlsfx.layouts.listSelectionView.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">ListSelectionView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListSelectionView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="masker-pane.html">maskerPane</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">MaskerPane</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">maskerPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$maskerPane(kotlin.Function1((org.controlsfx.control.MaskerPane, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">MaskerPane</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MaskerPane</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="master-detail-pane.html">masterDetailPane</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">MasterDetailPane</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">masterDetailPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$masterDetailPane(javafx.geometry.Side, kotlin.Boolean, kotlin.Function1((ktfx.controlsfx.layouts.KtfxMasterDetailPane, kotlin.Unit)))/side">side</span><span class="symbol">:</span>&nbsp;<span class="identifier">Side</span>&nbsp;<span class="symbol">=</span>&nbsp;Side.RIGHT<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$masterDetailPane(javafx.geometry.Side, kotlin.Boolean, kotlin.Function1((ktfx.controlsfx.layouts.KtfxMasterDetailPane, kotlin.Unit)))/showDetail">showDetail</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$masterDetailPane(javafx.geometry.Side, kotlin.Boolean, kotlin.Function1((ktfx.controlsfx.layouts.KtfxMasterDetailPane, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="-ktfx-master-detail-pane/index.html"><span class="identifier">KtfxMasterDetailPane</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MasterDetailPane</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="notification-pane.html">notificationPane</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">NotificationPane</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">notificationPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$notificationPane(kotlin.Function1((ktfx.controlsfx.layouts.KtfxNotificationPane, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="-ktfx-notification-pane/index.html"><span class="identifier">KtfxNotificationPane</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NotificationPane</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="plus-minus-slider.html">plusMinusSlider</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">PlusMinusSlider</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">plusMinusSlider</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$plusMinusSlider(kotlin.Function1((org.controlsfx.control.PlusMinusSlider, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">PlusMinusSlider</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PlusMinusSlider</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="prefix-selection-choice-box.html">prefixSelectionChoiceBox</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">PrefixSelectionChoiceBox</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">prefixSelectionChoiceBox</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$prefixSelectionChoiceBox(kotlin.Function1((org.controlsfx.control.PrefixSelectionChoiceBox((ktfx.controlsfx.layouts.prefixSelectionChoiceBox.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">PrefixSelectionChoiceBox</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PrefixSelectionChoiceBox</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="prefix-selection-combo-box.html">prefixSelectionComboBox</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">PrefixSelectionComboBox</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">prefixSelectionComboBox</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$prefixSelectionComboBox(kotlin.Function1((org.controlsfx.control.PrefixSelectionComboBox((ktfx.controlsfx.layouts.prefixSelectionComboBox.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">PrefixSelectionComboBox</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PrefixSelectionComboBox</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="property-sheet.html">propertySheet</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">PropertySheet</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">propertySheet</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$propertySheet(javafx.collections.ObservableList((org.controlsfx.control.PropertySheet.Item)), kotlin.Function1((org.controlsfx.control.PropertySheet, kotlin.Unit)))/items">items</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">Item</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$propertySheet(javafx.collections.ObservableList((org.controlsfx.control.PropertySheet.Item)), kotlin.Function1((org.controlsfx.control.PropertySheet, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">PropertySheet</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">PropertySheet</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="range-slider.html">rangeSlider</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">RangeSlider</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">rangeSlider</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$rangeSlider(kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((org.controlsfx.control.RangeSlider, kotlin.Unit)))/min">min</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$rangeSlider(kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((org.controlsfx.control.RangeSlider, kotlin.Unit)))/max">max</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;1.0<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$rangeSlider(kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((org.controlsfx.control.RangeSlider, kotlin.Unit)))/lowValue">lowValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.25<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$rangeSlider(kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((org.controlsfx.control.RangeSlider, kotlin.Unit)))/highValue">highValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.75<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$rangeSlider(kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((org.controlsfx.control.RangeSlider, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">RangeSlider</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">RangeSlider</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="rating.html">rating</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">Rating</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">rating</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$rating(kotlin.Int, kotlin.Int, kotlin.Function1((org.controlsfx.control.Rating, kotlin.Unit)))/max">max</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;5<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$rating(kotlin.Int, kotlin.Int, kotlin.Function1((org.controlsfx.control.Rating, kotlin.Unit)))/rating">rating</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;-1<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$rating(kotlin.Int, kotlin.Int, kotlin.Function1((org.controlsfx.control.Rating, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Rating</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Rating</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="segmented-bar.html">segmentedBar</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">SegmentedBar</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Segment</span><span class="symbol">&gt;</span> <span class="identifier">segmentedBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$segmentedBar(kotlin.Function1((org.controlsfx.control.SegmentedBar((ktfx.controlsfx.layouts.segmentedBar.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">SegmentedBar</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SegmentedBar</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="segmented-button.html">segmentedButton</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">SegmentedButton</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">segmentedButton</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$segmentedButton(kotlin.Function1((ktfx.controlsfx.layouts.KtfxSegmentedButton, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="-ktfx-segmented-button/index.html"><span class="identifier">KtfxSegmentedButton</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SegmentedButton</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="snapshot-view.html">snapshotView</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">SnapshotView</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">snapshotView</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$snapshotView(kotlin.Function1((ktfx.controlsfx.layouts.KtfxSnapshotView, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="-ktfx-snapshot-view/index.html"><span class="identifier">KtfxSnapshotView</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SnapshotView</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="status-bar.html">statusBar</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">StatusBar</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">statusBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$statusBar(kotlin.Function1((org.controlsfx.control.StatusBar, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">StatusBar</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StatusBar</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="task-progress-view.html">taskProgressView</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">TaskProgressView</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Task</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span> <span class="identifier">taskProgressView</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$taskProgressView(kotlin.Function1((org.controlsfx.control.TaskProgressView((ktfx.controlsfx.layouts.taskProgressView.T)), kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">TaskProgressView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">TaskProgressView</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="toggle-switch.html">toggleSwitch</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">ToggleSwitch</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">toggleSwitch</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$toggleSwitch(kotlin.String, kotlin.Function1((org.controlsfx.control.ToggleSwitch, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$toggleSwitch(kotlin.String, kotlin.Function1((org.controlsfx.control.ToggleSwitch, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">ToggleSwitch</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ToggleSwitch</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="world-map-view.html">worldMapView</a></h4>
+</td>
+<td>
+<p>Create a <a href="#">WorldMapView</a> with initialization block.</p>
+<code><span class="keyword">fun </span><span class="identifier">worldMapView</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$worldMapView(kotlin.Function1((org.controlsfx.control.WorldMapView, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">WorldMapView</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">WorldMapView</span></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

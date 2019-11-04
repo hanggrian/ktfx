@@ -1,16 +1,16 @@
-package ktfx.controlsfx.controls
+package ktfx.controlsfx
 
 import javafx.scene.control.TextField
 import javafx.stage.Stage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.runBlocking
-import ktfx.layouts.scene
-import ktfx.layouts.textField
-import ktfx.runLater
 import ktfx.controlsfx.registerEmptyValidator
 import ktfx.controlsfx.registerEqualsValidator
 import ktfx.controlsfx.registerPredicateValidator
+import ktfx.layouts.scene
+import ktfx.layouts.textField
+import ktfx.runLater
 import ktfx.testing.AppTest
 import org.controlsfx.validation.ValidationSupport
 import kotlin.test.Test

@@ -1,4 +1,4 @@
-package ktfx.test
+package ktfx.testing
 
 import javafx.stage.Stage
 import org.testfx.framework.junit.ApplicationTest

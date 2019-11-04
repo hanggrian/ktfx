@@ -1,4 +1,4 @@
-package ktfx.test
+package ktfx.testing
 
 import com.google.common.truth.Truth
 import com.pinterest.ktlint.core.LintError

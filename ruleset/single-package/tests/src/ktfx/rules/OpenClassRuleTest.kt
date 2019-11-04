@@ -1,6 +1,6 @@
 package ktfx.rules
 
-import ktfx.test.RuleTest
+import ktfx.testing.RuleTest
 import kotlin.test.Test
 
 class OpenClassRuleTest : RuleTest {

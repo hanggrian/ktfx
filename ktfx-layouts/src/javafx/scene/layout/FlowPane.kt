@@ -27,7 +27,7 @@ open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : 
 inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
-    vgap: Double = 0.0,
+    vgap: Double = hgap,
     init: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane = KtfxFlowPane(orientation, hgap, vgap).apply(init)
 
@@ -35,13 +35,13 @@ inline fun flowPane(
 fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
-    vgap: Double = 0.0
+    vgap: Double = hgap
 ): FlowPane = addNode(KtfxFlowPane(orientation, hgap, vgap))
 
 /** Add a [FlowPane] with initialization block to this manager. */
 inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double = 0.0,
-    vgap: Double = 0.0,
+    vgap: Double = hgap,
     init: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane = addNode(KtfxFlowPane(orientation, hgap, vgap), init)

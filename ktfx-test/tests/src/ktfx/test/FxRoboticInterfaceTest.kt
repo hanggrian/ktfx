@@ -7,6 +7,7 @@ import ktfx.layouts.button
 import ktfx.layouts.label
 import ktfx.layouts.scene
 import ktfx.layouts.vbox
+import ktfx.testing.AppTest
 import org.testfx.matcher.control.LabeledMatchers
 import kotlin.test.Test
 

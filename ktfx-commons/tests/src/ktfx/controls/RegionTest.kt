@@ -4,7 +4,7 @@ import javafx.scene.Scene
 import javafx.scene.layout.Region
 import javafx.scene.paint.Color
 import javafx.stage.Stage
-import ktfx.test.AppTest
+import ktfx.testing.AppTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull

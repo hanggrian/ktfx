@@ -25,7 +25,7 @@ interface MenuManager {
     fun <T : Menu> addMenu(menu: T): T
 }
 
-/** Alias of [addMenu] with [init] builder. */
+/** Alias of [MenuManager.addMenu] with [init] builder. */
 inline fun <T : Menu> MenuManager.addMenu(menu: T, init: (@LayoutDslMarker T).() -> Unit): T {
     contract {
         callsInPlace(init, InvocationKind.EXACTLY_ONCE)

@@ -1,13 +1,13 @@
 package ktfx.layouts.scene.control
 
 import javafx.scene.control.Label
-import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.NodeManager
 import ktfx.layouts.accordion
 import ktfx.layouts.label
 import ktfx.layouts.titledPane
-import ktfx.test.LayoutToolkitTest
-import ktfx.test.assertEmpty
+import ktfx.testing.LayoutToolkitTest
+import ktfx.testing.assertEmpty
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 

@@ -1,6 +1,6 @@
 package ktfx.collections
 
-import ktfx.test.assertContains
+import ktfx.testing.assertContains
 import kotlin.test.Test
 
 class ObservableArrayTest {

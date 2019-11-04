@@ -25,7 +25,7 @@ interface TitledPaneManager {
     fun <T : TitledPane> addPane(pane: T): T
 }
 
-/** Alias of [addPane] with [init] builder. */
+/** Alias of [TitledPaneManager.addPane] with [init] builder. */
 inline fun <T : TitledPane> TitledPaneManager.addPane(pane: T, init: (@LayoutDslMarker T).() -> Unit): T {
     contract {
         callsInPlace(init, InvocationKind.EXACTLY_ONCE)

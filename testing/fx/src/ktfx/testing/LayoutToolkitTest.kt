@@ -1,4 +1,4 @@
-package ktfx.test
+package ktfx.testing
 
 import kotlin.test.Test
 

@@ -4,7 +4,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.anchorPane
 import ktfx.layouts.region
-import ktfx.test.LayoutToolkitTest
+import ktfx.testing.LayoutToolkitTest
 import kotlin.test.assertEquals
 
 class AnchorPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {

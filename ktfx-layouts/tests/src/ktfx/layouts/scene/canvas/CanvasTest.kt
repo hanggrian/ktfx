@@ -3,7 +3,7 @@ package ktfx.layouts.scene.canvas
 import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.canvas
-import ktfx.test.LayoutToolkitTest
+import ktfx.testing.LayoutToolkitTest
 import kotlin.test.assertEquals
 
 class CanvasTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {

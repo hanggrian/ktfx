@@ -12,10 +12,22 @@ import javafx.scene.layout.BorderPane
  * Invoking layout DSL will only set content to center.
  * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
  */
-open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
+open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, SidesNodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { center = it }
+
+    final override fun <T : Node> addTopNode(node: T): T =
+        node.also { top = it }
+
+    final override fun <T : Node> addRightNode(node: T): T =
+        node.also { right = it }
+
+    final override fun <T : Node> addBottomNode(node: T): T =
+        node.also { bottom = it }
+
+    final override fun <T : Node> addLeftNode(node: T): T =
+        node.also { left = it }
 
     final override fun Node.reset(): Unit =
         clearConstraints(this)

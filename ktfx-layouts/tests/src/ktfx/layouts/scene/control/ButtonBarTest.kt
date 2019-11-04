@@ -4,8 +4,8 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.button
 import ktfx.layouts.buttonBar
-import ktfx.test.LayoutToolkitTest
-import ktfx.test.assertEmpty
+import ktfx.testing.LayoutToolkitTest
+import ktfx.testing.assertEmpty
 import kotlin.test.assertEquals
 
 class ButtonBarTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {

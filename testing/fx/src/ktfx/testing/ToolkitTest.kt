@@ -1,4 +1,4 @@
-package ktfx.test
+package ktfx.testing
 
 import com.sun.javafx.application.PlatformImpl
 import kotlin.test.BeforeTest

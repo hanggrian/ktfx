@@ -9,7 +9,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import ktfx.test.AppTest
+import ktfx.testing.AppTest
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 

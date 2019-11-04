@@ -26,7 +26,7 @@ interface TabManager {
     fun <T : Tab> addTab(tab: T): T
 }
 
-/** Alias of [addTab] with [init] builder. */
+/** Alias of [TabManager.addTab] with [init] builder. */
 inline fun <T : Tab> TabManager.addTab(tab: T, init: (@LayoutDslMarker T).() -> Unit): T {
     contract {
         callsInPlace(init, InvocationKind.EXACTLY_ONCE)

@@ -1,7 +1,7 @@
 package ktfx.controls
 
 import javafx.scene.control.TableView
-import ktfx.test.ToolkitTest
+import ktfx.testing.ToolkitTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

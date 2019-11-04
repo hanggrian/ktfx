@@ -1,4 +1,4 @@
-package ktfx.test
+package ktfx.testing
 
 import com.google.common.truth.Ordered
 import com.google.common.truth.Truth

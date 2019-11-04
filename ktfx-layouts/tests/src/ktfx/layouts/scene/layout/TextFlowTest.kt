@@ -5,7 +5,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.label
 import ktfx.layouts.textFlow
-import ktfx.test.LayoutToolkitTest
+import ktfx.testing.LayoutToolkitTest
 import kotlin.test.assertEquals
 
 class TextFlowTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {

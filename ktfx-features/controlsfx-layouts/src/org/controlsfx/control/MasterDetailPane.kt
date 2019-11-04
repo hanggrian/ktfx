@@ -11,9 +11,16 @@ import ktfx.layouts.addNode
 import org.controlsfx.control.MasterDetailPane
 
 open class KtfxMasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
+    private var nodeCount = 0
 
     final override fun <T : Node> addNode(node: T): T =
-        node.also { masterNode = it }
+        node.also {
+            when (nodeCount++) {
+                0 -> masterNode = it
+                1 -> detailNode = it
+                else -> error("Master and detail node has been set.")
+            }
+        }
 }
 
 /** Create a [MasterDetailPane] with initialization block. */

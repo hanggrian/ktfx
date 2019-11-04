@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -8,6 +9,9 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.ScatterChart
 import javafx.scene.chart.XYChart.Series
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [ScatterChart] with initialization block. */
 inline fun <X, Y> scatterChart(
@@ -15,8 +19,12 @@ inline fun <X, Y> scatterChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
-): ScatterChart<X, Y> = ScatterChart(x, y, data).apply(init)
-
+): ScatterChart<X, Y> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return ScatterChart(x, y, data).apply(init)
+}
 /** Add a [ScatterChart] to this manager. */
 fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
@@ -30,4 +38,9 @@ inline fun <X, Y> NodeManager.scatterChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
-): ScatterChart<X, Y> = addNode(ScatterChart(x, y, data), init)
+): ScatterChart<X, Y> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(ScatterChart(x, y, data), init)
+}

@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.Rectangle
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [Rectangle] with initialization block. */
 inline fun rectangle(
@@ -12,8 +16,12 @@ inline fun rectangle(
     width: Double = 0.0,
     height: Double = 0.0,
     init: (@LayoutDslMarker Rectangle).() -> Unit
-): Rectangle = Rectangle(x, y, width, height).apply(init)
-
+): Rectangle {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return Rectangle(x, y, width, height).apply(init)
+}
 /** Add a [Rectangle] to this manager. */
 fun NodeManager.rectangle(
     x: Double = 0.0,
@@ -29,4 +37,9 @@ inline fun NodeManager.rectangle(
     width: Double = 0.0,
     height: Double = 0.0,
     init: (@LayoutDslMarker Rectangle).() -> Unit
-): Rectangle = addNode(Rectangle(x, y, width, height), init)
+): Rectangle {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(Rectangle(x, y, width, height), init)
+}

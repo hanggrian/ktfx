@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -7,6 +8,9 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints, MarginConstraints {
 
@@ -29,8 +33,12 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstrai
 inline fun vbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxVBox).() -> Unit
-): VBox = KtfxVBox(spacing).apply(init)
-
+): VBox {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxVBox(spacing).apply(init)
+}
 /** Add a [VBox] to this manager. */
 fun NodeManager.vbox(
     spacing: Double = 0.0
@@ -40,4 +48,9 @@ fun NodeManager.vbox(
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxVBox).() -> Unit
-): VBox = addNode(KtfxVBox(spacing), init)
+): VBox {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxVBox(spacing), init)
+}

@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.control.Accordion
 import javafx.scene.control.TitledPane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxAccordion : Accordion(), TitledPaneManager {
 
@@ -18,13 +22,21 @@ open class KtfxAccordion : Accordion(), TitledPaneManager {
 }
 
 /** Create an [Accordion] with initialization block. */
-inline fun accordion(init: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion =
-    KtfxAccordion().apply(init)
+inline fun accordion(init: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxAccordion().apply(init)
+}
 
 /** Add an [Accordion] to this manager. */
 fun NodeManager.accordion(): Accordion =
     addNode(KtfxAccordion())
 
 /** Add an [Accordion] with initialization block to this manager. */
-inline fun NodeManager.accordion(init: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion =
-    addNode(KtfxAccordion(), init)
+inline fun NodeManager.accordion(init: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxAccordion(), init)
+}

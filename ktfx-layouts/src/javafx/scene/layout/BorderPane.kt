@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -7,6 +8,9 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.BorderPane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
  * Invoking layout DSL will only set content to center.
@@ -44,8 +48,12 @@ open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, S
 /** Create a [BorderPane] with initialization block. */
 inline fun borderPane(
     init: (@LayoutDslMarker KtfxBorderPane).() -> Unit
-): BorderPane = KtfxBorderPane().apply(init)
-
+): BorderPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxBorderPane().apply(init)
+}
 /** Add a [BorderPane] to this manager. */
 fun NodeManager.borderPane(): BorderPane =
     addNode(KtfxBorderPane())
@@ -53,4 +61,9 @@ fun NodeManager.borderPane(): BorderPane =
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
     init: (@LayoutDslMarker KtfxBorderPane).() -> Unit
-): BorderPane = addNode(KtfxBorderPane(), init)
+): BorderPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxBorderPane(), init)
+}

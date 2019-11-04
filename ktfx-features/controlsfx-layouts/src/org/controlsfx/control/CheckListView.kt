@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -14,7 +18,12 @@ import org.controlsfx.control.CheckListView
 inline fun <T> checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker CheckListView<T>).() -> Unit
-): CheckListView<T> = CheckListView(items).apply(init)
+): CheckListView<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return CheckListView(items).apply(init)
+}
 
 /** Add a [CheckListView] to this manager. */
 fun <T> NodeManager.checkListView(
@@ -25,4 +34,9 @@ fun <T> NodeManager.checkListView(
 inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker CheckListView<T>).() -> Unit
-): CheckListView<T> = addNode(CheckListView(items), init)
+): CheckListView<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(CheckListView(items), init)
+}

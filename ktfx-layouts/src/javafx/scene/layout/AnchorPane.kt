@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals
 
 open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
@@ -60,8 +64,12 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
 /** Create an [AnchorPane] with initialization block. */
 inline fun anchorPane(
     init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
-): AnchorPane = KtfxAnchorPane().apply(init)
-
+): AnchorPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxAnchorPane().apply(init)
+}
 /** Add an [AnchorPane] to this manager. */
 fun NodeManager.anchorPane(): AnchorPane =
     addNode(KtfxAnchorPane())
@@ -69,4 +77,9 @@ fun NodeManager.anchorPane(): AnchorPane =
 /** Add an [AnchorPane] with initialization block to this manager. */
 inline fun NodeManager.anchorPane(
     init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
-): AnchorPane = addNode(KtfxAnchorPane(), init)
+): AnchorPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxAnchorPane(), init)
+}

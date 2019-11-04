@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [Circle] with initialization block. */
 inline fun circle(
@@ -13,8 +17,12 @@ inline fun circle(
     radius: Double = 0.0,
     fill: Paint? = null,
     init: (@LayoutDslMarker Circle).() -> Unit
-): Circle = Circle(centerX, centerY, radius, fill).apply(init)
-
+): Circle {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return Circle(centerX, centerY, radius, fill).apply(init)
+}
 /** Add a [Circle] to this manager. */
 fun NodeManager.circle(
     centerX: Double = 0.0,
@@ -30,4 +38,9 @@ inline fun NodeManager.circle(
     radius: Double = 0.0,
     fill: Paint? = null,
     init: (@LayoutDslMarker Circle).() -> Unit
-): Circle = addNode(Circle(centerX, centerY, radius, fill), init)
+): Circle {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(Circle(centerX, centerY, radius, fill), init)
+}

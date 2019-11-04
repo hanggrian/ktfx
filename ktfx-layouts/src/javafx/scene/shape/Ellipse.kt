@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.Ellipse
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create an [Ellipse] with initialization block. */
 inline fun ellipse(
@@ -12,8 +16,12 @@ inline fun ellipse(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     init: (@LayoutDslMarker Ellipse).() -> Unit
-): Ellipse = Ellipse(centerX, centerY, radiusX, radiusY).apply(init)
-
+): Ellipse {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return Ellipse(centerX, centerY, radiusX, radiusY).apply(init)
+}
 /** Add an [Ellipse] to this manager. */
 fun NodeManager.ellipse(
     centerX: Double = 0.0,
@@ -29,4 +37,9 @@ inline fun NodeManager.ellipse(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     init: (@LayoutDslMarker Ellipse).() -> Unit
-): Ellipse = addNode(Ellipse(centerX, centerY, radiusX, radiusY), init)
+): Ellipse {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(Ellipse(centerX, centerY, radiusX, radiusY), init)
+}

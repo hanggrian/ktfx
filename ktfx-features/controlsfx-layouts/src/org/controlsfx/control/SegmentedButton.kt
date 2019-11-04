@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.ToggleButtonManager
@@ -27,7 +31,12 @@ open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
 /** Create a [SegmentedButton] with initialization block. */
 inline fun segmentedButton(
     init: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
-): SegmentedButton = KtfxSegmentedButton().apply(init)
+): SegmentedButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxSegmentedButton().apply(init)
+}
 
 /** Add a [SegmentedButton] to this manager. */
 fun NodeManager.segmentedButton(): SegmentedButton =
@@ -36,4 +45,9 @@ fun NodeManager.segmentedButton(): SegmentedButton =
 /** Add a [SegmentedButton] with initialization block to this manager. */
 inline fun NodeManager.segmentedButton(
     init: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
-): SegmentedButton = addNode(KtfxSegmentedButton(), init)
+): SegmentedButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxSegmentedButton(), init)
+}

@@ -1,8 +1,12 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -15,8 +19,12 @@ inline fun rangeSlider(
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
     init: (@LayoutDslMarker RangeSlider).() -> Unit
-): RangeSlider = RangeSlider(min, max, lowValue, highValue).apply(init)
-
+): RangeSlider {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return RangeSlider(min, max, lowValue, highValue).apply(init)
+}
 /** Add a [RangeSlider] to this manager. */
 fun NodeManager.rangeSlider(
     min: Double = 0.0,
@@ -32,4 +40,9 @@ inline fun NodeManager.rangeSlider(
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
     init: (@LayoutDslMarker RangeSlider).() -> Unit
-): RangeSlider = addNode(RangeSlider(min, max, lowValue, highValue), init)
+): RangeSlider {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(RangeSlider(min, max, lowValue, highValue), init)
+}

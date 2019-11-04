@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTogglePane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -11,8 +15,12 @@ import ktfx.layouts.addNode
 /** Create a [JFXTogglePane] with initialization block. */
 inline fun jfxTogglePane(
     init: (@LayoutDslMarker JFXTogglePane).() -> Unit
-): JFXTogglePane = JFXTogglePane().apply(init)
-
+): JFXTogglePane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return JFXTogglePane().apply(init)
+}
 /** Add a [JFXTogglePane] to this manager. */
 fun NodeManager.jfxTogglePane(): JFXTogglePane =
     addNode(JFXTogglePane())
@@ -20,4 +28,9 @@ fun NodeManager.jfxTogglePane(): JFXTogglePane =
 /** Add a [JFXTogglePane] with initialization block to this manager. */
 inline fun NodeManager.jfxTogglePane(
     init: (@LayoutDslMarker JFXTogglePane).() -> Unit
-): JFXTogglePane = addNode(JFXTogglePane(), init)
+): JFXTogglePane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(JFXTogglePane(), init)
+}

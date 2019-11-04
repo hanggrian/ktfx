@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXScrollPane
 import javafx.scene.Node
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -60,8 +64,12 @@ open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 /** Create a [JFXScrollPane] with initialization block. */
 inline fun jfxScrollPane(
     init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
-): JFXScrollPane = KtfxJFXScrollPane().apply(init)
-
+): JFXScrollPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxJFXScrollPane().apply(init)
+}
 /** Add a [JFXScrollPane] to this manager. */
 fun NodeManager.jfxScrollPane(): JFXScrollPane =
     addNode(KtfxJFXScrollPane())
@@ -69,4 +77,9 @@ fun NodeManager.jfxScrollPane(): JFXScrollPane =
 /** Add a [JFXScrollPane] with initialization block to this manager. */
 inline fun NodeManager.jfxScrollPane(
     init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
-): JFXScrollPane = addNode(KtfxJFXScrollPane(), init)
+): JFXScrollPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxJFXScrollPane(), init)
+}

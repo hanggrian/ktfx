@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -8,6 +9,9 @@ import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
     NodeManager, AlignConstraints, MarginConstraints {
@@ -33,8 +37,12 @@ inline fun tilePane(
     hgap: Double = 0.0,
     vgap: Double = hgap,
     init: (@LayoutDslMarker KtfxTilePane).() -> Unit
-): TilePane = KtfxTilePane(orientation, hgap, vgap).apply(init)
-
+): TilePane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxTilePane(orientation, hgap, vgap).apply(init)
+}
 /** Add a [TilePane] to this manager. */
 fun NodeManager.tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,
@@ -48,4 +56,9 @@ inline fun NodeManager.tilePane(
     hgap: Double = 0.0,
     vgap: Double = 0.0,
     init: (@LayoutDslMarker KtfxTilePane).() -> Unit
-): TilePane = addNode(KtfxTilePane(orientation, hgap, vgap), init)
+): TilePane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxTilePane(orientation, hgap, vgap), init)
+}

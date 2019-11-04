@@ -1,18 +1,26 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [ToggleButton] with initialization block. */
 inline fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton = ToggleButton(text, graphic).apply(init)
-
+): ToggleButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return ToggleButton(text, graphic).apply(init)
+}
 /** Add a [ToggleButton] to this manager. */
 fun NodeManager.toggleButton(
     text: String? = null,
@@ -24,8 +32,12 @@ inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton = addNode(ToggleButton(text, graphic), init)
-
+): ToggleButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(ToggleButton(text, graphic), init)
+}
 /** Add a [ToggleButton] to this manager. */
 fun ToggleButtonManager.toggleButton(
     text: String? = null,
@@ -37,4 +49,9 @@ inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton = addButton(ToggleButton(text, graphic), init)
+): ToggleButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addButton(ToggleButton(text, graphic), init)
+}

@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurveTo
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [CubicCurveTo] with initialization block. */
 inline fun cubicCurveTo(
@@ -14,8 +18,12 @@ inline fun cubicCurveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     init: (@LayoutDslMarker CubicCurveTo).() -> Unit
-): CubicCurveTo = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).apply(init)
-
+): CubicCurveTo {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).apply(init)
+}
 /** Add a [CubicCurveTo] to this manager. */
 fun PathElementManager.cubicCurveTo(
     controlX1: Double = 0.0,
@@ -35,4 +43,9 @@ inline fun PathElementManager.cubicCurveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     init: (@LayoutDslMarker CubicCurveTo).() -> Unit
-): CubicCurveTo = addElement(CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y), init)
+): CubicCurveTo {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addElement(CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y), init)
+}

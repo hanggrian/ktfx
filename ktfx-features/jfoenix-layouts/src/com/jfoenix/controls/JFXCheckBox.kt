@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXCheckBox
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -12,8 +16,12 @@ import ktfx.layouts.addNode
 inline fun jfxCheckBox(
     text: String? = null,
     init: (@LayoutDslMarker JFXCheckBox).() -> Unit
-): JFXCheckBox = JFXCheckBox(text).apply(init)
-
+): JFXCheckBox {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return JFXCheckBox(text).apply(init)
+}
 /** Add a [JFXCheckBox] to this manager. */
 fun NodeManager.jfxCheckBox(
     text: String? = null
@@ -23,4 +31,9 @@ fun NodeManager.jfxCheckBox(
 inline fun NodeManager.jfxCheckBox(
     text: String? = null,
     init: (@LayoutDslMarker JFXCheckBox).() -> Unit
-): JFXCheckBox = addNode(JFXCheckBox(text), init)
+): JFXCheckBox {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(JFXCheckBox(text), init)
+}

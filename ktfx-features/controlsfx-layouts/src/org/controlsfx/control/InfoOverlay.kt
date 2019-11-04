@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -14,7 +18,12 @@ inline fun infoOverlay(
     graphic: Node? = null,
     text: String? = null,
     init: (@LayoutDslMarker InfoOverlay).() -> Unit
-): InfoOverlay = InfoOverlay(graphic, text).apply(init)
+): InfoOverlay {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return InfoOverlay(graphic, text).apply(init)
+}
 
 /** Add a [InfoOverlay] to this manager. */
 fun NodeManager.infoOverlay(
@@ -27,4 +36,9 @@ inline fun NodeManager.infoOverlay(
     graphic: Node? = null,
     text: String? = null,
     init: (@LayoutDslMarker InfoOverlay).() -> Unit
-): InfoOverlay = addNode(InfoOverlay(graphic, text), init)
+): InfoOverlay {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(InfoOverlay(graphic, text), init)
+}

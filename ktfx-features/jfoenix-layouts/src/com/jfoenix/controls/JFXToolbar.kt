@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXToolbar
 import javafx.scene.Node
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.HBoxConstraints
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
@@ -28,8 +32,12 @@ open class KtfxJFXToolbar : JFXToolbar() {
 /** Create a [JFXToolbar] with initialization block. */
 inline fun jfxToolbar(
     init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
-): JFXToolbar = KtfxJFXToolbar().apply(init)
-
+): JFXToolbar {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxJFXToolbar().apply(init)
+}
 /** Add a [JFXToolbar] to this manager. */
 fun NodeManager.jfxToolbar(): JFXToolbar =
     addNode(KtfxJFXToolbar())
@@ -37,4 +45,9 @@ fun NodeManager.jfxToolbar(): JFXToolbar =
 /** Add a [JFXToolbar] with initialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
     init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
-): JFXToolbar = addNode(KtfxJFXToolbar(), init)
+): JFXToolbar {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxJFXToolbar(), init)
+}

@@ -1,8 +1,12 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -12,8 +16,12 @@ import org.controlsfx.control.ToggleSwitch
 inline fun toggleSwitch(
     text: String? = null,
     init: (@LayoutDslMarker ToggleSwitch).() -> Unit
-): ToggleSwitch = ToggleSwitch(text).apply(init)
-
+): ToggleSwitch {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return ToggleSwitch(text).apply(init)
+}
 /** Add a [ToggleSwitch] to this manager. */
 fun NodeManager.toggleSwitch(
     text: String? = null
@@ -23,4 +31,9 @@ fun NodeManager.toggleSwitch(
 inline fun NodeManager.toggleSwitch(
     text: String? = null,
     init: (@LayoutDslMarker ToggleSwitch).() -> Unit
-): ToggleSwitch = addNode(ToggleSwitch(text), init)
+): ToggleSwitch {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(ToggleSwitch(text), init)
+}

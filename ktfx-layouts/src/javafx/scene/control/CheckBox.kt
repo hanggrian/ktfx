@@ -1,16 +1,24 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.control.CheckBox
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [CheckBox] with initialization block. */
 inline fun checkBox(
     text: String? = null,
     init: (@LayoutDslMarker CheckBox).() -> Unit
-): CheckBox = CheckBox(text).apply(init)
-
+): CheckBox {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return CheckBox(text).apply(init)
+}
 /** Add a [CheckBox] to this manager. */
 fun NodeManager.checkBox(
     text: String? = null
@@ -20,4 +28,9 @@ fun NodeManager.checkBox(
 inline fun NodeManager.checkBox(
     text: String? = null,
     init: (@LayoutDslMarker CheckBox).() -> Unit
-): CheckBox = addNode(CheckBox(text), init)
+): CheckBox {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(CheckBox(text), init)
+}

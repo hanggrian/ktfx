@@ -1,16 +1,24 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.control.TextArea
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [TextArea] with initialization block. */
 inline fun textArea(
     text: String = "",
     init: (@LayoutDslMarker TextArea).() -> Unit
-): TextArea = TextArea(text).apply(init)
-
+): TextArea {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return TextArea(text).apply(init)
+}
 /** Add a [TextArea] to this manager. */
 fun NodeManager.textArea(
     text: String = ""
@@ -20,4 +28,9 @@ fun NodeManager.textArea(
 inline fun NodeManager.textArea(
     text: String = "",
     init: (@LayoutDslMarker TextArea).() -> Unit
-): TextArea = addNode(TextArea(text), init)
+): TextArea {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(TextArea(text), init)
+}

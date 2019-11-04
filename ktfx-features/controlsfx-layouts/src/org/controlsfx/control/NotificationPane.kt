@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -18,7 +22,11 @@ open class KtfxNotificationPane : NotificationPane(), NodeManager {
 /** Create a [NotificationPane] with initialization block. */
 inline fun notificationPane(
     init: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
-): NotificationPane = KtfxNotificationPane().apply(init)
+): NotificationPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxNotificationPane().apply(init) }
 
 /** Add a [NotificationPane] to this manager. */
 fun NodeManager.notificationPane(): NotificationPane =
@@ -27,4 +35,9 @@ fun NodeManager.notificationPane(): NotificationPane =
 /** Add a [NotificationPane] with initialization block to this manager. */
 inline fun NodeManager.notificationPane(
     init: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
-): NotificationPane = addNode(KtfxNotificationPane(), init)
+): NotificationPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxNotificationPane(), init)
+}

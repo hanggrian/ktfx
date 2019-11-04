@@ -1,16 +1,24 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.HLineTo
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [HLineTo] with initialization block. */
 inline fun hlineTo(
     x: Double = 0.0,
     init: (@LayoutDslMarker HLineTo).() -> Unit
-): HLineTo = HLineTo(x).apply(init)
-
+): HLineTo {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return HLineTo(x).apply(init)
+}
 /** Add a [HLineTo] to this manager. */
 fun PathElementManager.hlineTo(
     x: Double = 0.0
@@ -20,4 +28,9 @@ fun PathElementManager.hlineTo(
 inline fun PathElementManager.hlineTo(
     x: Double = 0.0,
     init: (@LayoutDslMarker HLineTo).() -> Unit
-): HLineTo = addElement(HLineTo(x), init)
+): HLineTo {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addElement(HLineTo(x), init)
+}

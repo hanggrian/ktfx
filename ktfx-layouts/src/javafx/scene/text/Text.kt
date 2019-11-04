@@ -1,16 +1,24 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.text.Text
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [Text] with initialization block. */
 inline fun text(
     text: String? = null,
     init: (@LayoutDslMarker Text).() -> Unit
-): Text = Text(text).apply(init)
-
+): Text {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return Text(text).apply(init)
+}
 /** Add a [Text] to this manager. */
 fun NodeManager.text(
     text: String? = null
@@ -20,4 +28,9 @@ fun NodeManager.text(
 inline fun NodeManager.text(
     text: String? = null,
     init: (@LayoutDslMarker Text).() -> Unit
-): Text = addNode(Text(text), init)
+): Text {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(Text(text), init)
+}

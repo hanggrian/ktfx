@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
 
@@ -24,8 +28,12 @@ inline fun menu(
     text: String = "",
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenu).() -> Unit
-): Menu = KtfxMenu(text, graphic).apply(init)
-
+): Menu {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxMenu(text, graphic).apply(init)
+}
 /** Add a [Menu] to this manager. */
 fun MenuManager.menu(
     text: String = "",
@@ -37,8 +45,12 @@ inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenu).() -> Unit
-): Menu = addMenu(KtfxMenu(text, graphic), init)
-
+): Menu {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addMenu(KtfxMenu(text, graphic), init)
+}
 /** Add a [Menu] to this manager. */
 fun MenuItemManager.menu(
     text: String = "",
@@ -50,4 +62,9 @@ inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenu).() -> Unit
-): Menu = addItem(KtfxMenu(text, graphic), init)
+): Menu {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addItem(KtfxMenu(text, graphic), init)
+}

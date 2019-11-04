@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.SidesNodeManager
@@ -35,7 +39,11 @@ open class KtfxHiddenSidesPane : HiddenSidesPane(), SidesNodeManager {
 /** Create a [HiddenSidesPane] with initialization block. */
 inline fun hiddenSidesPane(
     init: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
-): HiddenSidesPane = KtfxHiddenSidesPane().apply(init)
+): HiddenSidesPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxHiddenSidesPane().apply(init) }
 
 /** Add a [HiddenSidesPane] to this manager. */
 fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
@@ -44,4 +52,8 @@ fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
 /** Add a [HiddenSidesPane] with initialization block to this manager. */
 inline fun NodeManager.hiddenSidesPane(
     init: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
-): HiddenSidesPane = addNode(KtfxHiddenSidesPane(), init)
+): HiddenSidesPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxHiddenSidesPane(), init) }

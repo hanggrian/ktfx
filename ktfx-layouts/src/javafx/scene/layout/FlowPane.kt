@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -8,6 +9,9 @@ import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
     NodeManager, MarginConstraints {
@@ -29,8 +33,12 @@ inline fun flowPane(
     hgap: Double = 0.0,
     vgap: Double = hgap,
     init: (@LayoutDslMarker KtfxFlowPane).() -> Unit
-): FlowPane = KtfxFlowPane(orientation, hgap, vgap).apply(init)
-
+): FlowPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxFlowPane(orientation, hgap, vgap).apply(init)
+}
 /** Add a [FlowPane] to this manager. */
 fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
@@ -44,4 +52,9 @@ inline fun NodeManager.flowPane(
     hgap: Double = 0.0,
     vgap: Double = hgap,
     init: (@LayoutDslMarker KtfxFlowPane).() -> Unit
-): FlowPane = addNode(KtfxFlowPane(orientation, hgap, vgap), init)
+): FlowPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxFlowPane(orientation, hgap, vgap), init)
+}

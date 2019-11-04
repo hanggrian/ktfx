@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Group
 import javafx.scene.Node
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxGroup : Group(), NodeManager {
 
@@ -15,8 +19,12 @@ open class KtfxGroup : Group(), NodeManager {
 /** Create a [Group] with initialization block. */
 inline fun group(
     init: (@LayoutDslMarker KtfxGroup).() -> Unit
-): Group = KtfxGroup().apply(init)
-
+): Group {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxGroup().apply(init)
+}
 /** Add a [Group] to this manager. */
 fun NodeManager.group(): Group =
     addNode(KtfxGroup())
@@ -24,4 +32,9 @@ fun NodeManager.group(): Group =
 /** Add a [Group] with initialization block to this manager. */
 inline fun NodeManager.group(
     init: (@LayoutDslMarker KtfxGroup).() -> Unit
-): Group = addNode(KtfxGroup(), init)
+): Group {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxGroup(), init)
+}

@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.Arc
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create an [Arc] with initialization block. */
 inline fun arc(
@@ -14,8 +18,12 @@ inline fun arc(
     startAngle: Double = 0.0,
     length: Double = 0.0,
     init: (@LayoutDslMarker Arc).() -> Unit
-): Arc = Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply(init)
-
+): Arc {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply(init)
+}
 /** Add an [Arc] to this manager. */
 fun NodeManager.arc(
     centerX: Double = 0.0,
@@ -35,4 +43,9 @@ inline fun NodeManager.arc(
     startAngle: Double = 0.0,
     length: Double = 0.0,
     init: (@LayoutDslMarker Arc).() -> Unit
-): Arc = addNode(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), init)
+): Arc {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), init)
+}

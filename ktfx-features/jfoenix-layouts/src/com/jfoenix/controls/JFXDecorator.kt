@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDecorator
 import javafx.scene.Node
 import javafx.stage.Stage
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -18,8 +22,12 @@ inline fun jfxDecorator(
     max: Boolean = true,
     min: Boolean = true,
     init: (@LayoutDslMarker JFXDecorator).() -> Unit
-): JFXDecorator = JFXDecorator(stage, node, fullScreen, max, min).apply(init)
-
+): JFXDecorator {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return JFXDecorator(stage, node, fullScreen, max, min).apply(init)
+}
 /** Add a [JFXDecorator] to this manager. */
 fun NodeManager.jfxDecorator(
     stage: Stage,
@@ -37,4 +45,9 @@ inline fun NodeManager.jfxDecorator(
     max: Boolean = true,
     min: Boolean = true,
     init: (@LayoutDslMarker JFXDecorator).() -> Unit
-): JFXDecorator = addNode(JFXDecorator(stage, node, fullScreen, max, min), init)
+): JFXDecorator {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(JFXDecorator(stage, node, fullScreen, max, min), init)
+}

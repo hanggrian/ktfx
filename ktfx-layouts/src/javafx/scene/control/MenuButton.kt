@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuButton
 import javafx.scene.control.MenuItem
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
 
@@ -24,8 +28,12 @@ inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenuButton).() -> Unit
-): MenuButton = KtfxMenuButton(text, graphic).apply(init)
-
+): MenuButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxMenuButton(text, graphic).apply(init)
+}
 /** Add a [MenuButton] to this manager. */
 fun NodeManager.menuButton(
     text: String? = null,
@@ -37,4 +45,9 @@ inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenuButton).() -> Unit
-): MenuButton = addNode(KtfxMenuButton(text, graphic), init)
+): MenuButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxMenuButton(text, graphic), init)
+}

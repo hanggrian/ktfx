@@ -1,17 +1,25 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [MeshView] with initialization block. */
 inline fun meshView(
     mesh: Mesh? = null,
     init: (@LayoutDslMarker MeshView).() -> Unit
-): MeshView = MeshView(mesh).apply(init)
-
+): MeshView {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return MeshView(mesh).apply(init)
+}
 /** Add a [MeshView] to this manager. */
 fun NodeManager.meshView(
     mesh: Mesh? = null
@@ -21,4 +29,9 @@ fun NodeManager.meshView(
 inline fun NodeManager.meshView(
     mesh: Mesh? = null,
     init: (@LayoutDslMarker MeshView).() -> Unit
-): MeshView = addNode(MeshView(mesh), init)
+): MeshView {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(MeshView(mesh), init)
+}

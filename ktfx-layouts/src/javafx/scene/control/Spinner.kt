@@ -1,15 +1,23 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.control.Spinner
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [Spinner] with initialization block. */
 inline fun <T> spinner(
     init: (@LayoutDslMarker Spinner<T>).() -> Unit
-): Spinner<T> = Spinner<T>().apply(init)
-
+): Spinner<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return Spinner<T>().apply(init)
+}
 /** Add a [Spinner] to this manager. */
 fun <T> NodeManager.spinner(): Spinner<T> =
     addNode(Spinner())
@@ -17,4 +25,9 @@ fun <T> NodeManager.spinner(): Spinner<T> =
 /** Add a [Spinner] with initialization block to this manager. */
 inline fun <T> NodeManager.spinner(
     init: (@LayoutDslMarker Spinner<T>).() -> Unit
-): Spinner<T> = addNode(Spinner(), init)
+): Spinner<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(Spinner(), init)
+}

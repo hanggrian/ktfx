@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.layout.HBox
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxHBox(spacing: Double) : HBox(spacing), HBoxConstraints {
 
@@ -16,8 +20,12 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), HBoxConstraints {
 inline fun hbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxHBox).() -> Unit
-): HBox = KtfxHBox(spacing).apply(init)
-
+): HBox {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxHBox(spacing).apply(init)
+}
 /** Add an [HBox] to this manager. */
 fun NodeManager.hbox(
     spacing: Double = 0.0
@@ -27,4 +35,9 @@ fun NodeManager.hbox(
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxHBox).() -> Unit
-): HBox = addNode(KtfxHBox(spacing), init)
+): HBox {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxHBox(spacing), init)
+}

@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXChipView
 import com.jfoenix.controls.JFXDefaultChip
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -14,8 +18,12 @@ inline fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     init: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
-): JFXDefaultChip<T> = JFXDefaultChip(view, item).apply(init)
-
+): JFXDefaultChip<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return JFXDefaultChip(view, item).apply(init)
+}
 /** Add a [JFXDefaultChip] to this manager. */
 fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
@@ -27,4 +35,9 @@ inline fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     init: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
-): JFXDefaultChip<T> = addNode(JFXDefaultChip(view, item), init)
+): JFXDefaultChip<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(JFXDefaultChip(view, item), init)
+}

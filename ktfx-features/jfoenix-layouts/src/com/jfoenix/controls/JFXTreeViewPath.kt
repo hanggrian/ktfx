@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTreeViewPath
 import javafx.scene.control.TreeView
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -13,8 +17,12 @@ import ktfx.layouts.addNode
 inline fun jfxTreeViewPath(
     treeView: TreeView<*>? = null,
     init: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
-): JFXTreeViewPath = JFXTreeViewPath(treeView).apply(init)
-
+): JFXTreeViewPath {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return JFXTreeViewPath(treeView).apply(init)
+}
 /** Add a [JFXTreeViewPath] to this manager. */
 fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null
@@ -24,4 +32,9 @@ fun NodeManager.jfxTreeViewPath(
 inline fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null,
     init: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
-): JFXTreeViewPath = addNode(JFXTreeViewPath(treeView), init)
+): JFXTreeViewPath {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(JFXTreeViewPath(treeView), init)
+}

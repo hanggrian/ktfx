@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.TitledPane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxTitledPane(title: String?) : TitledPane(title, null), NodeManager {
 
@@ -16,8 +20,12 @@ open class KtfxTitledPane(title: String?) : TitledPane(title, null), NodeManager
 inline fun titledPane(
     title: String? = null,
     init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
-): TitledPane = KtfxTitledPane(title).apply(init)
-
+): TitledPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxTitledPane(title).apply(init)
+}
 /** Add a [TitledPane] to this manager. */
 fun NodeManager.titledPane(
     title: String? = null
@@ -27,8 +35,12 @@ fun NodeManager.titledPane(
 inline fun NodeManager.titledPane(
     title: String? = null,
     init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
-): TitledPane = addNode(KtfxTitledPane(title), init)
-
+): TitledPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxTitledPane(title), init)
+}
 /** Add a [TitledPane] to this manager. */
 fun TitledPaneManager.titledPane(
     title: String? = null
@@ -38,4 +50,9 @@ fun TitledPaneManager.titledPane(
 inline fun TitledPaneManager.titledPane(
     title: String? = null,
     init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
-): TitledPane = addPane(KtfxTitledPane(title), init)
+): TitledPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addPane(KtfxTitledPane(title), init)
+}

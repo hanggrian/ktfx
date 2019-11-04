@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 
@@ -16,8 +20,12 @@ open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 inline fun scrollPane(
     content: Node? = null,
     init: (@LayoutDslMarker KtfxScrollPane).() -> Unit
-): ScrollPane = KtfxScrollPane(content).apply(init)
-
+): ScrollPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxScrollPane(content).apply(init)
+}
 /** Add a [ScrollPane] to this manager. */
 fun NodeManager.scrollPane(
     content: Node? = null
@@ -27,4 +35,9 @@ fun NodeManager.scrollPane(
 inline fun NodeManager.scrollPane(
     content: Node? = null,
     init: (@LayoutDslMarker KtfxScrollPane).() -> Unit
-): ScrollPane = addNode(KtfxScrollPane(content), init)
+): ScrollPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxScrollPane(content), init)
+}

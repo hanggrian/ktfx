@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
 import javafx.scene.control.SplitMenuButton
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
 
@@ -22,8 +26,12 @@ open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
 /** Create a [SplitMenuButton] with initialization block. */
 inline fun splitMenuButton(
     init: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
-): SplitMenuButton = KtfxSplitMenuButton().apply(init)
-
+): SplitMenuButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxSplitMenuButton().apply(init)
+}
 /** Add a [SplitMenuButton] to this manager. */
 fun NodeManager.splitMenuButton(): SplitMenuButton =
     addNode(KtfxSplitMenuButton())
@@ -31,4 +39,9 @@ fun NodeManager.splitMenuButton(): SplitMenuButton =
 /** Add a [SplitMenuButton] with initialization block to this manager. */
 inline fun NodeManager.splitMenuButton(
     init: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
-): SplitMenuButton = addNode(KtfxSplitMenuButton(), init)
+): SplitMenuButton {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxSplitMenuButton(), init)
+}

@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuBar
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxMenuBar : MenuBar(), MenuManager {
 
@@ -22,7 +26,11 @@ open class KtfxMenuBar : MenuBar(), MenuManager {
 /** Create a [MenuBar] with initialization block. */
 inline fun menuBar(
     init: (@LayoutDslMarker KtfxMenuBar).() -> Unit
-): MenuBar = KtfxMenuBar().apply(init)
+): MenuBar {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxMenuBar().apply(init) }
 
 /** Add a [MenuBar] to this manager. */
 fun NodeManager.menuBar(): MenuBar =
@@ -31,4 +39,9 @@ fun NodeManager.menuBar(): MenuBar =
 /** Add a [MenuBar] with initialization block to this manager. */
 inline fun NodeManager.menuBar(
     init: (@LayoutDslMarker KtfxMenuBar).() -> Unit
-): MenuBar = addNode(KtfxMenuBar(), init)
+): MenuBar {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxMenuBar(), init)
+}

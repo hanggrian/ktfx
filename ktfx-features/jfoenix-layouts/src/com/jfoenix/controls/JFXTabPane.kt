@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTabPane
 import javafx.scene.Node
 import javafx.scene.control.Tab
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.KtfxTab
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
@@ -28,8 +32,12 @@ open class KtfxJFXTabPane : JFXTabPane(), TabManager {
 /** Create a [JFXTabPane] with initialization block. */
 inline fun jfxTabPane(
     init: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
-): JFXTabPane = KtfxJFXTabPane().apply(init)
-
+): JFXTabPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxJFXTabPane().apply(init)
+}
 /** Add a [JFXTabPane] to this manager. */
 fun NodeManager.jfxTabPane(): JFXTabPane =
     addNode(KtfxJFXTabPane())
@@ -37,4 +45,9 @@ fun NodeManager.jfxTabPane(): JFXTabPane =
 /** Add a [JFXTabPane] with initialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
     init: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
-): JFXTabPane = addNode(KtfxJFXTabPane(), init)
+): JFXTabPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxJFXTabPane(), init)
+}

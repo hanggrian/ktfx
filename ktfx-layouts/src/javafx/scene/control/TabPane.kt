@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Tab
 import javafx.scene.control.TabPane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxTabPane : TabPane(), TabManager {
 
@@ -22,8 +26,12 @@ open class KtfxTabPane : TabPane(), TabManager {
 /** Create a [TabPane] with initialization block. */
 inline fun tabPane(
     init: (@LayoutDslMarker KtfxTabPane).() -> Unit
-): TabPane = KtfxTabPane().apply(init)
-
+): TabPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxTabPane().apply(init)
+}
 /** Add a [TabPane] to this manager. */
 fun NodeManager.tabPane(): TabPane =
     addNode(KtfxTabPane())
@@ -31,4 +39,9 @@ fun NodeManager.tabPane(): TabPane =
 /** Add a [TabPane] with initialization block to this manager. */
 inline fun NodeManager.tabPane(
     init: (@LayoutDslMarker KtfxTabPane).() -> Unit
-): TabPane = addNode(KtfxTabPane(), init)
+): TabPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxTabPane(), init)
+}

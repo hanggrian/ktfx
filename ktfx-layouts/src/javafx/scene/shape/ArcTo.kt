@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.ArcTo
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create an [ArcTo] with initialization block. */
 inline fun arcTo(
@@ -15,8 +19,12 @@ inline fun arcTo(
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
     init: (@LayoutDslMarker ArcTo).() -> Unit
-): ArcTo = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag).apply(init)
-
+): ArcTo {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag).apply(init)
+}
 /** Add an [ArcTo] to this manager. */
 fun PathElementManager.arcTo(
     radiusX: Double = 0.0,
@@ -38,4 +46,9 @@ inline fun PathElementManager.arcTo(
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
     init: (@LayoutDslMarker ArcTo).() -> Unit
-): ArcTo = addElement(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag), init)
+): ArcTo {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addElement(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag), init)
+}

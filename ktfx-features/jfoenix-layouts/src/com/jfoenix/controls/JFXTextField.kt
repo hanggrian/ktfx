@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTextField
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -12,7 +16,11 @@ import ktfx.layouts.addNode
 inline fun jfxTextField(
     text: String? = null,
     init: (@LayoutDslMarker JFXTextField).() -> Unit
-): JFXTextField = JFXTextField(text).apply(init)
+): JFXTextField {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return JFXTextField(text).apply(init) }
 
 /** Add a [JFXTextField] to this manager. */
 fun NodeManager.jfxTextField(
@@ -23,4 +31,9 @@ fun NodeManager.jfxTextField(
 inline fun NodeManager.jfxTextField(
     text: String? = null,
     init: (@LayoutDslMarker JFXTextField).() -> Unit
-): JFXTextField = addNode(JFXTextField(text), init)
+): JFXTextField {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(JFXTextField(text), init)
+}

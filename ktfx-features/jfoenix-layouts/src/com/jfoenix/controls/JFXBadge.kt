@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXBadge
 import javafx.scene.Node
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -18,8 +22,12 @@ open class KtfxJFXBadge : JFXBadge(), NodeManager {
 /** Create a [JFXBadge] with initialization block. */
 inline fun jfxBadge(
     init: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
-): JFXBadge = KtfxJFXBadge().apply(init)
-
+): JFXBadge {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxJFXBadge().apply(init)
+}
 /** Add a [JFXBadge] to this manager. */
 fun NodeManager.jfxBadge(): JFXBadge =
     addNode(KtfxJFXBadge())
@@ -27,4 +35,9 @@ fun NodeManager.jfxBadge(): JFXBadge =
 /** Add a [JFXBadge] with initialization block to this manager. */
 inline fun NodeManager.jfxBadge(
     init: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
-): JFXBadge = addNode(KtfxJFXBadge(), init)
+): JFXBadge {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxJFXBadge(), init)
+}

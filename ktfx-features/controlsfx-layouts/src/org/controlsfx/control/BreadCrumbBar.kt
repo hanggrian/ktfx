@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
 import javafx.scene.control.TreeItem
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -13,7 +17,12 @@ import org.controlsfx.control.BreadCrumbBar
 inline fun <T> breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     init: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
-): BreadCrumbBar<T> = BreadCrumbBar(selectedCrumb).apply(init)
+): BreadCrumbBar<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return BreadCrumbBar(selectedCrumb).apply(init)
+}
 
 /** Add a [BreadCrumbBar] to this manager. */
 fun <T> NodeManager.breadCrumbBar(
@@ -24,4 +33,9 @@ fun <T> NodeManager.breadCrumbBar(
 inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     init: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
-): BreadCrumbBar<T> = addNode(BreadCrumbBar(selectedCrumb), init)
+): BreadCrumbBar<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(BreadCrumbBar(selectedCrumb), init)
+}

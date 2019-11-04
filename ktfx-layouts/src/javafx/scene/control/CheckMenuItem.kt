@@ -1,18 +1,26 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [CheckMenuItem] with initialization block. */
 inline fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker CheckMenuItem).() -> Unit
-): CheckMenuItem = CheckMenuItem(text, graphic).apply(init)
-
+): CheckMenuItem {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return CheckMenuItem(text, graphic).apply(init)
+}
 /** Add a [CheckMenuItem] to this manager. */
 fun MenuItemManager.checkMenuItem(
     text: String? = null,
@@ -24,4 +32,9 @@ inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     init: (@LayoutDslMarker CheckMenuItem).() -> Unit
-): CheckMenuItem = addItem(CheckMenuItem(text, graphic), init)
+): CheckMenuItem {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addItem(CheckMenuItem(text, graphic), init)
+}

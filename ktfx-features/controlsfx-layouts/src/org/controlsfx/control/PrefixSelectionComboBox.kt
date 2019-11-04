@@ -1,8 +1,12 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -11,8 +15,12 @@ import org.controlsfx.control.PrefixSelectionComboBox
 /** Create a [PrefixSelectionComboBox] with initialization block. */
 inline fun <T> prefixSelectionComboBox(
     init: (@LayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit
-): PrefixSelectionComboBox<T> = PrefixSelectionComboBox<T>().apply(init)
-
+): PrefixSelectionComboBox<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return PrefixSelectionComboBox<T>().apply(init)
+}
 /** Add a [PrefixSelectionComboBox] to this manager. */
 fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
     addNode(PrefixSelectionComboBox())
@@ -20,4 +28,9 @@ fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
 /** Add a [PrefixSelectionComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.prefixSelectionComboBox(
     init: (@LayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit
-): PrefixSelectionComboBox<T> = addNode(PrefixSelectionComboBox(), init)
+): PrefixSelectionComboBox<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(PrefixSelectionComboBox(), init)
+}

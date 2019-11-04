@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 
 import javafx.collections.ObservableList
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -13,8 +17,12 @@ import org.controlsfx.control.PropertySheet
 inline fun propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     init: (@LayoutDslMarker PropertySheet).() -> Unit
-): PropertySheet = PropertySheet(items).apply(init)
-
+): PropertySheet {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return PropertySheet(items).apply(init)
+}
 /** Add a [PropertySheet] to this manager. */
 fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null
@@ -24,4 +32,9 @@ fun NodeManager.propertySheet(
 inline fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     init: (@LayoutDslMarker PropertySheet).() -> Unit
-): PropertySheet = addNode(PropertySheet(items), init)
+): PropertySheet {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(PropertySheet(items), init)
+}

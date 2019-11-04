@@ -1,11 +1,15 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXComboBox
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -14,8 +18,12 @@ import ktfx.layouts.addNode
 inline fun <T> jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
-): JFXComboBox<T> = JFXComboBox(items).apply(init)
-
+): JFXComboBox<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return JFXComboBox(items).apply(init)
+}
 /** Add a [JFXComboBox] to this manager. */
 fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList()
@@ -25,4 +33,9 @@ fun <T> NodeManager.jfxComboBox(
 inline fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
-): JFXComboBox<T> = addNode(JFXComboBox(items), init)
+): JFXComboBox<T> {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(JFXComboBox(items), init)
+}

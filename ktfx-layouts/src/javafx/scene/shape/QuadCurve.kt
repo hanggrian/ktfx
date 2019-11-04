@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [QuadCurve] with initialization block. */
 inline fun quadCurve(
@@ -14,8 +18,12 @@ inline fun quadCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: (@LayoutDslMarker QuadCurve).() -> Unit
-): QuadCurve = QuadCurve(startX, startY, controlX, controlY, endX, endY).apply(init)
-
+): QuadCurve {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return QuadCurve(startX, startY, controlX, controlY, endX, endY).apply(init)
+}
 /** Add a [QuadCurve] to this manager. */
 fun NodeManager.quadCurve(
     startX: Double = 0.0,
@@ -35,4 +43,9 @@ inline fun NodeManager.quadCurve(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: (@LayoutDslMarker QuadCurve).() -> Unit
-): QuadCurve = addNode(QuadCurve(startX, startY, controlX, controlY, endX, endY), init)
+): QuadCurve {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(QuadCurve(startX, startY, controlX, controlY, endX, endY), init)
+}

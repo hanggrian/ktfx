@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.Path
 import javafx.scene.shape.PathElement
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxPath : Path(), PathElementManager {
 
@@ -15,8 +19,12 @@ open class KtfxPath : Path(), PathElementManager {
 /** Create a [Path] with initialization block. */
 inline fun path(
     init: (@LayoutDslMarker KtfxPath).() -> Unit
-): Path = KtfxPath().apply(init)
-
+): Path {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxPath().apply(init)
+}
 /** Add a [Path] to this manager. */
 fun NodeManager.path(): Path =
     addNode(KtfxPath())
@@ -24,4 +32,9 @@ fun NodeManager.path(): Path =
 /** Add a [Path] with initialization block to this manager. */
 inline fun NodeManager.path(
     init: (@LayoutDslMarker KtfxPath).() -> Unit
-): Path = addNode(KtfxPath(), init)
+): Path {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxPath(), init)
+}

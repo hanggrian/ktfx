@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -10,6 +11,9 @@ import javafx.scene.layout.Pane
 import javafx.scene.paint.Color.WHITE
 import javafx.scene.paint.Paint
 import javafx.stage.Stage
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxScene(root: Parent, width: Double, height: Double, fill: Paint) :
     Scene(root, width, height, fill), NodeManager {
@@ -24,8 +28,12 @@ inline fun scene(
     height: Double = -1.0,
     fill: Paint = WHITE,
     init: (@LayoutDslMarker KtfxScene).() -> Unit
-): Scene = KtfxScene(Pane(), width, height, fill).apply(init)
-
+): Scene {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxScene(Pane(), width, height, fill).apply(init)
+}
 /** Add a [Scene] to this window. */
 fun Stage.scene(
     width: Double = -1.0,
@@ -39,4 +47,9 @@ inline fun Stage.scene(
     height: Double = -1.0,
     fill: Paint = WHITE,
     init: (@LayoutDslMarker KtfxScene).() -> Unit
-): Scene = ktfx.layouts.scene(width, height, fill, init).also { scene = it }
+): Scene {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return ktfx.layouts.scene(width, height, fill, init).also { scene = it }
+}

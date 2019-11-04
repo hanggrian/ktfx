@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -12,6 +13,9 @@ import javafx.scene.layout.ConstraintsBase
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import javafx.scene.layout.RowConstraints
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstraints, VAlignConstraints,
     HGrowConstraints, VGrowConstraints {
@@ -88,8 +92,12 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignCons
 /** Create a [GridPane] with initialization block. */
 inline fun gridPane(
     init: (@LayoutDslMarker KtfxGridPane).() -> Unit
-): GridPane = KtfxGridPane().apply(init)
-
+): GridPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxGridPane().apply(init)
+}
 /** Add a [GridPane] to this manager. */
 fun NodeManager.gridPane(): GridPane =
     addNode(KtfxGridPane())
@@ -97,8 +105,12 @@ fun NodeManager.gridPane(): GridPane =
 /** Add a [GridPane] with initialization block to this manager. */
 inline fun NodeManager.gridPane(
     init: (@LayoutDslMarker KtfxGridPane).() -> Unit
-): GridPane = addNode(KtfxGridPane(), init)
-
+): GridPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxGridPane(), init)
+}
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {
 

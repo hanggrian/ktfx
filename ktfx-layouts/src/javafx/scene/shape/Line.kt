@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
 import javafx.scene.shape.Line
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Create a [Line] with initialization block. */
 inline fun line(
@@ -12,8 +16,12 @@ inline fun line(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: (@LayoutDslMarker Line).() -> Unit
-): Line = Line(centerX, centerY, endX, endY).apply(init)
-
+): Line {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return Line(centerX, centerY, endX, endY).apply(init)
+}
 /** Add a [Line] to this manager. */
 fun NodeManager.line(
     centerX: Double = 0.0,
@@ -29,4 +37,9 @@ inline fun NodeManager.line(
     endX: Double = 0.0,
     endY: Double = 0.0,
     init: (@LayoutDslMarker Line).() -> Unit
-): Line = addNode(Line(centerX, centerY, endX, endY), init)
+): Line {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(Line(centerX, centerY, endX, endY), init)
+}

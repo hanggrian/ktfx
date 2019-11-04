@@ -1,9 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDrawersStack
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -11,8 +15,12 @@ import ktfx.layouts.addNode
 /** Create a [JFXDrawersStack] with initialization block. */
 inline fun jfxDrawersStack(
     init: (@LayoutDslMarker JFXDrawersStack).() -> Unit
-): JFXDrawersStack = JFXDrawersStack().apply(init)
-
+): JFXDrawersStack {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return JFXDrawersStack().apply(init)
+}
 /** Add a [JFXDrawersStack] to this manager. */
 fun NodeManager.jfxDrawersStack(): JFXDrawersStack =
     addNode(JFXDrawersStack())
@@ -20,4 +28,9 @@ fun NodeManager.jfxDrawersStack(): JFXDrawersStack =
 /** Add a [JFXDrawersStack] with initialization block to this manager. */
 inline fun NodeManager.jfxDrawersStack(
     init: (@LayoutDslMarker JFXDrawersStack).() -> Unit
-): JFXDrawersStack = addNode(JFXDrawersStack(), init)
+): JFXDrawersStack {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(JFXDrawersStack(), init)
+}

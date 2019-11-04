@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -7,6 +8,9 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 open class KtfxStackPane : StackPane(), NodeManager, AlignConstraints, MarginConstraints {
 
@@ -28,8 +32,12 @@ open class KtfxStackPane : StackPane(), NodeManager, AlignConstraints, MarginCon
 /** Create a [StackPane] with initialization block. */
 inline fun stackPane(
     init: (@LayoutDslMarker KtfxStackPane).() -> Unit
-): StackPane = KtfxStackPane().apply(init)
-
+): StackPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxStackPane().apply(init)
+}
 /** Add a [StackPane] to this manager. */
 fun NodeManager.stackPane(): StackPane =
     addNode(KtfxStackPane())
@@ -37,4 +45,9 @@ fun NodeManager.stackPane(): StackPane =
 /** Add a [StackPane] with initialization block to this manager. */
 inline fun NodeManager.stackPane(
     init: (@LayoutDslMarker KtfxStackPane).() -> Unit
-): StackPane = addNode(KtfxStackPane(), init)
+): StackPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxStackPane(), init)
+}

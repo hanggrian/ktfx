@@ -1,10 +1,14 @@
 @file:JvmMultifileClass
 @file:JvmName("JfoenixLayoutsKt")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXClippedPane
 import javafx.scene.Node
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
@@ -18,8 +22,12 @@ open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 /** Create a [JFXClippedPane] with initialization block. */
 inline fun jfxClippedPane(
     init: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
-): JFXClippedPane = KtfxJFXClippedPane().apply(init)
-
+): JFXClippedPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return KtfxJFXClippedPane().apply(init)
+}
 /** Add a [JFXClippedPane] to this manager. */
 fun NodeManager.jfxClippedPane(): JFXClippedPane =
     addNode(KtfxJFXClippedPane())
@@ -27,4 +35,9 @@ fun NodeManager.jfxClippedPane(): JFXClippedPane =
 /** Add a [JFXClippedPane] with initialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
     init: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
-): JFXClippedPane = addNode(KtfxJFXClippedPane(), init)
+): JFXClippedPane {
+    contract {
+        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
+    }
+    return addNode(KtfxJFXClippedPane(), init)
+    }

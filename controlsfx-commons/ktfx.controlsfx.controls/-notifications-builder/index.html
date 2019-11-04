@@ -1,0 +1,156 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>NotificationsBuilder - controlsfx-commons</title>
+<link rel="stylesheet" href="../../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">controlsfx-commons</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.controlsfx.controls</a>&nbsp;/&nbsp;<a href="./index.html">NotificationsBuilder</a><br/>
+<br/>
+<h1>NotificationsBuilder</h1>
+<code><span class="keyword">class </span><span class="identifier">NotificationsBuilder</span></code>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="graphic.html">graphic</a></h4>
+</td>
+<td>
+<p>Specify the graphic to show in the notification.</p>
+<code><span class="keyword">var </span><span class="identifier">graphic</span><span class="symbol">: </span><span class="identifier">Node</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hide-after.html">hideAfter</a></h4>
+</td>
+<td>
+<p>Specify the duration that the notification should show, after which it will be hidden.</p>
+<code><span class="keyword">var </span><span class="identifier">hideAfter</span><span class="symbol">: </span><span class="identifier">Duration</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="owner.html">owner</a></h4>
+</td>
+<td>
+<p>The dialog window owner - which can be <a href="#">javafx.stage.Screen</a>, <a href="#">javafx.stage.Window</a>, or <a href="#">javafx.scene.Node</a>.</p>
+<code><span class="keyword">var </span><span class="identifier">owner</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="position.html">position</a></h4>
+</td>
+<td>
+<p>Specify the position of the notification on screen, by default it is <a href="#">Pos.BOTTOM_RIGHT</a>.</p>
+<code><span class="keyword">var </span><span class="identifier">position</span><span class="symbol">: </span><span class="identifier">Pos</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="text.html">text</a></h4>
+</td>
+<td>
+<p>Specify the text to show in the notification.</p>
+<code><span class="keyword">var </span><span class="identifier">text</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="title.html">title</a></h4>
+</td>
+<td>
+<p>Specify the title to show in the notification.</p>
+<code><span class="keyword">var </span><span class="identifier">title</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="action.html">action</a></h4>
+</td>
+<td>
+<p>Specify the actions that should be shown in the notification as buttons.</p>
+<code><span class="keyword">fun </span><span class="identifier">action</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.controlsfx.controls.NotificationsBuilder$action(kotlin.Array((org.controlsfx.control.action.Action)))/actions">actions</span><span class="symbol">:</span>&nbsp;<span class="identifier">Action</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="dark-style.html">darkStyle</a></h4>
+</td>
+<td>
+<p>Specify that the notification should use the built-in dark styling,
+rather than the default 'modena' notification style.</p>
+<code><span class="keyword">fun </span><span class="identifier">darkStyle</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="hide-close-button.html">hideCloseButton</a></h4>
+</td>
+<td>
+<p>Specify that the close button in the top-right corner of the notification should not be shown.</p>
+<code><span class="keyword">fun </span><span class="identifier">hideCloseButton</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="on-action.html">onAction</a></h4>
+</td>
+<td>
+<p>Specify what to do when the user clicks on the notification.</p>
+<code><span class="keyword">fun </span><span class="identifier">onAction</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.controls.NotificationsBuilder$onAction(kotlin.Function1((javafx.event.ActionEvent, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">ActionEvent</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="show.html">show</a></h4>
+</td>
+<td>
+<p>Instructs the notification to be shown.</p>
+<code><span class="keyword">fun </span><span class="identifier">show</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="show-confirm.html">showConfirm</a></h4>
+</td>
+<td>
+<p>Instructs the notification to be shown, and that it should use the built-in 'confirm' graphic.</p>
+<code><span class="keyword">fun </span><span class="identifier">showConfirm</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="show-error.html">showError</a></h4>
+</td>
+<td>
+<p>Instructs the notification to be shown, and that it should use the built-in 'error' graphic.</p>
+<code><span class="keyword">fun </span><span class="identifier">showError</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="show-information.html">showInformation</a></h4>
+</td>
+<td>
+<p>Instructs the notification to be shown, and that it should use the built-in 'information' graphic.</p>
+<code><span class="keyword">fun </span><span class="identifier">showInformation</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="show-warning.html">showWarning</a></h4>
+</td>
+<td>
+<p>Instructs the notification to be shown, and that it should use the built-in 'warning' graphic.</p>
+<code><span class="keyword">fun </span><span class="identifier">showWarning</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="threshold.html">threshold</a></h4>
+</td>
+<td>
+<p>Collapses all the current notifications into a single notification when the
+number of notifications exceed the threshold limit. A value of zero will disable
+the threshold behavior.</p>
+<code><span class="keyword">fun </span><span class="identifier">threshold</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.controls.NotificationsBuilder$threshold(kotlin.Int, org.controlsfx.control.Notifications)/threshold">threshold</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.controls.NotificationsBuilder$threshold(kotlin.Int, org.controlsfx.control.Notifications)/thresholdNotifications">thresholdNotifications</span><span class="symbol">:</span>&nbsp;<span class="identifier">Notifications</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Alias of <a href="threshold.html">NotificationsBuilder.threshold</a> with builder DSL.</p>
+<code><span class="keyword">fun </span><span class="identifier">threshold</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.controls.NotificationsBuilder$threshold(kotlin.Int, kotlin.Function1((ktfx.controlsfx.controls.NotificationsBuilder, kotlin.Unit)))/threshold">threshold</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.controls.NotificationsBuilder$threshold(kotlin.Int, kotlin.Function1((ktfx.controlsfx.controls.NotificationsBuilder, kotlin.Unit)))/thresholdNotificationsBuilder">thresholdNotificationsBuilder</span><span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NotificationsBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

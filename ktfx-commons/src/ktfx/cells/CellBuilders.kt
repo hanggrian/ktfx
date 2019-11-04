@@ -241,18 +241,3 @@ class TreeTableCellBuilder<S, T> : TreeTableCell<S, T>(), CellBuilder<T> {
         onUpdate?.invoke(item, empty)
     }
 }
-
-internal fun <T> (ListCellBuilder<T>.() -> Unit).build(): ListCell<T> =
-    ListCellBuilder<T>().apply(this)
-
-internal fun <T> (TableRowBuilder<T>.() -> Unit).build(): TableRow<T> =
-    TableRowBuilder<T>().apply(this)
-
-internal fun <S, T> (TableCellBuilder<S, T>.() -> Unit).build(): TableCell<S, T> =
-    TableCellBuilder<S, T>().apply(this)
-
-internal fun <T> (TreeTableRowBuilder<T>.() -> Unit).build(): TreeTableRow<T> =
-    TreeTableRowBuilder<T>().apply(this)
-
-internal fun <S, T> (TreeTableCellBuilder<S, T>.() -> Unit).build(): TreeTableCell<S, T> =
-    TreeTableCellBuilder<S, T>().apply(this)

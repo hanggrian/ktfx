@@ -1,5 +1,3 @@
-import javax.xml.ws.Endpoint.publish
-
 group = RELEASE_GROUP
 version = RELEASE_VERSION
 
@@ -12,6 +10,7 @@ dependencies {
     api(project(":$RELEASE_ARTIFACT-features:controlsfx-commons"))
     api(project(":$RELEASE_ARTIFACT-features:controlsfx-coroutines"))
     api(project(":$RELEASE_ARTIFACT-features:controlsfx-layouts"))
+    api(project(":$RELEASE_ARTIFACT-features:controlsfx-listeners"))
 }
 
 publishKotlinFix()

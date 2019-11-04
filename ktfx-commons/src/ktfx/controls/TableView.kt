@@ -2,13 +2,6 @@ package ktfx.controls
 
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
-import ktfx.cells.TableRowBuilder
-import ktfx.cells.build
-
-/** A function which produces a TableRow. */
-fun <S> TableView<S>.rowFactory(
-    rowFactory: TableRowBuilder<S>.() -> Unit
-): Unit = setRowFactory { rowFactory.build() }
 
 /** Invokes a [TableColumn] DSL builder. */
 fun <S> TableView<S>.columns(init: TableColumnsBuilder<S>.() -> Unit) {

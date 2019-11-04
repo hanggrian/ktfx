@@ -7,9 +7,9 @@ import javafx.scene.control.TreeView
 import javafx.scene.control.cell.CellUtils2
 import javafx.scene.control.cell.CheckBoxTreeCell
 import javafx.scene.control.cell.ChoiceBoxTreeCell
+import javafx.scene.control.cell.ComboBoxTreeCell
 import javafx.scene.control.cell.TextFieldTreeCell
 import javafx.util.StringConverter
-import javafx.util.converter.DefaultStringConverter
 
 fun <T> TreeView<T>.checkBoxCellFactory(): Unit =
     setCellFactory(CheckBoxTreeCell.forTreeView())
@@ -32,13 +32,16 @@ fun <T> TreeView<T>.choiceBoxCellFactory(
 fun <T> TreeView<T>.comboBoxCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
     vararg items: T
-): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter, *items))
+): Unit = setCellFactory(ComboBoxTreeCell.forTreeView(converter, *items))
 
 fun <T> TreeView<T>.comboBoxCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
     items: ObservableList<T>
-): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter, items))
+): Unit = setCellFactory(ComboBoxTreeCell.forTreeView(converter, items))
 
-fun TreeView<String>.textFieldCellFactory(
-    converter: StringConverter<String> = DefaultStringConverter()
+fun TreeView<String>.textFieldCellFactory(): Unit =
+    setCellFactory(TextFieldTreeCell.forTreeView())
+
+fun <T> TreeView<T>.textFieldCellFactory(
+    converter: StringConverter<T> = CellUtils2.defaultStringConverter()
 ): Unit = setCellFactory(TextFieldTreeCell.forTreeView(converter))

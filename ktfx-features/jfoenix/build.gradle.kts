@@ -10,6 +10,7 @@ dependencies {
     api(project(":$RELEASE_ARTIFACT-features:jfoenix-commons"))
     api(project(":$RELEASE_ARTIFACT-features:jfoenix-coroutines"))
     api(project(":$RELEASE_ARTIFACT-features:jfoenix-layouts"))
+    api(project(":$RELEASE_ARTIFACT-features:jfoenix-listeners"))
 }
 
 publishKotlinFix()

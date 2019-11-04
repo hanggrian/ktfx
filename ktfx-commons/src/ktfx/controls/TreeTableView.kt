@@ -2,13 +2,6 @@ package ktfx.controls
 
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
-import ktfx.cells.TreeTableRowBuilder
-import ktfx.cells.build
-
-/** A function which produces a TreeTableRow. */
-fun <S> TreeTableView<S>.rowFactory(
-    rowFactory: TreeTableRowBuilder<S>.() -> Unit
-): Unit = setRowFactory { rowFactory.build() }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
 fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {

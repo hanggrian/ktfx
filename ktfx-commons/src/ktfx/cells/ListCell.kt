@@ -9,7 +9,6 @@ import javafx.scene.control.cell.ChoiceBoxListCell
 import javafx.scene.control.cell.ComboBoxListCell
 import javafx.scene.control.cell.TextFieldListCell
 import javafx.util.StringConverter
-import javafx.util.converter.DefaultStringConverter
 
 fun <T> ListView<T>.checkBoxCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
@@ -36,10 +35,14 @@ fun <T> ListView<T>.comboBoxCellFactory(
     items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxListCell.forListView(converter, items))
 
-fun ListView<String>.textFieldCellFactory(
-    converter: StringConverter<String> = DefaultStringConverter()
+fun ListView<String>.textFieldCellFactory(): Unit =
+    setCellFactory(TextFieldListCell.forListView())
+
+fun <T> ListView<T>.textFieldCellFactory(
+    converter: StringConverter<T> = CellUtils2.defaultStringConverter()
 ): Unit = setCellFactory(TextFieldListCell.forListView(converter))
 
+/** Set custom cell factory to this [ListView]. */
 fun <T> ListView<T>.cellFactory(
     cellFactory: ListCellBuilder<T>.() -> Unit
-): Unit = setCellFactory { cellFactory.build() }
+): Unit = setCellFactory { ListCellBuilder<T>().apply(cellFactory) }

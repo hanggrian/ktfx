@@ -1,24 +1,18 @@
 @file:Suppress("NOTHING_TO_INLINE")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.dialogs
 
-import javafx.scene.Node
-import javafx.scene.control.ButtonBar.ButtonData
-import javafx.scene.control.ButtonBar.ButtonData.OTHER
+import javafx.scene.control.Button
+import javafx.scene.control.ButtonBar
 import javafx.scene.control.ButtonType
-import javafx.scene.control.ButtonType.APPLY
-import javafx.scene.control.ButtonType.CANCEL
-import javafx.scene.control.ButtonType.CLOSE
-import javafx.scene.control.ButtonType.FINISH
-import javafx.scene.control.ButtonType.NEXT
-import javafx.scene.control.ButtonType.NO
-import javafx.scene.control.ButtonType.OK
-import javafx.scene.control.ButtonType.PREVIOUS
-import javafx.scene.control.ButtonType.YES
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals
 import ktfx.windows.icon
 import ktfx.windows.stage
@@ -46,54 +40,100 @@ inline var Dialog<*>.headerTitle: String
         title = value
     }
 
-/** Add apply button, invoking DSL to customize it as node. */
-fun Dialog<*>.applyButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(APPLY, init)
+/** Opens up DSL to quickly add button types to this dialog. */
+inline fun Dialog<*>.buttons(builder: DialogButtonBuilder.() -> Unit) {
+    contract {
+        callsInPlace(builder, InvocationKind.EXACTLY_ONCE)
+    }
+    DialogButtonBuilder(this).builder()
+}
 
-/** Add ok button, invoking DSL to customize it as node. */
-fun Dialog<*>.okButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(OK, init)
+class DialogButtonBuilder @PublishedApi internal constructor(private val nativeDialog: Dialog<*>) {
 
-/** Add cancel button, invoking DSL to customize it as node. */
-fun Dialog<*>.cancelButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(CANCEL, init)
+    /** Add apply button. */
+    fun apply(): Button =
+        add(ButtonType.APPLY)
 
-/** Add close button, invoking DSL to customize it as node. */
-fun Dialog<*>.closeButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(CLOSE, init)
+    /** Add apply button, invoking DSL to customize it as node. */
+    inline fun apply(block: Button.() -> Unit): Button =
+        apply().apply(block)
 
-/** Add yes button, invoking DSL to customize it as node. */
-fun Dialog<*>.yesButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(YES, init)
+    /** Add ok button. */
+    fun ok(): Button =
+        add(ButtonType.OK)
 
-/** Add no button, invoking DSL to customize it as node. */
-fun Dialog<*>.noButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(NO, init)
+    /** Add ok button, invoking DSL to customize it as node. */
+    inline fun ok(block: Button.() -> Unit): Button =
+        ok().apply(block)
 
-/** Add finish button, invoking DSL to customize it as node. */
-fun Dialog<*>.finishButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(FINISH, init)
+    /** Add cancel button. */
+    fun cancel(): Button =
+        add(ButtonType.CANCEL)
 
-/** Add next button, invoking DSL to customize it as node. */
-fun Dialog<*>.nextButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(NEXT, init)
+    /** Add cancel button, invoking DSL to customize it as node. */
+    inline fun cancel(block: Button.() -> Unit): Button =
+        cancel().apply(block)
 
-/** Add previous button, invoking DSL to customize it as node. */
-fun Dialog<*>.previousButton(init: (Node.() -> Unit)? = null): Node =
-    addButton(PREVIOUS, init)
+    /** Add close button. */
+    fun close(): Button =
+        add(ButtonType.CLOSE)
 
-/** Add custom button specifying text and type, invoking DSL to customize it as node. */
-fun Dialog<*>.customButton(
-    text: String,
-    data: ButtonData = OTHER,
-    init: (Node.() -> Unit)? = null
-): Node = addButton(ButtonType(text, data), init)
+    /** Add close button, invoking DSL to customize it as node. */
+    inline fun close(block: Button.() -> Unit): Button =
+        close().apply(block)
 
-/** Invokes DSL to create a button in dialog, returning a Node. */
-private fun Dialog<*>.addButton(
-    type: ButtonType,
-    init: (Node.() -> Unit)?
-): Node = dialogPane.run {
-    buttonTypes += type
-    return lookupButton(type).also { init?.invoke(it) }
+    /** Add yes button. */
+    fun yes(): Button =
+        add(ButtonType.YES)
+
+    /** Add yes button, invoking DSL to customize it as node. */
+    inline fun yes(block: Button.() -> Unit): Button =
+        yes().apply(block)
+
+    /** Add no button. */
+    fun no(): Button =
+        add(ButtonType.NO)
+
+    /** Add no button, invoking DSL to customize it as node. */
+    inline fun no(block: Button.() -> Unit): Button =
+        no().apply(block)
+
+    /** Add finish button. */
+    fun finish(): Button =
+        add(ButtonType.FINISH)
+
+    /** Add finish button, invoking DSL to customize it as node. */
+    inline fun finish(block: Button.() -> Unit): Button =
+        finish().apply(block)
+
+    /** Add next button. */
+    fun next(): Button =
+        add(ButtonType.NEXT)
+
+    /** Add next button, invoking DSL to customize it as node. */
+    inline fun next(block: Button.() -> Unit): Button =
+        next().apply(block)
+
+    /** Add previous button. */
+    fun previous(): Button =
+        add(ButtonType.PREVIOUS)
+
+    /** Add previous button, invoking DSL to customize it as node. */
+    inline fun previous(block: Button.() -> Unit): Button =
+        previous().apply(block)
+
+    /** Add custom button specifying text and type. */
+    operator fun String.invoke(data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER): Button =
+        add(ButtonType(this, data))
+
+    /** Add custom button specifying text and type, invoking DSL to customize it as node. */
+    inline operator fun String.invoke(
+        data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER,
+        block: Button.() -> Unit
+    ): Button = invoke(data).apply(block)
+
+    private fun add(type: ButtonType): Button = nativeDialog.dialogPane.run {
+        buttonTypes += type
+        return lookupButton(type) as Button
+    }
 }

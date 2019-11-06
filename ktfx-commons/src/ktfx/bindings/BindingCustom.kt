@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("BindingKt")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.bindings
 
@@ -15,88 +16,60 @@ import javafx.beans.binding.ObjectBinding
 import javafx.beans.binding.StringBinding
 
 /** Helper function to create a custom [ObjectBinding]. */
-fun <T> buildBinding(
-    vararg dependencies: Observable,
-    func: () -> T?
-): ObjectBinding<T> = Bindings.createObjectBinding<T>(Callable(func), *dependencies)
+fun <T> buildBinding(vararg dependencies: Observable, func: () -> T?): ObjectBinding<T> =
+    Bindings.createObjectBinding<T>(Callable(func), *dependencies)
 
 /** Helper function to create a custom [ObjectBinding]. */
-fun <T> buildBinding(
-    dependencies: Collection<Observable>,
-    func: () -> T?
-): ObjectBinding<T> = buildBinding(*dependencies.toTypedArray(), func = func)
+inline fun <T> buildBinding(dependencies: Collection<Observable>, noinline func: () -> T?): ObjectBinding<T> =
+    buildBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [BooleanBinding]. */
-fun buildBooleanBinding(
-    vararg dependencies: Observable,
-    func: () -> Boolean?
-): BooleanBinding = Bindings.createBooleanBinding(Callable(func), *dependencies)
+fun buildBooleanBinding(vararg dependencies: Observable, func: () -> Boolean?): BooleanBinding =
+    Bindings.createBooleanBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [BooleanBinding]. */
-fun buildBooleanBinding(
-    dependencies: Collection<Observable>,
-    func: () -> Boolean?
-): BooleanBinding = buildBooleanBinding(*dependencies.toTypedArray(), func = func)
+inline fun buildBooleanBinding(dependencies: Collection<Observable>, noinline func: () -> Boolean?): BooleanBinding =
+    buildBooleanBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [StringBinding]. */
-fun buildStringBinding(
-    vararg dependencies: Observable,
-    func: () -> String?
-): StringBinding = Bindings.createStringBinding(Callable(func), *dependencies)
+fun buildStringBinding(vararg dependencies: Observable, func: () -> String?): StringBinding =
+    Bindings.createStringBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [StringBinding]. */
-fun buildStringBinding(
-    dependencies: Collection<Observable>,
-    func: () -> String?
-): StringBinding = buildStringBinding(*dependencies.toTypedArray(), func = func)
+inline fun buildStringBinding(dependencies: Collection<Observable>, noinline func: () -> String?): StringBinding =
+    buildStringBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [DoubleBinding]. */
-fun buildDoubleBinding(
-    vararg dependencies: Observable,
-    func: () -> Double?
-): DoubleBinding = Bindings.createDoubleBinding(Callable(func), *dependencies)
+fun buildDoubleBinding(vararg dependencies: Observable, func: () -> Double?): DoubleBinding =
+    Bindings.createDoubleBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [DoubleBinding]. */
-fun buildDoubleBinding(
-    dependencies: Collection<Observable>,
-    func: () -> Double?
-): DoubleBinding = buildDoubleBinding(*dependencies.toTypedArray(), func = func)
+inline fun buildDoubleBinding(dependencies: Collection<Observable>, noinline func: () -> Double?): DoubleBinding =
+    buildDoubleBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [FloatBinding]. */
-fun buildFloatBinding(
-    vararg dependencies: Observable,
-    func: () -> Float?
-): FloatBinding = Bindings.createFloatBinding(Callable(func), *dependencies)
+fun buildFloatBinding(vararg dependencies: Observable, func: () -> Float?): FloatBinding =
+    Bindings.createFloatBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [FloatBinding]. */
-fun buildFloatBinding(
-    dependencies: Collection<Observable>,
-    func: () -> Float?
-): FloatBinding = buildFloatBinding(*dependencies.toTypedArray(), func = func)
+inline fun buildFloatBinding(dependencies: Collection<Observable>, noinline func: () -> Float?): FloatBinding =
+    buildFloatBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [IntegerBinding]. */
-fun buildIntBinding(
-    vararg dependencies: Observable,
-    func: () -> Int?
-): IntegerBinding = Bindings.createIntegerBinding(Callable(func), *dependencies)
+fun buildIntBinding(vararg dependencies: Observable, func: () -> Int?): IntegerBinding =
+    Bindings.createIntegerBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [IntegerBinding]. */
-fun buildIntBinding(
-    dependencies: Collection<Observable>,
-    func: () -> Int?
-): IntegerBinding = buildIntBinding(*dependencies.toTypedArray(), func = func)
+inline fun buildIntBinding(dependencies: Collection<Observable>, noinline func: () -> Int?): IntegerBinding =
+    buildIntBinding(*dependencies.toTypedArray(), func = func)
 
 /** Helper function to create a custom [LongBinding]. */
-fun buildLongBinding(
-    vararg dependencies: Observable,
-    func: () -> Long?
-): LongBinding = Bindings.createLongBinding(Callable(func), *dependencies)
+fun buildLongBinding(vararg dependencies: Observable, func: () -> Long?): LongBinding =
+    Bindings.createLongBinding(Callable(func), *dependencies)
 
 /** Helper function to create a custom [LongBinding]. */
-fun buildLongBinding(
-    dependencies: Collection<Observable>,
-    func: () -> Long?
-): LongBinding = buildLongBinding(*dependencies.toTypedArray(), func = func)
+inline fun buildLongBinding(dependencies: Collection<Observable>, noinline func: () -> Long?): LongBinding =
+    buildLongBinding(*dependencies.toTypedArray(), func = func)
 
 /** Creates a string binding used to get a member. */
 fun Any.selectString(vararg steps: String): StringBinding =

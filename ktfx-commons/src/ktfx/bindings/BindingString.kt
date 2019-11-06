@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("BindingKt")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.bindings
 
@@ -107,65 +108,61 @@ infix fun String.lessEq(op: ObservableStringValue): BooleanBinding =
     Bindings.lessThanOrEqual(this, op)
 
 /** Binding of [String.trim]. */
-fun ObservableStringValue.trim(predicate: (Char) -> Boolean): StringBinding =
+inline fun ObservableStringValue.trim(noinline predicate: (Char) -> Boolean): StringBinding =
     buildStringBinding(this) { get().trim(predicate) }
 
 /** Binding of [String.trimStart]. */
-fun ObservableStringValue.trimStart(predicate: (Char) -> Boolean): StringBinding =
+inline fun ObservableStringValue.trimStart(noinline predicate: (Char) -> Boolean): StringBinding =
     buildStringBinding(this) { get().trimStart(predicate) }
 
 /** Binding of [String.trimEnd]. */
-fun ObservableStringValue.trimEnd(predicate: (Char) -> Boolean): StringBinding =
+inline fun ObservableStringValue.trimEnd(noinline predicate: (Char) -> Boolean): StringBinding =
     buildStringBinding(this) { get().trimEnd(predicate) }
 
 /** Binding of [String.trim]. */
-fun ObservableStringValue.trim(): StringBinding =
+inline fun ObservableStringValue.trim(): StringBinding =
     buildStringBinding(this) { get().trim() }
 
 /** Binding of [String.trimStart]. */
-fun ObservableStringValue.trimStart(): StringBinding =
+inline fun ObservableStringValue.trimStart(): StringBinding =
     buildStringBinding(this) { get().trimStart() }
 
 /** Binding of [String.trimEnd]. */
-fun ObservableStringValue.trimEnd(): StringBinding =
+inline fun ObservableStringValue.trimEnd(): StringBinding =
     buildStringBinding(this) { get().trimEnd() }
 
 /** Binding of [String.padStart]. */
-fun ObservableStringValue.padStart(
-    length: Int,
-    padChar: Char = ' '
-): StringBinding = buildStringBinding(this) { get().padStart(length, padChar) }
+inline fun ObservableStringValue.padStart(length: Int, padChar: Char = ' '): StringBinding =
+    buildStringBinding(this) { get().padStart(length, padChar) }
 
 /** Binding of [String.padEnd]. */
-fun ObservableStringValue.padEnd(
-    length: Int,
-    padChar: Char = ' '
-): StringBinding = buildStringBinding(this) { get().padEnd(length, padChar) }
+inline fun ObservableStringValue.padEnd(length: Int, padChar: Char = ' '): StringBinding =
+    buildStringBinding(this) { get().padEnd(length, padChar) }
 
 /** Binding of [String.isNullOrBlank]. */
-fun ObservableStringValue.isNullOrBlank(): BooleanBinding =
+inline fun ObservableStringValue.isNullOrBlank(): BooleanBinding =
     buildBooleanBinding(this) { get().isNullOrBlank() }
 
 /** Binding of [String.isNullOrEmpty]. */
-fun ObservableStringValue.isNullOrEmpty(): BooleanBinding =
+inline fun ObservableStringValue.isNullOrEmpty(): BooleanBinding =
     buildBooleanBinding(this) { get().isNullOrEmpty() }
 
 /** Binding of [String.orEmpty]. */
-fun ObservableStringValue.orEmpty(): StringBinding =
+inline fun ObservableStringValue.orEmpty(): StringBinding =
     buildStringBinding(this) { get().orEmpty() }
 
 /** Binding of [String.indices]. */
-val ObservableStringValue.indices: ObjectBinding<IntRange>
+inline val ObservableStringValue.indices: ObjectBinding<IntRange>
     get() = buildBinding(this) { get().indices }
 
 /** Binding of [String.indices]. */
-val ObservableStringValue.lastIndex: IntegerBinding
+inline val ObservableStringValue.lastIndex: IntegerBinding
     get() = buildIntBinding(this) { get().lastIndex }
 
 /** Binding of [String.isBlank]. */
-fun ObservableStringValue.isBlank(): BooleanBinding =
+inline fun ObservableStringValue.isBlank(): BooleanBinding =
     buildBooleanBinding(this) { get().isBlank() }
 
 /** Binding of [String.isNotBlank]. */
-fun ObservableStringValue.isNotBlank(): BooleanBinding =
+inline fun ObservableStringValue.isNotBlank(): BooleanBinding =
     buildBooleanBinding(this) { get().isNotBlank() }

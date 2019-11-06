@@ -7,13 +7,20 @@ import kotlin.test.assertEquals
 
 class TreeTableViewTest : ToolkitTest {
 
-    @Test fun columns(){
+    @Test fun columns() {
         val treeTable = TreeTableView<Nothing>()
         treeTable.columns {
-            column<String>("Name")
+            "Full name"<String> {
+                columns {
+                    column<String>("First name")
+                    column<String>("Last name")
+                }
+            }
             column<Int>("Age")
         }
-        assertEquals(treeTable.columns[0].text, "Name")
+        assertEquals(treeTable.columns[0].text, "Full name")
+        assertEquals(treeTable.columns[0].columns[0].text, "First name")
+        assertEquals(treeTable.columns[0].columns[1].text, "Last name")
         assertEquals(treeTable.columns[1].text, "Age")
     }
 }

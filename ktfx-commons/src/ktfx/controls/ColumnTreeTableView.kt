@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("ColumnsKt")
+@file:JvmName("ColumnKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controls
@@ -18,20 +18,25 @@ inline fun TreeTableView<*>.unconstrained() {
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
-fun <S> TreeTableView<S>.columns(init: TreeTableColumnsBuilder<S>.() -> Unit) {
-    columns += TreeTableColumnsBuilder<S>().apply(init).collection
-}
+fun <S> TreeTableView<S>.columns(builder: (@TableColumnDslMarker TreeTableColumnsBuilder<S>.() -> Unit)): Unit =
+    TreeTableColumnsBuilder<S>(columns).builder()
+
+/** Invokes a [TreeTableColumn] DSL builder creating multiline column. */
+fun <S, T> TreeTableColumn<S, T>.columns(builder: (@TableColumnDslMarker TreeTableColumnsBuilder<S>.() -> Unit)): Unit =
+    TreeTableColumnsBuilder<S>(columns).builder()
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */
-class TreeTableColumnsBuilder<S> internal constructor() {
-    internal val collection: MutableCollection<TreeTableColumn<S, *>> = mutableListOf()
+class TreeTableColumnsBuilder<S> internal constructor(private val columns: MutableCollection<TreeTableColumn<S, *>>) {
 
     fun <T> column(text: String? = null): TreeTableColumn<S, T> =
-        TreeTableColumn<S, T>(text).also { collection += it }
+        TreeTableColumn<S, T>(text).also { columns += it }
 
-    inline fun <T> column(text: String? = null, init: TreeTableColumn<S, T>.() -> Unit): TreeTableColumn<S, T> =
-        column<T>(text).apply(init)
+    inline fun <T> column(
+        text: String? = null,
+        init: (@TableColumnDslMarker TreeTableColumn<S, T>.() -> Unit)
+    ): TreeTableColumn<S, T> = column<T>(text).apply(init)
 
-    inline operator fun <T> String.invoke(init: TreeTableColumn<S, T>.() -> Unit): TreeTableColumn<S, T> =
-        column(this, init)
+    inline operator fun <T> String.invoke(
+        init: (@TableColumnDslMarker TreeTableColumn<S, T>.() -> Unit)
+    ): TreeTableColumn<S, T> = column(this, init)
 }

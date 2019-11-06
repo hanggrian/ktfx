@@ -14,9 +14,9 @@ inline fun SelectionModel<*>.isNotSelected(): Boolean =
     !isSelected()
 
 /** Returns a boolean binding that holds `true` when item is selected. */
-inline fun SelectionModel<*>.selectedProperty(): BooleanBinding =
-    selectedItemProperty().isNotNull
+inline val SelectionModel<*>.selectedBinding: BooleanBinding
+    get() = selectedItemProperty().isNotNull
 
 /** Returns a boolean binding that holds `true` when item is not selected. */
-inline fun SelectionModel<*>.notSelectedProperty(): BooleanBinding =
-    selectedItemProperty().isNull
+inline val SelectionModel<*>.notSelectedBinding: BooleanBinding
+    get() = selectedItemProperty().isNull

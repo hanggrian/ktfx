@@ -14,9 +14,7 @@ inline fun text(
     text: String? = null,
     init: (@LayoutDslMarker Text).() -> Unit
 ): Text {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Text(text).apply(init)
 }
 /** Add a [Text] to this manager. */
@@ -29,8 +27,6 @@ inline fun NodeManager.text(
     text: String? = null,
     init: (@LayoutDslMarker Text).() -> Unit
 ): Text {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Text(text), init)
 }

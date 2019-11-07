@@ -15,9 +15,7 @@ inline fun imageView(
     image: Image? = null,
     init: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ImageView(image).apply(init)
 }
 /** Create an [ImageView] with initialization block. */
@@ -25,9 +23,7 @@ inline fun imageView(
     imageUrl: String,
     init: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ImageView(imageUrl).apply(init)
 }
 /** Add an [ImageView] to this manager. */
@@ -40,9 +36,7 @@ inline fun NodeManager.imageView(
     image: Image? = null,
     init: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ImageView(image), init)
 }
 /** Add an [ImageView] to this manager. */
@@ -55,8 +49,6 @@ inline fun NodeManager.imageView(
     imageUrl: String,
     init: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ImageView(imageUrl), init)
 }

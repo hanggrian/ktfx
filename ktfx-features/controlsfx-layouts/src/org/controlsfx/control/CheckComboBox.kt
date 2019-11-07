@@ -18,9 +18,7 @@ inline fun <T> checkComboBox(
     items: ObservableList<T>? = null,
     init: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckComboBox(items).apply(init)
 }
 
@@ -34,8 +32,6 @@ inline fun <T> NodeManager.checkComboBox(
     items: ObservableList<T>? = null,
     init: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(CheckComboBox(items), init)
 }

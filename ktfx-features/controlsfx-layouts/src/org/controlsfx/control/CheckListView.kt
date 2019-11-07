@@ -19,9 +19,7 @@ inline fun <T> checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker CheckListView<T>).() -> Unit
 ): CheckListView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckListView(items).apply(init)
 }
 
@@ -35,8 +33,6 @@ inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker CheckListView<T>).() -> Unit
 ): CheckListView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(CheckListView(items), init)
 }

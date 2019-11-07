@@ -17,9 +17,7 @@ inline fun jfxTextField(
     text: String? = null,
     init: (@LayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTextField(text).apply(init) }
 
 /** Add a [JFXTextField] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.jfxTextField(
     text: String? = null,
     init: (@LayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTextField(text), init)
 }

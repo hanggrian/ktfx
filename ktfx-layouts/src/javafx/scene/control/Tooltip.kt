@@ -17,9 +17,7 @@ inline fun tooltip(
     text: String? = null,
     init: (@LayoutDslMarker Tooltip).() -> Unit
 ): Tooltip {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Tooltip(text).apply(init) }
 
 /** Set a [Tooltip] to this [Node]. */
@@ -32,9 +30,7 @@ inline fun Node.tooltip(
     text: String? = null,
     init: (@LayoutDslMarker Tooltip).() -> Unit
 ): Tooltip {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, init).also { Tooltip.install(this, it) } }
 
 /** Set a [Tooltip] to this [Control]. */
@@ -47,9 +43,7 @@ inline fun Control.tooltip(
     text: String? = null,
     init: (@LayoutDslMarker Tooltip).() -> Unit
 ): Tooltip {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, init).also { tooltip = it } }
 
 /** Set a [Tooltip] to this [Tab]. */
@@ -62,8 +56,6 @@ inline fun Tab.tooltip(
     text: String? = null,
     init: (@LayoutDslMarker Tooltip).() -> Unit
 ): Tooltip {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, init).also { tooltip = it }
 }

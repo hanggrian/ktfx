@@ -21,9 +21,7 @@ inline fun cubicCurve(
     endY: Double = 0.0,
     init: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY).apply(init)
 }
 /** Add a [CubicCurve] to this manager. */
@@ -50,8 +48,6 @@ inline fun NodeManager.cubicCurve(
     endY: Double = 0.0,
     init: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY), init)
 }

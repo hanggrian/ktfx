@@ -27,9 +27,7 @@ open class KtfxTabPane : TabPane(), TabManager {
 inline fun tabPane(
     init: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTabPane().apply(init)
 }
 /** Add a [TabPane] to this manager. */
@@ -40,8 +38,6 @@ fun NodeManager.tabPane(): TabPane =
 inline fun NodeManager.tabPane(
     init: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxTabPane(), init)
 }

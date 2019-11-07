@@ -18,9 +18,7 @@ inline fun jfxDatePicker(
     date: LocalDate? = null,
     init: (@LayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDatePicker(date).apply(init)
 }
 /** Add a [JFXDatePicker] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.jfxDatePicker(
     date: LocalDate? = null,
     init: (@LayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXDatePicker(date), init)
 }

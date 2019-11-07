@@ -38,9 +38,7 @@ inline fun tilePane(
     vgap: Double = hgap,
     init: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTilePane(orientation, hgap, vgap).apply(init)
 }
 /** Add a [TilePane] to this manager. */
@@ -57,8 +55,6 @@ inline fun NodeManager.tilePane(
     vgap: Double = 0.0,
     init: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxTilePane(orientation, hgap, vgap), init)
 }

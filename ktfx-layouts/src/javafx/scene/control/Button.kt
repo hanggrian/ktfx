@@ -16,9 +16,7 @@ inline fun button(
     graphic: Node? = null,
     init: (@LayoutDslMarker Button).() -> Unit
 ): Button {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Button(text, graphic).apply(init)
 }
 /** Add a [Button] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.button(
     graphic: Node? = null,
     init: (@LayoutDslMarker Button).() -> Unit
 ): Button {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Button(text, graphic), init)
 }

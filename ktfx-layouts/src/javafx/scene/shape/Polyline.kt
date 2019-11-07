@@ -14,9 +14,7 @@ inline fun polyline(
     vararg points: Double,
     init: (@LayoutDslMarker Polyline).() -> Unit
 ): Polyline {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Polyline(*points).apply(init)
 }
 /** Add a [Polyline] to this manager. */
@@ -29,8 +27,6 @@ inline fun NodeManager.polyline(
     vararg points: Double,
     init: (@LayoutDslMarker Polyline).() -> Unit
 ): Polyline {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Polyline(*points), init)
 }

@@ -16,9 +16,7 @@ inline fun label(
     graphic: Node? = null,
     init: (@LayoutDslMarker Label).() -> Unit
 ): Label {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Label(text, graphic).apply(init)
 }
 /** Add a [Label] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.label(
     graphic: Node? = null,
     init: (@LayoutDslMarker Label).() -> Unit
 ): Label {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Label(text, graphic), init)
 }

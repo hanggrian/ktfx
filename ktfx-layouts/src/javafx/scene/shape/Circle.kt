@@ -18,9 +18,7 @@ inline fun circle(
     fill: Paint? = null,
     init: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Circle(centerX, centerY, radius, fill).apply(init)
 }
 /** Add a [Circle] to this manager. */
@@ -39,8 +37,6 @@ inline fun NodeManager.circle(
     fill: Paint? = null,
     init: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Circle(centerX, centerY, radius, fill), init)
 }

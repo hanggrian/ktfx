@@ -16,9 +16,7 @@ inline fun <S> tableView(
     items: ObservableList<S> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TableView(items).apply(init)
 }
 /** Add a [TableView] to this manager. */
@@ -31,8 +29,6 @@ inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(TableView(items), init)
 }

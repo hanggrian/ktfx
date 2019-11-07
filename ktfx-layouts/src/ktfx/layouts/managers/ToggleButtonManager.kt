@@ -26,9 +26,7 @@ interface ToggleButtonManager {
 
 /** Alias of [ToggleButtonManager.addButton] with [init] builder. */
 inline fun <T : ToggleButton> ToggleButtonManager.addButton(button: T, init: (@LayoutDslMarker T).() -> Unit): T {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     button.init()
     return addButton(button)
 }

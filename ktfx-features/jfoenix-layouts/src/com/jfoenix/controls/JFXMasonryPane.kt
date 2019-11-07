@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun jfxMasonryPane(
     init: (@LayoutDslMarker JFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXMasonryPane().apply(init)
 }
 /** Add a [JFXMasonryPane] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.jfxMasonryPane(): JFXMasonryPane =
 inline fun NodeManager.jfxMasonryPane(
     init: (@LayoutDslMarker JFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXMasonryPane(), init)
 }

@@ -13,9 +13,7 @@ import kotlin.contracts.contract
 inline fun passwordField(
     init: (@LayoutDslMarker PasswordField).() -> Unit
 ): PasswordField {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PasswordField().apply(init)
 }
 /** Add a [PasswordField] to this manager. */
@@ -26,8 +24,6 @@ fun NodeManager.passwordField(): PasswordField =
 inline fun NodeManager.passwordField(
     init: (@LayoutDslMarker PasswordField).() -> Unit
 ): PasswordField {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PasswordField(), init)
 }

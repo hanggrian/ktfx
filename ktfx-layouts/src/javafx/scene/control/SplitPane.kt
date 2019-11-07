@@ -20,9 +20,7 @@ open class KtfxSplitPane : SplitPane(), NodeManager {
 inline fun splitPane(
     init: (@LayoutDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSplitPane().apply(init)
 }
 /** Add a [SplitPane] to this manager. */
@@ -33,8 +31,6 @@ fun NodeManager.splitPane(): SplitPane =
 inline fun NodeManager.splitPane(
     init: (@LayoutDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxSplitPane(), init)
 }

@@ -14,9 +14,7 @@ inline fun radioButton(
     text: String? = null,
     init: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return RadioButton(text).apply(init)
 }
 /** Add a [RadioButton] to this manager. */
@@ -29,8 +27,6 @@ inline fun NodeManager.radioButton(
     text: String? = null,
     init: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(RadioButton(text), init)
 }

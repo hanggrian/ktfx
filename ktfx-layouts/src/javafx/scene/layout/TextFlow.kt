@@ -11,30 +11,34 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-open class KtfxTextFlow : TextFlow(), NodeManager {
+/** Making use of [kotlin.text.appendln] by implementing [Appendable]. */
+open class KtfxTextFlow : TextFlow(), NodeManager, Appendable {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    /** Call [NodeManager.text] by string invocation. */
-    inline operator fun String.invoke(
-        init: (@LayoutDslMarker Text).() -> Unit
-    ): Text = text(this, init)
+    override fun append(text: CharSequence?): Appendable =
+        apply { text(text?.toString()) }
 
-    /** Append a new line to this flow. */
-    fun newLine(): Text =
-        text(System.lineSeparator())
+    override fun append(csq: CharSequence, start: Int, end: Int): Appendable =
+        throw UnsupportedOperationException()
+
+    override fun append(c: Char): Appendable =
+        append(c.toString())
+
+    /** Call [NodeManager.text] by string invocation. */
+    inline operator fun String.invoke(init: (@LayoutDslMarker Text).() -> Unit): Text =
+        text(this, init)
 }
 
 /** Create a [TextFlow] with initialization block. */
 inline fun textFlow(
     init: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTextFlow().apply(init)
 }
+
 /** Add a [TextFlow] to this manager. */
 fun NodeManager.textFlow(): TextFlow =
     addNode(KtfxTextFlow())
@@ -43,8 +47,6 @@ fun NodeManager.textFlow(): TextFlow =
 inline fun NodeManager.textFlow(
     init: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxTextFlow(), init)
 }

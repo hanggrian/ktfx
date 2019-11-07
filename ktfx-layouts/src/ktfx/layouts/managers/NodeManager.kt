@@ -62,45 +62,35 @@ interface SidesNodeManager : NodeManager {
 
 /** Alias of [NodeManager.addNode] with [init] builder. */
 inline fun <T : Node> NodeManager.addNode(node: T, init: (@LayoutDslMarker T).() -> Unit): T {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     node.init()
     return addNode(node)
 }
 
 /** Alias of [SidesNodeManager.addTopNode] with [init] builder. */
 inline fun <T : Node> SidesNodeManager.addTopNode(node: T, init: (@LayoutDslMarker T).() -> Unit): T {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     node.init()
     return addTopNode(node)
 }
 
 /** Alias of [SidesNodeManager.addRightNode] with [init] builder. */
 inline fun <T : Node> SidesNodeManager.addRightNode(node: T, init: (@LayoutDslMarker T).() -> Unit): T {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     node.init()
     return addRightNode(node)
 }
 
 /** Alias of [SidesNodeManager.addBottomNode] with [init] builder. */
 inline fun <T : Node> SidesNodeManager.addBottomNode(node: T, init: (@LayoutDslMarker T).() -> Unit): T {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     node.init()
     return addBottomNode(node)
 }
 
 /** Alias of [SidesNodeManager.addLeftNode] with [init] builder. */
 inline fun <T : Node> SidesNodeManager.addLeftNode(node: T, init: (@LayoutDslMarker T).() -> Unit): T {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     node.init()
     return addLeftNode(node)
 }

@@ -16,9 +16,7 @@ import org.controlsfx.control.PrefixSelectionComboBox
 inline fun <T> prefixSelectionComboBox(
     init: (@LayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit
 ): PrefixSelectionComboBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PrefixSelectionComboBox<T>().apply(init)
 }
 /** Add a [PrefixSelectionComboBox] to this manager. */
@@ -29,8 +27,6 @@ fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
 inline fun <T> NodeManager.prefixSelectionComboBox(
     init: (@LayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit
 ): PrefixSelectionComboBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PrefixSelectionComboBox(), init)
 }

@@ -18,9 +18,7 @@ inline fun jfxToggleNode(
     graphic: Node? = null,
     init: (@LayoutDslMarker JFXToggleNode).() -> Unit
 ): JFXToggleNode {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXToggleNode(graphic).apply(init)
 }
 /** Add a [JFXToggleNode] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.jfxToggleNode(
     graphic: Node? = null,
     init: (@LayoutDslMarker JFXToggleNode).() -> Unit
 ): JFXToggleNode {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXToggleNode(graphic), init)
 }

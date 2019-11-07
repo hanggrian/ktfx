@@ -19,9 +19,7 @@ inline fun arc(
     length: Double = 0.0,
     init: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply(init)
 }
 /** Add an [Arc] to this manager. */
@@ -44,8 +42,6 @@ inline fun NodeManager.arc(
     length: Double = 0.0,
     init: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), init)
 }

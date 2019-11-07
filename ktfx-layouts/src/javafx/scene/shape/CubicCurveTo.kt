@@ -19,9 +19,7 @@ inline fun cubicCurveTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).apply(init)
 }
 /** Add a [CubicCurveTo] to this manager. */
@@ -44,8 +42,6 @@ inline fun PathElementManager.cubicCurveTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y), init)
 }

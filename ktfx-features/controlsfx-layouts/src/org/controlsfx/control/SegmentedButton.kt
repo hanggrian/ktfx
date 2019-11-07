@@ -32,9 +32,7 @@ open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
 inline fun segmentedButton(
     init: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSegmentedButton().apply(init)
 }
 
@@ -46,8 +44,6 @@ fun NodeManager.segmentedButton(): SegmentedButton =
 inline fun NodeManager.segmentedButton(
     init: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxSegmentedButton(), init)
 }

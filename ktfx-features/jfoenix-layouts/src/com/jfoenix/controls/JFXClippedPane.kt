@@ -23,9 +23,7 @@ open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 inline fun jfxClippedPane(
     init: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXClippedPane().apply(init)
 }
 /** Add a [JFXClippedPane] to this manager. */
@@ -36,8 +34,6 @@ fun NodeManager.jfxClippedPane(): JFXClippedPane =
 inline fun NodeManager.jfxClippedPane(
     init: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXClippedPane(), init)
     }

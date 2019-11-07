@@ -16,9 +16,7 @@ inline fun checkMenuItem(
     graphic: Node? = null,
     init: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckMenuItem(text, graphic).apply(init)
 }
 /** Add a [CheckMenuItem] to this manager. */
@@ -33,8 +31,6 @@ inline fun MenuItemManager.checkMenuItem(
     graphic: Node? = null,
     init: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addItem(CheckMenuItem(text, graphic), init)
 }

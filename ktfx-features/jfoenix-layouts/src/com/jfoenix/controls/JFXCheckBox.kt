@@ -17,9 +17,7 @@ inline fun jfxCheckBox(
     text: String? = null,
     init: (@LayoutDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXCheckBox(text).apply(init)
 }
 /** Add a [JFXCheckBox] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.jfxCheckBox(
     text: String? = null,
     init: (@LayoutDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXCheckBox(text), init)
 }

@@ -16,9 +16,7 @@ inline fun colorPicker(
     color: Color = WHITE,
     init: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ColorPicker(color).apply(init)
 }
 /** Add a [ColorPicker] to this manager. */
@@ -31,8 +29,6 @@ inline fun NodeManager.colorPicker(
     color: Color = WHITE,
     init: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ColorPicker(color), init)
 }

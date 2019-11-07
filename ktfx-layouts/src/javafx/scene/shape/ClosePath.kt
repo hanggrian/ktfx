@@ -13,9 +13,7 @@ import kotlin.contracts.contract
 inline fun closePath(
     init: (@LayoutDslMarker ClosePath).() -> Unit
 ): ClosePath {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ClosePath().apply(init)
 }
 /** Add a [ClosePath] to this manager. */
@@ -26,8 +24,6 @@ fun PathElementManager.closePath(): ClosePath =
 inline fun PathElementManager.closePath(
     init: (@LayoutDslMarker ClosePath).() -> Unit
 ): ClosePath {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(ClosePath(), init)
 }

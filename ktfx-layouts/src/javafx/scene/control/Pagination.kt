@@ -15,9 +15,7 @@ inline fun pagination(
     index: Int = 0,
     init: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Pagination(count, index).apply(init)
 }
 /** Add a [Pagination] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.pagination(
     index: Int = 0,
     init: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Pagination(count, index), init)
 }

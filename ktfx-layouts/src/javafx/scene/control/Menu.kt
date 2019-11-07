@@ -29,9 +29,7 @@ inline fun menu(
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMenu(text, graphic).apply(init)
 }
 /** Add a [Menu] to this manager. */
@@ -46,9 +44,7 @@ inline fun MenuManager.menu(
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addMenu(KtfxMenu(text, graphic), init)
 }
 /** Add a [Menu] to this manager. */
@@ -63,8 +59,6 @@ inline fun MenuItemManager.menu(
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addItem(KtfxMenu(text, graphic), init)
 }

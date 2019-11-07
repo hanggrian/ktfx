@@ -27,9 +27,7 @@ inline fun buttonBar(
     buttonOrder: String? = null,
     init: (@LayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxButtonBar(buttonOrder).apply(init)
 }
 /** Add a [ButtonBar] to this manager. */
@@ -42,8 +40,6 @@ inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
     init: (@LayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxButtonBar(buttonOrder), init)
 }

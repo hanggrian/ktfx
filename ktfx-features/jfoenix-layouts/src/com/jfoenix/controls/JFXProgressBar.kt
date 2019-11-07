@@ -17,9 +17,7 @@ inline fun jfxProgressBar(
     progress: Double = 0.0,
     init: (@LayoutDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXProgressBar(progress).apply(init)
 }
 /** Add a [JFXProgressBar] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.jfxProgressBar(
     progress: Double = 0.0,
     init: (@LayoutDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXProgressBar(progress), init)
 }

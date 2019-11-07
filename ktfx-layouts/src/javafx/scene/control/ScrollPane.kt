@@ -21,9 +21,7 @@ inline fun scrollPane(
     content: Node? = null,
     init: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxScrollPane(content).apply(init)
 }
 /** Add a [ScrollPane] to this manager. */
@@ -36,8 +34,6 @@ inline fun NodeManager.scrollPane(
     content: Node? = null,
     init: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxScrollPane(content), init)
 }

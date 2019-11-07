@@ -29,9 +29,7 @@ inline fun menuButton(
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMenuButton(text, graphic).apply(init)
 }
 /** Add a [MenuButton] to this manager. */
@@ -46,8 +44,6 @@ inline fun NodeManager.menuButton(
     graphic: Node? = null,
     init: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxMenuButton(text, graphic), init)
 }

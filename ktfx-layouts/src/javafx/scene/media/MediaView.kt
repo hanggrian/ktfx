@@ -15,9 +15,7 @@ inline fun mediaView(
     player: MediaPlayer? = null,
     init: (@LayoutDslMarker MediaView).() -> Unit
 ): MediaView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MediaView(player).apply(init)
 }
 /** Add a [MediaView] to this manager. */
@@ -30,8 +28,6 @@ inline fun NodeManager.mediaView(
     player: MediaPlayer? = null,
     init: (@LayoutDslMarker MediaView).() -> Unit
 ): MediaView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(MediaView(player), init)
 }

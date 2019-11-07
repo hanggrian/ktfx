@@ -33,9 +33,7 @@ inline fun masterDetailPane(
     showDetail: Boolean = true,
     init: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMasterDetailPane(side, showDetail).apply(init)
 }
 
@@ -51,8 +49,6 @@ inline fun NodeManager.masterDetailPane(
     showDetail: Boolean = true,
     init: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxMasterDetailPane(side, showDetail), init)
 }

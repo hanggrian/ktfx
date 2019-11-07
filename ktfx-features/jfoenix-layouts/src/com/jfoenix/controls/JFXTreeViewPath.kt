@@ -18,9 +18,7 @@ inline fun jfxTreeViewPath(
     treeView: TreeView<*>? = null,
     init: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeViewPath(treeView).apply(init)
 }
 /** Add a [JFXTreeViewPath] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null,
     init: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTreeViewPath(treeView), init)
 }

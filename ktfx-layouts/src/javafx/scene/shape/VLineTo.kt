@@ -14,9 +14,7 @@ inline fun vlineTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker VLineTo).() -> Unit
 ): VLineTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return VLineTo(y).apply(init)
 }
 /** Add a [VLineTo] to this manager. */
@@ -29,8 +27,6 @@ inline fun PathElementManager.vlineTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker VLineTo).() -> Unit
 ): VLineTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(VLineTo(y), init)
 }

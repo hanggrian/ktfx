@@ -17,9 +17,7 @@ inline fun jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
     init: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXSpinner(progress).apply(init)
 }
 /** Add a [JFXSpinner] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
     init: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXSpinner(progress), init)
 }

@@ -23,9 +23,7 @@ open class KtfxSnapshotView : SnapshotView(), NodeManager {
 inline fun snapshotView(
     init: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSnapshotView().apply(init)
 }
 /** Add a [SnapshotView] to this manager. */
@@ -36,8 +34,6 @@ fun NodeManager.snapshotView(): SnapshotView =
 inline fun NodeManager.snapshotView(
     init: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxSnapshotView(), init)
 }

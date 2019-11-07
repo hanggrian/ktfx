@@ -20,9 +20,7 @@ inline fun <X, Y> stackedAreaChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return StackedAreaChart(x, y, data).apply(init)
 }
 /** Add a [StackedAreaChart] to this manager. */
@@ -39,8 +37,6 @@ inline fun <X, Y> NodeManager.stackedAreaChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(StackedAreaChart(x, y, data), init)
 }

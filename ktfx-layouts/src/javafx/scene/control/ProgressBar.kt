@@ -14,9 +14,7 @@ inline fun progressBar(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
     init: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ProgressBar(progress).apply(init)
 }
 /** Add a [ProgressBar] to this manager. */
@@ -29,8 +27,6 @@ inline fun NodeManager.progressBar(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
     init: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ProgressBar(progress), init)
 }

@@ -24,9 +24,7 @@ open class KtfxJFXRippler : JFXRippler(), NodeManager {
 inline fun jfxRippler(
     init: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXRippler().apply(init)
 }
 /** Add a [JFXRippler] to this manager. */
@@ -37,8 +35,6 @@ fun NodeManager.jfxRippler(): JFXRippler =
 inline fun NodeManager.jfxRippler(
     init: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXRippler(), init)
 }

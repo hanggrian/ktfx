@@ -19,9 +19,7 @@ inline fun quadCurve(
     endY: Double = 0.0,
     init: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return QuadCurve(startX, startY, controlX, controlY, endX, endY).apply(init)
 }
 /** Add a [QuadCurve] to this manager. */
@@ -44,8 +42,6 @@ inline fun NodeManager.quadCurve(
     endY: Double = 0.0,
     init: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(QuadCurve(startX, startY, controlX, controlY, endX, endY), init)
 }

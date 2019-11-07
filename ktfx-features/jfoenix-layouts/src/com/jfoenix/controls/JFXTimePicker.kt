@@ -18,9 +18,7 @@ inline fun jfxTimePicker(
     localTime: LocalTime? = null,
     init: (@LayoutDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTimePicker(localTime).apply(init)
 }
 /** Add a [JFXTimePicker] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.jfxTimePicker(
     localTime: LocalTime? = null,
     init: (@LayoutDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTimePicker(localTime), init)
 }

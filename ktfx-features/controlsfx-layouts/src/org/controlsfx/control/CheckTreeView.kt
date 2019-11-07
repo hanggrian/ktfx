@@ -18,9 +18,7 @@ inline fun <T> checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
     init: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckTreeView(root).apply(init)
 }
 
@@ -34,8 +32,6 @@ inline fun <T> NodeManager.checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
     init: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(CheckTreeView(root), init)
 }

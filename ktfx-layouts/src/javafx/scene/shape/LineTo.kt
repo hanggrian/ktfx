@@ -15,9 +15,7 @@ inline fun lineTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker LineTo).() -> Unit
 ): LineTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return LineTo(x, y).apply(init)
 }
 /** Add a [LineTo] to this manager. */
@@ -32,8 +30,6 @@ inline fun PathElementManager.lineTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker LineTo).() -> Unit
 ): LineTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(LineTo(x, y), init)
 }

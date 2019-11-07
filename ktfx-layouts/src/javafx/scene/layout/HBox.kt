@@ -21,9 +21,7 @@ inline fun hbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxHBox(spacing).apply(init)
 }
 /** Add an [HBox] to this manager. */
@@ -36,8 +34,6 @@ inline fun NodeManager.hbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxHBox(spacing), init)
 }

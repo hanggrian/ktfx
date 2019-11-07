@@ -16,9 +16,7 @@ inline fun radioMenuItem(
     graphic: Node? = null,
     init: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return RadioMenuItem(text, graphic).apply(init)
 }
 /** Add a [RadioMenuItem] to this manager. */
@@ -33,8 +31,6 @@ inline fun MenuItemManager.radioMenuItem(
     graphic: Node? = null,
     init: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addItem(RadioMenuItem(text, graphic), init)
 }

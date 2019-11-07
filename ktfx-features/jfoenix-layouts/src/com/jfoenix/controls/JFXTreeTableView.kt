@@ -19,9 +19,7 @@ inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
     root: TreeItem<S>? = null,
     init: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeTableView(root).apply(init)
 }
 /** Add a [JFXTreeTableView] to this manager. */
@@ -34,8 +32,6 @@ inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     root: TreeItem<S>? = null,
     init: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTreeTableView(root), init)
 }

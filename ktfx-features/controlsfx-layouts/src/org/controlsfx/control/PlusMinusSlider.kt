@@ -16,9 +16,7 @@ import org.controlsfx.control.PlusMinusSlider
 inline fun plusMinusSlider(
     init: (@LayoutDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PlusMinusSlider().apply(init)
 }
 /** Add a [PlusMinusSlider] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.plusMinusSlider(): PlusMinusSlider =
 inline fun NodeManager.plusMinusSlider(
     init: (@LayoutDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PlusMinusSlider(), init)
 }

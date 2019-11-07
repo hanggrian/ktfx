@@ -16,9 +16,7 @@ inline fun menuItem(
     graphic: Node? = null,
     init: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MenuItem(text, graphic).apply(init)
 }
 /** Add a [MenuItem] to this manager. */
@@ -33,8 +31,6 @@ inline fun MenuItemManager.menuItem(
     graphic: Node? = null,
     init: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addItem(MenuItem(text, graphic), init)
 }

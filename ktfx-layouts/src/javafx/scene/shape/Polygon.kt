@@ -14,9 +14,7 @@ inline fun polygon(
     vararg points: Double,
     init: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Polygon(*points).apply(init)
 }
 /** Add a [Polygon] to this manager. */
@@ -29,8 +27,6 @@ inline fun NodeManager.polygon(
     vararg points: Double,
     init: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Polygon(*points), init)
 }

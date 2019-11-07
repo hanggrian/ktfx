@@ -16,9 +16,7 @@ import org.controlsfx.control.MaskerPane
 inline fun maskerPane(
     init: (@LayoutDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MaskerPane().apply(init)
 }
 /** Add a [MaskerPane] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.maskerPane(): MaskerPane =
 inline fun NodeManager.maskerPane(
     init: (@LayoutDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(MaskerPane(), init)
 }

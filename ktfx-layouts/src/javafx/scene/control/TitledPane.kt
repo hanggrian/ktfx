@@ -21,9 +21,7 @@ inline fun titledPane(
     title: String? = null,
     init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTitledPane(title).apply(init)
 }
 /** Add a [TitledPane] to this manager. */
@@ -36,9 +34,7 @@ inline fun NodeManager.titledPane(
     title: String? = null,
     init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxTitledPane(title), init)
 }
 /** Add a [TitledPane] to this manager. */
@@ -51,8 +47,6 @@ inline fun TitledPaneManager.titledPane(
     title: String? = null,
     init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addPane(KtfxTitledPane(title), init)
 }

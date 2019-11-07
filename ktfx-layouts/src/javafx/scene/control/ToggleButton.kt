@@ -16,9 +16,7 @@ inline fun toggleButton(
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ToggleButton(text, graphic).apply(init)
 }
 /** Add a [ToggleButton] to this manager. */
@@ -33,9 +31,7 @@ inline fun NodeManager.toggleButton(
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ToggleButton(text, graphic), init)
 }
 /** Add a [ToggleButton] to this manager. */
@@ -50,8 +46,6 @@ inline fun ToggleButtonManager.toggleButton(
     graphic: Node? = null,
     init: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addButton(ToggleButton(text, graphic), init)
 }

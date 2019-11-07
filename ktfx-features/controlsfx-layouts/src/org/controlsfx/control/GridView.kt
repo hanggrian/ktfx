@@ -19,9 +19,7 @@ inline fun <T> gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return GridView(items).apply(init) }
 
 /** Add a [GridView] to this manager. */
@@ -34,8 +32,6 @@ inline fun <T> NodeManager.gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(GridView(items), init)
 }

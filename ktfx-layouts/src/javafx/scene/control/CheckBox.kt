@@ -14,9 +14,7 @@ inline fun checkBox(
     text: String? = null,
     init: (@LayoutDslMarker CheckBox).() -> Unit
 ): CheckBox {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckBox(text).apply(init)
 }
 /** Add a [CheckBox] to this manager. */
@@ -29,8 +27,6 @@ inline fun NodeManager.checkBox(
     text: String? = null,
     init: (@LayoutDslMarker CheckBox).() -> Unit
 ): CheckBox {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(CheckBox(text), init)
 }

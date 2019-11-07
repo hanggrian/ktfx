@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun jfxNodesList(
     init: (@LayoutDslMarker JFXNodesList).() -> Unit
 ): JFXNodesList {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXNodesList().apply(init)
 }
 /** Add a [JFXNodesList] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.jfxNodesList(): JFXNodesList =
 inline fun NodeManager.jfxNodesList(
     init: (@LayoutDslMarker JFXNodesList).() -> Unit
 ): JFXNodesList {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXNodesList(), init)
 }

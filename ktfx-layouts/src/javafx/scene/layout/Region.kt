@@ -13,9 +13,7 @@ import kotlin.contracts.contract
 inline fun region(
     init: (@LayoutDslMarker Region).() -> Unit
 ): Region {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Region().apply(init)
 }
 /** Add a [Region] to this manager. */
@@ -26,8 +24,6 @@ fun NodeManager.region(): Region =
 inline fun NodeManager.region(
     init: (@LayoutDslMarker Region).() -> Unit
 ): Region {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Region(), init)
 }

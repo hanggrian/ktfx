@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun jfxHamburger(
     init: (@LayoutDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXHamburger().apply(init)
 }
 /** Add a [JFXHamburger] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.jfxHamburger(): JFXHamburger =
 inline fun NodeManager.jfxHamburger(
     init: (@LayoutDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXHamburger(), init)
 }

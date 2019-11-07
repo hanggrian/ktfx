@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun jfxDrawersStack(
     init: (@LayoutDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDrawersStack().apply(init)
 }
 /** Add a [JFXDrawersStack] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.jfxDrawersStack(): JFXDrawersStack =
 inline fun NodeManager.jfxDrawersStack(
     init: (@LayoutDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXDrawersStack(), init)
 }

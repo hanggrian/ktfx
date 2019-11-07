@@ -27,9 +27,7 @@ interface PathElementManager {
 
 /** Alias of [PathElementManager.addElement] with [init] builder. */
 inline fun <T : PathElement> PathElementManager.addElement(element: T, init: (@LayoutDslMarker T).() -> Unit): T {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     element.init()
     return addElement(element)
 }

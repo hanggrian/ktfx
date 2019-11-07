@@ -33,9 +33,7 @@ open class KtfxJFXTabPane : JFXTabPane(), TabManager {
 inline fun jfxTabPane(
     init: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXTabPane().apply(init)
 }
 /** Add a [JFXTabPane] to this manager. */
@@ -46,8 +44,6 @@ fun NodeManager.jfxTabPane(): JFXTabPane =
 inline fun NodeManager.jfxTabPane(
     init: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXTabPane(), init)
 }

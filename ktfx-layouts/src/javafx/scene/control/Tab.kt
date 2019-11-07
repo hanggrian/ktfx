@@ -22,9 +22,7 @@ inline fun tab(
     content: Node? = null,
     init: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTab(text, content).apply(init)
 }
 /** Add a [Tab] to this manager. */
@@ -39,8 +37,6 @@ inline fun TabManager.tab(
     content: Node? = null,
     init: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addTab(KtfxTab(text, content), init)
 }

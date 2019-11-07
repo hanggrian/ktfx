@@ -18,9 +18,7 @@ inline fun rating(
     rating: Int = -1,
     init: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Rating(max, rating).apply(init)
 }
 /** Add a [Rating] to this manager. */
@@ -35,8 +33,6 @@ inline fun NodeManager.rating(
     rating: Int = -1,
     init: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Rating(max, rating), init)
 }

@@ -40,9 +40,7 @@ open class KtfxHiddenSidesPane : HiddenSidesPane(), SidesNodeManager {
 inline fun hiddenSidesPane(
     init: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxHiddenSidesPane().apply(init) }
 
 /** Add a [HiddenSidesPane] to this manager. */
@@ -53,7 +51,5 @@ fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
 inline fun NodeManager.hiddenSidesPane(
     init: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxHiddenSidesPane(), init) }

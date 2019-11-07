@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun jfxPasswordField(
     init: (@LayoutDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXPasswordField().apply(init)
 }
 /** Add a [JFXPasswordField] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.jfxPasswordField(): JFXPasswordField =
 inline fun NodeManager.jfxPasswordField(
     init: (@LayoutDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXPasswordField(), init)
 }

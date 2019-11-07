@@ -19,9 +19,7 @@ inline fun jfxSlider(
     value: Double = 50.0,
     init: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXSlider(min, max, value).apply(init)
 }
 /** Add a [JFXSlider] to this manager. */
@@ -38,8 +36,6 @@ inline fun NodeManager.jfxSlider(
     value: Double = 50.0,
     init: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXSlider(min, max, value), init)
 }

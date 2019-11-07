@@ -15,9 +15,7 @@ inline fun canvas(
     height: Double = 0.0,
     init: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Canvas(width, height).apply(init)
 }
 /** Add a [Canvas] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.canvas(
     height: Double = 0.0,
     init: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Canvas(width, height), init)
 }

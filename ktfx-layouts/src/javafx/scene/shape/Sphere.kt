@@ -15,9 +15,7 @@ inline fun sphere(
     division: Int = 64,
     init: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Sphere(radius, division).apply(init)
 }
 /** Add a [Sphere] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.sphere(
     division: Int = 64,
     init: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Sphere(radius, division), init)
 }

@@ -93,9 +93,7 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignCons
 inline fun gridPane(
     init: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxGridPane().apply(init)
 }
 /** Add a [GridPane] to this manager. */
@@ -106,9 +104,7 @@ fun NodeManager.gridPane(): GridPane =
 inline fun NodeManager.gridPane(
     init: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxGridPane(), init)
 }
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */

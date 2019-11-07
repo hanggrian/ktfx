@@ -30,9 +30,7 @@ open class KtfxContextMenu : ContextMenu(), MenuItemManager {
 inline fun contextMenu(
     init: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxContextMenu().apply(init)
 }
 /** Set a [ContextMenu] to this [Control]. */
@@ -43,9 +41,7 @@ fun Control.contextMenu(): ContextMenu =
 inline fun Control.contextMenu(
     init: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(init).also { contextMenu = it }
 }
 
@@ -57,9 +53,7 @@ fun Tab.contextMenu(): ContextMenu =
 inline fun Tab.contextMenu(
     init: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(init).also { contextMenu = it }
 }
 
@@ -71,8 +65,6 @@ fun <S, T> TableColumnBase<S, T>.contextMenu(): ContextMenu =
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
     init: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(init).also { contextMenu = it }
 }

@@ -49,9 +49,7 @@ open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, S
 inline fun borderPane(
     init: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxBorderPane().apply(init)
 }
 /** Add a [BorderPane] to this manager. */
@@ -62,8 +60,6 @@ fun NodeManager.borderPane(): BorderPane =
 inline fun NodeManager.borderPane(
     init: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxBorderPane(), init)
 }

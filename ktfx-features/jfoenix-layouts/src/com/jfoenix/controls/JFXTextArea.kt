@@ -17,9 +17,7 @@ inline fun jfxTextArea(
     text: String? = null,
     init: (@LayoutDslMarker JFXTextArea).() -> Unit
 ): JFXTextArea {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTextArea(text).apply(init)
 }
 /** Add a [JFXTextArea] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.jfxTextArea(
     text: String? = null,
     init: (@LayoutDslMarker JFXTextArea).() -> Unit
 ): JFXTextArea {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTextArea(text), init)
 }

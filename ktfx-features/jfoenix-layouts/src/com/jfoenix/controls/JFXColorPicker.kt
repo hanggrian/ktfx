@@ -18,9 +18,7 @@ inline fun jfxColorPicker(
     color: Color? = null,
     init: (@LayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXColorPicker(color).apply(init)
 }
 /** Add a [JFXColorPicker] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.jfxColorPicker(
     color: Color? = null,
     init: (@LayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXColorPicker(color), init)
 }

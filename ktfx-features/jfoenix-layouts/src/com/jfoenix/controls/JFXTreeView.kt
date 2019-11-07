@@ -18,9 +18,7 @@ inline fun <T> jfxTreeView(
     root: TreeItem<T>? = null,
     init: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeView(root).apply(init)
 }
 /** Add a [JFXTreeView] to this manager. */
@@ -33,8 +31,6 @@ inline fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null,
     init: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTreeView(root), init)
 }

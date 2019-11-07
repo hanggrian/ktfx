@@ -18,9 +18,7 @@ inline fun <T> breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     init: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return BreadCrumbBar(selectedCrumb).apply(init)
 }
 
@@ -34,8 +32,6 @@ inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     init: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(BreadCrumbBar(selectedCrumb), init)
 }

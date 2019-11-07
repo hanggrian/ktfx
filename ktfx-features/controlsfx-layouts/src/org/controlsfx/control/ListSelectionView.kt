@@ -16,9 +16,7 @@ import org.controlsfx.control.ListSelectionView
 inline fun <T> listSelectionView(
     init: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ListSelectionView<T>().apply(init)
 }
 /** Add a [ListSelectionView] to this manager. */
@@ -29,8 +27,6 @@ fun <T> NodeManager.listSelectionView(): ListSelectionView<T> =
 inline fun <T> NodeManager.listSelectionView(
     init: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ListSelectionView(), init)
 }

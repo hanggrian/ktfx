@@ -19,9 +19,7 @@ inline fun infoOverlay(
     text: String? = null,
     init: (@LayoutDslMarker InfoOverlay).() -> Unit
 ): InfoOverlay {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return InfoOverlay(graphic, text).apply(init)
 }
 
@@ -37,8 +35,6 @@ inline fun NodeManager.infoOverlay(
     text: String? = null,
     init: (@LayoutDslMarker InfoOverlay).() -> Unit
 ): InfoOverlay {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(InfoOverlay(graphic, text), init)
 }

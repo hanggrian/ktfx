@@ -16,9 +16,7 @@ inline fun <T> listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ListView(items).apply(init)
 }
 /** Add a [ListView] to this manager. */
@@ -31,8 +29,6 @@ inline fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ListView(items), init)
 }

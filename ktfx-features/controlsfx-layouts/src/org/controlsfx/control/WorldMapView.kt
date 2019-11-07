@@ -16,9 +16,7 @@ import org.controlsfx.control.WorldMapView
 inline fun worldMapView(
     init: (@LayoutDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return WorldMapView().apply(init)
 }
 /** Add a [WorldMapView] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.worldMapView(): WorldMapView =
 inline fun NodeManager.worldMapView(
     init: (@LayoutDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(WorldMapView(), init)
 }

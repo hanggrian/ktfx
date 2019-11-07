@@ -16,9 +16,7 @@ inline fun <T> choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ChoiceBox(items).apply(init)
 }
 /** Add a [ChoiceBox] to this manager. */
@@ -31,8 +29,6 @@ inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ChoiceBox(items), init)
 }

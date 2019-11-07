@@ -33,9 +33,7 @@ open class KtfxJFXToolbar : JFXToolbar() {
 inline fun jfxToolbar(
     init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXToolbar().apply(init)
 }
 /** Add a [JFXToolbar] to this manager. */
@@ -46,8 +44,6 @@ fun NodeManager.jfxToolbar(): JFXToolbar =
 inline fun NodeManager.jfxToolbar(
     init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXToolbar(), init)
 }

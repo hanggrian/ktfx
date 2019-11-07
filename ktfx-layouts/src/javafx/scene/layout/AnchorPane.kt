@@ -65,9 +65,7 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
 inline fun anchorPane(
     init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxAnchorPane().apply(init)
 }
 /** Add an [AnchorPane] to this manager. */
@@ -78,8 +76,6 @@ fun NodeManager.anchorPane(): AnchorPane =
 inline fun NodeManager.anchorPane(
     init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxAnchorPane(), init)
 }

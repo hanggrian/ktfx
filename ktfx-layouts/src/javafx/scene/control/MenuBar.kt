@@ -27,9 +27,7 @@ open class KtfxMenuBar : MenuBar(), MenuManager {
 inline fun menuBar(
     init: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMenuBar().apply(init) }
 
 /** Add a [MenuBar] to this manager. */
@@ -40,8 +38,6 @@ fun NodeManager.menuBar(): MenuBar =
 inline fun NodeManager.menuBar(
     init: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxMenuBar(), init)
 }

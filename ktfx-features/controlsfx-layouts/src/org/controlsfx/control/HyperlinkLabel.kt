@@ -17,9 +17,7 @@ inline fun hyperlinkLabel(
     text: String? = null,
     init: (@LayoutDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return HyperlinkLabel(text).apply(init) }
 
 /** Add a [HyperlinkLabel] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
     init: (@LayoutDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(HyperlinkLabel(text), init)
 }

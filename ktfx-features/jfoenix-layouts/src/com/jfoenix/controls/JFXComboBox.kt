@@ -19,9 +19,7 @@ inline fun <T> jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXComboBox(items).apply(init)
 }
 /** Add a [JFXComboBox] to this manager. */
@@ -34,8 +32,6 @@ inline fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXComboBox(items), init)
 }

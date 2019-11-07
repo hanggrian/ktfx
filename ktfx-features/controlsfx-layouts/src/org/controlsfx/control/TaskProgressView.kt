@@ -17,9 +17,7 @@ import org.controlsfx.control.TaskProgressView
 inline fun <T : Task<*>> taskProgressView(
     init: (@LayoutDslMarker TaskProgressView<T>).() -> Unit
 ): TaskProgressView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TaskProgressView<T>().apply(init)
 }
 /** Add a [TaskProgressView] to this manager. */
@@ -30,8 +28,6 @@ fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> =
 inline fun <T : Task<*>> NodeManager.taskProgressView(
     init: (@LayoutDslMarker TaskProgressView<T>).() -> Unit
 ): TaskProgressView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(TaskProgressView(), init)
 }

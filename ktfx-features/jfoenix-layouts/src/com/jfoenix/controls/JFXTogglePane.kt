@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun jfxTogglePane(
     init: (@LayoutDslMarker JFXTogglePane).() -> Unit
 ): JFXTogglePane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTogglePane().apply(init)
 }
 /** Add a [JFXTogglePane] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.jfxTogglePane(): JFXTogglePane =
 inline fun NodeManager.jfxTogglePane(
     init: (@LayoutDslMarker JFXTogglePane).() -> Unit
 ): JFXTogglePane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTogglePane(), init)
 }

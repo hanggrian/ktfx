@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun <T> jfxChipView(
     init: (@LayoutDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXChipView<T>().apply(init)
 }
 /** Add a [JFXChipView] to this manager. */
@@ -29,8 +27,6 @@ fun <T> NodeManager.jfxChipView(): JFXChipView<T> =
 inline fun <T> NodeManager.jfxChipView(
     init: (@LayoutDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXChipView(), init)
 }

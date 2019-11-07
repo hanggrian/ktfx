@@ -13,9 +13,7 @@ import kotlin.contracts.contract
 inline fun <T> spinner(
     init: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Spinner<T>().apply(init)
 }
 /** Add a [Spinner] to this manager. */
@@ -26,8 +24,6 @@ fun <T> NodeManager.spinner(): Spinner<T> =
 inline fun <T> NodeManager.spinner(
     init: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Spinner(), init)
 }

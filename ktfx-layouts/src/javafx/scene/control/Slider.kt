@@ -16,9 +16,7 @@ inline fun slider(
     value: Double = 0.0,
     init: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Slider(min, max, value).apply(init)
 }
 /** Add a [Slider] to this manager. */
@@ -35,8 +33,6 @@ inline fun NodeManager.slider(
     value: Double = 0.0,
     init: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Slider(min, max, value), init)
 }

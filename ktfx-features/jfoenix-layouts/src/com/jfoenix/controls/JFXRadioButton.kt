@@ -17,9 +17,7 @@ inline fun jfxRadioButton(
     text: String? = null,
     init: (@LayoutDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXRadioButton(text).apply(init)
 }
 /** Add a [JFXRadioButton] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.jfxRadioButton(
     text: String? = null,
     init: (@LayoutDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXRadioButton(text), init)
 }

@@ -27,9 +27,7 @@ open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
 inline fun splitMenuButton(
     init: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSplitMenuButton().apply(init)
 }
 /** Add a [SplitMenuButton] to this manager. */
@@ -40,8 +38,6 @@ fun NodeManager.splitMenuButton(): SplitMenuButton =
 inline fun NodeManager.splitMenuButton(
     init: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxSplitMenuButton(), init)
 }

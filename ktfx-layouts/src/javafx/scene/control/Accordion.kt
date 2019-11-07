@@ -23,9 +23,7 @@ open class KtfxAccordion : Accordion(), TitledPaneManager {
 
 /** Create an [Accordion] with initialization block. */
 inline fun accordion(init: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxAccordion().apply(init)
 }
 
@@ -35,8 +33,6 @@ fun NodeManager.accordion(): Accordion =
 
 /** Add an [Accordion] with initialization block to this manager. */
 inline fun NodeManager.accordion(init: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxAccordion(), init)
 }

@@ -13,9 +13,7 @@ import kotlin.contracts.contract
 inline fun webView(
     init: (@LayoutDslMarker WebView).() -> Unit
 ): WebView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return WebView().apply(init)
 }
 /** Add a [WebView] to this manager. */
@@ -26,8 +24,6 @@ fun NodeManager.webView(): WebView =
 inline fun NodeManager.webView(
     init: (@LayoutDslMarker WebView).() -> Unit
 ): WebView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(WebView(), init)
 }

@@ -23,9 +23,7 @@ open class KtfxJFXBadge : JFXBadge(), NodeManager {
 inline fun jfxBadge(
     init: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXBadge().apply(init)
 }
 /** Add a [JFXBadge] to this manager. */
@@ -36,8 +34,6 @@ fun NodeManager.jfxBadge(): JFXBadge =
 inline fun NodeManager.jfxBadge(
     init: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXBadge(), init)
 }

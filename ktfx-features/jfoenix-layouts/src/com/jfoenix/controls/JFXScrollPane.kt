@@ -65,9 +65,7 @@ open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 inline fun jfxScrollPane(
     init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXScrollPane().apply(init)
 }
 /** Add a [JFXScrollPane] to this manager. */
@@ -78,8 +76,6 @@ fun NodeManager.jfxScrollPane(): JFXScrollPane =
 inline fun NodeManager.jfxScrollPane(
     init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXScrollPane(), init)
 }

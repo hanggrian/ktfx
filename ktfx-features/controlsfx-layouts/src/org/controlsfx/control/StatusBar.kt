@@ -16,9 +16,7 @@ import org.controlsfx.control.StatusBar
 inline fun statusBar(
     init: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return StatusBar().apply(init)
 }
 /** Add a [StatusBar] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.statusBar(): StatusBar =
 inline fun NodeManager.statusBar(
     init: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(StatusBar(), init)
 }

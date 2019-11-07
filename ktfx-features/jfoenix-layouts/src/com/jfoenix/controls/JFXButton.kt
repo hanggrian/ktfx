@@ -19,9 +19,7 @@ inline fun jfxButton(
     graphic: Node? = null,
     init: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXButton(text, graphic).apply(init)
 }
 /** Add a [JFXButton] to this manager. */
@@ -36,8 +34,6 @@ inline fun NodeManager.jfxButton(
     graphic: Node? = null,
     init: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXButton(text, graphic), init)
 }

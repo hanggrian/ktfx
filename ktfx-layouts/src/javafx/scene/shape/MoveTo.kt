@@ -15,9 +15,7 @@ inline fun moveTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker MoveTo).() -> Unit
 ): MoveTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MoveTo(x, y).apply(init)
 }
 /** Add a [MoveTo] to this manager. */
@@ -32,8 +30,6 @@ inline fun PathElementManager.moveTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker MoveTo).() -> Unit
 ): MoveTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(MoveTo(x, y), init)
 }

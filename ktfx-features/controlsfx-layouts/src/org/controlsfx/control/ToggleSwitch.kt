@@ -17,9 +17,7 @@ inline fun toggleSwitch(
     text: String? = null,
     init: (@LayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ToggleSwitch(text).apply(init)
 }
 /** Add a [ToggleSwitch] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.toggleSwitch(
     text: String? = null,
     init: (@LayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ToggleSwitch(text), init)
 }

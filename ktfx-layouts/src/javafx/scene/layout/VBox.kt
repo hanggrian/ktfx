@@ -34,9 +34,7 @@ inline fun vbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxVBox(spacing).apply(init)
 }
 /** Add a [VBox] to this manager. */
@@ -49,8 +47,6 @@ inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     init: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxVBox(spacing), init)
 }

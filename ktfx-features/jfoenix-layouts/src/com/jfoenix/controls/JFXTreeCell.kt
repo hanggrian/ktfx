@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun <T> jfxTreeCell(
     init: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeCell<T>().apply(init)
 }
 /** Add a [JFXTreeCell] to this manager. */
@@ -29,8 +27,6 @@ fun <T> NodeManager.jfxTreeCell(): JFXTreeCell<T> =
 inline fun <T> NodeManager.jfxTreeCell(
     init: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTreeCell(), init)
 }

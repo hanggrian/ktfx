@@ -17,9 +17,7 @@ inline fun pieChart(
     data: ObservableList<Data> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PieChart(data).apply(init)
 }
 /** Add a [PieChart] to this manager. */
@@ -32,8 +30,6 @@ inline fun NodeManager.pieChart(
     data: ObservableList<Data> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PieChart(data), init)
 }

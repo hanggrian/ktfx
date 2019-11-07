@@ -17,9 +17,7 @@ import org.controlsfx.control.SegmentedBar.Segment
 inline fun <T : Segment> segmentedBar(
     init: (@LayoutDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return SegmentedBar<T>().apply(init)
 }
 /** Add a [SegmentedBar] to this manager. */
@@ -30,8 +28,6 @@ fun <T : Segment> NodeManager.segmentedBar(): SegmentedBar<T> =
 inline fun <T : Segment> NodeManager.segmentedBar(
     init: (@LayoutDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(SegmentedBar(), init)
 }

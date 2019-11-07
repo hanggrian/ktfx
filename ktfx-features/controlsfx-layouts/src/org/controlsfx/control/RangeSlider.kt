@@ -20,9 +20,7 @@ inline fun rangeSlider(
     highValue: Double = 0.75,
     init: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return RangeSlider(min, max, lowValue, highValue).apply(init)
 }
 /** Add a [RangeSlider] to this manager. */
@@ -41,8 +39,6 @@ inline fun NodeManager.rangeSlider(
     highValue: Double = 0.75,
     init: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(RangeSlider(min, max, lowValue, highValue), init)
 }

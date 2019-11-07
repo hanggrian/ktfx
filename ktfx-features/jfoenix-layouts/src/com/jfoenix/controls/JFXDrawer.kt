@@ -16,9 +16,7 @@ import ktfx.layouts.addNode
 inline fun jfxDrawer(
     init: (@LayoutDslMarker JFXDrawer).() -> Unit
 ): JFXDrawer {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDrawer().apply(init)
 }
 /** Add a [JFXDrawer] to this manager. */
@@ -29,8 +27,6 @@ fun NodeManager.jfxDrawer(): JFXDrawer =
 inline fun NodeManager.jfxDrawer(
     init: (@LayoutDslMarker JFXDrawer).() -> Unit
 ): JFXDrawer {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXDrawer(), init)
 }

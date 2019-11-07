@@ -17,9 +17,7 @@ inline fun rectangle(
     height: Double = 0.0,
     init: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Rectangle(x, y, width, height).apply(init)
 }
 /** Add a [Rectangle] to this manager. */
@@ -38,8 +36,6 @@ inline fun NodeManager.rectangle(
     height: Double = 0.0,
     init: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Rectangle(x, y, width, height), init)
 }

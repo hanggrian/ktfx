@@ -19,9 +19,7 @@ inline fun <T> jfxChip(
     item: T,
     init: (@LayoutDslMarker JFXChip<T>).() -> Unit
 ): JFXChip<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXChip(view, item).apply(init)
 }
 /** Add a [JFXChip] to this manager. */
@@ -36,8 +34,6 @@ inline fun <T> NodeManager.jfxChip(
     item: T,
     init: (@LayoutDslMarker JFXChip<T>).() -> Unit
 ): JFXChip<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXChip(view, item), init)
 }

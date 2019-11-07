@@ -13,9 +13,7 @@ import kotlin.contracts.contract
 inline fun scrollBar(
     init: (@LayoutDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ScrollBar().apply(init)
 }
 /** Add a [ScrollBar] to this manager. */
@@ -26,8 +24,6 @@ fun NodeManager.scrollBar(): ScrollBar =
 inline fun NodeManager.scrollBar(
     init: (@LayoutDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ScrollBar(), init)
 }

@@ -23,9 +23,7 @@ open class KtfxNotificationPane : NotificationPane(), NodeManager {
 inline fun notificationPane(
     init: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxNotificationPane().apply(init) }
 
 /** Add a [NotificationPane] to this manager. */
@@ -36,8 +34,6 @@ fun NodeManager.notificationPane(): NotificationPane =
 inline fun NodeManager.notificationPane(
     init: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxNotificationPane(), init)
 }

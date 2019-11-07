@@ -18,9 +18,7 @@ inline fun propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     init: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PropertySheet(items).apply(init)
 }
 /** Add a [PropertySheet] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     init: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PropertySheet(items), init)
 }

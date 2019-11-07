@@ -16,9 +16,7 @@ import org.controlsfx.control.PrefixSelectionChoiceBox
 inline fun <T> prefixSelectionChoiceBox(
     init: (@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
 ): PrefixSelectionChoiceBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PrefixSelectionChoiceBox<T>().apply(init)
 }
 /** Add a [PrefixSelectionChoiceBox] to this manager. */
@@ -29,8 +27,6 @@ fun <T> NodeManager.prefixSelectionChoiceBox(): PrefixSelectionChoiceBox<T> =
 inline fun <T> NodeManager.prefixSelectionChoiceBox(
     init: (@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
 ): PrefixSelectionChoiceBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PrefixSelectionChoiceBox(), init)
 }

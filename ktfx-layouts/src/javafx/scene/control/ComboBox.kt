@@ -16,9 +16,7 @@ inline fun <T> comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ComboBox(items).apply(init)
 }
 /** Add a [ComboBox] to this manager. */
@@ -31,8 +29,6 @@ inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     init: (@LayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ComboBox(items), init)
 }

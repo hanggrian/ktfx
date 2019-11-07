@@ -16,9 +16,7 @@ inline fun customMenuItem(
     hideOnClick: Boolean = true,
     init: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CustomMenuItem(node, hideOnClick).apply(init)
 }
 /** Add a [CustomMenuItem] to this manager. */
@@ -33,8 +31,6 @@ inline fun MenuItemManager.customMenuItem(
     hideOnClick: Boolean = true,
     init: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addItem(CustomMenuItem(node, hideOnClick), init)
 }

@@ -15,9 +15,7 @@ inline fun meshView(
     mesh: Mesh? = null,
     init: (@LayoutDslMarker MeshView).() -> Unit
 ): MeshView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MeshView(mesh).apply(init)
 }
 /** Add a [MeshView] to this manager. */
@@ -30,8 +28,6 @@ inline fun NodeManager.meshView(
     mesh: Mesh? = null,
     init: (@LayoutDslMarker MeshView).() -> Unit
 ): MeshView {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(MeshView(mesh), init)
 }

@@ -20,9 +20,7 @@ open class KtfxPane : Pane(), NodeManager {
 inline fun pane(
     init: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxPane().apply(init)
 }
 /** Add a [Pane] to this manager. */
@@ -33,8 +31,6 @@ fun NodeManager.pane(): Pane =
 inline fun NodeManager.pane(
     init: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxPane(), init)
 }

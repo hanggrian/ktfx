@@ -15,9 +15,7 @@ inline fun datePicker(
     date: LocalDate? = null,
     init: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return DatePicker(date).apply(init)
 }
 /** Add a [DatePicker] to this manager. */
@@ -30,8 +28,6 @@ inline fun NodeManager.datePicker(
     date: LocalDate? = null,
     init: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(DatePicker(date), init)
 }

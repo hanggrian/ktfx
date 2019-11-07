@@ -13,9 +13,7 @@ import kotlin.contracts.contract
 inline fun separatorMenuItem(
     init: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return SeparatorMenuItem().apply(init)
 }
 /** Add a [SeparatorMenuItem] to this manager. */
@@ -26,8 +24,6 @@ fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem =
 inline fun MenuItemManager.separatorMenuItem(
     init: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addItem(SeparatorMenuItem(), init)
 }

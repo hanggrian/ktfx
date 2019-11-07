@@ -14,9 +14,7 @@ inline fun textArea(
     text: String = "",
     init: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TextArea(text).apply(init)
 }
 /** Add a [TextArea] to this manager. */
@@ -29,8 +27,6 @@ inline fun NodeManager.textArea(
     text: String = "",
     init: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(TextArea(text), init)
 }

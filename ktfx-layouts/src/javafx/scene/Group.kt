@@ -20,9 +20,7 @@ open class KtfxGroup : Group(), NodeManager {
 inline fun group(
     init: (@LayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxGroup().apply(init)
 }
 /** Add a [Group] to this manager. */
@@ -33,8 +31,6 @@ fun NodeManager.group(): Group =
 inline fun NodeManager.group(
     init: (@LayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxGroup(), init)
 }

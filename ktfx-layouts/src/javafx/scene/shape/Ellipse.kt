@@ -17,9 +17,7 @@ inline fun ellipse(
     radiusY: Double = 0.0,
     init: (@LayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Ellipse(centerX, centerY, radiusX, radiusY).apply(init)
 }
 /** Add an [Ellipse] to this manager. */
@@ -38,8 +36,6 @@ inline fun NodeManager.ellipse(
     radiusY: Double = 0.0,
     init: (@LayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Ellipse(centerX, centerY, radiusX, radiusY), init)
 }

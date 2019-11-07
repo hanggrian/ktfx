@@ -14,9 +14,7 @@ inline fun hlineTo(
     x: Double = 0.0,
     init: (@LayoutDslMarker HLineTo).() -> Unit
 ): HLineTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return HLineTo(x).apply(init)
 }
 /** Add a [HLineTo] to this manager. */
@@ -29,8 +27,6 @@ inline fun PathElementManager.hlineTo(
     x: Double = 0.0,
     init: (@LayoutDslMarker HLineTo).() -> Unit
 ): HLineTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(HLineTo(x), init)
 }

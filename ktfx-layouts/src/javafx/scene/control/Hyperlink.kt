@@ -16,9 +16,7 @@ inline fun hyperlink(
     graphic: Node? = null,
     init: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Hyperlink(text, graphic).apply(init)
 }
 /** Add a [Hyperlink] to this manager. */
@@ -33,8 +31,6 @@ inline fun NodeManager.hyperlink(
     graphic: Node? = null,
     init: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Hyperlink(text, graphic), init)
 }

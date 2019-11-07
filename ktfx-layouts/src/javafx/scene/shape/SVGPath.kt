@@ -13,9 +13,7 @@ import kotlin.contracts.contract
 inline fun svgPath(
     init: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return SVGPath().apply(init)
 }
 /** Add a [SVGPath] to this manager. */
@@ -26,8 +24,6 @@ fun NodeManager.svgPath(): SVGPath =
 inline fun NodeManager.svgPath(
     init: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(SVGPath(), init)
 }

@@ -17,9 +17,7 @@ inline fun quadCurveTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker QuadCurveTo).() -> Unit
 ): QuadCurveTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return QuadCurveTo(controlX, controlY, x, y).apply(init)
 }
 /** Add a [QuadCurveTo] to this manager. */
@@ -38,8 +36,6 @@ inline fun PathElementManager.quadCurveTo(
     y: Double = 0.0,
     init: (@LayoutDslMarker QuadCurveTo).() -> Unit
 ): QuadCurveTo {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(QuadCurveTo(controlX, controlY, x, y), init)
 }

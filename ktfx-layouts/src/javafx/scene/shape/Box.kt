@@ -17,9 +17,7 @@ inline fun box(
     depth: Double = DEFAULT_SIZE,
     init: (@LayoutDslMarker Box).() -> Unit
 ): Box {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Box(width, height, depth).apply(init)
 }
 /** Add a [Box] to this manager. */
@@ -36,8 +34,6 @@ inline fun NodeManager.box(
     depth: Double = DEFAULT_SIZE,
     init: (@LayoutDslMarker Box).() -> Unit
 ): Box {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Box(width, height, depth), init)
 }

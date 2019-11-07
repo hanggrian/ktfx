@@ -14,9 +14,7 @@ inline fun textField(
     text: String = "",
     init: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TextField(text).apply(init)
 }
 /** Add a [TextField] to this manager. */
@@ -29,8 +27,6 @@ inline fun NodeManager.textField(
     text: String = "",
     init: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
-    contract {
-        callsInPlace(init, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(TextField(text), init)
 }

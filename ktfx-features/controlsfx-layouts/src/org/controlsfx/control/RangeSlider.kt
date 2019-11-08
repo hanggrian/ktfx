@@ -7,7 +7,6 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.RangeSlider
@@ -18,7 +17,7 @@ inline fun rangeSlider(
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
-    init: (@LayoutDslMarker RangeSlider).() -> Unit
+    init: RangeSlider.() -> Unit
 ): RangeSlider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return RangeSlider(min, max, lowValue, highValue).apply(init)
@@ -37,7 +36,7 @@ inline fun NodeManager.rangeSlider(
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
-    init: (@LayoutDslMarker RangeSlider).() -> Unit
+    init: RangeSlider.() -> Unit
 ): RangeSlider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(RangeSlider(min, max, lowValue, highValue), init)

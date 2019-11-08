@@ -11,7 +11,7 @@ import kotlin.contracts.contract
 
 /** Create a [WebView] with initialization block. */
 inline fun webView(
-    init: (@LayoutDslMarker WebView).() -> Unit
+    init: WebView.() -> Unit
 ): WebView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return WebView().apply(init)
@@ -22,7 +22,7 @@ fun NodeManager.webView(): WebView =
 
 /** Add a [WebView] with initialization block to this manager. */
 inline fun NodeManager.webView(
-    init: (@LayoutDslMarker WebView).() -> Unit
+    init: WebView.() -> Unit
 ): WebView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(WebView(), init)

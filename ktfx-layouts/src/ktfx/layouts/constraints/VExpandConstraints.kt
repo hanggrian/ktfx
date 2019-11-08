@@ -11,10 +11,7 @@ import javafx.scene.layout.Priority
  * @see KtfxVBox
  * @see KtfxGridPane
  */
-interface VGrowConstraints : Constraints {
+interface VExpandConstraints : Constraints {
 
-    infix fun <N : Node> N.vpriority(vpriority: Priority?): N =
-        also { it.vpriority = vpriority }
-
-    var Node.vpriority: Priority?
+    var Node.vexpand: Priority?
 }

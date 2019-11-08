@@ -4,6 +4,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.columnConstraints
 import ktfx.layouts.gridPane
+import ktfx.layouts.label
 import ktfx.layouts.rowConstraints
 import ktfx.testing.LayoutToolkitTest
 import kotlin.test.assertEquals
@@ -20,6 +21,9 @@ class GridPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
             }
             columnConstraints {
                 constraints(72.0)
+            }
+            label {
+                rowRange = 1
             }
             assertTrue(rowConstraints.first().isFillHeight)
             assertEquals(72.0, columnConstraints.first().prefWidth)

@@ -8,13 +8,12 @@ import com.jfoenix.controls.JFXTogglePane
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXTogglePane] with initialization block. */
 inline fun jfxTogglePane(
-    init: (@LayoutDslMarker JFXTogglePane).() -> Unit
+    init: JFXTogglePane.() -> Unit
 ): JFXTogglePane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTogglePane().apply(init)
@@ -25,7 +24,7 @@ fun NodeManager.jfxTogglePane(): JFXTogglePane =
 
 /** Add a [JFXTogglePane] with initialization block to this manager. */
 inline fun NodeManager.jfxTogglePane(
-    init: (@LayoutDslMarker JFXTogglePane).() -> Unit
+    init: JFXTogglePane.() -> Unit
 ): JFXTogglePane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTogglePane(), init)

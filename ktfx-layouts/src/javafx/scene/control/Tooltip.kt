@@ -15,7 +15,7 @@ import kotlin.contracts.contract
 /** Create a [Tooltip] with initialization block. */
 inline fun tooltip(
     text: String? = null,
-    init: (@LayoutDslMarker Tooltip).() -> Unit
+    init: Tooltip.() -> Unit
 ): Tooltip {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Tooltip(text).apply(init) }
@@ -28,7 +28,7 @@ fun Node.tooltip(
 /** Set a [Tooltip] with initialization block to this [Node]. */
 inline fun Node.tooltip(
     text: String? = null,
-    init: (@LayoutDslMarker Tooltip).() -> Unit
+    init: Tooltip.() -> Unit
 ): Tooltip {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, init).also { Tooltip.install(this, it) } }
@@ -41,7 +41,7 @@ fun Control.tooltip(
 /** Set a [Tooltip] with initialization block to this [Control]. */
 inline fun Control.tooltip(
     text: String? = null,
-    init: (@LayoutDslMarker Tooltip).() -> Unit
+    init: Tooltip.() -> Unit
 ): Tooltip {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, init).also { tooltip = it } }
@@ -54,7 +54,7 @@ fun Tab.tooltip(
 /** Set a [Tooltip] with initialization block to this [Tab]. */
 inline fun Tab.tooltip(
     text: String? = null,
-    init: (@LayoutDslMarker Tooltip).() -> Unit
+    init: Tooltip.() -> Unit
 ): Tooltip {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, init).also { tooltip = it }

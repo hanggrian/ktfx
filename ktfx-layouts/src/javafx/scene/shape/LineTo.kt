@@ -13,7 +13,7 @@ import kotlin.contracts.contract
 inline fun lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@LayoutDslMarker LineTo).() -> Unit
+    init: LineTo.() -> Unit
 ): LineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return LineTo(x, y).apply(init)
@@ -28,7 +28,7 @@ fun PathElementManager.lineTo(
 inline fun PathElementManager.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@LayoutDslMarker LineTo).() -> Unit
+    init: LineTo.() -> Unit
 ): LineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(LineTo(x, y), init)

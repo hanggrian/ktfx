@@ -13,7 +13,7 @@ import kotlin.contracts.contract
 /** Create a [DatePicker] with initialization block. */
 inline fun datePicker(
     date: LocalDate? = null,
-    init: (@LayoutDslMarker DatePicker).() -> Unit
+    init: DatePicker.() -> Unit
 ): DatePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return DatePicker(date).apply(init)
@@ -26,7 +26,7 @@ fun NodeManager.datePicker(
 /** Add a [DatePicker] with initialization block to this manager. */
 inline fun NodeManager.datePicker(
     date: LocalDate? = null,
-    init: (@LayoutDslMarker DatePicker).() -> Unit
+    init: DatePicker.() -> Unit
 ): DatePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(DatePicker(date), init)

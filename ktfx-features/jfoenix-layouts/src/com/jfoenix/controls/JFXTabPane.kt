@@ -11,7 +11,6 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.KtfxTab
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.TabManager
 import ktfx.layouts.addNode
@@ -25,13 +24,13 @@ open class KtfxJFXTabPane : JFXTabPane(), TabManager {
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutDslMarker KtfxTab).() -> Unit
+        init: KtfxTab.() -> Unit
     ): Tab = tab(this, graphic, init)
 }
 
 /** Create a [JFXTabPane] with initialization block. */
 inline fun jfxTabPane(
-    init: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
+    init: KtfxJFXTabPane.() -> Unit
 ): JFXTabPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXTabPane().apply(init)
@@ -42,7 +41,7 @@ fun NodeManager.jfxTabPane(): JFXTabPane =
 
 /** Add a [JFXTabPane] with initialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
-    init: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
+    init: KtfxJFXTabPane.() -> Unit
 ): JFXTabPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXTabPane(), init)

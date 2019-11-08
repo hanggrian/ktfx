@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 /** Create a [ComboBox] with initialization block. */
 inline fun <T> comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker ComboBox<T>).() -> Unit
+    init: ComboBox<T>.() -> Unit
 ): ComboBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ComboBox(items).apply(init)
@@ -27,7 +27,7 @@ fun <T> NodeManager.comboBox(
 /** Add a [ComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker ComboBox<T>).() -> Unit
+    init: ComboBox<T>.() -> Unit
 ): ComboBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ComboBox(items), init)

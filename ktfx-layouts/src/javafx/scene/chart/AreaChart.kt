@@ -18,7 +18,7 @@ inline fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    init: AreaChart<X, Y>.() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return AreaChart(x, y, data).apply(init)
@@ -35,7 +35,7 @@ inline fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    init: AreaChart<X, Y>.() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(AreaChart(x, y, data), init)

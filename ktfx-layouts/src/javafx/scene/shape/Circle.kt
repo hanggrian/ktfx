@@ -16,7 +16,7 @@ inline fun circle(
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null,
-    init: (@LayoutDslMarker Circle).() -> Unit
+    init: Circle.() -> Unit
 ): Circle {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Circle(centerX, centerY, radius, fill).apply(init)
@@ -35,7 +35,7 @@ inline fun NodeManager.circle(
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null,
-    init: (@LayoutDslMarker Circle).() -> Unit
+    init: Circle.() -> Unit
 ): Circle {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Circle(centerX, centerY, radius, fill), init)

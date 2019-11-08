@@ -31,7 +31,7 @@ open class KtfxStackPane : StackPane(), NodeManager, AlignConstraints, MarginCon
 
 /** Create a [StackPane] with initialization block. */
 inline fun stackPane(
-    init: (@LayoutDslMarker KtfxStackPane).() -> Unit
+    init: KtfxStackPane.() -> Unit
 ): StackPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxStackPane().apply(init)
@@ -42,7 +42,7 @@ fun NodeManager.stackPane(): StackPane =
 
 /** Add a [StackPane] with initialization block to this manager. */
 inline fun NodeManager.stackPane(
-    init: (@LayoutDslMarker KtfxStackPane).() -> Unit
+    init: KtfxStackPane.() -> Unit
 ): StackPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxStackPane(), init)

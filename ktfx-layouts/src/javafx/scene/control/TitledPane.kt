@@ -19,7 +19,7 @@ open class KtfxTitledPane(title: String?) : TitledPane(title, null), NodeManager
 /** Create a [TitledPane] with initialization block. */
 inline fun titledPane(
     title: String? = null,
-    init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
+    init: KtfxTitledPane.() -> Unit
 ): TitledPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTitledPane(title).apply(init)
@@ -32,7 +32,7 @@ fun NodeManager.titledPane(
 /** Add a [TitledPane] with initialization block to this manager. */
 inline fun NodeManager.titledPane(
     title: String? = null,
-    init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
+    init: KtfxTitledPane.() -> Unit
 ): TitledPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxTitledPane(title), init)
@@ -45,7 +45,7 @@ fun TitledPaneManager.titledPane(
 /** Add a [TitledPane] with initialization block to this manager. */
 inline fun TitledPaneManager.titledPane(
     title: String? = null,
-    init: (@LayoutDslMarker KtfxTitledPane).() -> Unit
+    init: KtfxTitledPane.() -> Unit
 ): TitledPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addPane(KtfxTitledPane(title), init)

@@ -10,8 +10,5 @@ import javafx.scene.Node
  */
 interface VAlignConstraints : Constraints {
 
-    infix fun <N : Node> N.valign(vpos: VPos?): N =
-        also { it.valign = vpos }
-
     var Node.valign: VPos?
 }

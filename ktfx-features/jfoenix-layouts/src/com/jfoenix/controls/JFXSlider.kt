@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXSlider
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -17,7 +16,7 @@ inline fun jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
-    init: (@LayoutDslMarker JFXSlider).() -> Unit
+    init: JFXSlider.() -> Unit
 ): JFXSlider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXSlider(min, max, value).apply(init)
@@ -34,7 +33,7 @@ inline fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
-    init: (@LayoutDslMarker JFXSlider).() -> Unit
+    init: JFXSlider.() -> Unit
 ): JFXSlider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXSlider(min, max, value), init)

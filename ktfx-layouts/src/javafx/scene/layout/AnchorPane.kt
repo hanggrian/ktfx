@@ -20,21 +20,6 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
     final override fun Node.reset(): Unit =
         clearConstraints(this)
 
-    infix fun <T : Node> T.anchorAll(anchorAll: Double?): T =
-        also { it.anchorAll = anchorAll }
-
-    infix fun <T : Node> T.anchorTop(anchorTop: Double?): T =
-        also { it.anchorTop = anchorTop }
-
-    infix fun <T : Node> T.anchorLeft(anchorLeft: Double?): T =
-        also { it.anchorLeft = anchorLeft }
-
-    infix fun <T : Node> T.anchorBottom(anchorBottom: Double?): T =
-        also { it.anchorBottom = anchorBottom }
-
-    infix fun <T : Node> T.anchorRight(anchorRight: Double?): T =
-        also { it.anchorRight = anchorRight }
-
     var Node.anchorAll: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
@@ -63,7 +48,7 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
 
 /** Create an [AnchorPane] with initialization block. */
 inline fun anchorPane(
-    init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
+    init: KtfxAnchorPane.() -> Unit
 ): AnchorPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxAnchorPane().apply(init)
@@ -74,7 +59,7 @@ fun NodeManager.anchorPane(): AnchorPane =
 
 /** Add an [AnchorPane] with initialization block to this manager. */
 inline fun NodeManager.anchorPane(
-    init: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
+    init: KtfxAnchorPane.() -> Unit
 ): AnchorPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxAnchorPane(), init)

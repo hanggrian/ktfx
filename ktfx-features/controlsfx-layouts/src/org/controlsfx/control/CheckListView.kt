@@ -9,7 +9,6 @@ import javafx.collections.ObservableList
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.CheckListView
@@ -17,7 +16,7 @@ import org.controlsfx.control.CheckListView
 /** Create a [CheckListView] with initialization block. */
 inline fun <T> checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker CheckListView<T>).() -> Unit
+    init: CheckListView<T>.() -> Unit
 ): CheckListView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckListView(items).apply(init)
@@ -31,7 +30,7 @@ fun <T> NodeManager.checkListView(
 /** Add a [CheckListView] with initialization block to this manager. */
 inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker CheckListView<T>).() -> Unit
+    init: CheckListView<T>.() -> Unit
 ): CheckListView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(CheckListView(items), init)

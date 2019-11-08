@@ -12,7 +12,7 @@ import kotlin.contracts.contract
 /** Create a [VLineTo] with initialization block. */
 inline fun vlineTo(
     y: Double = 0.0,
-    init: (@LayoutDslMarker VLineTo).() -> Unit
+    init: VLineTo.() -> Unit
 ): VLineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return VLineTo(y).apply(init)
@@ -25,7 +25,7 @@ fun PathElementManager.vlineTo(
 /** Add a [VLineTo] with initialization block to this manager. */
 inline fun PathElementManager.vlineTo(
     y: Double = 0.0,
-    init: (@LayoutDslMarker VLineTo).() -> Unit
+    init: VLineTo.() -> Unit
 ): VLineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(VLineTo(y), init)

@@ -29,7 +29,7 @@ interface MenuItemManager {
 }
 
 /** Alias of [MenuItemManager.addItem] with [init] builder. */
-inline fun <T : MenuItem> MenuItemManager.addItem(item: T, init: (@LayoutDslMarker T).() -> Unit): T {
+inline fun <T : MenuItem> MenuItemManager.addItem(item: T, init: T.() -> Unit): T {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     item.init()
     return addItem(item)

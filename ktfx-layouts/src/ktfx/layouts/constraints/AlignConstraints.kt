@@ -12,8 +12,5 @@ import javafx.scene.Node
  */
 interface AlignConstraints : Constraints {
 
-    infix fun <N : Node> N.align(pos: Pos?): N =
-        also { it.align = pos }
-
     var Node.align: Pos?
 }

@@ -18,7 +18,7 @@ inline fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+    init: StackedBarChart<X, Y>.() -> Unit
 ): StackedBarChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return StackedBarChart(x, y, data).apply(init)
@@ -35,7 +35,7 @@ inline fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+    init: StackedBarChart<X, Y>.() -> Unit
 ): StackedBarChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(StackedBarChart(x, y, data), init)

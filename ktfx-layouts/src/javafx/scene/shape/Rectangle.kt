@@ -15,7 +15,7 @@ inline fun rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutDslMarker Rectangle).() -> Unit
+    init: Rectangle.() -> Unit
 ): Rectangle {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Rectangle(x, y, width, height).apply(init)
@@ -34,7 +34,7 @@ inline fun NodeManager.rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutDslMarker Rectangle).() -> Unit
+    init: Rectangle.() -> Unit
 ): Rectangle {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Rectangle(x, y, width, height), init)

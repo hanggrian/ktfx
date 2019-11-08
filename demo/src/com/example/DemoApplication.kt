@@ -5,8 +5,8 @@ import javafx.scene.control.Label
 import javafx.stage.Stage
 import ktfx.bindings.buildBooleanBinding
 import ktfx.bindings.buildStringBinding
-import ktfx.controls.minSize
-import ktfx.controls.updatePadding
+import ktfx.layouts.minSize
+import ktfx.layouts.updatePadding
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
 import ktfx.dialogs.infoAlert
@@ -32,6 +32,10 @@ class DemoApplication : Application() {
         stage.scene {
             gridPane {
                 vbox {
+                    setIndex(0, 0)
+                    colRange = 5
+                    hfill = true
+
                     updatePadding(right = 20.0, left = 20.0)
                     calculationLabel = label("")
 
@@ -66,123 +70,143 @@ class DemoApplication : Application() {
                             }
                         })
                     }
-                } row 0 col 0 colSpans 5 hfill true
+                }
 
                 button("1") {
+                    setIndex(1, 0)
                     minSize = 40.0
                     onAction {
                         appendText("1")
                     }
-                } row 1 col 0
+                }
                 button("2") {
+                    setIndex(1, 1)
                     minSize = 40.0
                     onAction {
                         appendText("2")
                     }
-                } row 1 col 1
+                }
                 button("3") {
+                    setIndex(1, 2)
                     minSize = 40.0
                     onAction {
                         appendText("3")
                     }
-                } row 1 col 2
+                }
 
                 button("4") {
+                    setIndex(2, 0)
                     minSize = 40.0
                     onAction {
                         appendText("4")
                     }
-                } row 2 col 0
+                }
                 button("5") {
+                    setIndex(2, 1)
                     minSize = 40.0
                     onAction {
                         appendText("5")
                     }
-                } row 2 col 1
+                }
                 button("6") {
+                    setIndex(2, 2)
                     minSize = 40.0
                     onAction {
                         appendText("6")
                     }
-                } row 2 col 2
+                }
 
                 button("7") {
+                    setIndex(3, 0)
                     minSize = 40.0
                     onAction {
                         appendText("7")
                     }
-                } row 3 col 0
+                }
                 button("8") {
+                    setIndex(3, 1)
                     minSize = 40.0
                     onAction {
                         appendText("8")
                     }
-                } row 3 col 1
+                }
                 button("9") {
+                    setIndex(3, 2)
                     minSize = 40.0
                     onAction {
                         appendText("9")
                     }
-                } row 3 col 2
+                }
 
                 button("0") {
+                    setIndex(4, 0)
                     minSize = 40.0
                     onAction {
                         appendText("0")
                     }
-                } row 4 col 0
+                }
                 button("00") {
+                    setIndex(4, 1)
                     minSize = 40.0
                     onAction {
                         appendText("00")
                     }
-                } row 4 col 1
+                }
                 button("") {
+                    setIndex(4, 2)
                     minSize = 40.0
                     onAction {
                         errorAlert(":(", content = "Not yet supported.")
                     }
-                } row 4 col 2
+                }
 
                 button("C") {
+                    setIndex(1, 3)
+                    colRange = 2
                     setMinSize(80.0, 40.0)
                     isCancelButton = true
                     onAction {
                         calculationLabel.text = ""
                     }
-                } row 1 col 3 colSpans 2
+                }
                 button("*") {
+                    setIndex(2, 3)
                     minSize = 40.0
                     onAction {
                         appendText("*")
                     }
-                } row 2 col 3
+                }
                 button("/") {
+                    setIndex(2, 4)
                     minSize = 40.0
                     onAction {
                         appendText("/")
                     }
-                } row 2 col 4
+                }
                 button("+") {
+                    setIndex(3, 3)
+                    rowRange = 2
                     setMinSize(40.0, 80.0)
                     onAction {
                         appendText("+")
                     }
-                } row 3 col 3 rowSpans 2
+                }
                 button("-") {
+                    setIndex(3, 4)
                     minSize = 40.0
                     onAction {
                         appendText("-")
                     }
-                } row 3 col 4
+                }
                 button("=") {
+                    setIndex(4, 4)
                     minSize = 40.0
                     isDefaultButton = true
                     disableProperty().bind(buildBooleanBinding(calculationLabel.textProperty()) { endsWithOperator })
                     onAction {
                         infoAlert("Result", content = resultLabel.text)
                     }
-                } row 4 col 4
+                }
             }
         }
         stage.isResizable = false

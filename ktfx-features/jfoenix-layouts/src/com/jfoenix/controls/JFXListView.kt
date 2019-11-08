@@ -8,13 +8,12 @@ import com.jfoenix.controls.JFXListView
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXListView] with initialization. */
 inline fun <T> jfxListView(
-    init: (@LayoutDslMarker JFXListView<T>).() -> Unit
+    init: JFXListView<T>.() -> Unit
 ): JFXListView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXListView<T>().apply(init)
@@ -25,7 +24,7 @@ fun <T> NodeManager.jfxListView(): JFXListView<T> =
 
 /** Add a [JFXListView] with initialization to this manager. */
 inline fun <T> NodeManager.jfxListView(
-    init: (@LayoutDslMarker JFXListView<T>).() -> Unit
+    init: JFXListView<T>.() -> Unit
 ): JFXListView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXListView(), init)

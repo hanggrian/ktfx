@@ -20,7 +20,7 @@ open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeMa
 inline fun tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutDslMarker KtfxTab).() -> Unit
+    init: KtfxTab.() -> Unit
 ): Tab {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTab(text, content).apply(init)
@@ -35,7 +35,7 @@ fun TabManager.tab(
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutDslMarker KtfxTab).() -> Unit
+    init: KtfxTab.() -> Unit
 ): Tab {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addTab(KtfxTab(text, content), init)

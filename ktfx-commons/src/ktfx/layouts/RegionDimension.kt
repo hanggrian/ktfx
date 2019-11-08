@@ -2,7 +2,7 @@
 @file:JvmName("RegionKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
-package ktfx.controls
+package ktfx.layouts
 
 import javafx.geometry.Insets
 import javafx.scene.layout.Region

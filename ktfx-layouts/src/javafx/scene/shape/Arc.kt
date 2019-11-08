@@ -17,7 +17,7 @@ inline fun arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-    init: (@LayoutDslMarker Arc).() -> Unit
+    init: Arc.() -> Unit
 ): Arc {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply(init)
@@ -40,7 +40,7 @@ inline fun NodeManager.arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-    init: (@LayoutDslMarker Arc).() -> Unit
+    init: Arc.() -> Unit
 ): Arc {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), init)

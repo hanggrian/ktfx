@@ -18,7 +18,7 @@ inline fun arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
-    init: (@LayoutDslMarker ArcTo).() -> Unit
+    init: ArcTo.() -> Unit
 ): ArcTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag).apply(init)
@@ -43,7 +43,7 @@ inline fun PathElementManager.arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
-    init: (@LayoutDslMarker ArcTo).() -> Unit
+    init: ArcTo.() -> Unit
 ): ArcTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag), init)

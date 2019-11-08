@@ -1,4 +1,4 @@
-package ktfx.controls
+package ktfx.layouts
 
 import javafx.scene.Scene
 import javafx.scene.layout.Region
@@ -8,6 +8,7 @@ import ktfx.testing.AppTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
+import kotlin.test.assertTrue
 
 class RegionTest : AppTest() {
     private lateinit var region: Region
@@ -45,18 +46,15 @@ class RegionTest : AppTest() {
     @Test
     fun background() {
         assertNull(region.background)
-        region.updateBackground(Color.RED)
+        region.backgroundFill(Color.RED)
         assertEquals(Color.RED, region.background.fills.first().fill)
-        region.updateBackground()
-        assertEquals(Color.TRANSPARENT, region.background.fills.first().fill)
     }
 
     @Test
     fun border() {
-        assertNull(region.background)
-        region.updateBackground(Color.RED)
-        assertEquals(Color.RED, region.background.fills.first().fill)
-        region.updateBackground()
-        assertEquals(Color.TRANSPARENT, region.background.fills.first().fill)
+        assertNull(region.border)
+        region.borderStroke(Color.RED)
+        assertEquals(Color.RED, region.border.strokes.first().topStroke)
+        assertTrue(region.border.strokes.first().isStrokeUniform)
     }
 }

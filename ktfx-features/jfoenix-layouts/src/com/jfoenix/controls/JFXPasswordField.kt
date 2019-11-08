@@ -8,13 +8,12 @@ import com.jfoenix.controls.JFXPasswordField
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXPasswordField] with initialization block. */
 inline fun jfxPasswordField(
-    init: (@LayoutDslMarker JFXPasswordField).() -> Unit
+    init: JFXPasswordField.() -> Unit
 ): JFXPasswordField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXPasswordField().apply(init)
@@ -25,7 +24,7 @@ fun NodeManager.jfxPasswordField(): JFXPasswordField =
 
 /** Add a [JFXPasswordField] with initialization block to this manager. */
 inline fun NodeManager.jfxPasswordField(
-    init: (@LayoutDslMarker JFXPasswordField).() -> Unit
+    init: JFXPasswordField.() -> Unit
 ): JFXPasswordField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXPasswordField(), init)

@@ -17,24 +17,6 @@ import ktfx.internal.KtfxInternals
  */
 interface MarginConstraints : Constraints {
 
-    infix fun <N : Node> N.margins(margins: Insets?): N =
-        also { it.margins = margins }
-
-    infix fun <N : Node> N.marginAll(marginAll: Double?): N =
-        also { it.marginAll = marginAll }
-
-    infix fun <N : Node> N.marginTop(marginTop: Double?): N =
-        also { it.marginTop = marginTop }
-
-    infix fun <N : Node> N.marginRight(marginRight: Double?): N =
-        also { it.marginRight = marginRight }
-
-    infix fun <N : Node> N.marginBottom(marginBottom: Double?): N =
-        also { it.marginBottom = marginBottom }
-
-    infix fun <N : Node> N.marginLeft(marginLeft: Double?): N =
-        also { it.marginLeft = marginLeft }
-
     /** Alias for reserved variable `margin`. */
     var Node.margins: Insets?
 

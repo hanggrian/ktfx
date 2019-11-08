@@ -10,39 +10,37 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.HBoxConstraints
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 open class KtfxJFXToolbar : JFXToolbar() {
 
-    fun leftItems(init: (@LayoutDslMarker HBoxConstraints).() -> Unit) {
-        object : HBoxConstraints {
-            override fun <T : Node> addNode(node: T): T = node.also { leftItems += it }
-        }.apply(init)
-    }
+    fun leftItems(init: HBoxConstraints.() -> Unit): Unit =
+        HBoxConstraintsImpl(leftItems).init()
 
-    fun rightItems(init: (@LayoutDslMarker HBoxConstraints).() -> Unit) {
-        object : HBoxConstraints {
-            override fun <T : Node> addNode(node: T): T = node.also { rightItems += it }
-        }.apply(init)
+    fun rightItems(init: HBoxConstraints.() -> Unit): Unit =
+        HBoxConstraintsImpl(rightItems).init()
+
+    private class HBoxConstraintsImpl(list: MutableList<Node>) : HBoxConstraints, MutableList<Node> by list {
+        override fun <T : Node> addNode(node: T): T = node.also { this += it }
     }
 }
 
 /** Create a [JFXToolbar] with initialization block. */
 inline fun jfxToolbar(
-    init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
+    init: KtfxJFXToolbar.() -> Unit
 ): JFXToolbar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXToolbar().apply(init)
 }
+
 /** Add a [JFXToolbar] to this manager. */
 fun NodeManager.jfxToolbar(): JFXToolbar =
     addNode(KtfxJFXToolbar())
 
 /** Add a [JFXToolbar] with initialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
-    init: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
+    init: KtfxJFXToolbar.() -> Unit
 ): JFXToolbar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXToolbar(), init)

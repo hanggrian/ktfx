@@ -15,7 +15,7 @@ inline fun line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: (@LayoutDslMarker Line).() -> Unit
+    init: Line.() -> Unit
 ): Line {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Line(centerX, centerY, endX, endY).apply(init)
@@ -34,7 +34,7 @@ inline fun NodeManager.line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: (@LayoutDslMarker Line).() -> Unit
+    init: Line.() -> Unit
 ): Line {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Line(centerX, centerY, endX, endY), init)

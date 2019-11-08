@@ -11,10 +11,7 @@ import javafx.scene.layout.Priority
  * @see KtfxHBox
  * @see KtfxGridPane
  */
-interface HGrowConstraints : Constraints {
+interface HExpandConstraints : Constraints {
 
-    infix fun <N : Node> N.hpriority(hpriority: Priority?): N =
-        also { it.hpriority = hpriority }
-
-    var Node.hpriority: Priority?
+    var Node.hexpand: Priority?
 }

@@ -1,11 +1,13 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
 @file:UseExperimental(ExperimentalContracts::class)
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
 
 import javafx.geometry.HPos
 import javafx.geometry.Insets
+import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.ColumnConstraints
@@ -16,9 +18,11 @@ import javafx.scene.layout.RowConstraints
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.internal.KtfxInternals
 
-open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignConstraints, VAlignConstraints,
-    HGrowConstraints, VGrowConstraints {
+open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints,
+    AlignConstraints, HAlignConstraints, VAlignConstraints,
+    HExpandConstraints, VExpandConstraints {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
@@ -26,37 +30,49 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignCons
     final override fun Node.reset(): Unit =
         clearConstraints(this)
 
-    infix fun <T : Node> T.row(row: Int?): T =
-        also { it.row = row }
+    /** Conveniently set [KtfxGridPane.row] and [KtfxGridPane.col]. */
+    fun Node.setIndex(row: Int?, col: Int?) {
+        this.row = row
+        this.col = col
+    }
 
-    infix fun <T : Node> T.col(col: Int?): T =
-        also { it.col = col }
-
-    infix fun <T : Node> T.rowSpans(rowSpans: Int?): T =
-        also { it.rowSpans = rowSpans }
-
-    infix fun <T : Node> T.colSpans(colSpans: Int?): T =
-        also { it.colSpans = colSpans }
-
+    /** Alias for reserved variable [GridPane.setRowIndex]. */
     var Node.row: Int?
         get() = getRowIndex(this)
         set(value) = setRowIndex(this, value)
 
+    /** While `colIndex` are not a reserved variable, it follows the standard set by [row]. */
     var Node.col: Int?
         get() = getColumnIndex(this)
         set(value) = setColumnIndex(this, value)
 
-    var Node.rowSpans: Int? // alias for reserved variable `rowSpan`
+    /** Conveniently set [KtfxGridPane.rowRange] and [KtfxGridPane.colRange]. */
+    inline fun Node.setRange(rowRange: Int?, colRange: Int?) {
+        this.rowRange = rowRange
+        this.colRange = colRange
+    }
+
+    /** Alias for reserved variable [GridPane.setRowSpan]. */
+    var Node.rowRange: Int?
         get() = getRowSpan(this)
         set(value) = setRowSpan(this, value)
 
-    var Node.colSpans: Int?
+    /** While `colRange` are not a reserved variable, it follows the standard set by [rowRange]. */
+    var Node.colRange: Int?
         get() = getColumnSpan(this)
         set(value) = setColumnSpan(this, value)
 
     final override var Node.margins: Insets?
         get() = getMargin(this)
         set(value) = setMargin(this, value)
+
+    /** Conveniently set [KtfxGridPane.valign] and [KtfxGridPane.halign]. */
+    final override var Node.align: Pos?
+        @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+        set(value) {
+            valign = value?.vpos
+            halign = value?.hpos
+        }
 
     final override var Node.valign: VPos?
         get() = getValignment(this)
@@ -66,47 +82,53 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, HAlignCons
         get() = getHalignment(this)
         set(value) = setHalignment(this, value)
 
-    infix fun <T : Node> T.hfill(value: Boolean): T =
-        apply { hfill = value }
+    /** Conveniently set [KtfxGridPane.vfill] and [KtfxGridPane.hfill]. */
+    var Node.fill: Boolean?
+        @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+        set(value) {
+            vfill = value
+            hfill = value
+        }
 
-    infix fun <T : Node> T.vfill(value: Boolean): T =
-        apply { vfill = value }
-
+    /** Alias for reserved variable [GridPane.setFillWidth]. */
     var Node.hfill: Boolean?
         get() = isFillWidth(this)
         set(value) = setFillWidth(this, value)
 
+    /** Alias for reserved variable [GridPane.setFillHeight]. */
     var Node.vfill: Boolean?
         get() = isFillHeight(this)
         set(value) = setFillHeight(this, value)
 
-    final override var Node.hpriority: Priority?
+    final override var Node.hexpand: Priority?
         get() = getHgrow(this)
         set(value) = setHgrow(this, value)
 
-    final override var Node.vpriority: Priority?
+    final override var Node.vexpand: Priority?
         get() = getVgrow(this)
         set(value) = setVgrow(this, value)
 }
 
 /** Create a [GridPane] with initialization block. */
 inline fun gridPane(
-    init: (@LayoutDslMarker KtfxGridPane).() -> Unit
+    init: KtfxGridPane.() -> Unit
 ): GridPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxGridPane().apply(init)
 }
+
 /** Add a [GridPane] to this manager. */
 fun NodeManager.gridPane(): GridPane =
     addNode(KtfxGridPane())
 
 /** Add a [GridPane] with initialization block to this manager. */
 inline fun NodeManager.gridPane(
-    init: (@LayoutDslMarker KtfxGridPane).() -> Unit
+    init: KtfxGridPane.() -> Unit
 ): GridPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxGridPane(), init)
 }
+
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
 interface ConstraintsBuilder<out T : ConstraintsBase> {
 

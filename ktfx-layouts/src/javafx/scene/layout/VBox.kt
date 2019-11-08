@@ -12,7 +12,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints, MarginConstraints {
+open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VExpandConstraints, MarginConstraints {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
@@ -20,7 +20,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstrai
     final override fun Node.reset(): Unit =
         clearConstraints(this)
 
-    final override var Node.vpriority: Priority?
+    final override var Node.vexpand: Priority?
         get() = getVgrow(this)
         set(value) = setVgrow(this, value)
 
@@ -32,7 +32,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstrai
 /** Create a [VBox] with initialization block. */
 inline fun vbox(
     spacing: Double = 0.0,
-    init: (@LayoutDslMarker KtfxVBox).() -> Unit
+    init: KtfxVBox.() -> Unit
 ): VBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxVBox(spacing).apply(init)
@@ -45,7 +45,7 @@ fun NodeManager.vbox(
 /** Add a [VBox] with initialization block to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
-    init: (@LayoutDslMarker KtfxVBox).() -> Unit
+    init: KtfxVBox.() -> Unit
 ): VBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxVBox(spacing), init)

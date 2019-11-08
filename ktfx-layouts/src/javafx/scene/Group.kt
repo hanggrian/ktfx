@@ -18,7 +18,7 @@ open class KtfxGroup : Group(), NodeManager {
 
 /** Create a [Group] with initialization block. */
 inline fun group(
-    init: (@LayoutDslMarker KtfxGroup).() -> Unit
+    init: KtfxGroup.() -> Unit
 ): Group {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxGroup().apply(init)
@@ -29,7 +29,7 @@ fun NodeManager.group(): Group =
 
 /** Add a [Group] with initialization block to this manager. */
 inline fun NodeManager.group(
-    init: (@LayoutDslMarker KtfxGroup).() -> Unit
+    init: KtfxGroup.() -> Unit
 ): Group {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxGroup(), init)

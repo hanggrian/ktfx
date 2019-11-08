@@ -11,7 +11,7 @@ import kotlin.contracts.contract
 
 /** Create a [PasswordField] with initialization block. */
 inline fun passwordField(
-    init: (@LayoutDslMarker PasswordField).() -> Unit
+    init: PasswordField.() -> Unit
 ): PasswordField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PasswordField().apply(init)
@@ -22,7 +22,7 @@ fun NodeManager.passwordField(): PasswordField =
 
 /** Add a [PasswordField] with initialization block to this manager. */
 inline fun NodeManager.passwordField(
-    init: (@LayoutDslMarker PasswordField).() -> Unit
+    init: PasswordField.() -> Unit
 ): PasswordField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PasswordField(), init)

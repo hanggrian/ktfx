@@ -9,7 +9,6 @@ import javafx.collections.ObservableList
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.GridView
@@ -17,7 +16,7 @@ import org.controlsfx.control.GridView
 /** Create a [GridView] with initialization block. */
 inline fun <T> gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker GridView<T>).() -> Unit
+    init: GridView<T>.() -> Unit
 ): GridView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return GridView(items).apply(init) }
@@ -30,7 +29,7 @@ fun <T> NodeManager.gridView(
 /** Add a [GridView] with initialization block to this manager. */
 inline fun <T> NodeManager.gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutDslMarker GridView<T>).() -> Unit
+    init: GridView<T>.() -> Unit
 ): GridView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(GridView(items), init)

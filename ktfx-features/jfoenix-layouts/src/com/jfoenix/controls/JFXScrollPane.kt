@@ -9,7 +9,6 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -18,63 +17,46 @@ open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
     final override fun <T : Node> addNode(node: T): T =
         node.also { content = it }
 
-    val collection: MutableCollection<Node> = mutableListOf()
-
-    fun topBar(init: (@LayoutDslMarker NodeManager).() -> Unit) {
-        collection.clear()
-        object : NodeManager {
-            override fun <T : Node> addNode(node: T): T = node.also { collection += it }
-        }.apply(init)
-        topBar.children.addAll(collection)
+    fun topBar(init: NodeManager.() -> Unit) {
+        topBar.children.addAll(NodeManagerImpl().apply(init))
     }
 
-    fun midBar(init: (@LayoutDslMarker NodeManager).() -> Unit) {
-        collection.clear()
-        object : NodeManager {
-            override fun <T : Node> addNode(node: T): T = node.also { collection += it }
-        }.apply(init)
-        midBar.children.addAll(collection)
+    fun midBar(init: NodeManager.() -> Unit) {
+        midBar.children.addAll(NodeManagerImpl().apply(init))
     }
 
-    fun bottomBar(init: (@LayoutDslMarker NodeManager).() -> Unit) {
-        collection.clear()
-        object : NodeManager {
-            override fun <T : Node> addNode(node: T): T = node.also { collection += it }
-        }.apply(init)
-        bottomBar.children.addAll(collection)
+    fun bottomBar(init: NodeManager.() -> Unit) {
+        bottomBar.children.addAll(NodeManagerImpl().apply(init))
     }
 
-    fun mainHeader(init: (@LayoutDslMarker NodeManager).() -> Unit) {
-        collection.clear()
-        object : NodeManager {
-            override fun <T : Node> addNode(node: T): T = node.also { collection += it }
-        }.apply(init)
-        mainHeader.children.addAll(collection)
+    fun mainHeader(init: NodeManager.() -> Unit) {
+        mainHeader.children.addAll(NodeManagerImpl().apply(init))
     }
 
-    fun condensedHeader(init: (@LayoutDslMarker NodeManager).() -> Unit) {
-        collection.clear()
-        object : NodeManager {
-            override fun <T : Node> addNode(node: T): T = node.also { collection += it }
-        }.apply(init)
-        condensedHeader.children.addAll(collection)
+    fun condensedHeader(init: NodeManager.() -> Unit) {
+        condensedHeader.children.addAll(NodeManagerImpl().apply(init))
+    }
+
+    private class NodeManagerImpl : NodeManager, MutableList<Node> by mutableListOf() {
+        override fun <T : Node> addNode(node: T): T = node.also { this += it }
     }
 }
 
 /** Create a [JFXScrollPane] with initialization block. */
 inline fun jfxScrollPane(
-    init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
+    init: KtfxJFXScrollPane.() -> Unit
 ): JFXScrollPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXScrollPane().apply(init)
 }
+
 /** Add a [JFXScrollPane] to this manager. */
 fun NodeManager.jfxScrollPane(): JFXScrollPane =
     addNode(KtfxJFXScrollPane())
 
 /** Add a [JFXScrollPane] with initialization block to this manager. */
 inline fun NodeManager.jfxScrollPane(
-    init: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
+    init: KtfxJFXScrollPane.() -> Unit
 ): JFXScrollPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXScrollPane(), init)

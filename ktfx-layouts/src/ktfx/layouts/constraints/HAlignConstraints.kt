@@ -10,8 +10,5 @@ import javafx.scene.Node
  */
 interface HAlignConstraints : Constraints {
 
-    infix fun <N : Node> N.halign(hpos: HPos?): N =
-        also { it.halign = hpos }
-
     var Node.halign: HPos?
 }

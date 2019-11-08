@@ -19,13 +19,13 @@ open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeMan
     /** Call [NodeManager.button] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutDslMarker Button).() -> Unit
+        init: Button.() -> Unit
     ): Button = button(this, graphic, init) }
 
 /** Create a [ButtonBar] with initialization block. */
 inline fun buttonBar(
     buttonOrder: String? = null,
-    init: (@LayoutDslMarker KtfxButtonBar).() -> Unit
+    init: KtfxButtonBar.() -> Unit
 ): ButtonBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxButtonBar(buttonOrder).apply(init)
@@ -38,7 +38,7 @@ fun NodeManager.buttonBar(
 /** Add a [ButtonBar] with initialization block to this manager. */
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
-    init: (@LayoutDslMarker KtfxButtonBar).() -> Unit
+    init: KtfxButtonBar.() -> Unit
 ): ButtonBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxButtonBar(buttonOrder), init)

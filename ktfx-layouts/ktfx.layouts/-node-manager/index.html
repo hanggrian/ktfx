@@ -532,9 +532,9 @@
 </td>
 <td>
 <p>Add a <a href="#">Separator</a> to this manager.</p>
-<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">separator</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$separator(ktfx.layouts.NodeManager, javafx.geometry.Orientation)/orientation">orientation</span><span class="symbol">:</span>&nbsp;<span class="identifier">Orientation</span>&nbsp;<span class="symbol">=</span>&nbsp;HORIZONTAL<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">separator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code>
 <p>Add a <a href="#">Separator</a> with initialization block to this manager.</p>
-<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">separator</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$separator(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Function1((javafx.scene.control.Separator, kotlin.Unit)))/orientation">orientation</span><span class="symbol">:</span>&nbsp;<span class="identifier">Orientation</span>&nbsp;<span class="symbol">=</span>&nbsp;HORIZONTAL<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$separator(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Function1((javafx.scene.control.Separator, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Separator</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code></td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">separator</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$separator(ktfx.layouts.NodeManager, kotlin.Function1((javafx.scene.control.Separator, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Separator</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code></td>
 </tr>
 <tr>
 <td>
@@ -758,6 +758,16 @@
 </tr>
 <tr>
 <td>
+<h4><a href="../vertical-separator.html">verticalSeparator</a></h4>
+</td>
+<td>
+<p>Add a vertical <a href="#">Separator</a> to this manager.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">verticalSeparator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code>
+<p>Add a vertical <a href="#">Separator</a> with initialization block to this manager.</p>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">verticalSeparator</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$verticalSeparator(ktfx.layouts.NodeManager, kotlin.Function1((javafx.scene.control.Separator, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Separator</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="../web-view.html">webView</a></h4>
 </td>
 <td>
@@ -777,7 +787,7 @@
 </td>
 <td>
 <p><a href="#">javafx.scene.layout.HBox</a> constraints.</p>
-<code><span class="keyword">interface </span><span class="identifier">HBoxConstraints</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-h-grow-constraints/index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
+<code><span class="keyword">interface </span><span class="identifier">HBoxConstraints</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-h-expand-constraints/index.html"><span class="identifier">HExpandConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -785,6 +795,15 @@
 </td>
 <td>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxAnchorPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AnchorPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-constraints/index.html"><span class="identifier">Constraints</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../-ktfx-border-pane/index.html">KtfxBorderPane</a></h4>
+</td>
+<td>
+<p>Invoking layout DSL will only set content to center.
+To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bottom</code>, or <code>right</code>.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxBorderPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BorderPane</span><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -805,7 +824,7 @@
 <h4><a href="../-ktfx-grid-pane/index.html">KtfxGridPane</a></h4>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-h-align-constraints/index.html"><span class="identifier">HAlignConstraints</span></a><span class="symbol">, </span><a href="../-v-align-constraints/index.html"><span class="identifier">VAlignConstraints</span></a><span class="symbol">, </span><a href="../-h-grow-constraints/index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-h-align-constraints/index.html"><span class="identifier">HAlignConstraints</span></a><span class="symbol">, </span><a href="../-v-align-constraints/index.html"><span class="identifier">VAlignConstraints</span></a><span class="symbol">, </span><a href="../-h-expand-constraints/index.html"><span class="identifier">HExpandConstraints</span></a><span class="symbol">, </span><a href="../-v-expand-constraints/index.html"><span class="identifier">VExpandConstraints</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -861,7 +880,8 @@
 <h4><a href="../-ktfx-text-flow/index.html">KtfxTextFlow</a></h4>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxTextFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TextFlow</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
+<p>Making use of <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/java.lang.-appendable/appendln.html">kotlin.text.appendln</a> by implementing <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-appendable/index.html">Appendable</a>.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxTextFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TextFlow</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-appendable/index.html"><span class="identifier">Appendable</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -889,16 +909,7 @@
 <h4><a href="../-ktfx-v-box/index.html">KtfxVBox</a></h4>
 </td>
 <td>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxVBox</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">VBox</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="../-sides-node-manager/index.html">SidesNodeManager</a></h4>
-</td>
-<td>
-<p>Container of <a href="#">Node</a> that supports placing its children in each side.
-At this point, <a href="add-node.html">addNode</a> usually mean putting the child in the center.</p>
-<code><span class="keyword">interface </span><span class="identifier">SidesNodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxVBox</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">VBox</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-v-expand-constraints/index.html"><span class="identifier">VExpandConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
 </tr>
 </tbody>
 </table>

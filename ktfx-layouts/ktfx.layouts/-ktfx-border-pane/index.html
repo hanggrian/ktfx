@@ -8,7 +8,7 @@
 <a href="../../index.html">ktfx-layouts</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.layouts</a>&nbsp;/&nbsp;<a href="./index.html">KtfxBorderPane</a><br/>
 <br/>
 <h1>KtfxBorderPane</h1>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxBorderPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BorderPane</span><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-sides-node-manager/index.html"><span class="identifier">SidesNodeManager</span></a></code>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxBorderPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BorderPane</span><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a></code>
 <p>Invoking layout DSL will only set content to center.
 To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bottom</code>, or <code>right</code>.</p>
 <h3>Constructors</h3>
@@ -50,43 +50,11 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <tbody>
 <tr>
 <td>
-<h4><a href="add-bottom-node.html">addBottomNode</a></h4>
-</td>
-<td>
-<p>Add child in bottom position.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">addBottomNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxBorderPane$addBottomNode(ktfx.layouts.KtfxBorderPane.addBottomNode.T)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="add-left-node.html">addLeftNode</a></h4>
-</td>
-<td>
-<p>Add child in left position.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">addLeftNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxBorderPane$addLeftNode(ktfx.layouts.KtfxBorderPane.addLeftNode.T)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="add-node.html">addNode</a></h4>
 </td>
 <td>
 <p>Allows child to be added dynamically with Kotlin DSL in the context of this manager.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">addNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxBorderPane$addNode(ktfx.layouts.KtfxBorderPane.addNode.T)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="add-right-node.html">addRightNode</a></h4>
-</td>
-<td>
-<p>Add child in right position.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">addRightNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxBorderPane$addRightNode(ktfx.layouts.KtfxBorderPane.addRightNode.T)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="add-top-node.html">addTopNode</a></h4>
-</td>
-<td>
-<p>Add child in top position.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">addTopNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxBorderPane$addTopNode(ktfx.layouts.KtfxBorderPane.addTopNode.T)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
@@ -113,43 +81,11 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 </tr>
 <tr>
 <td>
-<h4><a href="../add-bottom-node.html">addBottomNode</a></h4>
-</td>
-<td>
-<p>Alias of <a href="../-sides-node-manager/add-bottom-node.html">SidesNodeManager.addBottomNode</a> with <a href="../add-bottom-node.html#ktfx.layouts$addBottomNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addBottomNode.T, kotlin.Function1((ktfx.layouts.addBottomNode.T, kotlin.Unit)))/init">init</a> builder.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../-sides-node-manager/index.html"><span class="identifier">SidesNodeManager</span></a><span class="symbol">.</span><span class="identifier">addBottomNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$addBottomNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addBottomNode.T, kotlin.Function1((ktfx.layouts.addBottomNode.T, kotlin.Unit)))/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts$addBottomNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addBottomNode.T, kotlin.Function1((ktfx.layouts.addBottomNode.T, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="../add-left-node.html">addLeftNode</a></h4>
-</td>
-<td>
-<p>Alias of <a href="../-sides-node-manager/add-left-node.html">SidesNodeManager.addLeftNode</a> with <a href="../add-left-node.html#ktfx.layouts$addLeftNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addLeftNode.T, kotlin.Function1((ktfx.layouts.addLeftNode.T, kotlin.Unit)))/init">init</a> builder.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../-sides-node-manager/index.html"><span class="identifier">SidesNodeManager</span></a><span class="symbol">.</span><span class="identifier">addLeftNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$addLeftNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addLeftNode.T, kotlin.Function1((ktfx.layouts.addLeftNode.T, kotlin.Unit)))/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts$addLeftNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addLeftNode.T, kotlin.Function1((ktfx.layouts.addLeftNode.T, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="../add-node.html">addNode</a></h4>
 </td>
 <td>
 <p>Alias of <a href="../-node-manager/add-node.html">NodeManager.addNode</a> with <a href="../add-node.html#ktfx.layouts$addNode(ktfx.layouts.NodeManager, ktfx.layouts.addNode.T, kotlin.Function1((ktfx.layouts.addNode.T, kotlin.Unit)))/init">init</a> builder.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">addNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$addNode(ktfx.layouts.NodeManager, ktfx.layouts.addNode.T, kotlin.Function1((ktfx.layouts.addNode.T, kotlin.Unit)))/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts$addNode(ktfx.layouts.NodeManager, ktfx.layouts.addNode.T, kotlin.Function1((ktfx.layouts.addNode.T, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="../add-right-node.html">addRightNode</a></h4>
-</td>
-<td>
-<p>Alias of <a href="../-sides-node-manager/add-right-node.html">SidesNodeManager.addRightNode</a> with <a href="../add-right-node.html#ktfx.layouts$addRightNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addRightNode.T, kotlin.Function1((ktfx.layouts.addRightNode.T, kotlin.Unit)))/init">init</a> builder.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../-sides-node-manager/index.html"><span class="identifier">SidesNodeManager</span></a><span class="symbol">.</span><span class="identifier">addRightNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$addRightNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addRightNode.T, kotlin.Function1((ktfx.layouts.addRightNode.T, kotlin.Unit)))/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts$addRightNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addRightNode.T, kotlin.Function1((ktfx.layouts.addRightNode.T, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="../add-top-node.html">addTopNode</a></h4>
-</td>
-<td>
-<p>Alias of <a href="../-sides-node-manager/add-top-node.html">SidesNodeManager.addTopNode</a> with <a href="../add-top-node.html#ktfx.layouts$addTopNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addTopNode.T, kotlin.Function1((ktfx.layouts.addTopNode.T, kotlin.Unit)))/init">init</a> builder.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <a href="../-sides-node-manager/index.html"><span class="identifier">SidesNodeManager</span></a><span class="symbol">.</span><span class="identifier">addTopNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$addTopNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addTopNode.T, kotlin.Function1((ktfx.layouts.addTopNode.T, kotlin.Unit)))/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts$addTopNode(ktfx.layouts.SidesNodeManager, ktfx.layouts.addTopNode.T, kotlin.Function1((ktfx.layouts.addTopNode.T, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
@@ -639,9 +575,9 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 </td>
 <td>
 <p>Add a <a href="#">Separator</a> to this manager.</p>
-<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">separator</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$separator(ktfx.layouts.NodeManager, javafx.geometry.Orientation)/orientation">orientation</span><span class="symbol">:</span>&nbsp;<span class="identifier">Orientation</span>&nbsp;<span class="symbol">=</span>&nbsp;HORIZONTAL<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">separator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code>
 <p>Add a <a href="#">Separator</a> with initialization block to this manager.</p>
-<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">separator</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$separator(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Function1((javafx.scene.control.Separator, kotlin.Unit)))/orientation">orientation</span><span class="symbol">:</span>&nbsp;<span class="identifier">Orientation</span>&nbsp;<span class="symbol">=</span>&nbsp;HORIZONTAL<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$separator(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Function1((javafx.scene.control.Separator, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Separator</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code></td>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">separator</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$separator(ktfx.layouts.NodeManager, kotlin.Function1((javafx.scene.control.Separator, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Separator</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code></td>
 </tr>
 <tr>
 <td>
@@ -862,6 +798,16 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">vbox</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$vbox(ktfx.layouts.NodeManager, kotlin.Double)/spacing">spacing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">VBox</span></code>
 <p>Add a <a href="#">VBox</a> with initialization block to this manager.</p>
 <code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">vbox</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$vbox(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxVBox, kotlin.Unit)))/spacing">spacing</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$vbox(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxVBox, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../-ktfx-v-box/index.html"><span class="identifier">KtfxVBox</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">VBox</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="../vertical-separator.html">verticalSeparator</a></h4>
+</td>
+<td>
+<p>Add a vertical <a href="#">Separator</a> to this manager.</p>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">verticalSeparator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code>
+<p>Add a vertical <a href="#">Separator</a> with initialization block to this manager.</p>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">verticalSeparator</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$verticalSeparator(ktfx.layouts.NodeManager, kotlin.Function1((javafx.scene.control.Separator, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Separator</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Separator</span></code></td>
 </tr>
 <tr>
 <td>

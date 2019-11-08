@@ -462,7 +462,9 @@ $dokka.location:ktfx.controls$affine(javafx.scene.Node, javafx.scene.transform.T
 $dokka.location:ktfx.controls$affine(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/affine.html
 $dokka.location:ktfx.controls$affine(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/affine.html
 $dokka.location:ktfx.controls$affine(javafx.scene.Node, kotlin.DoubleArray, javafx.scene.transform.MatrixType, kotlin.Int)ktfx.controls/javafx.scene.-node/affine.html
+$dokka.location:ktfx.controls$columns(javafx.scene.control.TableColumn((ktfx.controls.columns.S, ktfx.controls.columns.T)), kotlin.Function1((ktfx.controls.TableColumnsBuilder((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-table-column/columns.html
 $dokka.location:ktfx.controls$columns(javafx.scene.control.TableView((ktfx.controls.columns.S)), kotlin.Function1((ktfx.controls.TableColumnsBuilder((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-table-view/columns.html
+$dokka.location:ktfx.controls$columns(javafx.scene.control.TreeTableColumn((ktfx.controls.columns.S, ktfx.controls.columns.T)), kotlin.Function1((ktfx.controls.TreeTableColumnsBuilder((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-tree-table-column/columns.html
 $dokka.location:ktfx.controls$columns(javafx.scene.control.TreeTableView((ktfx.controls.columns.S)), kotlin.Function1((ktfx.controls.TreeTableColumnsBuilder((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-tree-table-view/columns.html
 $dokka.location:ktfx.controls$constrained(javafx.scene.control.TableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-table-view/constrained.html
 $dokka.location:ktfx.controls$constrained(javafx.scene.control.TreeTableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-tree-table-view/constrained.html
@@ -470,27 +472,14 @@ $dokka.location:ktfx.controls$fadeTransition(javafx.scene.Node, javafx.util.Dura
 $dokka.location:ktfx.controls$fillTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color)ktfx.controls/javafx.scene.shape.-shape/fill-transition.html
 $dokka.location:ktfx.controls$find(javafx.scene.Node, kotlin.String)ktfx.controls/javafx.scene.-node/find.html
 $dokka.location:ktfx.controls$find(javafx.scene.Scene, kotlin.String)ktfx.controls/javafx.scene.-scene/find.html
-$dokka.location:ktfx.controls$gap#javafx.scene.layout.FlowPanektfx.controls/javafx.scene.layout.-flow-pane/gap.html
-$dokka.location:ktfx.controls$gap#javafx.scene.layout.GridPanektfx.controls/javafx.scene.layout.-grid-pane/gap.html
-$dokka.location:ktfx.controls$gap#javafx.scene.layout.TilePanektfx.controls/javafx.scene.layout.-tile-pane/gap.html
 $dokka.location:ktfx.controls$isNotSelected(javafx.scene.control.SelectionModel((kotlin.Any)))ktfx.controls/javafx.scene.control.-selection-model/is-not-selected.html
 $dokka.location:ktfx.controls$isNotSelected(javafx.scene.control.ToggleGroup)ktfx.controls/javafx.scene.control.-toggle-group/is-not-selected.html
-$dokka.location:ktfx.controls$isNotSelectedProperty(javafx.scene.control.SelectionModel((kotlin.Any)))ktfx.controls/javafx.scene.control.-selection-model/is-not-selected-property.html
 $dokka.location:ktfx.controls$isSelected(javafx.scene.control.SelectionModel((kotlin.Any)))ktfx.controls/javafx.scene.control.-selection-model/is-selected.html
 $dokka.location:ktfx.controls$isSelected(javafx.scene.control.ToggleGroup)ktfx.controls/javafx.scene.control.-toggle-group/is-selected.html
-$dokka.location:ktfx.controls$isSelectedProperty(javafx.scene.control.SelectionModel((kotlin.Any)))ktfx.controls/javafx.scene.control.-selection-model/is-selected-property.html
-$dokka.location:ktfx.controls$maxSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/max-size.html
-$dokka.location:ktfx.controls$minSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/min-size.html
-$dokka.location:ktfx.controls$paddingAll#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-all.html
-$dokka.location:ktfx.controls$paddingBottom#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-bottom.html
-$dokka.location:ktfx.controls$paddingHorizontal#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-horizontal.html
-$dokka.location:ktfx.controls$paddingLeft#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-left.html
-$dokka.location:ktfx.controls$paddingRight#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-right.html
-$dokka.location:ktfx.controls$paddingTop#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-top.html
-$dokka.location:ktfx.controls$paddingVertical#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/padding-vertical.html
+$dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.SelectionModel((kotlin.Any))ktfx.controls/javafx.scene.control.-selection-model/not-selected-binding.html
+$dokka.location:ktfx.controls$notSelectedProperty(javafx.scene.control.ToggleGroup)ktfx.controls/javafx.scene.control.-toggle-group/not-selected-property.html
 $dokka.location:ktfx.controls$parallelTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)))ktfx.controls/javafx.scene.-node/parallel-transition.html
 $dokka.location:ktfx.controls$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape)ktfx.controls/javafx.scene.-node/path-transition.html
-$dokka.location:ktfx.controls$prefSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/pref-size.html
 $dokka.location:ktfx.controls$rotate(javafx.scene.Node)ktfx.controls/javafx.scene.-node/rotate.html
 $dokka.location:ktfx.controls$rotate(javafx.scene.Node, kotlin.Double)ktfx.controls/javafx.scene.-node/rotate.html
 $dokka.location:ktfx.controls$rotate(javafx.scene.Node, kotlin.Double, javafx.geometry.Point3D)ktfx.controls/javafx.scene.-node/rotate.html
@@ -504,7 +493,9 @@ $dokka.location:ktfx.controls$scale(javafx.scene.Node, kotlin.Double, kotlin.Dou
 $dokka.location:ktfx.controls$scale(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/scale.html
 $dokka.location:ktfx.controls$scaleTransition(javafx.scene.Node, javafx.util.Duration)ktfx.controls/javafx.scene.-node/scale-transition.html
 $dokka.location:ktfx.controls$selectIndex(javafx.scene.control.ToggleGroup, kotlin.Int)ktfx.controls/javafx.scene.control.-toggle-group/select-index.html
+$dokka.location:ktfx.controls$selectedBinding#javafx.scene.control.SelectionModel((kotlin.Any))ktfx.controls/javafx.scene.control.-selection-model/selected-binding.html
 $dokka.location:ktfx.controls$selectedIndex#javafx.scene.control.ToggleGroupktfx.controls/javafx.scene.control.-toggle-group/selected-index.html
+$dokka.location:ktfx.controls$selectedProperty(javafx.scene.control.ToggleGroup)ktfx.controls/javafx.scene.control.-toggle-group/selected-property.html
 $dokka.location:ktfx.controls$sequentialTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)))ktfx.controls/javafx.scene.-node/sequential-transition.html
 $dokka.location:ktfx.controls$shear(javafx.scene.Node)ktfx.controls/javafx.scene.-node/shear.html
 $dokka.location:ktfx.controls$shear(javafx.scene.Node, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.-node/shear.html
@@ -518,17 +509,6 @@ $dokka.location:ktfx.controls$translate(javafx.scene.Node, kotlin.Double, kotlin
 $dokka.location:ktfx.controls$translateTransition(javafx.scene.Node, javafx.util.Duration)ktfx.controls/javafx.scene.-node/translate-transition.html
 $dokka.location:ktfx.controls$unconstrained(javafx.scene.control.TableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-table-view/unconstrained.html
 $dokka.location:ktfx.controls$unconstrained(javafx.scene.control.TreeTableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-tree-table-view/unconstrained.html
-$dokka.location:ktfx.controls$updateBackground(javafx.scene.layout.Region, javafx.scene.image.Image, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)ktfx.controls/javafx.scene.layout.-region/update-background.html
-$dokka.location:ktfx.controls$updateBackground(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.layout.CornerRadii, javafx.geometry.Insets)ktfx.controls/javafx.scene.layout.-region/update-background.html
-$dokka.location:ktfx.controls$updateBackground(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.layout.CornerRadii, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-region/update-background.html
-$dokka.location:ktfx.controls$updateBackground(javafx.scene.layout.Region, kotlin.Array((javafx.scene.layout.BackgroundFill)))ktfx.controls/javafx.scene.layout.-region/update-background.html
-$dokka.location:ktfx.controls$updateBackground(javafx.scene.layout.Region, kotlin.Array((javafx.scene.layout.BackgroundImage)))ktfx.controls/javafx.scene.layout.-region/update-background.html
-$dokka.location:ktfx.controls$updateBorder(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.CornerRadii, javafx.scene.layout.BorderWidths, javafx.geometry.Insets)ktfx.controls/javafx.scene.layout.-region/update-border.html
-$dokka.location:ktfx.controls$updateBorder(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.CornerRadii, javafx.scene.layout.BorderWidths, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-region/update-border.html
-$dokka.location:ktfx.controls$updateBorder(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.CornerRadii, javafx.scene.layout.BorderWidths, javafx.geometry.Insets)ktfx.controls/javafx.scene.layout.-region/update-border.html
-$dokka.location:ktfx.controls$updateBorder(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.CornerRadii, javafx.scene.layout.BorderWidths, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-region/update-border.html
-$dokka.location:ktfx.controls$updateBorder(javafx.scene.layout.Region, kotlin.Array((javafx.scene.layout.BorderStroke)))ktfx.controls/javafx.scene.layout.-region/update-border.html
-$dokka.location:ktfx.controls$updatePadding(javafx.scene.layout.Region, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-region/update-padding.html
 $dokka.location:ktfx.dialogs$buttons(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((ktfx.dialogs.DialogButtonBuilder, kotlin.Unit)))ktfx.dialogs/javafx.scene.control.-dialog/buttons.html
 $dokka.location:ktfx.dialogs$graphicIcon#javafx.scene.control.Dialog((kotlin.Any))ktfx.dialogs/javafx.scene.control.-dialog/graphic-icon.html
 $dokka.location:ktfx.dialogs$headerTitle#javafx.scene.control.Dialog((kotlin.Any))ktfx.dialogs/javafx.scene.control.-dialog/header-title.html
@@ -569,34 +549,35 @@ $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCode, javafx.scene.input.
 $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCode, kotlin.Array((javafx.scene.input.KeyCombination.Modifier)))ktfx.inputs/javafx.scene.input.-key-code/plus.html
 $dokka.location:ktfx.inputs$plus(javafx.scene.input.KeyCombination.Modifier, javafx.scene.input.KeyCode)ktfx.inputs/javafx.scene.input.-key-combination.-modifier/plus.html
 $dokka.location:ktfx.inputs$plus(kotlin.Array((javafx.scene.input.KeyCombination.Modifier)), javafx.scene.input.KeyCode)ktfx.inputs/kotlin.-array/plus.html
+$dokka.location:ktfx.layouts$background(javafx.scene.layout.Region, kotlin.Function1((ktfx.layouts.BackgroundBuilder, kotlin.Unit)))ktfx.layouts/javafx.scene.layout.-region/background.html
+$dokka.location:ktfx.layouts$backgroundFill(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.layout.CornerRadii, javafx.geometry.Insets)ktfx.layouts/javafx.scene.layout.-region/background-fill.html
+$dokka.location:ktfx.layouts$backgroundImage(javafx.scene.layout.Region, javafx.scene.image.Image, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)ktfx.layouts/javafx.scene.layout.-region/background-image.html
+$dokka.location:ktfx.layouts$backgroundImage(javafx.scene.layout.Region, kotlin.String, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)ktfx.layouts/javafx.scene.layout.-region/background-image.html
+$dokka.location:ktfx.layouts$border(javafx.scene.layout.Region, kotlin.Function1((ktfx.layouts.BorderBuilder, kotlin.Unit)))ktfx.layouts/javafx.scene.layout.-region/border.html
+$dokka.location:ktfx.layouts$borderImage(javafx.scene.layout.Region, javafx.scene.image.Image, javafx.scene.layout.BorderWidths, javafx.geometry.Insets, javafx.scene.layout.BorderWidths, kotlin.Boolean, javafx.scene.layout.BorderRepeat, javafx.scene.layout.BorderRepeat)ktfx.layouts/javafx.scene.layout.-region/border-image.html
+$dokka.location:ktfx.layouts$borderImage(javafx.scene.layout.Region, kotlin.String, javafx.scene.layout.BorderWidths, javafx.geometry.Insets, javafx.scene.layout.BorderWidths, kotlin.Boolean, javafx.scene.layout.BorderRepeat, javafx.scene.layout.BorderRepeat)ktfx.layouts/javafx.scene.layout.-region/border-image.html
+$dokka.location:ktfx.layouts$borderStroke(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.CornerRadii, javafx.scene.layout.BorderWidths, javafx.geometry.Insets)ktfx.layouts/javafx.scene.layout.-region/border-stroke.html
+$dokka.location:ktfx.layouts$borderStroke(javafx.scene.layout.Region, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.paint.Paint, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.BorderStrokeStyle, javafx.scene.layout.CornerRadii, javafx.scene.layout.BorderWidths, javafx.geometry.Insets)ktfx.layouts/javafx.scene.layout.-region/border-stroke.html
+$dokka.location:ktfx.layouts$gap#javafx.scene.layout.FlowPanektfx.layouts/javafx.scene.layout.-flow-pane/gap.html
+$dokka.location:ktfx.layouts$gap#javafx.scene.layout.GridPanektfx.layouts/javafx.scene.layout.-grid-pane/gap.html
+$dokka.location:ktfx.layouts$gap#javafx.scene.layout.TilePanektfx.layouts/javafx.scene.layout.-tile-pane/gap.html
+$dokka.location:ktfx.layouts$maxSize#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/max-size.html
+$dokka.location:ktfx.layouts$minSize#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/min-size.html
+$dokka.location:ktfx.layouts$paddingAll#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/padding-all.html
+$dokka.location:ktfx.layouts$paddingBottom#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/padding-bottom.html
+$dokka.location:ktfx.layouts$paddingHorizontal#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/padding-horizontal.html
+$dokka.location:ktfx.layouts$paddingLeft#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/padding-left.html
+$dokka.location:ktfx.layouts$paddingRight#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/padding-right.html
+$dokka.location:ktfx.layouts$paddingTop#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/padding-top.html
+$dokka.location:ktfx.layouts$paddingVertical#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/padding-vertical.html
+$dokka.location:ktfx.layouts$prefSize#javafx.scene.layout.Regionktfx.layouts/javafx.scene.layout.-region/pref-size.html
+$dokka.location:ktfx.layouts$updatePadding(javafx.scene.layout.Region, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.layouts/javafx.scene.layout.-region/update-padding.html
 $dokka.location:ktfx.print$createJob(javafx.print.Printer, kotlin.Function1((javafx.print.JobSettings, kotlin.Unit)))ktfx.print/javafx.print.-printer/create-job.html
 $dokka.location:ktfx.print$untilPage(kotlin.Int, kotlin.Int)ktfx.print/kotlin.-int/until-page.html
 $dokka.location:ktfx.swing$toFxImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.swing/java.awt.image.-buffered-image/to-fx-image.html
 $dokka.location:ktfx.swing$toSwingImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.swing/javafx.scene.image.-image/to-swing-image.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.canvas.GraphicsContext, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.canvas.-graphics-context/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.canvas.GraphicsContext, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.canvas.-graphics-context/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.control.Labeled, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-labeled/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.control.Labeled, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-labeled/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.control.TextInputControl, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-text-input-control/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.control.TextInputControl, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-text-input-control/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.control.Tooltip, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.control.-tooltip/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.control.Tooltip, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.control.-tooltip/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.text.Text, java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.text.-text/load-font.html
-$dokka.location:ktfx.text$loadFont(javafx.scene.text.Text, kotlin.String, kotlin.Double)ktfx.text/javafx.scene.text.-text/load-font.html
-$dokka.location:ktfx.text$loadTickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), java.io.InputStream, kotlin.Double)ktfx.text/javafx.scene.chart.-axis/load-tick-label-font.html
-$dokka.location:ktfx.text$loadTickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.String, kotlin.Double)ktfx.text/javafx.scene.chart.-axis/load-tick-label-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.canvas.GraphicsContext, kotlin.Double)ktfx.text/javafx.scene.canvas.-graphics-context/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.canvas.GraphicsContext, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)ktfx.text/javafx.scene.canvas.-graphics-context/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.control.Labeled, kotlin.Double)ktfx.text/javafx.scene.control.-labeled/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.control.Labeled, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)ktfx.text/javafx.scene.control.-labeled/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.control.TextInputControl, kotlin.Double)ktfx.text/javafx.scene.control.-text-input-control/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.control.TextInputControl, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)ktfx.text/javafx.scene.control.-text-input-control/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.control.Tooltip, kotlin.Double)ktfx.text/javafx.scene.control.-tooltip/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.control.Tooltip, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)ktfx.text/javafx.scene.control.-tooltip/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.text.Text, kotlin.Double)ktfx.text/javafx.scene.text.-text/update-font.html
-$dokka.location:ktfx.text$updateFont(javafx.scene.text.Text, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)ktfx.text/javafx.scene.text.-text/update-font.html
-$dokka.location:ktfx.text$updateTickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.Double)ktfx.text/javafx.scene.chart.-axis/update-tick-label-font.html
-$dokka.location:ktfx.text$updateTickLabelFont(javafx.scene.chart.Axis((kotlin.Any)), kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Double)ktfx.text/javafx.scene.chart.-axis/update-tick-label-font.html
+$dokka.location:ktfx.text$pt#kotlin.Doublektfx.text/kotlin.-double/pt.html
+$dokka.location:ktfx.text$pt#kotlin.Intktfx.text/kotlin.-int/pt.html
 $dokka.location:ktfx.windows$chooseDirectory(javafx.stage.Window, kotlin.String, java.io.File)ktfx.windows/javafx.stage.-window/choose-directory.html
 $dokka.location:ktfx.windows$chooseFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.windows/javafx.stage.-window/choose-file.html
 $dokka.location:ktfx.windows$chooseFile(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.windows/javafx.stage.-window/choose-file.html
@@ -627,6 +608,7 @@ ktfx.controls
 ktfx.dialogs
 ktfx.geometries
 ktfx.inputs
+ktfx.layouts
 ktfx.print
 ktfx.swing
 ktfx.text

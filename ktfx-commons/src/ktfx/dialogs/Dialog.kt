@@ -41,14 +41,14 @@ inline var Dialog<*>.headerTitle: String
     }
 
 /** Opens up DSL to quickly add button types to this dialog. */
-inline fun Dialog<*>.buttons(builder: DialogButtonBuilder.() -> Unit) {
+fun Dialog<*>.buttons(builder: DialogButtonBuilder.() -> Unit) {
     contract {
         callsInPlace(builder, InvocationKind.EXACTLY_ONCE)
     }
     DialogButtonBuilder(this).builder()
 }
 
-class DialogButtonBuilder @PublishedApi internal constructor(private val nativeDialog: Dialog<*>) {
+class DialogButtonBuilder internal constructor(private val nativeDialog: Dialog<*>) {
 
     /** Add apply button. */
     fun apply(): Button =

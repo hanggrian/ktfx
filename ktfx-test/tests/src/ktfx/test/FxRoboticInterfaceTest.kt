@@ -12,7 +12,6 @@ import org.testfx.matcher.control.LabeledMatchers
 import kotlin.test.Test
 
 class FxRoboticInterfaceTest : AppTest() {
-
     private lateinit var label: Label
     private lateinit var button: Button
 

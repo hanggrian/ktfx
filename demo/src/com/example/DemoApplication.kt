@@ -5,15 +5,15 @@ import javafx.scene.control.Label
 import javafx.stage.Stage
 import ktfx.bindings.buildBooleanBinding
 import ktfx.bindings.buildStringBinding
-import ktfx.layouts.minSize
-import ktfx.layouts.updatePadding
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
 import ktfx.dialogs.infoAlert
 import ktfx.layouts.button
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
+import ktfx.layouts.minSize
 import ktfx.layouts.scene
+import ktfx.layouts.updatePadding
 import ktfx.layouts.vbox
 
 class DemoApplication : Application() {
@@ -32,8 +32,8 @@ class DemoApplication : Application() {
         stage.scene {
             gridPane {
                 vbox {
-                    setIndex(0, 0)
-                    colRange = 5
+                    gridAt(0, 0)
+                    colSpans = 5
                     hfill = true
 
                     updatePadding(right = 20.0, left = 20.0)
@@ -73,21 +73,21 @@ class DemoApplication : Application() {
                 }
 
                 button("1") {
-                    setIndex(1, 0)
+                    gridAt(1, 0)
                     minSize = 40.0
                     onAction {
                         appendText("1")
                     }
                 }
                 button("2") {
-                    setIndex(1, 1)
+                    gridAt(1, 1)
                     minSize = 40.0
                     onAction {
                         appendText("2")
                     }
                 }
                 button("3") {
-                    setIndex(1, 2)
+                    gridAt(1, 2)
                     minSize = 40.0
                     onAction {
                         appendText("3")
@@ -95,21 +95,21 @@ class DemoApplication : Application() {
                 }
 
                 button("4") {
-                    setIndex(2, 0)
+                    gridAt(2, 0)
                     minSize = 40.0
                     onAction {
                         appendText("4")
                     }
                 }
                 button("5") {
-                    setIndex(2, 1)
+                    gridAt(2, 1)
                     minSize = 40.0
                     onAction {
                         appendText("5")
                     }
                 }
                 button("6") {
-                    setIndex(2, 2)
+                    gridAt(2, 2)
                     minSize = 40.0
                     onAction {
                         appendText("6")
@@ -117,21 +117,21 @@ class DemoApplication : Application() {
                 }
 
                 button("7") {
-                    setIndex(3, 0)
+                    gridAt(3, 0)
                     minSize = 40.0
                     onAction {
                         appendText("7")
                     }
                 }
                 button("8") {
-                    setIndex(3, 1)
+                    gridAt(3, 1)
                     minSize = 40.0
                     onAction {
                         appendText("8")
                     }
                 }
                 button("9") {
-                    setIndex(3, 2)
+                    gridAt(3, 2)
                     minSize = 40.0
                     onAction {
                         appendText("9")
@@ -139,21 +139,21 @@ class DemoApplication : Application() {
                 }
 
                 button("0") {
-                    setIndex(4, 0)
+                    gridAt(4, 0)
                     minSize = 40.0
                     onAction {
                         appendText("0")
                     }
                 }
                 button("00") {
-                    setIndex(4, 1)
+                    gridAt(4, 1)
                     minSize = 40.0
                     onAction {
                         appendText("00")
                     }
                 }
                 button("") {
-                    setIndex(4, 2)
+                    gridAt(4, 2)
                     minSize = 40.0
                     onAction {
                         errorAlert(":(", content = "Not yet supported.")
@@ -161,8 +161,8 @@ class DemoApplication : Application() {
                 }
 
                 button("C") {
-                    setIndex(1, 3)
-                    colRange = 2
+                    gridAt(1, 3)
+                    colSpans = 2
                     setMinSize(80.0, 40.0)
                     isCancelButton = true
                     onAction {
@@ -170,36 +170,36 @@ class DemoApplication : Application() {
                     }
                 }
                 button("*") {
-                    setIndex(2, 3)
+                    gridAt(2, 3)
                     minSize = 40.0
                     onAction {
                         appendText("*")
                     }
                 }
                 button("/") {
-                    setIndex(2, 4)
+                    gridAt(2, 4)
                     minSize = 40.0
                     onAction {
                         appendText("/")
                     }
                 }
                 button("+") {
-                    setIndex(3, 3)
-                    rowRange = 2
+                    gridAt(3, 3)
+                    rowSpans = 2
                     setMinSize(40.0, 80.0)
                     onAction {
                         appendText("+")
                     }
                 }
                 button("-") {
-                    setIndex(3, 4)
+                    gridAt(3, 4)
                     minSize = 40.0
                     onAction {
                         appendText("-")
                     }
                 }
                 button("=") {
-                    setIndex(4, 4)
+                    gridAt(4, 4)
                     minSize = 40.0
                     isDefaultButton = true
                     disableProperty().bind(buildBooleanBinding(calculationLabel.textProperty()) { endsWithOperator })

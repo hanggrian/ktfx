@@ -6,12 +6,12 @@ import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 
 /** [javafx.scene.layout.HBox] constraints. */
-interface HBoxConstraints : NodeManager, HExpandConstraints, MarginConstraints {
+interface HBoxConstraints : NodeManager, HGrowConstraints, MarginConstraints {
 
     override fun Node.reset(): Unit =
         HBox.clearConstraints(this)
 
-    override var Node.hexpand: Priority?
+    override var Node.hgrows: Priority?
         get() = HBox.getHgrow(this)
         set(value) = HBox.setHgrow(this, value)
 

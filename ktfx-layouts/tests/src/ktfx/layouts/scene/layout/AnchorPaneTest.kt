@@ -14,15 +14,15 @@ class AnchorPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
             val region1 = region {
                 anchorAll = 0.0
             }
-            assertEquals(10.0, region1.anchorTop)
-            assertEquals(10.0, region1.anchorLeft)
-            assertEquals(10.0, region1.anchorBottom)
-            assertEquals(10.0, region1.anchorRight)
+            assertEquals(0.0, region1.anchorTop)
+            assertEquals(0.0, region1.anchorLeft)
+            assertEquals(0.0, region1.anchorBottom)
+            assertEquals(0.0, region1.anchorRight)
             val region2 = region {
                 anchorTop = 10.0
                 anchorLeft = 20.0
                 anchorBottom = 30.0
-                anchorRight = 30.0
+                anchorRight = 40.0
             }
             assertEquals(10.0, region2.anchorTop)
             assertEquals(20.0, region2.anchorLeft)
@@ -40,7 +40,7 @@ class AnchorPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
             assertEquals(region2.anchorBottom, null)
             assertEquals(region2.anchorRight, null)
 
-            assertEquals(children.size, 5)
+            assertEquals(children.size, 2)
         }
     }
 }

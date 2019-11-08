@@ -1,28 +1,17 @@
 package ktfx.layouts
 
-import javafx.scene.Scene
 import javafx.scene.layout.Region
 import javafx.scene.paint.Color
-import javafx.stage.Stage
-import ktfx.testing.AppTest
+import ktfx.testing.ToolkitTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
-class RegionTest : AppTest() {
-    private lateinit var region: Region
+class RegionTest : ToolkitTest {
 
-    override fun start(stage: Stage) {
-        region = Region()
-        stage.run {
-            scene = Scene(region)
-            show()
-        }
-    }
-
-    @Test
-    fun padding() {
+    @Test fun padding() {
+        val region = Region()
         region.updatePadding(bottom = 20.0, top = 20.0)
         assertEquals(20.0, region.paddingTop)
         assertEquals(0.0, region.paddingLeft)
@@ -45,6 +34,7 @@ class RegionTest : AppTest() {
 
     @Test
     fun background() {
+        val region = Region()
         assertNull(region.background)
         region.backgroundFill(Color.RED)
         assertEquals(Color.RED, region.background.fills.first().fill)
@@ -52,6 +42,7 @@ class RegionTest : AppTest() {
 
     @Test
     fun border() {
+        val region = Region()
         assertNull(region.border)
         region.borderStroke(Color.RED)
         assertEquals(Color.RED, region.border.strokes.first().topStroke)

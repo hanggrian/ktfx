@@ -12,7 +12,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VExpandConstraints, MarginConstraints {
+open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints, MarginConstraints {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
@@ -20,7 +20,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VExpandConstr
     final override fun Node.reset(): Unit =
         clearConstraints(this)
 
-    final override var Node.vexpand: Priority?
+    final override var Node.vgrows: Priority?
         get() = getVgrow(this)
         set(value) = setVgrow(this, value)
 

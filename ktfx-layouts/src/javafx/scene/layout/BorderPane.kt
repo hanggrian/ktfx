@@ -19,7 +19,7 @@ import kotlin.contracts.contract
 open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
-        node.also { center = it }
+        node.also { children += it }
 
     final override fun Node.reset(): Unit =
         clearConstraints(this)

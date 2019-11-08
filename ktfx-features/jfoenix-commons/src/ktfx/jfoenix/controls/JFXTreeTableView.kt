@@ -1,36 +1,35 @@
+@file:UseExperimental(ExperimentalContracts::class)
+
 package ktfx.jfoenix.controls
 
 import com.jfoenix.controls.JFXTreeTableColumn
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeTableColumn
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /** Interface to build [JFXTreeTableColumn] with Kotlin DSL. */
-interface JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> {
+class JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> internal constructor(
+    private val columns: MutableCollection<TreeTableColumn<S, *>>
+) {
 
-    fun <T> column(
-        text: String? = null
-    ): JFXTreeTableColumn<S, T>
+    fun <T> column(text: String? = null): JFXTreeTableColumn<S, T> =
+        JFXTreeTableColumn<S, T>(text).also { columns += it }
 
-    fun <T> column(
+    inline fun <T> column(
         text: String? = null,
         init: JFXTreeTableColumn<S, T>.() -> Unit
     ): JFXTreeTableColumn<S, T> = column<T>(text).apply(init)
 
-    operator fun <T> String.invoke(
+    inline operator fun <T> String.invoke(
         init: JFXTreeTableColumn<S, T>.() -> Unit
     ): JFXTreeTableColumn<S, T> = column(this, init)
 }
 
-private class JFXTreeTableColumnsBuilderImpl<S : RecursiveTreeObject<S>> : JFXTreeTableColumnsBuilder<S> {
-
-    val collection: MutableCollection<JFXTreeTableColumn<S, *>> = mutableListOf()
-
-    override fun <T> column(text: String?): JFXTreeTableColumn<S, T> =
-        JFXTreeTableColumn<S, T>(text).also { collection += it }
-}
-
 /** Invokes a [TreeTableColumn] DSL builder. */
-fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(init: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
-    columns += JFXTreeTableColumnsBuilderImpl<S>().apply(init).collection
+fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(builder: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
+    contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
+    JFXTreeTableColumnsBuilder<S>(columns).builder()
 }

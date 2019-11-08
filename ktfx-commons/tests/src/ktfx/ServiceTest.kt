@@ -39,7 +39,7 @@ class ServiceTest : ToolkitTest {
     }
 
     private companion object {
-        fun <V> testService(listener: (KtfxTask<V>).() -> Unit) {
+        fun <V> testService(listener: (TaskBuilder<V>).() -> Unit) {
             buildService(listener).start()
             sleep(1000)
         }

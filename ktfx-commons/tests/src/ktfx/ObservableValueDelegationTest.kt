@@ -11,20 +11,20 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class ObservableValuesTest {
+class ObservableValueDelegationTest {
 
     private val person1 = Person("Hendra", 24)
     private val person2 = Person("Hobo", 50)
-    private val person = person1.asProperty()
+    private val person = property(person1)
     private var personValue: Person? by person
 
-    private val boolean = false.asProperty()
+    private val boolean = booleanProperty(false)
     private var booleanValue: Boolean by boolean
 
-    private var integer = 1.asProperty()
+    private var integer = intProperty(1)
     private var integerValue: Int by integer
 
-    private val string = "Hello".asProperty()
+    private val string = stringProperty("Hello")
     private var stringValue: String? by string
 
     private val emptyString = SimpleStringProperty()

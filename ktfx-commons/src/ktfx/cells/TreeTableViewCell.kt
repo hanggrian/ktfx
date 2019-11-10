@@ -3,6 +3,7 @@ package ktfx.cells
 import javafx.beans.value.ObservableValue
 import javafx.collections.ObservableList
 import javafx.scene.control.TreeTableColumn
+import javafx.scene.control.TreeTableView
 import javafx.scene.control.cell.CellUtils2
 import javafx.scene.control.cell.CheckBoxTreeTableCell
 import javafx.scene.control.cell.ChoiceBoxTreeTableCell
@@ -58,3 +59,8 @@ fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
 fun <S, T> TreeTableColumn<S, T>.cellFactory(
     cellFactory: TreeTableCellBuilder<S, T>.() -> Unit
 ): Unit = setCellFactory { TreeTableCellBuilder<S, T>().apply(cellFactory) }
+
+/** A function which produces a TreeTableRow. */
+fun <S> TreeTableView<S>.rowFactory(
+    rowFactory: TreeTableRowBuilder<S>.() -> Unit
+): Unit = setRowFactory { TreeTableRowBuilder<S>().apply(rowFactory) }

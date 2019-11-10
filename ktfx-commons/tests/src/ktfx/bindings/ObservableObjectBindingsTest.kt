@@ -1,8 +1,6 @@
 package ktfx.bindings
 
 import javafx.scene.control.Label
-import ktfx.bindings.eq
-import ktfx.bindings.neq
 
 class ObservableObjectBindingsTest {
 

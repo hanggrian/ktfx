@@ -14,12 +14,13 @@ import ktfx.layouts.addNode
 import org.controlsfx.control.MasterDetailPane
 
 open class KtfxMasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
+    private var size = 0
 
     final override fun <T : Node> addNode(node: T): T =
         node.also {
-            when (null) {
-                masterNode -> masterNode = it
-                detailNode -> detailNode = it
+            when (size++) {
+                0 -> masterNode = it
+                1 -> detailNode = it
                 else -> error("Master and detail node has been set.")
             }
         }

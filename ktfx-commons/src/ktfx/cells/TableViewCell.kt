@@ -3,6 +3,7 @@ package ktfx.cells
 import javafx.beans.value.ObservableValue
 import javafx.collections.ObservableList
 import javafx.scene.control.TableColumn
+import javafx.scene.control.TableView
 import javafx.scene.control.cell.CellUtils2
 import javafx.scene.control.cell.CheckBoxTableCell
 import javafx.scene.control.cell.ChoiceBoxTableCell
@@ -58,3 +59,8 @@ fun <S, T> TableColumn<S, T>.textFieldCellFactory(
 fun <S, T> TableColumn<S, T>.cellFactory(
     cellFactory: TableCellBuilder<S, T>.() -> Unit
 ): Unit = setCellFactory { TableCellBuilder<S, T>().apply(cellFactory) }
+
+/** A function which produces a TableRow. */
+fun <S> TableView<S>.rowFactory(
+    rowFactory: TableRowBuilder<S>.() -> Unit
+): Unit = setRowFactory { TableRowBuilder<S>().apply(rowFactory) }

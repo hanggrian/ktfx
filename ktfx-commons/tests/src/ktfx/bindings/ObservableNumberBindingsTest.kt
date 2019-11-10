@@ -1,18 +1,6 @@
 package ktfx.bindings
 
 import javafx.scene.control.Label
-import ktfx.bindings.div
-import ktfx.bindings.eq
-import ktfx.bindings.greater
-import ktfx.bindings.greaterEq
-import ktfx.bindings.less
-import ktfx.bindings.lessEq
-import ktfx.bindings.max
-import ktfx.bindings.min
-import ktfx.bindings.minus
-import ktfx.bindings.neq
-import ktfx.bindings.plus
-import ktfx.bindings.times
 
 class ObservableNumberBindingsTest {
 

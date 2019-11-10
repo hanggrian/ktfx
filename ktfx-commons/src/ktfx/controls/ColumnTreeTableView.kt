@@ -32,19 +32,3 @@ fun <S, T> TreeTableColumn<S, T>.columns(builder: (@TableColumnDslMarker TreeTab
     contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     TreeTableColumnsBuilder<S>(columns).builder()
 }
-
-/** Interface to build [TreeTableColumn] with Kotlin DSL. */
-class TreeTableColumnsBuilder<S> internal constructor(private val columns: MutableCollection<TreeTableColumn<S, *>>) {
-
-    fun <T> column(text: String? = null): TreeTableColumn<S, T> =
-        TreeTableColumn<S, T>(text).also { columns += it }
-
-    inline fun <T> column(
-        text: String? = null,
-        init: (@TableColumnDslMarker TreeTableColumn<S, T>.() -> Unit)
-    ): TreeTableColumn<S, T> = column<T>(text).apply(init)
-
-    inline operator fun <T> String.invoke(
-        init: (@TableColumnDslMarker TreeTableColumn<S, T>.() -> Unit)
-    ): TreeTableColumn<S, T> = column(this, init)
-}

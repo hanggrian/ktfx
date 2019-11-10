@@ -32,19 +32,3 @@ fun <S, T> TableColumn<S, T>.columns(builder: (@TableColumnDslMarker TableColumn
     contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     TableColumnsBuilder<S>(columns).builder()
 }
-
-/** Interface to build [TableColumn] with Kotlin DSL. */
-class TableColumnsBuilder<S> internal constructor(private val columns: MutableCollection<TableColumn<S, *>>) {
-
-    fun <T> column(text: String? = null): TableColumn<S, T> =
-        TableColumn<S, T>(text).also { columns += it }
-
-    inline fun <T> column(
-        text: String? = null,
-        init: (@TableColumnDslMarker TableColumn<S, T>.() -> Unit)
-    ): TableColumn<S, T> = column<T>(text).apply(init)
-
-    inline operator fun <T> String.invoke(
-        init: (@TableColumnDslMarker TableColumn<S, T>.() -> Unit)
-    ): TableColumn<S, T> = column(this, init)
-}

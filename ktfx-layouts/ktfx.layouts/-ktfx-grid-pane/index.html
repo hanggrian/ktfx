@@ -8,7 +8,7 @@
 <a href="../../index.html">ktfx-layouts</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.layouts</a>&nbsp;/&nbsp;<a href="./index.html">KtfxGridPane</a><br/>
 <br/>
 <h1>KtfxGridPane</h1>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-h-align-constraints/index.html"><span class="identifier">HAlignConstraints</span></a><span class="symbol">, </span><a href="../-v-align-constraints/index.html"><span class="identifier">VAlignConstraints</span></a><span class="symbol">, </span><a href="../-h-expand-constraints/index.html"><span class="identifier">HExpandConstraints</span></a><span class="symbol">, </span><a href="../-v-expand-constraints/index.html"><span class="identifier">VExpandConstraints</span></a></code>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-h-grow-constraints/index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a></code>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -42,11 +42,11 @@
 </tr>
 <tr>
 <td>
-<h4><a href="col-range.html">colRange</a></h4>
+<h4><a href="col-spans.html">colSpans</a></h4>
 </td>
 <td>
-<p>While <code>colRange</code> are not a reserved variable, it follows the standard set by <a href="row-range.html">rowRange</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">colRange</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+<p>While <code>colRange</code> are not a reserved variable, it follows the standard set by <a href="row-spans.html">rowSpans</a>.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">colSpans</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
@@ -65,13 +65,6 @@
 </tr>
 <tr>
 <td>
-<h4><a href="hexpand.html">hexpand</a></h4>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">hexpand</span><span class="symbol">: </span><span class="identifier">Priority</span><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="hfill.html">hfill</a></h4>
 </td>
 <td>
@@ -80,10 +73,18 @@
 </tr>
 <tr>
 <td>
+<h4><a href="hgrows.html">hgrows</a></h4>
+</td>
+<td>
+<p>Children horizontal grow priority in this container.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">hgrows</span><span class="symbol">: </span><span class="identifier">Priority</span><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="margins.html">margins</a></h4>
 </td>
 <td>
-<p>Alias for reserved variable <code>margin</code>.</p>
+<p>Children margin in this container, alias for reserved property <code>margin</code>.</p>
 <code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">: </span><span class="identifier">Insets</span><span class="symbol">?</span></code></td>
 </tr>
 <tr>
@@ -96,11 +97,11 @@
 </tr>
 <tr>
 <td>
-<h4><a href="row-range.html">rowRange</a></h4>
+<h4><a href="row-spans.html">rowSpans</a></h4>
 </td>
 <td>
 <p>Alias for reserved variable <a href="#">GridPane.setRowSpan</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">rowRange</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">rowSpans</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
@@ -111,18 +112,19 @@
 </tr>
 <tr>
 <td>
-<h4><a href="vexpand.html">vexpand</a></h4>
-</td>
-<td>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">vexpand</span><span class="symbol">: </span><span class="identifier">Priority</span><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="vfill.html">vfill</a></h4>
 </td>
 <td>
 <p>Alias for reserved variable <a href="#">GridPane.setFillHeight</a>.</p>
 <code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">vfill</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="vgrows.html">vgrows</a></h4>
+</td>
+<td>
+<p>Children vertical grow priority in this container.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">vgrows</span><span class="symbol">: </span><span class="identifier">Priority</span><span class="symbol">?</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -139,27 +141,76 @@
 </tr>
 <tr>
 <td>
+<h4><a href="grid-at.html">gridAt</a></h4>
+</td>
+<td>
+<p>Conveniently set <a href="row.html">KtfxGridPane.row</a> and <a href="col.html">KtfxGridPane.col</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">gridAt</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int)/row">row</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int)/col">col</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="grid-spans.html">gridSpans</a></h4>
+</td>
+<td>
+<p>Conveniently set <a href="#">KtfxGridPane.rowRange</a> and <a href="#">KtfxGridPane.colRange</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">gridSpans</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridSpans(javafx.scene.Node, kotlin.Int, kotlin.Int)/rowSpans">rowSpans</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridSpans(javafx.scene.Node, kotlin.Int, kotlin.Int)/colSpans">colSpans</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="halign-center.html">halignCenter</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignCenter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="halign-left.html">halignLeft</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignLeft</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="halign-right.html">halignRight</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignRight</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="reset.html">reset</a></h4>
 </td>
 <td>
-<p>Clear children constraints.</p>
+<p>Clear children constraints in this container.</p>
 <code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">reset</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="set-index.html">setIndex</a></h4>
+<h4><a href="valign-baseline.html">valignBaseline</a></h4>
 </td>
 <td>
-<p>Conveniently set <a href="row.html">KtfxGridPane.row</a> and <a href="col.html">KtfxGridPane.col</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">setIndex</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$setIndex(javafx.scene.Node, kotlin.Int, kotlin.Int)/row">row</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$setIndex(javafx.scene.Node, kotlin.Int, kotlin.Int)/col">col</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignBaseline</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="set-range.html">setRange</a></h4>
+<h4><a href="valign-bottom.html">valignBottom</a></h4>
 </td>
 <td>
-<p>Conveniently set <a href="row-range.html">KtfxGridPane.rowRange</a> and <a href="col-range.html">KtfxGridPane.colRange</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">setRange</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$setRange(javafx.scene.Node, kotlin.Int, kotlin.Int)/rowRange">rowRange</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$setRange(javafx.scene.Node, kotlin.Int, kotlin.Int)/colRange">colRange</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignBottom</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="valign-center.html">valignCenter</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignCenter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="valign-top.html">valignTop</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignTop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>

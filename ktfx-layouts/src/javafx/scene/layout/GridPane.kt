@@ -20,8 +20,8 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals
 
-open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints,
-    AlignConstraints, HGrowConstraints, VGrowConstraints {
+open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, AlignConstraints,
+    HGrowConstraints, VGrowConstraints {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
@@ -29,10 +29,17 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints,
     final override fun Node.reset(): Unit =
         clearConstraints(this)
 
-    /** Conveniently set [KtfxGridPane.row] and [KtfxGridPane.col]. */
-    inline fun Node.gridAt(row: Int?, col: Int?) {
+    /** Conveniently set [KtfxGridPane.row], [KtfxGridPane.col], [KtfxGridPane.rowSpans] and [KtfxGridPane.colSpans]. */
+    inline fun Node.gridAt(
+        row: Int?,
+        col: Int?,
+        colSpans: Int? = null,
+        rowSpans: Int? = null
+    ) {
         this.row = row
         this.col = col
+        this.colSpans = colSpans
+        this.rowSpans = rowSpans
     }
 
     /** Alias for reserved variable [GridPane.setRowIndex]. */
@@ -44,12 +51,6 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints,
     var Node.col: Int?
         get() = getColumnIndex(this)
         set(value) = setColumnIndex(this, value)
-
-    /** Conveniently set [KtfxGridPane.rowRange] and [KtfxGridPane.colRange]. */
-    inline fun Node.gridSpans(rowSpans: Int?, colSpans: Int?) {
-        this.rowSpans = rowSpans
-        this.colSpans = colSpans
-    }
 
     /** Alias for reserved variable [GridPane.setRowSpan]. */
     var Node.rowSpans: Int?
@@ -73,38 +74,47 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints,
             halign = value?.hpos
         }
 
+    /** Children horizontal alignment in this container. */
     var Node.halign: HPos?
         get() = getHalignment(this)
         set(value) = setHalignment(this, value)
 
+    /** Children vertical alignment in this container. */
     var Node.valign: VPos?
         get() = getValignment(this)
         set(value) = setValignment(this, value)
 
+    /** Convenient method to align children to [HPos.LEFT]. */
     fun Node.halignLeft() {
         halign = HPos.LEFT
     }
 
+    /** Convenient method to align children to [HPos.CENTER]. */
     fun Node.halignCenter() {
         halign = HPos.CENTER
     }
 
+    /** Convenient method to align children to [HPos.RIGHT]. */
     fun Node.halignRight() {
         halign = HPos.RIGHT
     }
 
+    /** Convenient method to align children to [VPos.TOP]. */
     fun Node.valignTop() {
         valign = VPos.TOP
     }
 
+    /** Convenient method to align children to [VPos.CENTER]. */
     fun Node.valignCenter() {
         valign = VPos.CENTER
     }
 
+    /** Convenient method to align children to [VPos.BASELINE]. */
     fun Node.valignBaseline() {
         valign = VPos.BASELINE
     }
 
+    /** Convenient method to align children to [VPos.BOTTOM]. */
     fun Node.valignBottom() {
         valign = VPos.BOTTOM
     }

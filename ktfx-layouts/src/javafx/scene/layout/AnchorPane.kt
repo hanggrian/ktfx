@@ -17,7 +17,7 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Node.reset(): Unit =
+    final override fun Node.removeConstraints(): Unit =
         clearConstraints(this)
 
     var Node.anchorAll: Double?

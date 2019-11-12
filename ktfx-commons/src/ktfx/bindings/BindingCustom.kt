@@ -14,6 +14,7 @@ import javafx.beans.binding.IntegerBinding
 import javafx.beans.binding.LongBinding
 import javafx.beans.binding.ObjectBinding
 import javafx.beans.binding.StringBinding
+import javafx.util.Callback
 
 /** Helper function to create a custom [ObjectBinding]. */
 fun <T> bindingOf(vararg dependencies: Observable, func: () -> T?): ObjectBinding<T> =
@@ -70,6 +71,16 @@ fun longBindingOf(vararg dependencies: Observable, func: () -> Long?): LongBindi
 /** Helper function to create a custom [LongBinding]. */
 inline fun longBindingOf(dependencies: Collection<Observable>, noinline func: () -> Long?): LongBinding =
     longBindingOf(*dependencies.toTypedArray(), func = func)
+
+/** Helper function to create a custom [ObjectBinding] of [Callback]. */
+fun <P, R> callbackBindingOf(vararg dependencies: Observable, func: (P) -> R?): ObjectBinding<Callback<P, R>> =
+    Bindings.createObjectBinding<Callback<P, R>>(Callable<Callback<P, R>> { Callback<P, R>(func) }, *dependencies)
+
+/** Helper function to create a custom [ObjectBinding] of [Callback]. */
+inline fun <P, R> callbackBindingOf(
+    dependencies: Collection<Observable>,
+    noinline func: (P) -> R?
+): ObjectBinding<Callback<P, R>> = callbackBindingOf(*dependencies.toTypedArray(), func = func)
 
 /** Creates a string binding used to get a member. */
 fun Any.selectString(vararg steps: String): StringBinding =

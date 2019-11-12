@@ -19,7 +19,7 @@ open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Node.reset(): Unit =
+    final override fun Node.removeConstraints(): Unit =
         clearConstraints(this)
 
     final override var Node.align: Pos?

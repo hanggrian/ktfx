@@ -8,7 +8,7 @@ import javafx.scene.layout.Priority
 /** [javafx.scene.layout.HBox] constraints. */
 interface HBoxConstraints : NodeManager, HGrowConstraints, MarginConstraints {
 
-    override fun Node.reset(): Unit =
+    override fun Node.removeConstraints(): Unit =
         HBox.clearConstraints(this)
 
     override var Node.hgrows: Priority?

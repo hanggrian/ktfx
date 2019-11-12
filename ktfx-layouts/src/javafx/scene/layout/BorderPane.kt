@@ -12,16 +12,12 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/**
- * Invoking layout DSL will only set content to center.
- * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
- */
 open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Node.reset(): Unit =
+    final override fun Node.removeConstraints(): Unit =
         clearConstraints(this)
 
     final override var Node.align: Pos?

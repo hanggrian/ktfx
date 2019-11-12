@@ -26,13 +26,13 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, AlignConst
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Node.reset(): Unit =
+    final override fun Node.removeConstraints(): Unit =
         clearConstraints(this)
 
     /** Conveniently set [KtfxGridPane.row], [KtfxGridPane.col], [KtfxGridPane.rowSpans] and [KtfxGridPane.colSpans]. */
     inline fun Node.gridAt(
-        row: Int?,
-        col: Int?,
+        row: Int? = null,
+        col: Int? = null,
         colSpans: Int? = null,
         rowSpans: Int? = null
     ) {

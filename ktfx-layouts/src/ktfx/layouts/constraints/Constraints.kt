@@ -6,5 +6,5 @@ import javafx.scene.Node
 interface Constraints {
 
     /** Clear children constraints in this container. */
-    fun Node.reset()
+    fun Node.removeConstraints()
 }

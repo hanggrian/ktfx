@@ -30,7 +30,7 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, AlignConst
         clearConstraints(this)
 
     /** Conveniently set [KtfxGridPane.row], [KtfxGridPane.col], [KtfxGridPane.rowSpans] and [KtfxGridPane.colSpans]. */
-    inline fun Node.gridAt(
+    fun Node.gridAt(
         row: Int? = null,
         col: Int? = null,
         colSpans: Int? = null,
@@ -136,6 +136,12 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, AlignConst
     var Node.vfill: Boolean?
         get() = isFillHeight(this)
         set(value) = setFillHeight(this, value)
+
+    /** Conveniently call [KtfxGridPane.hgrow] and [KtfxGridPane.vgrow]. */
+    fun Node.grow() {
+        hgrow()
+        vgrow()
+    }
 
     final override var Node.hgrows: Priority?
         get() = getHgrow(this)

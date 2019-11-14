@@ -11,6 +11,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [SplitMenuButton] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
 
     final override fun <T : MenuItem> addItem(item: T): T =
@@ -30,6 +34,7 @@ inline fun splitMenuButton(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSplitMenuButton().apply(init)
 }
+
 /** Add a [SplitMenuButton] to this manager. */
 fun NodeManager.splitMenuButton(): SplitMenuButton =
     addNode(KtfxSplitMenuButton())

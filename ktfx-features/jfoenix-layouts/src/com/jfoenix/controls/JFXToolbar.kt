@@ -13,6 +13,10 @@ import ktfx.layouts.HBoxConstraints
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
+/**
+ * [JFXToolbar] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxJFXToolbar : JFXToolbar() {
 
     fun leftItems(init: HBoxConstraints.() -> Unit): Unit =

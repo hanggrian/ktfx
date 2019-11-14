@@ -16,6 +16,10 @@ import ktfx.layouts.TabManager
 import ktfx.layouts.addNode
 import ktfx.layouts.tab
 
+/**
+ * [JFXTabPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxJFXTabPane : JFXTabPane(), TabManager {
 
     final override fun <T : Tab> addTab(tab: T): T =
@@ -35,6 +39,7 @@ inline fun jfxTabPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXTabPane().apply(init)
 }
+
 /** Add a [JFXTabPane] to this manager. */
 fun NodeManager.jfxTabPane(): JFXTabPane =
     addNode(KtfxJFXTabPane())

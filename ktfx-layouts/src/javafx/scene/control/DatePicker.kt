@@ -18,6 +18,7 @@ inline fun datePicker(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return DatePicker(date).apply(init)
 }
+
 /** Add a [DatePicker] to this manager. */
 fun NodeManager.datePicker(
     date: LocalDate? = null

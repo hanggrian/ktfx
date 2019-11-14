@@ -24,6 +24,7 @@ inline fun cubicCurve(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY).apply(init)
 }
+
 /** Add a [CubicCurve] to this manager. */
 fun NodeManager.cubicCurve(
     startX: Double = 0.0,

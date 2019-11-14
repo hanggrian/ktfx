@@ -18,6 +18,7 @@ inline fun maskerPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MaskerPane().apply(init)
 }
+
 /** Add a [MaskerPane] to this manager. */
 fun NodeManager.maskerPane(): MaskerPane =
     addNode(MaskerPane())

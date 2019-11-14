@@ -18,6 +18,7 @@ inline fun worldMapView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return WorldMapView().apply(init)
 }
+
 /** Add a [WorldMapView] to this manager. */
 fun NodeManager.worldMapView(): WorldMapView =
     addNode(WorldMapView())

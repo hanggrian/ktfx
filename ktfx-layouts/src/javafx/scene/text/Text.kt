@@ -17,6 +17,7 @@ inline fun text(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Text(text).apply(init)
 }
+
 /** Add a [Text] to this manager. */
 fun NodeManager.text(
     text: String? = null

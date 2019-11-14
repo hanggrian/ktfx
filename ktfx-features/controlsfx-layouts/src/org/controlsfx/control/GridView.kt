@@ -19,7 +19,8 @@ inline fun <T> gridView(
     init: GridView<T>.() -> Unit
 ): GridView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return GridView(items).apply(init) }
+    return GridView(items).apply(init)
+}
 
 /** Add a [GridView] to this manager. */
 fun <T> NodeManager.gridView(

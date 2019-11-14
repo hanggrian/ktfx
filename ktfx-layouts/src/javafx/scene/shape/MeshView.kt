@@ -18,6 +18,7 @@ inline fun meshView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MeshView(mesh).apply(init)
 }
+
 /** Add a [MeshView] to this manager. */
 fun NodeManager.meshView(
     mesh: Mesh? = null

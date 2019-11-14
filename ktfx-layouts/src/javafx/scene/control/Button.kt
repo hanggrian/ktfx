@@ -19,6 +19,7 @@ inline fun button(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Button(text, graphic).apply(init)
 }
+
 /** Add a [Button] to this manager. */
 fun NodeManager.button(
     text: String? = null,

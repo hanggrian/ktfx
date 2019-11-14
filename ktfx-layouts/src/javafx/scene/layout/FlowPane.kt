@@ -13,6 +13,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [FlowPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
     NodeManager, MarginConstraints {
 
@@ -37,6 +41,7 @@ inline fun flowPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxFlowPane(orientation, hgap, vgap).apply(init)
 }
+
 /** Add a [FlowPane] to this manager. */
 fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,

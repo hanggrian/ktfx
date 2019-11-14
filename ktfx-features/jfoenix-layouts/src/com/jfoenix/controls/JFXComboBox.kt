@@ -21,6 +21,7 @@ inline fun <T> jfxComboBox(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXComboBox(items).apply(init)
 }
+
 /** Add a [JFXComboBox] to this manager. */
 fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList()

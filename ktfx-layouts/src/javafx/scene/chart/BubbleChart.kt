@@ -23,6 +23,7 @@ inline fun <X, Y> bubbleChart(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return BubbleChart(x, y, data).apply(init)
 }
+
 /** Add a [BubbleChart] to this manager. */
 fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,

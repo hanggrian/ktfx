@@ -19,6 +19,7 @@ inline fun customMenuItem(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CustomMenuItem(node, hideOnClick).apply(init)
 }
+
 /** Add a [CustomMenuItem] to this manager. */
 fun MenuItemManager.customMenuItem(
     node: Node? = null,

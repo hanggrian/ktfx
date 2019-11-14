@@ -18,6 +18,7 @@ inline fun <T> jfxChipView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXChipView<T>().apply(init)
 }
+
 /** Add a [JFXChipView] to this manager. */
 fun <T> NodeManager.jfxChipView(): JFXChipView<T> =
     addNode(JFXChipView())

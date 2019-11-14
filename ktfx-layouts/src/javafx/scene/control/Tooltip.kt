@@ -18,7 +18,8 @@ inline fun tooltip(
     init: Tooltip.() -> Unit
 ): Tooltip {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Tooltip(text).apply(init) }
+    return Tooltip(text).apply(init)
+}
 
 /** Set a [Tooltip] to this [Node]. */
 fun Node.tooltip(
@@ -31,7 +32,8 @@ inline fun Node.tooltip(
     init: Tooltip.() -> Unit
 ): Tooltip {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.tooltip(text, init).also { Tooltip.install(this, it) } }
+    return ktfx.layouts.tooltip(text, init).also { Tooltip.install(this, it) }
+}
 
 /** Set a [Tooltip] to this [Control]. */
 fun Control.tooltip(
@@ -44,7 +46,8 @@ inline fun Control.tooltip(
     init: Tooltip.() -> Unit
 ): Tooltip {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.tooltip(text, init).also { tooltip = it } }
+    return ktfx.layouts.tooltip(text, init).also { tooltip = it }
+}
 
 /** Set a [Tooltip] to this [Tab]. */
 fun Tab.tooltip(

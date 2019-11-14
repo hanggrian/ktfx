@@ -11,6 +11,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [ButtonBar] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -20,7 +24,8 @@ open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeMan
     inline operator fun String.invoke(
         graphic: Node? = null,
         init: Button.() -> Unit
-    ): Button = button(this, graphic, init) }
+    ): Button = button(this, graphic, init)
+}
 
 /** Create a [ButtonBar] with initialization block. */
 inline fun buttonBar(
@@ -30,6 +35,7 @@ inline fun buttonBar(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxButtonBar(buttonOrder).apply(init)
 }
+
 /** Add a [ButtonBar] to this manager. */
 fun NodeManager.buttonBar(
     buttonOrder: String? = null

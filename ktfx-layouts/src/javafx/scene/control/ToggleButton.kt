@@ -19,6 +19,7 @@ inline fun toggleButton(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ToggleButton(text, graphic).apply(init)
 }
+
 /** Add a [ToggleButton] to this manager. */
 fun NodeManager.toggleButton(
     text: String? = null,
@@ -34,6 +35,7 @@ inline fun NodeManager.toggleButton(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ToggleButton(text, graphic), init)
 }
+
 /** Add a [ToggleButton] to this manager. */
 fun ToggleButtonManager.toggleButton(
     text: String? = null,

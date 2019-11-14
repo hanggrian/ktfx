@@ -15,6 +15,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [Scene] with dynamic-layout dsl support.
+ * Invoking dsl will only set its root.
+ */
 open class KtfxScene(root: Parent, width: Double, height: Double, fill: Paint) :
     Scene(root, width, height, fill), NodeManager {
 
@@ -32,6 +36,7 @@ inline fun scene(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxScene(Pane(), width, height, fill).apply(init)
 }
+
 /** Add a [Scene] to this window. */
 fun Stage.scene(
     width: Double = -1.0,

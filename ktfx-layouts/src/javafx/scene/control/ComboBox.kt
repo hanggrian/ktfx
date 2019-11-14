@@ -19,6 +19,7 @@ inline fun <T> comboBox(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ComboBox(items).apply(init)
 }
+
 /** Add a [ComboBox] to this manager. */
 fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList()

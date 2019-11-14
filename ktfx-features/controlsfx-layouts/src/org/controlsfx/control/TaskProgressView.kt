@@ -19,6 +19,7 @@ inline fun <T : Task<*>> taskProgressView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TaskProgressView<T>().apply(init)
 }
+
 /** Add a [TaskProgressView] to this manager. */
 fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> =
     addNode(TaskProgressView())

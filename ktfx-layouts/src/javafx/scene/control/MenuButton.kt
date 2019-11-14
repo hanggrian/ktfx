@@ -11,6 +11,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [MenuButton] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
 
     final override fun <T : MenuItem> addItem(item: T): T =
@@ -32,6 +36,7 @@ inline fun menuButton(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMenuButton(text, graphic).apply(init)
 }
+
 /** Add a [MenuButton] to this manager. */
 fun NodeManager.menuButton(
     text: String? = null,

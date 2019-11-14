@@ -18,6 +18,7 @@ inline fun sphere(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Sphere(radius, division).apply(init)
 }
+
 /** Add a [Sphere] to this manager. */
 fun NodeManager.sphere(
     radius: Double = 1.0,

@@ -19,6 +19,7 @@ inline fun cylinder(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Cylinder(radius, height, division).apply(init)
 }
+
 /** Add a [Cylinder] to this manager. */
 fun NodeManager.cylinder(
     radius: Double = 1.0,

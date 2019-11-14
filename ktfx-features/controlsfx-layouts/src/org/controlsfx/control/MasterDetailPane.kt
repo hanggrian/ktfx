@@ -13,6 +13,10 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.MasterDetailPane
 
+/**
+ * [MasterDetailPane] with dynamic-layout dsl support.
+ * Invoking dsl will only set its master and detail, in order.
+ */
 open class KtfxMasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
     private var size = 0
 

@@ -17,6 +17,7 @@ inline fun polyline(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Polyline(*points).apply(init)
 }
+
 /** Add a [Polyline] to this manager. */
 fun NodeManager.polyline(
     vararg points: Double

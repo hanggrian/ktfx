@@ -22,6 +22,7 @@ inline fun quadCurve(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return QuadCurve(startX, startY, controlX, controlY, endX, endY).apply(init)
 }
+
 /** Add a [QuadCurve] to this manager. */
 fun NodeManager.quadCurve(
     startX: Double = 0.0,

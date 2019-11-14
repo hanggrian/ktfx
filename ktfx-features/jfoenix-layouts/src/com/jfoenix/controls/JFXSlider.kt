@@ -21,6 +21,7 @@ inline fun jfxSlider(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXSlider(min, max, value).apply(init)
 }
+
 /** Add a [JFXSlider] to this manager. */
 fun NodeManager.jfxSlider(
     min: Double = 0.0,

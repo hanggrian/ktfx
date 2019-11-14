@@ -23,6 +23,7 @@ inline fun <X, Y> areaChart(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return AreaChart(x, y, data).apply(init)
 }
+
 /** Add an [AreaChart] to this manager. */
 fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,

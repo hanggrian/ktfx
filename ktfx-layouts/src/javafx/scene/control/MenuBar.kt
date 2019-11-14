@@ -11,6 +11,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [MenuBar] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxMenuBar : MenuBar(), MenuManager {
 
     final override fun <T : Menu> addMenu(menu: T): T =
@@ -28,7 +32,8 @@ inline fun menuBar(
     init: KtfxMenuBar.() -> Unit
 ): MenuBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMenuBar().apply(init) }
+    return KtfxMenuBar().apply(init)
+}
 
 /** Add a [MenuBar] to this manager. */
 fun NodeManager.menuBar(): MenuBar =

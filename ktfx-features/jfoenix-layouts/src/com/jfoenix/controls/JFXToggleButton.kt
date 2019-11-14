@@ -18,6 +18,7 @@ inline fun jfxToggleButton(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXToggleButton().apply(init)
 }
+
 /** Add a [JFXToggleButton] to this manager. */
 fun NodeManager.jfxToggleButton(): JFXToggleButton =
     addNode(JFXToggleButton())

@@ -25,6 +25,7 @@ inline fun jfxDecorator(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDecorator(stage, node, fullScreen, max, min).apply(init)
 }
+
 /** Add a [JFXDecorator] to this manager. */
 fun NodeManager.jfxDecorator(
     stage: Stage,

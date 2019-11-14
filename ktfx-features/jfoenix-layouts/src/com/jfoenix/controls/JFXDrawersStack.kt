@@ -18,6 +18,7 @@ inline fun jfxDrawersStack(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDrawersStack().apply(init)
 }
+
 /** Add a [JFXDrawersStack] to this manager. */
 fun NodeManager.jfxDrawersStack(): JFXDrawersStack =
     addNode(JFXDrawersStack())

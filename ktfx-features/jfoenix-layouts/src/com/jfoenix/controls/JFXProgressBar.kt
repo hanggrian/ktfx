@@ -19,6 +19,7 @@ inline fun jfxProgressBar(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXProgressBar(progress).apply(init)
 }
+
 /** Add a [JFXProgressBar] to this manager. */
 fun NodeManager.jfxProgressBar(
     progress: Double = 0.0

@@ -13,8 +13,8 @@ import ktfx.layouts.addNode
 import org.controlsfx.control.HiddenSidesPane
 
 /**
- * Invoking layout DSL will only set content.
- * To set other sides, explicitly use `top`, `left`, `bottom`, or `right`.
+ * [HiddenSidesPane] with dynamic-layout dsl support.
+ * Invoking dsl will only set its content.
  */
 open class KtfxHiddenSidesPane : HiddenSidesPane(), NodeManager {
 
@@ -27,7 +27,8 @@ inline fun hiddenSidesPane(
     init: KtfxHiddenSidesPane.() -> Unit
 ): HiddenSidesPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxHiddenSidesPane().apply(init) }
+    return KtfxHiddenSidesPane().apply(init)
+}
 
 /** Add a [HiddenSidesPane] to this manager. */
 fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
@@ -38,4 +39,5 @@ inline fun NodeManager.hiddenSidesPane(
     init: KtfxHiddenSidesPane.() -> Unit
 ): HiddenSidesPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxHiddenSidesPane(), init) }
+    return addNode(KtfxHiddenSidesPane(), init)
+}

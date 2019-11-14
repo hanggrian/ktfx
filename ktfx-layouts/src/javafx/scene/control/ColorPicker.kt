@@ -19,6 +19,7 @@ inline fun colorPicker(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ColorPicker(color).apply(init)
 }
+
 /** Add a [ColorPicker] to this manager. */
 fun NodeManager.colorPicker(
     color: Color = WHITE

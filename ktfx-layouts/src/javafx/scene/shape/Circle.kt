@@ -21,6 +21,7 @@ inline fun circle(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Circle(centerX, centerY, radius, fill).apply(init)
 }
+
 /** Add a [Circle] to this manager. */
 fun NodeManager.circle(
     centerX: Double = 0.0,

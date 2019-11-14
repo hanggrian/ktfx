@@ -19,6 +19,7 @@ inline fun checkMenuItem(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckMenuItem(text, graphic).apply(init)
 }
+
 /** Add a [CheckMenuItem] to this manager. */
 fun MenuItemManager.checkMenuItem(
     text: String? = null,

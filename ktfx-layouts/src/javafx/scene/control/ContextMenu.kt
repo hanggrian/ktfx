@@ -14,6 +14,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [ContextMenu] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxContextMenu : ContextMenu(), MenuItemManager {
 
     final override fun <T : MenuItem> addItem(item: T): T =
@@ -33,6 +37,7 @@ inline fun contextMenu(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxContextMenu().apply(init)
 }
+
 /** Set a [ContextMenu] to this [Control]. */
 fun Control.contextMenu(): ContextMenu =
     KtfxContextMenu().also { contextMenu = it }

@@ -20,6 +20,7 @@ inline fun jfxColorPicker(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXColorPicker(color).apply(init)
 }
+
 /** Add a [JFXColorPicker] to this manager. */
 fun NodeManager.jfxColorPicker(
     color: Color? = null

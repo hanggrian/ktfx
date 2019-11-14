@@ -24,6 +24,7 @@ inline fun <X, Y> barChart(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return BarChart(x, y, data, gap).apply(init)
 }
+
 /** Add a [BarChart] to this manager. */
 fun <X, Y> NodeManager.barChart(
     x: Axis<X>,

@@ -20,6 +20,7 @@ inline fun jfxDatePicker(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDatePicker(date).apply(init)
 }
+
 /** Add a [JFXDatePicker] to this manager. */
 fun NodeManager.jfxDatePicker(
     date: LocalDate? = null

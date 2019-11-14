@@ -12,7 +12,10 @@ import kotlin.contracts.contract
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
-// TODO: should include mask & pos in constructor?
+/**
+ * [JFXRippler] with dynamic-layout dsl support.
+ * Invoking dsl will only set its children.
+ */
 open class KtfxJFXRippler : JFXRippler(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -26,6 +29,7 @@ inline fun jfxRippler(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXRippler().apply(init)
 }
+
 /** Add a [JFXRippler] to this manager. */
 fun NodeManager.jfxRippler(): JFXRippler =
     addNode(KtfxJFXRippler())

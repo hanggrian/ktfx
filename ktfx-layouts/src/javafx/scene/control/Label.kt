@@ -19,6 +19,7 @@ inline fun label(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Label(text, graphic).apply(init)
 }
+
 /** Add a [Label] to this manager. */
 fun NodeManager.label(
     text: String? = null,

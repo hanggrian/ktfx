@@ -18,6 +18,7 @@ inline fun imageView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ImageView(image).apply(init)
 }
+
 /** Create an [ImageView] with initialization block. */
 inline fun imageView(
     imageUrl: String,
@@ -26,6 +27,7 @@ inline fun imageView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ImageView(imageUrl).apply(init)
 }
+
 /** Add an [ImageView] to this manager. */
 fun NodeManager.imageView(
     image: Image? = null
@@ -39,6 +41,7 @@ inline fun NodeManager.imageView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ImageView(image), init)
 }
+
 /** Add an [ImageView] to this manager. */
 fun NodeManager.imageView(
     imageUrl: String

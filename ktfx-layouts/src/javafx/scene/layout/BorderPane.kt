@@ -12,10 +12,15 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [BorderPane] with dynamic-layout dsl support.
+ * Invoking dsl will only set its content. There is currently no way to configure other areas (top, left, right, bottom) with dsl.
+ * Instead, create an instance and set it manually (e.g: `left = ktfx.layouts.label()`).
+ */
 open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
-        node.also { children += it }
+        node.also { center = it }
 
     final override fun Node.removeConstraints(): Unit =
         clearConstraints(this)

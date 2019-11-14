@@ -20,6 +20,10 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals
 
+/**
+ * [GridPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, AlignConstraints,
     HGrowConstraints, VGrowConstraints {
 

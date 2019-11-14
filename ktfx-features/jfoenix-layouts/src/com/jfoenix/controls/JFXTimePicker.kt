@@ -20,6 +20,7 @@ inline fun jfxTimePicker(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTimePicker(localTime).apply(init)
 }
+
 /** Add a [JFXTimePicker] to this manager. */
 fun NodeManager.jfxTimePicker(
     localTime: LocalTime? = null

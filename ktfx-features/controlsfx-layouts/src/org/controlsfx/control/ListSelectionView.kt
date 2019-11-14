@@ -18,6 +18,7 @@ inline fun <T> listSelectionView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ListSelectionView<T>().apply(init)
 }
+
 /** Add a [ListSelectionView] to this manager. */
 fun <T> NodeManager.listSelectionView(): ListSelectionView<T> =
     addNode(ListSelectionView())

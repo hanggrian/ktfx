@@ -21,6 +21,7 @@ inline fun <T> jfxDefaultChip(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDefaultChip(view, item).apply(init)
 }
+
 /** Add a [JFXDefaultChip] to this manager. */
 fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,

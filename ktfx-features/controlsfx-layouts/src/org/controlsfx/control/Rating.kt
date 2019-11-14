@@ -20,6 +20,7 @@ inline fun rating(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Rating(max, rating).apply(init)
 }
+
 /** Add a [Rating] to this manager. */
 fun NodeManager.rating(
     max: Int = 5,

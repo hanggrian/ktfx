@@ -17,6 +17,7 @@ inline fun radioButton(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return RadioButton(text).apply(init)
 }
+
 /** Add a [RadioButton] to this manager. */
 fun NodeManager.radioButton(
     text: String? = null

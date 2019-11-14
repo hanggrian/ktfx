@@ -10,6 +10,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [HBox] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxHBox(spacing: Double) : HBox(spacing), HBoxConstraints {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -24,6 +28,7 @@ inline fun hbox(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxHBox(spacing).apply(init)
 }
+
 /** Add an [HBox] to this manager. */
 fun NodeManager.hbox(
     spacing: Double = 0.0

@@ -19,6 +19,7 @@ inline fun jfxRadioButton(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXRadioButton(text).apply(init)
 }
+
 /** Add a [JFXRadioButton] to this manager. */
 fun NodeManager.jfxRadioButton(
     text: String? = null

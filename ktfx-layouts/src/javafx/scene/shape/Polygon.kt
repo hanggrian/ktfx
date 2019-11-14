@@ -17,6 +17,7 @@ inline fun polygon(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Polygon(*points).apply(init)
 }
+
 /** Add a [Polygon] to this manager. */
 fun NodeManager.polygon(
     vararg points: Double

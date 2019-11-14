@@ -17,6 +17,7 @@ inline fun checkBox(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckBox(text).apply(init)
 }
+
 /** Add a [CheckBox] to this manager. */
 fun NodeManager.checkBox(
     text: String? = null

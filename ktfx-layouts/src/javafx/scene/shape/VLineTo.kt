@@ -17,6 +17,7 @@ inline fun vlineTo(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return VLineTo(y).apply(init)
 }
+
 /** Add a [VLineTo] to this manager. */
 fun PathElementManager.vlineTo(
     y: Double = 0.0

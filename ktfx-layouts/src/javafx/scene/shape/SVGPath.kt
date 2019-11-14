@@ -16,6 +16,7 @@ inline fun svgPath(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return SVGPath().apply(init)
 }
+
 /** Add a [SVGPath] to this manager. */
 fun NodeManager.svgPath(): SVGPath =
     addNode(SVGPath())

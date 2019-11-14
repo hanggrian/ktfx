@@ -10,6 +10,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [ToolBar] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxToolBar : ToolBar(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -23,6 +27,7 @@ inline fun toolBar(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxToolBar().apply(init)
 }
+
 /** Add a [ToolBar] to this manager. */
 fun NodeManager.toolBar(): ToolBar =
     addNode(KtfxToolBar())

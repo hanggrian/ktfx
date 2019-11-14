@@ -18,6 +18,7 @@ inline fun lineTo(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return LineTo(x, y).apply(init)
 }
+
 /** Add a [LineTo] to this manager. */
 fun PathElementManager.lineTo(
     x: Double = 0.0,

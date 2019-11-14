@@ -18,6 +18,7 @@ inline fun <T> prefixSelectionComboBox(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PrefixSelectionComboBox<T>().apply(init)
 }
+
 /** Add a [PrefixSelectionComboBox] to this manager. */
 fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
     addNode(PrefixSelectionComboBox())

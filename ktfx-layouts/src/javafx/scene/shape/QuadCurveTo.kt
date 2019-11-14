@@ -20,6 +20,7 @@ inline fun quadCurveTo(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return QuadCurveTo(controlX, controlY, x, y).apply(init)
 }
+
 /** Add a [QuadCurveTo] to this manager. */
 fun PathElementManager.quadCurveTo(
     controlX: Double = 0.0,

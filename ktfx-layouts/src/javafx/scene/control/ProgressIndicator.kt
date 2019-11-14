@@ -18,6 +18,7 @@ inline fun progressIndicator(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ProgressIndicator(progress).apply(init)
 }
+
 /** Add a [ProgressIndicator] to this manager. */
 fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS

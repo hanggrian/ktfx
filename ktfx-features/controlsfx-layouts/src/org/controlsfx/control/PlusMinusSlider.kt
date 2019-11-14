@@ -18,6 +18,7 @@ inline fun plusMinusSlider(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PlusMinusSlider().apply(init)
 }
+
 /** Add a [PlusMinusSlider] to this manager. */
 fun NodeManager.plusMinusSlider(): PlusMinusSlider =
     addNode(PlusMinusSlider())

@@ -19,6 +19,7 @@ inline fun hyperlink(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Hyperlink(text, graphic).apply(init)
 }
+
 /** Add a [Hyperlink] to this manager. */
 fun NodeManager.hyperlink(
     text: String? = null,

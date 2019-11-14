@@ -22,6 +22,7 @@ inline fun arc(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply(init)
 }
+
 /** Add an [Arc] to this manager. */
 fun NodeManager.arc(
     centerX: Double = 0.0,

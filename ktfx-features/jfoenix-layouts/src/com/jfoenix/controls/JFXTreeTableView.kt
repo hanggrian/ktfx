@@ -21,6 +21,7 @@ inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeTableView(root).apply(init)
 }
+
 /** Add a [JFXTreeTableView] to this manager. */
 fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     root: TreeItem<S>? = null

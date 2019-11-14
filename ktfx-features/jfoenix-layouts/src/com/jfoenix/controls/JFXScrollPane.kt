@@ -12,6 +12,10 @@ import kotlin.contracts.contract
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
+/**
+ * [JFXScrollPane] with dynamic-layout dsl support.
+ * Invoking dsl will only set its content.
+ */
 open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =

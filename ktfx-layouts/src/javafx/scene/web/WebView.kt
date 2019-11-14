@@ -16,6 +16,7 @@ inline fun webView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return WebView().apply(init)
 }
+
 /** Add a [WebView] to this manager. */
 fun NodeManager.webView(): WebView =
     addNode(WebView())

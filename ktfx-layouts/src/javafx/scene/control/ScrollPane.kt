@@ -10,6 +10,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [ScrollPane] with dynamic-layout dsl support.
+ * Invoking dsl will only set its content.
+ */
 open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -24,6 +28,7 @@ inline fun scrollPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxScrollPane(content).apply(init)
 }
+
 /** Add a [ScrollPane] to this manager. */
 fun NodeManager.scrollPane(
     content: Node? = null

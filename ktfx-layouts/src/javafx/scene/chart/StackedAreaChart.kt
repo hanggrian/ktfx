@@ -23,6 +23,7 @@ inline fun <X, Y> stackedAreaChart(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return StackedAreaChart(x, y, data).apply(init)
 }
+
 /** Add a [StackedAreaChart] to this manager. */
 fun <X, Y> NodeManager.stackedAreaChart(
     x: Axis<X>,

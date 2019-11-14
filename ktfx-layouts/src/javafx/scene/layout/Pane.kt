@@ -10,6 +10,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [Pane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxPane : Pane(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -23,6 +27,7 @@ inline fun pane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxPane().apply(init)
 }
+
 /** Add a [Pane] to this manager. */
 fun NodeManager.pane(): Pane =
     addNode(KtfxPane())

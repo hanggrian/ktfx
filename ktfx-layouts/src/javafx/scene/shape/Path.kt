@@ -10,6 +10,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [Path] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxPath : Path(), PathElementManager {
 
     final override fun <T : PathElement> addElement(element: T): T =
@@ -23,6 +27,7 @@ inline fun path(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxPath().apply(init)
 }
+
 /** Add a [Path] to this manager. */
 fun NodeManager.path(): Path =
     addNode(KtfxPath())

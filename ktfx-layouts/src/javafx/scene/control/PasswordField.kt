@@ -16,6 +16,7 @@ inline fun passwordField(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PasswordField().apply(init)
 }
+
 /** Add a [PasswordField] to this manager. */
 fun NodeManager.passwordField(): PasswordField =
     addNode(PasswordField())

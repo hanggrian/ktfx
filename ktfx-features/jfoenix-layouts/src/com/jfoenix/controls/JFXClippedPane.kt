@@ -12,6 +12,10 @@ import kotlin.contracts.contract
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
+/**
+ * [JFXClippedPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -25,6 +29,7 @@ inline fun jfxClippedPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXClippedPane().apply(init)
 }
+
 /** Add a [JFXClippedPane] to this manager. */
 fun NodeManager.jfxClippedPane(): JFXClippedPane =
     addNode(KtfxJFXClippedPane())
@@ -35,4 +40,4 @@ inline fun NodeManager.jfxClippedPane(
 ): JFXClippedPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXClippedPane(), init)
-    }
+}

@@ -6,10 +6,15 @@ package ktfx.layouts
 
 import javafx.scene.Group
 import javafx.scene.Node
+import javafx.scene.Scene
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [Scene] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxGroup : Group(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -23,6 +28,7 @@ inline fun group(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxGroup().apply(init)
 }
+
 /** Add a [Group] to this manager. */
 fun NodeManager.group(): Group =
     addNode(KtfxGroup())

@@ -13,6 +13,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [TilePane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
     NodeManager, AlignConstraints, MarginConstraints {
 
@@ -41,6 +45,7 @@ inline fun tilePane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTilePane(orientation, hgap, vgap).apply(init)
 }
+
 /** Add a [TilePane] to this manager. */
 fun NodeManager.tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,

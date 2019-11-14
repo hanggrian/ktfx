@@ -18,6 +18,7 @@ inline fun canvas(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Canvas(width, height).apply(init)
 }
+
 /** Add a [Canvas] to this manager. */
 fun NodeManager.canvas(
     width: Double = 0.0,

@@ -19,6 +19,7 @@ inline fun <T> listView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ListView(items).apply(init)
 }
+
 /** Add a [ListView] to this manager. */
 fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList()

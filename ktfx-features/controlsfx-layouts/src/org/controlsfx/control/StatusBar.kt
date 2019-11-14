@@ -18,6 +18,7 @@ inline fun statusBar(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return StatusBar().apply(init)
 }
+
 /** Add a [StatusBar] to this manager. */
 fun NodeManager.statusBar(): StatusBar =
     addNode(StatusBar())

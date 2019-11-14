@@ -19,6 +19,7 @@ inline fun toggleSwitch(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ToggleSwitch(text).apply(init)
 }
+
 /** Add a [ToggleSwitch] to this manager. */
 fun NodeManager.toggleSwitch(
     text: String? = null

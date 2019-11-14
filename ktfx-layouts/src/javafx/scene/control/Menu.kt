@@ -11,6 +11,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [Menu] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
 
     final override fun <T : MenuItem> addItem(item: T): T =
@@ -32,6 +36,7 @@ inline fun menu(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMenu(text, graphic).apply(init)
 }
+
 /** Add a [Menu] to this manager. */
 fun MenuManager.menu(
     text: String = "",
@@ -47,6 +52,7 @@ inline fun MenuManager.menu(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addMenu(KtfxMenu(text, graphic), init)
 }
+
 /** Add a [Menu] to this manager. */
 fun MenuItemManager.menu(
     text: String = "",

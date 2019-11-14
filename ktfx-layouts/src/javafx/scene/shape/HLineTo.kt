@@ -17,6 +17,7 @@ inline fun hlineTo(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return HLineTo(x).apply(init)
 }
+
 /** Add a [HLineTo] to this manager. */
 fun PathElementManager.hlineTo(
     x: Double = 0.0

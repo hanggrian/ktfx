@@ -19,6 +19,7 @@ inline fun <S> tableView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TableView(items).apply(init)
 }
+
 /** Add a [TableView] to this manager. */
 fun <S> NodeManager.tableView(
     items: ObservableList<S> = FXCollections.observableArrayList()

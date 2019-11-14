@@ -20,6 +20,7 @@ inline fun pieChart(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PieChart(data).apply(init)
 }
+
 /** Add a [PieChart] to this manager. */
 fun NodeManager.pieChart(
     data: ObservableList<Data> = FXCollections.observableArrayList()

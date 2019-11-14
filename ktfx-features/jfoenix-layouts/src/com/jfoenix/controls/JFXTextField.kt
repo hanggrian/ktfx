@@ -17,7 +17,8 @@ inline fun jfxTextField(
     init: JFXTextField.() -> Unit
 ): JFXTextField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXTextField(text).apply(init) }
+    return JFXTextField(text).apply(init)
+}
 
 /** Add a [JFXTextField] to this manager. */
 fun NodeManager.jfxTextField(

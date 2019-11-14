@@ -16,6 +16,7 @@ inline fun separatorMenuItem(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return SeparatorMenuItem().apply(init)
 }
+
 /** Add a [SeparatorMenuItem] to this manager. */
 fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem =
     addItem(SeparatorMenuItem())

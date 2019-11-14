@@ -20,6 +20,7 @@ inline fun box(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Box(width, height, depth).apply(init)
 }
+
 /** Add a [Box] to this manager. */
 fun NodeManager.box(
     width: Double = DEFAULT_SIZE,

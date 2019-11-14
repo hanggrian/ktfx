@@ -18,6 +18,7 @@ inline fun <T> jfxListView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXListView<T>().apply(init)
 }
+
 /** Add a [JFXListView] to this manager. */
 fun <T> NodeManager.jfxListView(): JFXListView<T> =
     addNode(JFXListView())

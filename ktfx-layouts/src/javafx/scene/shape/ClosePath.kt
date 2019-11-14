@@ -16,6 +16,7 @@ inline fun closePath(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ClosePath().apply(init)
 }
+
 /** Add a [ClosePath] to this manager. */
 fun PathElementManager.closePath(): ClosePath =
     addElement(ClosePath())

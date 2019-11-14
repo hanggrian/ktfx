@@ -17,6 +17,7 @@ inline fun progressBar(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ProgressBar(progress).apply(init)
 }
+
 /** Add a [ProgressBar] to this manager. */
 fun NodeManager.progressBar(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS

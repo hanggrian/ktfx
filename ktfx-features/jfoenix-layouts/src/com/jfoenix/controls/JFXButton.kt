@@ -21,6 +21,7 @@ inline fun jfxButton(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXButton(text, graphic).apply(init)
 }
+
 /** Add a [JFXButton] to this manager. */
 fun NodeManager.jfxButton(
     text: String? = null,

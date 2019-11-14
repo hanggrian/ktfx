@@ -19,6 +19,7 @@ inline fun jfxCheckBox(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXCheckBox(text).apply(init)
 }
+
 /** Add a [JFXCheckBox] to this manager. */
 fun NodeManager.jfxCheckBox(
     text: String? = null

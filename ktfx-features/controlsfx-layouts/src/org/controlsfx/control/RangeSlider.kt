@@ -22,6 +22,7 @@ inline fun rangeSlider(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return RangeSlider(min, max, lowValue, highValue).apply(init)
 }
+
 /** Add a [RangeSlider] to this manager. */
 fun NodeManager.rangeSlider(
     min: Double = 0.0,

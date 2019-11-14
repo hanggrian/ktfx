@@ -12,6 +12,10 @@ import kotlin.contracts.contract
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
+/**
+ * [JFXBadge] with dynamic-layout dsl support.
+ * Invoking dsl will only set its control.
+ */
 open class KtfxJFXBadge : JFXBadge(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -25,6 +29,7 @@ inline fun jfxBadge(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXBadge().apply(init)
 }
+
 /** Add a [JFXBadge] to this manager. */
 fun NodeManager.jfxBadge(): JFXBadge =
     addNode(KtfxJFXBadge())

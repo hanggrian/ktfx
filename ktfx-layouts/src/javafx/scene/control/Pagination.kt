@@ -18,6 +18,7 @@ inline fun pagination(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Pagination(count, index).apply(init)
 }
+
 /** Add a [Pagination] to this manager. */
 fun NodeManager.pagination(
     count: Int = Pagination.INDETERMINATE,

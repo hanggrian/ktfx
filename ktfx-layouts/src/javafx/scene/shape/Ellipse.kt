@@ -20,6 +20,7 @@ inline fun ellipse(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Ellipse(centerX, centerY, radiusX, radiusY).apply(init)
 }
+
 /** Add an [Ellipse] to this manager. */
 fun NodeManager.ellipse(
     centerX: Double = 0.0,

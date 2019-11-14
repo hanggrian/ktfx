@@ -20,6 +20,7 @@ inline fun propertySheet(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PropertySheet(items).apply(init)
 }
+
 /** Add a [PropertySheet] to this manager. */
 fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null

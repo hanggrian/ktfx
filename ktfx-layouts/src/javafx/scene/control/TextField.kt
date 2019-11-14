@@ -17,6 +17,7 @@ inline fun textField(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TextField(text).apply(init)
 }
+
 /** Add a [TextField] to this manager. */
 fun NodeManager.textField(
     text: String = ""

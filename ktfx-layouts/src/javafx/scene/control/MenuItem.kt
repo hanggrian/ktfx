@@ -19,6 +19,7 @@ inline fun menuItem(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MenuItem(text, graphic).apply(init)
 }
+
 /** Add a [MenuItem] to this manager. */
 fun MenuItemManager.menuItem(
     text: String? = null,

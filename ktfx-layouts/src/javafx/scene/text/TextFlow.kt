@@ -11,7 +11,11 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Making use of [kotlin.text.appendln] by implementing [Appendable]. */
+/**
+ * [TextFlow] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ * Making use of [kotlin.text.appendln] by implementing [Appendable].
+ */
 open class KtfxTextFlow : TextFlow(), NodeManager, Appendable {
 
     final override fun <T : Node> addNode(node: T): T =

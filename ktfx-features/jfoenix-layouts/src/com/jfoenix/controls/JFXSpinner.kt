@@ -19,6 +19,7 @@ inline fun jfxSpinner(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXSpinner(progress).apply(init)
 }
+
 /** Add a [JFXSpinner] to this manager. */
 fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS

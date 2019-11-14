@@ -12,6 +12,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [VBox] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints, MarginConstraints {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -37,6 +41,7 @@ inline fun vbox(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxVBox(spacing).apply(init)
 }
+
 /** Add a [VBox] to this manager. */
 fun NodeManager.vbox(
     spacing: Double = 0.0

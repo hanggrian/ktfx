@@ -19,6 +19,7 @@ inline fun slider(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Slider(min, max, value).apply(init)
 }
+
 /** Add a [Slider] to this manager. */
 fun NodeManager.slider(
     min: Double = 0.0,

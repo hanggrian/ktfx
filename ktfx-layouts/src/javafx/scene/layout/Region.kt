@@ -16,6 +16,7 @@ inline fun region(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Region().apply(init)
 }
+
 /** Add a [Region] to this manager. */
 fun NodeManager.region(): Region =
     addNode(Region())

@@ -18,6 +18,7 @@ inline fun <T> jfxListCell(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXListCell<T>().apply(init)
 }
+
 /** Add a [JFXListCell] to this manager. */
 fun <T> NodeManager.jfxListCell(): JFXListCell<T> =
     addNode(JFXListCell())

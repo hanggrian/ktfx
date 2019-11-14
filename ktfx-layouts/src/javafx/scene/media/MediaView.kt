@@ -18,6 +18,7 @@ inline fun mediaView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MediaView(player).apply(init)
 }
+
 /** Add a [MediaView] to this manager. */
 fun NodeManager.mediaView(
     player: MediaPlayer? = null

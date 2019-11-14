@@ -17,6 +17,7 @@ inline fun textArea(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TextArea(text).apply(init)
 }
+
 /** Add a [TextArea] to this manager. */
 fun NodeManager.textArea(
     text: String = ""

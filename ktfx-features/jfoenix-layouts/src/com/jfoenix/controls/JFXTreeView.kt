@@ -20,6 +20,7 @@ inline fun <T> jfxTreeView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeView(root).apply(init)
 }
+
 /** Add a [JFXTreeView] to this manager. */
 fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null

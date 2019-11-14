@@ -19,6 +19,7 @@ inline fun jfxTextArea(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTextArea(text).apply(init)
 }
+
 /** Add a [JFXTextArea] to this manager. */
 fun NodeManager.jfxTextArea(
     text: String? = null

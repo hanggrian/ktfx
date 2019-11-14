@@ -17,7 +17,8 @@ inline fun hyperlinkLabel(
     init: HyperlinkLabel.() -> Unit
 ): HyperlinkLabel {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return HyperlinkLabel(text).apply(init) }
+    return HyperlinkLabel(text).apply(init)
+}
 
 /** Add a [HyperlinkLabel] to this manager. */
 fun NodeManager.hyperlinkLabel(

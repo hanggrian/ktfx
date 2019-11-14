@@ -20,6 +20,7 @@ inline fun line(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Line(centerX, centerY, endX, endY).apply(init)
 }
+
 /** Add a [Line] to this manager. */
 fun NodeManager.line(
     centerX: Double = 0.0,

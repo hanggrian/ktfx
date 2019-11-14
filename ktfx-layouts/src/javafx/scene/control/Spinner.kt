@@ -16,6 +16,7 @@ inline fun <T> spinner(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Spinner<T>().apply(init)
 }
+
 /** Add a [Spinner] to this manager. */
 fun <T> NodeManager.spinner(): Spinner<T> =
     addNode(Spinner())

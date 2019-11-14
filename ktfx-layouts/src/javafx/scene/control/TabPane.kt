@@ -11,6 +11,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [TabPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxTabPane : TabPane(), TabManager {
 
     final override fun <T : Tab> addTab(tab: T): T =
@@ -30,6 +34,7 @@ inline fun tabPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTabPane().apply(init)
 }
+
 /** Add a [TabPane] to this manager. */
 fun NodeManager.tabPane(): TabPane =
     addNode(KtfxTabPane())

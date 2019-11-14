@@ -20,6 +20,7 @@ inline fun jfxToggleNode(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXToggleNode(graphic).apply(init)
 }
+
 /** Add a [JFXToggleNode] to this manager. */
 fun NodeManager.jfxToggleNode(
     graphic: Node? = null

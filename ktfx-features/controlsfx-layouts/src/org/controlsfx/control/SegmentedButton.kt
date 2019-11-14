@@ -15,6 +15,10 @@ import ktfx.layouts.addNode
 import ktfx.layouts.toggleButton
 import org.controlsfx.control.SegmentedButton
 
+/**
+ * [SegmentedButton] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
 
     final override fun <T : ToggleButton> addButton(button: T): T =

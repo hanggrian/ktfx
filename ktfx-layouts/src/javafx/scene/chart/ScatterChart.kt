@@ -23,6 +23,7 @@ inline fun <X, Y> scatterChart(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ScatterChart(x, y, data).apply(init)
 }
+
 /** Add a [ScatterChart] to this manager. */
 fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,

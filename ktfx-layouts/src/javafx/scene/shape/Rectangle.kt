@@ -20,6 +20,7 @@ inline fun rectangle(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Rectangle(x, y, width, height).apply(init)
 }
+
 /** Add a [Rectangle] to this manager. */
 fun NodeManager.rectangle(
     x: Double = 0.0,

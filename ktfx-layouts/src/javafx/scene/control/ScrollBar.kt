@@ -16,6 +16,7 @@ inline fun scrollBar(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ScrollBar().apply(init)
 }
+
 /** Add a [ScrollBar] to this manager. */
 fun NodeManager.scrollBar(): ScrollBar =
     addNode(ScrollBar())

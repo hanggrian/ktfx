@@ -19,6 +19,7 @@ inline fun radioMenuItem(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return RadioMenuItem(text, graphic).apply(init)
 }
+
 /** Add a [RadioMenuItem] to this manager. */
 fun MenuItemManager.radioMenuItem(
     text: String? = null,

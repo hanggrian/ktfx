@@ -22,6 +22,7 @@ inline fun cubicCurveTo(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).apply(init)
 }
+
 /** Add a [CubicCurveTo] to this manager. */
 fun PathElementManager.cubicCurveTo(
     controlX1: Double = 0.0,

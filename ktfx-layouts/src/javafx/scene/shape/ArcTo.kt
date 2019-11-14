@@ -23,6 +23,7 @@ inline fun arcTo(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag).apply(init)
 }
+
 /** Add an [ArcTo] to this manager. */
 fun PathElementManager.arcTo(
     radiusX: Double = 0.0,

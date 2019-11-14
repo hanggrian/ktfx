@@ -23,6 +23,7 @@ inline fun <X, Y> stackedBarChart(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return StackedBarChart(x, y, data).apply(init)
 }
+
 /** Add a [StackedBarChart] to this manager. */
 fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,

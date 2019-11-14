@@ -18,6 +18,7 @@ inline fun jfxHamburger(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXHamburger().apply(init)
 }
+
 /** Add a [JFXHamburger] to this manager. */
 fun NodeManager.jfxHamburger(): JFXHamburger =
     addNode(JFXHamburger())

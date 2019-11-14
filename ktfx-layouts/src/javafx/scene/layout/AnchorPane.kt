@@ -12,6 +12,10 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals
 
+/**
+ * [AnchorPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -53,6 +57,7 @@ inline fun anchorPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxAnchorPane().apply(init)
 }
+
 /** Add an [AnchorPane] to this manager. */
 fun NodeManager.anchorPane(): AnchorPane =
     addNode(KtfxAnchorPane())

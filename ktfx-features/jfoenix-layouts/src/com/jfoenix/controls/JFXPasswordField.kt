@@ -18,6 +18,7 @@ inline fun jfxPasswordField(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXPasswordField().apply(init)
 }
+
 /** Add a [JFXPasswordField] to this manager. */
 fun NodeManager.jfxPasswordField(): JFXPasswordField =
     addNode(JFXPasswordField())

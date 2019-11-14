@@ -19,6 +19,7 @@ inline fun <T> choiceBox(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ChoiceBox(items).apply(init)
 }
+
 /** Add a [ChoiceBox] to this manager. */
 fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList()

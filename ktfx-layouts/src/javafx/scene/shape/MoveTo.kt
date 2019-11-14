@@ -18,6 +18,7 @@ inline fun moveTo(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MoveTo(x, y).apply(init)
 }
+
 /** Add a [MoveTo] to this manager. */
 fun PathElementManager.moveTo(
     x: Double = 0.0,

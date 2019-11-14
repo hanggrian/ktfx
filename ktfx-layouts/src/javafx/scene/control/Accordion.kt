@@ -10,6 +10,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [Accordion] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxAccordion : Accordion(), TitledPaneManager {
 
     final override fun <T : TitledPane> addPane(pane: T): T =

@@ -18,6 +18,7 @@ inline fun <S> treeTableView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TreeTableView(root).apply(init)
 }
+
 /** Add a [TreeTableView] to this manager. */
 fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null

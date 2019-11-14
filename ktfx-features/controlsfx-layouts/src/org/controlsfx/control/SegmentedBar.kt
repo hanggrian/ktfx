@@ -19,6 +19,7 @@ inline fun <T : Segment> segmentedBar(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return SegmentedBar<T>().apply(init)
 }
+
 /** Add a [SegmentedBar] to this manager. */
 fun <T : Segment> NodeManager.segmentedBar(): SegmentedBar<T> =
     addNode(SegmentedBar())

@@ -10,6 +10,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [SplitPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxSplitPane : SplitPane(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -23,6 +27,7 @@ inline fun splitPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSplitPane().apply(init)
 }
+
 /** Add a [SplitPane] to this manager. */
 fun NodeManager.splitPane(): SplitPane =
     addNode(KtfxSplitPane())

@@ -12,6 +12,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [StackPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
+ */
 open class KtfxStackPane : StackPane(), NodeManager, AlignConstraints, MarginConstraints {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -36,6 +40,7 @@ inline fun stackPane(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxStackPane().apply(init)
 }
+
 /** Add a [StackPane] to this manager. */
 fun NodeManager.stackPane(): StackPane =
     addNode(KtfxStackPane())

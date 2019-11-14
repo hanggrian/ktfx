@@ -10,6 +10,10 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
+/**
+ * [Tab] with dynamic-layout dsl support.
+ * Invoking dsl will only set its content.
+ */
 open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -25,6 +29,7 @@ inline fun tab(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTab(text, content).apply(init)
 }
+
 /** Add a [Tab] to this manager. */
 fun TabManager.tab(
     text: String? = null,

@@ -12,6 +12,10 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.SnapshotView
 
+/**
+ * [SnapshotView] with dynamic-layout dsl support.
+ * Invoking dsl will only set its node.
+ */
 open class KtfxSnapshotView : SnapshotView(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
@@ -25,6 +29,7 @@ inline fun snapshotView(
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSnapshotView().apply(init)
 }
+
 /** Add a [SnapshotView] to this manager. */
 fun NodeManager.snapshotView(): SnapshotView =
     addNode(KtfxSnapshotView())

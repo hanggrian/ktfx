@@ -11,17 +11,29 @@ import javafx.beans.value.ObservableNumberValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableIntegerArray
 
-/** Returns an empty [ObservableIntegerArray]. */
+/**
+ * Returns an empty [ObservableIntegerArray].
+ *
+ * @see intArrayOf
+ */
 fun observableIntArrayOf(): ObservableIntegerArray =
     FXCollections.observableIntegerArray()
 
-/** Returns an [ObservableIntegerArray] of [elements]. */
+/**
+ * Returns an [ObservableIntegerArray] of [elements].
+ *
+ * @see intArrayOf
+ */
 fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
-    FXCollections.observableIntegerArray(*elements)
+    if (elements.isNotEmpty()) elements.toObservableArray() else observableIntArrayOf()
 
-/** Converts this [IntArray] to [ObservableIntegerArray]. */
-inline fun IntArray.toObservableArray(): ObservableIntegerArray =
-    observableIntArrayOf(*this)
+/** Converts this integer array to [ObservableIntegerArray]. */
+fun IntArray.toObservableArray(): ObservableIntegerArray =
+    FXCollections.observableIntegerArray(*this)
+
+/** Converts this typed array of integer to [ObservableIntegerArray]. */
+inline fun Array<Int>.toObservableArray(): ObservableIntegerArray =
+    toIntArray().toObservableArray()
 
 /** Creates a copy of this [ObservableIntegerArray]. */
 fun ObservableIntegerArray.toObservableArray(): ObservableIntegerArray =

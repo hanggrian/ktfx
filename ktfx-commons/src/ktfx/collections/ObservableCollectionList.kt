@@ -29,7 +29,7 @@ fun <T> emptyObservableList(): ObservableList<T> =
     FXCollections.emptyObservableList()
 
 /**
- * Returns an empty immutable [ObservableList].
+ * Alias of [emptyObservableList].
  *
  * @see listOf
  */
@@ -50,7 +50,7 @@ fun <T> observableListOf(element: T): ObservableList<T> =
  * @see listOf
  */
 fun <T> observableListOf(vararg elements: T): ObservableList<T> =
-    if (elements.isNotEmpty()) FXCollections.observableList(elements.asList()) else emptyObservableList()
+    if (elements.isNotEmpty()) FXCollections.unmodifiableObservableList(elements.toMutableObservableList()) else emptyObservableList()
 
 /**
  * Returns an empty [ObservableList].
@@ -66,7 +66,7 @@ fun <T> mutableObservableListOf(): ObservableList<T> =
  * @see mutableListOf
  */
 fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
-    if (elements.isEmpty()) FXCollections.observableArrayList() else FXCollections.observableArrayList(*elements)
+    if (elements.isEmpty()) mutableObservableListOf() else FXCollections.observableArrayList(*elements)
 
 /**
  * Converts this array to immutable [ObservableList].
@@ -77,9 +77,17 @@ fun <T> Array<out T>.toObservableList(): ObservableList<T> {
     return when (size) {
         0 -> emptyObservableList()
         1 -> observableListOf(this[0])
-        else -> this.toMutableObservableList()
+        else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
     }
 }
+
+/**
+ * Converts this array to [ObservableList].
+ *
+ * @see Array.toMutableList
+ */
+fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> =
+    FXCollections.observableArrayList(*this)
 
 /**
  * Converts this iterable to immutable [ObservableList].
@@ -96,14 +104,6 @@ fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
     }
     return this.toMutableObservableList().optimizeReadOnlyList()
 }
-
-/**
- * Converts this array to [ObservableList].
- *
- * @see Array.toMutableList
- */
-fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> =
-    FXCollections.observableArrayList(*this)
 
 /**
  * Converts this iterable to [ObservableList].
@@ -123,6 +123,22 @@ fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
  */
 fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> =
     FXCollections.observableArrayList(this)
+
+/**
+ * Converts this sequence to immutable [ObservableList].
+ *
+ * @see Sequence.toList
+ */
+fun <T> Sequence<T>.toObservableList(): ObservableList<T> =
+    toMutableObservableList().optimizeReadOnlyList()
+
+/**
+ * Converts this sequence to [ObservableList].
+ *
+ * @see Sequence.toMutableList
+ */
+fun <T> Sequence<T>.toMutableObservableList(): ObservableList<T> =
+    toCollection(FXCollections.observableArrayList())
 
 /** Copies elements from src to list, firing change notification once. */
 fun <T> ObservableList<T>.copy(src: List<T>): Unit =

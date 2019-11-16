@@ -10,34 +10,41 @@ import javafx.scene.control.cell.ComboBoxListCell
 import javafx.scene.control.cell.TextFieldListCell
 import javafx.util.StringConverter
 
+/** Creates a [CheckBoxListCell] factory for use in [ListView] controls. */
 fun <T> ListView<T>.checkBoxCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
     selectedProperty: (T) -> ObservableValue<Boolean>
 ): Unit = setCellFactory(CheckBoxListCell.forListView(selectedProperty, converter))
 
+/** Creates a [ChoiceBoxListCell] factory for use in [ListView] controls. */
 fun <T> ListView<T>.choiceBoxCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
     vararg items: T
 ): Unit = setCellFactory(ChoiceBoxListCell.forListView(converter, *items))
 
+/** Creates a [ChoiceBoxListCell] factory for use in [ListView] controls. */
 fun <T> ListView<T>.choiceBoxCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
     items: ObservableList<T>
 ): Unit = setCellFactory(ChoiceBoxListCell.forListView(converter, items))
 
+/** Creates a [ComboBoxListCell] factory for use in [ListView] controls. */
 fun <T> ListView<T>.comboBoxCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
     vararg items: T
 ): Unit = setCellFactory(ComboBoxListCell.forListView(converter, *items))
 
+/** Creates a [ComboBoxListCell] factory for use in [ListView] controls. */
 fun <T> ListView<T>.comboBoxCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
     items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxListCell.forListView(converter, items))
 
+/** Creates a [TextFieldListCell] factory for use in [ListView] controls. */
 fun ListView<String>.textFieldCellFactory(): Unit =
     setCellFactory(TextFieldListCell.forListView())
 
+/** Creates a [TextFieldListCell] factory for use in [ListView] controls. */
 fun <T> ListView<T>.textFieldCellFactory(
     converter: StringConverter<T> = CellUtils2.defaultStringConverter()
 ): Unit = setCellFactory(TextFieldListCell.forListView(converter))

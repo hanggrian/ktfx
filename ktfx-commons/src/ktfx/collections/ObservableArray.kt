@@ -7,8 +7,6 @@ package ktfx.collections
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.IntegerBinding
 import javafx.collections.ObservableArray
-import javafx.collections.ObservableList
-import javafx.collections.ObservableSet
 
 /** Length of data in this array. */
 inline val ObservableArray<*>.size: Int
@@ -25,19 +23,3 @@ inline fun ObservableArray<*>.isNotEmpty(): Boolean =
 /** Creates a new [IntegerBinding] that contains the size of this array. */
 val ObservableArray<*>.sizeBinding: IntegerBinding
     get() = Bindings.size(this)
-
-/** Converts this array to immutable [ObservableList]. */
-inline fun <T> Array<out T>.toObservableList(): ObservableList<T> =
-    observableListOf(*this)
-
-/** Converts this array to [ObservableList]. */
-inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> =
-    mutableObservableListOf(*this)
-
-/** Converts this array to immutable [ObservableSet]. */
-inline fun <T> Array<out T>.toObservableSet(): ObservableSet<T> =
-    observableSetOf(*this)
-
-/** Converts this array to [ObservableSet]. */
-inline fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> =
-    mutableObservableSetOf(*this)

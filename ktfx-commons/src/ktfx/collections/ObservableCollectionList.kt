@@ -20,41 +20,109 @@ import javafx.beans.value.ObservableNumberValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 
-/** Returns an empty immutable [ObservableList]. */
+/**
+ * Returns an empty immutable [ObservableList].
+ *
+ * @see emptyList
+ */
 fun <T> emptyObservableList(): ObservableList<T> =
     FXCollections.emptyObservableList()
 
-/** Returns an empty immutable [ObservableList]. */
+/**
+ * Returns an empty immutable [ObservableList].
+ *
+ * @see listOf
+ */
 inline fun <T> observableListOf(): ObservableList<T> =
     emptyObservableList()
 
-/** Returns an immutable [ObservableList] of one [element]. */
+/**
+ * Returns an immutable [ObservableList] of one [element].
+ *
+ * @see listOf
+ */
 fun <T> observableListOf(element: T): ObservableList<T> =
     FXCollections.singletonObservableList(element)
 
-/** Returns an immutable [ObservableList] containing all [elements]. */
+/**
+ * Returns an immutable [ObservableList] containing all [elements].
+ *
+ * @see listOf
+ */
 fun <T> observableListOf(vararg elements: T): ObservableList<T> =
-    when (elements.size) {
-        0 -> emptyObservableList()
-        1 -> observableListOf(elements[0])
-        else -> FXCollections.unmodifiableObservableList(mutableObservableListOf(*elements))
-    }
+    if (elements.isNotEmpty()) FXCollections.observableList(elements.asList()) else emptyObservableList()
 
-/** Returns an empty [ObservableList]. */
+/**
+ * Returns an empty [ObservableList].
+ *
+ * @see mutableListOf
+ */
 fun <T> mutableObservableListOf(): ObservableList<T> =
     FXCollections.observableArrayList()
 
-/** Returns an [ObservableList] containing all [elements]. */
+/**
+ * Returns an [ObservableList] containing all [elements].
+ *
+ * @see mutableListOf
+ */
 fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
-    FXCollections.observableArrayList(*elements)
+    if (elements.isEmpty()) FXCollections.observableArrayList() else FXCollections.observableArrayList(*elements)
 
-/** Converts this collection to immutable [ObservableList]. */
-fun <T> Iterable<T>.toObservableList(): ObservableList<T> =
-    FXCollections.unmodifiableObservableList(toMutableObservableList())
+/**
+ * Converts this array to immutable [ObservableList].
+ *
+ * @see Array.toList
+ */
+fun <T> Array<out T>.toObservableList(): ObservableList<T> {
+    return when (size) {
+        0 -> emptyObservableList()
+        1 -> observableListOf(this[0])
+        else -> this.toMutableObservableList()
+    }
+}
 
-/** Converts this collection to [ObservableList]. */
-fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> =
-    FXCollections.observableArrayList(this as? Collection ?: toCollection(ArrayList()))
+/**
+ * Converts this iterable to immutable [ObservableList].
+ *
+ * @see Iterable.toList
+ */
+fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
+    if (this is Collection) {
+        return when (size) {
+            0 -> emptyObservableList()
+            1 -> observableListOf(if (this is List) get(0) else iterator().next())
+            else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
+        }
+    }
+    return this.toMutableObservableList().optimizeReadOnlyList()
+}
+
+/**
+ * Converts this array to [ObservableList].
+ *
+ * @see Array.toMutableList
+ */
+fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> =
+    FXCollections.observableArrayList(*this)
+
+/**
+ * Converts this iterable to [ObservableList].
+ *
+ * @see Iterable.toMutableList
+ */
+fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
+    if (this is Collection)
+        return this.toMutableObservableList()
+    return toCollection(FXCollections.observableArrayList())
+}
+
+/**
+ * Converts this collection to [ObservableList].
+ *
+ * @see Collection.toMutableList
+ */
+fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> =
+    FXCollections.observableArrayList(this)
 
 /** Copies elements from src to list, firing change notification once. */
 fun <T> ObservableList<T>.copy(src: List<T>): Unit =

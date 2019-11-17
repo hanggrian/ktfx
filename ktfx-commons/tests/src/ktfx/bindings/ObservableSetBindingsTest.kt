@@ -2,8 +2,8 @@ package ktfx.bindings
 
 import javafx.beans.binding.Bindings
 import javafx.collections.ObservableSet
-import ktfx.collections.isEmptyBinding
-import ktfx.collections.isNotEmptyBinding
+import ktfx.collections.emptyBinding
+import ktfx.collections.notEmptyBinding
 import ktfx.collections.sizeBinding
 
 class ObservableSetBindingsTest {
@@ -15,11 +15,11 @@ class ObservableSetBindingsTest {
 
     fun isEmpty(set: ObservableSet<*>) {
         Bindings.isEmpty(set)
-        set.isEmptyBinding
+        set.emptyBinding
     }
 
     fun isNotEmpty(set: ObservableSet<*>) {
         Bindings.isNotEmpty(set)
-        set.isNotEmptyBinding
+        set.notEmptyBinding
     }
 }

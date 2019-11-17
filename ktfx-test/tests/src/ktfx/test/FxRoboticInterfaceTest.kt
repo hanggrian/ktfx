@@ -29,8 +29,7 @@ class FxRoboticInterfaceTest : AppTest() {
         stage.show()
     }
 
-    @Test
-    fun buttonClick() {
+    @Test fun buttonClick() {
         clickOn(button)
         assertThat(label, LabeledMatchers.hasText("Tapped."))
     }

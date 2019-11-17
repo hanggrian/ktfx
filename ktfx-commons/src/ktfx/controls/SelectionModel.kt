@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("SelectionModelKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controls
@@ -11,7 +13,7 @@ inline fun SelectionModel<*>.isSelected(): Boolean =
 
 /** Returns `true` if the model is not selected. */
 inline fun SelectionModel<*>.isNotSelected(): Boolean =
-    !isSelected()
+    selectedItem == null
 
 /** Returns a boolean binding that holds `true` when item is selected. */
 inline val SelectionModel<*>.selectedBinding: BooleanBinding

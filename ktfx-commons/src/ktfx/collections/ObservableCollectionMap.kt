@@ -78,25 +78,32 @@ fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> {
 fun <K, V> Map<K, V>.toMutableObservableMap(): ObservableMap<K, V> =
     FXCollections.observableMap(this)
 
+/** Generates a bidirectional binding between two instances of [ObservableMap]. */
 fun <K, V> ObservableMap<K, V>.bindContentBidirectional(other: ObservableMap<K, V>): Unit =
     Bindings.bindContentBidirectional(this, other)
 
+/** Remove a bidirectional binding between two instances of [ObservableMap]. */
 fun <K, V> ObservableMap<K, V>.unbindContentBidirectional(other: ObservableMap<K, V>): Unit =
     Bindings.unbindContentBidirectional(this, other)
 
+/** Generates a bidirectional binding between an [ObservableMap] and a [Map]. */
 fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>): Unit =
     Bindings.bindContent(this, other)
 
+/** Remove a bidirectional binding between an [ObservableMap] and a [Map]. */
 fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>): Unit =
     Bindings.unbindContent(this, other)
 
+/** Creates a new [IntegerBinding] that contains the size [ObservableMap]. */
 val <K, V> ObservableMap<K, V>.sizeBinding: IntegerBinding
     get() = Bindings.size(this)
 
-val <K, V> ObservableMap<K, V>.isEmptyBinding: BooleanBinding
+/** Creates a new [BooleanBinding] that holds `true` if a given [ObservableMap] is empty. */
+val <K, V> ObservableMap<K, V>.emptyBinding: BooleanBinding
     get() = Bindings.isEmpty(this)
 
-val <K, V> ObservableMap<K, V>.isNotEmptyBinding: BooleanBinding
+/** Creates a new [BooleanBinding] that holds `true` if a given [ObservableMap] is not empty. */
+val <K, V> ObservableMap<K, V>.notEmptyBinding: BooleanBinding
     get() = Bindings.isNotEmpty(this)
 
 fun <K, V> ObservableMap<K, V>.getBinding(key: K): ObjectBinding<V> =

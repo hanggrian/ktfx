@@ -5,9 +5,11 @@ package ktfx.inputs
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 
+/** Returns true if this is a one-click event. */
 inline fun MouseEvent.isClicked(): Boolean =
     clickCount == 1
 
+/** Returns true if this is a double-click event. */
 inline fun MouseEvent.isDoubleClicked(): Boolean =
     clickCount == 2
 

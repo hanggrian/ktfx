@@ -22,13 +22,13 @@ inline fun TreeTableView<*>.unconstrained() {
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
-fun <S> TreeTableView<S>.columns(builder: (@TableColumnDslMarker TreeTableColumnsBuilder<S>.() -> Unit)) {
+fun <S> TreeTableView<S>.columns(builder: TreeTableColumnsBuilder<S>.() -> Unit) {
     contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     TreeTableColumnsBuilder<S>(columns).builder()
 }
 
 /** Invokes a [TreeTableColumn] DSL builder creating multiline column. */
-fun <S, T> TreeTableColumn<S, T>.columns(builder: (@TableColumnDslMarker TreeTableColumnsBuilder<S>.() -> Unit)) {
+fun <S, T> TreeTableColumn<S, T>.columns(builder: TreeTableColumnsBuilder<S>.() -> Unit) {
     contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     TreeTableColumnsBuilder<S>(columns).builder()
 }

@@ -9,14 +9,17 @@ import javafx.scene.control.TreeTableColumn
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.controls.TableColumnDslMarker
 
 /** Interface to build [JFXTreeTableColumn] with Kotlin DSL. */
+@TableColumnDslMarker
 class JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> internal constructor(
     private val columns: MutableCollection<TreeTableColumn<S, *>>
 ) {
 
-    fun <T> column(text: String? = null): JFXTreeTableColumn<S, T> =
-        JFXTreeTableColumn<S, T>(text).also { columns += it }
+    fun <T> column(
+        text: String? = null
+    ): JFXTreeTableColumn<S, T> = JFXTreeTableColumn<S, T>(text).also { columns += it }
 
     inline fun <T> column(
         text: String? = null,

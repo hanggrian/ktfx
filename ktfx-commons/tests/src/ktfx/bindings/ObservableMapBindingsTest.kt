@@ -2,9 +2,9 @@ package ktfx.bindings
 
 import javafx.beans.binding.Bindings
 import javafx.collections.ObservableMap
+import ktfx.collections.emptyBinding
 import ktfx.collections.getBinding
-import ktfx.collections.isEmptyBinding
-import ktfx.collections.isNotEmptyBinding
+import ktfx.collections.notEmptyBinding
 import ktfx.collections.sizeBinding
 
 class ObservableMapBindingsTest {
@@ -16,12 +16,12 @@ class ObservableMapBindingsTest {
 
     fun isEmpty(map: ObservableMap<*, *>) {
         Bindings.isEmpty(map)
-        map.isEmptyBinding
+        map.emptyBinding
     }
 
     fun isNotEmpty(map: ObservableMap<*, *>) {
         Bindings.isNotEmpty(map)
-        map.isNotEmptyBinding
+        map.notEmptyBinding
     }
 
     fun valueAt(map: ObservableMap<Int, *>) {

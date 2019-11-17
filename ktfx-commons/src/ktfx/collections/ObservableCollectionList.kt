@@ -175,25 +175,32 @@ fun <T : Comparable<T>> ObservableList<T>.sort(): Unit =
 infix fun <T> ObservableList<T>.sort(c: Comparator<T>): Unit =
     FXCollections.sort(this, c)
 
+/** Generates a bidirectional binding between two instances of [ObservableList]. */
 fun <E> ObservableList<E>.bindContentBidirectional(other: ObservableList<E>): Unit =
     Bindings.bindContentBidirectional(this, other)
 
+/** Remove a bidirectional binding between two instances of [ObservableList]. */
 fun <E> ObservableList<E>.unbindContentBidirectional(other: ObservableList<E>): Unit =
     Bindings.unbindContentBidirectional(this, other)
 
+/** Generates a bidirectional binding between an [ObservableList] and a [List]. */
 fun <E> List<E>.bindContent(other: ObservableList<E>): Unit =
     Bindings.bindContent(this, other)
 
+/** Remove a bidirectional binding between an [ObservableList] and a [List]. */
 fun <E> List<E>.unbindContent(other: ObservableList<E>): Unit =
     Bindings.unbindContent(this, other)
 
+/** Creates a new [IntegerBinding] that contains the size [ObservableList]. */
 val <E> ObservableList<E>.sizeBinding: IntegerBinding
     get() = Bindings.size(this)
 
-val <E> ObservableList<E>.isEmptyBinding: BooleanBinding
+/** Creates a new [BooleanBinding] that holds `true` if a given [ObservableList] is empty. */
+val <E> ObservableList<E>.emptyBinding: BooleanBinding
     get() = Bindings.isEmpty(this)
 
-val <E> ObservableList<E>.isNotEmptyBinding: BooleanBinding
+/** Creates a new [BooleanBinding] that holds `true` if a given [ObservableList] is not empty. */
+val <E> ObservableList<E>.notEmptyBinding: BooleanBinding
     get() = Bindings.isNotEmpty(this)
 
 fun <E> ObservableList<E>.getBinding(index: Int): ObjectBinding<E> =

@@ -11,7 +11,7 @@ inline fun ToggleGroup.isSelected(): Boolean =
 
 /** Returns `true` if toggle button is not selected in this group. */
 inline fun ToggleGroup.isNotSelected(): Boolean =
-    !isSelected()
+    selectedToggle == null
 
 /** Returns a boolean binding that holds `true` when item is selected. */
 inline val ToggleGroup.selectedBinding: BooleanBinding

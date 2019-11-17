@@ -22,13 +22,13 @@ inline fun TableView<*>.unconstrained() {
 }
 
 /** Invokes a [TableColumn] DSL builder. */
-fun <S> TableView<S>.columns(builder: (@TableColumnDslMarker TableColumnsBuilder<S>.() -> Unit)) {
+fun <S> TableView<S>.columns(builder: TableColumnsBuilder<S>.() -> Unit) {
     contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     TableColumnsBuilder<S>(columns).builder()
 }
 
 /** Invokes a [TableColumn] DSL builder creating multiline column. */
-fun <S, T> TableColumn<S, T>.columns(builder: (@TableColumnDslMarker TableColumnsBuilder<S>.() -> Unit)) {
+fun <S, T> TableColumn<S, T>.columns(builder: TableColumnsBuilder<S>.() -> Unit) {
     contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     TableColumnsBuilder<S>(columns).builder()
 }

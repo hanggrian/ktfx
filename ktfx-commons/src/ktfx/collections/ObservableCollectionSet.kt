@@ -8,7 +8,6 @@ import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.IntegerBinding
 import javafx.collections.FXCollections
-import javafx.collections.ObservableList
 import javafx.collections.ObservableSet
 
 /**
@@ -44,7 +43,7 @@ fun <T> mutableObservableSetOf(): ObservableSet<T> =
     FXCollections.observableSet()
 
 /**
- * Returns an [ObservableList] containing all [elements].
+ * Returns an [ObservableSet] containing all [elements].
  *
  * @see mutableSetOf
  */
@@ -114,23 +113,30 @@ fun <T> Sequence<T>.toObservableSet(): ObservableSet<T> =
 fun <T> Sequence<T>.toMutableObservableSet(): ObservableSet<T> =
     toCollection(FXCollections.observableSet())
 
+/** Generates a bidirectional binding between two instances of [ObservableSet]. */
 fun <E> ObservableSet<E>.bindContentBidirectional(other: ObservableSet<E>): Unit =
     Bindings.bindContentBidirectional(this, other)
 
+/** Remove a bidirectional binding between two instances of [ObservableSet]. */
 fun <E> ObservableSet<E>.unbindContentBidirectional(other: ObservableSet<E>): Unit =
     Bindings.unbindContentBidirectional(this, other)
 
+/** Generates a bidirectional binding between an [ObservableSet] and a [Set]. */
 fun <E> Set<E>.bindContent(other: ObservableSet<E>): Unit =
     Bindings.bindContent(this, other)
 
+/** Remove a bidirectional binding between an [ObservableSet] and a [Set]. */
 fun <E> Set<E>.unbindContent(other: ObservableSet<E>): Unit =
     Bindings.unbindContent(this, other)
 
+/** Creates a new [IntegerBinding] that contains the size [ObservableSet]. */
 val <E> ObservableSet<E>.sizeBinding: IntegerBinding
     get() = Bindings.size(this)
 
-val <E> ObservableSet<E>.isEmptyBinding: BooleanBinding
+/** Creates a new [BooleanBinding] that holds `true` if a given [ObservableSet] is empty. */
+val <E> ObservableSet<E>.emptyBinding: BooleanBinding
     get() = Bindings.isEmpty(this)
 
-val <E> ObservableSet<E>.isNotEmptyBinding: BooleanBinding
+/** Creates a new [BooleanBinding] that holds `true` if a given [ObservableSet] is not empty. */
+val <E> ObservableSet<E>.notEmptyBinding: BooleanBinding
     get() = Bindings.isNotEmpty(this)

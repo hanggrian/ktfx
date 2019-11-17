@@ -15,6 +15,7 @@
 <h4><a href="bind-content-bidirectional.html">bindContentBidirectional</a></h4>
 </td>
 <td>
+<p>Generates a bidirectional binding between two instances of <a href="#">ObservableList</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">bindContentBidirectional</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$bindContentBidirectional(javafx.collections.ObservableList((ktfx.collections.bindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.collections.bindContentBidirectional.E)))/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -24,6 +25,14 @@
 <td>
 <p>Copies elements from src to list, firing change notification once.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">copy</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$copy(javafx.collections.ObservableList((ktfx.collections.copy.T)), kotlin.collections.List((ktfx.collections.copy.T)))/src">src</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="empty-binding.html">emptyBinding</a></h4>
+</td>
+<td>
+<p>Creates a new <a href="#">BooleanBinding</a> that holds <code>true</code> if a given <a href="#">ObservableList</a> is empty.</p>
+<code><span class="keyword">val </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">emptyBinding</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code></td>
 </tr>
 <tr>
 <td>
@@ -76,17 +85,11 @@
 </tr>
 <tr>
 <td>
-<h4><a href="is-empty-binding.html">isEmptyBinding</a></h4>
+<h4><a href="not-empty-binding.html">notEmptyBinding</a></h4>
 </td>
 <td>
-<code><span class="keyword">val </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isEmptyBinding</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="is-not-empty-binding.html">isNotEmptyBinding</a></h4>
-</td>
-<td>
-<code><span class="keyword">val </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">isNotEmptyBinding</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code></td>
+<p>Creates a new <a href="#">BooleanBinding</a> that holds <code>true</code> if a given <a href="#">ObservableList</a> is not empty.</p>
+<code><span class="keyword">val </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">notEmptyBinding</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code></td>
 </tr>
 <tr>
 <td>
@@ -125,6 +128,7 @@
 <h4><a href="size-binding.html">sizeBinding</a></h4>
 </td>
 <td>
+<p>Creates a new <a href="#">IntegerBinding</a> that contains the size <a href="#">ObservableList</a>.</p>
 <code><span class="keyword">val </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">sizeBinding</span><span class="symbol">: </span><span class="identifier">IntegerBinding</span></code></td>
 </tr>
 <tr>
@@ -142,6 +146,7 @@
 <h4><a href="unbind-content-bidirectional.html">unbindContentBidirectional</a></h4>
 </td>
 <td>
+<p>Remove a bidirectional binding between two instances of <a href="#">ObservableList</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">unbindContentBidirectional</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)))/other">other</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>

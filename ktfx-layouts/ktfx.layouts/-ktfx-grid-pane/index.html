@@ -9,6 +9,8 @@
 <br/>
 <h1>KtfxGridPane</h1>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-h-grow-constraints/index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a></code>
+<p><a href="#">GridPane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <h3>Constructors</h3>
 <table>
 <tbody>
@@ -17,6 +19,8 @@
 <h4><a href="-init-.html">&lt;init&gt;</a></h4>
 </td>
 <td>
+<p><a href="#">GridPane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="identifier">KtfxGridPane</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
 </tr>
 </tbody>
@@ -61,6 +65,7 @@
 <h4><a href="halign.html">halign</a></h4>
 </td>
 <td>
+<p>Children horizontal alignment in this container.</p>
 <code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halign</span><span class="symbol">: </span><span class="identifier">HPos</span><span class="symbol">?</span></code></td>
 </tr>
 <tr>
@@ -108,6 +113,7 @@
 <h4><a href="valign.html">valign</a></h4>
 </td>
 <td>
+<p>Children vertical alignment in this container.</p>
 <code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valign</span><span class="symbol">: </span><span class="identifier">VPos</span><span class="symbol">?</span></code></td>
 </tr>
 <tr>
@@ -144,22 +150,23 @@
 <h4><a href="grid-at.html">gridAt</a></h4>
 </td>
 <td>
-<p>Conveniently set <a href="row.html">KtfxGridPane.row</a> and <a href="col.html">KtfxGridPane.col</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">gridAt</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int)/row">row</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int)/col">col</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Conveniently set <a href="row.html">KtfxGridPane.row</a>, <a href="col.html">KtfxGridPane.col</a>, <a href="row-spans.html">KtfxGridPane.rowSpans</a> and <a href="col-spans.html">KtfxGridPane.colSpans</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">gridAt</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/row">row</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/col">col</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/colSpans">colSpans</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/rowSpans">rowSpans</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="grid-spans.html">gridSpans</a></h4>
+<h4><a href="grow.html">grow</a></h4>
 </td>
 <td>
-<p>Conveniently set <a href="#">KtfxGridPane.rowRange</a> and <a href="#">KtfxGridPane.colRange</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">gridSpans</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridSpans(javafx.scene.Node, kotlin.Int, kotlin.Int)/rowSpans">rowSpans</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridSpans(javafx.scene.Node, kotlin.Int, kotlin.Int)/colSpans">colSpans</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Conveniently call <a href="../-h-grow-constraints/hgrow.html">KtfxGridPane.hgrow</a> and <a href="../-v-grow-constraints/vgrow.html">KtfxGridPane.vgrow</a>.</p>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">grow</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="halign-center.html">halignCenter</a></h4>
 </td>
 <td>
+<p>Convenient method to align children to <a href="#">HPos.CENTER</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignCenter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -167,6 +174,7 @@
 <h4><a href="halign-left.html">halignLeft</a></h4>
 </td>
 <td>
+<p>Convenient method to align children to <a href="#">HPos.LEFT</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignLeft</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -174,21 +182,23 @@
 <h4><a href="halign-right.html">halignRight</a></h4>
 </td>
 <td>
+<p>Convenient method to align children to <a href="#">HPos.RIGHT</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignRight</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="reset.html">reset</a></h4>
+<h4><a href="remove-constraints.html">removeConstraints</a></h4>
 </td>
 <td>
 <p>Clear children constraints in this container.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">reset</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">removeConstraints</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="valign-baseline.html">valignBaseline</a></h4>
 </td>
 <td>
+<p>Convenient method to align children to <a href="#">VPos.BASELINE</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignBaseline</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -196,6 +206,7 @@
 <h4><a href="valign-bottom.html">valignBottom</a></h4>
 </td>
 <td>
+<p>Convenient method to align children to <a href="#">VPos.BOTTOM</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignBottom</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -203,6 +214,7 @@
 <h4><a href="valign-center.html">valignCenter</a></h4>
 </td>
 <td>
+<p>Convenient method to align children to <a href="#">VPos.CENTER</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignCenter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -210,6 +222,7 @@
 <h4><a href="valign-top.html">valignTop</a></h4>
 </td>
 <td>
+<p>Convenient method to align children to <a href="#">VPos.TOP</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignTop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>

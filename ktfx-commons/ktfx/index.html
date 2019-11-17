@@ -276,7 +276,7 @@
 </td>
 <td>
 <p>Wrap nullable boolean in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">booleanProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$booleanProperty(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">booleanProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$booleanProperty(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -297,20 +297,11 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<h4><a href="callback-binding-of.html">callbackBindingOf</a></h4>
-</td>
-<td>
-<p>Helper function to create a custom <a href="#">ObjectBinding</a>.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">callbackBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$callbackBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function1((ktfx.callbackBindingOf.P, ktfx.callbackBindingOf.R)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$callbackBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function1((ktfx.callbackBindingOf.P, ktfx.callbackBindingOf.R)))/func">func</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">P</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectBinding</span><span class="symbol">&lt;</span><span class="identifier">Callback</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code><br/>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">callbackBindingOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$callbackBindingOf(kotlin.collections.Collection((javafx.beans.Observable)), kotlin.Function1((ktfx.callbackBindingOf.P, ktfx.callbackBindingOf.R)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html"><span class="identifier">Collection</span></a><span class="symbol">&lt;</span><span class="identifier">Observable</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="identifier" id="ktfx$callbackBindingOf(kotlin.collections.Collection((javafx.beans.Observable)), kotlin.Function1((ktfx.callbackBindingOf.P, ktfx.callbackBindingOf.R)))/func">func</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">P</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectBinding</span><span class="symbol">&lt;</span><span class="identifier">Callback</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="double-property.html">doubleProperty</a></h4>
 </td>
 <td>
 <p>Wrap nullable double in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">doubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$doubleProperty(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">doubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$doubleProperty(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -318,7 +309,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable boolean in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalBooleanProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalBooleanProperty(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">finalBooleanProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalBooleanProperty(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -326,9 +317,9 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable double in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalDoubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalDoubleProperty(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleProperty</span></code>
+<code><span class="keyword">fun </span><span class="identifier">finalDoubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalDoubleProperty(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleProperty</span></code>
 <p>Wrap nullable float in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalDoubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalDoubleProperty(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">finalDoubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalDoubleProperty(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -336,7 +327,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable int in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalIntProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalIntProperty(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">finalIntProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalIntProperty(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -344,7 +335,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable list in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalListProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalListProperty(javafx.collections.ObservableList((ktfx.finalListProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalListProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalListProperty(javafx.collections.ObservableList((ktfx.finalListProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -352,7 +343,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable long in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalLongProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalLongProperty(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">finalLongProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalLongProperty(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -360,7 +351,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable map in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">finalMapProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalMapProperty(javafx.collections.ObservableMap((ktfx.finalMapProperty.K, ktfx.finalMapProperty.V)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">finalMapProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalMapProperty(javafx.collections.ObservableMap((ktfx.finalMapProperty.K, ktfx.finalMapProperty.V)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -368,7 +359,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable object in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalProperty(ktfx.finalProperty.E)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">E</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalProperty(ktfx.finalProperty.E)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">E</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -376,7 +367,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable set in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalSetProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalSetProperty(javafx.collections.ObservableSet((ktfx.finalSetProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalSetProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalSetProperty(javafx.collections.ObservableSet((ktfx.finalSetProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -384,7 +375,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable string in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalStringProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalStringProperty(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">finalStringProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalStringProperty(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -392,7 +383,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable float in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">floatProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$floatProperty(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">floatProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$floatProperty(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -400,7 +391,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable int in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">intProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$intProperty(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">intProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$intProperty(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -442,7 +433,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable list in a property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$listProperty(javafx.collections.ObservableList((ktfx.listProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$listProperty(javafx.collections.ObservableList((ktfx.listProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -450,7 +441,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable long in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">longProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$longProperty(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">longProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$longProperty(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongProperty</span></code></td>
 </tr>
 <tr>
 <td>
@@ -458,7 +449,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable map in a property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mapProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$mapProperty(javafx.collections.ObservableMap((ktfx.mapProperty.K, ktfx.mapProperty.V)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mapProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$mapProperty(javafx.collections.ObservableMap((ktfx.mapProperty.K, ktfx.mapProperty.V)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -466,7 +457,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable object in a property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">property</span><span class="symbol">(</span><span class="identifier" id="ktfx$property(ktfx.property.E)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">E</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">property</span><span class="symbol">(</span><span class="identifier" id="ktfx$property(ktfx.property.E)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">E</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -492,7 +483,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable set in a property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">setProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$setProperty(javafx.collections.ObservableSet((ktfx.setProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">setProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$setProperty(javafx.collections.ObservableSet((ktfx.setProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -500,7 +491,7 @@ By default, it will do nothing and returns null in the background, customize it 
 </td>
 <td>
 <p>Wrap nullable string in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">stringProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$stringProperty(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringProperty</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">stringProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$stringProperty(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringProperty</span></code></td>
 </tr>
 <tr>
 <td>

@@ -794,6 +794,8 @@
 <h4><a href="../-ktfx-anchor-pane/index.html">KtfxAnchorPane</a></h4>
 </td>
 <td>
+<p><a href="#">AnchorPane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxAnchorPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AnchorPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-constraints/index.html"><span class="identifier">Constraints</span></a></code></td>
 </tr>
 <tr>
@@ -801,8 +803,9 @@
 <h4><a href="../-ktfx-border-pane/index.html">KtfxBorderPane</a></h4>
 </td>
 <td>
-<p>Invoking layout DSL will only set content to center.
-To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bottom</code>, or <code>right</code>.</p>
+<p><a href="#">BorderPane</a> with dynamic-layout dsl support.
+Invoking dsl will only set its content. There is currently no way to configure other areas (top, left, right, bottom) with dsl.
+Instead, create an instance and set it manually (e.g: <code>left = ktfx.layouts.label()</code>).</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxBorderPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BorderPane</span><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -810,6 +813,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-button-bar/index.html">KtfxButtonBar</a></h4>
 </td>
 <td>
+<p><a href="#">ButtonBar</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxButtonBar</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ButtonBar</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -817,6 +822,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-flow-pane/index.html">KtfxFlowPane</a></h4>
 </td>
 <td>
+<p><a href="#">FlowPane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxFlowPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">FlowPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
 </tr>
 <tr>
@@ -824,6 +831,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-grid-pane/index.html">KtfxGridPane</a></h4>
 </td>
 <td>
+<p><a href="#">GridPane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-h-grow-constraints/index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a></code></td>
 </tr>
 <tr>
@@ -831,6 +840,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-group/index.html">KtfxGroup</a></h4>
 </td>
 <td>
+<p><a href="#">Scene</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGroup</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Group</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -838,6 +849,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-pane/index.html">KtfxPane</a></h4>
 </td>
 <td>
+<p><a href="#">Pane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Pane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -845,6 +858,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-scene/index.html">KtfxScene</a></h4>
 </td>
 <td>
+<p><a href="#">Scene</a> with dynamic-layout dsl support.
+Invoking dsl will only set its root.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxScene</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Scene</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -852,6 +867,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-scroll-pane/index.html">KtfxScrollPane</a></h4>
 </td>
 <td>
+<p><a href="#">ScrollPane</a> with dynamic-layout dsl support.
+Invoking dsl will only set its content.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxScrollPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ScrollPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -859,6 +876,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-split-pane/index.html">KtfxSplitPane</a></h4>
 </td>
 <td>
+<p><a href="#">SplitPane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxSplitPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">SplitPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -866,6 +885,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-stack-pane/index.html">KtfxStackPane</a></h4>
 </td>
 <td>
+<p><a href="#">StackPane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxStackPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">StackPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
 </tr>
 <tr>
@@ -873,6 +894,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-tab/index.html">KtfxTab</a></h4>
 </td>
 <td>
+<p><a href="#">Tab</a> with dynamic-layout dsl support.
+Invoking dsl will only set its content.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxTab</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Tab</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -880,7 +903,9 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-text-flow/index.html">KtfxTextFlow</a></h4>
 </td>
 <td>
-<p>Making use of <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/java.lang.-appendable/appendln.html">kotlin.text.appendln</a> by implementing <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-appendable/index.html">Appendable</a>.</p>
+<p><a href="#">TextFlow</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.
+Making use of <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/java.lang.-appendable/appendln.html">kotlin.text.appendln</a> by implementing <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-appendable/index.html">Appendable</a>.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxTextFlow</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TextFlow</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-appendable/index.html"><span class="identifier">Appendable</span></a></code></td>
 </tr>
 <tr>
@@ -888,6 +913,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-tile-pane/index.html">KtfxTilePane</a></h4>
 </td>
 <td>
+<p><a href="#">TilePane</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxTilePane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TilePane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
 </tr>
 <tr>
@@ -895,6 +922,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-titled-pane/index.html">KtfxTitledPane</a></h4>
 </td>
 <td>
+<p><a href="#">TitledPane</a> with dynamic-layout dsl support.
+Invoking dsl will only set its content.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxTitledPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">TitledPane</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -902,6 +931,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-tool-bar/index.html">KtfxToolBar</a></h4>
 </td>
 <td>
+<p><a href="#">ToolBar</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxToolBar</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ToolBar</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a></code></td>
 </tr>
 <tr>
@@ -909,6 +940,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="../-ktfx-v-box/index.html">KtfxVBox</a></h4>
 </td>
 <td>
+<p><a href="#">VBox</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxVBox</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">VBox</span><span class="symbol">, </span><a href="./index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a></code></td>
 </tr>
 </tbody>

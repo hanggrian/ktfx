@@ -15,7 +15,7 @@ $dokka.location:ktfx.controlsfx.layouts$hiddenSidesPane(ktfx.layouts.NodeManager
 $dokka.location:ktfx.controlsfx.layouts$hyperlinkLabel(ktfx.layouts.NodeManager, kotlin.String)ktfx.controlsfx.layouts/ktfx.layouts.-node-manager/hyperlink-label.html
 $dokka.location:ktfx.controlsfx.layouts$hyperlinkLabel(ktfx.layouts.NodeManager, kotlin.String, kotlin.Function1((org.controlsfx.control.HyperlinkLabel, kotlin.Unit)))ktfx.controlsfx.layouts/ktfx.layouts.-node-manager/hyperlink-label.html
 $dokka.location:ktfx.controlsfx.layouts$infoOverlay(ktfx.layouts.NodeManager, javafx.scene.Node, kotlin.String)ktfx.controlsfx.layouts/ktfx.layouts.-node-manager/info-overlay.html
-$dokka.location:ktfx.controlsfx.layouts$infoOverlay(ktfx.layouts.NodeManager, javafx.scene.Node, kotlin.String, kotlin.Function1((org.controlsfx.control.InfoOverlay, kotlin.Unit)))ktfx.controlsfx.layouts/ktfx.layouts.-node-manager/info-overlay.html
+$dokka.location:ktfx.controlsfx.layouts$infoOverlay(ktfx.layouts.NodeManager, javafx.scene.Node, kotlin.String, kotlin.Function1((ktfx.controlsfx.layouts.KtfxInfoOverlay, kotlin.Unit)))ktfx.controlsfx.layouts/ktfx.layouts.-node-manager/info-overlay.html
 $dokka.location:ktfx.controlsfx.layouts$listSelectionView(ktfx.layouts.NodeManager)ktfx.controlsfx.layouts/ktfx.layouts.-node-manager/list-selection-view.html
 $dokka.location:ktfx.controlsfx.layouts$listSelectionView(ktfx.layouts.NodeManager, kotlin.Function1((org.controlsfx.control.ListSelectionView((ktfx.controlsfx.layouts.listSelectionView.T)), kotlin.Unit)))ktfx.controlsfx.layouts/ktfx.layouts.-node-manager/list-selection-view.html
 $dokka.location:ktfx.controlsfx.layouts$maskerPane(ktfx.layouts.NodeManager)ktfx.controlsfx.layouts/ktfx.layouts.-node-manager/masker-pane.html

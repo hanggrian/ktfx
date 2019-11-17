@@ -62,6 +62,13 @@
 </tr>
 <tr>
 <td>
+<h4><a href="kotlin.collections.-collection/index.html">kotlin.collections.Collection</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
 <h4><a href="kotlin.collections.-iterable/index.html">kotlin.collections.Iterable</a></h4>
 </td>
 <td>
@@ -98,6 +105,13 @@
 <tr>
 <td>
 <h4><a href="kotlin.-int-array/index.html">kotlin.IntArray</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="kotlin.sequences.-sequence/index.html">kotlin.sequences.Sequence</a></h4>
 </td>
 <td>
 </td>
@@ -146,9 +160,9 @@
 <h4><a href="mutable-observable-map-of.html">mutableObservableMapOf</a></h4>
 </td>
 <td>
-<p>Returns an empty [<a href="#">ObservableMap</a>].</p>
+<p>Returns an empty <a href="#">ObservableMap</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mutableObservableMapOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code>
-<p>Returns an [<a href="#">ObservableMap</a>] of <a href="mutable-observable-map-of.html#ktfx.collections$mutableObservableMapOf(kotlin.Array((kotlin.Pair((ktfx.collections.mutableObservableMapOf.K, ktfx.collections.mutableObservableMapOf.V)))))/pairs">pairs</a>.</p>
+<p>Returns an <a href="#">ObservableMap</a> of <a href="mutable-observable-map-of.html#ktfx.collections$mutableObservableMapOf(kotlin.Array((kotlin.Pair((ktfx.collections.mutableObservableMapOf.K, ktfx.collections.mutableObservableMapOf.V)))))/pairs">pairs</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mutableObservableMapOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.collections$mutableObservableMapOf(kotlin.Array((kotlin.Pair((ktfx.collections.mutableObservableMapOf.K, ktfx.collections.mutableObservableMapOf.V)))))/pairs">pairs</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -156,7 +170,9 @@
 <h4><a href="mutable-observable-set-of.html">mutableObservableSetOf</a></h4>
 </td>
 <td>
-<p>Returns an <a href="#">ObservableList</a> containing all <a href="mutable-observable-set-of.html#ktfx.collections$mutableObservableSetOf(kotlin.Array((ktfx.collections.mutableObservableSetOf.T)))/elements">elements</a>.</p>
+<p>Returns an empty <a href="#">ObservableSet</a>.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">mutableObservableSetOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Returns an <a href="#">ObservableSet</a> containing all <a href="mutable-observable-set-of.html#ktfx.collections$mutableObservableSetOf(kotlin.Array((ktfx.collections.mutableObservableSetOf.T)))/elements">elements</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">mutableObservableSetOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.collections$mutableObservableSetOf(kotlin.Array((ktfx.collections.mutableObservableSetOf.T)))/elements">elements</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -184,7 +200,7 @@
 <h4><a href="observable-list-of.html">observableListOf</a></h4>
 </td>
 <td>
-<p>Returns an empty immutable <a href="#">ObservableList</a>.</p>
+<p>Alias of <a href="empty-observable-list.html">emptyObservableList</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">observableListOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
 <p>Returns an immutable <a href="#">ObservableList</a> of one <a href="observable-list-of.html#ktfx.collections$observableListOf(ktfx.collections.observableListOf.T)/element">element</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">observableListOf</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$observableListOf(ktfx.collections.observableListOf.T)/element">element</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
@@ -206,9 +222,9 @@
 <h4><a href="observable-set-of.html">observableSetOf</a></h4>
 </td>
 <td>
-<p>Returns an empty immutable <a href="#">ObservableSet</a>.</p>
+<p>Alias of <a href="empty-observable-set.html">emptyObservableSet</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">observableSetOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
-<p>Returns an immutable <a href="#">ObservableList</a> containing all <a href="observable-set-of.html#ktfx.collections$observableSetOf(kotlin.Array((ktfx.collections.observableSetOf.T)))/elements">elements</a>.</p>
+<p>Returns an immutable <a href="#">ObservableSet</a> containing all <a href="observable-set-of.html#ktfx.collections$observableSetOf(kotlin.Array((ktfx.collections.observableSetOf.T)))/elements">elements</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">observableSetOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.collections$observableSetOf(kotlin.Array((ktfx.collections.observableSetOf.T)))/elements">elements</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>

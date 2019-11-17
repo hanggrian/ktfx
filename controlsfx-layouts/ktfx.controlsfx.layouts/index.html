@@ -16,15 +16,26 @@
 <h4><a href="-ktfx-hidden-sides-pane/index.html">KtfxHiddenSidesPane</a></h4>
 </td>
 <td>
-<p>Invoking layout DSL will only set content.
-To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bottom</code>, or <code>right</code>.</p>
+<p><a href="#">HiddenSidesPane</a> with dynamic-layout dsl support.
+Invoking dsl will only set its content.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxHiddenSidesPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">HiddenSidesPane</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-ktfx-info-overlay/index.html">KtfxInfoOverlay</a></h4>
+</td>
+<td>
+<p><a href="#">InfoOverlay</a> with dynamic-layout dsl support.
+Invoking dsl will only set its content.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxInfoOverlay</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">InfoOverlay</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="-ktfx-master-detail-pane/index.html">KtfxMasterDetailPane</a></h4>
 </td>
 <td>
+<p><a href="#">MasterDetailPane</a> with dynamic-layout dsl support.
+Invoking dsl will only set its master and detail, in order.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxMasterDetailPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">MasterDetailPane</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
 </tr>
 <tr>
@@ -32,6 +43,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="-ktfx-notification-pane/index.html">KtfxNotificationPane</a></h4>
 </td>
 <td>
+<p><a href="#">NotificationPane</a> with dynamic-layout dsl support.
+Invoking dsl will only set its content.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxNotificationPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">NotificationPane</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
 </tr>
 <tr>
@@ -39,6 +52,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="-ktfx-segmented-button/index.html">KtfxSegmentedButton</a></h4>
 </td>
 <td>
+<p><a href="#">SegmentedButton</a> with dynamic-layout dsl support.
+Invoking dsl will add its children.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxSegmentedButton</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">SegmentedButton</span><span class="symbol">, </span><span class="identifier">ToggleButtonManager</span></code></td>
 </tr>
 <tr>
@@ -46,6 +61,8 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 <h4><a href="-ktfx-snapshot-view/index.html">KtfxSnapshotView</a></h4>
 </td>
 <td>
+<p><a href="#">SnapshotView</a> with dynamic-layout dsl support.
+Invoking dsl will only set its node.</p>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxSnapshotView</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">SnapshotView</span><span class="symbol">, </span><span class="identifier">NodeManager</span></code></td>
 </tr>
 </tbody>
@@ -127,7 +144,7 @@ To set other sides, explicitly use <code>top</code>, <code>left</code>, <code>bo
 </td>
 <td>
 <p>Create a <a href="#">InfoOverlay</a> with initialization block.</p>
-<code><span class="keyword">fun </span><span class="identifier">infoOverlay</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((org.controlsfx.control.InfoOverlay, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((org.controlsfx.control.InfoOverlay, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((org.controlsfx.control.InfoOverlay, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">InfoOverlay</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">InfoOverlay</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">infoOverlay</span><span class="symbol">(</span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((ktfx.controlsfx.layouts.KtfxInfoOverlay, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((ktfx.controlsfx.layouts.KtfxInfoOverlay, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controlsfx.layouts$infoOverlay(javafx.scene.Node, kotlin.String, kotlin.Function1((ktfx.controlsfx.layouts.KtfxInfoOverlay, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="-ktfx-info-overlay/index.html"><span class="identifier">KtfxInfoOverlay</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">InfoOverlay</span></code></td>
 </tr>
 <tr>
 <td>

@@ -28,9 +28,9 @@
 <p>Sifts through stored nodes by their id ("#id"), their class (".class"), or the text it has ("text"),
 depending on the query used, and keeps only those {@code Node}s that meet the query.</p>
 <code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$lookup(org.testfx.service.query.NodeQuery, kotlin.String)/query">query</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code>
-<p>Sifts through stored nodes and keeps only those {@code Node}s that match the given matcher.</p>
+<p>Sifts through stored nodes and keeps only those <code>Node</code>s that match the given matcher.</p>
 <code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$lookup(org.testfx.service.query.NodeQuery, org.hamcrest.Matcher((ktfx.test.lookup.T)))/matcher">matcher</span><span class="symbol">:</span>&nbsp;<span class="identifier">Matcher</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code>
-<p>Sifts through stored nodes and keeps only those {@code Node}s that pass the given {@code predicate}.</p>
+<p>Sifts through stored nodes and keeps only those <code>Node</code>s that pass the given {@code predicate}.</p>
 <code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">lookup</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$lookup(org.testfx.service.query.NodeQuery, kotlin.Function1((ktfx.test.lookup.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code></td>
 </tr>
 <tr>
@@ -38,9 +38,9 @@ depending on the query used, and keeps only those {@code Node}s that meet the qu
 <h4><a href="match.html">match</a></h4>
 </td>
 <td>
-<p>Sifts through stored nodes and keeps only those {@code Node}s that match the given matcher.</p>
+<p>Sifts through stored nodes and keeps only those <code>Node</code>s that match the given matcher.</p>
 <code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">match</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$match(org.testfx.service.query.NodeQuery, org.hamcrest.Matcher((ktfx.test.match.T)))/matcher">matcher</span><span class="symbol">:</span>&nbsp;<span class="identifier">Matcher</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code>
-<p>Sifts through stored nodes and keeps only those {@code Node}s that pass the given predicate.</p>
+<p>Sifts through stored nodes and keeps only those <code>Node</code>s that pass the given predicate.</p>
 <code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">match</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$match(org.testfx.service.query.NodeQuery, kotlin.Function1((ktfx.test.match.T, kotlin.Boolean)))/predicate">predicate</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">T</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code></td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@ depending on the query used, and keeps only those {@code Node}s that meet the qu
 <h4><a href="nth.html">nth</a></h4>
 </td>
 <td>
-<p>Keeps the nth {@code Node} in stored nodes and removes all others.</p>
+<p>Keeps the nth <code>Node</code> in stored nodes and removes all others.</p>
 <code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">nth</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$nth(org.testfx.service.query.NodeQuery, kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">NodeQuery</span></code></td>
 </tr>
 <tr>
@@ -56,6 +56,8 @@ depending on the query used, and keeps only those {@code Node}s that meet the qu
 <h4><a href="query-all-as.html">queryAllAs</a></h4>
 </td>
 <td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">queryAllAs</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$queryAllAs(org.testfx.service.query.NodeQuery, kotlin.reflect.KClass((ktfx.test.queryAllAs.T)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Alias of <a href="query-as.html">queryAs</a> with reified type.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">queryAllAs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html"><span class="identifier">Set</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -63,6 +65,8 @@ depending on the query used, and keeps only those {@code Node}s that meet the qu
 <h4><a href="query-as.html">queryAs</a></h4>
 </td>
 <td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">queryAs</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$queryAs(org.testfx.service.query.NodeQuery, kotlin.reflect.KClass((ktfx.test.queryAs.T)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Alias of <a href="query-as.html">queryAs</a> with reified type.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">queryAs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
@@ -70,6 +74,8 @@ depending on the query used, and keeps only those {@code Node}s that meet the qu
 <h4><a href="try-query-as.html">tryQueryAs</a></h4>
 </td>
 <td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">tryQueryAs</span><span class="symbol">(</span><span class="identifier" id="ktfx.test$tryQueryAs(org.testfx.service.query.NodeQuery, kotlin.reflect.KClass((ktfx.test.tryQueryAs.T)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/util/Optional.html"><span class="identifier">Optional</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
+<p>Alias of <a href="query-as.html">queryAs</a> with reified type.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">NodeQuery</span><span class="symbol">.</span><span class="identifier">tryQueryAs</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/util/Optional.html"><span class="identifier">Optional</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>

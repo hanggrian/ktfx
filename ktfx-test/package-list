@@ -64,7 +64,9 @@ $dokka.location:ktfx.test$press(org.testfx.api.FxRobotInterface, javafx.scene.in
 $dokka.location:ktfx.test$push(org.testfx.api.FxRobotInterface, javafx.scene.input.KeyCode)ktfx.test/org.testfx.api.-fx-robot-interface/push.html
 $dokka.location:ktfx.test$push(org.testfx.api.FxRobotInterface, javafx.scene.input.KeyCodeCombination)ktfx.test/org.testfx.api.-fx-robot-interface/push.html
 $dokka.location:ktfx.test$queryAllAs(org.testfx.service.query.NodeQuery)ktfx.test/org.testfx.service.query.-node-query/query-all-as.html
+$dokka.location:ktfx.test$queryAllAs(org.testfx.service.query.NodeQuery, kotlin.reflect.KClass((ktfx.test.queryAllAs.T)))ktfx.test/org.testfx.service.query.-node-query/query-all-as.html
 $dokka.location:ktfx.test$queryAs(org.testfx.service.query.NodeQuery)ktfx.test/org.testfx.service.query.-node-query/query-as.html
+$dokka.location:ktfx.test$queryAs(org.testfx.service.query.NodeQuery, kotlin.reflect.KClass((ktfx.test.queryAs.T)))ktfx.test/org.testfx.service.query.-node-query/query-as.html
 $dokka.location:ktfx.test$release(org.testfx.api.FxRobotInterface, javafx.scene.input.KeyCode)ktfx.test/org.testfx.api.-fx-robot-interface/release.html
 $dokka.location:ktfx.test$release(org.testfx.api.FxRobotInterface, javafx.scene.input.MouseButton)ktfx.test/org.testfx.api.-fx-robot-interface/release.html
 $dokka.location:ktfx.test$rightClickOn(org.testfx.api.FxRobotInterface, javafx.geometry.Bounds)ktfx.test/org.testfx.api.-fx-robot-interface/right-click-on.html
@@ -89,6 +91,7 @@ $dokka.location:ktfx.test$targetWindow(org.testfx.api.FxRobotInterface, kotlin.F
 $dokka.location:ktfx.test$targetWindow(org.testfx.api.FxRobotInterface, kotlin.Int)ktfx.test/org.testfx.api.-fx-robot-interface/target-window.html
 $dokka.location:ktfx.test$targetWindow(org.testfx.api.FxRobotInterface, kotlin.String)ktfx.test/org.testfx.api.-fx-robot-interface/target-window.html
 $dokka.location:ktfx.test$tryQueryAs(org.testfx.service.query.NodeQuery)ktfx.test/org.testfx.service.query.-node-query/try-query-as.html
+$dokka.location:ktfx.test$tryQueryAs(org.testfx.service.query.NodeQuery, kotlin.reflect.KClass((ktfx.test.tryQueryAs.T)))ktfx.test/org.testfx.service.query.-node-query/try-query-as.html
 $dokka.location:ktfx.test$type(org.testfx.api.FxRobotInterface, javafx.scene.input.KeyCode)ktfx.test/org.testfx.api.-fx-robot-interface/type.html
 $dokka.location:ktfx.test$write(org.testfx.api.FxRobotInterface, kotlin.Char)ktfx.test/org.testfx.api.-fx-robot-interface/write.html
 $dokka.location:ktfx.test$write(org.testfx.api.FxRobotInterface, kotlin.String)ktfx.test/org.testfx.api.-fx-robot-interface/write.html

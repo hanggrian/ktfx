@@ -23,7 +23,7 @@ $dokka.location:ktfx.jfoenix.layouts$jfxDecorator(ktfx.layouts.NodeManager, java
 $dokka.location:ktfx.jfoenix.layouts$jfxDefaultChip(ktfx.layouts.NodeManager, com.jfoenix.controls.JFXChipView((ktfx.jfoenix.layouts.jfxDefaultChip.T)), ktfx.jfoenix.layouts.jfxDefaultChip.T)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-default-chip.html
 $dokka.location:ktfx.jfoenix.layouts$jfxDefaultChip(ktfx.layouts.NodeManager, com.jfoenix.controls.JFXChipView((ktfx.jfoenix.layouts.jfxDefaultChip.T)), ktfx.jfoenix.layouts.jfxDefaultChip.T, kotlin.Function1((com.jfoenix.controls.JFXDefaultChip((ktfx.jfoenix.layouts.jfxDefaultChip.T)), kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-default-chip.html
 $dokka.location:ktfx.jfoenix.layouts$jfxDrawer(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-drawer.html
-$dokka.location:ktfx.jfoenix.layouts$jfxDrawer(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXDrawer, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-drawer.html
+$dokka.location:ktfx.jfoenix.layouts$jfxDrawer(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXDrawer, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-drawer.html
 $dokka.location:ktfx.jfoenix.layouts$jfxDrawersStack(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-drawers-stack.html
 $dokka.location:ktfx.jfoenix.layouts$jfxDrawersStack(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXDrawersStack, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-drawers-stack.html
 $dokka.location:ktfx.jfoenix.layouts$jfxHamburger(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-hamburger.html
@@ -33,9 +33,9 @@ $dokka.location:ktfx.jfoenix.layouts$jfxListCell(ktfx.layouts.NodeManager, kotli
 $dokka.location:ktfx.jfoenix.layouts$jfxListView(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-list-view.html
 $dokka.location:ktfx.jfoenix.layouts$jfxListView(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXListView((ktfx.jfoenix.layouts.jfxListView.T)), kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-list-view.html
 $dokka.location:ktfx.jfoenix.layouts$jfxMasonryPane(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-masonry-pane.html
-$dokka.location:ktfx.jfoenix.layouts$jfxMasonryPane(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXMasonryPane, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-masonry-pane.html
+$dokka.location:ktfx.jfoenix.layouts$jfxMasonryPane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXMasonryPane, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-masonry-pane.html
 $dokka.location:ktfx.jfoenix.layouts$jfxNodesList(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-nodes-list.html
-$dokka.location:ktfx.jfoenix.layouts$jfxNodesList(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXNodesList, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-nodes-list.html
+$dokka.location:ktfx.jfoenix.layouts$jfxNodesList(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXNodesList, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-nodes-list.html
 $dokka.location:ktfx.jfoenix.layouts$jfxPasswordField(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-password-field.html
 $dokka.location:ktfx.jfoenix.layouts$jfxPasswordField(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXPasswordField, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-password-field.html
 $dokka.location:ktfx.jfoenix.layouts$jfxProgressBar(ktfx.layouts.NodeManager, kotlin.Double)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-progress-bar.html
@@ -63,7 +63,7 @@ $dokka.location:ktfx.jfoenix.layouts$jfxToggleButton(ktfx.layouts.NodeManager, k
 $dokka.location:ktfx.jfoenix.layouts$jfxToggleNode(ktfx.layouts.NodeManager, javafx.scene.Node)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-toggle-node.html
 $dokka.location:ktfx.jfoenix.layouts$jfxToggleNode(ktfx.layouts.NodeManager, javafx.scene.Node, kotlin.Function1((com.jfoenix.controls.JFXToggleNode, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-toggle-node.html
 $dokka.location:ktfx.jfoenix.layouts$jfxTogglePane(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-toggle-pane.html
-$dokka.location:ktfx.jfoenix.layouts$jfxTogglePane(ktfx.layouts.NodeManager, kotlin.Function1((com.jfoenix.controls.JFXTogglePane, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-toggle-pane.html
+$dokka.location:ktfx.jfoenix.layouts$jfxTogglePane(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXTogglePane, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-toggle-pane.html
 $dokka.location:ktfx.jfoenix.layouts$jfxToolbar(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-toolbar.html
 $dokka.location:ktfx.jfoenix.layouts$jfxToolbar(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXToolbar, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-toolbar.html
 $dokka.location:ktfx.jfoenix.layouts$jfxTreeCell(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-tree-cell.html

@@ -33,35 +33,39 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraintable, Alignme
     final override fun Constraints.clear(): Unit =
         clearConstraints(node)
 
-    /** Alias for reserved variable [GridPane.setRowIndex]. */
+    /** Children row index in this layout. */
     var Constraints.rowIndex: Int?
         get() = getRowIndex(node)
         set(value) = setRowIndex(node, value)
 
-    infix fun Constraints.row(index: Int): Constraints =
-        apply { rowIndex = index }
-
-    /** While `colIndex` are not a reserved variable, it follows the standard set by [row]. */
+    /** Children column index in this layout. */
     var Constraints.columnIndex: Int?
         get() = getColumnIndex(node)
         set(value) = setColumnIndex(node, value)
 
+    /** Configure row index fluidly using infix operator. */
+    infix fun Constraints.row(index: Int): Constraints =
+        apply { rowIndex = index }
+
+    /** Configure column index fluidly using infix operator. */
     infix fun Constraints.col(index: Int): Constraints =
         apply { columnIndex = index }
 
-    /** Alias for reserved variable [GridPane.setRowSpan]. */
+    /** Children row span in this layout. */
     var Constraints.rowSpan: Int?
         get() = getRowSpan(node)
         set(value) = setRowSpan(node, value)
 
-    infix fun Constraints.rowSpan(span: Int): Constraints =
-        apply { rowSpan = span }
-
-    /** While `colRange` are not a reserved variable, it follows the standard set by [rowSpans]. */
+    /** Children column span in this layout. */
     var Constraints.columnSpan: Int?
         get() = getColumnSpan(node)
         set(value) = setColumnSpan(node, value)
 
+    /** Configure row span fluidly using infix operator. */
+    infix fun Constraints.rowSpan(span: Int): Constraints =
+        apply { rowSpan = span }
+
+    /** Configure column span fluidly using infix operator. */
     infix fun Constraints.colSpan(span: Int): Constraints =
         apply { columnSpan = span }
 
@@ -76,35 +80,39 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraintable, Alignme
             valignment = value?.vpos
         }
 
-    /** Children horizontal alignment in this container. */
+    /** Children horizontal alignment in this layout. */
     var Constraints.halignment: HPos?
         get() = getHalignment(node)
         set(value) = setHalignment(node, value)
 
-    infix fun Constraints.halign(hpos: HPos): Constraints =
-        apply { halignment = hpos }
-
-    /** Children vertical alignment in this container. */
+    /** Children vertical alignment in this layout. */
     var Constraints.valignment: VPos?
         get() = getValignment(node)
         set(value) = setValignment(node, value)
 
+    /** Configure horizontal alignment fluidly using infix operator. */
+    infix fun Constraints.halign(hpos: HPos): Constraints =
+        apply { halignment = hpos }
+
+    /** Configure vertical alignment fluidly using infix operator. */
     infix fun Constraints.valign(vpos: VPos): Constraints =
         apply { valignment = vpos }
 
-    /** Alias for reserved variable [GridPane.setFillWidth]. */
+    /** Children fill width property in this layout. */
     var Constraints.fillWidth: Boolean?
         get() = isFillWidth(node)
         set(value) = setFillWidth(node, value)
 
-    infix fun Constraints.hfill(fill: Boolean): Constraints =
-        apply { fillWidth = fill }
-
-    /** Alias for reserved variable [GridPane.setFillHeight]. */
+    /** Children fill height property in this layout. */
     var Constraints.fillHeight: Boolean?
         get() = isFillHeight(node)
         set(value) = setFillHeight(node, value)
 
+    /** Configure fill width fluidly using infix operator. */
+    infix fun Constraints.hfill(fill: Boolean): Constraints =
+        apply { fillWidth = fill }
+
+    /** Configure fill height fluidly using infix operator. */
     infix fun Constraints.vfill(fill: Boolean): Constraints =
         apply { fillHeight = fill }
 

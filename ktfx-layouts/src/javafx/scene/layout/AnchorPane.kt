@@ -24,6 +24,7 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraintable {
     final override fun Constraints.clear(): Unit =
         clearConstraints(node)
 
+    /** Children all sides anchor in this layout. */
     var Constraints.anchorAll: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
@@ -33,34 +34,43 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraintable {
             anchorRight = value
         }
 
-    infix fun Constraints.anchorAll(anchor: Double): Constraints =
-        apply { anchorAll = anchor }
-
-    var Constraints.anchorTop: Double?
-        get() = getTopAnchor(node)
-        set(value) = setTopAnchor(node, value)
-
-    infix fun Constraints.anchorTop(anchor: Double): Constraints =
-        apply { anchorTop = anchor }
-
+    /** Children left anchor in this layout. */
     var Constraints.anchorLeft: Double?
         get() = getLeftAnchor(node)
         set(value) = setLeftAnchor(node, value)
 
-    infix fun Constraints.anchorLeft(anchor: Double): Constraints =
-        apply { anchorLeft = anchor }
+    /** Children top anchor in this layout. */
+    var Constraints.anchorTop: Double?
+        get() = getTopAnchor(node)
+        set(value) = setTopAnchor(node, value)
 
+    /** Children bottom anchor in this layout. */
     var Constraints.anchorBottom: Double?
         get() = getBottomAnchor(node)
         set(value) = setBottomAnchor(node, value)
 
-    infix fun Constraints.anchorBottom(anchor: Double): Constraints =
-        apply { anchorBottom = anchor }
-
+    /** Children right anchor in this layout. */
     var Constraints.anchorRight: Double?
         get() = getRightAnchor(node)
         set(value) = setRightAnchor(node, value)
 
+    /** Configure all sides anchor fluidly using infix operator. */
+    infix fun Constraints.anchorAll(anchor: Double): Constraints =
+        apply { anchorAll = anchor }
+
+    /** Configure top anchor fluidly using infix operator. */
+    infix fun Constraints.anchorTop(anchor: Double): Constraints =
+        apply { anchorTop = anchor }
+
+    /** Configure left anchor fluidly using infix operator. */
+    infix fun Constraints.anchorLeft(anchor: Double): Constraints =
+        apply { anchorLeft = anchor }
+
+    /** Configure bottom anchor fluidly using infix operator. */
+    infix fun Constraints.anchorBottom(anchor: Double): Constraints =
+        apply { anchorBottom = anchor }
+
+    /** Configure right anchor fluidly using infix operator. */
     infix fun Constraints.anchorRight(anchor: Double): Constraints =
         apply { anchorRight = anchor }
 }

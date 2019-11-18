@@ -16,21 +16,21 @@ import kotlin.contracts.contract
  * [VBox] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraints, MarginConstraints {
+open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager, VGrowConstraintable, MarginConstraintable {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Node.removeConstraints(): Unit =
-        clearConstraints(this)
+    final override fun Constraints.clear(): Unit =
+        clearConstraints(node)
 
-    final override var Node.vgrows: Priority?
-        get() = getVgrow(this)
-        set(value) = setVgrow(this, value)
+    final override var Constraints.vgrow: Priority?
+        get() = getVgrow(node)
+        set(value) = setVgrow(node, value)
 
-    final override var Node.margins: Insets?
-        get() = getMargin(this)
-        set(value) = setMargin(this, value)
+    final override var Constraints.margin: Insets?
+        get() = getMargin(node)
+        set(value) = setMargin(node, value)
 }
 
 /** Create a [VBox] with initialization block. */

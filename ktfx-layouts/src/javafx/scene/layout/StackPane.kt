@@ -16,21 +16,21 @@ import kotlin.contracts.contract
  * [StackPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxStackPane : StackPane(), NodeManager, AlignConstraints, MarginConstraints {
+open class KtfxStackPane : StackPane(), NodeManager, AlignmentConstraintable, MarginConstraintable {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Node.removeConstraints(): Unit =
-        clearConstraints(this)
+    final override fun Constraints.clear(): Unit =
+        clearConstraints(node)
 
-    final override var Node.align: Pos?
-        get() = getAlignment(this)
-        set(value) = setAlignment(this, value)
+    final override var Constraints.alignment: Pos?
+        get() = getAlignment(node)
+        set(value) = setAlignment(node, value)
 
-    final override var Node.margins: Insets?
-        get() = getMargin(this)
-        set(value) = setMargin(this, value)
+    final override var Constraints.margin: Insets?
+        get() = getMargin(node)
+        set(value) = setMargin(node, value)
 }
 
 /** Create a [StackPane] with initialization block. */

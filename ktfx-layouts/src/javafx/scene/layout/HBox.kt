@@ -14,7 +14,7 @@ import kotlin.contracts.contract
  * [HBox] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxHBox(spacing: Double) : HBox(spacing), HBoxConstraints {
+open class KtfxHBox(spacing: Double) : HBox(spacing), HBoxConstraintable {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }

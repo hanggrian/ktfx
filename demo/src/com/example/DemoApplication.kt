@@ -32,8 +32,7 @@ class DemoApplication : Application() {
         stage.scene {
             gridPane {
                 vbox {
-                    gridAt(0, 0, colSpans = 5)
-                    hfill = true
+                    constraints row 0 col 0 colSpan 5 hfill true
 
                     updatePadding(right = 20.0, left = 20.0)
                     calculationLabel = label("")
@@ -72,21 +71,21 @@ class DemoApplication : Application() {
                 }
 
                 button("1") {
-                    gridAt(1, 0)
+                    constraints row 1 col 0
                     minSize = 40.0
                     onAction {
                         appendText("1")
                     }
                 }
                 button("2") {
-                    gridAt(1, 1)
+                    constraints row 1 col 1
                     minSize = 40.0
                     onAction {
                         appendText("2")
                     }
                 }
                 button("3") {
-                    gridAt(1, 2)
+                    constraints row 1 col 2
                     minSize = 40.0
                     onAction {
                         appendText("3")
@@ -94,21 +93,21 @@ class DemoApplication : Application() {
                 }
 
                 button("4") {
-                    gridAt(2, 0)
+                    constraints row 2 col 0
                     minSize = 40.0
                     onAction {
                         appendText("4")
                     }
                 }
                 button("5") {
-                    gridAt(2, 1)
+                    constraints row 2 col 1
                     minSize = 40.0
                     onAction {
                         appendText("5")
                     }
                 }
                 button("6") {
-                    gridAt(2, 2)
+                    constraints row 2 col 2
                     minSize = 40.0
                     onAction {
                         appendText("6")
@@ -116,21 +115,21 @@ class DemoApplication : Application() {
                 }
 
                 button("7") {
-                    gridAt(3, 0)
+                    constraints row 3 col 0
                     minSize = 40.0
                     onAction {
                         appendText("7")
                     }
                 }
                 button("8") {
-                    gridAt(3, 1)
+                    constraints row 3 col 1
                     minSize = 40.0
                     onAction {
                         appendText("8")
                     }
                 }
                 button("9") {
-                    gridAt(3, 2)
+                    constraints row 3 col 2
                     minSize = 40.0
                     onAction {
                         appendText("9")
@@ -138,21 +137,21 @@ class DemoApplication : Application() {
                 }
 
                 button("0") {
-                    gridAt(4, 0)
+                    constraints row 4 col 0
                     minSize = 40.0
                     onAction {
                         appendText("0")
                     }
                 }
                 button("00") {
-                    gridAt(4, 1)
+                    constraints row 4 col 1
                     minSize = 40.0
                     onAction {
                         appendText("00")
                     }
                 }
                 button("") {
-                    gridAt(4, 2)
+                    constraints row 4 col 2
                     minSize = 40.0
                     onAction {
                         errorAlert(":(", content = "Not yet supported.")
@@ -160,7 +159,7 @@ class DemoApplication : Application() {
                 }
 
                 button("C") {
-                    gridAt(1, 3, colSpans = 2)
+                    constraints row 1 col 3 colSpan 2
                     setMinSize(80.0, 40.0)
                     isCancelButton = true
                     onAction {
@@ -168,35 +167,35 @@ class DemoApplication : Application() {
                     }
                 }
                 button("*") {
-                    gridAt(2, 3)
+                    constraints row 2 col 3
                     minSize = 40.0
                     onAction {
                         appendText("*")
                     }
                 }
                 button("/") {
-                    gridAt(2, 4)
+                    constraints row 2 col 4
                     minSize = 40.0
                     onAction {
                         appendText("/")
                     }
                 }
                 button("+") {
-                    gridAt(3, 3, rowSpans = 2)
+                    constraints row 3 col 3 rowSpan 2
                     setMinSize(40.0, 80.0)
                     onAction {
                         appendText("+")
                     }
                 }
                 button("-") {
-                    gridAt(3, 4)
+                    constraints row 3 col 4
                     minSize = 40.0
                     onAction {
                         appendText("-")
                     }
                 }
                 button("=") {
-                    gridAt(4, 4)
+                    constraints row 4 col 4
                     minSize = 40.0
                     isDefaultButton = true
                     disableProperty().bind(booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator })

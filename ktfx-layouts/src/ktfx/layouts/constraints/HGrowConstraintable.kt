@@ -1,6 +1,5 @@
 package ktfx.layouts
 
-import javafx.scene.Node
 import javafx.scene.layout.Priority
 
 /**
@@ -11,18 +10,14 @@ import javafx.scene.layout.Priority
  * @see KtfxHBox
  * @see KtfxGridPane
  */
-interface HGrowConstraints : Constraints {
+interface HGrowConstraintable : Constraintable {
 
     /** Children horizontal grow priority in this container. */
-    var Node.hgrows: Priority?
+    var Constraints.hgrow: Priority?
 
-    /** Convenient method to prioritize children horizontal grow. */
-    fun Node.hgrow() {
-        hgrows = Priority.ALWAYS
-    }
+    infix fun Constraints.hgrow(priority: Priority): Constraints =
+        apply { hgrow = priority }
 
-    /** Convenient method to never prioritize children horizontal grow. */
-    fun Node.hshrink() {
-        hgrows = Priority.NEVER
-    }
+    infix fun Constraints.hgrow(always: Boolean): Constraints =
+        hgrow(Priority.ALWAYS)
 }

@@ -24,136 +24,97 @@ import ktfx.internal.KtfxInternals
  * [GridPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxGridPane : GridPane(), NodeManager, MarginConstraints, AlignConstraints,
-    HGrowConstraints, VGrowConstraints {
+open class KtfxGridPane : GridPane(), NodeManager, MarginConstraintable, AlignmentConstraintable,
+    HGrowConstraintable, VGrowConstraintable {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Node.removeConstraints(): Unit =
-        clearConstraints(this)
-
-    /** Conveniently set [KtfxGridPane.row], [KtfxGridPane.col], [KtfxGridPane.rowSpans] and [KtfxGridPane.colSpans]. */
-    fun Node.gridAt(
-        row: Int? = null,
-        col: Int? = null,
-        colSpans: Int? = null,
-        rowSpans: Int? = null
-    ) {
-        this.row = row
-        this.col = col
-        this.colSpans = colSpans
-        this.rowSpans = rowSpans
-    }
+    final override fun Constraints.clear(): Unit =
+        clearConstraints(node)
 
     /** Alias for reserved variable [GridPane.setRowIndex]. */
-    var Node.row: Int?
-        get() = getRowIndex(this)
-        set(value) = setRowIndex(this, value)
+    var Constraints.rowIndex: Int?
+        get() = getRowIndex(node)
+        set(value) = setRowIndex(node, value)
+
+    infix fun Constraints.row(index: Int): Constraints =
+        apply { rowIndex = index }
 
     /** While `colIndex` are not a reserved variable, it follows the standard set by [row]. */
-    var Node.col: Int?
-        get() = getColumnIndex(this)
-        set(value) = setColumnIndex(this, value)
+    var Constraints.columnIndex: Int?
+        get() = getColumnIndex(node)
+        set(value) = setColumnIndex(node, value)
+
+    infix fun Constraints.col(index: Int): Constraints =
+        apply { columnIndex = index }
 
     /** Alias for reserved variable [GridPane.setRowSpan]. */
-    var Node.rowSpans: Int?
-        get() = getRowSpan(this)
-        set(value) = setRowSpan(this, value)
+    var Constraints.rowSpan: Int?
+        get() = getRowSpan(node)
+        set(value) = setRowSpan(node, value)
+
+    infix fun Constraints.rowSpan(span: Int): Constraints =
+        apply { rowSpan = span }
 
     /** While `colRange` are not a reserved variable, it follows the standard set by [rowSpans]. */
-    var Node.colSpans: Int?
-        get() = getColumnSpan(this)
-        set(value) = setColumnSpan(this, value)
+    var Constraints.columnSpan: Int?
+        get() = getColumnSpan(node)
+        set(value) = setColumnSpan(node, value)
 
-    final override var Node.margins: Insets?
-        get() = getMargin(this)
-        set(value) = setMargin(this, value)
+    infix fun Constraints.colSpan(span: Int): Constraints =
+        apply { columnSpan = span }
 
-    /** Conveniently set [KtfxGridPane.valign] and [KtfxGridPane.halign]. */
-    final override var Node.align: Pos?
+    final override var Constraints.margin: Insets?
+        get() = getMargin(node)
+        set(value) = setMargin(node, value)
+
+    final override var Constraints.alignment: Pos?
         @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
         set(value) {
-            valign = value?.vpos
-            halign = value?.hpos
+            halignment = value?.hpos
+            valignment = value?.vpos
         }
 
     /** Children horizontal alignment in this container. */
-    var Node.halign: HPos?
-        get() = getHalignment(this)
-        set(value) = setHalignment(this, value)
+    var Constraints.halignment: HPos?
+        get() = getHalignment(node)
+        set(value) = setHalignment(node, value)
+
+    infix fun Constraints.halign(hpos: HPos): Constraints =
+        apply { halignment = hpos }
 
     /** Children vertical alignment in this container. */
-    var Node.valign: VPos?
-        get() = getValignment(this)
-        set(value) = setValignment(this, value)
+    var Constraints.valignment: VPos?
+        get() = getValignment(node)
+        set(value) = setValignment(node, value)
 
-    /** Convenient method to align children to [HPos.LEFT]. */
-    fun Node.halignLeft() {
-        halign = HPos.LEFT
-    }
-
-    /** Convenient method to align children to [HPos.CENTER]. */
-    fun Node.halignCenter() {
-        halign = HPos.CENTER
-    }
-
-    /** Convenient method to align children to [HPos.RIGHT]. */
-    fun Node.halignRight() {
-        halign = HPos.RIGHT
-    }
-
-    /** Convenient method to align children to [VPos.TOP]. */
-    fun Node.valignTop() {
-        valign = VPos.TOP
-    }
-
-    /** Convenient method to align children to [VPos.CENTER]. */
-    fun Node.valignCenter() {
-        valign = VPos.CENTER
-    }
-
-    /** Convenient method to align children to [VPos.BASELINE]. */
-    fun Node.valignBaseline() {
-        valign = VPos.BASELINE
-    }
-
-    /** Convenient method to align children to [VPos.BOTTOM]. */
-    fun Node.valignBottom() {
-        valign = VPos.BOTTOM
-    }
-
-    /** Conveniently set [KtfxGridPane.vfill] and [KtfxGridPane.hfill]. */
-    var Node.fill: Boolean?
-        @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-        set(value) {
-            vfill = value
-            hfill = value
-        }
+    infix fun Constraints.valign(vpos: VPos): Constraints =
+        apply { valignment = vpos }
 
     /** Alias for reserved variable [GridPane.setFillWidth]. */
-    var Node.hfill: Boolean?
-        get() = isFillWidth(this)
-        set(value) = setFillWidth(this, value)
+    var Constraints.fillWidth: Boolean?
+        get() = isFillWidth(node)
+        set(value) = setFillWidth(node, value)
+
+    infix fun Constraints.hfill(fill: Boolean): Constraints =
+        apply { fillWidth = fill }
 
     /** Alias for reserved variable [GridPane.setFillHeight]. */
-    var Node.vfill: Boolean?
-        get() = isFillHeight(this)
-        set(value) = setFillHeight(this, value)
+    var Constraints.fillHeight: Boolean?
+        get() = isFillHeight(node)
+        set(value) = setFillHeight(node, value)
 
-    /** Conveniently call [KtfxGridPane.hgrow] and [KtfxGridPane.vgrow]. */
-    fun Node.grow() {
-        hgrow()
-        vgrow()
-    }
+    infix fun Constraints.vfill(fill: Boolean): Constraints =
+        apply { fillHeight = fill }
 
-    final override var Node.hgrows: Priority?
-        get() = getHgrow(this)
-        set(value) = setHgrow(this, value)
+    final override var Constraints.hgrow: Priority?
+        get() = getHgrow(node)
+        set(value) = setHgrow(node, value)
 
-    final override var Node.vgrows: Priority?
-        get() = getVgrow(this)
-        set(value) = setVgrow(this, value)
+    final override var Constraints.vgrow: Priority?
+        get() = getVgrow(node)
+        set(value) = setVgrow(node, value)
 }
 
 /** Create a [GridPane] with initialization block. */

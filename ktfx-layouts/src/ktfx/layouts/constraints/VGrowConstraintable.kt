@@ -1,6 +1,5 @@
 package ktfx.layouts
 
-import javafx.scene.Node
 import javafx.scene.layout.Priority
 
 /**
@@ -11,18 +10,14 @@ import javafx.scene.layout.Priority
  * @see KtfxVBox
  * @see KtfxGridPane
  */
-interface VGrowConstraints : Constraints {
+interface VGrowConstraintable : Constraintable {
 
     /** Children vertical grow priority in this container. */
-    var Node.vgrows: Priority?
+    var Constraints.vgrow: Priority?
 
-    /** Convenient method to prioritize children vertical grow. */
-    fun Node.vgrow() {
-        vgrows = Priority.ALWAYS
-    }
+    infix fun Constraints.vgrow(priority: Priority): Constraints =
+        apply { vgrow = priority }
 
-    /** Convenient method to never prioritize children vertical grow. */
-    fun Node.vshrink() {
-        vgrows = Priority.NEVER
-    }
+    infix fun Constraints.vgrow(always: Boolean): Constraints =
+        vgrow(Priority.ALWAYS)
 }

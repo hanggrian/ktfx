@@ -17,7 +17,8 @@ class OpenClassRule : Rule("open-class") {
             val ktClass = node.psi<KtClass>()
             // builder indicates that the class is only used within DSL context only
             val isClass = !ktClass.isInterface() && !ktClass.isAnnotation()
-            if (isClass && "Builder" !in ktClass.name!!) {
+            val name = ktClass.name!!
+            if (isClass && "Builder" !in name && "Constraints" !in name) {
                 val child = node.findChildByType(KtStubElementTypes.MODIFIER_LIST)
                 if (child == null) {
                     emit(node.startOffset, "Empty modifiers, need open.", false)

@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.HBoxConstraints
+import ktfx.layouts.HBoxConstraintable
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -19,13 +19,13 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXToolbar : JFXToolbar() {
 
-    fun leftItems(init: HBoxConstraints.() -> Unit): Unit =
-        HBoxConstraintsImpl(leftItems).init()
+    fun leftItems(init: HBoxConstraintable.() -> Unit): Unit =
+        HBoxConstraintableImpl(leftItems).init()
 
-    fun rightItems(init: HBoxConstraints.() -> Unit): Unit =
-        HBoxConstraintsImpl(rightItems).init()
+    fun rightItems(init: HBoxConstraintable.() -> Unit): Unit =
+        HBoxConstraintableImpl(rightItems).init()
 
-    private class HBoxConstraintsImpl(list: MutableList<Node>) : HBoxConstraints, MutableList<Node> by list {
+    private class HBoxConstraintableImpl(list: MutableList<Node>) : HBoxConstraintable, MutableList<Node> by list {
         override fun <T : Node> addNode(node: T): T = node.also { this += it }
     }
 }

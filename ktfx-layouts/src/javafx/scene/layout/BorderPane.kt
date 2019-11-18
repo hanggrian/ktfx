@@ -17,21 +17,21 @@ import kotlin.contracts.contract
  * Invoking dsl will only set its content. There is currently no way to configure other areas (top, left, right, bottom) with dsl.
  * Instead, create an instance and set it manually (e.g: `left = ktfx.layouts.label()`).
  */
-open class KtfxBorderPane : BorderPane(), AlignConstraints, MarginConstraints, NodeManager {
+open class KtfxBorderPane : BorderPane(), AlignmentConstraintable, MarginConstraintable, NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { center = it }
 
-    final override fun Node.removeConstraints(): Unit =
-        clearConstraints(this)
+    final override fun Constraints.clear(): Unit =
+        clearConstraints(node)
 
-    final override var Node.align: Pos?
-        get() = getAlignment(this)
-        set(value) = setAlignment(this, value)
+    final override var Constraints.alignment: Pos?
+        get() = getAlignment(node)
+        set(value) = setAlignment(node, value)
 
-    final override var Node.margins: Insets?
-        get() = getMargin(this)
-        set(value) = setMargin(this, value)
+    final override var Constraints.margin: Insets?
+        get() = getMargin(node)
+        set(value) = setMargin(node, value)
 }
 
 /** Create a [BorderPane] with initialization block. */

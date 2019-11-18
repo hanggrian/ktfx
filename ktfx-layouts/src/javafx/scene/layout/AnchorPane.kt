@@ -16,15 +16,15 @@ import ktfx.internal.KtfxInternals
  * [AnchorPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
+open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraintable {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Node.removeConstraints(): Unit =
-        clearConstraints(this)
+    final override fun Constraints.clear(): Unit =
+        clearConstraints(node)
 
-    var Node.anchorAll: Double?
+    var Constraints.anchorAll: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
             anchorTop = value
@@ -33,21 +33,36 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraints {
             anchorRight = value
         }
 
-    var Node.anchorTop: Double?
-        get() = getTopAnchor(this)
-        set(value) = setTopAnchor(this, value)
+    infix fun Constraints.anchorAll(anchor: Double): Constraints =
+        apply { anchorAll = anchor }
 
-    var Node.anchorLeft: Double?
-        get() = getLeftAnchor(this)
-        set(value) = setLeftAnchor(this, value)
+    var Constraints.anchorTop: Double?
+        get() = getTopAnchor(node)
+        set(value) = setTopAnchor(node, value)
 
-    var Node.anchorBottom: Double?
-        get() = getBottomAnchor(this)
-        set(value) = setBottomAnchor(this, value)
+    infix fun Constraints.anchorTop(anchor: Double): Constraints =
+        apply { anchorTop = anchor }
 
-    var Node.anchorRight: Double?
-        get() = getRightAnchor(this)
-        set(value) = setRightAnchor(this, value)
+    var Constraints.anchorLeft: Double?
+        get() = getLeftAnchor(node)
+        set(value) = setLeftAnchor(node, value)
+
+    infix fun Constraints.anchorLeft(anchor: Double): Constraints =
+        apply { anchorLeft = anchor }
+
+    var Constraints.anchorBottom: Double?
+        get() = getBottomAnchor(node)
+        set(value) = setBottomAnchor(node, value)
+
+    infix fun Constraints.anchorBottom(anchor: Double): Constraints =
+        apply { anchorBottom = anchor }
+
+    var Constraints.anchorRight: Double?
+        get() = getRightAnchor(node)
+        set(value) = setRightAnchor(node, value)
+
+    infix fun Constraints.anchorRight(anchor: Double): Constraints =
+        apply { anchorRight = anchor }
 }
 
 /** Create an [AnchorPane] with initialization block. */

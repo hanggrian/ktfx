@@ -21,7 +21,7 @@ tasks["gitPublishCopy"].dependsOn(
 )
 
 fun getKtfxArtifacts(): List<String> =
-    listOf("commons", "coroutines", "layouts", "listeners", "test").map { "$RELEASE_ARTIFACT-$it" } +
+    listOf("commons", "coroutines", "layouts", "listeners").map { "$RELEASE_ARTIFACT-$it" } +
         listOf("controlsfx", "jfoenix").flatMap {
             listOf(
                 "$RELEASE_ARTIFACT-features/$it-commons",

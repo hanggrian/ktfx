@@ -4,7 +4,6 @@ include("ktfx-core")
 include("ktfx-coroutines")
 include("ktfx-layouts")
 include("ktfx-listeners")
-include("ktfx-test")
 includeDir("ktfx-features")
 
 include("website")
@@ -13,9 +12,7 @@ include("demo")
 includeDir("ruleset")
 includeDir("testing")
 
-fun includeDir(dir: String) = file(dir).walkEach { include("$dir:${it.name}") }
-
-fun File.walkEach(
-    filter: (File) -> Boolean = { it.isDirectory },
-    forEach: (File) -> Unit
-) = listFiles()?.filter(filter)?.forEach(forEach)
+fun includeDir(dir: String) = file(dir)
+    .listFiles()
+    ?.filter { it.isDirectory }
+    ?.forEach { include("$dir:${it.name}") }

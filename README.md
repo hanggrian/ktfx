@@ -13,43 +13,29 @@ Consists of several parts:
  * *ktfx-listeners*: write common JavaFX listeners with Kotlin DSL.
  * *ktfx-coroutines*: utilities based on the [kotlinx.coroutines] library.
 
-Download
---------
-All artifacts are hosted on [jcenter].
-To download all of the main features (Commons, Layouts, Listeners and Coroutines), use:
+[Download](../wiki/Download)
+----------
+All artifacts are linked to [JCenter].
 
 ```gradle
-dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx:$version'
+repositories {
+    jcenter()
 }
-```
 
-Or download separate libraries if only specific features are desired:
-
-```gradle
 dependencies {
+    // all the main features combined
+    compile 'com.hendraanggrian.ktfx:ktfx:$version'
+
+    // or download separately
     compile 'com.hendraanggrian.ktfx:ktfx-commons:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-layouts:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-listeners:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-coroutines:$version'
-}
-```
+    compile 'com.hendraanggrian.ktfx:ktfx-test:$version'
 
-There are also a number of third-party extensions, using the same format as the main artifacts:
-
-```gradle
-dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version' // all features
-    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx-commons:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx-layouts:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx-listeners:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx-coroutines:$version'
-
-    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix:$version' // all features
-    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix-commons:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix-layouts:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix-listeners:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix-coroutines:$version'
+    // features
+    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix:$version'
 }
 ```
 
@@ -228,5 +214,6 @@ License
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
 [releases]: https://github.com/hendraanggrian/ktfx/releases
-[jcenter]: https://bintray.com/hendraanggrian/ktfx
+[TestFX]: https://github.com/TestFX/TestFX
+[JCenter]: https://bintray.com/bintray/jcenter
 [demo_layouts]: /art/demo_layouts.png

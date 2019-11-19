@@ -89,31 +89,6 @@ class NotificationsBuilder internal constructor() {
     fun threshold(threshold: Int, thresholdNotificationsBuilder: NotificationsBuilder.() -> Unit) {
         nativeNotifications.threshold(threshold, buildNotifications(thresholdNotificationsBuilder))
     }
-
-    /** Instructs the notification to be shown, and that it should use the built-in 'warning' graphic. */
-    fun showWarning() {
-        nativeNotifications.showWarning()
-    }
-
-    /** Instructs the notification to be shown, and that it should use the built-in 'information' graphic. */
-    fun showInformation() {
-        nativeNotifications.showInformation()
-    }
-
-    /** Instructs the notification to be shown, and that it should use the built-in 'error' graphic. */
-    fun showError() {
-        nativeNotifications.showError()
-    }
-
-    /** Instructs the notification to be shown, and that it should use the built-in 'confirm' graphic. */
-    fun showConfirm() {
-        nativeNotifications.showConfirm()
-    }
-
-    /** Instructs the notification to be shown. */
-    fun show() {
-        nativeNotifications.show()
-    }
 }
 
 /** Build notifications with Kotlin DSL. */

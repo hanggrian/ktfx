@@ -21,7 +21,3 @@ fun isFxThread(): Boolean =
  */
 fun ConditionalFeature.isSupported(): Boolean =
     Platform.isSupported(this)
-
-/** Queries whether all [features] are supported by the platform. */
-fun isSupported(vararg features: ConditionalFeature): Boolean =
-    features.all { it.isSupported() }

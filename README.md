@@ -3,7 +3,7 @@
 [![build](https://travis-ci.com/hendraanggrian/ktfx.svg)](https://travis-ci.com/hendraanggrian/ktfx)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 
-ktfx
+Ktfx
 ====
 [Kotlin] extensions for JavaFX app development. Written in spirit of [android-ktx] and [anko].
 
@@ -13,7 +13,7 @@ Consists of several parts:
  * *ktfx-listeners*: write common JavaFX listeners with Kotlin DSL.
  * *ktfx-coroutines*: utilities based on the [kotlinx.coroutines] library.
 
-[Download](../wiki/Download)
+[Download](https://github.com/hendraanggrian/ktfx/wiki/Download)
 ----------
 All artifacts are linked to [JCenter].
 
@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    // all the main features combined
+    // all the main artifacts combined
     compile 'com.hendraanggrian.ktfx:ktfx:$version'
 
     // or download separately
@@ -39,8 +39,8 @@ dependencies {
 }
 ```
 
-Ktfx Commons
-------------
+[Ktfx Commons](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Commons)
+--------------
 Full of extensions for JavaFX, packaged accordingly. The main goal of core library is not to add any new feature to the existing JavaFX APIs. Below are preview of some of the packages.
 
 #### Collections
@@ -112,8 +112,8 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-Ktfx Layouts
-------------
+[Ktfx Layouts](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Layouts)
+--------------
 Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a direct replacement of FXML files.
 
 ```kotlin
@@ -143,8 +143,8 @@ gridPane {
 
 ![Layouts demo][demo_layouts]
 
-Ktfx Listeners
---------------
+[Ktfx Listeners](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Listeners)
+----------------
 Trade common JavaFX listener with Kotlin DSL. Currently includes string converters and table cells.
 
 ```kotlin
@@ -171,8 +171,8 @@ personList.cellFactory {
 }
 ```
 
-Ktfx Coroutines
----------------
+[Ktfx Coroutines](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Coroutines)
+-----------------
 Based on the [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
 ```kotlin
@@ -191,7 +191,7 @@ button.onAction(CommonPool) {
 
 Third-party
 -----------
-At the moment, ControlsFX and Jfoenix are supported.
+At the moment, ControlsFX and JFoenix are supported.
 
 License
 -------

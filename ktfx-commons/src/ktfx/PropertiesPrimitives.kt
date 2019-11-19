@@ -10,22 +10,22 @@ import javafx.beans.property.IntegerProperty
 import javafx.beans.property.LongProperty
 import javafx.beans.property.Property
 
-/** Returns [BooleanProperty] that wraps a [Property]. */
-fun Property<Boolean>.unbox(): BooleanProperty =
+/** Revert the effect of [BooleanProperty.asObject]. */
+fun Property<Boolean>.asPrimitive(): BooleanProperty =
     BooleanProperty.booleanProperty(this)
 
-/** Returns [DoubleProperty] that wraps a [Property]. */
-fun Property<Double>.unbox(): DoubleProperty =
+/** Revert the effect of [DoubleProperty.asObject]. */
+fun Property<Double>.asPrimitive(): DoubleProperty =
     DoubleProperty.doubleProperty(this)
 
-/** Returns [FloatProperty] that wraps a [Property]. */
-fun Property<Float>.unbox(): FloatProperty =
+/** Revert the effect of [FloatProperty.asObject]. */
+fun Property<Float>.asPrimitive(): FloatProperty =
     FloatProperty.floatProperty(this)
 
-/** Returns [IntegerProperty] that wraps a [Property]. */
-fun Property<Int>.unbox(): IntegerProperty =
+/** Revert the effect of [IntegerProperty.asObject]. */
+fun Property<Int>.asPrimitive(): IntegerProperty =
     IntegerProperty.integerProperty(this)
 
-/** Returns [LongProperty] that wraps a [Property]. */
-fun Property<Long>.unbox(): LongProperty =
+/** Revert the effect of [LongProperty.asObject]. */
+fun Property<Long>.asPrimitive(): LongProperty =
     LongProperty.longProperty(this)

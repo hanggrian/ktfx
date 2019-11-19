@@ -16,13 +16,13 @@ import ktfx.layouts.scene
 import ktfx.layouts.updatePadding
 import ktfx.layouts.vbox
 
-class DemoApplication : Application() {
+class CalculatorApp : Application() {
 
     companion object {
         private val OPERATORS = arrayOf("+", "-", "/", "*")
 
         @JvmStatic
-        fun main(vararg args: String) = ktfx.launch<DemoApplication>(*args)
+        fun main(vararg args: String) = ktfx.launch<CalculatorApp>(*args)
     }
 
     private lateinit var calculationLabel: Label
@@ -210,7 +210,7 @@ class DemoApplication : Application() {
     }
 
     private fun appendText(text: String) {
-        if (OPERATORS.contains(text) && endsWithOperator) {
+        if (text in OPERATORS && endsWithOperator) {
             calculationLabel.text = calculationLabel.text.substring(0, calculationLabel.text.length - 1)
         }
         calculationLabel.text += text

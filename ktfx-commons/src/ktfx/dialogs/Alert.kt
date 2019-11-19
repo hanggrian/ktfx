@@ -25,7 +25,10 @@ fun alert(
     vararg buttonTypes: ButtonType
 ): Optional<ButtonType> = Alert(AlertType.NONE, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    when {
+        graphic is ImageView -> dialog.graphicIcon = graphic
+        graphic != null -> dialog.graphic = graphic
+    }
 }.showAndWait()
 
 /**
@@ -56,7 +59,10 @@ fun infoAlert(
     vararg buttonTypes: ButtonType
 ): Optional<ButtonType> = Alert(AlertType.INFORMATION, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    when {
+        graphic is ImageView -> dialog.graphicIcon = graphic
+        graphic != null -> dialog.graphic = graphic
+    }
 }.showAndWait()
 
 /**
@@ -87,7 +93,10 @@ fun warningAlert(
     vararg buttonTypes: ButtonType
 ): Optional<ButtonType> = Alert(AlertType.WARNING, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    when {
+        graphic is ImageView -> dialog.graphicIcon = graphic
+        graphic != null -> dialog.graphic = graphic
+    }
 }.showAndWait()
 
 /**
@@ -118,7 +127,10 @@ fun confirmAlert(
     vararg buttonTypes: ButtonType
 ): Optional<ButtonType> = Alert(AlertType.CONFIRMATION, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    when {
+        graphic is ImageView -> dialog.graphicIcon = graphic
+        graphic != null -> dialog.graphic = graphic
+    }
 }.showAndWait()
 
 /**
@@ -149,7 +161,10 @@ fun errorAlert(
     vararg buttonTypes: ButtonType
 ): Optional<ButtonType> = Alert(AlertType.ERROR, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    when {
+        graphic is ImageView -> dialog.graphicIcon = graphic
+        graphic != null -> dialog.graphic = graphic
+    }
 }.showAndWait()
 
 /**

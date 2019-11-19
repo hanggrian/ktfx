@@ -23,7 +23,10 @@ fun progressDialog(
     worker: Worker<*>?
 ): Optional<Void> = ProgressDialog(worker).also { dialog ->
     if (title != null) dialog.headerTitle = title
-    if (graphic != null) (graphic as? ImageView)?.let { dialog.graphicIcon = it } ?: dialog.setGraphic(graphic)
+    when {
+        graphic is ImageView -> dialog.graphicIcon = graphic
+        graphic != null -> dialog.graphic = graphic
+    }
 }.showAndWait()
 
 /**

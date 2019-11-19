@@ -39,14 +39,17 @@ inline fun Array<Int>.toObservableArray(): ObservableIntegerArray =
 fun ObservableIntegerArray.toObservableArray(): ObservableIntegerArray =
     FXCollections.observableIntegerArray(this)
 
+/** Creates a new [IntegerBinding] that contains the element of an [ObservableIntegerArray] at the specified position. */
 fun ObservableIntegerArray.getBinding(index: Int): IntegerBinding =
     Bindings.integerValueAt(this, index)
 
-fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
-    Bindings.integerValueAt(this, index)
-
+/** Creates a new [IntegerBinding] that contains the element of an [ObservableIntegerArray] at the specified position. */
 fun ObservableIntegerArray.getBinding(index: ObservableNumberValue): IntegerBinding =
     Bindings.integerValueAt(this, index)
+
+/** Creates a new [IntegerBinding] that contains the element of an [ObservableIntegerArray] at the specified position. */
+inline fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
+    getBinding(index as ObservableNumberValue)
 
 operator fun ObservableIntegerArray.contains(value: Int): Boolean =
     (0 until size).any { get(it) == value }

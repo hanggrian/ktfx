@@ -5,7 +5,6 @@
 
 ktfx
 ====
-
 [Kotlin] extensions for JavaFX app development. Written in spirit of [android-ktx] and [anko].
 
 Consists of several parts:
@@ -16,7 +15,8 @@ Consists of several parts:
 
 Download
 --------
-All artifacts are hosted on [jcenter]. To download all of the main features, use:
+All artifacts are hosted on [jcenter].
+To download all of the main features (Commons, Layouts, Listeners and Coroutines), use:
 
 ```gradle
 dependencies {
@@ -35,8 +35,26 @@ dependencies {
 }
 ```
 
-Commons extensions
-------------------
+There are also a number of third-party extensions, using the same format as the main artifacts:
+
+```gradle
+dependencies {
+    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version' // all features
+    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx-commons:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx-layouts:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx-listeners:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx-coroutines:$version'
+
+    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix:$version' // all features
+    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix-commons:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix-layouts:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix-listeners:$version'
+    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix-coroutines:$version'
+}
+```
+
+Ktfx Commons
+------------
 Full of extensions for JavaFX, packaged accordingly. The main goal of core library is not to add any new feature to the existing JavaFX APIs. Below are preview of some of the packages.
 
 #### Collections
@@ -108,8 +126,8 @@ dialog<String>("Who's a little piggy?") {
 }.showAndWait()
 ```
 
-Layouts extensions
-------------------
+Ktfx Layouts
+------------
 Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a direct replacement of FXML files.
 
 ```kotlin
@@ -139,8 +157,8 @@ gridPane {
 
 ![Layouts demo][demo_layouts]
 
-Listeners extensions
---------------------
+Ktfx Listeners
+--------------
 Trade common JavaFX listener with Kotlin DSL. Currently includes string converters and table cells.
 
 ```kotlin
@@ -167,8 +185,8 @@ personList.cellFactory {
 }
 ```
 
-Coroutines extensions
----------------------
+Ktfx Coroutines
+---------------
 Based on the [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
 ```kotlin
@@ -185,17 +203,9 @@ button.onAction(CommonPool) {
 }
 ```
 
-Third-party extensions
-----------------------
-Some popular libraries are also supported. Though currently is limited.
-
-```gradle
-dependencies {
-    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-testfx:$version'
-}
-```
+Third-party
+-----------
+At the moment, ControlsFX and Jfoenix are supported.
 
 License
 -------

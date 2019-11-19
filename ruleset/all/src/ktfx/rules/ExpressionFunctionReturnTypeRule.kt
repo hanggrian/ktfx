@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.com.intellij.lang.ASTNode
 import org.jetbrains.kotlin.lexer.KtTokens
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
+/** Expression function must have return type. */
 class ExpressionFunctionReturnTypeRule : Rule("expression-function-return-type") {
     override fun visit(
         node: ASTNode,

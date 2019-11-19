@@ -5,6 +5,10 @@ import org.jetbrains.kotlin.com.intellij.lang.ASTNode
 import org.jetbrains.kotlin.com.intellij.psi.impl.source.tree.LeafPsiElement
 import org.jetbrains.kotlin.lexer.KtSingleValueToken
 
+/**
+ * Cannot use Kotlin non-null operator `!!`,
+ * use `checkNotNull` with appropriate message instead.
+ */
 class NoNullAssertionOperatorRule : Rule("no-null-assertion-operator") {
     override fun visit(
         node: ASTNode,

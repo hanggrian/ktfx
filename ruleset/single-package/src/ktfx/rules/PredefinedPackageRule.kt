@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.com.intellij.lang.ASTNode
 import org.jetbrains.kotlin.psi.KtPackageDirective
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
+/** Classes and extension functions may only be deployed to single pre-defined package. */
 class PredefinedPackageRule : Rule("predefined-package") {
     private val predefinedPackageSet = setOf(
         "ktfx.coroutines",

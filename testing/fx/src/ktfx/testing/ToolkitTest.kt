@@ -3,7 +3,7 @@ package ktfx.testing
 import com.sun.javafx.application.PlatformImpl
 import kotlin.test.BeforeTest
 
-/** General test that requires JavaFX toolkit. */
+/** Some tests requires JavaFX toolkit, this test will initialize it upon running. */
 interface ToolkitTest {
 
     @BeforeTest fun initToolkit() = PlatformImpl.startup { }

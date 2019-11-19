@@ -7,6 +7,11 @@ import org.jetbrains.kotlin.psi.KtClass
 import org.jetbrains.kotlin.psi.KtDeclarationModifierList
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
+/**
+ * Public classes must remain `open`, unless its name contains `Builder`
+ * (usually Kotlin DSL support class) or `Constraints`
+ * (only relevant in `ktfx-layouts`).
+ */
 class OpenClassRule : Rule("open-class") {
     override fun visit(
         node: ASTNode,

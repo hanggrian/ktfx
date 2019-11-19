@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.com.intellij.lang.ASTNode
 import org.jetbrains.kotlin.psi.KtImportDirective
 import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
+/** Cannot import internal static field/function. */
 class NoInternalClassMemberImportRule : Rule("no-internal-class-member-import") {
     override fun visit(
         node: ASTNode,

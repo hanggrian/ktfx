@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:Suppress("NOTHING_TO_INLINE")
 @file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -16,16 +17,18 @@ import ktfx.internal.KtfxInternals
  * [AnchorPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraintable {
+open class KtfxAnchorPane : AnchorPane(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Constraints.clear(): Unit =
-        clearConstraints(node)
+    /** Clear children constraints. */
+    @JvmName("clearConstraints2")
+    inline fun Node.clearConstraints(): Unit =
+        clearConstraints(this)
 
-    /** Children all sides anchor in this layout. */
-    var Constraints.anchorAll: Double?
+    /** Children all anchor in this layout. */
+    inline var Node.anchorAll: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
         set(value) {
             anchorTop = value
@@ -35,49 +38,49 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager, Constraintable {
         }
 
     /** Children left anchor in this layout. */
-    var Constraints.anchorLeft: Double?
-        get() = getLeftAnchor(node)
-        set(value) = setLeftAnchor(node, value)
+    inline var Node.anchorLeft: Double?
+        get() = getLeftAnchor(this)
+        set(value) = setLeftAnchor(this, value)
 
     /** Children top anchor in this layout. */
-    var Constraints.anchorTop: Double?
-        get() = getTopAnchor(node)
-        set(value) = setTopAnchor(node, value)
+    inline var Node.anchorTop: Double?
+        get() = getTopAnchor(this)
+        set(value) = setTopAnchor(this, value)
 
     /** Children bottom anchor in this layout. */
-    var Constraints.anchorBottom: Double?
-        get() = getBottomAnchor(node)
-        set(value) = setBottomAnchor(node, value)
+    inline var Node.anchorBottom: Double?
+        get() = getBottomAnchor(this)
+        set(value) = setBottomAnchor(this, value)
 
     /** Children right anchor in this layout. */
-    var Constraints.anchorRight: Double?
-        get() = getRightAnchor(node)
-        set(value) = setRightAnchor(node, value)
+    inline var Node.anchorRight: Double?
+        get() = getRightAnchor(this)
+        set(value) = setRightAnchor(this, value)
 
-    /** Configure all sides anchor fluidly using infix operator. */
-    infix fun Constraints.anchorAll(anchor: Double): Constraints =
+    /** Configure all anchor fluidly using infix operator. */
+    inline infix fun <T : Node> T.anchorAll(anchor: Double): T =
         apply { anchorAll = anchor }
 
     /** Configure top anchor fluidly using infix operator. */
-    infix fun Constraints.anchorTop(anchor: Double): Constraints =
+    inline infix fun <T : Node> T.anchorTop(anchor: Double): T =
         apply { anchorTop = anchor }
 
     /** Configure left anchor fluidly using infix operator. */
-    infix fun Constraints.anchorLeft(anchor: Double): Constraints =
+    inline infix fun <T : Node> T.anchorLeft(anchor: Double): T =
         apply { anchorLeft = anchor }
 
     /** Configure bottom anchor fluidly using infix operator. */
-    infix fun Constraints.anchorBottom(anchor: Double): Constraints =
+    inline infix fun <T : Node> T.anchorBottom(anchor: Double): T =
         apply { anchorBottom = anchor }
 
     /** Configure right anchor fluidly using infix operator. */
-    infix fun Constraints.anchorRight(anchor: Double): Constraints =
+    inline infix fun <T : Node> T.anchorRight(anchor: Double): T =
         apply { anchorRight = anchor }
 }
 
 /** Create an [AnchorPane] with initialization block. */
 inline fun anchorPane(
-    init: KtfxAnchorPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxAnchorPane().apply(init)
@@ -89,7 +92,7 @@ fun NodeManager.anchorPane(): AnchorPane =
 
 /** Add an [AnchorPane] with initialization block to this manager. */
 inline fun NodeManager.anchorPane(
-    init: KtfxAnchorPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxAnchorPane(), init)

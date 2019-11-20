@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXDefaultChip
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -16,7 +17,7 @@ import ktfx.layouts.addNode
 inline fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
-    init: JFXDefaultChip<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDefaultChip(view, item).apply(init)
@@ -32,7 +33,7 @@ fun <T> NodeManager.jfxDefaultChip(
 inline fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
-    init: JFXDefaultChip<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXDefaultChip(view, item), init)

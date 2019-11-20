@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
+@file:Suppress("NOTHING_TO_INLINE")
 @file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -14,29 +15,71 @@ import kotlin.contracts.contract
 
 /**
  * [BorderPane] with dynamic-layout dsl support.
- * Invoking dsl will only set its content. There is currently no way to configure other areas (top, left, right, bottom) with dsl.
+ * Invoking dsl will only set its center. There is currently no way to configure other areas (top, left, right, bottom) with dsl.
  * Instead, create an instance and set it manually (e.g: `left = ktfx.layouts.label()`).
  */
-open class KtfxBorderPane : BorderPane(), AlignmentConstraintable, MarginConstraintable, NodeManager {
+open class KtfxBorderPane : BorderPane(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { center = it }
 
-    final override fun Constraints.clear(): Unit =
-        clearConstraints(node)
+    /** Clear children constraints. */
+    @JvmName("clearConstraints2")
+    inline fun Node.clearConstraints(): Unit =
+        clearConstraints(this)
 
-    final override var Constraints.alignment: Pos?
-        get() = getAlignment(node)
-        set(value) = setAlignment(node, value)
+    /** Children alignment in this layout. */
+    inline var Node.alignment: Pos?
+        @JvmName("getAlignment2") get() = getAlignment(this)
+        @JvmName("setAlignment2") set(value) = setAlignment(this, value)
 
-    final override var Constraints.margin: Insets?
-        get() = getMargin(node)
-        set(value) = setMargin(node, value)
+    /** Configure alignment fluidly using infix operator. */
+    inline infix fun <T : Node> T.align(pos: Pos): T =
+        apply { alignment = pos }
+
+    /** Children margin in this layout. */
+    inline var Node.margin: Insets?
+        @JvmName("getMargin2") get() = getMargin(this)
+        @JvmName("setMargin2") set(value) = setMargin(this, value)
+
+    /** Configure children margin, taking account of current margin. */
+    inline fun Node.updateMargin(
+        top: Double? = margin?.top,
+        right: Double? = margin?.right,
+        bottom: Double? = margin?.bottom,
+        left: Double? = margin?.left
+    ) {
+        margin = Insets(top ?: 0.0, right ?: 0.0, bottom ?: 0.0, left ?: 0.0)
+    }
+
+    /** Configure margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.margin(margin: Insets): T =
+        apply { this.margin = margin }
+
+    /** Configure all sides margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginAll(margin: Double): T =
+        apply { this.margin = Insets(margin) }
+
+    /** Configure top margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginTop(margin: Double): T =
+        apply { updateMargin(top = margin) }
+
+    /** Configure right margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginRight(margin: Double): T =
+        apply { updateMargin(right = margin) }
+
+    /** Configure bottom margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginBottom(margin: Double): T =
+        apply { updateMargin(bottom = margin) }
+
+    /** Configure left margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginLeft(margin: Double): T =
+        apply { updateMargin(left = margin) }
 }
 
 /** Create a [BorderPane] with initialization block. */
 inline fun borderPane(
-    init: KtfxBorderPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxBorderPane().apply(init)
@@ -48,7 +91,7 @@ fun NodeManager.borderPane(): BorderPane =
 
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
-    init: KtfxBorderPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxBorderPane(), init)

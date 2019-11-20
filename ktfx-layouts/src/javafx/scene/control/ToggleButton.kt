@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 inline fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    init: ToggleButton.() -> Unit
+    init: (@KtfxLayoutsDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ToggleButton(text, graphic).apply(init)
@@ -30,7 +30,7 @@ fun NodeManager.toggleButton(
 inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    init: ToggleButton.() -> Unit
+    init: (@KtfxLayoutsDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ToggleButton(text, graphic), init)
@@ -46,7 +46,7 @@ fun ToggleButtonManager.toggleButton(
 inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    init: ToggleButton.() -> Unit
+    init: (@KtfxLayoutsDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addButton(ToggleButton(text, graphic), init)

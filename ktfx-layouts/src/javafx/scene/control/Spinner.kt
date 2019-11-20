@@ -11,7 +11,7 @@ import kotlin.contracts.contract
 
 /** Create a [Spinner] with initialization block. */
 inline fun <T> spinner(
-    init: Spinner<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Spinner<T>().apply(init)
@@ -23,7 +23,7 @@ fun <T> NodeManager.spinner(): Spinner<T> =
 
 /** Add a [Spinner] with initialization block to this manager. */
 inline fun <T> NodeManager.spinner(
-    init: Spinner<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Spinner(), init)

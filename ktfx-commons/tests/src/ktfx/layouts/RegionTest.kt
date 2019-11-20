@@ -32,16 +32,14 @@ class RegionTest : ToolkitTest {
         assertEquals(30.0, region.paddingBottom)
     }
 
-    @Test
-    fun background() {
+    @Test fun background() {
         val region = Region()
         assertNull(region.background)
         region.backgroundFill(Color.RED)
         assertEquals(Color.RED, region.background.fills.first().fill)
     }
 
-    @Test
-    fun border() {
+    @Test fun border() {
         val region = Region()
         assertNull(region.border)
         region.borderStroke(Color.RED)

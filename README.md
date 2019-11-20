@@ -119,25 +119,15 @@ Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a di
 ```kotlin
 gridPane {
     gaps = 8
-    label("First name") {
-        constraints row 0 col 0
-    }
-    val firstName = textField() {
-        constraints row 0 col 1
-    }
-    label("Last name") {
-        constraints row 1 col 0
-    }
-    val lastName = textField() {
-        constraints row 1 col 1   
-    }
+    label("First name") row 0 col 0
+    val firstName = textField() row 0 col 1
+    label("Last name") row 1 col 0
+    val lastName = textField() row 1 col 1
     button("Say hello") {
-        constraints row 2 col 1 hpos HPos.RIGHT
-        setOnAction {
+        onAction {
             infoAlert("Hello, ${firstName.text} ${lastName.text}!")
-                .show()
         }
-    }
+    } row 2 col 1 hpos HPos.RIGHT
 }
 ```
 

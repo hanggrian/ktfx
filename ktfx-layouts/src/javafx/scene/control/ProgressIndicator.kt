@@ -13,7 +13,7 @@ import kotlin.contracts.contract
 /** Create a [ProgressIndicator] with initialization block. */
 inline fun progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
-    init: ProgressIndicator.() -> Unit
+    init: (@KtfxLayoutsDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ProgressIndicator(progress).apply(init)
@@ -27,7 +27,7 @@ fun NodeManager.progressIndicator(
 /** Add a [ProgressIndicator] with initialization block to this manager. */
 inline fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
-    init: ProgressIndicator.() -> Unit
+    init: (@KtfxLayoutsDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ProgressIndicator(progress), init)

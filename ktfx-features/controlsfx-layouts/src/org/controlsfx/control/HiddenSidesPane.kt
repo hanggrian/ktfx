@@ -8,6 +8,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.HiddenSidesPane
@@ -24,7 +25,7 @@ open class KtfxHiddenSidesPane : HiddenSidesPane(), NodeManager {
 
 /** Create a [HiddenSidesPane] with initialization block. */
 inline fun hiddenSidesPane(
-    init: KtfxHiddenSidesPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxHiddenSidesPane().apply(init)
@@ -36,7 +37,7 @@ fun NodeManager.hiddenSidesPane(): HiddenSidesPane =
 
 /** Add a [HiddenSidesPane] with initialization block to this manager. */
 inline fun NodeManager.hiddenSidesPane(
-    init: KtfxHiddenSidesPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxHiddenSidesPane(), init)

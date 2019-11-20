@@ -9,6 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -21,23 +22,23 @@ open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
     final override fun <T : Node> addNode(node: T): T =
         node.also { content = it }
 
-    fun topBar(init: NodeManager.() -> Unit) {
+    fun topBar(init: (@KtfxLayoutsDslMarker NodeManager).() -> Unit) {
         topBar.children.addAll(NodeManagerImpl().apply(init))
     }
 
-    fun midBar(init: NodeManager.() -> Unit) {
+    fun midBar(init: (@KtfxLayoutsDslMarker NodeManager).() -> Unit) {
         midBar.children.addAll(NodeManagerImpl().apply(init))
     }
 
-    fun bottomBar(init: NodeManager.() -> Unit) {
+    fun bottomBar(init: (@KtfxLayoutsDslMarker NodeManager).() -> Unit) {
         bottomBar.children.addAll(NodeManagerImpl().apply(init))
     }
 
-    fun mainHeader(init: NodeManager.() -> Unit) {
+    fun mainHeader(init: (@KtfxLayoutsDslMarker NodeManager).() -> Unit) {
         mainHeader.children.addAll(NodeManagerImpl().apply(init))
     }
 
-    fun condensedHeader(init: NodeManager.() -> Unit) {
+    fun condensedHeader(init: (@KtfxLayoutsDslMarker NodeManager).() -> Unit) {
         condensedHeader.children.addAll(NodeManagerImpl().apply(init))
     }
 
@@ -48,7 +49,7 @@ open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 
 /** Create a [JFXScrollPane] with initialization block. */
 inline fun jfxScrollPane(
-    init: KtfxJFXScrollPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXScrollPane().apply(init)
@@ -60,7 +61,7 @@ fun NodeManager.jfxScrollPane(): JFXScrollPane =
 
 /** Add a [JFXScrollPane] with initialization block to this manager. */
 inline fun NodeManager.jfxScrollPane(
-    init: KtfxJFXScrollPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXScrollPane(), init)

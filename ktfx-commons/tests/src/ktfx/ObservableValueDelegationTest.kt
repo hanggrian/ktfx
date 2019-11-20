@@ -29,29 +29,25 @@ class ObservableValueDelegationTest {
 
     private val emptyString = SimpleStringProperty()
 
-    @Test
-    fun any() {
+    @Test fun any() {
         assertEquals(personValue, person1)
         personValue = person2
         assertEquals(person.value, person2)
     }
 
-    @Test
-    fun boolean() {
+    @Test fun boolean() {
         assertFalse(booleanValue)
         booleanValue = true
         assertTrue(boolean.value)
     }
 
-    @Test
-    fun integer() {
+    @Test fun integer() {
         assertEquals(integerValue, 1)
         integerValue = 2
         assertEquals(integer.value, 2)
     }
 
-    @Test
-    fun string() {
+    @Test fun string() {
         assertEquals(stringValue, "Hello")
         stringValue = "World"
         assertEquals(string.value, "World")

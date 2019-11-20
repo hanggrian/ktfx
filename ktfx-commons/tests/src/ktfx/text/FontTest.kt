@@ -13,16 +13,16 @@ class FontTest {
     }
 
     @Test fun fontOf() {
-        val font = fontOf("Arial", FontWeight.BOLD, 18.0)
+        val font = fontOf("Arial", FontWeight.BOLD, 18)
         assertEquals("Arial Bold", font.name)
         assertEquals("Bold", font.style)
         assertEquals(18.0, font.size)
     }
 
     @Test fun italicFontOf() {
-        val font = italicFontOf("Arial", FontWeight.BOLD, 18.0)
+        val font = italicFontOf("Arial", FontWeight.BOLD, 16)
         assertEquals("Arial Bold Italic", font.name)
         assertEquals("Bold Italic", font.style)
-        assertEquals(18.0, font.size)
+        assertEquals(16.0, font.size)
     }
 }

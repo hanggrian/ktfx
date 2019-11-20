@@ -7,13 +7,14 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.PrefixSelectionComboBox
 
 /** Create a [PrefixSelectionComboBox] with initialization block. */
 inline fun <T> prefixSelectionComboBox(
-    init: PrefixSelectionComboBox<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker PrefixSelectionComboBox<T>).() -> Unit
 ): PrefixSelectionComboBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PrefixSelectionComboBox<T>().apply(init)
@@ -25,7 +26,7 @@ fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
 
 /** Add a [PrefixSelectionComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.prefixSelectionComboBox(
-    init: PrefixSelectionComboBox<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker PrefixSelectionComboBox<T>).() -> Unit
 ): PrefixSelectionComboBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PrefixSelectionComboBox(), init)

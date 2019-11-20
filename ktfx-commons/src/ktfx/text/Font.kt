@@ -8,48 +8,38 @@ import javafx.scene.text.Font
 import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 
-/** Returns default font with specified size. */
+/** Returns default font with double size. */
 val Double.pt: Font
     get() = Font.font(this)
 
-/** Returns default font with specified size. */
-inline val Int.pt: Font
+/** Returns default font with any number size. */
+inline val Number.pt: Font
     get() = toDouble().pt
 
-/** Returns font with specified [family], [weight] and [size]. */
+/** Returns font with specified [family], [weight] and double [size]. */
 fun fontOf(
     family: String? = null,
     weight: FontWeight? = null,
     size: Double = -1.0
 ): Font = Font.font(family, weight, size)
 
-/** Returns font with specified [family] and [size]. */
-inline fun fontOf(
-    family: String? = null,
-    size: Double = -1.0
-): Font = fontOf(family, null, size)
-
-/** Returns font with specified [weight] and [size]. */
-inline fun fontOf(
-    weight: FontWeight? = null,
-    size: Double = -1.0
-): Font = fontOf(null, weight, size)
-
-/** Returns italic font with specified [family], [weight] and [size]. */
+/** Returns italic font with specified [family], [weight] and double [size]. */
 fun italicFontOf(
     family: String? = null,
     weight: FontWeight? = null,
     size: Double = -1.0
 ): Font = Font.font(family, weight, FontPosture.ITALIC, size)
 
-/** Returns italic font with specified [family] and [size]. */
-inline fun italicFontOf(
+/** Returns font with specified [family], [weight] and any number [size]. */
+fun fontOf(
     family: String? = null,
-    size: Double = -1.0
-): Font = italicFontOf(family, null, size)
-
-/** Returns italic font with specified [weight] and [size]. */
-inline fun italicFontOf(
     weight: FontWeight? = null,
-    size: Double = -1.0
-): Font = italicFontOf(null, weight, size)
+    size: Number
+): Font = fontOf(family, weight, size.toDouble())
+
+/** Returns italic font with specified [family], [weight] and any number [size]. */
+fun italicFontOf(
+    family: String? = null,
+    weight: FontWeight? = null,
+    size: Number
+): Font = italicFontOf(family, weight, size.toDouble())

@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 inline fun hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    init: Hyperlink.() -> Unit
+    init: (@KtfxLayoutsDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Hyperlink(text, graphic).apply(init)
@@ -30,7 +30,7 @@ fun NodeManager.hyperlink(
 inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    init: Hyperlink.() -> Unit
+    init: (@KtfxLayoutsDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Hyperlink(text, graphic), init)

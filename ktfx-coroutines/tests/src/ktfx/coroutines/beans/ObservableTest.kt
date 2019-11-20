@@ -9,11 +9,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class ObservableTest {
-
     private val observable: Observable = SimpleStringProperty()
 
-    @Test
-    fun listener() = observable.run {
+    @Test fun listener() = observable.run {
         val s = "Hello world"
         val listener = listener {
             assertTrue(it is StringProperty)

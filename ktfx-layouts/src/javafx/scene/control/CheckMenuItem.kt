@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 inline fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: CheckMenuItem.() -> Unit
+    init: (@KtfxLayoutsDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckMenuItem(text, graphic).apply(init)
@@ -30,7 +30,7 @@ fun MenuItemManager.checkMenuItem(
 inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: CheckMenuItem.() -> Unit
+    init: (@KtfxLayoutsDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addItem(CheckMenuItem(text, graphic), init)

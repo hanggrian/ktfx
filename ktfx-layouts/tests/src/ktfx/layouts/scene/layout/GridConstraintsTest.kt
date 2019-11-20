@@ -9,7 +9,7 @@ import ktfx.testing.LayoutToolkitTest
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class GridConstraintableTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
+class GridConstraintsTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         val gridPane = gridPane {

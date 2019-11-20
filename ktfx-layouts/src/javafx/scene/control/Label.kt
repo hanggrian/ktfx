@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 inline fun label(
     text: String? = null,
     graphic: Node? = null,
-    init: Label.() -> Unit
+    init: (@KtfxLayoutsDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Label(text, graphic).apply(init)
@@ -30,7 +30,7 @@ fun NodeManager.label(
 inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,
-    init: Label.() -> Unit
+    init: (@KtfxLayoutsDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Label(text, graphic), init)

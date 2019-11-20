@@ -23,7 +23,7 @@ open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuIte
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: MenuItem.() -> Unit
+        init: (@KtfxLayoutsDslMarker MenuItem).() -> Unit
     ): MenuItem = menuItem(this, graphic, init)
 }
 
@@ -31,7 +31,7 @@ open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuIte
 inline fun menu(
     text: String = "",
     graphic: Node? = null,
-    init: KtfxMenu.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMenu(text, graphic).apply(init)
@@ -47,7 +47,7 @@ fun MenuManager.menu(
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
-    init: KtfxMenu.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addMenu(KtfxMenu(text, graphic), init)
@@ -63,7 +63,7 @@ fun MenuItemManager.menu(
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
-    init: KtfxMenu.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addItem(KtfxMenu(text, graphic), init)

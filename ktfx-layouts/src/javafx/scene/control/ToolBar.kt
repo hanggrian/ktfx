@@ -22,7 +22,7 @@ open class KtfxToolBar : ToolBar(), NodeManager {
 
 /** Create a [ToolBar] with initialization block. */
 inline fun toolBar(
-    init: KtfxToolBar.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxToolBar().apply(init)
@@ -34,7 +34,7 @@ fun NodeManager.toolBar(): ToolBar =
 
 /** Add a [ToolBar] with initialization block to this manager. */
 inline fun NodeManager.toolBar(
-    init: KtfxToolBar.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxToolBar(), init)

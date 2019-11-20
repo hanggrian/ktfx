@@ -8,12 +8,13 @@ import com.jfoenix.controls.JFXHamburger
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXHamburger] with initialization block. */
 inline fun jfxHamburger(
-    init: JFXHamburger.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXHamburger().apply(init)
@@ -25,7 +26,7 @@ fun NodeManager.jfxHamburger(): JFXHamburger =
 
 /** Add a [JFXHamburger] with initialization block to this manager. */
 inline fun NodeManager.jfxHamburger(
-    init: JFXHamburger.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXHamburger(), init)

@@ -12,7 +12,7 @@ import kotlin.contracts.contract
 /** Create a [TextField] with initialization block. */
 inline fun textField(
     text: String = "",
-    init: TextField.() -> Unit
+    init: (@KtfxLayoutsDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TextField(text).apply(init)
@@ -26,7 +26,7 @@ fun NodeManager.textField(
 /** Add a [TextField] with initialization block to this manager. */
 inline fun NodeManager.textField(
     text: String = "",
-    init: TextField.() -> Unit
+    init: (@KtfxLayoutsDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(TextField(text), init)

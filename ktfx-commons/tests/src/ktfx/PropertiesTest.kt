@@ -11,8 +11,7 @@ class PropertiesTest {
     private val intProperty1 = intProperty(0)
     private val intProperty2 = intProperty(10)
 
-    @Test
-    fun bind() {
+    @Test fun bind() {
         textProperty.bind(intProperty1.asString())
         textProperty.bind(intProperty2.asString())
 

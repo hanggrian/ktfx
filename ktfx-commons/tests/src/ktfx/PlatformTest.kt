@@ -12,8 +12,7 @@ import kotlin.test.assertTrue
 
 class PlatformTest : ToolkitTest {
 
-    @Test
-    fun isFxThread() {
+    @Test fun isFxThread() {
         val check = { ktfx.isFxThread() }
         assertFalse(check())
         ktfx.runLater { assertTrue(check()) }
@@ -21,8 +20,7 @@ class PlatformTest : ToolkitTest {
         runBlocking(Dispatchers.IO) { assertFalse(check()) }
     }
 
-    @Test
-    fun runLater() {
+    @Test fun runLater() {
         // without receiver
         val list = mutableListOf<Int>()
         ktfx.runLater {
@@ -40,8 +38,7 @@ class PlatformTest : ToolkitTest {
         receiverList += 2
     }
 
-    @Test
-    fun withLater() {
+    @Test fun withLater() {
         val list = mutableListOf<Int>()
         withLater(list) {
             this += 1
@@ -50,24 +47,21 @@ class PlatformTest : ToolkitTest {
         list += 2
     }
 
-    @Test
-    fun applyLater() {
+    @Test fun applyLater() {
         mutableListOf<Int>().applyLater {
             this += 1
             assertContains(this, 2, 1).inOrder()
         } += 2
     }
 
-    @Test
-    fun alsoLater() {
+    @Test fun alsoLater() {
         mutableListOf<Int>().alsoLater {
             it += 1
             assertContains(it, 2, 1).inOrder()
         } += 2
     }
 
-    @Test
-    fun letLater() {
+    @Test fun letLater() {
         val list = mutableListOf<Int>()
         list.letLater {
             it += 1
@@ -76,9 +70,5 @@ class PlatformTest : ToolkitTest {
         list += 2
     }
 
-    @Test
-    fun isSupported() {
-        assertTrue(ConditionalFeature.CONTROLS.isSupported())
-        assertTrue(isSupported(ConditionalFeature.GRAPHICS, ConditionalFeature.CONTROLS))
-    }
+    @Test fun isSupported() = assertTrue(ConditionalFeature.CONTROLS.isSupported())
 }

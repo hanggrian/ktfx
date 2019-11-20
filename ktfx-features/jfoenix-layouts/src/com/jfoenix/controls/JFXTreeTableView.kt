@@ -10,13 +10,14 @@ import javafx.scene.control.TreeItem
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXTreeTableView] with initialization block. */
 inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
     root: TreeItem<S>? = null,
-    init: JFXTreeTableView<S>.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeTableView(root).apply(init)
@@ -30,7 +31,7 @@ fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
 /** Add a [JFXTreeTableView] with initialization block to this manager. */
 inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     root: TreeItem<S>? = null,
-    init: JFXTreeTableView<S>.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTreeTableView(root), init)

@@ -8,6 +8,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.NotificationPane
@@ -24,7 +25,7 @@ open class KtfxNotificationPane : NotificationPane(), NodeManager {
 
 /** Create a [NotificationPane] with initialization block. */
 inline fun notificationPane(
-    init: KtfxNotificationPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxNotificationPane().apply(init)
@@ -36,7 +37,7 @@ fun NodeManager.notificationPane(): NotificationPane =
 
 /** Add a [NotificationPane] with initialization block to this manager. */
 inline fun NodeManager.notificationPane(
-    init: KtfxNotificationPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxNotificationPane(), init)

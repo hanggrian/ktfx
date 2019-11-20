@@ -7,11 +7,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class ObservableMapTest {
-
     private val observable = mutableObservableMapOf<Int, String>()
 
-    @Test
-    fun listener() = observable.run {
+    @Test fun listener() = observable.run {
         val i = 1
         val s = "Hello"
         val listener = listener<Int, String> {

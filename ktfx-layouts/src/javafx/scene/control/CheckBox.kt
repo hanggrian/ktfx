@@ -12,7 +12,7 @@ import kotlin.contracts.contract
 /** Create a [CheckBox] with initialization block. */
 inline fun checkBox(
     text: String? = null,
-    init: CheckBox.() -> Unit
+    init: (@KtfxLayoutsDslMarker CheckBox).() -> Unit
 ): CheckBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckBox(text).apply(init)
@@ -26,7 +26,7 @@ fun NodeManager.checkBox(
 /** Add a [CheckBox] with initialization block to this manager. */
 inline fun NodeManager.checkBox(
     text: String? = null,
-    init: CheckBox.() -> Unit
+    init: (@KtfxLayoutsDslMarker CheckBox).() -> Unit
 ): CheckBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(CheckBox(text), init)

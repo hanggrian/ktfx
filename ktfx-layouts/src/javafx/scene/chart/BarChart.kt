@@ -19,7 +19,7 @@ inline fun <X, Y> barChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     gap: Double = 10.0,
-    init: BarChart<X, Y>.() -> Unit
+    init: (@KtfxLayoutsDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return BarChart(x, y, data, gap).apply(init)
@@ -39,7 +39,7 @@ inline fun <X, Y> NodeManager.barChart(
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     gap: Double = 10.0,
-    init: BarChart<X, Y>.() -> Unit
+    init: (@KtfxLayoutsDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(BarChart(x, y, data, gap), init)

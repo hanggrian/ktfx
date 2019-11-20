@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 /** Create a [ListView] with initialization block. */
 inline fun <T> listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: ListView<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ListView(items).apply(init)
@@ -28,7 +28,7 @@ fun <T> NodeManager.listView(
 /** Add a [ListView] with initialization block to this manager. */
 inline fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: ListView<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ListView(items), init)

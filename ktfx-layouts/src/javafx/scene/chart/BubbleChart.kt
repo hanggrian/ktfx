@@ -18,7 +18,7 @@ inline fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: BubbleChart<X, Y>.() -> Unit
+    init: (@KtfxLayoutsDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return BubbleChart(x, y, data).apply(init)
@@ -36,7 +36,7 @@ inline fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: BubbleChart<X, Y>.() -> Unit
+    init: (@KtfxLayoutsDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(BubbleChart(x, y, data), init)

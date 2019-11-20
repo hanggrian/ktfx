@@ -11,21 +11,21 @@ class FlowPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         flowPane {
-            val region1 = region { constraints marginAll 0.0 }
-            assertEquals(0.0, region1.constraints.marginTop)
-            assertEquals(0.0, region1.constraints.marginLeft)
-            assertEquals(0.0, region1.constraints.marginBottom)
-            assertEquals(0.0, region1.constraints.marginRight)
-            val region2 = region { constraints marginTop 10.0 marginLeft 20.0 marginBottom 30.0 marginRight 40.0 }
-            assertEquals(10.0, region2.constraints.marginTop)
-            assertEquals(20.0, region2.constraints.marginLeft)
-            assertEquals(30.0, region2.constraints.marginBottom)
-            assertEquals(40.0, region2.constraints.marginRight)
+            val region1 = region() marginAll 0.0
+            assertEquals(0.0, region1.margin?.top)
+            assertEquals(0.0, region1.margin?.left)
+            assertEquals(0.0, region1.margin?.bottom)
+            assertEquals(0.0, region1.margin?.right)
+            val region2 = region() marginTop 10.0 marginLeft 20.0 marginBottom 30.0 marginRight 40.0
+            assertEquals(10.0, region2.margin?.top)
+            assertEquals(20.0, region2.margin?.left)
+            assertEquals(30.0, region2.margin?.bottom)
+            assertEquals(40.0, region2.margin?.right)
 
-            region1.constraints.clear()
-            assertEquals(region1.constraints.margin, null)
-            region2.constraints.clear()
-            assertEquals(region2.constraints.margin, null)
+            region1.clearConstraints()
+            assertEquals(region1.margin, null)
+            region2.clearConstraints()
+            assertEquals(region2.margin, null)
 
             assertEquals(children.size, 2)
         }

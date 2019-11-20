@@ -7,11 +7,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class ObservableSetTest {
-
     private val observable = mutableObservableSetOf<String>()
 
-    @Test
-    fun listener() = observable.run {
+    @Test fun listener() = observable.run {
         val s = "Hello"
         val listener = listener<String> {
             assertTrue(it.wasAdded())

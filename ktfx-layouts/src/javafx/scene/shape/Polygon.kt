@@ -12,7 +12,7 @@ import kotlin.contracts.contract
 /** Create a [Polygon] with initialization block. */
 inline fun polygon(
     vararg points: Double,
-    init: Polygon.() -> Unit
+    init: (@KtfxLayoutsDslMarker Polygon).() -> Unit
 ): Polygon {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Polygon(*points).apply(init)
@@ -26,7 +26,7 @@ fun NodeManager.polygon(
 /** Add a [Polygon] with initialization block to this manager. */
 inline fun NodeManager.polygon(
     vararg points: Double,
-    init: Polygon.() -> Unit
+    init: (@KtfxLayoutsDslMarker Polygon).() -> Unit
 ): Polygon {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Polygon(*points), init)

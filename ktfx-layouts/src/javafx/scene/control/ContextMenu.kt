@@ -26,13 +26,13 @@ open class KtfxContextMenu : ContextMenu(), MenuItemManager {
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: MenuItem.() -> Unit
+        init: (@KtfxLayoutsDslMarker MenuItem).() -> Unit
     ): MenuItem = menuItem(this, graphic, init)
 }
 
 /** Create a [ContextMenu] with initialization block. */
 inline fun contextMenu(
-    init: KtfxContextMenu.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxContextMenu().apply(init)
@@ -44,7 +44,7 @@ fun Control.contextMenu(): ContextMenu =
 
 /** Set a [ContextMenu] with initialization block to this [Control]. */
 inline fun Control.contextMenu(
-    init: KtfxContextMenu.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(init).also { contextMenu = it }
@@ -56,7 +56,7 @@ fun Tab.contextMenu(): ContextMenu =
 
 /** Set a [ContextMenu] with initialization block to this [Tab]. */
 inline fun Tab.contextMenu(
-    init: KtfxContextMenu.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(init).also { contextMenu = it }
@@ -68,7 +68,7 @@ fun <S, T> TableColumnBase<S, T>.contextMenu(): ContextMenu =
 
 /** Set a [ContextMenu] with initialization block to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
-    init: KtfxContextMenu.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(init).also { contextMenu = it }

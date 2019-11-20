@@ -12,7 +12,7 @@ import kotlin.contracts.contract
 /** Create a [HLineTo] with initialization block. */
 inline fun hlineTo(
     x: Double = 0.0,
-    init: HLineTo.() -> Unit
+    init: (@KtfxLayoutsDslMarker HLineTo).() -> Unit
 ): HLineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return HLineTo(x).apply(init)
@@ -26,7 +26,7 @@ fun PathElementManager.hlineTo(
 /** Add a [HLineTo] with initialization block to this manager. */
 inline fun PathElementManager.hlineTo(
     x: Double = 0.0,
-    init: HLineTo.() -> Unit
+    init: (@KtfxLayoutsDslMarker HLineTo).() -> Unit
 ): HLineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(HLineTo(x), init)

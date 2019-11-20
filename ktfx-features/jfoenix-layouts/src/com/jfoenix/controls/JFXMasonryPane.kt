@@ -9,6 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -24,7 +25,7 @@ open class KtfxJFXMasonryPane : JFXMasonryPane(), NodeManager {
 
 /** Create a [JFXMasonryPane] with initialization block. */
 inline fun jfxMasonryPane(
-    init: KtfxJFXMasonryPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXMasonryPane().apply(init)
@@ -36,7 +37,7 @@ fun NodeManager.jfxMasonryPane(): JFXMasonryPane =
 
 /** Add a [JFXMasonryPane] with initialization block to this manager. */
 inline fun NodeManager.jfxMasonryPane(
-    init: KtfxJFXMasonryPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXMasonryPane(), init)

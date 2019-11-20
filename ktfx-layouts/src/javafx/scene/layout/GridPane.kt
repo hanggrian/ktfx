@@ -1,7 +1,7 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
+@file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -24,56 +24,99 @@ import ktfx.internal.KtfxInternals
  * [GridPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxGridPane : GridPane(), NodeManager, MarginConstraintable, AlignmentConstraintable,
-    HGrowConstraintable, VGrowConstraintable {
+open class KtfxGridPane : GridPane(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
 
-    final override fun Constraints.clear(): Unit =
-        clearConstraints(node)
+    /** Clear children constraints. */
+    @JvmName("clearConstraints2")
+    inline fun Node.clearConstraints(): Unit =
+        clearConstraints(this)
 
     /** Children row index in this layout. */
-    var Constraints.rowIndex: Int?
-        get() = getRowIndex(node)
-        set(value) = setRowIndex(node, value)
+    inline var Node.rowIndex: Int?
+        @JvmName("getRowIndex2") get() = getRowIndex(this)
+        @JvmName("setRowIndex2") set(value) = setRowIndex(this, value)
 
     /** Children column index in this layout. */
-    var Constraints.columnIndex: Int?
-        get() = getColumnIndex(node)
-        set(value) = setColumnIndex(node, value)
-
-    /** Configure row index fluidly using infix operator. */
-    infix fun Constraints.row(index: Int): Constraints =
-        apply { rowIndex = index }
-
-    /** Configure column index fluidly using infix operator. */
-    infix fun Constraints.col(index: Int): Constraints =
-        apply { columnIndex = index }
+    inline var Node.columnIndex: Int?
+        @JvmName("getColumnIndex2") get() = getColumnIndex(this)
+        @JvmName("setColumnIndex2") set(value) = setColumnIndex(this, value)
 
     /** Children row span in this layout. */
-    var Constraints.rowSpan: Int?
-        get() = getRowSpan(node)
-        set(value) = setRowSpan(node, value)
+    inline var Node.rowSpan: Int?
+        @JvmName("getRowSpan2") get() = getRowSpan(this)
+        @JvmName("setRowSpan2") set(value) = setRowSpan(this, value)
 
     /** Children column span in this layout. */
-    var Constraints.columnSpan: Int?
-        get() = getColumnSpan(node)
-        set(value) = setColumnSpan(node, value)
+    inline var Node.columnSpan: Int?
+        @JvmName("getColumnSpan2") get() = getColumnSpan(this)
+        @JvmName("setColumnSpan2") set(value) = setColumnSpan(this, value)
 
-    /** Configure row span fluidly using infix operator. */
-    infix fun Constraints.rowSpan(span: Int): Constraints =
-        apply { rowSpan = span }
+    /** Configure row index fluidly using infix operator. */
+    inline infix fun <T : Node> T.row(index: Int): T =
+        apply { rowIndex = index }
 
-    /** Configure column span fluidly using infix operator. */
-    infix fun Constraints.colSpan(span: Int): Constraints =
-        apply { columnSpan = span }
+    /** Configure row index and span fluidly using infix operator. */
+    inline infix fun <T : Node> T.row(pair: Pair<Int, Int>): T =
+        apply {
+            rowIndex = pair.first
+            rowSpan = pair.second
+        }
 
-    final override var Constraints.margin: Insets?
-        get() = getMargin(node)
-        set(value) = setMargin(node, value)
+    /** Configure column index fluidly using infix operator. */
+    inline infix fun <T : Node> T.col(index: Int): T =
+        apply { columnIndex = index }
 
-    final override var Constraints.alignment: Pos?
+    /** Configure column index and span fluidly using infix operator. */
+    inline infix fun <T : Node> T.col(pair: Pair<Int, Int>): T =
+        apply {
+            columnIndex = pair.first
+            columnSpan = pair.second
+        }
+
+    /** Children margin in this layout. */
+    inline var Node.margin: Insets?
+        @JvmName("getMargin2") get() = getMargin(this)
+        @JvmName("setMargin2") set(value) = setMargin(this, value)
+
+    /** Configure children margin, taking account of current margin. */
+    inline fun Node.updateMargin(
+        top: Double? = margin?.top,
+        right: Double? = margin?.right,
+        bottom: Double? = margin?.bottom,
+        left: Double? = margin?.left
+    ) {
+        margin = Insets(top ?: 0.0, right ?: 0.0, bottom ?: 0.0, left ?: 0.0)
+    }
+
+    /** Configure margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.margin(margin: Insets): T =
+        apply { this.margin = margin }
+
+    /** Configure all sides margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginAll(margin: Double): T =
+        apply { this.margin = Insets(margin) }
+
+    /** Configure top margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginTop(margin: Double): T =
+        apply { updateMargin(top = margin) }
+
+    /** Configure right margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginRight(margin: Double): T =
+        apply { updateMargin(right = margin) }
+
+    /** Configure bottom margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginBottom(margin: Double): T =
+        apply { updateMargin(bottom = margin) }
+
+    /** Configure left margin fluidly using infix operator. */
+    inline infix fun <T : Node> T.marginLeft(margin: Double): T =
+        apply { updateMargin(left = margin) }
+
+    /** Children alignment in this layout. */
+    inline var Node.alignment: Pos?
         @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
         set(value) {
             halignment = value?.hpos
@@ -81,53 +124,75 @@ open class KtfxGridPane : GridPane(), NodeManager, MarginConstraintable, Alignme
         }
 
     /** Children horizontal alignment in this layout. */
-    var Constraints.halignment: HPos?
-        get() = getHalignment(node)
-        set(value) = setHalignment(node, value)
+    inline var Node.halignment: HPos?
+        @JvmName("getHalignment2") get() = getHalignment(this)
+        @JvmName("setHalignment2") set(value) = setHalignment(this, value)
 
     /** Children vertical alignment in this layout. */
-    var Constraints.valignment: VPos?
-        get() = getValignment(node)
-        set(value) = setValignment(node, value)
+    inline var Node.valignment: VPos?
+        @JvmName("getValignment2") get() = getValignment(this)
+        @JvmName("setValignment2") set(value) = setValignment(this, value)
+
+    /** Configure alignment fluidly using infix operator. */
+    inline infix fun <T : Node> T.align(pos: Pos): T =
+        apply { alignment = pos }
 
     /** Configure horizontal alignment fluidly using infix operator. */
-    infix fun Constraints.halign(hpos: HPos): Constraints =
+    inline infix fun <T : Node> T.halign(hpos: HPos): T =
         apply { halignment = hpos }
 
     /** Configure vertical alignment fluidly using infix operator. */
-    infix fun Constraints.valign(vpos: VPos): Constraints =
+    inline infix fun <T : Node> T.valign(vpos: VPos): T =
         apply { valignment = vpos }
 
     /** Children fill width property in this layout. */
-    var Constraints.fillWidth: Boolean?
-        get() = isFillWidth(node)
-        set(value) = setFillWidth(node, value)
+    inline var Node.fillWidth: Boolean?
+        get() = isFillWidth(this)
+        @JvmName("setFillWidth2") set(value) = setFillWidth(this, value)
 
     /** Children fill height property in this layout. */
-    var Constraints.fillHeight: Boolean?
-        get() = isFillHeight(node)
-        set(value) = setFillHeight(node, value)
+    inline var Node.fillHeight: Boolean?
+        get() = isFillHeight(this)
+        @JvmName("setFillHeight2") set(value) = setFillHeight(this, value)
 
     /** Configure fill width fluidly using infix operator. */
-    infix fun Constraints.hfill(fill: Boolean): Constraints =
+    inline infix fun <T : Node> T.fillWidth(fill: Boolean): T =
         apply { fillWidth = fill }
 
     /** Configure fill height fluidly using infix operator. */
-    infix fun Constraints.vfill(fill: Boolean): Constraints =
+    inline infix fun <T : Node> T.fillHeight(fill: Boolean): T =
         apply { fillHeight = fill }
 
-    final override var Constraints.hgrow: Priority?
-        get() = getHgrow(node)
-        set(value) = setHgrow(node, value)
+    /** Children horizontal grow priority in this layout. */
+    inline var Node.hgrow: Priority?
+        @JvmName("getHgrow2") get() = getHgrow(this)
+        @JvmName("setHgrow2") set(value) = setHgrow(this, value)
 
-    final override var Constraints.vgrow: Priority?
-        get() = getVgrow(node)
-        set(value) = setVgrow(node, value)
+    /** Children vertical grow priority in this layout. */
+    inline var Node.vgrow: Priority?
+        @JvmName("getVgrow2") get() = getVgrow(this)
+        @JvmName("setVgrow2") set(value) = setVgrow(this, value)
+
+    /** Configure horizontal grow fluidly using infix operator. */
+    inline infix fun <T : Node> T.hgrow(priority: Priority): T =
+        apply { hgrow = priority }
+
+    /** Configure horizontal grow fluidly using infix operator. */
+    inline infix fun <T : Node> T.hgrow(always: Boolean): T =
+        hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+
+    /** Configure vertical grow fluidly using infix operator. */
+    inline infix fun <T : Node> T.vgrow(priority: Priority): T =
+        apply { vgrow = priority }
+
+    /** Configure vertical grow fluidly using infix operator. */
+    inline infix fun <T : Node> T.vgrow(always: Boolean): T =
+        vgrow(if (always) Priority.ALWAYS else Priority.NEVER)
 }
 
 /** Create a [GridPane] with initialization block. */
 inline fun gridPane(
-    init: KtfxGridPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxGridPane().apply(init)
@@ -139,7 +204,7 @@ fun NodeManager.gridPane(): GridPane =
 
 /** Add a [GridPane] with initialization block to this manager. */
 inline fun NodeManager.gridPane(
-    init: KtfxGridPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxGridPane(), init)

@@ -7,13 +7,14 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.ListSelectionView
 
 /** Create a [ListSelectionView] with initialization block. */
 inline fun <T> listSelectionView(
-    init: ListSelectionView<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ListSelectionView<T>().apply(init)
@@ -25,7 +26,7 @@ fun <T> NodeManager.listSelectionView(): ListSelectionView<T> =
 
 /** Add a [ListSelectionView] with initialization block to this manager. */
 inline fun <T> NodeManager.listSelectionView(
-    init: ListSelectionView<T>.() -> Unit
+    init: (@KtfxLayoutsDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ListSelectionView(), init)

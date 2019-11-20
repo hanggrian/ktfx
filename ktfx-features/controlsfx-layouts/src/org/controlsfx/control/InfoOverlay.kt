@@ -8,6 +8,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.InfoOverlay
@@ -26,7 +27,7 @@ open class KtfxInfoOverlay(graphic: Node?, text: String?) : InfoOverlay(graphic,
 inline fun infoOverlay(
     graphic: Node? = null,
     text: String? = null,
-    init: KtfxInfoOverlay.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxInfoOverlay(graphic, text).apply(init)
@@ -42,7 +43,7 @@ fun NodeManager.infoOverlay(
 inline fun NodeManager.infoOverlay(
     graphic: Node? = null,
     text: String? = null,
-    init: KtfxInfoOverlay.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxInfoOverlay(graphic, text), init)

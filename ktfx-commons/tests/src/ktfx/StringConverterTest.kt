@@ -10,20 +10,17 @@ class StringConverterTest {
     private val defaultConverter = DefaultStringConverter()
     private val intConverter = IntegerStringConverter()
 
-    @Test
-    fun invoke() {
+    @Test fun invoke() {
         assertEquals(intConverter.toString(123), intConverter(123))
         assertEquals(defaultConverter.toString(null), defaultConverter(null))
     }
 
-    @Test
-    fun get() {
+    @Test fun get() {
         assertEquals(intConverter.fromString("123"), intConverter["123"])
         assertEquals(defaultConverter.fromString("Hello world"), defaultConverter["Hello world"])
     }
 
-    @Test
-    fun buildStringConverterPrimitive() {
+    @Test fun buildStringConverterPrimitive() {
         val converter = buildStringConverter<Int> {
             fromString { it.toInt() }
         }
@@ -31,8 +28,7 @@ class StringConverterTest {
         assertEquals(converter.fromString("123"), 123)
     }
 
-    @Test
-    fun buildStringConverterCustom() {
+    @Test fun buildStringConverterCustom() {
         val converter = buildStringConverter<Person> {
             toString { it!!.name }
             fromString { Person(it) }

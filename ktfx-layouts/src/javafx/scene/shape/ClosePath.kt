@@ -11,7 +11,7 @@ import kotlin.contracts.contract
 
 /** Create a [ClosePath] with initialization block. */
 inline fun closePath(
-    init: ClosePath.() -> Unit
+    init: (@KtfxLayoutsDslMarker ClosePath).() -> Unit
 ): ClosePath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ClosePath().apply(init)
@@ -23,7 +23,7 @@ fun PathElementManager.closePath(): ClosePath =
 
 /** Add a [ClosePath] with initialization block to this manager. */
 inline fun PathElementManager.closePath(
-    init: ClosePath.() -> Unit
+    init: (@KtfxLayoutsDslMarker ClosePath).() -> Unit
 ): ClosePath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(ClosePath(), init)

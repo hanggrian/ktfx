@@ -23,13 +23,13 @@ open class KtfxTabPane : TabPane(), TabManager {
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: KtfxTab.() -> Unit
+        init: (@KtfxLayoutsDslMarker KtfxTab).() -> Unit
     ): Tab = tab(this, graphic, init)
 }
 
 /** Create a [TabPane] with initialization block. */
 inline fun tabPane(
-    init: KtfxTabPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTabPane().apply(init)
@@ -41,7 +41,7 @@ fun NodeManager.tabPane(): TabPane =
 
 /** Add a [TabPane] with initialization block to this manager. */
 inline fun NodeManager.tabPane(
-    init: KtfxTabPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxTabPane(), init)

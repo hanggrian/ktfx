@@ -9,6 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -24,7 +25,7 @@ open class KtfxJFXTogglePane : JFXTogglePane(), NodeManager {
 
 /** Create a [JFXTogglePane] with initialization block. */
 inline fun jfxTogglePane(
-    init: KtfxJFXTogglePane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXTogglePane().apply(init)
@@ -36,7 +37,7 @@ fun NodeManager.jfxTogglePane(): JFXTogglePane =
 
 /** Add a [JFXTogglePane] with initialization block to this manager. */
 inline fun NodeManager.jfxTogglePane(
-    init: KtfxJFXTogglePane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXTogglePane(), init)

@@ -9,13 +9,14 @@ import javafx.scene.control.TreeView
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXTreeViewPath] with initialization block. */
 inline fun jfxTreeViewPath(
     treeView: TreeView<*>? = null,
-    init: JFXTreeViewPath.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeViewPath(treeView).apply(init)
@@ -29,7 +30,7 @@ fun NodeManager.jfxTreeViewPath(
 /** Add a [JFXTreeViewPath] with initialization block to this manager. */
 inline fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null,
-    init: JFXTreeViewPath.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTreeViewPath(treeView), init)

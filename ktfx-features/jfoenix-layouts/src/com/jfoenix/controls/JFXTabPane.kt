@@ -10,6 +10,7 @@ import javafx.scene.control.Tab
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.KtfxTab
 import ktfx.layouts.NodeManager
 import ktfx.layouts.TabManager
@@ -28,13 +29,13 @@ open class KtfxJFXTabPane : JFXTabPane(), TabManager {
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: KtfxTab.() -> Unit
+        init: (@KtfxLayoutsDslMarker KtfxTab).() -> Unit
     ): Tab = tab(this, graphic, init)
 }
 
 /** Create a [JFXTabPane] with initialization block. */
 inline fun jfxTabPane(
-    init: KtfxJFXTabPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXTabPane().apply(init)
@@ -46,7 +47,7 @@ fun NodeManager.jfxTabPane(): JFXTabPane =
 
 /** Add a [JFXTabPane] with initialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
-    init: KtfxJFXTabPane.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXTabPane(), init)

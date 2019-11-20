@@ -23,13 +23,13 @@ open class KtfxMenuBar : MenuBar(), MenuManager {
     /** Call [MenuManager.menu] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: KtfxMenu.() -> Unit
+        init: (@KtfxLayoutsDslMarker KtfxMenu).() -> Unit
     ): Menu = menu(this, graphic, init)
 }
 
 /** Create a [MenuBar] with initialization block. */
 inline fun menuBar(
-    init: KtfxMenuBar.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMenuBar().apply(init)
@@ -41,7 +41,7 @@ fun NodeManager.menuBar(): MenuBar =
 
 /** Add a [MenuBar] with initialization block to this manager. */
 inline fun NodeManager.menuBar(
-    init: KtfxMenuBar.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxMenuBar(), init)

@@ -9,6 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -16,7 +17,7 @@ import ktfx.layouts.addNode
 inline fun jfxButton(
     text: String? = null,
     graphic: Node? = null,
-    init: JFXButton.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXButton(text, graphic).apply(init)
@@ -32,7 +33,7 @@ fun NodeManager.jfxButton(
 inline fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null,
-    init: JFXButton.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXButton(text, graphic), init)

@@ -7,11 +7,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class ObservableListTest {
-
     private val observable = mutableObservableListOf<String>()
 
-    @Test
-    fun listener() = observable.run {
+    @Test fun listener() = observable.run {
         val s = "Hello"
         val listener = listener<String> {
             it.next()

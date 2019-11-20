@@ -9,6 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -24,7 +25,7 @@ open class KtfxJFXRippler : JFXRippler(), NodeManager {
 
 /** Create a [JFXRippler] with initialization block. */
 inline fun jfxRippler(
-    init: KtfxJFXRippler.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXRippler().apply(init)
@@ -36,7 +37,7 @@ fun NodeManager.jfxRippler(): JFXRippler =
 
 /** Add a [JFXRippler] with initialization block to this manager. */
 inline fun NodeManager.jfxRippler(
-    init: KtfxJFXRippler.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXRippler(), init)

@@ -8,8 +8,7 @@ import kotlin.test.assertTrue
 class ObservableValueTest {
     private val emptyString = SimpleStringProperty()
 
-    @Test
-    fun test() {
+    @Test fun test() {
         assertFalse(emptyString.hasValue())
         emptyString.value = ""
         assertTrue(emptyString.hasValue())

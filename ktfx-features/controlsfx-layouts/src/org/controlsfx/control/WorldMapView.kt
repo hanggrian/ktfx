@@ -7,13 +7,14 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.WorldMapView
 
 /** Create a [WorldMapView] with initialization block. */
 inline fun worldMapView(
-    init: WorldMapView.() -> Unit
+    init: (@KtfxLayoutsDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return WorldMapView().apply(init)
@@ -25,7 +26,7 @@ fun NodeManager.worldMapView(): WorldMapView =
 
 /** Add a [WorldMapView] with initialization block to this manager. */
 inline fun NodeManager.worldMapView(
-    init: WorldMapView.() -> Unit
+    init: (@KtfxLayoutsDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(WorldMapView(), init)

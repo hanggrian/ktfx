@@ -13,19 +13,10 @@ import kotlin.contracts.contract
 /** Create an [ImageView] with initialization block. */
 inline fun imageView(
     image: Image? = null,
-    init: ImageView.() -> Unit
+    init: (@KtfxLayoutsDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ImageView(image).apply(init)
-}
-
-/** Create an [ImageView] with initialization block. */
-inline fun imageView(
-    imageUrl: String,
-    init: ImageView.() -> Unit
-): ImageView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ImageView(imageUrl).apply(init)
 }
 
 /** Add an [ImageView] to this manager. */
@@ -36,22 +27,32 @@ fun NodeManager.imageView(
 /** Add an [ImageView] with initialization block to this manager. */
 inline fun NodeManager.imageView(
     image: Image? = null,
-    init: ImageView.() -> Unit
+    init: (@KtfxLayoutsDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ImageView(image), init)
 }
 
+/** Create an [ImageView] with initialization block. */
+inline fun imageView(
+    imageUrl: String,
+    init: (@KtfxLayoutsDslMarker ImageView).() -> Unit
+): ImageView {
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return imageView(Image(imageUrl), init)
+}
+
 /** Add an [ImageView] to this manager. */
-fun NodeManager.imageView(
+@Suppress("NOTHING_TO_INLINE")
+inline fun NodeManager.imageView(
     imageUrl: String
-): ImageView = addNode(ImageView(imageUrl))
+): ImageView = imageView(Image(imageUrl))
 
 /** Add an [ImageView] with initialization block to this manager. */
 inline fun NodeManager.imageView(
     imageUrl: String,
-    init: ImageView.() -> Unit
+    init: (@KtfxLayoutsDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ImageView(imageUrl), init)
+    return imageView(Image(imageUrl), init)
 }

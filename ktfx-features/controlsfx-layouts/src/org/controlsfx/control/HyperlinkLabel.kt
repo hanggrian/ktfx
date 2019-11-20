@@ -7,6 +7,7 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.HyperlinkLabel
@@ -14,7 +15,7 @@ import org.controlsfx.control.HyperlinkLabel
 /** Create a [HyperlinkLabel] with initialization block. */
 inline fun hyperlinkLabel(
     text: String? = null,
-    init: HyperlinkLabel.() -> Unit
+    init: (@KtfxLayoutsDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return HyperlinkLabel(text).apply(init)
@@ -28,7 +29,7 @@ fun NodeManager.hyperlinkLabel(
 /** Add a [HyperlinkLabel] with initialization block to this manager. */
 inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
-    init: HyperlinkLabel.() -> Unit
+    init: (@KtfxLayoutsDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(HyperlinkLabel(text), init)

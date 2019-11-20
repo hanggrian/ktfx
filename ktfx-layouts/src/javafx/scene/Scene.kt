@@ -8,7 +8,7 @@ import javafx.scene.Node
 import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.scene.layout.Pane
-import javafx.scene.paint.Color.WHITE
+import javafx.scene.paint.Color
 import javafx.scene.paint.Paint
 import javafx.stage.Stage
 import kotlin.contracts.ExperimentalContracts
@@ -30,8 +30,8 @@ open class KtfxScene(root: Parent, width: Double, height: Double, fill: Paint) :
 inline fun scene(
     width: Double = -1.0,
     height: Double = -1.0,
-    fill: Paint = WHITE,
-    init: KtfxScene.() -> Unit
+    fill: Paint = Color.WHITE,
+    init: (@KtfxLayoutsDslMarker KtfxScene).() -> Unit
 ): Scene {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxScene(Pane(), width, height, fill).apply(init)
@@ -41,15 +41,15 @@ inline fun scene(
 fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
-    fill: Paint = WHITE
+    fill: Paint = Color.WHITE
 ): Scene = KtfxScene(Pane(), width, height, fill).also { scene = it }
 
 /** Add a [Scene] with initialization block to this window. */
 inline fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
-    fill: Paint = WHITE,
-    init: KtfxScene.() -> Unit
+    fill: Paint = Color.WHITE,
+    init: (@KtfxLayoutsDslMarker KtfxScene).() -> Unit
 ): Scene {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.scene(width, height, fill, init).also { scene = it }

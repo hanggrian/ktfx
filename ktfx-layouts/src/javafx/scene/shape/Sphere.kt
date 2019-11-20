@@ -13,7 +13,7 @@ import kotlin.contracts.contract
 inline fun sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    init: Sphere.() -> Unit
+    init: (@KtfxLayoutsDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Sphere(radius, division).apply(init)
@@ -29,7 +29,7 @@ fun NodeManager.sphere(
 inline fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    init: Sphere.() -> Unit
+    init: (@KtfxLayoutsDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Sphere(radius, division), init)

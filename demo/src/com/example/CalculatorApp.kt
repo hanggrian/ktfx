@@ -32,8 +32,6 @@ class CalculatorApp : Application() {
         stage.scene {
             gridPane {
                 vbox {
-                    constraints row 0 col 0 colSpan 5 hfill true
-
                     updatePadding(right = 20.0, left = 20.0)
                     calculationLabel = label("")
 
@@ -68,141 +66,123 @@ class CalculatorApp : Application() {
                             }
                         })
                     }
-                }
+                } row 0 col (0 to 5) fillWidth true
 
                 button("1") {
-                    constraints row 1 col 0
                     minSize = 40.0
                     onAction {
                         appendText("1")
                     }
-                }
+                } row 1 col 0
                 button("2") {
-                    constraints row 1 col 1
                     minSize = 40.0
                     onAction {
                         appendText("2")
                     }
-                }
+                } row 1 col 1
                 button("3") {
-                    constraints row 1 col 2
                     minSize = 40.0
                     onAction {
                         appendText("3")
                     }
-                }
+                } row 1 col 2
 
                 button("4") {
-                    constraints row 2 col 0
                     minSize = 40.0
                     onAction {
                         appendText("4")
                     }
-                }
+                } row 2 col 0
                 button("5") {
-                    constraints row 2 col 1
                     minSize = 40.0
                     onAction {
                         appendText("5")
                     }
-                }
+                } row 2 col 1
                 button("6") {
-                    constraints row 2 col 2
                     minSize = 40.0
                     onAction {
                         appendText("6")
                     }
-                }
+                } row 2 col 2
 
                 button("7") {
-                    constraints row 3 col 0
                     minSize = 40.0
                     onAction {
                         appendText("7")
                     }
-                }
+                } row 3 col 0
                 button("8") {
-                    constraints row 3 col 1
                     minSize = 40.0
                     onAction {
                         appendText("8")
                     }
-                }
+                } row 3 col 1
                 button("9") {
-                    constraints row 3 col 2
                     minSize = 40.0
                     onAction {
                         appendText("9")
                     }
-                }
+                } row 3 col 2
 
                 button("0") {
-                    constraints row 4 col 0
                     minSize = 40.0
                     onAction {
                         appendText("0")
                     }
-                }
+                } row 4 col 0
                 button("00") {
-                    constraints row 4 col 1
                     minSize = 40.0
                     onAction {
                         appendText("00")
                     }
-                }
+                } row 4 col 1
                 button("") {
-                    constraints row 4 col 2
                     minSize = 40.0
                     onAction {
                         errorAlert(":(", content = "Not yet supported.")
                     }
-                }
+                } row 4 col 2
 
                 button("C") {
-                    constraints row 1 col 3 colSpan 2
                     setMinSize(80.0, 40.0)
                     isCancelButton = true
                     onAction {
                         calculationLabel.text = ""
                     }
-                }
+                } row 1 col (3 to 2)
                 button("*") {
-                    constraints row 2 col 3
                     minSize = 40.0
                     onAction {
                         appendText("*")
                     }
-                }
+                } row 2 col 3
                 button("/") {
-                    constraints row 2 col 4
                     minSize = 40.0
                     onAction {
                         appendText("/")
                     }
-                }
+                } row 2 col 4
                 button("+") {
-                    constraints row 3 col 3 rowSpan 2
                     setMinSize(40.0, 80.0)
                     onAction {
                         appendText("+")
                     }
-                }
+                } row (3 to 2) col 3
                 button("-") {
-                    constraints row 3 col 4
                     minSize = 40.0
                     onAction {
                         appendText("-")
                     }
-                }
+                } row 3 col 4
                 button("=") {
-                    constraints row 4 col 4
                     minSize = 40.0
                     isDefaultButton = true
                     disableProperty().bind(booleanBindingOf(calculationLabel.textProperty()) { endsWithOperator })
                     onAction {
                         infoAlert("Result", content = resultLabel.text)
                     }
-                }
+                } row 4 col 4
             }
         }
         stage.isResizable = false

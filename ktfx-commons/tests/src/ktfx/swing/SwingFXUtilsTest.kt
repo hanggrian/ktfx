@@ -10,15 +10,13 @@ class SwingFXUtilsTest {
     private val width: Int = 1000
     private val height: Int = 500
 
-    @Test
-    fun toFxImage() {
+    @Test fun toFxImage() {
         val image = BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB).toFxImage()
         assertEquals(width, image.width.toInt())
         assertEquals(height, image.height.toInt())
     }
 
-    @Test
-    fun toSwingImage() {
+    @Test fun toSwingImage() {
         val image = WritableImage(width, height).toSwingImage()
         assertEquals(width, image.width)
         assertEquals(height, image.height)

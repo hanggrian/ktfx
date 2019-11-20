@@ -31,13 +31,14 @@ open class KtfxTextFlow : TextFlow(), NodeManager, Appendable {
         append(c.toString())
 
     /** Call [NodeManager.text] by string invocation. */
-    inline operator fun String.invoke(init: Text.() -> Unit): Text =
-        text(this, init)
+    inline operator fun String.invoke(
+        init: (@KtfxLayoutsDslMarker Text).() -> Unit
+    ): Text = text(this, init)
 }
 
 /** Create a [TextFlow] with initialization block. */
 inline fun textFlow(
-    init: KtfxTextFlow.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTextFlow().apply(init)
@@ -49,7 +50,7 @@ fun NodeManager.textFlow(): TextFlow =
 
 /** Add a [TextFlow] with initialization block to this manager. */
 inline fun NodeManager.textFlow(
-    init: KtfxTextFlow.() -> Unit
+    init: (@KtfxLayoutsDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxTextFlow(), init)

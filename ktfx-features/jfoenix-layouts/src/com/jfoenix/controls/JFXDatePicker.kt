@@ -9,13 +9,14 @@ import java.time.LocalDate
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.layouts.KtfxLayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXDatePicker] with initialization block. */
 inline fun jfxDatePicker(
     date: LocalDate? = null,
-    init: JFXDatePicker.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDatePicker(date).apply(init)
@@ -29,7 +30,7 @@ fun NodeManager.jfxDatePicker(
 /** Add a [JFXDatePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxDatePicker(
     date: LocalDate? = null,
-    init: JFXDatePicker.() -> Unit
+    init: (@KtfxLayoutsDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXDatePicker(date), init)

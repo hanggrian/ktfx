@@ -109,35 +109,35 @@ infix fun String.lessEq(op: ObservableStringValue): BooleanBinding =
 
 /** Binding of [String.trim]. */
 inline fun ObservableStringValue.trim(noinline predicate: (Char) -> Boolean): StringBinding =
-    stringBindingOf(this) { get().trim(predicate) }
+    toStringBinding { it.trim(predicate) }
 
 /** Binding of [String.trimStart]. */
 inline fun ObservableStringValue.trimStart(noinline predicate: (Char) -> Boolean): StringBinding =
-    stringBindingOf(this) { get().trimStart(predicate) }
+    toStringBinding { it.trimStart(predicate) }
 
 /** Binding of [String.trimEnd]. */
 inline fun ObservableStringValue.trimEnd(noinline predicate: (Char) -> Boolean): StringBinding =
-    stringBindingOf(this) { get().trimEnd(predicate) }
+    toStringBinding { it.trimEnd(predicate) }
 
 /** Binding of [String.trim]. */
 inline fun ObservableStringValue.trim(): StringBinding =
-    stringBindingOf(this) { get().trim() }
+    toStringBinding { it.trim() }
 
 /** Binding of [String.trimStart]. */
 inline fun ObservableStringValue.trimStart(): StringBinding =
-    stringBindingOf(this) { get().trimStart() }
+    toStringBinding { it.trimStart() }
 
 /** Binding of [String.trimEnd]. */
 inline fun ObservableStringValue.trimEnd(): StringBinding =
-    stringBindingOf(this) { get().trimEnd() }
+    toStringBinding { it.trimEnd() }
 
 /** Binding of [String.padStart]. */
 inline fun ObservableStringValue.padStart(length: Int, padChar: Char = ' '): StringBinding =
-    stringBindingOf(this) { get().padStart(length, padChar) }
+    toStringBinding { it.padStart(length, padChar) }
 
 /** Binding of [String.padEnd]. */
 inline fun ObservableStringValue.padEnd(length: Int, padChar: Char = ' '): StringBinding =
-    stringBindingOf(this) { get().padEnd(length, padChar) }
+    toStringBinding { it.padEnd(length, padChar) }
 
 /** Binding of [String.isNullOrBlank]. */
 inline fun ObservableStringValue.isNullOrBlank(): BooleanBinding =

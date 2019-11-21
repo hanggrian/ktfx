@@ -3,10 +3,10 @@ package ktfx.cells
 import javafx.beans.value.ObservableValue
 import javafx.collections.ObservableList
 import javafx.scene.control.TableColumn
-import javafx.scene.control.cell.CellUtils2
 import javafx.scene.control.cell.CheckBoxTableCell
 import javafx.scene.control.cell.ChoiceBoxTableCell
 import javafx.scene.control.cell.ComboBoxTableCell
+import javafx.scene.control.cell.KtfxCellUtils
 import javafx.scene.control.cell.ProgressBarTableCell
 import javafx.scene.control.cell.TextFieldTableCell
 import javafx.util.StringConverter
@@ -17,7 +17,7 @@ fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
 
 /** Creates a [CheckBoxTableCell] factory for use in [TableColumn] controls. */
 fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
-    converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
+    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     callback: (Int) -> ObservableValue<Boolean>
 ): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(callback, converter))
 
@@ -29,25 +29,25 @@ fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
 
 /** Creates a [ChoiceBoxTableCell] factory for use in [TableColumn] controls. */
 fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
-    converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
+    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     vararg items: T
 ): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, *items))
 
 /** Creates a [ChoiceBoxTableCell] factory for use in [TableColumn] controls. */
 fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
-    converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
+    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     items: ObservableList<T>
 ): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, items))
 
 /** Creates a [ComboBoxTableCell] factory for use in [TableColumn] controls. */
 fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
-    converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
+    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     vararg items: T
 ): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(converter, *items))
 
 /** Creates a [ComboBoxTableCell] factory for use in [TableColumn] controls. */
 fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
-    converter: StringConverter<T> = CellUtils2.defaultStringConverter(),
+    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(converter, items))
 
@@ -61,7 +61,7 @@ fun <S> TableColumn<S, String>.textFieldCellFactory(): Unit =
 
 /** Creates a [TextFieldTableCell] factory for use in [TableColumn] controls. */
 fun <S, T> TableColumn<S, T>.textFieldCellFactory(
-    converter: StringConverter<T> = CellUtils2.defaultStringConverter()
+    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()
 ): Unit = setCellFactory(TextFieldTableCell.forTableColumn(converter))
 
 /** Set custom cell factory to this [TableColumn]. */

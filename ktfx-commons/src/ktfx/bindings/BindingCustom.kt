@@ -4,6 +4,7 @@
 
 package ktfx.bindings
 
+import java.util.concurrent.Callable
 import javafx.beans.Observable
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding
@@ -15,7 +16,6 @@ import javafx.beans.binding.ObjectBinding
 import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableValue
 import javafx.util.Callback
-import java.util.concurrent.Callable
 
 /** Create an [ObjectBinding] with multiple [dependencies]. */
 fun <T> bindingOf(vararg dependencies: Observable, valueProvider: () -> T?): ObjectBinding<T> =

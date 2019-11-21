@@ -42,9 +42,7 @@ inline var Dialog<*>.headerTitle: String
 
 /** Opens up DSL to quickly add button types to this dialog. */
 fun Dialog<*>.buttons(builder: DialogButtonBuilder.() -> Unit) {
-    contract {
-        callsInPlace(builder, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     DialogButtonBuilder(this).builder()
 }
 

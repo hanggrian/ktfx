@@ -1,18 +1,15 @@
 package ktfx
 
-import javafx.beans.property.SimpleStringProperty
-import ktfx.bindings.indices
-import ktfx.bindings.isNullOrBlank
-import ktfx.bindings.isNullOrEmpty
-import ktfx.bindings.lastIndex
-import ktfx.bindings.orEmpty
+import ktfx.bindings.toBinding
+import ktfx.bindings.toBooleanBinding
+import ktfx.bindings.toIntBinding
+import ktfx.bindings.toStringBinding
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class ObservableValueDelegationTest {
-
     private val person1 = Person("Hendra", 24)
     private val person2 = Person("Hobo", 50)
     private val person = property(person1)
@@ -27,7 +24,7 @@ class ObservableValueDelegationTest {
     private val string = stringProperty("Hello")
     private var stringValue: String? by string
 
-    private val emptyString = SimpleStringProperty()
+    private val emptyString = stringProperty()
 
     @Test fun any() {
         assertEquals(personValue, person1)
@@ -52,18 +49,18 @@ class ObservableValueDelegationTest {
         stringValue = "World"
         assertEquals(string.value, "World")
 
-        assertFalse(string.isNullOrBlank().get())
-        assertTrue(emptyString.isNullOrBlank().get())
+        assertFalse(string.toBooleanBinding { it.isNullOrBlank() }.value)
+        assertTrue(emptyString.toBooleanBinding { it.isNullOrBlank() }.value)
 
-        assertFalse(string.isNullOrEmpty().get())
-        assertTrue(emptyString.isNullOrEmpty().get())
+        assertFalse(string.toBooleanBinding { it.isNullOrEmpty() }.value)
+        assertTrue(emptyString.toBooleanBinding { it.isNullOrEmpty() }.value)
 
-        assertEquals("World", string.orEmpty().get())
-        assertEquals("", emptyString.orEmpty().get())
+        assertEquals("World", string.toStringBinding { it.orEmpty() }.value)
+        assertEquals("", emptyString.toStringBinding { it.orEmpty() }.value)
 
-        assertEquals(IntRange(0, 4), string.indices.get())
+        assertEquals(IntRange(0, 4), string.toBinding { it.indices }.value)
 
-        assertEquals(4, string.lastIndex.get())
+        assertEquals(4, string.toIntBinding { it.lastIndex }.value)
     }
 
     data class Person(

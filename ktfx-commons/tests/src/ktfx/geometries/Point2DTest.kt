@@ -5,7 +5,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class Point2DTest {
-
     private val point = Point2D(10.0, 20.0)
 
     @Test fun plus() {

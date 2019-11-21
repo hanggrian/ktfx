@@ -15,9 +15,7 @@ import kotlin.contracts.contract
  * @see kotlin.run
  */
 inline fun runLater(crossinline block: () -> Unit) {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
     Platform.runLater { block() }
 }
 
@@ -27,9 +25,7 @@ inline fun runLater(crossinline block: () -> Unit) {
  * @see kotlin.run
  */
 inline fun <T> T.runLater(crossinline block: T.() -> Unit) {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
     Platform.runLater { block() }
 }
 
@@ -39,9 +35,7 @@ inline fun <T> T.runLater(crossinline block: T.() -> Unit) {
  * @see kotlin.with
  */
 inline fun <T> withLater(receiver: T, crossinline block: T.() -> Unit) {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
     Platform.runLater { receiver.block() }
 }
 
@@ -51,9 +45,7 @@ inline fun <T> withLater(receiver: T, crossinline block: T.() -> Unit) {
  * @see kotlin.apply
  */
 inline fun <T> T.applyLater(crossinline block: T.() -> Unit): T {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
     Platform.runLater { block() }
     return this
 }
@@ -64,9 +56,7 @@ inline fun <T> T.applyLater(crossinline block: T.() -> Unit): T {
  * @see kotlin.also
  */
 inline fun <T> T.alsoLater(crossinline block: (T) -> Unit): T {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
     Platform.runLater { block(this) }
     return this
 }
@@ -77,9 +67,7 @@ inline fun <T> T.alsoLater(crossinline block: (T) -> Unit): T {
  * @see kotlin.let
  */
 inline fun <T> T.letLater(crossinline block: (T) -> Unit) {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
+    contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
     Platform.runLater { block(this) }
 }
 
@@ -89,9 +77,7 @@ inline fun <T> T.letLater(crossinline block: (T) -> Unit) {
  * @see kotlin.repeat
  */
 inline fun repeatLater(times: Int, crossinline action: (Int) -> Unit) {
-    contract {
-        callsInPlace(action)
-    }
+    contract { callsInPlace(action) }
     for (index in 0 until times) {
         action(index)
     }

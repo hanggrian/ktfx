@@ -7,11 +7,11 @@ Ktfx
 ====
 [Kotlin] extensions for JavaFX app development. Written in spirit of [android-ktx] and [anko].
 
-Consists of several parts:
- * *ktfx-commons*: full of helpers for common JavaFX application logic.
- * *ktfx-layouts*: dynamic JavaFX layout with Kotlin DSL.
- * *ktfx-listeners*: write common JavaFX listeners with Kotlin DSL.
- * *ktfx-coroutines*: utilities based on the [kotlinx.coroutines] library.
+Ktfx consists of several parts:
+ * Ktfx Commons: a lightweight library full of helpers.
+ * Ktfx Layouts: a fast and type-safe way to write dynamic JavaFX layouts.
+ * Ktfx Listeners: use standard Kotlin functions in JavaFX events.
+ * Ktfx Coroutines: much like Ktfx Listeners, but with `kotlinx.coroutines` capabilities.
 
 [Download](https://github.com/hendraanggrian/ktfx/wiki/Download)
 ----------
@@ -39,11 +39,11 @@ dependencies {
 }
 ```
 
-[Ktfx Commons](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Commons)
+[Ktfx Commons](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Commons-–-Threads)
 --------------
 Full of extensions for JavaFX, packaged accordingly. The main goal of core library is not to add any new feature to the existing JavaFX APIs. Below are preview of some of the packages.
 
-#### Collections
+### Collections
 
 ```kotlin
 // create unmodifiable observable collection
@@ -58,7 +58,7 @@ val modifiableList = mutableObservableListOf(1, 2, 3)
 val list = myList.toObservableList() // or toMutableObservableList() for modifiable version
 ```
 
-#### Bindings
+### Bindings
 
 ```kotlin
 // infix conditional binding
@@ -79,7 +79,7 @@ imageView.imageProperty().bind(bindingOf(urlField.textProperty()) {
 })
 ```
 
-#### Dialogs
+### Dialogs
 
 ```kotlin
 // show an alert

@@ -14,21 +14,11 @@ import kotlin.contracts.contract
 /**
  * [TextFlow] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
- * Making use of [kotlin.text.appendln] by implementing [Appendable].
  */
-open class KtfxTextFlow : TextFlow(), NodeManager, Appendable {
+open class KtfxTextFlow : TextFlow(), NodeManager {
 
     final override fun <T : Node> addNode(node: T): T =
         node.also { children += it }
-
-    override fun append(text: CharSequence?): Appendable =
-        apply { text(text?.toString()) }
-
-    override fun append(csq: CharSequence, start: Int, end: Int): Appendable =
-        throw UnsupportedOperationException()
-
-    override fun append(c: Char): Appendable =
-        append(c.toString())
 
     /** Call [NodeManager.text] by string invocation. */
     inline operator fun String.invoke(

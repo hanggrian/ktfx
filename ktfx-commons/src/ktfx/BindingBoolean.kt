@@ -1,7 +1,7 @@
 @file:JvmMultifileClass
 @file:JvmName("BindingKt")
 
-package ktfx.bindings
+package ktfx
 
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding

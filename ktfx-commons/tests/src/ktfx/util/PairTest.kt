@@ -1,4 +1,4 @@
-package ktfx
+package ktfx.util
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

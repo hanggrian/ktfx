@@ -11,12 +11,11 @@ class TextFlowTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
 
     override fun NodeManager.layout() {
         textFlow {
-            append("Hello")
             "World" {
                 fill = RED
                 assertEquals(fill, RED)
             }
-            assertEquals(children.size, 2)
+            assertEquals(children.size, 1)
         }
     }
 }

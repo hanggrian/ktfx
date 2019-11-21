@@ -2,7 +2,7 @@ package ktfx.controls
 
 import javafx.scene.control.Label
 import javafx.scene.shape.Rectangle
-import ktfx.millis
+import ktfx.util.millis
 import ktfx.testing.ToolkitTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

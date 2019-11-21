@@ -31,7 +31,6 @@ dependencies {
     compile 'com.hendraanggrian.ktfx:ktfx-layouts:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-listeners:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-coroutines:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-test:$version'
 
     // features
     compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version'

@@ -1,4 +1,4 @@
-package ktfx
+package ktfx.util
 
 import javafx.util.Duration
 import kotlin.test.Test

@@ -1,6 +1,5 @@
-package ktfx.bindings
+package ktfx
 
-import ktfx.booleanProperty
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue

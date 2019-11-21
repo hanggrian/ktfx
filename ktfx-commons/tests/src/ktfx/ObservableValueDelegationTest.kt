@@ -1,9 +1,5 @@
 package ktfx
 
-import ktfx.bindings.toBinding
-import ktfx.bindings.toBooleanBinding
-import ktfx.bindings.toIntBinding
-import ktfx.bindings.toStringBinding
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -49,18 +45,18 @@ class ObservableValueDelegationTest {
         stringValue = "World"
         assertEquals(string.value, "World")
 
-        assertFalse(string.toBooleanBinding { it.isNullOrBlank() }.value)
-        assertTrue(emptyString.toBooleanBinding { it.isNullOrBlank() }.value)
+        assertFalse(string.toBoolean { it.isNullOrBlank() }.value)
+        assertTrue(emptyString.toBoolean { it.isNullOrBlank() }.value)
 
-        assertFalse(string.toBooleanBinding { it.isNullOrEmpty() }.value)
-        assertTrue(emptyString.toBooleanBinding { it.isNullOrEmpty() }.value)
+        assertFalse(string.toBoolean { it.isNullOrEmpty() }.value)
+        assertTrue(emptyString.toBoolean { it.isNullOrEmpty() }.value)
 
-        assertEquals("World", string.toStringBinding { it.orEmpty() }.value)
-        assertEquals("", emptyString.toStringBinding { it.orEmpty() }.value)
+        assertEquals("World", string.toString { it.orEmpty() }.value)
+        assertEquals("", emptyString.toString { it.orEmpty() }.value)
 
-        assertEquals(IntRange(0, 4), string.toBinding { it.indices }.value)
+        assertEquals(IntRange(0, 4), string.to { it.indices }.value)
 
-        assertEquals(4, string.toIntBinding { it.lastIndex }.value)
+        assertEquals(4, string.toInt { it.lastIndex }.value)
     }
 
     data class Person(

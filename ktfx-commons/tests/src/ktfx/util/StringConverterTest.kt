@@ -1,4 +1,4 @@
-package ktfx
+package ktfx.util
 
 import javafx.util.converter.DefaultStringConverter
 import javafx.util.converter.IntegerStringConverter

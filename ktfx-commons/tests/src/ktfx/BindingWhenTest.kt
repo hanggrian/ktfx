@@ -1,10 +1,9 @@
-package ktfx.bindings
+package ktfx
 
-import ktfx.booleanProperty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class WhenTest {
+class BindingWhenTest {
 
     @Test fun given() {
         assertEquals(0, (given(booleanProperty(false)) then 1 otherwise 0).value)

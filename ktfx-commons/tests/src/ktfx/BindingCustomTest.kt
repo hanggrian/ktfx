@@ -1,12 +1,5 @@
-package ktfx.bindings
+package ktfx
 
-import ktfx.booleanProperty
-import ktfx.doubleProperty
-import ktfx.floatProperty
-import ktfx.intProperty
-import ktfx.longProperty
-import ktfx.property
-import ktfx.stringProperty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -15,7 +8,7 @@ class BindingCustomTest {
 
     @Test fun any() {
         val dependency = property<Person>()
-        val binding = dependency.toBinding { it }
+        val binding = dependency.to { it }
         assertNull(binding.value)
         dependency.value = Person("Hendra")
         assertEquals(Person("Hendra"), binding.value)
@@ -23,7 +16,7 @@ class BindingCustomTest {
 
     @Test fun boolean() {
         val dependency = booleanProperty()
-        val binding = dependency.toBooleanBinding { it }
+        val binding = dependency.toBoolean { it }
         assertEquals(false, binding.value)
         dependency.value = true
         assertEquals(true, binding.value)
@@ -31,7 +24,7 @@ class BindingCustomTest {
 
     @Test fun string() {
         val dependency = stringProperty()
-        val binding = dependency.toStringBinding { it }
+        val binding = dependency.toString { it }
         assertNull(binding.value)
         dependency.value = "Hendra"
         assertEquals("Hendra", binding.value)
@@ -39,7 +32,7 @@ class BindingCustomTest {
 
     @Test fun double() {
         val dependency = doubleProperty()
-        val binding = dependency.toDoubleBinding { it.toDouble() }
+        val binding = dependency.toDouble { it }
         assertEquals(0.0, binding.value)
         dependency.value = 1.0
         assertEquals(1.0, binding.value)
@@ -47,7 +40,7 @@ class BindingCustomTest {
 
     @Test fun float() {
         val dependency = floatProperty()
-        val binding = dependency.toFloatBinding { it.toFloat() }
+        val binding = dependency.toFloat { it }
         assertEquals(0f, binding.value)
         dependency.value = 1f
         assertEquals(1f, binding.value)
@@ -55,7 +48,7 @@ class BindingCustomTest {
 
     @Test fun int() {
         val dependency = intProperty()
-        val binding = dependency.toIntBinding { it.toInt() }
+        val binding = dependency.toInt { it }
         assertEquals(0, binding.value)
         dependency.value = 1
         assertEquals(1, binding.value)
@@ -63,7 +56,7 @@ class BindingCustomTest {
 
     @Test fun long() {
         val dependency = longProperty()
-        val binding = dependency.toLongBinding { it.toLong() }
+        val binding = dependency.toLong { it }
         assertEquals(0, binding.value)
         dependency.value = 1
         assertEquals(1, binding.value)

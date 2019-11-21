@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE", "DEPRECATION")
 
-package ktfx
+package ktfx.util
 
 import javafx.util.Duration
 

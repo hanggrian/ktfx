@@ -17,7 +17,7 @@ import javafx.scene.Node
 import javafx.scene.paint.Color
 import javafx.scene.shape.Shape
 import javafx.util.Duration
-import ktfx.millis
+import ktfx.util.millis
 
 /** Construct a [FadeTransition] that animates this [Node]. */
 fun Node.fadeTransition(

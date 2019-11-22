@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("ColumnKt")
 @file:Suppress("NOTHING_TO_INLINE")
 @file:UseExperimental(ExperimentalContracts::class)
 
@@ -31,4 +29,22 @@ fun <S> TreeTableView<S>.columns(builder: TreeTableColumnsBuilder<S>.() -> Unit)
 fun <S, T> TreeTableColumn<S, T>.columns(builder: TreeTableColumnsBuilder<S>.() -> Unit) {
     contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     TreeTableColumnsBuilder<S>(columns).builder()
+}
+
+/** Interface to build [TreeTableColumn] with Kotlin DSL. */
+@TableColumnDslMarker
+class TreeTableColumnsBuilder<S> internal constructor(private val columns: MutableCollection<TreeTableColumn<S, *>>) {
+
+    fun <T> column(
+        text: String? = null
+    ): TreeTableColumn<S, T> = TreeTableColumn<S, T>(text).also { columns += it }
+
+    inline fun <T> column(
+        text: String? = null,
+        init: TreeTableColumn<S, T>.() -> Unit
+    ): TreeTableColumn<S, T> = column<T>(text).apply(init)
+
+    inline operator fun <T> String.invoke(
+        init: TreeTableColumn<S, T>.() -> Unit
+    ): TreeTableColumn<S, T> = column(this, init)
 }

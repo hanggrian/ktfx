@@ -12,9 +12,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/**
- * Specifies whether the PopupWindow should be hidden when an unhandled escape key is pressed while the popup has focus.
- */
+/** Specifies whether the PopupWindow should be hidden when an unhandled escape key is pressed while the popup has focus. */
 fun PopupWindow.onAutoHide(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit

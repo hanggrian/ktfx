@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("ColumnKt")
 @file:Suppress("NOTHING_TO_INLINE")
 @file:UseExperimental(ExperimentalContracts::class)
 
@@ -31,4 +29,22 @@ fun <S> TableView<S>.columns(builder: TableColumnsBuilder<S>.() -> Unit) {
 fun <S, T> TableColumn<S, T>.columns(builder: TableColumnsBuilder<S>.() -> Unit) {
     contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
     TableColumnsBuilder<S>(columns).builder()
+}
+
+/** Interface to build [TableColumn] with Kotlin DSL. */
+@TableColumnDslMarker
+class TableColumnsBuilder<S> internal constructor(private val columns: MutableCollection<TableColumn<S, *>>) {
+
+    fun <T> column(
+        text: String? = null
+    ): TableColumn<S, T> = TableColumn<S, T>(text).also { columns += it }
+
+    inline fun <T> column(
+        text: String? = null,
+        init: TableColumn<S, T>.() -> Unit
+    ): TableColumn<S, T> = column<T>(text).apply(init)
+
+    inline operator fun <T> String.invoke(
+        init: TableColumn<S, T>.() -> Unit
+    ): TableColumn<S, T> = column(this, init)
 }

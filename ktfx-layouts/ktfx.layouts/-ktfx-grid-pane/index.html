@@ -8,7 +8,7 @@
 <a href="../../index.html">ktfx-layouts</a>&nbsp;/&nbsp;<a href="../index.html">ktfx.layouts</a>&nbsp;/&nbsp;<a href="./index.html">KtfxGridPane</a><br/>
 <br/>
 <h1>KtfxGridPane</h1>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">, </span><a href="../-margin-constraints/index.html"><span class="identifier">MarginConstraints</span></a><span class="symbol">, </span><a href="../-align-constraints/index.html"><span class="identifier">AlignConstraints</span></a><span class="symbol">, </span><a href="../-h-grow-constraints/index.html"><span class="identifier">HGrowConstraints</span></a><span class="symbol">, </span><a href="../-v-grow-constraints/index.html"><span class="identifier">VGrowConstraints</span></a></code>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">KtfxGridPane</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">GridPane</span><span class="symbol">, </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a></code>
 <p><a href="#">GridPane</a> with dynamic-layout dsl support.
 Invoking dsl will add its children.</p>
 <h3>Constructors</h3>
@@ -30,107 +30,99 @@ Invoking dsl will add its children.</p>
 <tbody>
 <tr>
 <td>
-<h4><a href="align.html">align</a></h4>
+<h4><a href="alignment.html">alignment</a></h4>
 </td>
 <td>
-<p>Conveniently set <a href="valign.html">KtfxGridPane.valign</a> and <a href="halign.html">KtfxGridPane.halign</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">align</span><span class="symbol">: </span><span class="identifier">Pos</span><span class="symbol">?</span></code></td>
+<p>Children alignment in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">alignment</span><span class="symbol">: </span><span class="identifier">Pos</span><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="col.html">col</a></h4>
+<h4><a href="column-index.html">columnIndex</a></h4>
 </td>
 <td>
-<p>While <code>colIndex</code> are not a reserved variable, it follows the standard set by <a href="row.html">row</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">col</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+<p>Children column index in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">columnIndex</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="col-spans.html">colSpans</a></h4>
+<h4><a href="column-span.html">columnSpan</a></h4>
 </td>
 <td>
-<p>While <code>colRange</code> are not a reserved variable, it follows the standard set by <a href="row-spans.html">rowSpans</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">colSpans</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+<p>Children column span in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">columnSpan</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="fill.html">fill</a></h4>
+<h4><a href="fill-height.html">fillHeight</a></h4>
 </td>
 <td>
-<p>Conveniently set <a href="vfill.html">KtfxGridPane.vfill</a> and <a href="hfill.html">KtfxGridPane.hfill</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">fill</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span></code></td>
+<p>Children fill height property in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">fillHeight</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="halign.html">halign</a></h4>
+<h4><a href="fill-width.html">fillWidth</a></h4>
 </td>
 <td>
-<p>Children horizontal alignment in this container.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halign</span><span class="symbol">: </span><span class="identifier">HPos</span><span class="symbol">?</span></code></td>
+<p>Children fill width property in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">fillWidth</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="hfill.html">hfill</a></h4>
+<h4><a href="halignment.html">halignment</a></h4>
 </td>
 <td>
-<p>Alias for reserved variable <a href="#">GridPane.setFillWidth</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">hfill</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span></code></td>
+<p>Children horizontal alignment in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignment</span><span class="symbol">: </span><span class="identifier">HPos</span><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="hgrows.html">hgrows</a></h4>
+<h4><a href="hgrow.html">hgrow</a></h4>
 </td>
 <td>
-<p>Children horizontal grow priority in this container.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">hgrows</span><span class="symbol">: </span><span class="identifier">Priority</span><span class="symbol">?</span></code></td>
+<p>Children horizontal grow priority in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">hgrow</span><span class="symbol">: </span><span class="identifier">Priority</span><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="margins.html">margins</a></h4>
+<h4><a href="margin.html">margin</a></h4>
 </td>
 <td>
-<p>Children margin in this container, alias for reserved property <code>margin</code>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">: </span><span class="identifier">Insets</span><span class="symbol">?</span></code></td>
+<p>Children margin in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">: </span><span class="identifier">Insets</span><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="row.html">row</a></h4>
+<h4><a href="row-index.html">rowIndex</a></h4>
 </td>
 <td>
-<p>Alias for reserved variable <a href="#">GridPane.setRowIndex</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">row</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+<p>Children row index in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">rowIndex</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="row-spans.html">rowSpans</a></h4>
+<h4><a href="row-span.html">rowSpan</a></h4>
 </td>
 <td>
-<p>Alias for reserved variable <a href="#">GridPane.setRowSpan</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">rowSpans</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
+<p>Children row span in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">rowSpan</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="valign.html">valign</a></h4>
+<h4><a href="valignment.html">valignment</a></h4>
 </td>
 <td>
-<p>Children vertical alignment in this container.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valign</span><span class="symbol">: </span><span class="identifier">VPos</span><span class="symbol">?</span></code></td>
+<p>Children vertical alignment in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignment</span><span class="symbol">: </span><span class="identifier">VPos</span><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="vfill.html">vfill</a></h4>
+<h4><a href="vgrow.html">vgrow</a></h4>
 </td>
 <td>
-<p>Alias for reserved variable <a href="#">GridPane.setFillHeight</a>.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">vfill</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="vgrows.html">vgrows</a></h4>
-</td>
-<td>
-<p>Children vertical grow priority in this container.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">vgrows</span><span class="symbol">: </span><span class="identifier">Priority</span><span class="symbol">?</span></code></td>
+<p>Children vertical grow priority in this layout.</p>
+<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">vgrow</span><span class="symbol">: </span><span class="identifier">Priority</span><span class="symbol">?</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -147,83 +139,145 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
-<h4><a href="grid-at.html">gridAt</a></h4>
+<h4><a href="align.html">align</a></h4>
 </td>
 <td>
-<p>Conveniently set <a href="row.html">KtfxGridPane.row</a>, <a href="col.html">KtfxGridPane.col</a>, <a href="row-spans.html">KtfxGridPane.rowSpans</a> and <a href="col-spans.html">KtfxGridPane.colSpans</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">gridAt</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/row">row</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/col">col</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/colSpans">colSpans</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$gridAt(javafx.scene.Node, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/rowSpans">rowSpans</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure alignment fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">align</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$align(ktfx.layouts.KtfxGridPane.align.T, javafx.geometry.Pos)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Pos</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="grow.html">grow</a></h4>
+<h4><a href="clear-constraints.html">clearConstraints</a></h4>
 </td>
 <td>
-<p>Conveniently call <a href="../-h-grow-constraints/hgrow.html">KtfxGridPane.hgrow</a> and <a href="../-v-grow-constraints/vgrow.html">KtfxGridPane.vgrow</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">grow</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Clear children constraints.</p>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">clearConstraints</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="halign-center.html">halignCenter</a></h4>
+<h4><a href="col.html">col</a></h4>
 </td>
 <td>
-<p>Convenient method to align children to <a href="#">HPos.CENTER</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignCenter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure column index fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">col</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$col(ktfx.layouts.KtfxGridPane.col.T, kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Configure column index and span fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">col</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$col(ktfx.layouts.KtfxGridPane.col.T, kotlin.Pair((kotlin.Int, )))/pair">pair</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="halign-left.html">halignLeft</a></h4>
+<h4><a href="fill-height.html">fillHeight</a></h4>
 </td>
 <td>
-<p>Convenient method to align children to <a href="#">HPos.LEFT</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignLeft</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure fill height fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">fillHeight</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$fillHeight(ktfx.layouts.KtfxGridPane.fillHeight.T, kotlin.Boolean)/fill">fill</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="halign-right.html">halignRight</a></h4>
+<h4><a href="fill-width.html">fillWidth</a></h4>
 </td>
 <td>
-<p>Convenient method to align children to <a href="#">HPos.RIGHT</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">halignRight</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure fill width fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">fillWidth</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$fillWidth(ktfx.layouts.KtfxGridPane.fillWidth.T, kotlin.Boolean)/fill">fill</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="remove-constraints.html">removeConstraints</a></h4>
+<h4><a href="halign.html">halign</a></h4>
 </td>
 <td>
-<p>Clear children constraints in this container.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">removeConstraints</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure horizontal alignment fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">halign</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$halign(ktfx.layouts.KtfxGridPane.halign.T, javafx.geometry.HPos)/hpos">hpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">HPos</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="valign-baseline.html">valignBaseline</a></h4>
+<h4><a href="hgrow.html">hgrow</a></h4>
 </td>
 <td>
-<p>Convenient method to align children to <a href="#">VPos.BASELINE</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignBaseline</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure horizontal grow fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">hgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$hgrow(ktfx.layouts.KtfxGridPane.hgrow.T, javafx.scene.layout.Priority)/priority">priority</span><span class="symbol">:</span>&nbsp;<span class="identifier">Priority</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code><br/>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">hgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$hgrow(ktfx.layouts.KtfxGridPane.hgrow.T, kotlin.Boolean)/always">always</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="valign-bottom.html">valignBottom</a></h4>
+<h4><a href="margin.html">margin</a></h4>
 </td>
 <td>
-<p>Convenient method to align children to <a href="#">VPos.BOTTOM</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignBottom</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure margin fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.T, javafx.geometry.Insets)/margin">margin</span><span class="symbol">:</span>&nbsp;<span class="identifier">Insets</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="valign-center.html">valignCenter</a></h4>
+<h4><a href="margin-all.html">marginAll</a></h4>
 </td>
 <td>
-<p>Convenient method to align children to <a href="#">VPos.CENTER</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignCenter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure all sides margin fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">marginAll</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$marginAll(ktfx.layouts.KtfxGridPane.marginAll.T, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="valign-top.html">valignTop</a></h4>
+<h4><a href="margin-bottom.html">marginBottom</a></h4>
 </td>
 <td>
-<p>Convenient method to align children to <a href="#">VPos.TOP</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignTop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<p>Configure bottom margin fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">marginBottom</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$marginBottom(ktfx.layouts.KtfxGridPane.marginBottom.T, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="margin-left.html">marginLeft</a></h4>
+</td>
+<td>
+<p>Configure left margin fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">marginLeft</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$marginLeft(ktfx.layouts.KtfxGridPane.marginLeft.T, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="margin-right.html">marginRight</a></h4>
+</td>
+<td>
+<p>Configure right margin fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">marginRight</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$marginRight(ktfx.layouts.KtfxGridPane.marginRight.T, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="margin-top.html">marginTop</a></h4>
+</td>
+<td>
+<p>Configure top margin fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">marginTop</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$marginTop(ktfx.layouts.KtfxGridPane.marginTop.T, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="row.html">row</a></h4>
+</td>
+<td>
+<p>Configure row index fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">row</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$row(ktfx.layouts.KtfxGridPane.row.T, kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code>
+<p>Configure row index and span fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">row</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$row(ktfx.layouts.KtfxGridPane.row.T, kotlin.Pair((kotlin.Int, )))/pair">pair</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="update-margin.html">updateMargin</a></h4>
+</td>
+<td>
+<p>Configure children margin, taking account of current margin.</p>
+<code><span class="keyword">fun </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">updateMargin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$updateMargin(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)/top">top</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.top<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$updateMargin(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)/right">right</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.right<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$updateMargin(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)/bottom">bottom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.bottom<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$updateMargin(javafx.scene.Node, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)/left">left</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.left<span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="valign.html">valign</a></h4>
+</td>
+<td>
+<p>Configure vertical alignment fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">valign</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$valign(ktfx.layouts.KtfxGridPane.valign.T, javafx.geometry.VPos)/vpos">vpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">VPos</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="vgrow.html">vgrow</a></h4>
+</td>
+<td>
+<p>Configure vertical grow fluidly using infix operator.</p>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">vgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$vgrow(ktfx.layouts.KtfxGridPane.vgrow.T, javafx.scene.layout.Priority)/priority">priority</span><span class="symbol">:</span>&nbsp;<span class="identifier">Priority</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code><br/>
+<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">T</span><span class="symbol">.</span><span class="identifier">vgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$vgrow(ktfx.layouts.KtfxGridPane.vgrow.T, kotlin.Boolean)/always">always</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -304,9 +358,9 @@ Invoking dsl will add its children.</p>
 </td>
 <td>
 <p>Add a <a href="#">Box</a> to this manager.</p>
-<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">box</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double)/width">width</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double)/height">height</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double)/depth">depth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SIZE<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Box</span></code>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">box</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double)/width">width</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Box.DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double)/height">height</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Box.DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double)/depth">depth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Box.DEFAULT_SIZE<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Box</span></code>
 <p>Add a <a href="#">Box</a> with initialization block to this manager.</p>
-<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">box</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.scene.shape.Box, kotlin.Unit)))/width">width</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.scene.shape.Box, kotlin.Unit)))/height">height</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.scene.shape.Box, kotlin.Unit)))/depth">depth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.scene.shape.Box, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Box</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Box</span></code></td>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">box</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.scene.shape.Box, kotlin.Unit)))/width">width</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Box.DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.scene.shape.Box, kotlin.Unit)))/height">height</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Box.DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.scene.shape.Box, kotlin.Unit)))/depth">depth</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;Box.DEFAULT_SIZE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$box(ktfx.layouts.NodeManager, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Function1((javafx.scene.shape.Box, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">Box</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Box</span></code></td>
 </tr>
 <tr>
 <td>
@@ -384,9 +438,9 @@ Invoking dsl will add its children.</p>
 </td>
 <td>
 <p>Add a <a href="#">ColorPicker</a> to this manager.</p>
-<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">colorPicker</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$colorPicker(ktfx.layouts.NodeManager, javafx.scene.paint.Color)/color">color</span><span class="symbol">:</span>&nbsp;<span class="identifier">Color</span>&nbsp;<span class="symbol">=</span>&nbsp;WHITE<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ColorPicker</span></code>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">colorPicker</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$colorPicker(ktfx.layouts.NodeManager, javafx.scene.paint.Color)/color">color</span><span class="symbol">:</span>&nbsp;<span class="identifier">Color</span>&nbsp;<span class="symbol">=</span>&nbsp;Color.WHITE<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ColorPicker</span></code>
 <p>Add a <a href="#">ColorPicker</a> with initialization block to this manager.</p>
-<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">colorPicker</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$colorPicker(ktfx.layouts.NodeManager, javafx.scene.paint.Color, kotlin.Function1((javafx.scene.control.ColorPicker, kotlin.Unit)))/color">color</span><span class="symbol">:</span>&nbsp;<span class="identifier">Color</span>&nbsp;<span class="symbol">=</span>&nbsp;WHITE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$colorPicker(ktfx.layouts.NodeManager, javafx.scene.paint.Color, kotlin.Function1((javafx.scene.control.ColorPicker, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">ColorPicker</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ColorPicker</span></code></td>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">colorPicker</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$colorPicker(ktfx.layouts.NodeManager, javafx.scene.paint.Color, kotlin.Function1((javafx.scene.control.ColorPicker, kotlin.Unit)))/color">color</span><span class="symbol">:</span>&nbsp;<span class="identifier">Color</span>&nbsp;<span class="symbol">=</span>&nbsp;Color.WHITE<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$colorPicker(ktfx.layouts.NodeManager, javafx.scene.paint.Color, kotlin.Function1((javafx.scene.control.ColorPicker, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">ColorPicker</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ColorPicker</span></code></td>
 </tr>
 <tr>
 <td>
@@ -444,9 +498,9 @@ Invoking dsl will add its children.</p>
 </td>
 <td>
 <p>Add a <a href="#">FlowPane</a> to this manager.</p>
-<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">flowPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double)/orientation">orientation</span><span class="symbol">:</span>&nbsp;<span class="identifier">Orientation</span>&nbsp;<span class="symbol">=</span>&nbsp;HORIZONTAL<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double)/hgap">hgap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double)/vgap">vgap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;hgap<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FlowPane</span></code>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">flowPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double)/orientation">orientation</span><span class="symbol">:</span>&nbsp;<span class="identifier">Orientation</span>&nbsp;<span class="symbol">=</span>&nbsp;Orientation.HORIZONTAL<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double)/hgap">hgap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double)/vgap">vgap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;hgap<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FlowPane</span></code>
 <p>Add a <a href="#">FlowPane</a> with initialization block to this manager.</p>
-<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">flowPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxFlowPane, kotlin.Unit)))/orientation">orientation</span><span class="symbol">:</span>&nbsp;<span class="identifier">Orientation</span>&nbsp;<span class="symbol">=</span>&nbsp;HORIZONTAL<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxFlowPane, kotlin.Unit)))/hgap">hgap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxFlowPane, kotlin.Unit)))/vgap">vgap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;hgap<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxFlowPane, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../-ktfx-flow-pane/index.html"><span class="identifier">KtfxFlowPane</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FlowPane</span></code></td>
+<code><span class="keyword">fun </span><a href="../-node-manager/index.html"><span class="identifier">NodeManager</span></a><span class="symbol">.</span><span class="identifier">flowPane</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxFlowPane, kotlin.Unit)))/orientation">orientation</span><span class="symbol">:</span>&nbsp;<span class="identifier">Orientation</span>&nbsp;<span class="symbol">=</span>&nbsp;Orientation.HORIZONTAL<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxFlowPane, kotlin.Unit)))/hgap">hgap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxFlowPane, kotlin.Unit)))/vgap">vgap</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;hgap<span class="symbol">, </span><span class="identifier" id="ktfx.layouts$flowPane(ktfx.layouts.NodeManager, javafx.geometry.Orientation, kotlin.Double, kotlin.Double, kotlin.Function1((ktfx.layouts.KtfxFlowPane, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<a href="../-ktfx-flow-pane/index.html"><span class="identifier">KtfxFlowPane</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FlowPane</span></code></td>
 </tr>
 <tr>
 <td>

@@ -44,6 +44,16 @@
 </tr>
 <tr>
 <td>
+<h4><a href="custom.html">custom</a></h4>
+</td>
+<td>
+<p>Add custom button specifying text and type.</p>
+<code><span class="keyword">fun </span><span class="identifier">custom</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonBuilder$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.dialogs.DialogButtonBuilder$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData)/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ButtonData</span>&nbsp;<span class="symbol">=</span>&nbsp;ButtonBar.ButtonData.OTHER<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
+<p>Add custom button specifying text and type, invoking DSL to customize it as node.</p>
+<code><span class="keyword">fun </span><span class="identifier">custom</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonBuilder$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.dialogs.DialogButtonBuilder$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ButtonData</span>&nbsp;<span class="symbol">=</span>&nbsp;ButtonBar.ButtonData.OTHER<span class="symbol">, </span><span class="identifier" id="ktfx.dialogs.DialogButtonBuilder$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="finish.html">finish</a></h4>
 </td>
 <td>
@@ -57,9 +67,7 @@
 <h4><a href="invoke.html">invoke</a></h4>
 </td>
 <td>
-<p>Add custom button specifying text and type.</p>
-<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonBuilder$invoke(kotlin.String, javafx.scene.control.ButtonBar.ButtonData)/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ButtonData</span>&nbsp;<span class="symbol">=</span>&nbsp;ButtonBar.ButtonData.OTHER<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add custom button specifying text and type, invoking DSL to customize it as node.</p>
+<p>Alias of <a href="custom.html">custom</a> with operator function.</p>
 <code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonBuilder$invoke(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ButtonData</span>&nbsp;<span class="symbol">=</span>&nbsp;ButtonBar.ButtonData.OTHER<span class="symbol">, </span><span class="identifier" id="ktfx.dialogs.DialogButtonBuilder$invoke(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>

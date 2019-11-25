@@ -38,10 +38,8 @@ fun alert(
  * @param buttonTypes alert buttons.
  * @return selected alert button.
  */
-inline fun alert(
-    content: String = "",
-    vararg buttonTypes: ButtonType
-): Optional<ButtonType> = alert(null, null, content, *buttonTypes)
+inline fun alert(content: String = "", vararg buttonTypes: ButtonType): Optional<ButtonType> =
+    alert(null, null, content, *buttonTypes)
 
 /**
  * Show an information alert with title and graphic.
@@ -72,10 +70,8 @@ fun infoAlert(
  * @param buttonTypes alert buttons.
  * @return selected alert button.
  */
-inline fun infoAlert(
-    content: String = "",
-    vararg buttonTypes: ButtonType
-): Optional<ButtonType> = infoAlert(null, null, content, *buttonTypes)
+inline fun infoAlert(content: String = "", vararg buttonTypes: ButtonType): Optional<ButtonType> =
+    infoAlert(null, null, content, *buttonTypes)
 
 /**
  * Show a warning alert with title and graphic.
@@ -106,10 +102,8 @@ fun warningAlert(
  * @param buttonTypes alert buttons.
  * @return selected alert button.
  */
-inline fun warningAlert(
-    content: String = "",
-    vararg buttonTypes: ButtonType
-): Optional<ButtonType> = warningAlert(null, null, content, *buttonTypes)
+inline fun warningAlert(content: String = "", vararg buttonTypes: ButtonType): Optional<ButtonType> =
+    warningAlert(null, null, content, *buttonTypes)
 
 /**
  * Show a confirmation alert with title and graphic.
@@ -140,10 +134,8 @@ fun confirmAlert(
  * @param buttonTypes alert buttons.
  * @return selected alert button.
  */
-inline fun confirmAlert(
-    content: String = "",
-    vararg buttonTypes: ButtonType
-): Optional<ButtonType> = confirmAlert(null, null, content, *buttonTypes)
+inline fun confirmAlert(content: String = "", vararg buttonTypes: ButtonType): Optional<ButtonType> =
+    confirmAlert(null, null, content, *buttonTypes)
 
 /**
  * Show an error alert with title and graphic.
@@ -174,7 +166,5 @@ fun errorAlert(
  * @param buttonTypes alert buttons.
  * @return selected alert button.
  */
-inline fun errorAlert(
-    content: String = "",
-    vararg buttonTypes: ButtonType
-): Optional<ButtonType> = errorAlert(null, null, content, *buttonTypes)
+inline fun errorAlert(content: String = "", vararg buttonTypes: ButtonType): Optional<ButtonType> =
+    errorAlert(null, null, content, *buttonTypes)

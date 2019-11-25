@@ -19,8 +19,7 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXRippler : JFXRippler(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { control = it }
+    final override fun <T : Node> addNode(node: T): T = node.also { control = it }
 }
 
 /** Create a [JFXRippler] with initialization block. */

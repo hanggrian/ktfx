@@ -19,8 +19,7 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXTogglePane : JFXTogglePane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { contentNode = it }
+    final override fun <T : Node> addNode(node: T): T = node.also { contentNode = it }
 }
 
 /** Create a [JFXTogglePane] with initialization block. */

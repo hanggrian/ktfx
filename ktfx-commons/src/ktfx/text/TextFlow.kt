@@ -10,32 +10,27 @@ import javafx.scene.text.TextFlow
  *
  * @see java.lang.Appendable.append
  */
-fun TextFlow.append(text: String): TextFlow =
-    apply { children += Text(text) }
+fun TextFlow.append(text: String): TextFlow = apply { children += Text(text) }
 
 /**
  * Add new line to this flow, returning the flow itself for re-append.
  *
  * @see kotlin.text.appendln
  */
-fun TextFlow.appendln(): TextFlow =
-    append(SystemProperties.LINE_SEPARATOR)
+fun TextFlow.appendln(): TextFlow = append(SystemProperties.LINE_SEPARATOR)
 
 /**
  * Add text with new line to this flow, returning the flow itself for re-append.
  *
  * @see kotlin.text.appendln
  */
-inline fun TextFlow.appendln(text: String): TextFlow =
-    append(text).appendln()
+inline fun TextFlow.appendln(text: String): TextFlow = append(text).appendln()
 
 /** Add text to this flow, returning the flow itself for re-append. */
-inline fun TextFlow.append(text: Any): TextFlow =
-    append(text.toString())
+inline fun TextFlow.append(text: Any): TextFlow = append(text.toString())
 
 /** Add text with new line to this flow, returning the flow itself for re-append. */
-inline fun TextFlow.appendln(text: Any): TextFlow =
-    append(text.toString()).appendln()
+inline fun TextFlow.appendln(text: Any): TextFlow = appendln(text.toString())
 
 /**
  * @see kotlin.text.SystemProperties

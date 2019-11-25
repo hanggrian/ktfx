@@ -45,11 +45,9 @@ fun ListView<String>.textFieldCellFactory(): Unit =
     setCellFactory(TextFieldListCell.forListView())
 
 /** Creates a [TextFieldListCell] factory for use in [ListView] controls. */
-fun <T> ListView<T>.textFieldCellFactory(
-    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()
-): Unit = setCellFactory(TextFieldListCell.forListView(converter))
+fun <T> ListView<T>.textFieldCellFactory(converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()): Unit =
+    setCellFactory(TextFieldListCell.forListView(converter))
 
 /** Set custom cell factory to this [ListView]. */
-fun <T> ListView<T>.cellFactory(
-    cellFactory: ListCellBuilder<T>.() -> Unit
-): Unit = setCellFactory { ListCellBuilder<T>().apply(cellFactory) }
+fun <T> ListView<T>.cellFactory(cellFactory: ListCellBuilder<T>.() -> Unit): Unit =
+    setCellFactory { ListCellBuilder<T>().apply(cellFactory) }

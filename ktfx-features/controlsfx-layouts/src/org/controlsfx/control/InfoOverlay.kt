@@ -19,8 +19,7 @@ import org.controlsfx.control.InfoOverlay
  */
 open class KtfxInfoOverlay(graphic: Node?, text: String?) : InfoOverlay(graphic, text), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T = node.also { content = it }
 }
 
 /** Create a [InfoOverlay] with initialization block. */

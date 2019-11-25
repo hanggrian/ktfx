@@ -17,8 +17,7 @@ import kotlin.contracts.contract
  */
 open class KtfxTextFlow : TextFlow(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
     /** Call [NodeManager.text] by string invocation. */
     inline operator fun String.invoke(

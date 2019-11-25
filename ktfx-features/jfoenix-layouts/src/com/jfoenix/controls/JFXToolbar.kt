@@ -30,12 +30,11 @@ open class KtfxJFXToolbar : JFXToolbar() {
 
     @Suppress("NOTHING_TO_INLINE")
     class HBoxConstraints internal constructor(list: MutableList<Node>) : NodeManager, MutableList<Node> by list {
-        final override fun <T : Node> addNode(node: T): T =
-            node.also { this += it }
+        final override fun <T : Node> addNode(node: T): T = node.also { this += it }
 
         /** Clear children constraints. */
-        @JvmName("clearConstraints2") inline fun Node.clearConstraints(): Unit =
-            HBox.clearConstraints(this)
+        @JvmName("clearConstraints2")
+        inline fun Node.clearConstraints(): Unit = HBox.clearConstraints(this)
 
         /** Children horizontal grow priority in this layout. */
         inline var Node.hgrow: Priority?
@@ -43,12 +42,10 @@ open class KtfxJFXToolbar : JFXToolbar() {
             @JvmName("setHgrow2") set(value) = HBox.setHgrow(this, value)
 
         /** Configure horizontal grow fluidly using infix operator. */
-        inline infix fun <T : Node> T.hgrow(priority: Priority): T =
-            apply { hgrow = priority }
+        inline infix fun <T : Node> T.hgrow(priority: Priority): T = apply { hgrow = priority }
 
         /** Configure horizontal grow fluidly using infix operator. */
-        inline infix fun <T : Node> T.hgrow(always: Boolean): T =
-            hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+        inline infix fun <T : Node> T.hgrow(always: Boolean): T = hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
 
         /** Children margin in this layout. */
         inline var Node.margin: Insets?
@@ -66,28 +63,22 @@ open class KtfxJFXToolbar : JFXToolbar() {
         }
 
         /** Configure margin fluidly using infix operator. */
-        inline infix fun <T : Node> T.margin(margin: Insets): T =
-            apply { this.margin = margin }
+        inline infix fun <T : Node> T.margin(margin: Insets): T = apply { this.margin = margin }
 
         /** Configure all sides margin fluidly using infix operator. */
-        inline infix fun <T : Node> T.marginAll(margin: Double): T =
-            apply { this.margin = Insets(margin) }
+        inline infix fun <T : Node> T.marginAll(margin: Double): T = apply { this.margin = Insets(margin) }
 
         /** Configure top margin fluidly using infix operator. */
-        inline infix fun <T : Node> T.marginTop(margin: Double): T =
-            apply { updateMargin(top = margin) }
+        inline infix fun <T : Node> T.marginTop(margin: Double): T = apply { updateMargin(top = margin) }
 
         /** Configure right margin fluidly using infix operator. */
-        inline infix fun <T : Node> T.marginRight(margin: Double): T =
-            apply { updateMargin(right = margin) }
+        inline infix fun <T : Node> T.marginRight(margin: Double): T = apply { updateMargin(right = margin) }
 
         /** Configure bottom margin fluidly using infix operator. */
-        inline infix fun <T : Node> T.marginBottom(margin: Double): T =
-            apply { updateMargin(bottom = margin) }
+        inline infix fun <T : Node> T.marginBottom(margin: Double): T = apply { updateMargin(bottom = margin) }
 
         /** Configure left margin fluidly using infix operator. */
-        inline infix fun <T : Node> T.marginLeft(margin: Double): T =
-            apply { updateMargin(left = margin) }
+        inline infix fun <T : Node> T.marginLeft(margin: Double): T = apply { updateMargin(left = margin) }
     }
 }
 

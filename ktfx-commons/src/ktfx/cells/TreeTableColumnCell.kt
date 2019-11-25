@@ -66,6 +66,5 @@ fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
 ): Unit = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter))
 
 /** Set custom cell factory to this [TreeTableColumn]. */
-fun <S, T> TreeTableColumn<S, T>.cellFactory(
-    cellFactory: TreeTableCellBuilder<S, T>.() -> Unit
-): Unit = setCellFactory { TreeTableCellBuilder<S, T>().apply(cellFactory) }
+fun <S, T> TreeTableColumn<S, T>.cellFactory(cellFactory: TreeTableCellBuilder<S, T>.() -> Unit): Unit =
+    setCellFactory { TreeTableCellBuilder<S, T>().apply(cellFactory) }

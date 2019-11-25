@@ -17,8 +17,7 @@ import kotlin.contracts.contract
  */
 open class KtfxTabPane : TabPane(), TabManager {
 
-    final override fun <T : Tab> addTab(tab: T): T =
-        tab.also { tabs += it }
+    final override fun <T : Tab> addTab(tab: T): T = tab.also { tabs += it }
 
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(

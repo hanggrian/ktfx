@@ -22,8 +22,7 @@ import org.controlsfx.control.SegmentedButton
  */
 open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
 
-    final override fun <T : ToggleButton> addButton(button: T): T =
-        button.also { buttons += it }
+    final override fun <T : ToggleButton> addButton(button: T): T = button.also { buttons += it }
 
     /** Call [ToggleButtonManager.toggleButton] by string invocation. */
     inline operator fun String.invoke(

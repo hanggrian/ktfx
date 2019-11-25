@@ -11,8 +11,7 @@ import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals
 
 /** Get window as [Stage]. */
-inline val Scene.stage: Stage
-    get() = window as Stage
+inline val Scene.stage: Stage get() = window as Stage
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
 inline var Stage.minSize: Double

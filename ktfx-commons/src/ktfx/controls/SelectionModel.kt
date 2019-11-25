@@ -9,33 +9,25 @@ import ktfx.collections.emptyBinding
 import ktfx.collections.notEmptyBinding
 
 /** Returns `true` if the model is selected. */
-inline fun SelectionModel<*>.isSelected(): Boolean =
-    selectedItem != null
+inline fun SelectionModel<*>.isSelected(): Boolean = selectedItem != null
 
 /** Returns `true` if the model is not selected. */
-inline fun SelectionModel<*>.isNotSelected(): Boolean =
-    selectedItem == null
+inline fun SelectionModel<*>.isNotSelected(): Boolean = selectedItem == null
 
 /** Returns `true` if the model is selected. */
-inline fun MultipleSelectionModel<*>.isSelected(): Boolean =
-    selectedItems.isNotEmpty()
+inline fun MultipleSelectionModel<*>.isSelected(): Boolean = selectedItems.isNotEmpty()
 
 /** Returns `true` if the model is not selected. */
-inline fun MultipleSelectionModel<*>.isNotSelected(): Boolean =
-    selectedItems.isEmpty()
+inline fun MultipleSelectionModel<*>.isNotSelected(): Boolean = selectedItems.isEmpty()
 
 /** Returns a boolean binding that holds `true` when item is selected. */
-inline val SelectionModel<*>.selectedBinding: BooleanBinding
-    get() = selectedItemProperty().isNotNull
+inline val SelectionModel<*>.selectedBinding: BooleanBinding get() = selectedItemProperty().isNotNull
 
 /** Returns a boolean binding that holds `true` when item is not selected. */
-inline val SelectionModel<*>.notSelectedBinding: BooleanBinding
-    get() = selectedItemProperty().isNull
+inline val SelectionModel<*>.notSelectedBinding: BooleanBinding get() = selectedItemProperty().isNull
 
 /** Returns a boolean binding that holds `true` when item is selected. */
-inline val MultipleSelectionModel<*>.selectedBinding: BooleanBinding
-    get() = selectedItems.notEmptyBinding
+inline val MultipleSelectionModel<*>.selectedBinding: BooleanBinding get() = selectedItems.notEmptyBinding
 
 /** Returns a boolean binding that holds `true` when item is not selected. */
-inline val MultipleSelectionModel<*>.notSelectedBinding: BooleanBinding
-    get() = selectedItems.emptyBinding
+inline val MultipleSelectionModel<*>.notSelectedBinding: BooleanBinding get() = selectedItems.emptyBinding

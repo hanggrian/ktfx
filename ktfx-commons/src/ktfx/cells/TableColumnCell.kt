@@ -65,6 +65,5 @@ fun <S, T> TableColumn<S, T>.textFieldCellFactory(
 ): Unit = setCellFactory(TextFieldTableCell.forTableColumn(converter))
 
 /** Set custom cell factory to this [TableColumn]. */
-fun <S, T> TableColumn<S, T>.cellFactory(
-    cellFactory: TableCellBuilder<S, T>.() -> Unit
-): Unit = setCellFactory { TableCellBuilder<S, T>().apply(cellFactory) }
+fun <S, T> TableColumn<S, T>.cellFactory(cellFactory: TableCellBuilder<S, T>.() -> Unit): Unit =
+    setCellFactory { TableCellBuilder<S, T>().apply(cellFactory) }

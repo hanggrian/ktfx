@@ -7,20 +7,17 @@ import kotlin.reflect.KClass
 import netscape.javascript.JSObject
 
 /** Launch a JavaFX application with Kotlin class. */
-fun <T : Application> launch(type: KClass<T>, vararg args: String): Unit =
-    Application.launch(type.java, *args)
+fun <T : Application> launch(type: KClass<T>, vararg args: String): Unit = Application.launch(type.java, *args)
 
 /** Launch a JavaFX application with reified type. */
-inline fun <reified T : Application> launch(vararg args: String): Unit =
-    launch(T::class, *args)
+inline fun <reified T : Application> launch(vararg args: String): Unit = launch(T::class, *args)
 
 /**
  * Opens the specified URI in a new browser window or tab.
  *
  * @see javafx.application.HostServices.showDocument
  */
-inline fun Application.showDocument(uri: String): Unit =
-    hostServices.showDocument(uri)
+inline fun Application.showDocument(uri: String): Unit = hostServices.showDocument(uri)
 
 /**
  * Resolves the specified relative URI against the code base URI and returns the resolved URI.
@@ -28,8 +25,7 @@ inline fun Application.showDocument(uri: String): Unit =
  * @see javafx.application.HostServices.getCodeBase
  * @see javafx.application.HostServices.resolveURI
  */
-inline fun Application.resolveCodeURI(rel: String): String =
-    hostServices.resolveURI(hostServices.codeBase, rel)
+inline fun Application.resolveCodeURI(rel: String): String = hostServices.resolveURI(hostServices.codeBase, rel)
 
 /**
  * Resolves the specified relative URI against the document base URI and returns the resolved URI.
@@ -37,13 +33,11 @@ inline fun Application.resolveCodeURI(rel: String): String =
  * @see javafx.application.HostServices.getDocumentBase
  * @see javafx.application.HostServices.resolveURI
  */
-inline fun Application.resolveDocumentURI(rel: String): String =
-    hostServices.resolveURI(hostServices.documentBase, rel)
+inline fun Application.resolveDocumentURI(rel: String): String = hostServices.resolveURI(hostServices.documentBase, rel)
 
 /**
  * Returns the JavaScript handle of the enclosing DOM window of the web page containing this application.
  *
  * @see javafx.application.HostServices.getWebContext
  */
-inline val Application.webContext: JSObject
-    get() = hostServices.webContext
+inline val Application.webContext: JSObject get() = hostServices.webContext

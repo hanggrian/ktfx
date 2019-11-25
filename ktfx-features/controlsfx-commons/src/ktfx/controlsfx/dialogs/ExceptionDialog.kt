@@ -34,6 +34,4 @@ fun exceptionDialog(
  *
  * @param exception message to show.
  */
-inline fun exceptionDialog(
-    exception: Throwable
-): Optional<ButtonType> = exceptionDialog(null, null, exception)
+inline fun exceptionDialog(exception: Throwable): Optional<ButtonType> = exceptionDialog(null, null, exception)

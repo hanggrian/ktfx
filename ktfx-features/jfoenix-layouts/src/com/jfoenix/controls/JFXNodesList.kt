@@ -19,8 +19,7 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXNodesList : JFXNodesList(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T =
-        node.also { children += it }
+    override fun <T : Node> addNode(node: T): T = node.also { children += it }
 }
 
 /** Create a [JFXNodesList] with initialization block. */

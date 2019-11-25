@@ -16,8 +16,7 @@ import kotlin.contracts.contract
  */
 open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T = node.also { content = it }
 }
 
 /** Create a [ScrollPane] with initialization block. */

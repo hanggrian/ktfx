@@ -19,8 +19,7 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T = node.also { content = it }
 
     fun topBar(init: (@KtfxLayoutsDslMarker NodeManager).() -> Unit) {
         topBar.children.addAll(NodeManagerImpl().apply(init))

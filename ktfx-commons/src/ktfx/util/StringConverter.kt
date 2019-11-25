@@ -22,15 +22,13 @@ private class StringConverterImpl<T> : StringConverter<T>(), StringConverterBuil
         _toString = listener
     }
 
-    override fun toString(any: T?): String =
-        _toString(any)
+    override fun toString(any: T?): String = _toString(any)
 
     override fun fromString(listener: (String) -> T?) {
         _fromString = listener
     }
 
-    override fun fromString(string: String): T? =
-        _fromString(string)
+    override fun fromString(string: String): T? = _fromString(string)
 }
 
 /** Build string converter with Kotlin DSL. */
@@ -38,9 +36,7 @@ fun <T> buildStringConverter(builder: StringConverterBuilder<T>.() -> Unit): Str
     StringConverterImpl<T>().apply(builder)
 
 /** Converts the object provided into its string form. */
-inline operator fun <T> StringConverter<T>.invoke(obj: T): String =
-    toString(obj)
+inline operator fun <T> StringConverter<T>.invoke(obj: T): String = toString(obj)
 
 /** Converts the string provided into an object defined by the specific converter. */
-inline operator fun <T> StringConverter<T>.get(s: String): T =
-    fromString(s)
+inline operator fun <T> StringConverter<T>.get(s: String): T = fromString(s)

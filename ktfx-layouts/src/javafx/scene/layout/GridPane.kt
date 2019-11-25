@@ -26,13 +26,11 @@ import ktfx.internal.KtfxInternals
  */
 open class KtfxGridPane : GridPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
-    inline fun Node.clearConstraints(): Unit =
-        clearConstraints(this)
+    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 
     /** Children row index in this layout. */
     inline var Node.rowIndex: Int?
@@ -55,8 +53,7 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("setColumnSpan2") set(value) = setColumnSpan(this, value)
 
     /** Configure row index fluidly using infix operator. */
-    inline infix fun <T : Node> T.row(index: Int): T =
-        apply { rowIndex = index }
+    inline infix fun <T : Node> T.row(index: Int): T = apply { rowIndex = index }
 
     /** Configure row index and span fluidly using infix operator. */
     inline infix fun <T : Node> T.row(pair: Pair<Int, Int>): T =
@@ -66,8 +63,7 @@ open class KtfxGridPane : GridPane(), NodeManager {
         }
 
     /** Configure column index fluidly using infix operator. */
-    inline infix fun <T : Node> T.col(index: Int): T =
-        apply { columnIndex = index }
+    inline infix fun <T : Node> T.col(index: Int): T = apply { columnIndex = index }
 
     /** Configure column index and span fluidly using infix operator. */
     inline infix fun <T : Node> T.col(pair: Pair<Int, Int>): T =
@@ -92,28 +88,22 @@ open class KtfxGridPane : GridPane(), NodeManager {
     }
 
     /** Configure margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.margin(margin: Insets): T =
-        apply { this.margin = margin }
+    inline infix fun <T : Node> T.margin(margin: Insets): T = apply { this.margin = margin }
 
     /** Configure all sides margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginAll(margin: Double): T =
-        apply { this.margin = Insets(margin) }
+    inline infix fun <T : Node> T.marginAll(margin: Double): T = apply { this.margin = Insets(margin) }
 
     /** Configure top margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginTop(margin: Double): T =
-        apply { updateMargin(top = margin) }
+    inline infix fun <T : Node> T.marginTop(margin: Double): T = apply { updateMargin(top = margin) }
 
     /** Configure right margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginRight(margin: Double): T =
-        apply { updateMargin(right = margin) }
+    inline infix fun <T : Node> T.marginRight(margin: Double): T = apply { updateMargin(right = margin) }
 
     /** Configure bottom margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginBottom(margin: Double): T =
-        apply { updateMargin(bottom = margin) }
+    inline infix fun <T : Node> T.marginBottom(margin: Double): T = apply { updateMargin(bottom = margin) }
 
     /** Configure left margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginLeft(margin: Double): T =
-        apply { updateMargin(left = margin) }
+    inline infix fun <T : Node> T.marginLeft(margin: Double): T = apply { updateMargin(left = margin) }
 
     /** Children alignment in this layout. */
     inline var Node.alignment: Pos?
@@ -134,16 +124,13 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("setValignment2") set(value) = setValignment(this, value)
 
     /** Configure alignment fluidly using infix operator. */
-    inline infix fun <T : Node> T.align(pos: Pos): T =
-        apply { alignment = pos }
+    inline infix fun <T : Node> T.align(pos: Pos): T = apply { alignment = pos }
 
     /** Configure horizontal alignment fluidly using infix operator. */
-    inline infix fun <T : Node> T.halign(hpos: HPos): T =
-        apply { halignment = hpos }
+    inline infix fun <T : Node> T.halign(hpos: HPos): T = apply { halignment = hpos }
 
     /** Configure vertical alignment fluidly using infix operator. */
-    inline infix fun <T : Node> T.valign(vpos: VPos): T =
-        apply { valignment = vpos }
+    inline infix fun <T : Node> T.valign(vpos: VPos): T = apply { valignment = vpos }
 
     /** Children fill width property in this layout. */
     inline var Node.fillWidth: Boolean?
@@ -156,12 +143,10 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("setFillHeight2") set(value) = setFillHeight(this, value)
 
     /** Configure fill width fluidly using infix operator. */
-    inline infix fun <T : Node> T.fillWidth(fill: Boolean): T =
-        apply { fillWidth = fill }
+    inline infix fun <T : Node> T.fillWidth(fill: Boolean): T = apply { fillWidth = fill }
 
     /** Configure fill height fluidly using infix operator. */
-    inline infix fun <T : Node> T.fillHeight(fill: Boolean): T =
-        apply { fillHeight = fill }
+    inline infix fun <T : Node> T.fillHeight(fill: Boolean): T = apply { fillHeight = fill }
 
     /** Children horizontal grow priority in this layout. */
     inline var Node.hgrow: Priority?
@@ -174,20 +159,16 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("setVgrow2") set(value) = setVgrow(this, value)
 
     /** Configure horizontal grow fluidly using infix operator. */
-    inline infix fun <T : Node> T.hgrow(priority: Priority): T =
-        apply { hgrow = priority }
+    inline infix fun <T : Node> T.hgrow(priority: Priority): T = apply { hgrow = priority }
 
     /** Configure horizontal grow fluidly using infix operator. */
-    inline infix fun <T : Node> T.hgrow(always: Boolean): T =
-        hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+    inline infix fun <T : Node> T.hgrow(always: Boolean): T = hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
 
     /** Configure vertical grow fluidly using infix operator. */
-    inline infix fun <T : Node> T.vgrow(priority: Priority): T =
-        apply { vgrow = priority }
+    inline infix fun <T : Node> T.vgrow(priority: Priority): T = apply { vgrow = priority }
 
     /** Configure vertical grow fluidly using infix operator. */
-    inline infix fun <T : Node> T.vgrow(always: Boolean): T =
-        vgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+    inline infix fun <T : Node> T.vgrow(always: Boolean): T = vgrow(if (always) Priority.ALWAYS else Priority.NEVER)
 }
 
 /** Create a [GridPane] with initialization block. */

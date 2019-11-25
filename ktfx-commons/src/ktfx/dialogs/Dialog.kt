@@ -49,86 +49,77 @@ fun Dialog<*>.buttons(builder: DialogButtonBuilder.() -> Unit) {
 class DialogButtonBuilder internal constructor(private val nativeDialog: Dialog<*>) {
 
     /** Add apply button. */
-    fun apply(): Button =
-        add(ButtonType.APPLY)
+    fun apply(): Button = add(ButtonType.APPLY)
 
     /** Add apply button, invoking DSL to customize it as node. */
-    inline fun apply(block: Button.() -> Unit): Button =
-        apply().apply(block)
+    inline fun apply(block: Button.() -> Unit): Button = apply().apply(block)
 
     /** Add ok button. */
-    fun ok(): Button =
-        add(ButtonType.OK)
+    fun ok(): Button = add(ButtonType.OK)
 
     /** Add ok button, invoking DSL to customize it as node. */
-    inline fun ok(block: Button.() -> Unit): Button =
-        ok().apply(block)
+    inline fun ok(block: Button.() -> Unit): Button = ok().apply(block)
 
     /** Add cancel button. */
-    fun cancel(): Button =
-        add(ButtonType.CANCEL)
+    fun cancel(): Button = add(ButtonType.CANCEL)
 
     /** Add cancel button, invoking DSL to customize it as node. */
-    inline fun cancel(block: Button.() -> Unit): Button =
-        cancel().apply(block)
+    inline fun cancel(block: Button.() -> Unit): Button = cancel().apply(block)
 
     /** Add close button. */
-    fun close(): Button =
-        add(ButtonType.CLOSE)
+    fun close(): Button = add(ButtonType.CLOSE)
 
     /** Add close button, invoking DSL to customize it as node. */
-    inline fun close(block: Button.() -> Unit): Button =
-        close().apply(block)
+    inline fun close(block: Button.() -> Unit): Button = close().apply(block)
 
     /** Add yes button. */
-    fun yes(): Button =
-        add(ButtonType.YES)
+    fun yes(): Button = add(ButtonType.YES)
 
     /** Add yes button, invoking DSL to customize it as node. */
-    inline fun yes(block: Button.() -> Unit): Button =
-        yes().apply(block)
+    inline fun yes(block: Button.() -> Unit): Button = yes().apply(block)
 
     /** Add no button. */
-    fun no(): Button =
-        add(ButtonType.NO)
+    fun no(): Button = add(ButtonType.NO)
 
     /** Add no button, invoking DSL to customize it as node. */
-    inline fun no(block: Button.() -> Unit): Button =
-        no().apply(block)
+    inline fun no(block: Button.() -> Unit): Button = no().apply(block)
 
     /** Add finish button. */
-    fun finish(): Button =
-        add(ButtonType.FINISH)
+    fun finish(): Button = add(ButtonType.FINISH)
 
     /** Add finish button, invoking DSL to customize it as node. */
-    inline fun finish(block: Button.() -> Unit): Button =
-        finish().apply(block)
+    inline fun finish(block: Button.() -> Unit): Button = finish().apply(block)
 
     /** Add next button. */
-    fun next(): Button =
-        add(ButtonType.NEXT)
+    fun next(): Button = add(ButtonType.NEXT)
 
     /** Add next button, invoking DSL to customize it as node. */
-    inline fun next(block: Button.() -> Unit): Button =
-        next().apply(block)
+    inline fun next(block: Button.() -> Unit): Button = next().apply(block)
 
     /** Add previous button. */
-    fun previous(): Button =
-        add(ButtonType.PREVIOUS)
+    fun previous(): Button = add(ButtonType.PREVIOUS)
 
     /** Add previous button, invoking DSL to customize it as node. */
-    inline fun previous(block: Button.() -> Unit): Button =
-        previous().apply(block)
+    inline fun previous(block: Button.() -> Unit): Button = previous().apply(block)
 
     /** Add custom button specifying text and type. */
-    operator fun String.invoke(data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER): Button =
-        add(ButtonType(this, data))
+    fun custom(
+        text: String,
+        data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER
+    ): Button = add(ButtonType(text, data))
 
     /** Add custom button specifying text and type, invoking DSL to customize it as node. */
+    inline fun custom(
+        text: String,
+        data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER,
+        block: Button.() -> Unit
+    ): Button = custom(text, data).apply(block)
+
+    /** Alias of [custom] with operator function. */
     inline operator fun String.invoke(
         data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER,
         block: Button.() -> Unit
-    ): Button = invoke(data).apply(block)
+    ): Button = custom(this, data, block)
 
     private fun add(type: ButtonType): Button = nativeDialog.dialogPane.run {
         buttonTypes += type

@@ -36,10 +36,8 @@ fun <T> selector(
  * @param prefill default choice.
  * @return selected item.
  */
-inline fun <T> selector(
-    items: Collection<T>? = null,
-    prefill: T? = null
-): Optional<T> = selector(null, null, items, prefill)
+inline fun <T> selector(items: Collection<T>? = null, prefill: T? = null): Optional<T> =
+    selector(null, null, items, prefill)
 
 /**
  * Show a selector with title and graphic.
@@ -70,7 +68,5 @@ fun <T> selector(
  * @param prefill default choice.
  * @return selected item.
  */
-inline fun <T> selector(
-    vararg items: T,
-    prefill: T? = null
-): Optional<T> = selector(null, null, *items, prefill = prefill)
+inline fun <T> selector(vararg items: T, prefill: T? = null): Optional<T> =
+    selector(null, null, *items, prefill = prefill)

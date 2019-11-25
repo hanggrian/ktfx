@@ -19,8 +19,7 @@ import org.controlsfx.control.SnapshotView
  */
 open class KtfxSnapshotView : SnapshotView(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { this.node = it }
+    final override fun <T : Node> addNode(node: T): T = node.also { this.node = it }
 }
 
 /** Create a [SnapshotView] with initialization block. */

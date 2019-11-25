@@ -20,9 +20,8 @@ import javafx.util.Duration
 import ktfx.util.millis
 
 /** Construct a [FadeTransition] that animates this [Node]. */
-fun Node.fadeTransition(
-    duration: Duration = 400.0.millis
-): FadeTransition = FadeTransition(duration, this)
+fun Node.fadeTransition(duration: Duration = 400.0.millis): FadeTransition =
+    FadeTransition(duration, this)
 
 /** Construct a [FillTransition] that animates this [Shape]. */
 fun Shape.fillTransition(
@@ -32,30 +31,22 @@ fun Shape.fillTransition(
 ): FillTransition = FillTransition(duration, this, fromValue, toValue)
 
 /** Construct a [ParallelTransition] that animates this [Node]. */
-fun Node.parallelTransition(
-    vararg animations: Animation
-): ParallelTransition = ParallelTransition(this, *animations)
+fun Node.parallelTransition(vararg animations: Animation): ParallelTransition =
+    ParallelTransition(this, *animations)
 
 /** Construct a [PathTransition] that animates this [Node]. */
-fun Node.pathTransition(
-    duration: Duration = 400.0.millis,
-    path: Shape? = null
-): PathTransition = PathTransition(duration, path, this)
+fun Node.pathTransition(duration: Duration = 400.0.millis, path: Shape? = null): PathTransition =
+    PathTransition(duration, path, this)
 
 /** Construct a [RotateTransition] that animates this [Node]. */
-fun Node.rotateTransition(
-    duration: Duration = 400.0.millis
-): RotateTransition = RotateTransition(duration, this)
+fun Node.rotateTransition(duration: Duration = 400.0.millis): RotateTransition = RotateTransition(duration, this)
 
 /** Construct a [ScaleTransition] that animates this [Node]. */
-fun Node.scaleTransition(
-    duration: Duration = 400.0.millis
-): ScaleTransition = ScaleTransition(duration, this)
+fun Node.scaleTransition(duration: Duration = 400.0.millis): ScaleTransition = ScaleTransition(duration, this)
 
 /** Construct a [SequentialTransition] that animates this [Node]. */
-fun Node.sequentialTransition(
-    vararg animations: Animation
-): SequentialTransition = SequentialTransition(this, *animations)
+fun Node.sequentialTransition(vararg animations: Animation): SequentialTransition =
+    SequentialTransition(this, *animations)
 
 /** Construct a [StrokeTransition] that animates this [Shape]. */
 fun Shape.strokeTransition(
@@ -65,6 +56,5 @@ fun Shape.strokeTransition(
 ): StrokeTransition = StrokeTransition(duration, this, fromValue, toValue)
 
 /** Construct a [TranslateTransition] that animates this [Node]. */
-fun Node.translateTransition(
-    duration: Duration = 400.0.millis
-): TranslateTransition = TranslateTransition(duration, this)
+fun Node.translateTransition(duration: Duration = 400.0.millis): TranslateTransition =
+    TranslateTransition(duration, this)

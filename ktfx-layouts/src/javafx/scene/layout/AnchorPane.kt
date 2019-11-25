@@ -19,13 +19,11 @@ import ktfx.internal.KtfxInternals
  */
 open class KtfxAnchorPane : AnchorPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
-    inline fun Node.clearConstraints(): Unit =
-        clearConstraints(this)
+    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 
     /** Children all anchor in this layout. */
     inline var Node.anchorAll: Double?
@@ -58,24 +56,19 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
         set(value) = setRightAnchor(this, value)
 
     /** Configure all anchor fluidly using infix operator. */
-    inline infix fun <T : Node> T.anchorAll(anchor: Double): T =
-        apply { anchorAll = anchor }
+    inline infix fun <T : Node> T.anchorAll(anchor: Double): T = apply { anchorAll = anchor }
 
     /** Configure top anchor fluidly using infix operator. */
-    inline infix fun <T : Node> T.anchorTop(anchor: Double): T =
-        apply { anchorTop = anchor }
+    inline infix fun <T : Node> T.anchorTop(anchor: Double): T = apply { anchorTop = anchor }
 
     /** Configure left anchor fluidly using infix operator. */
-    inline infix fun <T : Node> T.anchorLeft(anchor: Double): T =
-        apply { anchorLeft = anchor }
+    inline infix fun <T : Node> T.anchorLeft(anchor: Double): T = apply { anchorLeft = anchor }
 
     /** Configure bottom anchor fluidly using infix operator. */
-    inline infix fun <T : Node> T.anchorBottom(anchor: Double): T =
-        apply { anchorBottom = anchor }
+    inline infix fun <T : Node> T.anchorBottom(anchor: Double): T = apply { anchorBottom = anchor }
 
     /** Configure right anchor fluidly using infix operator. */
-    inline infix fun <T : Node> T.anchorRight(anchor: Double): T =
-        apply { anchorRight = anchor }
+    inline infix fun <T : Node> T.anchorRight(anchor: Double): T = apply { anchorRight = anchor }
 }
 
 /** Create an [AnchorPane] with initialization block. */

@@ -17,8 +17,7 @@ import kotlin.contracts.contract
  */
 open class KtfxMenuBar : MenuBar(), MenuManager {
 
-    final override fun <T : Menu> addMenu(menu: T): T =
-        menu.also { menus += it }
+    final override fun <T : Menu> addMenu(menu: T): T = menu.also { menus += it }
 
     /** Call [MenuManager.menu] by string invocation. */
     inline operator fun String.invoke(

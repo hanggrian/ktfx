@@ -34,6 +34,4 @@ fun fontSelectorDialog(
  *
  * @param defaultFont initially selected font.
  */
-inline fun fontSelectorDialog(
-    defaultFont: Font? = null
-): Optional<Font> = fontSelectorDialog(null, null, defaultFont)
+inline fun fontSelectorDialog(defaultFont: Font? = null): Optional<Font> = fontSelectorDialog(null, null, defaultFont)

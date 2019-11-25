@@ -16,8 +16,7 @@ import kotlin.contracts.contract
  */
 open class KtfxPath : Path(), PathElementManager {
 
-    final override fun <T : PathElement> addElement(element: T): T =
-        element.also { elements += it }
+    final override fun <T : PathElement> addElement(element: T): T = element.also { elements += it }
 }
 
 /** Create a [Path] with initialization block. */

@@ -26,8 +26,7 @@ class BordersBuilder internal constructor(node: Node) {
         nativeBorders.addBorder(border)
     }
 
-    internal fun build(): Node =
-        nativeBorders.build()
+    internal fun build(): Node = nativeBorders.build()
 
     class EmptyBordersBuilder internal constructor(private val nativeBorders: Borders.EmptyBorders) {
         /** Specifies that the wrapped Node should have the given padding around all four sides of itself. */
@@ -256,5 +255,4 @@ class BordersBuilder internal constructor(node: Node) {
 }
 
 /** Wraps this [Node] with borders using Kotlin DSL, returning the wrapped node. */
-fun Node.wrapBorders(builder: BordersBuilder.() -> Unit): Node =
-    BordersBuilder(this).apply(builder).build()
+fun Node.wrapBorders(builder: BordersBuilder.() -> Unit): Node = BordersBuilder(this).apply(builder).build()

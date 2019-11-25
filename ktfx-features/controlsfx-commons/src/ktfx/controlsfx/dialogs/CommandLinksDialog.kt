@@ -34,9 +34,8 @@ fun commandLinksDialog(
  *
  * @param links actual buttons.
  */
-inline fun commandLinksDialog(
-    vararg links: CommandLinksDialog.CommandLinksButtonType
-): Optional<ButtonType> = commandLinksDialog(null, null, *links)
+inline fun commandLinksDialog(vararg links: CommandLinksDialog.CommandLinksButtonType): Optional<ButtonType> =
+    commandLinksDialog(null, null, *links)
 
 /**
  * Build a command links dialog with Kotlin DSL.
@@ -62,6 +61,5 @@ fun commandLinksDialog(
  *
  * @param links actual buttons.
  */
-inline fun commandLinksDialog(
-    links: List<CommandLinksDialog.CommandLinksButtonType>
-): Optional<ButtonType> = commandLinksDialog(null, null, links)
+inline fun commandLinksDialog(links: List<CommandLinksDialog.CommandLinksButtonType>): Optional<ButtonType> =
+    commandLinksDialog(null, null, links)

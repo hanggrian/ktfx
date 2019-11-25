@@ -19,8 +19,7 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXDrawer : JFXDrawer(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { content += it }
+    final override fun <T : Node> addNode(node: T): T = node.also { content += it }
 }
 
 /** Create a [JFXDrawer] with initialization block. */

@@ -25,8 +25,7 @@ inline fun JFXSnackbar.showIndefinite(
 ): Unit = show(text, -1, actionText, action)
 
 /** Show this snackbar indefinitely. */
-inline fun JFXSnackbar.showIndefinite(text: String): Unit =
-    showIndefinite(text, null, null)
+inline fun JFXSnackbar.showIndefinite(text: String): Unit = showIndefinite(text, null, null)
 
 /** Create and show a snackbar with an action. */
 fun Pane.jfxSnackbar(
@@ -37,10 +36,7 @@ fun Pane.jfxSnackbar(
 ): JFXSnackbar = JFXSnackbar(this).apply { show(text, duration, actionText, action) }
 
 /** Create and show a snackbar. */
-inline fun Pane.jfxSnackbar(
-    text: String,
-    duration: Long
-): JFXSnackbar = jfxSnackbar(text, duration, null, null)
+inline fun Pane.jfxSnackbar(text: String, duration: Long): JFXSnackbar = jfxSnackbar(text, duration, null, null)
 
 /** Create and show a snackbar with an action indefinitely. */
 inline fun Pane.jfxIndefiniteSnackbar(
@@ -50,6 +46,4 @@ inline fun Pane.jfxIndefiniteSnackbar(
 ): JFXSnackbar = jfxSnackbar(text, -1, actionText, action)
 
 /** Create and show a snackbar indefinitely. */
-inline fun Pane.jfxIndefiniteSnackbar(
-    text: String
-): JFXSnackbar = jfxIndefiniteSnackbar(text, null, null)
+inline fun Pane.jfxIndefiniteSnackbar(text: String): JFXSnackbar = jfxIndefiniteSnackbar(text, null, null)

@@ -11,21 +11,16 @@ import javafx.beans.property.LongProperty
 import javafx.beans.property.Property
 
 /** Revert the effect of [BooleanProperty.asObject]. */
-fun Property<Boolean>.asPrimitive(): BooleanProperty =
-    BooleanProperty.booleanProperty(this)
+fun Property<Boolean>.asPrimitive(): BooleanProperty = BooleanProperty.booleanProperty(this)
 
 /** Revert the effect of [DoubleProperty.asObject]. */
-fun Property<Double>.asPrimitive(): DoubleProperty =
-    DoubleProperty.doubleProperty(this)
+fun Property<Double>.asPrimitive(): DoubleProperty = DoubleProperty.doubleProperty(this)
 
 /** Revert the effect of [FloatProperty.asObject]. */
-fun Property<Float>.asPrimitive(): FloatProperty =
-    FloatProperty.floatProperty(this)
+fun Property<Float>.asPrimitive(): FloatProperty = FloatProperty.floatProperty(this)
 
 /** Revert the effect of [IntegerProperty.asObject]. */
-fun Property<Int>.asPrimitive(): IntegerProperty =
-    IntegerProperty.integerProperty(this)
+fun Property<Int>.asPrimitive(): IntegerProperty = IntegerProperty.integerProperty(this)
 
 /** Revert the effect of [LongProperty.asObject]. */
-fun Property<Long>.asPrimitive(): LongProperty =
-    LongProperty.longProperty(this)
+fun Property<Long>.asPrimitive(): LongProperty = LongProperty.longProperty(this)

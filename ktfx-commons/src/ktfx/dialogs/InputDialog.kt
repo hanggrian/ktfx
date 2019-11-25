@@ -31,5 +31,4 @@ fun inputDialog(
  *
  * @param prefill default text.
  */
-inline fun inputDialog(prefill: String = ""): Optional<String> =
-    inputDialog(null, null, prefill)
+inline fun inputDialog(prefill: String = ""): Optional<String> = inputDialog(null, null, prefill)

@@ -5,13 +5,13 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import org.jetbrains.annotations.NotNull;
 
-final class Utils {
+final class CallbackUtils {
 
-    private Utils() {
+    private CallbackUtils() {
     }
 
     @NotNull
-    static <P> Callback<P, Void> noReturn(@NotNull Function1<P, Unit> function) {
+    static <P> Callback<P, Void> noReturn(@NotNull final Function1<P, Unit> function) {
         return param -> {
             function.invoke(param);
             return null;

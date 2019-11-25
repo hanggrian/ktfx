@@ -10,5 +10,4 @@ var Node.depth: Int
     set(value) = JFXDepthManager.setDepth(this, value)
 
 /** Display drop shadow to this [Node]. */
-fun Node.popDepth(): Unit =
-    JFXDepthManager.pop(this)
+fun Node.popDepth(): Unit = JFXDepthManager.pop(this)

@@ -16,8 +16,7 @@ import kotlin.contracts.contract
  */
 open class KtfxAccordion : Accordion(), TitledPaneManager {
 
-    final override fun <T : TitledPane> addPane(pane: T): T =
-        pane.also { panes += it }
+    final override fun <T : TitledPane> addPane(pane: T): T = pane.also { panes += it }
 
     /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(

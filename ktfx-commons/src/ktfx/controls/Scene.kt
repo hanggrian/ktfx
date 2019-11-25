@@ -8,9 +8,7 @@ import javafx.scene.image.WritableImage
 
 /** Alias of [Scene.lookup] with non-null return and specified type. */
 @Suppress("UNCHECKED_CAST")
-inline fun <T : Node> Scene.find(selector: String): T =
-    lookup(selector) as T
+inline fun <T : Node> Scene.find(selector: String): T = lookup(selector) as T
 
 /** Take a screenshot of this [Scene] without writable image target. */
-inline fun Scene.snapshot(image: WritableImage? = null): WritableImage =
-    snapshot(image)
+inline fun Scene.snapshot(image: WritableImage? = null): WritableImage = snapshot(image)

@@ -19,13 +19,11 @@ import kotlin.contracts.contract
  */
 open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
-    inline fun Node.clearConstraints(): Unit =
-        clearConstraints(this)
+    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 
     /** Children vertical grow priority in this layout. */
     inline var Node.vgrow: Priority?
@@ -33,12 +31,10 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
         @JvmName("setVgrow2") set(value) = setVgrow(this, value)
 
     /** Configure vertical grow fluidly using infix operator. */
-    inline infix fun <T : Node> T.vgrow(priority: Priority): T =
-        apply { vgrow = priority }
+    inline infix fun <T : Node> T.vgrow(priority: Priority): T = apply { vgrow = priority }
 
     /** Configure vertical grow fluidly using infix operator. */
-    inline infix fun <T : Node> T.vgrow(always: Boolean): T =
-        vgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+    inline infix fun <T : Node> T.vgrow(always: Boolean): T = vgrow(if (always) Priority.ALWAYS else Priority.NEVER)
 
     /** Children margin in this layout. */
     inline var Node.margin: Insets?
@@ -56,28 +52,22 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
     }
 
     /** Configure margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.margin(margin: Insets): T =
-        apply { this.margin = margin }
+    inline infix fun <T : Node> T.margin(margin: Insets): T = apply { this.margin = margin }
 
     /** Configure all sides margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginAll(margin: Double): T =
-        apply { this.margin = Insets(margin) }
+    inline infix fun <T : Node> T.marginAll(margin: Double): T = apply { this.margin = Insets(margin) }
 
     /** Configure top margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginTop(margin: Double): T =
-        apply { updateMargin(top = margin) }
+    inline infix fun <T : Node> T.marginTop(margin: Double): T = apply { updateMargin(top = margin) }
 
     /** Configure right margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginRight(margin: Double): T =
-        apply { updateMargin(right = margin) }
+    inline infix fun <T : Node> T.marginRight(margin: Double): T = apply { updateMargin(right = margin) }
 
     /** Configure bottom margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginBottom(margin: Double): T =
-        apply { updateMargin(bottom = margin) }
+    inline infix fun <T : Node> T.marginBottom(margin: Double): T = apply { updateMargin(bottom = margin) }
 
     /** Configure left margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginLeft(margin: Double): T =
-        apply { updateMargin(left = margin) }
+    inline infix fun <T : Node> T.marginLeft(margin: Double): T = apply { updateMargin(left = margin) }
 }
 
 /** Create a [VBox] with initialization block. */

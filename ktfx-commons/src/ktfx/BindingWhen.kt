@@ -17,93 +17,72 @@ import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableStringValue
 
 /** Creates a binding that calculates the result of a ternary expression. */
-fun given(condition: ObservableBooleanValue): When =
-    Bindings.`when`(condition)
+fun given(condition: ObservableBooleanValue): When = Bindings.`when`(condition)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: ObservableNumberValue): When.NumberConditionBuilder =
-    then(value)
+inline infix fun When.then(value: ObservableNumberValue): When.NumberConditionBuilder = then(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: Double): When.NumberConditionBuilder =
-    then(value)
+inline infix fun When.then(value: Double): When.NumberConditionBuilder = then(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: Float): When.NumberConditionBuilder =
-    then(value)
+inline infix fun When.then(value: Float): When.NumberConditionBuilder = then(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: Long): When.NumberConditionBuilder =
-    then(value)
+inline infix fun When.then(value: Long): When.NumberConditionBuilder = then(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: Int): When.NumberConditionBuilder =
-    then(value)
+inline infix fun When.then(value: Int): When.NumberConditionBuilder = then(value)
 
 /** Infix alias of [When.NumberConditionBuilder.otherwise]. */
-inline infix fun When.NumberConditionBuilder.otherwise(value: ObservableNumberValue): NumberBinding =
-    otherwise(value)
+inline infix fun When.NumberConditionBuilder.otherwise(value: ObservableNumberValue): NumberBinding = otherwise(value)
 
 /** Infix alias of [When.NumberConditionBuilder.otherwise]. */
-inline infix fun When.NumberConditionBuilder.otherwise(value: Double): DoubleBinding =
-    otherwise(value)
+inline infix fun When.NumberConditionBuilder.otherwise(value: Double): DoubleBinding = otherwise(value)
 
 /** Infix alias of [When.NumberConditionBuilder.otherwise]. */
-inline infix fun When.NumberConditionBuilder.otherwise(value: Float): NumberBinding =
-    otherwise(value)
+inline infix fun When.NumberConditionBuilder.otherwise(value: Float): NumberBinding = otherwise(value)
 
 /** Infix alias of [When.NumberConditionBuilder.otherwise]. */
-inline infix fun When.NumberConditionBuilder.otherwise(value: Long): NumberBinding =
-    otherwise(value)
+inline infix fun When.NumberConditionBuilder.otherwise(value: Long): NumberBinding = otherwise(value)
 
 /** Infix alias of [When.NumberConditionBuilder.otherwise]. */
-inline infix fun When.NumberConditionBuilder.otherwise(value: Int): NumberBinding =
-    otherwise(value)
+inline infix fun When.NumberConditionBuilder.otherwise(value: Int): NumberBinding = otherwise(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: ObservableBooleanValue): When.BooleanConditionBuilder =
-    then(value)
+inline infix fun When.then(value: ObservableBooleanValue): When.BooleanConditionBuilder = then(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: Boolean): When.BooleanConditionBuilder =
-    then(value)
+inline infix fun When.then(value: Boolean): When.BooleanConditionBuilder = then(value)
 
 /** Infix alias of [When.BooleanConditionBuilder.otherwise]. */
 inline infix fun When.BooleanConditionBuilder.otherwise(value: ObservableBooleanValue): BooleanBinding =
     otherwise(value)
 
 /** Infix alias of [When.BooleanConditionBuilder.otherwise]. */
-inline infix fun When.BooleanConditionBuilder.otherwise(value: Boolean): BooleanBinding =
-    otherwise(value)
+inline infix fun When.BooleanConditionBuilder.otherwise(value: Boolean): BooleanBinding = otherwise(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: ObservableStringValue): When.StringConditionBuilder =
-    then(value)
+inline infix fun When.then(value: ObservableStringValue): When.StringConditionBuilder = then(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun When.then(value: String): When.StringConditionBuilder =
-    then(value)
+inline infix fun When.then(value: String): When.StringConditionBuilder = then(value)
 
 /** Infix alias of [When.StringConditionBuilder.otherwise]. */
-inline infix fun When.StringConditionBuilder.otherwise(value: ObservableStringValue): StringBinding =
-    otherwise(value)
+inline infix fun When.StringConditionBuilder.otherwise(value: ObservableStringValue): StringBinding = otherwise(value)
 
 /** Infix alias of [When.StringConditionBuilder.otherwise]. */
-inline infix fun When.StringConditionBuilder.otherwise(value: String): StringBinding =
-    otherwise(value)
+inline infix fun When.StringConditionBuilder.otherwise(value: String): StringBinding = otherwise(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun <T> When.then(value: ObservableObjectValue<T>): When.ObjectConditionBuilder<T> =
-    then(value)
+inline infix fun <T> When.then(value: ObservableObjectValue<T>): When.ObjectConditionBuilder<T> = then(value)
 
 /** Infix alias of [When.then]. */
-inline infix fun <T> When.then(value: T?): When.ObjectConditionBuilder<T> =
-    then(value)
+inline infix fun <T> When.then(value: T?): When.ObjectConditionBuilder<T> = then(value)
 
 /** Infix alias of [When.ObjectConditionBuilder.otherwise]. */
 inline infix fun <T> When.ObjectConditionBuilder<T>.otherwise(value: ObservableObjectValue<T>): ObjectBinding<T> =
     otherwise(value)
 
 /** Infix alias of [When.ObjectConditionBuilder.otherwise]. */
-inline infix fun <T> When.ObjectConditionBuilder<T>.otherwise(value: T?): ObjectBinding<T> =
-    otherwise(value)
+inline infix fun <T> When.ObjectConditionBuilder<T>.otherwise(value: T?): ObjectBinding<T> = otherwise(value)

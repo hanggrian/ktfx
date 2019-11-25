@@ -7,5 +7,4 @@ import javafx.print.PageRange
  *
  * @see kotlin.ranges.until
  */
-infix fun Int.untilPage(endPage: Int): PageRange =
-    PageRange(this, endPage)
+infix fun Int.untilPage(endPage: Int): PageRange = PageRange(this, endPage)

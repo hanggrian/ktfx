@@ -19,8 +19,7 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { children += it }
+    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
 }
 
 /** Create a [JFXClippedPane] with initialization block. */

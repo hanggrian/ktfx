@@ -50,6 +50,5 @@ fun TreeView<String>.textFieldCellFactory(): Unit =
     setCellFactory(TextFieldTreeCell.forTreeView())
 
 /** Creates a [TextFieldTreeCell] factory for use in [TreeView] controls. */
-fun <T> TreeView<T>.textFieldCellFactory(
-    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()
-): Unit = setCellFactory(TextFieldTreeCell.forTreeView(converter))
+fun <T> TreeView<T>.textFieldCellFactory(converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()): Unit =
+    setCellFactory(TextFieldTreeCell.forTreeView(converter))

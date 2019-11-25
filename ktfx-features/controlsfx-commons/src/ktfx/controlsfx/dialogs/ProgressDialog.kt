@@ -34,6 +34,4 @@ fun progressDialog(
  *
  * @param worker progress worker.
  */
-inline fun progressDialog(
-    worker: Worker<*>?
-): Optional<Void> = progressDialog(null, null, worker)
+inline fun progressDialog(worker: Worker<*>?): Optional<Void> = progressDialog(null, null, worker)

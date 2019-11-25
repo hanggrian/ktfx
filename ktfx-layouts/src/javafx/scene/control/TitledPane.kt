@@ -16,8 +16,7 @@ import kotlin.contracts.contract
  */
 open class KtfxTitledPane(title: String?) : TitledPane(title, null), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { content = it }
+    final override fun <T : Node> addNode(node: T): T = node.also { content = it }
 }
 
 /** Create a [TitledPane] with initialization block. */

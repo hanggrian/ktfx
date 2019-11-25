@@ -16,8 +16,7 @@ import kotlin.contracts.contract
  */
 open class KtfxSplitPane : SplitPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also { items += it }
+    final override fun <T : Node> addNode(node: T): T = node.also { items += it }
 }
 
 /** Create a [SplitPane] with initialization block. */

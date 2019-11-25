@@ -100,57 +100,43 @@ inline fun ObservableLongValue.toLong(noinline valueProvider: (Long) -> Long?): 
     longBindingOf(this) { valueProvider(value.toLong()) }
 
 /** Creates a string binding used to get a member. */
-fun Any.selectString(vararg steps: String): StringBinding =
-    Bindings.selectString(this, *steps)
+fun Any.selectString(vararg steps: String): StringBinding = Bindings.selectString(this, *steps)
 
 /** Creates a string binding used to get a member. */
-fun ObservableValue<*>.selectString(vararg steps: String): StringBinding =
-    Bindings.selectString(this, *steps)
+fun ObservableValue<*>.selectString(vararg steps: String): StringBinding = Bindings.selectString(this, *steps)
 
 /** Creates an object binding used to get a member. */
-fun <T> Any.select(vararg steps: String): ObjectBinding<T> =
-    Bindings.select(this, *steps)
+fun <T> Any.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)
 
 /** Creates an object binding used to get a member. */
-fun <T> ObservableValue<*>.select(vararg steps: String): ObjectBinding<T> =
-    Bindings.select(this, *steps)
+fun <T> ObservableValue<*>.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)
 
 /** Creates a boolean binding used to get a member. */
-fun Any.selectBoolean(vararg steps: String): BooleanBinding =
-    Bindings.selectBoolean(this, *steps)
+fun Any.selectBoolean(vararg steps: String): BooleanBinding = Bindings.selectBoolean(this, *steps)
 
 /** Creates a boolean binding used to get a member. */
-fun ObservableValue<*>.selectBoolean(vararg steps: String): BooleanBinding =
-    Bindings.selectBoolean(this, *steps)
+fun ObservableValue<*>.selectBoolean(vararg steps: String): BooleanBinding = Bindings.selectBoolean(this, *steps)
 
 /** Creates a double binding used to get a member. */
-fun Any.selectDouble(vararg steps: String): DoubleBinding =
-    Bindings.selectDouble(this, *steps)
+fun Any.selectDouble(vararg steps: String): DoubleBinding = Bindings.selectDouble(this, *steps)
 
 /** Creates a double binding used to get a member. */
-fun ObservableValue<*>.selectDouble(vararg steps: String): DoubleBinding =
-    Bindings.selectDouble(this, *steps)
+fun ObservableValue<*>.selectDouble(vararg steps: String): DoubleBinding = Bindings.selectDouble(this, *steps)
 
 /** Creates a float binding used to get a member. */
-fun Any.selectFloat(vararg steps: String): FloatBinding =
-    Bindings.selectFloat(this, *steps)
+fun Any.selectFloat(vararg steps: String): FloatBinding = Bindings.selectFloat(this, *steps)
 
 /** Creates a float binding used to get a member. */
-fun ObservableValue<*>.selectFloat(vararg steps: String): FloatBinding =
-    Bindings.selectFloat(this, *steps)
+fun ObservableValue<*>.selectFloat(vararg steps: String): FloatBinding = Bindings.selectFloat(this, *steps)
 
 /** Creates an integer binding used to get a member. */
-fun Any.selectInt(vararg steps: String): IntegerBinding =
-    Bindings.selectInteger(this, *steps)
+fun Any.selectInt(vararg steps: String): IntegerBinding = Bindings.selectInteger(this, *steps)
 
 /** Creates an integer binding used to get a member. */
-fun ObservableValue<*>.selectInt(vararg steps: String): IntegerBinding =
-    Bindings.selectInteger(this, *steps)
+fun ObservableValue<*>.selectInt(vararg steps: String): IntegerBinding = Bindings.selectInteger(this, *steps)
 
 /** Creates a long binding used to get a member. */
-fun Any.selectLong(vararg steps: String): LongBinding =
-    Bindings.selectLong(this, *steps)
+fun Any.selectLong(vararg steps: String): LongBinding = Bindings.selectLong(this, *steps)
 
 /** Creates a long binding used to get a member. */
-fun ObservableValue<*>.selectLong(vararg steps: String): LongBinding =
-    Bindings.selectLong(this, *steps)
+fun ObservableValue<*>.selectLong(vararg steps: String): LongBinding = Bindings.selectLong(this, *steps)

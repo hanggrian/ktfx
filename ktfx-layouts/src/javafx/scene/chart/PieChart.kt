@@ -15,7 +15,7 @@ import kotlin.contracts.contract
 /** Create a [PieChart] with initialization block. */
 inline fun pieChart(
     data: ObservableList<Data> = FXCollections.observableArrayList(),
-    init: (@KtfxLayoutsDslMarker PieChart).() -> Unit
+    init: (@LayoutsDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return PieChart(data).apply(init)
@@ -29,7 +29,7 @@ fun NodeManager.pieChart(
 /** Add a [PieChart] with initialization block to this manager. */
 inline fun NodeManager.pieChart(
     data: ObservableList<Data> = FXCollections.observableArrayList(),
-    init: (@KtfxLayoutsDslMarker PieChart).() -> Unit
+    init: (@LayoutsDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(PieChart(data), init)

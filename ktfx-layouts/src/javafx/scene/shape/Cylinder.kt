@@ -14,7 +14,7 @@ inline fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    init: (@KtfxLayoutsDslMarker Cylinder).() -> Unit
+    init: (@LayoutsDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Cylinder(radius, height, division).apply(init)
@@ -32,7 +32,7 @@ inline fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    init: (@KtfxLayoutsDslMarker Cylinder).() -> Unit
+    init: (@LayoutsDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Cylinder(radius, height, division), init)

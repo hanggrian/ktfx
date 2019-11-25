@@ -7,14 +7,14 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.MaskerPane
 
 /** Create a [MaskerPane] with initialization block. */
 inline fun maskerPane(
-    init: (@KtfxLayoutsDslMarker MaskerPane).() -> Unit
+    init: (@LayoutsDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return MaskerPane().apply(init)
@@ -26,7 +26,7 @@ fun NodeManager.maskerPane(): MaskerPane =
 
 /** Add a [MaskerPane] with initialization block to this manager. */
 inline fun NodeManager.maskerPane(
-    init: (@KtfxLayoutsDslMarker MaskerPane).() -> Unit
+    init: (@LayoutsDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(MaskerPane(), init)

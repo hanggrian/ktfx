@@ -20,13 +20,13 @@ open class KtfxAccordion : Accordion(), TitledPaneManager {
 
     /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(
-        init: (@KtfxLayoutsDslMarker KtfxTitledPane).() -> Unit
+        init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
     ): TitledPane = titledPane(this, init)
 }
 
 /** Create an [Accordion] with initialization block. */
 inline fun accordion(
-    init: (@KtfxLayoutsDslMarker KtfxAccordion).() -> Unit
+    init: (@LayoutsDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxAccordion().apply(init)
@@ -38,7 +38,7 @@ fun NodeManager.accordion(): Accordion =
 
 /** Add an [Accordion] with initialization block to this manager. */
 inline fun NodeManager.accordion(
-    init: (@KtfxLayoutsDslMarker KtfxAccordion).() -> Unit
+    init: (@LayoutsDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxAccordion(), init)

@@ -7,17 +7,19 @@ import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 
 /** Classes and extension functions may only be deployed to single pre-defined package. */
 class PredefinedPackageRule : Rule("predefined-package") {
-    private val predefinedPackageSet = setOf(
-        "ktfx.coroutines",
-        "ktfx.layouts",
-        "ktfx.listeners",
-        "ktfx.controlsfx.coroutines",
-        "ktfx.controlsfx.layouts",
-        "ktfx.controlsfx.listeners",
-        "ktfx.jfoenix.coroutines",
-        "ktfx.jfoenix.layouts",
-        "ktfx.jfoenix.listeners"
-    )
+    private companion object {
+        val PREDEFINED_PACKAGES = setOf(
+            "ktfx.coroutines",
+            "ktfx.layouts",
+            "ktfx.listeners",
+            "ktfx.controlsfx.coroutines",
+            "ktfx.controlsfx.layouts",
+            "ktfx.controlsfx.listeners",
+            "ktfx.jfoenix.coroutines",
+            "ktfx.jfoenix.layouts",
+            "ktfx.jfoenix.listeners"
+        )
+    }
 
     override fun visit(
         node: ASTNode,
@@ -26,7 +28,7 @@ class PredefinedPackageRule : Rule("predefined-package") {
     ) {
         if (node.elementType == KtStubElementTypes.PACKAGE_DIRECTIVE) {
             val name = node.psi<KtPackageDirective>().qualifiedName
-            if (name !in predefinedPackageSet) {
+            if (name !in PREDEFINED_PACKAGES) {
                 emit(node.startOffset, "Illegal package name.", false)
             }
         }

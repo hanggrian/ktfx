@@ -14,7 +14,7 @@ inline fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker Slider).() -> Unit
+    init: (@LayoutsDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Slider(min, max, value).apply(init)
@@ -32,7 +32,7 @@ inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker Slider).() -> Unit
+    init: (@LayoutsDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Slider(min, max, value), init)

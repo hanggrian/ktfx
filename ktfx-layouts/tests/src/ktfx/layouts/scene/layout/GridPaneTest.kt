@@ -6,7 +6,7 @@ import ktfx.layouts.columnConstraints
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
 import ktfx.layouts.rowConstraints
-import ktfx.testing.LayoutToolkitTest
+import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 

@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package ktfx.windows
+package ktfx.controls
 
 import javafx.scene.Scene
 import javafx.scene.image.Image

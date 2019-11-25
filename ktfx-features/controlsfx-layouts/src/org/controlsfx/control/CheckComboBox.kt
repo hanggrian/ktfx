@@ -8,7 +8,7 @@ import javafx.collections.ObservableList
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 import org.controlsfx.control.CheckComboBox
@@ -16,7 +16,7 @@ import org.controlsfx.control.CheckComboBox
 /** Create a [CheckComboBox] with initialization block. */
 inline fun <T> checkComboBox(
     items: ObservableList<T>? = null,
-    init: (@KtfxLayoutsDslMarker CheckComboBox<T>).() -> Unit
+    init: (@LayoutsDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CheckComboBox(items).apply(init)
@@ -30,7 +30,7 @@ fun <T> NodeManager.checkComboBox(
 /** Add a [CheckComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.checkComboBox(
     items: ObservableList<T>? = null,
-    init: (@KtfxLayoutsDslMarker CheckComboBox<T>).() -> Unit
+    init: (@LayoutsDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(CheckComboBox(items), init)

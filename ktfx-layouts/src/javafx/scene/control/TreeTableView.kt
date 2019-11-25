@@ -13,7 +13,7 @@ import kotlin.contracts.contract
 /** Create a [TreeTableView] with initialization block. */
 inline fun <S> treeTableView(
     root: TreeItem<S>? = null,
-    init: (@KtfxLayoutsDslMarker TreeTableView<S>).() -> Unit
+    init: (@LayoutsDslMarker TreeTableView<S>).() -> Unit
 ): TreeTableView<S> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return TreeTableView(root).apply(init)
@@ -27,7 +27,7 @@ fun <S> NodeManager.treeTableView(
 /** Add a [TreeTableView] with initialization block to this manager. */
 inline fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null,
-    init: (@KtfxLayoutsDslMarker TreeTableView<S>).() -> Unit
+    init: (@LayoutsDslMarker TreeTableView<S>).() -> Unit
 ): TreeTableView<S> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(TreeTableView(root), init)

@@ -8,7 +8,7 @@ import kotlinx.coroutines.runBlocking
 import ktfx.layouts.scene
 import ktfx.layouts.textField
 import ktfx.runLater
-import ktfx.testing.AppTest
+import ktfx.test.AppTest
 import org.controlsfx.validation.ValidationSupport
 import kotlin.test.Test
 import kotlin.test.assertEquals

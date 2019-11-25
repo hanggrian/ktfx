@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -24,7 +24,7 @@ open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 
 /** Create a [JFXClippedPane] with initialization block. */
 inline fun jfxClippedPane(
-    init: (@KtfxLayoutsDslMarker KtfxJFXClippedPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXClippedPane().apply(init)
@@ -36,7 +36,7 @@ fun NodeManager.jfxClippedPane(): JFXClippedPane =
 
 /** Add a [JFXClippedPane] with initialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
-    init: (@KtfxLayoutsDslMarker KtfxJFXClippedPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXClippedPane(), init)

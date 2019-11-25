@@ -17,7 +17,7 @@ inline fun cubicCurveTo(
     controlY2: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker CubicCurveTo).() -> Unit
+    init: (@LayoutsDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y).apply(init)
@@ -41,7 +41,7 @@ inline fun PathElementManager.cubicCurveTo(
     controlY2: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker CubicCurveTo).() -> Unit
+    init: (@LayoutsDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addElement(CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y), init)

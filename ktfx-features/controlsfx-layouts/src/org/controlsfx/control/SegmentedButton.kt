@@ -9,7 +9,7 @@ import javafx.scene.control.ToggleButton
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.ToggleButtonManager
 import ktfx.layouts.addNode
@@ -27,13 +27,13 @@ open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
     /** Call [ToggleButtonManager.toggleButton] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@KtfxLayoutsDslMarker ToggleButton).() -> Unit
+        init: (@LayoutsDslMarker ToggleButton).() -> Unit
     ): ToggleButton = toggleButton(this, graphic, init)
 }
 
 /** Create a [SegmentedButton] with initialization block. */
 inline fun segmentedButton(
-    init: (@KtfxLayoutsDslMarker KtfxSegmentedButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSegmentedButton().apply(init)
@@ -45,7 +45,7 @@ fun NodeManager.segmentedButton(): SegmentedButton =
 
 /** Add a [SegmentedButton] with initialization block to this manager. */
 inline fun NodeManager.segmentedButton(
-    init: (@KtfxLayoutsDslMarker KtfxSegmentedButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxSegmentedButton(), init)

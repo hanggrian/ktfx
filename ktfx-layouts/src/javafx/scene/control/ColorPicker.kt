@@ -13,7 +13,7 @@ import kotlin.contracts.contract
 /** Create a [ColorPicker] with initialization block. */
 inline fun colorPicker(
     color: Color = Color.WHITE,
-    init: (@KtfxLayoutsDslMarker ColorPicker).() -> Unit
+    init: (@LayoutsDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ColorPicker(color).apply(init)
@@ -27,7 +27,7 @@ fun NodeManager.colorPicker(
 /** Add a [ColorPicker] with initialization block to this manager. */
 inline fun NodeManager.colorPicker(
     color: Color = Color.WHITE,
-    init: (@KtfxLayoutsDslMarker ColorPicker).() -> Unit
+    init: (@LayoutsDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ColorPicker(color), init)

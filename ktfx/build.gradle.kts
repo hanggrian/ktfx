@@ -8,9 +8,9 @@ plugins {
 
 dependencies {
     api(project(":$RELEASE_ARTIFACT-commons"))
-    api(project(":$RELEASE_ARTIFACT-coroutines"))
     api(project(":$RELEASE_ARTIFACT-layouts"))
     api(project(":$RELEASE_ARTIFACT-listeners"))
+    api(project(":$RELEASE_ARTIFACT-coroutines"))
 }
 
 publishKotlinFix()

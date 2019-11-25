@@ -12,7 +12,7 @@ import kotlin.contracts.contract
 
 /** Create a [Separator] with initialization block. */
 inline fun separator(
-    init: (@KtfxLayoutsDslMarker Separator).() -> Unit
+    init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Separator().apply(init)
@@ -24,7 +24,7 @@ fun NodeManager.separator(): Separator =
 
 /** Add a [Separator] with initialization block to this manager. */
 inline fun NodeManager.separator(
-    init: (@KtfxLayoutsDslMarker Separator).() -> Unit
+    init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Separator(), init)
@@ -32,7 +32,7 @@ inline fun NodeManager.separator(
 
 /** Create a vertical [Separator] with initialization block. */
 inline fun verticalSeparator(
-    init: (@KtfxLayoutsDslMarker Separator).() -> Unit
+    init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return separator {
@@ -48,7 +48,7 @@ inline fun NodeManager.verticalSeparator(): Separator =
 
 /** Add a vertical [Separator] with initialization block to this manager. */
 inline fun NodeManager.verticalSeparator(
-    init: (@KtfxLayoutsDslMarker Separator).() -> Unit
+    init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return separator {

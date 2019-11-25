@@ -10,7 +10,7 @@ import javafx.stage.Stage
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -21,7 +21,7 @@ inline fun jfxDecorator(
     fullScreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    init: (@KtfxLayoutsDslMarker JFXDecorator).() -> Unit
+    init: (@LayoutsDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXDecorator(stage, node, fullScreen, max, min).apply(init)
@@ -43,7 +43,7 @@ inline fun NodeManager.jfxDecorator(
     fullScreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    init: (@KtfxLayoutsDslMarker JFXDecorator).() -> Unit
+    init: (@LayoutsDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXDecorator(stage, node, fullScreen, max, min), init)

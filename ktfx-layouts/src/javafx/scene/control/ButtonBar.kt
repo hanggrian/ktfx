@@ -22,14 +22,14 @@ open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeMan
     /** Call [NodeManager.button] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@KtfxLayoutsDslMarker Button).() -> Unit
+        init: (@LayoutsDslMarker Button).() -> Unit
     ): Button = button(this, graphic, init)
 }
 
 /** Create a [ButtonBar] with initialization block. */
 inline fun buttonBar(
     buttonOrder: String? = null,
-    init: (@KtfxLayoutsDslMarker KtfxButtonBar).() -> Unit
+    init: (@LayoutsDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxButtonBar(buttonOrder).apply(init)
@@ -43,7 +43,7 @@ fun NodeManager.buttonBar(
 /** Add a [ButtonBar] with initialization block to this manager. */
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
-    init: (@KtfxLayoutsDslMarker KtfxButtonBar).() -> Unit
+    init: (@LayoutsDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxButtonBar(buttonOrder), init)

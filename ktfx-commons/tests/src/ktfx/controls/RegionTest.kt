@@ -1,8 +1,8 @@
-package ktfx.layouts
+package ktfx.controls
 
 import javafx.scene.layout.Region
 import javafx.scene.paint.Color
-import ktfx.testing.ToolkitTest
+import ktfx.test.ToolkitTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull

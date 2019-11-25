@@ -8,14 +8,14 @@ import com.jfoenix.controls.JFXRadioButton
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXRadioButton] with initialization block. */
 inline fun jfxRadioButton(
     text: String? = null,
-    init: (@KtfxLayoutsDslMarker JFXRadioButton).() -> Unit
+    init: (@LayoutsDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXRadioButton(text).apply(init)
@@ -29,7 +29,7 @@ fun NodeManager.jfxRadioButton(
 /** Add a [JFXRadioButton] with initialization block to this manager. */
 inline fun NodeManager.jfxRadioButton(
     text: String? = null,
-    init: (@KtfxLayoutsDslMarker JFXRadioButton).() -> Unit
+    init: (@LayoutsDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXRadioButton(text), init)

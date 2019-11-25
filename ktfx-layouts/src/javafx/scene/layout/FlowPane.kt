@@ -65,7 +65,7 @@ inline fun flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap,
-    init: (@KtfxLayoutsDslMarker KtfxFlowPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxFlowPane(orientation, hgap, vgap).apply(init)
@@ -83,7 +83,7 @@ inline fun NodeManager.flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap,
-    init: (@KtfxLayoutsDslMarker KtfxFlowPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxFlowPane(orientation, hgap, vgap), init)

@@ -73,7 +73,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
 /** Create a [VBox] with initialization block. */
 inline fun vbox(
     spacing: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker KtfxVBox).() -> Unit
+    init: (@LayoutsDslMarker KtfxVBox).() -> Unit
 ): VBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxVBox(spacing).apply(init)
@@ -87,7 +87,7 @@ fun NodeManager.vbox(
 /** Add a [VBox] with initialization block to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker KtfxVBox).() -> Unit
+    init: (@LayoutsDslMarker KtfxVBox).() -> Unit
 ): VBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxVBox(spacing), init)

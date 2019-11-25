@@ -13,9 +13,9 @@ import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.controls.icon
+import ktfx.controls.stage
 import ktfx.internal.KtfxInternals
-import ktfx.windows.icon
-import ktfx.windows.stage
 
 /** Removes old icons and set a new one to this dialog. */
 inline var Dialog<*>.icon: Image

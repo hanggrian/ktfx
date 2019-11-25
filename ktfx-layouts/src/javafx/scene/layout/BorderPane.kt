@@ -70,7 +70,7 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
 
 /** Create a [BorderPane] with initialization block. */
 inline fun borderPane(
-    init: (@KtfxLayoutsDslMarker KtfxBorderPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxBorderPane().apply(init)
@@ -82,7 +82,7 @@ fun NodeManager.borderPane(): BorderPane =
 
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
-    init: (@KtfxLayoutsDslMarker KtfxBorderPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxBorderPane(), init)

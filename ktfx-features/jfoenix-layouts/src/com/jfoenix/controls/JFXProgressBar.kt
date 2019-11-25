@@ -8,14 +8,14 @@ import com.jfoenix.controls.JFXProgressBar
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXProgressBar] with initialization block. */
 inline fun jfxProgressBar(
     progress: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker JFXProgressBar).() -> Unit
+    init: (@LayoutsDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXProgressBar(progress).apply(init)
@@ -29,7 +29,7 @@ fun NodeManager.jfxProgressBar(
 /** Add a [JFXProgressBar] with initialization block to this manager. */
 inline fun NodeManager.jfxProgressBar(
     progress: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker JFXProgressBar).() -> Unit
+    init: (@LayoutsDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXProgressBar(progress), init)

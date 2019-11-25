@@ -21,7 +21,7 @@ open class KtfxPath : Path(), PathElementManager {
 
 /** Create a [Path] with initialization block. */
 inline fun path(
-    init: (@KtfxLayoutsDslMarker KtfxPath).() -> Unit
+    init: (@LayoutsDslMarker KtfxPath).() -> Unit
 ): Path {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxPath().apply(init)
@@ -33,7 +33,7 @@ fun NodeManager.path(): Path =
 
 /** Add a [Path] with initialization block to this manager. */
 inline fun NodeManager.path(
-    init: (@KtfxLayoutsDslMarker KtfxPath).() -> Unit
+    init: (@LayoutsDslMarker KtfxPath).() -> Unit
 ): Path {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxPath(), init)

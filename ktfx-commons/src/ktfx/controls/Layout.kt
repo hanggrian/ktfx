@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package ktfx.layouts
+package ktfx.controls
 
 import javafx.scene.layout.FlowPane
 import javafx.scene.layout.GridPane

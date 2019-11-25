@@ -17,7 +17,7 @@ inline fun quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker QuadCurve).() -> Unit
+    init: (@LayoutsDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return QuadCurve(startX, startY, controlX, controlY, endX, endY).apply(init)
@@ -41,7 +41,7 @@ inline fun NodeManager.quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker QuadCurve).() -> Unit
+    init: (@LayoutsDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(QuadCurve(startX, startY, controlX, controlY, endX, endY), init)

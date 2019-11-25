@@ -20,11 +20,7 @@ fun <T> Control.registerEmptyValidator(
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
     support: ValidationSupport = singletonSupport
-): Boolean = support.registerValidator(
-    this,
-    required,
-    Validator.createEmptyValidator<T>(message, severity)
-)
+): Boolean = support.registerValidator(this, required, Validator.createEmptyValidator<T>(message, severity))
 
 /** Register equals validation. */
 fun <T> Control.registerEqualsValidator(
@@ -33,11 +29,8 @@ fun <T> Control.registerEqualsValidator(
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
     support: ValidationSupport = singletonSupport
-): Boolean = support.registerValidator(
-    this,
-    required,
-    Validator.createEqualsValidator<T>(message, severity, collection)
-)
+): Boolean =
+    support.registerValidator(this, required, Validator.createEqualsValidator<T>(message, severity, collection))
 
 /** Register predicate validation. */
 fun <T> Control.registerPredicateValidator(
@@ -46,11 +39,8 @@ fun <T> Control.registerPredicateValidator(
     required: Boolean = true,
     support: ValidationSupport = singletonSupport,
     predicate: (T) -> Boolean
-): Boolean = support.registerValidator(
-    this,
-    required,
-    Validator.createPredicateValidator<T>(predicate, message, severity)
-)
+): Boolean =
+    support.registerValidator(this, required, Validator.createPredicateValidator<T>(predicate, message, severity))
 
 /** Register regex validation. */
 fun Control.registerRegexValidator(
@@ -59,11 +49,7 @@ fun Control.registerRegexValidator(
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
     support: ValidationSupport = singletonSupport
-): Boolean = support.registerValidator(
-    this,
-    required,
-    Validator.createRegexValidator(message, regex, severity)
-)
+): Boolean = support.registerValidator(this, required, Validator.createRegexValidator(message, regex, severity))
 
 /** Register regex validation. */
 fun Control.registerRegexValidator(
@@ -72,8 +58,5 @@ fun Control.registerRegexValidator(
     severity: Severity = Severity.ERROR,
     required: Boolean = true,
     support: ValidationSupport = singletonSupport
-): Boolean = support.registerValidator(
-    this,
-    required,
-    Validator.createRegexValidator(message, regex.toPattern(), severity)
-)
+): Boolean =
+    support.registerValidator(this, required, Validator.createRegexValidator(message, regex.toPattern(), severity))

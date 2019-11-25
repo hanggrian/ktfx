@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 /** Create a [ChoiceBox] with initialization block. */
 inline fun <T> choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@KtfxLayoutsDslMarker ChoiceBox<T>).() -> Unit
+    init: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return ChoiceBox(items).apply(init)
@@ -28,7 +28,7 @@ fun <T> NodeManager.choiceBox(
 /** Add a [ChoiceBox] with initialization block to this manager. */
 inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@KtfxLayoutsDslMarker ChoiceBox<T>).() -> Unit
+    init: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(ChoiceBox(items), init)

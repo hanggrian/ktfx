@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 inline fun button(
     text: String? = null,
     graphic: Node? = null,
-    init: (@KtfxLayoutsDslMarker Button).() -> Unit
+    init: (@LayoutsDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Button(text, graphic).apply(init)
@@ -30,7 +30,7 @@ fun NodeManager.button(
 inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
-    init: (@KtfxLayoutsDslMarker Button).() -> Unit
+    init: (@LayoutsDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Button(text, graphic), init)

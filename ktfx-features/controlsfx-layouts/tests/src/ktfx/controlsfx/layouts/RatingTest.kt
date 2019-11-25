@@ -2,7 +2,7 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.testing.LayoutToolkitTest
+import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
 class RatingTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {

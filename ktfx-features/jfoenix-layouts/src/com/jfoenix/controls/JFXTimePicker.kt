@@ -9,14 +9,14 @@ import java.time.LocalTime
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXTimePicker] with initialization block. */
 inline fun jfxTimePicker(
     localTime: LocalTime? = null,
-    init: (@KtfxLayoutsDslMarker JFXTimePicker).() -> Unit
+    init: (@LayoutsDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTimePicker(localTime).apply(init)
@@ -30,7 +30,7 @@ fun NodeManager.jfxTimePicker(
 /** Add a [JFXTimePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxTimePicker(
     localTime: LocalTime? = null,
-    init: (@KtfxLayoutsDslMarker JFXTimePicker).() -> Unit
+    init: (@LayoutsDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTimePicker(localTime), init)

@@ -3,7 +3,7 @@ package ktfx.controlsfx.layouts
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.toggleButton
-import ktfx.testing.LayoutToolkitTest
+import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
 class SegmentedButtonTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {

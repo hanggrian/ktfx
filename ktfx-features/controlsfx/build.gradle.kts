@@ -8,9 +8,9 @@ plugins {
 
 dependencies {
     api(project(":$RELEASE_ARTIFACT-features:controlsfx-commons"))
-    api(project(":$RELEASE_ARTIFACT-features:controlsfx-coroutines"))
     api(project(":$RELEASE_ARTIFACT-features:controlsfx-layouts"))
     api(project(":$RELEASE_ARTIFACT-features:controlsfx-listeners"))
+    api(project(":$RELEASE_ARTIFACT-features:controlsfx-coroutines"))
 }
 
 publishKotlinFix()

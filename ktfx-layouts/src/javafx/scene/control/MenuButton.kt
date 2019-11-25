@@ -22,7 +22,7 @@ open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, grap
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@KtfxLayoutsDslMarker MenuItem).() -> Unit
+        init: (@LayoutsDslMarker MenuItem).() -> Unit
     ): MenuItem = menuItem(this, graphic, init)
 }
 
@@ -30,7 +30,7 @@ open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, grap
 inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@KtfxLayoutsDslMarker KtfxMenuButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxMenuButton(text, graphic).apply(init)
@@ -46,7 +46,7 @@ fun NodeManager.menuButton(
 inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@KtfxLayoutsDslMarker KtfxMenuButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxMenuButton(text, graphic), init)

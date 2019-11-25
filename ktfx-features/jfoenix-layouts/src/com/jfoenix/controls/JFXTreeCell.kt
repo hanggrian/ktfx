@@ -8,13 +8,13 @@ import com.jfoenix.controls.JFXTreeCell
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXTreeCell] with initialization block. */
 inline fun <T> jfxTreeCell(
-    init: (@KtfxLayoutsDslMarker JFXTreeCell<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXTreeCell<T>().apply(init)
@@ -26,7 +26,7 @@ fun <T> NodeManager.jfxTreeCell(): JFXTreeCell<T> =
 
 /** Add a [JFXTreeCell] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxTreeCell(
-    init: (@KtfxLayoutsDslMarker JFXTreeCell<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXTreeCell(), init)

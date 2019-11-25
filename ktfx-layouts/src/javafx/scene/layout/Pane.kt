@@ -21,7 +21,7 @@ open class KtfxPane : Pane(), NodeManager {
 
 /** Create a [Pane] with initialization block. */
 inline fun pane(
-    init: (@KtfxLayoutsDslMarker KtfxPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxPane).() -> Unit
 ): Pane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxPane().apply(init)
@@ -33,7 +33,7 @@ fun NodeManager.pane(): Pane =
 
 /** Add a [Pane] with initialization block to this manager. */
 inline fun NodeManager.pane(
-    init: (@KtfxLayoutsDslMarker KtfxPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxPane).() -> Unit
 ): Pane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxPane(), init)

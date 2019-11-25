@@ -8,13 +8,13 @@ import com.jfoenix.controls.JFXChipView
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXChipView] with initialization block. */
 inline fun <T> jfxChipView(
-    init: (@KtfxLayoutsDslMarker JFXChipView<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXChipView<T>().apply(init)
@@ -26,7 +26,7 @@ fun <T> NodeManager.jfxChipView(): JFXChipView<T> =
 
 /** Add a [JFXChipView] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxChipView(
-    init: (@KtfxLayoutsDslMarker JFXChipView<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXChipView(), init)

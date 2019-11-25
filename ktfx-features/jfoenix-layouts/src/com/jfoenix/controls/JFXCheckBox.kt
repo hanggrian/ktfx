@@ -8,14 +8,14 @@ import com.jfoenix.controls.JFXCheckBox
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXCheckBox] with initialization block. */
 inline fun jfxCheckBox(
     text: String? = null,
-    init: (@KtfxLayoutsDslMarker JFXCheckBox).() -> Unit
+    init: (@LayoutsDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXCheckBox(text).apply(init)
@@ -29,7 +29,7 @@ fun NodeManager.jfxCheckBox(
 /** Add a [JFXCheckBox] with initialization block to this manager. */
 inline fun NodeManager.jfxCheckBox(
     text: String? = null,
-    init: (@KtfxLayoutsDslMarker JFXCheckBox).() -> Unit
+    init: (@LayoutsDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXCheckBox(text), init)

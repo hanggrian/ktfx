@@ -1,6 +1,6 @@
 package ktfx
 
-import ktfx.testing.ToolkitTest
+import ktfx.test.ToolkitTest
 import java.lang.Thread.sleep
 import kotlin.test.Test
 import kotlin.test.assertEquals

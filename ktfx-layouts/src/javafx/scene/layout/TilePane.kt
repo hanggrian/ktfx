@@ -74,7 +74,7 @@ inline fun tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap,
-    init: (@KtfxLayoutsDslMarker KtfxTilePane).() -> Unit
+    init: (@LayoutsDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxTilePane(orientation, hgap, vgap).apply(init)
@@ -92,7 +92,7 @@ inline fun NodeManager.tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    init: (@KtfxLayoutsDslMarker KtfxTilePane).() -> Unit
+    init: (@LayoutsDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxTilePane(orientation, hgap, vgap), init)

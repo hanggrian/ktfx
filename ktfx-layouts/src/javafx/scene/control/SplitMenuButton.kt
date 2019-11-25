@@ -22,13 +22,13 @@ open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@KtfxLayoutsDslMarker MenuItem).() -> Unit
+        init: (@LayoutsDslMarker MenuItem).() -> Unit
     ): MenuItem = menuItem(this, graphic, init)
 }
 
 /** Create a [SplitMenuButton] with initialization block. */
 inline fun splitMenuButton(
-    init: (@KtfxLayoutsDslMarker KtfxSplitMenuButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxSplitMenuButton().apply(init)
@@ -40,7 +40,7 @@ fun NodeManager.splitMenuButton(): SplitMenuButton =
 
 /** Add a [SplitMenuButton] with initialization block to this manager. */
 inline fun NodeManager.splitMenuButton(
-    init: (@KtfxLayoutsDslMarker KtfxSplitMenuButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxSplitMenuButton(), init)

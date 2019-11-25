@@ -1,4 +1,4 @@
-package ktfx.swing
+package ktfx.util
 
 import java.awt.image.BufferedImage
 import javafx.embed.swing.SwingFXUtils

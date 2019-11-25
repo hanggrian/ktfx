@@ -1,7 +1,7 @@
 package ktfx.controls
 
 import javafx.scene.control.Label
-import ktfx.testing.ToolkitTest
+import ktfx.test.ToolkitTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

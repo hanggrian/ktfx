@@ -14,7 +14,7 @@ inline fun box(
     width: Double = Box.DEFAULT_SIZE,
     height: Double = Box.DEFAULT_SIZE,
     depth: Double = Box.DEFAULT_SIZE,
-    init: (@KtfxLayoutsDslMarker Box).() -> Unit
+    init: (@LayoutsDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return Box(width, height, depth).apply(init)
@@ -32,7 +32,7 @@ inline fun NodeManager.box(
     width: Double = Box.DEFAULT_SIZE,
     height: Double = Box.DEFAULT_SIZE,
     depth: Double = Box.DEFAULT_SIZE,
-    init: (@KtfxLayoutsDslMarker Box).() -> Unit
+    init: (@LayoutsDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(Box(width, height, depth), init)

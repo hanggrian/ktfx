@@ -1,6 +1,8 @@
 package ktfx.swing
 
 import javafx.scene.image.WritableImage
+import ktfx.util.toFxImage
+import ktfx.util.toSwingImage
 import java.awt.image.BufferedImage
 import kotlin.test.Test
 import kotlin.test.assertEquals

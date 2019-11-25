@@ -1,7 +1,7 @@
 package ktfx.collections
 
-import ktfx.testing.assertContains
-import ktfx.testing.assertEmpty
+import ktfx.test.assertContains
+import ktfx.test.assertEmpty
 import kotlin.test.Test
 import kotlin.test.assertFails
 

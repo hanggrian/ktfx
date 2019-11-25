@@ -6,8 +6,8 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.accordion
 import ktfx.layouts.label
 import ktfx.layouts.titledPane
-import ktfx.testing.LayoutToolkitTest
-import ktfx.testing.assertEmpty
+import ktfx.test.LayoutToolkitTest
+import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 

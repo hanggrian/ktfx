@@ -11,9 +11,9 @@ import ktfx.dialogs.infoAlert
 import ktfx.layouts.button
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
-import ktfx.layouts.minSize
+import ktfx.controls.minSize
 import ktfx.layouts.scene
-import ktfx.layouts.updatePadding
+import ktfx.controls.updatePadding
 import ktfx.layouts.vbox
 
 class CalculatorApp : Application() {

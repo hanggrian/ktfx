@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package ktfx.windows
+package ktfx.dialogs
 
 import java.io.File
 import javafx.stage.DirectoryChooser

@@ -9,14 +9,14 @@ import javafx.scene.paint.Color
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
 /** Create a [JFXColorPicker] with initialization block. */
 inline fun jfxColorPicker(
     color: Color? = null,
-    init: (@KtfxLayoutsDslMarker JFXColorPicker).() -> Unit
+    init: (@LayoutsDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return JFXColorPicker(color).apply(init)
@@ -30,7 +30,7 @@ fun NodeManager.jfxColorPicker(
 /** Add a [JFXColorPicker] with initialization block to this manager. */
 inline fun NodeManager.jfxColorPicker(
     color: Color? = null,
-    init: (@KtfxLayoutsDslMarker JFXColorPicker).() -> Unit
+    init: (@LayoutsDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(JFXColorPicker(color), init)

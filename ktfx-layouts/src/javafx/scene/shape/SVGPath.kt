@@ -11,7 +11,7 @@ import kotlin.contracts.contract
 
 /** Create a [SVGPath] with initialization block. */
 inline fun svgPath(
-    init: (@KtfxLayoutsDslMarker SVGPath).() -> Unit
+    init: (@LayoutsDslMarker SVGPath).() -> Unit
 ): SVGPath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return SVGPath().apply(init)
@@ -23,7 +23,7 @@ fun NodeManager.svgPath(): SVGPath =
 
 /** Add a [SVGPath] with initialization block to this manager. */
 inline fun NodeManager.svgPath(
-    init: (@KtfxLayoutsDslMarker SVGPath).() -> Unit
+    init: (@LayoutsDslMarker SVGPath).() -> Unit
 ): SVGPath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(SVGPath(), init)

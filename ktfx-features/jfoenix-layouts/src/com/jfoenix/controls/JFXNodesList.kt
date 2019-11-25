@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -24,7 +24,7 @@ open class KtfxJFXNodesList : JFXNodesList(), NodeManager {
 
 /** Create a [JFXNodesList] with initialization block. */
 inline fun jfxNodesList(
-    init: (@KtfxLayoutsDslMarker KtfxJFXNodesList).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXNodesList().apply(init)
@@ -36,7 +36,7 @@ fun NodeManager.jfxNodesList(): JFXNodesList =
 
 /** Add a [JFXNodesList] with initialization block to this manager. */
 inline fun NodeManager.jfxNodesList(
-    init: (@KtfxLayoutsDslMarker KtfxJFXNodesList).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXNodesList(), init)

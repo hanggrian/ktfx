@@ -4,8 +4,8 @@ import javafx.application.ConditionalFeature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.runBlocking
-import ktfx.testing.ToolkitTest
-import ktfx.testing.assertContains
+import ktfx.test.ToolkitTest
+import ktfx.test.assertContains
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue

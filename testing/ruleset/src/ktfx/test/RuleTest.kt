@@ -1,4 +1,4 @@
-package ktfx.testing
+package ktfx.test
 
 import com.google.common.truth.Truth
 import com.pinterest.ktlint.core.LintError
@@ -10,14 +10,10 @@ interface RuleTest {
 
     val rule: Rule
 
-    fun assert(
-        vararg exactly: Triple<Int, Int, String>,
-        text: () -> String
-    ) {
+    fun assert(vararg exactly: Triple<Int, Int, String>, text: () -> String) {
         Truth.assertThat(rule.lint(text().trimIndent()))
             .containsExactly(*exactly.map { LintError(it.first, it.second, rule.id, it.third) }.toTypedArray())
     }
 
-    fun of(line: Int, col: Int, message: String): Triple<Int, Int, String> =
-        Triple(line, col, message)
+    fun of(line: Int, col: Int, message: String): Triple<Int, Int, String> = Triple(line, col, message)
 }

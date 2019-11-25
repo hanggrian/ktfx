@@ -173,7 +173,7 @@ open class KtfxGridPane : GridPane(), NodeManager {
 
 /** Create a [GridPane] with initialization block. */
 inline fun gridPane(
-    init: (@KtfxLayoutsDslMarker KtfxGridPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxGridPane().apply(init)
@@ -185,7 +185,7 @@ fun NodeManager.gridPane(): GridPane =
 
 /** Add a [GridPane] with initialization block to this manager. */
 inline fun NodeManager.gridPane(
-    init: (@KtfxLayoutsDslMarker KtfxGridPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxGridPane(), init)

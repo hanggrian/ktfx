@@ -12,7 +12,7 @@ import javafx.scene.layout.Priority
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.KtfxLayoutsDslMarker
+import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addNode
 
@@ -22,10 +22,10 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXToolbar : JFXToolbar() {
 
-    fun leftItems(init: (@KtfxLayoutsDslMarker HBoxConstraints).() -> Unit): Unit =
+    fun leftItems(init: (@LayoutsDslMarker HBoxConstraints).() -> Unit): Unit =
         HBoxConstraints(leftItems).init()
 
-    fun rightItems(init: (@KtfxLayoutsDslMarker HBoxConstraints).() -> Unit): Unit =
+    fun rightItems(init: (@LayoutsDslMarker HBoxConstraints).() -> Unit): Unit =
         HBoxConstraints(rightItems).init()
 
     @Suppress("NOTHING_TO_INLINE")
@@ -84,7 +84,7 @@ open class KtfxJFXToolbar : JFXToolbar() {
 
 /** Create a [JFXToolbar] with initialization block. */
 inline fun jfxToolbar(
-    init: (@KtfxLayoutsDslMarker KtfxJFXToolbar).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return KtfxJFXToolbar().apply(init)
@@ -96,7 +96,7 @@ fun NodeManager.jfxToolbar(): JFXToolbar =
 
 /** Add a [JFXToolbar] with initialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
-    init: (@KtfxLayoutsDslMarker KtfxJFXToolbar).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addNode(KtfxJFXToolbar(), init)

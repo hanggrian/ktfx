@@ -4,7 +4,7 @@ import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.flowPane
 import ktfx.layouts.region
-import ktfx.testing.LayoutToolkitTest
+import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertEquals
 
 class FlowPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {

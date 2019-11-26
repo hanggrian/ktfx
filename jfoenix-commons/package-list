@@ -1,21 +1,22 @@
 $dokka.format:html
 $dokka.linkExtension:html
-$dokka.location:ktfx.jfoenix$delayedEventHandler(javafx.scene.Node, javafx.util.Duration, javafx.event.EventType((ktfx.jfoenix.delayedEventHandler.T)), kotlin.Function1((ktfx.jfoenix.delayedEventHandler.T, kotlin.Unit)))ktfx.jfoenix/javafx.scene.-node/delayed-event-handler.html
-$dokka.location:ktfx.jfoenix$delayedPropertyInvalidationListener(javafx.beans.value.ObservableValue((ktfx.jfoenix.delayedPropertyInvalidationListener.T)), javafx.util.Duration, kotlin.Function1((ktfx.jfoenix.delayedPropertyInvalidationListener.T, kotlin.Unit)))ktfx.jfoenix/javafx.beans.value.-observable-value/delayed-property-invalidation-listener.html
-$dokka.location:ktfx.jfoenix$delayedPropertyInvalidationListener(javafx.beans.value.ObservableValue((ktfx.jfoenix.delayedPropertyInvalidationListener.T)), javafx.util.Duration, kotlin.Function1((ktfx.jfoenix.delayedPropertyInvalidationListener.T, kotlin.Unit)), kotlin.Function1((ktfx.jfoenix.delayedPropertyInvalidationListener.T, kotlin.Unit)))ktfx.jfoenix/javafx.beans.value.-observable-value/delayed-property-invalidation-listener.html
-$dokka.location:ktfx.jfoenix$depth#javafx.scene.Nodektfx.jfoenix/javafx.scene.-node/depth.html
-$dokka.location:ktfx.jfoenix$popDepth(javafx.scene.Node)ktfx.jfoenix/javafx.scene.-node/pop-depth.html
-$dokka.location:ktfx.jfoenix$pressAndHoldFilter(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.scene.input.MouseEvent, kotlin.Unit)))ktfx.jfoenix/javafx.scene.-node/press-and-hold-filter.html
-$dokka.location:ktfx.jfoenix$pressAndHoldHandler(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.scene.input.MouseEvent, kotlin.Unit)))ktfx.jfoenix/javafx.scene.-node/press-and-hold-handler.html
-$dokka.location:ktfx.jfoenix$toHex(javafx.scene.paint.Color)ktfx.jfoenix/javafx.scene.paint.-color/to-hex.html
-$dokka.location:ktfx.jfoenix$updateBackground(javafx.scene.layout.Region, javafx.scene.layout.Background, javafx.scene.paint.Paint)ktfx.jfoenix/javafx.scene.layout.-region/update-background.html
 $dokka.location:ktfx.jfoenix.controls$columns(com.jfoenix.controls.JFXTreeTableView((ktfx.jfoenix.controls.columns.S)), kotlin.Function1((ktfx.jfoenix.controls.JFXTreeTableColumnsBuilder((ktfx.jfoenix.controls.columns.S)), kotlin.Unit)))ktfx.jfoenix.controls/com.jfoenix.controls.-j-f-x-tree-table-view/columns.html
+$dokka.location:ktfx.jfoenix.controls$delayedEventHandler(javafx.scene.Node, javafx.util.Duration, javafx.event.EventType((ktfx.jfoenix.controls.delayedEventHandler.T)), kotlin.Function1((ktfx.jfoenix.controls.delayedEventHandler.T, kotlin.Unit)))ktfx.jfoenix.controls/javafx.scene.-node/delayed-event-handler.html
+$dokka.location:ktfx.jfoenix.controls$delayedPropertyInvalidationListener(javafx.beans.value.ObservableValue((ktfx.jfoenix.controls.delayedPropertyInvalidationListener.T)), javafx.util.Duration, kotlin.Function1((ktfx.jfoenix.controls.delayedPropertyInvalidationListener.T, kotlin.Unit)))ktfx.jfoenix.controls/javafx.beans.value.-observable-value/delayed-property-invalidation-listener.html
+$dokka.location:ktfx.jfoenix.controls$delayedPropertyInvalidationListener(javafx.beans.value.ObservableValue((ktfx.jfoenix.controls.delayedPropertyInvalidationListener.T)), javafx.util.Duration, kotlin.Function1((ktfx.jfoenix.controls.delayedPropertyInvalidationListener.T, kotlin.Unit)), kotlin.Function1((ktfx.jfoenix.controls.delayedPropertyInvalidationListener.T, kotlin.Unit)))ktfx.jfoenix.controls/javafx.beans.value.-observable-value/delayed-property-invalidation-listener.html
+$dokka.location:ktfx.jfoenix.controls$depth#javafx.scene.Nodektfx.jfoenix.controls/javafx.scene.-node/depth.html
 $dokka.location:ktfx.jfoenix.controls$jfxIndefiniteSnackbar(javafx.scene.layout.Pane, kotlin.String)ktfx.jfoenix.controls/javafx.scene.layout.-pane/jfx-indefinite-snackbar.html
 $dokka.location:ktfx.jfoenix.controls$jfxIndefiniteSnackbar(javafx.scene.layout.Pane, kotlin.String, kotlin.String, kotlin.Function1((javafx.event.ActionEvent, kotlin.Unit)))ktfx.jfoenix.controls/javafx.scene.layout.-pane/jfx-indefinite-snackbar.html
 $dokka.location:ktfx.jfoenix.controls$jfxSnackbar(javafx.scene.layout.Pane, kotlin.String, kotlin.Long)ktfx.jfoenix.controls/javafx.scene.layout.-pane/jfx-snackbar.html
 $dokka.location:ktfx.jfoenix.controls$jfxSnackbar(javafx.scene.layout.Pane, kotlin.String, kotlin.Long, kotlin.String, kotlin.Function1((javafx.event.ActionEvent, kotlin.Unit)))ktfx.jfoenix.controls/javafx.scene.layout.-pane/jfx-snackbar.html
+$dokka.location:ktfx.jfoenix.controls$popDepth(javafx.scene.Node)ktfx.jfoenix.controls/javafx.scene.-node/pop-depth.html
+$dokka.location:ktfx.jfoenix.controls$pressAndHoldFilter(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.scene.input.MouseEvent, kotlin.Unit)))ktfx.jfoenix.controls/javafx.scene.-node/press-and-hold-filter.html
+$dokka.location:ktfx.jfoenix.controls$pressAndHoldHandler(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.scene.input.MouseEvent, kotlin.Unit)))ktfx.jfoenix.controls/javafx.scene.-node/press-and-hold-handler.html
 $dokka.location:ktfx.jfoenix.controls$show(com.jfoenix.controls.JFXSnackbar, kotlin.String, kotlin.Long, kotlin.String, kotlin.Function1((javafx.event.ActionEvent, kotlin.Unit)))ktfx.jfoenix.controls/com.jfoenix.controls.-j-f-x-snackbar/show.html
 $dokka.location:ktfx.jfoenix.controls$showIndefinite(com.jfoenix.controls.JFXSnackbar, kotlin.String)ktfx.jfoenix.controls/com.jfoenix.controls.-j-f-x-snackbar/show-indefinite.html
 $dokka.location:ktfx.jfoenix.controls$showIndefinite(com.jfoenix.controls.JFXSnackbar, kotlin.String, kotlin.String, kotlin.Function1((javafx.event.ActionEvent, kotlin.Unit)))ktfx.jfoenix.controls/com.jfoenix.controls.-j-f-x-snackbar/show-indefinite.html
-ktfx.jfoenix
+$dokka.location:ktfx.jfoenix.controls$toHex(javafx.scene.paint.Color)ktfx.jfoenix.controls/javafx.scene.paint.-color/to-hex.html
+$dokka.location:ktfx.jfoenix.controls$updateBackground(javafx.scene.layout.Region, javafx.scene.layout.Background, javafx.scene.paint.Paint)ktfx.jfoenix.controls/javafx.scene.layout.-region/update-background.html
+$dokka.location:ktfx.jfoenix.dialogs$jfxAlert(javafx.stage.Stage, kotlin.String, javafx.scene.Node)ktfx.jfoenix.dialogs/javafx.stage.-stage/jfx-alert.html
 ktfx.jfoenix.controls
+ktfx.jfoenix.dialogs

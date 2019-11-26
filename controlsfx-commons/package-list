@@ -1,16 +1,32 @@
 $dokka.format:html
 $dokka.linkExtension:html
-$dokka.location:ktfx.controlsfx$excelLetter#kotlin.Intktfx.controlsfx/kotlin.-int/excel-letter.html
-$dokka.location:ktfx.controlsfx$registerEmptyValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx/javafx.scene.control.-control/register-empty-validator.html
-$dokka.location:ktfx.controlsfx$registerEqualsValidator(javafx.scene.control.Control, kotlin.String, kotlin.collections.Collection((ktfx.controlsfx.registerEqualsValidator.T)), org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx/javafx.scene.control.-control/register-equals-validator.html
-$dokka.location:ktfx.controlsfx$registerPredicateValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport, kotlin.Function1((ktfx.controlsfx.registerPredicateValidator.T, kotlin.Boolean)))ktfx.controlsfx/javafx.scene.control.-control/register-predicate-validator.html
-$dokka.location:ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx/javafx.scene.control.-control/register-regex-validator.html
-$dokka.location:ktfx.controlsfx$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx/javafx.scene.control.-control/register-regex-validator.html
-$dokka.location:ktfx.controlsfx$wrapBorders(javafx.scene.Node, kotlin.Function1((ktfx.controlsfx.BordersBuilder, kotlin.Unit)))ktfx.controlsfx/javafx.scene.-node/wrap-borders.html
+$dokka.location:ktfx.controlsfx.controls$addDecoration(javafx.scene.Node, org.controlsfx.control.decoration.Decoration)ktfx.controlsfx.controls/javafx.scene.-node/add-decoration.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.Array((ktfx.controlsfx.controls.bindAutoCompletion.T)))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.Function1((org.controlsfx.control.textfield.AutoCompletionBinding.ISuggestionRequest, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.Function1((org.controlsfx.control.textfield.AutoCompletionBinding.ISuggestionRequest, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))), javafx.util.StringConverter((ktfx.controlsfx.controls.bindAutoCompletion.T)))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
+$dokka.location:ktfx.controlsfx.controls$clearDecorations(javafx.scene.Node)ktfx.controlsfx.controls/javafx.scene.-node/clear-decorations.html
+$dokka.location:ktfx.controlsfx.controls$decorations#javafx.scene.Nodektfx.controlsfx.controls/javafx.scene.-node/decorations.html
+$dokka.location:ktfx.controlsfx.controls$isValidationRequired#javafx.scene.control.Controlktfx.controlsfx.controls/javafx.scene.control.-control/is-validation-required.html
+$dokka.location:ktfx.controlsfx.controls$registerEmptyValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx.controls/javafx.scene.control.-control/register-empty-validator.html
+$dokka.location:ktfx.controlsfx.controls$registerEqualsValidator(javafx.scene.control.Control, kotlin.String, kotlin.collections.Collection((ktfx.controlsfx.controls.registerEqualsValidator.T)), org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx.controls/javafx.scene.control.-control/register-equals-validator.html
+$dokka.location:ktfx.controlsfx.controls$registerPredicateValidator(javafx.scene.control.Control, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport, kotlin.Function1((ktfx.controlsfx.controls.registerPredicateValidator.T, kotlin.Boolean)))ktfx.controlsfx.controls/javafx.scene.control.-control/register-predicate-validator.html
+$dokka.location:ktfx.controlsfx.controls$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.String, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx.controls/javafx.scene.control.-control/register-regex-validator.html
+$dokka.location:ktfx.controlsfx.controls$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx.controls/javafx.scene.control.-control/register-regex-validator.html
+$dokka.location:ktfx.controlsfx.controls$removeDecoration(javafx.scene.Node, org.controlsfx.control.decoration.Decoration)ktfx.controlsfx.controls/javafx.scene.-node/remove-decoration.html
+$dokka.location:ktfx.controlsfx.controls$wrapBorders(javafx.scene.Node, kotlin.Function1((ktfx.controlsfx.controls.BordersBuilder, kotlin.Unit)))ktfx.controlsfx.controls/javafx.scene.-node/wrap-borders.html
+$dokka.location:ktfx.controlsfx.text$color(org.controlsfx.glyphfont.Glyph, javafx.scene.paint.Color)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/color.html
+$dokka.location:ktfx.controlsfx.text$create(org.controlsfx.glyphfont.GlyphFont, kotlin.Char)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/create.html
+$dokka.location:ktfx.controlsfx.text$create(org.controlsfx.glyphfont.GlyphFont, kotlin.Enum(()))ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/create.html
+$dokka.location:ktfx.controlsfx.text$create(org.controlsfx.glyphfont.GlyphFont, kotlin.String)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/create.html
+$dokka.location:ktfx.controlsfx.text$family(org.controlsfx.glyphfont.Glyph, kotlin.String)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/family.html
+$dokka.location:ktfx.controlsfx.text$glyph(kotlin.String, kotlin.String)ktfx.controlsfx.text/kotlin.-string/glyph.html
+$dokka.location:ktfx.controlsfx.text$register(org.controlsfx.glyphfont.GlyphFont)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/register.html
+$dokka.location:ktfx.controlsfx.text$size(org.controlsfx.glyphfont.Glyph, kotlin.Double)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/size.html
+$dokka.location:ktfx.controlsfx.text$sizeFactor(org.controlsfx.glyphfont.Glyph, kotlin.Int)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/size-factor.html
+$dokka.location:ktfx.controlsfx.text$useGradientEffect(org.controlsfx.glyphfont.Glyph, kotlin.Boolean)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/use-gradient-effect.html
+$dokka.location:ktfx.controlsfx.text$useHoverEffect(org.controlsfx.glyphfont.Glyph, kotlin.Boolean)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/use-hover-effect.html
 ktfx.controlsfx
 ktfx.controlsfx.controls
 ktfx.controlsfx.dialogs
+ktfx.controlsfx.text

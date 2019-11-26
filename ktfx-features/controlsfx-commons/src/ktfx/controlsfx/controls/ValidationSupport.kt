@@ -1,4 +1,4 @@
-package ktfx.controlsfx
+package ktfx.controlsfx.controls
 
 import javafx.scene.control.Control
 import org.controlsfx.validation.Severity

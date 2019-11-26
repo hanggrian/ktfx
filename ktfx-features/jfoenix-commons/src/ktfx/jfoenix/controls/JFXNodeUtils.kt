@@ -1,4 +1,4 @@
-package ktfx.jfoenix
+package ktfx.jfoenix.controls
 
 import com.jfoenix.utils.JFXNodeUtils
 import javafx.beans.InvalidationListener

@@ -2,6 +2,7 @@ package ktfx.controlsfx
 
 import javafx.scene.control.Label
 import javafx.scene.layout.Region
+import ktfx.controlsfx.controls.wrapBorders
 import ktfx.test.ToolkitTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

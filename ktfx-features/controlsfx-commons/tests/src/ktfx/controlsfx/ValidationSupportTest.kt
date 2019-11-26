@@ -5,6 +5,9 @@ import javafx.stage.Stage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.runBlocking
+import ktfx.controlsfx.controls.registerEmptyValidator
+import ktfx.controlsfx.controls.registerEqualsValidator
+import ktfx.controlsfx.controls.registerPredicateValidator
 import ktfx.layouts.scene
 import ktfx.layouts.textField
 import ktfx.runLater

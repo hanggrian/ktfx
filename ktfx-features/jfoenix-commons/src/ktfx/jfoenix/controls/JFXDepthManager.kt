@@ -1,4 +1,4 @@
-package ktfx.jfoenix
+package ktfx.jfoenix.controls
 
 import com.jfoenix.effects.JFXDepthManager
 import javafx.scene.Node

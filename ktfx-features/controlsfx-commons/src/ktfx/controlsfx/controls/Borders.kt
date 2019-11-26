@@ -1,4 +1,4 @@
-package ktfx.controlsfx
+package ktfx.controlsfx.controls
 
 import javafx.scene.Node
 import javafx.scene.layout.BorderStrokeStyle
@@ -255,4 +255,6 @@ class BordersBuilder internal constructor(node: Node) {
 }
 
 /** Wraps this [Node] with borders using Kotlin DSL, returning the wrapped node. */
-fun Node.wrapBorders(builder: BordersBuilder.() -> Unit): Node = BordersBuilder(this).apply(builder).build()
+fun Node.wrapBorders(builder: BordersBuilder.() -> Unit): Node = BordersBuilder(
+    this
+).apply(builder).build()

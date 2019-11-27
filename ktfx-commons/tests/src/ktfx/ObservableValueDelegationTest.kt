@@ -54,9 +54,9 @@ class ObservableValueDelegationTest {
         assertEquals("World", string.toString { it.orEmpty() }.value)
         assertEquals("", emptyString.toString { it.orEmpty() }.value)
 
-        assertEquals(IntRange(0, 4), string.to { it.indices }.value)
+        assertEquals(IntRange(0, 4), string.toAny { it!!.indices }.value)
 
-        assertEquals(4, string.toInt { it.lastIndex }.value)
+        assertEquals(4, string.toInt { it!!.lastIndex }.value)
     }
 
     data class Person(

@@ -8,7 +8,7 @@ class BindingCustomTest {
 
     @Test fun any() {
         val dependency = property<Person>()
-        val binding = dependency.to { it }
+        val binding = dependency.toAny { it }
         assertNull(binding.value)
         dependency.value = Person("Hendra")
         assertEquals(Person("Hendra"), binding.value)

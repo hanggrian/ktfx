@@ -23,7 +23,7 @@ open class KtfxStackPane : StackPane(), NodeManager {
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
-    inline fun Node.clear(): Unit = clearConstraints(this)
+    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 
     /** Children alignment in this layout. */
     inline var Node.alignment: Pos?

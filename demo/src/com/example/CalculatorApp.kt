@@ -3,25 +3,24 @@ package com.example
 import javafx.application.Application
 import javafx.scene.control.Label
 import javafx.stage.Stage
-import ktfx.toBoolean
-import ktfx.toString
+import ktfx.controls.minSize
+import ktfx.controls.updatePadding
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
 import ktfx.dialogs.infoAlert
 import ktfx.layouts.button
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
-import ktfx.controls.minSize
 import ktfx.layouts.scene
-import ktfx.controls.updatePadding
 import ktfx.layouts.vbox
+import ktfx.toBoolean
+import ktfx.toString
 
 class CalculatorApp : Application() {
     companion object {
         private val OPERATORS = arrayOf("+", "-", "/", "*")
 
-        @JvmStatic
-        fun main(vararg args: String) = ktfx.launch<CalculatorApp>(*args)
+        @JvmStatic fun main(vararg args: String) = ktfx.launch<CalculatorApp>(*args)
     }
 
     private lateinit var calculationLabel: Label
@@ -135,7 +134,7 @@ class CalculatorApp : Application() {
                         appendText("00")
                     }
                 } row 4 col 1
-                button("") {
+                button(".") {
                     minSize = 40.0
                     onAction {
                         errorAlert(":(", content = "Not yet supported.")

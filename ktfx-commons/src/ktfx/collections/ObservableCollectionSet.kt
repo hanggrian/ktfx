@@ -15,16 +15,14 @@ import javafx.collections.ObservableSet
  *
  * @see emptySet
  */
-fun <T> emptyObservableSet(): ObservableSet<T> =
-    FXCollections.emptyObservableSet()
+fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObservableSet()
 
 /**
  * Alias of [emptyObservableSet].
  *
  * @see setOf
  */
-inline fun <T> observableSetOf(): ObservableSet<T> =
-    emptyObservableSet()
+inline fun <T> observableSetOf(): ObservableSet<T> = emptyObservableSet()
 
 /**
  * Returns an immutable [ObservableSet] containing all [elements].
@@ -39,8 +37,7 @@ fun <T> observableSetOf(vararg elements: T): ObservableSet<T> =
  *
  * @see mutableSetOf
  */
-fun <T> mutableObservableSetOf(): ObservableSet<T> =
-    FXCollections.observableSet()
+fun <T> mutableObservableSetOf(): ObservableSet<T> = FXCollections.observableSet()
 
 /**
  * Returns an [ObservableSet] containing all [elements].
@@ -67,8 +64,7 @@ fun <T> Array<out T>.toObservableSet(): ObservableSet<T> {
  *
  * @see Array.toMutableSet
  */
-fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> =
-    FXCollections.observableSet<T>(*this)
+fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> = FXCollections.observableSet<T>(*this)
 
 /**
  * Converts this iterable to immutable [ObservableSet].
@@ -102,16 +98,14 @@ fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> {
  *
  * @see Sequence.toSet
  */
-fun <T> Sequence<T>.toObservableSet(): ObservableSet<T> =
-    toMutableObservableSet().optimizeReadOnlySet()
+fun <T> Sequence<T>.toObservableSet(): ObservableSet<T> = toMutableObservableSet().optimizeReadOnlySet()
 
 /**
  * Converts this sequence to [ObservableSet].
  *
  * @see Sequence.toMutableSet
  */
-fun <T> Sequence<T>.toMutableObservableSet(): ObservableSet<T> =
-    toCollection(FXCollections.observableSet())
+fun <T> Sequence<T>.toMutableObservableSet(): ObservableSet<T> = toCollection(FXCollections.observableSet())
 
 /** Generates a bidirectional binding between two instances of [ObservableSet]. */
 fun <E> ObservableSet<E>.bindContentBidirectional(other: ObservableSet<E>): Unit =
@@ -122,21 +116,16 @@ fun <E> ObservableSet<E>.unbindContentBidirectional(other: ObservableSet<E>): Un
     Bindings.unbindContentBidirectional(this, other)
 
 /** Generates a bidirectional binding between an [ObservableSet] and a [Set]. */
-fun <E> Set<E>.bindContent(other: ObservableSet<E>): Unit =
-    Bindings.bindContent(this, other)
+fun <E> Set<E>.bindContent(other: ObservableSet<E>): Unit = Bindings.bindContent(this, other)
 
 /** Remove a bidirectional binding between an [ObservableSet] and a [Set]. */
-fun <E> Set<E>.unbindContent(other: ObservableSet<E>): Unit =
-    Bindings.unbindContent(this, other)
+fun <E> Set<E>.unbindContent(other: ObservableSet<E>): Unit = Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableSet]. */
-val <E> ObservableSet<E>.sizeBinding: IntegerBinding
-    get() = Bindings.size(this)
+val <E> ObservableSet<E>.sizeBinding: IntegerBinding get() = Bindings.size(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableSet] is empty. */
-val <E> ObservableSet<E>.emptyBinding: BooleanBinding
-    get() = Bindings.isEmpty(this)
+val <E> ObservableSet<E>.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableSet] is not empty. */
-val <E> ObservableSet<E>.notEmptyBinding: BooleanBinding
-    get() = Bindings.isNotEmpty(this)
+val <E> ObservableSet<E>.notEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)

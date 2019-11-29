@@ -12,8 +12,7 @@ import javafx.scene.control.cell.TextFieldTableCell
 import javafx.util.StringConverter
 
 /** Creates a [CheckBoxTableCell] factory for use in [TableColumn] controls. */
-fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
-    setCellFactory(CheckBoxTableCell.forTableColumn(this))
+fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(this))
 
 /** Creates a [CheckBoxTableCell] factory for use in [TableColumn] controls. */
 fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
@@ -52,12 +51,10 @@ fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
 ): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(converter, items))
 
 /** Creates a [ProgressBarTableCell] factory for use in [TableColumn] controls. */
-fun <S> TableColumn<S, Double>.progressBarCellFactory(): Unit =
-    setCellFactory(ProgressBarTableCell.forTableColumn<S>())
+fun <S> TableColumn<S, Double>.progressBarCellFactory(): Unit = setCellFactory(ProgressBarTableCell.forTableColumn<S>())
 
 /** Creates a [TextFieldTableCell] factory for use in [TableColumn] controls. */
-fun <S> TableColumn<S, String>.textFieldCellFactory(): Unit =
-    setCellFactory(TextFieldTableCell.forTableColumn())
+fun <S> TableColumn<S, String>.textFieldCellFactory(): Unit = setCellFactory(TextFieldTableCell.forTableColumn())
 
 /** Creates a [TextFieldTableCell] factory for use in [TableColumn] controls. */
 fun <S, T> TableColumn<S, T>.textFieldCellFactory(

@@ -41,8 +41,7 @@ fun <T> ListView<T>.comboBoxCellFactory(
 ): Unit = setCellFactory(ComboBoxListCell.forListView(converter, items))
 
 /** Creates a [TextFieldListCell] factory for use in [ListView] controls. */
-fun ListView<String>.textFieldCellFactory(): Unit =
-    setCellFactory(TextFieldListCell.forListView())
+fun ListView<String>.textFieldCellFactory(): Unit = setCellFactory(TextFieldListCell.forListView())
 
 /** Creates a [TextFieldListCell] factory for use in [ListView] controls. */
 fun <T> ListView<T>.textFieldCellFactory(converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()): Unit =

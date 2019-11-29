@@ -8,19 +8,19 @@ import kotlin.test.assertTrue
 class ObservableValueDelegationTest {
     private val person1 = Person("Hendra", 24)
     private val person2 = Person("Hobo", 50)
-    private val person = property(person1)
+    private val person = propertyOf(person1)
     private var personValue: Person? by person
 
-    private val boolean = booleanProperty(false)
+    private val boolean = booleanPropertyOf(false)
     private var booleanValue: Boolean by boolean
 
-    private var integer = intProperty(1)
+    private var integer = intPropertyOf(1)
     private var integerValue: Int by integer
 
-    private val string = stringProperty("Hello")
+    private val string = stringPropertyOf("Hello")
     private var stringValue: String? by string
 
-    private val emptyString = stringProperty()
+    private val emptyString = stringPropertyOf()
 
     @Test fun any() {
         assertEquals(personValue, person1)
@@ -45,18 +45,18 @@ class ObservableValueDelegationTest {
         stringValue = "World"
         assertEquals(string.value, "World")
 
-        assertFalse(string.toBoolean { it.isNullOrBlank() }.value)
-        assertTrue(emptyString.toBoolean { it.isNullOrBlank() }.value)
+        assertFalse(string.toBooleanBinding { it.isNullOrBlank() }.value)
+        assertTrue(emptyString.toBooleanBinding { it.isNullOrBlank() }.value)
 
-        assertFalse(string.toBoolean { it.isNullOrEmpty() }.value)
-        assertTrue(emptyString.toBoolean { it.isNullOrEmpty() }.value)
+        assertFalse(string.toBooleanBinding { it.isNullOrEmpty() }.value)
+        assertTrue(emptyString.toBooleanBinding { it.isNullOrEmpty() }.value)
 
-        assertEquals("World", string.toString { it.orEmpty() }.value)
-        assertEquals("", emptyString.toString { it.orEmpty() }.value)
+        assertEquals("World", string.toStringBinding { it.orEmpty() }.value)
+        assertEquals("", emptyString.toStringBinding { it.orEmpty() }.value)
 
-        assertEquals(IntRange(0, 4), string.toAny { it!!.indices }.value)
+        assertEquals(IntRange(0, 4), string.toBinding { it!!.indices }.value)
 
-        assertEquals(4, string.toInt { it!!.lastIndex }.value)
+        assertEquals(4, string.toIntBinding { it!!.lastIndex }.value)
     }
 
     data class Person(

@@ -7,23 +7,23 @@ import javafx.util.Duration
 /** Converts double value into duration in milliseconds. */
 val Double.millis: Duration get() = Duration.millis(this)
 
-/** Converts double value into duration in seconds. */
-val Double.seconds: Duration get() = Duration.seconds(this)
-
-/** Converts double value into duration in minutes. */
-val Double.minutes: Duration get() = Duration.minutes(this)
-
-/** Converts double value into duration in hours. */
-val Double.hours: Duration get() = Duration.hours(this)
-
 /** Converts any number value into duration in milliseconds. */
 inline val Number.millis: Duration get() = toDouble().millis
+
+/** Converts double value into duration in seconds. */
+val Double.seconds: Duration get() = Duration.seconds(this)
 
 /** Converts any number value into duration in seconds. */
 inline val Number.seconds: Duration get() = toDouble().seconds
 
+/** Converts double value into duration in minutes. */
+val Double.minutes: Duration get() = Duration.minutes(this)
+
 /** Converts any number value into duration in minutes. */
 inline val Number.minutes: Duration get() = toDouble().minutes
+
+/** Converts double value into duration in hours. */
+val Double.hours: Duration get() = Duration.hours(this)
 
 /** Converts any number value into duration in hours. */
 inline val Number.hours: Duration get() = toDouble().hours

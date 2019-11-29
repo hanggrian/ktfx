@@ -21,16 +21,14 @@ import javafx.collections.ObservableMap
  *
  * @see emptyMap
  */
-fun <K, V> emptyObservableMap(): ObservableMap<K, V> =
-    FXCollections.emptyObservableMap()
+fun <K, V> emptyObservableMap(): ObservableMap<K, V> = FXCollections.emptyObservableMap()
 
 /**
  * Returns an empty immutable [ObservableMap].
  *
  * @see mapOf
  */
-inline fun <K, V> observableMapOf(): ObservableMap<K, V> =
-    emptyObservableMap()
+inline fun <K, V> observableMapOf(): ObservableMap<K, V> = emptyObservableMap()
 
 /**
  * Returns an empty observable map of containing all [pairs].
@@ -45,8 +43,7 @@ fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
  *
  * @see mutableMapOf
  */
-fun <K, V> mutableObservableMapOf(): ObservableMap<K, V> =
-    FXCollections.observableHashMap()
+fun <K, V> mutableObservableMapOf(): ObservableMap<K, V> = FXCollections.observableHashMap()
 
 /**
  * Returns an [ObservableMap] of [pairs].
@@ -75,8 +72,7 @@ fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> {
  *
  * @see Map.toMutableMap
  */
-fun <K, V> Map<K, V>.toMutableObservableMap(): ObservableMap<K, V> =
-    FXCollections.observableMap(this)
+fun <K, V> Map<K, V>.toMutableObservableMap(): ObservableMap<K, V> = FXCollections.observableMap(this)
 
 /** Generates a bidirectional binding between two instances of [ObservableMap]. */
 fun <K, V> ObservableMap<K, V>.bindContentBidirectional(other: ObservableMap<K, V>): Unit =
@@ -87,77 +83,59 @@ fun <K, V> ObservableMap<K, V>.unbindContentBidirectional(other: ObservableMap<K
     Bindings.unbindContentBidirectional(this, other)
 
 /** Generates a bidirectional binding between an [ObservableMap] and a [Map]. */
-fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>): Unit =
-    Bindings.bindContent(this, other)
+fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>): Unit = Bindings.bindContent(this, other)
 
 /** Remove a bidirectional binding between an [ObservableMap] and a [Map]. */
-fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>): Unit =
-    Bindings.unbindContent(this, other)
+fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>): Unit = Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableMap]. */
-val <K, V> ObservableMap<K, V>.sizeBinding: IntegerBinding
-    get() = Bindings.size(this)
+val <K, V> ObservableMap<K, V>.sizeBinding: IntegerBinding get() = Bindings.size(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableMap] is empty. */
-val <K, V> ObservableMap<K, V>.emptyBinding: BooleanBinding
-    get() = Bindings.isEmpty(this)
+val <K, V> ObservableMap<K, V>.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableMap] is not empty. */
-val <K, V> ObservableMap<K, V>.notEmptyBinding: BooleanBinding
-    get() = Bindings.isNotEmpty(this)
+val <K, V> ObservableMap<K, V>.notEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)
 
 /** Creates a new [ObjectBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K, V> ObservableMap<K, V>.getBinding(key: K): ObjectBinding<V> =
-    Bindings.valueAt(this, key)
+fun <K, V> ObservableMap<K, V>.getBinding(key: K): ObjectBinding<V> = Bindings.valueAt(this, key)
 
 /** Creates a new [ObjectBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K, V> ObservableMap<K, V>.getBinding(key: ObservableValue<K>): ObjectBinding<V> =
-    Bindings.valueAt(this, key)
+fun <K, V> ObservableMap<K, V>.getBinding(key: ObservableValue<K>): ObjectBinding<V> = Bindings.valueAt(this, key)
 
 /** Creates a new [BooleanBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Boolean>.getBinding(key: K): BooleanBinding =
-    Bindings.booleanValueAt(this, key)
+fun <K> ObservableMap<K, Boolean>.getBinding(key: K): BooleanBinding = Bindings.booleanValueAt(this, key)
 
 /** Creates a new [BooleanBinding] that contains the mapping of a specific key in an [ObservableMap]. */
 fun <K> ObservableMap<K, Boolean>.getBinding(key: ObservableValue<K>): BooleanBinding =
     Bindings.booleanValueAt(this, key)
 
 /** Creates a new [DoubleBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Double>.getBinding(key: K): DoubleBinding =
-    Bindings.doubleValueAt(this, key)
+fun <K> ObservableMap<K, Double>.getBinding(key: K): DoubleBinding = Bindings.doubleValueAt(this, key)
 
 /** Creates a new [DoubleBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Double>.getBinding(key: ObservableValue<K>): DoubleBinding =
-    Bindings.doubleValueAt(this, key)
+fun <K> ObservableMap<K, Double>.getBinding(key: ObservableValue<K>): DoubleBinding = Bindings.doubleValueAt(this, key)
 
 /** Creates a new [FloatBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Float>.getBinding(key: K): FloatBinding =
-    Bindings.floatValueAt(this, key)
+fun <K> ObservableMap<K, Float>.getBinding(key: K): FloatBinding = Bindings.floatValueAt(this, key)
 
 /** Creates a new [FloatBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Float>.getBinding(key: ObservableValue<K>): FloatBinding =
-    Bindings.floatValueAt(this, key)
+fun <K> ObservableMap<K, Float>.getBinding(key: ObservableValue<K>): FloatBinding = Bindings.floatValueAt(this, key)
 
 /** Creates a new [IntegerBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Int>.getBinding(key: K): IntegerBinding =
-    Bindings.integerValueAt(this, key)
+fun <K> ObservableMap<K, Int>.getBinding(key: K): IntegerBinding = Bindings.integerValueAt(this, key)
 
 /** Creates a new [IntegerBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Int>.getBinding(key: ObservableValue<K>): IntegerBinding =
-    Bindings.integerValueAt(this, key)
+fun <K> ObservableMap<K, Int>.getBinding(key: ObservableValue<K>): IntegerBinding = Bindings.integerValueAt(this, key)
 
 /** Creates a new [LongBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Long>.getBinding(key: K): LongBinding =
-    Bindings.longValueAt(this, key)
+fun <K> ObservableMap<K, Long>.getBinding(key: K): LongBinding = Bindings.longValueAt(this, key)
 
 /** Creates a new [LongBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, Long>.getBinding(key: ObservableValue<K>): LongBinding =
-    Bindings.longValueAt(this, key)
+fun <K> ObservableMap<K, Long>.getBinding(key: ObservableValue<K>): LongBinding = Bindings.longValueAt(this, key)
 
 /** Creates a new [StringBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, String>.getBinding(key: K): StringBinding =
-    Bindings.stringValueAt(this, key)
+fun <K> ObservableMap<K, String>.getBinding(key: K): StringBinding = Bindings.stringValueAt(this, key)
 
 /** Creates a new [StringBinding] that contains the mapping of a specific key in an [ObservableMap]. */
-fun <K> ObservableMap<K, String>.getBinding(key: ObservableValue<K>): StringBinding =
-    Bindings.stringValueAt(this, key)
+fun <K> ObservableMap<K, String>.getBinding(key: ObservableValue<K>): StringBinding = Bindings.stringValueAt(this, key)

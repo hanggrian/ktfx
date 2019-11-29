@@ -12,8 +12,7 @@ import javafx.scene.control.cell.TextFieldTreeCell
 import javafx.util.StringConverter
 
 /** Creates a [CheckBoxTreeCell] factory for use in [TreeView] controls. */
-fun <T> TreeView<T>.checkBoxCellFactory(): Unit =
-    setCellFactory(CheckBoxTreeCell.forTreeView())
+fun <T> TreeView<T>.checkBoxCellFactory(): Unit = setCellFactory(CheckBoxTreeCell.forTreeView())
 
 /** Creates a [CheckBoxTreeCell] factory for use in [TreeView] controls. */
 fun <T> TreeView<T>.checkBoxCellFactory(
@@ -46,8 +45,7 @@ fun <T> TreeView<T>.comboBoxCellFactory(
 ): Unit = setCellFactory(ComboBoxTreeCell.forTreeView(converter, items))
 
 /** Creates a [TextFieldTreeCell] factory for use in [TreeView] controls. */
-fun TreeView<String>.textFieldCellFactory(): Unit =
-    setCellFactory(TextFieldTreeCell.forTreeView())
+fun TreeView<String>.textFieldCellFactory(): Unit = setCellFactory(TextFieldTreeCell.forTreeView())
 
 /** Creates a [TextFieldTreeCell] factory for use in [TreeView] controls. */
 fun <T> TreeView<T>.textFieldCellFactory(converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()): Unit =

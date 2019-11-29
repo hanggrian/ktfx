@@ -31,8 +31,7 @@ fun Shape.fillTransition(
 ): FillTransition = FillTransition(duration, this, fromValue, toValue)
 
 /** Construct a [ParallelTransition] that animates this [Node]. */
-fun Node.parallelTransition(vararg animations: Animation): ParallelTransition =
-    ParallelTransition(this, *animations)
+fun Node.parallelTransition(vararg animations: Animation): ParallelTransition = ParallelTransition(this, *animations)
 
 /** Construct a [PathTransition] that animates this [Node]. */
 fun Node.pathTransition(duration: Duration = 400.0.millis, path: Shape? = null): PathTransition =

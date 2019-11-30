@@ -8,6 +8,7 @@ import ktfx.controls.updatePadding
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
 import ktfx.dialogs.infoAlert
+import ktfx.launchApplication
 import ktfx.layouts.button
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
@@ -20,7 +21,7 @@ class CalculatorApp : Application() {
     companion object {
         private val OPERATORS = arrayOf("+", "-", "/", "*")
 
-        @JvmStatic fun main(vararg args: String) = ktfx.launch<CalculatorApp>(*args)
+        @JvmStatic fun main(vararg args: String) = launchApplication<CalculatorApp>(*args)
     }
 
     private lateinit var calculationLabel: Label

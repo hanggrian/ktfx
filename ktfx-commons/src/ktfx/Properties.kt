@@ -11,25 +11,15 @@ import javafx.beans.property.ListProperty
 import javafx.beans.property.LongProperty
 import javafx.beans.property.MapProperty
 import javafx.beans.property.ObjectProperty
-import javafx.beans.property.ReadOnlyBooleanProperty
 import javafx.beans.property.ReadOnlyBooleanWrapper
-import javafx.beans.property.ReadOnlyDoubleProperty
 import javafx.beans.property.ReadOnlyDoubleWrapper
-import javafx.beans.property.ReadOnlyFloatProperty
 import javafx.beans.property.ReadOnlyFloatWrapper
-import javafx.beans.property.ReadOnlyIntegerProperty
 import javafx.beans.property.ReadOnlyIntegerWrapper
-import javafx.beans.property.ReadOnlyListProperty
 import javafx.beans.property.ReadOnlyListWrapper
-import javafx.beans.property.ReadOnlyLongProperty
 import javafx.beans.property.ReadOnlyLongWrapper
-import javafx.beans.property.ReadOnlyMapProperty
 import javafx.beans.property.ReadOnlyMapWrapper
-import javafx.beans.property.ReadOnlyObjectProperty
 import javafx.beans.property.ReadOnlyObjectWrapper
-import javafx.beans.property.ReadOnlySetProperty
 import javafx.beans.property.ReadOnlySetWrapper
-import javafx.beans.property.ReadOnlyStringProperty
 import javafx.beans.property.ReadOnlyStringWrapper
 import javafx.beans.property.SetProperty
 import javafx.beans.property.SimpleBooleanProperty
@@ -51,58 +41,58 @@ import javafx.collections.ObservableSet
 fun <E> propertyOf(value: E? = null): ObjectProperty<E> = SimpleObjectProperty(value)
 
 /** Wrap nullable object in a read-only property. */
-fun <E> finalPropertyOf(value: E? = null): ReadOnlyObjectProperty<E> = ReadOnlyObjectWrapper(value)
+fun <E> finalPropertyOf(value: E? = null): ObjectProperty<E> = ReadOnlyObjectWrapper(value)
 
 /** Wrap nullable boolean in a property. */
-fun booleanPropertyOf(value: Boolean? = null): BooleanProperty = SimpleBooleanProperty(value ?: false)
+fun booleanPropertyOf(value: Boolean = false): BooleanProperty = SimpleBooleanProperty(value)
 
 /** Wrap nullable boolean in a read-only property. */
-fun finalBooleanPropertyOf(value: Boolean? = null): ReadOnlyBooleanProperty = ReadOnlyBooleanWrapper(value ?: false)
+fun finalBooleanPropertyOf(value: Boolean = false): BooleanProperty = ReadOnlyBooleanWrapper(value)
 
 /** Wrap nullable double in a property. */
-fun doublePropertyOf(value: Double? = null): DoubleProperty = SimpleDoubleProperty(value ?: 0.0)
+fun doublePropertyOf(value: Double = 0.0): DoubleProperty = SimpleDoubleProperty(value)
 
 /** Wrap nullable double in a read-only property. */
-fun finalDoublePropertyOf(value: Double? = null): ReadOnlyDoubleProperty = ReadOnlyDoubleWrapper(value ?: 0.0)
+fun finalDoublePropertyOf(value: Double = 0.0): DoubleProperty = ReadOnlyDoubleWrapper(value)
 
 /** Wrap nullable float in a property. */
-fun floatPropertyOf(value: Float? = null): FloatProperty = SimpleFloatProperty(value ?: 0f)
+fun floatPropertyOf(value: Float = 0f): FloatProperty = SimpleFloatProperty(value)
 
 /** Wrap nullable float in a read-only property. */
-fun finalFloatPropertyOf(value: Float? = null): ReadOnlyFloatProperty = ReadOnlyFloatWrapper(value ?: 0f)
+fun finalFloatPropertyOf(value: Float = 0f): FloatProperty = ReadOnlyFloatWrapper(value)
 
 /** Wrap nullable int in a property. */
-fun intPropertyOf(value: Int? = null): IntegerProperty = SimpleIntegerProperty(value ?: 0)
+fun intPropertyOf(value: Int = 0): IntegerProperty = SimpleIntegerProperty(value)
 
 /** Wrap nullable int in a read-only property. */
-fun finalIntPropertyOf(value: Int? = null): ReadOnlyIntegerProperty = ReadOnlyIntegerWrapper(value ?: 0)
+fun finalIntPropertyOf(value: Int = 0): IntegerProperty = ReadOnlyIntegerWrapper(value)
 
 /** Wrap nullable long in a property. */
-fun longPropertyOf(value: Long? = null): LongProperty = SimpleLongProperty(value ?: 0)
+fun longPropertyOf(value: Long = 0): LongProperty = SimpleLongProperty(value)
 
 /** Wrap nullable long in a read-only property. */
-fun finalLongPropertyOf(value: Long? = null): ReadOnlyLongProperty = ReadOnlyLongWrapper(value ?: 0)
+fun finalLongPropertyOf(value: Long = 0): LongProperty = ReadOnlyLongWrapper(value)
 
 /** Wrap nullable string in a property. */
 fun stringPropertyOf(value: String? = null): StringProperty = SimpleStringProperty(value)
 
 /** Wrap nullable string in a read-only property. */
-fun finalStringPropertyOf(value: String? = null): ReadOnlyStringProperty = ReadOnlyStringWrapper(value)
+fun finalStringPropertyOf(value: String? = null): StringProperty = ReadOnlyStringWrapper(value)
 
 /** Wrap nullable list in a property. */
 fun <E> listPropertyOf(value: ObservableList<E>? = null): ListProperty<E> = SimpleListProperty(value)
 
 /** Wrap nullable list in a read-only property. */
-fun <E> finalListPropertyOf(value: ObservableList<E>? = null): ReadOnlyListProperty<E> = ReadOnlyListWrapper(value)
+fun <E> finalListPropertyOf(value: ObservableList<E>? = null): ListProperty<E> = ReadOnlyListWrapper(value)
 
 /** Wrap nullable set in a property. */
 fun <E> setPropertyOf(value: ObservableSet<E>? = null): SetProperty<E> = SimpleSetProperty(value)
 
 /** Wrap nullable set in a read-only property. */
-fun <E> finalSetPropertyOf(value: ObservableSet<E>? = null): ReadOnlySetProperty<E> = ReadOnlySetWrapper(value)
+fun <E> finalSetPropertyOf(value: ObservableSet<E>? = null): SetProperty<E> = ReadOnlySetWrapper(value)
 
 /** Wrap nullable map in a property. */
 fun <K, V> mapPropertyOf(value: ObservableMap<K, V>? = null): MapProperty<K, V> = SimpleMapProperty(value)
 
 /** Wrap nullable map in a read-only property. */
-fun <K, V> finalMapPropertyOf(value: ObservableMap<K, V>? = null): ReadOnlyMapProperty<K, V> = ReadOnlyMapWrapper(value)
+fun <K, V> finalMapPropertyOf(value: ObservableMap<K, V>? = null): MapProperty<K, V> = ReadOnlyMapWrapper(value)

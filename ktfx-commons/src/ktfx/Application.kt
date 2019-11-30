@@ -7,10 +7,11 @@ import kotlin.reflect.KClass
 import netscape.javascript.JSObject
 
 /** Launch a JavaFX application with Kotlin class. */
-fun <T : Application> launch(type: KClass<T>, vararg args: String): Unit = Application.launch(type.java, *args)
+fun <T : Application> launchApplication(type: KClass<T>, vararg args: String): Unit =
+    Application.launch(type.java, *args)
 
 /** Launch a JavaFX application with reified type. */
-inline fun <reified T : Application> launch(vararg args: String): Unit = launch(T::class, *args)
+inline fun <reified T : Application> launchApplication(vararg args: String): Unit = launchApplication(T::class, *args)
 
 /**
  * Opens the specified URI in a new browser window or tab.

@@ -11,8 +11,7 @@ class TaskBuilder<V> internal constructor() : Task<V>() {
         _call = onCall
     }
 
-    override fun call(): V? =
-        _call()
+    override fun call(): V? = _call()
 }
 
 /**

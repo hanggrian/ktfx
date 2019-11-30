@@ -1,5 +1,8 @@
 package ktfx
 
+import ktfx.util.minutes
+import ktfx.util.seconds
+import java.time.Duration
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -7,14 +10,12 @@ import kotlin.test.assertTrue
 class BindingOperatorObjectTest {
 
     @Test fun eq() {
-        assertFalse((propertyOf<Car>() eq propertyOf(Car("Honda"))).value)
-        assertTrue((propertyOf(Car("Toyota")) eq propertyOf(Car("Toyota"))).value)
+        assertFalse((propertyOf<Duration>() eq propertyOf(1.minutes)).value)
+        assertTrue((propertyOf(60.seconds) eq propertyOf(1.minutes)).value)
     }
 
     @Test fun neq() {
-        assertTrue((propertyOf<Car>() neq propertyOf(Car("Honda"))).value)
-        assertFalse((propertyOf(Car("Toyota")) neq propertyOf(Car("Toyota"))).value)
+        assertTrue((propertyOf<Duration>() neq propertyOf(1.minutes)).value)
+        assertFalse((propertyOf(60.seconds) neq propertyOf(1.minutes)).value)
     }
-
-    data class Car(val maker: String)
 }

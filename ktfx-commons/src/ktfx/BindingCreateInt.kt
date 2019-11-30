@@ -14,46 +14,31 @@ import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableValue
-import javafx.collections.ObservableList
-import javafx.collections.ObservableMap
-import javafx.collections.ObservableSet
 
-/** Create an [IntegerBinding] with multiple observable [dependencies]. */
+/** Create an [IntegerBinding] with multiple [Observable] dependencies. */
 fun intBindingOf(vararg dependencies: Observable, valueProvider: () -> Int): IntegerBinding =
     Bindings.createIntegerBinding(Callable(valueProvider), *dependencies)
 
-/** Create an [IntegerBinding] with single observable dependency. */
+/** Create an [IntegerBinding] with single [ObservableValue] dependency. */
 inline fun <V> ObservableValue<V>.toIntBinding(noinline valueProvider: (V?) -> Int): IntegerBinding =
     intBindingOf(this) { valueProvider(value) }
 
-/** Create an [IntegerBinding] with single observable boolean dependency. */
+/** Create an [IntegerBinding] with single [ObservableBooleanValue] dependency. */
 inline fun ObservableBooleanValue.toIntBinding(noinline valueProvider: (Boolean) -> Int): IntegerBinding =
     intBindingOf(this) { valueProvider(value) }
 
-/** Create an [IntegerBinding] with single observable double dependency. */
+/** Create an [IntegerBinding] with single [ObservableDoubleValue] dependency. */
 inline fun ObservableDoubleValue.toIntBinding(noinline valueProvider: (Double) -> Int): IntegerBinding =
     intBindingOf(this) { valueProvider(value as Double) }
 
-/** Create an [IntegerBinding] with single observable float dependency. */
+/** Create an [IntegerBinding] with single [ObservableFloatValue] dependency. */
 inline fun ObservableFloatValue.toIntBinding(noinline valueProvider: (Float) -> Int): IntegerBinding =
     intBindingOf(this) { valueProvider(value as Float) }
 
-/** Create an [IntegerBinding] with single observable int dependency. */
+/** Create an [IntegerBinding] with single [ObservableIntegerValue] dependency. */
 inline fun ObservableIntegerValue.toIntBinding(noinline valueProvider: (Int) -> Int): IntegerBinding =
     intBindingOf(this) { valueProvider(value as Int) }
 
-/** Create an [IntegerBinding] with single observable long dependency. */
+/** Create an [IntegerBinding] with single [ObservableLongValue] dependency. */
 inline fun ObservableLongValue.toIntBinding(noinline valueProvider: (Long) -> Int): IntegerBinding =
     intBindingOf(this) { valueProvider(value as Long) }
-
-/** Create an [IntegerBinding] with single observable list dependency. */
-inline fun <E> ObservableList<E>.toIntBinding(noinline valueProvider: (List<E>) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(this) }
-
-/** Create an [IntegerBinding] with single observable set dependency. */
-inline fun <E> ObservableSet<E>.toIntBinding(noinline valueProvider: (Set<E>) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(this) }
-
-/** Create an [IntegerBinding] with single observable map dependency. */
-inline fun <K, V> ObservableMap<K, V>.toIntBinding(noinline valueProvider: (Map<K, V>) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(this) }

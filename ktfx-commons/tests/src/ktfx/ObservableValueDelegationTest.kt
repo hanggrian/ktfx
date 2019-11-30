@@ -1,31 +1,30 @@
 package ktfx
 
+import ktfx.util.minutes
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class ObservableValueDelegationTest {
-    private val person1 = Person("Hendra", 24)
-    private val person2 = Person("Hobo", 50)
-    private val person = propertyOf(person1)
-    private var personValue: Person? by person
+    private val duration = propertyOf(1.minutes)
+    private var durationValue by duration
 
     private val boolean = booleanPropertyOf(false)
-    private var booleanValue: Boolean by boolean
+    private var booleanValue by boolean
 
     private var integer = intPropertyOf(1)
-    private var integerValue: Int by integer
+    private var integerValue by integer
 
     private val string = stringPropertyOf("Hello")
-    private var stringValue: String? by string
+    private var stringValue by string
 
     private val emptyString = stringPropertyOf()
 
     @Test fun any() {
-        assertEquals(personValue, person1)
-        personValue = person2
-        assertEquals(person.value, person2)
+        assertEquals(1.minutes, durationValue)
+        durationValue = 2.minutes
+        assertEquals(2.minutes, duration.value)
     }
 
     @Test fun boolean() {
@@ -35,15 +34,15 @@ class ObservableValueDelegationTest {
     }
 
     @Test fun integer() {
-        assertEquals(integerValue, 1)
+        assertEquals(1, integerValue)
         integerValue = 2
-        assertEquals(integer.value, 2)
+        assertEquals(2, integer.value)
     }
 
     @Test fun string() {
-        assertEquals(stringValue, "Hello")
+        assertEquals("Hello", stringValue)
         stringValue = "World"
-        assertEquals(string.value, "World")
+        assertEquals("World", string.value)
 
         assertFalse(string.toBooleanBinding { it.isNullOrBlank() }.value)
         assertTrue(emptyString.toBooleanBinding { it.isNullOrBlank() }.value)
@@ -58,9 +57,4 @@ class ObservableValueDelegationTest {
 
         assertEquals(4, string.toIntBinding { it!!.lastIndex }.value)
     }
-
-    data class Person(
-        val name: String,
-        val age: Int
-    )
 }

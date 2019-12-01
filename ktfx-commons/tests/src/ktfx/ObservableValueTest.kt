@@ -5,13 +5,18 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class ObservableValueTest {
-    private val emptyString = stringPropertyOf()
 
-    @Test fun test() {
-        assertFalse(emptyString.hasValue())
-        emptyString.value = ""
-        assertTrue(emptyString.hasValue())
-        emptyString.clear()
-        assertFalse(emptyString.hasValue())
+    @Test fun hasValue() {
+        val property = stringPropertyOf()
+        assertFalse(property.hasValue())
+        property.value = "Hello World"
+        assertTrue(property.hasValue())
+    }
+
+    @Test fun clear() {
+        val property = stringPropertyOf("Hello World")
+        assertTrue(property.hasValue())
+        property.clear()
+        assertFalse(property.hasValue())
     }
 }

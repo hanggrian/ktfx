@@ -14,17 +14,10 @@ import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableValue
-import javafx.util.Callback
 
 /** Create an [ObjectBinding] with multiple [Observable] dependencies. */
 fun <T> bindingOf(vararg dependencies: Observable, valueProvider: () -> T?): ObjectBinding<T> =
     Bindings.createObjectBinding<T>(Callable(valueProvider), *dependencies)
-
-/** Create an [ObjectBinding] of [Callback] with multiple [Observable] dependencies. */
-inline fun <P, R> callbackBindingOf(
-    vararg dependencies: Observable,
-    noinline valueProvider: (P) -> R?
-): ObjectBinding<Callback<P, R>> = bindingOf(*dependencies) { Callback<P, R>(valueProvider) }
 
 /** Create an [ObjectBinding] with single [ObservableValue] dependency. */
 inline fun <V, T> ObservableValue<V>.toBinding(noinline valueProvider: (V?) -> T?): ObjectBinding<T> =

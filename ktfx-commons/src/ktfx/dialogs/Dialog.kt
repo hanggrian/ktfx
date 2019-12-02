@@ -41,11 +41,12 @@ inline var Dialog<*>.headerTitle: String
     }
 
 /** Opens up DSL to quickly add button types to this dialog. */
-fun Dialog<*>.buttons(builder: DialogButtonBuilder.() -> Unit) {
-    contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
-    DialogButtonBuilder(this).builder()
+fun Dialog<*>.buttons(buttonsBuilderAction: DialogButtonBuilder.() -> Unit) {
+    contract { callsInPlace(buttonsBuilderAction, InvocationKind.EXACTLY_ONCE) }
+    DialogButtonBuilder(this).buttonsBuilderAction()
 }
 
+/** Supporting class to build dialog buttons with Kotlin DSL. */
 class DialogButtonBuilder internal constructor(private val nativeDialog: Dialog<*>) {
 
     /** Add apply button. */

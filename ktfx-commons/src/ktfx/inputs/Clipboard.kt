@@ -7,3 +7,6 @@ import javafx.scene.input.DataFormat
 
 /** The content associated with this type, or null if there is none. */
 inline operator fun Clipboard.get(dataFormat: DataFormat): Any? = getContent(dataFormat)
+
+/** Returns true if there is content on this clipboard for this type. */
+inline operator fun Clipboard.contains(dataFormat: DataFormat): Boolean = hasContent(dataFormat)

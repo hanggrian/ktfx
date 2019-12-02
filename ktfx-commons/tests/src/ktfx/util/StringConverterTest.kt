@@ -6,7 +6,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class StringConverterTest {
-
     private val defaultConverter = DefaultStringConverter()
     private val intConverter = IntegerStringConverter()
 

@@ -1,4 +1,4 @@
-package ktfx.swing
+package ktfx.util
 
 import javafx.scene.image.WritableImage
 import ktfx.util.toFxImage
@@ -7,8 +7,7 @@ import java.awt.image.BufferedImage
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SwingFXUtilsTest {
-
+class SwingUtilsTest {
     private val width: Int = 1000
     private val height: Int = 500
 

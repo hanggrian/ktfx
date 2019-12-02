@@ -5,7 +5,7 @@ import org.testfx.framework.junit.ApplicationTest
 
 /**
  * Few tests requires a full-blown JavaFX app to run like window creation,
- * mouse/keyboard event, etc. It is made possible with [TestFX].
+ * mouse/keyboard event, etc. It is made possible with `TestFX`.
  */
 abstract class AppTest : ApplicationTest() {
 

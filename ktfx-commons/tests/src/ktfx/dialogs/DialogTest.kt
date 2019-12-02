@@ -7,7 +7,7 @@ import ktfx.controls.stage
 import ktfx.test.AppTest
 import ktfx.test.assertEmpty
 import ktfx.test.assertNotEmpty
-import org.junit.Ignore
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull

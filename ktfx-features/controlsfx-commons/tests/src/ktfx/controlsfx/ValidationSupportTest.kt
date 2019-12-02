@@ -2,15 +2,11 @@ package ktfx.controlsfx
 
 import javafx.scene.control.TextField
 import javafx.stage.Stage
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.javafx.JavaFx
-import kotlinx.coroutines.runBlocking
 import ktfx.controlsfx.controls.registerEmptyValidator
 import ktfx.controlsfx.controls.registerEqualsValidator
 import ktfx.controlsfx.controls.registerPredicateValidator
 import ktfx.layouts.scene
 import ktfx.layouts.textField
-import ktfx.runLater
 import ktfx.test.AppTest
 import org.controlsfx.validation.ValidationSupport
 import kotlin.test.Test
@@ -19,7 +15,6 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class ValidationSupportTest : AppTest() {
-
     private lateinit var support: ValidationSupport
     private lateinit var textField: TextField
 
@@ -31,28 +26,28 @@ class ValidationSupportTest : AppTest() {
 
     @Test fun registerEmptyValidator() {
         textField.registerEmptyValidator<String>("", support = support)
-        assertEquals(support.registeredControls.size, 1)
-        runBlocking(Dispatchers.JavaFx) { textField.clear() }
-        runLater { assertTrue(support.isInvalid) }
-        runBlocking(Dispatchers.JavaFx) { textField.text = "Hello world" }
-        runLater { assertFalse(support.isInvalid) }
+        assertEquals(1, support.registeredControls.size)
+        clickOn(textField)
+        assertTrue(support.isInvalid)
+        write("Hello world")
+        assertFalse(support.isInvalid)
     }
 
     @Test fun registerEqualsValidator() {
         textField.registerEqualsValidator("", listOf("Hello", "world"), support = support)
-        assertEquals(support.registeredControls.size, 1)
-        runBlocking(Dispatchers.JavaFx) { textField.clear() }
-        runLater { assertTrue(support.isInvalid) }
-        runBlocking(Dispatchers.JavaFx) { textField.text = "Hello" }
-        runLater { assertFalse(support.isInvalid) }
+        assertEquals(1, support.registeredControls.size)
+        clickOn(textField)
+        assertTrue(support.isInvalid)
+        write("Hello")
+        assertFalse(support.isInvalid)
     }
 
     @Test fun registerPredicateValidator() {
         textField.registerPredicateValidator<String>("", support = support) { it.toIntOrNull() != null }
-        assertEquals(support.registeredControls.size, 1)
-        runBlocking(Dispatchers.JavaFx) { textField.clear() }
-        runLater { assertTrue(support.isInvalid) }
-        runBlocking(Dispatchers.JavaFx) { textField.text = "123" }
-        runLater { assertFalse(support.isInvalid) }
+        assertEquals(1, support.registeredControls.size)
+        clickOn(textField)
+        assertTrue(support.isInvalid)
+        write("123")
+        assertFalse(support.isInvalid)
     }
 }

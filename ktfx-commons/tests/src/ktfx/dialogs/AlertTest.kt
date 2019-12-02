@@ -6,7 +6,7 @@ import javafx.scene.control.ButtonType
 import javafx.scene.image.ImageView
 import javafx.scene.input.KeyCode
 import ktfx.test.assertInstance
-import org.junit.Ignore
+import kotlin.test.Ignore
 import kotlin.test.assertEquals
 
 @Ignore("Error when executed from terminal, test manually instead")

@@ -1,6 +1,5 @@
 package ktfx.test
 
-import javafx.event.EventTarget
 import javafx.event.EventType
 import javafx.scene.Scene
 import javafx.scene.input.KeyCode
@@ -39,30 +38,28 @@ open class InputApplicationTest : ApplicationTest() {
         stage.scene = scene
     }
 
-    val Scene.eventTarget: EventTarget get() = if (scene.focusOwner != null) scene.focusOwner else scene
-
-    fun keyEventOf(eventType: EventType<KeyEvent>, keyCode: KeyCode, character: String): KeyEvent {
+    fun keyEventOf(eventType: EventType<KeyEvent>, code: KeyCode, character: String = ""): KeyEvent {
         val pressed = eventType == KeyEvent.KEY_PRESSED
-        if (keyCode == KeyCode.SHIFT) {
+        if (code == KeyCode.SHIFT) {
             isShiftDown = pressed
         }
-        if (keyCode == KeyCode.CONTROL) {
+        if (code == KeyCode.CONTROL) {
             isControlDown = pressed
         }
-        if (keyCode == KeyCode.ALT) {
+        if (code == KeyCode.ALT) {
             isAltDown = pressed
         }
-        if (keyCode == KeyCode.META) {
+        if (code == KeyCode.META) {
             isMetaDown = pressed
         }
         val typed = eventType == KeyEvent.KEY_TYPED
         val keyChar = if (typed) character else KeyEvent.CHAR_UNDEFINED
-        val keyText = if (typed) "" else keyCode.getName()
+        val keyText = if (typed) "" else code.getName()
         return KeyEvent(
             eventType,
             keyChar,
             keyText,
-            keyCode,
+            code,
             isShiftDown,
             isControlDown,
             isAltDown,
@@ -70,6 +67,7 @@ open class InputApplicationTest : ApplicationTest() {
         )
     }
 
+    @Suppress("NON_EXHAUSTIVE_WHEN")
     fun mouseEventOf(
         eventType: EventType<MouseEvent?>,
         x: Double, y: Double, mouseButton: MouseButton, clickCount: Int

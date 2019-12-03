@@ -2,6 +2,7 @@ package ktfx.internal
 
 import javafx.util.Callback
 
+/** Ktfx internal class, ignore it. */
 object KtfxInternals {
 
     const val NO_GETTER: String = "Property does not have a getter."

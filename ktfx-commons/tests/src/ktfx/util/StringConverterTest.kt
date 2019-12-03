@@ -1,5 +1,6 @@
 package ktfx.util
 
+import javafx.util.Duration
 import javafx.util.converter.DefaultStringConverter
 import javafx.util.converter.IntegerStringConverter
 import kotlin.test.Test
@@ -28,15 +29,11 @@ class StringConverterTest {
     }
 
     @Test fun buildStringConverterCustom() {
-        val converter = buildStringConverter<Person> {
-            toString { it!!.name }
-            fromString { Person(it) }
+        val converter = buildStringConverter<Duration> {
+            toString { it!!.toString() }
+            fromString { Duration.valueOf(it) }
         }
-        assertEquals(converter.toString(Person("Hendra")), "Hendra")
-        assertEquals(converter.fromString("Hendra"), Person("Hendra"))
+        assertEquals(converter.toString(1.millis), "1.0 ms")
+        assertEquals(converter.fromString("1.0ms"), 1.millis)
     }
-
-    data class Person(
-        val name: String
-    )
 }

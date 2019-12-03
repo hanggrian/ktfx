@@ -3,7 +3,7 @@ import org.gradle.api.plugins.JavaPluginConvention
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.get
 
-private const val VERSION_BINTRAY_RELEASE = "0.9.1"
+private const val VERSION_BINTRAY_RELEASE = "0.9.2"
 
 fun Dependencies.bintrayRelease() = "com.novoda:bintray-release:$VERSION_BINTRAY_RELEASE"
 

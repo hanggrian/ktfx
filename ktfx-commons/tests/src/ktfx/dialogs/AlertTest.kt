@@ -1,72 +1,86 @@
 package ktfx.dialogs
 
-import com.google.common.truth.Truth
-import javafx.scene.control.Alert
 import javafx.scene.control.ButtonType
 import javafx.scene.image.ImageView
-import javafx.scene.input.KeyCode
+import ktfx.test.DialogApplicationTest
 import ktfx.test.assertInstance
-import kotlin.test.Ignore
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
-@Ignore("Error when executed from terminal, test manually instead")
-class AlertTest : ShowDialogTest() {
-    private val alertsWithTitle = mutableListOf<Alert>()
-    private val alerts = mutableListOf<Alert>()
-    private val alertResults = mutableSetOf<ButtonType>()
+class AlertTest : DialogApplicationTest() {
 
-    override fun show() {
-        alertResults += alert("Alert", ImageView("file:icon.png"), "Sound the alarm!", ButtonType.OK) {
-            alertsWithTitle += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += alert("Sound the alarm!", ButtonType.OK) {
-            alerts += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += infoAlert("Alert", ImageView("file:icon.png"), "Sound the alarm!") {
-            alertsWithTitle += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += infoAlert("Sound the alarm!") {
-            alerts += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += warningAlert("Alert", ImageView("file:icon.png"), "Sound the alarm!") {
-            alertsWithTitle += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += warningAlert("Sound the alarm!") {
-            alerts += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += confirmAlert("Alert", ImageView("file:icon.png"), "Sound the alarm!") {
-            alertsWithTitle += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += confirmAlert("Sound the alarm!") {
-            alerts += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += errorAlert("Alert", ImageView("file:icon.png"), "Sound the alarm!") {
-            alertsWithTitle += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        alertResults += errorAlert("Sound the alarm!") {
-            alerts += this
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
+    @Test fun alert() {
+        interact {
+            assertEquals(ButtonType.YES, alert("Alert title", ImageView("file:icon.png"), "Message", ButtonType.YES) {
+                closeOnShow()
+                assertEquals("Alert title", headerText)
+                assertInstance<ImageView>(graphic)
+                assertEquals("Message", contentText)
+            }.get())
+            assertEquals(ButtonType.FINISH, alert("Message", ButtonType.FINISH) {
+                closeOnShow()
+                assertEquals("Message", contentText)
+            }.get())
+        }
     }
 
-    override fun test() {
-        alertsWithTitle.forEach {
-            assertEquals("Alert", it.headerText)
-            assertInstance<ImageView>(it.graphic)
-            assertEquals("Sound the alarm!", it.contentText)
+    @Test fun infoAlert() {
+        interact {
+            assertEquals(ButtonType.OK, infoAlert("Info title", ImageView("file:icon.png"), "Message") {
+                closeOnShow()
+                assertEquals("Info title", headerText)
+                assertInstance<ImageView>(graphic)
+                assertEquals("Message", contentText)
+            }.get())
+            assertEquals(ButtonType.OK, infoAlert("Message") {
+                closeOnShow()
+                assertEquals("Message", contentText)
+            }.get())
         }
-        alerts.forEach {
-            assertEquals("Sound the alarm!", it.contentText)
+    }
+
+    @Test fun warningAlert() {
+        interact {
+            assertEquals(ButtonType.OK, infoAlert("Warning title", ImageView("file:icon.png"), "Message") {
+                closeOnShow()
+                assertEquals("Warning title", headerText)
+                assertInstance<ImageView>(graphic)
+                assertEquals("Message", contentText)
+            }.get())
+            assertEquals(ButtonType.OK, infoAlert("Message") {
+                closeOnShow()
+                assertEquals("Message", contentText)
+            }.get())
         }
-        Truth.assertThat(alertResults).containsExactly(ButtonType.OK)
+    }
+
+    @Test fun confirmAlert() {
+        interact {
+            assertEquals(ButtonType.OK, confirmAlert("Confirm title", ImageView("file:icon.png"), "Message") {
+                closeOnShow()
+                assertEquals("Confirm title", headerText)
+                assertInstance<ImageView>(graphic)
+                assertEquals("Message", contentText)
+            }.get())
+            assertEquals(ButtonType.OK, confirmAlert("Message") {
+                closeOnShow()
+                assertEquals("Message", contentText)
+            }.get())
+        }
+    }
+
+    @Test fun errorAlert() {
+        interact {
+            assertEquals(ButtonType.OK, errorAlert("Error title", ImageView("file:icon.png"), "Message") {
+                closeOnShow()
+                assertEquals("Error title", headerText)
+                assertInstance<ImageView>(graphic)
+                assertEquals("Message", contentText)
+            }.get())
+            assertEquals(ButtonType.OK, errorAlert("Message") {
+                closeOnShow()
+                assertEquals("Message", contentText)
+            }.get())
+        }
     }
 }

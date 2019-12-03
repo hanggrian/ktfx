@@ -1,62 +1,58 @@
 package ktfx.dialogs
 
-import com.google.common.truth.Truth
-import javafx.scene.control.ChoiceDialog
 import javafx.scene.image.ImageView
-import javafx.scene.input.KeyCode
+import ktfx.test.DialogApplicationTest
 import ktfx.test.assertInstance
-import kotlin.test.Ignore
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
-@Ignore("Error when executed from terminal, test manually instead")
-class SelectorTest : ShowDialogTest() {
-    private val selectorsWithTitle = mutableListOf<ChoiceDialog<String>>()
-    private val selectors = mutableListOf<ChoiceDialog<String>>()
-    private val selectorResults = mutableSetOf<String>()
+class SelectorTest : DialogApplicationTest() {
 
-    override fun show() {
-        selectorResults += selector<String>(
-            "Choice dialog",
-            ImageView("file:icon.png"),
-            listOf("Jump off bridge", "Live a happy life"),
-            "Live a happy life"
-        ) {
-            selectorsWithTitle += this
-            selectedItem = "Jump off bridge"
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        selectorResults += selector<String>(listOf("Jump off bridge", "Live a happy life"), "Live a happy life") {
-            selectors += this
-            selectedItem = "Jump off bridge"
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        selectorResults += selector<String>(
-            "Choice dialog",
-            ImageView("file:icon.png"),
-            "Jump off bridge",
-            "Live a happy life",
-            prefill = "Live a happy life"
-        ) {
-            selectorsWithTitle += this
-            selectedItem = "Jump off bridge"
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-        selectorResults += selector("Jump off bridge", "Live a happy life", prefill = "Live a happy life") {
-            selectors += this
-            selectedItem = "Jump off bridge"
-            setOnShown { push(KeyCode.ENTER) }
-        }.get()
-    }
-
-    override fun test() {
-        selectorsWithTitle.forEach {
-            assertEquals("Choice dialog", it.headerText)
-            assertInstance<ImageView>(it.graphic)
-            assertEquals("Live a happy life", it.defaultChoice)
+    @Test fun selector() {
+        interact {
+            assertEquals(
+                "Jump off bridge",
+                selector<String>(
+                    "Choice dialog",
+                    ImageView("file:icon.png"),
+                    listOf("Jump off bridge", "Live a happy life"),
+                    "Live a happy life"
+                ) {
+                    closeOnShow()
+                    assertEquals("Choice dialog", headerText)
+                    assertInstance<ImageView>(graphic)
+                    assertEquals("Live a happy life", defaultChoice)
+                    selectedItem = "Jump off bridge"
+                }.get()
+            )
+            assertEquals(
+                "Jump off bridge",
+                selector<String>(listOf("Jump off bridge", "Live a happy life"), "Live a happy life") {
+                    closeOnShow()
+                    assertEquals("Live a happy life", defaultChoice)
+                    selectedItem = "Jump off bridge"
+                }.get()
+            )
+            assertEquals(
+                "Jump off bridge",
+                selector<String>(
+                    "Choice dialog",
+                    ImageView("file:icon.png"),
+                    "Jump off bridge",
+                    "Live a happy life",
+                    prefill = "Live a happy life"
+                ) {
+                    closeOnShow()
+                    selectedItem = "Jump off bridge"
+                }.get()
+            )
+            assertEquals(
+                "Jump off bridge",
+                selector("Jump off bridge", "Live a happy life", prefill = "Live a happy life") {
+                    closeOnShow()
+                    selectedItem = "Jump off bridge"
+                }.get()
+            )
         }
-        selectors.forEach {
-            assertEquals("Live a happy life", it.defaultChoice)
-        }
-        Truth.assertThat(selectorResults).containsExactly("Jump off bridge")
     }
 }

@@ -4,12 +4,10 @@ import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
 import javafx.stage.Stage
 import org.testfx.framework.junit.ApplicationTest
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-@Ignore
 class ClipboardTest : ApplicationTest() {
     private lateinit var clipboard: Clipboard
 

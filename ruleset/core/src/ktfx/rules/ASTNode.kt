@@ -10,8 +10,7 @@ const val STRATEGY_ANY = 0
 const val STRATEGY_ALL = 1
 const val STRATEGY_NONE = 2
 
-inline fun <reified T : PsiElement> ASTNode.psi(): T =
-    getPsi(T::class.java)
+inline fun <reified T : PsiElement> ASTNode.psi() = getPsi(T::class.java)
 
 fun ASTNode.hasModifiersOr(
     fallback: Boolean,

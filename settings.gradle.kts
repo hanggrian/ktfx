@@ -1,9 +1,10 @@
-include("ktfx")
-include("ktfx-commons")
 include("ktfx-core")
-include("ktfx-coroutines")
+include("ktfx-commons")
 include("ktfx-layouts")
 include("ktfx-listeners")
+include("ktfx-coroutines")
+include("ktfx")
+
 includeDir("ktfx-features")
 
 include("website")

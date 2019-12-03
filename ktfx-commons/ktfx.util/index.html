@@ -100,6 +100,22 @@
 <p>Build string converter with Kotlin DSL.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">buildStringConverter</span><span class="symbol">(</span><span class="identifier" id="ktfx.util$buildStringConverter(kotlin.Function1((ktfx.util.StringConverterBuilder((ktfx.util.buildStringConverter.T)), kotlin.Unit)))/builder">builder</span><span class="symbol">:</span>&nbsp;<a href="-string-converter-builder/index.html"><span class="identifier">StringConverterBuilder</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringConverter</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
+<tr>
+<td>
+<h4><a href="callback-binding-of.html">callbackBindingOf</a></h4>
+</td>
+<td>
+<p>Create an <a href="#">ObjectBinding</a> of <a href="#">Callback</a> with multiple <a href="#">Observable</a> dependencies.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">callbackBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.util$callbackBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function1((ktfx.util.callbackBindingOf.P, ktfx.util.callbackBindingOf.R)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx.util$callbackBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function1((ktfx.util.callbackBindingOf.P, ktfx.util.callbackBindingOf.R)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">P</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectBinding</span><span class="symbol">&lt;</span><span class="identifier">Callback</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="callback-of.html">callbackOf</a></h4>
+</td>
+<td>
+<p>Create new callback using Kotlin function type.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">callbackOf</span><span class="symbol">(</span><span class="identifier" id="ktfx.util$callbackOf(kotlin.Function1((ktfx.util.callbackOf.P, ktfx.util.callbackOf.R)))/callback">callback</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">P</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Callback</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span></code></td>
+</tr>
 </tbody>
 </table>
 </BODY>

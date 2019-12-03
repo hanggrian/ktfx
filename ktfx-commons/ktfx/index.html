@@ -26,14 +26,14 @@
 <tbody>
 <tr>
 <td>
-<h4><a href="javafx.application.-application/index.html">javafx.application.Application</a></h4>
+<h4><a href="javafx.application.-conditional-feature/index.html">javafx.application.ConditionalFeature</a></h4>
 </td>
 <td>
 </td>
 </tr>
 <tr>
 <td>
-<h4><a href="javafx.application.-conditional-feature/index.html">javafx.application.ConditionalFeature</a></h4>
+<h4><a href="javafx.application.-host-services/index.html">javafx.application.HostServices</a></h4>
 </td>
 <td>
 </td>
@@ -104,6 +104,13 @@
 <tr>
 <td>
 <h4><a href="javafx.beans.property.-property/index.html">javafx.beans.property.Property</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="javafx.beans.property.-read-only-property/index.html">javafx.beans.property.ReadOnlyProperty</a></h4>
 </td>
 <td>
 </td>
@@ -337,7 +344,7 @@
 <h4><a href="binding-of.html">bindingOf</a></h4>
 </td>
 <td>
-<p>Create an <a href="#">ObjectBinding</a> with multiple observable <a href="binding-of.html#ktfx$bindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((ktfx.bindingOf.T)))/dependencies">dependencies</a>.</p>
+<p>Create an <a href="#">ObjectBinding</a> with multiple <a href="#">Observable</a> dependencies.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">bindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$bindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((ktfx.bindingOf.T)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$bindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((ktfx.bindingOf.T)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectBinding</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -345,16 +352,24 @@
 <h4><a href="boolean-binding-of.html">booleanBindingOf</a></h4>
 </td>
 <td>
-<p>Create an <a href="#">BooleanBinding</a> with multiple observable <a href="boolean-binding-of.html#ktfx$booleanBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Boolean)))/dependencies">dependencies</a>.</p>
+<p>Create an <a href="#">BooleanBinding</a> with multiple <a href="#">Observable</a> dependencies.</p>
 <code><span class="keyword">fun </span><span class="identifier">booleanBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$booleanBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Boolean)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$booleanBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Boolean)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="boolean-property.html">booleanProperty</a></h4>
+<h4><a href="boolean-property-of.html">booleanPropertyOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable boolean in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">booleanProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$booleanProperty(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanProperty</span></code></td>
+<p>Wrap boolean in a property.</p>
+<code><span class="keyword">fun </span><span class="identifier">booleanPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$booleanPropertyOf(kotlin.Boolean)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanProperty</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="boolean-wrapper-of.html">booleanWrapperOf</a></h4>
+</td>
+<td>
+<p>Wrap boolean in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="identifier">booleanWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$booleanWrapperOf(kotlin.Boolean)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyBooleanWrapper</span></code></td>
 </tr>
 <tr>
 <td>
@@ -367,117 +382,51 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<h4><a href="callback-binding-of.html">callbackBindingOf</a></h4>
-</td>
-<td>
-<p>Create an <a href="#">ObjectBinding</a> of <a href="#">Callback</a> with multiple observable <a href="callback-binding-of.html#ktfx$callbackBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function1((ktfx.callbackBindingOf.P, ktfx.callbackBindingOf.R)))/dependencies">dependencies</a>.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">, </span><span class="identifier">R</span><span class="symbol">&gt;</span> <span class="identifier">callbackBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$callbackBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function1((ktfx.callbackBindingOf.P, ktfx.callbackBindingOf.R)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$callbackBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function1((ktfx.callbackBindingOf.P, ktfx.callbackBindingOf.R)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">P</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">R</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectBinding</span><span class="symbol">&lt;</span><span class="identifier">Callback</span><span class="symbol">&lt;</span><span class="identifier">P</span><span class="symbol">,</span>&nbsp;<span class="identifier">R</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="double-binding-of.html">doubleBindingOf</a></h4>
 </td>
 <td>
-<p>Create an <a href="#">DoubleBinding</a> with multiple observable <a href="double-binding-of.html#ktfx$doubleBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Double)))/dependencies">dependencies</a>.</p>
+<p>Create an <a href="#">DoubleBinding</a> with multiple <a href="#">Observable</a> dependencies.</p>
 <code><span class="keyword">fun </span><span class="identifier">doubleBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$doubleBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Double)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$doubleBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Double)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleBinding</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="double-property.html">doubleProperty</a></h4>
+<h4><a href="double-property-of.html">doublePropertyOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable double in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">doubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$doubleProperty(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleProperty</span></code></td>
+<p>Wrap double in a property.</p>
+<code><span class="keyword">fun </span><span class="identifier">doublePropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$doublePropertyOf(kotlin.Double)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleProperty</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="final-boolean-property.html">finalBooleanProperty</a></h4>
+<h4><a href="double-wrapper-of.html">doubleWrapperOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable boolean in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalBooleanProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalBooleanProperty(kotlin.Boolean)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyBooleanProperty</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="final-double-property.html">finalDoubleProperty</a></h4>
-</td>
-<td>
-<p>Wrap nullable double in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalDoubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalDoubleProperty(kotlin.Double)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyDoubleProperty</span></code>
-<p>Wrap nullable float in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalDoubleProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalDoubleProperty(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyFloatProperty</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="final-int-property.html">finalIntProperty</a></h4>
-</td>
-<td>
-<p>Wrap nullable int in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalIntProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalIntProperty(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyIntegerProperty</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="final-list-property.html">finalListProperty</a></h4>
-</td>
-<td>
-<p>Wrap nullable list in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalListProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalListProperty(javafx.collections.ObservableList((ktfx.finalListProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyListProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="final-long-property.html">finalLongProperty</a></h4>
-</td>
-<td>
-<p>Wrap nullable long in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalLongProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalLongProperty(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyLongProperty</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="final-map-property.html">finalMapProperty</a></h4>
-</td>
-<td>
-<p>Wrap nullable map in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">finalMapProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalMapProperty(javafx.collections.ObservableMap((ktfx.finalMapProperty.K, ktfx.finalMapProperty.V)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyMapProperty</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="final-property.html">finalProperty</a></h4>
-</td>
-<td>
-<p>Wrap nullable object in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalProperty(ktfx.finalProperty.E)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">E</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyObjectProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="final-set-property.html">finalSetProperty</a></h4>
-</td>
-<td>
-<p>Wrap nullable set in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">finalSetProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalSetProperty(javafx.collections.ObservableSet((ktfx.finalSetProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlySetProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="final-string-property.html">finalStringProperty</a></h4>
-</td>
-<td>
-<p>Wrap nullable string in a read-only property.</p>
-<code><span class="keyword">fun </span><span class="identifier">finalStringProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$finalStringProperty(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyStringProperty</span></code></td>
+<p>Wrap double in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="identifier">doubleWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$doubleWrapperOf(kotlin.Double)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0.0<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyDoubleWrapper</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="float-binding-of.html">floatBindingOf</a></h4>
 </td>
 <td>
-<p>Create an <a href="#">FloatBinding</a> with multiple observable <a href="float-binding-of.html#ktfx$floatBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Float)))/dependencies">dependencies</a>.</p>
+<p>Create an <a href="#">FloatBinding</a> with multiple <a href="#">Observable</a> dependencies.</p>
 <code><span class="keyword">fun </span><span class="identifier">floatBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$floatBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Float)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$floatBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Float)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatBinding</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="float-property.html">floatProperty</a></h4>
+<h4><a href="float-property-of.html">floatPropertyOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable float in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">floatProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$floatProperty(kotlin.Float)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatProperty</span></code></td>
+<p>Wrap float in a property.</p>
+<code><span class="keyword">fun </span><span class="identifier">floatPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$floatPropertyOf(kotlin.Float)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0f<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatProperty</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="float-wrapper-of.html">floatWrapperOf</a></h4>
+</td>
+<td>
+<p>Wrap float in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="identifier">floatWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$floatWrapperOf(kotlin.Float)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0f<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyFloatWrapper</span></code></td>
 </tr>
 <tr>
 <td>
@@ -492,16 +441,24 @@ By default, it will do nothing and returns null in the background, customize it 
 <h4><a href="int-binding-of.html">intBindingOf</a></h4>
 </td>
 <td>
-<p>Create an <a href="#">IntegerBinding</a> with multiple observable <a href="int-binding-of.html#ktfx$intBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Int)))/dependencies">dependencies</a>.</p>
+<p>Create an <a href="#">IntegerBinding</a> with multiple <a href="#">Observable</a> dependencies.</p>
 <code><span class="keyword">fun </span><span class="identifier">intBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$intBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Int)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$intBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Int)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerBinding</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="int-property.html">intProperty</a></h4>
+<h4><a href="int-property-of.html">intPropertyOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable int in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">intProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$intProperty(kotlin.Int)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerProperty</span></code></td>
+<p>Wrap int in a property.</p>
+<code><span class="keyword">fun </span><span class="identifier">intPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$intPropertyOf(kotlin.Int)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerProperty</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="int-wrapper-of.html">intWrapperOf</a></h4>
+</td>
+<td>
+<p>Wrap int in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="identifier">intWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$intWrapperOf(kotlin.Int)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyIntegerWrapper</span></code></td>
 </tr>
 <tr>
 <td>
@@ -513,13 +470,13 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<h4><a href="launch.html">launch</a></h4>
+<h4><a href="launch-application.html">launchApplication</a></h4>
 </td>
 <td>
 <p>Launch a JavaFX application with Kotlin class.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Application</span><span class="symbol">&gt;</span> <span class="identifier">launch</span><span class="symbol">(</span><span class="identifier" id="ktfx$launch(kotlin.reflect.KClass((ktfx.launch.T)), kotlin.Array((kotlin.String)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$launch(kotlin.reflect.KClass((ktfx.launch.T)), kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Application</span><span class="symbol">&gt;</span> <span class="identifier">launchApplication</span><span class="symbol">(</span><span class="identifier" id="ktfx$launchApplication(kotlin.reflect.KClass((ktfx.launchApplication.T)), kotlin.Array((kotlin.String)))/type">type</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">, </span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$launchApplication(kotlin.reflect.KClass((ktfx.launchApplication.T)), kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
 <p>Launch a JavaFX application with reified type.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Application</span><span class="symbol">&gt;</span> <span class="identifier">launch</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$launch(kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Application</span><span class="symbol">&gt;</span> <span class="identifier">launchApplication</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$launchApplication(kotlin.Array((kotlin.String)))/args">args</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -531,43 +488,67 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<h4><a href="list-property.html">listProperty</a></h4>
+<h4><a href="list-property-of.html">listPropertyOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable list in a property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$listProperty(javafx.collections.ObservableList((ktfx.listProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<p>Wrap list in a property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$listPropertyOf(javafx.collections.ObservableList((ktfx.listPropertyOf.E)))/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ListProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="list-wrapper-of.html">listWrapperOf</a></h4>
+</td>
+<td>
+<p>Wrap list in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">listWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$listWrapperOf(javafx.collections.ObservableList((ktfx.listWrapperOf.E)))/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyListWrapper</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="long-binding-of.html">longBindingOf</a></h4>
 </td>
 <td>
-<p>Create an <a href="#">LongBinding</a> with multiple observable <a href="long-binding-of.html#ktfx$longBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Long)))/dependencies">dependencies</a>.</p>
+<p>Create an <a href="#">LongBinding</a> with multiple <a href="#">Observable</a> dependencies.</p>
 <code><span class="keyword">fun </span><span class="identifier">longBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$longBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Long)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$longBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.Long)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongBinding</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="long-property.html">longProperty</a></h4>
+<h4><a href="long-property-of.html">longPropertyOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable long in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">longProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$longProperty(kotlin.Long)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongProperty</span></code></td>
+<p>Wrap long in a property.</p>
+<code><span class="keyword">fun </span><span class="identifier">longPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$longPropertyOf(kotlin.Long)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongProperty</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="map-property.html">mapProperty</a></h4>
+<h4><a href="long-wrapper-of.html">longWrapperOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable map in a property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mapProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$mapProperty(javafx.collections.ObservableMap((ktfx.mapProperty.K, ktfx.mapProperty.V)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+<p>Wrap long in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="identifier">longWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$longWrapperOf(kotlin.Long)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a>&nbsp;<span class="symbol">=</span>&nbsp;0<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyLongWrapper</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="property.html">property</a></h4>
+<h4><a href="map-property-of.html">mapPropertyOf</a></h4>
+</td>
+<td>
+<p>Wrap map in a property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mapPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$mapPropertyOf(javafx.collections.ObservableMap((ktfx.mapPropertyOf.K, ktfx.mapPropertyOf.V)))/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">MapProperty</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="map-wrapper-of.html">mapWrapperOf</a></h4>
+</td>
+<td>
+<p>Wrap map in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">, </span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">mapWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$mapWrapperOf(javafx.collections.ObservableMap((ktfx.mapWrapperOf.K, ktfx.mapWrapperOf.V)))/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableMap</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyMapWrapper</span><span class="symbol">&lt;</span><span class="identifier">K</span><span class="symbol">,</span>&nbsp;<span class="identifier">V</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="property-of.html">propertyOf</a></h4>
 </td>
 <td>
 <p>Wrap nullable object in a property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">property</span><span class="symbol">(</span><span class="identifier" id="ktfx$property(ktfx.property.E)/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">E</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">propertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$propertyOf(ktfx.propertyOf.E)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">E</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -589,27 +570,43 @@ By default, it will do nothing and returns null in the background, customize it 
 </tr>
 <tr>
 <td>
-<h4><a href="set-property.html">setProperty</a></h4>
+<h4><a href="set-property-of.html">setPropertyOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable set in a property.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">setProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$setProperty(javafx.collections.ObservableSet((ktfx.setProperty.E)))/value">value</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+<p>Wrap set in a property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">setPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$setPropertyOf(javafx.collections.ObservableSet((ktfx.setPropertyOf.E)))/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">SetProperty</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="set-wrapper-of.html">setWrapperOf</a></h4>
+</td>
+<td>
+<p>Wrap set in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">setWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$setWrapperOf(javafx.collections.ObservableSet((ktfx.setWrapperOf.E)))/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlySetWrapper</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="string-binding-of.html">stringBindingOf</a></h4>
 </td>
 <td>
-<p>Create an <a href="#">StringBinding</a> with multiple observable <a href="string-binding-of.html#ktfx$stringBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.String)))/dependencies">dependencies</a>.</p>
+<p>Create an <a href="#">StringBinding</a> with multiple <a href="#">Observable</a> dependencies.</p>
 <code><span class="keyword">fun </span><span class="identifier">stringBindingOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$stringBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.String)))/dependencies">dependencies</span><span class="symbol">:</span>&nbsp;<span class="identifier">Observable</span><span class="symbol">, </span><span class="identifier" id="ktfx$stringBindingOf(kotlin.Array((javafx.beans.Observable)), kotlin.Function0((kotlin.String)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringBinding</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="string-property.html">stringProperty</a></h4>
+<h4><a href="string-property-of.html">stringPropertyOf</a></h4>
 </td>
 <td>
-<p>Wrap nullable string in a property.</p>
-<code><span class="keyword">fun </span><span class="identifier">stringProperty</span><span class="symbol">(</span><span class="identifier" id="ktfx$stringProperty(kotlin.String)/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringProperty</span></code></td>
+<p>Wrap string in a property.</p>
+<code><span class="keyword">fun </span><span class="identifier">stringPropertyOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$stringPropertyOf(kotlin.String)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringProperty</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="string-wrapper-of.html">stringWrapperOf</a></h4>
+</td>
+<td>
+<p>Wrap string in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="identifier">stringWrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$stringWrapperOf(kotlin.String)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyStringWrapper</span></code></td>
 </tr>
 <tr>
 <td>
@@ -618,6 +615,14 @@ By default, it will do nothing and returns null in the background, customize it 
 <td>
 <p>Calls the specified function <a href="with-later.html#ktfx$withLater(ktfx.withLater.T, kotlin.Function1((ktfx.withLater.T, kotlin.Unit)))/block">block</a> with the given <a href="with-later.html#ktfx$withLater(ktfx.withLater.T, kotlin.Function1((ktfx.withLater.T, kotlin.Unit)))/receiver">receiver</a> as its receiver in JavaFX thread.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">withLater</span><span class="symbol">(</span><span class="identifier" id="ktfx$withLater(ktfx.withLater.T, kotlin.Function1((ktfx.withLater.T, kotlin.Unit)))/receiver">receiver</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">, </span><span class="identifier" id="ktfx$withLater(ktfx.withLater.T, kotlin.Function1((ktfx.withLater.T, kotlin.Unit)))/block">block</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="wrapper-of.html">wrapperOf</a></h4>
+</td>
+<td>
+<p>Wrap nullable object in a read-only wrapper property.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span> <span class="identifier">wrapperOf</span><span class="symbol">(</span><span class="identifier" id="ktfx$wrapperOf(ktfx.wrapperOf.E)/initialValue">initialValue</span><span class="symbol">:</span>&nbsp;<span class="identifier">E</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ReadOnlyObjectWrapper</span><span class="symbol">&lt;</span><span class="identifier">E</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
 </table>

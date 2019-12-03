@@ -7,14 +7,14 @@ import ktfx.controlsfx.controls.registerEqualsValidator
 import ktfx.controlsfx.controls.registerPredicateValidator
 import ktfx.layouts.scene
 import ktfx.layouts.textField
-import ktfx.test.AppTest
 import org.controlsfx.validation.ValidationSupport
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class ValidationSupportTest : AppTest() {
+class ValidationSupportTest : ApplicationTest() {
     private lateinit var support: ValidationSupport
     private lateinit var textField: TextField
 

@@ -4,9 +4,9 @@ import javafx.scene.control.Dialog
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
 import ktfx.controls.stage
-import ktfx.test.AppTest
 import ktfx.test.assertEmpty
 import ktfx.test.assertNotEmpty
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -15,7 +15,7 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 @Ignore("Error when executed from terminal, test manually instead")
-class DialogTest : AppTest() {
+class DialogTest : ApplicationTest() {
     private lateinit var dialog: Dialog<Nothing>
 
     override fun start(stage: Stage) {

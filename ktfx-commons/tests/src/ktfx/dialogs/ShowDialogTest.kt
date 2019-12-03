@@ -1,10 +1,10 @@
 package ktfx.dialogs
 
 import javafx.stage.Stage
-import ktfx.test.AppTest
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 
-abstract class ShowDialogTest : AppTest() {
+abstract class ShowDialogTest : ApplicationTest() {
 
     final override fun start(stage: Stage) = show()
 

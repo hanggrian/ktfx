@@ -3,12 +3,14 @@ package ktfx.inputs
 import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
 import javafx.stage.Stage
-import ktfx.test.AppTest
+import org.testfx.framework.junit.ApplicationTest
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class ClipboardTest : AppTest() {
+@Ignore
+class ClipboardTest : ApplicationTest() {
     private lateinit var clipboard: Clipboard
 
     override fun start(stage: Stage) {

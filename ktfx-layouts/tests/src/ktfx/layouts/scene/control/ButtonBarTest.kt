@@ -1,7 +1,7 @@
 package ktfx.layouts.scene.control
 
-import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.NodeManager
 import ktfx.layouts.button
 import ktfx.layouts.buttonBar
 import ktfx.test.LayoutToolkitTest

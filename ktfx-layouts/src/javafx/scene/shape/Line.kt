@@ -27,7 +27,7 @@ fun NodeManager.line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0
-): Line = addNode(Line(centerX, centerY, endX, endY))
+): Line = addChild(Line(centerX, centerY, endX, endY))
 
 /** Add a [Line] with initialization block to this manager. */
 inline fun NodeManager.line(
@@ -38,5 +38,5 @@ inline fun NodeManager.line(
     init: (@LayoutsDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Line(centerX, centerY, endX, endY), init)
+    return addChild(Line(centerX, centerY, endX, endY), init)
 }

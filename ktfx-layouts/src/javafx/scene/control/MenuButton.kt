@@ -17,7 +17,9 @@ import kotlin.contracts.contract
  */
 open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, graphic), MenuItemManager {
 
-    final override fun <T : MenuItem> addItem(item: T): T = item.also { items + it }
+    final override fun <C : MenuItem> addChild(child: C): C = child.also { items + it }
+
+    final override val childCount: Int get() = items.size
 
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
@@ -40,7 +42,7 @@ inline fun menuButton(
 fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null
-): MenuButton = addNode(KtfxMenuButton(text, graphic))
+): MenuButton = addChild(KtfxMenuButton(text, graphic))
 
 /** Add a [MenuButton] with initialization block to this manager. */
 inline fun NodeManager.menuButton(
@@ -49,5 +51,5 @@ inline fun NodeManager.menuButton(
     init: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxMenuButton(text, graphic), init)
+    return addChild(KtfxMenuButton(text, graphic), init)
 }

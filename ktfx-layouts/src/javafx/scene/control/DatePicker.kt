@@ -22,7 +22,7 @@ inline fun datePicker(
 /** Add a [DatePicker] to this manager. */
 fun NodeManager.datePicker(
     date: LocalDate? = null
-): DatePicker = addNode(DatePicker(date))
+): DatePicker = addChild(DatePicker(date))
 
 /** Add a [DatePicker] with initialization block to this manager. */
 inline fun NodeManager.datePicker(
@@ -30,5 +30,5 @@ inline fun NodeManager.datePicker(
     init: (@LayoutsDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(DatePicker(date), init)
+    return addChild(DatePicker(date), init)
 }

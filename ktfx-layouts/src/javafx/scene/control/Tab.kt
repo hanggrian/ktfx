@@ -16,7 +16,9 @@ import kotlin.contracts.contract
  */
 open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <C : Node> addChild(child: C): C = child.also { content = it }
+
+    final override val childCount: Int get() = if (content != null) 1 else 0
 }
 
 /** Create a [Tab] with initialization block. */
@@ -33,7 +35,7 @@ inline fun tab(
 fun TabManager.tab(
     text: String? = null,
     content: Node? = null
-): Tab = addTab(KtfxTab(text, content))
+): Tab = addChild(KtfxTab(text, content))
 
 /** Add a [Tab] with initialization block to this manager. */
 inline fun TabManager.tab(
@@ -42,5 +44,5 @@ inline fun TabManager.tab(
     init: (@LayoutsDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addTab(KtfxTab(text, content), init)
+    return addChild(KtfxTab(text, content), init)
 }

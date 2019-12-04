@@ -23,7 +23,7 @@ inline fun <S> tableView(
 /** Add a [TableView] to this manager. */
 fun <S> NodeManager.tableView(
     items: ObservableList<S> = FXCollections.observableArrayList()
-): TableView<S> = addNode(TableView(items))
+): TableView<S> = addChild(TableView(items))
 
 /** Add a [TableView] with initialization block to this manager. */
 inline fun <S> NodeManager.tableView(
@@ -31,5 +31,5 @@ inline fun <S> NodeManager.tableView(
     init: (@LayoutsDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(TableView(items), init)
+    return addChild(TableView(items), init)
 }

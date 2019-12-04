@@ -23,7 +23,7 @@ inline fun sphere(
 fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64
-): Sphere = addNode(Sphere(radius, division))
+): Sphere = addChild(Sphere(radius, division))
 
 /** Add a [Sphere] with initialization block to this manager. */
 inline fun NodeManager.sphere(
@@ -32,5 +32,5 @@ inline fun NodeManager.sphere(
     init: (@LayoutsDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Sphere(radius, division), init)
+    return addChild(Sphere(radius, division), init)
 }

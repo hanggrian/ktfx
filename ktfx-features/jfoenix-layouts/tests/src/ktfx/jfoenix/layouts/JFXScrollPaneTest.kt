@@ -1,7 +1,7 @@
 package ktfx.jfoenix.layouts
 
-import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.NodeManager
 import ktfx.test.LayoutToolkitTest
 import ktfx.test.assertContains
 
@@ -19,23 +19,23 @@ class JFXScrollPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
         val condensed2 = jfxButton()
         val pane = jfxScrollPane {
             topBar {
-                addNode(top1)
+                addChild(top1)
             }
             midBar {
-                addNode(mid1)
-                addNode(mid2)
+                addChild(mid1)
+                addChild(mid2)
             }
             bottomBar {
-                addNode(bottom1)
-                addNode(bottom2)
-                addNode(bottom3)
+                addChild(bottom1)
+                addChild(bottom2)
+                addChild(bottom3)
             }
             mainHeader {
-                addNode(main1)
+                addChild(main1)
             }
             condensedHeader {
-                addNode(condensed1)
-                addNode(condensed2)
+                addChild(condensed1)
+                addChild(condensed2)
             }
         }
         assertContains(pane.topBar.children, top1).inOrder()

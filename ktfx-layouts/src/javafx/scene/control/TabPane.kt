@@ -17,7 +17,9 @@ import kotlin.contracts.contract
  */
 open class KtfxTabPane : TabPane(), TabManager {
 
-    final override fun <T : Tab> addTab(tab: T): T = tab.also { tabs += it }
+    final override fun <C : Tab> addChild(child: C): C = child.also { tabs += it }
+
+    final override val childCount: Int get() = tabs.size
 
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
@@ -35,13 +37,12 @@ inline fun tabPane(
 }
 
 /** Add a [TabPane] to this manager. */
-fun NodeManager.tabPane(): TabPane =
-    addNode(KtfxTabPane())
+fun NodeManager.tabPane(): TabPane = addChild(KtfxTabPane())
 
 /** Add a [TabPane] with initialization block to this manager. */
 inline fun NodeManager.tabPane(
     init: (@LayoutsDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxTabPane(), init)
+    return addChild(KtfxTabPane(), init)
 }

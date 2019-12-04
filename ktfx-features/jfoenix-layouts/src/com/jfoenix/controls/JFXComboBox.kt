@@ -12,7 +12,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXComboBox] with initialization block. */
 inline fun <T> jfxComboBox(
@@ -26,7 +26,7 @@ inline fun <T> jfxComboBox(
 /** Add a [JFXComboBox] to this manager. */
 fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList()
-): JFXComboBox<T> = addNode(JFXComboBox(items))
+): JFXComboBox<T> = addChild(JFXComboBox(items))
 
 /** Add a [JFXComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxComboBox(
@@ -34,5 +34,5 @@ inline fun <T> NodeManager.jfxComboBox(
     init: (@LayoutsDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXComboBox(items), init)
+    return addChild(JFXComboBox(items), init)
 }

@@ -19,7 +19,9 @@ import kotlin.contracts.contract
  */
 open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
@@ -31,10 +33,10 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
         @JvmName("setHgrow2") set(value) = setHgrow(this, value)
 
     /** Configure horizontal grow fluidly using infix operator. */
-    inline infix fun <T : Node> T.hgrow(priority: Priority): T = apply { hgrow = priority }
+    inline infix fun <C : Node> C.hgrow(priority: Priority): C = apply { hgrow = priority }
 
     /** Configure horizontal grow fluidly using infix operator. */
-    inline infix fun <T : Node> T.hgrow(always: Boolean): T = hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+    inline infix fun <C : Node> C.hgrow(always: Boolean): C = hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
 
     /** Children margin in this layout. */
     inline var Node.margin: Insets?
@@ -52,22 +54,22 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
     }
 
     /** Configure margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.margin(margin: Insets): T = apply { this.margin = margin }
+    inline infix fun <C : Node> C.margin(margin: Insets): C = apply { this.margin = margin }
 
     /** Configure all sides margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginAll(margin: Double): T = apply { this.margin = Insets(margin) }
+    inline infix fun <C : Node> C.marginAll(margin: Double): C = apply { this.margin = Insets(margin) }
 
     /** Configure top margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginTop(margin: Double): T = apply { updateMargin(top = margin) }
+    inline infix fun <C : Node> C.marginTop(margin: Double): C = apply { updateMargin(top = margin) }
 
     /** Configure right margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginRight(margin: Double): T = apply { updateMargin(right = margin) }
+    inline infix fun <C : Node> C.marginRight(margin: Double): C = apply { updateMargin(right = margin) }
 
     /** Configure bottom margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginBottom(margin: Double): T = apply { updateMargin(bottom = margin) }
+    inline infix fun <C : Node> C.marginBottom(margin: Double): C = apply { updateMargin(bottom = margin) }
 
     /** Configure left margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginLeft(margin: Double): T = apply { updateMargin(left = margin) }
+    inline infix fun <C : Node> C.marginLeft(margin: Double): C = apply { updateMargin(left = margin) }
 }
 
 /** Create an [HBox] with initialization block. */
@@ -82,7 +84,7 @@ inline fun hbox(
 /** Add an [HBox] to this manager. */
 fun NodeManager.hbox(
     spacing: Double = 0.0
-): HBox = addNode(KtfxHBox(spacing))
+): HBox = addChild(KtfxHBox(spacing))
 
 /** Add an [HBox] with initialization block to this manager. */
 inline fun NodeManager.hbox(
@@ -90,5 +92,5 @@ inline fun NodeManager.hbox(
     init: (@LayoutsDslMarker KtfxHBox).() -> Unit
 ): HBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxHBox(spacing), init)
+    return addChild(KtfxHBox(spacing), init)
 }

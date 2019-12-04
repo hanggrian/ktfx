@@ -21,7 +21,7 @@ inline fun textArea(
 /** Add a [TextArea] to this manager. */
 fun NodeManager.textArea(
     text: String = ""
-): TextArea = addNode(TextArea(text))
+): TextArea = addChild(TextArea(text))
 
 /** Add a [TextArea] with initialization block to this manager. */
 inline fun NodeManager.textArea(
@@ -29,5 +29,5 @@ inline fun NodeManager.textArea(
     init: (@LayoutsDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(TextArea(text), init)
+    return addChild(TextArea(text), init)
 }

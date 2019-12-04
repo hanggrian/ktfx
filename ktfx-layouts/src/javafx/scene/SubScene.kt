@@ -18,7 +18,9 @@ import kotlin.contracts.contract
  */
 open class KtfxSubScene(root: Parent, width: Double, height: Double) : SubScene(root, width, height), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { root = it as? Pane ?: Pane(it) }
+    final override fun <C : Node> addChild(child: C): C = child.also { root = it as? Pane ?: Pane(it) }
+
+    final override val childCount: Int get() = root.childrenUnmodifiable.size
 }
 
 /** Create a [SubScene] with initialization block. */

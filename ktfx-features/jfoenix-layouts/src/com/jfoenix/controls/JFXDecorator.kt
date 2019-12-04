@@ -12,7 +12,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXDecorator] with initialization block. */
 inline fun jfxDecorator(
@@ -34,7 +34,7 @@ fun NodeManager.jfxDecorator(
     fullScreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true
-): JFXDecorator = addNode(JFXDecorator(stage, node, fullScreen, max, min))
+): JFXDecorator = addChild(JFXDecorator(stage, node, fullScreen, max, min))
 
 /** Add a [JFXDecorator] with initialization block to this manager. */
 inline fun NodeManager.jfxDecorator(
@@ -46,5 +46,5 @@ inline fun NodeManager.jfxDecorator(
     init: (@LayoutsDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXDecorator(stage, node, fullScreen, max, min), init)
+    return addChild(JFXDecorator(stage, node, fullScreen, max, min), init)
 }

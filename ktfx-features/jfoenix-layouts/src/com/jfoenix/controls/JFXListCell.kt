@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXListCell] with initialization block. */
 inline fun <T> jfxListCell(
@@ -21,13 +21,12 @@ inline fun <T> jfxListCell(
 }
 
 /** Add a [JFXListCell] to this manager. */
-fun <T> NodeManager.jfxListCell(): JFXListCell<T> =
-    addNode(JFXListCell())
+fun <T> NodeManager.jfxListCell(): JFXListCell<T> = addChild(JFXListCell())
 
 /** Add a [JFXListCell] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxListCell(
     init: (@LayoutsDslMarker JFXListCell<T>).() -> Unit
 ): JFXListCell<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXListCell(), init)
+    return addChild(JFXListCell(), init)
 }

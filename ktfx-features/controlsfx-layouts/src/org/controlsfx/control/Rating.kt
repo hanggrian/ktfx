@@ -9,7 +9,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.Rating
 
 /** Create a [Rating] with initialization block. */
@@ -26,7 +26,7 @@ inline fun rating(
 fun NodeManager.rating(
     max: Int = 5,
     rating: Int = -1
-): Rating = addNode(Rating(max, rating))
+): Rating = addChild(Rating(max, rating))
 
 /** Add a [Rating] with initialization block to this manager. */
 inline fun NodeManager.rating(
@@ -35,5 +35,5 @@ inline fun NodeManager.rating(
     init: (@LayoutsDslMarker Rating).() -> Unit
 ): Rating {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Rating(max, rating), init)
+    return addChild(Rating(max, rating), init)
 }

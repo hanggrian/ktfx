@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.CheckTreeView
 
 /** Create a [CheckTreeView] with initialization block. */
@@ -25,7 +25,7 @@ inline fun <T> checkTreeView(
 /** Add a [CheckTreeView] to this manager. */
 fun <T> NodeManager.checkTreeView(
     root: CheckBoxTreeItem<T>? = null
-): CheckTreeView<T> = addNode(CheckTreeView(root))
+): CheckTreeView<T> = addChild(CheckTreeView(root))
 
 /** Add a [CheckTreeView] with initialization block to this manager. */
 inline fun <T> NodeManager.checkTreeView(
@@ -33,5 +33,5 @@ inline fun <T> NodeManager.checkTreeView(
     init: (@LayoutsDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(CheckTreeView(root), init)
+    return addChild(CheckTreeView(root), init)
 }

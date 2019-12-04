@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXButton] with initialization block. */
 inline fun jfxButton(
@@ -27,7 +27,7 @@ inline fun jfxButton(
 fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null
-): JFXButton = addNode(JFXButton(text, graphic))
+): JFXButton = addChild(JFXButton(text, graphic))
 
 /** Add a [JFXButton] with initialization block to this manager. */
 inline fun NodeManager.jfxButton(
@@ -36,5 +36,5 @@ inline fun NodeManager.jfxButton(
     init: (@LayoutsDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXButton(text, graphic), init)
+    return addChild(JFXButton(text, graphic), init)
 }

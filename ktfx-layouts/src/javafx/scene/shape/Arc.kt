@@ -31,7 +31,7 @@ fun NodeManager.arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0
-): Arc = addNode(Arc(centerX, centerY, radiusX, radiusY, startAngle, length))
+): Arc = addChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length))
 
 /** Add an [Arc] with initialization block to this manager. */
 inline fun NodeManager.arc(
@@ -44,5 +44,5 @@ inline fun NodeManager.arc(
     init: (@LayoutsDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), init)
+    return addChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), init)
 }

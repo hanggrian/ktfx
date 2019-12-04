@@ -12,7 +12,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXTreeTableView] with initialization block. */
 inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
@@ -26,7 +26,7 @@ inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
 /** Add a [JFXTreeTableView] to this manager. */
 fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     root: TreeItem<S>? = null
-): JFXTreeTableView<S> = addNode(JFXTreeTableView(root))
+): JFXTreeTableView<S> = addChild(JFXTreeTableView(root))
 
 /** Add a [JFXTreeTableView] with initialization block to this manager. */
 inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
@@ -34,5 +34,5 @@ inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     init: (@LayoutsDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXTreeTableView(root), init)
+    return addChild(JFXTreeTableView(root), init)
 }

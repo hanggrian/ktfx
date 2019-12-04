@@ -14,7 +14,7 @@ import ktfx.layouts.KtfxTab
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.TabManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import ktfx.layouts.tab
 
 /**
@@ -23,7 +23,9 @@ import ktfx.layouts.tab
  */
 open class KtfxJFXTabPane : JFXTabPane(), TabManager {
 
-    final override fun <T : Tab> addTab(tab: T): T = tab.also { tabs += it }
+    final override fun <C : Tab> addChild(child: C): C = child.also { tabs += it }
+
+    final override val childCount: Int get() = tabs.size
 
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
@@ -42,12 +44,12 @@ inline fun jfxTabPane(
 
 /** Add a [JFXTabPane] to this manager. */
 fun NodeManager.jfxTabPane(): JFXTabPane =
-    addNode(KtfxJFXTabPane())
+    addChild(KtfxJFXTabPane())
 
 /** Add a [JFXTabPane] with initialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
     init: (@LayoutsDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxJFXTabPane(), init)
+    return addChild(KtfxJFXTabPane(), init)
 }

@@ -18,13 +18,12 @@ inline fun scrollBar(
 }
 
 /** Add a [ScrollBar] to this manager. */
-fun NodeManager.scrollBar(): ScrollBar =
-    addNode(ScrollBar())
+fun NodeManager.scrollBar(): ScrollBar = addChild(ScrollBar())
 
 /** Add a [ScrollBar] with initialization block to this manager. */
 inline fun NodeManager.scrollBar(
     init: (@LayoutsDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ScrollBar(), init)
+    return addChild(ScrollBar(), init)
 }

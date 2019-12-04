@@ -1,7 +1,7 @@
 package ktfx.jfoenix.layouts
 
-import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.NodeManager
 import ktfx.test.LayoutToolkitTest
 import kotlin.test.assertNull
 

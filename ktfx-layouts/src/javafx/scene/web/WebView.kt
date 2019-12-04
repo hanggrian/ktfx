@@ -18,13 +18,12 @@ inline fun webView(
 }
 
 /** Add a [WebView] to this manager. */
-fun NodeManager.webView(): WebView =
-    addNode(WebView())
+fun NodeManager.webView(): WebView = addChild(WebView())
 
 /** Add a [WebView] with initialization block to this manager. */
 inline fun NodeManager.webView(
     init: (@LayoutsDslMarker WebView).() -> Unit
 ): WebView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(WebView(), init)
+    return addChild(WebView(), init)
 }

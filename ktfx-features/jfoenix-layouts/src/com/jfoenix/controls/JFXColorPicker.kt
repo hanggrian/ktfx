@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXColorPicker] with initialization block. */
 inline fun jfxColorPicker(
@@ -25,7 +25,7 @@ inline fun jfxColorPicker(
 /** Add a [JFXColorPicker] to this manager. */
 fun NodeManager.jfxColorPicker(
     color: Color? = null
-): JFXColorPicker = addNode(JFXColorPicker(color))
+): JFXColorPicker = addChild(JFXColorPicker(color))
 
 /** Add a [JFXColorPicker] with initialization block to this manager. */
 inline fun NodeManager.jfxColorPicker(
@@ -33,5 +33,5 @@ inline fun NodeManager.jfxColorPicker(
     init: (@LayoutsDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXColorPicker(color), init)
+    return addChild(JFXColorPicker(color), init)
 }

@@ -23,7 +23,7 @@ inline fun moveTo(
 fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0
-): MoveTo = addElement(MoveTo(x, y))
+): MoveTo = addChild(MoveTo(x, y))
 
 /** Add a [MoveTo] with initialization block to this manager. */
 inline fun PathElementManager.moveTo(
@@ -32,5 +32,5 @@ inline fun PathElementManager.moveTo(
     init: (@LayoutsDslMarker MoveTo).() -> Unit
 ): MoveTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addElement(MoveTo(x, y), init)
+    return addChild(MoveTo(x, y), init)
 }

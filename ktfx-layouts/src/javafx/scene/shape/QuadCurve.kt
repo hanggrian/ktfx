@@ -31,7 +31,7 @@ fun NodeManager.quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0
-): QuadCurve = addNode(QuadCurve(startX, startY, controlX, controlY, endX, endY))
+): QuadCurve = addChild(QuadCurve(startX, startY, controlX, controlY, endX, endY))
 
 /** Add a [QuadCurve] with initialization block to this manager. */
 inline fun NodeManager.quadCurve(
@@ -44,5 +44,5 @@ inline fun NodeManager.quadCurve(
     init: (@LayoutsDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(QuadCurve(startX, startY, controlX, controlY, endX, endY), init)
+    return addChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), init)
 }

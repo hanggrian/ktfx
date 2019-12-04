@@ -16,7 +16,9 @@ import kotlin.contracts.contract
  */
 open class KtfxPane : Pane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 }
 
 /** Create a [Pane] with initialization block. */
@@ -28,13 +30,12 @@ inline fun pane(
 }
 
 /** Add a [Pane] to this manager. */
-fun NodeManager.pane(): Pane =
-    addNode(KtfxPane())
+fun NodeManager.pane(): Pane = addChild(KtfxPane())
 
 /** Add a [Pane] with initialization block to this manager. */
 inline fun NodeManager.pane(
     init: (@LayoutsDslMarker KtfxPane).() -> Unit
 ): Pane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxPane(), init)
+    return addChild(KtfxPane(), init)
 }

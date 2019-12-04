@@ -23,7 +23,7 @@ inline fun lineTo(
 fun PathElementManager.lineTo(
     x: Double = 0.0,
     y: Double = 0.0
-): LineTo = addElement(LineTo(x, y))
+): LineTo = addChild(LineTo(x, y))
 
 /** Add a [LineTo] with initialization block to this manager. */
 inline fun PathElementManager.lineTo(
@@ -32,5 +32,5 @@ inline fun PathElementManager.lineTo(
     init: (@LayoutsDslMarker LineTo).() -> Unit
 ): LineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addElement(LineTo(x, y), init)
+    return addChild(LineTo(x, y), init)
 }

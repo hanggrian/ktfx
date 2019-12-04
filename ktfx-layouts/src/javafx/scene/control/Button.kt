@@ -24,7 +24,7 @@ inline fun button(
 fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null
-): Button = addNode(Button(text, graphic))
+): Button = addChild(Button(text, graphic))
 
 /** Add a [Button] with initialization block to this manager. */
 inline fun NodeManager.button(
@@ -33,5 +33,5 @@ inline fun NodeManager.button(
     init: (@LayoutsDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Button(text, graphic), init)
+    return addChild(Button(text, graphic), init)
 }

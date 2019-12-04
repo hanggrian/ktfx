@@ -18,13 +18,12 @@ inline fun passwordField(
 }
 
 /** Add a [PasswordField] to this manager. */
-fun NodeManager.passwordField(): PasswordField =
-    addNode(PasswordField())
+fun NodeManager.passwordField(): PasswordField = addChild(PasswordField())
 
 /** Add a [PasswordField] with initialization block to this manager. */
 inline fun NodeManager.passwordField(
     init: (@LayoutsDslMarker PasswordField).() -> Unit
 ): PasswordField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(PasswordField(), init)
+    return addChild(PasswordField(), init)
 }

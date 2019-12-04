@@ -33,7 +33,7 @@ fun PathElementManager.arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false
-): ArcTo = addElement(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag))
+): ArcTo = addChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag))
 
 /** Add an [ArcTo] with initialization block to this manager. */
 inline fun PathElementManager.arcTo(
@@ -47,5 +47,5 @@ inline fun PathElementManager.arcTo(
     init: (@LayoutsDslMarker ArcTo).() -> Unit
 ): ArcTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addElement(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag), init)
+    return addChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag), init)
 }

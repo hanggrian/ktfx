@@ -23,7 +23,7 @@ inline fun <T> listView(
 /** Add a [ListView] to this manager. */
 fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList()
-): ListView<T> = addNode(ListView(items))
+): ListView<T> = addChild(ListView(items))
 
 /** Add a [ListView] with initialization block to this manager. */
 inline fun <T> NodeManager.listView(
@@ -31,5 +31,5 @@ inline fun <T> NodeManager.listView(
     init: (@LayoutsDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ListView(items), init)
+    return addChild(ListView(items), init)
 }

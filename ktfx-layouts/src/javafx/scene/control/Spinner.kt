@@ -18,13 +18,12 @@ inline fun <T> spinner(
 }
 
 /** Add a [Spinner] to this manager. */
-fun <T> NodeManager.spinner(): Spinner<T> =
-    addNode(Spinner())
+fun <T> NodeManager.spinner(): Spinner<T> = addChild(Spinner())
 
 /** Add a [Spinner] with initialization block to this manager. */
 inline fun <T> NodeManager.spinner(
     init: (@LayoutsDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Spinner(), init)
+    return addChild(Spinner(), init)
 }

@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /**
  * [JFXNodesList] with dynamic-layout dsl support.
@@ -19,7 +19,9 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXNodesList : JFXNodesList(), NodeManager {
 
-    override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 }
 
 /** Create a [JFXNodesList] with initialization block. */
@@ -32,12 +34,12 @@ inline fun jfxNodesList(
 
 /** Add a [JFXNodesList] to this manager. */
 fun NodeManager.jfxNodesList(): JFXNodesList =
-    addNode(JFXNodesList())
+    addChild(JFXNodesList())
 
 /** Add a [JFXNodesList] with initialization block to this manager. */
 inline fun NodeManager.jfxNodesList(
     init: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxJFXNodesList(), init)
+    return addChild(KtfxJFXNodesList(), init)
 }

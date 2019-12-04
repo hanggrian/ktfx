@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXPasswordField] with initialization block. */
 inline fun jfxPasswordField(
@@ -22,12 +22,12 @@ inline fun jfxPasswordField(
 
 /** Add a [JFXPasswordField] to this manager. */
 fun NodeManager.jfxPasswordField(): JFXPasswordField =
-    addNode(JFXPasswordField())
+    addChild(JFXPasswordField())
 
 /** Add a [JFXPasswordField] with initialization block to this manager. */
 inline fun NodeManager.jfxPasswordField(
     init: (@LayoutsDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXPasswordField(), init)
+    return addChild(JFXPasswordField(), init)
 }

@@ -24,7 +24,7 @@ inline fun label(
 fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null
-): Label = addNode(Label(text, graphic))
+): Label = addChild(Label(text, graphic))
 
 /** Add a [Label] with initialization block to this manager. */
 inline fun NodeManager.label(
@@ -33,5 +33,5 @@ inline fun NodeManager.label(
     init: (@LayoutsDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Label(text, graphic), init)
+    return addChild(Label(text, graphic), init)
 }

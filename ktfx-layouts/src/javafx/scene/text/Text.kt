@@ -21,7 +21,7 @@ inline fun text(
 /** Add a [Text] to this manager. */
 fun NodeManager.text(
     text: String? = null
-): Text = addNode(Text(text))
+): Text = addChild(Text(text))
 
 /** Add a [Text] with initialization block to this manager. */
 inline fun NodeManager.text(
@@ -29,5 +29,5 @@ inline fun NodeManager.text(
     init: (@LayoutsDslMarker Text).() -> Unit
 ): Text {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Text(text), init)
+    return addChild(Text(text), init)
 }

@@ -24,7 +24,7 @@ inline fun radioMenuItem(
 fun MenuItemManager.radioMenuItem(
     text: String? = null,
     graphic: Node? = null
-): RadioMenuItem = addItem(RadioMenuItem(text, graphic))
+): RadioMenuItem = addChild(RadioMenuItem(text, graphic))
 
 /** Add a [RadioMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.radioMenuItem(
@@ -33,5 +33,5 @@ inline fun MenuItemManager.radioMenuItem(
     init: (@LayoutsDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addItem(RadioMenuItem(text, graphic), init)
+    return addChild(RadioMenuItem(text, graphic), init)
 }

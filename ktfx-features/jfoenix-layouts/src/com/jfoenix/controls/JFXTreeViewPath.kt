@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXTreeViewPath] with initialization block. */
 inline fun jfxTreeViewPath(
@@ -25,7 +25,7 @@ inline fun jfxTreeViewPath(
 /** Add a [JFXTreeViewPath] to this manager. */
 fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null
-): JFXTreeViewPath = addNode(JFXTreeViewPath(treeView))
+): JFXTreeViewPath = addChild(JFXTreeViewPath(treeView))
 
 /** Add a [JFXTreeViewPath] with initialization block to this manager. */
 inline fun NodeManager.jfxTreeViewPath(
@@ -33,5 +33,5 @@ inline fun NodeManager.jfxTreeViewPath(
     init: (@LayoutsDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXTreeViewPath(treeView), init)
+    return addChild(JFXTreeViewPath(treeView), init)
 }

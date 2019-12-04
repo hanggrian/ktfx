@@ -22,7 +22,7 @@ inline fun colorPicker(
 /** Add a [ColorPicker] to this manager. */
 fun NodeManager.colorPicker(
     color: Color = Color.WHITE
-): ColorPicker = addNode(ColorPicker(color))
+): ColorPicker = addChild(ColorPicker(color))
 
 /** Add a [ColorPicker] with initialization block to this manager. */
 inline fun NodeManager.colorPicker(
@@ -30,5 +30,5 @@ inline fun NodeManager.colorPicker(
     init: (@LayoutsDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ColorPicker(color), init)
+    return addChild(ColorPicker(color), init)
 }

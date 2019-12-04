@@ -22,7 +22,7 @@ inline fun progressIndicator(
 /** Add a [ProgressIndicator] to this manager. */
 fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS
-): ProgressIndicator = addNode(ProgressIndicator(progress))
+): ProgressIndicator = addChild(ProgressIndicator(progress))
 
 /** Add a [ProgressIndicator] with initialization block to this manager. */
 inline fun NodeManager.progressIndicator(
@@ -30,5 +30,5 @@ inline fun NodeManager.progressIndicator(
     init: (@LayoutsDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ProgressIndicator(progress), init)
+    return addChild(ProgressIndicator(progress), init)
 }

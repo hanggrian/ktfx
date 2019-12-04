@@ -17,7 +17,9 @@ import kotlin.contracts.contract
  */
 open class KtfxTextFlow : TextFlow(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 
     /** Call [NodeManager.text] by string invocation. */
     inline operator fun String.invoke(
@@ -34,13 +36,12 @@ inline fun textFlow(
 }
 
 /** Add a [TextFlow] to this manager. */
-fun NodeManager.textFlow(): TextFlow =
-    addNode(KtfxTextFlow())
+fun NodeManager.textFlow(): TextFlow = addChild(KtfxTextFlow())
 
 /** Add a [TextFlow] with initialization block to this manager. */
 inline fun NodeManager.textFlow(
     init: (@LayoutsDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxTextFlow(), init)
+    return addChild(KtfxTextFlow(), init)
 }

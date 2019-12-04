@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXCheckBox] with initialization block. */
 inline fun jfxCheckBox(
@@ -24,7 +24,7 @@ inline fun jfxCheckBox(
 /** Add a [JFXCheckBox] to this manager. */
 fun NodeManager.jfxCheckBox(
     text: String? = null
-): JFXCheckBox = addNode(JFXCheckBox(text))
+): JFXCheckBox = addChild(JFXCheckBox(text))
 
 /** Add a [JFXCheckBox] with initialization block to this manager. */
 inline fun NodeManager.jfxCheckBox(
@@ -32,5 +32,5 @@ inline fun NodeManager.jfxCheckBox(
     init: (@LayoutsDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXCheckBox(text), init)
+    return addChild(JFXCheckBox(text), init)
 }

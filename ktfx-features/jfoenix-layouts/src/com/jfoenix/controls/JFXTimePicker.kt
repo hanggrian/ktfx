@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXTimePicker] with initialization block. */
 inline fun jfxTimePicker(
@@ -25,7 +25,7 @@ inline fun jfxTimePicker(
 /** Add a [JFXTimePicker] to this manager. */
 fun NodeManager.jfxTimePicker(
     localTime: LocalTime? = null
-): JFXTimePicker = addNode(JFXTimePicker(localTime))
+): JFXTimePicker = addChild(JFXTimePicker(localTime))
 
 /** Add a [JFXTimePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxTimePicker(
@@ -33,5 +33,5 @@ inline fun NodeManager.jfxTimePicker(
     init: (@LayoutsDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXTimePicker(localTime), init)
+    return addChild(JFXTimePicker(localTime), init)
 }

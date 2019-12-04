@@ -18,13 +18,12 @@ inline fun closePath(
 }
 
 /** Add a [ClosePath] to this manager. */
-fun PathElementManager.closePath(): ClosePath =
-    addElement(ClosePath())
+fun PathElementManager.closePath(): ClosePath = addChild(ClosePath())
 
 /** Add a [ClosePath] with initialization block to this manager. */
 inline fun PathElementManager.closePath(
     init: (@LayoutsDslMarker ClosePath).() -> Unit
 ): ClosePath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addElement(ClosePath(), init)
+    return addChild(ClosePath(), init)
 }

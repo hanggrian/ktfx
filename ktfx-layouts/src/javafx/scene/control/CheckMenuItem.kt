@@ -24,7 +24,7 @@ inline fun checkMenuItem(
 fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null
-): CheckMenuItem = addItem(CheckMenuItem(text, graphic))
+): CheckMenuItem = addChild(CheckMenuItem(text, graphic))
 
 /** Add a [CheckMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.checkMenuItem(
@@ -33,5 +33,5 @@ inline fun MenuItemManager.checkMenuItem(
     init: (@LayoutsDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addItem(CheckMenuItem(text, graphic), init)
+    return addChild(CheckMenuItem(text, graphic), init)
 }

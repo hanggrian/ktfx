@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.GridView
 
 /** Create a [GridView] with initialization block. */
@@ -26,7 +26,7 @@ inline fun <T> gridView(
 /** Add a [GridView] to this manager. */
 fun <T> NodeManager.gridView(
     items: ObservableList<T> = FXCollections.observableArrayList()
-): GridView<T> = addNode(GridView(items))
+): GridView<T> = addChild(GridView(items))
 
 /** Add a [GridView] with initialization block to this manager. */
 inline fun <T> NodeManager.gridView(
@@ -34,5 +34,5 @@ inline fun <T> NodeManager.gridView(
     init: (@LayoutsDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(GridView(items), init)
+    return addChild(GridView(items), init)
 }

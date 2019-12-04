@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.CheckListView
 
 /** Create a [CheckListView] with initialization block. */
@@ -26,7 +26,7 @@ inline fun <T> checkListView(
 /** Add a [CheckListView] to this manager. */
 fun <T> NodeManager.checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList()
-): CheckListView<T> = addNode(CheckListView(items))
+): CheckListView<T> = addChild(CheckListView(items))
 
 /** Add a [CheckListView] with initialization block to this manager. */
 inline fun <T> NodeManager.checkListView(
@@ -34,5 +34,5 @@ inline fun <T> NodeManager.checkListView(
     init: (@LayoutsDslMarker CheckListView<T>).() -> Unit
 ): CheckListView<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(CheckListView(items), init)
+    return addChild(CheckListView(items), init)
 }

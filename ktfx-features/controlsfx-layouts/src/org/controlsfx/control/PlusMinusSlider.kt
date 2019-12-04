@@ -9,7 +9,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.PlusMinusSlider
 
 /** Create a [PlusMinusSlider] with initialization block. */
@@ -22,12 +22,12 @@ inline fun plusMinusSlider(
 
 /** Add a [PlusMinusSlider] to this manager. */
 fun NodeManager.plusMinusSlider(): PlusMinusSlider =
-    addNode(PlusMinusSlider())
+    addChild(PlusMinusSlider())
 
 /** Add a [PlusMinusSlider] with initialization block to this manager. */
 inline fun NodeManager.plusMinusSlider(
     init: (@LayoutsDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(PlusMinusSlider(), init)
+    return addChild(PlusMinusSlider(), init)
 }

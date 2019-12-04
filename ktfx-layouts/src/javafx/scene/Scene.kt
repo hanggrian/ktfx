@@ -22,7 +22,9 @@ import kotlin.contracts.contract
 open class KtfxScene(root: Parent, width: Double, height: Double, fill: Paint) :
     Scene(root, width, height, fill), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { root = it as? Pane ?: Pane(it) }
+    final override fun <C : Node> addChild(child: C): C = child.also { root = it as? Pane ?: Pane(it) }
+
+    final override val childCount: Int get() = root.childrenUnmodifiable.size
 }
 
 /** Create a [Scene] with initialization block. */

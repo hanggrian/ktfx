@@ -28,7 +28,7 @@ fun NodeManager.circle(
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null
-): Circle = addNode(Circle(centerX, centerY, radius, fill))
+): Circle = addChild(Circle(centerX, centerY, radius, fill))
 
 /** Add a [Circle] with initialization block to this manager. */
 inline fun NodeManager.circle(
@@ -39,5 +39,5 @@ inline fun NodeManager.circle(
     init: (@LayoutsDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Circle(centerX, centerY, radius, fill), init)
+    return addChild(Circle(centerX, centerY, radius, fill), init)
 }

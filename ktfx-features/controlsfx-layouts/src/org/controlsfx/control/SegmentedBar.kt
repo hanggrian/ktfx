@@ -9,7 +9,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.SegmentedBar
 import org.controlsfx.control.SegmentedBar.Segment
 
@@ -22,13 +22,12 @@ inline fun <T : Segment> segmentedBar(
 }
 
 /** Add a [SegmentedBar] to this manager. */
-fun <T : Segment> NodeManager.segmentedBar(): SegmentedBar<T> =
-    addNode(SegmentedBar())
+fun <T : Segment> NodeManager.segmentedBar(): SegmentedBar<T> = addChild(SegmentedBar())
 
 /** Add a [SegmentedBar] with initialization block to this manager. */
 inline fun <T : Segment> NodeManager.segmentedBar(
     init: (@LayoutsDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(SegmentedBar(), init)
+    return addChild(SegmentedBar(), init)
 }

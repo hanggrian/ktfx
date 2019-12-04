@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.BreadCrumbBar
 
 /** Create a [BreadCrumbBar] with initialization block. */
@@ -25,7 +25,7 @@ inline fun <T> breadCrumbBar(
 /** Add a [BreadCrumbBar] to this manager. */
 fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null
-): BreadCrumbBar<T> = addNode(BreadCrumbBar(selectedCrumb))
+): BreadCrumbBar<T> = addChild(BreadCrumbBar(selectedCrumb))
 
 /** Add a [BreadCrumbBar] with initialization block to this manager. */
 inline fun <T> NodeManager.breadCrumbBar(
@@ -33,5 +33,5 @@ inline fun <T> NodeManager.breadCrumbBar(
     init: (@LayoutsDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(BreadCrumbBar(selectedCrumb), init)
+    return addChild(BreadCrumbBar(selectedCrumb), init)
 }

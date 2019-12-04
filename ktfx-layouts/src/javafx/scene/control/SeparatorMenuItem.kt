@@ -18,13 +18,12 @@ inline fun separatorMenuItem(
 }
 
 /** Add a [SeparatorMenuItem] to this manager. */
-fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem =
-    addItem(SeparatorMenuItem())
+fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = addChild(SeparatorMenuItem())
 
 /** Add a [SeparatorMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.separatorMenuItem(
     init: (@LayoutsDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addItem(SeparatorMenuItem(), init)
+    return addChild(SeparatorMenuItem(), init)
 }

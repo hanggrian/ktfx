@@ -24,7 +24,7 @@ inline fun menuItem(
 fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null
-): MenuItem = addItem(MenuItem(text, graphic))
+): MenuItem = addChild(MenuItem(text, graphic))
 
 /** Add a [MenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.menuItem(
@@ -33,5 +33,5 @@ inline fun MenuItemManager.menuItem(
     init: (@LayoutsDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addItem(MenuItem(text, graphic), init)
+    return addChild(MenuItem(text, graphic), init)
 }

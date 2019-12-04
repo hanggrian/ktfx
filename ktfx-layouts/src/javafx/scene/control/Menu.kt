@@ -17,7 +17,9 @@ import kotlin.contracts.contract
  */
 open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuItemManager {
 
-    final override fun <T : MenuItem> addItem(item: T): T = item.also { items += it }
+    final override fun <C : MenuItem> addChild(child: C): C = child.also { items += it }
+
+    final override val childCount: Int get() = items.size
 
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
@@ -40,7 +42,7 @@ inline fun menu(
 fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null
-): Menu = addMenu(KtfxMenu(text, graphic))
+): Menu = addChild(KtfxMenu(text, graphic))
 
 /** Add a [Menu] with initialization block to this manager. */
 inline fun MenuManager.menu(
@@ -49,14 +51,14 @@ inline fun MenuManager.menu(
     init: (@LayoutsDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addMenu(KtfxMenu(text, graphic), init)
+    return addChild(KtfxMenu(text, graphic), init)
 }
 
 /** Add a [Menu] to this manager. */
 fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null
-): Menu = addItem(KtfxMenu(text, graphic))
+): Menu = addChild(KtfxMenu(text, graphic))
 
 /** Add a [Menu] with initialization block to this manager. */
 inline fun MenuItemManager.menu(
@@ -65,5 +67,5 @@ inline fun MenuItemManager.menu(
     init: (@LayoutsDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addItem(KtfxMenu(text, graphic), init)
+    return addChild(KtfxMenu(text, graphic), init)
 }

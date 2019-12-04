@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.MasterDetailPane
 
 /**
@@ -21,14 +21,16 @@ import org.controlsfx.control.MasterDetailPane
 open class KtfxMasterDetailPane(side: Side, showDetail: Boolean) : MasterDetailPane(side, showDetail), NodeManager {
     private var size = 0
 
-    final override fun <T : Node> addNode(node: T): T =
-        node.also {
+    final override fun <C : Node> addChild(child: C): C =
+        child.also {
             when (size++) {
                 0 -> masterNode = it
                 1 -> detailNode = it
                 else -> error("Master and detail node has been set.")
             }
         }
+
+    final override val childCount: Int get() = size
 }
 
 /** Create a [MasterDetailPane] with initialization block. */
@@ -45,7 +47,7 @@ inline fun masterDetailPane(
 fun NodeManager.masterDetailPane(
     side: Side = Side.RIGHT,
     showDetail: Boolean = true
-): MasterDetailPane = addNode(KtfxMasterDetailPane(side, showDetail))
+): MasterDetailPane = addChild(KtfxMasterDetailPane(side, showDetail))
 
 /** Add a [MasterDetailPane] with initialization block to this manager. */
 inline fun NodeManager.masterDetailPane(
@@ -54,5 +56,5 @@ inline fun NodeManager.masterDetailPane(
     init: (@LayoutsDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxMasterDetailPane(side, showDetail), init)
+    return addChild(KtfxMasterDetailPane(side, showDetail), init)
 }

@@ -16,7 +16,9 @@ import kotlin.contracts.contract
  */
 open class KtfxAccordion : Accordion(), TitledPaneManager {
 
-    final override fun <T : TitledPane> addPane(pane: T): T = pane.also { panes += it }
+    final override fun <C : TitledPane> addChild(child: C): C = child.also { panes += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 
     /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(
@@ -33,13 +35,12 @@ inline fun accordion(
 }
 
 /** Add an [Accordion] to this manager. */
-fun NodeManager.accordion(): Accordion =
-    addNode(KtfxAccordion())
+fun NodeManager.accordion(): Accordion = addChild(KtfxAccordion())
 
 /** Add an [Accordion] with initialization block to this manager. */
 inline fun NodeManager.accordion(
     init: (@LayoutsDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxAccordion(), init)
+    return addChild(KtfxAccordion(), init)
 }

@@ -23,7 +23,7 @@ inline fun pagination(
 fun NodeManager.pagination(
     count: Int = Pagination.INDETERMINATE,
     index: Int = 0
-): Pagination = addNode(Pagination(count, index))
+): Pagination = addChild(Pagination(count, index))
 
 /** Add a [Pagination] with initialization block to this manager. */
 inline fun NodeManager.pagination(
@@ -32,5 +32,5 @@ inline fun NodeManager.pagination(
     init: (@LayoutsDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Pagination(count, index), init)
+    return addChild(Pagination(count, index), init)
 }

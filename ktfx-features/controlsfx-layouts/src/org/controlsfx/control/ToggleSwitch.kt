@@ -9,7 +9,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.ToggleSwitch
 
 /** Create a [ToggleSwitch] with initialization block. */
@@ -24,7 +24,7 @@ inline fun toggleSwitch(
 /** Add a [ToggleSwitch] to this manager. */
 fun NodeManager.toggleSwitch(
     text: String? = null
-): ToggleSwitch = addNode(ToggleSwitch(text))
+): ToggleSwitch = addChild(ToggleSwitch(text))
 
 /** Add a [ToggleSwitch] with initialization block to this manager. */
 inline fun NodeManager.toggleSwitch(
@@ -32,5 +32,5 @@ inline fun NodeManager.toggleSwitch(
     init: (@LayoutsDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ToggleSwitch(text), init)
+    return addChild(ToggleSwitch(text), init)
 }

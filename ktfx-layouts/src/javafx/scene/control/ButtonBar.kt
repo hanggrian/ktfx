@@ -17,7 +17,9 @@ import kotlin.contracts.contract
  */
 open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { buttons += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { buttons += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 
     /** Call [NodeManager.button] by string invocation. */
     inline operator fun String.invoke(
@@ -38,7 +40,7 @@ inline fun buttonBar(
 /** Add a [ButtonBar] to this manager. */
 fun NodeManager.buttonBar(
     buttonOrder: String? = null
-): ButtonBar = addNode(KtfxButtonBar(buttonOrder))
+): ButtonBar = addChild(KtfxButtonBar(buttonOrder))
 
 /** Add a [ButtonBar] with initialization block to this manager. */
 inline fun NodeManager.buttonBar(
@@ -46,5 +48,5 @@ inline fun NodeManager.buttonBar(
     init: (@LayoutsDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxButtonBar(buttonOrder), init)
+    return addChild(KtfxButtonBar(buttonOrder), init)
 }

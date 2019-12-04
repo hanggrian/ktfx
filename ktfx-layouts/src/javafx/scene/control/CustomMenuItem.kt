@@ -24,7 +24,7 @@ inline fun customMenuItem(
 fun MenuItemManager.customMenuItem(
     node: Node? = null,
     hideOnClick: Boolean = true
-): CustomMenuItem = addItem(CustomMenuItem(node, hideOnClick))
+): CustomMenuItem = addChild(CustomMenuItem(node, hideOnClick))
 
 /** Add a [CustomMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.customMenuItem(
@@ -33,5 +33,5 @@ inline fun MenuItemManager.customMenuItem(
     init: (@LayoutsDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addItem(CustomMenuItem(node, hideOnClick), init)
+    return addChild(CustomMenuItem(node, hideOnClick), init)
 }

@@ -27,7 +27,7 @@ fun PathElementManager.quadCurveTo(
     controlY: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0
-): QuadCurveTo = addElement(QuadCurveTo(controlX, controlY, x, y))
+): QuadCurveTo = addChild(QuadCurveTo(controlX, controlY, x, y))
 
 /** Add a [QuadCurveTo]  with initialization block to this manager. */
 inline fun PathElementManager.quadCurveTo(
@@ -38,5 +38,5 @@ inline fun PathElementManager.quadCurveTo(
     init: (@LayoutsDslMarker QuadCurveTo).() -> Unit
 ): QuadCurveTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addElement(QuadCurveTo(controlX, controlY, x, y), init)
+    return addChild(QuadCurveTo(controlX, controlY, x, y), init)
 }

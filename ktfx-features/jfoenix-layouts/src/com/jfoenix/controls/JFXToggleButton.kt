@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXToggleButton] with initialization block. */
 inline fun jfxToggleButton(
@@ -21,13 +21,12 @@ inline fun jfxToggleButton(
 }
 
 /** Add a [JFXToggleButton] to this manager. */
-fun NodeManager.jfxToggleButton(): JFXToggleButton =
-    addNode(JFXToggleButton())
+fun NodeManager.jfxToggleButton(): JFXToggleButton = addChild(JFXToggleButton())
 
 /** Add a [JFXToggleButton] with initialization block to this manager. */
 inline fun NodeManager.jfxToggleButton(
     init: (@LayoutsDslMarker JFXToggleButton).() -> Unit
 ): JFXToggleButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXToggleButton(), init)
+    return addChild(JFXToggleButton(), init)
 }

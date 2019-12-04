@@ -22,7 +22,7 @@ inline fun <S> treeTableView(
 /** Add a [TreeTableView] to this manager. */
 fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null
-): TreeTableView<S> = addNode(TreeTableView(root))
+): TreeTableView<S> = addChild(TreeTableView(root))
 
 /** Add a [TreeTableView] with initialization block to this manager. */
 inline fun <S> NodeManager.treeTableView(
@@ -30,5 +30,5 @@ inline fun <S> NodeManager.treeTableView(
     init: (@LayoutsDslMarker TreeTableView<S>).() -> Unit
 ): TreeTableView<S> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(TreeTableView(root), init)
+    return addChild(TreeTableView(root), init)
 }

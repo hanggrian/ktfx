@@ -21,7 +21,7 @@ inline fun vlineTo(
 /** Add a [VLineTo] to this manager. */
 fun PathElementManager.vlineTo(
     y: Double = 0.0
-): VLineTo = addElement(VLineTo(y))
+): VLineTo = addChild(VLineTo(y))
 
 /** Add a [VLineTo] with initialization block to this manager. */
 inline fun PathElementManager.vlineTo(
@@ -29,5 +29,5 @@ inline fun PathElementManager.vlineTo(
     init: (@LayoutsDslMarker VLineTo).() -> Unit
 ): VLineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addElement(VLineTo(y), init)
+    return addChild(VLineTo(y), init)
 }

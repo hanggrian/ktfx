@@ -24,7 +24,7 @@ inline fun hyperlink(
 fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null
-): Hyperlink = addNode(Hyperlink(text, graphic))
+): Hyperlink = addChild(Hyperlink(text, graphic))
 
 /** Add a [Hyperlink] with initialization block to this manager. */
 inline fun NodeManager.hyperlink(
@@ -33,5 +33,5 @@ inline fun NodeManager.hyperlink(
     init: (@LayoutsDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Hyperlink(text, graphic), init)
+    return addChild(Hyperlink(text, graphic), init)
 }

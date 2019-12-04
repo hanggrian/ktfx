@@ -17,7 +17,9 @@ import kotlin.contracts.contract
  */
 open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
 
-    final override fun <T : MenuItem> addItem(item: T): T = item.also { items += it }
+    final override fun <C : MenuItem> addChild(child: C): C = child.also { items += it }
+
+    final override val childCount: Int get() = items.size
 
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
@@ -35,13 +37,12 @@ inline fun splitMenuButton(
 }
 
 /** Add a [SplitMenuButton] to this manager. */
-fun NodeManager.splitMenuButton(): SplitMenuButton =
-    addNode(KtfxSplitMenuButton())
+fun NodeManager.splitMenuButton(): SplitMenuButton = addChild(KtfxSplitMenuButton())
 
 /** Add a [SplitMenuButton] with initialization block to this manager. */
 inline fun NodeManager.splitMenuButton(
     init: (@LayoutsDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxSplitMenuButton(), init)
+    return addChild(KtfxSplitMenuButton(), init)
 }

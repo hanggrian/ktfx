@@ -12,7 +12,7 @@ import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.ToggleButtonManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import ktfx.layouts.toggleButton
 import org.controlsfx.control.SegmentedButton
 
@@ -22,7 +22,9 @@ import org.controlsfx.control.SegmentedButton
  */
 open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
 
-    final override fun <T : ToggleButton> addButton(button: T): T = button.also { buttons += it }
+    final override fun <C : ToggleButton> addChild(child: C): C = child.also { buttons += it }
+
+    final override val childCount: Int get() = buttons.size
 
     /** Call [ToggleButtonManager.toggleButton] by string invocation. */
     inline operator fun String.invoke(
@@ -40,13 +42,12 @@ inline fun segmentedButton(
 }
 
 /** Add a [SegmentedButton] to this manager. */
-fun NodeManager.segmentedButton(): SegmentedButton =
-    addNode(KtfxSegmentedButton())
+fun NodeManager.segmentedButton(): SegmentedButton = addChild(KtfxSegmentedButton())
 
 /** Add a [SegmentedButton] with initialization block to this manager. */
 inline fun NodeManager.segmentedButton(
     init: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxSegmentedButton(), init)
+    return addChild(KtfxSegmentedButton(), init)
 }

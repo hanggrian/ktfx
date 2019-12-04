@@ -22,7 +22,7 @@ inline fun imageView(
 /** Add an [ImageView] to this manager. */
 fun NodeManager.imageView(
     image: Image? = null
-): ImageView = addNode(ImageView(image))
+): ImageView = addChild(ImageView(image))
 
 /** Add an [ImageView] with initialization block to this manager. */
 inline fun NodeManager.imageView(
@@ -30,7 +30,7 @@ inline fun NodeManager.imageView(
     init: (@LayoutsDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ImageView(image), init)
+    return addChild(ImageView(image), init)
 }
 
 /** Create an [ImageView] with initialization block. */

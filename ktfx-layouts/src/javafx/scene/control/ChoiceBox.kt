@@ -23,7 +23,7 @@ inline fun <T> choiceBox(
 /** Add a [ChoiceBox] to this manager. */
 fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList()
-): ChoiceBox<T> = addNode(ChoiceBox(items))
+): ChoiceBox<T> = addChild(ChoiceBox(items))
 
 /** Add a [ChoiceBox] with initialization block to this manager. */
 inline fun <T> NodeManager.choiceBox(
@@ -31,5 +31,5 @@ inline fun <T> NodeManager.choiceBox(
     init: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ChoiceBox(items), init)
+    return addChild(ChoiceBox(items), init)
 }

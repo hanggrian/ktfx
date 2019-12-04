@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXTextField] with initialization block. */
 inline fun jfxTextField(
@@ -24,7 +24,7 @@ inline fun jfxTextField(
 /** Add a [JFXTextField] to this manager. */
 fun NodeManager.jfxTextField(
     text: String? = null
-): JFXTextField = addNode(JFXTextField(text))
+): JFXTextField = addChild(JFXTextField(text))
 
 /** Add a [JFXTextField] with initialization block to this manager. */
 inline fun NodeManager.jfxTextField(
@@ -32,5 +32,5 @@ inline fun NodeManager.jfxTextField(
     init: (@LayoutsDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXTextField(text), init)
+    return addChild(JFXTextField(text), init)
 }

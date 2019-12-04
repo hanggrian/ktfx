@@ -9,7 +9,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.textfield.CustomTextField
 
 /** Create a [CustomTextField] with initialization block. */
@@ -21,13 +21,12 @@ inline fun customTextField(
 }
 
 /** Add a [CustomTextField] to this manager. */
-fun NodeManager.customTextField(): CustomTextField =
-    addNode(CustomTextField())
+fun NodeManager.customTextField(): CustomTextField = addChild(CustomTextField())
 
 /** Add a [CustomTextField] with initialization block to this manager. */
 inline fun NodeManager.customTextField(
     init: (@LayoutsDslMarker CustomTextField).() -> Unit
 ): CustomTextField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(CustomTextField(), init)
+    return addChild(CustomTextField(), init)
 }

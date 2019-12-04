@@ -24,7 +24,7 @@ inline fun toggleButton(
 fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null
-): ToggleButton = addNode(ToggleButton(text, graphic))
+): ToggleButton = addChild(ToggleButton(text, graphic))
 
 /** Add a [ToggleButton] with initialization block to this manager. */
 inline fun NodeManager.toggleButton(
@@ -33,14 +33,14 @@ inline fun NodeManager.toggleButton(
     init: (@LayoutsDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ToggleButton(text, graphic), init)
+    return addChild(ToggleButton(text, graphic), init)
 }
 
 /** Add a [ToggleButton] to this manager. */
 fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null
-): ToggleButton = addButton(ToggleButton(text, graphic))
+): ToggleButton = addChild(ToggleButton(text, graphic))
 
 /** Add a [ToggleButton] with initialization block to this manager. */
 inline fun ToggleButtonManager.toggleButton(
@@ -49,5 +49,5 @@ inline fun ToggleButtonManager.toggleButton(
     init: (@LayoutsDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addButton(ToggleButton(text, graphic), init)
+    return addChild(ToggleButton(text, graphic), init)
 }

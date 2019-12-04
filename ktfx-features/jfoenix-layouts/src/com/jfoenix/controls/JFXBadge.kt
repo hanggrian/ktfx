@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /**
  * [JFXBadge] with dynamic-layout dsl support.
@@ -19,7 +19,9 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXBadge : JFXBadge(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { control = it }
+    final override fun <C : Node> addChild(child: C): C = child.also { control = it }
+
+    final override val childCount: Int get() = if (control != null) 1 else 0
 }
 
 /** Create a [JFXBadge] with initialization block. */
@@ -31,13 +33,12 @@ inline fun jfxBadge(
 }
 
 /** Add a [JFXBadge] to this manager. */
-fun NodeManager.jfxBadge(): JFXBadge =
-    addNode(KtfxJFXBadge())
+fun NodeManager.jfxBadge(): JFXBadge = addChild(KtfxJFXBadge())
 
 /** Add a [JFXBadge] with initialization block to this manager. */
 inline fun NodeManager.jfxBadge(
     init: (@LayoutsDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxJFXBadge(), init)
+    return addChild(KtfxJFXBadge(), init)
 }

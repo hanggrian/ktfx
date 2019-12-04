@@ -17,7 +17,9 @@ import kotlin.contracts.contract
  */
 open class KtfxGroup : Group(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 }
 
 /** Create a [Group] with initialization block. */
@@ -29,13 +31,12 @@ inline fun group(
 }
 
 /** Add a [Group] to this manager. */
-fun NodeManager.group(): Group =
-    addNode(KtfxGroup())
+fun NodeManager.group(): Group = addChild(KtfxGroup())
 
 /** Add a [Group] with initialization block to this manager. */
 inline fun NodeManager.group(
     init: (@LayoutsDslMarker KtfxGroup).() -> Unit
 ): Group {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxGroup(), init)
+    return addChild(KtfxGroup(), init)
 }

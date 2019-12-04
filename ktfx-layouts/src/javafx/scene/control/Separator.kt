@@ -19,15 +19,14 @@ inline fun separator(
 }
 
 /** Add a [Separator] to this manager. */
-fun NodeManager.separator(): Separator =
-    addNode(Separator())
+fun NodeManager.separator(): Separator = addChild(Separator())
 
 /** Add a [Separator] with initialization block to this manager. */
 inline fun NodeManager.separator(
     init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Separator(), init)
+    return addChild(Separator(), init)
 }
 
 /** Create a vertical [Separator] with initialization block. */
@@ -43,8 +42,7 @@ inline fun verticalSeparator(
 
 /** Add a vertical [Separator] to this manager. */
 @Suppress("NOTHING_TO_INLINE")
-inline fun NodeManager.verticalSeparator(): Separator =
-    separator { Orientation.VERTICAL }
+inline fun NodeManager.verticalSeparator(): Separator = separator { Orientation.VERTICAL }
 
 /** Add a vertical [Separator] with initialization block to this manager. */
 inline fun NodeManager.verticalSeparator(

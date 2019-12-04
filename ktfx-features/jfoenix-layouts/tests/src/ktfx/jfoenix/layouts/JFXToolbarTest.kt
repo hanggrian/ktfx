@@ -1,7 +1,7 @@
 package ktfx.jfoenix.layouts
 
-import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.NodeManager
 import ktfx.test.LayoutToolkitTest
 import ktfx.test.assertContains
 
@@ -13,11 +13,11 @@ class JFXToolbarTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
         val right2 = jfxButton()
         val toolbar = jfxToolbar {
             leftItems {
-                addNode(left1)
+                addChild(left1)
             }
             rightItems {
-                addNode(right1)
-                addNode(right2)
+                addChild(right1)
+                addChild(right2)
             }
         }
         assertContains(toolbar.leftItems, left1).inOrder()

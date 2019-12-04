@@ -1,7 +1,7 @@
 package ktfx.layouts.scene.layout
 
-import ktfx.layouts.NodeManager
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.NodeManager
 import ktfx.layouts.columnConstraints
 import ktfx.layouts.gridPane
 import ktfx.layouts.rowConstraints

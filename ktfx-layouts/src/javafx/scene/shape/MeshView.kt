@@ -22,7 +22,7 @@ inline fun meshView(
 /** Add a [MeshView] to this manager. */
 fun NodeManager.meshView(
     mesh: Mesh? = null
-): MeshView = addNode(MeshView(mesh))
+): MeshView = addChild(MeshView(mesh))
 
 /** Add a [MeshView] with initialization block to this manager. */
 inline fun NodeManager.meshView(
@@ -30,5 +30,5 @@ inline fun NodeManager.meshView(
     init: (@LayoutsDslMarker MeshView).() -> Unit
 ): MeshView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(MeshView(mesh), init)
+    return addChild(MeshView(mesh), init)
 }

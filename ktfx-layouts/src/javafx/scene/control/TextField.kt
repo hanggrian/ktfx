@@ -21,7 +21,7 @@ inline fun textField(
 /** Add a [TextField] to this manager. */
 fun NodeManager.textField(
     text: String = ""
-): TextField = addNode(TextField(text))
+): TextField = addChild(TextField(text))
 
 /** Add a [TextField] with initialization block to this manager. */
 inline fun NodeManager.textField(
@@ -29,5 +29,5 @@ inline fun NodeManager.textField(
     init: (@LayoutsDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(TextField(text), init)
+    return addChild(TextField(text), init)
 }

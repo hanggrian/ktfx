@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXDefaultChip] with initialization block. */
 inline fun <T> jfxDefaultChip(
@@ -27,7 +27,7 @@ inline fun <T> jfxDefaultChip(
 fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T
-): JFXDefaultChip<T> = addNode(JFXDefaultChip(view, item))
+): JFXDefaultChip<T> = addChild(JFXDefaultChip(view, item))
 
 /** Add a [JFXDefaultChip] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxDefaultChip(
@@ -36,5 +36,5 @@ inline fun <T> NodeManager.jfxDefaultChip(
     init: (@LayoutsDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXDefaultChip(view, item), init)
+    return addChild(JFXDefaultChip(view, item), init)
 }

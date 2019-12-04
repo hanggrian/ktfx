@@ -16,7 +16,9 @@ import kotlin.contracts.contract
  */
 open class KtfxTitledPane(title: String?) : TitledPane(title, null), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <C : Node> addChild(child: C): C = child.also { content = it }
+
+    final override val childCount: Int get() = if (content != null) 1 else 0
 }
 
 /** Create a [TitledPane] with initialization block. */
@@ -31,7 +33,7 @@ inline fun titledPane(
 /** Add a [TitledPane] to this manager. */
 fun NodeManager.titledPane(
     title: String? = null
-): TitledPane = addNode(KtfxTitledPane(title))
+): TitledPane = addChild(KtfxTitledPane(title))
 
 /** Add a [TitledPane] with initialization block to this manager. */
 inline fun NodeManager.titledPane(
@@ -39,13 +41,13 @@ inline fun NodeManager.titledPane(
     init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxTitledPane(title), init)
+    return addChild(KtfxTitledPane(title), init)
 }
 
 /** Add a [TitledPane] to this manager. */
 fun TitledPaneManager.titledPane(
     title: String? = null
-): TitledPane = addPane(KtfxTitledPane(title))
+): TitledPane = addChild(KtfxTitledPane(title))
 
 /** Add a [TitledPane] with initialization block to this manager. */
 inline fun TitledPaneManager.titledPane(
@@ -53,5 +55,5 @@ inline fun TitledPaneManager.titledPane(
     init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addPane(KtfxTitledPane(title), init)
+    return addChild(KtfxTitledPane(title), init)
 }

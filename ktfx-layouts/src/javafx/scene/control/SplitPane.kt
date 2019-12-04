@@ -16,7 +16,9 @@ import kotlin.contracts.contract
  */
 open class KtfxSplitPane : SplitPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { items += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { items += it }
+
+    final override val childCount: Int get() = items.size
 }
 
 /** Create a [SplitPane] with initialization block. */
@@ -28,13 +30,12 @@ inline fun splitPane(
 }
 
 /** Add a [SplitPane] to this manager. */
-fun NodeManager.splitPane(): SplitPane =
-    addNode(KtfxSplitPane())
+fun NodeManager.splitPane(): SplitPane = addChild(KtfxSplitPane())
 
 /** Add a [SplitPane] with initialization block to this manager. */
 inline fun NodeManager.splitPane(
     init: (@LayoutsDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxSplitPane(), init)
+    return addChild(KtfxSplitPane(), init)
 }

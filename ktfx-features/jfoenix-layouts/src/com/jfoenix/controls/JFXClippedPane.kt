@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /**
  * [JFXClippedPane] with dynamic-layout dsl support.
@@ -19,7 +19,9 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 }
 
 /** Create a [JFXClippedPane] with initialization block. */
@@ -31,13 +33,12 @@ inline fun jfxClippedPane(
 }
 
 /** Add a [JFXClippedPane] to this manager. */
-fun NodeManager.jfxClippedPane(): JFXClippedPane =
-    addNode(KtfxJFXClippedPane())
+fun NodeManager.jfxClippedPane(): JFXClippedPane = addChild(KtfxJFXClippedPane())
 
 /** Add a [JFXClippedPane] with initialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
     init: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxJFXClippedPane(), init)
+    return addChild(KtfxJFXClippedPane(), init)
 }

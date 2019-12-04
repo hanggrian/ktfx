@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.InfoOverlay
 
 /**
@@ -19,7 +19,9 @@ import org.controlsfx.control.InfoOverlay
  */
 open class KtfxInfoOverlay(graphic: Node?, text: String?) : InfoOverlay(graphic, text), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <C : Node> addChild(child: C): C = child.also { content = it }
+
+    final override val childCount: Int get() = if (content != null) 1 else 0
 }
 
 /** Create a [InfoOverlay] with initialization block. */
@@ -36,7 +38,7 @@ inline fun infoOverlay(
 fun NodeManager.infoOverlay(
     graphic: Node? = null,
     text: String? = null
-): InfoOverlay = addNode(InfoOverlay(graphic, text))
+): InfoOverlay = addChild(InfoOverlay(graphic, text))
 
 /** Add a [InfoOverlay] with initialization block to this manager. */
 inline fun NodeManager.infoOverlay(
@@ -45,5 +47,5 @@ inline fun NodeManager.infoOverlay(
     init: (@LayoutsDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxInfoOverlay(graphic, text), init)
+    return addChild(KtfxInfoOverlay(graphic, text), init)
 }

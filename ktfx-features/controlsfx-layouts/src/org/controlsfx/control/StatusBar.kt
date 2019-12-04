@@ -9,7 +9,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.StatusBar
 
 /** Create a [StatusBar] with initialization block. */
@@ -21,13 +21,12 @@ inline fun statusBar(
 }
 
 /** Add a [StatusBar] to this manager. */
-fun NodeManager.statusBar(): StatusBar =
-    addNode(StatusBar())
+fun NodeManager.statusBar(): StatusBar = addChild(StatusBar())
 
 /** Add a [StatusBar] with initialization block to this manager. */
 inline fun NodeManager.statusBar(
     init: (@LayoutsDslMarker StatusBar).() -> Unit
 ): StatusBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(StatusBar(), init)
+    return addChild(StatusBar(), init)
 }

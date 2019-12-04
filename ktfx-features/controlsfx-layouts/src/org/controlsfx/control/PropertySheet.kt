@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 import org.controlsfx.control.PropertySheet
 
 /** Create a [PropertySheet] with initialization block. */
@@ -25,7 +25,7 @@ inline fun propertySheet(
 /** Add a [PropertySheet] to this manager. */
 fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null
-): PropertySheet = addNode(PropertySheet(items))
+): PropertySheet = addChild(PropertySheet(items))
 
 /** Add a [PropertySheet] with initialization block to this manager. */
 inline fun NodeManager.propertySheet(
@@ -33,5 +33,5 @@ inline fun NodeManager.propertySheet(
     init: (@LayoutsDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(PropertySheet(items), init)
+    return addChild(PropertySheet(items), init)
 }

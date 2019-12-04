@@ -20,7 +20,9 @@ import kotlin.contracts.contract
  */
 open class KtfxContextMenu : ContextMenu(), MenuItemManager {
 
-    final override fun <T : MenuItem> addItem(item: T): T = item.also { items += it }
+    final override fun <C : MenuItem> addChild(child: C): C = child.also { items += it }
+
+    final override val childCount: Int get() = items.size
 
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(

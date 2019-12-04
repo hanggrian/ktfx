@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXSpinner] with initialization block to this manager. */
 inline fun jfxSpinner(
@@ -24,7 +24,7 @@ inline fun jfxSpinner(
 /** Add a [JFXSpinner] to this manager. */
 fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS
-): JFXSpinner = addNode(JFXSpinner(progress))
+): JFXSpinner = addChild(JFXSpinner(progress))
 
 /** Add a [JFXSpinner] with initialization block to this manager. */
 inline fun NodeManager.jfxSpinner(
@@ -32,5 +32,5 @@ inline fun NodeManager.jfxSpinner(
     init: (@LayoutsDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXSpinner(progress), init)
+    return addChild(JFXSpinner(progress), init)
 }

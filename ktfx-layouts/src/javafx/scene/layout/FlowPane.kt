@@ -20,7 +20,9 @@ import kotlin.contracts.contract
 open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
     NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { children += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
@@ -42,22 +44,22 @@ open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : 
     }
 
     /** Configure margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.margin(margin: Insets): T = apply { this.margin = margin }
+    inline infix fun <C : Node> C.margin(margin: Insets): C = apply { this.margin = margin }
 
     /** Configure all sides margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginAll(margin: Double): T = apply { this.margin = Insets(margin) }
+    inline infix fun <C : Node> C.marginAll(margin: Double): C = apply { this.margin = Insets(margin) }
 
     /** Configure top margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginTop(margin: Double): T = apply { updateMargin(top = margin) }
+    inline infix fun <C : Node> C.marginTop(margin: Double): C = apply { updateMargin(top = margin) }
 
     /** Configure right margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginRight(margin: Double): T = apply { updateMargin(right = margin) }
+    inline infix fun <C : Node> C.marginRight(margin: Double): C = apply { updateMargin(right = margin) }
 
     /** Configure bottom margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginBottom(margin: Double): T = apply { updateMargin(bottom = margin) }
+    inline infix fun <C : Node> C.marginBottom(margin: Double): C = apply { updateMargin(bottom = margin) }
 
     /** Configure left margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginLeft(margin: Double): T = apply { updateMargin(left = margin) }
+    inline infix fun <C : Node> C.marginLeft(margin: Double): C = apply { updateMargin(left = margin) }
 }
 
 /** Create a [FlowPane] with initialization block. */
@@ -76,7 +78,7 @@ fun NodeManager.flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap
-): FlowPane = addNode(KtfxFlowPane(orientation, hgap, vgap))
+): FlowPane = addChild(KtfxFlowPane(orientation, hgap, vgap))
 
 /** Add a [FlowPane] with initialization block to this manager. */
 inline fun NodeManager.flowPane(
@@ -86,5 +88,5 @@ inline fun NodeManager.flowPane(
     init: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxFlowPane(orientation, hgap, vgap), init)
+    return addChild(KtfxFlowPane(orientation, hgap, vgap), init)
 }

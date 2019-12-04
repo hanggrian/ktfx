@@ -20,7 +20,9 @@ import kotlin.contracts.contract
  */
 open class KtfxBorderPane : BorderPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { center = it }
+    final override fun <C : Node> addChild(child: C): C = child.also { center = it }
+
+    final override val childCount: Int get() = childrenUnmodifiable.size
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
@@ -32,7 +34,7 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
         @JvmName("setAlignment2") set(value) = setAlignment(this, value)
 
     /** Configure alignment fluidly using infix operator. */
-    inline infix fun <T : Node> T.align(pos: Pos): T = apply { alignment = pos }
+    inline infix fun <C : Node> C.align(pos: Pos): C = apply { alignment = pos }
 
     /** Children margin in this layout. */
     inline var Node.margin: Insets?
@@ -50,22 +52,22 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
     }
 
     /** Configure margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.margin(margin: Insets): T = apply { this.margin = margin }
+    inline infix fun <C : Node> C.margin(margin: Insets): C = apply { this.margin = margin }
 
     /** Configure all sides margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginAll(margin: Double): T = apply { this.margin = Insets(margin) }
+    inline infix fun <C : Node> C.marginAll(margin: Double): C = apply { this.margin = Insets(margin) }
 
     /** Configure top margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginTop(margin: Double): T = apply { updateMargin(top = margin) }
+    inline infix fun <C : Node> C.marginTop(margin: Double): C = apply { updateMargin(top = margin) }
 
     /** Configure right margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginRight(margin: Double): T = apply { updateMargin(right = margin) }
+    inline infix fun <C : Node> C.marginRight(margin: Double): C = apply { updateMargin(right = margin) }
 
     /** Configure bottom margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginBottom(margin: Double): T = apply { updateMargin(bottom = margin) }
+    inline infix fun <C : Node> C.marginBottom(margin: Double): C = apply { updateMargin(bottom = margin) }
 
     /** Configure left margin fluidly using infix operator. */
-    inline infix fun <T : Node> T.marginLeft(margin: Double): T = apply { updateMargin(left = margin) }
+    inline infix fun <C : Node> C.marginLeft(margin: Double): C = apply { updateMargin(left = margin) }
 }
 
 /** Create a [BorderPane] with initialization block. */
@@ -77,13 +79,12 @@ inline fun borderPane(
 }
 
 /** Add a [BorderPane] to this manager. */
-fun NodeManager.borderPane(): BorderPane =
-    addNode(KtfxBorderPane())
+fun NodeManager.borderPane(): BorderPane = addChild(KtfxBorderPane())
 
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
     init: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxBorderPane(), init)
+    return addChild(KtfxBorderPane(), init)
 }

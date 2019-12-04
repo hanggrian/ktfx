@@ -25,7 +25,7 @@ fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0
-): Slider = addNode(Slider(min, max, value))
+): Slider = addChild(Slider(min, max, value))
 
 /** Add a [Slider] with initialization block to this manager. */
 inline fun NodeManager.slider(
@@ -35,5 +35,5 @@ inline fun NodeManager.slider(
     init: (@LayoutsDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Slider(min, max, value), init)
+    return addChild(Slider(min, max, value), init)
 }

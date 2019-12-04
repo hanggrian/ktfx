@@ -22,7 +22,7 @@ inline fun mediaView(
 /** Add a [MediaView] to this manager. */
 fun NodeManager.mediaView(
     player: MediaPlayer? = null
-): MediaView = addNode(MediaView(player))
+): MediaView = addChild(MediaView(player))
 
 /** Add a [MediaView] with initialization block to this manager. */
 inline fun NodeManager.mediaView(
@@ -30,5 +30,5 @@ inline fun NodeManager.mediaView(
     init: (@LayoutsDslMarker MediaView).() -> Unit
 ): MediaView {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(MediaView(player), init)
+    return addChild(MediaView(player), init)
 }

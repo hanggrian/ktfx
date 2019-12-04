@@ -25,7 +25,7 @@ fun NodeManager.box(
     width: Double = Box.DEFAULT_SIZE,
     height: Double = Box.DEFAULT_SIZE,
     depth: Double = Box.DEFAULT_SIZE
-): Box = addNode(Box(width, height, depth))
+): Box = addChild(Box(width, height, depth))
 
 /** Add a [Box] with initialization block to this manager. */
 inline fun NodeManager.box(
@@ -35,5 +35,5 @@ inline fun NodeManager.box(
     init: (@LayoutsDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Box(width, height, depth), init)
+    return addChild(Box(width, height, depth), init)
 }

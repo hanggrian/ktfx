@@ -27,7 +27,7 @@ fun NodeManager.rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0
-): Rectangle = addNode(Rectangle(x, y, width, height))
+): Rectangle = addChild(Rectangle(x, y, width, height))
 
 /** Add a [Rectangle] with initialization block to this manager. */
 inline fun NodeManager.rectangle(
@@ -38,5 +38,5 @@ inline fun NodeManager.rectangle(
     init: (@LayoutsDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Rectangle(x, y, width, height), init)
+    return addChild(Rectangle(x, y, width, height), init)
 }

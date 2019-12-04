@@ -16,7 +16,9 @@ import kotlin.contracts.contract
  */
 open class KtfxToolBar : ToolBar(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { items += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { items += it }
+
+    final override val childCount: Int get() = items.size
 }
 
 /** Create a [ToolBar] with initialization block. */
@@ -28,13 +30,12 @@ inline fun toolBar(
 }
 
 /** Add a [ToolBar] to this manager. */
-fun NodeManager.toolBar(): ToolBar =
-    addNode(KtfxToolBar())
+fun NodeManager.toolBar(): ToolBar = addChild(KtfxToolBar())
 
 /** Add a [ToolBar] with initialization block to this manager. */
 inline fun NodeManager.toolBar(
     init: (@LayoutsDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxToolBar(), init)
+    return addChild(KtfxToolBar(), init)
 }

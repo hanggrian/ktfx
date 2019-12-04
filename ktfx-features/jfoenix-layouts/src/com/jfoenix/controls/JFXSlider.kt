@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXSlider] with initialization block. */
 inline fun jfxSlider(
@@ -28,7 +28,7 @@ fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0
-): JFXSlider = addNode(JFXSlider(min, max, value))
+): JFXSlider = addChild(JFXSlider(min, max, value))
 
 /** Add a [JFXSlider] with initialization block to this manager. */
 inline fun NodeManager.jfxSlider(
@@ -38,5 +38,5 @@ inline fun NodeManager.jfxSlider(
     init: (@LayoutsDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXSlider(min, max, value), init)
+    return addChild(JFXSlider(min, max, value), init)
 }

@@ -23,7 +23,7 @@ inline fun <T> comboBox(
 /** Add a [ComboBox] to this manager. */
 fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList()
-): ComboBox<T> = addNode(ComboBox(items))
+): ComboBox<T> = addChild(ComboBox(items))
 
 /** Add a [ComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.comboBox(
@@ -31,5 +31,5 @@ inline fun <T> NodeManager.comboBox(
     init: (@LayoutsDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(ComboBox(items), init)
+    return addChild(ComboBox(items), init)
 }

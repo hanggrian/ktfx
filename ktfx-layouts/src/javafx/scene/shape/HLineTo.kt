@@ -21,7 +21,7 @@ inline fun hlineTo(
 /** Add a [HLineTo] to this manager. */
 fun PathElementManager.hlineTo(
     x: Double = 0.0
-): HLineTo = addElement(HLineTo(x))
+): HLineTo = addChild(HLineTo(x))
 
 /** Add a [HLineTo] with initialization block to this manager. */
 inline fun PathElementManager.hlineTo(
@@ -29,5 +29,5 @@ inline fun PathElementManager.hlineTo(
     init: (@LayoutsDslMarker HLineTo).() -> Unit
 ): HLineTo {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addElement(HLineTo(x), init)
+    return addChild(HLineTo(x), init)
 }

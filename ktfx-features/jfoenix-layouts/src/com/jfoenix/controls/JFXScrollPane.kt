@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /**
  * [JFXScrollPane] with dynamic-layout dsl support.
@@ -19,7 +19,9 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { content = it }
+    final override fun <C : Node> addChild(child: C): C = child.also { content = it }
+
+    final override val childCount: Int get() = if (content != null) 1 else 0
 
     fun topBar(init: (@LayoutsDslMarker NodeManager).() -> Unit) {
         topBar.children.addAll(NodeManagerImpl().apply(init))
@@ -42,7 +44,8 @@ open class KtfxJFXScrollPane : JFXScrollPane(), NodeManager {
     }
 
     private class NodeManagerImpl : NodeManager, MutableList<Node> by mutableListOf() {
-        override fun <T : Node> addNode(node: T): T = node.also { this += it }
+        override fun <C : Node> addChild(child: C): C = child.also { this += it }
+        override val childCount: Int get() = size
     }
 }
 
@@ -56,12 +59,12 @@ inline fun jfxScrollPane(
 
 /** Add a [JFXScrollPane] to this manager. */
 fun NodeManager.jfxScrollPane(): JFXScrollPane =
-    addNode(KtfxJFXScrollPane())
+    addChild(KtfxJFXScrollPane())
 
 /** Add a [JFXScrollPane] with initialization block to this manager. */
 inline fun NodeManager.jfxScrollPane(
     init: (@LayoutsDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxJFXScrollPane(), init)
+    return addChild(KtfxJFXScrollPane(), init)
 }

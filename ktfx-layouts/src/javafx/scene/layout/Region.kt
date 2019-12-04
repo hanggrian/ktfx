@@ -18,13 +18,12 @@ inline fun region(
 }
 
 /** Add a [Region] to this manager. */
-fun NodeManager.region(): Region =
-    addNode(Region())
+fun NodeManager.region(): Region = addChild(Region())
 
 /** Add a [Region] with initialization block to this manager. */
 inline fun NodeManager.region(
     init: (@LayoutsDslMarker Region).() -> Unit
 ): Region {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Region(), init)
+    return addChild(Region(), init)
 }

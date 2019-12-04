@@ -21,7 +21,7 @@ inline fun polygon(
 /** Add a [Polygon] to this manager. */
 fun NodeManager.polygon(
     vararg points: Double
-): Polygon = addNode(Polygon(*points))
+): Polygon = addChild(Polygon(*points))
 
 /** Add a [Polygon] with initialization block to this manager. */
 inline fun NodeManager.polygon(
@@ -29,5 +29,5 @@ inline fun NodeManager.polygon(
     init: (@LayoutsDslMarker Polygon).() -> Unit
 ): Polygon {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Polygon(*points), init)
+    return addChild(Polygon(*points), init)
 }

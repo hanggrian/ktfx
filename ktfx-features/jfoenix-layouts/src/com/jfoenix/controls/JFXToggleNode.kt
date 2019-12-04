@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXToggleNode] with initialization block. */
 inline fun jfxToggleNode(
@@ -25,7 +25,7 @@ inline fun jfxToggleNode(
 /** Add a [JFXToggleNode] to this manager. */
 fun NodeManager.jfxToggleNode(
     graphic: Node? = null
-): JFXToggleNode = addNode(JFXToggleNode(graphic))
+): JFXToggleNode = addChild(JFXToggleNode(graphic))
 
 /** Add a [JFXToggleNode] with initialization block to this manager. */
 inline fun NodeManager.jfxToggleNode(
@@ -33,5 +33,5 @@ inline fun NodeManager.jfxToggleNode(
     init: (@LayoutsDslMarker JFXToggleNode).() -> Unit
 ): JFXToggleNode {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXToggleNode(graphic), init)
+    return addChild(JFXToggleNode(graphic), init)
 }

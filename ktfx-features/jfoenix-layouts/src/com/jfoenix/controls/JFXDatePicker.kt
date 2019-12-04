@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXDatePicker] with initialization block. */
 inline fun jfxDatePicker(
@@ -25,7 +25,7 @@ inline fun jfxDatePicker(
 /** Add a [JFXDatePicker] to this manager. */
 fun NodeManager.jfxDatePicker(
     date: LocalDate? = null
-): JFXDatePicker = addNode(JFXDatePicker(date))
+): JFXDatePicker = addChild(JFXDatePicker(date))
 
 /** Add a [JFXDatePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxDatePicker(
@@ -33,5 +33,5 @@ inline fun NodeManager.jfxDatePicker(
     init: (@LayoutsDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXDatePicker(date), init)
+    return addChild(JFXDatePicker(date), init)
 }

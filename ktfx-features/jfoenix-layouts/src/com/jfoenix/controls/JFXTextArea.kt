@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXTextArea] with initialization block. */
 inline fun jfxTextArea(
@@ -24,7 +24,7 @@ inline fun jfxTextArea(
 /** Add a [JFXTextArea] to this manager. */
 fun NodeManager.jfxTextArea(
     text: String? = null
-): JFXTextArea = addNode(JFXTextArea(text))
+): JFXTextArea = addChild(JFXTextArea(text))
 
 /** Add a [JFXTextArea] with initialization block to this manager. */
 inline fun NodeManager.jfxTextArea(
@@ -32,5 +32,5 @@ inline fun NodeManager.jfxTextArea(
     init: (@LayoutsDslMarker JFXTextArea).() -> Unit
 ): JFXTextArea {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXTextArea(text), init)
+    return addChild(JFXTextArea(text), init)
 }

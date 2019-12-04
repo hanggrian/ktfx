@@ -11,7 +11,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /**
  * [JFXRippler] with dynamic-layout dsl support.
@@ -19,7 +19,9 @@ import ktfx.layouts.addNode
  */
 open class KtfxJFXRippler : JFXRippler(), NodeManager {
 
-    final override fun <T : Node> addNode(node: T): T = node.also { control = it }
+    final override fun <C : Node> addChild(child: C): C = child.also { control = it }
+
+    final override val childCount: Int get() = if (control != null) 1 else 0
 }
 
 /** Create a [JFXRippler] with initialization block. */
@@ -32,12 +34,12 @@ inline fun jfxRippler(
 
 /** Add a [JFXRippler] to this manager. */
 fun NodeManager.jfxRippler(): JFXRippler =
-    addNode(KtfxJFXRippler())
+    addChild(KtfxJFXRippler())
 
 /** Add a [JFXRippler] with initialization block to this manager. */
 inline fun NodeManager.jfxRippler(
     init: (@LayoutsDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(KtfxJFXRippler(), init)
+    return addChild(KtfxJFXRippler(), init)
 }

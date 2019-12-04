@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXProgressBar] with initialization block. */
 inline fun jfxProgressBar(
@@ -24,7 +24,7 @@ inline fun jfxProgressBar(
 /** Add a [JFXProgressBar] to this manager. */
 fun NodeManager.jfxProgressBar(
     progress: Double = 0.0
-): JFXProgressBar = addNode(JFXProgressBar(progress))
+): JFXProgressBar = addChild(JFXProgressBar(progress))
 
 /** Add a [JFXProgressBar] with initialization block to this manager. */
 inline fun NodeManager.jfxProgressBar(
@@ -32,5 +32,5 @@ inline fun NodeManager.jfxProgressBar(
     init: (@LayoutsDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXProgressBar(progress), init)
+    return addChild(JFXProgressBar(progress), init)
 }

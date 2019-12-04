@@ -18,13 +18,12 @@ inline fun svgPath(
 }
 
 /** Add a [SVGPath] to this manager. */
-fun NodeManager.svgPath(): SVGPath =
-    addNode(SVGPath())
+fun NodeManager.svgPath(): SVGPath = addChild(SVGPath())
 
 /** Add a [SVGPath] with initialization block to this manager. */
 inline fun NodeManager.svgPath(
     init: (@LayoutsDslMarker SVGPath).() -> Unit
 ): SVGPath {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(SVGPath(), init)
+    return addChild(SVGPath(), init)
 }

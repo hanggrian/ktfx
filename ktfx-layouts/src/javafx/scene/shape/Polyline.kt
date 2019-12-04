@@ -21,7 +21,7 @@ inline fun polyline(
 /** Add a [Polyline] to this manager. */
 fun NodeManager.polyline(
     vararg points: Double
-): Polyline = addNode(Polyline(*points))
+): Polyline = addChild(Polyline(*points))
 
 /** Add a [Polyline] with initialization block to this manager. */
 inline fun NodeManager.polyline(
@@ -29,5 +29,5 @@ inline fun NodeManager.polyline(
     init: (@LayoutsDslMarker Polyline).() -> Unit
 ): Polyline {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Polyline(*points), init)
+    return addChild(Polyline(*points), init)
 }

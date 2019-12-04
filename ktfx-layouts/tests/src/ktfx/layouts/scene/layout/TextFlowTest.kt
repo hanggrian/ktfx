@@ -1,6 +1,6 @@
 package ktfx.layouts.scene.layout
 
-import javafx.scene.paint.Color.RED
+import javafx.scene.paint.Color
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.textFlow
@@ -12,8 +12,8 @@ class TextFlowTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
     override fun NodeManager.layout() {
         textFlow {
             "World" {
-                fill = RED
-                assertEquals(fill, RED)
+                fill = Color.RED
+                assertEquals(fill, Color.RED)
             }
             assertEquals(children.size, 1)
         }

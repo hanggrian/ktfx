@@ -27,7 +27,7 @@ fun NodeManager.ellipse(
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
     radiusY: Double = 0.0
-): Ellipse = addNode(Ellipse(centerX, centerY, radiusX, radiusY))
+): Ellipse = addChild(Ellipse(centerX, centerY, radiusX, radiusY))
 
 /** Add an [Ellipse] with initialization block to this manager. */
 inline fun NodeManager.ellipse(
@@ -38,5 +38,5 @@ inline fun NodeManager.ellipse(
     init: (@LayoutsDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(Ellipse(centerX, centerY, radiusX, radiusY), init)
+    return addChild(Ellipse(centerX, centerY, radiusX, radiusY), init)
 }

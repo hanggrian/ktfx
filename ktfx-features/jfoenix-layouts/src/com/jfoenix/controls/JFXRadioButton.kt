@@ -10,7 +10,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.LayoutsDslMarker
 import ktfx.layouts.NodeManager
-import ktfx.layouts.addNode
+import ktfx.layouts.addChild
 
 /** Create a [JFXRadioButton] with initialization block. */
 inline fun jfxRadioButton(
@@ -24,7 +24,7 @@ inline fun jfxRadioButton(
 /** Add a [JFXRadioButton] to this manager. */
 fun NodeManager.jfxRadioButton(
     text: String? = null
-): JFXRadioButton = addNode(JFXRadioButton(text))
+): JFXRadioButton = addChild(JFXRadioButton(text))
 
 /** Add a [JFXRadioButton] with initialization block to this manager. */
 inline fun NodeManager.jfxRadioButton(
@@ -32,5 +32,5 @@ inline fun NodeManager.jfxRadioButton(
     init: (@LayoutsDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addNode(JFXRadioButton(text), init)
+    return addChild(JFXRadioButton(text), init)
 }

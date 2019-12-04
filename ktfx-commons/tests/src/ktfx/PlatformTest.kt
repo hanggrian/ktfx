@@ -4,13 +4,13 @@ import javafx.application.ConditionalFeature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.runBlocking
-import ktfx.test.ToolkitTest
+import ktfx.test.ToolkitInitializer
 import ktfx.test.assertContains
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class PlatformTest : ToolkitTest {
+class PlatformTest : ToolkitInitializer {
 
     @Test fun isFxThread() {
         val check = { ktfx.isFxThread() }

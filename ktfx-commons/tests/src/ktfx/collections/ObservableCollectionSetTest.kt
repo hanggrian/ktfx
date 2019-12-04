@@ -1,19 +1,19 @@
 package ktfx.collections
 
+import ktfx.test.ObservableCollectionTest
 import ktfx.test.assertContains
 import ktfx.test.assertEmpty
-import kotlin.test.Test
 import kotlin.test.assertFails
 
-class ObservableCollectionSetTest :ObservableCollectionTest{
+class ObservableCollectionSetTest : ObservableCollectionTest() {
 
-    @Test override fun empty() {
+    override fun emptyObservableCollection() {
         val empty = emptyObservableSet<Int>()
         assertEmpty(empty)
         assertFails { empty += 1 }
     }
 
-    @Test override fun of() {
+    override fun observableCollectionOf() {
         val empty = observableSetOf<Int>()
         assertEmpty(empty)
         assertFails { empty += 1 }
@@ -23,7 +23,7 @@ class ObservableCollectionSetTest :ObservableCollectionTest{
         assertFails { filled += 1 }
     }
 
-    @Test override fun mutableOf() {
+    override fun mutableObservableCollectionOf() {
         val empty = mutableObservableSetOf<Int>()
         empty += 1
         empty += 2
@@ -34,7 +34,7 @@ class ObservableCollectionSetTest :ObservableCollectionTest{
         assertContains(filled, 1, 2, 3).inOrder()
     }
 
-    @Test override fun to() {
+    override fun toObservableCollection() {
         val array = arrayOf(1, 2, 3).toObservableSet()
         assertContains(array, 1, 2, 3).inOrder()
         assertFails { array += 4 }
@@ -48,7 +48,7 @@ class ObservableCollectionSetTest :ObservableCollectionTest{
         assertFails { sequence += 4 }
     }
 
-    @Test override fun toMutable() {
+    override fun toMutableObservableCollection() {
         val array = arrayOf(1, 2).toMutableObservableSet()
         array += 3
         assertContains(array, 1, 2, 3).inOrder()

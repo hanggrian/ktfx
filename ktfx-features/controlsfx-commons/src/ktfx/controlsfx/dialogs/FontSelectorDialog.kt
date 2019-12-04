@@ -16,22 +16,31 @@ import org.controlsfx.dialog.FontSelectorDialog
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param defaultFont initially selected font.
+ * @param builderAction custom dialog builder action.
+ * @return selected font.
  */
-fun fontSelectorDialog(
+fun fontSelector(
     title: String? = null,
     graphic: Node? = null,
-    defaultFont: Font? = null
+    defaultFont: Font? = null,
+    builderAction: (FontSelectorDialog.() -> Unit)? = null
 ): Optional<Font> = FontSelectorDialog(defaultFont).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
+    builderAction?.invoke(dialog)
 }.showAndWait()
 
 /**
  * Build a font selector dialog with Kotlin DSL.
  *
  * @param defaultFont initially selected font.
+ * @param builderAction custom dialog builder action.
+ * @return selected font.
  */
-inline fun fontSelectorDialog(defaultFont: Font? = null): Optional<Font> = fontSelectorDialog(null, null, defaultFont)
+inline fun fontSelector(
+    defaultFont: Font? = null,
+    noinline builderAction: (FontSelectorDialog.() -> Unit)? = null
+): Optional<Font> = fontSelector(null, null, defaultFont, builderAction)

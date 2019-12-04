@@ -16,26 +16,34 @@ import org.controlsfx.dialog.CommandLinksDialog
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param links actual buttons.
+ * @param builderAction custom dialog builder action.
+ * @return selected dialog button.
  */
 fun commandLinksDialog(
     title: String? = null,
     graphic: Node? = null,
-    vararg links: CommandLinksDialog.CommandLinksButtonType
+    vararg links: CommandLinksDialog.CommandLinksButtonType,
+    builderAction: (CommandLinksDialog.() -> Unit)? = null
 ): Optional<ButtonType> = CommandLinksDialog(*links).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
+    builderAction?.invoke(dialog)
 }.showAndWait()
 
 /**
  * Build a command links dialog with Kotlin DSL.
  *
  * @param links actual buttons.
+ * @param builderAction custom dialog builder action.
+ * @return selected dialog button.
  */
-inline fun commandLinksDialog(vararg links: CommandLinksDialog.CommandLinksButtonType): Optional<ButtonType> =
-    commandLinksDialog(null, null, *links)
+inline fun commandLinksDialog(
+    vararg links: CommandLinksDialog.CommandLinksButtonType,
+    noinline builderAction: (CommandLinksDialog.() -> Unit)? = null
+): Optional<ButtonType> = commandLinksDialog(null, null, *links, builderAction = builderAction)
 
 /**
  * Build a command links dialog with Kotlin DSL.
@@ -43,23 +51,31 @@ inline fun commandLinksDialog(vararg links: CommandLinksDialog.CommandLinksButto
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param links actual buttons.
+ * @param builderAction custom dialog builder action.
+ * @return selected dialog button.
  */
 fun commandLinksDialog(
     title: String? = null,
     graphic: Node? = null,
-    links: List<CommandLinksDialog.CommandLinksButtonType>
+    links: List<CommandLinksDialog.CommandLinksButtonType>,
+    builderAction: (CommandLinksDialog.() -> Unit)? = null
 ): Optional<ButtonType> = CommandLinksDialog(links).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
+    builderAction?.invoke(dialog)
 }.showAndWait()
 
 /**
  * Build a command links dialog with Kotlin DSL.
  *
  * @param links actual buttons.
+ * @param builderAction custom dialog builder action.
+ * @return selected dialog button.
  */
-inline fun commandLinksDialog(links: List<CommandLinksDialog.CommandLinksButtonType>): Optional<ButtonType> =
-    commandLinksDialog(null, null, links)
+inline fun commandLinksDialog(
+    links: List<CommandLinksDialog.CommandLinksButtonType>,
+    noinline builderAction: (CommandLinksDialog.() -> Unit)? = null
+): Optional<ButtonType> = commandLinksDialog(null, null, links, builderAction = builderAction)

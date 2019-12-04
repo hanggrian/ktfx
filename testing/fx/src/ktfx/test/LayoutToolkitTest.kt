@@ -2,10 +2,30 @@ package ktfx.test
 
 import kotlin.test.Test
 
-/** In addition to `ToolkitTest`, this test is designed for `ktfx-layouts` and its submodules. */
-abstract class LayoutToolkitTest<Manager>(private val manager: Manager) : ToolkitTest {
+abstract class LayoutToolkitTest<Manager>(private val manager: Manager) : ToolkitInitializer {
 
     @Test fun test() = manager.layout()
 
     abstract fun Manager.layout()
+}
+
+abstract class LayoutTest<Manager>(private val manager: Manager) {
+
+    @Test fun createWithBuilder() {
+        manager.createWithBuilder()
+    }
+
+    @Test fun add() {
+        manager.add()
+    }
+
+    @Test fun addWithBuilder() {
+        manager.addWithBuilder()
+    }
+
+    abstract fun Manager.createWithBuilder()
+
+    abstract fun Manager.add()
+
+    abstract fun Manager.addWithBuilder()
 }

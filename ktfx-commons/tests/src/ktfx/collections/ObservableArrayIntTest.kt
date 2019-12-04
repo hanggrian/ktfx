@@ -1,13 +1,13 @@
 package ktfx.collections
 
-import kotlin.test.Test
+import ktfx.test.ObservableArrayTest
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class ObservableArrayIntTest : ObservableArrayTest {
+class ObservableArrayIntTest : ObservableArrayTest() {
 
-    @Test override fun of() {
+    override fun observableArrayOf() {
         val empty = observableIntArrayOf()
         assertTrue(empty.isEmpty())
 
@@ -15,7 +15,7 @@ class ObservableArrayIntTest : ObservableArrayTest {
         assertFalse(filled.isEmpty())
     }
 
-    @Test override fun to() {
+    override fun toObservableArray() {
         val array = intArrayOf(1, 2, 3).toObservableArray()
         assertEquals(3, array.size())
 

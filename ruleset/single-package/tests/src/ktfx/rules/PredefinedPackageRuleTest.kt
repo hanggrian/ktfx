@@ -7,8 +7,7 @@ class PredefinedPackageRuleTest : RuleTest {
 
     override val rule = PredefinedPackageRule()
 
-    @Test
-    fun test() = assert(of(1, 1, "Illegal package name.")) {
+    @Test fun test() = assert(of(1, 1, "Illegal package name.")) {
         """
             package ktfx.coroutiness
 

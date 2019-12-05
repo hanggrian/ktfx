@@ -11,26 +11,26 @@ import kotlin.contracts.contract
 
 /** Create a [Pagination] with initialization block. */
 inline fun pagination(
-    count: Int = Pagination.INDETERMINATE,
-    index: Int = 0,
+    pageCount: Int = Pagination.INDETERMINATE,
+    currentPageIndex: Int = 0,
     init: (@LayoutsDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Pagination(count, index).apply(init)
+    return Pagination(pageCount, currentPageIndex).apply(init)
 }
 
 /** Add a [Pagination] to this manager. */
 fun NodeManager.pagination(
-    count: Int = Pagination.INDETERMINATE,
-    index: Int = 0
-): Pagination = addChild(Pagination(count, index))
+    pageCount: Int = Pagination.INDETERMINATE,
+    currentPageIndex: Int = 0
+): Pagination = addChild(Pagination(pageCount, currentPageIndex))
 
 /** Add a [Pagination] with initialization block to this manager. */
 inline fun NodeManager.pagination(
-    count: Int = Pagination.INDETERMINATE,
-    index: Int = 0,
+    pageCount: Int = Pagination.INDETERMINATE,
+    currentPageIndex: Int = 0,
     init: (@LayoutsDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Pagination(count, index), init)
+    return addChild(Pagination(pageCount, currentPageIndex), init)
 }

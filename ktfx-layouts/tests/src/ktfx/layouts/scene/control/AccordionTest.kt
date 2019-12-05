@@ -1,19 +1,25 @@
 package ktfx.layouts.scene.control
 
+import javafx.scene.control.Accordion
 import javafx.scene.control.Label
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.accordion
 import ktfx.layouts.label
 import ktfx.layouts.titledPane
-import ktfx.test.LayoutToolkitTest
 import ktfx.test.assertEmpty
+import ktfx.test.assertInstance
+import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
-class AccordionTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
+class AccordionTest : LayoutTest<NodeManager, Accordion>(KtfxPane()) {
 
-    override fun NodeManager.layout() {
+    override fun create() = accordion { }
+    override fun NodeManager.add() = accordion()
+    override fun NodeManager.addWithBuilder() = accordion { }
+
+    @Test fun stringInvocation() {
         accordion {
             assertEmpty(panes)
             titledPane("Hello")
@@ -21,7 +27,7 @@ class AccordionTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
                 label("haha")
             }
             assertEquals(2, panes.size)
-            assertTrue(panes[1].content is Label)
+            assertInstance<Label>(panes[1].content)
         }
     }
 }

@@ -13,7 +13,7 @@ class CanvasTest : LayoutTest<NodeManager, Canvas>(KtfxPane()) {
     override fun NodeManager.add() = canvas()
     override fun NodeManager.addWithBuilder() = canvas { }
 
-    override fun Canvas.testDefaultValue() {
+    override fun Canvas.testDefaultValues() {
         assertEquals(0.0, width)
         assertEquals(0.0, height)
     }

@@ -18,11 +18,11 @@ inline fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    gap: Double = 10.0,
+    categoryGap: Double = 10.0,
     init: (@LayoutsDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return BarChart(x, y, data, gap).apply(init)
+    return BarChart(x, y, data, categoryGap).apply(init)
 }
 
 /** Add a [BarChart] to this manager. */
@@ -30,17 +30,17 @@ fun <X, Y> NodeManager.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    gap: Double = 10.0
-): BarChart<X, Y> = addChild(BarChart(x, y, data, gap))
+    categoryGap: Double = 10.0
+): BarChart<X, Y> = addChild(BarChart(x, y, data, categoryGap))
 
 /** Add a [BarChart] with initialization block to this manager. */
 inline fun <X, Y> NodeManager.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    gap: Double = 10.0,
+    categoryGap: Double = 10.0,
     init: (@LayoutsDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(BarChart(x, y, data, gap), init)
+    return addChild(BarChart(x, y, data, categoryGap), init)
 }

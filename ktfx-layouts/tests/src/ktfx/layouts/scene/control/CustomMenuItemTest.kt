@@ -8,8 +8,9 @@ import ktfx.layouts.customMenuItem
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
-class CustomMenuItemTest : LayoutTest<MenuItemManager, CustomMenuItem>(KtfxMenu("", null)) {
+class CustomMenuItemTest : LayoutTest<MenuItemManager, CustomMenuItem>() {
 
+    override fun createManager() = KtfxMenu("", null)
     override fun create() = customMenuItem { }
     override fun MenuItemManager.add() = customMenuItem()
     override fun MenuItemManager.addWithBuilder() = customMenuItem { }

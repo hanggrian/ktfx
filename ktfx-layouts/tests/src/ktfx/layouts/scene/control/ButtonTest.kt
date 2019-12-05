@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.button
 import kotlin.test.assertNull
 
-class ButtonTest : LayoutTest<NodeManager, Button>(KtfxPane()) {
+class ButtonTest : LayoutTest<NodeManager, Button>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = button { }
     override fun NodeManager.add() = button()
     override fun NodeManager.addWithBuilder() = button { }

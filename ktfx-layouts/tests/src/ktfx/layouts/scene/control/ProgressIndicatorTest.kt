@@ -8,8 +8,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.progressIndicator
 import kotlin.test.assertEquals
 
-class ProgressIndicatorTest : LayoutTest<NodeManager, ProgressIndicator>(KtfxPane()) {
+class ProgressIndicatorTest : LayoutTest<NodeManager, ProgressIndicator>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = progressIndicator { }
     override fun NodeManager.add() = progressIndicator()
     override fun NodeManager.addWithBuilder() = progressIndicator { }

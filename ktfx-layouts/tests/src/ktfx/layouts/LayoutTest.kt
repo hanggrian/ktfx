@@ -1,11 +1,19 @@
 package ktfx.layouts
 
 import ktfx.test.ToolkitInitializer
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 /** There are 3 ways to create/add a child. This test ensures that each way produces the same child result. */
-abstract class LayoutTest<M : BaseManager<in C>, C>(val manager: M) : ToolkitInitializer {
+abstract class LayoutTest<M : BaseManager<in C>, C> : ToolkitInitializer {
+    private lateinit var manager: M
+
+    @BeforeTest fun initManager() {
+        manager = createManager()
+    }
+
+    abstract fun createManager(): M
 
     abstract fun create(): C
 

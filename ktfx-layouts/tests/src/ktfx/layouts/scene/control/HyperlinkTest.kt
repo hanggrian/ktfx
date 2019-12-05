@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.hyperlink
 import kotlin.test.assertNull
 
-class HyperlinkTest : LayoutTest<NodeManager, Hyperlink>(KtfxPane()) {
+class HyperlinkTest : LayoutTest<NodeManager, Hyperlink>() {
 
+    override fun createManager(): NodeManager = KtfxPane()
     override fun create() = hyperlink { }
     override fun NodeManager.add() = hyperlink()
     override fun NodeManager.addWithBuilder() = hyperlink { }

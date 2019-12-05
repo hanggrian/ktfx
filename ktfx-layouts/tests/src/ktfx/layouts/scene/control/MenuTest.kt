@@ -8,8 +8,9 @@ import ktfx.layouts.menu
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class MenuTest : LayoutTest<MenuItemManager, Menu>(KtfxMenu("", null)) {
+class MenuTest : LayoutTest<MenuItemManager, Menu>() {
 
+    override fun createManager() = KtfxMenu("", null)
     override fun create() = menu { }
     override fun MenuItemManager.add() = menu()
     override fun MenuItemManager.addWithBuilder() = menu { }

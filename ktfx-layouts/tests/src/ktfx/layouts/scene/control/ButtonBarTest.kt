@@ -11,8 +11,9 @@ import org.apache.commons.lang3.SystemUtils
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ButtonBarTest : LayoutTest<NodeManager, ButtonBar>(KtfxPane()) {
+class ButtonBarTest : LayoutTest<NodeManager, ButtonBar>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = buttonBar { }
     override fun NodeManager.add() = buttonBar()
     override fun NodeManager.addWithBuilder() = buttonBar { }

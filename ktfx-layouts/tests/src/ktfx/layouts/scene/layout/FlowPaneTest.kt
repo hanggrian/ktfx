@@ -1,15 +1,29 @@
 package ktfx.layouts.scene.layout
 
+import javafx.geometry.Orientation
+import javafx.scene.layout.FlowPane
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.flowPane
 import ktfx.layouts.region
-import ktfx.test.LayoutToolkitTest
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class FlowPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
+class FlowPaneTest : LayoutTest<NodeManager, FlowPane>() {
 
-    override fun NodeManager.layout() {
+    override fun createManager() = KtfxPane()
+    override fun create() = flowPane { }
+    override fun NodeManager.add() = flowPane()
+    override fun NodeManager.addWithBuilder() = flowPane { }
+
+    override fun FlowPane.testDefaultValues() {
+        assertEquals(Orientation.HORIZONTAL, orientation)
+        assertEquals(0.0, hgap)
+        assertEquals(0.0, vgap)
+    }
+
+    @Test fun margins() {
         flowPane {
             val region1 = region() marginAll 0.0
             assertEquals(0.0, region1.margin?.top)

@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.progressBar
 import kotlin.test.assertEquals
 
-class ProgressBarTest : LayoutTest<NodeManager, ProgressBar>(KtfxPane()) {
+class ProgressBarTest : LayoutTest<NodeManager, ProgressBar>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = progressBar { }
     override fun NodeManager.add() = progressBar()
     override fun NodeManager.addWithBuilder() = progressBar { }

@@ -11,7 +11,7 @@ import ktfx.test.assertEmpty
 import kotlin.test.BeforeTest
 import kotlin.test.assertEquals
 
-class StackedBarChartTest : LayoutTest<NodeManager, StackedBarChart<String, Number>>(KtfxPane()) {
+class StackedBarChartTest : LayoutTest<NodeManager, StackedBarChart<String, Number>>() {
     private lateinit var axis1: CategoryAxis
     private lateinit var axis2: NumberAxis
 
@@ -20,6 +20,7 @@ class StackedBarChartTest : LayoutTest<NodeManager, StackedBarChart<String, Numb
         axis2 = NumberAxis(1.0, 2.0, 3.0)
     }
 
+    override fun createManager() = KtfxPane()
     override fun create() = stackedBarChart(axis1, axis2) { }
     override fun NodeManager.add() = stackedBarChart(axis1, axis2)
     override fun NodeManager.addWithBuilder() = stackedBarChart(axis1, axis2) { }

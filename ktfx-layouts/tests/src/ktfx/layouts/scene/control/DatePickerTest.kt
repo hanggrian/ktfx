@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.datePicker
 import kotlin.test.assertNull
 
-class DatePickerTest : LayoutTest<NodeManager, DatePicker>(KtfxPane()) {
+class DatePickerTest : LayoutTest<NodeManager, DatePicker>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = datePicker { }
     override fun NodeManager.add() = datePicker()
     override fun NodeManager.addWithBuilder() = datePicker { }

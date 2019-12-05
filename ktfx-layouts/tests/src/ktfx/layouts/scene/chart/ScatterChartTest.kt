@@ -10,7 +10,7 @@ import ktfx.test.assertEmpty
 import kotlin.test.BeforeTest
 import kotlin.test.assertEquals
 
-class ScatterChartTest : LayoutTest<NodeManager, ScatterChart<Number, Number>>(KtfxPane()) {
+class ScatterChartTest : LayoutTest<NodeManager, ScatterChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 
@@ -19,6 +19,7 @@ class ScatterChartTest : LayoutTest<NodeManager, ScatterChart<Number, Number>>(K
         axis2 = NumberAxis(1.0, 2.0, 3.0)
     }
 
+    override fun createManager() = KtfxPane()
     override fun create() = scatterChart(axis1, axis2) { }
     override fun NodeManager.add() = scatterChart(axis1, axis2)
     override fun NodeManager.addWithBuilder() = scatterChart(axis1, axis2) { }

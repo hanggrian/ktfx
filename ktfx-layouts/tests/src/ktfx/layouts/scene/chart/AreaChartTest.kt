@@ -10,7 +10,7 @@ import ktfx.test.assertEmpty
 import kotlin.test.BeforeTest
 import kotlin.test.assertEquals
 
-class AreaChartTest : LayoutTest<NodeManager, AreaChart<Number, Number>>(KtfxPane()) {
+class AreaChartTest : LayoutTest<NodeManager, AreaChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 
@@ -19,6 +19,7 @@ class AreaChartTest : LayoutTest<NodeManager, AreaChart<Number, Number>>(KtfxPan
         axis2 = NumberAxis(1.0, 2.0, 3.0)
     }
 
+    override fun createManager() = KtfxPane()
     override fun create() = areaChart(axis1, axis2) { }
     override fun NodeManager.add() = areaChart(axis1, axis2)
     override fun NodeManager.addWithBuilder() = areaChart(axis1, axis2) { }

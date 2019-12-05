@@ -1,15 +1,22 @@
 package ktfx.layouts.scene.layout
 
+import javafx.scene.layout.AnchorPane
 import ktfx.layouts.KtfxPane
+import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.anchorPane
 import ktfx.layouts.region
-import ktfx.test.LayoutToolkitTest
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class AnchorPaneTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
+class AnchorPaneTest : LayoutTest<NodeManager, AnchorPane>() {
 
-    override fun NodeManager.layout() {
+    override fun createManager() = KtfxPane()
+    override fun create() = anchorPane { }
+    override fun NodeManager.add() = anchorPane()
+    override fun NodeManager.addWithBuilder() = anchorPane { }
+
+    @Test fun anchors() {
         anchorPane {
             val region1 = region() anchorAll 0.0
             assertEquals(0.0, region1.anchorTop)

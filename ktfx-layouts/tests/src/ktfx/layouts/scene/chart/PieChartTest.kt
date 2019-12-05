@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.pieChart
 import ktfx.test.assertEmpty
 
-class PieChartTest : LayoutTest<NodeManager, PieChart>(KtfxPane()) {
+class PieChartTest : LayoutTest<NodeManager, PieChart>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = pieChart { }
     override fun NodeManager.add() = pieChart()
     override fun NodeManager.addWithBuilder() = pieChart { }

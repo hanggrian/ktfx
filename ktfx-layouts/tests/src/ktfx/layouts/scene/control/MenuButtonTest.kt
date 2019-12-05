@@ -11,8 +11,9 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class MenuButtonTest : LayoutTest<NodeManager, MenuButton>(KtfxPane()) {
+class MenuButtonTest : LayoutTest<NodeManager, MenuButton>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = menuButton { }
     override fun NodeManager.add() = menuButton()
     override fun NodeManager.addWithBuilder() = menuButton { }

@@ -8,8 +8,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.colorPicker
 import kotlin.test.assertEquals
 
-class ColorPickerTest : LayoutTest<NodeManager, ColorPicker>(KtfxPane()) {
+class ColorPickerTest : LayoutTest<NodeManager, ColorPicker>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = colorPicker { }
     override fun NodeManager.add() = colorPicker()
     override fun NodeManager.addWithBuilder() = colorPicker { }

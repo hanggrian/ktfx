@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.label
 import kotlin.test.assertNull
 
-class LabelTest : LayoutTest<NodeManager, Label>(KtfxPane()) {
+class LabelTest : LayoutTest<NodeManager, Label>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = label { }
     override fun NodeManager.add() = label()
     override fun NodeManager.addWithBuilder() = label { }

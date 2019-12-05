@@ -7,8 +7,9 @@ import ktfx.layouts.MenuItemManager
 import ktfx.layouts.checkMenuItem
 import kotlin.test.assertNull
 
-class CheckMenuItemTest : LayoutTest<MenuItemManager, CheckMenuItem>(KtfxMenu("", null)) {
+class CheckMenuItemTest : LayoutTest<MenuItemManager, CheckMenuItem>() {
 
+    override fun createManager() = KtfxMenu("", null)
     override fun create() = checkMenuItem { }
     override fun MenuItemManager.add() = checkMenuItem()
     override fun MenuItemManager.addWithBuilder() = checkMenuItem { }

@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.listView
 import ktfx.test.assertEmpty
 
-class ListViewTest : LayoutTest<NodeManager, ListView<String>>(KtfxPane()) {
+class ListViewTest : LayoutTest<NodeManager, ListView<String>>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = listView<String> { }
     override fun NodeManager.add() = listView<String>()
     override fun NodeManager.addWithBuilder() = listView<String> { }

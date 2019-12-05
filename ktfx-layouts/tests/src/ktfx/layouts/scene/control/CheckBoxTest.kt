@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.checkBox
 import kotlin.test.assertNull
 
-class CheckBoxTest : LayoutTest<NodeManager, CheckBox>(KtfxPane()) {
+class CheckBoxTest : LayoutTest<NodeManager, CheckBox>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = checkBox { }
     override fun NodeManager.add() = checkBox()
     override fun NodeManager.addWithBuilder() = checkBox { }

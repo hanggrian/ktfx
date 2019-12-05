@@ -10,8 +10,9 @@ import ktfx.test.assertEmpty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MenuBarTest : LayoutTest<NodeManager, MenuBar>(KtfxPane()) {
+class MenuBarTest : LayoutTest<NodeManager, MenuBar>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = menuBar { }
     override fun NodeManager.add() = menuBar()
     override fun NodeManager.addWithBuilder() = menuBar { }

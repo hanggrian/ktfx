@@ -13,8 +13,9 @@ import ktfx.test.assertInstance
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class AccordionTest : LayoutTest<NodeManager, Accordion>(KtfxPane()) {
+class AccordionTest : LayoutTest<NodeManager, Accordion>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = accordion { }
     override fun NodeManager.add() = accordion()
     override fun NodeManager.addWithBuilder() = accordion { }

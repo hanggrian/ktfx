@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.pagination
 import kotlin.test.assertEquals
 
-class PaginationTest : LayoutTest<NodeManager, Pagination>(KtfxPane()) {
+class PaginationTest : LayoutTest<NodeManager, Pagination>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = pagination { }
     override fun NodeManager.add() = pagination()
     override fun NodeManager.addWithBuilder() = pagination { }

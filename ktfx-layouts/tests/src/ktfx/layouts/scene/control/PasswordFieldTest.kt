@@ -6,8 +6,9 @@ import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.passwordField
 
-class PasswordFieldTest : LayoutTest<NodeManager, PasswordField>(KtfxPane()) {
+class PasswordFieldTest : LayoutTest<NodeManager, PasswordField>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = passwordField { }
     override fun NodeManager.add() = passwordField()
     override fun NodeManager.addWithBuilder() = passwordField { }

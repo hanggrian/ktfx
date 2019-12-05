@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.canvas
 import kotlin.test.assertEquals
 
-class CanvasTest : LayoutTest<NodeManager, Canvas>(KtfxPane()) {
+class CanvasTest : LayoutTest<NodeManager, Canvas>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = canvas { }
     override fun NodeManager.add() = canvas()
     override fun NodeManager.addWithBuilder() = canvas { }

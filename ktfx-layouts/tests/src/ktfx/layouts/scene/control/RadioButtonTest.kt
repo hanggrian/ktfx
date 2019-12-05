@@ -7,8 +7,9 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.radioButton
 import kotlin.test.assertNull
 
-class RadioButtonTest : LayoutTest<NodeManager, RadioButton>(KtfxPane()) {
+class RadioButtonTest : LayoutTest<NodeManager, RadioButton>() {
 
+    override fun createManager() = KtfxPane()
     override fun create() = radioButton { }
     override fun NodeManager.add() = radioButton()
     override fun NodeManager.addWithBuilder() = radioButton { }

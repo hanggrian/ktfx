@@ -3,18 +3,19 @@ package ktfx.layouts.scene.text
 import javafx.scene.paint.Color
 import javafx.scene.text.TextFlow
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.textFlow
+import ktfx.test.LayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class TextFlowTest : LayoutTest<NodeManager, TextFlow>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = textFlow { }
-    override fun NodeManager.add() = textFlow()
-    override fun NodeManager.addWithBuilder() = textFlow { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = textFlow { }
+    override fun NodeManager.child2() = textFlow()
+    override fun NodeManager.child3() = textFlow { }
 
     @Test fun stringInvocation() {
         textFlow {

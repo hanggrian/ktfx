@@ -26,26 +26,26 @@ open class KtfxInfoOverlay(graphic: Node?, text: String?) : InfoOverlay(graphic,
 
 /** Create a [InfoOverlay] with initialization block. */
 inline fun infoOverlay(
-    graphic: Node? = null,
+    content: Node? = null,
     text: String? = null,
     init: (@LayoutsDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxInfoOverlay(graphic, text).apply(init)
+    return KtfxInfoOverlay(content, text).apply(init)
 }
 
 /** Add a [InfoOverlay] to this manager. */
 fun NodeManager.infoOverlay(
-    graphic: Node? = null,
+    content: Node? = null,
     text: String? = null
-): InfoOverlay = addChild(InfoOverlay(graphic, text))
+): InfoOverlay = addChild(InfoOverlay(content, text))
 
 /** Add a [InfoOverlay] with initialization block to this manager. */
 inline fun NodeManager.infoOverlay(
-    graphic: Node? = null,
+    content: Node? = null,
     text: String? = null,
     init: (@LayoutsDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxInfoOverlay(graphic, text), init)
+    return addChild(KtfxInfoOverlay(content, text), init)
 }

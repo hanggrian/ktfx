@@ -3,17 +3,18 @@ package ktfx.layouts.scene.layout
 import javafx.geometry.Orientation
 import javafx.scene.layout.TilePane
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.tilePane
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
 class TilePaneTest : LayoutTest<NodeManager, TilePane>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = tilePane { }
-    override fun NodeManager.add() = tilePane()
-    override fun NodeManager.addWithBuilder() = tilePane { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = tilePane { }
+    override fun NodeManager.child2() = tilePane()
+    override fun NodeManager.child3() = tilePane { }
 
     override fun TilePane.testDefaultValues() {
         assertEquals(Orientation.HORIZONTAL, orientation)

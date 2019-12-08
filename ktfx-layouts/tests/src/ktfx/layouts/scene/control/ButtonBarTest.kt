@@ -2,10 +2,10 @@ package ktfx.layouts.scene.control
 
 import javafx.scene.control.ButtonBar
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.button
 import ktfx.layouts.buttonBar
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 import org.apache.commons.lang3.SystemUtils
 import kotlin.test.Test
@@ -13,10 +13,11 @@ import kotlin.test.assertEquals
 
 class ButtonBarTest : LayoutTest<NodeManager, ButtonBar>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = buttonBar { }
-    override fun NodeManager.add() = buttonBar()
-    override fun NodeManager.addWithBuilder() = buttonBar { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = buttonBar { }
+    override fun NodeManager.child2() = buttonBar()
+    override fun NodeManager.child3() = buttonBar { }
 
     override fun ButtonBar.testDefaultValues() {
         assertEquals(

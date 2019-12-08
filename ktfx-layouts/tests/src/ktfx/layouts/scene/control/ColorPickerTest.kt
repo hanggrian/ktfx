@@ -3,17 +3,18 @@ package ktfx.layouts.scene.control
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.colorPicker
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
 class ColorPickerTest : LayoutTest<NodeManager, ColorPicker>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = colorPicker { }
-    override fun NodeManager.add() = colorPicker()
-    override fun NodeManager.addWithBuilder() = colorPicker { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = colorPicker { }
+    override fun NodeManager.child2() = colorPicker()
+    override fun NodeManager.child3() = colorPicker { }
 
     override fun ColorPicker.testDefaultValues() {
         assertEquals(Color.WHITE, value)

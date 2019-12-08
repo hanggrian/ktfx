@@ -2,17 +2,18 @@ package ktfx.layouts.scene.control
 
 import javafx.scene.control.Hyperlink
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.hyperlink
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
 class HyperlinkTest : LayoutTest<NodeManager, Hyperlink>() {
 
-    override fun createManager(): NodeManager = KtfxPane()
-    override fun create() = hyperlink { }
-    override fun NodeManager.add() = hyperlink()
-    override fun NodeManager.addWithBuilder() = hyperlink { }
+    override fun manager(): NodeManager = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = hyperlink { }
+    override fun NodeManager.child2() = hyperlink()
+    override fun NodeManager.child3() = hyperlink { }
 
     override fun Hyperlink.testDefaultValues() {
         assertNull(text)

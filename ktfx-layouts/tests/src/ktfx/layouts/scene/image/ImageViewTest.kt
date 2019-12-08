@@ -2,17 +2,18 @@ package ktfx.layouts.scene.image
 
 import javafx.scene.image.ImageView
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.imageView
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
 class ImageViewTest : LayoutTest<NodeManager, ImageView>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = imageView { }
-    override fun NodeManager.add() = imageView()
-    override fun NodeManager.addWithBuilder() = imageView { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = imageView { }
+    override fun NodeManager.child2() = imageView()
+    override fun NodeManager.child3() = imageView { }
 
     override fun ImageView.testDefaultValues() {
         assertNull(image)

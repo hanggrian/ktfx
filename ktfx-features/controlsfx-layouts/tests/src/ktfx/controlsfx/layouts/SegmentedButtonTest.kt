@@ -3,14 +3,25 @@ package ktfx.controlsfx.layouts
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.toggleButton
-import ktfx.test.LayoutToolkitTest
+import ktfx.test.LayoutTest
+import org.controlsfx.control.SegmentedButton
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SegmentedButtonTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
+class SegmentedButtonTest : LayoutTest<NodeManager, SegmentedButton>() {
 
-    override fun NodeManager.layout() {
-        assertEquals(1, segmentedButton {
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = segmentedButton { }
+    override fun NodeManager.child2() = segmentedButton()
+    override fun NodeManager.child3() = segmentedButton { }
+
+    @Test fun stringInvocation() {
+        segmentedButton {
             toggleButton("Hello")
-        }.buttons.size)
+            "World" {
+            }
+            assertEquals(2, buttons.size)
+        }
     }
 }

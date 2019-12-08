@@ -2,17 +2,18 @@ package ktfx.layouts.scene.control
 
 import javafx.scene.control.ScrollPane
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.scrollPane
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
 class ScrollPaneTest : LayoutTest<NodeManager, ScrollPane>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = scrollPane { }
-    override fun NodeManager.add() = scrollPane()
-    override fun NodeManager.addWithBuilder() = scrollPane { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = scrollPane { }
+    override fun NodeManager.child2() = scrollPane()
+    override fun NodeManager.child3() = scrollPane { }
 
     override fun ScrollPane.testDefaultValues() {
         assertNull(content)

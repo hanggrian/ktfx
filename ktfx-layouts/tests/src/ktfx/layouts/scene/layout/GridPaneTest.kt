@@ -2,22 +2,23 @@ package ktfx.layouts.scene.layout
 
 import javafx.scene.layout.GridPane
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.columnConstraints
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
 import ktfx.layouts.rowConstraints
+import ktfx.test.LayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class GridPaneTest : LayoutTest<NodeManager, GridPane>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = gridPane { }
-    override fun NodeManager.add() = gridPane()
-    override fun NodeManager.addWithBuilder() = gridPane { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = gridPane { }
+    override fun NodeManager.child2() = gridPane()
+    override fun NodeManager.child3() = gridPane { }
 
     @Test fun constraints() {
         gridPane {

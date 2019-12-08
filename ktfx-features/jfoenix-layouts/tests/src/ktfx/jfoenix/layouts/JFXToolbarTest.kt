@@ -1,26 +1,35 @@
 package ktfx.jfoenix.layouts
 
+import com.jfoenix.controls.JFXButton
+import com.jfoenix.controls.JFXToolbar
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutToolkitTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertContains
+import kotlin.test.Test
 
-class JFXToolbarTest : LayoutToolkitTest<NodeManager>(KtfxPane()) {
+class JFXToolbarTest : LayoutTest<NodeManager, JFXToolbar>() {
 
-    override fun NodeManager.layout() {
-        val left1 = jfxButton()
-        val right1 = jfxButton()
-        val right2 = jfxButton()
-        val toolbar = jfxToolbar {
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = jfxToolbar { }
+    override fun NodeManager.child2() = jfxToolbar()
+    override fun NodeManager.child3() = jfxToolbar { }
+
+    @Test fun leftAndRightItems() {
+        val left1: JFXButton
+        val right1: JFXButton
+        val right2: JFXButton
+        jfxToolbar {
             leftItems {
-                addChild(left1)
+                left1 = jfxButton()
             }
             rightItems {
-                addChild(right1)
-                addChild(right2)
+                right1 = jfxButton()
+                right2 = jfxButton()
             }
+            assertContains(leftItems, left1).inOrder()
+            assertContains(rightItems, right1, right2).inOrder()
         }
-        assertContains(toolbar.leftItems, left1).inOrder()
-        assertContains(toolbar.rightItems, right1, right2).inOrder()
     }
 }

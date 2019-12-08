@@ -2,17 +2,18 @@ package ktfx.layouts.scene.shape
 
 import javafx.scene.shape.QuadCurve
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.quadCurve
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
 class QuadCurveTest : LayoutTest<NodeManager, QuadCurve>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = quadCurve { }
-    override fun NodeManager.add() = quadCurve()
-    override fun NodeManager.addWithBuilder() = quadCurve { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = quadCurve { }
+    override fun NodeManager.child2() = quadCurve()
+    override fun NodeManager.child3() = quadCurve { }
 
     override fun QuadCurve.testDefaultValues() {
         assertEquals(0.0, startX)

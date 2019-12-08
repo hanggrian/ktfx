@@ -2,17 +2,18 @@ package ktfx.layouts.scene.shape
 
 import javafx.scene.shape.CubicCurve
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.cubicCurve
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
 class CubicCurveTest : LayoutTest<NodeManager, CubicCurve>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = cubicCurve { }
-    override fun NodeManager.add() = cubicCurve()
-    override fun NodeManager.addWithBuilder() = cubicCurve { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = cubicCurve { }
+    override fun NodeManager.child2() = cubicCurve()
+    override fun NodeManager.child3() = cubicCurve { }
 
     override fun CubicCurve.testDefaultValues() {
         assertEquals(0.0, startX)

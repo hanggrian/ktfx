@@ -3,19 +3,20 @@ package ktfx.layouts.scene.control
 import javafx.geometry.Orientation
 import javafx.scene.control.Separator
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.separator
 import ktfx.layouts.verticalSeparator
+import ktfx.test.LayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class SeparatorTest : LayoutTest<NodeManager, Separator>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = separator { }
-    override fun NodeManager.add() = separator()
-    override fun NodeManager.addWithBuilder() = separator { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = separator { }
+    override fun NodeManager.child2() = separator()
+    override fun NodeManager.child3() = separator { }
 
     @Test fun verticalSeparator() {
         verticalSeparator {

@@ -2,18 +2,19 @@ package ktfx.layouts.scene.shape
 
 import javafx.scene.shape.Circle
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.circle
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 class CircleTest : LayoutTest<NodeManager, Circle>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = circle { }
-    override fun NodeManager.add() = circle()
-    override fun NodeManager.addWithBuilder() = circle { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = circle { }
+    override fun NodeManager.child2() = circle()
+    override fun NodeManager.child3() = circle { }
 
     override fun Circle.testDefaultValues() {
         assertEquals(0.0, centerX)

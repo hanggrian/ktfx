@@ -22,14 +22,9 @@ import ktfx.layouts.addChild
  */
 open class KtfxJFXToolbar : JFXToolbar() {
 
-    fun leftItems(init: (@LayoutsDslMarker HBoxConstraints).() -> Unit): Unit =
-        HBoxConstraints(leftItems).init()
-
-    fun rightItems(init: (@LayoutsDslMarker HBoxConstraints).() -> Unit): Unit =
-        HBoxConstraints(rightItems).init()
-
     @Suppress("NOTHING_TO_INLINE")
-    class HBoxConstraints internal constructor(list: MutableList<Node>) : NodeManager, MutableList<Node> by list {
+    class HBoxConstraints @PublishedApi internal constructor(list: MutableList<Node>) : NodeManager,
+        MutableList<Node> by list {
         override fun <C : Node> addChild(child: C): C = child.also { this += it }
         override val childCount: Int get() = size
 
@@ -81,6 +76,16 @@ open class KtfxJFXToolbar : JFXToolbar() {
         /** Configure left margin fluidly using infix operator. */
         inline infix fun <C : Node> C.marginLeft(margin: Double): C = apply { updateMargin(left = margin) }
     }
+}
+
+inline fun KtfxJFXToolbar.leftItems(init: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    KtfxJFXToolbar.HBoxConstraints(leftItems).init()
+}
+
+inline fun KtfxJFXToolbar.rightItems(init: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    KtfxJFXToolbar.HBoxConstraints(rightItems).init()
 }
 
 /** Create a [JFXToolbar] with initialization block. */

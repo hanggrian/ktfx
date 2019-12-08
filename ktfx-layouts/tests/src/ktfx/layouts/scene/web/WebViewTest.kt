@@ -2,14 +2,15 @@ package ktfx.layouts.scene.web
 
 import javafx.scene.web.WebView
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.webView
+import ktfx.test.LayoutTest
 
 class WebViewTest : LayoutTest<NodeManager, WebView>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = webView { }
-    override fun NodeManager.add() = webView()
-    override fun NodeManager.addWithBuilder() = webView { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = webView { }
+    override fun NodeManager.child2() = webView()
+    override fun NodeManager.child3() = webView { }
 }

@@ -2,20 +2,21 @@ package ktfx.layouts.scene.control
 
 import javafx.scene.control.MenuBar
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.menu
 import ktfx.layouts.menuBar
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class MenuBarTest : LayoutTest<NodeManager, MenuBar>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = menuBar { }
-    override fun NodeManager.add() = menuBar()
-    override fun NodeManager.addWithBuilder() = menuBar { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = menuBar { }
+    override fun NodeManager.child2() = menuBar()
+    override fun NodeManager.child3() = menuBar { }
 
     @Test fun stringInvocation() {
         menuBar {

@@ -3,19 +3,20 @@ package ktfx.layouts.scene.layout
 import javafx.geometry.Orientation
 import javafx.scene.layout.FlowPane
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.flowPane
 import ktfx.layouts.region
+import ktfx.test.LayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class FlowPaneTest : LayoutTest<NodeManager, FlowPane>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = flowPane { }
-    override fun NodeManager.add() = flowPane()
-    override fun NodeManager.addWithBuilder() = flowPane { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = flowPane { }
+    override fun NodeManager.child2() = flowPane()
+    override fun NodeManager.child3() = flowPane { }
 
     override fun FlowPane.testDefaultValues() {
         assertEquals(Orientation.HORIZONTAL, orientation)

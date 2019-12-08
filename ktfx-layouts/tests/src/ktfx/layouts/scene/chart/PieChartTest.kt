@@ -2,17 +2,18 @@ package ktfx.layouts.scene.chart
 
 import javafx.scene.chart.PieChart
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.LayoutTest
 import ktfx.layouts.NodeManager
 import ktfx.layouts.pieChart
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 
 class PieChartTest : LayoutTest<NodeManager, PieChart>() {
 
-    override fun createManager() = KtfxPane()
-    override fun create() = pieChart { }
-    override fun NodeManager.add() = pieChart()
-    override fun NodeManager.addWithBuilder() = pieChart { }
+    override fun manager() = KtfxPane()
+    override fun childCount() = manager.childCount
+    override fun child1() = pieChart { }
+    override fun NodeManager.child2() = pieChart()
+    override fun NodeManager.child3() = pieChart { }
 
     override fun PieChart.testDefaultValues() {
         assertEmpty(data)

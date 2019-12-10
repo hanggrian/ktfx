@@ -16,6 +16,6 @@ class RatingTest : LayoutTest<NodeManager, Rating>() {
 
     override fun Rating.testDefaultValues() {
         assertEquals(5, max)
-        assertEquals(-1.0, rating)
+        assertEquals(2.0, rating)
     }
 }

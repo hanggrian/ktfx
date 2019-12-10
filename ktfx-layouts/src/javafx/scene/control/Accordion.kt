@@ -18,7 +18,7 @@ open class KtfxAccordion : Accordion(), TitledPaneManager {
 
     final override fun <C : TitledPane> addChild(child: C): C = child.also { panes += it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
+    final override val childCount: Int get() = panes.size
 
     /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(

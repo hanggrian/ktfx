@@ -1,14 +1,16 @@
 package ktfx.test
 
+import com.sun.javafx.application.PlatformImpl
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 /** There are 3 ways to create/add a child. This test ensures that each way produces the same child result. */
-abstract class LayoutTest<M : Any, C> : ToolkitInitializer {
+abstract class LayoutTest<M : Any, C> {
     lateinit var manager: M
 
-    @BeforeTest fun initManager() {
+    @BeforeTest open fun onCreate() {
+        PlatformImpl.startup { }
         manager = manager()
     }
 

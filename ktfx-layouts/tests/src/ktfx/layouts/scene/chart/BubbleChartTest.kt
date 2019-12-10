@@ -7,14 +7,14 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.bubbleChart
 import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
-import kotlin.test.BeforeTest
 import kotlin.test.assertEquals
 
 class BubbleChartTest : LayoutTest<NodeManager, BubbleChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 
-    @BeforeTest fun createAxises() {
+    override fun onCreate() {
+        super.onCreate()
         axis1 = NumberAxis()
         axis2 = NumberAxis(1.0, 2.0, 3.0)
     }

@@ -8,14 +8,14 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.barChart
 import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
-import kotlin.test.BeforeTest
 import kotlin.test.assertEquals
 
 class BarChartTest : LayoutTest<NodeManager, BarChart<String, Number>>() {
     private lateinit var axis1: CategoryAxis
     private lateinit var axis2: NumberAxis
 
-    @BeforeTest fun createAxises() {
+    override fun onCreate() {
+        super.onCreate()
         axis1 = CategoryAxis()
         axis2 = NumberAxis(1.0, 2.0, 3.0)
     }

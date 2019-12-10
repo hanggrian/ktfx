@@ -15,23 +15,23 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXColorPicker] with initialization block. */
 inline fun jfxColorPicker(
-    color: Color? = null,
+    value: Color? = null,
     init: (@LayoutsDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXColorPicker(color).apply(init)
+    return JFXColorPicker(value).apply(init)
 }
 
 /** Add a [JFXColorPicker] to this manager. */
 fun NodeManager.jfxColorPicker(
-    color: Color? = null
-): JFXColorPicker = addChild(JFXColorPicker(color))
+    value: Color? = null
+): JFXColorPicker = addChild(JFXColorPicker(value))
 
 /** Add a [JFXColorPicker] with initialization block to this manager. */
 inline fun NodeManager.jfxColorPicker(
-    color: Color? = null,
+    value: Color? = null,
     init: (@LayoutsDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXColorPicker(color), init)
+    return addChild(JFXColorPicker(value), init)
 }

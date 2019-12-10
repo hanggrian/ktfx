@@ -15,23 +15,23 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXTimePicker] with initialization block. */
 inline fun jfxTimePicker(
-    localTime: LocalTime? = null,
+    value: LocalTime? = null,
     init: (@LayoutsDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXTimePicker(localTime).apply(init)
+    return JFXTimePicker(value).apply(init)
 }
 
 /** Add a [JFXTimePicker] to this manager. */
 fun NodeManager.jfxTimePicker(
-    localTime: LocalTime? = null
-): JFXTimePicker = addChild(JFXTimePicker(localTime))
+    value: LocalTime? = null
+): JFXTimePicker = addChild(JFXTimePicker(value))
 
 /** Add a [JFXTimePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxTimePicker(
-    localTime: LocalTime? = null,
+    value: LocalTime? = null,
     init: (@LayoutsDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXTimePicker(localTime), init)
+    return addChild(JFXTimePicker(value), init)
 }

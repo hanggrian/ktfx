@@ -3,19 +3,23 @@ package ktfx.inputs
 import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
 import javafx.stage.Stage
-import org.testfx.framework.junit.ApplicationTest
+import org.junit.jupiter.api.extension.ExtendWith
+import org.testfx.api.FxRobot
+import org.testfx.framework.junit5.ApplicationExtension
+import org.testfx.framework.junit5.Start
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class ClipboardTest : ApplicationTest() {
+@ExtendWith(ApplicationExtension::class)
+class ClipboardTest {
     private lateinit var clipboard: Clipboard
 
-    override fun start(stage: Stage) {
+    @Start fun start(stage: Stage) {
         clipboard = Clipboard.getSystemClipboard()
     }
 
-    @Test fun test() {
+    @Test fun FxRobot.test() {
         interact {
             clipboard[DataFormat.PLAIN_TEXT] = "Hello world"
             assertTrue(DataFormat.PLAIN_TEXT in clipboard)

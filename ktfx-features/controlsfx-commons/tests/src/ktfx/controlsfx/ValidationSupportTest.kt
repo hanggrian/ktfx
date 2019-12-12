@@ -8,23 +8,27 @@ import ktfx.controlsfx.controls.registerPredicateValidator
 import ktfx.layouts.scene
 import ktfx.layouts.textField
 import org.controlsfx.validation.ValidationSupport
-import org.testfx.framework.junit.ApplicationTest
+import org.junit.jupiter.api.extension.ExtendWith
+import org.testfx.api.FxRobot
+import org.testfx.framework.junit5.ApplicationExtension
+import org.testfx.framework.junit5.Start
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class ValidationSupportTest : ApplicationTest() {
+@ExtendWith(ApplicationExtension::class)
+class ValidationSupportTest {
     private lateinit var support: ValidationSupport
     private lateinit var textField: TextField
 
-    override fun start(stage: Stage) {
+    @Start fun start(stage: Stage) {
         support = ValidationSupport()
         stage.scene { textField = textField() }
         stage.show()
     }
 
-    @Test fun registerEmptyValidator() {
+    @Test fun FxRobot.registerEmptyValidator() {
         textField.registerEmptyValidator<String>("", support = support)
         assertEquals(1, support.registeredControls.size)
         clickOn(textField)
@@ -33,7 +37,7 @@ class ValidationSupportTest : ApplicationTest() {
         assertFalse(support.isInvalid)
     }
 
-    @Test fun registerEqualsValidator() {
+    @Test fun FxRobot.registerEqualsValidator() {
         textField.registerEqualsValidator("", listOf("Hello", "world"), support = support)
         assertEquals(1, support.registeredControls.size)
         clickOn(textField)
@@ -42,7 +46,7 @@ class ValidationSupportTest : ApplicationTest() {
         assertFalse(support.isInvalid)
     }
 
-    @Test fun registerPredicateValidator() {
+    @Test fun FxRobot.registerPredicateValidator() {
         textField.registerPredicateValidator<String>("", support = support) { it.toIntOrNull() != null }
         assertEquals(1, support.registeredControls.size)
         clickOn(textField)

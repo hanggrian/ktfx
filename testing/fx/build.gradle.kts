@@ -6,6 +6,7 @@ sourceSets["main"].java.srcDir("src")
 
 dependencies {
     api(project(":testing:core"))
-    api(testFx("core"))
-    api(testFx("junit"))
+    api(testFx("junit5"))
+    api(junit("jupiter-api", VERSION_JUNIT_JUPITER))
+    api(junit("jupiter-engine", VERSION_JUNIT_JUPITER))
 }

@@ -2,83 +2,84 @@ package ktfx.dialogs
 
 import javafx.scene.control.ButtonType
 import javafx.scene.image.ImageView
-import ktfx.test.DialogApplicationTest
+import ktfx.test.DialogShowingTest
 import ktfx.test.assertInstance
+import org.testfx.api.FxRobot
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class AlertTest : DialogApplicationTest() {
+class AlertTest : DialogShowingTest() {
 
-    @Test fun alert() {
+    @Test fun FxRobot.alert() {
         interact {
             assertEquals(ButtonType.YES, alert("Alert title", ImageView("file:icon.png"), "Message", ButtonType.YES) {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Alert title", headerText)
                 assertInstance<ImageView>(graphic)
                 assertEquals("Message", contentText)
             }.get())
             assertEquals(ButtonType.FINISH, alert("Message", ButtonType.FINISH) {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Message", contentText)
             }.get())
         }
     }
 
-    @Test fun infoAlert() {
+    @Test fun FxRobot.infoAlert() {
         interact {
             assertEquals(ButtonType.OK, infoAlert("Info title", ImageView("file:icon.png"), "Message") {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Info title", headerText)
                 assertInstance<ImageView>(graphic)
                 assertEquals("Message", contentText)
             }.get())
             assertEquals(ButtonType.OK, infoAlert("Message") {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Message", contentText)
             }.get())
         }
     }
 
-    @Test fun warningAlert() {
+    @Test fun FxRobot.warningAlert() {
         interact {
             assertEquals(ButtonType.OK, infoAlert("Warning title", ImageView("file:icon.png"), "Message") {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Warning title", headerText)
                 assertInstance<ImageView>(graphic)
                 assertEquals("Message", contentText)
             }.get())
             assertEquals(ButtonType.OK, infoAlert("Message") {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Message", contentText)
             }.get())
         }
     }
 
-    @Test fun confirmAlert() {
+    @Test fun FxRobot.confirmAlert() {
         interact {
             assertEquals(ButtonType.OK, confirmAlert("Confirm title", ImageView("file:icon.png"), "Message") {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Confirm title", headerText)
                 assertInstance<ImageView>(graphic)
                 assertEquals("Message", contentText)
             }.get())
             assertEquals(ButtonType.OK, confirmAlert("Message") {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Message", contentText)
             }.get())
         }
     }
 
-    @Test fun errorAlert() {
+    @Test fun FxRobot.errorAlert() {
         interact {
             assertEquals(ButtonType.OK, errorAlert("Error title", ImageView("file:icon.png"), "Message") {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Error title", headerText)
                 assertInstance<ImageView>(graphic)
                 assertEquals("Message", contentText)
             }.get())
             assertEquals(ButtonType.OK, errorAlert("Message") {
-                closeOnShow()
+                closeOnShow(this)
                 assertEquals("Message", contentText)
             }.get())
         }

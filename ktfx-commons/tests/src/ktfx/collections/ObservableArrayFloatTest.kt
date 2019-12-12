@@ -1,25 +1,15 @@
 package ktfx.collections
 
-import ktfx.test.ObservableArrayTest
-import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+import javafx.collections.ObservableFloatArray
 
-class ObservableArrayFloatTest : ObservableArrayTest() {
+class ObservableArrayFloatTest : BaseArrayTest<ObservableFloatArray, FloatArray, Float>() {
 
-    override fun observableArrayOf() {
-        val empty = observableFloatArrayOf()
-        assertTrue(empty.isEmpty())
+    override val boxedArray = arrayOf(1f, 2f, 3f)
+    override val unboxedArray = floatArrayOf(1f, 2f, 3f)
 
-        val filled = observableFloatArrayOf(1f, 2f, 3f)
-        assertFalse(filled.isEmpty())
-    }
+    override fun of() = observableFloatArrayOf()
+    override fun of(values: Array<Float>) = observableFloatArrayOf(*values.toFloatArray())
 
-    override fun toObservableArray() {
-        val array = floatArrayOf(1f, 2f, 3f).toObservableArray()
-        assertEquals(3, array.size())
-
-        val typedArray = arrayOf(1f, 2f, 3f).toObservableArray()
-        assertEquals(3, typedArray.size())
-    }
+    override fun Array<Float>.to() = toObservableArray()
+    override fun FloatArray.to() = toObservableArray()
 }

@@ -31,6 +31,10 @@ tasks {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
     }
+    test {
+        useJUnitPlatform()
+        testLogging { events("passed", "skipped", "failed") }
+    }
 }
 
 publishKotlinFix()

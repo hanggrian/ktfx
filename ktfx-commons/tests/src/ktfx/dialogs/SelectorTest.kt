@@ -1,14 +1,15 @@
 package ktfx.dialogs
 
 import javafx.scene.image.ImageView
-import ktfx.test.DialogApplicationTest
+import ktfx.test.DialogShowingTest
 import ktfx.test.assertInstance
+import org.testfx.api.FxRobot
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SelectorTest : DialogApplicationTest() {
+class SelectorTest : DialogShowingTest() {
 
-    @Test fun selector() {
+    @Test fun FxRobot.selector() {
         interact {
             assertEquals(
                 "Jump off bridge",
@@ -18,7 +19,7 @@ class SelectorTest : DialogApplicationTest() {
                     listOf("Jump off bridge", "Live a happy life"),
                     "Live a happy life"
                 ) {
-                    closeOnShow()
+                    closeOnShow(this)
                     assertEquals("Choice dialog", headerText)
                     assertInstance<ImageView>(graphic)
                     assertEquals("Live a happy life", defaultChoice)
@@ -28,7 +29,7 @@ class SelectorTest : DialogApplicationTest() {
             assertEquals(
                 "Jump off bridge",
                 selector<String>(listOf("Jump off bridge", "Live a happy life"), "Live a happy life") {
-                    closeOnShow()
+                    closeOnShow(this)
                     assertEquals("Live a happy life", defaultChoice)
                     selectedItem = "Jump off bridge"
                 }.get()
@@ -42,14 +43,14 @@ class SelectorTest : DialogApplicationTest() {
                     "Live a happy life",
                     prefill = "Live a happy life"
                 ) {
-                    closeOnShow()
+                    closeOnShow(this)
                     selectedItem = "Jump off bridge"
                 }.get()
             )
             assertEquals(
                 "Jump off bridge",
                 selector("Jump off bridge", "Live a happy life", prefill = "Live a happy life") {
-                    closeOnShow()
+                    closeOnShow(this)
                     selectedItem = "Jump off bridge"
                 }.get()
             )

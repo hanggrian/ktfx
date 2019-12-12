@@ -4,11 +4,11 @@ import javafx.scene.shape.Circle
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.circle
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class CircleTest : LayoutTest<NodeManager, Circle>() {
+class CircleTest : BaseLayoutTest<NodeManager, Circle>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

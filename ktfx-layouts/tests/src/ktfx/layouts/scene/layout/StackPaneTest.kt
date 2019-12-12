@@ -4,9 +4,9 @@ import javafx.scene.layout.StackPane
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.stackPane
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 
-class StackPaneTest : LayoutTest<NodeManager, StackPane>() {
+class StackPaneTest : BaseLayoutTest<NodeManager, StackPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -5,12 +5,12 @@ import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.menuItem
 import ktfx.layouts.splitMenuButton
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SplitMenuButtonTest : LayoutTest<NodeManager, SplitMenuButton>() {
+class SplitMenuButtonTest : BaseLayoutTest<NodeManager, SplitMenuButton>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTimePicker
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertNull
 
-class JFXTimePickerTest : LayoutTest<NodeManager, JFXTimePicker>() {
+class JFXTimePickerTest : BaseLayoutTest<NodeManager, JFXTimePicker>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

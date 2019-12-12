@@ -4,10 +4,10 @@ import javafx.scene.control.ComboBox
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.comboBox
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 
-class ComboBoxTest : LayoutTest<NodeManager, ComboBox<String>>() {
+class ComboBoxTest : BaseLayoutTest<NodeManager, ComboBox<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

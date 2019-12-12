@@ -4,9 +4,9 @@ import javafx.scene.control.ScrollBar
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.scrollBar
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 
-class ScrollBarTest : LayoutTest<NodeManager, ScrollBar>() {
+class ScrollBarTest : BaseLayoutTest<NodeManager, ScrollBar>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

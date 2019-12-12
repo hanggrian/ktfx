@@ -6,11 +6,11 @@ import javafx.scene.chart.StackedBarChart
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.stackedBarChart
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class StackedBarChartTest : LayoutTest<NodeManager, StackedBarChart<String, Number>>() {
+class StackedBarChartTest : BaseLayoutTest<NodeManager, StackedBarChart<String, Number>>() {
     private lateinit var axis1: CategoryAxis
     private lateinit var axis2: NumberAxis
 

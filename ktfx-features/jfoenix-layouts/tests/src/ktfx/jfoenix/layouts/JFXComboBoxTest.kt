@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXComboBox
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 
-class JFXComboBoxTest : LayoutTest<NodeManager, JFXComboBox<String>>() {
+class JFXComboBoxTest : BaseLayoutTest<NodeManager, JFXComboBox<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

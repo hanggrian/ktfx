@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXSpinner
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class JFXSpinnerTest : LayoutTest<NodeManager, JFXSpinner>() {
+class JFXSpinnerTest : BaseLayoutTest<NodeManager, JFXSpinner>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

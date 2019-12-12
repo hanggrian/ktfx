@@ -5,12 +5,12 @@ import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.menu
 import ktfx.layouts.menuBar
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MenuBarTest : LayoutTest<NodeManager, MenuBar>() {
+class MenuBarTest : BaseLayoutTest<NodeManager, MenuBar>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

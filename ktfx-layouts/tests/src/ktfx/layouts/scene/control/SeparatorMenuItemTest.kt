@@ -4,9 +4,9 @@ import javafx.scene.control.SeparatorMenuItem
 import ktfx.layouts.KtfxMenu
 import ktfx.layouts.MenuItemManager
 import ktfx.layouts.separatorMenuItem
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 
-class SeparatorMenuItemTest : LayoutTest<MenuItemManager, SeparatorMenuItem>() {
+class SeparatorMenuItemTest : BaseLayoutTest<MenuItemManager, SeparatorMenuItem>() {
 
     override fun manager() = KtfxMenu("", null)
     override fun childCount() = manager.childCount

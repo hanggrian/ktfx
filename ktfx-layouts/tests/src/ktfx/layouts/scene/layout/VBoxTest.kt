@@ -4,10 +4,10 @@ import javafx.scene.layout.VBox
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.vbox
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class VBoxTest : LayoutTest<NodeManager, VBox>() {
+class VBoxTest : BaseLayoutTest<NodeManager, VBox>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

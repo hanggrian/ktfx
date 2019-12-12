@@ -5,10 +5,10 @@ import javafx.scene.layout.TilePane
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.tilePane
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class TilePaneTest : LayoutTest<NodeManager, TilePane>() {
+class TilePaneTest : BaseLayoutTest<NodeManager, TilePane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -7,13 +7,13 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.accordion
 import ktfx.layouts.label
 import ktfx.layouts.titledPane
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 import ktfx.test.assertInstance
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class AccordionTest : LayoutTest<NodeManager, Accordion>() {
+class AccordionTest : BaseLayoutTest<NodeManager, Accordion>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

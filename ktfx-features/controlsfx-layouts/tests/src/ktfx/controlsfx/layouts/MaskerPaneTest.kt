@@ -2,14 +2,10 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
-import org.controlsfx.control.CheckComboBox
-import org.controlsfx.control.CheckListView
-import org.controlsfx.control.HiddenSidesPane
+import ktfx.test.BaseLayoutTest
 import org.controlsfx.control.MaskerPane
 
-class MaskerPaneTest : LayoutTest<NodeManager, MaskerPane>() {
+class MaskerPaneTest : BaseLayoutTest<NodeManager, MaskerPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

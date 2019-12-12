@@ -4,10 +4,10 @@ import javafx.scene.shape.Polygon
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.polygon
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 
-class PolygonTest : LayoutTest<NodeManager, Polygon>() {
+class PolygonTest : BaseLayoutTest<NodeManager, Polygon>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

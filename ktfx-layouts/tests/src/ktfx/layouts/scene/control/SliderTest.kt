@@ -4,10 +4,10 @@ import javafx.scene.control.Slider
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.slider
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class SliderTest : LayoutTest<NodeManager, Slider>() {
+class SliderTest : BaseLayoutTest<NodeManager, Slider>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -5,11 +5,11 @@ import javafx.scene.chart.NumberAxis
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.areaChart
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class AreaChartTest : LayoutTest<NodeManager, AreaChart<Number, Number>>() {
+class AreaChartTest : BaseLayoutTest<NodeManager, AreaChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 

@@ -4,9 +4,9 @@ import javafx.scene.layout.Region
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.region
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 
-class RegionTest : LayoutTest<NodeManager, Region>() {
+class RegionTest : BaseLayoutTest<NodeManager, Region>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

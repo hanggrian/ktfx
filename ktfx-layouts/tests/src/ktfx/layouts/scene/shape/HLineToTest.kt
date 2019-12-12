@@ -4,10 +4,10 @@ import javafx.scene.shape.HLineTo
 import ktfx.layouts.KtfxPath
 import ktfx.layouts.PathElementManager
 import ktfx.layouts.hlineTo
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class HLineToTest : LayoutTest<PathElementManager, HLineTo>() {
+class HLineToTest : BaseLayoutTest<PathElementManager, HLineTo>() {
 
     override fun manager() = KtfxPath()
     override fun childCount() = manager.childCount

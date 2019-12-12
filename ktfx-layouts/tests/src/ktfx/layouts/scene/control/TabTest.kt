@@ -4,10 +4,10 @@ import javafx.scene.control.Tab
 import ktfx.layouts.KtfxTabPane
 import ktfx.layouts.TabManager
 import ktfx.layouts.tab
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertNull
 
-class TabTest : LayoutTest<TabManager, Tab>() {
+class TabTest : BaseLayoutTest<TabManager, Tab>() {
 
     override fun manager() = KtfxTabPane()
     override fun childCount() = manager.childCount

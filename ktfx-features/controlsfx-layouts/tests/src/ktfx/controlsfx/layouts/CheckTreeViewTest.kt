@@ -2,14 +2,11 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
-import org.controlsfx.control.CheckComboBox
-import org.controlsfx.control.CheckListView
+import ktfx.test.BaseLayoutTest
 import org.controlsfx.control.CheckTreeView
 import kotlin.test.assertNull
 
-class CheckTreeViewTest : LayoutTest<NodeManager, CheckTreeView<String>>() {
+class CheckTreeViewTest : BaseLayoutTest<NodeManager, CheckTreeView<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

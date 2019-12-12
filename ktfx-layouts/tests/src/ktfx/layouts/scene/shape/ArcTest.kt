@@ -4,10 +4,10 @@ import javafx.scene.shape.Arc
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.arc
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class ArcTest : LayoutTest<NodeManager, Arc>() {
+class ArcTest : BaseLayoutTest<NodeManager, Arc>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

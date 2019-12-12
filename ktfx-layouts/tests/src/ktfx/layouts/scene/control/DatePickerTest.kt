@@ -4,10 +4,10 @@ import javafx.scene.control.DatePicker
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.datePicker
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertNull
 
-class DatePickerTest : LayoutTest<NodeManager, DatePicker>() {
+class DatePickerTest : BaseLayoutTest<NodeManager, DatePicker>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

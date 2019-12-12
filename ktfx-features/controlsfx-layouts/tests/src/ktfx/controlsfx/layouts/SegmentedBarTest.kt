@@ -2,10 +2,10 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import org.controlsfx.control.SegmentedBar
 
-class SegmentedBarTest : LayoutTest<NodeManager, SegmentedBar<SegmentedBar.Segment>>() {
+class SegmentedBarTest : BaseLayoutTest<NodeManager, SegmentedBar<SegmentedBar.Segment>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -7,12 +7,12 @@ import ktfx.layouts.columnConstraints
 import ktfx.layouts.gridPane
 import ktfx.layouts.label
 import ktfx.layouts.rowConstraints
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class GridPaneTest : LayoutTest<NodeManager, GridPane>() {
+class GridPaneTest : BaseLayoutTest<NodeManager, GridPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

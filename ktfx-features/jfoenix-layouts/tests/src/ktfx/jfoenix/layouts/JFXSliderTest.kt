@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXSlider
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class JFXSliderTest : LayoutTest<NodeManager, JFXSlider>() {
+class JFXSliderTest : BaseLayoutTest<NodeManager, JFXSlider>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

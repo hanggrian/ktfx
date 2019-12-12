@@ -4,10 +4,10 @@ import javafx.scene.control.RadioButton
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.radioButton
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertNull
 
-class RadioButtonTest : LayoutTest<NodeManager, RadioButton>() {
+class RadioButtonTest : BaseLayoutTest<NodeManager, RadioButton>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

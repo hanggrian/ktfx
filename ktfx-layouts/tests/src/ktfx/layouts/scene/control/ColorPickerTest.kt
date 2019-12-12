@@ -5,10 +5,10 @@ import javafx.scene.paint.Color
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.colorPicker
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class ColorPickerTest : LayoutTest<NodeManager, ColorPicker>() {
+class ColorPickerTest : BaseLayoutTest<NodeManager, ColorPicker>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

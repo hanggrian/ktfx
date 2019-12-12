@@ -4,10 +4,10 @@ import javafx.scene.shape.QuadCurve
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.quadCurve
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class QuadCurveTest : LayoutTest<NodeManager, QuadCurve>() {
+class QuadCurveTest : BaseLayoutTest<NodeManager, QuadCurve>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

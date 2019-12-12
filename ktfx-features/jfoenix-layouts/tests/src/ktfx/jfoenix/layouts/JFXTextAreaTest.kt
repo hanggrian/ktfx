@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTextArea
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertNull
 
-class JFXTextAreaTest : LayoutTest<NodeManager, JFXTextArea>() {
+class JFXTextAreaTest : BaseLayoutTest<NodeManager, JFXTextArea>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

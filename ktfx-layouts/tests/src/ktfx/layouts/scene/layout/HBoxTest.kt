@@ -4,10 +4,10 @@ import javafx.scene.layout.HBox
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.hbox
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class HBoxTest : LayoutTest<NodeManager, HBox>() {
+class HBoxTest : BaseLayoutTest<NodeManager, HBox>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

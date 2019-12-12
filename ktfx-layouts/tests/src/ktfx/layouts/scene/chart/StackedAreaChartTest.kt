@@ -5,11 +5,11 @@ import javafx.scene.chart.StackedAreaChart
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.stackedAreaChart
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class StackedAreaChartTest : LayoutTest<NodeManager, StackedAreaChart<Number, Number>>() {
+class StackedAreaChartTest : BaseLayoutTest<NodeManager, StackedAreaChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 

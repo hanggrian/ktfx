@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXRadioButton
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertNull
 
-class JFXRadioButtonTest : LayoutTest<NodeManager, JFXRadioButton>() {
+class JFXRadioButtonTest : BaseLayoutTest<NodeManager, JFXRadioButton>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

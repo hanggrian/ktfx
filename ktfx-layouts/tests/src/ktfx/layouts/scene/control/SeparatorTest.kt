@@ -6,11 +6,11 @@ import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.separator
 import ktfx.layouts.verticalSeparator
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SeparatorTest : LayoutTest<NodeManager, Separator>() {
+class SeparatorTest : BaseLayoutTest<NodeManager, Separator>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

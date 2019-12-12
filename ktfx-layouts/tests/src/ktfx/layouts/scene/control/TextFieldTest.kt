@@ -4,10 +4,10 @@ import javafx.scene.control.TextField
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.textField
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class TextFieldTest : LayoutTest<NodeManager, TextField>() {
+class TextFieldTest : BaseLayoutTest<NodeManager, TextField>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

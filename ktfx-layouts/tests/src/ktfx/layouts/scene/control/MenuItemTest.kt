@@ -4,10 +4,10 @@ import javafx.scene.control.MenuItem
 import ktfx.layouts.KtfxMenu
 import ktfx.layouts.MenuItemManager
 import ktfx.layouts.menuItem
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertNull
 
-class MenuItemTest : LayoutTest<MenuItemManager, MenuItem>() {
+class MenuItemTest : BaseLayoutTest<MenuItemManager, MenuItem>() {
 
     override fun manager() = KtfxMenu("", null)
     override fun childCount() = manager.childCount

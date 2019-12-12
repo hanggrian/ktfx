@@ -4,10 +4,10 @@ import javafx.scene.image.ImageView
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.imageView
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertNull
 
-class ImageViewTest : LayoutTest<NodeManager, ImageView>() {
+class ImageViewTest : BaseLayoutTest<NodeManager, ImageView>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

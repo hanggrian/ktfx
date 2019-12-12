@@ -4,10 +4,10 @@ import javafx.scene.canvas.Canvas
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.canvas
-import ktfx.test.LayoutTest
+import ktfx.test.BaseLayoutTest
 import kotlin.test.assertEquals
 
-class CanvasTest : LayoutTest<NodeManager, Canvas>() {
+class CanvasTest : BaseLayoutTest<NodeManager, Canvas>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

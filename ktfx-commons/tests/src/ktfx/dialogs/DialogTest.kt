@@ -2,18 +2,20 @@ package ktfx.dialogs
 
 import javafx.scene.control.Dialog
 import javafx.scene.image.ImageView
+import kotlin.test.Ignore
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNotNull
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
 import ktfx.controls.stage
 import ktfx.test.assertEmpty
 import ktfx.test.assertNotEmpty
 import org.junit.jupiter.api.extension.ExtendWith
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.ApplicationExtension
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
-import kotlin.test.assertNull
-import kotlin.test.assertTrue
 
+@Ignore
 @ExtendWith(ApplicationExtension::class)
 class DialogTest {
 

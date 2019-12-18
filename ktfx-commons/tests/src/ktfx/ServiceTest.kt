@@ -35,10 +35,8 @@ class ServiceTest : ToolkitInitializer {
         }
     }
 
-    private companion object {
-        fun <V> testService(listener: (TaskBuilder<V>).() -> Unit) {
-            buildService(listener).start()
-            sleep(1000)
-        }
+    private fun <V> testService(listener: (TaskBuilder<V>).() -> Unit) {
+        buildService(listener).start()
+        sleep(1000)
     }
 }

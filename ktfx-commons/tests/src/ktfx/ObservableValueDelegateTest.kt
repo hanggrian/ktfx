@@ -1,16 +1,16 @@
 package ktfx
 
 import javafx.util.Duration
-import ktfx.collections.emptyObservableList
-import ktfx.collections.emptyObservableMap
-import ktfx.collections.emptyObservableSet
-import ktfx.test.assertEmpty
-import ktfx.util.minutes
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import ktfx.collections.emptyObservableList
+import ktfx.collections.emptyObservableMap
+import ktfx.collections.emptyObservableSet
+import ktfx.test.assertEmpty
+import ktfx.util.minutes
 
 class ObservableValueDelegateTest {
     private val anyProperty = propertyOf<Duration>()

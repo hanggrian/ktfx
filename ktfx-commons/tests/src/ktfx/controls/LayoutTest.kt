@@ -3,9 +3,9 @@ package ktfx.controls
 import javafx.scene.layout.FlowPane
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.TilePane
-import ktfx.test.ToolkitInitializer
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import ktfx.test.ToolkitInitializer
 
 class LayoutTest : ToolkitInitializer {
 

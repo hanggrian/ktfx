@@ -2,10 +2,10 @@ package ktfx.controls
 
 import javafx.scene.control.Label
 import javafx.scene.shape.Rectangle
-import ktfx.util.millis
-import ktfx.test.ToolkitInitializer
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import ktfx.test.ToolkitInitializer
+import ktfx.util.millis
 
 class NodeTransitionsTest : ToolkitInitializer {
 

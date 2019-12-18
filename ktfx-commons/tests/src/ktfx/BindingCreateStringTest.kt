@@ -1,8 +1,8 @@
 package ktfx
 
-import ktfx.util.minutes
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import ktfx.util.minutes
 
 class BindingCreateStringTest {
 

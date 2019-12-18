@@ -3,13 +3,13 @@ package ktfx.inputs
 import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
 import javafx.stage.Stage
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import org.junit.jupiter.api.extension.ExtendWith
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.ApplicationExtension
 import org.testfx.framework.junit5.Start
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 @ExtendWith(ApplicationExtension::class)
 class ClipboardTest {

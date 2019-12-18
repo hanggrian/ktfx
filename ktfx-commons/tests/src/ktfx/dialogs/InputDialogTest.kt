@@ -2,15 +2,17 @@ package ktfx.dialogs
 
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
+import kotlin.test.Ignore
+import kotlin.test.Test
+import kotlin.test.assertEquals
 import ktfx.test.BaseDialogTest
 import ktfx.test.assertInstance
 import org.junit.jupiter.api.extension.ExtendWith
 import org.testfx.api.FxRobot
 import org.testfx.framework.junit5.ApplicationExtension
 import org.testfx.framework.junit5.Start
-import kotlin.test.Test
-import kotlin.test.assertEquals
 
+@Ignore
 @ExtendWith(ApplicationExtension::class)
 class InputDialogTest : BaseDialogTest() {
 

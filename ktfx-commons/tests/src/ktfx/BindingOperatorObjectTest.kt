@@ -1,11 +1,11 @@
 package ktfx
 
-import ktfx.util.minutes
-import ktfx.util.seconds
 import java.time.Duration
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
+import ktfx.util.minutes
+import ktfx.util.seconds
 
 class BindingOperatorObjectTest {
 

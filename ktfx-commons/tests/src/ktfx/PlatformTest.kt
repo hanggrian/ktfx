@@ -1,14 +1,14 @@
 package ktfx
 
 import javafx.application.ConditionalFeature
+import kotlin.test.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.runBlocking
 import ktfx.test.ToolkitInitializer
 import ktfx.test.assertContains
-import kotlin.test.Test
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 
 class PlatformTest : ToolkitInitializer {
 

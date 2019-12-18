@@ -1,9 +1,9 @@
 package ktfx.controls
 
 import javafx.scene.control.Label
-import ktfx.test.ToolkitInitializer
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import ktfx.test.ToolkitInitializer
 
 class NodeTransformsTest : ToolkitInitializer {
 

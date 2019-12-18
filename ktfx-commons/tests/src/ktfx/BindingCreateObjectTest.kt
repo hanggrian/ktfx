@@ -1,12 +1,12 @@
 package ktfx
 
 import javafx.util.Duration
-import ktfx.util.minutes
-import ktfx.util.plus
-import ktfx.util.seconds
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
+import ktfx.util.minutes
+import ktfx.util.plus
+import ktfx.util.seconds
 
 class BindingCreateObjectTest {
 

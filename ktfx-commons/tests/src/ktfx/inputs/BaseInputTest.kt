@@ -74,7 +74,10 @@ open class BaseInputTest {
     @Suppress("NON_EXHAUSTIVE_WHEN")
     fun mouseEventOf(
         eventType: EventType<MouseEvent?>,
-        x: Double, y: Double, mouseButton: MouseButton, clickCount: Int
+        x: Double,
+        y: Double,
+        mouseButton: MouseButton,
+        clickCount: Int
     ): MouseEvent {
         screenMouseX = scene.window.x + scene.x + x
         screenMouseY = scene.window.y + scene.y + y

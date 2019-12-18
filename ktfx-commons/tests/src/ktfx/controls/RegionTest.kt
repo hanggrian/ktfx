@@ -2,11 +2,11 @@ package ktfx.controls
 
 import javafx.scene.layout.Region
 import javafx.scene.paint.Color
-import ktfx.test.ToolkitInitializer
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import ktfx.test.ToolkitInitializer
 
 class RegionTest : ToolkitInitializer {
 

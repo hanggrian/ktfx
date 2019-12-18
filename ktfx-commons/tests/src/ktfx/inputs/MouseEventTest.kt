@@ -3,9 +3,9 @@ package ktfx.inputs
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 import javafx.stage.Stage
-import org.testfx.framework.junit5.Start
 import kotlin.test.Test
 import kotlin.test.assertTrue
+import org.testfx.framework.junit5.Start
 
 class MouseEventTest : BaseInputTest() {
 

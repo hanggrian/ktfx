@@ -21,8 +21,7 @@ dependencies {
     api(project(":$RELEASE_ARTIFACT-core"))
     api(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
-    testImplementation(project(":$RELEASE_ARTIFACT-commons"))
-    testImplementation(project(":testing:fx"))
+    testImplementation(project(":testing:fx-listeners"))
 }
 
 tasks {

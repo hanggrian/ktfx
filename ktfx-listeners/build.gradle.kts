@@ -20,7 +20,9 @@ ktlint { add ->
 dependencies {
     api(project(":$RELEASE_ARTIFACT-core"))
 
-    testImplementation(project(":testing:fx"))
+    testImplementation(project(":testing:fx-listeners"))
+    testImplementation(junit("jupiter-api", VERSION_JUNIT_JUPITER))
+    testImplementation(junit("jupiter-engine", VERSION_JUNIT_JUPITER))
 }
 
 tasks {

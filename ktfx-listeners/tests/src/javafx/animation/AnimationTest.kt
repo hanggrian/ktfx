@@ -1,14 +1,10 @@
 package ktfx.listeners
 
-import javafx.animation.ScaleTransition
-import kotlin.test.Test
+import javafx.animation.Animation
+import javafx.event.ActionEvent
+import ktfx.test.BaseAnimationTest
 
-class AnimationTest {
+class AnimationTest : BaseAnimationTest() {
 
-    @Test fun onFinished() {
-        val scale = ScaleTransition()
-        scale.onFinished {
-
-        }
-    }
+    override fun Animation.callOnFinished(action: (ActionEvent) -> Unit) = onFinished(action)
 }

@@ -2,24 +2,21 @@ package ktfx.dialogs
 
 import javafx.scene.control.Dialog
 import javafx.scene.image.ImageView
+import ktfx.controls.stage
+import ktfx.test.BaseDialogTest
+import ktfx.test.assertEmpty
+import ktfx.test.assertNotEmpty
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
-import ktfx.controls.stage
-import ktfx.test.assertEmpty
-import ktfx.test.assertNotEmpty
-import org.junit.jupiter.api.extension.ExtendWith
-import org.testfx.api.FxRobot
-import org.testfx.framework.junit5.ApplicationExtension
 
 @Ignore
-@ExtendWith(ApplicationExtension::class)
-class DialogTest {
+class DialogTest : BaseDialogTest() {
 
-    @Test fun FxRobot.graphicIcon() {
+    @Test fun graphicIcon() {
         interact {
             val dialog = Dialog<Nothing>()
             assertEmpty(dialog.dialogPane.scene.stage.icons)
@@ -30,7 +27,7 @@ class DialogTest {
         }
     }
 
-    @Test fun FxRobot.headerTitle() {
+    @Test fun headerTitle() {
         interact {
             val dialog = Dialog<Nothing>()
             assertNull(dialog.headerText)
@@ -42,7 +39,7 @@ class DialogTest {
     }
 
     /** Because some dialog texts have space suffix, use [assertTrue] instead of [assertEquals]. */
-    @Test fun FxRobot.buttons() {
+    @Test fun buttons() {
         interact {
             val dialog = Dialog<Nothing>()
             dialog.buttons {

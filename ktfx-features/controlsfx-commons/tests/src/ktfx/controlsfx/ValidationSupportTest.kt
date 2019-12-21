@@ -8,21 +8,18 @@ import ktfx.controlsfx.controls.registerPredicateValidator
 import ktfx.layouts.scene
 import ktfx.layouts.textField
 import org.controlsfx.validation.ValidationSupport
-import org.junit.jupiter.api.extension.ExtendWith
 import org.testfx.api.FxRobot
-import org.testfx.framework.junit5.ApplicationExtension
-import org.testfx.framework.junit5.Start
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-@ExtendWith(ApplicationExtension::class)
-class ValidationSupportTest {
+class ValidationSupportTest : ApplicationTest() {
     private lateinit var support: ValidationSupport
     private lateinit var textField: TextField
 
-    @Start fun start(stage: Stage) {
+    override fun start(stage: Stage) {
         support = ValidationSupport()
         stage.scene { textField = textField() }
         stage.show()

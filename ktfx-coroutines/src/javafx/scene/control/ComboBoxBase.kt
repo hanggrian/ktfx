@@ -19,18 +19,6 @@ fun ComboBoxBase<*>.onAction(
     action: suspend CoroutineScope.(ActionEvent) -> Unit
 ): Unit = setOnAction { event -> GlobalScope.launch(context) { action(event) } }
 
-/** Called just after the [ComboBoxBase] popup/display has been hidden. */
-fun ComboBoxBase<*>.onHidden(
-    context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(Event) -> Unit
-): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
-
-/** Called just after the [ComboBoxBase] popup/display is shown. */
-fun ComboBoxBase<*>.onHiding(
-    context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(Event) -> Unit
-): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
-
 /** Called just prior to the [ComboBoxBase] popup/display being shown. */
 fun ComboBoxBase<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
@@ -42,3 +30,15 @@ fun ComboBoxBase<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(Event) -> Unit
 ): Unit = setOnShown { event -> GlobalScope.launch(context) { action(event) } }
+
+/** Called just after the [ComboBoxBase] popup/display is shown. */
+fun ComboBoxBase<*>.onHiding(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(Event) -> Unit
+): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
+
+/** Called just after the [ComboBoxBase] popup/display has been hidden. */
+fun ComboBoxBase<*>.onHidden(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(Event) -> Unit
+): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }

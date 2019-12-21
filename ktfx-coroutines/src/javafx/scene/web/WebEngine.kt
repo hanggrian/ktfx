@@ -20,11 +20,11 @@ fun WebEngine.onAlert(
     action: suspend CoroutineScope.(WebEvent<String>) -> Unit
 ): Unit = setOnAlert { event -> GlobalScope.launch(context) { action(event) } }
 
-/** The event handler called when an error occurs. */
-fun WebEngine.onError(
+/** Sets the JavaScript status handler. */
+fun WebEngine.onStatusChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(WebErrorEvent) -> Unit
-): Unit = setOnError { event -> GlobalScope.launch(context) { action(event) } }
+    action: suspend CoroutineScope.(WebEvent<String>) -> Unit
+): Unit = setOnStatusChanged { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Sets the JavaScript window resize handler. */
 fun WebEngine.onResized(
@@ -32,14 +32,14 @@ fun WebEngine.onResized(
     action: suspend CoroutineScope.(WebEvent<Rectangle2D>) -> Unit
 ): Unit = setOnResized { event -> GlobalScope.launch(context) { action(event) } }
 
-/** Sets the JavaScript status handler. */
-fun WebEngine.onStatusChanged(
-    context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(WebEvent<String>) -> Unit
-): Unit = setOnStatusChanged { event -> GlobalScope.launch(context) { action(event) } }
-
 /** Sets the JavaScript window visibility handler. */
 fun WebEngine.onVisibilityChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WebEvent<Boolean>) -> Unit
 ): Unit = setOnVisibilityChanged { event -> GlobalScope.launch(context) { action(event) } }
+
+/** The event handler called when an error occurs. */
+fun WebEngine.onError(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WebErrorEvent) -> Unit
+): Unit = setOnError { event -> GlobalScope.launch(context) { action(event) } }

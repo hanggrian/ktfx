@@ -11,11 +11,11 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/** This event handler will be fired when the user cancels editing a cell. */
-fun <S, T> TableColumn<S, T>.onEditCancel(
+/** This event handler will be fired when the user successfully initiates editing. */
+fun <S, T> TableColumn<S, T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
 
 /** This event handler will be fired when the user successfully commits their editing. */
 fun <S, T> TableColumn<S, T>.onEditCommit(
@@ -23,8 +23,8 @@ fun <S, T> TableColumn<S, T>.onEditCommit(
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
 ): Unit = setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
 
-/** This event handler will be fired when the user successfully initiates editing. */
-fun <S, T> TableColumn<S, T>.onEditStart(
+/** This event handler will be fired when the user cancels editing a cell. */
+fun <S, T> TableColumn<S, T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
+): Unit = setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }

@@ -7,6 +7,11 @@ package ktfx.listeners
 import javafx.event.Event
 import javafx.scene.control.Tab
 
+/** Defines a function to be called when a selection changed has occurred on the [Tab]. */
+inline fun Tab.onSelectionChanged(
+    noinline action: (Event) -> Unit
+): Unit = setOnSelectionChanged { event -> action(event) }
+
 /** Defines a function to be called when the [Tab] is closed. */
 inline fun Tab.onClosed(
     noinline action: (Event) -> Unit
@@ -16,8 +21,3 @@ inline fun Tab.onClosed(
 inline fun Tab.onCloseRequest(
     noinline action: (Event) -> Unit
 ): Unit = setOnCloseRequest { event -> action(event) }
-
-/** Defines a function to be called when a selection changed has occurred on the [Tab]. */
-inline fun Tab.onSelectionChanged(
-    noinline action: (Event) -> Unit
-): Unit = setOnSelectionChanged { event -> action(event) }

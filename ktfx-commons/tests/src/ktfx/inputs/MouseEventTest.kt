@@ -2,14 +2,10 @@ package ktfx.inputs
 
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
-import javafx.stage.Stage
 import kotlin.test.Test
 import kotlin.test.assertTrue
-import org.testfx.framework.junit5.Start
 
 class MouseEventTest : BaseInputTest() {
-
-    @Start override fun start(stage: Stage) = super.start(stage)
 
     @Test fun isLeftClick() = assertTrue {
         mouseEventOf(MouseEvent.MOUSE_CLICKED, sceneMouseX, sceneMouseY, MouseButton.PRIMARY, 1).isLeftClick()

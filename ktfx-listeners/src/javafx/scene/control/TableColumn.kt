@@ -6,17 +6,17 @@ package ktfx.listeners
 
 import javafx.scene.control.TableColumn
 
-/** This event handler will be fired when the user cancels editing a cell. */
-inline fun <S, T> TableColumn<S, T>.onEditCancel(
+/** This event handler will be fired when the user successfully initiates editing. */
+inline fun <S, T> TableColumn<S, T>.onEditStart(
     noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditCancel { event -> action(event) }
+): Unit = setOnEditStart { event -> action(event) }
 
 /** This event handler will be fired when the user successfully commits their editing. */
 inline fun <S, T> TableColumn<S, T>.onEditCommit(
     noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
 ): Unit = setOnEditCommit { event -> action(event) }
 
-/** This event handler will be fired when the user successfully initiates editing. */
-inline fun <S, T> TableColumn<S, T>.onEditStart(
+/** This event handler will be fired when the user cancels editing a cell. */
+inline fun <S, T> TableColumn<S, T>.onEditCancel(
     noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditStart { event -> action(event) }
+): Unit = setOnEditCancel { event -> action(event) }

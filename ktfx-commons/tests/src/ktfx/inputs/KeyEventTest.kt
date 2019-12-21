@@ -2,14 +2,10 @@ package ktfx.inputs
 
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
-import javafx.stage.Stage
 import kotlin.test.Test
 import kotlin.test.assertTrue
-import org.testfx.framework.junit5.Start
 
 class KeyEventTest : BaseInputTest() {
-
-    @Start override fun start(stage: Stage) = super.start(stage)
 
     @Test fun isDelete() {
         assertTrue(keyEventOf(KeyEvent.KEY_PRESSED, KeyCode.DELETE).isDelete())

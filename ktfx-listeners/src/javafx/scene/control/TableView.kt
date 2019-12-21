@@ -9,6 +9,11 @@ import javafx.scene.control.SortEvent
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 
+/** Called when there's a request to sort the control. */
+inline fun <S> TableView<S>.onSort(
+    noinline action: (SortEvent<TableView<S>>) -> Unit
+): Unit = setOnSort { event -> action(event) }
+
 /** Called when there's a request to scroll an index into view using [TableView.scrollTo]. */
 inline fun TableView<*>.onScrollTo(
     noinline action: (ScrollToEvent<Int>) -> Unit
@@ -21,8 +26,3 @@ inline fun TableView<*>.onScrollTo(
 inline fun <S> TableView<S>.onScrollToColumn(
     noinline action: (ScrollToEvent<TableColumn<S, *>>) -> Unit
 ): Unit = setOnScrollToColumn { event -> action(event) }
-
-/** Called when there's a request to sort the control. */
-inline fun <S> TableView<S>.onSort(
-    noinline action: (SortEvent<TableView<S>>) -> Unit
-): Unit = setOnSort { event -> action(event) }

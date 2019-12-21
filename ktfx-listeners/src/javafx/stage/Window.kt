@@ -29,16 +29,6 @@ inline fun Window.onCloseRequest(
     noinline action: (WindowEvent) -> Unit
 ): Unit = setOnCloseRequest { event -> action(event) }
 
-/** Called just after the [Window] has been hidden. */
-inline fun Window.onHidden(
-    noinline action: (WindowEvent) -> Unit
-): Unit = setOnHidden { event -> action(event) }
-
-/** Called just prior to the [Window] being hidden. */
-inline fun Window.onHiding(
-    noinline action: (WindowEvent) -> Unit
-): Unit = setOnHiding { event -> action(event) }
-
 /** Called just prior to the [Window] being shown. */
 inline fun Window.onShowing(
     noinline action: (WindowEvent) -> Unit
@@ -48,3 +38,13 @@ inline fun Window.onShowing(
 inline fun Window.onShown(
     noinline action: (WindowEvent) -> Unit
 ): Unit = setOnShown { event -> action(event) }
+
+/** Called just prior to the [Window] being hidden. */
+inline fun Window.onHiding(
+    noinline action: (WindowEvent) -> Unit
+): Unit = setOnHiding { event -> action(event) }
+
+/** Called just after the [Window] has been hidden. */
+inline fun Window.onHidden(
+    noinline action: (WindowEvent) -> Unit
+): Unit = setOnHidden { event -> action(event) }

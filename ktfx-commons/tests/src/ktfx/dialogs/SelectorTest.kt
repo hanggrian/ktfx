@@ -1,24 +1,16 @@
 package ktfx.dialogs
 
 import javafx.scene.image.ImageView
-import javafx.stage.Stage
+import ktfx.test.BaseDialogTest
+import ktfx.test.assertInstance
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.test.BaseDialogTest
-import ktfx.test.assertInstance
-import org.junit.jupiter.api.extension.ExtendWith
-import org.testfx.api.FxRobot
-import org.testfx.framework.junit5.ApplicationExtension
-import org.testfx.framework.junit5.Start
 
 @Ignore
-@ExtendWith(ApplicationExtension::class)
 class SelectorTest : BaseDialogTest() {
 
-    @Start override fun start(stage: Stage) = super.start(stage)
-
-    @Test fun FxRobot.selector() {
+    @Test fun selector() {
         interact {
             assertEquals(
                 "Jump off bridge",

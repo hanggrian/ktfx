@@ -2,24 +2,16 @@ package ktfx.dialogs
 
 import javafx.scene.control.ButtonType
 import javafx.scene.image.ImageView
-import javafx.stage.Stage
+import ktfx.test.BaseDialogTest
+import ktfx.test.assertInstance
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.test.BaseDialogTest
-import ktfx.test.assertInstance
-import org.junit.jupiter.api.extension.ExtendWith
-import org.testfx.api.FxRobot
-import org.testfx.framework.junit5.ApplicationExtension
-import org.testfx.framework.junit5.Start
 
 @Ignore
-@ExtendWith(ApplicationExtension::class)
 class AlertTest : BaseDialogTest() {
 
-    @Start override fun start(stage: Stage) = super.start(stage)
-
-    @Test fun FxRobot.alert() {
+    @Test fun alert() {
         interact {
             assertEquals(ButtonType.YES, alert("Alert title", ImageView("file:icon.png"), "Message", ButtonType.YES) {
                 closeOnShow(this)
@@ -34,7 +26,7 @@ class AlertTest : BaseDialogTest() {
         }
     }
 
-    @Test fun FxRobot.infoAlert() {
+    @Test fun infoAlert() {
         interact {
             assertEquals(ButtonType.OK, infoAlert("Info title", ImageView("file:icon.png"), "Message") {
                 closeOnShow(this)
@@ -49,7 +41,7 @@ class AlertTest : BaseDialogTest() {
         }
     }
 
-    @Test fun FxRobot.warningAlert() {
+    @Test fun warningAlert() {
         interact {
             assertEquals(ButtonType.OK, infoAlert("Warning title", ImageView("file:icon.png"), "Message") {
                 closeOnShow(this)
@@ -64,7 +56,7 @@ class AlertTest : BaseDialogTest() {
         }
     }
 
-    @Test fun FxRobot.confirmAlert() {
+    @Test fun confirmAlert() {
         interact {
             assertEquals(ButtonType.OK, confirmAlert("Confirm title", ImageView("file:icon.png"), "Message") {
                 closeOnShow(this)
@@ -79,7 +71,7 @@ class AlertTest : BaseDialogTest() {
         }
     }
 
-    @Test fun FxRobot.errorAlert() {
+    @Test fun errorAlert() {
         interact {
             assertEquals(ButtonType.OK, errorAlert("Error title", ImageView("file:icon.png"), "Message") {
                 closeOnShow(this)

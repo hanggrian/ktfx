@@ -24,6 +24,21 @@ inline fun <E : Event> Task<*>.eventHandler(
 ): EventHandler<E> = EventHandler<E> { event -> action(event) }
     .also { addEventHandler(type, it) }
 
+/** The onSchedule event handler is called whenever the Task state transitions to the SCHEDULED state. */
+inline fun Task<*>.onScheduled(
+    noinline action: (WorkerStateEvent) -> Unit
+): Unit = setOnScheduled { event -> action(event) }
+
+/** The onRunning event handler is called whenever the Task state transitions to the RUNNING state. */
+inline fun Task<*>.onRunning(
+    noinline action: (WorkerStateEvent) -> Unit
+): Unit = setOnRunning { event -> action(event) }
+
+/** The onSucceeded event handler is called whenever the Task state transitions to the SUCCEEDED state. */
+inline fun Task<*>.onSucceeded(
+    noinline action: (WorkerStateEvent) -> Unit
+): Unit = setOnSucceeded { event -> action(event) }
+
 /** The onCancelled event handler is called whenever the Task state transitions to the CANCELLED state. */
 inline fun Task<*>.onCancelled(
     noinline action: (WorkerStateEvent) -> Unit
@@ -33,18 +48,3 @@ inline fun Task<*>.onCancelled(
 inline fun Task<*>.onFailed(
     noinline action: (WorkerStateEvent) -> Unit
 ): Unit = setOnFailed { event -> action(event) }
-
-/** The onRunning event handler is called whenever the Task state transitions to the RUNNING state. */
-inline fun Task<*>.onRunning(
-    noinline action: (WorkerStateEvent) -> Unit
-): Unit = setOnRunning { event -> action(event) }
-
-/** The onSchedule event handler is called whenever the Task state transitions to the SCHEDULED state. */
-inline fun Task<*>.onScheduled(
-    noinline action: (WorkerStateEvent) -> Unit
-): Unit = setOnScheduled { event -> action(event) }
-
-/** The onSucceeded event handler is called whenever the Task state transitions to the SUCCEEDED state. */
-inline fun Task<*>.onSucceeded(
-    noinline action: (WorkerStateEvent) -> Unit
-): Unit = setOnSucceeded { event -> action(event) }

@@ -8,12 +8,12 @@ import javafx.event.EventHandler
 import javafx.event.EventType
 import javafx.stage.Window
 import javafx.stage.WindowEvent
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Registers an event filter to this node. */
 fun <E : Event> Window.eventFilter(
@@ -37,18 +37,6 @@ fun Window.onCloseRequest(
     action: suspend CoroutineScope.(WindowEvent) -> Unit
 ): Unit = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
 
-/** Called just after the [Window] has been hidden. */
-fun Window.onHidden(
-    context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(WindowEvent) -> Unit
-): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
-
-/** Called just prior to the [Window] being hidden. */
-fun Window.onHiding(
-    context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(WindowEvent) -> Unit
-): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
-
 /** Called just prior to the [Window] being shown. */
 fun Window.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
@@ -60,3 +48,15 @@ fun Window.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(WindowEvent) -> Unit
 ): Unit = setOnShown { event -> GlobalScope.launch(context) { action(event) } }
+
+/** Called just prior to the [Window] being hidden. */
+fun Window.onHiding(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WindowEvent) -> Unit
+): Unit = setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
+
+/** Called just after the [Window] has been hidden. */
+fun Window.onHidden(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(WindowEvent) -> Unit
+): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }

@@ -10,16 +10,14 @@ import javafx.scene.input.MouseEvent
 import javafx.scene.input.ScrollEvent
 import javafx.stage.Stage
 import ktfx.controls.paddingAll
-import org.junit.jupiter.api.extension.ExtendWith
-import org.testfx.framework.junit5.ApplicationExtension
+import org.testfx.framework.junit.ApplicationTest
 
 /**
  * Application test which can create fake key, mouse and scroll events.
  *
  * @see org.testfx.service.adapter.impl.JavafxRobotAdapter
  */
-@ExtendWith(ApplicationExtension::class)
-open class BaseInputTest {
+open class BaseInputTest : ApplicationTest() {
     lateinit var scene: Scene
 
     var isShiftDown = false
@@ -36,7 +34,7 @@ open class BaseInputTest {
     var screenMouseX = 0.0
     var screenMouseY = 0.0
 
-    open fun start(stage: Stage) {
+    override fun start(stage: Stage) {
         scene = Scene(Label("Testing inputs...").apply { paddingAll = 20.0 })
         stage.scene = scene
         stage.show()

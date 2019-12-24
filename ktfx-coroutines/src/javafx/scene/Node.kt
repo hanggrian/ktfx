@@ -174,7 +174,7 @@ fun Node.onScrollFinished(
 ): Unit = setOnScrollFinished { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Defines a function to be called when a rotation gesture is detected. */
-fun Node.onRotationStarted(
+fun Node.onRotateStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(RotateEvent) -> Unit
 ): Unit = setOnRotationStarted { event -> GlobalScope.launch(context) { action(event) } }
@@ -186,7 +186,7 @@ fun Node.onRotate(
 ): Unit = setOnRotate { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Defines a function to be called when a rotation gesture ends. */
-fun Node.onRotationFinished(
+fun Node.onRotateFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(RotateEvent) -> Unit
 ): Unit = setOnRotationFinished { event -> GlobalScope.launch(context) { action(event) } }
@@ -234,7 +234,7 @@ fun Node.onSwipeRight(
 ): Unit = setOnSwipeRight { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Defines a function to be called when a new touch point is pressed. */
-fun Node.setOnTouchPressed(
+fun Node.onTouchPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TouchEvent) -> Unit
 ): Unit = setOnTouchPressed { event -> GlobalScope.launch(context) { action(event) } }

@@ -37,10 +37,6 @@ inline fun <E : Event> Scene.eventHandler(
 ): EventHandler<E> = EventHandler<E> { event -> action(event) }
     .also { addEventHandler(type, it) }
 
-inline fun Scene.onContextMenuRequested(
-    noinline action: (ContextMenuEvent) -> Unit
-): Unit = setOnContextMenuRequested { event -> action(event) }
-
 /** Defines a function to be called when a mouse button has been clicked (pressed and released) on this [Scene]. */
 inline fun Scene.onMouseClicked(
     noinline action: (MouseEvent) -> Unit
@@ -117,7 +113,7 @@ inline fun Scene.onScrollFinished(
 ): Unit = setOnScrollFinished { event -> action(event) }
 
 /** Defines a function to be called when a rotating gesture is detected. */
-inline fun Scene.onRotationStarted(
+inline fun Scene.onRotateStarted(
     noinline action: (RotateEvent) -> Unit
 ): Unit = setOnRotationStarted { event -> action(event) }
 
@@ -127,7 +123,7 @@ inline fun Scene.onRotate(
 ): Unit = setOnRotate { event -> action(event) }
 
 /** Defines a function to be called when a rotating gesture ends. */
-inline fun Scene.onRotationFinished(
+inline fun Scene.onRotateFinished(
     noinline action: (RotateEvent) -> Unit
 ): Unit = setOnRotationFinished { event -> action(event) }
 
@@ -167,7 +163,7 @@ inline fun Scene.onSwipeRight(
 ): Unit = setOnSwipeRight { event -> action(event) }
 
 /** Defines a function to be called when a new touch point is pressed. */
-inline fun Scene.setOnTouchPressed(
+inline fun Scene.onTouchPressed(
     noinline action: (TouchEvent) -> Unit
 ): Unit = setOnTouchPressed { event -> action(event) }
 
@@ -233,6 +229,10 @@ inline fun Scene.onKeyTyped(
 inline fun Scene.onInputMethodTextChanged(
     noinline action: (InputMethodEvent) -> Unit
 ): Unit = setOnInputMethodTextChanged { event -> action(event) }
+
+inline fun Scene.onContextMenuRequested(
+    noinline action: (ContextMenuEvent) -> Unit
+): Unit = setOnContextMenuRequested { event -> action(event) }
 
 /** Takes a snapshot of this scene at the next frame and calls the specified callback method when the image is ready. */
 inline fun Scene.snapshot(

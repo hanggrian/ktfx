@@ -146,7 +146,7 @@ inline fun Node.onScrollFinished(
 ): Unit = setOnScrollFinished { event -> action(event) }
 
 /** Defines a function to be called when a rotation gesture is detected. */
-inline fun Node.onRotationStarted(
+inline fun Node.onRotateStarted(
     noinline action: (RotateEvent) -> Unit
 ): Unit = setOnRotationStarted { event -> action(event) }
 
@@ -156,7 +156,7 @@ inline fun Node.onRotate(
 ): Unit = setOnRotate { event -> action(event) }
 
 /** Defines a function to be called when a rotation gesture ends. */
-inline fun Node.onRotationFinished(
+inline fun Node.onRotateFinished(
     noinline action: (RotateEvent) -> Unit
 ): Unit = setOnRotationFinished { event -> action(event) }
 
@@ -196,7 +196,7 @@ inline fun Node.onSwipeRight(
 ): Unit = setOnSwipeRight { event -> action(event) }
 
 /** Defines a function to be called when a new touch point is pressed. */
-inline fun Node.setOnTouchPressed(
+inline fun Node.onTouchPressed(
     noinline action: (TouchEvent) -> Unit
 ): Unit = setOnTouchPressed { event -> action(event) }
 

@@ -6,8 +6,11 @@ import javafx.scene.input.TransferMode
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-fun assertFakeDragEvent(source: Any, actual: DragEvent, expectedType: EventType<DragEvent>) {
-    assertEquals(source, actual.source)
+/**
+ * @receiver source of this fake event.
+ */
+fun Any.assertFakeDragEvent(actual: DragEvent, expectedType: EventType<DragEvent>) {
+    assertEquals(this, actual.source)
     assertEquals(FakeEventTarget, actual.target)
     assertEquals(expectedType, actual.eventType)
     assertNull(actual.dragboard)
@@ -21,8 +24,12 @@ fun assertFakeDragEvent(source: Any, actual: DragEvent, expectedType: EventType<
     assertEquals(FakePickResult, actual.pickResult)
 }
 
-fun fakeDragEventOf(source: Any, eventType: EventType<DragEvent>) = DragEvent(
-    source, FakeEventTarget, eventType, null,
-    0.0, 0.0, 0.0, 0.0,
-    TransferMode.MOVE, null, null, FakePickResult
+/**
+ * @receiver source of this fake event.
+ */
+fun Any.fakeDragEventOf(eventType: EventType<DragEvent>) = DragEvent(
+    this, FakeEventTarget, eventType, null,
+    0.0, 0.0,
+    0.0, 0.0, TransferMode.MOVE,
+    null, null, FakePickResult
 )

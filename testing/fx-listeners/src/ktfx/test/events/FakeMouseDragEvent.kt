@@ -2,12 +2,16 @@ package ktfx.test
 
 import javafx.event.EventType
 import javafx.scene.input.MouseButton
-import javafx.scene.input.MouseEvent
+import javafx.scene.input.MouseDragEvent
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
+import kotlin.test.assertNull
 
-fun assertFakeMouseEvent(source: Any, actual: MouseEvent, expectedType: EventType<MouseEvent>) {
-    assertEquals(source, actual.source)
+/**
+ * @receiver source of this fake event.
+ */
+fun Any.assertFakeMouseDragEvent(actual: MouseDragEvent, expectedType: EventType<MouseDragEvent>) {
+    assertEquals(this, actual.source)
     assertEquals(FakeEventTarget, actual.target)
     assertEquals(expectedType, actual.eventType)
     assertEquals(0.0, actual.x)
@@ -23,14 +27,19 @@ fun assertFakeMouseEvent(source: Any, actual: MouseEvent, expectedType: EventTyp
     assertFalse(actual.isSecondaryButtonDown)
     assertFalse(actual.isSynthesized)
     assertFalse(actual.isPopupTrigger)
-    assertFalse(actual.isStillSincePress)
     assertEquals(FakePickResult, actual.pickResult)
+    assertNull(actual.gestureSource)
 }
 
-fun fakeMouseEventOf(source: Any, eventType: EventType<MouseEvent>) = MouseEvent(
-    source, FakeEventTarget, eventType,
+/**
+ * @receiver source of this fake event.
+ */
+fun Any.fakeMouseDragEventOf(eventType: EventType<MouseDragEvent>) = MouseDragEvent(
+    this, FakeEventTarget, eventType,
     0.0, 0.0, 0.0, 0.0,
     MouseButton.PRIMARY, 1,
-    false, false, false, false, false, false, false, false, false, false,
-    FakePickResult
+    false, false, false, false,
+    false, false, false,
+    false, false, FakePickResult,
+    null
 )

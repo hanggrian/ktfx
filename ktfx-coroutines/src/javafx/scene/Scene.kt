@@ -44,11 +44,6 @@ fun <E : Event> Scene.eventHandler(
 ): EventHandler<E> = EventHandler<E> { event -> GlobalScope.launch(context) { action(event) } }
     .also { addEventHandler(type, it) }
 
-fun Scene.onContextMenuRequested(
-    context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(ContextMenuEvent) -> Unit
-): Unit = setOnContextMenuRequested { event -> GlobalScope.launch(context) { action(event) } }
-
 /** Defines a function to be called when a mouse button has been clicked (pressed and released) on this [Scene]. */
 fun Scene.onMouseClicked(
     context: CoroutineContext = Dispatchers.JavaFx,
@@ -140,7 +135,7 @@ fun Scene.onScrollFinished(
 ): Unit = setOnScrollFinished { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Defines a function to be called when a rotating gesture is detected. */
-fun Scene.onRotationStarted(
+fun Scene.onRotateStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(RotateEvent) -> Unit
 ): Unit = setOnRotationStarted { event -> GlobalScope.launch(context) { action(event) } }
@@ -152,7 +147,7 @@ fun Scene.onRotate(
 ): Unit = setOnRotate { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Defines a function to be called when a rotating gesture ends. */
-fun Scene.onRotationFinished(
+fun Scene.onRotateFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(RotateEvent) -> Unit
 ): Unit = setOnRotationFinished { event -> GlobalScope.launch(context) { action(event) } }
@@ -200,7 +195,7 @@ fun Scene.onSwipeRight(
 ): Unit = setOnSwipeRight { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Defines a function to be called when a new touch point is pressed. */
-fun Scene.setOnTouchPressed(
+fun Scene.onTouchPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TouchEvent) -> Unit
 ): Unit = setOnTouchPressed { event -> GlobalScope.launch(context) { action(event) } }
@@ -279,6 +274,11 @@ fun Scene.onInputMethodTextChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(InputMethodEvent) -> Unit
 ): Unit = setOnInputMethodTextChanged { event -> GlobalScope.launch(context) { action(event) } }
+
+fun Scene.onContextMenuRequested(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(ContextMenuEvent) -> Unit
+): Unit = setOnContextMenuRequested { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Takes a snapshot of this scene at the next frame and calls the specified callback method when the image is ready. */
 fun Scene.snapshot(

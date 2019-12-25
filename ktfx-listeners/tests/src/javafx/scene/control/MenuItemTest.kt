@@ -8,5 +8,5 @@ import ktfx.test.BaseMenuItemTest
 class MenuItemTest : BaseMenuItemTest() {
 
     override fun MenuItem.callOnAction(action: (ActionEvent) -> Unit) = onAction(action)
-    override fun MenuItem.callOnMenuValidation(action: (Event) -> Unit) = onAction(action)
+    override fun MenuItem.callOnMenuValidation(action: (Event) -> Unit) = onMenuValidation(action)
 }

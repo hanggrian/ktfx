@@ -19,7 +19,7 @@ ktlint { add ->
 dependencies {
     api(project(":$RELEASE_ARTIFACT-core"))
 
-    testImplementation(project(":testing:fx"))
+    testImplementation(project(":testing:commons"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 }
 
@@ -30,10 +30,6 @@ tasks {
     withType<org.jetbrains.dokka.gradle.DokkaTask> {
         outputDirectory = "$buildDir/docs"
         doFirst { file(outputDirectory).deleteRecursively() }
-    }
-    test {
-        useJUnitPlatform()
-        testLogging { events("passed", "skipped", "failed") }
     }
 }
 

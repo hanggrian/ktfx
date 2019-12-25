@@ -12,5 +12,5 @@ class MenuItemTest : BaseMenuItemTest() {
         onAction(Dispatchers.Unconfined) { action(it) }
 
     override fun MenuItem.callOnMenuValidation(action: (Event) -> Unit) =
-        onAction(Dispatchers.Unconfined) { action(it) }
+        onMenuValidation(Dispatchers.Unconfined) { action(it) }
 }

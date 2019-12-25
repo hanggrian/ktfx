@@ -20,7 +20,7 @@ ktlint { add ->
 dependencies {
     api(project(":$RELEASE_ARTIFACT-core"))
 
-    testImplementation(project(":testing:fx"))
+    testImplementation(project(":testing:layouts"))
     testImplementation(apache("commons-lang3", VERSION_COMMONS_LANG))
 }
 

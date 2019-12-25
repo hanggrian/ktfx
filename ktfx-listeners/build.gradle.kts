@@ -20,7 +20,7 @@ ktlint { add ->
 dependencies {
     api(project(":$RELEASE_ARTIFACT-core"))
 
-    testImplementation(project(":testing:fx-listeners"))
+    testImplementation(project(":testing:listeners-and-coroutines"))
 }
 
 tasks {

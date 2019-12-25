@@ -5,13 +5,12 @@ include("ktfx-listeners")
 include("ktfx-coroutines")
 include("ktfx")
 
-includeDir("ktfx-features")
+includeDir("features")
+includeDir("ruleset")
+includeDir("testing")
 
 include("website")
 include("demo")
-
-includeDir("ruleset")
-includeDir("testing")
 
 fun includeDir(dir: String) = file(dir)
     .listFiles()

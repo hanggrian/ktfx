@@ -4,7 +4,9 @@ import javafx.scene.control.Dialog
 import javafx.scene.control.DialogEvent
 import kotlinx.coroutines.Dispatchers
 import ktfx.test.BaseDialogTest
+import kotlin.test.Ignore
 
+@Ignore
 class DialogTest : BaseDialogTest() {
 
     override fun <E> Dialog<E>.callOnCloseRequest(action: (DialogEvent) -> Unit) =

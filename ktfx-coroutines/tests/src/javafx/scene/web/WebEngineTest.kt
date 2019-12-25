@@ -6,7 +6,9 @@ import javafx.scene.web.WebEngine
 import javafx.scene.web.WebErrorEvent
 import javafx.scene.web.WebEvent
 import kotlinx.coroutines.Dispatchers
+import kotlin.test.Ignore
 
+@Ignore
 class WebEngineTest : BaseWebEngineTest() {
 
     override fun WebEngine.callOnAlert(action: (WebEvent<String>) -> Unit) =

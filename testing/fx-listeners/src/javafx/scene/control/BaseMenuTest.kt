@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.event.Event
 import javafx.scene.control.Menu
 import kotlin.test.BeforeTest
@@ -17,7 +16,7 @@ abstract class BaseMenuTest {
     private lateinit var menu: Menu
 
     @BeforeTest fun start() {
-        PlatformImpl.startup { }
+        initToolkit()
         menu = Menu()
     }
 

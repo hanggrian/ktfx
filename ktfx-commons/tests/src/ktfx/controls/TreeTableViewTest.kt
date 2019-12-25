@@ -1,11 +1,14 @@
 package ktfx.controls
 
 import javafx.scene.control.TreeTableView
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.test.ToolkitInitializer
 
-class TreeTableViewTest : ToolkitInitializer {
+class TreeTableViewTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun columns() {
         val treeTable = TreeTableView<Nothing>()

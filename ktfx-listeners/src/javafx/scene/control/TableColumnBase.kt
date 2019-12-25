@@ -13,5 +13,5 @@ import javafx.scene.control.TableColumnBase
 inline fun <E : Event> TableColumnBase<*, *>.eventHandler(
     type: EventType<E>,
     noinline action: (Event) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> action(event) }
+): EventHandler<E> = EventHandler<E>(action)
     .also { addEventHandler(type, it) }

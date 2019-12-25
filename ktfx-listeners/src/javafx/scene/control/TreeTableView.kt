@@ -12,12 +12,12 @@ import javafx.scene.control.TreeTableView
 /** Called when there's a request to sort the control. */
 inline fun <T> TreeTableView<T>.onSort(
     noinline action: (SortEvent<TreeTableView<T>>) -> Unit
-): Unit = setOnSort { event -> action(event) }
+): Unit = setOnSort(action)
 
 /** Called when there's a request to scroll an index into view using [TreeTableView.scrollTo]. */
 inline fun TreeTableView<*>.onScrollTo(
     noinline action: (ScrollToEvent<Int>) -> Unit
-): Unit = setOnScrollTo { event -> action(event) }
+): Unit = setOnScrollTo(action)
 
 /**
  * Called when there's a request to scroll a column into view using [TreeTableView.scrollToColumn] or
@@ -25,4 +25,4 @@ inline fun TreeTableView<*>.onScrollTo(
  */
 inline fun <T> TreeTableView<T>.onScrollToColumn(
     noinline action: (ScrollToEvent<TreeTableColumn<T, *>>) -> Unit
-): Unit = setOnScrollToColumn { event -> action(event) }
+): Unit = setOnScrollToColumn(action)

@@ -3,12 +3,15 @@ package ktfx.controlsfx
 import javafx.scene.control.Label
 import javafx.scene.layout.Region
 import ktfx.controlsfx.controls.wrapBorders
-import ktfx.test.ToolkitInitializer
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class BordersTest : ToolkitInitializer {
+class BordersTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun emptyBorder() {
         val label = Label()

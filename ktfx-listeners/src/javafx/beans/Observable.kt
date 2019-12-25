@@ -10,6 +10,4 @@ import javafx.beans.Observable
 /** Adds an [InvalidationListener] which will be notified whenever the [Observable] becomes invalid. */
 inline fun Observable.listener(
     noinline listener: (Observable) -> Unit
-): InvalidationListener = InvalidationListener { observable ->
-    listener(observable)
-}.also { addListener(it) }
+): InvalidationListener = InvalidationListener(listener).also { addListener(it) }

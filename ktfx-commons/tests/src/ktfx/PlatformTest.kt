@@ -1,16 +1,19 @@
 package ktfx
 
 import javafx.application.ConditionalFeature
-import kotlin.test.Test
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.runBlocking
-import ktfx.test.ToolkitInitializer
 import ktfx.test.assertContains
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
+import kotlin.test.Test
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
-class PlatformTest : ToolkitInitializer {
+class PlatformTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun isFxThread() {
         val check = { ktfx.isFxThread() }

@@ -7,6 +7,7 @@ import javafx.event.Event
 import javafx.event.EventHandler
 import javafx.event.EventType
 import javafx.scene.transform.Transform
+import javafx.scene.transform.TransformChangedEvent
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,3 +30,9 @@ fun <E : Event> Transform.eventHandler(
     action: suspend CoroutineScope.(E) -> Unit
 ): EventHandler<E> = EventHandler<E> { event -> GlobalScope.launch(context) { action(event) } }
     .also { addEventHandler(type, it) }
+
+/** Sets the onTransformChanged event handler which is called whenever the transform changes any of its parameters. */
+fun Transform.onTransformChanged(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(TransformChangedEvent) -> Unit
+): Unit = setOnTransformChanged { event -> GlobalScope.launch(context) { action(event) } }

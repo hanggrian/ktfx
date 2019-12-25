@@ -14,15 +14,15 @@ import javafx.scene.control.MenuItem
 inline fun <E : Event> MenuItem.eventHandler(
     type: EventType<E>,
     noinline action: (E) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> action(event) }
+): EventHandler<E> = EventHandler(action)
     .also { addEventHandler(type, it) }
 
 /** The action, which is invoked whenever the [MenuItem] is fired. */
 inline fun MenuItem.onAction(
     noinline action: (ActionEvent) -> Unit
-): Unit = setOnAction { event -> action(event) }
+): Unit = setOnAction(action)
 
 /** The event handler that is associated with invocation of an accelerator for a [MenuItem]. */
 inline fun MenuItem.onMenuValidation(
     noinline action: (Event) -> Unit
-): Unit = setOnMenuValidation { event -> action(event) }
+): Unit = setOnMenuValidation(action)

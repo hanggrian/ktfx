@@ -6,12 +6,12 @@ package ktfx.coroutines
 import javafx.event.ActionEvent
 import javafx.event.Event
 import javafx.scene.control.ChoiceBox
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
-import kotlin.coroutines.CoroutineContext
 
 /** The ChoiceBox action, which is invoked whenever the [ChoiceBox.valueProperty] is changed. */
 fun ChoiceBox<*>.onAction(

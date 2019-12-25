@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.event.Event
 import javafx.scene.control.Tab
 import kotlin.test.BeforeTest
@@ -16,7 +15,7 @@ abstract class BaseTabTest {
     private lateinit var tab: Tab
 
     @BeforeTest fun start() {
-        PlatformImpl.startup { }
+        initToolkit()
         tab = Tab()
     }
 

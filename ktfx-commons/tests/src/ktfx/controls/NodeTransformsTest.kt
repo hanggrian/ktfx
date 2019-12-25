@@ -1,11 +1,14 @@
 package ktfx.controls
 
 import javafx.scene.control.Label
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.test.ToolkitInitializer
 
-class NodeTransformsTest : ToolkitInitializer {
+class NodeTransformsTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun affine() {
         val transformation = Label().affine {

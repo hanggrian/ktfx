@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeView
@@ -18,7 +17,7 @@ abstract class BaseTreeViewTest {
     private lateinit var tree: TreeView<String>
 
     @BeforeTest fun start() {
-        PlatformImpl.startup { }
+        initToolkit()
         tree = TreeView()
         tree.root = TreeItem()
     }

@@ -10,4 +10,4 @@ import javafx.scene.control.ContextMenu
 /** Callback function to be informed when an item contained within this [ContextMenu] has been activated. */
 inline fun ContextMenu.onAction(
     noinline action: (ActionEvent) -> Unit
-): Unit = setOnAction { event -> action(event) }
+): Unit = setOnAction(action)

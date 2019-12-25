@@ -10,4 +10,4 @@ import javafx.scene.control.ButtonBase
 /** The button's action, which is invoked whenever the button is fired. */
 inline fun ButtonBase.onAction(
     noinline action: (ActionEvent) -> Unit
-): Unit = setOnAction { event -> action(event) }
+): Unit = setOnAction(action)

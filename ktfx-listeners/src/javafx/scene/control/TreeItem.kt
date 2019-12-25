@@ -13,5 +13,5 @@ import javafx.scene.control.TreeItem
 inline fun <E : Event> TreeItem<*>.eventHandler(
     type: EventType<E>,
     noinline action: (E) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> action(event) }
+): EventHandler<E> = EventHandler<E>(action)
     .also { addEventHandler(type, it) }

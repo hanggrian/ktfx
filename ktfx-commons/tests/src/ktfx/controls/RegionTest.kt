@@ -2,13 +2,16 @@ package ktfx.controls
 
 import javafx.scene.layout.Region
 import javafx.scene.paint.Color
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
-import ktfx.test.ToolkitInitializer
 
-class RegionTest : ToolkitInitializer {
+class RegionTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun padding() {
         val region = Region()

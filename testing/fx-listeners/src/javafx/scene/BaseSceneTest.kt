@@ -1,6 +1,5 @@
 package javafx.scene
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.scene.input.ContextMenuEvent
 import javafx.scene.input.DragEvent
 import javafx.scene.input.InputMethodEvent
@@ -34,6 +33,7 @@ import ktfx.test.fakeScrollEventOf
 import ktfx.test.fakeSwipeEventOf
 import ktfx.test.fakeTouchEventOf
 import ktfx.test.fakeZoomEventOf
+import ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -84,7 +84,7 @@ abstract class BaseSceneTest {
     private lateinit var scene: Scene
 
     @BeforeTest fun onCreate() {
-        PlatformImpl.startup { }
+        initToolkit()
         scene = Scene(Pane())
     }
 

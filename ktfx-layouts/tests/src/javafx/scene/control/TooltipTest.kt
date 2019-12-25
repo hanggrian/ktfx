@@ -2,11 +2,14 @@ package ktfx.layouts
 
 import javafx.scene.control.TableColumn
 import javafx.util.Duration
-import ktfx.test.ToolkitInitializer
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 
-class TooltipTest : ToolkitInitializer {
+class TooltipTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun node() {
         imageView {

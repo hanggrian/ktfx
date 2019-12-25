@@ -12,12 +12,6 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 
-/** Called when there is an external request to close this [Dialog]. */
-fun Dialog<*>.onCloseRequest(
-    context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend CoroutineScope.(DialogEvent) -> Unit
-): Unit = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
-
 /** Called just prior to the [Dialog] being shown. */
 fun Dialog<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
@@ -41,3 +35,9 @@ fun Dialog<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(DialogEvent) -> Unit
 ): Unit = setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
+
+/** Called when there is an external request to close this [Dialog]. */
+fun Dialog<*>.onCloseRequest(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend CoroutineScope.(DialogEvent) -> Unit
+): Unit = setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }

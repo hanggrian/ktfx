@@ -2,12 +2,15 @@ package ktfx.layouts
 
 import javafx.scene.control.TableColumn
 import javafx.util.Duration
-import ktfx.test.ToolkitInitializer
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 
-class ContextMenuTest : ToolkitInitializer {
+class ContextMenuTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun stringInvocation() {
         contextMenu {

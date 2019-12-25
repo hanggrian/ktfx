@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.SortEvent
 import javafx.scene.control.TreeTableColumn
@@ -22,7 +21,7 @@ abstract class BaseTreeTableViewTest {
     private lateinit var position: TreeTablePosition<Duration, Long>
 
     @BeforeTest fun start() {
-        PlatformImpl.startup { }
+        initToolkit()
         table = TreeTableView()
         table.columns += TreeTableColumn<Duration, Long>().also { column = it }
         position = TreeTablePosition(table, 0, column)

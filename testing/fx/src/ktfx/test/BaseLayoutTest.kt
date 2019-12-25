@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -10,7 +9,7 @@ abstract class BaseLayoutTest<M : Any, C> {
     lateinit var manager: M
 
     @BeforeTest open fun onCreate() {
-        PlatformImpl.startup { }
+        initToolkit()
         manager = manager()
     }
 

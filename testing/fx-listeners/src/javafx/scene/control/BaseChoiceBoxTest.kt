@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.event.ActionEvent
 import javafx.event.Event
 import javafx.scene.control.ChoiceBox
@@ -19,7 +18,7 @@ abstract class BaseChoiceBoxTest {
     private lateinit var choice: ChoiceBox<String>
 
     @BeforeTest fun start() {
-        PlatformImpl.startup { }
+        initToolkit()
         choice = ChoiceBox()
     }
 

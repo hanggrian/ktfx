@@ -9,14 +9,14 @@ import javafx.scene.control.TableColumn
 /** This event handler will be fired when the user successfully initiates editing. */
 inline fun <S, T> TableColumn<S, T>.onEditStart(
     noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditStart { event -> action(event) }
+): Unit = setOnEditStart(action)
 
 /** This event handler will be fired when the user successfully commits their editing. */
 inline fun <S, T> TableColumn<S, T>.onEditCommit(
     noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditCommit { event -> action(event) }
+): Unit = setOnEditCommit(action)
 
 /** This event handler will be fired when the user cancels editing a cell. */
 inline fun <S, T> TableColumn<S, T>.onEditCancel(
     noinline action: (TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditCancel { event -> action(event) }
+): Unit = setOnEditCancel(action)

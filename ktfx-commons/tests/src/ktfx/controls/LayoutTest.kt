@@ -3,11 +3,14 @@ package ktfx.controls
 import javafx.scene.layout.FlowPane
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.TilePane
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.test.ToolkitInitializer
 
-class LayoutTest : ToolkitInitializer {
+class LayoutTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun gap() {
         val flowPane = FlowPane()

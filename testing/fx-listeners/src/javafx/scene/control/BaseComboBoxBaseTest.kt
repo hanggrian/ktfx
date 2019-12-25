@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.event.ActionEvent
 import javafx.event.Event
 import javafx.scene.control.ComboBox
@@ -20,7 +19,7 @@ abstract class BaseComboBoxBaseTest {
     private lateinit var combo: ComboBoxBase<String>
 
     @BeforeTest fun start() {
-        PlatformImpl.startup { }
+        initToolkit()
         combo = ComboBox()
     }
 

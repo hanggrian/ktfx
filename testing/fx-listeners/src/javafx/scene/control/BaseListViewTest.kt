@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.scene.control.ListView
 import javafx.scene.control.ScrollToEvent
 import kotlin.test.BeforeTest
@@ -17,7 +16,7 @@ abstract class BaseListViewTest {
     private lateinit var list: ListView<String>
 
     @BeforeTest fun start() {
-        PlatformImpl.startup { }
+        initToolkit()
         list = ListView()
     }
 

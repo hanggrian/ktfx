@@ -11,6 +11,4 @@ import javafx.collections.ObservableMap
 /** Add a listener to this observable map. */
 inline fun <K, V> ObservableMap<K, V>.listener(
     noinline listener: (Change<out K, out V>) -> Unit
-): MapChangeListener<K, V> = MapChangeListener<K, V> { change ->
-    listener(change)
-}.also { addListener(it) }
+): MapChangeListener<K, V> = MapChangeListener<K, V>(listener).also { addListener(it) }

@@ -11,24 +11,24 @@ import javafx.scene.control.ComboBoxBase
 /** The ComboBox action, which is invoked whenever the [ComboBoxBase.valueProperty] property is changed. */
 inline fun ComboBoxBase<*>.onAction(
     noinline action: (ActionEvent) -> Unit
-): Unit = setOnAction { event -> action(event) }
+): Unit = setOnAction(action)
 
 /** Called just prior to the [ComboBoxBase] popup/display being shown. */
 inline fun ComboBoxBase<*>.onShowing(
     noinline action: (Event) -> Unit
-): Unit = setOnShowing { event -> action(event) }
+): Unit = setOnShowing(action)
 
 /** Called just after the [ComboBoxBase] popup/display is shown. */
 inline fun ComboBoxBase<*>.onShown(
     noinline action: (Event) -> Unit
-): Unit = setOnShown { event -> action(event) }
+): Unit = setOnShown(action)
 
 /** Called just after the [ComboBoxBase] popup/display is shown. */
 inline fun ComboBoxBase<*>.onHiding(
     noinline action: (Event) -> Unit
-): Unit = setOnHiding { event -> action(event) }
+): Unit = setOnHiding(action)
 
 /** Called just after the [ComboBoxBase] popup/display has been hidden. */
 inline fun ComboBoxBase<*>.onHidden(
     noinline action: (Event) -> Unit
-): Unit = setOnHidden { event -> action(event) }
+): Unit = setOnHidden(action)

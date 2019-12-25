@@ -2,14 +2,13 @@ package ktfx.inputs
 
 import javafx.event.EventType
 import javafx.scene.Scene
-import javafx.scene.control.Label
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 import javafx.scene.input.ScrollEvent
 import javafx.stage.Stage
-import ktfx.controls.paddingAll
+import ktfx.test.testScene
 import org.testfx.framework.junit.ApplicationTest
 
 /**
@@ -35,9 +34,7 @@ open class BaseInputTest : ApplicationTest() {
     var screenMouseY = 0.0
 
     override fun start(stage: Stage) {
-        scene = Scene(Label("Testing inputs...").apply { paddingAll = 20.0 })
-        stage.scene = scene
-        stage.show()
+        scene = stage.testScene("Inputs")
     }
 
     fun keyEventOf(eventType: EventType<KeyEvent>, code: KeyCode, character: String = ""): KeyEvent {

@@ -2,12 +2,15 @@ package ktfx.controls
 
 import javafx.scene.control.Label
 import javafx.scene.shape.Rectangle
+import ktfx.test.initToolkit
+import ktfx.util.millis
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.test.ToolkitInitializer
-import ktfx.util.millis
 
-class NodeTransitionsTest : ToolkitInitializer {
+class NodeTransitionsTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun fadeTransition() {
         val node = Label()

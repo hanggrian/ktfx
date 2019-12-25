@@ -27,180 +27,180 @@ import ktfx.internal.KtfxInternals
 inline fun <E : Event> Scene.eventFilter(
     type: EventType<E>,
     noinline action: (E) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> action(event) }
+): EventHandler<E> = EventHandler(action)
     .also { addEventFilter(type, it) }
 
 /** Registers an event handler to this scene. */
 inline fun <E : Event> Scene.eventHandler(
     type: EventType<E>,
     noinline action: (E) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> action(event) }
+): EventHandler<E> = EventHandler(action)
     .also { addEventHandler(type, it) }
 
 /** Defines a function to be called when a mouse button has been clicked (pressed and released) on this [Scene]. */
 inline fun Scene.onMouseClicked(
     noinline action: (MouseEvent) -> Unit
-): Unit = setOnMouseClicked { event -> action(event) }
+): Unit = setOnMouseClicked(action)
 
 /** Defines a function to be called when a mouse button is pressed on this [Scene] and then dragged. */
 inline fun Scene.onMouseDragged(
     noinline action: (MouseEvent) -> Unit
-): Unit = setOnMouseDragged { event -> action(event) }
+): Unit = setOnMouseDragged(action)
 
 /** Defines a function to be called when the mouse enters this [Scene]. */
 inline fun Scene.onMouseEntered(
     noinline action: (MouseEvent) -> Unit
-): Unit = setOnMouseEntered { event -> action(event) }
+): Unit = setOnMouseEntered(action)
 
 /** Defines a function to be called when the mouse exits this [Scene]. */
 inline fun Scene.onMouseExited(
     noinline action: (MouseEvent) -> Unit
-): Unit = setOnMouseExited { event -> action(event) }
+): Unit = setOnMouseExited(action)
 
 /** Defines a function to be called when mouse cursor moves within this [Scene] but no buttons have been pushed. */
 inline fun Scene.onMouseMoved(
     noinline action: (MouseEvent) -> Unit
-): Unit = setOnMouseMoved { event -> action(event) }
+): Unit = setOnMouseMoved(action)
 
 /** Defines a function to be called when a mouse button has been pressed on this [Scene]. */
 inline fun Scene.onMousePressed(
     noinline action: (MouseEvent) -> Unit
-): Unit = setOnMousePressed { event -> action(event) }
+): Unit = setOnMousePressed(action)
 
 /** Defines a function to be called when a mouse button has been released on this [Scene]. */
 inline fun Scene.onMouseReleased(
     noinline action: (MouseEvent) -> Unit
-): Unit = setOnMouseReleased { event -> action(event) }
+): Unit = setOnMouseReleased(action)
 
 /** Defines a function to be called when drag gesture has been detected. */
 inline fun Scene.onDragDetected(
     noinline action: (MouseEvent) -> Unit
-): Unit = setOnDragDetected { event -> action(event) }
+): Unit = setOnDragDetected(action)
 
 /** Defines a function to be called when a full press-drag-release gesture progresses within this [Scene]. */
 inline fun Scene.onMouseDragOver(
     noinline action: (MouseDragEvent) -> Unit
-): Unit = setOnMouseDragOver { event -> action(event) }
+): Unit = setOnMouseDragOver(action)
 
 /** Defines a function to be called when a full press-drag-release gesture ends within this [Scene]. */
 inline fun Scene.onMouseDragReleased(
     noinline action: (MouseDragEvent) -> Unit
-): Unit = setOnMouseDragReleased { event -> action(event) }
+): Unit = setOnMouseDragReleased(action)
 
 /** Defines a function to be called when a full press-drag-release gesture enters this [Scene]. */
 inline fun Scene.onMouseDragEntered(
     noinline action: (MouseDragEvent) -> Unit
-): Unit = setOnMouseDragEntered { event -> action(event) }
+): Unit = setOnMouseDragEntered(action)
 
 /** Defines a function to be called when a full press-drag-release gesture exits this [Scene]. */
 inline fun Scene.onMouseDragExited(
     noinline action: (MouseDragEvent) -> Unit
-): Unit = setOnMouseDragExited { event -> action(event) }
+): Unit = setOnMouseDragExited(action)
 
 /** Defines a function to be called when a scrolling gesture is detected. */
 inline fun Scene.onScrollStarted(
     noinline action: (ScrollEvent) -> Unit
-): Unit = setOnScrollStarted { event -> action(event) }
+): Unit = setOnScrollStarted(action)
 
 /** Defines a function to be called when user performs a scrolling action. */
 inline fun Scene.onScroll(
     noinline action: (ScrollEvent) -> Unit
-): Unit = setOnScroll { event -> action(event) }
+): Unit = setOnScroll(action)
 
 /** Defines a function to be called when a scrolling gesture ends. */
 inline fun Scene.onScrollFinished(
     noinline action: (ScrollEvent) -> Unit
-): Unit = setOnScrollFinished { event -> action(event) }
+): Unit = setOnScrollFinished(action)
 
 /** Defines a function to be called when a rotating gesture is detected. */
 inline fun Scene.onRotateStarted(
     noinline action: (RotateEvent) -> Unit
-): Unit = setOnRotationStarted { event -> action(event) }
+): Unit = setOnRotationStarted(action)
 
 /** Defines a function to be called when user performs a rotating action. */
 inline fun Scene.onRotate(
     noinline action: (RotateEvent) -> Unit
-): Unit = setOnRotate { event -> action(event) }
+): Unit = setOnRotate(action)
 
 /** Defines a function to be called when a rotating gesture ends. */
 inline fun Scene.onRotateFinished(
     noinline action: (RotateEvent) -> Unit
-): Unit = setOnRotationFinished { event -> action(event) }
+): Unit = setOnRotationFinished(action)
 
 /** Defines a function to be called when a zooming gesture is detected. */
 inline fun Scene.onZoomStarted(
     noinline action: (ZoomEvent) -> Unit
-): Unit = setOnZoomStarted { event -> action(event) }
+): Unit = setOnZoomStarted(action)
 
 /** Defines a function to be called when user performs a zooming action. */
 inline fun Scene.onZoom(
     noinline action: (ZoomEvent) -> Unit
-): Unit = setOnZoom { event -> action(event) }
+): Unit = setOnZoom(action)
 
 /** Defines a function to be called when a zooming gesture ends. */
 inline fun Scene.onZoomFinished(
     noinline action: (ZoomEvent) -> Unit
-): Unit = setOnZoomFinished { event -> action(event) }
+): Unit = setOnZoomFinished(action)
 
 /** Defines a function to be called when an upward swipe gesture happens in this scene. */
 inline fun Scene.onSwipeUp(
     noinline action: (SwipeEvent) -> Unit
-): Unit = setOnSwipeUp { event -> action(event) }
+): Unit = setOnSwipeUp(action)
 
 /** Defines a function to be called when an downward swipe gesture happens in this scene. */
 inline fun Scene.onSwipeDown(
     noinline action: (SwipeEvent) -> Unit
-): Unit = setOnSwipeDown { event -> action(event) }
+): Unit = setOnSwipeDown(action)
 
 /** Defines a function to be called when an leftward swipe gesture happens in this scene. */
 inline fun Scene.onSwipeLeft(
     noinline action: (SwipeEvent) -> Unit
-): Unit = setOnSwipeLeft { event -> action(event) }
+): Unit = setOnSwipeLeft(action)
 
 /** Defines a function to be called when an rightward swipe gesture happens in this scene. */
 inline fun Scene.onSwipeRight(
     noinline action: (SwipeEvent) -> Unit
-): Unit = setOnSwipeRight { event -> action(event) }
+): Unit = setOnSwipeRight(action)
 
 /** Defines a function to be called when a new touch point is pressed. */
 inline fun Scene.onTouchPressed(
     noinline action: (TouchEvent) -> Unit
-): Unit = setOnTouchPressed { event -> action(event) }
+): Unit = setOnTouchPressed(action)
 
 /** Defines a function to be called when a touch point is moved. */
 inline fun Scene.onTouchMoved(
     noinline action: (TouchEvent) -> Unit
-): Unit = setOnTouchMoved { event -> action(event) }
+): Unit = setOnTouchMoved(action)
 
 /** Defines a function to be called when a new touch point is pressed. */
 inline fun Scene.onTouchReleased(
     noinline action: (TouchEvent) -> Unit
-): Unit = setOnTouchReleased { event -> action(event) }
+): Unit = setOnTouchReleased(action)
 
 /** Defines a function to be called when a touch point stays pressed and still. */
 inline fun Scene.onTouchStationary(
     noinline action: (TouchEvent) -> Unit
-): Unit = setOnTouchStationary { event -> action(event) }
+): Unit = setOnTouchStationary(action)
 
 /** Defines a function to be called when drag gesture enters this [Scene]. */
 inline fun Scene.onDragEntered(
     noinline action: (DragEvent) -> Unit
-): Unit = setOnDragEntered { event -> action(event) }
+): Unit = setOnDragEntered(action)
 
 /** Defines a function to be called when drag gesture exits this [Scene]. */
 inline fun Scene.onDragExited(
     noinline action: (DragEvent) -> Unit
-): Unit = setOnDragExited { event -> action(event) }
+): Unit = setOnDragExited(action)
 
 /** Defines a function to be called when drag gesture progresses within this [Scene]. */
 inline fun Scene.onDragOver(
     noinline action: (DragEvent) -> Unit
-): Unit = setOnDragOver { event -> action(event) }
+): Unit = setOnDragOver(action)
 
 /** Defines a function to be called when the mouse button is released on this [Scene] during drag and drop gesture. */
 inline fun Scene.onDragDropped(
     noinline action: (DragEvent) -> Unit
-): Unit = setOnDragDropped { event -> action(event) }
+): Unit = setOnDragDropped(action)
 
 /**
  * Defines a function to be called when this [Scene] is a drag and drop gesture source after its data has been dropped
@@ -208,31 +208,31 @@ inline fun Scene.onDragDropped(
  */
 inline fun Scene.onDragDone(
     noinline action: (DragEvent) -> Unit
-): Unit = setOnDragDone { event -> action(event) }
+): Unit = setOnDragDone(action)
 
 /** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been pressed. */
 inline fun Scene.onKeyPressed(
     noinline action: (KeyEvent) -> Unit
-): Unit = setOnKeyPressed { event -> action(event) }
+): Unit = setOnKeyPressed(action)
 
 /** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been released. */
 inline fun Scene.onKeyReleased(
     noinline action: (KeyEvent) -> Unit
-): Unit = setOnKeyReleased { event -> action(event) }
+): Unit = setOnKeyReleased(action)
 
 /** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been typed. */
 inline fun Scene.onKeyTyped(
     noinline action: (KeyEvent) -> Unit
-): Unit = setOnKeyTyped { event -> action(event) }
+): Unit = setOnKeyTyped(action)
 
 /** Defines a function to be called when this [Node] has input focus and the input method text has changed. */
 inline fun Scene.onInputMethodTextChanged(
     noinline action: (InputMethodEvent) -> Unit
-): Unit = setOnInputMethodTextChanged { event -> action(event) }
+): Unit = setOnInputMethodTextChanged(action)
 
 inline fun Scene.onContextMenuRequested(
     noinline action: (ContextMenuEvent) -> Unit
-): Unit = setOnContextMenuRequested { event -> action(event) }
+): Unit = setOnContextMenuRequested(action)
 
 /** Takes a snapshot of this scene at the next frame and calls the specified callback method when the image is ready. */
 inline fun Scene.snapshot(

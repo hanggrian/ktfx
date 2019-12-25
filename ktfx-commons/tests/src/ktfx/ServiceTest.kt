@@ -1,7 +1,8 @@
 package ktfx
 
-import ktfx.test.ToolkitInitializer
+import ktfx.test.initToolkit
 import java.lang.Thread.sleep
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
@@ -9,7 +10,9 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlin.test.fail
 
-class ServiceTest : ToolkitInitializer {
+class ServiceTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun nullTest() = testService<Any> {
         setOnSucceeded {

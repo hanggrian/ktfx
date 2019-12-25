@@ -14,37 +14,37 @@ import javafx.stage.WindowEvent
 inline fun <E : Event> Window.eventFilter(
     type: EventType<E>,
     noinline action: (E) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> action(event) }
+): EventHandler<E> = EventHandler(action)
     .also { addEventFilter(type, it) }
 
 /** Registers an event handler to this node. */
 inline fun <E : Event> Window.eventHandler(
     type: EventType<E>,
     noinline action: (E) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> action(event) }
+): EventHandler<E> = EventHandler(action)
     .also { addEventHandler(type, it) }
 
 /** Called when there is an external request to close this [Window]. */
 inline fun Window.onCloseRequest(
     noinline action: (WindowEvent) -> Unit
-): Unit = setOnCloseRequest { event -> action(event) }
+): Unit = setOnCloseRequest(action)
 
 /** Called just prior to the [Window] being shown. */
 inline fun Window.onShowing(
     noinline action: (WindowEvent) -> Unit
-): Unit = setOnShowing { event -> action(event) }
+): Unit = setOnShowing(action)
 
 /** Called just after the Window is shown. */
 inline fun Window.onShown(
     noinline action: (WindowEvent) -> Unit
-): Unit = setOnShown { event -> action(event) }
+): Unit = setOnShown(action)
 
 /** Called just prior to the [Window] being hidden. */
 inline fun Window.onHiding(
     noinline action: (WindowEvent) -> Unit
-): Unit = setOnHiding { event -> action(event) }
+): Unit = setOnHiding(action)
 
 /** Called just after the [Window] has been hidden. */
 inline fun Window.onHidden(
     noinline action: (WindowEvent) -> Unit
-): Unit = setOnHidden { event -> action(event) }
+): Unit = setOnHidden(action)

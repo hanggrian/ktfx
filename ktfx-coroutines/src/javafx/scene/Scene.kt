@@ -20,13 +20,13 @@ import javafx.scene.input.ScrollEvent
 import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
+import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import ktfx.internal.KtfxInternals
-import kotlin.coroutines.CoroutineContext
 
 /** Registers an event filter to this scene. */
 fun <E : Event> Scene.eventFilter(

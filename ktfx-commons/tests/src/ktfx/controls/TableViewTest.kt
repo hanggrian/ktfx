@@ -1,11 +1,14 @@
 package ktfx.controls
 
 import javafx.scene.control.TableView
+import ktfx.test.initToolkit
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.test.ToolkitInitializer
 
-class TableViewTest : ToolkitInitializer {
+class TableViewTest {
+
+    @BeforeTest fun start() = initToolkit()
 
     @Test fun columns() {
         val table = TableView<Nothing>()

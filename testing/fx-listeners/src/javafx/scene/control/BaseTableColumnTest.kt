@@ -1,6 +1,5 @@
 package ktfx.test
 
-import com.sun.javafx.application.PlatformImpl
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TablePosition
 import javafx.scene.control.TableView
@@ -20,7 +19,7 @@ abstract class BaseTableColumnTest {
     private lateinit var position: TablePosition<Duration, Long>
 
     @BeforeTest fun start() {
-        PlatformImpl.startup { }
+        initToolkit()
         table = TableView()
         table.columns += TableColumn<Duration, Long>().also { column = it }
         position = TablePosition(table, 0, column)

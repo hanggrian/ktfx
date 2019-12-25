@@ -10,4 +10,4 @@ import javafx.scene.media.MediaView
 /** Sets the error event handler. */
 inline fun MediaView.onError(
     noinline action: (MediaErrorEvent) -> Unit
-): Unit = setOnError { event -> action(event) }
+): Unit = setOnError(action)

@@ -10,4 +10,4 @@ import javafx.scene.control.TextField
 /** The action handler associated with this text field, or `null` if no action handler is assigned. */
 inline fun TextField.onAction(
     noinline action: (ActionEvent) -> Unit
-): Unit = setOnAction { event -> action(event) }
+): Unit = setOnAction(action)

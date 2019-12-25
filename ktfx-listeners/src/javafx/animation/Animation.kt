@@ -10,4 +10,4 @@ import javafx.event.ActionEvent
 /** The action to be executed at the conclusion of this [Animation]. */
 inline fun Animation.onFinished(
     noinline action: (ActionEvent) -> Unit
-): Unit = setOnFinished { action(it) }
+): Unit = setOnFinished(action)

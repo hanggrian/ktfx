@@ -11,6 +11,4 @@ import javafx.collections.ObservableList
 /** Add a listener to this observable list. */
 inline fun <E> ObservableList<E>.listener(
     noinline listener: (Change<out E>) -> Unit
-): ListChangeListener<E> = ListChangeListener<E> { change ->
-    listener(change)
-}.also { addListener(it) }
+): ListChangeListener<E> = ListChangeListener<E>(listener).also { addListener(it) }

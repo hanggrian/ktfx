@@ -2,11 +2,11 @@ package ktfx.layouts
 
 import javafx.scene.chart.AreaChart
 import javafx.scene.chart.NumberAxis
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class AreaChartTest : BaseLayoutTest<NodeManager, AreaChart<Number, Number>>() {
+class AreaChartTest : LayoutTest<NodeManager, AreaChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 

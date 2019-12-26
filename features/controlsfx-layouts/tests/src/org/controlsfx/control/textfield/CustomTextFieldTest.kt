@@ -2,10 +2,10 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import org.controlsfx.control.textfield.CustomTextField
 
-class CustomTextFieldTest : BaseLayoutTest<NodeManager, CustomTextField>() {
+class CustomTextFieldTest : LayoutTest<NodeManager, CustomTextField>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

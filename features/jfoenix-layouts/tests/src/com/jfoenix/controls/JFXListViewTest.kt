@@ -3,9 +3,9 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXListView
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 
-class JFXListViewTest : BaseLayoutTest<NodeManager, JFXListView<String>>() {
+class JFXListViewTest : LayoutTest<NodeManager, JFXListView<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

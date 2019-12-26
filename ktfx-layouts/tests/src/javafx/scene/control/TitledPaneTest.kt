@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.TitledPane
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
-class TitledPaneTest : BaseLayoutTest<TitledPaneManager, TitledPane>() {
+class TitledPaneTest : LayoutTest<TitledPaneManager, TitledPane>() {
 
     override fun manager() = KtfxAccordion()
     override fun childCount() = manager.childCount

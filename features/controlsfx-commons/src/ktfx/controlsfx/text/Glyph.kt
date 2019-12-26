@@ -5,8 +5,13 @@ package ktfx.controlsfx.text
 import javafx.scene.paint.Color
 import org.controlsfx.glyphfont.Glyph
 
-/** Retrieve glyph by font name and glyph name using one string where font name an glyph name are separated by pipe. */
-fun String.glyph(glyph: String): Glyph = Glyph.create("$this|$glyph")
+/**
+ * Retrieve glyph by font name and glyph name using one string where font name an glyph name are separated by pipe.
+ *
+ * @receiver font name.
+ * @param glyph name.
+ */
+infix fun String.glyph(glyph: String): Glyph = Glyph.create("$this|$glyph")
 
 /** Sets the glyph icon font family. */
 inline infix fun Glyph.family(family: String): Glyph = fontFamily(family)

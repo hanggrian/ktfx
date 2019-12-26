@@ -1,9 +1,9 @@
 package ktfx.layouts
 
 import javafx.scene.control.SplitPane
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 
-class SplitPaneTest : BaseLayoutTest<NodeManager, SplitPane>() {
+class SplitPaneTest : LayoutTest<NodeManager, SplitPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

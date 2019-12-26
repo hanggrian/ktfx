@@ -8,10 +8,9 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BasePlusMinusSliderTest {
+    private lateinit var slider: PlusMinusSlider
 
     abstract fun PlusMinusSlider.callOnValueChanged(action: (PlusMinusSlider.PlusMinusEvent) -> Unit)
-
-    private lateinit var slider: PlusMinusSlider
 
     @BeforeTest fun start() {
         initToolkit()

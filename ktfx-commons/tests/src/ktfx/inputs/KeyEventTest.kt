@@ -2,6 +2,7 @@ package ktfx.inputs
 
 import javafx.scene.input.KeyCode
 import javafx.scene.input.KeyEvent
+import ktfx.test.BaseInputTest
 import kotlin.test.Test
 import kotlin.test.assertTrue
 

@@ -1,4 +1,4 @@
-package ktfx.inputs
+package ktfx.test
 
 import javafx.event.EventType
 import javafx.scene.Scene

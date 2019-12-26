@@ -6,10 +6,9 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 abstract class BaseMediaTest {
+    private lateinit var media: Media
 
     abstract fun Media.callOnError(action: () -> Unit)
-
-    private lateinit var media: Media
 
     @BeforeTest fun start() {
         initToolkit()

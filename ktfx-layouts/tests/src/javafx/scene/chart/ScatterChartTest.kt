@@ -2,11 +2,11 @@ package ktfx.layouts
 
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.ScatterChart
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class ScatterChartTest : BaseLayoutTest<NodeManager, ScatterChart<Number, Number>>() {
+class ScatterChartTest : LayoutTest<NodeManager, ScatterChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 

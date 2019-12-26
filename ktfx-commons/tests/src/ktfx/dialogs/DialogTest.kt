@@ -1,29 +1,27 @@
 package ktfx.dialogs
 
 import javafx.scene.control.Dialog
-import javafx.scene.image.ImageView
 import ktfx.controls.stage
-import ktfx.test.BaseDialogTest
+import ktfx.test.DialogShowingTest
 import ktfx.test.assertEmpty
 import ktfx.test.assertNotEmpty
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 @Ignore
-class DialogTest : BaseDialogTest() {
+class DialogTest : DialogShowingTest() {
 
     @Test fun graphicIcon() {
         interact {
             val dialog = Dialog<Nothing>()
             assertEmpty(dialog.dialogPane.scene.stage.icons)
             assertNull(dialog.graphic)
-            dialog.graphicIcon = ImageView("file:icon.png")
+            dialog.graphicIcon = sampleGraphic
             assertNotEmpty(dialog.dialogPane.scene.stage.icons)
-            assertNotNull(dialog.graphic)
+            assertEquals(sampleGraphic, dialog.graphic)
         }
     }
 

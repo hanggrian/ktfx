@@ -4,10 +4,10 @@ import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
-class JFXTreeTableViewTest : BaseLayoutTest<NodeManager, JFXTreeTableView<JFXTreeTableViewTest.Person>>() {
+class JFXTreeTableViewTest : LayoutTest<NodeManager, JFXTreeTableView<JFXTreeTableViewTest.Person>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

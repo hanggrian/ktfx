@@ -4,10 +4,10 @@ import com.jfoenix.controls.JFXChipView
 import com.jfoenix.controls.JFXDefaultChip
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
-class JFXDefaultChipTest : BaseLayoutTest<NodeManager, JFXDefaultChip<String>>() {
+class JFXDefaultChipTest : LayoutTest<NodeManager, JFXDefaultChip<String>>() {
     private lateinit var jfxChipView: JFXChipView<String>
 
     override fun onCreate() {

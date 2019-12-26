@@ -9,10 +9,9 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BasePopupWindowTest {
+    private lateinit var window: PopupWindow
 
     abstract fun PopupWindow.callOnAutoHide(action: (Event) -> Unit)
-
-    private lateinit var window: PopupWindow
 
     @BeforeTest fun start() {
         initToolkit()

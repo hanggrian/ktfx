@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
-class ProgressBarTest : BaseLayoutTest<NodeManager, ProgressBar>() {
+class ProgressBarTest : LayoutTest<NodeManager, ProgressBar>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

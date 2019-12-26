@@ -1,9 +1,9 @@
 package ktfx.layouts
 
 import javafx.scene.layout.BorderPane
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 
-class BorderPaneTest : BaseLayoutTest<NodeManager, BorderPane>() {
+class BorderPaneTest : LayoutTest<NodeManager, BorderPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

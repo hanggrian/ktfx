@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.ListView
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 
-class ListViewTest : BaseLayoutTest<NodeManager, ListView<String>>() {
+class ListViewTest : LayoutTest<NodeManager, ListView<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

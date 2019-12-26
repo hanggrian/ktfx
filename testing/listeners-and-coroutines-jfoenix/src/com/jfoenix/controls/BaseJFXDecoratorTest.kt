@@ -7,10 +7,9 @@ import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 
 abstract class BaseJFXDecoratorTest : ApplicationTest() {
+    private lateinit var decorator: JFXDecorator
 
     abstract fun JFXDecorator.callOnCloseButtonAction(action: () -> Unit)
-
-    private lateinit var decorator: JFXDecorator
 
     override fun start(stage: Stage) {
         decorator = JFXDecorator(stage, Label("Hello world"))

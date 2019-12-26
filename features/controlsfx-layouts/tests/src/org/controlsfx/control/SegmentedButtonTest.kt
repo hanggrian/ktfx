@@ -3,12 +3,12 @@ package ktfx.controlsfx.layouts
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.toggleButton
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import org.controlsfx.control.SegmentedButton
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SegmentedButtonTest : BaseLayoutTest<NodeManager, SegmentedButton>() {
+class SegmentedButtonTest : LayoutTest<NodeManager, SegmentedButton>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

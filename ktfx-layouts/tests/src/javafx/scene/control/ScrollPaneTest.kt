@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.ScrollPane
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
-class ScrollPaneTest : BaseLayoutTest<NodeManager, ScrollPane>() {
+class ScrollPaneTest : LayoutTest<NodeManager, ScrollPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -40,6 +40,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 
 abstract class BaseSceneTest {
+    private lateinit var scene: Scene
 
     abstract fun Scene.callOnMouseClicked(action: (MouseEvent) -> Unit)
     abstract fun Scene.callOnMouseDragged(action: (MouseEvent) -> Unit)
@@ -80,8 +81,6 @@ abstract class BaseSceneTest {
     abstract fun Scene.callOnKeyTyped(action: (KeyEvent) -> Unit)
     abstract fun Scene.callOnInputMethodTextChanged(action: (InputMethodEvent) -> Unit)
     abstract fun Scene.callOnContextMenuRequested(action: (ContextMenuEvent) -> Unit)
-
-    private lateinit var scene: Scene
 
     @BeforeTest fun onCreate() {
         initToolkit()

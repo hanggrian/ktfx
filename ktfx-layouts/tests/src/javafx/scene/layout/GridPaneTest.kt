@@ -1,12 +1,12 @@
 package ktfx.layouts
 
 import javafx.scene.layout.GridPane
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class GridPaneTest : BaseLayoutTest<NodeManager, GridPane>() {
+class GridPaneTest : LayoutTest<NodeManager, GridPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

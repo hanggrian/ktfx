@@ -4,11 +4,11 @@ import com.jfoenix.controls.JFXTabPane
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.layouts.tab
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class JFXTabPaneTest : BaseLayoutTest<NodeManager, JFXTabPane>() {
+class JFXTabPaneTest : LayoutTest<NodeManager, JFXTabPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

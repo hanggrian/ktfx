@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.text.Text
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
-class TextTest : BaseLayoutTest<NodeManager, Text>() {
+class TextTest : LayoutTest<NodeManager, Text>() {
 
     override fun manager() = KtfxTextFlow()
     override fun childCount() = manager.childCount

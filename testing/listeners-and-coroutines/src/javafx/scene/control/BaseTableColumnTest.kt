@@ -9,14 +9,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseTableColumnTest {
+    private lateinit var table: TableView<Duration>
+    private lateinit var column: TableColumn<Duration, Long>
+    private lateinit var position: TablePosition<Duration, Long>
 
     abstract fun <S, T> TableColumn<S, T>.callOnEditStart(action: (TableColumn.CellEditEvent<S, T>) -> Unit)
     abstract fun <S, T> TableColumn<S, T>.callOnEditCommit(action: (TableColumn.CellEditEvent<S, T>) -> Unit)
     abstract fun <S, T> TableColumn<S, T>.callOnEditCancel(action: (TableColumn.CellEditEvent<S, T>) -> Unit)
-
-    private lateinit var table: TableView<Duration>
-    private lateinit var column: TableColumn<Duration, Long>
-    private lateinit var position: TablePosition<Duration, Long>
 
     @BeforeTest fun start() {
         initToolkit()

@@ -8,13 +8,12 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseJFXDrawerTest {
+    private lateinit var drawer: JFXDrawer
 
     abstract fun JFXDrawer.callOnDrawerClosed(action: (JFXDrawerEvent) -> Unit)
     abstract fun JFXDrawer.callOnDrawerClosing(action: (JFXDrawerEvent) -> Unit)
     abstract fun JFXDrawer.callOnDrawerOpened(action: (JFXDrawerEvent) -> Unit)
     abstract fun JFXDrawer.callOnDrawerOpening(action: (JFXDrawerEvent) -> Unit)
-
-    private lateinit var drawer: JFXDrawer
 
     @BeforeTest fun start() {
         initToolkit()

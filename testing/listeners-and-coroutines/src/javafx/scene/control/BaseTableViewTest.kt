@@ -11,14 +11,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseTableViewTest {
+    private lateinit var table: TableView<Duration>
+    private lateinit var column: TableColumn<Duration, Long>
+    private lateinit var position: TablePosition<Duration, Long>
 
     abstract fun <S> TableView<S>.callOnSort(action: (SortEvent<TableView<S>>) -> Unit)
     abstract fun <S> TableView<S>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit)
     abstract fun <S> TableView<S>.callOnScrollToColumn(action: (ScrollToEvent<TableColumn<S, *>>) -> Unit)
-
-    private lateinit var table: TableView<Duration>
-    private lateinit var column: TableColumn<Duration, Long>
-    private lateinit var position: TablePosition<Duration, Long>
 
     @BeforeTest fun start() {
         initToolkit()

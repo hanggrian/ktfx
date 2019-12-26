@@ -8,11 +8,10 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseJFXDialogTest {
+    private lateinit var dialog: JFXDialog
 
     abstract fun JFXDialog.callOnDialogClosed(action: (JFXDialogEvent) -> Unit)
     abstract fun JFXDialog.callOnDialogOpened(action: (JFXDialogEvent) -> Unit)
-
-    private lateinit var dialog: JFXDialog
 
     @BeforeTest fun start() {
         initToolkit()

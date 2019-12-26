@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.image.ImageView
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
-class ImageViewTest : BaseLayoutTest<NodeManager, ImageView>() {
+class ImageViewTest : LayoutTest<NodeManager, ImageView>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

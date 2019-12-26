@@ -1,21 +1,19 @@
 package ktfx.dialogs
 
-import javafx.scene.image.ImageView
-import ktfx.test.BaseDialogTest
-import ktfx.test.assertInstance
+import ktfx.test.DialogShowingTest
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class InputDialogTest : BaseDialogTest() {
+class InputDialogTest : DialogShowingTest() {
 
     @Test fun inputDialog() {
         interact {
-            assertEquals("Awesome input", inputDialog("Input dialog", ImageView("file:icon.png"), "Awful input") {
+            assertEquals("Awesome input", inputDialog("Input dialog", sampleGraphic, "Awful input") {
                 closeOnShow(this)
                 assertEquals("Input dialog", headerText)
-                assertInstance<ImageView>(graphic)
+                assertEquals(sampleGraphic, graphic)
                 assertEquals("Awful input", defaultValue)
                 editor.text = "Awesome input"
             }.get())

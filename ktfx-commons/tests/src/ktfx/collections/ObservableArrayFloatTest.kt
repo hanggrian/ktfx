@@ -1,6 +1,7 @@
 package ktfx.collections
 
 import javafx.collections.ObservableFloatArray
+import ktfx.test.BaseArrayTest
 
 class ObservableArrayFloatTest : BaseArrayTest<ObservableFloatArray, FloatArray, Float>() {
 

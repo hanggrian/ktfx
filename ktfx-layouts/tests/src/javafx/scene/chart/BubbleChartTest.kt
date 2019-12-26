@@ -2,11 +2,11 @@ package ktfx.layouts
 
 import javafx.scene.chart.BubbleChart
 import javafx.scene.chart.NumberAxis
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class BubbleChartTest : BaseLayoutTest<NodeManager, BubbleChart<Number, Number>>() {
+class BubbleChartTest : LayoutTest<NodeManager, BubbleChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 

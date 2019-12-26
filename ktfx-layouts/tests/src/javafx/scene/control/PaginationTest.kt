@@ -1,13 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.Pagination
-import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
-import ktfx.layouts.pagination
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
-class PaginationTest : BaseLayoutTest<NodeManager, Pagination>() {
+class PaginationTest : LayoutTest<NodeManager, Pagination>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -6,10 +6,9 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 
 abstract class BaseJFXAnimationTimerTest {
+    private lateinit var timer: JFXAnimationTimer
 
     abstract fun JFXAnimationTimer.callOnFinished(action: () -> Unit)
-
-    private lateinit var timer: JFXAnimationTimer
 
     @BeforeTest fun start() {
         initToolkit()

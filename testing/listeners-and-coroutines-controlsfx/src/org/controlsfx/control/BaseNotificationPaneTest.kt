@@ -9,13 +9,12 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseNotificationPaneTest {
+    private lateinit var pane: NotificationPane
 
     abstract fun NotificationPane.callOnShowing(action: (Event) -> Unit)
     abstract fun NotificationPane.callOnShown(action: (Event) -> Unit)
     abstract fun NotificationPane.callOnHiding(action: (Event) -> Unit)
     abstract fun NotificationPane.callOnHidden(action: (Event) -> Unit)
-
-    private lateinit var pane: NotificationPane
 
     @BeforeTest fun start() {
         initToolkit()

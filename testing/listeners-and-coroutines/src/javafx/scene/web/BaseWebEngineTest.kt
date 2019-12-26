@@ -5,20 +5,18 @@ import javafx.stage.Stage
 import ktfx.test.testScene
 import org.testfx.framework.junit.ApplicationTest
 import java.io.IOException
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 
 abstract class BaseWebEngineTest : ApplicationTest() {
+    private lateinit var engine: WebEngine
 
     abstract fun WebEngine.callOnAlert(action: (WebEvent<String>) -> Unit)
     abstract fun WebEngine.callOnStatusChanged(action: (WebEvent<String>) -> Unit)
     abstract fun WebEngine.callOnResized(action: (WebEvent<Rectangle2D>) -> Unit)
     abstract fun WebEngine.callOnVisibilityChanged(action: (WebEvent<Boolean>) -> Unit)
     abstract fun WebEngine.callOnError(action: (WebErrorEvent) -> Unit)
-
-    private lateinit var engine: WebEngine
 
     override fun start(stage: Stage) {
         stage.testScene<WebEngine>()

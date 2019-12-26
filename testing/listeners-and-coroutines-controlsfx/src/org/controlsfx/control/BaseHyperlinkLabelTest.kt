@@ -8,11 +8,10 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-abstract class BaseHyperlinkLabelTest() {
+abstract class BaseHyperlinkLabelTest {
+    private lateinit var label: HyperlinkLabel
 
     abstract fun HyperlinkLabel.callOnAction(action: (ActionEvent) -> Unit)
-
-    private lateinit var label: HyperlinkLabel
 
     @BeforeTest fun create() {
         initToolkit()

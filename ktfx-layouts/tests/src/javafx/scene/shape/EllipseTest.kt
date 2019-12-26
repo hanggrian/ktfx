@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Ellipse
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
-class EllipseTest : BaseLayoutTest<NodeManager, Ellipse>() {
+class EllipseTest : LayoutTest<NodeManager, Ellipse>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

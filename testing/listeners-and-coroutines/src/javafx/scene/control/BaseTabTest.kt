@@ -7,12 +7,11 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseTabTest {
+    private lateinit var tab: Tab
 
     abstract fun Tab.callOnSelectionChanged(action: (Event) -> Unit)
     abstract fun Tab.callOnClosed(action: (Event) -> Unit)
     abstract fun Tab.callOnCloseRequest(action: (Event) -> Unit)
-
-    private lateinit var tab: Tab
 
     @BeforeTest fun start() {
         initToolkit()

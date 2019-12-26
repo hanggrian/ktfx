@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.TreeTableView
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
-class TreeTableViewTest : BaseLayoutTest<NodeManager, TreeTableView<String>>() {
+class TreeTableViewTest : LayoutTest<NodeManager, TreeTableView<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.MeshView
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
-class MeshViewTest : BaseLayoutTest<NodeManager, MeshView>() {
+class MeshViewTest : LayoutTest<NodeManager, MeshView>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

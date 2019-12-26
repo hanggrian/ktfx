@@ -8,14 +8,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseDialogTest : ApplicationTest() {
+    private lateinit var dialog: Dialog<String>
 
     abstract fun <E> Dialog<E>.callOnCloseRequest(action: (DialogEvent) -> Unit)
     abstract fun <E> Dialog<E>.callOnShowing(action: (DialogEvent) -> Unit)
     abstract fun <E> Dialog<E>.callOnShown(action: (DialogEvent) -> Unit)
     abstract fun <E> Dialog<E>.callOnHiding(action: (DialogEvent) -> Unit)
     abstract fun <E> Dialog<E>.callOnHidden(action: (DialogEvent) -> Unit)
-
-    private lateinit var dialog: Dialog<String>
 
     override fun start(stage: Stage) {
         stage.testScene<Dialog<*>>()

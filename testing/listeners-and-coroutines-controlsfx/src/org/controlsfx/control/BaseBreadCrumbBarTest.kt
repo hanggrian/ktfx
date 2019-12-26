@@ -6,11 +6,10 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-abstract class BaseBreadCrumbBarTest() {
+abstract class BaseBreadCrumbBarTest {
+    private lateinit var crumbBar: BreadCrumbBar<String>
 
     abstract fun <E> BreadCrumbBar<E>.callOnCrumbAction(action: (BreadCrumbBar.BreadCrumbActionEvent<E>) -> Unit)
-
-    private lateinit var crumbBar: BreadCrumbBar<String>
 
     @BeforeTest fun create() {
         initToolkit()

@@ -1,12 +1,12 @@
 package ktfx.layouts
 
 import javafx.scene.web.WebView
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.Ignore
 
 /** Error on [child1], [child2] and [child3] because creating [WebView] must be in FX thread. */
 @Ignore
-class WebViewTest : BaseLayoutTest<NodeManager, WebView>() {
+class WebViewTest : LayoutTest<NodeManager, WebView>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

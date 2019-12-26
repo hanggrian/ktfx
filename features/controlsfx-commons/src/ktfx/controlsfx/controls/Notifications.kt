@@ -72,7 +72,7 @@ class NotificationsBuilder internal constructor() {
     }
 
     /** Specify the actions that should be shown in the notification as buttons. */
-    fun action(vararg actions: Action) {
+    fun actions(vararg actions: Action) {
         nativeNotifications.action(*actions)
     }
 

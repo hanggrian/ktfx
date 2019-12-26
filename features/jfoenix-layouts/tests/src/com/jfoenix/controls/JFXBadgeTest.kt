@@ -3,9 +3,9 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXBadge
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 
-class JFXBadgeTest : BaseLayoutTest<NodeManager, JFXBadge>() {
+class JFXBadgeTest : LayoutTest<NodeManager, JFXBadge>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

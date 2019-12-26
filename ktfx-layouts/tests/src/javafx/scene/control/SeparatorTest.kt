@@ -2,11 +2,11 @@ package ktfx.layouts
 
 import javafx.geometry.Orientation
 import javafx.scene.control.Separator
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SeparatorTest : BaseLayoutTest<NodeManager, Separator>() {
+class SeparatorTest : LayoutTest<NodeManager, Separator>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

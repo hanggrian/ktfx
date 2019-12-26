@@ -1,6 +1,5 @@
 package ktfx.test
 
-import javafx.scene.control.TableColumn
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTablePosition
 import javafx.scene.control.TreeTableView
@@ -10,14 +9,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseTreeTableColumnTest {
+    private lateinit var table: TreeTableView<Duration>
+    private lateinit var column: TreeTableColumn<Duration, Long>
+    private lateinit var position: TreeTablePosition<Duration, Long>
 
     abstract fun <S, T> TreeTableColumn<S, T>.callOnEditStart(action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit)
     abstract fun <S, T> TreeTableColumn<S, T>.callOnEditCommit(action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit)
     abstract fun <S, T> TreeTableColumn<S, T>.callOnEditCancel(action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit)
-
-    private lateinit var table: TreeTableView<Duration>
-    private lateinit var column: TreeTableColumn<Duration, Long>
-    private lateinit var position: TreeTablePosition<Duration, Long>
 
     @BeforeTest fun start() {
         initToolkit()

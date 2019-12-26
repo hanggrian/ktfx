@@ -2,11 +2,11 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 import org.controlsfx.control.PropertySheet
 
-class PropertySheetTest : BaseLayoutTest<NodeManager, PropertySheet>() {
+class PropertySheetTest : LayoutTest<NodeManager, PropertySheet>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

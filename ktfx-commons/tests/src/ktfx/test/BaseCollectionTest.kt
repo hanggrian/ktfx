@@ -1,9 +1,7 @@
-package ktfx.collections
+package ktfx.test
 
 import kotlin.test.Test
 import kotlin.test.assertFails
-import ktfx.test.assertContains
-import ktfx.test.assertEmpty
 
 /** All observable collection tests must follow this convention. */
 abstract class BaseCollectionTest<T : MutableCollection<String>> {

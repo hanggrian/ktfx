@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.chart.PieChart
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 
-class PieChartTest : BaseLayoutTest<NodeManager, PieChart>() {
+class PieChartTest : LayoutTest<NodeManager, PieChart>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

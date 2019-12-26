@@ -1,6 +1,7 @@
 package ktfx.collections
 
 import javafx.collections.ObservableIntegerArray
+import ktfx.test.BaseArrayTest
 
 class ObservableArrayIntTest : BaseArrayTest<ObservableIntegerArray, IntArray, Int>() {
 

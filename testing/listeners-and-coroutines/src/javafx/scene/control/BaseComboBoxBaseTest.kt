@@ -9,14 +9,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseComboBoxBaseTest {
+    private lateinit var combo: ComboBoxBase<String>
 
     abstract fun <E> ComboBoxBase<E>.callOnAction(action: (ActionEvent) -> Unit)
     abstract fun <E> ComboBoxBase<E>.callOnShowing(action: (Event) -> Unit)
     abstract fun <E> ComboBoxBase<E>.callOnShown(action: (Event) -> Unit)
     abstract fun <E> ComboBoxBase<E>.callOnHiding(action: (Event) -> Unit)
     abstract fun <E> ComboBoxBase<E>.callOnHidden(action: (Event) -> Unit)
-
-    private lateinit var combo: ComboBoxBase<String>
 
     @BeforeTest fun start() {
         initToolkit()

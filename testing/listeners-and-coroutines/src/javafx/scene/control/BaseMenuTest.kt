@@ -7,13 +7,12 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseMenuTest {
+    private lateinit var menu: Menu
 
     abstract fun Menu.callOnShowing(action: (Event) -> Unit)
     abstract fun Menu.callOnShown(action: (Event) -> Unit)
     abstract fun Menu.callOnHiding(action: (Event) -> Unit)
     abstract fun Menu.callOnHidden(action: (Event) -> Unit)
-
-    private lateinit var menu: Menu
 
     @BeforeTest fun start() {
         initToolkit()

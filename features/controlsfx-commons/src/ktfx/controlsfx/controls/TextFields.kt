@@ -20,6 +20,6 @@ fun <T> TextField.bindAutoCompletion(
 
 /** Create a new auto-completion binding between the given [TextField] and the given suggestion provider. */
 fun <T> TextField.bindAutoCompletion(
-    suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>,
-    converter: StringConverter<T>
+    converter: StringConverter<T>,
+    suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider, converter)

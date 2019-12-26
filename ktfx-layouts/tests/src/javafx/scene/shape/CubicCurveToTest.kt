@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurveTo
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
-class CubicCurveToTest : BaseLayoutTest<PathElementManager, CubicCurveTo>() {
+class CubicCurveToTest : LayoutTest<PathElementManager, CubicCurveTo>() {
 
     override fun manager() = KtfxPath()
     override fun childCount() = manager.childCount

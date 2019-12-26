@@ -1,4 +1,4 @@
-package ktfx.collections
+package ktfx.test
 
 import javafx.collections.ObservableArray
 import kotlin.test.Test

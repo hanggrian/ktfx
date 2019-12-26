@@ -1,28 +1,24 @@
 package ktfx.dialogs
 
-import javafx.scene.image.ImageView
-import ktfx.test.BaseDialogTest
-import ktfx.test.assertInstance
+import ktfx.test.DialogShowingTest
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 @Ignore
-class SelectorTest : BaseDialogTest() {
+class SelectorTest : DialogShowingTest() {
 
     @Test fun selector() {
         interact {
             assertEquals(
                 "Jump off bridge",
                 selector<String>(
-                    "Choice dialog",
-                    ImageView("file:icon.png"),
-                    listOf("Jump off bridge", "Live a happy life"),
-                    "Live a happy life"
+                    "Selector", sampleGraphic,
+                    listOf("Jump off bridge", "Live a happy life"), "Live a happy life"
                 ) {
                     closeOnShow(this)
-                    assertEquals("Choice dialog", headerText)
-                    assertInstance<ImageView>(graphic)
+                    assertEquals("Selector", headerText)
+                    assertEquals(sampleGraphic, graphic)
                     assertEquals("Live a happy life", defaultChoice)
                     selectedItem = "Jump off bridge"
                 }.get()
@@ -38,13 +34,13 @@ class SelectorTest : BaseDialogTest() {
             assertEquals(
                 "Jump off bridge",
                 selector<String>(
-                    "Choice dialog",
-                    ImageView("file:icon.png"),
-                    "Jump off bridge",
-                    "Live a happy life",
-                    prefill = "Live a happy life"
+                    "Selector", sampleGraphic,
+                    "Jump off bridge", "Live a happy life", prefill = "Live a happy life"
                 ) {
                     closeOnShow(this)
+                    assertEquals("Selector", headerText)
+                    assertEquals(sampleGraphic, graphic)
+                    assertEquals("Live a happy life", defaultChoice)
                     selectedItem = "Jump off bridge"
                 }.get()
             )

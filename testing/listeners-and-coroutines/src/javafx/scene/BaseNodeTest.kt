@@ -19,6 +19,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 
 abstract class BaseNodeTest {
+    private lateinit var node: Label
 
     abstract fun Node.callOnDragEntered(action: (DragEvent) -> Unit)
     abstract fun Node.callOnDragExited(action: (DragEvent) -> Unit)
@@ -59,8 +60,6 @@ abstract class BaseNodeTest {
     abstract fun Node.callOnKeyReleased(action: (KeyEvent) -> Unit)
     abstract fun Node.callOnKeyTyped(action: (KeyEvent) -> Unit)
     abstract fun Node.callOnInputMethodTextChanged(action: (InputMethodEvent) -> Unit)
-
-    private lateinit var node: Label
 
     @BeforeTest fun onCreate() {
         initToolkit()

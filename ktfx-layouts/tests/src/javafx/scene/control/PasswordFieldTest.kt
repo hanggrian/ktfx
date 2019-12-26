@@ -1,9 +1,9 @@
 package ktfx.layouts
 
 import javafx.scene.control.PasswordField
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 
-class PasswordFieldTest : BaseLayoutTest<NodeManager, PasswordField>() {
+class PasswordFieldTest : LayoutTest<NodeManager, PasswordField>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

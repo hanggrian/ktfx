@@ -2,11 +2,11 @@ package ktfx.layouts
 
 import javafx.geometry.Orientation
 import javafx.scene.layout.FlowPane
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class FlowPaneTest : BaseLayoutTest<NodeManager, FlowPane>() {
+class FlowPaneTest : LayoutTest<NodeManager, FlowPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

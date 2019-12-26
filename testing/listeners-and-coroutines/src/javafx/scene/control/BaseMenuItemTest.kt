@@ -8,11 +8,10 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseMenuItemTest {
+    private lateinit var item: MenuItem
 
     abstract fun MenuItem.callOnAction(action: (ActionEvent) -> Unit)
     abstract fun MenuItem.callOnMenuValidation(action: (Event) -> Unit)
-
-    private lateinit var item: MenuItem
 
     @BeforeTest fun start() {
         initToolkit()

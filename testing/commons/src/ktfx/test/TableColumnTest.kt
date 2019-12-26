@@ -2,7 +2,7 @@ package ktfx.test
 
 import kotlin.test.Test
 
-abstract class BaseTableColumnTest {
+abstract class TableColumnTest {
 
     @Test fun columns() {
     }

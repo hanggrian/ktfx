@@ -1,14 +1,10 @@
-package ktfx.controlsfx
+package ktfx.controlsfx.controls
 
 import javafx.scene.control.TextField
 import javafx.stage.Stage
-import ktfx.controlsfx.controls.registerEmptyValidator
-import ktfx.controlsfx.controls.registerEqualsValidator
-import ktfx.controlsfx.controls.registerPredicateValidator
 import ktfx.layouts.scene
 import ktfx.layouts.textField
 import org.controlsfx.validation.ValidationSupport
-import org.testfx.api.FxRobot
 import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

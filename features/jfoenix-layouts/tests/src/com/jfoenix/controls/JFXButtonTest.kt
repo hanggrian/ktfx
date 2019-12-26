@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXButton
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
-class JFXButtonTest : BaseLayoutTest<NodeManager, JFXButton>() {
+class JFXButtonTest : LayoutTest<NodeManager, JFXButton>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

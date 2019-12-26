@@ -1,9 +1,7 @@
-package ktfx.collections
+package ktfx.test
 
 import kotlin.test.Test
 import kotlin.test.assertFails
-import ktfx.test.assertContains
-import ktfx.test.assertEmpty
 
 abstract class BaseMapTest<T : MutableMap<String, Any?>> {
 

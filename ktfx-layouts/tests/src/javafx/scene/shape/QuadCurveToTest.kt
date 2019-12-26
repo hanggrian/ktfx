@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurveTo
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
-class QuadCurveToTest : BaseLayoutTest<PathElementManager, QuadCurveTo>() {
+class QuadCurveToTest : LayoutTest<PathElementManager, QuadCurveTo>() {
 
     override fun manager() = KtfxPath()
     override fun childCount() = manager.childCount

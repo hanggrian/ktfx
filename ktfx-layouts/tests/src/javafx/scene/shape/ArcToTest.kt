@@ -1,11 +1,11 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ArcTo
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 
-class ArcToTest : BaseLayoutTest<PathElementManager, ArcTo>() {
+class ArcToTest : LayoutTest<PathElementManager, ArcTo>() {
 
     override fun manager() = KtfxPath()
     override fun childCount() = manager.childCount

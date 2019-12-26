@@ -8,10 +8,9 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseJFXAutoCompletePopupTest {
+    private lateinit var popup: JFXAutoCompletePopup<String>
 
     abstract fun <E> JFXAutoCompletePopup<E>.callSelectionHandler(action: (JFXAutoCompleteEvent<E>) -> Unit)
-
-    private lateinit var popup: JFXAutoCompletePopup<String>
 
     @BeforeTest fun start() {
         initToolkit()

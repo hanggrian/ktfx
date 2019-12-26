@@ -3,11 +3,11 @@ package ktfx.layouts
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.CategoryAxis
 import javafx.scene.chart.NumberAxis
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
-class BarChartTest : BaseLayoutTest<NodeManager, BarChart<String, Number>>() {
+class BarChartTest : LayoutTest<NodeManager, BarChart<String, Number>>() {
     private lateinit var axis1: CategoryAxis
     private lateinit var axis2: NumberAxis
 

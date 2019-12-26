@@ -6,10 +6,9 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 
 abstract class BaseMediaViewTest {
+    private lateinit var media: MediaView
 
     abstract fun MediaView.callOnError(action: (MediaErrorEvent) -> Unit)
-
-    private lateinit var media: MediaView
 
     @BeforeTest fun start() {
         initToolkit()

@@ -7,13 +7,12 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseListViewTest {
+    private lateinit var list: ListView<String>
 
     abstract fun <E> ListView<E>.callOnEditStart(action: (ListView.EditEvent<E>) -> Unit)
     abstract fun <E> ListView<E>.callOnEditCommit(action: (ListView.EditEvent<E>) -> Unit)
     abstract fun <E> ListView<E>.callOnEditCancel(action: (ListView.EditEvent<E>) -> Unit)
     abstract fun <E> ListView<E>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit)
-
-    private lateinit var list: ListView<String>
 
     @BeforeTest fun start() {
         initToolkit()

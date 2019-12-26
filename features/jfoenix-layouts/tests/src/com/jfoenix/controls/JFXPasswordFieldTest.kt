@@ -3,9 +3,9 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXPasswordField
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 
-class JFXPasswordFieldTest : BaseLayoutTest<NodeManager, JFXPasswordField>() {
+class JFXPasswordFieldTest : LayoutTest<NodeManager, JFXPasswordField>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

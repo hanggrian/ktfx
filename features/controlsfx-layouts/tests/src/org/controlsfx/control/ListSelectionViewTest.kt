@@ -2,10 +2,10 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import org.controlsfx.control.ListSelectionView
 
-class ListSelectionViewTest : BaseLayoutTest<NodeManager, ListSelectionView<String>>() {
+class ListSelectionViewTest : LayoutTest<NodeManager, ListSelectionView<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

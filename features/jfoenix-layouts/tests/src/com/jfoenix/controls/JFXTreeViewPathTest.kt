@@ -4,9 +4,9 @@ import com.jfoenix.controls.JFXTreeView
 import com.jfoenix.controls.JFXTreeViewPath
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 
-class JFXTreeViewPathTest : BaseLayoutTest<NodeManager, JFXTreeViewPath>() {
+class JFXTreeViewPathTest : LayoutTest<NodeManager, JFXTreeViewPath>() {
     private lateinit var jfxTreeView: JFXTreeView<String>
 
     override fun onCreate() {

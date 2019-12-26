@@ -2,10 +2,10 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import org.controlsfx.control.StatusBar
 
-class StatusBarTest : BaseLayoutTest<NodeManager, StatusBar>() {
+class StatusBarTest : LayoutTest<NodeManager, StatusBar>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

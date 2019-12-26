@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polyline
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import ktfx.test.assertEmpty
 
-class PolylineTest : BaseLayoutTest<NodeManager, Polyline>() {
+class PolylineTest : LayoutTest<NodeManager, Polyline>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

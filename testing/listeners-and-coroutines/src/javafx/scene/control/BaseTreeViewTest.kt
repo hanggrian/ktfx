@@ -8,13 +8,12 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseTreeViewTest {
+    private lateinit var tree: TreeView<String>
 
     abstract fun <E> TreeView<E>.callOnEditStart(action: (TreeView.EditEvent<E>) -> Unit)
     abstract fun <E> TreeView<E>.callOnEditCommit(action: (TreeView.EditEvent<E>) -> Unit)
     abstract fun <E> TreeView<E>.callOnEditCancel(action: (TreeView.EditEvent<E>) -> Unit)
     abstract fun <E> TreeView<E>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit)
-
-    private lateinit var tree: TreeView<String>
 
     @BeforeTest fun start() {
         initToolkit()

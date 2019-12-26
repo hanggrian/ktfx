@@ -2,10 +2,10 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import org.controlsfx.control.PrefixSelectionComboBox
 
-class PrefixSelectionComboBoxTest : BaseLayoutTest<NodeManager, PrefixSelectionComboBox<String>>() {
+class PrefixSelectionComboBoxTest : LayoutTest<NodeManager, PrefixSelectionComboBox<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

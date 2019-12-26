@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXCheckBox
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertNull
 
-class JFXCheckBoxTest : BaseLayoutTest<NodeManager, JFXCheckBox>() {
+class JFXCheckBoxTest : LayoutTest<NodeManager, JFXCheckBox>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

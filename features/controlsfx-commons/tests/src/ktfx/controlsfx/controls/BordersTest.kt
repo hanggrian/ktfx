@@ -1,8 +1,7 @@
-package ktfx.controlsfx
+package ktfx.controlsfx.controls
 
 import javafx.scene.control.Label
 import javafx.scene.layout.Region
-import ktfx.controlsfx.controls.wrapBorders
 import ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test

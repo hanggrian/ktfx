@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.VLineTo
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import kotlin.test.assertEquals
 
-class VLineToTest : BaseLayoutTest<PathElementManager, VLineTo>() {
+class VLineToTest : LayoutTest<PathElementManager, VLineTo>() {
 
     override fun manager() = KtfxPath()
     override fun childCount() = manager.childCount

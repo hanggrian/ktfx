@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.controlsfx.controls
 
 import javafx.collections.ObservableList
@@ -7,6 +9,10 @@ import org.controlsfx.control.decoration.Decorator
 
 /** Adds the given decoration to the given node. */
 fun Node.addDecoration(decoration: Decoration): Unit = Decorator.addDecoration(this, decoration)
+
+/** Adds the given decorations to the given node. */
+inline fun Node.addDecorations(vararg decorations: Decoration): Unit =
+    decorations.forEach { Decorator.addDecoration(this, it) }
 
 /** Removes the given decoration from the given node. */
 fun Node.removeDecoration(decoration: Decoration): Unit = Decorator.removeDecoration(this, decoration)

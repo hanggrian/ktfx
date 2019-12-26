@@ -6,14 +6,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseWindowTest : ApplicationTest() {
+    private lateinit var window: Window
 
     abstract fun Window.callOnCloseRequest(action: (WindowEvent) -> Unit)
     abstract fun Window.callOnShowing(action: (WindowEvent) -> Unit)
     abstract fun Window.callOnShown(action: (WindowEvent) -> Unit)
     abstract fun Window.callOnHiding(action: (WindowEvent) -> Unit)
     abstract fun Window.callOnHidden(action: (WindowEvent) -> Unit)
-
-    private lateinit var window: Window
 
     override fun start(stage: Stage) {
         stage.testScene<Window>()

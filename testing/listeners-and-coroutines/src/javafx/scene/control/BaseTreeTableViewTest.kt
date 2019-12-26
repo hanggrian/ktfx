@@ -11,14 +11,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseTreeTableViewTest {
+    private lateinit var table: TreeTableView<Duration>
+    private lateinit var column: TreeTableColumn<Duration, Long>
+    private lateinit var position: TreeTablePosition<Duration, Long>
 
     abstract fun <S> TreeTableView<S>.callOnSort(action: (SortEvent<TreeTableView<S>>) -> Unit)
     abstract fun <S> TreeTableView<S>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit)
     abstract fun <S> TreeTableView<S>.callOnScrollToColumn(action: (ScrollToEvent<TreeTableColumn<S, *>>) -> Unit)
-
-    private lateinit var table: TreeTableView<Duration>
-    private lateinit var column: TreeTableColumn<Duration, Long>
-    private lateinit var position: TreeTablePosition<Duration, Long>
 
     @BeforeTest fun start() {
         initToolkit()

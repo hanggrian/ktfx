@@ -8,14 +8,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 abstract class BaseChoiceBoxTest {
+    private lateinit var choice: ChoiceBox<String>
 
     abstract fun <E> ChoiceBox<E>.callOnAction(action: (ActionEvent) -> Unit)
     abstract fun <E> ChoiceBox<E>.callOnShowing(action: (Event) -> Unit)
     abstract fun <E> ChoiceBox<E>.callOnShown(action: (Event) -> Unit)
     abstract fun <E> ChoiceBox<E>.callOnHiding(action: (Event) -> Unit)
     abstract fun <E> ChoiceBox<E>.callOnHidden(action: (Event) -> Unit)
-
-    private lateinit var choice: ChoiceBox<String>
 
     @BeforeTest fun start() {
         initToolkit()

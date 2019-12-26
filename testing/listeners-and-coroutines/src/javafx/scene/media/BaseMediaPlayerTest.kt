@@ -8,6 +8,7 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 abstract class BaseMediaPlayerTest {
+    private lateinit var player: MediaPlayer
 
     abstract fun MediaPlayer.callOnError(action: () -> Unit)
     abstract fun MediaPlayer.callOnMarker(action: (MediaMarkerEvent) -> Unit)
@@ -19,8 +20,6 @@ abstract class BaseMediaPlayerTest {
     abstract fun MediaPlayer.callOnHalted(action: () -> Unit)
     abstract fun MediaPlayer.callOnRepeat(action: () -> Unit)
     abstract fun MediaPlayer.callOnStalled(action: () -> Unit)
-
-    private lateinit var player: MediaPlayer
 
     @BeforeTest fun start() {
         initToolkit()

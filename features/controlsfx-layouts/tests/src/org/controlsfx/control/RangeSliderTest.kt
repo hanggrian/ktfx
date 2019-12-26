@@ -2,11 +2,11 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.BaseLayoutTest
+import ktfx.test.LayoutTest
 import org.controlsfx.control.RangeSlider
 import kotlin.test.assertEquals
 
-class RangeSliderTest : BaseLayoutTest<NodeManager, RangeSlider>() {
+class RangeSliderTest : LayoutTest<NodeManager, RangeSlider>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

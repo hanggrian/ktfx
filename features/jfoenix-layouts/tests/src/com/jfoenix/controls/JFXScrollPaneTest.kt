@@ -1,11 +1,11 @@
 package ktfx.jfoenix.layouts
 
+import com.google.common.truth.Truth.assertThat
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXScrollPane
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.test.LayoutTest
-import ktfx.test.assertContains
 import kotlin.test.Test
 
 class JFXScrollPaneTest : LayoutTest<NodeManager, JFXScrollPane>() {
@@ -47,11 +47,11 @@ class JFXScrollPaneTest : LayoutTest<NodeManager, JFXScrollPane>() {
                     condensed1 = jfxButton()
                     condensed2 = jfxButton()
                 }
-                assertContains(topBar.children, top1).inOrder()
-                assertContains(midBar.children, mid1, mid2).inOrder()
-                assertContains(bottomBar.children, bottom1, bottom2, bottom3).inOrder()
-                assertContains(mainHeader.children, main1).inOrder()
-                assertContains(condensedHeader.children, condensed1, condensed2).inOrder()
+                assertThat(topBar.children).containsExactly(top1).inOrder()
+                assertThat(midBar.children).containsExactly(mid1, mid2).inOrder()
+                assertThat(bottomBar.children).containsExactly(bottom1, bottom2, bottom3).inOrder()
+                assertThat(mainHeader.children).containsExactly(main1).inOrder()
+                assertThat(condensedHeader.children).containsExactly(condensed1, condensed2).inOrder()
             }
         }
     }

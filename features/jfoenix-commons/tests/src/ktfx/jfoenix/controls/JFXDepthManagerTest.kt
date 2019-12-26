@@ -17,4 +17,8 @@ class JFXDepthManagerTest {
     @Test fun depth() {
         node.depth = 1
     }
+
+    @Test fun popDepth() {
+        node.popDepth()
+    }
 }

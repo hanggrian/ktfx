@@ -1,11 +1,11 @@
 package ktfx.jfoenix.layouts
 
+import com.google.common.truth.Truth.assertThat
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXToolbar
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.test.LayoutTest
-import ktfx.test.assertContains
 import kotlin.test.Test
 
 class JFXToolbarTest : LayoutTest<NodeManager, JFXToolbar>() {
@@ -28,8 +28,8 @@ class JFXToolbarTest : LayoutTest<NodeManager, JFXToolbar>() {
                 right1 = jfxButton()
                 right2 = jfxButton()
             }
-            assertContains(leftItems, left1).inOrder()
-            assertContains(rightItems, right1, right2).inOrder()
+            assertThat(leftItems).containsExactly(left1).inOrder()
+            assertThat(rightItems).containsExactly(right1, right2).inOrder()
         }
     }
 }

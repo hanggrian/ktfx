@@ -1,16 +1,16 @@
 package ktfx
 
+import com.google.common.truth.Truth.assertThat
 import javafx.util.Duration
+import ktfx.collections.emptyObservableList
+import ktfx.collections.emptyObservableMap
+import ktfx.collections.emptyObservableSet
+import ktfx.util.minutes
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
-import ktfx.collections.emptyObservableList
-import ktfx.collections.emptyObservableMap
-import ktfx.collections.emptyObservableSet
-import ktfx.test.assertEmpty
-import ktfx.util.minutes
 
 class ObservableValueDelegateTest {
     private val anyProperty = propertyOf<Duration>()
@@ -88,18 +88,18 @@ class ObservableValueDelegateTest {
     @Test fun list() {
         assertNull(list)
         list = emptyObservableList()
-        assertEmpty(listProperty.value)
+        assertThat(listProperty.value).isEmpty()
     }
 
     @Test fun set() {
         assertNull(set)
         set = emptyObservableSet()
-        assertEmpty(setProperty.value)
+        assertThat(setProperty.value).isEmpty()
     }
 
     @Test fun map() {
         assertNull(map)
         map = emptyObservableMap()
-        assertEmpty(mapProperty.value.keys)
+        assertThat(mapProperty.value.keys).isEmpty()
     }
 }

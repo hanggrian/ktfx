@@ -1,10 +1,10 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.CategoryAxis
 import javafx.scene.chart.NumberAxis
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
 class BarChartTest : LayoutTest<NodeManager, BarChart<String, Number>>() {
@@ -26,7 +26,7 @@ class BarChartTest : LayoutTest<NodeManager, BarChart<String, Number>>() {
     override fun BarChart<String, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)
         assertEquals(axis2, yAxis)
-        assertEmpty(data)
+        assertThat(data).isEmpty()
         assertEquals(10.0, categoryGap)
     }
 }

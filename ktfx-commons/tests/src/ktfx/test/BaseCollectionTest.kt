@@ -1,5 +1,6 @@
 package ktfx.test
 
+import com.google.common.truth.Truth.assertThat
 import kotlin.test.Test
 import kotlin.test.assertFails
 
@@ -25,41 +26,28 @@ abstract class BaseCollectionTest<T : MutableCollection<String>> {
 
     @Test fun creating() {
         val empty = empty()
-        assertEmpty(empty)
+        assertThat(empty).isEmpty()
         assertFails { empty += ADD_VALUE }
 
         val unfilled = of()
-        assertEmpty(unfilled)
+        assertThat(unfilled).isEmpty()
         assertFails { unfilled += ADD_VALUE }
 
         val singleton = of(SINGLETON_VALUE)
-        assertContains(
-            singleton,
-            SINGLETON_VALUE
-        )
+        assertThat(singleton).containsExactly(SINGLETON_VALUE)
         assertFails { singleton += ADD_VALUE }
 
         val filled = of(*FILL_VALUES)
-        assertContains(
-            filled,
-            *FILL_VALUES
-        )
+        assertThat(filled).containsExactly(*FILL_VALUES)
         assertFails { filled += ADD_VALUE }
 
         val mutableUnfilled = mutableOf()
         mutableUnfilled += ADD_VALUE
-        assertContains(
-            mutableUnfilled,
-            ADD_VALUE
-        )
+        assertThat(mutableUnfilled).containsExactly(ADD_VALUE)
 
         val mutableFilled = mutableOf(*FILL_VALUES)
         mutableFilled += ADD_VALUE
-        assertContains(
-            mutableFilled,
-            *FILL_VALUES,
-            ADD_VALUE
-        )
+        assertThat(mutableFilled).containsExactly(*FILL_VALUES, ADD_VALUE)
     }
 
     abstract fun Array<String>.to(): T
@@ -71,48 +59,27 @@ abstract class BaseCollectionTest<T : MutableCollection<String>> {
 
     @Test fun converting() {
         val fromArray = ARRAY.to()
-        assertContains(
-            fromArray,
-            *FILL_VALUES
-        )
+        assertThat(fromArray).containsExactly(*FILL_VALUES)
         assertFails { fromArray += ADD_VALUE }
 
         val fromList = LIST.to()
-        assertContains(
-            fromList,
-            *FILL_VALUES
-        )
+        assertThat(fromList).containsExactly(*FILL_VALUES)
         assertFails { fromList += ADD_VALUE }
 
         val fromSequence = SEQUENCE.to()
-        assertContains(
-            fromSequence,
-            *FILL_VALUES
-        )
+        assertThat(fromSequence).containsExactly(*FILL_VALUES)
         assertFails { fromSequence += ADD_VALUE }
 
         val mutableFromArray = ARRAY.toMutable()
         mutableFromArray += ADD_VALUE
-        assertContains(
-            mutableFromArray,
-            *FILL_VALUES,
-            ADD_VALUE
-        )
+        assertThat(mutableFromArray).containsExactly(*FILL_VALUES, ADD_VALUE)
 
         val mutableFromList = LIST.toMutable()
         mutableFromList += ADD_VALUE
-        assertContains(
-            mutableFromList,
-            *FILL_VALUES,
-            ADD_VALUE
-        )
+        assertThat(mutableFromList).containsExactly(*FILL_VALUES, ADD_VALUE)
 
         val mutableFromSequence = SEQUENCE.toMutable()
         mutableFromSequence += ADD_VALUE
-        assertContains(
-            mutableFromSequence,
-            *FILL_VALUES,
-            ADD_VALUE
-        )
+        assertThat(mutableFromSequence).containsExactly(*FILL_VALUES, ADD_VALUE)
     }
 }

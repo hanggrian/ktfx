@@ -1,18 +1,18 @@
 package ktfx
 
+import com.google.common.truth.Truth.assertThat
 import javafx.beans.property.Property
 import javafx.util.Duration
+import ktfx.collections.emptyObservableList
+import ktfx.collections.emptyObservableMap
+import ktfx.collections.emptyObservableSet
+import ktfx.util.minutes
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
-import ktfx.collections.emptyObservableList
-import ktfx.collections.emptyObservableMap
-import ktfx.collections.emptyObservableSet
-import ktfx.test.assertEmpty
-import ktfx.util.minutes
 
 /** Initial value test. */
 class PropertiesTest {
@@ -62,19 +62,19 @@ class PropertiesTest {
     @Test fun list() = test(listPropertyOf<String>(), listWrapperOf<String>()) {
         assertNull(it.value)
         it.value = emptyObservableList()
-        assertEmpty(it.value)
+        assertThat(it.value).isEmpty()
     }
 
     @Test fun set() = test(setPropertyOf<String>(), setWrapperOf<String>()) {
         assertNull(it.value)
         it.value = emptyObservableSet()
-        assertEmpty(it.value)
+        assertThat(it.value).isEmpty()
     }
 
     @Test fun map() = test(mapPropertyOf<Int, String>(), mapWrapperOf<Int, String>()) {
         assertNull(it.value)
         it.value = emptyObservableMap()
-        assertEmpty(it.value.keys)
+        assertThat(it.value.keys).isEmpty()
     }
 
     inline fun <T> test(property: Property<T>, wrapper: Property<T>, action: (Property<T>) -> Unit) =

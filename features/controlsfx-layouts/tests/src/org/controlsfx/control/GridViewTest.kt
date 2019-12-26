@@ -1,9 +1,9 @@
 package ktfx.controlsfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 import org.controlsfx.control.GridView
 
 class GridViewTest : LayoutTest<NodeManager, GridView<String>>() {
@@ -15,6 +15,6 @@ class GridViewTest : LayoutTest<NodeManager, GridView<String>>() {
     override fun NodeManager.child3() = gridView<String> { }
 
     override fun GridView<String>.testDefaultValues() {
-        assertEmpty(items)
+        assertThat(items).isEmpty()
     }
 }

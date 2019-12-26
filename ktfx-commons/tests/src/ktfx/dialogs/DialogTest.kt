@@ -1,10 +1,9 @@
 package ktfx.dialogs
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.Dialog
 import ktfx.controls.stage
 import ktfx.test.DialogShowingTest
-import ktfx.test.assertEmpty
-import ktfx.test.assertNotEmpty
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -17,10 +16,10 @@ class DialogTest : DialogShowingTest() {
     @Test fun graphicIcon() {
         interact {
             val dialog = Dialog<Nothing>()
-            assertEmpty(dialog.dialogPane.scene.stage.icons)
+            assertThat(dialog.dialogPane.scene.stage.icons).isEmpty()
             assertNull(dialog.graphic)
             dialog.graphicIcon = sampleGraphic
-            assertNotEmpty(dialog.dialogPane.scene.stage.icons)
+            assertThat(dialog.dialogPane.scene.stage.icons).isNotEmpty()
             assertEquals(sampleGraphic, dialog.graphic)
         }
     }

@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ChoiceBox
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 
 class ChoiceBoxTest : LayoutTest<NodeManager, ChoiceBox<String>>() {
 
@@ -13,6 +13,6 @@ class ChoiceBoxTest : LayoutTest<NodeManager, ChoiceBox<String>>() {
     override fun NodeManager.child3() = choiceBox<String> { }
 
     override fun ChoiceBox<String>.testDefaultValues() {
-        assertEmpty(items)
+        assertThat(items).isEmpty()
     }
 }

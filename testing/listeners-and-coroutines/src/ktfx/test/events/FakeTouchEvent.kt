@@ -1,5 +1,6 @@
 package ktfx.test
 
+import com.google.common.truth.Truth.assertThat
 import javafx.event.EventType
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.TouchPoint
@@ -19,7 +20,7 @@ fun Any.assertFakeTouchEvent(actual: TouchEvent, expectedType: EventType<TouchEv
     assertEquals(FakeEventTarget, actual.target)
     assertEquals(expectedType, actual.eventType)
     assertEquals(touchPoint, actual.touchPoint)
-    assertEmpty(actual.touchPoints)
+    assertThat(actual.touchPoints).isEmpty()
     assertEquals(0, actual.eventSetId)
     assertFalse(actual.isShiftDown)
     assertFalse(actual.isControlDown)

@@ -1,9 +1,9 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.AreaChart
 import javafx.scene.chart.NumberAxis
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
 class AreaChartTest : LayoutTest<NodeManager, AreaChart<Number, Number>>() {
@@ -25,6 +25,6 @@ class AreaChartTest : LayoutTest<NodeManager, AreaChart<Number, Number>>() {
     override fun AreaChart<Number, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)
         assertEquals(axis2, yAxis)
-        assertEmpty(data)
+        assertThat(data).isEmpty()
     }
 }

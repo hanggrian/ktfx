@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.TableView
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 
 class TableViewTest : LayoutTest<NodeManager, TableView<String>>() {
 
@@ -13,6 +13,6 @@ class TableViewTest : LayoutTest<NodeManager, TableView<String>>() {
     override fun NodeManager.child3() = tableView<String> { }
 
     override fun TableView<String>.testDefaultValues() {
-        assertEmpty(items)
+        assertThat(items).isEmpty()
     }
 }

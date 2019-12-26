@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.MenuBar
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -16,7 +16,7 @@ class MenuBarTest : LayoutTest<NodeManager, MenuBar>() {
 
     @Test fun stringInvocation() {
         menuBar {
-            assertEmpty(menus)
+            assertThat(menus).isEmpty()
             menu("Hello")
             "World" {
             }

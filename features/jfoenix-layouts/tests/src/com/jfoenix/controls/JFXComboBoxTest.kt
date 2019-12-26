@@ -1,10 +1,10 @@
 package ktfx.jfoenix.layouts
 
+import com.google.common.truth.Truth.assertThat
 import com.jfoenix.controls.JFXComboBox
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 
 class JFXComboBoxTest : LayoutTest<NodeManager, JFXComboBox<String>>() {
 
@@ -15,6 +15,6 @@ class JFXComboBoxTest : LayoutTest<NodeManager, JFXComboBox<String>>() {
     override fun NodeManager.child3() = jfxComboBox<String> { }
 
     override fun JFXComboBox<String>.testDefaultValues() {
-        assertEmpty(items)
+        assertThat(items).isEmpty()
     }
 }

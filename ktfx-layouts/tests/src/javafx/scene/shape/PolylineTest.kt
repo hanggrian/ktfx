@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.shape.Polyline
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 
 class PolylineTest : LayoutTest<NodeManager, Polyline>() {
 
@@ -13,6 +13,6 @@ class PolylineTest : LayoutTest<NodeManager, Polyline>() {
     override fun NodeManager.child3() = polyline { }
 
     override fun Polyline.testDefaultValues() {
-        assertEmpty(points)
+        assertThat(points).isEmpty()
     }
 }

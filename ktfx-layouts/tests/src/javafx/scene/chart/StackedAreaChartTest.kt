@@ -1,9 +1,9 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.StackedAreaChart
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 import kotlin.test.assertEquals
 
 class StackedAreaChartTest : LayoutTest<NodeManager, StackedAreaChart<Number, Number>>() {
@@ -25,6 +25,6 @@ class StackedAreaChartTest : LayoutTest<NodeManager, StackedAreaChart<Number, Nu
     override fun StackedAreaChart<Number, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)
         assertEquals(axis2, yAxis)
-        assertEmpty(data)
+        assertThat(data).isEmpty()
     }
 }

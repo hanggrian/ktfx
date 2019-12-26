@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ComboBox
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 
 class ComboBoxTest : LayoutTest<NodeManager, ComboBox<String>>() {
 
@@ -13,6 +13,6 @@ class ComboBoxTest : LayoutTest<NodeManager, ComboBox<String>>() {
     override fun NodeManager.child3() = comboBox<String> { }
 
     override fun ComboBox<String>.testDefaultValues() {
-        assertEmpty(items)
+        assertThat(items).isEmpty()
     }
 }

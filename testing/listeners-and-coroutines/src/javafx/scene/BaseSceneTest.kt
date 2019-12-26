@@ -1,5 +1,6 @@
 package javafx.scene
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.input.ContextMenuEvent
 import javafx.scene.input.DragEvent
 import javafx.scene.input.InputMethodEvent
@@ -14,7 +15,6 @@ import javafx.scene.input.ZoomEvent
 import javafx.scene.layout.Pane
 import ktfx.test.FakeEventTarget
 import ktfx.test.FakePickResult
-import ktfx.test.assertEmpty
 import ktfx.test.assertFakeDragEvent
 import ktfx.test.assertFakeKeyEvent
 import ktfx.test.assertFakeMouseDragEvent
@@ -277,7 +277,7 @@ abstract class BaseSceneTest {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
             assertEquals(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, it.eventType)
-            assertEmpty(it.composed)
+            assertThat(it.composed).isEmpty()
             assertEquals("Hello world", it.committed)
             assertEquals(0, it.caretPosition)
         }

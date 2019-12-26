@@ -2,18 +2,22 @@ package ktfx.controlsfx.controls
 
 import javafx.geometry.Pos
 import javafx.scene.image.ImageView
+import javafx.stage.Stage
 import ktfx.test.SampleImageView
-import ktfx.test.initToolkit
+import ktfx.test.testScene
 import ktfx.util.seconds
-import kotlin.test.BeforeTest
+import org.controlsfx.control.Notifications
+import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 
-class NotificationsTest {
+class NotificationsTest : ApplicationTest() {
+    private lateinit var stage: Stage
     private lateinit var sampleGraphic: ImageView
 
-    @BeforeTest fun start() {
-        initToolkit()
+    override fun start(stage: Stage) {
+        this.stage = stage
+        stage.testScene<Notifications>()
         sampleGraphic = SampleImageView()
     }
 
@@ -23,7 +27,7 @@ class NotificationsTest {
             title = "Hi"
             graphic = sampleGraphic
             position = Pos.BOTTOM_RIGHT
-            owner = this@NotificationsTest
+            owner = stage
             hideAfter = 10.seconds
             onAction { }
             darkStyle()

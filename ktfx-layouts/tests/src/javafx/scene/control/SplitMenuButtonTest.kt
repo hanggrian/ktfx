@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.SplitMenuButton
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -16,7 +16,7 @@ class SplitMenuButtonTest : LayoutTest<NodeManager, SplitMenuButton>() {
 
     @Test fun stringInvocation() {
         splitMenuButton {
-            assertEmpty(items)
+            assertThat(items).isEmpty()
             menuItem("Hello")
             "World" {
             }

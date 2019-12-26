@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ListView
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 
 class ListViewTest : LayoutTest<NodeManager, ListView<String>>() {
 
@@ -13,6 +13,6 @@ class ListViewTest : LayoutTest<NodeManager, ListView<String>>() {
     override fun NodeManager.child3() = listView<String> { }
 
     override fun ListView<String>.testDefaultValues() {
-        assertEmpty(items)
+        assertThat(items).isEmpty()
     }
 }

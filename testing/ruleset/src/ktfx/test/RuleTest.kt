@@ -1,6 +1,6 @@
 package ktfx.test
 
-import com.google.common.truth.Truth
+import com.google.common.truth.Truth.assertThat
 import com.pinterest.ktlint.core.LintError
 import com.pinterest.ktlint.core.Rule
 import com.pinterest.ktlint.test.lint
@@ -11,7 +11,7 @@ interface RuleTest {
     val rule: Rule
 
     fun assert(vararg exactly: Triple<Int, Int, String>, text: () -> String) {
-        Truth.assertThat(rule.lint(text().trimIndent()))
+        assertThat(rule.lint(text().trimIndent()))
             .containsExactly(*exactly.map { LintError(it.first, it.second, rule.id, it.third) }.toTypedArray())
     }
 

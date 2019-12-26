@@ -1,5 +1,6 @@
 package ktfx.test
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.Node
 import javafx.scene.control.Label
 import javafx.scene.input.ContextMenuEvent
@@ -277,7 +278,7 @@ abstract class BaseNodeTest {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
             assertEquals(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, it.eventType)
-            assertEmpty(it.composed)
+            assertThat(it.composed).isEmpty()
             assertEquals("Hello world", it.committed)
             assertEquals(0, it.caretPosition)
         }

@@ -1,5 +1,6 @@
 package ktfx.test
 
+import com.google.common.truth.Truth.assertThat
 import kotlin.test.Test
 import kotlin.test.assertFails
 
@@ -22,41 +23,28 @@ abstract class BaseMapTest<T : MutableMap<String, Any?>> {
 
     @Test fun creating() {
         val empty = empty()
-        assertEmpty(empty.keys)
+        assertThat(empty.keys).isEmpty()
         assertFails { empty[ADD_VALUE] = null }
 
         val unfilled = of()
-        assertEmpty(unfilled.keys)
+        assertThat(unfilled.keys).isEmpty()
         assertFails { unfilled[ADD_VALUE] = null }
 
         val singleton = of(SINGLETON_VALUE)
-        assertContains(
-            singleton.keys,
-            SINGLETON_VALUE
-        )
+        assertThat(singleton.keys).containsExactly(SINGLETON_VALUE)
         assertFails { singleton[ADD_VALUE] = null }
 
         val filled = of(*FILL_VALUES)
-        assertContains(
-            filled.keys,
-            *FILL_VALUES
-        )
+        assertThat(filled.keys).containsExactly(*FILL_VALUES)
         assertFails { filled[ADD_VALUE] = null }
 
         val mutableUnfilled = mutableOf()
         mutableUnfilled[ADD_VALUE] = null
-        assertContains(
-            mutableUnfilled.keys,
-            ADD_VALUE
-        )
+        assertThat(mutableUnfilled.keys).containsExactly(ADD_VALUE)
 
         val mutableFilled = mutableOf(*FILL_VALUES)
         mutableFilled[ADD_VALUE] = null
-        assertContains(
-            mutableFilled.keys,
-            *FILL_VALUES,
-            ADD_VALUE
-        )
+        assertThat(mutableFilled.keys).containsExactly(*FILL_VALUES, ADD_VALUE)
     }
 
     abstract fun Map<String, Any?>.to(): T
@@ -64,18 +52,11 @@ abstract class BaseMapTest<T : MutableMap<String, Any?>> {
 
     @Test fun converting() {
         val fromArray = MAP.to()
-        assertContains(
-            fromArray.keys,
-            *FILL_VALUES
-        )
+        assertThat(fromArray.keys).containsExactly(*FILL_VALUES)
         assertFails { fromArray[ADD_VALUE] = null }
 
         val mutableFromArray = MAP.toMutable()
         mutableFromArray[ADD_VALUE] = null
-        assertContains(
-            mutableFromArray.keys,
-            *FILL_VALUES,
-            ADD_VALUE
-        )
+        assertThat(mutableFromArray.keys).containsExactly(*FILL_VALUES, ADD_VALUE)
     }
 }

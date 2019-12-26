@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.shape.Polygon
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 
 class PolygonTest : LayoutTest<NodeManager, Polygon>() {
 
@@ -13,6 +13,6 @@ class PolygonTest : LayoutTest<NodeManager, Polygon>() {
     override fun NodeManager.child3() = polygon { }
 
     override fun Polygon.testDefaultValues() {
-        assertEmpty(points)
+        assertThat(points).isEmpty()
     }
 }

@@ -1,9 +1,9 @@
 package ktfx.controlsfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 import org.controlsfx.control.PropertySheet
 
 class PropertySheetTest : LayoutTest<NodeManager, PropertySheet>() {
@@ -15,6 +15,6 @@ class PropertySheetTest : LayoutTest<NodeManager, PropertySheet>() {
     override fun NodeManager.child3() = propertySheet { }
 
     override fun PropertySheet.testDefaultValues() {
-        assertEmpty(items)
+        assertThat(items).isEmpty()
     }
 }

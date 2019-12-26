@@ -1,8 +1,8 @@
 package ktfx.layouts
 
+import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.PieChart
 import ktfx.test.LayoutTest
-import ktfx.test.assertEmpty
 
 class PieChartTest : LayoutTest<NodeManager, PieChart>() {
 
@@ -13,6 +13,6 @@ class PieChartTest : LayoutTest<NodeManager, PieChart>() {
     override fun NodeManager.child3() = pieChart { }
 
     override fun PieChart.testDefaultValues() {
-        assertEmpty(data)
+        assertThat(data).isEmpty()
     }
 }

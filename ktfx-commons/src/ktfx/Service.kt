@@ -19,7 +19,7 @@ class TaskBuilder<V> internal constructor() : Task<V>() {
  * By default, it will do nothing and returns null in the background, customize it by invoking `call`.
  */
 fun <V> buildService(builderAction: TaskBuilder<V>.() -> Unit): Service<V> {
-    val task = TaskBuilder<V>().also(builderAction)
+    val task = TaskBuilder<V>().apply(builderAction)
     return object : Service<V>() {
         override fun createTask(): Task<V> = task
     }

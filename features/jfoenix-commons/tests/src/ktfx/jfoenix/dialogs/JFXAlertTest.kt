@@ -16,7 +16,7 @@ class JFXAlertTest : DialogShowingTest() {
                 setOnShown { close() }
                 assertEquals("Jfoenix alert", title)
                 assertEquals(sampleGraphic, graphic)
-                buttons { close() }
+                buttons.close()
                 resultConverter = callbackOf { it.text }
             }.get())
         }

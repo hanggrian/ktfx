@@ -39,6 +39,11 @@ class DialogTest : DialogShowingTest() {
     @Test fun buttons() {
         interact {
             val dialog = Dialog<Nothing>()
+
+            dialog.buttons.apply()
+            assertEquals(1, dialog.dialogPane.buttonTypes.size)
+
+            dialog.dialogPane.buttonTypes.clear()
             dialog.buttons {
                 apply { assertTrue("Apply" in text) }
                 ok { assertTrue("OK" in text) }

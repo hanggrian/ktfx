@@ -9,13 +9,13 @@ import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import ktfx.controls.icon
+import ktfx.controls.stage
+import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.controls.icon
-import ktfx.controls.stage
-import ktfx.internal.KtfxInternals
 
 /** Removes old icons and set a new one to this dialog. */
 inline var Dialog<*>.icon: Image
@@ -40,14 +40,17 @@ inline var Dialog<*>.headerTitle: String
         title = value
     }
 
-/** Opens up DSL to quickly add button types to this dialog. */
-fun Dialog<*>.buttons(buttonsBuilderAction: DialogButtonBuilder.() -> Unit) {
-    contract { callsInPlace(buttonsBuilderAction, InvocationKind.EXACTLY_ONCE) }
-    DialogButtonBuilder(this).buttonsBuilderAction()
+/** Quickly add button type to this dialog without DSL. */
+val Dialog<*>.buttons: DialogButtonContainer get() = DialogButtonContainer(this)
+
+/** Opens up DSL to add button types to this dialog. */
+fun Dialog<*>.buttons(dialogButtonConfiguration: DialogButtonContainerScope.() -> Unit) {
+    contract { callsInPlace(dialogButtonConfiguration, InvocationKind.EXACTLY_ONCE) }
+    DialogButtonContainerScope(this).dialogButtonConfiguration()
 }
 
 /** Supporting class to build dialog buttons with Kotlin DSL. */
-class DialogButtonBuilder internal constructor(private val nativeDialog: Dialog<*>) {
+open class DialogButtonContainer internal constructor(private val nativeDialog: Dialog<*>) {
 
     /** Add apply button. */
     fun apply(): Button = add(ButtonType.APPLY)
@@ -116,14 +119,17 @@ class DialogButtonBuilder internal constructor(private val nativeDialog: Dialog<
         block: Button.() -> Unit
     ): Button = custom(text, data).apply(block)
 
+    private fun add(type: ButtonType): Button = nativeDialog.dialogPane.run {
+        buttonTypes += type
+        return lookupButton(type) as Button
+    }
+}
+
+class DialogButtonContainerScope internal constructor(nativeDialog: Dialog<*>) : DialogButtonContainer(nativeDialog) {
+
     /** Alias of [custom] with operator function. */
     inline operator fun String.invoke(
         data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER,
         block: Button.() -> Unit
     ): Button = custom(this, data, block)
-
-    private fun add(type: ButtonType): Button = nativeDialog.dialogPane.run {
-        buttonTypes += type
-        return lookupButton(type) as Button
-    }
 }

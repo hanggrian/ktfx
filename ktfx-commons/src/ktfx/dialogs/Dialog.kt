@@ -9,13 +9,13 @@ import javafx.scene.control.ButtonType
 import javafx.scene.control.Dialog
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import ktfx.controls.icon
-import ktfx.controls.stage
-import ktfx.internal.KtfxInternals
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
+import ktfx.controls.icon
+import ktfx.controls.stage
+import ktfx.internal.KtfxInternals
 
 /** Removes old icons and set a new one to this dialog. */
 inline var Dialog<*>.icon: Image
@@ -56,55 +56,55 @@ open class DialogButtonContainer internal constructor(private val nativeDialog: 
     fun apply(): Button = add(ButtonType.APPLY)
 
     /** Add apply button, invoking DSL to customize it as node. */
-    inline fun apply(block: Button.() -> Unit): Button = apply().apply(block)
+    inline fun apply(configuration: Button.() -> Unit): Button = apply().apply(configuration)
 
     /** Add ok button. */
     fun ok(): Button = add(ButtonType.OK)
 
     /** Add ok button, invoking DSL to customize it as node. */
-    inline fun ok(block: Button.() -> Unit): Button = ok().apply(block)
+    inline fun ok(configuration: Button.() -> Unit): Button = ok().apply(configuration)
 
     /** Add cancel button. */
     fun cancel(): Button = add(ButtonType.CANCEL)
 
     /** Add cancel button, invoking DSL to customize it as node. */
-    inline fun cancel(block: Button.() -> Unit): Button = cancel().apply(block)
+    inline fun cancel(configuration: Button.() -> Unit): Button = cancel().apply(configuration)
 
     /** Add close button. */
     fun close(): Button = add(ButtonType.CLOSE)
 
     /** Add close button, invoking DSL to customize it as node. */
-    inline fun close(block: Button.() -> Unit): Button = close().apply(block)
+    inline fun close(configuration: Button.() -> Unit): Button = close().apply(configuration)
 
     /** Add yes button. */
     fun yes(): Button = add(ButtonType.YES)
 
     /** Add yes button, invoking DSL to customize it as node. */
-    inline fun yes(block: Button.() -> Unit): Button = yes().apply(block)
+    inline fun yes(configuration: Button.() -> Unit): Button = yes().apply(configuration)
 
     /** Add no button. */
     fun no(): Button = add(ButtonType.NO)
 
     /** Add no button, invoking DSL to customize it as node. */
-    inline fun no(block: Button.() -> Unit): Button = no().apply(block)
+    inline fun no(configuration: Button.() -> Unit): Button = no().apply(configuration)
 
     /** Add finish button. */
     fun finish(): Button = add(ButtonType.FINISH)
 
     /** Add finish button, invoking DSL to customize it as node. */
-    inline fun finish(block: Button.() -> Unit): Button = finish().apply(block)
+    inline fun finish(configuration: Button.() -> Unit): Button = finish().apply(configuration)
 
     /** Add next button. */
     fun next(): Button = add(ButtonType.NEXT)
 
     /** Add next button, invoking DSL to customize it as node. */
-    inline fun next(block: Button.() -> Unit): Button = next().apply(block)
+    inline fun next(configuration: Button.() -> Unit): Button = next().apply(configuration)
 
     /** Add previous button. */
     fun previous(): Button = add(ButtonType.PREVIOUS)
 
     /** Add previous button, invoking DSL to customize it as node. */
-    inline fun previous(block: Button.() -> Unit): Button = previous().apply(block)
+    inline fun previous(configuration: Button.() -> Unit): Button = previous().apply(configuration)
 
     /** Add custom button specifying text and type. */
     fun custom(
@@ -116,20 +116,21 @@ open class DialogButtonContainer internal constructor(private val nativeDialog: 
     inline fun custom(
         text: String,
         data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER,
-        block: Button.() -> Unit
-    ): Button = custom(text, data).apply(block)
+        configuration: Button.() -> Unit
+    ): Button = custom(text, data).apply(configuration)
 
-    private fun add(type: ButtonType): Button = nativeDialog.dialogPane.run {
-        buttonTypes += type
-        return lookupButton(type) as Button
+    private fun add(type: ButtonType): Button {
+        nativeDialog.dialogPane.buttonTypes += type
+        return nativeDialog.dialogPane.lookupButton(type) as Button
     }
 }
 
+/** Scope of [DialogButtonContainer]. */
 class DialogButtonContainerScope internal constructor(nativeDialog: Dialog<*>) : DialogButtonContainer(nativeDialog) {
 
     /** Alias of [custom] with operator function. */
     inline operator fun String.invoke(
         data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER,
-        block: Button.() -> Unit
-    ): Button = custom(this, data, block)
+        configuration: Button.() -> Unit
+    ): Button = custom(this, data, configuration)
 }

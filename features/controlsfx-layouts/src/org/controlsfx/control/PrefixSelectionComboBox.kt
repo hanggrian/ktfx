@@ -14,10 +14,10 @@ import org.controlsfx.control.PrefixSelectionComboBox
 
 /** Create a [PrefixSelectionComboBox] with initialization block. */
 inline fun <T> prefixSelectionComboBox(
-    init: (@LayoutsDslMarker PrefixSelectionComboBox<T>).() -> Unit
+    configuration: (@LayoutsDslMarker PrefixSelectionComboBox<T>).() -> Unit
 ): PrefixSelectionComboBox<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return PrefixSelectionComboBox<T>().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return PrefixSelectionComboBox<T>().apply(configuration)
 }
 
 /** Add a [PrefixSelectionComboBox] to this manager. */
@@ -25,8 +25,8 @@ fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> = addC
 
 /** Add a [PrefixSelectionComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.prefixSelectionComboBox(
-    init: (@LayoutsDslMarker PrefixSelectionComboBox<T>).() -> Unit
+    configuration: (@LayoutsDslMarker PrefixSelectionComboBox<T>).() -> Unit
 ): PrefixSelectionComboBox<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(PrefixSelectionComboBox(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(PrefixSelectionComboBox(), configuration)
 }

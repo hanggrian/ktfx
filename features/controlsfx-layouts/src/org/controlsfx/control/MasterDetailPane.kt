@@ -38,10 +38,10 @@ open class KtfxMasterDetailPane(detailSide: Side, showDetail: Boolean) :
 inline fun masterDetailPane(
     detailSide: Side = Side.RIGHT,
     showDetailNode: Boolean = true,
-    init: (@LayoutsDslMarker KtfxMasterDetailPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMasterDetailPane(detailSide, showDetailNode).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxMasterDetailPane(detailSide, showDetailNode).apply(configuration)
 }
 
 /** Add a [MasterDetailPane] to this manager. */
@@ -54,8 +54,8 @@ fun NodeManager.masterDetailPane(
 inline fun NodeManager.masterDetailPane(
     detailSide: Side = Side.RIGHT,
     showDetailNode: Boolean = true,
-    init: (@LayoutsDslMarker KtfxMasterDetailPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMasterDetailPane(detailSide, showDetailNode), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMasterDetailPane(detailSide, showDetailNode), configuration)
 }

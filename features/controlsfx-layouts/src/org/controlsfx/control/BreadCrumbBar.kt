@@ -16,10 +16,10 @@ import org.controlsfx.control.BreadCrumbBar
 /** Create a [BreadCrumbBar] with initialization block. */
 inline fun <T> breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
-    init: (@LayoutsDslMarker BreadCrumbBar<T>).() -> Unit
+    configuration: (@LayoutsDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return BreadCrumbBar(selectedCrumb).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return BreadCrumbBar(selectedCrumb).apply(configuration)
 }
 
 /** Add a [BreadCrumbBar] to this manager. */
@@ -30,8 +30,8 @@ fun <T> NodeManager.breadCrumbBar(
 /** Add a [BreadCrumbBar] with initialization block to this manager. */
 inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
-    init: (@LayoutsDslMarker BreadCrumbBar<T>).() -> Unit
+    configuration: (@LayoutsDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(BreadCrumbBar(selectedCrumb), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(BreadCrumbBar(selectedCrumb), configuration)
 }

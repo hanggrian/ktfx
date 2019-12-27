@@ -22,16 +22,16 @@ open class KtfxAccordion : Accordion(), TitledPaneManager {
 
     /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(
-        init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
-    ): TitledPane = titledPane(this, init)
+        configuration: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
+    ): TitledPane = titledPane(this, configuration)
 }
 
 /** Create an [Accordion] with initialization block. */
 inline fun accordion(
-    init: (@LayoutsDslMarker KtfxAccordion).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxAccordion().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxAccordion().apply(configuration)
 }
 
 /** Add an [Accordion] to this manager. */
@@ -39,8 +39,8 @@ fun NodeManager.accordion(): Accordion = addChild(KtfxAccordion())
 
 /** Add an [Accordion] with initialization block to this manager. */
 inline fun NodeManager.accordion(
-    init: (@LayoutsDslMarker KtfxAccordion).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxAccordion(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxAccordion(), configuration)
 }

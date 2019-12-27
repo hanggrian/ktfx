@@ -71,10 +71,10 @@ open class KtfxStackPane : StackPane(), NodeManager {
 
 /** Create a [StackPane] with initialization block. */
 inline fun stackPane(
-    init: (@LayoutsDslMarker KtfxStackPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxStackPane).() -> Unit
 ): StackPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxStackPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxStackPane().apply(configuration)
 }
 
 /** Add a [StackPane] to this manager. */
@@ -82,8 +82,8 @@ fun NodeManager.stackPane(): StackPane = addChild(KtfxStackPane())
 
 /** Add a [StackPane] with initialization block to this manager. */
 inline fun NodeManager.stackPane(
-    init: (@LayoutsDslMarker KtfxStackPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxStackPane).() -> Unit
 ): StackPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxStackPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxStackPane(), configuration)
 }

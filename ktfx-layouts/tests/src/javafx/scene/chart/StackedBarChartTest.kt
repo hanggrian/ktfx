@@ -4,10 +4,10 @@ import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.CategoryAxis
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.StackedBarChart
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class StackedBarChartTest : LayoutTest<NodeManager, StackedBarChart<String, Number>>() {
+class StackedBarChartTest : LayoutsTest<NodeManager, StackedBarChart<String, Number>>() {
     private lateinit var axis1: CategoryAxis
     private lateinit var axis2: NumberAxis
 

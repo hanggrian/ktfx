@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.MoveTo
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class MoveToTest : LayoutTest<PathElementManager, MoveTo>() {
+class MoveToTest : LayoutsTest<PathElementManager, MoveTo>() {
 
     override fun manager() = KtfxPath()
     override fun childCount() = manager.childCount

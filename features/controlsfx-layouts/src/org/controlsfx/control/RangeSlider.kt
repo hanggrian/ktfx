@@ -18,10 +18,10 @@ inline fun rangeSlider(
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
-    init: (@LayoutsDslMarker RangeSlider).() -> Unit
+    configuration: (@LayoutsDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return RangeSlider(min, max, lowValue, highValue).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return RangeSlider(min, max, lowValue, highValue).apply(configuration)
 }
 
 /** Add a [RangeSlider] to this manager. */
@@ -38,8 +38,8 @@ inline fun NodeManager.rangeSlider(
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
-    init: (@LayoutsDslMarker RangeSlider).() -> Unit
+    configuration: (@LayoutsDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(RangeSlider(min, max, lowValue, highValue), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(RangeSlider(min, max, lowValue, highValue), configuration)
 }

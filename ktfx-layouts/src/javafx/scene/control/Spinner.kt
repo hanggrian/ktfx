@@ -11,10 +11,10 @@ import kotlin.contracts.contract
 
 /** Create a [Spinner] with initialization block. */
 inline fun <T> spinner(
-    init: (@LayoutsDslMarker Spinner<T>).() -> Unit
+    configuration: (@LayoutsDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Spinner<T>().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Spinner<T>().apply(configuration)
 }
 
 /** Add a [Spinner] to this manager. */
@@ -22,8 +22,8 @@ fun <T> NodeManager.spinner(): Spinner<T> = addChild(Spinner())
 
 /** Add a [Spinner] with initialization block to this manager. */
 inline fun <T> NodeManager.spinner(
-    init: (@LayoutsDslMarker Spinner<T>).() -> Unit
+    configuration: (@LayoutsDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Spinner(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Spinner(), configuration)
 }

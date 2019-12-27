@@ -67,10 +67,10 @@ inline fun flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap,
-    init: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxFlowPane(orientation, hgap, vgap).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxFlowPane(orientation, hgap, vgap).apply(configuration)
 }
 
 /** Add a [FlowPane] to this manager. */
@@ -85,8 +85,8 @@ inline fun NodeManager.flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap,
-    init: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxFlowPane(orientation, hgap, vgap), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxFlowPane(orientation, hgap, vgap), configuration)
 }

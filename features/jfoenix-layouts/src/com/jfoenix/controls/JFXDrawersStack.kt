@@ -14,10 +14,10 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXDrawersStack] with initialization block. */
 inline fun jfxDrawersStack(
-    init: (@LayoutsDslMarker JFXDrawersStack).() -> Unit
+    configuration: (@LayoutsDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXDrawersStack().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXDrawersStack().apply(configuration)
 }
 
 /** Add a [JFXDrawersStack] to this manager. */
@@ -25,8 +25,8 @@ fun NodeManager.jfxDrawersStack(): JFXDrawersStack = addChild(JFXDrawersStack())
 
 /** Add a [JFXDrawersStack] with initialization block to this manager. */
 inline fun NodeManager.jfxDrawersStack(
-    init: (@LayoutsDslMarker JFXDrawersStack).() -> Unit
+    configuration: (@LayoutsDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXDrawersStack(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXDrawersStack(), configuration)
 }

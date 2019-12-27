@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXProgressBar
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class JFXProgressBarTest : LayoutTest<NodeManager, JFXProgressBar>() {
+class JFXProgressBarTest : LayoutsTest<NodeManager, JFXProgressBar>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

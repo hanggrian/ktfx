@@ -13,10 +13,10 @@ import kotlin.contracts.contract
 inline fun moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@LayoutsDslMarker MoveTo).() -> Unit
+    configuration: (@LayoutsDslMarker MoveTo).() -> Unit
 ): MoveTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return MoveTo(x, y).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return MoveTo(x, y).apply(configuration)
 }
 
 /** Add a [MoveTo] to this manager. */
@@ -29,8 +29,8 @@ fun PathElementManager.moveTo(
 inline fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@LayoutsDslMarker MoveTo).() -> Unit
+    configuration: (@LayoutsDslMarker MoveTo).() -> Unit
 ): MoveTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(MoveTo(x, y), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(MoveTo(x, y), configuration)
 }

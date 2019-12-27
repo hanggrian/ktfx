@@ -12,10 +12,10 @@ import kotlin.contracts.contract
 /** Create a [TextField] with initialization block. */
 inline fun textField(
     text: String = "",
-    init: (@LayoutsDslMarker TextField).() -> Unit
+    configuration: (@LayoutsDslMarker TextField).() -> Unit
 ): TextField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return TextField(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return TextField(text).apply(configuration)
 }
 
 /** Add a [TextField] to this manager. */
@@ -26,8 +26,8 @@ fun NodeManager.textField(
 /** Add a [TextField] with initialization block to this manager. */
 inline fun NodeManager.textField(
     text: String = "",
-    init: (@LayoutsDslMarker TextField).() -> Unit
+    configuration: (@LayoutsDslMarker TextField).() -> Unit
 ): TextField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(TextField(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(TextField(text), configuration)
 }

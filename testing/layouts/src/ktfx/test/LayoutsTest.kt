@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 /** There are 3 ways to create/add a child. This test ensures that each way produces the same child result. */
-abstract class LayoutTest<M : Any, C> {
+abstract class LayoutsTest<M : Any, C> {
     lateinit var manager: M
 
     @BeforeTest open fun onCreate() {

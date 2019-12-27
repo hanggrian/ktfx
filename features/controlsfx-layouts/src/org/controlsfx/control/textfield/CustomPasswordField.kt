@@ -14,10 +14,10 @@ import org.controlsfx.control.textfield.CustomPasswordField
 
 /** Create a [CustomPasswordField] with initialization block. */
 inline fun customPasswordField(
-    init: (@LayoutsDslMarker CustomPasswordField).() -> Unit
+    configuration: (@LayoutsDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return CustomPasswordField().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return CustomPasswordField().apply(configuration)
 }
 
 /** Add a [CustomPasswordField] to this manager. */
@@ -25,8 +25,8 @@ fun NodeManager.customPasswordField(): CustomPasswordField = addChild(CustomPass
 
 /** Add a [CustomPasswordField] with initialization block to this manager. */
 inline fun NodeManager.customPasswordField(
-    init: (@LayoutsDslMarker CustomPasswordField).() -> Unit
+    configuration: (@LayoutsDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(CustomPasswordField(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(CustomPasswordField(), configuration)
 }

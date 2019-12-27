@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.CheckBox
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class CheckBoxTest : LayoutTest<NodeManager, CheckBox>() {
+class CheckBoxTest : LayoutsTest<NodeManager, CheckBox>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

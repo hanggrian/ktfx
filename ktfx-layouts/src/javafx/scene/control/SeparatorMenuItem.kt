@@ -11,10 +11,10 @@ import kotlin.contracts.contract
 
 /** Create a [SeparatorMenuItem] with initialization block. */
 inline fun separatorMenuItem(
-    init: (@LayoutsDslMarker SeparatorMenuItem).() -> Unit
+    configuration: (@LayoutsDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return SeparatorMenuItem().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return SeparatorMenuItem().apply(configuration)
 }
 
 /** Add a [SeparatorMenuItem] to this manager. */
@@ -22,8 +22,8 @@ fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = addChild(SeparatorM
 
 /** Add a [SeparatorMenuItem] with initialization block to this manager. */
 inline fun MenuItemManager.separatorMenuItem(
-    init: (@LayoutsDslMarker SeparatorMenuItem).() -> Unit
+    configuration: (@LayoutsDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(SeparatorMenuItem(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(SeparatorMenuItem(), configuration)
 }

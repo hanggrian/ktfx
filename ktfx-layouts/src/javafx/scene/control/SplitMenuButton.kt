@@ -24,16 +24,16 @@ open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker MenuItem).() -> Unit
-    ): MenuItem = menuItem(this, graphic, init)
+        configuration: (@LayoutsDslMarker MenuItem).() -> Unit
+    ): MenuItem = menuItem(this, graphic, configuration)
 }
 
 /** Create a [SplitMenuButton] with initialization block. */
 inline fun splitMenuButton(
-    init: (@LayoutsDslMarker KtfxSplitMenuButton).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxSplitMenuButton().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxSplitMenuButton().apply(configuration)
 }
 
 /** Add a [SplitMenuButton] to this manager. */
@@ -41,8 +41,8 @@ fun NodeManager.splitMenuButton(): SplitMenuButton = addChild(KtfxSplitMenuButto
 
 /** Add a [SplitMenuButton] with initialization block to this manager. */
 inline fun NodeManager.splitMenuButton(
-    init: (@LayoutsDslMarker KtfxSplitMenuButton).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxSplitMenuButton(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxSplitMenuButton(), configuration)
 }

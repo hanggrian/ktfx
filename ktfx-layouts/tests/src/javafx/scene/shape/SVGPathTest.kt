@@ -1,9 +1,9 @@
 package ktfx.layouts
 
 import javafx.scene.shape.SVGPath
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class SVGPathTest : LayoutTest<NodeManager, SVGPath>() {
+class SVGPathTest : LayoutsTest<NodeManager, SVGPath>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

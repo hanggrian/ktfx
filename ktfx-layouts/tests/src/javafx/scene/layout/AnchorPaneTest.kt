@@ -1,11 +1,11 @@
 package ktfx.layouts
 
 import javafx.scene.layout.AnchorPane
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class AnchorPaneTest : LayoutTest<NodeManager, AnchorPane>() {
+class AnchorPaneTest : LayoutsTest<NodeManager, AnchorPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

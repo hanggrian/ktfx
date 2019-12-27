@@ -3,10 +3,10 @@ package ktfx.controlsfx.layouts
 import com.google.common.truth.Truth.assertThat
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import org.controlsfx.control.CheckComboBox
 
-class CheckComboBoxTest : LayoutTest<NodeManager, CheckComboBox<String>>() {
+class CheckComboBoxTest : LayoutsTest<NodeManager, CheckComboBox<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

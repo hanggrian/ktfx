@@ -24,10 +24,10 @@ open class KtfxGroup : Group(), NodeManager {
 
 /** Create a [Group] with initialization block. */
 inline fun group(
-    init: (@LayoutsDslMarker KtfxGroup).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxGroup).() -> Unit
 ): Group {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxGroup().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxGroup().apply(configuration)
 }
 
 /** Add a [Group] to this manager. */
@@ -35,8 +35,8 @@ fun NodeManager.group(): Group = addChild(KtfxGroup())
 
 /** Add a [Group] with initialization block to this manager. */
 inline fun NodeManager.group(
-    init: (@LayoutsDslMarker KtfxGroup).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxGroup).() -> Unit
 ): Group {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxGroup(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxGroup(), configuration)
 }

@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.media.MediaView
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class MediaViewTest : LayoutTest<NodeManager, MediaView>() {
+class MediaViewTest : LayoutsTest<NodeManager, MediaView>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

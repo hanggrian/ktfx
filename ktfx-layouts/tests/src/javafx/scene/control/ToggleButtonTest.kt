@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.ToggleButton
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class ToggleButtonTest : LayoutTest<NodeManager, ToggleButton>() {
+class ToggleButtonTest : LayoutsTest<NodeManager, ToggleButton>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

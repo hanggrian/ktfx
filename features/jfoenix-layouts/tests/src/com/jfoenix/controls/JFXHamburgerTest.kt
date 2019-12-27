@@ -3,9 +3,9 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXHamburger
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class JFXHamburgerTest : LayoutTest<NodeManager, JFXHamburger>() {
+class JFXHamburgerTest : LayoutsTest<NodeManager, JFXHamburger>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

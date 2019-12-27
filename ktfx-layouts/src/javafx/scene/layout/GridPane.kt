@@ -175,10 +175,10 @@ open class KtfxGridPane : GridPane(), NodeManager {
 
 /** Create a [GridPane] with initialization block. */
 inline fun gridPane(
-    init: (@LayoutsDslMarker KtfxGridPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxGridPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxGridPane().apply(configuration)
 }
 
 /** Add a [GridPane] to this manager. */
@@ -186,10 +186,10 @@ fun NodeManager.gridPane(): GridPane = addChild(KtfxGridPane())
 
 /** Add a [GridPane] with initialization block to this manager. */
 inline fun NodeManager.gridPane(
-    init: (@LayoutsDslMarker KtfxGridPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxGridPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxGridPane(), configuration)
 }
 
 /** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
@@ -197,18 +197,18 @@ interface ConstraintsBuilder<out T : ConstraintsBase> {
 
     fun constraints(): T
 
-    fun constraints(init: T.() -> Unit): T =
-        constraints().apply(init)
+    fun constraints(configuration: T.() -> Unit): T =
+        constraints().apply(configuration)
 
     fun constraints(size: Double): T
 
-    fun constraints(size: Double, init: T.() -> Unit): T =
-        constraints(size).apply(init)
+    fun constraints(size: Double, configuration: T.() -> Unit): T =
+        constraints(size).apply(configuration)
 
     fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T
 
-    fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: T.() -> Unit): T =
-        constraints(minSize, prefSize, maxSize).apply(init)
+    fun constraints(minSize: Double, prefSize: Double, maxSize: Double, configuration: T.() -> Unit): T =
+        constraints(minSize, prefSize, maxSize).apply(configuration)
 }
 
 private abstract class ConstraintsBuilderImpl<T : ConstraintsBase> : ConstraintsBuilder<T> {
@@ -249,11 +249,11 @@ private abstract class ConstraintsBuilderImpl<T : ConstraintsBase> : Constraints
 }
 
 /** Invokes a row constraints DSL builder. */
-fun GridPane.rowConstraints(init: ConstraintsBuilder<RowConstraints>.() -> Unit) {
-    rowConstraints += ConstraintsBuilderImpl.ofRow().apply(init).collection
+fun GridPane.rowConstraints(configuration: ConstraintsBuilder<RowConstraints>.() -> Unit) {
+    rowConstraints += ConstraintsBuilderImpl.ofRow().apply(configuration).collection
 }
 
 /** Invokes a column constraints DSL builder. */
-fun GridPane.columnConstraints(init: ConstraintsBuilder<ColumnConstraints>.() -> Unit) {
-    columnConstraints += ConstraintsBuilderImpl.ofColumn().apply(init).collection
+fun GridPane.columnConstraints(configuration: ConstraintsBuilder<ColumnConstraints>.() -> Unit) {
+    columnConstraints += ConstraintsBuilderImpl.ofColumn().apply(configuration).collection
 }

@@ -14,10 +14,10 @@ inline fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    init: (@LayoutsDslMarker Cylinder).() -> Unit
+    configuration: (@LayoutsDslMarker Cylinder).() -> Unit
 ): Cylinder {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Cylinder(radius, height, division).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Cylinder(radius, height, division).apply(configuration)
 }
 
 /** Add a [Cylinder] to this manager. */
@@ -32,8 +32,8 @@ inline fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    init: (@LayoutsDslMarker Cylinder).() -> Unit
+    configuration: (@LayoutsDslMarker Cylinder).() -> Unit
 ): Cylinder {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Cylinder(radius, height, division), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Cylinder(radius, height, division), configuration)
 }

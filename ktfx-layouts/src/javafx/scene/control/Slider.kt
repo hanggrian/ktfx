@@ -14,10 +14,10 @@ inline fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    init: (@LayoutsDslMarker Slider).() -> Unit
+    configuration: (@LayoutsDslMarker Slider).() -> Unit
 ): Slider {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Slider(min, max, value).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Slider(min, max, value).apply(configuration)
 }
 
 /** Add a [Slider] to this manager. */
@@ -32,8 +32,8 @@ inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    init: (@LayoutsDslMarker Slider).() -> Unit
+    configuration: (@LayoutsDslMarker Slider).() -> Unit
 ): Slider {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Slider(min, max, value), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Slider(min, max, value), configuration)
 }

@@ -16,10 +16,10 @@ import org.controlsfx.control.CheckTreeView
 /** Create a [CheckTreeView] with initialization block. */
 inline fun <T> checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
-    init: (@LayoutsDslMarker CheckTreeView<T>).() -> Unit
+    configuration: (@LayoutsDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return CheckTreeView(root).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return CheckTreeView(root).apply(configuration)
 }
 
 /** Add a [CheckTreeView] to this manager. */
@@ -30,8 +30,8 @@ fun <T> NodeManager.checkTreeView(
 /** Add a [CheckTreeView] with initialization block to this manager. */
 inline fun <T> NodeManager.checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
-    init: (@LayoutsDslMarker CheckTreeView<T>).() -> Unit
+    configuration: (@LayoutsDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(CheckTreeView(root), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(CheckTreeView(root), configuration)
 }

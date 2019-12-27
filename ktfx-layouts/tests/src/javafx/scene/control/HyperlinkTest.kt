@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.Hyperlink
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class HyperlinkTest : LayoutTest<NodeManager, Hyperlink>() {
+class HyperlinkTest : LayoutsTest<NodeManager, Hyperlink>() {
 
     override fun manager(): NodeManager = KtfxPane()
     override fun childCount() = manager.childCount

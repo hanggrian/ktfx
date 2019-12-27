@@ -15,10 +15,10 @@ import org.controlsfx.control.HyperlinkLabel
 /** Create a [HyperlinkLabel] with initialization block. */
 inline fun hyperlinkLabel(
     text: String? = null,
-    init: (@LayoutsDslMarker HyperlinkLabel).() -> Unit
+    configuration: (@LayoutsDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return HyperlinkLabel(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return HyperlinkLabel(text).apply(configuration)
 }
 
 /** Add a [HyperlinkLabel] to this manager. */
@@ -29,8 +29,8 @@ fun NodeManager.hyperlinkLabel(
 /** Add a [HyperlinkLabel] with initialization block to this manager. */
 inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
-    init: (@LayoutsDslMarker HyperlinkLabel).() -> Unit
+    configuration: (@LayoutsDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(HyperlinkLabel(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(HyperlinkLabel(text), configuration)
 }

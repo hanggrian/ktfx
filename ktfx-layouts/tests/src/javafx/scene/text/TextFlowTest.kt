@@ -2,11 +2,11 @@ package ktfx.layouts
 
 import javafx.scene.paint.Color
 import javafx.scene.text.TextFlow
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TextFlowTest : LayoutTest<NodeManager, TextFlow>() {
+class TextFlowTest : LayoutsTest<NodeManager, TextFlow>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

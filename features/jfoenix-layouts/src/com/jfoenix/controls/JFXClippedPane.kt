@@ -26,10 +26,10 @@ open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 
 /** Create a [JFXClippedPane] with initialization block. */
 inline fun jfxClippedPane(
-    init: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXClippedPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXClippedPane().apply(configuration)
 }
 
 /** Add a [JFXClippedPane] to this manager. */
@@ -37,8 +37,8 @@ fun NodeManager.jfxClippedPane(): JFXClippedPane = addChild(KtfxJFXClippedPane()
 
 /** Add a [JFXClippedPane] with initialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
-    init: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXClippedPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXClippedPane(), configuration)
 }

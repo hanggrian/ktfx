@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 inline fun button(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Button).() -> Unit
+    configuration: (@LayoutsDslMarker Button).() -> Unit
 ): Button {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Button(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Button(text, graphic).apply(configuration)
 }
 
 /** Add a [Button] to this manager. */
@@ -30,8 +30,8 @@ fun NodeManager.button(
 inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Button).() -> Unit
+    configuration: (@LayoutsDslMarker Button).() -> Unit
 ): Button {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Button(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Button(text, graphic), configuration)
 }

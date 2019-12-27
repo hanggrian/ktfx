@@ -1,9 +1,9 @@
 package ktfx.layouts
 
 import javafx.scene.control.ToolBar
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class ToolBarTest : LayoutTest<NodeManager, ToolBar>() {
+class ToolBarTest : LayoutsTest<NodeManager, ToolBar>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

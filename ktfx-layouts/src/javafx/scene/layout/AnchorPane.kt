@@ -75,10 +75,10 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
 
 /** Create an [AnchorPane] with initialization block. */
 inline fun anchorPane(
-    init: (@LayoutsDslMarker KtfxAnchorPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxAnchorPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxAnchorPane().apply(configuration)
 }
 
 /** Add an [AnchorPane] to this manager. */
@@ -86,8 +86,8 @@ fun NodeManager.anchorPane(): AnchorPane = addChild(KtfxAnchorPane())
 
 /** Add an [AnchorPane] with initialization block to this manager. */
 inline fun NodeManager.anchorPane(
-    init: (@LayoutsDslMarker KtfxAnchorPane).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxAnchorPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxAnchorPane(), configuration)
 }

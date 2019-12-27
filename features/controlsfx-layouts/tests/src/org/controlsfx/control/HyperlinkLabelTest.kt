@@ -2,11 +2,11 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import org.controlsfx.control.HyperlinkLabel
 import kotlin.test.assertNull
 
-class HyperlinkLabelTest : LayoutTest<NodeManager, HyperlinkLabel>() {
+class HyperlinkLabelTest : LayoutsTest<NodeManager, HyperlinkLabel>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

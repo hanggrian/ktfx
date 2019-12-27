@@ -2,11 +2,11 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import org.controlsfx.control.ToggleSwitch
 import kotlin.test.assertNull
 
-class ToggleSwitchTest : LayoutTest<NodeManager, ToggleSwitch>() {
+class ToggleSwitchTest : LayoutsTest<NodeManager, ToggleSwitch>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

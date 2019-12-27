@@ -92,5 +92,5 @@ class NotificationsBuilder internal constructor() {
 }
 
 /** Build notifications with Kotlin DSL. */
-fun buildNotifications(builder: NotificationsBuilder.() -> Unit): Notifications =
-    NotificationsBuilder().apply(builder).nativeNotifications
+fun buildNotifications(configuration: NotificationsBuilder.() -> Unit): Notifications =
+    NotificationsBuilder().apply(configuration).nativeNotifications

@@ -14,10 +14,10 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXPasswordField] with initialization block. */
 inline fun jfxPasswordField(
-    init: (@LayoutsDslMarker JFXPasswordField).() -> Unit
+    configuration: (@LayoutsDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXPasswordField().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXPasswordField().apply(configuration)
 }
 
 /** Add a [JFXPasswordField] to this manager. */
@@ -26,8 +26,8 @@ fun NodeManager.jfxPasswordField(): JFXPasswordField =
 
 /** Add a [JFXPasswordField] with initialization block to this manager. */
 inline fun NodeManager.jfxPasswordField(
-    init: (@LayoutsDslMarker JFXPasswordField).() -> Unit
+    configuration: (@LayoutsDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXPasswordField(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXPasswordField(), configuration)
 }

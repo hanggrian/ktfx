@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 /** Create a [TableView] with initialization block. */
 inline fun <S> tableView(
     items: ObservableList<S> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker TableView<S>).() -> Unit
+    configuration: (@LayoutsDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return TableView(items).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return TableView(items).apply(configuration)
 }
 
 /** Add a [TableView] to this manager. */
@@ -28,8 +28,8 @@ fun <S> NodeManager.tableView(
 /** Add a [TableView] with initialization block to this manager. */
 inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker TableView<S>).() -> Unit
+    configuration: (@LayoutsDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(TableView(items), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(TableView(items), configuration)
 }

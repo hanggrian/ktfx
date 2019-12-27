@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 inline fun menuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker MenuItem).() -> Unit
+    configuration: (@LayoutsDslMarker MenuItem).() -> Unit
 ): MenuItem {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return MenuItem(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return MenuItem(text, graphic).apply(configuration)
 }
 
 /** Add a [MenuItem] to this manager. */
@@ -30,8 +30,8 @@ fun MenuItemManager.menuItem(
 inline fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker MenuItem).() -> Unit
+    configuration: (@LayoutsDslMarker MenuItem).() -> Unit
 ): MenuItem {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(MenuItem(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(MenuItem(text, graphic), configuration)
 }

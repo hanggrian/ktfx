@@ -28,10 +28,10 @@ open class KtfxInfoOverlay(graphic: Node?, text: String?) : InfoOverlay(graphic,
 inline fun infoOverlay(
     content: Node? = null,
     text: String? = null,
-    init: (@LayoutsDslMarker KtfxInfoOverlay).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxInfoOverlay(content, text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxInfoOverlay(content, text).apply(configuration)
 }
 
 /** Add a [InfoOverlay] to this manager. */
@@ -44,8 +44,8 @@ fun NodeManager.infoOverlay(
 inline fun NodeManager.infoOverlay(
     content: Node? = null,
     text: String? = null,
-    init: (@LayoutsDslMarker KtfxInfoOverlay).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxInfoOverlay(content, text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxInfoOverlay(content, text), configuration)
 }

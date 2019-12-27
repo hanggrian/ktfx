@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Box
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class BoxTest : LayoutTest<NodeManager, Box>() {
+class BoxTest : LayoutsTest<NodeManager, Box>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

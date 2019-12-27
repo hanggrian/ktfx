@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextArea
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class TextAreaTest : LayoutTest<NodeManager, TextArea>() {
+class TextAreaTest : LayoutsTest<NodeManager, TextArea>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

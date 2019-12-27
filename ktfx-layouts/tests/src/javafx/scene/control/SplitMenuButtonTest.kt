@@ -2,11 +2,11 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.SplitMenuButton
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SplitMenuButtonTest : LayoutTest<NodeManager, SplitMenuButton>() {
+class SplitMenuButtonTest : LayoutsTest<NodeManager, SplitMenuButton>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

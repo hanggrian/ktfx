@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurve
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class CubicCurveTest : LayoutTest<NodeManager, CubicCurve>() {
+class CubicCurveTest : LayoutsTest<NodeManager, CubicCurve>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

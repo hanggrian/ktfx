@@ -3,10 +3,10 @@ package ktfx.layouts
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.StackedAreaChart
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class StackedAreaChartTest : LayoutTest<NodeManager, StackedAreaChart<Number, Number>>() {
+class StackedAreaChartTest : LayoutsTest<NodeManager, StackedAreaChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 

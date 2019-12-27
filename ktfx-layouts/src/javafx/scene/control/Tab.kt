@@ -25,10 +25,10 @@ open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeMa
 inline fun tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutsDslMarker KtfxTab).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxTab(text, content).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxTab(text, content).apply(configuration)
 }
 
 /** Add a [Tab] to this manager. */
@@ -41,8 +41,8 @@ fun TabManager.tab(
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutsDslMarker KtfxTab).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTab(text, content), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTab(text, content), configuration)
 }

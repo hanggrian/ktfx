@@ -16,10 +16,10 @@ inline fun circle(
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null,
-    init: (@LayoutsDslMarker Circle).() -> Unit
+    configuration: (@LayoutsDslMarker Circle).() -> Unit
 ): Circle {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Circle(centerX, centerY, radius, fill).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Circle(centerX, centerY, radius, fill).apply(configuration)
 }
 
 /** Add a [Circle] to this manager. */
@@ -36,8 +36,8 @@ inline fun NodeManager.circle(
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null,
-    init: (@LayoutsDslMarker Circle).() -> Unit
+    configuration: (@LayoutsDslMarker Circle).() -> Unit
 ): Circle {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Circle(centerX, centerY, radius, fill), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Circle(centerX, centerY, radius, fill), configuration)
 }

@@ -4,9 +4,9 @@ import com.google.common.truth.Truth.assertThat
 import com.jfoenix.controls.JFXComboBox
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class JFXComboBoxTest : LayoutTest<NodeManager, JFXComboBox<String>>() {
+class JFXComboBoxTest : LayoutsTest<NodeManager, JFXComboBox<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

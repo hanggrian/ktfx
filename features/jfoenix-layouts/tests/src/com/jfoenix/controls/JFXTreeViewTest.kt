@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTreeView
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class JFXTreeViewTest : LayoutTest<NodeManager, JFXTreeView<String>>() {
+class JFXTreeViewTest : LayoutsTest<NodeManager, JFXTreeView<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -3,12 +3,12 @@ package ktfx.layouts
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.Accordion
 import javafx.scene.control.Label
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class AccordionTest : LayoutTest<NodeManager, Accordion>() {
+class AccordionTest : LayoutsTest<NodeManager, Accordion>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

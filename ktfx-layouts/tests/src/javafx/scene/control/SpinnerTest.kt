@@ -1,9 +1,9 @@
 package ktfx.layouts
 
 import javafx.scene.control.Spinner
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class SpinnerTest : LayoutTest<NodeManager, Spinner<String>>() {
+class SpinnerTest : LayoutsTest<NodeManager, Spinner<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

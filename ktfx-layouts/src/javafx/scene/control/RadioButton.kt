@@ -12,10 +12,10 @@ import kotlin.contracts.contract
 /** Create a [RadioButton] with initialization block. */
 inline fun radioButton(
     text: String? = null,
-    init: (@LayoutsDslMarker RadioButton).() -> Unit
+    configuration: (@LayoutsDslMarker RadioButton).() -> Unit
 ): RadioButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return RadioButton(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return RadioButton(text).apply(configuration)
 }
 
 /** Add a [RadioButton] to this manager. */
@@ -26,8 +26,8 @@ fun NodeManager.radioButton(
 /** Add a [RadioButton] with initialization block to this manager. */
 inline fun NodeManager.radioButton(
     text: String? = null,
-    init: (@LayoutsDslMarker RadioButton).() -> Unit
+    configuration: (@LayoutsDslMarker RadioButton).() -> Unit
 ): RadioButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(RadioButton(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(RadioButton(text), configuration)
 }

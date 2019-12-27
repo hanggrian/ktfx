@@ -18,10 +18,10 @@ inline fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ScatterChart<X, Y>).() -> Unit
+    configuration: (@LayoutsDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ScatterChart(x, y, data).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ScatterChart(x, y, data).apply(configuration)
 }
 
 /** Add a [ScatterChart] to this manager. */
@@ -36,8 +36,8 @@ inline fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ScatterChart<X, Y>).() -> Unit
+    configuration: (@LayoutsDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ScatterChart(x, y, data), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ScatterChart(x, y, data), configuration)
 }

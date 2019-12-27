@@ -17,10 +17,10 @@ import ktfx.layouts.addChild
 /** Create a [JFXTreeTableView] with initialization block. */
 inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
     root: TreeItem<S>? = null,
-    init: (@LayoutsDslMarker JFXTreeTableView<S>).() -> Unit
+    configuration: (@LayoutsDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXTreeTableView(root).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXTreeTableView(root).apply(configuration)
 }
 
 /** Add a [JFXTreeTableView] to this manager. */
@@ -31,8 +31,8 @@ fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
 /** Add a [JFXTreeTableView] with initialization block to this manager. */
 inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     root: TreeItem<S>? = null,
-    init: (@LayoutsDslMarker JFXTreeTableView<S>).() -> Unit
+    configuration: (@LayoutsDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXTreeTableView(root), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXTreeTableView(root), configuration)
 }

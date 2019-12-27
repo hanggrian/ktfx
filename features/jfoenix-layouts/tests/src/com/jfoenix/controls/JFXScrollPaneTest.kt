@@ -5,10 +5,10 @@ import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXScrollPane
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.Test
 
-class JFXScrollPaneTest : LayoutTest<NodeManager, JFXScrollPane>() {
+class JFXScrollPaneTest : LayoutsTest<NodeManager, JFXScrollPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

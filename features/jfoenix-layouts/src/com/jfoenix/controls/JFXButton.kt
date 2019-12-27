@@ -17,10 +17,10 @@ import ktfx.layouts.addChild
 inline fun jfxButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker JFXButton).() -> Unit
+    configuration: (@LayoutsDslMarker JFXButton).() -> Unit
 ): JFXButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXButton(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXButton(text, graphic).apply(configuration)
 }
 
 /** Add a [JFXButton] to this manager. */
@@ -33,8 +33,8 @@ fun NodeManager.jfxButton(
 inline fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker JFXButton).() -> Unit
+    configuration: (@LayoutsDslMarker JFXButton).() -> Unit
 ): JFXButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXButton(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXButton(text, graphic), configuration)
 }

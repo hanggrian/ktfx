@@ -2,10 +2,10 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import org.controlsfx.control.MaskerPane
 
-class MaskerPaneTest : LayoutTest<NodeManager, MaskerPane>() {
+class MaskerPaneTest : LayoutsTest<NodeManager, MaskerPane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

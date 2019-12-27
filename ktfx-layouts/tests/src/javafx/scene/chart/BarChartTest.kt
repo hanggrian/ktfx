@@ -4,10 +4,10 @@ import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.CategoryAxis
 import javafx.scene.chart.NumberAxis
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class BarChartTest : LayoutTest<NodeManager, BarChart<String, Number>>() {
+class BarChartTest : LayoutsTest<NodeManager, BarChart<String, Number>>() {
     private lateinit var axis1: CategoryAxis
     private lateinit var axis2: NumberAxis
 

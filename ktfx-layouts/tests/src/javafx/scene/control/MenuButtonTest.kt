@@ -2,12 +2,12 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.MenuButton
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class MenuButtonTest : LayoutTest<NodeManager, MenuButton>() {
+class MenuButtonTest : LayoutsTest<NodeManager, MenuButton>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

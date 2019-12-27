@@ -2,11 +2,11 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import org.controlsfx.control.Rating
 import kotlin.test.assertEquals
 
-class RatingTest : LayoutTest<NodeManager, Rating>() {
+class RatingTest : LayoutsTest<NodeManager, Rating>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

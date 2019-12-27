@@ -11,10 +11,10 @@ import kotlin.contracts.contract
 
 /** Create a [PasswordField] with initialization block. */
 inline fun passwordField(
-    init: (@LayoutsDslMarker PasswordField).() -> Unit
+    configuration: (@LayoutsDslMarker PasswordField).() -> Unit
 ): PasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return PasswordField().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return PasswordField().apply(configuration)
 }
 
 /** Add a [PasswordField] to this manager. */
@@ -22,8 +22,8 @@ fun NodeManager.passwordField(): PasswordField = addChild(PasswordField())
 
 /** Add a [PasswordField] with initialization block to this manager. */
 inline fun NodeManager.passwordField(
-    init: (@LayoutsDslMarker PasswordField).() -> Unit
+    configuration: (@LayoutsDslMarker PasswordField).() -> Unit
 ): PasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(PasswordField(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(PasswordField(), configuration)
 }

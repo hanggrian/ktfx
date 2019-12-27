@@ -23,16 +23,16 @@ open class KtfxTextFlow : TextFlow(), NodeManager {
 
     /** Call [NodeManager.text] by string invocation. */
     inline operator fun String.invoke(
-        init: (@LayoutsDslMarker Text).() -> Unit
-    ): Text = text(this, init)
+        configuration: (@LayoutsDslMarker Text).() -> Unit
+    ): Text = text(this, configuration)
 }
 
 /** Create a [TextFlow] with initialization block. */
 inline fun textFlow(
-    init: (@LayoutsDslMarker KtfxTextFlow).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxTextFlow().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxTextFlow().apply(configuration)
 }
 
 /** Add a [TextFlow] to this manager. */
@@ -40,8 +40,8 @@ fun NodeManager.textFlow(): TextFlow = addChild(KtfxTextFlow())
 
 /** Add a [TextFlow] with initialization block to this manager. */
 inline fun NodeManager.textFlow(
-    init: (@LayoutsDslMarker KtfxTextFlow).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTextFlow(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTextFlow(), configuration)
 }

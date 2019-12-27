@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.RadioMenuItem
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class RadioMenuItemTest : LayoutTest<MenuItemManager, RadioMenuItem>() {
+class RadioMenuItemTest : LayoutsTest<MenuItemManager, RadioMenuItem>() {
 
     override fun manager() = KtfxMenu("", null)
     override fun childCount() = manager.childCount

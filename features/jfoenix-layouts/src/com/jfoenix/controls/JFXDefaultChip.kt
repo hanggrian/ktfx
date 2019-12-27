@@ -17,10 +17,10 @@ import ktfx.layouts.addChild
 inline fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
-    init: (@LayoutsDslMarker JFXDefaultChip<T>).() -> Unit
+    configuration: (@LayoutsDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXDefaultChip(view, item).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXDefaultChip(view, item).apply(configuration)
 }
 
 /** Add a [JFXDefaultChip] to this manager. */
@@ -33,8 +33,8 @@ fun <T> NodeManager.jfxDefaultChip(
 inline fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
-    init: (@LayoutsDslMarker JFXDefaultChip<T>).() -> Unit
+    configuration: (@LayoutsDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXDefaultChip(view, item), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXDefaultChip(view, item), configuration)
 }

@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.layout.HBox
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class HBoxTest : LayoutTest<NodeManager, HBox>() {
+class HBoxTest : LayoutsTest<NodeManager, HBox>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

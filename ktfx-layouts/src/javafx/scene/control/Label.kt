@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 inline fun label(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Label).() -> Unit
+    configuration: (@LayoutsDslMarker Label).() -> Unit
 ): Label {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Label(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Label(text, graphic).apply(configuration)
 }
 
 /** Add a [Label] to this manager. */
@@ -30,8 +30,8 @@ fun NodeManager.label(
 inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Label).() -> Unit
+    configuration: (@LayoutsDslMarker Label).() -> Unit
 ): Label {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Label(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Label(text, graphic), configuration)
 }

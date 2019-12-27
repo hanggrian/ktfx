@@ -2,9 +2,9 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ChoiceBox
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class ChoiceBoxTest : LayoutTest<NodeManager, ChoiceBox<String>>() {
+class ChoiceBoxTest : LayoutsTest<NodeManager, ChoiceBox<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

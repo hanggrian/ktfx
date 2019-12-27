@@ -26,10 +26,10 @@ open class KtfxJFXBadge : JFXBadge(), NodeManager {
 
 /** Create a [JFXBadge] with initialization block. */
 inline fun jfxBadge(
-    init: (@LayoutsDslMarker KtfxJFXBadge).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXBadge().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXBadge().apply(configuration)
 }
 
 /** Add a [JFXBadge] to this manager. */
@@ -37,8 +37,8 @@ fun NodeManager.jfxBadge(): JFXBadge = addChild(KtfxJFXBadge())
 
 /** Add a [JFXBadge] with initialization block to this manager. */
 inline fun NodeManager.jfxBadge(
-    init: (@LayoutsDslMarker KtfxJFXBadge).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXBadge(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXBadge(), configuration)
 }

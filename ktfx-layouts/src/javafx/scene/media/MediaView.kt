@@ -13,10 +13,10 @@ import kotlin.contracts.contract
 /** Create a [MediaView] with initialization block. */
 inline fun mediaView(
     mediaPlayer: MediaPlayer? = null,
-    init: (@LayoutsDslMarker MediaView).() -> Unit
+    configuration: (@LayoutsDslMarker MediaView).() -> Unit
 ): MediaView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return MediaView(mediaPlayer).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return MediaView(mediaPlayer).apply(configuration)
 }
 
 /** Add a [MediaView] to this manager. */
@@ -27,8 +27,8 @@ fun NodeManager.mediaView(
 /** Add a [MediaView] with initialization block to this manager. */
 inline fun NodeManager.mediaView(
     mediaPlayer: MediaPlayer? = null,
-    init: (@LayoutsDslMarker MediaView).() -> Unit
+    configuration: (@LayoutsDslMarker MediaView).() -> Unit
 ): MediaView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(MediaView(mediaPlayer), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(MediaView(mediaPlayer), configuration)
 }

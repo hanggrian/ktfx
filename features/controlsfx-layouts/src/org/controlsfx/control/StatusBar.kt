@@ -14,10 +14,10 @@ import org.controlsfx.control.StatusBar
 
 /** Create a [StatusBar] with initialization block. */
 inline fun statusBar(
-    init: (@LayoutsDslMarker StatusBar).() -> Unit
+    configuration: (@LayoutsDslMarker StatusBar).() -> Unit
 ): StatusBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return StatusBar().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return StatusBar().apply(configuration)
 }
 
 /** Add a [StatusBar] to this manager. */
@@ -25,8 +25,8 @@ fun NodeManager.statusBar(): StatusBar = addChild(StatusBar())
 
 /** Add a [StatusBar] with initialization block to this manager. */
 inline fun NodeManager.statusBar(
-    init: (@LayoutsDslMarker StatusBar).() -> Unit
+    configuration: (@LayoutsDslMarker StatusBar).() -> Unit
 ): StatusBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(StatusBar(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(StatusBar(), configuration)
 }

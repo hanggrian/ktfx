@@ -32,7 +32,7 @@ class JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> internal constructo
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
-fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(builder: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
-    contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
-    JFXTreeTableColumnsBuilder<S>(columns).builder()
+fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(configuration: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    JFXTreeTableColumnsBuilder<S>(columns).configuration()
 }

@@ -2,9 +2,9 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ComboBox
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class ComboBoxTest : LayoutTest<NodeManager, ComboBox<String>>() {
+class ComboBoxTest : LayoutsTest<NodeManager, ComboBox<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

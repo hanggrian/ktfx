@@ -15,10 +15,10 @@ import ktfx.layouts.addChild
 /** Create a [JFXCheckBox] with initialization block. */
 inline fun jfxCheckBox(
     text: String? = null,
-    init: (@LayoutsDslMarker JFXCheckBox).() -> Unit
+    configuration: (@LayoutsDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXCheckBox(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXCheckBox(text).apply(configuration)
 }
 
 /** Add a [JFXCheckBox] to this manager. */
@@ -29,8 +29,8 @@ fun NodeManager.jfxCheckBox(
 /** Add a [JFXCheckBox] with initialization block to this manager. */
 inline fun NodeManager.jfxCheckBox(
     text: String? = null,
-    init: (@LayoutsDslMarker JFXCheckBox).() -> Unit
+    configuration: (@LayoutsDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXCheckBox(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXCheckBox(text), configuration)
 }

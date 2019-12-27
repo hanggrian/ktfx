@@ -2,12 +2,12 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ButtonBar
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import org.apache.commons.lang3.SystemUtils
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ButtonBarTest : LayoutTest<NodeManager, ButtonBar>() {
+class ButtonBarTest : LayoutsTest<NodeManager, ButtonBar>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

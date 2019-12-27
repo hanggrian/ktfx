@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Rectangle
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class RectangleTest : LayoutTest<NodeManager, Rectangle>() {
+class RectangleTest : LayoutsTest<NodeManager, Rectangle>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Sphere
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class SphereTest : LayoutTest<NodeManager, Sphere>() {
+class SphereTest : LayoutsTest<NodeManager, Sphere>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

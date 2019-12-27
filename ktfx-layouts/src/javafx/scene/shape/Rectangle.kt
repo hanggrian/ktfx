@@ -15,10 +15,10 @@ inline fun rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutsDslMarker Rectangle).() -> Unit
+    configuration: (@LayoutsDslMarker Rectangle).() -> Unit
 ): Rectangle {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Rectangle(x, y, width, height).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Rectangle(x, y, width, height).apply(configuration)
 }
 
 /** Add a [Rectangle] to this manager. */
@@ -35,8 +35,8 @@ inline fun NodeManager.rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutsDslMarker Rectangle).() -> Unit
+    configuration: (@LayoutsDslMarker Rectangle).() -> Unit
 ): Rectangle {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Rectangle(x, y, width, height), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Rectangle(x, y, width, height), configuration)
 }

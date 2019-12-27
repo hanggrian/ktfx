@@ -1,9 +1,9 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ClosePath
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class ClosePathTest : LayoutTest<PathElementManager, ClosePath>() {
+class ClosePathTest : LayoutsTest<PathElementManager, ClosePath>() {
 
     override fun manager() = KtfxPath()
     override fun childCount() = manager.childCount

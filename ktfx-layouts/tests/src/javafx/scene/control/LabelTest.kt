@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.control.Label
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class LabelTest : LayoutTest<NodeManager, Label>() {
+class LabelTest : LayoutsTest<NodeManager, Label>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

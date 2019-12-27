@@ -15,10 +15,10 @@ inline fun ellipse(
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
-    init: (@LayoutsDslMarker Ellipse).() -> Unit
+    configuration: (@LayoutsDslMarker Ellipse).() -> Unit
 ): Ellipse {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Ellipse(centerX, centerY, radiusX, radiusY).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Ellipse(centerX, centerY, radiusX, radiusY).apply(configuration)
 }
 
 /** Add an [Ellipse] to this manager. */
@@ -35,8 +35,8 @@ inline fun NodeManager.ellipse(
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
-    init: (@LayoutsDslMarker Ellipse).() -> Unit
+    configuration: (@LayoutsDslMarker Ellipse).() -> Unit
 ): Ellipse {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Ellipse(centerX, centerY, radiusX, radiusY), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Ellipse(centerX, centerY, radiusX, radiusY), configuration)
 }

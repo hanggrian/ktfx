@@ -15,10 +15,10 @@ import kotlin.contracts.contract
 /** Create a [Tooltip] with initialization block. */
 inline fun tooltip(
     text: String? = null,
-    init: (@LayoutsDslMarker Tooltip).() -> Unit
+    configuration: (@LayoutsDslMarker Tooltip).() -> Unit
 ): Tooltip {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Tooltip(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Tooltip(text).apply(configuration)
 }
 
 /** Set a [Tooltip] to this [Node]. */
@@ -29,10 +29,10 @@ fun Node.tooltip(
 /** Set a [Tooltip] with initialization block to this [Node]. */
 inline fun Node.tooltip(
     text: String? = null,
-    init: (@LayoutsDslMarker Tooltip).() -> Unit
+    configuration: (@LayoutsDslMarker Tooltip).() -> Unit
 ): Tooltip {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.tooltip(text, init).also { Tooltip.install(this, it) }
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ktfx.layouts.tooltip(text, configuration).also { Tooltip.install(this, it) }
 }
 
 /** Set a [Tooltip] to this [Control]. */
@@ -43,10 +43,10 @@ fun Control.tooltip(
 /** Set a [Tooltip] with initialization block to this [Control]. */
 inline fun Control.tooltip(
     text: String? = null,
-    init: (@LayoutsDslMarker Tooltip).() -> Unit
+    configuration: (@LayoutsDslMarker Tooltip).() -> Unit
 ): Tooltip {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.tooltip(text, init).also { tooltip = it }
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ktfx.layouts.tooltip(text, configuration).also { tooltip = it }
 }
 
 /** Set a [Tooltip] to this [Tab]. */
@@ -57,8 +57,8 @@ fun Tab.tooltip(
 /** Set a [Tooltip] with initialization block to this [Tab]. */
 inline fun Tab.tooltip(
     text: String? = null,
-    init: (@LayoutsDslMarker Tooltip).() -> Unit
+    configuration: (@LayoutsDslMarker Tooltip).() -> Unit
 ): Tooltip {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.tooltip(text, init).also { tooltip = it }
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ktfx.layouts.tooltip(text, configuration).also { tooltip = it }
 }

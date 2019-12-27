@@ -32,8 +32,8 @@ private class StringConverterImpl<T> : StringConverter<T>(), StringConverterBuil
 }
 
 /** Build string converter with Kotlin DSL. */
-fun <T> buildStringConverter(builder: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
-    StringConverterImpl<T>().apply(builder)
+fun <T> buildStringConverter(configuration: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
+    StringConverterImpl<T>().apply(configuration)
 
 /** Converts the object provided into its string form. */
 inline operator fun <T> StringConverter<T>.invoke(obj: T): String = toString(obj)

@@ -2,9 +2,9 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.shape.Polygon
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class PolygonTest : LayoutTest<NodeManager, Polygon>() {
+class PolygonTest : LayoutsTest<NodeManager, Polygon>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

@@ -1,10 +1,10 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Cylinder
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class CylinderTest : LayoutTest<NodeManager, Cylinder>() {
+class CylinderTest : LayoutsTest<NodeManager, Cylinder>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

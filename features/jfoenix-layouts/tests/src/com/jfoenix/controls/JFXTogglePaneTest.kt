@@ -3,9 +3,9 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTogglePane
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class JFXTogglePaneTest : LayoutTest<NodeManager, JFXTogglePane>() {
+class JFXTogglePaneTest : LayoutsTest<NodeManager, JFXTogglePane>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

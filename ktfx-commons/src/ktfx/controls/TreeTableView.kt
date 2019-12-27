@@ -20,15 +20,15 @@ inline fun TreeTableView<*>.unconstrained() {
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
-fun <S> TreeTableView<S>.columns(builder: TreeTableColumnsBuilder<S>.() -> Unit) {
-    contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
-    TreeTableColumnsBuilder<S>(columns).builder()
+fun <S> TreeTableView<S>.columns(configuration: TreeTableColumnsBuilder<S>.() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    TreeTableColumnsBuilder<S>(columns).configuration()
 }
 
 /** Invokes a [TreeTableColumn] DSL builder creating multiline column. */
-fun <S, T> TreeTableColumn<S, T>.columns(builder: TreeTableColumnsBuilder<S>.() -> Unit) {
-    contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
-    TreeTableColumnsBuilder<S>(columns).builder()
+fun <S, T> TreeTableColumn<S, T>.columns(configuration: TreeTableColumnsBuilder<S>.() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    TreeTableColumnsBuilder<S>(columns).configuration()
 }
 
 /** Interface to build [TreeTableColumn] with Kotlin DSL. */

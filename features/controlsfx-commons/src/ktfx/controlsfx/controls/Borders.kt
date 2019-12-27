@@ -10,16 +10,16 @@ class BordersBuilder internal constructor(node: Node) {
     private val nativeBorders: Borders = Borders.wrap(node)
 
     /** Opens up DSL to create empty border. */
-    fun emptyBorder(builder: EmptyBordersBuilder.() -> Unit): Unit =
-        EmptyBordersBuilder(nativeBorders.emptyBorder()).apply(builder).build()
+    fun emptyBorder(configuration: EmptyBordersBuilder.() -> Unit): Unit =
+        EmptyBordersBuilder(nativeBorders.emptyBorder()).apply(configuration).build()
 
     /** Opens up DSL to create etched border. */
-    fun etchedBorder(builder: EtchedBordersBuilder.() -> Unit): Unit =
-        EtchedBordersBuilder(nativeBorders.etchedBorder()).apply(builder).build()
+    fun etchedBorder(configuration: EtchedBordersBuilder.() -> Unit): Unit =
+        EtchedBordersBuilder(nativeBorders.etchedBorder()).apply(configuration).build()
 
     /** Opens up DSL to create line border. */
-    fun lineBorder(builder: LineBordersBuilder.() -> Unit): Unit =
-        LineBordersBuilder(nativeBorders.lineBorder()).apply(builder).build()
+    fun lineBorder(configuration: LineBordersBuilder.() -> Unit): Unit =
+        LineBordersBuilder(nativeBorders.lineBorder()).apply(configuration).build()
 
     /** Allows for developers to develop custom [Borders.Border] implementations. */
     fun addBorder(border: Borders.Border) {
@@ -255,6 +255,5 @@ class BordersBuilder internal constructor(node: Node) {
 }
 
 /** Wraps this [Node] with borders using Kotlin DSL, returning the wrapped node. */
-fun Node.wrapBorders(builder: BordersBuilder.() -> Unit): Node = BordersBuilder(
-    this
-).apply(builder).build()
+fun Node.wrapBorders(configuration: BordersBuilder.() -> Unit): Node =
+    BordersBuilder(this).apply(configuration).build()

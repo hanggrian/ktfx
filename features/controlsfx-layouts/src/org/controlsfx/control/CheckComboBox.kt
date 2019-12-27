@@ -16,10 +16,10 @@ import org.controlsfx.control.CheckComboBox
 /** Create a [CheckComboBox] with initialization block. */
 inline fun <T> checkComboBox(
     items: ObservableList<T>? = null,
-    init: (@LayoutsDslMarker CheckComboBox<T>).() -> Unit
+    configuration: (@LayoutsDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return CheckComboBox(items).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return CheckComboBox(items).apply(configuration)
 }
 
 /** Add a [CheckComboBox] to this manager. */
@@ -30,8 +30,8 @@ fun <T> NodeManager.checkComboBox(
 /** Add a [CheckComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.checkComboBox(
     items: ObservableList<T>? = null,
-    init: (@LayoutsDslMarker CheckComboBox<T>).() -> Unit
+    configuration: (@LayoutsDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(CheckComboBox(items), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(CheckComboBox(items), configuration)
 }

@@ -20,15 +20,15 @@ inline fun TableView<*>.unconstrained() {
 }
 
 /** Invokes a [TableColumn] DSL builder. */
-fun <S> TableView<S>.columns(builder: TableColumnsBuilder<S>.() -> Unit) {
-    contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
-    TableColumnsBuilder<S>(columns).builder()
+fun <S> TableView<S>.columns(configuration: TableColumnsBuilder<S>.() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    TableColumnsBuilder<S>(columns).configuration()
 }
 
 /** Invokes a [TableColumn] DSL builder creating multiline column. */
-fun <S, T> TableColumn<S, T>.columns(builder: TableColumnsBuilder<S>.() -> Unit) {
-    contract { callsInPlace(builder, InvocationKind.EXACTLY_ONCE) }
-    TableColumnsBuilder<S>(columns).builder()
+fun <S, T> TableColumn<S, T>.columns(configuration: TableColumnsBuilder<S>.() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    TableColumnsBuilder<S>(columns).configuration()
 }
 
 /** Interface to build [TableColumn] with Kotlin DSL. */

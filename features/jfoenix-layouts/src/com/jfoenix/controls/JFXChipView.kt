@@ -14,10 +14,10 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXChipView] with initialization block. */
 inline fun <T> jfxChipView(
-    init: (@LayoutsDslMarker JFXChipView<T>).() -> Unit
+    configuration: (@LayoutsDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXChipView<T>().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXChipView<T>().apply(configuration)
 }
 
 /** Add a [JFXChipView] to this manager. */
@@ -25,8 +25,8 @@ fun <T> NodeManager.jfxChipView(): JFXChipView<T> = addChild(JFXChipView())
 
 /** Add a [JFXChipView] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxChipView(
-    init: (@LayoutsDslMarker JFXChipView<T>).() -> Unit
+    configuration: (@LayoutsDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXChipView(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXChipView(), configuration)
 }

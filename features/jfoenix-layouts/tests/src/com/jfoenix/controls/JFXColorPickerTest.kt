@@ -3,10 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXColorPicker
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class JFXColorPickerTest : LayoutTest<NodeManager, JFXColorPicker>() {
+class JFXColorPickerTest : LayoutsTest<NodeManager, JFXColorPicker>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

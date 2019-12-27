@@ -3,10 +3,10 @@ package ktfx.controlsfx.layouts
 import javafx.concurrent.Task
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.NodeManager
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 import org.controlsfx.control.TaskProgressView
 
-class TaskProgressViewTest : LayoutTest<NodeManager, TaskProgressView<Task<String>>>() {
+class TaskProgressViewTest : LayoutsTest<NodeManager, TaskProgressView<Task<String>>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

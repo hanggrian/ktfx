@@ -15,10 +15,10 @@ import ktfx.layouts.addChild
 /** Create a [JFXTextField] with initialization block. */
 inline fun jfxTextField(
     text: String? = null,
-    init: (@LayoutsDslMarker JFXTextField).() -> Unit
+    configuration: (@LayoutsDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXTextField(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXTextField(text).apply(configuration)
 }
 
 /** Add a [JFXTextField] to this manager. */
@@ -29,8 +29,8 @@ fun NodeManager.jfxTextField(
 /** Add a [JFXTextField] with initialization block to this manager. */
 inline fun NodeManager.jfxTextField(
     text: String? = null,
-    init: (@LayoutsDslMarker JFXTextField).() -> Unit
+    configuration: (@LayoutsDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXTextField(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXTextField(text), configuration)
 }

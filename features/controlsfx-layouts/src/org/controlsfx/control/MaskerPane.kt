@@ -14,10 +14,10 @@ import org.controlsfx.control.MaskerPane
 
 /** Create a [MaskerPane] with initialization block. */
 inline fun maskerPane(
-    init: (@LayoutsDslMarker MaskerPane).() -> Unit
+    configuration: (@LayoutsDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return MaskerPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return MaskerPane().apply(configuration)
 }
 
 /** Add a [MaskerPane] to this manager. */
@@ -25,8 +25,8 @@ fun NodeManager.maskerPane(): MaskerPane = addChild(MaskerPane())
 
 /** Add a [MaskerPane] with initialization block to this manager. */
 inline fun NodeManager.maskerPane(
-    init: (@LayoutsDslMarker MaskerPane).() -> Unit
+    configuration: (@LayoutsDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(MaskerPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(MaskerPane(), configuration)
 }

@@ -16,10 +16,10 @@ import org.controlsfx.control.Rating
 inline fun rating(
     max: Int = 5,
     rating: Int = -1,
-    init: (@LayoutsDslMarker Rating).() -> Unit
+    configuration: (@LayoutsDslMarker Rating).() -> Unit
 ): Rating {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Rating(max, rating).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Rating(max, rating).apply(configuration)
 }
 
 /** Add a [Rating] to this manager. */
@@ -32,8 +32,8 @@ fun NodeManager.rating(
 inline fun NodeManager.rating(
     max: Int = 5,
     rating: Int = -1,
-    init: (@LayoutsDslMarker Rating).() -> Unit
+    configuration: (@LayoutsDslMarker Rating).() -> Unit
 ): Rating {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Rating(max, rating), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Rating(max, rating), configuration)
 }

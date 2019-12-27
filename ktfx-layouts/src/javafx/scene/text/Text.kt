@@ -12,10 +12,10 @@ import kotlin.contracts.contract
 /** Create a [Text] with initialization block. */
 inline fun text(
     text: String? = null,
-    init: (@LayoutsDslMarker Text).() -> Unit
+    configuration: (@LayoutsDslMarker Text).() -> Unit
 ): Text {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Text(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Text(text).apply(configuration)
 }
 
 /** Add a [Text] to this manager. */
@@ -26,8 +26,8 @@ fun NodeManager.text(
 /** Add a [Text] with initialization block to this manager. */
 inline fun NodeManager.text(
     text: String? = null,
-    init: (@LayoutsDslMarker Text).() -> Unit
+    configuration: (@LayoutsDslMarker Text).() -> Unit
 ): Text {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Text(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Text(text), configuration)
 }

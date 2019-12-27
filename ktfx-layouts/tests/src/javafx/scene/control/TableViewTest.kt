@@ -2,9 +2,9 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.TableView
-import ktfx.test.LayoutTest
+import ktfx.test.LayoutsTest
 
-class TableViewTest : LayoutTest<NodeManager, TableView<String>>() {
+class TableViewTest : LayoutsTest<NodeManager, TableView<String>>() {
 
     override fun manager() = KtfxPane()
     override fun childCount() = manager.childCount

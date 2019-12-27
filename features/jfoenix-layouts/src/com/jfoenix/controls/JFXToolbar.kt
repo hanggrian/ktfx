@@ -78,22 +78,22 @@ open class KtfxJFXToolbar : JFXToolbar() {
     }
 }
 
-inline fun KtfxJFXToolbar.leftItems(init: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    KtfxJFXToolbar.HBoxConstraints(leftItems).init()
+inline fun KtfxJFXToolbar.leftItems(configuration: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    KtfxJFXToolbar.HBoxConstraints(leftItems).configuration()
 }
 
-inline fun KtfxJFXToolbar.rightItems(init: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    KtfxJFXToolbar.HBoxConstraints(rightItems).init()
+inline fun KtfxJFXToolbar.rightItems(configuration: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    KtfxJFXToolbar.HBoxConstraints(rightItems).configuration()
 }
 
 /** Create a [JFXToolbar] with initialization block. */
 inline fun jfxToolbar(
-    init: (@LayoutsDslMarker KtfxJFXToolbar).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXToolbar().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXToolbar().apply(configuration)
 }
 
 /** Add a [JFXToolbar] to this manager. */
@@ -101,8 +101,8 @@ fun NodeManager.jfxToolbar(): JFXToolbar = addChild(KtfxJFXToolbar())
 
 /** Add a [JFXToolbar] with initialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
-    init: (@LayoutsDslMarker KtfxJFXToolbar).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXToolbar(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXToolbar(), configuration)
 }

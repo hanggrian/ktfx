@@ -24,17 +24,17 @@ open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeMan
     /** Call [NodeManager.button] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker Button).() -> Unit
-    ): Button = button(this, graphic, init)
+        configuration: (@LayoutsDslMarker Button).() -> Unit
+    ): Button = button(this, graphic, configuration)
 }
 
 /** Create a [ButtonBar] with initialization block. */
 inline fun buttonBar(
     buttonOrder: String? = null,
-    init: (@LayoutsDslMarker KtfxButtonBar).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxButtonBar(buttonOrder).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxButtonBar(buttonOrder).apply(configuration)
 }
 
 /** Add a [ButtonBar] to this manager. */
@@ -45,8 +45,8 @@ fun NodeManager.buttonBar(
 /** Add a [ButtonBar] with initialization block to this manager. */
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
-    init: (@LayoutsDslMarker KtfxButtonBar).() -> Unit
+    configuration: (@LayoutsDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxButtonBar(buttonOrder), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxButtonBar(buttonOrder), configuration)
 }

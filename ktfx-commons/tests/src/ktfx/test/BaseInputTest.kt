@@ -8,7 +8,6 @@ import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 import javafx.scene.input.ScrollEvent
 import javafx.stage.Stage
-import ktfx.test.testScene
 import org.testfx.framework.junit.ApplicationTest
 
 /**

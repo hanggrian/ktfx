@@ -2,28 +2,24 @@ package ktfx.inputs
 
 import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
-import javafx.stage.Stage
-import ktfx.isFxThread
-import org.testfx.framework.junit.ApplicationTest
+import ktfx.test.FxThreadRule
+import org.junit.Rule
+import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class ClipboardTest : ApplicationTest() {
+class ClipboardTest {
+    @Rule @JvmField var rule = FxThreadRule()
     private lateinit var clipboard: Clipboard
 
-    override fun start(stage: Stage) {
-        assertTrue(isFxThread(), "A")
+    @BeforeTest fun start() {
         clipboard = Clipboard.getSystemClipboard()
     }
 
     @Test fun test() {
-        interact {
-            assertTrue(isFxThread(), "B")
-            clipboard[DataFormat.PLAIN_TEXT] = "Hello world"
-            assertTrue(isFxThread(), "C")
-            assertTrue(DataFormat.PLAIN_TEXT in clipboard)
-            assertEquals("Hello world", clipboard[DataFormat.PLAIN_TEXT])
-        }
+        clipboard[DataFormat.PLAIN_TEXT] = "Hello world"
+        assertTrue(DataFormat.PLAIN_TEXT in clipboard)
+        assertEquals("Hello world", clipboard[DataFormat.PLAIN_TEXT])
     }
 }

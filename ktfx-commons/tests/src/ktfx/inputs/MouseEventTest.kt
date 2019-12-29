@@ -3,9 +3,11 @@ package ktfx.inputs
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 import ktfx.test.BaseInputTest
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
+@Ignore
 class MouseEventTest : BaseInputTest() {
 
     @Test fun isLeftClick() = assertTrue {

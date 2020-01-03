@@ -22,11 +22,11 @@ tasks["gitPublishCopy"].dependsOn(
 
 val ktfxArtifacts: List<String>
     get() = listOf("commons", "layouts", "listeners", "coroutines").map { "$RELEASE_ARTIFACT-$it" } +
-        listOf("controlsfx", "jfoenix").flatMap {
-            listOf(
-                "$RELEASE_ARTIFACT-features/$it-commons",
-                "$RELEASE_ARTIFACT-features/$it-layouts",
-                "$RELEASE_ARTIFACT-features/$it-listeners",
-                "$RELEASE_ARTIFACT-features/$it-coroutines"
-            )
-        }
+            listOf("controlsfx", "jfoenix").flatMap {
+                listOf(
+                    "features/$it-commons",
+                    "features/$it-layouts",
+                    "features/$it-listeners",
+                    "features/$it-coroutines"
+                )
+            }

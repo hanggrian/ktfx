@@ -7,7 +7,7 @@ class ExpressionFunctionReturnTypeRuleTest : RuleTest {
 
     override val rule = ExpressionFunctionReturnTypeRule()
 
-    @Test fun test() = assert(of(3, 1, "Expression function need return type")) {
+    @Test fun test() = assertRule(lintErrorOf(3, 1, "Expression function need return type")) {
         """
             fun get(): String = ""
 

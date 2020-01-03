@@ -7,9 +7,9 @@ class OpenClassRuleTest : RuleTest {
 
     override val rule = OpenClassRule()
 
-    @Test fun test() = assert(
-        of(1, 1, "Empty modifiers, need open."),
-        of(5, 1, "Public classes need open modifier.")
+    @Test fun test() = assertRule(
+        lintErrorOf(1, 1, "Empty modifiers, need open."),
+        lintErrorOf(5, 1, "Public classes need open modifier.")
     ) {
         """
             class Failing

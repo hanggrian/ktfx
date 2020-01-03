@@ -4,7 +4,9 @@ import javafx.scene.media.MediaMarkerEvent
 import javafx.scene.media.MediaPlayer
 import kotlinx.coroutines.Dispatchers
 import ktfx.test.BaseMediaPlayerTest
+import kotlin.test.Ignore
 
+@Ignore
 class MediaPlayerTest : BaseMediaPlayerTest() {
 
     override fun MediaPlayer.callOnError(action: () -> Unit) =

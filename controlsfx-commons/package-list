@@ -1,9 +1,10 @@
 $dokka.format:html
 $dokka.linkExtension:html
 $dokka.location:ktfx.controlsfx.controls$addDecoration(javafx.scene.Node, org.controlsfx.control.decoration.Decoration)ktfx.controlsfx.controls/javafx.scene.-node/add-decoration.html
+$dokka.location:ktfx.controlsfx.controls$addDecorations(javafx.scene.Node, kotlin.Array((org.controlsfx.control.decoration.Decoration)))ktfx.controlsfx.controls/javafx.scene.-node/add-decorations.html
+$dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, javafx.util.StringConverter((ktfx.controlsfx.controls.bindAutoCompletion.T)), kotlin.Function1((org.controlsfx.control.textfield.AutoCompletionBinding.ISuggestionRequest, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.Array((ktfx.controlsfx.controls.bindAutoCompletion.T)))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.Function1((org.controlsfx.control.textfield.AutoCompletionBinding.ISuggestionRequest, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
-$dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.Function1((org.controlsfx.control.textfield.AutoCompletionBinding.ISuggestionRequest, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))), javafx.util.StringConverter((ktfx.controlsfx.controls.bindAutoCompletion.T)))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$clearDecorations(javafx.scene.Node)ktfx.controlsfx.controls/javafx.scene.-node/clear-decorations.html
 $dokka.location:ktfx.controlsfx.controls$decorations#javafx.scene.Nodektfx.controlsfx.controls/javafx.scene.-node/decorations.html
@@ -16,11 +17,11 @@ $dokka.location:ktfx.controlsfx.controls$registerRegexValidator(javafx.scene.con
 $dokka.location:ktfx.controlsfx.controls$removeDecoration(javafx.scene.Node, org.controlsfx.control.decoration.Decoration)ktfx.controlsfx.controls/javafx.scene.-node/remove-decoration.html
 $dokka.location:ktfx.controlsfx.controls$wrapBorders(javafx.scene.Node, kotlin.Function1((ktfx.controlsfx.controls.BordersBuilder, kotlin.Unit)))ktfx.controlsfx.controls/javafx.scene.-node/wrap-borders.html
 $dokka.location:ktfx.controlsfx.text$color(org.controlsfx.glyphfont.Glyph, javafx.scene.paint.Color)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/color.html
-$dokka.location:ktfx.controlsfx.text$create(org.controlsfx.glyphfont.GlyphFont, kotlin.Char)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/create.html
-$dokka.location:ktfx.controlsfx.text$create(org.controlsfx.glyphfont.GlyphFont, kotlin.Enum(()))ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/create.html
-$dokka.location:ktfx.controlsfx.text$create(org.controlsfx.glyphfont.GlyphFont, kotlin.String)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/create.html
 $dokka.location:ktfx.controlsfx.text$family(org.controlsfx.glyphfont.Glyph, kotlin.String)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/family.html
 $dokka.location:ktfx.controlsfx.text$glyph(kotlin.String, kotlin.String)ktfx.controlsfx.text/kotlin.-string/glyph.html
+$dokka.location:ktfx.controlsfx.text$glyph(org.controlsfx.glyphfont.GlyphFont, kotlin.Char)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/glyph.html
+$dokka.location:ktfx.controlsfx.text$glyph(org.controlsfx.glyphfont.GlyphFont, kotlin.Enum(()))ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/glyph.html
+$dokka.location:ktfx.controlsfx.text$glyph(org.controlsfx.glyphfont.GlyphFont, kotlin.String)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/glyph.html
 $dokka.location:ktfx.controlsfx.text$register(org.controlsfx.glyphfont.GlyphFont)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph-font/register.html
 $dokka.location:ktfx.controlsfx.text$size(org.controlsfx.glyphfont.Glyph, kotlin.Double)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/size.html
 $dokka.location:ktfx.controlsfx.text$sizeFactor(org.controlsfx.glyphfont.Glyph, kotlin.Int)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/size-factor.html

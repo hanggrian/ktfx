@@ -61,11 +61,15 @@ $dokka.location:ktfx.listeners$onEditStart(javafx.scene.control.ListView((ktfx.l
 $dokka.location:ktfx.listeners$onEditStart(javafx.scene.control.TableColumn((ktfx.listeners.onEditStart.S, ktfx.listeners.onEditStart.T)), kotlin.Function1((javafx.scene.control.TableColumn.CellEditEvent((ktfx.listeners.onEditStart.S, ktfx.listeners.onEditStart.T)), kotlin.Unit)))ktfx.listeners/javafx.scene.control.-table-column/on-edit-start.html
 $dokka.location:ktfx.listeners$onEditStart(javafx.scene.control.TreeTableColumn((ktfx.listeners.onEditStart.S, ktfx.listeners.onEditStart.T)), kotlin.Function1((javafx.scene.control.TreeTableColumn.CellEditEvent((ktfx.listeners.onEditStart.S, ktfx.listeners.onEditStart.T)), kotlin.Unit)))ktfx.listeners/javafx.scene.control.-tree-table-column/on-edit-start.html
 $dokka.location:ktfx.listeners$onEditStart(javafx.scene.control.TreeView((ktfx.listeners.onEditStart.T)), kotlin.Function1((javafx.scene.control.TreeView.EditEvent((ktfx.listeners.onEditStart.T)), kotlin.Unit)))ktfx.listeners/javafx.scene.control.-tree-view/on-edit-start.html
+$dokka.location:ktfx.listeners$onEndOfMedia(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-end-of-media.html
+$dokka.location:ktfx.listeners$onError(javafx.scene.media.Media, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media/on-error.html
+$dokka.location:ktfx.listeners$onError(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-error.html
 $dokka.location:ktfx.listeners$onError(javafx.scene.media.MediaView, kotlin.Function1((javafx.scene.media.MediaErrorEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-view/on-error.html
 $dokka.location:ktfx.listeners$onError(javafx.scene.web.WebEngine, kotlin.Function1((javafx.scene.web.WebErrorEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.web.-web-engine/on-error.html
 $dokka.location:ktfx.listeners$onFailed(javafx.concurrent.Service((kotlin.Any)), kotlin.Function1((javafx.concurrent.WorkerStateEvent, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-service/on-failed.html
 $dokka.location:ktfx.listeners$onFailed(javafx.concurrent.Task((kotlin.Any)), kotlin.Function1((javafx.concurrent.WorkerStateEvent, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-task/on-failed.html
 $dokka.location:ktfx.listeners$onFinished(javafx.animation.Animation, kotlin.Function1((javafx.event.ActionEvent, kotlin.Unit)))ktfx.listeners/javafx.animation.-animation/on-finished.html
+$dokka.location:ktfx.listeners$onHalted(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-halted.html
 $dokka.location:ktfx.listeners$onHidden(javafx.scene.control.ChoiceBox((kotlin.Any)), kotlin.Function1((javafx.event.Event, kotlin.Unit)))ktfx.listeners/javafx.scene.control.-choice-box/on-hidden.html
 $dokka.location:ktfx.listeners$onHidden(javafx.scene.control.ComboBoxBase((kotlin.Any)), kotlin.Function1((javafx.event.Event, kotlin.Unit)))ktfx.listeners/javafx.scene.control.-combo-box-base/on-hidden.html
 $dokka.location:ktfx.listeners$onHidden(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((javafx.scene.control.DialogEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.control.-dialog/on-hidden.html
@@ -108,14 +112,18 @@ $dokka.location:ktfx.listeners$onMousePressed(javafx.scene.Node, kotlin.Function
 $dokka.location:ktfx.listeners$onMousePressed(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.MouseEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-mouse-pressed.html
 $dokka.location:ktfx.listeners$onMouseReleased(javafx.scene.Node, kotlin.Function1((javafx.scene.input.MouseEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-mouse-released.html
 $dokka.location:ktfx.listeners$onMouseReleased(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.MouseEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-mouse-released.html
+$dokka.location:ktfx.listeners$onPaused(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-paused.html
+$dokka.location:ktfx.listeners$onPlaying(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-playing.html
 $dokka.location:ktfx.listeners$onReady(javafx.concurrent.Service((kotlin.Any)), kotlin.Function1((javafx.concurrent.WorkerStateEvent, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-service/on-ready.html
+$dokka.location:ktfx.listeners$onReady(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-ready.html
+$dokka.location:ktfx.listeners$onRepeat(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-repeat.html
 $dokka.location:ktfx.listeners$onResized(javafx.scene.web.WebEngine, kotlin.Function1((javafx.scene.web.WebEvent((javafx.geometry.Rectangle2D)), kotlin.Unit)))ktfx.listeners/javafx.scene.web.-web-engine/on-resized.html
 $dokka.location:ktfx.listeners$onRotate(javafx.scene.Node, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-rotate.html
 $dokka.location:ktfx.listeners$onRotate(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-rotate.html
-$dokka.location:ktfx.listeners$onRotationFinished(javafx.scene.Node, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-rotation-finished.html
-$dokka.location:ktfx.listeners$onRotationFinished(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-rotation-finished.html
-$dokka.location:ktfx.listeners$onRotationStarted(javafx.scene.Node, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-rotation-started.html
-$dokka.location:ktfx.listeners$onRotationStarted(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-rotation-started.html
+$dokka.location:ktfx.listeners$onRotateFinished(javafx.scene.Node, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-rotate-finished.html
+$dokka.location:ktfx.listeners$onRotateFinished(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-rotate-finished.html
+$dokka.location:ktfx.listeners$onRotateStarted(javafx.scene.Node, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-rotate-started.html
+$dokka.location:ktfx.listeners$onRotateStarted(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.RotateEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-rotate-started.html
 $dokka.location:ktfx.listeners$onRunning(javafx.concurrent.Service((kotlin.Any)), kotlin.Function1((javafx.concurrent.WorkerStateEvent, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-service/on-running.html
 $dokka.location:ktfx.listeners$onRunning(javafx.concurrent.Task((kotlin.Any)), kotlin.Function1((javafx.concurrent.WorkerStateEvent, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-task/on-running.html
 $dokka.location:ktfx.listeners$onScheduled(javafx.concurrent.Service((kotlin.Any)), kotlin.Function1((javafx.concurrent.WorkerStateEvent, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-service/on-scheduled.html
@@ -145,7 +153,9 @@ $dokka.location:ktfx.listeners$onShown(javafx.scene.control.Menu, kotlin.Functio
 $dokka.location:ktfx.listeners$onShown(javafx.stage.Window, kotlin.Function1((javafx.stage.WindowEvent, kotlin.Unit)))ktfx.listeners/javafx.stage.-window/on-shown.html
 $dokka.location:ktfx.listeners$onSort(javafx.scene.control.TableView((ktfx.listeners.onSort.S)), kotlin.Function1((javafx.scene.control.SortEvent((javafx.scene.control.TableView((ktfx.listeners.onSort.S)))), kotlin.Unit)))ktfx.listeners/javafx.scene.control.-table-view/on-sort.html
 $dokka.location:ktfx.listeners$onSort(javafx.scene.control.TreeTableView((ktfx.listeners.onSort.T)), kotlin.Function1((javafx.scene.control.SortEvent((javafx.scene.control.TreeTableView((ktfx.listeners.onSort.T)))), kotlin.Unit)))ktfx.listeners/javafx.scene.control.-tree-table-view/on-sort.html
+$dokka.location:ktfx.listeners$onStalled(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-stalled.html
 $dokka.location:ktfx.listeners$onStatusChanged(javafx.scene.web.WebEngine, kotlin.Function1((javafx.scene.web.WebEvent((kotlin.String)), kotlin.Unit)))ktfx.listeners/javafx.scene.web.-web-engine/on-status-changed.html
+$dokka.location:ktfx.listeners$onStopped(javafx.scene.media.MediaPlayer, kotlin.Function0((kotlin.Unit)))ktfx.listeners/javafx.scene.media.-media-player/on-stopped.html
 $dokka.location:ktfx.listeners$onSucceeded(javafx.concurrent.Service((kotlin.Any)), kotlin.Function1((javafx.concurrent.WorkerStateEvent, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-service/on-succeeded.html
 $dokka.location:ktfx.listeners$onSucceeded(javafx.concurrent.Task((kotlin.Any)), kotlin.Function1((javafx.concurrent.WorkerStateEvent, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-task/on-succeeded.html
 $dokka.location:ktfx.listeners$onSwipeDown(javafx.scene.Node, kotlin.Function1((javafx.scene.input.SwipeEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-swipe-down.html
@@ -158,10 +168,13 @@ $dokka.location:ktfx.listeners$onSwipeUp(javafx.scene.Node, kotlin.Function1((ja
 $dokka.location:ktfx.listeners$onSwipeUp(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.SwipeEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-swipe-up.html
 $dokka.location:ktfx.listeners$onTouchMoved(javafx.scene.Node, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-touch-moved.html
 $dokka.location:ktfx.listeners$onTouchMoved(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-touch-moved.html
+$dokka.location:ktfx.listeners$onTouchPressed(javafx.scene.Node, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-touch-pressed.html
+$dokka.location:ktfx.listeners$onTouchPressed(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-touch-pressed.html
 $dokka.location:ktfx.listeners$onTouchReleased(javafx.scene.Node, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-touch-released.html
 $dokka.location:ktfx.listeners$onTouchReleased(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-touch-released.html
 $dokka.location:ktfx.listeners$onTouchStationary(javafx.scene.Node, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-touch-stationary.html
 $dokka.location:ktfx.listeners$onTouchStationary(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-touch-stationary.html
+$dokka.location:ktfx.listeners$onTransformChanged(javafx.scene.transform.Transform, kotlin.Function1((javafx.scene.transform.TransformChangedEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.transform.-transform/on-transform-changed.html
 $dokka.location:ktfx.listeners$onVisibilityChanged(javafx.scene.web.WebEngine, kotlin.Function1((javafx.scene.web.WebEvent((kotlin.Boolean)), kotlin.Unit)))ktfx.listeners/javafx.scene.web.-web-engine/on-visibility-changed.html
 $dokka.location:ktfx.listeners$onZoom(javafx.scene.Node, kotlin.Function1((javafx.scene.input.ZoomEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-zoom.html
 $dokka.location:ktfx.listeners$onZoom(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.ZoomEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-zoom.html
@@ -169,8 +182,6 @@ $dokka.location:ktfx.listeners$onZoomFinished(javafx.scene.Node, kotlin.Function
 $dokka.location:ktfx.listeners$onZoomFinished(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.ZoomEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-zoom-finished.html
 $dokka.location:ktfx.listeners$onZoomStarted(javafx.scene.Node, kotlin.Function1((javafx.scene.input.ZoomEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-zoom-started.html
 $dokka.location:ktfx.listeners$onZoomStarted(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.ZoomEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-zoom-started.html
-$dokka.location:ktfx.listeners$setOnTouchPressed(javafx.scene.Node, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/set-on-touch-pressed.html
-$dokka.location:ktfx.listeners$setOnTouchPressed(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.TouchEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/set-on-touch-pressed.html
 $dokka.location:ktfx.listeners$snapshot(javafx.scene.Node, javafx.scene.SnapshotParameters, javafx.scene.image.WritableImage, kotlin.Function1((javafx.scene.SnapshotResult, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/snapshot.html
 $dokka.location:ktfx.listeners$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage, kotlin.Function1((javafx.scene.SnapshotResult, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/snapshot.html
 ktfx.listeners

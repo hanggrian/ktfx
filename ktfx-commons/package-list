@@ -588,7 +588,8 @@ $dokka.location:ktfx.controls$translateTransition(javafx.scene.Node, javafx.util
 $dokka.location:ktfx.controls$unconstrained(javafx.scene.control.TableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-table-view/unconstrained.html
 $dokka.location:ktfx.controls$unconstrained(javafx.scene.control.TreeTableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-tree-table-view/unconstrained.html
 $dokka.location:ktfx.controls$updatePadding(javafx.scene.layout.Region, kotlin.Double, kotlin.Double, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-region/update-padding.html
-$dokka.location:ktfx.dialogs$buttons(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((ktfx.dialogs.DialogButtonBuilder, kotlin.Unit)))ktfx.dialogs/javafx.scene.control.-dialog/buttons.html
+$dokka.location:ktfx.dialogs$buttons#javafx.scene.control.Dialog((kotlin.Any))ktfx.dialogs/javafx.scene.control.-dialog/buttons.html
+$dokka.location:ktfx.dialogs$buttons(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((ktfx.dialogs.DialogButtonContainerScope, kotlin.Unit)))ktfx.dialogs/javafx.scene.control.-dialog/buttons.html
 $dokka.location:ktfx.dialogs$chooseDirectory(javafx.stage.Window, kotlin.String, java.io.File)ktfx.dialogs/javafx.stage.-window/choose-directory.html
 $dokka.location:ktfx.dialogs$chooseFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.dialogs/javafx.stage.-window/choose-file.html
 $dokka.location:ktfx.dialogs$chooseFile(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.dialogs/javafx.stage.-window/choose-file.html

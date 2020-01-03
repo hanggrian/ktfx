@@ -25,15 +25,27 @@ Invoking dsl will add its children.</p>
 </tr>
 </tbody>
 </table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="child-count.html">childCount</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">childCount</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Functions</h3>
 <table>
 <tbody>
 <tr>
 <td>
-<h4><a href="add-tab.html">addTab</a></h4>
+<h4><a href="add-child.html">addChild</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Tab</span><span class="symbol">&gt;</span> <span class="identifier">addTab</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXTabPane$addTab(ktfx.jfoenix.layouts.KtfxJFXTabPane.addTab.T)/tab">tab</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Tab</span><span class="symbol">&gt;</span> <span class="identifier">addChild</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXTabPane$addChild(ktfx.jfoenix.layouts.KtfxJFXTabPane.addChild.C)/child">child</span><span class="symbol">:</span>&nbsp;<span class="identifier">C</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 <tr>
 <td>
@@ -41,7 +53,7 @@ Invoking dsl will add its children.</p>
 </td>
 <td>
 <p>Call <a href="#">TabManager.tab</a> by string invocation.</p>
-<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXTabPane$invoke(kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxTab, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXTabPane$invoke(kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxTab, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">KtfxTab</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Tab</span></code></td>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">.</span><span class="identifier">invoke</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXTabPane$invoke(kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxTab, kotlin.Unit)))/graphic">graphic</span><span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXTabPane$invoke(kotlin.String, javafx.scene.Node, kotlin.Function1((ktfx.layouts.KtfxTab, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">KtfxTab</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Tab</span></code></td>
 </tr>
 </tbody>
 </table>

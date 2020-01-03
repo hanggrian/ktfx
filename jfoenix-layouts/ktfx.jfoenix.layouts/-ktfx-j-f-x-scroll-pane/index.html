@@ -25,50 +25,67 @@ Invoking dsl will only set its content.</p>
 </tr>
 </tbody>
 </table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="child-count.html">childCount</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">childCount</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Functions</h3>
 <table>
 <tbody>
 <tr>
 <td>
-<h4><a href="add-node.html">addNode</a></h4>
+<h4><a href="add-child.html">addChild</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">addNode</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXScrollPane$addNode(ktfx.jfoenix.layouts.KtfxJFXScrollPane.addNode.T)/node">node</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">addChild</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXScrollPane$addChild(ktfx.jfoenix.layouts.KtfxJFXScrollPane.addChild.C)/child">child</span><span class="symbol">:</span>&nbsp;<span class="identifier">C</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Extension Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="../bottom-bar.html">bottomBar</a></h4>
+</td>
+<td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">KtfxJFXScrollPane</span></a><span class="symbol">.</span><span class="identifier">bottomBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts$bottomBar(ktfx.jfoenix.layouts.KtfxJFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="bottom-bar.html">bottomBar</a></h4>
+<h4><a href="../condensed-header.html">condensedHeader</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">bottomBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXScrollPane$bottomBar(kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">KtfxJFXScrollPane</span></a><span class="symbol">.</span><span class="identifier">condensedHeader</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts$condensedHeader(ktfx.jfoenix.layouts.KtfxJFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="condensed-header.html">condensedHeader</a></h4>
+<h4><a href="../main-header.html">mainHeader</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">condensedHeader</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXScrollPane$condensedHeader(kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">KtfxJFXScrollPane</span></a><span class="symbol">.</span><span class="identifier">mainHeader</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts$mainHeader(ktfx.jfoenix.layouts.KtfxJFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="main-header.html">mainHeader</a></h4>
+<h4><a href="../mid-bar.html">midBar</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">mainHeader</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXScrollPane$mainHeader(kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">KtfxJFXScrollPane</span></a><span class="symbol">.</span><span class="identifier">midBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts$midBar(ktfx.jfoenix.layouts.KtfxJFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="mid-bar.html">midBar</a></h4>
+<h4><a href="../top-bar.html">topBar</a></h4>
 </td>
 <td>
-<code><span class="keyword">fun </span><span class="identifier">midBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXScrollPane$midBar(kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="top-bar.html">topBar</a></h4>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">topBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts.KtfxJFXScrollPane$topBar(kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
+<code><span class="keyword">fun </span><a href="./index.html"><span class="identifier">KtfxJFXScrollPane</span></a><span class="symbol">.</span><span class="identifier">topBar</span><span class="symbol">(</span><span class="identifier" id="ktfx.jfoenix.layouts$topBar(ktfx.jfoenix.layouts.KtfxJFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">NodeManager</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 </tbody>
 </table>

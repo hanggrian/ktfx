@@ -12,6 +12,7 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import org.controlsfx.control.HyperlinkLabel
 
+/** Sets a new EventHandler which will be invoked whenever a hyperlink is fired. */
 fun HyperlinkLabel.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ActionEvent) -> Unit

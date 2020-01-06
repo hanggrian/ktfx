@@ -11,6 +11,7 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import org.controlsfx.control.BreadCrumbBar
 
+/** Set a new EventHandler for when a user selects a crumb. */
 fun <T> BreadCrumbBar<T>.onCrumbAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(BreadCrumbBar.BreadCrumbActionEvent<T>) -> Unit

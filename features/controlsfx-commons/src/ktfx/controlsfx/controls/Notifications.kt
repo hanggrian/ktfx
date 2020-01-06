@@ -8,6 +8,7 @@ import ktfx.internal.KtfxInternals
 import org.controlsfx.control.Notifications
 import org.controlsfx.control.action.Action
 
+/** Supporting class to use [Notifications] with DSL. */
 class NotificationsBuilder internal constructor() {
     internal val nativeNotifications: Notifications = Notifications.create()
 

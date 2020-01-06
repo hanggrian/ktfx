@@ -46,33 +46,41 @@ fun ObservableIntegerArray.getBinding(index: ObservableNumberValue): IntegerBind
 inline fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
     getBinding(index as ObservableNumberValue)
 
-operator fun ObservableIntegerArray.contains(value: Int): Boolean = (0 until size).any { get(it) == value }
+/** Returns true if [element] exists in this observable array. */
+operator fun ObservableIntegerArray.contains(element: Int): Boolean = (0 until size).any { get(it) == element }
 
-inline operator fun ObservableIntegerArray.plusAssign(value: Int): Unit = addAll(value)
+/** Adds the specified [element] to this observable array. */
+inline operator fun ObservableIntegerArray.plusAssign(element: Int): Unit = addAll(element)
 
-inline operator fun ObservableIntegerArray.plusAssign(array: IntArray): Unit = addAll(*array)
+/** Adds all elements of the given [elements] array to this observable array. */
+inline operator fun ObservableIntegerArray.plusAssign(elements: IntArray): Unit = addAll(*elements)
 
-inline operator fun ObservableIntegerArray.plusAssign(array: ObservableIntegerArray): Unit = addAll(array)
+/** Adds all elements of the given [elements] observable array to this observable array. */
+inline operator fun ObservableIntegerArray.plusAssign(elements: ObservableIntegerArray): Unit = addAll(elements)
 
-inline fun ObservableIntegerArray.forEach(action: (value: Int) -> Unit) {
+/** Performs the given [action] on each element. */
+inline fun ObservableIntegerArray.forEach(action: (Int) -> Unit) {
     for (index in 0 until size) {
         action(get(index))
     }
 }
 
-inline fun ObservableIntegerArray.forEachIndexed(action: (index: Int, value: Int) -> Unit) {
+/** Performs the given [action] on each element, accompanied with the index of the element. */
+inline fun ObservableIntegerArray.forEachIndexed(action: (index: Int, Int) -> Unit) {
     for (index in 0 until size) {
         action(index, get(index))
     }
 }
 
-inline fun ObservableIntegerArray.forEachBinding(action: (value: IntegerBinding) -> Unit) {
+/** Performs the given [action] on each element binding. */
+inline fun ObservableIntegerArray.forEachBinding(action: (IntegerBinding) -> Unit) {
     for (index in 0 until size) {
         action(getBinding(index))
     }
 }
 
-inline fun ObservableIntegerArray.forEachBindingIndexed(action: (index: Int, value: IntegerBinding) -> Unit) {
+/** Performs the given [action] on each element binding, accompanied with the index of the element. */
+inline fun ObservableIntegerArray.forEachBindingIndexed(action: (index: Int, IntegerBinding) -> Unit) {
     for (index in 0 until size) {
         action(index, getBinding(index))
     }

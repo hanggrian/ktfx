@@ -23,10 +23,9 @@ import ktfx.layouts.addChild
 open class KtfxJFXToolbar : JFXToolbar() {
 
     @Suppress("NOTHING_TO_INLINE")
-    class HBoxConstraints @PublishedApi internal constructor(list: MutableList<Node>) : NodeManager,
-        MutableList<Node> by list {
-        override fun <C : Node> addChild(child: C): C = child.also { this += it }
-        override val childCount: Int get() = size
+    class HBoxConstraints @PublishedApi internal constructor(private val list: MutableList<Node>) : NodeManager {
+        override fun <C : Node> addChild(child: C): C = child.also { list += it }
+        override val childCount: Int get() = list.size
 
         /** Clear children constraints. */
         @JvmName("clearConstraints2")
@@ -78,11 +77,13 @@ open class KtfxJFXToolbar : JFXToolbar() {
     }
 }
 
+/** Add children to [JFXToolbar] left items with DSL. */
 inline fun KtfxJFXToolbar.leftItems(configuration: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     KtfxJFXToolbar.HBoxConstraints(leftItems).configuration()
 }
 
+/** Add children to [JFXToolbar] right items with DSL. */
 inline fun KtfxJFXToolbar.rightItems(configuration: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     KtfxJFXToolbar.HBoxConstraints(rightItems).configuration()

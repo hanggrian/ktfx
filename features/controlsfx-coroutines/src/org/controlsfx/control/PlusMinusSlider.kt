@@ -11,6 +11,7 @@ import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import org.controlsfx.control.PlusMinusSlider
 
+/** Sets an event handler that will receive plus minus events when the user moves the adjuster's thumb. */
 fun PlusMinusSlider.onValueChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(PlusMinusSlider.PlusMinusEvent) -> Unit

@@ -6,6 +6,7 @@ import javafx.scene.paint.Color
 import ktfx.internal.KtfxInternals
 import org.controlsfx.tools.Borders
 
+/** Supporting class to use [Borders] with DSL. */
 class BordersBuilder internal constructor(node: Node) {
     private val nativeBorders: Borders = Borders.wrap(node)
 
@@ -28,6 +29,7 @@ class BordersBuilder internal constructor(node: Node) {
 
     internal fun build(): Node = nativeBorders.build()
 
+    /** Supporting class to add empty border with DSL. */
     class EmptyBordersBuilder internal constructor(private val nativeBorders: Borders.EmptyBorders) {
         /** Specifies that the wrapped Node should have the given padding around all four sides of itself. */
         var padding: Double
@@ -117,6 +119,7 @@ class BordersBuilder internal constructor(node: Node) {
         abstract fun radius(top: Double, right: Double, bottom: Double, left: Double)
     }
 
+    /** Supporting class to add etched border with DSL. */
     class EtchedBordersBuilder internal constructor(private val nativeBorders: Borders.EtchedBorders) :
         NonEmptyBordersBuilder() {
         /** Specifies the highlight colour to use in the etched border. */
@@ -179,6 +182,7 @@ class BordersBuilder internal constructor(node: Node) {
         }
     }
 
+    /** Supporting class to add line border with DSL. */
     class LineBordersBuilder internal constructor(private val nativeBorders: Borders.LineBorders) :
         NonEmptyBordersBuilder() {
         /** Specifies the colour to use for all four sides of this border. */

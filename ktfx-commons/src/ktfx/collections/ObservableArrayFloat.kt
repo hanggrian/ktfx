@@ -46,33 +46,41 @@ fun ObservableFloatArray.getBinding(index: ObservableNumberValue): FloatBinding 
 inline fun ObservableFloatArray.getBinding(index: ObservableIntegerValue): FloatBinding =
     getBinding(index as ObservableNumberValue)
 
-operator fun ObservableFloatArray.contains(value: Float): Boolean = (0 until size).any { get(it) == value }
+/** Returns true if [element] exists in this observable array. */
+operator fun ObservableFloatArray.contains(element: Float): Boolean = (0 until size).any { get(it) == element }
 
-inline operator fun ObservableFloatArray.plusAssign(value: Float): Unit = addAll(value)
+/** Adds the specified [element] to this observable array. */
+inline operator fun ObservableFloatArray.plusAssign(element: Float): Unit = addAll(element)
 
-inline operator fun ObservableFloatArray.plusAssign(array: FloatArray): Unit = addAll(*array)
+/** Adds all elements of the given [elements] array to this observable array. */
+inline operator fun ObservableFloatArray.plusAssign(elements: FloatArray): Unit = addAll(*elements)
 
-inline operator fun ObservableFloatArray.plusAssign(array: ObservableFloatArray): Unit = addAll(array)
+/** Adds all elements of the given [elements] observable array to this observable array. */
+inline operator fun ObservableFloatArray.plusAssign(elements: ObservableFloatArray): Unit = addAll(elements)
 
-inline fun ObservableFloatArray.forEach(action: (value: Float) -> Unit) {
+/** Performs the given [action] on each element. */
+inline fun ObservableFloatArray.forEach(action: (Float) -> Unit) {
     for (index in 0 until size) {
         action(get(index))
     }
 }
 
-inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, value: Float) -> Unit) {
+/** Performs the given [action] on each element, accompanied with the index of the element. */
+inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, Float) -> Unit) {
     for (index in 0 until size) {
         action(index, get(index))
     }
 }
 
-inline fun ObservableFloatArray.forEachBinding(action: (value: FloatBinding) -> Unit) {
+/** Performs the given [action] on each element binding. */
+inline fun ObservableFloatArray.forEachBinding(action: (FloatBinding) -> Unit) {
     for (index in 0 until size) {
         action(getBinding(index))
     }
 }
 
-inline fun ObservableFloatArray.forEachBindingIndexed(action: (index: Int, value: FloatBinding) -> Unit) {
+/** Performs the given [action] on each element binding, accompanied with the index of the element. */
+inline fun ObservableFloatArray.forEachBindingIndexed(action: (index: Int, FloatBinding) -> Unit) {
     for (index in 0 until size) {
         action(index, getBinding(index))
     }

@@ -13,6 +13,6 @@ include("website")
 include("demo")
 
 fun includeDir(dir: String) = file(dir)
-    .listFiles()
-    ?.filter { it.isDirectory }
-    ?.forEach { include("$dir:${it.name}") }
+    .listFiles()!!
+    .filter { it.isDirectory }
+    .forEach { include("$dir:${it.name}") }

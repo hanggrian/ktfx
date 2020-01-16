@@ -15,30 +15,30 @@ import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableValue
 
-/** Create an [LongBinding] with multiple [Observable] dependencies. */
+/** Create a [LongBinding] with multiple [Observable] dependencies. */
 fun longBindingOf(vararg dependencies: Observable, valueProvider: () -> Long): LongBinding =
     Bindings.createLongBinding(Callable(valueProvider), *dependencies)
 
-/** Create an [LongBinding] with single [ObservableValue] dependency. */
+/** Create a [LongBinding] with single [ObservableValue] dependency. */
 inline fun <V> ObservableValue<V>.toLongBinding(noinline valueProvider: (V?) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value) }
 
-/** Create an [LongBinding] with single [ObservableBooleanValue] dependency. */
+/** Create a [LongBinding] with single [ObservableBooleanValue] dependency. */
 inline fun ObservableBooleanValue.toLongBinding(noinline valueProvider: (Boolean) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value) }
 
-/** Create an [LongBinding] with single [ObservableDoubleValue] dependency. */
+/** Create a [LongBinding] with single [ObservableDoubleValue] dependency. */
 inline fun ObservableDoubleValue.toLongBinding(noinline valueProvider: (Double) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value as Double) }
 
-/** Create an [LongBinding] with single [ObservableFloatValue] dependency. */
+/** Create a [LongBinding] with single [ObservableFloatValue] dependency. */
 inline fun ObservableFloatValue.toLongBinding(noinline valueProvider: (Float) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value as Float) }
 
-/** Create an [LongBinding] with single [ObservableIntegerValue] dependency. */
+/** Create a [LongBinding] with single [ObservableIntegerValue] dependency. */
 inline fun ObservableIntegerValue.toLongBinding(noinline valueProvider: (Int) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value as Int) }
 
-/** Create an [LongBinding] with single [ObservableLongValue] dependency. */
+/** Create a [LongBinding] with single [ObservableLongValue] dependency. */
 inline fun ObservableLongValue.toLongBinding(noinline valueProvider: (Long) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value as Long) }

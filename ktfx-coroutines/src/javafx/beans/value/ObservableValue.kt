@@ -17,6 +17,6 @@ import kotlinx.coroutines.launch
 fun <T> ObservableValue<T>.listener(
     context: CoroutineContext = Dispatchers.JavaFx,
     listener: suspend CoroutineScope.(Observable, oldValue: T, value: T) -> Unit
-): ChangeListener<T> = ChangeListener<T> { observable, oldValue, value ->
-    GlobalScope.launch(context) { listener(observable, oldValue, value) }
+): ChangeListener<T> = ChangeListener<T> { observable, oldValue, newValue ->
+    GlobalScope.launch(context) { listener(observable, oldValue, newValue) }
 }.also { addListener(it) }

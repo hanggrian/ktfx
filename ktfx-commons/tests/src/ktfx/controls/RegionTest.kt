@@ -15,24 +15,25 @@ class RegionTest {
 
     @Test fun padding() {
         val region = Region()
-        region.updatePadding(bottom = 20.0, top = 20.0)
-        assertEquals(20.0, region.paddingTop)
-        assertEquals(0.0, region.paddingLeft)
-        assertEquals(0.0, region.paddingRight)
-        assertEquals(20.0, region.paddingBottom)
-        region.paddingAll = 10.0
-        assertEquals(10.0, region.paddingTop)
-        assertEquals(10.0, region.paddingLeft)
-        assertEquals(10.0, region.paddingRight)
-        assertEquals(10.0, region.paddingBottom)
-        region.paddingTop = 15.0
-        assertEquals(15.0, region.paddingTop)
-        region.paddingLeft = 20.0
-        assertEquals(20.0, region.paddingLeft)
-        region.paddingRight = 25.0
-        assertEquals(25.0, region.paddingRight)
-        region.paddingBottom = 30.0
-        assertEquals(30.0, region.paddingBottom)
+        region.allPadding = 10.0
+        assertEquals(10.0, region.topPadding)
+        assertEquals(10.0, region.leftPadding)
+        assertEquals(10.0, region.rightPadding)
+        assertEquals(10.0, region.bottomPadding)
+        region.topPadding = 15.0
+        assertEquals(15.0, region.topPadding)
+        region.leftPadding = 20.0
+        assertEquals(20.0, region.leftPadding)
+        region.rightPadding = 25.0
+        assertEquals(25.0, region.rightPadding)
+        region.bottomPadding = 30.0
+        assertEquals(30.0, region.bottomPadding)
+        region.horizontalPadding = 35.0
+        assertEquals(35.0, region.leftPadding)
+        assertEquals(35.0, region.rightPadding)
+        region.verticalPadding = 40.0
+        assertEquals(40.0, region.topPadding)
+        assertEquals(40.0, region.bottomPadding)
     }
 
     @Test fun background() {

@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:Suppress("NOTHING_TO_INLINE")
 @file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -25,52 +24,68 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
-    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
+    fun Node.clearConstraints(): Unit = clearConstraints(this)
 
-    /** Children all anchor in this layout. */
-    inline var Node.anchorAll: Double?
+    /** Top anchor of this children. */
+    inline var Node.topAnchor: Double?
+        @JvmName("getTopAnchor2") get() = getTopAnchor(this)
+        @JvmName("setTopAnchor2") set(value) = setTopAnchor(this, value)
+
+    /** Right anchor of this children. */
+    inline var Node.rightAnchor: Double?
+        @JvmName("getRightAnchor2") get() = getRightAnchor(this)
+        @JvmName("setRightAnchor2") set(value) = setRightAnchor(this, value)
+
+    /** Bottom anchor of this children. */
+    inline var Node.bottomAnchor: Double?
+        @JvmName("getBottomAnchor2") get() = getBottomAnchor(this)
+        @JvmName("setBottomAnchor2") set(value) = setBottomAnchor(this, value)
+
+    /** Left anchor of this children. */
+    inline var Node.leftAnchor: Double?
+        @JvmName("getLeftAnchor2") get() = getLeftAnchor(this)
+        @JvmName("setLeftAnchor2") set(value) = setLeftAnchor(this, value)
+
+    /** Sets left and right anchor of this children. */
+    var Node.horizontalAnchor: Double?
         @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-        set(value) {
-            anchorTop = value
-            anchorLeft = value
-            anchorBottom = value
-            anchorRight = value
-        }
+        set(value) = setAnchor(topAnchor, value, bottomAnchor, value)
 
-    /** Children left anchor in this layout. */
-    inline var Node.anchorLeft: Double?
-        get() = getLeftAnchor(this)
-        set(value) = setLeftAnchor(this, value)
+    /** Sets top and bottom anchor of this children. */
+    var Node.verticalAnchor: Double?
+        @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+        set(value) = setAnchor(value, rightAnchor, value, leftAnchor)
 
-    /** Children top anchor in this layout. */
-    inline var Node.anchorTop: Double?
-        get() = getTopAnchor(this)
-        set(value) = setTopAnchor(this, value)
+    /** Sets anchor to all sides of this children. */
+    var Node.anchor: Double?
+        @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+        inline set(value) = setAnchor(value, value, value, value)
 
-    /** Children bottom anchor in this layout. */
-    inline var Node.anchorBottom: Double?
-        get() = getBottomAnchor(this)
-        set(value) = setBottomAnchor(this, value)
-
-    /** Children right anchor in this layout. */
-    inline var Node.anchorRight: Double?
-        get() = getRightAnchor(this)
-        set(value) = setRightAnchor(this, value)
-
-    /** Configure all anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.anchorAll(anchor: Double): C = apply { anchorAll = anchor }
+    /** Set children anchor on each side in this layout. */
+    fun Node.setAnchor(top: Double?, right: Double?, bottom: Double?, left: Double?) {
+        topAnchor = top; rightAnchor = right; bottomAnchor = bottom; leftAnchor = left
+    }
 
     /** Configure top anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.anchorTop(anchor: Double): C = apply { anchorTop = anchor }
-
-    /** Configure left anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.anchorLeft(anchor: Double): C = apply { anchorLeft = anchor }
-
-    /** Configure bottom anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.anchorBottom(anchor: Double): C = apply { anchorBottom = anchor }
+    infix fun <C : Node> C.topAnchor(anchor: Double): C = apply { topAnchor = anchor }
 
     /** Configure right anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.anchorRight(anchor: Double): C = apply { anchorRight = anchor }
+    infix fun <C : Node> C.rightAnchor(anchor: Double): C = apply { rightAnchor = anchor }
+
+    /** Configure bottom anchor fluidly using infix operator. */
+    infix fun <C : Node> C.bottomAnchor(anchor: Double): C = apply { bottomAnchor = anchor }
+
+    /** Configure left anchor fluidly using infix operator. */
+    infix fun <C : Node> C.leftAnchor(anchor: Double): C = apply { leftAnchor = anchor }
+
+    /** Configure horizontal anchor fluidly using infix operator. */
+    infix fun <C : Node> C.horizontalAnchor(anchor: Double): C = apply { horizontalAnchor = anchor }
+
+    /** Configure vertical anchor fluidly using infix operator. */
+    infix fun <C : Node> C.verticalAnchor(anchor: Double): C = apply { verticalAnchor = anchor }
+
+    /** Configure all anchor fluidly using infix operator. */
+    infix fun <C : Node> C.anchor(anchor: Double): C = apply { this.anchor = anchor }
 }
 
 /** Create an [AnchorPane] with initialization block. */

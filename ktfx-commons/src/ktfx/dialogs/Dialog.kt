@@ -1,4 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
 @file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.dialogs
@@ -18,26 +17,24 @@ import ktfx.controls.stage
 import ktfx.internal.KtfxInternals
 
 /** Removes old icons and set a new one to this dialog. */
-inline var Dialog<*>.icon: Image
+var Dialog<*>.icon: Image
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) {
+    inline set(value) {
         dialogPane.scene.stage.icon = value
     }
 
 /** Apply [ImageView] as graphic and icon of this dialog. */
-inline var Dialog<*>.graphicIcon: ImageView
+var Dialog<*>.graphicIcon: ImageView
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) {
-        graphic = value
-        icon = value.image
+        graphic = value; icon = value.image
     }
 
 /** Apply string as header text and title of this dialog. */
-inline var Dialog<*>.headerTitle: String
+var Dialog<*>.headerTitle: String
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
     set(value) {
-        headerText = value
-        title = value
+        headerText = value; title = value
     }
 
 /** Quickly add button type to this dialog without DSL. */

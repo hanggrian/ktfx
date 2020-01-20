@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("BindingKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx
 
@@ -16,29 +15,29 @@ import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableValue
 
 /** Create a [LongBinding] with multiple [Observable] dependencies. */
-fun longBindingOf(vararg dependencies: Observable, valueProvider: () -> Long): LongBinding =
-    Bindings.createLongBinding(Callable(valueProvider), *dependencies)
+inline fun longBindingOf(vararg dependencies: Observable, crossinline valueProvider: () -> Long): LongBinding =
+    Bindings.createLongBinding(Callable { valueProvider() }, *dependencies)
 
 /** Create a [LongBinding] with single [ObservableValue] dependency. */
-inline fun <V> ObservableValue<V>.toLongBinding(noinline valueProvider: (V?) -> Long): LongBinding =
+inline fun <V> ObservableValue<V>.toLongBinding(crossinline valueProvider: (V?) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value) }
 
 /** Create a [LongBinding] with single [ObservableBooleanValue] dependency. */
-inline fun ObservableBooleanValue.toLongBinding(noinline valueProvider: (Boolean) -> Long): LongBinding =
+inline fun ObservableBooleanValue.toLongBinding(crossinline valueProvider: (Boolean) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value) }
 
 /** Create a [LongBinding] with single [ObservableDoubleValue] dependency. */
-inline fun ObservableDoubleValue.toLongBinding(noinline valueProvider: (Double) -> Long): LongBinding =
+inline fun ObservableDoubleValue.toLongBinding(crossinline valueProvider: (Double) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value as Double) }
 
 /** Create a [LongBinding] with single [ObservableFloatValue] dependency. */
-inline fun ObservableFloatValue.toLongBinding(noinline valueProvider: (Float) -> Long): LongBinding =
+inline fun ObservableFloatValue.toLongBinding(crossinline valueProvider: (Float) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value as Float) }
 
 /** Create a [LongBinding] with single [ObservableIntegerValue] dependency. */
-inline fun ObservableIntegerValue.toLongBinding(noinline valueProvider: (Int) -> Long): LongBinding =
+inline fun ObservableIntegerValue.toLongBinding(crossinline valueProvider: (Int) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value as Int) }
 
 /** Create a [LongBinding] with single [ObservableLongValue] dependency. */
-inline fun ObservableLongValue.toLongBinding(noinline valueProvider: (Long) -> Long): LongBinding =
+inline fun ObservableLongValue.toLongBinding(crossinline valueProvider: (Long) -> Long): LongBinding =
     longBindingOf(this) { valueProvider(value as Long) }

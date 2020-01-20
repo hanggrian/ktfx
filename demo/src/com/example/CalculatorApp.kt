@@ -3,8 +3,8 @@ package com.example
 import javafx.application.Application
 import javafx.scene.control.Label
 import javafx.stage.Stage
+import ktfx.controls.horizontalPadding
 import ktfx.controls.minSize
-import ktfx.controls.updatePadding
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
 import ktfx.dialogs.infoAlert
@@ -31,7 +31,7 @@ class CalculatorApp : Application() {
         stage.scene {
             gridPane {
                 vbox {
-                    updatePadding(right = 20.0, left = 20.0)
+                    horizontalPadding = 20.0
                     calculationLabel = label("")
 
                     resultLabel = label {

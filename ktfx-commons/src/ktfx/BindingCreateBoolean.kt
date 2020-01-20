@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("BindingKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx
 
@@ -16,29 +15,29 @@ import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableValue
 
 /** Create a [BooleanBinding] with multiple [Observable] dependencies. */
-fun booleanBindingOf(vararg dependencies: Observable, valueProvider: () -> Boolean): BooleanBinding =
-    Bindings.createBooleanBinding(Callable(valueProvider), *dependencies)
+inline fun booleanBindingOf(vararg dependencies: Observable, crossinline valueProvider: () -> Boolean): BooleanBinding =
+    Bindings.createBooleanBinding(Callable { valueProvider() }, *dependencies)
 
 /** Create a [BooleanBinding] with single [ObservableValue] dependency. */
-inline fun <V> ObservableValue<V>.toBooleanBinding(noinline valueProvider: (V?) -> Boolean): BooleanBinding =
+inline fun <V> ObservableValue<V>.toBooleanBinding(crossinline valueProvider: (V?) -> Boolean): BooleanBinding =
     booleanBindingOf(this) { valueProvider(value) }
 
 /** Create a [BooleanBinding] with single [ObservableBooleanValue] dependency. */
-inline fun ObservableBooleanValue.toBooleanBinding(noinline valueProvider: (Boolean) -> Boolean): BooleanBinding =
+inline fun ObservableBooleanValue.toBooleanBinding(crossinline valueProvider: (Boolean) -> Boolean): BooleanBinding =
     booleanBindingOf(this) { valueProvider(value) }
 
 /** Create a [BooleanBinding] with single [ObservableDoubleValue] dependency. */
-inline fun ObservableDoubleValue.toBooleanBinding(noinline valueProvider: (Double) -> Boolean): BooleanBinding =
+inline fun ObservableDoubleValue.toBooleanBinding(crossinline valueProvider: (Double) -> Boolean): BooleanBinding =
     booleanBindingOf(this) { valueProvider(value as Double) }
 
 /** Create a [BooleanBinding] with single [ObservableFloatValue] dependency. */
-inline fun ObservableFloatValue.toBooleanBinding(noinline valueProvider: (Float) -> Boolean): BooleanBinding =
+inline fun ObservableFloatValue.toBooleanBinding(crossinline valueProvider: (Float) -> Boolean): BooleanBinding =
     booleanBindingOf(this) { valueProvider(value as Float) }
 
 /** Create a [BooleanBinding] with single [ObservableIntegerValue] dependency. */
-inline fun ObservableIntegerValue.toBooleanBinding(noinline valueProvider: (Int) -> Boolean): BooleanBinding =
+inline fun ObservableIntegerValue.toBooleanBinding(crossinline valueProvider: (Int) -> Boolean): BooleanBinding =
     booleanBindingOf(this) { valueProvider(value as Int) }
 
 /** Create a [BooleanBinding] with single [ObservableLongValue] dependency. */
-inline fun ObservableLongValue.toBooleanBinding(noinline valueProvider: (Long) -> Boolean): BooleanBinding =
+inline fun ObservableLongValue.toBooleanBinding(crossinline valueProvider: (Long) -> Boolean): BooleanBinding =
     booleanBindingOf(this) { valueProvider(value as Long) }

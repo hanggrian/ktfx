@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("BindingKt")
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx
 
@@ -16,29 +15,29 @@ import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableValue
 
 /** Create a [DoubleBinding] with multiple [Observable] dependencies. */
-fun doubleBindingOf(vararg dependencies: Observable, valueProvider: () -> Double): DoubleBinding =
-    Bindings.createDoubleBinding(Callable(valueProvider), *dependencies)
+inline fun doubleBindingOf(vararg dependencies: Observable, crossinline valueProvider: () -> Double): DoubleBinding =
+    Bindings.createDoubleBinding(Callable { valueProvider() }, *dependencies)
 
 /** Create a [DoubleBinding] with single [ObservableValue] dependency. */
-inline fun <V> ObservableValue<V>.toDoubleBinding(noinline valueProvider: (V?) -> Double): DoubleBinding =
+inline fun <V> ObservableValue<V>.toDoubleBinding(crossinline valueProvider: (V?) -> Double): DoubleBinding =
     doubleBindingOf(this) { valueProvider(value) }
 
 /** Create a [DoubleBinding] with single [ObservableBooleanValue] dependency. */
-inline fun ObservableBooleanValue.toDoubleBinding(noinline valueProvider: (Boolean) -> Double): DoubleBinding =
+inline fun ObservableBooleanValue.toDoubleBinding(crossinline valueProvider: (Boolean) -> Double): DoubleBinding =
     doubleBindingOf(this) { valueProvider(value) }
 
 /** Create a [DoubleBinding] with single [ObservableDoubleValue] dependency. */
-inline fun ObservableDoubleValue.toDoubleBinding(noinline valueProvider: (Double) -> Double): DoubleBinding =
+inline fun ObservableDoubleValue.toDoubleBinding(crossinline valueProvider: (Double) -> Double): DoubleBinding =
     doubleBindingOf(this) { valueProvider(value as Double) }
 
 /** Create a [DoubleBinding] with single [ObservableFloatValue] dependency. */
-inline fun ObservableFloatValue.toDoubleBinding(noinline valueProvider: (Float) -> Double): DoubleBinding =
+inline fun ObservableFloatValue.toDoubleBinding(crossinline valueProvider: (Float) -> Double): DoubleBinding =
     doubleBindingOf(this) { valueProvider(value as Float) }
 
 /** Create a [DoubleBinding] with single [ObservableIntegerValue] dependency. */
-inline fun ObservableIntegerValue.toDoubleBinding(noinline valueProvider: (Int) -> Double): DoubleBinding =
+inline fun ObservableIntegerValue.toDoubleBinding(crossinline valueProvider: (Int) -> Double): DoubleBinding =
     doubleBindingOf(this) { valueProvider(value as Int) }
 
 /** Create a [DoubleBinding] with single [ObservableLongValue] dependency. */
-inline fun ObservableLongValue.toDoubleBinding(noinline valueProvider: (Long) -> Double): DoubleBinding =
+inline fun ObservableLongValue.toDoubleBinding(crossinline valueProvider: (Long) -> Double): DoubleBinding =
     doubleBindingOf(this) { valueProvider(value as Long) }

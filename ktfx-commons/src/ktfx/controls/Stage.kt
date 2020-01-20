@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.controls
 
 import javafx.scene.Scene
@@ -14,59 +12,56 @@ import ktfx.internal.KtfxInternals
 inline val Scene.stage: Stage get() = window as Stage
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
-inline var Stage.minSize: Double
-    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = setMinSize(value, value)
+fun Stage.setMinSize(width: Double, height: Double) {
+    minWidth = width; minHeight = height
+}
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
-inline fun Stage.setMinSize(width: Double, height: Double) {
-    minWidth = width
-    minHeight = height
+var Stage.minSize: Double
+    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+    inline set(value) = setMinSize(value, value)
+
+/** Convenient method for overriding the stage's computed width and height. */
+fun Stage.setSize(width: Double, height: Double) {
+    this.width = width; this.height = height
 }
 
 /** Convenient method for overriding the stage's computed width and height. */
-inline var Stage.size: Double
+var Stage.size: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = setSize(value, value)
+    inline set(value) = setSize(value, value)
 
-/** Convenient method for overriding the stage's computed width and height. */
-inline fun Stage.setSize(width: Double, height: Double) {
-    this.width = width
-    this.height = height
+/** Convenient method for overriding the stage's computed maximum width and height. */
+fun Stage.setMaxSize(width: Double, height: Double) {
+    maxWidth = width; maxHeight = height
 }
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
-inline var Stage.maxSize: Double
+var Stage.maxSize: Double
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) = setMaxSize(value, value)
-
-/** Convenient method for overriding the stage's computed maximum width and height. */
-inline fun Stage.setMaxSize(width: Double, height: Double) {
-    maxWidth = width
-    maxHeight = height
-}
+    inline set(value) = setMaxSize(value, value)
 
 /** Removes old icons and set a new one to this stage. */
-inline var Stage.icon: Image
+var Stage.icon: Image
     @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
-    set(value) {
+    inline set(value) {
         icons.setAll(value)
     }
 
 /** Creates a stage with options. */
-fun stage(
+inline fun stage(
     title: String? = null,
     icon: Image? = null,
     style: StageStyle = DECORATED,
-    init: (Stage.() -> Unit)? = null
+    configuration: Stage.() -> Unit
 ): Stage = Stage(style).also {
     if (title != null) it.title = title
     if (icon != null) it.icon = icon
-    init?.invoke(it)
+    it.configuration()
 }
 
 /** Creates a stage with options. */
 inline fun stage(
     style: StageStyle = DECORATED,
-    noinline init: (Stage.() -> Unit)? = null
-): Stage = stage(null, null, style, init)
+    configuration: Stage.() -> Unit
+): Stage = stage(null, null, style, configuration)

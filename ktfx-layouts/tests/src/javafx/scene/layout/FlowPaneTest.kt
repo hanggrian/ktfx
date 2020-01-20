@@ -5,6 +5,7 @@ import javafx.scene.layout.FlowPane
 import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class FlowPaneTest : LayoutsTest<NodeManager, FlowPane>() {
 
@@ -22,21 +23,21 @@ class FlowPaneTest : LayoutsTest<NodeManager, FlowPane>() {
 
     @Test fun margins() {
         flowPane {
-            val region1 = region() marginAll 0.0
-            assertEquals(0.0, region1.margin?.top)
-            assertEquals(0.0, region1.margin?.left)
-            assertEquals(0.0, region1.margin?.bottom)
-            assertEquals(0.0, region1.margin?.right)
-            val region2 = region() marginTop 10.0 marginLeft 20.0 marginBottom 30.0 marginRight 40.0
-            assertEquals(10.0, region2.margin?.top)
-            assertEquals(20.0, region2.margin?.left)
-            assertEquals(30.0, region2.margin?.bottom)
-            assertEquals(40.0, region2.margin?.right)
+            val region1 = region() allMargin 0.0
+            assertEquals(0.0, region1.topMargin)
+            assertEquals(0.0, region1.rightMargin)
+            assertEquals(0.0, region1.bottomMargin)
+            assertEquals(0.0, region1.leftMargin)
+            val region2 = region() topMargin 10.0 rightMargin 20.0 bottomMargin 30.0 leftMargin 40.0
+            assertEquals(10.0, region2.topMargin)
+            assertEquals(20.0, region2.rightMargin)
+            assertEquals(30.0, region2.bottomMargin)
+            assertEquals(40.0, region2.leftMargin)
 
             region1.clearConstraints()
-            assertEquals(region1.margin, null)
+            assertNull(region1.margin)
             region2.clearConstraints()
-            assertEquals(region2.margin, null)
+            assertNull(region2.margin)
 
             assertEquals(children.size, 2)
         }

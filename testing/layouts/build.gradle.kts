@@ -5,5 +5,5 @@ plugins {
 sourceSets["main"].java.srcDir("src")
 
 dependencies {
-    api(project(":testing:core-fx"))
+    api(project(":testing:core"))
 }

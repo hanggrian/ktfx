@@ -10,9 +10,9 @@ interface RuleTest {
 
     val rule: Rule
 
-    fun assertRule(vararg exactly: Triple<Int, Int, String>, text: () -> String) {
-        assertThat(rule.lint(text().trimIndent()))
-            .containsExactly(*exactly.map { LintError(it.first, it.second, rule.id, it.third) }.toTypedArray())
+    fun assertRule(vararg expectedErrors: Triple<Int, Int, String>, code: () -> String) {
+        assertThat(rule.lint(code().trimIndent()))
+            .containsExactly(*expectedErrors.map { LintError(it.first, it.second, rule.id, it.third) }.toTypedArray())
     }
 
     fun lintErrorOf(line: Int, col: Int, message: String) = Triple(line, col, message)

@@ -13,7 +13,7 @@ sourceSets {
 }
 
 ktlint { add ->
-    add(project(":ruleset:all"))
+    add(project(":ruleset:basic"))
 }
 
 dependencies {

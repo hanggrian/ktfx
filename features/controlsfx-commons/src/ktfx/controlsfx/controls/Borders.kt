@@ -3,37 +3,58 @@ package ktfx.controlsfx.controls
 import javafx.scene.Node
 import javafx.scene.layout.BorderStrokeStyle
 import javafx.scene.paint.Color
-import ktfx.internal.KtfxInternals
+import kotlin.DeprecationLevel.ERROR
+import ktfx.internal.KtfxInternals.NO_GETTER
+import ktfx.internal.KtfxInternals.noGetter
 import org.controlsfx.tools.Borders
 
-/** Supporting class to use [Borders] with DSL. */
-class BordersBuilder internal constructor(node: Node) {
-    private val nativeBorders: Borders = Borders.wrap(node)
+/** Wraps this [Node] with borders using Kotlin DSL, returning the wrapped node. */
+inline fun Node.wrapBorders(builder: BordersBuilder.() -> Unit): Node = BordersBuilder(this).apply(builder).build()
+
+/** Add a new [Borders.EmptyBorders] to node using DSL. */
+inline fun Node.wrapEmptyBorder(emptyBuilder: BordersBuilder.EmptyBuilder.() -> Unit): Node =
+    wrapBorders { empty(emptyBuilder) }
+
+/** Add a new [Borders.EtchedBorders] to node using DSL. */
+inline fun Node.wrapEtchedBorder(etchedBuilder: BordersBuilder.EtchedBuilder.() -> Unit): Node =
+    wrapBorders { etched(etchedBuilder) }
+
+/** Add a new [Borders.LineBorders] to node using DSL. */
+inline fun Node.wrapLineBorder(lineBuilder: BordersBuilder.LineBuilder.() -> Unit): Node =
+    wrapBorders { line(lineBuilder) }
+
+/**
+ * Supporting class to use [Borders] with DSL.
+ *
+ * @see Node.wrapBorders
+ */
+class BordersBuilder @PublishedApi internal constructor(node: Node) {
+    @PublishedApi internal val nativeBorders: Borders = Borders.wrap(node)
 
     /** Opens up DSL to create empty border. */
-    fun emptyBorder(configuration: EmptyBordersBuilder.() -> Unit): Unit =
-        EmptyBordersBuilder(nativeBorders.emptyBorder()).apply(configuration).build()
+    inline fun empty(emptyBuilder: EmptyBuilder.() -> Unit): Unit =
+        EmptyBuilder(nativeBorders.emptyBorder()).apply(emptyBuilder).build()
 
     /** Opens up DSL to create etched border. */
-    fun etchedBorder(configuration: EtchedBordersBuilder.() -> Unit): Unit =
-        EtchedBordersBuilder(nativeBorders.etchedBorder()).apply(configuration).build()
+    inline fun etched(etchedBuilder: EtchedBuilder.() -> Unit): Unit =
+        EtchedBuilder(nativeBorders.etchedBorder()).apply(etchedBuilder).build()
 
     /** Opens up DSL to create line border. */
-    fun lineBorder(configuration: LineBordersBuilder.() -> Unit): Unit =
-        LineBordersBuilder(nativeBorders.lineBorder()).apply(configuration).build()
+    inline fun line(lineBuilder: LineBuilder.() -> Unit): Unit =
+        LineBuilder(nativeBorders.lineBorder()).apply(lineBuilder).build()
 
     /** Allows for developers to develop custom [Borders.Border] implementations. */
     fun addBorder(border: Borders.Border) {
         nativeBorders.addBorder(border)
     }
 
-    internal fun build(): Node = nativeBorders.build()
+    @PublishedApi internal fun build(): Node = nativeBorders.build()
 
     /** Supporting class to add empty border with DSL. */
-    class EmptyBordersBuilder internal constructor(private val nativeBorders: Borders.EmptyBorders) {
+    class EmptyBuilder @PublishedApi internal constructor(private val nativeBorders: Borders.EmptyBorders) {
         /** Specifies that the wrapped Node should have the given padding around all four sides of itself. */
         var padding: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.padding(value)
             }
@@ -43,23 +64,23 @@ class BordersBuilder internal constructor(node: Node) {
             nativeBorders.padding(top, right, bottom, left)
         }
 
-        inline var paddingTop: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = padding(value, 0.0, 0.0, 0.0)
+        var topPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = padding(value, 0.0, 0.0, 0.0)
 
-        inline var paddingRight: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = padding(0.0, value, 0.0, 0.0)
+        var rightPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = padding(0.0, value, 0.0, 0.0)
 
-        inline var paddingBottom: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = padding(0.0, 0.0, value, 0.0)
+        var bottomPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = padding(0.0, 0.0, value, 0.0)
 
-        inline var paddingLeft: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = padding(0.0, 0.0, 0.0, value)
+        var leftPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = padding(0.0, 0.0, 0.0, value)
 
-        internal fun build() {
+        @PublishedApi internal fun build() {
             nativeBorders.build()
         }
     }
@@ -74,21 +95,21 @@ class BordersBuilder internal constructor(node: Node) {
         /** Specifies that the line wrapping the node should have outer padding as specified. */
         abstract fun outerPadding(top: Double, right: Double, bottom: Double, left: Double)
 
-        inline var outerPaddingTop: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = outerPadding(value, 0.0, 0.0, 0.0)
+        var outerTopPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = outerPadding(value, 0.0, 0.0, 0.0)
 
-        inline var outerPaddingRight: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = outerPadding(0.0, value, 0.0, 0.0)
+        var outerRightPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = outerPadding(0.0, value, 0.0, 0.0)
 
-        inline var outerPaddingBottom: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = outerPadding(0.0, 0.0, value, 0.0)
+        var outerBottomPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = outerPadding(0.0, 0.0, value, 0.0)
 
-        inline var outerPaddingLeft: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = outerPadding(0.0, 0.0, 0.0, value)
+        var outerLeftPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = outerPadding(0.0, 0.0, 0.0, value)
 
         /** Specifies the inner padding of the four lines of this border. */
         abstract var innerPadding: Double
@@ -96,21 +117,21 @@ class BordersBuilder internal constructor(node: Node) {
         /** Specifies that the line wrapping the node should have inner padding as specified. */
         abstract fun innerPadding(top: Double, right: Double, bottom: Double, left: Double)
 
-        inline var innerPaddingTop: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = innerPadding(value, 0.0, 0.0, 0.0)
+        var innerTopPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = innerPadding(value, 0.0, 0.0, 0.0)
 
-        inline var innerPaddingRight: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = innerPadding(0.0, value, 0.0, 0.0)
+        var innerRightPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = innerPadding(0.0, value, 0.0, 0.0)
 
-        inline var innerPaddingBottom: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = innerPadding(0.0, 0.0, value, 0.0)
+        var innerBottomPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = innerPadding(0.0, 0.0, value, 0.0)
 
-        inline var innerPaddingLeft: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
-            set(value) = innerPadding(0.0, 0.0, 0.0, value)
+        var innerLeftPadding: Double
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
+            inline set(value) = innerPadding(0.0, 0.0, 0.0, value)
 
         /** Specifies the radius of the four corners of the line of this border. */
         abstract var radius: Double
@@ -120,18 +141,18 @@ class BordersBuilder internal constructor(node: Node) {
     }
 
     /** Supporting class to add etched border with DSL. */
-    class EtchedBordersBuilder internal constructor(private val nativeBorders: Borders.EtchedBorders) :
+    class EtchedBuilder @PublishedApi internal constructor(private val nativeBorders: Borders.EtchedBorders) :
         NonEmptyBordersBuilder() {
         /** Specifies the highlight colour to use in the etched border. */
         var highlight: Color
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.highlight(value)
             }
 
         /** Specifies the shadow colour to use in the etched border. */
         var shadow: Color
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.shadow(value)
             }
@@ -142,13 +163,13 @@ class BordersBuilder internal constructor(node: Node) {
         }
 
         override var title: String
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.title(value)
             }
 
         override var outerPadding: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.outerPadding(value)
             }
@@ -158,7 +179,7 @@ class BordersBuilder internal constructor(node: Node) {
         }
 
         override var innerPadding: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.innerPadding(value)
             }
@@ -168,7 +189,7 @@ class BordersBuilder internal constructor(node: Node) {
         }
 
         override var radius: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.radius(value)
             }
@@ -177,17 +198,17 @@ class BordersBuilder internal constructor(node: Node) {
             nativeBorders.radius(top, right, bottom, left)
         }
 
-        internal fun build() {
+        @PublishedApi internal fun build() {
             nativeBorders.build()
         }
     }
 
     /** Supporting class to add line border with DSL. */
-    class LineBordersBuilder internal constructor(private val nativeBorders: Borders.LineBorders) :
+    class LineBuilder @PublishedApi internal constructor(private val nativeBorders: Borders.LineBorders) :
         NonEmptyBordersBuilder() {
         /** Specifies the colour to use for all four sides of this border. */
         var color: Color
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.color(value)
             }
@@ -199,13 +220,13 @@ class BordersBuilder internal constructor(node: Node) {
 
         /** Specifies which {@link BorderStrokeStyle} to use for this line border. */
         var strokeStyle: BorderStrokeStyle
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.strokeStyle(value)
             }
 
         override var outerPadding: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.outerPadding(value)
             }
@@ -215,7 +236,7 @@ class BordersBuilder internal constructor(node: Node) {
         }
 
         override var innerPadding: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.innerPadding(value)
             }
@@ -226,7 +247,7 @@ class BordersBuilder internal constructor(node: Node) {
 
         /** Specifies the thickness of the line to use on all four sides of this border. */
         var thickness: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.thickness(value)
             }
@@ -237,7 +258,7 @@ class BordersBuilder internal constructor(node: Node) {
         }
 
         override var radius: Double
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.radius(value)
             }
@@ -247,17 +268,13 @@ class BordersBuilder internal constructor(node: Node) {
         }
 
         override var title: String
-            @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+            @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
                 nativeBorders.title(value)
             }
 
-        internal fun build() {
+        @PublishedApi internal fun build() {
             nativeBorders.build()
         }
     }
 }
-
-/** Wraps this [Node] with borders using Kotlin DSL, returning the wrapped node. */
-fun Node.wrapBorders(configuration: BordersBuilder.() -> Unit): Node =
-    BordersBuilder(this).apply(configuration).build()

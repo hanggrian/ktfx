@@ -14,25 +14,26 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.controls.icon
 import ktfx.controls.stage
-import ktfx.internal.KtfxInternals
+import ktfx.internal.KtfxInternals.NO_GETTER
+import ktfx.internal.KtfxInternals.noGetter
 
 /** Removes old icons and set a new one to this dialog. */
 var Dialog<*>.icon: Image
-    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     inline set(value) {
         dialogPane.scene.stage.icon = value
     }
 
 /** Apply [ImageView] as graphic and icon of this dialog. */
 var Dialog<*>.graphicIcon: ImageView
-    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         graphic = value; icon = value.image
     }
 
 /** Apply string as header text and title of this dialog. */
 var Dialog<*>.headerTitle: String
-    @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         headerText = value; title = value
     }

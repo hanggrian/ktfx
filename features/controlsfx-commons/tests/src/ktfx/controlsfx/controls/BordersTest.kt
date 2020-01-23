@@ -16,7 +16,7 @@ class BordersTest {
         val label = Label()
         assertNull(label.border)
 
-        val wrappedLabel = Label().wrapBorders { emptyBorder { padding(1.0, 2.0, 3.0, 4.0) } } as Region
+        val wrappedLabel = Label().wrapBorders { empty { padding(1.0, 2.0, 3.0, 4.0) } } as Region
         assertEquals(1, wrappedLabel.border.strokes.size)
 
         val stroke = wrappedLabel.border.strokes.first()
@@ -30,7 +30,7 @@ class BordersTest {
         val label = Label()
         assertNull(label.border)
 
-        val wrappedLabel = Label().wrapBorders { etchedBorder { title = "Hello world" } } as Region
+        val wrappedLabel = Label().wrapBorders { etched { title = "Hello world" } } as Region
         assertEquals(1, wrappedLabel.border.strokes.size)
     }
 
@@ -38,7 +38,7 @@ class BordersTest {
         val label = Label()
         assertNull(label.border)
 
-        val wrappedLabel = Label().wrapBorders { lineBorder { title = "Hello world" } } as Region
+        val wrappedLabel = Label().wrapBorders { line { title = "Hello world" } } as Region
         assertEquals(1, wrappedLabel.border.strokes.size)
     }
 }

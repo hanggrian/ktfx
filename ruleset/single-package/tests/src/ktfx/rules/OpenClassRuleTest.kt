@@ -4,7 +4,6 @@ import ktfx.test.RuleTest
 import kotlin.test.Test
 
 class OpenClassRuleTest : RuleTest {
-
     override val rule = OpenClassRule()
 
     @Test fun test() = assertRule(

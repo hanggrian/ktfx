@@ -1,5 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
-
 package ktfx.util
 
 import javafx.beans.Observable
@@ -8,13 +6,14 @@ import javafx.util.Callback
 import ktfx.bindingOf
 
 /** Create new callback using Kotlin function type. */
-fun <P, R> callbackOf(callback: (P) -> R?): Callback<P, R> = Callback<P, R>(callback)
+inline fun <P, R> callbackOf(crossinline callback: (P) -> R?): Callback<P, R> = Callback { callback(it) }
 
 /** Create an [ObjectBinding] of [Callback] with multiple [Observable] dependencies. */
 inline fun <P, R> callbackBindingOf(
     vararg dependencies: Observable,
-    noinline valueProvider: (P) -> R?
-): ObjectBinding<Callback<P, R>> = bindingOf(*dependencies) { callbackOf(valueProvider) }
+    crossinline valueProvider: (P) -> R?
+): ObjectBinding<Callback<P, R>> = bindingOf(*dependencies) { callbackOf<P, R> { valueProvider(it) } }
 
 /** Converts the object provided into its string form. */
+@Suppress("NOTHING_TO_INLINE")
 inline operator fun <P, R> Callback<P, R>.invoke(obj: P): R = call(obj)

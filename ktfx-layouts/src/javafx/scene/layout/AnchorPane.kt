@@ -10,7 +10,8 @@ import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.internal.KtfxInternals
+import ktfx.internal.KtfxInternals.NO_GETTER
+import ktfx.internal.KtfxInternals.noGetter
 
 /**
  * [AnchorPane] with dynamic-layout dsl support.
@@ -48,17 +49,17 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
 
     /** Sets left and right anchor of this children. */
     var Node.horizontalAnchor: Double?
-        @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         set(value) = setAnchor(topAnchor, value, bottomAnchor, value)
 
     /** Sets top and bottom anchor of this children. */
     var Node.verticalAnchor: Double?
-        @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         set(value) = setAnchor(value, rightAnchor, value, leftAnchor)
 
     /** Sets anchor to all sides of this children. */
     var Node.anchor: Double?
-        @Deprecated(KtfxInternals.NO_GETTER, level = ERROR) get() = KtfxInternals.noGetter()
+        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         inline set(value) = setAnchor(value, value, value, value)
 
     /** Set children anchor on each side in this layout. */

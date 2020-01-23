@@ -13,7 +13,7 @@ sourceSets {
 }
 
 ktlint { add ->
-    add(project(":ruleset:all"))
+    add(project(":ruleset:basic"))
     add(project(":ruleset:single-package"))
 }
 
@@ -21,7 +21,7 @@ dependencies {
     api(project(":$RELEASE_ARTIFACT-core"))
     api(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 
-    testImplementation(project(":testing:listeners-and-coroutines"))
+    testImplementation(project(":testing:listeners-coroutines"))
 }
 
 tasks {

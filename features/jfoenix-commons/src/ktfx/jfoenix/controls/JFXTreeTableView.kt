@@ -12,20 +12,20 @@ import kotlin.contracts.contract
 import ktfx.controls.TableColumnDslMarker
 
 /** Invokes a [TreeTableColumn] DSL builder. */
-fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(configuration: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
+inline fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(configuration: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     JFXTreeTableColumnsBuilder<S>(columns).configuration()
 }
 
 /** Invokes a [TreeTableColumn] DSL builder. */
-fun <S : RecursiveTreeObject<S>, T> JFXTreeTableColumn<S, T>.columns(configuration: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
+inline fun <S : RecursiveTreeObject<S>, T> JFXTreeTableColumn<S, T>.columns(configuration: JFXTreeTableColumnsBuilder<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     JFXTreeTableColumnsBuilder<S>(columns).configuration()
 }
 
 /** Interface to build [JFXTreeTableColumn] with Kotlin DSL. */
 @TableColumnDslMarker
-class JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> internal constructor(
+class JFXTreeTableColumnsBuilder<S : RecursiveTreeObject<S>> @PublishedApi internal constructor(
     private val columns: MutableCollection<TreeTableColumn<S, *>>
 ) {
 

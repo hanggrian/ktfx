@@ -12,7 +12,9 @@ sourceSets {
 }
 
 dependencies {
-    api(project(":ruleset:core"))
+    implementation(kotlin("stdlib", VERSION_KOTLIN))
+    implementation(kotlin("test-junit", VERSION_KOTLIN))
+    implementation(ktlint("core"))
 
     testImplementation(project(":testing:ruleset"))
 }

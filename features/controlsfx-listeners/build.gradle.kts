@@ -13,7 +13,7 @@ sourceSets {
 }
 
 ktlint { add ->
-    add(project(":ruleset:all"))
+    add(project(":ruleset:basic"))
     add(project(":ruleset:single-package"))
 }
 
@@ -21,7 +21,7 @@ dependencies {
     api(project(":$RELEASE_ARTIFACT-listeners"))
     api(controlsFx())
 
-    testImplementation(project(":testing:listeners-and-coroutines-controlsfx"))
+    testImplementation(project(":testing:listeners-coroutines-controlsfx"))
 }
 
 tasks {

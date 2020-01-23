@@ -5,7 +5,9 @@ package ktfx.controls
 
 import javafx.geometry.Insets
 import javafx.scene.layout.Region
-import ktfx.internal.KtfxInternals
+import kotlin.DeprecationLevel.ERROR
+import ktfx.internal.KtfxInternals.NO_GETTER
+import ktfx.internal.KtfxInternals.noGetter
 
 /** Top padding of this [Region]. */
 var Region.topPadding: Double
@@ -37,36 +39,36 @@ var Region.leftPadding: Double
 
 /** Sets left and right padding of this [Region]. */
 var Region.horizontalPadding: Double
-    @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         padding = Insets(topPadding, value, bottomPadding, value)
     }
 
 /** Sets top and bottom padding of this [Region]. */
 var Region.verticalPadding: Double
-    @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         padding = Insets(value, rightPadding, value, leftPadding)
     }
 
 /** Sets padding to all sides of this [Region]. */
 var Region.allPadding: Double
-    @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     inline set(value) {
         padding = Insets(value)
     }
 
 /** Sets min width and height of region. */
 var Region.minSize: Double
-    @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     inline set(value) = setMinSize(value, value)
 
 /** Sets pref width and height of region. */
 var Region.prefSize: Double
-    @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setPrefSize(value, value)
 
 /** Sets max width and height of region. */
 var Region.maxSize: Double
-    @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     inline set(value) = setMaxSize(value, value)

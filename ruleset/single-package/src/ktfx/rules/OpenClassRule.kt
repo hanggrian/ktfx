@@ -13,13 +13,10 @@ import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
  * (only relevant in `ktfx-layouts`).
  */
 class OpenClassRule : Rule("open-class") {
-    override fun visit(
-        node: ASTNode,
-        autoCorrect: Boolean,
-        emit: (offset: Int, errorMessage: String, canBeAutoCorrected: Boolean) -> Unit
-    ) {
+
+    override fun visit(node: ASTNode, autoCorrect: Boolean, emit: (Int, String, Boolean) -> Unit) {
         if (node.elementType == KtStubElementTypes.CLASS) {
-            val ktClass = node.psi<KtClass>()
+            val ktClass = node.getPsi(KtClass::class.java)
             // builder indicates that the class is only used within DSL context only
             val isClass = !ktClass.isInterface() && !ktClass.isAnnotation()
             val name = ktClass.name!!
@@ -28,7 +25,7 @@ class OpenClassRule : Rule("open-class") {
                 if (child == null) {
                     emit(node.startOffset, "Empty modifiers, need open.", false)
                 } else {
-                    val modifiers = child.psi<KtDeclarationModifierList>()
+                    val modifiers = child.getPsi(KtDeclarationModifierList::class.java)
                     if (!modifiers.hasModifier(KtTokens.OPEN_KEYWORD) &&
                         !modifiers.hasModifier(KtTokens.PRIVATE_KEYWORD) &&
                         !modifiers.hasModifier(KtTokens.INTERNAL_KEYWORD)

@@ -8,10 +8,12 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
+import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.internal.KtfxInternals
+import ktfx.internal.KtfxInternals.NO_GETTER
+import ktfx.internal.KtfxInternals.noGetter
 
 /**
  * [VBox] with dynamic-layout dsl support.
@@ -73,21 +75,21 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
 
     /** Sets left and right margin of this children. */
     var Node.horizontalMargin: Double?
-        @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         set(value) {
             margin = Insets(topMargin ?: 0.0, value ?: 0.0, bottomMargin ?: 0.0, value ?: 0.0)
         }
 
     /** Sets top and bottom margin of this children. */
     var Node.verticalMargin: Double?
-        @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         set(value) {
             margin = Insets(value ?: 0.0, rightMargin ?: 0.0, value ?: 0.0, leftMargin ?: 0.0)
         }
 
     /** Sets margin to all sides of this children. */
     var Node.allMargin: Double?
-        @Deprecated(KtfxInternals.NO_GETTER, level = DeprecationLevel.ERROR) get() = KtfxInternals.noGetter()
+        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         inline set(value) {
             margin = Insets(value ?: 0.0)
         }

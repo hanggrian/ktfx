@@ -4,10 +4,6 @@
 
 package ktfx.collections
 
-import javafx.beans.binding.Bindings
-import javafx.beans.binding.FloatBinding
-import javafx.beans.value.ObservableIntegerValue
-import javafx.beans.value.ObservableNumberValue
 import javafx.collections.FXCollections
 import javafx.collections.ObservableFloatArray
 import javafx.collections.ObservableIntegerArray
@@ -36,16 +32,6 @@ inline fun Array<Float>.toObservableArray(): ObservableFloatArray = toFloatArray
 /** Creates a copy of this [ObservableFloatArray]. */
 fun ObservableFloatArray.toObservableArray(): ObservableFloatArray = FXCollections.observableFloatArray(this)
 
-/** Creates a new [FloatBinding] that contains the element of an [ObservableFloatArray] at the specified position. */
-fun ObservableFloatArray.getBinding(index: Int): FloatBinding = Bindings.floatValueAt(this, index)
-
-/** Creates a new [FloatBinding] that contains the element of an [ObservableFloatArray] at the specified position. */
-fun ObservableFloatArray.getBinding(index: ObservableNumberValue): FloatBinding = Bindings.floatValueAt(this, index)
-
-/** Creates a new [FloatBinding] that contains the element of an [ObservableFloatArray] at the specified position. */
-inline fun ObservableFloatArray.getBinding(index: ObservableIntegerValue): FloatBinding =
-    getBinding(index as ObservableNumberValue)
-
 /** Returns true if [element] exists in this observable array. */
 operator fun ObservableFloatArray.contains(element: Float): Boolean = (0 until size).any { get(it) == element }
 
@@ -69,19 +55,5 @@ inline fun ObservableFloatArray.forEach(action: (Float) -> Unit) {
 inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, Float) -> Unit) {
     for (index in 0 until size) {
         action(index, get(index))
-    }
-}
-
-/** Performs the given [action] on each element binding. */
-inline fun ObservableFloatArray.forEachBinding(action: (FloatBinding) -> Unit) {
-    for (index in 0 until size) {
-        action(getBinding(index))
-    }
-}
-
-/** Performs the given [action] on each element binding, accompanied with the index of the element. */
-inline fun ObservableFloatArray.forEachBindingIndexed(action: (index: Int, FloatBinding) -> Unit) {
-    for (index in 0 until size) {
-        action(index, getBinding(index))
     }
 }

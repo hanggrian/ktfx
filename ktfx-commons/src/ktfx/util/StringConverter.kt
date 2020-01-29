@@ -4,27 +4,20 @@ package ktfx.util
 
 import javafx.util.StringConverter
 
-/** Interface to build [StringConverter] with Kotlin DSL. */
-interface StringConverterBuilder<T> {
-
-    /** Convert the object to String. */
-    fun toString(listener: (T?) -> String)
-
-    /** Convert String back to object. */
-    fun fromString(listener: (String) -> T?)
-}
-
-private class StringConverterImpl<T> : StringConverter<T>(), StringConverterBuilder<T> {
+/** Class to build [StringConverter] with Kotlin DSL. */
+class StringConverterBuilder<T> @PublishedApi internal constructor() : StringConverter<T>() {
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
 
-    override fun toString(listener: (T?) -> String) {
+    /** Convert the object to String. */
+    fun toString(listener: (T?) -> String) {
         _toString = listener
     }
 
     override fun toString(any: T?): String = _toString(any)
 
-    override fun fromString(listener: (String) -> T?) {
+    /** Convert String back to object. */
+    fun fromString(listener: (String) -> T?) {
         _fromString = listener
     }
 
@@ -32,8 +25,8 @@ private class StringConverterImpl<T> : StringConverter<T>(), StringConverterBuil
 }
 
 /** Build string converter with Kotlin DSL. */
-fun <T> buildStringConverter(configuration: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
-    StringConverterImpl<T>().apply(configuration)
+inline fun <T> buildStringConverter(configuration: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
+    StringConverterBuilder<T>().apply(configuration)
 
 /** Converts the object provided into its string form. */
 inline operator fun <T> StringConverter<T>.invoke(obj: T): String = toString(obj)

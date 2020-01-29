@@ -1,4 +1,3 @@
-@file:Suppress("NOTHING_TO_INLINE")
 @file:UseExperimental(ExperimentalContracts::class)
 
 package ktfx.controls
@@ -10,12 +9,12 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 /** Apply [TreeTableView.CONSTRAINED_RESIZE_POLICY] to this table. */
-inline fun TreeTableView<*>.constrained() {
+fun TreeTableView<*>.constrained() {
     columnResizePolicy = TreeTableView.CONSTRAINED_RESIZE_POLICY
 }
 
 /** Apply [TreeTableView.UNCONSTRAINED_RESIZE_POLICY] to this table. */
-inline fun TreeTableView<*>.unconstrained() {
+fun TreeTableView<*>.unconstrained() {
     columnResizePolicy = TreeTableView.UNCONSTRAINED_RESIZE_POLICY
 }
 

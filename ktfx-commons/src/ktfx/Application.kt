@@ -4,14 +4,10 @@ package ktfx
 
 import javafx.application.Application
 import javafx.application.HostServices
-import kotlin.reflect.KClass
-
-/** Launch a JavaFX application with Kotlin class. */
-fun <T : Application> launchApplication(type: KClass<T>, vararg args: String): Unit =
-    Application.launch(type.java, *args)
 
 /** Launch a JavaFX application with reified type. */
-inline fun <reified T : Application> launchApplication(vararg args: String): Unit = launchApplication(T::class, *args)
+inline fun <reified T : Application> launchApplication(vararg args: String): Unit =
+    Application.launch(T::class.java, *args)
 
 /**
  * Resolves the specified relative URI against the code base URI and returns the resolved URI.

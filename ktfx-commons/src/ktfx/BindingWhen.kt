@@ -17,7 +17,7 @@ import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableStringValue
 
 /** Creates a binding that calculates the result of a ternary expression. */
-fun given(condition: ObservableBooleanValue): When = Bindings.`when`(condition)
+inline fun given(condition: ObservableBooleanValue): When = Bindings.`when`(condition)
 
 /** Infix alias of [When.then]. */
 inline infix fun When.then(value: ObservableNumberValue): When.NumberConditionBuilder = then(value)

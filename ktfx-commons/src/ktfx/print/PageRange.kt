@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.print
 
 import javafx.print.PageRange
@@ -7,4 +9,4 @@ import javafx.print.PageRange
  *
  * @see kotlin.ranges.until
  */
-infix fun Int.untilPage(endPage: Int): PageRange = PageRange(this, endPage)
+inline infix fun Int.untilPage(endPage: Int): PageRange = PageRange(this, endPage)

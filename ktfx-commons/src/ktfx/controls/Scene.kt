@@ -1,14 +1,20 @@
-@file:Suppress("NOTHING_TO_INLINE", "EXTENSION_SHADOWED_BY_MEMBER")
-
 package ktfx.controls
 
 import javafx.scene.Node
 import javafx.scene.Scene
+import javafx.scene.SnapshotResult
 import javafx.scene.image.WritableImage
+import ktfx.internal.KtfxInternals
 
 /** Alias of [Scene.lookup] with non-null return and specified type. */
-@Suppress("UNCHECKED_CAST")
-inline fun <T : Node> Scene.find(selector: String): T = lookup(selector) as T
+inline fun <reified T : Node> Scene.find(selector: String): T = lookup(selector) as T
 
-/** Take a screenshot of this [Scene] without writable image target. */
-inline fun Scene.snapshot(image: WritableImage? = null): WritableImage = snapshot(image)
+/** Take a snapshot of this [Node] returning image it wrote. */
+@Suppress("NOTHING_TO_INLINE")
+inline fun Scene.snapshot(): WritableImage = snapshot(null)
+
+/** Take a snapshot of this [Node] using callback. */
+inline fun Scene.snapshot(
+    image: WritableImage? = null,
+    crossinline callback: (SnapshotResult) -> Unit
+): Unit = snapshot(KtfxInternals.noReturn(callback), image)

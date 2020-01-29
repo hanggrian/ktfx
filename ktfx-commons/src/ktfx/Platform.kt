@@ -1,4 +1,5 @@
 @file:UseExperimental(ExperimentalContracts::class)
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx
 
@@ -9,10 +10,10 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 /** Returns true if the calling thread is the JavaFX thread. */
-fun isFxThread(): Boolean = Platform.isFxApplicationThread()
+inline fun isFxThread(): Boolean = Platform.isFxApplicationThread()
 
 /** Queries whether a specific conditional feature is supported by the platform. */
-fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)
+inline fun ConditionalFeature.isSupported(): Boolean = Platform.isSupported(this)
 
 /**
  * Calls the specified function [block] in JavaFX thread.

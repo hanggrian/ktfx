@@ -10,16 +10,16 @@ import javafx.scene.control.TreeTableRow
 interface CellBuilder<out T> {
 
     /** Invoked when cell is on editing mode. */
-    fun onEditStart(listener: () -> Unit)
+    fun onEditStart(action: () -> Unit)
 
     /** Invoked when cell edit is being committed. */
-    fun onEditCommit(listener: (T?) -> Unit)
+    fun onEditCommit(action: (T?) -> Unit)
 
     /** Invoked when cell edit is canceled. */
-    fun onEditCancel(listener: () -> Unit)
+    fun onEditCancel(action: () -> Unit)
 
     /** Invoked when cell item is updating. */
-    fun onUpdate(listener: (T?, empty: Boolean) -> Unit)
+    fun onUpdate(action: (T?, empty: Boolean) -> Unit)
 }
 
 /** [ListCell] builder with Kotlin DSL. */
@@ -29,8 +29,8 @@ class ListCellBuilder<T> internal constructor() : ListCell<T>(), CellBuilder<T> 
     private var onEditCancel: (() -> Unit)? = null
     private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
 
-    override fun onEditStart(listener: () -> Unit) {
-        onEditStart = listener
+    override fun onEditStart(action: () -> Unit) {
+        onEditStart = action
     }
 
     override fun startEdit() {
@@ -38,8 +38,8 @@ class ListCellBuilder<T> internal constructor() : ListCell<T>(), CellBuilder<T> 
         onEditStart?.invoke()
     }
 
-    override fun onEditCommit(listener: (T?) -> Unit) {
-        onEditCommit = listener
+    override fun onEditCommit(action: (T?) -> Unit) {
+        onEditCommit = action
     }
 
     override fun commitEdit(newValue: T?) {
@@ -47,8 +47,8 @@ class ListCellBuilder<T> internal constructor() : ListCell<T>(), CellBuilder<T> 
         onEditCommit?.invoke(newValue)
     }
 
-    override fun onEditCancel(listener: () -> Unit) {
-        onEditCancel = listener
+    override fun onEditCancel(action: () -> Unit) {
+        onEditCancel = action
     }
 
     override fun cancelEdit() {
@@ -56,8 +56,8 @@ class ListCellBuilder<T> internal constructor() : ListCell<T>(), CellBuilder<T> 
         onEditCancel?.invoke()
     }
 
-    override fun onUpdate(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdate = listener
+    override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
+        onUpdate = action
     }
 
     override fun updateItem(item: T?, empty: Boolean) {
@@ -73,8 +73,8 @@ class TableRowBuilder<T> internal constructor() : TableRow<T>(), CellBuilder<T> 
     private var onEditCancel: (() -> Unit)? = null
     private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
 
-    override fun onEditStart(listener: () -> Unit) {
-        onEditStart = listener
+    override fun onEditStart(action: () -> Unit) {
+        onEditStart = action
     }
 
     override fun startEdit() {
@@ -82,8 +82,8 @@ class TableRowBuilder<T> internal constructor() : TableRow<T>(), CellBuilder<T> 
         onEditStart?.invoke()
     }
 
-    override fun onEditCommit(listener: (T?) -> Unit) {
-        onEditCommit = listener
+    override fun onEditCommit(action: (T?) -> Unit) {
+        onEditCommit = action
     }
 
     override fun commitEdit(newValue: T?) {
@@ -91,8 +91,8 @@ class TableRowBuilder<T> internal constructor() : TableRow<T>(), CellBuilder<T> 
         onEditCommit?.invoke(newValue)
     }
 
-    override fun onEditCancel(listener: () -> Unit) {
-        onEditCancel = listener
+    override fun onEditCancel(action: () -> Unit) {
+        onEditCancel = action
     }
 
     override fun cancelEdit() {
@@ -100,8 +100,8 @@ class TableRowBuilder<T> internal constructor() : TableRow<T>(), CellBuilder<T> 
         onEditCancel?.invoke()
     }
 
-    override fun onUpdate(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdate = listener
+    override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
+        onUpdate = action
     }
 
     override fun updateItem(item: T?, empty: Boolean) {
@@ -117,8 +117,8 @@ class TableCellBuilder<S, T> internal constructor() : TableCell<S, T>(), CellBui
     private var onEditCancel: (() -> Unit)? = null
     private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
 
-    override fun onEditStart(listener: () -> Unit) {
-        onEditStart = listener
+    override fun onEditStart(action: () -> Unit) {
+        onEditStart = action
     }
 
     override fun startEdit() {
@@ -126,8 +126,8 @@ class TableCellBuilder<S, T> internal constructor() : TableCell<S, T>(), CellBui
         onEditStart?.invoke()
     }
 
-    override fun onEditCommit(listener: (T?) -> Unit) {
-        onEditCommit = listener
+    override fun onEditCommit(action: (T?) -> Unit) {
+        onEditCommit = action
     }
 
     override fun commitEdit(newValue: T?) {
@@ -135,8 +135,8 @@ class TableCellBuilder<S, T> internal constructor() : TableCell<S, T>(), CellBui
         onEditCommit?.invoke(newValue)
     }
 
-    override fun onEditCancel(listener: () -> Unit) {
-        onEditCancel = listener
+    override fun onEditCancel(action: () -> Unit) {
+        onEditCancel = action
     }
 
     override fun cancelEdit() {
@@ -144,8 +144,8 @@ class TableCellBuilder<S, T> internal constructor() : TableCell<S, T>(), CellBui
         onEditCancel?.invoke()
     }
 
-    override fun onUpdate(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdate = listener
+    override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
+        onUpdate = action
     }
 
     override fun updateItem(item: T?, empty: Boolean) {
@@ -161,8 +161,8 @@ class TreeTableRowBuilder<T> internal constructor() : TreeTableRow<T>(), CellBui
     private var onEditCancel: (() -> Unit)? = null
     private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
 
-    override fun onEditStart(listener: () -> Unit) {
-        onEditStart = listener
+    override fun onEditStart(action: () -> Unit) {
+        onEditStart = action
     }
 
     override fun startEdit() {
@@ -170,8 +170,8 @@ class TreeTableRowBuilder<T> internal constructor() : TreeTableRow<T>(), CellBui
         onEditStart?.invoke()
     }
 
-    override fun onEditCommit(listener: (T?) -> Unit) {
-        onEditCommit = listener
+    override fun onEditCommit(action: (T?) -> Unit) {
+        onEditCommit = action
     }
 
     override fun commitEdit(newValue: T?) {
@@ -179,8 +179,8 @@ class TreeTableRowBuilder<T> internal constructor() : TreeTableRow<T>(), CellBui
         onEditCommit?.invoke(newValue)
     }
 
-    override fun onEditCancel(listener: () -> Unit) {
-        onEditCancel = listener
+    override fun onEditCancel(action: () -> Unit) {
+        onEditCancel = action
     }
 
     override fun cancelEdit() {
@@ -188,8 +188,8 @@ class TreeTableRowBuilder<T> internal constructor() : TreeTableRow<T>(), CellBui
         onEditCancel?.invoke()
     }
 
-    override fun onUpdate(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdate = listener
+    override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
+        onUpdate = action
     }
 
     override fun updateItem(item: T?, empty: Boolean) {
@@ -205,8 +205,8 @@ class TreeTableCellBuilder<S, T> internal constructor() : TreeTableCell<S, T>(),
     private var onEditCancel: (() -> Unit)? = null
     private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
 
-    override fun onEditStart(listener: () -> Unit) {
-        onEditStart = listener
+    override fun onEditStart(action: () -> Unit) {
+        onEditStart = action
     }
 
     override fun startEdit() {
@@ -214,8 +214,8 @@ class TreeTableCellBuilder<S, T> internal constructor() : TreeTableCell<S, T>(),
         onEditStart?.invoke()
     }
 
-    override fun onEditCommit(listener: (T?) -> Unit) {
-        onEditCommit = listener
+    override fun onEditCommit(action: (T?) -> Unit) {
+        onEditCommit = action
     }
 
     override fun commitEdit(newValue: T?) {
@@ -223,8 +223,8 @@ class TreeTableCellBuilder<S, T> internal constructor() : TreeTableCell<S, T>(),
         onEditCommit?.invoke(newValue)
     }
 
-    override fun onEditCancel(listener: () -> Unit) {
-        onEditCancel = listener
+    override fun onEditCancel(action: () -> Unit) {
+        onEditCancel = action
     }
 
     override fun cancelEdit() {
@@ -232,8 +232,8 @@ class TreeTableCellBuilder<S, T> internal constructor() : TreeTableCell<S, T>(),
         onEditCancel?.invoke()
     }
 
-    override fun onUpdate(listener: (T?, empty: Boolean) -> Unit) {
-        onUpdate = listener
+    override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
+        onUpdate = action
     }
 
     override fun updateItem(item: T?, empty: Boolean) {

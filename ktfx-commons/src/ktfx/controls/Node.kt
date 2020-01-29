@@ -1,17 +1,26 @@
 @file:JvmMultifileClass
 @file:JvmName("NodeKt")
-@file:Suppress("NOTHING_TO_INLINE", "EXTENSION_SHADOWED_BY_MEMBER")
 
 package ktfx.controls
 
 import javafx.scene.Node
 import javafx.scene.SnapshotParameters
+import javafx.scene.SnapshotResult
 import javafx.scene.image.WritableImage
+import ktfx.internal.KtfxInternals
 
 /** Alias of [Node.lookup] with non-null return and specified type. */
-@Suppress("UNCHECKED_CAST")
-inline fun <T : Node> Node.find(selector: String): T = lookup(selector) as T
+inline fun <reified T : Node> Node.find(selector: String): T = lookup(selector) as T
 
-/** Take a screenshot of this [Node] returning image it wrote. */
-inline fun Node.snapshot(params: SnapshotParameters? = null, image: WritableImage? = null): WritableImage =
-    snapshot(params, image)
+/** Take a snapshot of this [Node] returning image it wrote. */
+inline fun Node.snapshot(
+    image: WritableImage? = null,
+    configuration: SnapshotParameters.() -> Unit
+): WritableImage = snapshot(SnapshotParameters().apply(configuration), image)
+
+/** Take a snapshot of this [Node] using callback. */
+inline fun Node.snapshot(
+    image: WritableImage? = null,
+    configuration: SnapshotParameters.() -> Unit,
+    crossinline callback: (SnapshotResult) -> Unit
+): Unit = snapshot(KtfxInternals.noReturn(callback), SnapshotParameters().apply(configuration), image)

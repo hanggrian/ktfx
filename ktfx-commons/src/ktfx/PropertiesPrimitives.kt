@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("PropertiesKt")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx
 
@@ -17,32 +18,41 @@ import javafx.beans.property.ReadOnlyLongProperty
 import javafx.beans.property.ReadOnlyProperty
 
 /** Revert the effect of [BooleanProperty.asObject]. */
-fun Property<Boolean>.asPrimitive(): BooleanProperty = BooleanProperty.booleanProperty(this)
+inline fun Property<Boolean>.asPrimitive(): BooleanProperty =
+    BooleanProperty.booleanProperty(this)
 
 /** Revert the effect of [ReadOnlyBooleanProperty.asObject]. */
-fun ReadOnlyProperty<Boolean>.asPrimitive(): ReadOnlyBooleanProperty =
+inline fun ReadOnlyProperty<Boolean>.asPrimitive(): ReadOnlyBooleanProperty =
     ReadOnlyBooleanProperty.readOnlyBooleanProperty(this)
 
 /** Revert the effect of [DoubleProperty.asObject]. */
-fun Property<Double>.asPrimitive(): DoubleProperty = DoubleProperty.doubleProperty(this)
+inline fun Property<Double>.asPrimitive(): DoubleProperty =
+    DoubleProperty.doubleProperty(this)
 
 /** Revert the effect of [ReadOnlyDoubleProperty.asObject]. */
-fun ReadOnlyProperty<Double>.asPrimitive(): ReadOnlyDoubleProperty = ReadOnlyDoubleProperty.readOnlyDoubleProperty(this)
+inline fun ReadOnlyProperty<Double>.asPrimitive(): ReadOnlyDoubleProperty =
+    ReadOnlyDoubleProperty.readOnlyDoubleProperty(this)
 
 /** Revert the effect of [FloatProperty.asObject]. */
-fun Property<Float>.asPrimitive(): FloatProperty = FloatProperty.floatProperty(this)
+inline fun Property<Float>.asPrimitive(): FloatProperty =
+    FloatProperty.floatProperty(this)
 
 /** Revert the effect of [ReadOnlyFloatProperty.asObject]. */
-fun ReadOnlyProperty<Float>.asPrimitive(): ReadOnlyFloatProperty = ReadOnlyFloatProperty.readOnlyFloatProperty(this)
+inline fun ReadOnlyProperty<Float>.asPrimitive(): ReadOnlyFloatProperty =
+    ReadOnlyFloatProperty.readOnlyFloatProperty(this)
 
 /** Revert the effect of [IntegerProperty.asObject]. */
-fun Property<Int>.asPrimitive(): IntegerProperty = IntegerProperty.integerProperty(this)
+inline fun Property<Int>.asPrimitive(): IntegerProperty =
+    IntegerProperty.integerProperty(this)
 
 /** Revert the effect of [ReadOnlyIntegerProperty.asObject]. */
-fun ReadOnlyProperty<Int>.asPrimitive(): ReadOnlyIntegerProperty = ReadOnlyIntegerProperty.readOnlyIntegerProperty(this)
+inline fun ReadOnlyProperty<Int>.asPrimitive(): ReadOnlyIntegerProperty =
+    ReadOnlyIntegerProperty.readOnlyIntegerProperty(this)
 
 /** Revert the effect of [LongProperty.asObject]. */
-fun Property<Long>.asPrimitive(): LongProperty = LongProperty.longProperty(this)
+inline fun Property<Long>.asPrimitive(): LongProperty =
+    LongProperty.longProperty(this)
 
 /** Revert the effect of [ReadOnlyLongProperty.asObject]. */
-fun ReadOnlyProperty<Long>.asPrimitive(): ReadOnlyLongProperty = ReadOnlyLongProperty.readOnlyLongProperty(this)
+inline fun ReadOnlyProperty<Long>.asPrimitive(): ReadOnlyLongProperty =
+    ReadOnlyLongProperty.readOnlyLongProperty(this)

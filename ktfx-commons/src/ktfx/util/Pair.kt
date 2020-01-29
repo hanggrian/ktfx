@@ -6,17 +6,25 @@ import javafx.collections.ObservableList
 import javafx.util.Pair
 import ktfx.collections.observableListOf
 
-/** Key of this pair. */
-inline operator fun <K, V> Pair<K, V>.component1(): K? = key
+/**
+ * Returns the key component of the pair.
+ *
+ * This method allows to use destructuring declarations when working with pairs (e.g.: `val (first, second) = myPair`).
+ */
+inline operator fun <F, S> Pair<F, S>.component1(): F? = key
 
-/** Value of this pair. */
-inline operator fun <K, V> Pair<K, V>.component2(): V? = value
+/**
+ * Returns the value component of the pair.
+ *
+ * This method allows to use destructuring declarations when working with pairs (e.g.: `val (first, second) = myPair`).
+ */
+inline operator fun <F, S> Pair<F, S>.component2(): S? = value
 
-/** Converts JavaFX pair to Kotlin's. */
-fun <K, V> Pair<K, V>.toKotlinPair(): kotlin.Pair<K, V> = kotlin.Pair(key, value)
+/** Returns this [Pair] as a [kotlin.Pair]. */
+fun <F, S> Pair<F, S>.toKotlinPair(): kotlin.Pair<F, S> = kotlin.Pair(key, value)
 
-/** Converts Kotlin pair to JavaFX's. */
-fun <K, V> kotlin.Pair<K, V>.toFxPair(): Pair<K, V> = Pair(first, second)
+/** Returns this [kotlin.Pair] as an JavaFX [Pair]. */
+fun <F, S> kotlin.Pair<F, S>.toFxPair(): Pair<F, S> = Pair(first, second)
 
 /**
  * Converts this pair into an observable list.

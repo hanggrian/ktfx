@@ -1,6 +1,7 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
 @file:UseExperimental(ExperimentalContracts::class)
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
 
@@ -27,7 +28,7 @@ open class KtfxStackPane : StackPane(), NodeManager {
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
-    fun Node.clearConstraints(): Unit = clearConstraints(this)
+    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 
     /** Children alignment in this layout. */
     inline var Node.alignment: Pos?
@@ -35,7 +36,7 @@ open class KtfxStackPane : StackPane(), NodeManager {
         @JvmName("setAlignment2") set(value) = setAlignment(this, value)
 
     /** Configure alignment fluidly using infix operator. */
-    infix fun <C : Node> C.align(pos: Pos): C = apply { alignment = pos }
+    inline infix fun <C : Node> C.align(pos: Pos): C = apply { alignment = pos }
 
     /** Children margin in this layout. */
     inline var Node.margin: Insets?
@@ -87,33 +88,33 @@ open class KtfxStackPane : StackPane(), NodeManager {
     /** Sets margin to all sides of this children. */
     var Node.allMargin: Double?
         @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-        inline set(value) {
+        set(value) {
             margin = Insets(value ?: 0.0)
         }
 
     /** Configure margin fluidly using infix operator. */
-    infix fun <C : Node> C.margin(insets: Insets): C = apply { margin = insets }
+    inline infix fun <C : Node> C.margin(insets: Insets): C = apply { margin = insets }
 
     /** Configure top margin fluidly using infix operator. */
-    infix fun <C : Node> C.topMargin(margin: Double): C = apply { topMargin = margin }
+    inline infix fun <C : Node> C.topMargin(margin: Double): C = apply { topMargin = margin }
 
     /** Configure right margin fluidly using infix operator. */
-    infix fun <C : Node> C.rightMargin(margin: Double): C = apply { rightMargin = margin }
+    inline infix fun <C : Node> C.rightMargin(margin: Double): C = apply { rightMargin = margin }
 
     /** Configure bottom margin fluidly using infix operator. */
-    infix fun <C : Node> C.bottomMargin(margin: Double): C = apply { bottomMargin = margin }
+    inline infix fun <C : Node> C.bottomMargin(margin: Double): C = apply { bottomMargin = margin }
 
     /** Configure left margin fluidly using infix operator. */
-    infix fun <C : Node> C.leftMargin(margin: Double): C = apply { leftMargin = margin }
+    inline infix fun <C : Node> C.leftMargin(margin: Double): C = apply { leftMargin = margin }
 
     /** Configure horizontal margin fluidly using infix operator. */
-    infix fun <C : Node> C.horizontalMargin(margin: Double): C = apply { horizontalMargin = margin }
+    inline infix fun <C : Node> C.horizontalMargin(margin: Double): C = apply { horizontalMargin = margin }
 
     /** Configure vertical margin fluidly using infix operator. */
-    infix fun <C : Node> C.verticalMargin(margin: Double): C = apply { verticalMargin = margin }
+    inline infix fun <C : Node> C.verticalMargin(margin: Double): C = apply { verticalMargin = margin }
 
     /** Configure all margin fluidly using infix operator. */
-    infix fun <C : Node> C.allMargin(margin: Double): C = apply { allMargin = margin }
+    inline infix fun <C : Node> C.allMargin(margin: Double): C = apply { allMargin = margin }
 }
 
 /** Create a [StackPane] with initialization block. */

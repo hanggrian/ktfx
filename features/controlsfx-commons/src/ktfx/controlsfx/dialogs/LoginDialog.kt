@@ -7,7 +7,6 @@ import javafx.scene.Node
 import javafx.scene.image.ImageView
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
-import ktfx.internal.KtfxInternals
 import ktfx.util.toFxPair
 import ktfx.util.toKotlinPair
 import org.controlsfx.dialog.LoginDialog
@@ -29,9 +28,8 @@ fun loginDialog(
     authenticator: (Pair<String, String>) -> Unit,
     builderAction: (LoginDialog.() -> Unit)? = null
 ): Optional<javafx.util.Pair<String, String>> = LoginDialog(
-    initialUserInfo?.toFxPair(),
-    KtfxInternals.noReturn { authenticator(it.toKotlinPair()) }
-).also { dialog ->
+    initialUserInfo?.toFxPair()
+) { authenticator(it.toKotlinPair()); null }.also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic

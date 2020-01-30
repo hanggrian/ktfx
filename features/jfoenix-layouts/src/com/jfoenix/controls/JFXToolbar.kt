@@ -25,13 +25,14 @@ import ktfx.layouts.addChild
  */
 open class KtfxJFXToolbar : JFXToolbar() {
 
+    @Suppress("NOTHING_TO_INLINE")
     class HBoxConstraints @PublishedApi internal constructor(private val list: MutableList<Node>) : NodeManager {
         override fun <C : Node> addChild(child: C): C = child.also { list += it }
         override val childCount: Int get() = list.size
 
         /** Clear children constraints. */
         @JvmName("clearConstraints2")
-        fun Node.clearConstraints(): Unit = HBox.clearConstraints(this)
+        inline fun Node.clearConstraints(): Unit = HBox.clearConstraints(this)
 
         /** Children horizontal grow priority in this layout. */
         inline var Node.hgrow: Priority?
@@ -39,7 +40,7 @@ open class KtfxJFXToolbar : JFXToolbar() {
             @JvmName("setHgrow2") set(value) = HBox.setHgrow(this, value)
 
         /** Configure horizontal grow fluidly using infix operator. */
-        infix fun <C : Node> C.hgrow(priority: Priority): C = apply { hgrow = priority }
+        inline infix fun <C : Node> C.hgrow(priority: Priority): C = apply { hgrow = priority }
 
         /** Configure horizontal grow fluidly using infix operator. */
         infix fun <C : Node> C.hgrow(always: Boolean): C = hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
@@ -94,33 +95,33 @@ open class KtfxJFXToolbar : JFXToolbar() {
         /** Sets margin to all sides of this children. */
         var Node.allMargin: Double?
             @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-            inline set(value) {
+            set(value) {
                 margin = Insets(value ?: 0.0)
             }
 
         /** Configure margin fluidly using infix operator. */
-        infix fun <C : Node> C.margin(insets: Insets): C = apply { margin = insets }
+        inline infix fun <C : Node> C.margin(insets: Insets): C = apply { margin = insets }
 
         /** Configure top margin fluidly using infix operator. */
-        infix fun <C : Node> C.topMargin(margin: Double): C = apply { topMargin = margin }
+        inline infix fun <C : Node> C.topMargin(margin: Double): C = apply { topMargin = margin }
 
         /** Configure right margin fluidly using infix operator. */
-        infix fun <C : Node> C.rightMargin(margin: Double): C = apply { rightMargin = margin }
+        inline infix fun <C : Node> C.rightMargin(margin: Double): C = apply { rightMargin = margin }
 
         /** Configure bottom margin fluidly using infix operator. */
-        infix fun <C : Node> C.bottomMargin(margin: Double): C = apply { bottomMargin = margin }
+        inline infix fun <C : Node> C.bottomMargin(margin: Double): C = apply { bottomMargin = margin }
 
         /** Configure left margin fluidly using infix operator. */
-        infix fun <C : Node> C.leftMargin(margin: Double): C = apply { leftMargin = margin }
+        inline infix fun <C : Node> C.leftMargin(margin: Double): C = apply { leftMargin = margin }
 
         /** Configure horizontal margin fluidly using infix operator. */
-        infix fun <C : Node> C.horizontalMargin(margin: Double): C = apply { horizontalMargin = margin }
+        inline infix fun <C : Node> C.horizontalMargin(margin: Double): C = apply { horizontalMargin = margin }
 
         /** Configure vertical margin fluidly using infix operator. */
-        infix fun <C : Node> C.verticalMargin(margin: Double): C = apply { verticalMargin = margin }
+        inline infix fun <C : Node> C.verticalMargin(margin: Double): C = apply { verticalMargin = margin }
 
         /** Configure all margin fluidly using infix operator. */
-        infix fun <C : Node> C.allMargin(margin: Double): C = apply { allMargin = margin }
+        inline infix fun <C : Node> C.allMargin(margin: Double): C = apply { allMargin = margin }
     }
 }
 

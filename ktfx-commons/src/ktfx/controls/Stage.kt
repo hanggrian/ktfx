@@ -13,38 +13,41 @@ inline val Scene.stage: Stage get() = window as Stage
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
 fun Stage.setMinSize(width: Double, height: Double) {
-    minWidth = width; minHeight = height
+    minWidth = width
+    minHeight = height
 }
 
 /** Convenient method for overriding the stage's computed minimum width and height. */
-var Stage.minSize: Double
+inline var Stage.minSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    inline set(value) = setMinSize(value, value)
+    set(value) = setMinSize(value, value)
 
 /** Convenient method for overriding the stage's computed width and height. */
 fun Stage.setSize(width: Double, height: Double) {
-    this.width = width; this.height = height
+    setWidth(width)
+    setHeight(height)
 }
 
 /** Convenient method for overriding the stage's computed width and height. */
-var Stage.size: Double
+inline var Stage.size: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    inline set(value) = setSize(value, value)
+    set(value) = setSize(value, value)
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
 fun Stage.setMaxSize(width: Double, height: Double) {
-    maxWidth = width; maxHeight = height
+    maxWidth = width
+    maxHeight = height
 }
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
-var Stage.maxSize: Double
+inline var Stage.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     inline set(value) = setMaxSize(value, value)
 
 /** Removes old icons and set a new one to this stage. */
-var Stage.icon: Image
+inline var Stage.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    inline set(value) {
+    set(value) {
         icons.setAll(value)
     }
 

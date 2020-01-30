@@ -15,18 +15,17 @@ class NoGetterPropertyStaticImportRule : Rule("no-getter-property-static-import"
     override fun visit(node: ASTNode, autoCorrect: Boolean, emit: (Int, String, Boolean) -> Unit) {
         if (node.elementType == KtStubElementTypes.ANNOTATION_ENTRY) {
             val annotationEntry = node.getPsi(KtAnnotationEntry::class.java)
-            if (annotationEntry.shortName?.asString() == "Deprecated") {
-                // check members
-                annotationEntry.valueArguments
-                    .mapNotNull { it.asElement().firstChild as? KtDotQualifiedExpression }
-                    .takeIf { it.isNotEmpty() }
-                    ?.let { emit(it.first().startOffset, "Annotation members should static import", false) }
-                // check declaration
-                annotationEntry.getParentOfType<KtPropertyAccessor>(true)
-                    ?.bodyExpression
-                    ?.takeIf { it is KtDotQualifiedExpression }
-                    ?.let { emit(it.startOffset, "Declaration should static import", false) }
-            }
+                .takeIf { it.shortName?.asString() == "Deprecated" }
+            // check members
+            annotationEntry?.valueArguments
+                ?.mapNotNull { it.asElement().firstChild as? KtDotQualifiedExpression }
+                ?.takeIf { it.isNotEmpty() }
+                ?.let { emit(it.first().startOffset, "Annotation members should static import", false) }
+            // check declaration
+            annotationEntry?.getParentOfType<KtPropertyAccessor>(true)
+                ?.bodyExpression
+                ?.takeIf { it is KtDotQualifiedExpression }
+                ?.let { emit(it.startOffset, "Declaration should static import", false) }
         }
     }
 }

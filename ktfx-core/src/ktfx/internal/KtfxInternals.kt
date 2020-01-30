@@ -1,7 +1,5 @@
 package ktfx.internal
 
-import javafx.util.Callback
-
 /** Ktfx internal class, ignore it. */
 object KtfxInternals {
 
@@ -9,10 +7,4 @@ object KtfxInternals {
 
     /** Some mutable backing fields are only used to set value. */
     fun noGetter(): Nothing = throw UnsupportedOperationException(NO_GETTER)
-
-    /** Returns a [Callback] with no return type. */
-    inline fun <P> noReturn(crossinline callback: (P) -> Unit): Callback<P, Void> = Callback {
-        callback(it)
-        null
-    }
 }

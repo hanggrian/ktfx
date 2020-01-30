@@ -4,7 +4,6 @@ import javafx.scene.Node
 import javafx.scene.Scene
 import javafx.scene.SnapshotResult
 import javafx.scene.image.WritableImage
-import ktfx.internal.KtfxInternals
 
 /** Alias of [Scene.lookup] with non-null return and specified type. */
 inline fun <reified T : Node> Scene.find(selector: String): T = lookup(selector) as T
@@ -17,4 +16,4 @@ inline fun Scene.snapshot(): WritableImage = snapshot(null)
 inline fun Scene.snapshot(
     image: WritableImage? = null,
     crossinline callback: (SnapshotResult) -> Unit
-): Unit = snapshot(KtfxInternals.noReturn(callback), image)
+): Unit = snapshot({ callback(it); null }, image)

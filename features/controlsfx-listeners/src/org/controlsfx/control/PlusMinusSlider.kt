@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("ControlsFxListenersKt")
+@file:JvmName("ControlsfxListenersKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controlsfx.listeners

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("ListenersKt")
+@file:JvmName("FxListenersKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.listeners

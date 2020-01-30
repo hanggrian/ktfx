@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("ListenersKt")
+@file:JvmName("FxListenersKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.listeners
@@ -22,7 +22,6 @@ import javafx.scene.input.ScrollEvent
 import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
-import ktfx.internal.KtfxInternals
 
 /** Registers an event filter to this node. */
 inline fun <E : Event> Node.eventFilter(
@@ -240,4 +239,4 @@ inline fun Node.snapshot(
     params: SnapshotParameters? = null,
     image: WritableImage? = null,
     noinline callback: (SnapshotResult) -> Unit
-): Unit = snapshot(KtfxInternals.noReturn { param -> callback(param) }, params, image)
+): Unit = snapshot({ callback(it); null }, params, image)

@@ -1,10 +1,10 @@
 package ktfx
 
+import ktfx.time.m
+import ktfx.time.s
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
-import ktfx.util.minutes
-import ktfx.util.seconds
 
 class BindingCreateBooleanTest {
 
@@ -18,8 +18,8 @@ class BindingCreateBooleanTest {
     }
 
     @Test fun anyDependency() {
-        val dependency = propertyOf(1.minutes)
-        val binding = dependency.toBooleanBinding { it == 60.seconds }
+        val dependency = propertyOf(1.m)
+        val binding = dependency.toBooleanBinding { it == 60.s }
         assertTrue(binding.value)
         dependency.clear()
         assertFalse(binding.value)

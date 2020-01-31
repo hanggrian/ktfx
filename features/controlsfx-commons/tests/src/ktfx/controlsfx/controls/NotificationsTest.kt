@@ -5,7 +5,7 @@ import javafx.scene.image.ImageView
 import javafx.stage.Stage
 import ktfx.test.SampleImageView
 import ktfx.test.testScene
-import ktfx.util.seconds
+import ktfx.time.s
 import org.controlsfx.control.Notifications
 import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
@@ -28,7 +28,7 @@ class NotificationsTest : ApplicationTest() {
             graphic = sampleGraphic
             position = Pos.BOTTOM_RIGHT
             owner = stage
-            hideAfter = 10.seconds
+            hideAfter = 10.s
             onAction { }
             darkStyle()
             hideCloseButton()

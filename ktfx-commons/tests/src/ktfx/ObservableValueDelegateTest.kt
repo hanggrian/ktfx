@@ -5,7 +5,7 @@ import javafx.util.Duration
 import ktfx.collections.emptyObservableList
 import ktfx.collections.emptyObservableMap
 import ktfx.collections.emptyObservableSet
-import ktfx.util.minutes
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -45,8 +45,8 @@ class ObservableValueDelegateTest {
 
     @Test fun any() {
         assertNull(any)
-        any = 2.minutes
-        assertEquals(2.minutes, anyProperty.value)
+        any = 2.m
+        assertEquals(2.m, anyProperty.value)
     }
 
     @Test fun string() {

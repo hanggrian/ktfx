@@ -1,7 +1,7 @@
 package ktfx.controlsfx.dialogs
 
 import ktfx.test.DialogShowingTest
-import ktfx.util.toFxPair
+import ktfx.toFxPair
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals

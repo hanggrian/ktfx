@@ -1,8 +1,8 @@
 package ktfx
 
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.util.minutes
 
 class BindingCreateDoubleTest {
 
@@ -16,7 +16,7 @@ class BindingCreateDoubleTest {
     }
 
     @Test fun anyDependency() {
-        val dependency = propertyOf(1.minutes)
+        val dependency = propertyOf(1.m)
         val binding = dependency.toDoubleBinding { it?.toMillis() ?: 0.0 }
         assertEquals(60000.0, binding.value)
         dependency.clear()

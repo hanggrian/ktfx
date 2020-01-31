@@ -7,8 +7,8 @@ import javafx.scene.Node
 import javafx.scene.image.ImageView
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
-import ktfx.util.toFxPair
-import ktfx.util.toKotlinPair
+import ktfx.toFxPair
+import ktfx.toKotlinPair
 import org.controlsfx.dialog.LoginDialog
 
 /**

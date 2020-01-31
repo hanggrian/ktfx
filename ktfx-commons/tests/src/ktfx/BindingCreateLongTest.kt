@@ -1,8 +1,8 @@
 package ktfx
 
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.util.minutes
 
 class BindingCreateLongTest {
 
@@ -16,7 +16,7 @@ class BindingCreateLongTest {
     }
 
     @Test fun anyDependency() {
-        val dependency = propertyOf(1.minutes)
+        val dependency = propertyOf(1.m)
         val binding = dependency.toLongBinding { it?.toMillis()?.toLong() ?: 0 }
         assertEquals(60000, binding.value)
         dependency.clear()

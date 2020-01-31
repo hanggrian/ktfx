@@ -6,7 +6,7 @@ import javafx.util.Duration
 import ktfx.collections.emptyObservableList
 import ktfx.collections.emptyObservableMap
 import ktfx.collections.emptyObservableSet
-import ktfx.util.minutes
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -19,7 +19,7 @@ class PropertiesTest {
 
     @Test fun any() = test<Duration>(propertyOf(), wrapperOf()) {
         assertNull(it.value)
-        it.value = 1.minutes
+        it.value = 1.m
         assertNotNull(it.value)
     }
 

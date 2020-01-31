@@ -1,8 +1,8 @@
 package ktfx
 
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import ktfx.util.minutes
 
 class BindingCreateFloatTest {
 
@@ -16,7 +16,7 @@ class BindingCreateFloatTest {
     }
 
     @Test fun anyDependency() {
-        val dependency = propertyOf(1.minutes)
+        val dependency = propertyOf(1.m)
         val binding = dependency.toFloatBinding { it?.toMillis()?.toFloat() ?: 0f }
         assertEquals(60000f, binding.value)
         dependency.clear()

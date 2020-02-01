@@ -1,11 +1,11 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package ktfx.util
+package ktfx.text
 
 import javafx.util.StringConverter
 
-/** Class to build [StringConverter] with Kotlin DSL. */
-class StringConverterBuilder<T> @PublishedApi internal constructor() : StringConverter<T>() {
+/** Class to build [StringConverter] with DSL. */
+class StringConverterBuilder<T> @PublishedApi internal constructor() {
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
 
@@ -14,19 +14,25 @@ class StringConverterBuilder<T> @PublishedApi internal constructor() : StringCon
         _toString = listener
     }
 
-    override fun toString(any: T?): String = _toString(any)
-
     /** Convert String back to object. */
     fun fromString(listener: (String) -> T?) {
         _fromString = listener
     }
 
-    override fun fromString(string: String): T? = _fromString(string)
+    @PublishedApi internal fun build(): StringConverter<T> = object : StringConverter<T>() {
+        override fun toString(any: T?): String = _toString(any)
+        override fun fromString(string: String): T? = _fromString(string)
+    }
 }
 
-/** Build string converter with Kotlin DSL. */
-inline fun <T> buildStringConverter(configuration: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
-    StringConverterBuilder<T>().apply(configuration)
+/**
+ * Builds new string converter by configuring [StringConverterBuilder.toString]
+ * and [StringConverterBuilder.fromString] using provided [builderAction].
+ *
+ * @see kotlin.text.buildString
+ */
+inline fun <T> buildStringConverter(builderAction: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
+    StringConverterBuilder<T>().apply(builderAction).build()
 
 /** Converts the object provided into its string form. */
 inline operator fun <T> StringConverter<T>.invoke(obj: T): String = toString(obj)

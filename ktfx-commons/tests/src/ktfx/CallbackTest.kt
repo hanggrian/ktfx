@@ -1,4 +1,4 @@
-package ktfx.util
+package ktfx
 
 import javafx.util.Duration
 import ktfx.time.m

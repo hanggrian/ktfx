@@ -21,5 +21,5 @@ inline operator fun <F, S> Pair<F, S>.component2(): S? = value
 /** Returns this [Pair] as a [kotlin.Pair]. */
 inline fun <F, S> Pair<F, S>.toKotlinPair(): kotlin.Pair<F, S> = kotlin.Pair(key, value)
 
-/** Returns this [kotlin.Pair] as an JavaFX [Pair]. */
+/** Returns this [kotlin.Pair] as a JavaFX [Pair]. */
 inline fun <F, S> kotlin.Pair<F, S>.toFxPair(): Pair<F, S> = Pair(first, second)

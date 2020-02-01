@@ -1,9 +1,8 @@
-package ktfx.util
+package ktfx
 
 import javafx.beans.Observable
 import javafx.beans.binding.ObjectBinding
 import javafx.util.Callback
-import ktfx.bindingOf
 
 /** Create new callback using Kotlin function type. */
 inline fun <P, R> callbackOf(crossinline callback: (P) -> R?): Callback<P, R> = Callback { callback(it) }

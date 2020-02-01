@@ -6,31 +6,57 @@ import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
 
 /**
- * Add text to this flow, returning the flow itself for re-append.
+ * Sets the character at the specified [index] to the specified [value].
+ *
+ * @see kotlin.text.set
+ */
+operator fun TextFlow.set(index: Int, value: String) {
+    val child = children[index]
+    require(child is Text) { "TextFlow child is not a Text." }
+    child.text = value
+}
+
+/**
+ * Clears the content of this flow making it empty.
+ *
+ * @see kotlin.text.clear
+ */
+fun TextFlow.clear(): TextFlow = apply { children.clear() }
+
+/**
+ * Appends [value] to this flow.
  *
  * @see java.lang.Appendable.append
  */
-fun TextFlow.append(text: String): TextFlow = apply { children += Text(text) }
+fun TextFlow.append(value: String?): TextFlow = apply { children += Text(value ?: "null") }
 
 /**
- * Add new line to this flow, returning the flow itself for re-append.
+ * Appends [value] to this flow.
+ *
+ * @see java.lang.StringBuilder.append
+ */
+fun TextFlow.append(value: Any?): TextFlow = append(value?.toString())
+
+/**
+ * Appends a line separator to this flow.
  *
  * @see kotlin.text.appendln
  */
 fun TextFlow.appendln(): TextFlow = append(SystemProperties.LINE_SEPARATOR)
 
 /**
- * Add text with new line to this flow, returning the flow itself for re-append.
+ * Appends [value] to this flow, followed by a line separator.
  *
  * @see kotlin.text.appendln
  */
-inline fun TextFlow.appendln(text: String): TextFlow = append(text).appendln()
+inline fun TextFlow.appendln(value: String?): TextFlow = append(value).appendln()
 
-/** Add text to this flow, returning the flow itself for re-append. */
-inline fun TextFlow.append(text: Any): TextFlow = append(text.toString())
-
-/** Add text with new line to this flow, returning the flow itself for re-append. */
-inline fun TextFlow.appendln(text: Any): TextFlow = appendln(text.toString())
+/**
+ * Appends [value] to this flow, followed by a line separator.
+ *
+ * @see kotlin.text.appendln
+ */
+inline fun TextFlow.appendln(value: Any?): TextFlow = append(value).appendln()
 
 /**
  * @see kotlin.text.SystemProperties

@@ -5,7 +5,8 @@
 
 Ktfx
 ====
-[Kotlin] extensions for JavaFX app development. Written in spirit of [android-ktx] and [anko].
+[Kotlin] extensions for JavaFX app development that focuses on API similarity to Kotlin standard library.
+Written in spirit of [anko].
 
 Ktfx consists of several parts:
  * Ktfx Commons: a lightweight library full of helpers.
@@ -199,7 +200,6 @@ License
     limitations under the License.
 
 [Kotlin]: https://kotlinlang.org/
-[android-ktx]: https://github.com/android/android-ktx
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
 [releases]: https://github.com/hendraanggrian/ktfx/releases

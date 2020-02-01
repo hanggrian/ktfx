@@ -3,11 +3,10 @@ package ktfx.rules
 import com.pinterest.ktlint.core.RuleSet
 import com.pinterest.ktlint.core.RuleSetProvider
 
-class SinglePackageRuleSetProvider : RuleSetProvider {
+class LayoutsRuleSetProvider : RuleSetProvider {
 
     override fun get() = RuleSet(
-        "single-package-ruleset",
-        OpenClassRule(),
-        PredefinedPackageRule()
+        "layouts-ruleset",
+        OpenClassRule()
     )
 }

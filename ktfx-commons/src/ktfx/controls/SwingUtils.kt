@@ -1,6 +1,6 @@
 @file:Suppress("NOTHING_TO_INLINE")
 
-package ktfx.util
+package ktfx.controls
 
 import java.awt.image.BufferedImage
 import javafx.embed.swing.SwingFXUtils

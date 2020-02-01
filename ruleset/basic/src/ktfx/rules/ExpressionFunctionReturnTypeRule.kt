@@ -17,14 +17,14 @@ class ExpressionFunctionReturnTypeRule : Rule("expression-function-return-type")
         }
         // only check top-level declaration
         if (node.treeParent?.elementType == KtStubElementTypes.FILE) {
-            val identifier = node.findChildByType(KtTokens.IDENTIFIER)
-            val parent = identifier?.treeParent
+            val identifierNode = node.findChildByType(KtTokens.IDENTIFIER)
+            val parent = identifierNode?.treeParent
             // function with block expression is allowed
             if (typeName == "Expression function" && parent?.findChildByType(KtNodeTypes.BLOCK) != null) {
                 return
             }
             if (parent?.findChildByType(KtStubElementTypes.TYPE_REFERENCE) == null) {
-                emit(identifier!!.startOffset, "$typeName need return type", false)
+                emit(identifierNode!!.startOffset, "$typeName need return type", false)
             }
         }
     }

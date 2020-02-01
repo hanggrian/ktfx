@@ -24,9 +24,9 @@ class PredefinedPackageRule : Rule("predefined-package") {
 
     override fun visit(node: ASTNode, autoCorrect: Boolean, emit: (Int, String, Boolean) -> Unit) {
         if (node.elementType == KtStubElementTypes.PACKAGE_DIRECTIVE) {
-            val packageDirective = node.getPsi(KtPackageDirective::class.java)
-            if (packageDirective.qualifiedName !in PREDEFINED_PACKAGES) {
-                emit(packageDirective.packageNameExpression!!.startOffset, "Illegal package name.", false)
+            val ktPackageDirective = node.getPsi(KtPackageDirective::class.java)
+            if (ktPackageDirective.qualifiedName !in PREDEFINED_PACKAGES) {
+                emit(ktPackageDirective.packageNameExpression!!.startOffset, "Illegal package name.", false)
             }
         }
     }

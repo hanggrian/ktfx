@@ -1,5 +1,6 @@
 package ktfx
 
+import javafx.beans.property.SimpleStringProperty
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -7,12 +8,12 @@ import kotlin.test.assertTrue
 class BindingOperatorStringTest {
 
     @Test fun eq() {
-        assertFalse((stringPropertyOf() eq stringPropertyOf("Hendra")).value)
-        assertTrue((stringPropertyOf("Anggrian") eq stringPropertyOf("Anggrian")).value)
+        assertFalse((SimpleStringProperty() eq SimpleStringProperty("Hendra")).value)
+        assertTrue((SimpleStringProperty("Anggrian") eq SimpleStringProperty("Anggrian")).value)
     }
 
     @Test fun neq() {
-        assertTrue((stringPropertyOf() neq stringPropertyOf("Hendra")).value)
-        assertFalse((stringPropertyOf("Anggrian") neq stringPropertyOf("Anggrian")).value)
+        assertTrue((SimpleStringProperty() neq SimpleStringProperty("Hendra")).value)
+        assertFalse((SimpleStringProperty("Anggrian") neq SimpleStringProperty("Anggrian")).value)
     }
 }

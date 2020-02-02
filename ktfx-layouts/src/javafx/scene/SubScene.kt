@@ -27,8 +27,8 @@ open class KtfxSubScene(root: Parent, width: Double, height: Double) : SubScene(
 inline fun subScene(
     width: Double = -1.0,
     height: Double = -1.0,
-    configuration: (@LayoutsDslMarker KtfxSubScene).() -> Unit
+    init: (@LayoutsDslMarker KtfxSubScene).() -> Unit
 ): SubScene {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxSubScene(Pane(), width, height).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxSubScene(Pane(), width, height).apply(init)
 }

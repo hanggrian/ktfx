@@ -26,10 +26,10 @@ open class KtfxSnapshotView : SnapshotView(), NodeManager {
 
 /** Create a [SnapshotView] with initialization block. */
 inline fun snapshotView(
-    configuration: (@LayoutsDslMarker KtfxSnapshotView).() -> Unit
+    init: (@LayoutsDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxSnapshotView().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxSnapshotView().apply(init)
 }
 
 /** Add a [SnapshotView] to this manager. */
@@ -37,8 +37,8 @@ fun NodeManager.snapshotView(): SnapshotView = addChild(KtfxSnapshotView())
 
 /** Add a [SnapshotView] with initialization block to this manager. */
 inline fun NodeManager.snapshotView(
-    configuration: (@LayoutsDslMarker KtfxSnapshotView).() -> Unit
+    init: (@LayoutsDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxSnapshotView(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxSnapshotView(), init)
 }

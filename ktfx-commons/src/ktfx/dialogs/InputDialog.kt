@@ -13,31 +13,31 @@ import javafx.scene.image.ImageView
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param prefill default text.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return input text
  */
 fun inputDialog(
     title: String? = null,
     graphic: Node? = null,
     prefill: String = "",
-    builderAction: (TextInputDialog.() -> Unit)? = null
+    dialogAction: (TextInputDialog.() -> Unit)? = null
 ): Optional<String> = TextInputDialog(prefill).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
-    builderAction?.invoke(dialog)
+    dialogAction?.invoke(dialog)
 }.showAndWait()
 
 /**
  * Show a text input dialog.
  *
  * @param prefill default text.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return input text
  */
 inline fun inputDialog(
     prefill: String = "",
-    noinline builderAction: (TextInputDialog.() -> Unit)? = null
-): Optional<String> = inputDialog(null, null, prefill, builderAction)
+    noinline dialogAction: (TextInputDialog.() -> Unit)? = null
+): Optional<String> = inputDialog(null, null, prefill, dialogAction)

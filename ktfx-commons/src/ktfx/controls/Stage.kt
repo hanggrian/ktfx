@@ -42,7 +42,7 @@ fun Stage.setMaxSize(width: Double, height: Double) {
 /** Convenient method for overriding the stage's computed maximum width and height. */
 inline var Stage.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    inline set(value) = setMaxSize(value, value)
+    set(value) = setMaxSize(value, value)
 
 /** Removes old icons and set a new one to this stage. */
 inline var Stage.icon: Image

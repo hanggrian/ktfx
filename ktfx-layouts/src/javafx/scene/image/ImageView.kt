@@ -13,10 +13,10 @@ import kotlin.contracts.contract
 /** Create an [ImageView] with initialization block. */
 inline fun imageView(
     image: Image? = null,
-    configuration: (@LayoutsDslMarker ImageView).() -> Unit
+    init: (@LayoutsDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ImageView(image).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ImageView(image).apply(init)
 }
 
 /** Add an [ImageView] to this manager. */
@@ -27,19 +27,19 @@ fun NodeManager.imageView(
 /** Add an [ImageView] with initialization block to this manager. */
 inline fun NodeManager.imageView(
     image: Image? = null,
-    configuration: (@LayoutsDslMarker ImageView).() -> Unit
+    init: (@LayoutsDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ImageView(image), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ImageView(image), init)
 }
 
 /** Create an [ImageView] with initialization block. */
 inline fun imageView(
     imageUrl: String,
-    configuration: (@LayoutsDslMarker ImageView).() -> Unit
+    init: (@LayoutsDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return imageView(Image(imageUrl), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return imageView(Image(imageUrl), init)
 }
 
 /** Add an [ImageView] to this manager. */
@@ -51,8 +51,8 @@ inline fun NodeManager.imageView(
 /** Add an [ImageView] with initialization block to this manager. */
 inline fun NodeManager.imageView(
     imageUrl: String,
-    configuration: (@LayoutsDslMarker ImageView).() -> Unit
+    init: (@LayoutsDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return imageView(Image(imageUrl), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return imageView(Image(imageUrl), init)
 }

@@ -26,10 +26,10 @@ open class KtfxJFXNodesList : JFXNodesList(), NodeManager {
 
 /** Create a [JFXNodesList] with initialization block. */
 inline fun jfxNodesList(
-    configuration: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXNodesList().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXNodesList().apply(init)
 }
 
 /** Add a [JFXNodesList] to this manager. */
@@ -38,8 +38,8 @@ fun NodeManager.jfxNodesList(): JFXNodesList =
 
 /** Add a [JFXNodesList] with initialization block to this manager. */
 inline fun NodeManager.jfxNodesList(
-    configuration: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXNodesList(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXNodesList(), init)
 }

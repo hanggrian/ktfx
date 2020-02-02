@@ -20,24 +20,24 @@ inline fun stringBindingOf(vararg dependencies: Observable, crossinline valuePro
 
 /** Create a [StringBinding] with single [ObservableValue] dependency. */
 inline fun <V> ObservableValue<V>.toStringBinding(crossinline valueProvider: (V?) -> String?): StringBinding =
-    stringBindingOf(this) { valueProvider(value) }
+    Bindings.createStringBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [StringBinding] with single [ObservableBooleanValue] dependency. */
 inline fun ObservableBooleanValue.toStringBinding(crossinline valueProvider: (Boolean) -> String?): StringBinding =
-    stringBindingOf(this) { valueProvider(value) }
+    Bindings.createStringBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [StringBinding] with single [ObservableDoubleValue] dependency. */
 inline fun ObservableDoubleValue.toStringBinding(crossinline valueProvider: (Double) -> String?): StringBinding =
-    stringBindingOf(this) { valueProvider(value as Double) }
+    Bindings.createStringBinding(Callable { valueProvider(value as Double) }, this)
 
 /** Create a [StringBinding] with single [ObservableFloatValue] dependency. */
 inline fun ObservableFloatValue.toStringBinding(crossinline valueProvider: (Float) -> String?): StringBinding =
-    stringBindingOf(this) { valueProvider(value as Float) }
+    Bindings.createStringBinding(Callable { valueProvider(value as Float) }, this)
 
 /** Create a [StringBinding] with single [ObservableIntegerValue] dependency. */
 inline fun ObservableIntegerValue.toStringBinding(crossinline valueProvider: (Int) -> String?): StringBinding =
-    stringBindingOf(this) { valueProvider(value as Int) }
+    Bindings.createStringBinding(Callable { valueProvider(value as Int) }, this)
 
 /** Create a [StringBinding] with single [ObservableLongValue] dependency. */
 inline fun ObservableLongValue.toStringBinding(crossinline valueProvider: (Long) -> String?): StringBinding =
-    stringBindingOf(this) { valueProvider(value as Long) }
+    Bindings.createStringBinding(Callable { valueProvider(value as Long) }, this)

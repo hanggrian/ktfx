@@ -32,10 +32,10 @@ inline fun scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = Color.WHITE,
-    configuration: (@LayoutsDslMarker KtfxScene).() -> Unit
+    init: (@LayoutsDslMarker KtfxScene).() -> Unit
 ): Scene {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxScene(Pane(), width, height, fill).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxScene(Pane(), width, height, fill).apply(init)
 }
 
 /** Add a [Scene] to this window. */
@@ -50,8 +50,8 @@ inline fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = Color.WHITE,
-    configuration: (@LayoutsDslMarker KtfxScene).() -> Unit
+    init: (@LayoutsDslMarker KtfxScene).() -> Unit
 ): Scene {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.scene(width, height, fill, configuration).also { scene = it }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ktfx.layouts.scene(width, height, fill, init).also { scene = it }
 }

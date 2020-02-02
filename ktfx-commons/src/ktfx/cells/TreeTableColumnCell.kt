@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.cells
 
 import javafx.beans.value.ObservableValue
@@ -13,58 +15,59 @@ import javafx.scene.control.cell.TextFieldTreeTableCell
 import javafx.util.StringConverter
 
 /** Creates a [CheckBoxTreeTableCell] factory for use in [TreeTableColumn] controls. */
-fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
+inline fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
     setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(this))
 
 /** Creates a [CheckBoxTreeTableCell] factory for use in [TreeTableColumn] controls. */
-fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
+inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
-    callback: (Int) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, converter))
+    crossinline callback: (Int) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn({ callback(it) }, converter))
 
 /** Creates a [CheckBoxTreeTableCell] factory for use in [TreeTableColumn] controls. */
-fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
+inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
-    callback: (Int) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(callback, showLabel))
+    crossinline callback: (Int) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn({ callback(it) }, showLabel))
 
 /** Creates a [ChoiceBoxTreeCell] factory for use in [TreeTableColumn] controls. */
-fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
+inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     vararg items: T
 ): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter, *items))
 
 /** Creates a [ChoiceBoxTreeCell] factory for use in [TreeTableColumn] controls. */
-fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
+inline fun <S, T> TreeTableColumn<S, T>.choiceBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     items: ObservableList<T>
 ): Unit = setCellFactory(ChoiceBoxTreeTableCell.forTreeTableColumn(converter, items))
 
 /** Creates a [ComboBoxTreeTableCell] factory for use in [TreeTableColumn] controls. */
-fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
+inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     vararg items: T
 ): Unit = setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(converter, *items))
 
 /** Creates a [ComboBoxTreeTableCell] factory for use in [TreeTableColumn] controls. */
-fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
+inline fun <S, T> TreeTableColumn<S, T>.comboBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(converter, items))
 
 /** Creates a [ProgressBarTreeTableCell] factory for use in [TreeTableColumn] controls. */
-fun <S> TreeTableColumn<S, Double>.progressBarCellFactory(): Unit =
+inline fun <S> TreeTableColumn<S, Double>.progressBarCellFactory(): Unit =
     setCellFactory(ProgressBarTreeTableCell.forTreeTableColumn<S>())
 
 /** Creates a [TextFieldTreeTableCell] factory for use in [TreeTableColumn] controls. */
-fun <S> TreeTableColumn<S, String>.textFieldCellFactory(): Unit =
+inline fun <S> TreeTableColumn<S, String>.textFieldCellFactory(): Unit =
     setCellFactory(TextFieldTreeTableCell.forTreeTableColumn())
 
 /** Creates a [TextFieldTreeTableCell] factory for use in [TreeTableColumn] controls. */
-fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
+inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()
 ): Unit = setCellFactory(TextFieldTreeTableCell.forTreeTableColumn(converter))
 
 /** Set custom cell factory to this [TreeTableColumn]. */
-fun <S, T> TreeTableColumn<S, T>.cellFactory(cellFactory: TreeTableCellBuilder<S, T>.() -> Unit): Unit =
-    setCellFactory { TreeTableCellBuilder<S, T>().apply(cellFactory) }
+inline fun <S, T> TreeTableColumn<S, T>.cellFactory(
+    crossinline cellFactory: TreeTableCellBuilder<S, T>.() -> Unit
+): Unit = setCellFactory { TreeTableCellBuilder<S, T>().apply(cellFactory) }

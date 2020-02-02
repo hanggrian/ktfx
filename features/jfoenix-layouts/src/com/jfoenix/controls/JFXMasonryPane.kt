@@ -26,10 +26,10 @@ open class KtfxJFXMasonryPane : JFXMasonryPane(), NodeManager {
 
 /** Create a [JFXMasonryPane] with initialization block. */
 inline fun jfxMasonryPane(
-    configuration: (@LayoutsDslMarker KtfxJFXMasonryPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXMasonryPane().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXMasonryPane().apply(init)
 }
 
 /** Add a [JFXMasonryPane] to this manager. */
@@ -37,8 +37,8 @@ fun NodeManager.jfxMasonryPane(): JFXMasonryPane = addChild(JFXMasonryPane())
 
 /** Add a [JFXMasonryPane] with initialization block to this manager. */
 inline fun NodeManager.jfxMasonryPane(
-    configuration: (@LayoutsDslMarker KtfxJFXMasonryPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXMasonryPane(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXMasonryPane(), init)
 }

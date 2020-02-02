@@ -26,10 +26,10 @@ open class KtfxNotificationPane : NotificationPane(), NodeManager {
 
 /** Create a [NotificationPane] with initialization block. */
 inline fun notificationPane(
-    configuration: (@LayoutsDslMarker KtfxNotificationPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxNotificationPane().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxNotificationPane().apply(init)
 }
 
 /** Add a [NotificationPane] to this manager. */
@@ -37,8 +37,8 @@ fun NodeManager.notificationPane(): NotificationPane = addChild(KtfxNotification
 
 /** Add a [NotificationPane] with initialization block to this manager. */
 inline fun NodeManager.notificationPane(
-    configuration: (@LayoutsDslMarker KtfxNotificationPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxNotificationPane(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxNotificationPane(), init)
 }

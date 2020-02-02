@@ -24,16 +24,16 @@ open class KtfxMenuBar : MenuBar(), MenuManager {
     /** Call [MenuManager.menu] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@LayoutsDslMarker KtfxMenu).() -> Unit
-    ): Menu = menu(this, graphic, configuration)
+        init: (@LayoutsDslMarker KtfxMenu).() -> Unit
+    ): Menu = menu(this, graphic, init)
 }
 
 /** Create a [MenuBar] with initialization block. */
 inline fun menuBar(
-    configuration: (@LayoutsDslMarker KtfxMenuBar).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMenuBar().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxMenuBar().apply(init)
 }
 
 /** Add a [MenuBar] to this manager. */
@@ -41,8 +41,8 @@ fun NodeManager.menuBar(): MenuBar = addChild(KtfxMenuBar())
 
 /** Add a [MenuBar] with initialization block to this manager. */
 inline fun NodeManager.menuBar(
-    configuration: (@LayoutsDslMarker KtfxMenuBar).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMenuBar(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMenuBar(), init)
 }

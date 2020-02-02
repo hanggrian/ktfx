@@ -6,8 +6,8 @@ import javafx.print.PrinterJob
 
 /** Create a new printer job with specified job settings. */
 inline fun Printer.createJob(
-    settingsConfiguration: JobSettings.() -> Unit = {
+    settingsAction: JobSettings.() -> Unit = {
         copies = 1
         setPageRanges(1 untilPage 1)
     }
-): PrinterJob = PrinterJob.createPrinterJob(this).also { it.jobSettings.settingsConfiguration() }
+): PrinterJob = PrinterJob.createPrinterJob(this).also { it.jobSettings.settingsAction() }

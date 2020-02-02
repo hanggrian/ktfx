@@ -50,7 +50,7 @@ inline fun <E> ObservableList<E>.getBinding(index: ObservableNumberValue): Objec
 
 /** Creates a new [ObjectBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun <E> ObservableList<E>.getBinding(index: ObservableIntegerValue): ObjectBinding<E> =
-    getBinding(index as ObservableNumberValue)
+    Bindings.valueAt(this, index)
 
 /** Creates a new [BooleanBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Boolean>.getBinding(index: Int): BooleanBinding =
@@ -62,7 +62,7 @@ inline fun ObservableList<Boolean>.getBinding(index: ObservableNumberValue): Boo
 
 /** Creates a new [BooleanBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Boolean>.getBinding(index: ObservableIntegerValue): BooleanBinding =
-    getBinding(index as ObservableNumberValue)
+    Bindings.booleanValueAt(this, index)
 
 /** Creates a new [DoubleBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Double>.getBinding(index: Int): DoubleBinding =
@@ -74,7 +74,7 @@ inline fun ObservableList<Double>.getBinding(index: ObservableNumberValue): Doub
 
 /** Creates a new [DoubleBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Double>.getBinding(index: ObservableIntegerValue): DoubleBinding =
-    getBinding(index as ObservableNumberValue)
+    Bindings.doubleValueAt(this, index)
 
 /** Creates a new [FloatBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Float>.getBinding(index: Int): FloatBinding =
@@ -86,7 +86,7 @@ inline fun ObservableList<Float>.getBinding(index: ObservableNumberValue): Float
 
 /** Creates a new [FloatBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Float>.getBinding(index: ObservableIntegerValue): FloatBinding =
-    getBinding(index as ObservableNumberValue)
+    Bindings.floatValueAt(this, index)
 
 /** Creates a new [IntegerBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Int>.getBinding(index: Int): IntegerBinding =
@@ -98,7 +98,7 @@ inline fun ObservableList<Int>.getBinding(index: ObservableNumberValue): Integer
 
 /** Creates a new [IntegerBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Int>.getBinding(index: ObservableIntegerValue): IntegerBinding =
-    getBinding(index as ObservableNumberValue)
+    Bindings.integerValueAt(this, index)
 
 /** Creates a new [LongBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Long>.getBinding(index: Int): LongBinding =
@@ -110,7 +110,7 @@ inline fun ObservableList<Long>.getBinding(index: ObservableNumberValue): LongBi
 
 /** Creates a new [LongBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<Long>.getBinding(index: ObservableIntegerValue): LongBinding =
-    getBinding(index as ObservableNumberValue)
+    Bindings.longValueAt(this, index)
 
 /** Creates a new [StringBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<String>.getBinding(index: Int): StringBinding =
@@ -122,7 +122,7 @@ inline fun ObservableList<String>.getBinding(index: ObservableNumberValue): Stri
 
 /** Creates a new [StringBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun ObservableList<String>.getBinding(index: ObservableIntegerValue): StringBinding =
-    getBinding(index as ObservableNumberValue)
+    Bindings.stringValueAt(this, index)
 
 /**
  * Performs the given [action] on each element.

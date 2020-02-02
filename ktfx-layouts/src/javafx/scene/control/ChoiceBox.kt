@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 /** Create a [ChoiceBox] with initialization block. */
 inline fun <T> choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
+    init: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ChoiceBox(items).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ChoiceBox(items).apply(init)
 }
 
 /** Add a [ChoiceBox] to this manager. */
@@ -28,8 +28,8 @@ fun <T> NodeManager.choiceBox(
 /** Add a [ChoiceBox] with initialization block to this manager. */
 inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
+    init: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ChoiceBox(items), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ChoiceBox(items), init)
 }

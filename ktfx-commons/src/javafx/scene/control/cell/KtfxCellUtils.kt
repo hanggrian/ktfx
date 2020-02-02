@@ -3,6 +3,7 @@ package javafx.scene.control.cell
 import javafx.scene.control.TreeItem
 import javafx.util.StringConverter
 
+@PublishedApi
 internal object KtfxCellUtils {
 
     fun <T> defaultStringConverter(): StringConverter<T> =

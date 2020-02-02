@@ -15,10 +15,10 @@ import org.controlsfx.control.SegmentedBar.Segment
 
 /** Create a [SegmentedBar] with initialization block. */
 inline fun <T : Segment> segmentedBar(
-    configuration: (@LayoutsDslMarker SegmentedBar<T>).() -> Unit
+    init: (@LayoutsDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return SegmentedBar<T>().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return SegmentedBar<T>().apply(init)
 }
 
 /** Add a [SegmentedBar] to this manager. */
@@ -26,8 +26,8 @@ fun <T : Segment> NodeManager.segmentedBar(): SegmentedBar<T> = addChild(Segment
 
 /** Add a [SegmentedBar] with initialization block to this manager. */
 inline fun <T : Segment> NodeManager.segmentedBar(
-    configuration: (@LayoutsDslMarker SegmentedBar<T>).() -> Unit
+    init: (@LayoutsDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(SegmentedBar(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(SegmentedBar(), init)
 }

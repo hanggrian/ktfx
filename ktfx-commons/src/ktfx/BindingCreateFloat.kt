@@ -20,24 +20,24 @@ inline fun floatBindingOf(vararg dependencies: Observable, crossinline valueProv
 
 /** Create a [FloatBinding] with single [ObservableValue] dependency. */
 inline fun <V> ObservableValue<V>.toFloatBinding(crossinline valueProvider: (V?) -> Float): FloatBinding =
-    floatBindingOf(this) { valueProvider(value) }
+    Bindings.createFloatBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [FloatBinding] with single [ObservableBooleanValue] dependency. */
 inline fun ObservableBooleanValue.toFloatBinding(crossinline valueProvider: (Boolean) -> Float): FloatBinding =
-    floatBindingOf(this) { valueProvider(value) }
+    Bindings.createFloatBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [FloatBinding] with single [ObservableDoubleValue] dependency. */
 inline fun ObservableDoubleValue.toFloatBinding(crossinline valueProvider: (Double) -> Float): FloatBinding =
-    floatBindingOf(this) { valueProvider(value as Double) }
+    Bindings.createFloatBinding(Callable { valueProvider(value as Double) }, this)
 
 /** Create a [FloatBinding] with single [ObservableFloatValue] dependency. */
 inline fun ObservableFloatValue.toFloatBinding(crossinline valueProvider: (Float) -> Float): FloatBinding =
-    floatBindingOf(this) { valueProvider(value as Float) }
+    Bindings.createFloatBinding(Callable { valueProvider(value as Float) }, this)
 
 /** Create a [FloatBinding] with single [ObservableIntegerValue] dependency. */
 inline fun ObservableIntegerValue.toFloatBinding(crossinline valueProvider: (Int) -> Float): FloatBinding =
-    floatBindingOf(this) { valueProvider(value as Int) }
+    Bindings.createFloatBinding(Callable { valueProvider(value as Int) }, this)
 
 /** Create a [FloatBinding] with single [ObservableLongValue] dependency. */
 inline fun ObservableLongValue.toFloatBinding(crossinline valueProvider: (Long) -> Float): FloatBinding =
-    floatBindingOf(this) { valueProvider(value as Long) }
+    Bindings.createFloatBinding(Callable { valueProvider(value as Long) }, this)

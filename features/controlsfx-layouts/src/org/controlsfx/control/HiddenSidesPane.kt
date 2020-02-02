@@ -26,10 +26,10 @@ open class KtfxHiddenSidesPane : HiddenSidesPane(), NodeManager {
 
 /** Create a [HiddenSidesPane] with initialization block. */
 inline fun hiddenSidesPane(
-    configuration: (@LayoutsDslMarker KtfxHiddenSidesPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxHiddenSidesPane().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxHiddenSidesPane().apply(init)
 }
 
 /** Add a [HiddenSidesPane] to this manager. */
@@ -37,8 +37,8 @@ fun NodeManager.hiddenSidesPane(): HiddenSidesPane = addChild(KtfxHiddenSidesPan
 
 /** Add a [HiddenSidesPane] with initialization block to this manager. */
 inline fun NodeManager.hiddenSidesPane(
-    configuration: (@LayoutsDslMarker KtfxHiddenSidesPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxHiddenSidesPane(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxHiddenSidesPane(), init)
 }

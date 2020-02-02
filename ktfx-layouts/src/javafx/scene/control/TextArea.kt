@@ -12,10 +12,10 @@ import kotlin.contracts.contract
 /** Create a [TextArea] with initialization block. */
 inline fun textArea(
     text: String = "",
-    configuration: (@LayoutsDslMarker TextArea).() -> Unit
+    init: (@LayoutsDslMarker TextArea).() -> Unit
 ): TextArea {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return TextArea(text).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return TextArea(text).apply(init)
 }
 
 /** Add a [TextArea] to this manager. */
@@ -26,8 +26,8 @@ fun NodeManager.textArea(
 /** Add a [TextArea] with initialization block to this manager. */
 inline fun NodeManager.textArea(
     text: String = "",
-    configuration: (@LayoutsDslMarker TextArea).() -> Unit
+    init: (@LayoutsDslMarker TextArea).() -> Unit
 ): TextArea {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(TextArea(text), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(TextArea(text), init)
 }

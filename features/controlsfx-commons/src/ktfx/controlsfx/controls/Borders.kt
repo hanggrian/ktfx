@@ -9,19 +9,20 @@ import ktfx.internal.KtfxInternals.noGetter
 import org.controlsfx.tools.Borders
 
 /** Wraps this [Node] with borders using Kotlin DSL, returning the wrapped node. */
-inline fun Node.wrapBorders(builder: BordersBuilder.() -> Unit): Node = BordersBuilder(this).apply(builder).build()
+inline fun Node.wrapBorders(builderAction: BordersBuilder.() -> Unit): Node =
+    BordersBuilder(this).apply(builderAction).build()
 
 /** Add a new [Borders.EmptyBorders] to node using DSL. */
-inline fun Node.wrapEmptyBorder(emptyBuilder: BordersBuilder.EmptyBuilder.() -> Unit): Node =
-    wrapBorders { empty(emptyBuilder) }
+inline fun Node.wrapEmptyBorder(builderAction: BordersBuilder.EmptyBuilder.() -> Unit): Node =
+    wrapBorders { empty(builderAction) }
 
 /** Add a new [Borders.EtchedBorders] to node using DSL. */
-inline fun Node.wrapEtchedBorder(etchedBuilder: BordersBuilder.EtchedBuilder.() -> Unit): Node =
-    wrapBorders { etched(etchedBuilder) }
+inline fun Node.wrapEtchedBorder(builderAction: BordersBuilder.EtchedBuilder.() -> Unit): Node =
+    wrapBorders { etched(builderAction) }
 
 /** Add a new [Borders.LineBorders] to node using DSL. */
-inline fun Node.wrapLineBorder(lineBuilder: BordersBuilder.LineBuilder.() -> Unit): Node =
-    wrapBorders { line(lineBuilder) }
+inline fun Node.wrapLineBorder(builderAction: BordersBuilder.LineBuilder.() -> Unit): Node =
+    wrapBorders { line(builderAction) }
 
 /**
  * Supporting class to use [Borders] with DSL.
@@ -32,16 +33,16 @@ class BordersBuilder @PublishedApi internal constructor(node: Node) {
     @PublishedApi internal val nativeBorders: Borders = Borders.wrap(node)
 
     /** Opens up DSL to create empty border. */
-    inline fun empty(emptyBuilder: EmptyBuilder.() -> Unit): Unit =
-        EmptyBuilder(nativeBorders.emptyBorder()).apply(emptyBuilder).build()
+    inline fun empty(builderAction: EmptyBuilder.() -> Unit): Unit =
+        EmptyBuilder(nativeBorders.emptyBorder()).apply(builderAction).build()
 
     /** Opens up DSL to create etched border. */
-    inline fun etched(etchedBuilder: EtchedBuilder.() -> Unit): Unit =
-        EtchedBuilder(nativeBorders.etchedBorder()).apply(etchedBuilder).build()
+    inline fun etched(builderAction: EtchedBuilder.() -> Unit): Unit =
+        EtchedBuilder(nativeBorders.etchedBorder()).apply(builderAction).build()
 
     /** Opens up DSL to create line border. */
-    inline fun line(lineBuilder: LineBuilder.() -> Unit): Unit =
-        LineBuilder(nativeBorders.lineBorder()).apply(lineBuilder).build()
+    inline fun line(builderAction: LineBuilder.() -> Unit): Unit =
+        LineBuilder(nativeBorders.lineBorder()).apply(builderAction).build()
 
     /** Allows for developers to develop custom [Borders.Border] implementations. */
     fun addBorder(border: Borders.Border) {

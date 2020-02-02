@@ -20,24 +20,24 @@ inline fun intBindingOf(vararg dependencies: Observable, crossinline valueProvid
 
 /** Create an [IntegerBinding] with single [ObservableValue] dependency. */
 inline fun <V> ObservableValue<V>.toIntBinding(crossinline valueProvider: (V?) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(value) }
+    Bindings.createIntegerBinding(Callable { valueProvider(value) }, this)
 
 /** Create an [IntegerBinding] with single [ObservableBooleanValue] dependency. */
 inline fun ObservableBooleanValue.toIntBinding(crossinline valueProvider: (Boolean) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(value) }
+    Bindings.createIntegerBinding(Callable { valueProvider(value) }, this)
 
 /** Create an [IntegerBinding] with single [ObservableDoubleValue] dependency. */
 inline fun ObservableDoubleValue.toIntBinding(crossinline valueProvider: (Double) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(value as Double) }
+    Bindings.createIntegerBinding(Callable { valueProvider(value as Double) }, this)
 
 /** Create an [IntegerBinding] with single [ObservableFloatValue] dependency. */
 inline fun ObservableFloatValue.toIntBinding(crossinline valueProvider: (Float) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(value as Float) }
+    Bindings.createIntegerBinding(Callable { valueProvider(value as Float) }, this)
 
 /** Create an [IntegerBinding] with single [ObservableIntegerValue] dependency. */
 inline fun ObservableIntegerValue.toIntBinding(crossinline valueProvider: (Int) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(value as Int) }
+    Bindings.createIntegerBinding(Callable { valueProvider(value as Int) }, this)
 
 /** Create an [IntegerBinding] with single [ObservableLongValue] dependency. */
 inline fun ObservableLongValue.toIntBinding(crossinline valueProvider: (Long) -> Int): IntegerBinding =
-    intBindingOf(this) { valueProvider(value as Long) }
+    Bindings.createIntegerBinding(Callable { valueProvider(value as Long) }, this)

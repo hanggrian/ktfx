@@ -20,24 +20,24 @@ inline fun doubleBindingOf(vararg dependencies: Observable, crossinline valuePro
 
 /** Create a [DoubleBinding] with single [ObservableValue] dependency. */
 inline fun <V> ObservableValue<V>.toDoubleBinding(crossinline valueProvider: (V?) -> Double): DoubleBinding =
-    doubleBindingOf(this) { valueProvider(value) }
+    Bindings.createDoubleBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [DoubleBinding] with single [ObservableBooleanValue] dependency. */
 inline fun ObservableBooleanValue.toDoubleBinding(crossinline valueProvider: (Boolean) -> Double): DoubleBinding =
-    doubleBindingOf(this) { valueProvider(value) }
+    Bindings.createDoubleBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [DoubleBinding] with single [ObservableDoubleValue] dependency. */
 inline fun ObservableDoubleValue.toDoubleBinding(crossinline valueProvider: (Double) -> Double): DoubleBinding =
-    doubleBindingOf(this) { valueProvider(value as Double) }
+    Bindings.createDoubleBinding(Callable { valueProvider(value as Double) }, this)
 
 /** Create a [DoubleBinding] with single [ObservableFloatValue] dependency. */
 inline fun ObservableFloatValue.toDoubleBinding(crossinline valueProvider: (Float) -> Double): DoubleBinding =
-    doubleBindingOf(this) { valueProvider(value as Float) }
+    Bindings.createDoubleBinding(Callable { valueProvider(value as Float) }, this)
 
 /** Create a [DoubleBinding] with single [ObservableIntegerValue] dependency. */
 inline fun ObservableIntegerValue.toDoubleBinding(crossinline valueProvider: (Int) -> Double): DoubleBinding =
-    doubleBindingOf(this) { valueProvider(value as Int) }
+    Bindings.createDoubleBinding(Callable { valueProvider(value as Int) }, this)
 
 /** Create a [DoubleBinding] with single [ObservableLongValue] dependency. */
 inline fun ObservableLongValue.toDoubleBinding(crossinline valueProvider: (Long) -> Double): DoubleBinding =
-    doubleBindingOf(this) { valueProvider(value as Long) }
+    Bindings.createDoubleBinding(Callable { valueProvider(value as Long) }, this)

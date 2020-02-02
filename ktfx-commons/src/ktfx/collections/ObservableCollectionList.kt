@@ -14,7 +14,7 @@ import javafx.collections.ObservableList
  *
  * @see emptyList
  */
-fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
+inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
 
 /**
  * Alias of [emptyObservableList].
@@ -28,42 +28,44 @@ inline fun <T> observableListOf(): ObservableList<T> = emptyObservableList()
  *
  * @see listOf
  */
-fun <T> observableListOf(element: T): ObservableList<T> = FXCollections.singletonObservableList(element)
+inline fun <T> observableListOf(element: T): ObservableList<T> = FXCollections.singletonObservableList(element)
 
 /**
  * Returns an immutable [ObservableList] containing all [elements].
  *
  * @see listOf
  */
-fun <T> observableListOf(vararg elements: T): ObservableList<T> =
-    if (elements.isNotEmpty()) FXCollections.unmodifiableObservableList(elements.toMutableObservableList()) else emptyObservableList()
+fun <T> observableListOf(vararg elements: T): ObservableList<T> = when {
+    elements.isNotEmpty() -> FXCollections.unmodifiableObservableList(elements.toMutableObservableList())
+    else -> emptyObservableList()
+}
 
 /**
  * Returns an empty [ObservableList].
  *
  * @see mutableListOf
  */
-fun <T> mutableObservableListOf(): ObservableList<T> = FXCollections.observableArrayList()
+inline fun <T> mutableObservableListOf(): ObservableList<T> = FXCollections.observableArrayList()
 
 /**
  * Returns an [ObservableList] containing all [elements].
  *
  * @see mutableListOf
  */
-fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
-    if (elements.isEmpty()) mutableObservableListOf() else FXCollections.observableArrayList(*elements)
+fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> = when {
+    elements.isEmpty() -> mutableObservableListOf()
+    else -> FXCollections.observableArrayList(*elements)
+}
 
 /**
  * Converts this array to immutable [ObservableList].
  *
  * @see Array.toList
  */
-fun <T> Array<out T>.toObservableList(): ObservableList<T> {
-    return when (size) {
-        0 -> emptyObservableList()
-        1 -> observableListOf(this[0])
-        else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
-    }
+fun <T> Array<out T>.toObservableList(): ObservableList<T> = when (size) {
+    0 -> emptyObservableList()
+    1 -> observableListOf(this[0])
+    else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
 }
 
 /**
@@ -71,7 +73,7 @@ fun <T> Array<out T>.toObservableList(): ObservableList<T> {
  *
  * @see Array.toMutableList
  */
-fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> = FXCollections.observableArrayList(*this)
+inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> = FXCollections.observableArrayList(*this)
 
 /**
  * Converts this iterable to immutable [ObservableList].
@@ -105,7 +107,7 @@ fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
  *
  * @see Collection.toMutableList
  */
-fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> = FXCollections.observableArrayList(this)
+inline fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> = FXCollections.observableArrayList(this)
 
 /**
  * Converts this sequence to immutable [ObservableList].
@@ -144,4 +146,4 @@ inline fun ObservableList<*>.shuffle(rnd: Random? = null): Unit = FXCollections.
 inline fun <T : Comparable<T>> ObservableList<T>.sort(): Unit = FXCollections.sort(this)
 
 /** Sorts the provided observable list using the c comparator, firing change notification once. */
-infix fun <T> ObservableList<T>.sort(c: Comparator<T>): Unit = FXCollections.sort(this, c)
+inline infix fun <T> ObservableList<T>.sort(c: Comparator<T>): Unit = FXCollections.sort(this, c)

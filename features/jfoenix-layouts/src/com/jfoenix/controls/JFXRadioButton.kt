@@ -15,10 +15,10 @@ import ktfx.layouts.addChild
 /** Create a [JFXRadioButton] with initialization block. */
 inline fun jfxRadioButton(
     text: String? = null,
-    configuration: (@LayoutsDslMarker JFXRadioButton).() -> Unit
+    init: (@LayoutsDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXRadioButton(text).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXRadioButton(text).apply(init)
 }
 
 /** Add a [JFXRadioButton] to this manager. */
@@ -29,8 +29,8 @@ fun NodeManager.jfxRadioButton(
 /** Add a [JFXRadioButton] with initialization block to this manager. */
 inline fun NodeManager.jfxRadioButton(
     text: String? = null,
-    configuration: (@LayoutsDslMarker JFXRadioButton).() -> Unit
+    init: (@LayoutsDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXRadioButton(text), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXRadioButton(text), init)
 }

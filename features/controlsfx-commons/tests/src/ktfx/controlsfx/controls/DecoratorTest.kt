@@ -26,27 +26,25 @@ class DecoratorTest {
         assertEquals(1, node.decorations.size)
     }
 
-    @Test fun addDecorations() {
-        node.addDecorations(GraphicDecoration(Button()), GraphicDecoration(Hyperlink()))
-        assertEquals(2, node.decorations.size)
-    }
-
     @Test fun removeDecoration() {
         val decoration1 = GraphicDecoration(Button())
         val decoration2 = GraphicDecoration(Hyperlink())
-        node.addDecorations(decoration1, decoration2)
+        node.addDecoration(decoration1)
+        node.addDecoration(decoration2)
         node.removeDecoration(decoration1)
         assertEquals(decoration2, node.decorations.single())
     }
 
     @Test fun clearDecorations() {
-        node.addDecorations(GraphicDecoration(Button()), GraphicDecoration(Hyperlink()))
+        node.addDecoration(GraphicDecoration(Button()))
+        node.addDecoration(GraphicDecoration(Hyperlink()))
         node.clearDecorations()
         assertNull(Decorator.getDecorations(node))
     }
 
     @Test fun decorations() {
-        node.addDecorations(GraphicDecoration(Button()), GraphicDecoration(Hyperlink()))
+        node.addDecoration(GraphicDecoration(Button()))
+        node.addDecoration(GraphicDecoration(Hyperlink()))
         assertEquals(Decorator.getDecorations(node), node.decorations)
     }
 }

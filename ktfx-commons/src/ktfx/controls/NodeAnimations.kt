@@ -19,99 +19,61 @@ import javafx.scene.shape.Shape
 import javafx.util.Duration
 import ktfx.time.ms
 
-/** Construct a [FadeTransition] that animates this [Node]. */
-fun Node.fadeTransition(duration: Duration = 400.0.ms): FadeTransition = FadeTransition(duration, this)
-
-/** Construct a [FadeTransition] with [builderAction] that animates this [Node], . */
+/** Construct a [FadeTransition] with [transitionAction] that animates this [Node]. */
 inline fun Node.fadeTransition(
     duration: Duration = 400.0.ms,
-    builderAction: FadeTransition.() -> Unit
-): FadeTransition = fadeTransition(duration).apply(builderAction)
+    transitionAction: FadeTransition.() -> Unit
+): FadeTransition = FadeTransition(duration, this).apply(transitionAction)
 
-/** Construct a [FillTransition] that animates this [Shape]. */
-fun Shape.fillTransition(
-    duration: Duration = 400.0.ms,
-    fromValue: Color? = null,
-    toValue: Color? = null
-): FillTransition = FillTransition(duration, this, fromValue, toValue)
-
-/** Construct a [FillTransition] with [builderAction] that animates this [Shape]. */
+/** Construct a [FillTransition] with [transitionAction] that animates this [Shape]. */
 inline fun Shape.fillTransition(
     duration: Duration = 400.0.ms,
     fromValue: Color? = null,
     toValue: Color? = null,
-    builderAction: FillTransition.() -> Unit
-): FillTransition = fillTransition(duration, fromValue, toValue).apply(builderAction)
+    transitionAction: FillTransition.() -> Unit
+): FillTransition = FillTransition(duration, this, fromValue, toValue).apply(transitionAction)
 
-/** Construct a [ParallelTransition] that animates this [Node]. */
-fun Node.parallelTransition(vararg animations: Animation): ParallelTransition = ParallelTransition(this, *animations)
-
-/** Construct a [ParallelTransition] with [builderAction] that animates this [Node]. */
+/** Construct a [ParallelTransition] with [transitionAction] that animates this [Node]. */
 inline fun Node.parallelTransition(
     vararg animations: Animation,
-    builderAction: ParallelTransition.() -> Unit
-): ParallelTransition = parallelTransition(*animations).apply(builderAction)
+    transitionAction: ParallelTransition.() -> Unit
+): ParallelTransition = ParallelTransition(this, *animations).apply(transitionAction)
 
-/** Construct a [PathTransition] that animates this [Node]. */
-fun Node.pathTransition(duration: Duration = 400.0.ms, path: Shape? = null): PathTransition =
-    PathTransition(duration, path, this)
-
-/** Construct a [PathTransition] with [builderAction] that animates this [Node]. */
+/** Construct a [PathTransition] with [transitionAction] that animates this [Node]. */
 inline fun Node.pathTransition(
     duration: Duration = 400.0.ms,
     path: Shape? = null,
-    builderAction: PathTransition.() -> Unit
-): PathTransition = pathTransition(duration, path).apply(builderAction)
+    transitionAction: PathTransition.() -> Unit
+): PathTransition = PathTransition(duration, path, this).apply(transitionAction)
 
-/** Construct a [RotateTransition] that animates this [Node]. */
-fun Node.rotateTransition(duration: Duration = 400.0.ms): RotateTransition = RotateTransition(duration, this)
-
-/** Construct a [RotateTransition] with [builderAction] that animates this [Node]. */
+/** Construct a [RotateTransition] with [transitionAction] that animates this [Node]. */
 inline fun Node.rotateTransition(
     duration: Duration = 400.0.ms,
-    builderAction: RotateTransition.() -> Unit
-): RotateTransition = rotateTransition(duration).apply(builderAction)
+    transitionAction: RotateTransition.() -> Unit
+): RotateTransition = RotateTransition(duration, this).apply(transitionAction)
 
-/** Construct a [ScaleTransition] that animates this [Node]. */
-fun Node.scaleTransition(duration: Duration = 400.0.ms): ScaleTransition = ScaleTransition(duration, this)
-
-/** Construct a [ScaleTransition] with [builderAction] that animates this [Node]. */
+/** Construct a [ScaleTransition] with [transitionAction] that animates this [Node]. */
 inline fun Node.scaleTransition(
     duration: Duration = 400.0.ms,
-    builderAction: ScaleTransition.() -> Unit
-): ScaleTransition = scaleTransition(duration).apply(builderAction)
+    transitionAction: ScaleTransition.() -> Unit
+): ScaleTransition = ScaleTransition(duration, this).apply(transitionAction)
 
-/** Construct a [SequentialTransition] that animates this [Node]. */
-fun Node.sequentialTransition(vararg animations: Animation): SequentialTransition =
-    SequentialTransition(this, *animations)
-
-/** Construct a [SequentialTransition] with [builderAction] that animates this [Node]. */
+/** Construct a [SequentialTransition] with [transitionAction] that animates this [Node]. */
 inline fun Node.sequentialTransition(
     vararg animations: Animation,
-    builderAction: SequentialTransition.() -> Unit
-): SequentialTransition = sequentialTransition(*animations).apply(builderAction)
+    transitionAction: SequentialTransition.() -> Unit
+): SequentialTransition = SequentialTransition(this, *animations).apply(transitionAction)
 
-/** Construct a [StrokeTransition] that animates this [Shape]. */
-fun Shape.strokeTransition(
-    duration: Duration = 400.0.ms,
-    fromValue: Color? = null,
-    toValue: Color? = null
-): StrokeTransition = StrokeTransition(duration, this, fromValue, toValue)
-
-/** Construct a [StrokeTransition] with [builderAction] that animates this [Shape]. */
+/** Construct a [StrokeTransition] with [transitionAction] that animates this [Shape]. */
 inline fun Shape.strokeTransition(
     duration: Duration = 400.0.ms,
     fromValue: Color? = null,
     toValue: Color? = null,
-    builderAction: StrokeTransition.() -> Unit
-): StrokeTransition = strokeTransition(duration, fromValue, toValue).apply(builderAction)
+    transitionAction: StrokeTransition.() -> Unit
+): StrokeTransition = StrokeTransition(duration, this, fromValue, toValue).apply(transitionAction)
 
-/** Construct a [TranslateTransition] that animates this [Node]. */
-fun Node.translateTransition(duration: Duration = 400.0.ms): TranslateTransition =
-    TranslateTransition(duration, this)
-
-/** Construct a [TranslateTransition] with [builderAction] that animates this [Node]. */
-fun Node.translateTransition(
+/** Construct a [TranslateTransition] with [transitionAction] that animates this [Node]. */
+inline fun Node.translateTransition(
     duration: Duration = 400.0.ms,
-    builderAction: TranslateTransition.() -> Unit
-): TranslateTransition = translateTransition(duration).apply(builderAction)
+    transitionAction: TranslateTransition.() -> Unit
+): TranslateTransition = TranslateTransition(duration, this).apply(transitionAction)

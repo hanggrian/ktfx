@@ -14,10 +14,10 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXListView] with initialization. */
 inline fun <T> jfxListView(
-    configuration: (@LayoutsDslMarker JFXListView<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXListView<T>).() -> Unit
 ): JFXListView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXListView<T>().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXListView<T>().apply(init)
 }
 
 /** Add a [JFXListView] to this manager. */
@@ -25,8 +25,8 @@ fun <T> NodeManager.jfxListView(): JFXListView<T> = addChild(JFXListView())
 
 /** Add a [JFXListView] with initialization to this manager. */
 inline fun <T> NodeManager.jfxListView(
-    configuration: (@LayoutsDslMarker JFXListView<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXListView<T>).() -> Unit
 ): JFXListView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXListView(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXListView(), init)
 }

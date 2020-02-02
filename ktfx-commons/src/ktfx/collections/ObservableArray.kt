@@ -18,4 +18,4 @@ inline fun ObservableArray<*>.isEmpty(): Boolean = size == 0
 inline fun ObservableArray<*>.isNotEmpty(): Boolean = size != 0
 
 /** Creates a new [IntegerBinding] that contains the size of this array. */
-val ObservableArray<*>.sizeBinding: IntegerBinding get() = Bindings.size(this)
+inline val ObservableArray<*>.sizeBinding: IntegerBinding get() = Bindings.size(this)

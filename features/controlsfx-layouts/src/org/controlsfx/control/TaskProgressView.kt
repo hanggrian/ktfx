@@ -15,10 +15,10 @@ import org.controlsfx.control.TaskProgressView
 
 /** Create a [TaskProgressView] with initialization block. */
 inline fun <T : Task<*>> taskProgressView(
-    configuration: (@LayoutsDslMarker TaskProgressView<T>).() -> Unit
+    init: (@LayoutsDslMarker TaskProgressView<T>).() -> Unit
 ): TaskProgressView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return TaskProgressView<T>().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return TaskProgressView<T>().apply(init)
 }
 
 /** Add a [TaskProgressView] to this manager. */
@@ -26,8 +26,8 @@ fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> = addChild
 
 /** Add a [TaskProgressView] with initialization block to this manager. */
 inline fun <T : Task<*>> NodeManager.taskProgressView(
-    configuration: (@LayoutsDslMarker TaskProgressView<T>).() -> Unit
+    init: (@LayoutsDslMarker TaskProgressView<T>).() -> Unit
 ): TaskProgressView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(TaskProgressView(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(TaskProgressView(), init)
 }

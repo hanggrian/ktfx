@@ -15,28 +15,28 @@ import ktfx.dialogs.headerTitle
  *
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return dialog result.
  */
 fun <R> Stage.jfxAlert(
     title: String? = null,
     graphic: Node? = null,
-    builderAction: (JFXAlert<R>.() -> Unit)? = null
+    dialogAction: (JFXAlert<R>.() -> Unit)? = null
 ): Optional<R> = JFXAlert<R>(this).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
-    builderAction?.invoke(dialog)
+    dialogAction?.invoke(dialog)
 }.showAndWait()
 
 /**
  * Show an JFoenix alert.
  *
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return dialog result.
  */
 inline fun <R> Stage.jfxAlert(
-    noinline builderAction: (JFXAlert<R>.() -> Unit)? = null
-): Optional<R> = jfxAlert(null, null, builderAction)
+    noinline dialogAction: (JFXAlert<R>.() -> Unit)? = null
+): Optional<R> = jfxAlert(null, null, dialogAction)

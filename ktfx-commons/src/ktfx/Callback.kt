@@ -1,6 +1,8 @@
 package ktfx
 
+import java.util.concurrent.Callable
 import javafx.beans.Observable
+import javafx.beans.binding.Bindings
 import javafx.beans.binding.ObjectBinding
 import javafx.util.Callback
 
@@ -11,7 +13,8 @@ inline fun <P, R> callbackOf(crossinline callback: (P) -> R?): Callback<P, R> = 
 inline fun <P, R> callbackBindingOf(
     vararg dependencies: Observable,
     crossinline valueProvider: (P) -> R?
-): ObjectBinding<Callback<P, R>> = bindingOf(*dependencies) { callbackOf<P, R> { valueProvider(it) } }
+): ObjectBinding<Callback<P, R>> =
+    Bindings.createObjectBinding<Callback<P, R>>(Callable { Callback<P, R> { valueProvider(it) } }, *dependencies)
 
 /** Converts the object provided into its string form. */
 @Suppress("NOTHING_TO_INLINE")

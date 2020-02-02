@@ -18,7 +18,8 @@ inline infix fun ObservableObjectValue<*>.eq(op: Any): BooleanBinding = Bindings
 inline infix fun Any.eq(op: ObservableObjectValue<*>): BooleanBinding = Bindings.equal(this, op)
 
 /** Infix alias of [Bindings.notEqual]. */
-inline infix fun ObservableObjectValue<*>.neq(op: ObservableObjectValue<*>): BooleanBinding = Bindings.notEqual(this, op)
+inline infix fun ObservableObjectValue<*>.neq(op: ObservableObjectValue<*>): BooleanBinding =
+    Bindings.notEqual(this, op)
 
 /** Infix alias of [Bindings.notEqual]. */
 inline infix fun ObservableObjectValue<*>.neq(op: Any): BooleanBinding = Bindings.notEqual(this, op)

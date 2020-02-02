@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 /** Create a [ComboBox] with initialization block. */
 inline fun <T> comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker ComboBox<T>).() -> Unit
+    init: (@LayoutsDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ComboBox(items).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ComboBox(items).apply(init)
 }
 
 /** Add a [ComboBox] to this manager. */
@@ -28,8 +28,8 @@ fun <T> NodeManager.comboBox(
 /** Add a [ComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker ComboBox<T>).() -> Unit
+    init: (@LayoutsDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ComboBox(items), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ComboBox(items), init)
 }

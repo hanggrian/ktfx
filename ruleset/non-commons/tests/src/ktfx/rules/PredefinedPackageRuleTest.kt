@@ -6,7 +6,13 @@ import kotlin.test.Test
 class PredefinedPackageRuleTest : RuleTest {
     override val rule = PredefinedPackageRule()
 
-    @Test fun test() = assertRule(
+    @Test fun correct() = assertRule() {
+        """
+            package ktfx.coroutines
+        """
+    }
+
+    @Test fun wrong() = assertRule(
         lintErrorOf(1, 9, "Illegal package name.")
     ) {
         """

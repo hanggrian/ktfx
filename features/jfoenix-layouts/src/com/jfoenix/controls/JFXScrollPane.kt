@@ -30,37 +30,37 @@ internal class NodeManagerImpl : NodeManager, MutableList<Node> by mutableListOf
     override val childCount: Int get() = size
 }
 
-inline fun KtfxJFXScrollPane.topBar(configuration: (@LayoutsDslMarker NodeManager).() -> Unit) {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    topBar.children.addAll(NodeManagerImpl().apply(configuration))
+inline fun KtfxJFXScrollPane.topBar(init: (@LayoutsDslMarker NodeManager).() -> Unit) {
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    topBar.children.addAll(NodeManagerImpl().apply(init))
 }
 
-inline fun KtfxJFXScrollPane.midBar(configuration: (@LayoutsDslMarker NodeManager).() -> Unit) {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    midBar.children.addAll(NodeManagerImpl().apply(configuration))
+inline fun KtfxJFXScrollPane.midBar(init: (@LayoutsDslMarker NodeManager).() -> Unit) {
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    midBar.children.addAll(NodeManagerImpl().apply(init))
 }
 
-inline fun KtfxJFXScrollPane.bottomBar(configuration: (@LayoutsDslMarker NodeManager).() -> Unit) {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    bottomBar.children.addAll(NodeManagerImpl().apply(configuration))
+inline fun KtfxJFXScrollPane.bottomBar(init: (@LayoutsDslMarker NodeManager).() -> Unit) {
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    bottomBar.children.addAll(NodeManagerImpl().apply(init))
 }
 
-inline fun KtfxJFXScrollPane.mainHeader(configuration: (@LayoutsDslMarker NodeManager).() -> Unit) {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    mainHeader.children.addAll(NodeManagerImpl().apply(configuration))
+inline fun KtfxJFXScrollPane.mainHeader(init: (@LayoutsDslMarker NodeManager).() -> Unit) {
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    mainHeader.children.addAll(NodeManagerImpl().apply(init))
 }
 
-inline fun KtfxJFXScrollPane.condensedHeader(configuration: (@LayoutsDslMarker NodeManager).() -> Unit) {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    condensedHeader.children.addAll(NodeManagerImpl().apply(configuration))
+inline fun KtfxJFXScrollPane.condensedHeader(init: (@LayoutsDslMarker NodeManager).() -> Unit) {
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    condensedHeader.children.addAll(NodeManagerImpl().apply(init))
 }
 
 /** Create a [JFXScrollPane] with initialization block. */
 inline fun jfxScrollPane(
-    configuration: (@LayoutsDslMarker KtfxJFXScrollPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXScrollPane().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXScrollPane().apply(init)
 }
 
 /** Add a [JFXScrollPane] to this manager. */
@@ -69,8 +69,8 @@ fun NodeManager.jfxScrollPane(): JFXScrollPane =
 
 /** Add a [JFXScrollPane] with initialization block to this manager. */
 inline fun NodeManager.jfxScrollPane(
-    configuration: (@LayoutsDslMarker KtfxJFXScrollPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXScrollPane(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXScrollPane(), init)
 }

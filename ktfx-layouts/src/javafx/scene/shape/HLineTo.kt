@@ -12,10 +12,10 @@ import kotlin.contracts.contract
 /** Create a [HLineTo] with initialization block. */
 inline fun hlineTo(
     x: Double = 0.0,
-    configuration: (@LayoutsDslMarker HLineTo).() -> Unit
+    init: (@LayoutsDslMarker HLineTo).() -> Unit
 ): HLineTo {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return HLineTo(x).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return HLineTo(x).apply(init)
 }
 
 /** Add a [HLineTo] to this manager. */
@@ -26,8 +26,8 @@ fun PathElementManager.hlineTo(
 /** Add a [HLineTo] with initialization block to this manager. */
 inline fun PathElementManager.hlineTo(
     x: Double = 0.0,
-    configuration: (@LayoutsDslMarker HLineTo).() -> Unit
+    init: (@LayoutsDslMarker HLineTo).() -> Unit
 ): HLineTo {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(HLineTo(x), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(HLineTo(x), init)
 }

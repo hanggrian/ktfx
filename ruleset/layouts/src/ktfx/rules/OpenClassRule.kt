@@ -12,20 +12,27 @@ import org.jetbrains.kotlin.psi.stubs.elements.KtStubElementTypes
 class OpenClassRule : Rule("open-class") {
 
     override fun visit(node: ASTNode, autoCorrect: Boolean, emit: (Int, String, Boolean) -> Unit) {
-        if (node.elementType == KtStubElementTypes.CLASS) {
-            val ktClass = node.getPsi(KtClass::class.java)
-            if (ktClass.parent is KtFile && !ktClass.isInterface() && !ktClass.isAnnotation()) {
-                val childNode = node.findChildByType(KtStubElementTypes.MODIFIER_LIST)
-                if (childNode == null) {
-                    emit(node.startOffset, "Empty modifiers, need open.", false)
-                } else {
-                    val ktModifiers = childNode.getPsi(KtDeclarationModifierList::class.java)
-                    if (!ktModifiers.hasModifier(KtTokens.OPEN_KEYWORD) &&
-                        !ktModifiers.hasModifier(KtTokens.PRIVATE_KEYWORD) &&
-                        !ktModifiers.hasModifier(KtTokens.INTERNAL_KEYWORD)
-                    ) {
-                        emit(childNode.startOffset, "Public classes need open modifier.", false)
-                    }
+        if (node.elementType != KtStubElementTypes.CLASS) {
+            return
+        }
+        val ktClass = node.getPsi(KtClass::class.java)
+
+        // only check top-level class, ignore non-class
+        if (ktClass.parent !is KtFile || ktClass.isInterface() || ktClass.isAnnotation()) {
+            return
+        }
+
+        val modifierListNode = node.findChildByType(KtStubElementTypes.MODIFIER_LIST)
+        val classKeywordNode = node.findChildByType(KtTokens.CLASS_KEYWORD)!!
+        when (modifierListNode) {
+            null -> emit(classKeywordNode.startOffset, "Empty modifiers, need open.", false)
+            else -> {
+                val ktModifierList = modifierListNode.getPsi(KtDeclarationModifierList::class.java)
+                if (!ktModifierList.hasModifier(KtTokens.OPEN_KEYWORD) &&
+                    !ktModifierList.hasModifier(KtTokens.PRIVATE_KEYWORD) &&
+                    !ktModifierList.hasModifier(KtTokens.INTERNAL_KEYWORD)
+                ) {
+                    emit(classKeywordNode.startOffset, "Public classes need open modifier.", false)
                 }
             }
         }

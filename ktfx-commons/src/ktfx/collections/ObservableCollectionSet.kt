@@ -12,7 +12,7 @@ import javafx.collections.ObservableSet
  *
  * @see emptySet
  */
-fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObservableSet()
+inline fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObservableSet()
 
 /**
  * Alias of [emptyObservableSet].
@@ -26,34 +26,36 @@ inline fun <T> observableSetOf(): ObservableSet<T> = emptyObservableSet()
  *
  * @see setOf
  */
-fun <T> observableSetOf(vararg elements: T): ObservableSet<T> =
-    if (elements.isNotEmpty()) FXCollections.unmodifiableObservableSet(elements.toMutableObservableSet()) else emptyObservableSet()
+fun <T> observableSetOf(vararg elements: T): ObservableSet<T> = when {
+    elements.isNotEmpty() -> FXCollections.unmodifiableObservableSet(elements.toMutableObservableSet())
+    else -> emptyObservableSet()
+}
 
 /**
  * Returns an empty [ObservableSet].
  *
  * @see mutableSetOf
  */
-fun <T> mutableObservableSetOf(): ObservableSet<T> = FXCollections.observableSet()
+inline fun <T> mutableObservableSetOf(): ObservableSet<T> = FXCollections.observableSet()
 
 /**
  * Returns an [ObservableSet] containing all [elements].
  *
  * @see mutableSetOf
  */
-fun <T> mutableObservableSetOf(vararg elements: T): ObservableSet<T> =
-    if (elements.isEmpty()) mutableObservableSetOf() else FXCollections.observableSet(*elements)
+fun <T> mutableObservableSetOf(vararg elements: T): ObservableSet<T> = when {
+    elements.isEmpty() -> mutableObservableSetOf()
+    else -> FXCollections.observableSet(*elements)
+}
 
 /**
  * Converts this array to immutable [ObservableSet].
  *
  * @see Array.toSet
  */
-fun <T> Array<out T>.toObservableSet(): ObservableSet<T> {
-    return when (size) {
-        0 -> emptyObservableSet()
-        else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
-    }
+fun <T> Array<out T>.toObservableSet(): ObservableSet<T> = when (size) {
+    0 -> emptyObservableSet()
+    else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
 }
 
 /**
@@ -61,7 +63,7 @@ fun <T> Array<out T>.toObservableSet(): ObservableSet<T> {
  *
  * @see Array.toMutableSet
  */
-fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> = FXCollections.observableSet<T>(*this)
+inline fun <T> Array<out T>.toMutableObservableSet(): ObservableSet<T> = FXCollections.observableSet<T>(*this)
 
 /**
  * Converts this iterable to immutable [ObservableSet].
@@ -83,11 +85,9 @@ fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> {
  *
  * @see Iterable.toMutableSet
  */
-fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> {
-    return when (this) {
-        is Set<T> -> FXCollections.observableSet(this)
-        else -> toCollection(FXCollections.observableSet())
-    }
+fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> = when (this) {
+    is Set<T> -> FXCollections.observableSet(this)
+    else -> toCollection(FXCollections.observableSet())
 }
 
 /**

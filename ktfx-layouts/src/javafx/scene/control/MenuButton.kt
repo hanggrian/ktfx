@@ -24,18 +24,18 @@ open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, grap
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@LayoutsDslMarker MenuItem).() -> Unit
-    ): MenuItem = menuItem(this, graphic, configuration)
+        init: (@LayoutsDslMarker MenuItem).() -> Unit
+    ): MenuItem = menuItem(this, graphic, init)
 }
 
 /** Create a [MenuButton] with initialization block. */
 inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMenuButton(text, graphic).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxMenuButton(text, graphic).apply(init)
 }
 
 /** Add a [MenuButton] to this manager. */
@@ -48,8 +48,8 @@ fun NodeManager.menuButton(
 inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMenuButton(text, graphic), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMenuButton(text, graphic), init)
 }

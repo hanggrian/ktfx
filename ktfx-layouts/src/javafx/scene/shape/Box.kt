@@ -14,10 +14,10 @@ inline fun box(
     width: Double = Box.DEFAULT_SIZE,
     height: Double = Box.DEFAULT_SIZE,
     depth: Double = Box.DEFAULT_SIZE,
-    configuration: (@LayoutsDslMarker Box).() -> Unit
+    init: (@LayoutsDslMarker Box).() -> Unit
 ): Box {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return Box(width, height, depth).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return Box(width, height, depth).apply(init)
 }
 
 /** Add a [Box] to this manager. */
@@ -32,8 +32,8 @@ inline fun NodeManager.box(
     width: Double = Box.DEFAULT_SIZE,
     height: Double = Box.DEFAULT_SIZE,
     depth: Double = Box.DEFAULT_SIZE,
-    configuration: (@LayoutsDslMarker Box).() -> Unit
+    init: (@LayoutsDslMarker Box).() -> Unit
 ): Box {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Box(width, height, depth), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Box(width, height, depth), init)
 }

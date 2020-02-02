@@ -13,10 +13,10 @@ import kotlin.contracts.contract
 inline fun lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutsDslMarker LineTo).() -> Unit
+    init: (@LayoutsDslMarker LineTo).() -> Unit
 ): LineTo {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return LineTo(x, y).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return LineTo(x, y).apply(init)
 }
 
 /** Add a [LineTo] to this manager. */
@@ -29,8 +29,8 @@ fun PathElementManager.lineTo(
 inline fun PathElementManager.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutsDslMarker LineTo).() -> Unit
+    init: (@LayoutsDslMarker LineTo).() -> Unit
 ): LineTo {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(LineTo(x, y), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(LineTo(x, y), init)
 }

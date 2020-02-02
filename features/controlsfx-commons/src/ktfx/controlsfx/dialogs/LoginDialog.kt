@@ -18,7 +18,7 @@ import org.controlsfx.dialog.LoginDialog
  * @param graphic node to be displayed in header.
  * @param initialUserInfo may be null for empty fields.
  * @param authenticator login callback.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return login user and password credential.
  */
 fun loginDialog(
@@ -26,7 +26,7 @@ fun loginDialog(
     graphic: Node? = null,
     initialUserInfo: Pair<String, String>? = null,
     authenticator: (Pair<String, String>) -> Unit,
-    builderAction: (LoginDialog.() -> Unit)? = null
+    dialogAction: (LoginDialog.() -> Unit)? = null
 ): Optional<javafx.util.Pair<String, String>> = LoginDialog(
     initialUserInfo?.toFxPair()
 ) { authenticator(it.toKotlinPair()); null }.also { dialog ->
@@ -35,7 +35,7 @@ fun loginDialog(
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
-    builderAction?.invoke(dialog)
+    dialogAction?.invoke(dialog)
 }.showAndWait()
 
 /**
@@ -43,11 +43,11 @@ fun loginDialog(
  *
  * @param initialUserInfo may be null for empty fields.
  * @param authenticator login callback.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return login user and password credential.
  */
 inline fun loginDialog(
     initialUserInfo: Pair<String, String>? = null,
     noinline authenticator: (Pair<String, String>) -> Unit,
-    noinline builderAction: (LoginDialog.() -> Unit)? = null
-): Optional<javafx.util.Pair<String, String>> = loginDialog(null, null, initialUserInfo, authenticator, builderAction)
+    noinline dialogAction: (LoginDialog.() -> Unit)? = null
+): Optional<javafx.util.Pair<String, String>> = loginDialog(null, null, initialUserInfo, authenticator, dialogAction)

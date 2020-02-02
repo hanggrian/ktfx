@@ -16,31 +16,31 @@ import org.controlsfx.dialog.ExceptionDialog
  * @param title title of the dialog.
  * @param graphic node to be displayed in header.
  * @param exception message to show.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return selected dialog button.
  */
 fun exceptionDialog(
     title: String? = null,
     graphic: Node? = null,
     exception: Throwable,
-    builderAction: (ExceptionDialog.() -> Unit)? = null
+    dialogAction: (ExceptionDialog.() -> Unit)? = null
 ): Optional<ButtonType> = ExceptionDialog(exception).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
-    builderAction?.invoke(dialog)
+    dialogAction?.invoke(dialog)
 }.showAndWait()
 
 /**
  * Build an exception dialog with Kotlin DSL.
  *
  * @param exception message to show.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return selected dialog button.
  */
 inline fun exceptionDialog(
     exception: Throwable,
-    noinline builderAction: (ExceptionDialog.() -> Unit)? = null
-): Optional<ButtonType> = exceptionDialog(null, null, exception, builderAction)
+    noinline dialogAction: (ExceptionDialog.() -> Unit)? = null
+): Optional<ButtonType> = exceptionDialog(null, null, exception, dialogAction)

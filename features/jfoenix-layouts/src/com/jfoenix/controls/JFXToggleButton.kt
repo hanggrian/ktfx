@@ -14,10 +14,10 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXToggleButton] with initialization block. */
 inline fun jfxToggleButton(
-    configuration: (@LayoutsDslMarker JFXToggleButton).() -> Unit
+    init: (@LayoutsDslMarker JFXToggleButton).() -> Unit
 ): JFXToggleButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXToggleButton().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXToggleButton().apply(init)
 }
 
 /** Add a [JFXToggleButton] to this manager. */
@@ -25,8 +25,8 @@ fun NodeManager.jfxToggleButton(): JFXToggleButton = addChild(JFXToggleButton())
 
 /** Add a [JFXToggleButton] with initialization block to this manager. */
 inline fun NodeManager.jfxToggleButton(
-    configuration: (@LayoutsDslMarker JFXToggleButton).() -> Unit
+    init: (@LayoutsDslMarker JFXToggleButton).() -> Unit
 ): JFXToggleButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXToggleButton(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXToggleButton(), init)
 }

@@ -14,10 +14,10 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXHamburger] with initialization block. */
 inline fun jfxHamburger(
-    configuration: (@LayoutsDslMarker JFXHamburger).() -> Unit
+    init: (@LayoutsDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXHamburger().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXHamburger().apply(init)
 }
 
 /** Add a [JFXHamburger] to this manager. */
@@ -25,8 +25,8 @@ fun NodeManager.jfxHamburger(): JFXHamburger = addChild(JFXHamburger())
 
 /** Add a [JFXHamburger] with initialization block to this manager. */
 inline fun NodeManager.jfxHamburger(
-    configuration: (@LayoutsDslMarker JFXHamburger).() -> Unit
+    init: (@LayoutsDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXHamburger(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXHamburger(), init)
 }

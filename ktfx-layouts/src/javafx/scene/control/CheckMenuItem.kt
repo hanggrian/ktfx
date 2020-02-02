@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 inline fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker CheckMenuItem).() -> Unit
+    init: (@LayoutsDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return CheckMenuItem(text, graphic).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return CheckMenuItem(text, graphic).apply(init)
 }
 
 /** Add a [CheckMenuItem] to this manager. */
@@ -30,8 +30,8 @@ fun MenuItemManager.checkMenuItem(
 inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker CheckMenuItem).() -> Unit
+    init: (@LayoutsDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(CheckMenuItem(text, graphic), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(CheckMenuItem(text, graphic), init)
 }

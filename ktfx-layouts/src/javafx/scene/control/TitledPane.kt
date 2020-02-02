@@ -24,10 +24,10 @@ open class KtfxTitledPane(title: String?) : TitledPane(title, null), NodeManager
 /** Create a [TitledPane] with initialization block. */
 inline fun titledPane(
     title: String? = null,
-    configuration: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxTitledPane(title).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxTitledPane(title).apply(init)
 }
 
 /** Add a [TitledPane] to this manager. */
@@ -38,10 +38,10 @@ fun NodeManager.titledPane(
 /** Add a [TitledPane] with initialization block to this manager. */
 inline fun NodeManager.titledPane(
     title: String? = null,
-    configuration: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTitledPane(title), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTitledPane(title), init)
 }
 
 /** Add a [TitledPane] to this manager. */
@@ -52,8 +52,8 @@ fun TitledPaneManager.titledPane(
 /** Add a [TitledPane] with initialization block to this manager. */
 inline fun TitledPaneManager.titledPane(
     title: String? = null,
-    configuration: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTitledPane(title), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTitledPane(title), init)
 }

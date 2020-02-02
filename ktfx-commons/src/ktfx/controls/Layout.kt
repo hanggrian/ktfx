@@ -38,4 +38,4 @@ fun TilePane.setGap(horizontal: Double, vertical: Double) {
 /** Convenient method to set horizontal and vertical gap to the same value. */
 inline var TilePane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    inline set(value) = setGap(value, value)
+    set(value) = setGap(value, value)

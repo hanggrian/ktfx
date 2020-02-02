@@ -26,10 +26,10 @@ open class KtfxJFXTogglePane : JFXTogglePane(), NodeManager {
 
 /** Create a [JFXTogglePane] with initialization block. */
 inline fun jfxTogglePane(
-    configuration: (@LayoutsDslMarker KtfxJFXTogglePane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXTogglePane().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXTogglePane().apply(init)
 }
 
 /** Add a [JFXTogglePane] to this manager. */
@@ -37,8 +37,8 @@ fun NodeManager.jfxTogglePane(): JFXTogglePane = addChild(JFXTogglePane())
 
 /** Add a [JFXTogglePane] with initialization block to this manager. */
 inline fun NodeManager.jfxTogglePane(
-    configuration: (@LayoutsDslMarker KtfxJFXTogglePane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXTogglePane(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXTogglePane(), init)
 }

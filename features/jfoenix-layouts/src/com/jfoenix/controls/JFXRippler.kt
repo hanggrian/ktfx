@@ -26,10 +26,10 @@ open class KtfxJFXRippler : JFXRippler(), NodeManager {
 
 /** Create a [JFXRippler] with initialization block. */
 inline fun jfxRippler(
-    configuration: (@LayoutsDslMarker KtfxJFXRippler).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXRippler().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXRippler().apply(init)
 }
 
 /** Add a [JFXRippler] to this manager. */
@@ -38,8 +38,8 @@ fun NodeManager.jfxRippler(): JFXRippler =
 
 /** Add a [JFXRippler] with initialization block to this manager. */
 inline fun NodeManager.jfxRippler(
-    configuration: (@LayoutsDslMarker KtfxJFXRippler).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXRippler(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXRippler(), init)
 }

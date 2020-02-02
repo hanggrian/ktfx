@@ -14,10 +14,10 @@ import ktfx.layouts.addChild
 
 /** Create a [JFXTreeCell] with initialization block. */
 inline fun <T> jfxTreeCell(
-    configuration: (@LayoutsDslMarker JFXTreeCell<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXTreeCell<T>().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXTreeCell<T>().apply(init)
 }
 
 /** Add a [JFXTreeCell] to this manager. */
@@ -25,8 +25,8 @@ fun <T> NodeManager.jfxTreeCell(): JFXTreeCell<T> = addChild(JFXTreeCell())
 
 /** Add a [JFXTreeCell] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxTreeCell(
-    configuration: (@LayoutsDslMarker JFXTreeCell<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXTreeCell(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXTreeCell(), init)
 }

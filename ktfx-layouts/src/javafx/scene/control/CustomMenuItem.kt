@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 inline fun customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
-    configuration: (@LayoutsDslMarker CustomMenuItem).() -> Unit
+    init: (@LayoutsDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return CustomMenuItem(content, hideOnClick).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return CustomMenuItem(content, hideOnClick).apply(init)
 }
 
 /** Add a [CustomMenuItem] to this manager. */
@@ -30,8 +30,8 @@ fun MenuItemManager.customMenuItem(
 inline fun MenuItemManager.customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
-    configuration: (@LayoutsDslMarker CustomMenuItem).() -> Unit
+    init: (@LayoutsDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(CustomMenuItem(content, hideOnClick), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(CustomMenuItem(content, hideOnClick), init)
 }

@@ -14,10 +14,10 @@ import org.controlsfx.control.textfield.CustomTextField
 
 /** Create a [CustomTextField] with initialization block. */
 inline fun customTextField(
-    configuration: (@LayoutsDslMarker CustomTextField).() -> Unit
+    init: (@LayoutsDslMarker CustomTextField).() -> Unit
 ): CustomTextField {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return CustomTextField().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return CustomTextField().apply(init)
 }
 
 /** Add a [CustomTextField] to this manager. */
@@ -25,8 +25,8 @@ fun NodeManager.customTextField(): CustomTextField = addChild(CustomTextField())
 
 /** Add a [CustomTextField] with initialization block to this manager. */
 inline fun NodeManager.customTextField(
-    configuration: (@LayoutsDslMarker CustomTextField).() -> Unit
+    init: (@LayoutsDslMarker CustomTextField).() -> Unit
 ): CustomTextField {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(CustomTextField(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(CustomTextField(), init)
 }

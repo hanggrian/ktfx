@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.controlsfx.controls
 
 import javafx.scene.control.TextField
@@ -6,20 +8,20 @@ import org.controlsfx.control.textfield.AutoCompletionBinding
 import org.controlsfx.control.textfield.TextFields
 
 /** Create a new auto-completion binding between the given [TextField] using the given auto-complete suggestions. */
-fun <T> TextField.bindAutoCompletion(vararg possibleSuggestions: T): AutoCompletionBinding<T> =
+inline fun <T> TextField.bindAutoCompletion(vararg possibleSuggestions: T): AutoCompletionBinding<T> =
     TextFields.bindAutoCompletion(this, *possibleSuggestions)
 
 /** Alias of [bindAutoCompletion] with collection input. */
-fun <T> TextField.bindAutoCompletion(possibleSuggestions: Collection<T>): AutoCompletionBinding<T> =
+inline fun <T> TextField.bindAutoCompletion(possibleSuggestions: Collection<T>): AutoCompletionBinding<T> =
     TextFields.bindAutoCompletion(this, possibleSuggestions)
 
 /** Create a new auto-completion binding between the given [TextField] and the given suggestion provider. */
-fun <T> TextField.bindAutoCompletion(
-    suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
-): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider)
+inline fun <T> TextField.bindAutoCompletion(
+    crossinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
+): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this) { suggestionProvider(it) }
 
 /** Create a new auto-completion binding between the given [TextField] and the given suggestion provider. */
-fun <T> TextField.bindAutoCompletion(
+inline fun <T> TextField.bindAutoCompletion(
     converter: StringConverter<T>,
-    suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
-): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider, converter)
+    crossinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
+): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, { suggestionProvider(it) }, converter)

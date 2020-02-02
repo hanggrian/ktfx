@@ -123,10 +123,10 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
 /** Create an [HBox] with initialization block. */
 inline fun hbox(
     spacing: Double = 0.0,
-    configuration: (@LayoutsDslMarker KtfxHBox).() -> Unit
+    init: (@LayoutsDslMarker KtfxHBox).() -> Unit
 ): HBox {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxHBox(spacing).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxHBox(spacing).apply(init)
 }
 
 /** Add an [HBox] to this manager. */
@@ -137,8 +137,8 @@ fun NodeManager.hbox(
 /** Add an [HBox] with initialization block to this manager. */
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
-    configuration: (@LayoutsDslMarker KtfxHBox).() -> Unit
+    init: (@LayoutsDslMarker KtfxHBox).() -> Unit
 ): HBox {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxHBox(spacing), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxHBox(spacing), init)
 }

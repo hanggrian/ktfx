@@ -17,10 +17,10 @@ inline fun jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
-    configuration: (@LayoutsDslMarker JFXSlider).() -> Unit
+    init: (@LayoutsDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXSlider(min, max, value).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXSlider(min, max, value).apply(init)
 }
 
 /** Add a [JFXSlider] to this manager. */
@@ -35,8 +35,8 @@ inline fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
-    configuration: (@LayoutsDslMarker JFXSlider).() -> Unit
+    init: (@LayoutsDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXSlider(min, max, value), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXSlider(min, max, value), init)
 }

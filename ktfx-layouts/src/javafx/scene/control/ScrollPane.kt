@@ -24,10 +24,10 @@ open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 /** Create a [ScrollPane] with initialization block. */
 inline fun scrollPane(
     content: Node? = null,
-    configuration: (@LayoutsDslMarker KtfxScrollPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxScrollPane(content).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxScrollPane(content).apply(init)
 }
 
 /** Add a [ScrollPane] to this manager. */
@@ -38,8 +38,8 @@ fun NodeManager.scrollPane(
 /** Add a [ScrollPane] with initialization block to this manager. */
 inline fun NodeManager.scrollPane(
     content: Node? = null,
-    configuration: (@LayoutsDslMarker KtfxScrollPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxScrollPane(content), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxScrollPane(content), init)
 }

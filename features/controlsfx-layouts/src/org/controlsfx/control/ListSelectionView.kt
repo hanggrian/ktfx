@@ -14,10 +14,10 @@ import org.controlsfx.control.ListSelectionView
 
 /** Create a [ListSelectionView] with initialization block. */
 inline fun <T> listSelectionView(
-    configuration: (@LayoutsDslMarker ListSelectionView<T>).() -> Unit
+    init: (@LayoutsDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ListSelectionView<T>().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ListSelectionView<T>().apply(init)
 }
 
 /** Add a [ListSelectionView] to this manager. */
@@ -25,8 +25,8 @@ fun <T> NodeManager.listSelectionView(): ListSelectionView<T> = addChild(ListSel
 
 /** Add a [ListSelectionView] with initialization block to this manager. */
 inline fun <T> NodeManager.listSelectionView(
-    configuration: (@LayoutsDslMarker ListSelectionView<T>).() -> Unit
+    init: (@LayoutsDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ListSelectionView(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ListSelectionView(), init)
 }

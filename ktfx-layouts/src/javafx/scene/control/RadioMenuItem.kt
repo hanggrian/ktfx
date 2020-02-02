@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 inline fun radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker RadioMenuItem).() -> Unit
+    init: (@LayoutsDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return RadioMenuItem(text, graphic).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return RadioMenuItem(text, graphic).apply(init)
 }
 
 /** Add a [RadioMenuItem] to this manager. */
@@ -30,8 +30,8 @@ fun MenuItemManager.radioMenuItem(
 inline fun MenuItemManager.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker RadioMenuItem).() -> Unit
+    init: (@LayoutsDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(RadioMenuItem(text, graphic), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(RadioMenuItem(text, graphic), init)
 }

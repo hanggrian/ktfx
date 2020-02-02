@@ -120,10 +120,10 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
 
 /** Create a [BorderPane] with initialization block. */
 inline fun borderPane(
-    configuration: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxBorderPane().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxBorderPane().apply(init)
 }
 
 /** Add a [BorderPane] to this manager. */
@@ -131,8 +131,8 @@ fun NodeManager.borderPane(): BorderPane = addChild(KtfxBorderPane())
 
 /** Add a [BorderPane] with initialization block to this manager. */
 inline fun NodeManager.borderPane(
-    configuration: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxBorderPane(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxBorderPane(), init)
 }

@@ -16,10 +16,10 @@ import ktfx.layouts.addChild
 /** Create a [JFXTreeView] with initialization block. */
 inline fun <T> jfxTreeView(
     root: TreeItem<T>? = null,
-    configuration: (@LayoutsDslMarker JFXTreeView<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXTreeView(root).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXTreeView(root).apply(init)
 }
 
 /** Add a [JFXTreeView] to this manager. */
@@ -30,8 +30,8 @@ fun <T> NodeManager.jfxTreeView(
 /** Add a [JFXTreeView] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null,
-    configuration: (@LayoutsDslMarker JFXTreeView<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXTreeView(root), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXTreeView(root), init)
 }

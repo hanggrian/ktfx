@@ -13,7 +13,7 @@ import javafx.collections.ObservableIntegerArray
  *
  * @see floatArrayOf
  */
-fun observableFloatArrayOf(): ObservableFloatArray = FXCollections.observableFloatArray()
+inline fun observableFloatArrayOf(): ObservableFloatArray = FXCollections.observableFloatArray()
 
 /**
  * Returns an [ObservableFloatArray] of [elements].
@@ -24,13 +24,13 @@ fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray =
     if (elements.isNotEmpty()) elements.toObservableArray() else observableFloatArrayOf()
 
 /** Converts this array of float to [ObservableFloatArray]. */
-fun FloatArray.toObservableArray(): ObservableFloatArray = FXCollections.observableFloatArray(*this)
+inline fun FloatArray.toObservableArray(): ObservableFloatArray = FXCollections.observableFloatArray(*this)
 
 /** Converts this typed array of float to [ObservableIntegerArray]. */
-inline fun Array<Float>.toObservableArray(): ObservableFloatArray = toFloatArray().toObservableArray()
+fun Array<Float>.toObservableArray(): ObservableFloatArray = toFloatArray().toObservableArray()
 
 /** Creates a copy of this [ObservableFloatArray]. */
-fun ObservableFloatArray.toObservableArray(): ObservableFloatArray = FXCollections.observableFloatArray(this)
+inline fun ObservableFloatArray.toObservableArray(): ObservableFloatArray = FXCollections.observableFloatArray(this)
 
 /** Returns true if [element] exists in this observable array. */
 operator fun ObservableFloatArray.contains(element: Float): Boolean = (0 until size).any { get(it) == element }

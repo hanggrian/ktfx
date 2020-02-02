@@ -11,8 +11,8 @@ import org.controlsfx.control.Notifications
 import org.controlsfx.control.action.Action
 
 /** Supporting class to use [Notifications] with DSL. */
-class NotificationsBuilder internal constructor() {
-    internal val nativeNotifications: Notifications = Notifications.create()
+class NotificationsBuilder @PublishedApi internal constructor() {
+    @PublishedApi internal val nativeNotifications: Notifications = Notifications.create()
 
     /** Specify the text to show in the notification. */
     var text: String
@@ -95,5 +95,5 @@ class NotificationsBuilder internal constructor() {
 }
 
 /** Build notifications with Kotlin DSL. */
-fun buildNotifications(configuration: NotificationsBuilder.() -> Unit): Notifications =
-    NotificationsBuilder().apply(configuration).nativeNotifications
+inline fun buildNotifications(builderAction: NotificationsBuilder.() -> Unit): Notifications =
+    NotificationsBuilder().apply(builderAction).nativeNotifications

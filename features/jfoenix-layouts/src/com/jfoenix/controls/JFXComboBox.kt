@@ -17,10 +17,10 @@ import ktfx.layouts.addChild
 /** Create a [JFXComboBox] with initialization block. */
 inline fun <T> jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker JFXComboBox<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXComboBox(items).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXComboBox(items).apply(init)
 }
 
 /** Add a [JFXComboBox] to this manager. */
@@ -31,8 +31,8 @@ fun <T> NodeManager.jfxComboBox(
 /** Add a [JFXComboBox] with initialization block to this manager. */
 inline fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker JFXComboBox<T>).() -> Unit
+    init: (@LayoutsDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXComboBox(items), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXComboBox(items), init)
 }

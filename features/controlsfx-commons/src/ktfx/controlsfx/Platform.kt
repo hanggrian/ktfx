@@ -1,14 +1,15 @@
 @file:JvmName("ControlsFxPlatformKt")
+@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controlsfx
 
 import org.controlsfx.tools.Platform
 
 /** Returns true if this is running on Windows OS. */
-fun isOsWindows(): Boolean = Platform.getCurrent() == Platform.WINDOWS
+inline fun isPlatformWindows(): Boolean = Platform.getCurrent() == Platform.WINDOWS
 
 /** Returns true if this is running on Mac OS. */
-fun isOsMac(): Boolean = Platform.getCurrent() == Platform.OSX
+inline fun isPlatformOSX(): Boolean = Platform.getCurrent() == Platform.OSX
 
 /** Returns true if this is running on Unix OS. */
-fun isOsUnix(): Boolean = Platform.getCurrent() == Platform.UNIX
+inline fun isPlatformUnix(): Boolean = Platform.getCurrent() == Platform.UNIX

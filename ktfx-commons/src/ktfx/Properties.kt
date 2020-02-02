@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("PropertiesKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx
@@ -8,94 +6,51 @@ import javafx.beans.property.BooleanProperty
 import javafx.beans.property.DoubleProperty
 import javafx.beans.property.FloatProperty
 import javafx.beans.property.IntegerProperty
-import javafx.beans.property.ListProperty
 import javafx.beans.property.LongProperty
-import javafx.beans.property.MapProperty
-import javafx.beans.property.ObjectProperty
-import javafx.beans.property.ReadOnlyBooleanWrapper
-import javafx.beans.property.ReadOnlyDoubleWrapper
-import javafx.beans.property.ReadOnlyFloatWrapper
-import javafx.beans.property.ReadOnlyIntegerWrapper
-import javafx.beans.property.ReadOnlyListWrapper
-import javafx.beans.property.ReadOnlyLongWrapper
-import javafx.beans.property.ReadOnlyMapWrapper
-import javafx.beans.property.ReadOnlyObjectWrapper
-import javafx.beans.property.ReadOnlySetWrapper
-import javafx.beans.property.ReadOnlyStringWrapper
-import javafx.beans.property.SetProperty
-import javafx.beans.property.SimpleBooleanProperty
-import javafx.beans.property.SimpleDoubleProperty
-import javafx.beans.property.SimpleFloatProperty
-import javafx.beans.property.SimpleIntegerProperty
-import javafx.beans.property.SimpleListProperty
-import javafx.beans.property.SimpleLongProperty
-import javafx.beans.property.SimpleMapProperty
-import javafx.beans.property.SimpleObjectProperty
-import javafx.beans.property.SimpleSetProperty
-import javafx.beans.property.SimpleStringProperty
-import javafx.beans.property.StringProperty
-import javafx.collections.ObservableList
-import javafx.collections.ObservableMap
-import javafx.collections.ObservableSet
+import javafx.beans.property.Property
+import javafx.beans.property.ReadOnlyBooleanProperty
+import javafx.beans.property.ReadOnlyDoubleProperty
+import javafx.beans.property.ReadOnlyFloatProperty
+import javafx.beans.property.ReadOnlyIntegerProperty
+import javafx.beans.property.ReadOnlyLongProperty
+import javafx.beans.property.ReadOnlyProperty
 
-/** Wrap nullable object in a property. */
-inline fun <E> propertyOf(initialValue: E? = null): ObjectProperty<E> = SimpleObjectProperty(initialValue)
+/** Revert the effect of [BooleanProperty.asObject]. */
+inline fun Property<Boolean>.asPrimitive(): BooleanProperty =
+    BooleanProperty.booleanProperty(this)
 
-/** Wrap nullable object in a read-only wrapper property. */
-inline fun <E> wrapperOf(initialValue: E? = null): ReadOnlyObjectWrapper<E> = ReadOnlyObjectWrapper<E>(initialValue)
+/** Revert the effect of [ReadOnlyBooleanProperty.asObject]. */
+inline fun ReadOnlyProperty<Boolean>.asPrimitive(): ReadOnlyBooleanProperty =
+    ReadOnlyBooleanProperty.readOnlyBooleanProperty(this)
 
-/** Wrap string in a property. */
-inline fun stringPropertyOf(initialValue: String? = null): StringProperty = SimpleStringProperty(initialValue)
+/** Revert the effect of [DoubleProperty.asObject]. */
+inline fun Property<Double>.asPrimitive(): DoubleProperty =
+    DoubleProperty.doubleProperty(this)
 
-/** Wrap string in a read-only wrapper property. */
-inline fun stringWrapperOf(initialValue: String? = null): ReadOnlyStringWrapper = ReadOnlyStringWrapper(initialValue)
+/** Revert the effect of [ReadOnlyDoubleProperty.asObject]. */
+inline fun ReadOnlyProperty<Double>.asPrimitive(): ReadOnlyDoubleProperty =
+    ReadOnlyDoubleProperty.readOnlyDoubleProperty(this)
 
-/** Wrap boolean in a property. */
-inline fun booleanPropertyOf(initialValue: Boolean = false): BooleanProperty = SimpleBooleanProperty(initialValue)
+/** Revert the effect of [FloatProperty.asObject]. */
+inline fun Property<Float>.asPrimitive(): FloatProperty =
+    FloatProperty.floatProperty(this)
 
-/** Wrap boolean in a read-only wrapper property. */
-inline fun booleanWrapperOf(initialValue: Boolean = false): ReadOnlyBooleanWrapper = ReadOnlyBooleanWrapper(initialValue)
+/** Revert the effect of [ReadOnlyFloatProperty.asObject]. */
+inline fun ReadOnlyProperty<Float>.asPrimitive(): ReadOnlyFloatProperty =
+    ReadOnlyFloatProperty.readOnlyFloatProperty(this)
 
-/** Wrap double in a property. */
-inline fun doublePropertyOf(initialValue: Double = 0.0): DoubleProperty = SimpleDoubleProperty(initialValue)
+/** Revert the effect of [IntegerProperty.asObject]. */
+inline fun Property<Int>.asPrimitive(): IntegerProperty =
+    IntegerProperty.integerProperty(this)
 
-/** Wrap double in a read-only wrapper property. */
-inline fun doubleWrapperOf(initialValue: Double = 0.0): ReadOnlyDoubleWrapper = ReadOnlyDoubleWrapper(initialValue)
+/** Revert the effect of [ReadOnlyIntegerProperty.asObject]. */
+inline fun ReadOnlyProperty<Int>.asPrimitive(): ReadOnlyIntegerProperty =
+    ReadOnlyIntegerProperty.readOnlyIntegerProperty(this)
 
-/** Wrap float in a property. */
-inline fun floatPropertyOf(initialValue: Float = 0f): FloatProperty = SimpleFloatProperty(initialValue)
+/** Revert the effect of [LongProperty.asObject]. */
+inline fun Property<Long>.asPrimitive(): LongProperty =
+    LongProperty.longProperty(this)
 
-/** Wrap float in a read-only wrapper property. */
-inline fun floatWrapperOf(initialValue: Float = 0f): ReadOnlyFloatWrapper = ReadOnlyFloatWrapper(initialValue)
-
-/** Wrap int in a property. */
-inline fun intPropertyOf(initialValue: Int = 0): IntegerProperty = SimpleIntegerProperty(initialValue)
-
-/** Wrap int in a read-only wrapper property. */
-inline fun intWrapperOf(initialValue: Int = 0): ReadOnlyIntegerWrapper = ReadOnlyIntegerWrapper(initialValue)
-
-/** Wrap long in a property. */
-inline fun longPropertyOf(initialValue: Long = 0): LongProperty = SimpleLongProperty(initialValue)
-
-/** Wrap long in a read-only wrapper property. */
-inline fun longWrapperOf(initialValue: Long = 0): ReadOnlyLongWrapper = ReadOnlyLongWrapper(initialValue)
-
-/** Wrap list in a property. */
-inline fun <E> listPropertyOf(initialValue: ObservableList<E>? = null): ListProperty<E> = SimpleListProperty(initialValue)
-
-/** Wrap list in a read-only wrapper property. */
-inline fun <E> listWrapperOf(initialValue: ObservableList<E>? = null): ReadOnlyListWrapper<E> =
-    ReadOnlyListWrapper(initialValue)
-
-/** Wrap set in a property. */
-inline fun <E> setPropertyOf(initialValue: ObservableSet<E>? = null): SetProperty<E> = SimpleSetProperty(initialValue)
-
-/** Wrap set in a read-only wrapper property. */
-inline fun <E> setWrapperOf(initialValue: ObservableSet<E>? = null): ReadOnlySetWrapper<E> = ReadOnlySetWrapper(initialValue)
-
-/** Wrap map in a property. */
-inline fun <K, V> mapPropertyOf(initialValue: ObservableMap<K, V>? = null): MapProperty<K, V> = SimpleMapProperty(initialValue)
-
-/** Wrap map in a read-only wrapper property. */
-inline fun <K, V> mapWrapperOf(initialValue: ObservableMap<K, V>? = null): ReadOnlyMapWrapper<K, V> =
-    ReadOnlyMapWrapper(initialValue)
+/** Revert the effect of [ReadOnlyLongProperty.asObject]. */
+inline fun ReadOnlyProperty<Long>.asPrimitive(): ReadOnlyLongProperty =
+    ReadOnlyLongProperty.readOnlyLongProperty(this)

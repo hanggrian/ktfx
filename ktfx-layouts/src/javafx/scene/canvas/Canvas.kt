@@ -13,10 +13,10 @@ import kotlin.contracts.contract
 inline fun canvas(
     width: Double = 0.0,
     height: Double = 0.0,
-    configuration: (@LayoutsDslMarker Canvas).() -> Unit
+    init: (@LayoutsDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return Canvas(width, height).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return Canvas(width, height).apply(init)
 }
 
 /** Add a [Canvas] to this manager. */
@@ -29,8 +29,8 @@ fun NodeManager.canvas(
 inline fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
-    configuration: (@LayoutsDslMarker Canvas).() -> Unit
+    init: (@LayoutsDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Canvas(width, height), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Canvas(width, height), init)
 }

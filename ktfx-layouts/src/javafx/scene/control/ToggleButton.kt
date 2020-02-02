@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 inline fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker ToggleButton).() -> Unit
+    init: (@LayoutsDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ToggleButton(text, graphic).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ToggleButton(text, graphic).apply(init)
 }
 
 /** Add a [ToggleButton] to this manager. */
@@ -30,10 +30,10 @@ fun NodeManager.toggleButton(
 inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker ToggleButton).() -> Unit
+    init: (@LayoutsDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ToggleButton(text, graphic), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ToggleButton(text, graphic), init)
 }
 
 /** Add a [ToggleButton] to this manager. */
@@ -46,8 +46,8 @@ fun ToggleButtonManager.toggleButton(
 inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker ToggleButton).() -> Unit
+    init: (@LayoutsDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ToggleButton(text, graphic), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ToggleButton(text, graphic), init)
 }

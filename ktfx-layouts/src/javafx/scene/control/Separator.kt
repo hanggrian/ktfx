@@ -12,10 +12,10 @@ import kotlin.contracts.contract
 
 /** Create a [Separator] with initialization block. */
 inline fun separator(
-    configuration: (@LayoutsDslMarker Separator).() -> Unit
+    init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return Separator().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return Separator().apply(init)
 }
 
 /** Add a [Separator] to this manager. */
@@ -23,20 +23,20 @@ fun NodeManager.separator(): Separator = addChild(Separator())
 
 /** Add a [Separator] with initialization block to this manager. */
 inline fun NodeManager.separator(
-    configuration: (@LayoutsDslMarker Separator).() -> Unit
+    init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Separator(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Separator(), init)
 }
 
 /** Create a vertical [Separator] with initialization block. */
 inline fun verticalSeparator(
-    configuration: (@LayoutsDslMarker Separator).() -> Unit
+    init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return separator {
         orientation = Orientation.VERTICAL
-        configuration()
+        init()
     }
 }
 
@@ -46,11 +46,11 @@ inline fun NodeManager.verticalSeparator(): Separator = separator { Orientation.
 
 /** Add a vertical [Separator] with initialization block to this manager. */
 inline fun NodeManager.verticalSeparator(
-    configuration: (@LayoutsDslMarker Separator).() -> Unit
+    init: (@LayoutsDslMarker Separator).() -> Unit
 ): Separator {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return separator {
         orientation = Orientation.VERTICAL
-        configuration()
+        init()
     }
 }

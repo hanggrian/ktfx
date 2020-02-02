@@ -17,10 +17,10 @@ import org.controlsfx.control.CheckListView
 /** Create a [CheckListView] with initialization block. */
 inline fun <T> checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker CheckListView<T>).() -> Unit
+    init: (@LayoutsDslMarker CheckListView<T>).() -> Unit
 ): CheckListView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return CheckListView(items).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return CheckListView(items).apply(init)
 }
 
 /** Add a [CheckListView] to this manager. */
@@ -31,8 +31,8 @@ fun <T> NodeManager.checkListView(
 /** Add a [CheckListView] with initialization block to this manager. */
 inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker CheckListView<T>).() -> Unit
+    init: (@LayoutsDslMarker CheckListView<T>).() -> Unit
 ): CheckListView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(CheckListView(items), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(CheckListView(items), init)
 }

@@ -11,10 +11,10 @@ import kotlin.contracts.contract
 
 /** Create a [ScrollBar] with initialization block. */
 inline fun scrollBar(
-    configuration: (@LayoutsDslMarker ScrollBar).() -> Unit
+    init: (@LayoutsDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ScrollBar().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ScrollBar().apply(init)
 }
 
 /** Add a [ScrollBar] to this manager. */
@@ -22,8 +22,8 @@ fun NodeManager.scrollBar(): ScrollBar = addChild(ScrollBar())
 
 /** Add a [ScrollBar] with initialization block to this manager. */
 inline fun NodeManager.scrollBar(
-    configuration: (@LayoutsDslMarker ScrollBar).() -> Unit
+    init: (@LayoutsDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ScrollBar(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ScrollBar(), init)
 }

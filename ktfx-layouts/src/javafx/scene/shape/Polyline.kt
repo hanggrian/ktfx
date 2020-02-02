@@ -12,10 +12,10 @@ import kotlin.contracts.contract
 /** Create a [Polyline] with initialization block. */
 inline fun polyline(
     vararg points: Double,
-    configuration: (@LayoutsDslMarker Polyline).() -> Unit
+    init: (@LayoutsDslMarker Polyline).() -> Unit
 ): Polyline {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return Polyline(*points).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return Polyline(*points).apply(init)
 }
 
 /** Add a [Polyline] to this manager. */
@@ -26,8 +26,8 @@ fun NodeManager.polyline(
 /** Add a [Polyline] with initialization block to this manager. */
 inline fun NodeManager.polyline(
     vararg points: Double,
-    configuration: (@LayoutsDslMarker Polyline).() -> Unit
+    init: (@LayoutsDslMarker Polyline).() -> Unit
 ): Polyline {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Polyline(*points), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Polyline(*points), init)
 }

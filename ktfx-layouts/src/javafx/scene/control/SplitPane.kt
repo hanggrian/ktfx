@@ -23,10 +23,10 @@ open class KtfxSplitPane : SplitPane(), NodeManager {
 
 /** Create a [SplitPane] with initialization block. */
 inline fun splitPane(
-    configuration: (@LayoutsDslMarker KtfxSplitPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxSplitPane().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxSplitPane().apply(init)
 }
 
 /** Add a [SplitPane] to this manager. */
@@ -34,8 +34,8 @@ fun NodeManager.splitPane(): SplitPane = addChild(KtfxSplitPane())
 
 /** Add a [SplitPane] with initialization block to this manager. */
 inline fun NodeManager.splitPane(
-    configuration: (@LayoutsDslMarker KtfxSplitPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxSplitPane(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxSplitPane(), init)
 }

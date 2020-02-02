@@ -20,7 +20,7 @@ inline fun ObservableFloatArray.getBinding(index: ObservableNumberValue): FloatB
 
 /** Creates a new [FloatBinding] that contains the element of an [ObservableFloatArray] at the specified position. */
 inline fun ObservableFloatArray.getBinding(index: ObservableIntegerValue): FloatBinding =
-    getBinding(index as ObservableNumberValue)
+    Bindings.floatValueAt(this, index)
 
 /** Performs the given [action] on each element binding. */
 inline fun ObservableFloatArray.forEachBinding(action: (FloatBinding) -> Unit) {

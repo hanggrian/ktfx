@@ -20,24 +20,24 @@ inline fun booleanBindingOf(vararg dependencies: Observable, crossinline valuePr
 
 /** Create a [BooleanBinding] with single [ObservableValue] dependency. */
 inline fun <V> ObservableValue<V>.toBooleanBinding(crossinline valueProvider: (V?) -> Boolean): BooleanBinding =
-    booleanBindingOf(this) { valueProvider(value) }
+    Bindings.createBooleanBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [BooleanBinding] with single [ObservableBooleanValue] dependency. */
 inline fun ObservableBooleanValue.toBooleanBinding(crossinline valueProvider: (Boolean) -> Boolean): BooleanBinding =
-    booleanBindingOf(this) { valueProvider(value) }
+    Bindings.createBooleanBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [BooleanBinding] with single [ObservableDoubleValue] dependency. */
 inline fun ObservableDoubleValue.toBooleanBinding(crossinline valueProvider: (Double) -> Boolean): BooleanBinding =
-    booleanBindingOf(this) { valueProvider(value as Double) }
+    Bindings.createBooleanBinding(Callable { valueProvider(value as Double) }, this)
 
 /** Create a [BooleanBinding] with single [ObservableFloatValue] dependency. */
 inline fun ObservableFloatValue.toBooleanBinding(crossinline valueProvider: (Float) -> Boolean): BooleanBinding =
-    booleanBindingOf(this) { valueProvider(value as Float) }
+    Bindings.createBooleanBinding(Callable { valueProvider(value as Float) }, this)
 
 /** Create a [BooleanBinding] with single [ObservableIntegerValue] dependency. */
 inline fun ObservableIntegerValue.toBooleanBinding(crossinline valueProvider: (Int) -> Boolean): BooleanBinding =
-    booleanBindingOf(this) { valueProvider(value as Int) }
+    Bindings.createBooleanBinding(Callable { valueProvider(value as Int) }, this)
 
 /** Create a [BooleanBinding] with single [ObservableLongValue] dependency. */
 inline fun ObservableLongValue.toBooleanBinding(crossinline valueProvider: (Long) -> Boolean): BooleanBinding =
-    booleanBindingOf(this) { valueProvider(value as Long) }
+    Bindings.createBooleanBinding(Callable { valueProvider(value as Long) }, this)

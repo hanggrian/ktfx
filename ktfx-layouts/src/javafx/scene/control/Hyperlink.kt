@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 inline fun hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker Hyperlink).() -> Unit
+    init: (@LayoutsDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return Hyperlink(text, graphic).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return Hyperlink(text, graphic).apply(init)
 }
 
 /** Add a [Hyperlink] to this manager. */
@@ -30,8 +30,8 @@ fun NodeManager.hyperlink(
 inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker Hyperlink).() -> Unit
+    init: (@LayoutsDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Hyperlink(text, graphic), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Hyperlink(text, graphic), init)
 }

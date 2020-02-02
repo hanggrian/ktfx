@@ -16,4 +16,4 @@ inline infix fun GlyphFont.glyph(glyphName: String): Glyph = create(glyphName)
 inline infix fun GlyphFont.glyph(glyph: Enum<*>): Glyph = create(glyph)
 
 /** Registers the specified font. */
-fun GlyphFont.register(): Unit = GlyphFontRegistry.register(this)
+inline fun GlyphFont.register(): Unit = GlyphFontRegistry.register(this)

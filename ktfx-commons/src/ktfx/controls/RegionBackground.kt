@@ -19,20 +19,20 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /** Create multiple [BackgroundFill] and/or [BackgroundImage] using DSL. */
-inline fun buildBackground(builder: BackgroundBuilder.() -> Unit): Background =
-    BackgroundBuilder().apply(builder).build()
+inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background =
+    BackgroundBuilder().apply(builderAction).build()
 
 /** Add multiple [BackgroundFill] and/or [BackgroundImage] to node using DSL. */
-inline fun Region.background(builder: BackgroundBuilder.() -> Unit): Background =
-    buildBackground(builder).also { background = it }
+inline fun Region.background(builderAction: BackgroundBuilder.() -> Unit): Background =
+    buildBackground(builderAction).also { background = it }
 
 /** Add a new [BackgroundFill] to node using DSL. */
-inline fun Region.backgroundFill(fillBuilder: BackgroundBuilder.FillBuilder.() -> Unit): Background =
-    background { fill(fillBuilder) }
+inline fun Region.backgroundFill(builderAction: BackgroundBuilder.FillBuilder.() -> Unit): Background =
+    background { fill(builderAction) }
 
 /** Add a new [BackgroundImage] to node using DSL. */
-inline fun Region.backgroundImage(image: Image, imageBuilder: BackgroundBuilder.ImageBuilder.() -> Unit): Background =
-    background { image(image, imageBuilder) }
+inline fun Region.backgroundImage(image: Image, builderAction: BackgroundBuilder.ImageBuilder.() -> Unit): Background =
+    background { image(image, builderAction) }
 
 /**
  * Class to support adding [Background] to node with DSL.
@@ -44,12 +44,12 @@ class BackgroundBuilder @PublishedApi internal constructor() {
     val images: MutableList<BackgroundImage> = mutableListOf()
 
     /** Add a new [BackgroundFill] to node using DSL. */
-    inline fun fill(fillBuilder: FillBuilder.() -> Unit): BackgroundFill =
-        FillBuilder().apply(fillBuilder).build().also { fills += it }
+    inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill =
+        FillBuilder().apply(builderAction).build().also { fills += it }
 
     /** Add a new [BackgroundImage] to node using DSL. */
-    inline fun image(image: Image, imageBuilder: ImageBuilder.() -> Unit): BackgroundImage =
-        ImageBuilder(image).apply(imageBuilder).build().also { images += it }
+    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage =
+        ImageBuilder(image).apply(builderAction).build().also { images += it }
 
     @PublishedApi internal fun build(): Background = Background(fills, images)
 

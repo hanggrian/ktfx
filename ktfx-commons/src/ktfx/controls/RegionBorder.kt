@@ -19,20 +19,20 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /** Create multiple [BorderStroke] and/or [BorderImage] using DSL. */
-inline fun buildBorder(builder: BorderBuilder.() -> Unit): Border =
-    BorderBuilder().apply(builder).build()
+inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
+    BorderBuilder().apply(builderAction).build()
 
 /** Add multiple [BorderStroke] and/or [BorderImage] to node using DSL. */
-inline fun Region.border(builder: BorderBuilder.() -> Unit): Border =
-    buildBorder(builder).also { border = it }
+inline fun Region.border(builderAction: BorderBuilder.() -> Unit): Border =
+    buildBorder(builderAction).also { border = it }
 
 /** Add a new [BorderStroke] to node using DSL. */
-inline fun Region.borderStroke(strokeBuilder: BorderBuilder.StrokeBuilder.() -> Unit): Border =
-    border { stroke(strokeBuilder) }
+inline fun Region.borderStroke(builderAction: BorderBuilder.StrokeBuilder.() -> Unit): Border =
+    border { stroke(builderAction) }
 
 /** Add a new [BorderImage] to node using DSL. */
-inline fun Region.borderImage(image: Image, imageBuilder: BorderBuilder.ImageBuilder.() -> Unit): Border =
-    border { image(image, imageBuilder) }
+inline fun Region.borderImage(image: Image, builderAction: BorderBuilder.ImageBuilder.() -> Unit): Border =
+    border { image(image, builderAction) }
 
 /**
  * Class to support adding [Border] to node with DSL.
@@ -44,12 +44,12 @@ class BorderBuilder @PublishedApi internal constructor() {
     val images: MutableList<BorderImage> = mutableListOf()
 
     /** Add a new [BorderStroke] to node using DSL. */
-    inline fun stroke(strokeBuilder: StrokeBuilder.() -> Unit): BorderStroke =
-        StrokeBuilder().apply(strokeBuilder).build().also { strokes += it }
+    inline fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke =
+        StrokeBuilder().apply(builderAction).build().also { strokes += it }
 
     /** Add a new [BorderImage] to node using DSL. */
-    inline fun image(image: Image, imageBuilder: ImageBuilder.() -> Unit): BorderImage =
-        ImageBuilder(image).apply(imageBuilder).build().also { images += it }
+    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage =
+        ImageBuilder(image).apply(builderAction).build().also { images += it }
 
     @PublishedApi internal fun build(): Border = Border(strokes, images)
 

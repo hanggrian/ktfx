@@ -1,5 +1,6 @@
 package ktfx
 
+import javafx.beans.property.SimpleObjectProperty
 import ktfx.time.m
 import ktfx.time.s
 import java.time.Duration
@@ -10,12 +11,12 @@ import kotlin.test.assertTrue
 class BindingOperatorObjectTest {
 
     @Test fun eq() {
-        assertFalse((propertyOf<Duration>() eq propertyOf(1.m)).value)
-        assertTrue((propertyOf(60.s) eq propertyOf(1.m)).value)
+        assertFalse((SimpleObjectProperty<Duration>() eq SimpleObjectProperty(1.m)).value)
+        assertTrue((SimpleObjectProperty(60.s) eq SimpleObjectProperty(1.m)).value)
     }
 
     @Test fun neq() {
-        assertTrue((propertyOf<Duration>() neq propertyOf(1.m)).value)
-        assertFalse((propertyOf(60.s) neq propertyOf(1.m)).value)
+        assertTrue((SimpleObjectProperty<Duration>() neq SimpleObjectProperty(1.m)).value)
+        assertFalse((SimpleObjectProperty(60.s) neq SimpleObjectProperty(1.m)).value)
     }
 }

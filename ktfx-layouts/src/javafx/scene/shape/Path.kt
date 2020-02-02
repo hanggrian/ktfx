@@ -23,10 +23,10 @@ open class KtfxPath : Path(), PathElementManager {
 
 /** Create a [Path] with initialization block. */
 inline fun path(
-    configuration: (@LayoutsDslMarker KtfxPath).() -> Unit
+    init: (@LayoutsDslMarker KtfxPath).() -> Unit
 ): Path {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxPath().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxPath().apply(init)
 }
 
 /** Add a [Path] to this manager. */
@@ -34,8 +34,8 @@ fun NodeManager.path(): Path = addChild(KtfxPath())
 
 /** Add a [Path] with initialization block to this manager. */
 inline fun NodeManager.path(
-    configuration: (@LayoutsDslMarker KtfxPath).() -> Unit
+    init: (@LayoutsDslMarker KtfxPath).() -> Unit
 ): Path {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxPath(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxPath(), init)
 }

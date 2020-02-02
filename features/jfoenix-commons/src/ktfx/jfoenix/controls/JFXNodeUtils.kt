@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.jfoenix.controls
 
 import com.jfoenix.utils.JFXNodeUtils
@@ -14,37 +16,37 @@ import javafx.scene.paint.Color
 import javafx.scene.paint.Paint
 import javafx.util.Duration
 
-fun Region.updateBackground(
+inline fun Region.updateBackground(
     newBackground: Background,
     paint: Paint = Color.BLACK
 ): Unit = JFXNodeUtils.updateBackground(newBackground, this, paint)
 
-fun Color.toHex(): String = JFXNodeUtils.colorToHex(this)
+inline fun Color.toHex(): String = JFXNodeUtils.colorToHex(this)
 
-fun Node.pressAndHoldHandler(
+inline fun Node.pressAndHoldHandler(
     holdTime: Duration,
-    handler: (MouseEvent) -> Unit
-): Unit = JFXNodeUtils.addPressAndHoldHandler(this, holdTime, handler)
+    crossinline handler: (MouseEvent) -> Unit
+): Unit = JFXNodeUtils.addPressAndHoldHandler(this, holdTime) { handler(it) }
 
-fun Node.pressAndHoldFilter(
+inline fun Node.pressAndHoldFilter(
     holdTime: Duration,
-    handler: (MouseEvent) -> Unit
-): Unit = JFXNodeUtils.addPressAndHoldFilter(this, holdTime, handler)
+    crossinline handler: (MouseEvent) -> Unit
+): Unit = JFXNodeUtils.addPressAndHoldFilter(this, holdTime) { handler(it) }
 
-fun <T> ObservableValue<T>.delayedPropertyInvalidationListener(
+inline fun <T> ObservableValue<T>.delayedPropertyInvalidationListener(
     delayTime: Duration,
-    consumer: (T) -> Unit
-): InvalidationListener = JFXNodeUtils.addDelayedPropertyInvalidationListener(this, delayTime, consumer)
+    crossinline consumer: (T) -> Unit
+): InvalidationListener = JFXNodeUtils.addDelayedPropertyInvalidationListener(this, delayTime) { consumer(it) }
 
-fun <T> ObservableValue<T>.delayedPropertyInvalidationListener(
+inline fun <T> ObservableValue<T>.delayedPropertyInvalidationListener(
     delayTime: Duration,
-    justInTimeConsumer: (T) -> Unit,
-    consumer: (T) -> Unit
+    noinline justInTimeConsumer: (T) -> Unit,
+    crossinline consumer: (T) -> Unit
 ): InvalidationListener =
-    JFXNodeUtils.addDelayedPropertyInvalidationListener(this, delayTime, justInTimeConsumer, consumer)
+    JFXNodeUtils.addDelayedPropertyInvalidationListener(this, delayTime, justInTimeConsumer) { consumer(it) }
 
-fun <T : Event> Node.delayedEventHandler(
+inline fun <T : Event> Node.delayedEventHandler(
     delayTime: Duration,
     eventType: EventType<T>,
-    handler: (T) -> Unit
-): EventHandler<in T> = JFXNodeUtils.addDelayedEventHandler(this, delayTime, eventType, handler)
+    crossinline handler: (T) -> Unit
+): EventHandler<in T> = JFXNodeUtils.addDelayedEventHandler(this, delayTime, eventType) { handler(it) }

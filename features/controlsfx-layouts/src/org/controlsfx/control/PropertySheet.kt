@@ -16,10 +16,10 @@ import org.controlsfx.control.PropertySheet
 /** Create a [PropertySheet] with initialization block. */
 inline fun propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
-    configuration: (@LayoutsDslMarker PropertySheet).() -> Unit
+    init: (@LayoutsDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return PropertySheet(items).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return PropertySheet(items).apply(init)
 }
 
 /** Add a [PropertySheet] to this manager. */
@@ -30,8 +30,8 @@ fun NodeManager.propertySheet(
 /** Add a [PropertySheet] with initialization block to this manager. */
 inline fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
-    configuration: (@LayoutsDslMarker PropertySheet).() -> Unit
+    init: (@LayoutsDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(PropertySheet(items), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(PropertySheet(items), init)
 }

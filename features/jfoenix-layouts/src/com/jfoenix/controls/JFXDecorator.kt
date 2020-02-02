@@ -21,10 +21,10 @@ inline fun jfxDecorator(
     fullScreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    configuration: (@LayoutsDslMarker JFXDecorator).() -> Unit
+    init: (@LayoutsDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXDecorator(stage, node, fullScreen, max, min).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXDecorator(stage, node, fullScreen, max, min).apply(init)
 }
 
 /** Add a [JFXDecorator] to this manager. */
@@ -43,8 +43,8 @@ inline fun NodeManager.jfxDecorator(
     fullScreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    configuration: (@LayoutsDslMarker JFXDecorator).() -> Unit
+    init: (@LayoutsDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXDecorator(stage, node, fullScreen, max, min), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXDecorator(stage, node, fullScreen, max, min), init)
 }

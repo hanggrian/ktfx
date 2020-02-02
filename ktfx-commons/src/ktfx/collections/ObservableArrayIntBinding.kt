@@ -20,7 +20,7 @@ inline fun ObservableIntegerArray.getBinding(index: ObservableNumberValue): Inte
 
 /** Creates a new [IntegerBinding] that contains the element of an [ObservableIntegerArray] at the specified position. */
 inline fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
-    getBinding(index as ObservableNumberValue)
+    Bindings.integerValueAt(this, index)
 
 /** Performs the given [action] on each element binding. */
 inline fun ObservableIntegerArray.forEachBinding(action: (IntegerBinding) -> Unit) {

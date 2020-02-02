@@ -18,9 +18,9 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /** Removes old icons and set a new one to this dialog. */
-var Dialog<*>.icon: Image
+inline var Dialog<*>.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    inline set(value) {
+    set(value) {
         dialogPane.scene.stage.icon = value
     }
 
@@ -28,23 +28,25 @@ var Dialog<*>.icon: Image
 var Dialog<*>.graphicIcon: ImageView
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        graphic = value; icon = value.image
+        graphic = value
+        icon = value.image
     }
 
 /** Apply string as header text and title of this dialog. */
 var Dialog<*>.headerTitle: String
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
-        headerText = value; title = value
+        headerText = value
+        title = value
     }
 
 /** Quickly add button type to this dialog without DSL. */
 val Dialog<*>.buttons: DialogButtonContainer get() = DialogButtonContainer(this)
 
 /** Opens up DSL to add button types to this dialog. */
-fun Dialog<*>.buttons(dialogButtonConfiguration: DialogButtonContainerScope.() -> Unit) {
-    contract { callsInPlace(dialogButtonConfiguration, InvocationKind.EXACTLY_ONCE) }
-    DialogButtonContainerScope(this).dialogButtonConfiguration()
+inline fun Dialog<*>.buttons(buttonsAction: DialogButtonContainerScope.() -> Unit) {
+    contract { callsInPlace(buttonsAction, InvocationKind.EXACTLY_ONCE) }
+    DialogButtonContainerScope(this).buttonsAction()
 }
 
 /** Supporting class to build dialog buttons with Kotlin DSL. */
@@ -124,7 +126,8 @@ open class DialogButtonContainer internal constructor(private val nativeDialog: 
 }
 
 /** Scope of [DialogButtonContainer]. */
-class DialogButtonContainerScope internal constructor(nativeDialog: Dialog<*>) : DialogButtonContainer(nativeDialog) {
+class DialogButtonContainerScope @PublishedApi internal constructor(nativeDialog: Dialog<*>) :
+    DialogButtonContainer(nativeDialog) {
 
     /** Alias of [custom] with operator function. */
     inline operator fun String.invoke(

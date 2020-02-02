@@ -18,10 +18,10 @@ inline fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker BubbleChart<X, Y>).() -> Unit
+    init: (@LayoutsDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return BubbleChart(x, y, data).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return BubbleChart(x, y, data).apply(init)
 }
 
 /** Add a [BubbleChart] to this manager. */
@@ -36,8 +36,8 @@ inline fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker BubbleChart<X, Y>).() -> Unit
+    init: (@LayoutsDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(BubbleChart(x, y, data), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(BubbleChart(x, y, data), init)
 }

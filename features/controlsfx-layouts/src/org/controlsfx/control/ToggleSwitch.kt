@@ -15,10 +15,10 @@ import org.controlsfx.control.ToggleSwitch
 /** Create a [ToggleSwitch] with initialization block. */
 inline fun toggleSwitch(
     text: String? = null,
-    configuration: (@LayoutsDslMarker ToggleSwitch).() -> Unit
+    init: (@LayoutsDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ToggleSwitch(text).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ToggleSwitch(text).apply(init)
 }
 
 /** Add a [ToggleSwitch] to this manager. */
@@ -29,8 +29,8 @@ fun NodeManager.toggleSwitch(
 /** Add a [ToggleSwitch] with initialization block to this manager. */
 inline fun NodeManager.toggleSwitch(
     text: String? = null,
-    configuration: (@LayoutsDslMarker ToggleSwitch).() -> Unit
+    init: (@LayoutsDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ToggleSwitch(text), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ToggleSwitch(text), init)
 }

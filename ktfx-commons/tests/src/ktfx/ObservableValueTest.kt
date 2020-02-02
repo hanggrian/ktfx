@@ -1,5 +1,6 @@
 package ktfx
 
+import javafx.beans.property.SimpleStringProperty
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -7,14 +8,14 @@ import kotlin.test.assertTrue
 class ObservableValueTest {
 
     @Test fun hasValue() {
-        val property = stringPropertyOf()
+        val property = SimpleStringProperty()
         assertFalse(property.hasValue())
         property.value = "Hello World"
         assertTrue(property.hasValue())
     }
 
     @Test fun clear() {
-        val property = stringPropertyOf("Hello World")
+        val property = SimpleStringProperty("Hello World")
         assertTrue(property.hasValue())
         property.clear()
         assertFalse(property.hasValue())

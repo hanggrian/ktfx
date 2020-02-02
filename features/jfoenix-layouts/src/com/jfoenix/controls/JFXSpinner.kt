@@ -15,10 +15,10 @@ import ktfx.layouts.addChild
 /** Create a [JFXSpinner] with initialization block to this manager. */
 inline fun jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
-    configuration: (@LayoutsDslMarker JFXSpinner).() -> Unit
+    init: (@LayoutsDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXSpinner(progress).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXSpinner(progress).apply(init)
 }
 
 /** Add a [JFXSpinner] to this manager. */
@@ -29,8 +29,8 @@ fun NodeManager.jfxSpinner(
 /** Add a [JFXSpinner] with initialization block to this manager. */
 inline fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
-    configuration: (@LayoutsDslMarker JFXSpinner).() -> Unit
+    init: (@LayoutsDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXSpinner(progress), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXSpinner(progress), init)
 }

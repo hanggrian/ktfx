@@ -1,5 +1,11 @@
 package ktfx
 
+import javafx.beans.property.SimpleBooleanProperty
+import javafx.beans.property.SimpleDoubleProperty
+import javafx.beans.property.SimpleFloatProperty
+import javafx.beans.property.SimpleIntegerProperty
+import javafx.beans.property.SimpleLongProperty
+import javafx.beans.property.SimpleObjectProperty
 import ktfx.time.m
 import ktfx.time.s
 import kotlin.test.Test
@@ -9,8 +15,8 @@ import kotlin.test.assertTrue
 class BindingCreateBooleanTest {
 
     @Test fun multipleDependencies() {
-        val dependency1 = booleanPropertyOf(true)
-        val dependency2 = booleanPropertyOf(true)
+        val dependency1 = SimpleBooleanProperty(true)
+        val dependency2 = SimpleBooleanProperty(true)
         val binding = booleanBindingOf(dependency1, dependency2) { dependency1.value && dependency2.value }
         assertTrue(binding.value)
         dependency1.value = false
@@ -18,7 +24,7 @@ class BindingCreateBooleanTest {
     }
 
     @Test fun anyDependency() {
-        val dependency = propertyOf(1.m)
+        val dependency = SimpleObjectProperty(1.m)
         val binding = dependency.toBooleanBinding { it == 60.s }
         assertTrue(binding.value)
         dependency.clear()
@@ -26,7 +32,7 @@ class BindingCreateBooleanTest {
     }
 
     @Test fun booleanDependency() {
-        val dependency = booleanPropertyOf()
+        val dependency = SimpleBooleanProperty()
         val binding = dependency.toBooleanBinding { !it }
         assertTrue(binding.value)
         dependency.value = true
@@ -34,7 +40,7 @@ class BindingCreateBooleanTest {
     }
 
     @Test fun doubleDependency() {
-        val dependency = doublePropertyOf()
+        val dependency = SimpleDoubleProperty()
         val binding = dependency.toBooleanBinding { it == 0.0 }
         assertTrue(binding.value)
         dependency.value = Double.MAX_VALUE
@@ -42,7 +48,7 @@ class BindingCreateBooleanTest {
     }
 
     @Test fun floatDependency() {
-        val dependency = floatPropertyOf()
+        val dependency = SimpleFloatProperty()
         val binding = dependency.toBooleanBinding { it == 0f }
         assertTrue(binding.value)
         dependency.value = Float.MAX_VALUE
@@ -50,7 +56,7 @@ class BindingCreateBooleanTest {
     }
 
     @Test fun intDependency() {
-        val dependency = intPropertyOf()
+        val dependency = SimpleIntegerProperty()
         val binding = dependency.toBooleanBinding { it == 0 }
         assertTrue(binding.value)
         dependency.value = Int.MAX_VALUE
@@ -58,7 +64,7 @@ class BindingCreateBooleanTest {
     }
 
     @Test fun longDependency() {
-        val dependency = longPropertyOf()
+        val dependency = SimpleLongProperty()
         val binding = dependency.toBooleanBinding { it == 0L }
         assertTrue(binding.value)
         dependency.value = Long.MAX_VALUE

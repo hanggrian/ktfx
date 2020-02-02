@@ -30,16 +30,16 @@ open class KtfxJFXTabPane : JFXTabPane(), TabManager {
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@LayoutsDslMarker KtfxTab).() -> Unit
-    ): Tab = tab(this, graphic, configuration)
+        init: (@LayoutsDslMarker KtfxTab).() -> Unit
+    ): Tab = tab(this, graphic, init)
 }
 
 /** Create a [JFXTabPane] with initialization block. */
 inline fun jfxTabPane(
-    configuration: (@LayoutsDslMarker KtfxJFXTabPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXTabPane().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXTabPane().apply(init)
 }
 
 /** Add a [JFXTabPane] to this manager. */
@@ -48,8 +48,8 @@ fun NodeManager.jfxTabPane(): JFXTabPane =
 
 /** Add a [JFXTabPane] with initialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
-    configuration: (@LayoutsDslMarker KtfxJFXTabPane).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXTabPane(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXTabPane(), init)
 }

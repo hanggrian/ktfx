@@ -14,7 +14,7 @@ import javafx.scene.image.ImageView
  * @param graphic node to be displayed in header.
  * @param items selection choices.
  * @param prefill default choice.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return selected item.
  */
 fun <T> selector(
@@ -22,14 +22,14 @@ fun <T> selector(
     graphic: Node? = null,
     items: Collection<T>? = null,
     prefill: T? = null,
-    builderAction: (ChoiceDialog<T>.() -> Unit)? = null
+    dialogAction: (ChoiceDialog<T>.() -> Unit)? = null
 ): Optional<T> = ChoiceDialog<T>(prefill, items).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
-    builderAction?.invoke(dialog)
+    dialogAction?.invoke(dialog)
 }.showAndWait()
 
 /**
@@ -37,14 +37,14 @@ fun <T> selector(
  *
  * @param items selection choices.
  * @param prefill default choice.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return selected item.
  */
 inline fun <T> selector(
     items: Collection<T>? = null,
     prefill: T? = null,
-    noinline builderAction: (ChoiceDialog<T>.() -> Unit)? = null
-): Optional<T> = selector(null, null, items, prefill, builderAction)
+    noinline dialogAction: (ChoiceDialog<T>.() -> Unit)? = null
+): Optional<T> = selector(null, null, items, prefill, dialogAction)
 
 /**
  * Show a selector with title and graphic.
@@ -53,7 +53,7 @@ inline fun <T> selector(
  * @param graphic node to be displayed in header.
  * @param items selection choices.
  * @param prefill default choice.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return selected item.
  */
 fun <T> selector(
@@ -61,14 +61,14 @@ fun <T> selector(
     graphic: Node? = null,
     vararg items: T,
     prefill: T? = null,
-    builderAction: (ChoiceDialog<T>.() -> Unit)? = null
+    dialogAction: (ChoiceDialog<T>.() -> Unit)? = null
 ): Optional<T> = ChoiceDialog<T>(prefill, *items).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
         graphic is ImageView -> dialog.graphicIcon = graphic
         graphic != null -> dialog.graphic = graphic
     }
-    builderAction?.invoke(dialog)
+    dialogAction?.invoke(dialog)
 }.showAndWait()
 
 /**
@@ -76,11 +76,11 @@ fun <T> selector(
  *
  * @param items selection choices.
  * @param prefill default choice.
- * @param builderAction custom dialog builder action.
+ * @param dialogAction custom dialog action.
  * @return selected item.
  */
 inline fun <T> selector(
     vararg items: T,
     prefill: T? = null,
-    noinline builderAction: (ChoiceDialog<T>.() -> Unit)? = null
-): Optional<T> = selector(null, null, *items, prefill = prefill, builderAction = builderAction)
+    noinline dialogAction: (ChoiceDialog<T>.() -> Unit)? = null
+): Optional<T> = selector(null, null, *items, prefill = prefill, dialogAction = dialogAction)

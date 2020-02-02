@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.cells
 
 import javafx.beans.value.ObservableValue
@@ -11,42 +13,45 @@ import javafx.scene.control.cell.TextFieldListCell
 import javafx.util.StringConverter
 
 /** Creates a [CheckBoxListCell] factory for use in [ListView] controls. */
-fun <T> ListView<T>.checkBoxCellFactory(
+inline fun <T> ListView<T>.checkBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
-    selectedProperty: (T) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxListCell.forListView(selectedProperty, converter))
+    crossinline selectedProperty: (T) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxListCell.forListView({ selectedProperty(it) }, converter))
 
 /** Creates a [ChoiceBoxListCell] factory for use in [ListView] controls. */
-fun <T> ListView<T>.choiceBoxCellFactory(
+inline fun <T> ListView<T>.choiceBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     vararg items: T
 ): Unit = setCellFactory(ChoiceBoxListCell.forListView(converter, *items))
 
 /** Creates a [ChoiceBoxListCell] factory for use in [ListView] controls. */
-fun <T> ListView<T>.choiceBoxCellFactory(
+inline fun <T> ListView<T>.choiceBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     items: ObservableList<T>
 ): Unit = setCellFactory(ChoiceBoxListCell.forListView(converter, items))
 
 /** Creates a [ComboBoxListCell] factory for use in [ListView] controls. */
-fun <T> ListView<T>.comboBoxCellFactory(
+inline fun <T> ListView<T>.comboBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     vararg items: T
 ): Unit = setCellFactory(ComboBoxListCell.forListView(converter, *items))
 
 /** Creates a [ComboBoxListCell] factory for use in [ListView] controls. */
-fun <T> ListView<T>.comboBoxCellFactory(
+inline fun <T> ListView<T>.comboBoxCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter(),
     items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxListCell.forListView(converter, items))
 
 /** Creates a [TextFieldListCell] factory for use in [ListView] controls. */
-fun ListView<String>.textFieldCellFactory(): Unit = setCellFactory(TextFieldListCell.forListView())
+inline fun ListView<String>.textFieldCellFactory(): Unit =
+    setCellFactory(TextFieldListCell.forListView())
 
 /** Creates a [TextFieldListCell] factory for use in [ListView] controls. */
-fun <T> ListView<T>.textFieldCellFactory(converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()): Unit =
-    setCellFactory(TextFieldListCell.forListView(converter))
+inline fun <T> ListView<T>.textFieldCellFactory(
+    converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()
+): Unit = setCellFactory(TextFieldListCell.forListView(converter))
 
 /** Set custom cell factory to this [ListView]. */
-fun <T> ListView<T>.cellFactory(cellFactory: ListCellBuilder<T>.() -> Unit): Unit =
-    setCellFactory { ListCellBuilder<T>().apply(cellFactory) }
+inline fun <T> ListView<T>.cellFactory(
+    crossinline cellFactory: ListCellBuilder<T>.() -> Unit
+): Unit = setCellFactory { ListCellBuilder<T>().apply(cellFactory) }

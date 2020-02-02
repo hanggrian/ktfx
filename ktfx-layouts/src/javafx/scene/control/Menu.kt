@@ -24,18 +24,18 @@ open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuIte
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@LayoutsDslMarker MenuItem).() -> Unit
-    ): MenuItem = menuItem(this, graphic, configuration)
+        init: (@LayoutsDslMarker MenuItem).() -> Unit
+    ): MenuItem = menuItem(this, graphic, init)
 }
 
 /** Create a [Menu] with initialization block. */
 inline fun menu(
     text: String = "",
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker KtfxMenu).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMenu(text, graphic).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxMenu(text, graphic).apply(init)
 }
 
 /** Add a [Menu] to this manager. */
@@ -48,10 +48,10 @@ fun MenuManager.menu(
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker KtfxMenu).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMenu(text, graphic), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMenu(text, graphic), init)
 }
 
 /** Add a [Menu] to this manager. */
@@ -64,8 +64,8 @@ fun MenuItemManager.menu(
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
-    configuration: (@LayoutsDslMarker KtfxMenu).() -> Unit
+    init: (@LayoutsDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMenu(text, graphic), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMenu(text, graphic), init)
 }

@@ -23,7 +23,7 @@ interface CellBuilder<out T> {
 }
 
 /** [ListCell] builder with Kotlin DSL. */
-class ListCellBuilder<T> internal constructor() : ListCell<T>(), CellBuilder<T> {
+class ListCellBuilder<T> @PublishedApi internal constructor() : ListCell<T>(), CellBuilder<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -67,7 +67,7 @@ class ListCellBuilder<T> internal constructor() : ListCell<T>(), CellBuilder<T> 
 }
 
 /** [TableRow] builder with Kotlin DSL. */
-class TableRowBuilder<T> internal constructor() : TableRow<T>(), CellBuilder<T> {
+class TableRowBuilder<T> @PublishedApi internal constructor() : TableRow<T>(), CellBuilder<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -111,7 +111,7 @@ class TableRowBuilder<T> internal constructor() : TableRow<T>(), CellBuilder<T> 
 }
 
 /** [TableCell] builder with Kotlin DSL. */
-class TableCellBuilder<S, T> internal constructor() : TableCell<S, T>(), CellBuilder<T> {
+class TableCellBuilder<S, T> @PublishedApi internal constructor() : TableCell<S, T>(), CellBuilder<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -155,7 +155,7 @@ class TableCellBuilder<S, T> internal constructor() : TableCell<S, T>(), CellBui
 }
 
 /** [TreeTableRow] builder with Kotlin DSL. */
-class TreeTableRowBuilder<T> internal constructor() : TreeTableRow<T>(), CellBuilder<T> {
+class TreeTableRowBuilder<T> @PublishedApi internal constructor() : TreeTableRow<T>(), CellBuilder<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -199,7 +199,7 @@ class TreeTableRowBuilder<T> internal constructor() : TreeTableRow<T>(), CellBui
 }
 
 /** [TreeTableCell] builder with Kotlin DSL. */
-class TreeTableCellBuilder<S, T> internal constructor() : TreeTableCell<S, T>(), CellBuilder<T> {
+class TreeTableCellBuilder<S, T> @PublishedApi internal constructor() : TreeTableCell<S, T>(), CellBuilder<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

@@ -29,16 +29,16 @@ open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
     /** Call [ToggleButtonManager.toggleButton] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@LayoutsDslMarker ToggleButton).() -> Unit
-    ): ToggleButton = toggleButton(this, graphic, configuration)
+        init: (@LayoutsDslMarker ToggleButton).() -> Unit
+    ): ToggleButton = toggleButton(this, graphic, init)
 }
 
 /** Create a [SegmentedButton] with initialization block. */
 inline fun segmentedButton(
-    configuration: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxSegmentedButton().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxSegmentedButton().apply(init)
 }
 
 /** Add a [SegmentedButton] to this manager. */
@@ -46,8 +46,8 @@ fun NodeManager.segmentedButton(): SegmentedButton = addChild(KtfxSegmentedButto
 
 /** Add a [SegmentedButton] with initialization block to this manager. */
 inline fun NodeManager.segmentedButton(
-    configuration: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
+    init: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxSegmentedButton(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxSegmentedButton(), init)
 }

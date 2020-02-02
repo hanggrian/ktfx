@@ -26,10 +26,10 @@ open class KtfxJFXDrawer : JFXDrawer(), NodeManager {
 
 /** Create a [JFXDrawer] with initialization block. */
 inline fun jfxDrawer(
-    configuration: (@LayoutsDslMarker KtfxJFXDrawer).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXDrawer().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXDrawer().apply(init)
 }
 
 /** Add a [JFXDrawer] to this manager. */
@@ -37,8 +37,8 @@ fun NodeManager.jfxDrawer(): JFXDrawer = addChild(JFXDrawer())
 
 /** Add a [JFXDrawer] with initialization block to this manager. */
 inline fun NodeManager.jfxDrawer(
-    configuration: (@LayoutsDslMarker KtfxJFXDrawer).() -> Unit
+    init: (@LayoutsDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXDrawer(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXDrawer(), init)
 }

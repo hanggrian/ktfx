@@ -1,6 +1,16 @@
 package ktfx
 
 import com.google.common.truth.Truth.assertThat
+import javafx.beans.property.SimpleBooleanProperty
+import javafx.beans.property.SimpleDoubleProperty
+import javafx.beans.property.SimpleFloatProperty
+import javafx.beans.property.SimpleIntegerProperty
+import javafx.beans.property.SimpleListProperty
+import javafx.beans.property.SimpleLongProperty
+import javafx.beans.property.SimpleMapProperty
+import javafx.beans.property.SimpleObjectProperty
+import javafx.beans.property.SimpleSetProperty
+import javafx.beans.property.SimpleStringProperty
 import javafx.util.Duration
 import ktfx.collections.emptyObservableList
 import ktfx.collections.emptyObservableMap
@@ -13,34 +23,34 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class ObservableValueDelegateTest {
-    private val anyProperty = propertyOf<Duration>()
+    private val anyProperty = SimpleObjectProperty<Duration>()
     private var any by anyProperty
 
-    private val stringProperty = stringPropertyOf()
+    private val stringProperty = SimpleStringProperty()
     private var string by stringProperty
 
-    private val booleanProperty = booleanPropertyOf()
+    private val booleanProperty = SimpleBooleanProperty()
     private var boolean by booleanProperty
 
-    private val doubleProperty = doublePropertyOf()
+    private val doubleProperty = SimpleDoubleProperty()
     private var double by doubleProperty
 
-    private val floatProperty = floatPropertyOf()
+    private val floatProperty = SimpleFloatProperty()
     private var float by floatProperty
 
-    private val intProperty = intPropertyOf()
+    private val intProperty = SimpleIntegerProperty()
     private var int by intProperty
 
-    private val longProperty = longPropertyOf()
+    private val longProperty = SimpleLongProperty()
     private var long by longProperty
 
-    private val listProperty = listPropertyOf<String>()
+    private val listProperty = SimpleListProperty<String>()
     private var list by listProperty
 
-    private val setProperty = setPropertyOf<String>()
+    private val setProperty = SimpleSetProperty<String>()
     private var set by setProperty
 
-    private val mapProperty = mapPropertyOf<Int, String>()
+    private val mapProperty = SimpleMapProperty<Int, String>()
     private var map by mapProperty
 
     @Test fun any() {

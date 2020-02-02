@@ -27,7 +27,8 @@ inline infix fun ObservableStringValue.neq(op: String): BooleanBinding = Binding
 inline infix fun String.neq(op: ObservableStringValue): BooleanBinding = Bindings.notEqual(this, op)
 
 /** Infix alias of [Bindings.equalIgnoreCase]. */
-inline infix fun ObservableStringValue.eqIg(op: ObservableStringValue): BooleanBinding = Bindings.equalIgnoreCase(this, op)
+inline infix fun ObservableStringValue.eqIg(op: ObservableStringValue): BooleanBinding =
+    Bindings.equalIgnoreCase(this, op)
 
 /** Infix alias of [Bindings.equalIgnoreCase]. */
 inline infix fun ObservableStringValue.eqIg(op: String): BooleanBinding = Bindings.equalIgnoreCase(this, op)
@@ -36,7 +37,8 @@ inline infix fun ObservableStringValue.eqIg(op: String): BooleanBinding = Bindin
 inline infix fun String.eqIg(op: ObservableStringValue): BooleanBinding = Bindings.equalIgnoreCase(this, op)
 
 /** Infix alias of [Bindings.notEqualIgnoreCase]. */
-inline infix fun ObservableStringValue.neqIg(op: ObservableStringValue): BooleanBinding = Bindings.notEqualIgnoreCase(this, op)
+inline infix fun ObservableStringValue.neqIg(op: ObservableStringValue): BooleanBinding =
+    Bindings.notEqualIgnoreCase(this, op)
 
 /** Infix alias of [Bindings.notEqualIgnoreCase]. */
 inline infix fun ObservableStringValue.neqIg(op: String): BooleanBinding = Bindings.notEqualIgnoreCase(this, op)
@@ -45,7 +47,8 @@ inline infix fun ObservableStringValue.neqIg(op: String): BooleanBinding = Bindi
 inline infix fun String.neqIg(op: ObservableStringValue): BooleanBinding = Bindings.notEqualIgnoreCase(this, op)
 
 /** Infix alias of [Bindings.greaterThan]. */
-inline infix fun ObservableStringValue.greater(op: ObservableStringValue): BooleanBinding = Bindings.greaterThan(this, op)
+inline infix fun ObservableStringValue.greater(op: ObservableStringValue): BooleanBinding =
+    Bindings.greaterThan(this, op)
 
 /** Infix alias of [Bindings.greaterThan]. */
 inline infix fun ObservableStringValue.greater(op: String): BooleanBinding = Bindings.greaterThan(this, op)
@@ -73,7 +76,8 @@ inline infix fun ObservableStringValue.greaterEq(op: String): BooleanBinding = B
 inline infix fun String.greaterEq(op: ObservableStringValue): BooleanBinding = Bindings.greaterThanOrEqual(this, op)
 
 /** Infix alias of [Bindings.lessThanOrEqual]. */
-inline infix fun ObservableStringValue.lessEq(op: ObservableStringValue): BooleanBinding = Bindings.lessThanOrEqual(this, op)
+inline infix fun ObservableStringValue.lessEq(op: ObservableStringValue): BooleanBinding =
+    Bindings.lessThanOrEqual(this, op)
 
 /** Infix alias of [Bindings.lessThanOrEqual]. */
 inline infix fun ObservableStringValue.lessEq(op: String): BooleanBinding = Bindings.lessThanOrEqual(this, op)

@@ -16,10 +16,10 @@ import ktfx.layouts.addChild
 /** Create a [JFXDatePicker] with initialization block. */
 inline fun jfxDatePicker(
     value: LocalDate? = null,
-    configuration: (@LayoutsDslMarker JFXDatePicker).() -> Unit
+    init: (@LayoutsDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return JFXDatePicker(value).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return JFXDatePicker(value).apply(init)
 }
 
 /** Add a [JFXDatePicker] to this manager. */
@@ -30,8 +30,8 @@ fun NodeManager.jfxDatePicker(
 /** Add a [JFXDatePicker] with initialization block to this manager. */
 inline fun NodeManager.jfxDatePicker(
     value: LocalDate? = null,
-    configuration: (@LayoutsDslMarker JFXDatePicker).() -> Unit
+    init: (@LayoutsDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXDatePicker(value), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXDatePicker(value), init)
 }

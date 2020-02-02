@@ -22,12 +22,25 @@ class PredefinedPackageRule : Rule("predefined-package") {
         )
     }
 
+    private var currentPackageName: String? = null
+
     override fun visit(node: ASTNode, autoCorrect: Boolean, emit: (Int, String, Boolean) -> Unit) {
-        if (node.elementType == KtStubElementTypes.PACKAGE_DIRECTIVE) {
-            val ktPackageDirective = node.getPsi(KtPackageDirective::class.java)
-            if (ktPackageDirective.qualifiedName !in PREDEFINED_PACKAGES) {
+        if (node.elementType != KtStubElementTypes.PACKAGE_DIRECTIVE) {
+            return
+        }
+        val ktPackageDirective = node.getPsi(KtPackageDirective::class.java)
+        val packageName = ktPackageDirective.qualifiedName
+
+        // to ensure single package
+        if (currentPackageName == null) {
+            currentPackageName = packageName
+        }
+
+        when {
+            packageName != currentPackageName ->
+                emit(ktPackageDirective.packageNameExpression!!.startOffset, "Non-single package detected.", false)
+            packageName !in PREDEFINED_PACKAGES ->
                 emit(ktPackageDirective.packageNameExpression!!.startOffset, "Illegal package name.", false)
-            }
         }
     }
 }

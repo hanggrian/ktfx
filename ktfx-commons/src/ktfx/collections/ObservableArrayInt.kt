@@ -12,7 +12,7 @@ import javafx.collections.ObservableIntegerArray
  *
  * @see intArrayOf
  */
-fun observableIntArrayOf(): ObservableIntegerArray = FXCollections.observableIntegerArray()
+inline fun observableIntArrayOf(): ObservableIntegerArray = FXCollections.observableIntegerArray()
 
 /**
  * Returns an [ObservableIntegerArray] of [elements].
@@ -23,13 +23,14 @@ fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
     if (elements.isNotEmpty()) elements.toObservableArray() else observableIntArrayOf()
 
 /** Converts this integer array to [ObservableIntegerArray]. */
-fun IntArray.toObservableArray(): ObservableIntegerArray = FXCollections.observableIntegerArray(*this)
+inline fun IntArray.toObservableArray(): ObservableIntegerArray = FXCollections.observableIntegerArray(*this)
 
 /** Converts this typed array of integer to [ObservableIntegerArray]. */
-inline fun Array<Int>.toObservableArray(): ObservableIntegerArray = toIntArray().toObservableArray()
+fun Array<Int>.toObservableArray(): ObservableIntegerArray = toIntArray().toObservableArray()
 
 /** Creates a copy of this [ObservableIntegerArray]. */
-fun ObservableIntegerArray.toObservableArray(): ObservableIntegerArray = FXCollections.observableIntegerArray(this)
+inline fun ObservableIntegerArray.toObservableArray(): ObservableIntegerArray =
+    FXCollections.observableIntegerArray(this)
 
 /** Returns true if [element] exists in this observable array. */
 operator fun ObservableIntegerArray.contains(element: Int): Boolean = (0 until size).any { get(it) == element }

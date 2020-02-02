@@ -14,10 +14,10 @@ import org.controlsfx.control.PlusMinusSlider
 
 /** Create a [PlusMinusSlider] with initialization block. */
 inline fun plusMinusSlider(
-    configuration: (@LayoutsDslMarker PlusMinusSlider).() -> Unit
+    init: (@LayoutsDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return PlusMinusSlider().apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return PlusMinusSlider().apply(init)
 }
 
 /** Add a [PlusMinusSlider] to this manager. */
@@ -26,8 +26,8 @@ fun NodeManager.plusMinusSlider(): PlusMinusSlider =
 
 /** Add a [PlusMinusSlider] with initialization block to this manager. */
 inline fun NodeManager.plusMinusSlider(
-    configuration: (@LayoutsDslMarker PlusMinusSlider).() -> Unit
+    init: (@LayoutsDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(PlusMinusSlider(), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(PlusMinusSlider(), init)
 }

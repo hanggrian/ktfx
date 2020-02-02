@@ -17,10 +17,10 @@ import org.controlsfx.control.GridView
 /** Create a [GridView] with initialization block. */
 inline fun <T> gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker GridView<T>).() -> Unit
+    init: (@LayoutsDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return GridView(items).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return GridView(items).apply(init)
 }
 
 /** Add a [GridView] to this manager. */
@@ -31,8 +31,8 @@ fun <T> NodeManager.gridView(
 /** Add a [GridView] with initialization block to this manager. */
 inline fun <T> NodeManager.gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker GridView<T>).() -> Unit
+    init: (@LayoutsDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(GridView(items), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(GridView(items), init)
 }

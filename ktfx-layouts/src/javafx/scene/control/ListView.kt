@@ -14,10 +14,10 @@ import kotlin.contracts.contract
 /** Create a [ListView] with initialization block. */
 inline fun <T> listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker ListView<T>).() -> Unit
+    init: (@LayoutsDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return ListView(items).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return ListView(items).apply(init)
 }
 
 /** Add a [ListView] to this manager. */
@@ -28,8 +28,8 @@ fun <T> NodeManager.listView(
 /** Add a [ListView] with initialization block to this manager. */
 inline fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    configuration: (@LayoutsDslMarker ListView<T>).() -> Unit
+    init: (@LayoutsDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ListView(items), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ListView(items), init)
 }

@@ -13,10 +13,10 @@ import kotlin.contracts.contract
 /** Create a [MeshView] with initialization block. */
 inline fun meshView(
     mesh: Mesh? = null,
-    configuration: (@LayoutsDslMarker MeshView).() -> Unit
+    init: (@LayoutsDslMarker MeshView).() -> Unit
 ): MeshView {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return MeshView(mesh).apply(configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return MeshView(mesh).apply(init)
 }
 
 /** Add a [MeshView] to this manager. */
@@ -27,8 +27,8 @@ fun NodeManager.meshView(
 /** Add a [MeshView] with initialization block to this manager. */
 inline fun NodeManager.meshView(
     mesh: Mesh? = null,
-    configuration: (@LayoutsDslMarker MeshView).() -> Unit
+    init: (@LayoutsDslMarker MeshView).() -> Unit
 ): MeshView {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(MeshView(mesh), configuration)
+    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
+    return addChild(MeshView(mesh), init)
 }

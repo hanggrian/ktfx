@@ -1,3 +1,5 @@
+@file:JvmMultifileClass
+@file:JvmName("Glyphs")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controlsfx.text

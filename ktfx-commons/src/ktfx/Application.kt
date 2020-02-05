@@ -11,7 +11,6 @@ inline fun <reified T : Application> launchApplication(vararg args: String): Uni
 
 /**
  * Resolves the specified relative URI against the code base URI and returns the resolved URI.
- *
  * @see HostServices.getCodeBase
  * @see HostServices.resolveURI
  */
@@ -19,7 +18,6 @@ inline fun HostServices.resolveCodeURI(rel: String): String = resolveURI(codeBas
 
 /**
  * Resolves the specified relative URI against the document base URI and returns the resolved URI.
- *
  * @see HostServices.getDocumentBase
  * @see HostServices.resolveURI
  */

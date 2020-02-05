@@ -17,7 +17,6 @@ import javax.swing.SwingUtilities
  * @Rule
  * public JavaFXThreadingRule jfxRule = new JavaFXThreadingRule();
 </pre> *
- *
  * @author Andy Till
  */
 class FxThreadRule : TestRule {

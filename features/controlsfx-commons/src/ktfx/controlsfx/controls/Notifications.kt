@@ -10,6 +10,10 @@ import ktfx.internal.KtfxInternals.noGetter
 import org.controlsfx.control.Notifications
 import org.controlsfx.control.action.Action
 
+/** Build notifications with Kotlin DSL. */
+inline fun buildNotifications(builderAction: NotificationsBuilder.() -> Unit): Notifications =
+    NotificationsBuilder().apply(builderAction).nativeNotifications
+
 /** Supporting class to use [Notifications] with DSL. */
 class NotificationsBuilder @PublishedApi internal constructor() {
     @PublishedApi internal val nativeNotifications: Notifications = Notifications.create()
@@ -93,7 +97,3 @@ class NotificationsBuilder @PublishedApi internal constructor() {
         nativeNotifications.threshold(threshold, buildNotifications(thresholdNotificationsBuilder))
     }
 }
-
-/** Build notifications with Kotlin DSL. */
-inline fun buildNotifications(builderAction: NotificationsBuilder.() -> Unit): Notifications =
-    NotificationsBuilder().apply(builderAction).nativeNotifications

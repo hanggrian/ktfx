@@ -12,7 +12,6 @@ import org.testfx.framework.junit.ApplicationTest
 
 /**
  * Application test which can create fake key, mouse and scroll events.
- *
  * @see org.testfx.service.adapter.impl.JavafxRobotAdapter
  */
 open class BaseInputTest : ApplicationTest() {

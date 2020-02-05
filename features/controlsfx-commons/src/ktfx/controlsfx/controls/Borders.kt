@@ -1,3 +1,4 @@
+@file:JvmName("ControlsFxBordersKt")
 package ktfx.controlsfx.controls
 
 import javafx.scene.Node
@@ -26,7 +27,6 @@ inline fun Node.wrapLineBorder(builderAction: BordersBuilder.LineBuilder.() -> U
 
 /**
  * Supporting class to use [Borders] with DSL.
- *
  * @see Node.wrapBorders
  */
 class BordersBuilder @PublishedApi internal constructor(node: Node) {

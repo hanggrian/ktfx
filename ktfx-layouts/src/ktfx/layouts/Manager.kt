@@ -22,14 +22,12 @@ inline fun <C : T, T> BaseManager<T>.addChild(child: C, init: C.() -> Unit): C {
 
 /**
  * A manager contains a set of children.
- *
  * @param T type of the child.
  */
 interface BaseManager<T> {
 
     /**
      * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
-     *
      * @param child child to add
      * @return the child added
      */
@@ -41,7 +39,6 @@ interface BaseManager<T> {
 
 /**
  * Container of [MenuItem].
- *
  * @see javafx.scene.control.ContextMenu
  * @see javafx.scene.control.Menu
  * @see javafx.scene.control.MenuButton
@@ -51,7 +48,6 @@ interface MenuItemManager : BaseManager<MenuItem>
 
 /**
  * Container of [Menu].
- *
  * @see javafx.scene.control.MenuBar
  */
 interface MenuManager : BaseManager<Menu>
@@ -61,7 +57,6 @@ interface NodeManager : BaseManager<Node>
 
 /**
  * Container of [PathElement].
- *
  * @see javafx.scene.shape.Path
  */
 interface PathElementManager : BaseManager<PathElement>
@@ -69,14 +64,12 @@ interface PathElementManager : BaseManager<PathElement>
 /**
  * Container of [Tab].
  * Also being used in `JFXTabPane.kt`.
- *
  * @see javafx.scene.control.TabPane
  */
 interface TabManager : BaseManager<Tab>
 
 /**
  * Container of [TitledPane].
- *
  * @see javafx.scene.control.Accordion
  */
 interface TitledPaneManager : BaseManager<TitledPane>

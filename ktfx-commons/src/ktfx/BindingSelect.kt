@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("BindingKt")
+@file:JvmName("BindingsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx

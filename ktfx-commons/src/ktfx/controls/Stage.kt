@@ -11,39 +11,6 @@ import ktfx.internal.KtfxInternals.noGetter
 /** Get window as [Stage]. */
 inline val Scene.stage: Stage get() = window as Stage
 
-/** Convenient method for overriding the stage's computed minimum width and height. */
-fun Stage.setMinSize(width: Double, height: Double) {
-    minWidth = width
-    minHeight = height
-}
-
-/** Convenient method for overriding the stage's computed minimum width and height. */
-inline var Stage.minSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value, value)
-
-/** Convenient method for overriding the stage's computed width and height. */
-fun Stage.setSize(width: Double, height: Double) {
-    setWidth(width)
-    setHeight(height)
-}
-
-/** Convenient method for overriding the stage's computed width and height. */
-inline var Stage.size: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setSize(value, value)
-
-/** Convenient method for overriding the stage's computed maximum width and height. */
-fun Stage.setMaxSize(width: Double, height: Double) {
-    maxWidth = width
-    maxHeight = height
-}
-
-/** Convenient method for overriding the stage's computed maximum width and height. */
-inline var Stage.maxSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMaxSize(value, value)
-
 /** Removes old icons and set a new one to this stage. */
 inline var Stage.icon: Image
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()

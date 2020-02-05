@@ -7,7 +7,6 @@ import javafx.util.StringConverter
 /**
  * Build a new string converter by configuring [StringConverterBuilder.toString]
  * and [StringConverterBuilder.fromString] using provided [builderAction].
- *
  * @see kotlin.text.buildString
  */
 inline fun <T> buildStringConverter(builderAction: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =

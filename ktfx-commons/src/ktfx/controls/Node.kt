@@ -1,6 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("NodeKt")
-
 package ktfx.controls
 
 import javafx.scene.Node

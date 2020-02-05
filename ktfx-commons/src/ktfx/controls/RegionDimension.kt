@@ -52,7 +52,7 @@ inline var Region.verticalPadding: Double
     }
 
 /** Sets padding to all sides of this [Region]. */
-inline var Region.allPadding: Double
+inline var Region.paddings: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         padding = Insets(value)

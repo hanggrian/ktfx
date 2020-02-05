@@ -69,5 +69,9 @@ inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
 
 /** Set custom cell factory to this [TreeTableColumn]. */
 inline fun <S, T> TreeTableColumn<S, T>.cellFactory(
-    crossinline cellFactory: TreeTableCellBuilder<S, T>.() -> Unit
-): Unit = setCellFactory { TreeTableCellBuilder<S, T>().apply(cellFactory) }
+    crossinline builderAction: KtfxTreeTableCell<S, T>.(TreeTableColumn<S, T>) -> Unit
+): Unit = setCellFactory {
+    val builder = KtfxTreeTableCell<S, T>()
+    builder.builderAction(it)
+    builder
+}

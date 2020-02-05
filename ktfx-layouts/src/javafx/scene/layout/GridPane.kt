@@ -10,11 +10,8 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
-import javafx.scene.layout.ColumnConstraints
-import javafx.scene.layout.ConstraintsBase
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
-import javafx.scene.layout.RowConstraints
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
@@ -57,21 +54,29 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("setColumnSpan2") set(value) = setColumnSpan(this, value)
 
     /** Configure row index fluidly using infix operator. */
-    inline infix fun <C : Node> C.row(index: Int): C = apply { rowIndex = index }
+    inline infix fun <C : Node> C.row(index: Int): C {
+        rowIndex = index
+        return this
+    }
 
     /** Configure row index and span fluidly using infix operator. */
-    infix fun <C : Node> C.row(pair: Pair<Int, Int>): C = apply {
+    infix fun <C : Node> C.row(pair: Pair<Int, Int>): C {
         rowIndex = pair.first
         rowSpan = pair.second
+        return this
     }
 
     /** Configure column index fluidly using infix operator. */
-    inline infix fun <C : Node> C.col(index: Int): C = apply { columnIndex = index }
+    inline infix fun <C : Node> C.col(index: Int): C {
+        columnIndex = index
+        return this
+    }
 
     /** Configure column index and span fluidly using infix operator. */
-    infix fun <C : Node> C.col(pair: Pair<Int, Int>): C = apply {
+    infix fun <C : Node> C.col(pair: Pair<Int, Int>): C {
         columnIndex = pair.first
         columnSpan = pair.second
+        return this
     }
 
     /** Children alignment in this layout. */
@@ -93,13 +98,22 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("setValignment2") set(value) = setValignment(this, value)
 
     /** Configure alignment fluidly using infix operator. */
-    inline infix fun <C : Node> C.align(pos: Pos): C = apply { alignment = pos }
+    inline infix fun <C : Node> C.align(pos: Pos): C {
+        alignment = pos
+        return this
+    }
 
     /** Configure horizontal alignment fluidly using infix operator. */
-    inline infix fun <C : Node> C.halign(hpos: HPos): C = apply { halignment = hpos }
+    inline infix fun <C : Node> C.halign(hpos: HPos): C {
+        halignment = hpos
+        return this
+    }
 
     /** Configure vertical alignment fluidly using infix operator. */
-    inline infix fun <C : Node> C.valign(vpos: VPos): C = apply { valignment = vpos }
+    inline infix fun <C : Node> C.valign(vpos: VPos): C {
+        valignment = vpos
+        return this
+    }
 
     /** Children fill width property in this layout. */
     inline var Node.isFillWidth: Boolean?
@@ -112,10 +126,16 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("setFillHeight2") set(value) = setFillHeight(this, value)
 
     /** Configure fill width fluidly using infix operator. */
-    inline infix fun <C : Node> C.fillWidth(fill: Boolean): C = apply { isFillWidth = fill }
+    inline infix fun <C : Node> C.fillWidth(fill: Boolean): C {
+        isFillWidth = fill
+        return this
+    }
 
     /** Configure fill height fluidly using infix operator. */
-    inline infix fun <C : Node> C.fillHeight(fill: Boolean): C = apply { isFillHeight = fill }
+    inline infix fun <C : Node> C.fillHeight(fill: Boolean): C {
+        isFillHeight = fill
+        return this
+    }
 
     /** Children horizontal grow priority in this layout. */
     inline var Node.hgrow: Priority?
@@ -128,16 +148,28 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("setVgrow2") set(value) = setVgrow(this, value)
 
     /** Configure horizontal grow fluidly using infix operator. */
-    inline infix fun <C : Node> C.hgrow(priority: Priority): C = apply { hgrow = priority }
+    inline infix fun <C : Node> C.hgrow(priority: Priority): C {
+        hgrow = priority
+        return this
+    }
 
     /** Configure horizontal grow fluidly using infix operator. */
-    infix fun <C : Node> C.hgrow(always: Boolean): C = hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+    infix fun <C : Node> C.hgrow(always: Boolean): C {
+        hgrow = if (always) Priority.ALWAYS else Priority.NEVER
+        return this
+    }
 
     /** Configure vertical grow fluidly using infix operator. */
-    inline infix fun <C : Node> C.vgrow(priority: Priority): C = apply { vgrow = priority }
+    inline infix fun <C : Node> C.vgrow(priority: Priority): C {
+        vgrow = priority
+        return this
+    }
 
     /** Configure vertical grow fluidly using infix operator. */
-    infix fun <C : Node> C.vgrow(always: Boolean): C = vgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+    infix fun <C : Node> C.vgrow(always: Boolean): C {
+        vgrow = if (always) Priority.ALWAYS else Priority.NEVER
+        return this
+    }
 
     /** Children margin in this layout. */
     inline var Node.margin: Insets?
@@ -187,35 +219,59 @@ open class KtfxGridPane : GridPane(), NodeManager {
         }
 
     /** Sets margin to all sides of this children. */
-    var Node.allMargin: Double?
+    var Node.margins: Double?
         @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         set(value) {
             margin = Insets(value ?: 0.0)
         }
 
     /** Configure margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.margin(insets: Insets): C = apply { margin = insets }
+    inline infix fun <C : Node> C.margin(insets: Insets): C {
+        margin = insets
+        return this
+    }
 
     /** Configure top margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.topMargin(margin: Double): C = apply { topMargin = margin }
+    inline infix fun <C : Node> C.topMargin(margin: Double): C {
+        topMargin = margin
+        return this
+    }
 
     /** Configure right margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.rightMargin(margin: Double): C = apply { rightMargin = margin }
+    inline infix fun <C : Node> C.rightMargin(margin: Double): C {
+        rightMargin = margin
+        return this
+    }
 
     /** Configure bottom margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.bottomMargin(margin: Double): C = apply { bottomMargin = margin }
+    inline infix fun <C : Node> C.bottomMargin(margin: Double): C {
+        bottomMargin = margin
+        return this
+    }
 
     /** Configure left margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.leftMargin(margin: Double): C = apply { leftMargin = margin }
+    inline infix fun <C : Node> C.leftMargin(margin: Double): C {
+        leftMargin = margin
+        return this
+    }
 
     /** Configure horizontal margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.horizontalMargin(margin: Double): C = apply { horizontalMargin = margin }
+    inline infix fun <C : Node> C.horizontalMargin(margin: Double): C {
+        horizontalMargin = margin
+        return this
+    }
 
     /** Configure vertical margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.verticalMargin(margin: Double): C = apply { verticalMargin = margin }
+    inline infix fun <C : Node> C.verticalMargin(margin: Double): C {
+        verticalMargin = margin
+        return this
+    }
 
     /** Configure all margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.allMargin(margin: Double): C = apply { allMargin = margin }
+    inline infix fun <C : Node> C.margins(margin: Double): C {
+        margins = margin
+        return this
+    }
 }
 
 /** Create a [GridPane] with initialization block. */
@@ -235,70 +291,4 @@ inline fun NodeManager.gridPane(
 ): GridPane {
     contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
     return addChild(KtfxGridPane(), init)
-}
-
-/** Interface to build [GridPane] row and column constraints with Kotlin DSL. */
-interface ConstraintsBuilder<out T : ConstraintsBase> {
-
-    fun constraints(): T
-
-    fun constraints(init: T.() -> Unit): T =
-        constraints().apply(init)
-
-    fun constraints(size: Double): T
-
-    fun constraints(size: Double, init: T.() -> Unit): T =
-        constraints(size).apply(init)
-
-    fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T
-
-    fun constraints(minSize: Double, prefSize: Double, maxSize: Double, init: T.() -> Unit): T =
-        constraints(minSize, prefSize, maxSize).apply(init)
-}
-
-private abstract class ConstraintsBuilderImpl<T : ConstraintsBase> : ConstraintsBuilder<T> {
-
-    companion object {
-        fun ofRow(): ConstraintsBuilderImpl<RowConstraints> = object : ConstraintsBuilderImpl<RowConstraints>() {
-            override fun newInstance(): RowConstraints = RowConstraints()
-            override fun newInstance(width: Double): RowConstraints = RowConstraints(width)
-            override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): RowConstraints =
-                RowConstraints(width, prefWidth, maxWidth)
-        }
-
-        fun ofColumn(): ConstraintsBuilderImpl<ColumnConstraints> =
-            object : ConstraintsBuilderImpl<ColumnConstraints>() {
-                override fun newInstance(): ColumnConstraints = ColumnConstraints()
-                override fun newInstance(width: Double): ColumnConstraints = ColumnConstraints(width)
-                override fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): ColumnConstraints =
-                    ColumnConstraints(width, prefWidth, maxWidth)
-            }
-    }
-
-    val collection: MutableCollection<T> = mutableListOf()
-
-    abstract fun newInstance(): T
-
-    abstract fun newInstance(width: Double): T
-
-    abstract fun newInstance(width: Double, prefWidth: Double, maxWidth: Double): T
-
-    override fun constraints(): T =
-        newInstance().also { collection += it }
-
-    override fun constraints(size: Double): T =
-        newInstance(size).also { collection += it }
-
-    override fun constraints(minSize: Double, prefSize: Double, maxSize: Double): T =
-        newInstance(minSize, prefSize, maxSize).also { collection += it }
-}
-
-/** Invokes a row constraints DSL builder. */
-fun GridPane.rowConstraints(init: ConstraintsBuilder<RowConstraints>.() -> Unit) {
-    rowConstraints += ConstraintsBuilderImpl.ofRow().apply(init).collection
-}
-
-/** Invokes a column constraints DSL builder. */
-fun GridPane.columnConstraints(init: ConstraintsBuilder<ColumnConstraints>.() -> Unit) {
-    columnConstraints += ConstraintsBuilderImpl.ofColumn().apply(init).collection
 }

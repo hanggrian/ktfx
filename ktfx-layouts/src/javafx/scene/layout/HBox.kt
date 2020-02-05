@@ -36,10 +36,16 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
         @JvmName("setHgrow2") set(value) = setHgrow(this, value)
 
     /** Configure horizontal grow fluidly using infix operator. */
-    inline infix fun <C : Node> C.hgrow(priority: Priority): C = apply { hgrow = priority }
+    inline infix fun <C : Node> C.hgrow(priority: Priority): C {
+        hgrow = priority
+        return this
+    }
 
     /** Configure horizontal grow fluidly using infix operator. */
-    infix fun <C : Node> C.hgrow(always: Boolean): C = hgrow(if (always) Priority.ALWAYS else Priority.NEVER)
+    infix fun <C : Node> C.hgrow(always: Boolean): C {
+        hgrow = if (always) Priority.ALWAYS else Priority.NEVER
+        return this
+    }
 
     /** Children margin in this layout. */
     inline var Node.margin: Insets?
@@ -89,35 +95,59 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
         }
 
     /** Sets margin to all sides of this children. */
-    var Node.allMargin: Double?
+    var Node.margins: Double?
         @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         set(value) {
             margin = Insets(value ?: 0.0)
         }
 
     /** Configure margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.margin(insets: Insets): C = apply { margin = insets }
+    inline infix fun <C : Node> C.margin(insets: Insets): C {
+        margin = insets
+        return this
+    }
 
     /** Configure top margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.topMargin(margin: Double): C = apply { topMargin = margin }
+    inline infix fun <C : Node> C.topMargin(margin: Double): C {
+        topMargin = margin
+        return this
+    }
 
     /** Configure right margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.rightMargin(margin: Double): C = apply { rightMargin = margin }
+    inline infix fun <C : Node> C.rightMargin(margin: Double): C {
+        rightMargin = margin
+        return this
+    }
 
     /** Configure bottom margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.bottomMargin(margin: Double): C = apply { bottomMargin = margin }
+    inline infix fun <C : Node> C.bottomMargin(margin: Double): C {
+        bottomMargin = margin
+        return this
+    }
 
     /** Configure left margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.leftMargin(margin: Double): C = apply { leftMargin = margin }
+    inline infix fun <C : Node> C.leftMargin(margin: Double): C {
+        leftMargin = margin
+        return this
+    }
 
     /** Configure horizontal margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.horizontalMargin(margin: Double): C = apply { horizontalMargin = margin }
+    inline infix fun <C : Node> C.horizontalMargin(margin: Double): C {
+        horizontalMargin = margin
+        return this
+    }
 
     /** Configure vertical margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.verticalMargin(margin: Double): C = apply { verticalMargin = margin }
+    inline infix fun <C : Node> C.verticalMargin(margin: Double): C {
+        verticalMargin = margin
+        return this
+    }
 
     /** Configure all margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.allMargin(margin: Double): C = apply { allMargin = margin }
+    inline infix fun <C : Node> C.margins(margin: Double): C {
+        margins = margin
+        return this
+    }
 }
 
 /** Create an [HBox] with initialization block. */

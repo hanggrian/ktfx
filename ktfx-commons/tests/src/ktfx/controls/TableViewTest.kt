@@ -12,9 +12,9 @@ class TableViewTest {
 
     @Test fun columns() {
         val table = TableView<Nothing>()
-        table.columns {
+        table.tableColumns {
             "Full name"<String> {
-                columns {
+                tableColumns {
                     column<String>("First name")
                     column<String>("Last name")
                 }

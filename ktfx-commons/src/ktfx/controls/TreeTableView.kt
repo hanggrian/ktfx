@@ -1,5 +1,4 @@
 @file:UseExperimental(ExperimentalContracts::class)
-@file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.controls
 
@@ -9,44 +8,65 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Apply [TreeTableView.CONSTRAINED_RESIZE_POLICY] to this table. */
+/** Apply [TreeTableView.CONSTRAINED_RESIZE_POLICY] to this [TreeTableView]. */
+@Suppress("NOTHING_TO_INLINE")
 inline fun TreeTableView<*>.constrained() {
     columnResizePolicy = TreeTableView.CONSTRAINED_RESIZE_POLICY
 }
 
-/** Apply [TreeTableView.UNCONSTRAINED_RESIZE_POLICY] to this table. */
+/** Apply [TreeTableView.UNCONSTRAINED_RESIZE_POLICY] to this [TreeTableView]. */
+@Suppress("NOTHING_TO_INLINE")
 inline fun TreeTableView<*>.unconstrained() {
     columnResizePolicy = TreeTableView.UNCONSTRAINED_RESIZE_POLICY
 }
 
-/** Invokes a [TreeTableColumn] DSL builder. */
-inline fun <S> TreeTableView<S>.columns(configuration: TreeTableColumnsBuilder<S>.() -> Unit) {
+/** Return columns configurator of this [TreeTableView]. */
+inline val <S> TreeTableView<S>.tableColumns: TreeTableColumnContainer<S> get() = TreeTableColumnContainer(columns)
+
+/** Configure columns of this [TreeTableView] using [configuration] block. */
+inline fun <S> TreeTableView<S>.tableColumns(configuration: TreeTableColumnContainerScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    TreeTableColumnsBuilder<S>(columns).configuration()
+    TreeTableColumnContainerScope<S>(columns).configuration()
 }
 
-/** Invokes a [TreeTableColumn] DSL builder creating multiline column. */
-inline fun <S, T> TreeTableColumn<S, T>.columns(configuration: TreeTableColumnsBuilder<S>.() -> Unit) {
+/** Return columns configurator of this [TreeTableColumn]. */
+inline val <S> TreeTableColumn<S, *>.tableColumns: TreeTableColumnContainer<S> get() = TreeTableColumnContainer(columns)
+
+/** Configure columns of this [TreeTableColumn] using [configuration] block. */
+inline fun <S> TreeTableColumn<S, *>.tableColumns(configuration: TreeTableColumnContainerScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    TreeTableColumnsBuilder<S>(columns).configuration()
+    TreeTableColumnContainerScope<S>(columns).configuration()
 }
 
-/** Interface to build [TreeTableColumn] with Kotlin DSL. */
-@TableColumnDslMarker
-class TreeTableColumnsBuilder<S> @PublishedApi internal constructor(
-    private val columns: MutableCollection<TreeTableColumn<S, *>>
+/** Container of [TreeTableColumn], providing sets of useful operation. */
+open class TreeTableColumnContainer<S> @PublishedApi internal constructor(
+    @PublishedApi internal val columns: MutableCollection<TreeTableColumn<S, *>>
 ) {
 
-    fun <T> column(
-        text: String? = null
-    ): TreeTableColumn<S, T> = TreeTableColumn<S, T>(text).also { columns += it }
+    /** Add a default column using [text], returning the column added. */
+    fun <T> column(text: String? = null): TreeTableColumn<S, T> =
+        TreeTableColumn<S, T>(text).also { columns += it }
 
+    /** Add a column using [text] and [configuration] block, returning the column added. */
     inline fun <T> column(
         text: String? = null,
-        init: TreeTableColumn<S, T>.() -> Unit
-    ): TreeTableColumn<S, T> = column<T>(text).apply(init)
+        configuration: TreeTableColumn<S, T>.() -> Unit
+    ): TreeTableColumn<S, T> {
+        val column = TreeTableColumn<S, T>(text)
+        column.configuration()
+        columns += column
+        return column
+    }
+}
 
+/** Receiver for `tableColumns` block. */
+@TableColumnDslMarker
+class TreeTableColumnContainerScope<S> @PublishedApi internal constructor(
+    columns: MutableCollection<TreeTableColumn<S, *>>
+) : TreeTableColumnContainer<S>(columns) {
+
+    /** Add a column using receiver and [configuration] block, returning the column added. */
     inline operator fun <T> String.invoke(
-        init: TreeTableColumn<S, T>.() -> Unit
-    ): TreeTableColumn<S, T> = column(this, init)
+        configuration: TreeTableColumn<S, T>.() -> Unit
+    ): TreeTableColumn<S, T> = column(this, configuration)
 }

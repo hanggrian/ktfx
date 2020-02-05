@@ -8,14 +8,14 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableSet
 
 /**
- * Returns an empty immutable [ObservableSet].
+ * Returns an empty read-only observable set.
  *
  * @see emptySet
  */
 inline fun <T> emptyObservableSet(): ObservableSet<T> = FXCollections.emptyObservableSet()
 
 /**
- * Alias of [emptyObservableSet].
+ * Returns an empty read-only set.
  *
  * @see setOf
  */

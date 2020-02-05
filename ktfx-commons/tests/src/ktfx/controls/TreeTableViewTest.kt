@@ -12,9 +12,9 @@ class TreeTableViewTest {
 
     @Test fun columns() {
         val treeTable = TreeTableView<Nothing>()
-        treeTable.columns {
+        treeTable.tableColumns {
             "Full name"<String> {
-                columns {
+                tableColumns {
                     column<String>("First name")
                     column<String>("Last name")
                 }

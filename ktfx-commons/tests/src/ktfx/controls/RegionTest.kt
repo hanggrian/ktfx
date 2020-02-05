@@ -16,7 +16,7 @@ class RegionTest {
 
     @Test fun padding() {
         val region = Region()
-        region.allPadding = 10.0
+        region.paddings = 10.0
         assertEquals(10.0, region.topPadding)
         assertEquals(10.0, region.leftPadding)
         assertEquals(10.0, region.rightPadding)

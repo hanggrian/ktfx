@@ -59,7 +59,7 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
         set(value) = setAnchor(value, rightAnchor, value, leftAnchor)
 
     /** Sets anchor to all sides of this children. */
-    inline var Node.anchor: Double?
+    inline var Node.anchors: Double?
         @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
         set(value) = setAnchor(value, value, value, value)
 
@@ -72,25 +72,46 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
     }
 
     /** Configure top anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.topAnchor(anchor: Double): C = apply { topAnchor = anchor }
+    inline infix fun <C : Node> C.topAnchor(anchor: Double): C {
+        topAnchor = anchor
+        return this
+    }
 
     /** Configure right anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.rightAnchor(anchor: Double): C = apply { rightAnchor = anchor }
+    inline infix fun <C : Node> C.rightAnchor(anchor: Double): C {
+        rightAnchor = anchor
+        return this
+    }
 
     /** Configure bottom anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.bottomAnchor(anchor: Double): C = apply { bottomAnchor = anchor }
+    inline infix fun <C : Node> C.bottomAnchor(anchor: Double): C {
+        bottomAnchor = anchor
+        return this
+    }
 
     /** Configure left anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.leftAnchor(anchor: Double): C = apply { leftAnchor = anchor }
+    inline infix fun <C : Node> C.leftAnchor(anchor: Double): C {
+        leftAnchor = anchor
+        return this
+    }
 
     /** Configure horizontal anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.horizontalAnchor(anchor: Double): C = apply { horizontalAnchor = anchor }
+    inline infix fun <C : Node> C.horizontalAnchor(anchor: Double): C {
+        horizontalAnchor = anchor
+        return this
+    }
 
     /** Configure vertical anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.verticalAnchor(anchor: Double): C = apply { verticalAnchor = anchor }
+    inline infix fun <C : Node> C.verticalAnchor(anchor: Double): C {
+        verticalAnchor = anchor
+        return this
+    }
 
     /** Configure all anchor fluidly using infix operator. */
-    inline infix fun <C : Node> C.anchor(anchor: Double): C = apply { this.anchor = anchor }
+    inline infix fun <C : Node> C.anchors(anchor: Double): C {
+        anchors = anchor
+        return this
+    }
 }
 
 /** Create an [AnchorPane] with initialization block. */

@@ -23,8 +23,11 @@ inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Backgro
     BackgroundBuilder().apply(builderAction).build()
 
 /** Add multiple [BackgroundFill] and/or [BackgroundImage] to node using DSL. */
-inline fun Region.background(builderAction: BackgroundBuilder.() -> Unit): Background =
-    buildBackground(builderAction).also { background = it }
+inline fun Region.background(builderAction: BackgroundBuilder.() -> Unit): Background {
+    val background = buildBackground(builderAction)
+    setBackground(background)
+    return background
+}
 
 /** Add a new [BackgroundFill] to node using DSL. */
 inline fun Region.backgroundFill(builderAction: BackgroundBuilder.FillBuilder.() -> Unit): Background =
@@ -44,12 +47,18 @@ class BackgroundBuilder @PublishedApi internal constructor() {
     val images: MutableList<BackgroundImage> = mutableListOf()
 
     /** Add a new [BackgroundFill] to node using DSL. */
-    inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill =
-        FillBuilder().apply(builderAction).build().also { fills += it }
+    inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill {
+        val backgroundFill = FillBuilder().apply(builderAction).build()
+        fills += backgroundFill
+        return backgroundFill
+    }
 
     /** Add a new [BackgroundImage] to node using DSL. */
-    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage =
-        ImageBuilder(image).apply(builderAction).build().also { images += it }
+    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage {
+        val backgroundImage = ImageBuilder(image).apply(builderAction).build()
+        images += backgroundImage
+        return backgroundImage
+    }
 
     @PublishedApi internal fun build(): Background = Background(fills, images)
 

@@ -6,10 +6,10 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
 /** All observable array tests must follow this convention. */
-abstract class BaseArrayTest<T : ObservableArray<T>, UnboxedArray, E> {
+abstract class BaseArrayTest<T : ObservableArray<T>, PrimitiveArray, E> {
 
-    abstract val boxedArray: Array<E>
-    abstract val unboxedArray: UnboxedArray
+    abstract val typedArray: Array<E>
+    abstract val primitiveArray: PrimitiveArray
 
     abstract fun of(): T
     abstract fun of(values: Array<E>): T
@@ -18,18 +18,18 @@ abstract class BaseArrayTest<T : ObservableArray<T>, UnboxedArray, E> {
         val empty = of()
         assertEquals(0, empty.size())
 
-        val filled = of(boxedArray)
+        val filled = of(typedArray)
         assertNotEquals(0, filled.size())
     }
 
     abstract fun Array<E>.to(): T
-    abstract fun UnboxedArray.to(): T
+    abstract fun PrimitiveArray.to(): T
 
     @Test fun converting() {
-        val array = boxedArray.to()
+        val array = typedArray.to()
         assertNotEquals(0, array.size())
 
-        val typedArray = unboxedArray.to()
+        val typedArray = primitiveArray.to()
         assertNotEquals(0, typedArray.size())
     }
 }

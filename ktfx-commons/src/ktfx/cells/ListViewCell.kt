@@ -53,5 +53,9 @@ inline fun <T> ListView<T>.textFieldCellFactory(
 
 /** Set custom cell factory to this [ListView]. */
 inline fun <T> ListView<T>.cellFactory(
-    crossinline cellFactory: ListCellBuilder<T>.() -> Unit
-): Unit = setCellFactory { ListCellBuilder<T>().apply(cellFactory) }
+    crossinline builderAction: KtfxListCell<T>.(ListView<T>) -> Unit
+): Unit = setCellFactory {
+    val builder = KtfxListCell<T>()
+    builder.builderAction(it)
+    builder
+}

@@ -17,7 +17,7 @@ class OpenClassRule : Rule("open-class") {
         }
         val ktClass = node.getPsi(KtClass::class.java)
 
-        // only check top-level class, ignore non-class
+        // only check top-level class
         if (ktClass.parent !is KtFile || ktClass.isInterface() || ktClass.isAnnotation()) {
             return
         }

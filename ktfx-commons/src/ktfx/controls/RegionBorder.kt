@@ -23,8 +23,11 @@ inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
     BorderBuilder().apply(builderAction).build()
 
 /** Add multiple [BorderStroke] and/or [BorderImage] to node using DSL. */
-inline fun Region.border(builderAction: BorderBuilder.() -> Unit): Border =
-    buildBorder(builderAction).also { border = it }
+inline fun Region.border(builderAction: BorderBuilder.() -> Unit): Border {
+    val border = buildBorder(builderAction)
+    setBorder(border)
+    return border
+}
 
 /** Add a new [BorderStroke] to node using DSL. */
 inline fun Region.borderStroke(builderAction: BorderBuilder.StrokeBuilder.() -> Unit): Border =
@@ -44,12 +47,18 @@ class BorderBuilder @PublishedApi internal constructor() {
     val images: MutableList<BorderImage> = mutableListOf()
 
     /** Add a new [BorderStroke] to node using DSL. */
-    inline fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke =
-        StrokeBuilder().apply(builderAction).build().also { strokes += it }
+    inline fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke {
+        val borderStroke = StrokeBuilder().apply(builderAction).build()
+        strokes += borderStroke
+        return borderStroke
+    }
 
     /** Add a new [BorderImage] to node using DSL. */
-    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage =
-        ImageBuilder(image).apply(builderAction).build().also { images += it }
+    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage {
+        val borderImage = ImageBuilder(image).apply(builderAction).build()
+        images += borderImage
+        return borderImage
+    }
 
     @PublishedApi internal fun build(): Border = Border(strokes, images)
 

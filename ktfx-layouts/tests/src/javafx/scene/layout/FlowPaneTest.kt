@@ -23,7 +23,7 @@ class FlowPaneTest : LayoutsTest<NodeManager, FlowPane>() {
 
     @Test fun margins() {
         flowPane {
-            val region1 = region() allMargin 0.0
+            val region1 = region() margins 0.0
             assertEquals(0.0, region1.topMargin)
             assertEquals(0.0, region1.rightMargin)
             assertEquals(0.0, region1.bottomMargin)

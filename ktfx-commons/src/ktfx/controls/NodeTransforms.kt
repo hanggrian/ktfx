@@ -10,32 +10,42 @@ import javafx.scene.transform.Scale
 import javafx.scene.transform.Shear
 import javafx.scene.transform.Translate
 
-/** Add [Affine] transformation with [transformAction] to this node, returning the transformation added. */
-inline fun Node.affineTransform(transformAction: Affine.() -> Unit): Affine = Affine().also {
-    it.transformAction()
-    transforms += it
+/** Add [Affine] transformation with [configuration] block to this [Node], returning the transformation added. */
+inline fun Node.affineTransform(configuration: Affine.() -> Unit): Affine {
+    val transform = Affine()
+    transform.configuration()
+    transforms += transform
+    return transform
 }
 
-/** Add [Rotate] transformation with [transformAction] to this node, returning the transformation added. */
-inline fun Node.rotateTransform(transformAction: Rotate.() -> Unit): Rotate = Rotate().also {
-    it.transformAction()
-    transforms += it
+/** Add [Rotate] transformation with [configuration] block to this [Node], returning the transformation added. */
+inline fun Node.rotateTransform(configuration: Rotate.() -> Unit): Rotate {
+    val transform = Rotate()
+    transform.configuration()
+    transforms += transform
+    return transform
 }
 
-/** Add [Scale] transformation with [transformAction] to this node, returning the transformation added. */
-inline fun Node.scaleTransform(transformAction: Scale.() -> Unit): Scale = Scale().also {
-    it.transformAction()
-    transforms += it
+/** Add [Scale] transformation with [configuration] block to this [Node], returning the transformation added. */
+inline fun Node.scaleTransform(configuration: Scale.() -> Unit): Scale {
+    val transform = Scale()
+    transform.configuration()
+    transforms += transform
+    return transform
 }
 
-/** Add [Shear] transformation with [transformAction] to this node, returning the transformation added. */
-inline fun Node.shearTransform(transformAction: Shear.() -> Unit): Shear = Shear().also {
-    it.transformAction()
-    transforms += it
+/** Add [Shear] transformation with [configuration] block to this [Node], returning the transformation added. */
+inline fun Node.shearTransform(configuration: Shear.() -> Unit): Shear {
+    val transform = Shear()
+    transform.configuration()
+    transforms += transform
+    return transform
 }
 
-/** Add [Translate] transformation with [transformAction] to this node, returning the transformation added. */
-inline fun Node.translateTransform(transformAction: Translate.() -> Unit): Translate = Translate().also {
-    it.transformAction()
-    transforms += it
+/** Add [Translate] transformation with [configuration] block to this [Node], returning the transformation added. */
+inline fun Node.translateTransform(configuration: Translate.() -> Unit): Translate {
+    val transform = Translate()
+    transform.configuration()
+    transforms += transform
+    return transform
 }

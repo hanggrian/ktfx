@@ -4,7 +4,16 @@ package ktfx.text
 
 import javafx.util.StringConverter
 
-/** Class to build [StringConverter] with DSL. */
+/**
+ * Build a new string converter by configuring [StringConverterBuilder.toString]
+ * and [StringConverterBuilder.fromString] using provided [builderAction].
+ *
+ * @see kotlin.text.buildString
+ */
+inline fun <T> buildStringConverter(builderAction: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
+    StringConverterBuilder<T>().apply(builderAction).build()
+
+/** Receiver for `buildStringConverter` block. */
 class StringConverterBuilder<T> @PublishedApi internal constructor() {
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
@@ -24,15 +33,6 @@ class StringConverterBuilder<T> @PublishedApi internal constructor() {
         override fun fromString(string: String): T? = _fromString(string)
     }
 }
-
-/**
- * Builds new string converter by configuring [StringConverterBuilder.toString]
- * and [StringConverterBuilder.fromString] using provided [builderAction].
- *
- * @see kotlin.text.buildString
- */
-inline fun <T> buildStringConverter(builderAction: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
-    StringConverterBuilder<T>().apply(builderAction).build()
 
 /** Converts the object provided into its string form. */
 inline operator fun <T> StringConverter<T>.invoke(obj: T): String = toString(obj)

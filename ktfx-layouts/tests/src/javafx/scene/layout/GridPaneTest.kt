@@ -4,7 +4,6 @@ import javafx.scene.layout.GridPane
 import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class GridPaneTest : LayoutsTest<NodeManager, GridPane>() {
 
@@ -13,21 +12,6 @@ class GridPaneTest : LayoutsTest<NodeManager, GridPane>() {
     override fun child1() = gridPane { }
     override fun NodeManager.child2() = gridPane()
     override fun NodeManager.child3() = gridPane { }
-
-    @Test fun constraints() {
-        gridPane {
-            rowConstraints {
-                constraints {
-                    isFillHeight = true
-                }
-            }
-            columnConstraints {
-                constraints(72.0)
-            }
-            assertTrue(rowConstraints.first().isFillHeight)
-            assertEquals(72.0, columnConstraints.first().prefWidth)
-        }
-    }
 
     @Test fun colAndRow() {
         gridPane {

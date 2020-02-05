@@ -3,27 +3,34 @@ package ktfx.cells
 import javafx.scene.control.ListCell
 import javafx.scene.control.TableCell
 import javafx.scene.control.TableRow
+import javafx.scene.control.TreeCell
 import javafx.scene.control.TreeTableCell
 import javafx.scene.control.TreeTableRow
 
-/** Interface to build [javafx.scene.control.Cell] with Kotlin DSL. */
-interface CellBuilder<out T> {
+/**
+ * @see KtfxListCell
+ * @see KtfxTreeCell
+ * @see KtfxTableRow
+ * @see KtfxTableCell
+ * @see KtfxTreeTableRow
+ * @see KtfxTreeTableCell
+ */
+internal interface KtfxCell<out T> {
 
-    /** Invoked when cell is on editing mode. */
+    /** Called when cell is on editing mode. */
     fun onEditStart(action: () -> Unit)
 
-    /** Invoked when cell edit is being committed. */
+    /** Called when cell edit is being committed. */
     fun onEditCommit(action: (T?) -> Unit)
 
-    /** Invoked when cell edit is canceled. */
+    /** Called when cell edit is canceled. */
     fun onEditCancel(action: () -> Unit)
 
-    /** Invoked when cell item is updating. */
+    /** Called when cell item is updating. */
     fun onUpdate(action: (T?, empty: Boolean) -> Unit)
 }
 
-/** [ListCell] builder with Kotlin DSL. */
-class ListCellBuilder<T> @PublishedApi internal constructor() : ListCell<T>(), CellBuilder<T> {
+class KtfxListCell<T> @PublishedApi internal constructor() : ListCell<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -66,8 +73,7 @@ class ListCellBuilder<T> @PublishedApi internal constructor() : ListCell<T>(), C
     }
 }
 
-/** [TableRow] builder with Kotlin DSL. */
-class TableRowBuilder<T> @PublishedApi internal constructor() : TableRow<T>(), CellBuilder<T> {
+class KtfxTreeCell<T> @PublishedApi internal constructor() : TreeCell<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -110,8 +116,7 @@ class TableRowBuilder<T> @PublishedApi internal constructor() : TableRow<T>(), C
     }
 }
 
-/** [TableCell] builder with Kotlin DSL. */
-class TableCellBuilder<S, T> @PublishedApi internal constructor() : TableCell<S, T>(), CellBuilder<T> {
+class KtfxTableRow<T> @PublishedApi internal constructor() : TableRow<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -154,8 +159,7 @@ class TableCellBuilder<S, T> @PublishedApi internal constructor() : TableCell<S,
     }
 }
 
-/** [TreeTableRow] builder with Kotlin DSL. */
-class TreeTableRowBuilder<T> @PublishedApi internal constructor() : TreeTableRow<T>(), CellBuilder<T> {
+class KtfxTableCell<S, T> @PublishedApi internal constructor() : TableCell<S, T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null
@@ -198,8 +202,50 @@ class TreeTableRowBuilder<T> @PublishedApi internal constructor() : TreeTableRow
     }
 }
 
-/** [TreeTableCell] builder with Kotlin DSL. */
-class TreeTableCellBuilder<S, T> @PublishedApi internal constructor() : TreeTableCell<S, T>(), CellBuilder<T> {
+class KtfxTreeTableRow<T> @PublishedApi internal constructor() : TreeTableRow<T>(), KtfxCell<T> {
+    private var onEditStart: (() -> Unit)? = null
+    private var onEditCommit: ((T?) -> Unit)? = null
+    private var onEditCancel: (() -> Unit)? = null
+    private var onUpdate: ((T?, empty: Boolean) -> Unit)? = null
+
+    override fun onEditStart(action: () -> Unit) {
+        onEditStart = action
+    }
+
+    override fun startEdit() {
+        super.startEdit()
+        onEditStart?.invoke()
+    }
+
+    override fun onEditCommit(action: (T?) -> Unit) {
+        onEditCommit = action
+    }
+
+    override fun commitEdit(newValue: T?) {
+        super.commitEdit(newValue)
+        onEditCommit?.invoke(newValue)
+    }
+
+    override fun onEditCancel(action: () -> Unit) {
+        onEditCancel = action
+    }
+
+    override fun cancelEdit() {
+        super.cancelEdit()
+        onEditCancel?.invoke()
+    }
+
+    override fun onUpdate(action: (T?, empty: Boolean) -> Unit) {
+        onUpdate = action
+    }
+
+    override fun updateItem(item: T?, empty: Boolean) {
+        super.updateItem(item, empty)
+        onUpdate?.invoke(item, empty)
+    }
+}
+
+class KtfxTreeTableCell<S, T> @PublishedApi internal constructor() : TreeTableCell<S, T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

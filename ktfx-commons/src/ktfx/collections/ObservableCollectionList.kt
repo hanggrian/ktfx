@@ -10,14 +10,14 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 
 /**
- * Returns an empty immutable [ObservableList].
+ * Returns an empty read-only observable list.
  *
  * @see emptyList
  */
 inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
 
 /**
- * Alias of [emptyObservableList].
+ * Returns an empty read-only observable list.
  *
  * @see listOf
  */
@@ -124,10 +124,10 @@ fun <T> Sequence<T>.toObservableList(): ObservableList<T> = toMutableObservableL
 fun <T> Sequence<T>.toMutableObservableList(): ObservableList<T> = toCollection(FXCollections.observableArrayList())
 
 /** Copies elements from src to list, firing change notification once. */
-inline fun <T> ObservableList<T>.copy(src: List<T>): Unit = FXCollections.copy(this, src)
+inline fun <T> ObservableList<T>.copyTo(src: List<T>): Unit = FXCollections.copy(this, src)
 
 /** Fills the list with obj, firing change notification once. */
-inline fun <T> ObservableList<T>.fill(obj: T): Unit = FXCollections.fill(this, obj)
+inline fun <T> ObservableList<T>.fillTo(obj: T): Unit = FXCollections.fill(this, obj)
 
 /** Replace all oldVal elements in the list with newVal element, firing change notification once. */
 inline fun <T> ObservableList<T>.replaceAll(oldVal: T, newVal: T): Boolean =

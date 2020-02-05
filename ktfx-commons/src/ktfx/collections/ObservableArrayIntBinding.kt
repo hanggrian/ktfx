@@ -22,16 +22,24 @@ inline fun ObservableIntegerArray.getBinding(index: ObservableNumberValue): Inte
 inline fun ObservableIntegerArray.getBinding(index: ObservableIntegerValue): IntegerBinding =
     Bindings.integerValueAt(this, index)
 
-/** Performs the given [action] on each element binding. */
+/**
+ * Performs the given [action] on each element binding.
+ *
+ * @see forEach
+ */
 inline fun ObservableIntegerArray.forEachBinding(action: (IntegerBinding) -> Unit) {
-    for (index in 0 until size) {
-        action(getBinding(index))
+    for (index in 0 until size()) {
+        action(Bindings.integerValueAt(this, index))
     }
 }
 
-/** Performs the given [action] on each element binding, accompanied with the index of the element. */
+/**
+ * Performs the given [action] on each element binding, accompanied with the index of the element.
+ *
+ * @see forEachIndexed
+ */
 inline fun ObservableIntegerArray.forEachBindingIndexed(action: (index: Int, IntegerBinding) -> Unit) {
-    for (index in 0 until size) {
-        action(index, getBinding(index))
+    for (index in 0 until size()) {
+        action(index, Bindings.integerValueAt(this, index))
     }
 }

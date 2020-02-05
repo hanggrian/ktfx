@@ -15,7 +15,7 @@ class AnchorPaneTest : LayoutsTest<NodeManager, AnchorPane>() {
 
     @Test fun anchors() {
         anchorPane {
-            val region1 = region() anchor 0.0
+            val region1 = region() anchors 0.0
             assertEquals(0.0, region1.topAnchor)
             assertEquals(0.0, region1.leftAnchor)
             assertEquals(0.0, region1.bottomAnchor)

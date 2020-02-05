@@ -68,5 +68,9 @@ inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
 
 /** Set custom cell factory to this [TableColumn]. */
 inline fun <S, T> TableColumn<S, T>.cellFactory(
-    crossinline cellFactory: TableCellBuilder<S, T>.() -> Unit
-): Unit = setCellFactory { TableCellBuilder<S, T>().apply(cellFactory) }
+    crossinline builderAction: KtfxTableCell<S, T>.(TableColumn<S, T>) -> Unit
+): Unit = setCellFactory {
+    val builder = KtfxTableCell<S, T>()
+    builder.builderAction(it)
+    builder
+}

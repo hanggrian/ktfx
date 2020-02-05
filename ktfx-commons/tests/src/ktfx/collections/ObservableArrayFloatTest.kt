@@ -5,8 +5,8 @@ import ktfx.test.BaseArrayTest
 
 class ObservableArrayFloatTest : BaseArrayTest<ObservableFloatArray, FloatArray, Float>() {
 
-    override val boxedArray = arrayOf(1f, 2f, 3f)
-    override val unboxedArray = floatArrayOf(1f, 2f, 3f)
+    override val typedArray = arrayOf(1f, 2f, 3f)
+    override val primitiveArray = floatArrayOf(1f, 2f, 3f)
 
     override fun of() = observableFloatArrayOf()
     override fun of(values: Array<Float>) = observableFloatArrayOf(*values.toFloatArray())

@@ -40,92 +40,134 @@ var Dialog<*>.headerTitle: String
         title = value
     }
 
-/** Quickly add button type to this dialog without DSL. */
+/** Return buttons configurator of this [Dialog]. */
 val Dialog<*>.buttons: DialogButtonContainer get() = DialogButtonContainer(this)
 
-/** Opens up DSL to add button types to this dialog. */
-inline fun Dialog<*>.buttons(buttonsAction: DialogButtonContainerScope.() -> Unit) {
-    contract { callsInPlace(buttonsAction, InvocationKind.EXACTLY_ONCE) }
-    DialogButtonContainerScope(this).buttonsAction()
+/** Configure buttons of this [Dialog] using [configuration] block. */
+inline fun Dialog<*>.buttons(configuration: DialogButtonContainerScope.() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    DialogButtonContainerScope(this).configuration()
 }
 
-/** Supporting class to build dialog buttons with Kotlin DSL. */
-open class DialogButtonContainer internal constructor(private val nativeDialog: Dialog<*>) {
+/** Container of [ButtonType], providing sets of useful operation. */
+open class DialogButtonContainer internal constructor(
+    @PublishedApi internal val nativeDialog: Dialog<*>
+) {
 
     /** Add apply button. */
     fun apply(): Button = add(ButtonType.APPLY)
 
-    /** Add apply button, invoking DSL to customize it as node. */
-    inline fun apply(configuration: Button.() -> Unit): Button = apply().apply(configuration)
+    /** Add apply button using [configuration] block. */
+    inline fun apply(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.APPLY)
+        button.configuration()
+        return button
+    }
 
     /** Add ok button. */
     fun ok(): Button = add(ButtonType.OK)
 
-    /** Add ok button, invoking DSL to customize it as node. */
-    inline fun ok(configuration: Button.() -> Unit): Button = ok().apply(configuration)
+    /** Add ok button using [configuration] block. */
+    inline fun ok(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.OK)
+        button.configuration()
+        return button
+    }
 
     /** Add cancel button. */
     fun cancel(): Button = add(ButtonType.CANCEL)
 
-    /** Add cancel button, invoking DSL to customize it as node. */
-    inline fun cancel(configuration: Button.() -> Unit): Button = cancel().apply(configuration)
+    /** Add cancel button using [configuration] block. */
+    inline fun cancel(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.CANCEL)
+        button.configuration()
+        return button
+    }
 
     /** Add close button. */
     fun close(): Button = add(ButtonType.CLOSE)
 
-    /** Add close button, invoking DSL to customize it as node. */
-    inline fun close(configuration: Button.() -> Unit): Button = close().apply(configuration)
+    /** Add close button using [configuration] block. */
+    inline fun close(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.CLOSE)
+        button.configuration()
+        return button
+    }
 
     /** Add yes button. */
     fun yes(): Button = add(ButtonType.YES)
 
-    /** Add yes button, invoking DSL to customize it as node. */
-    inline fun yes(configuration: Button.() -> Unit): Button = yes().apply(configuration)
+    /** Add yes button using [configuration] block. */
+    inline fun yes(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.YES)
+        button.configuration()
+        return button
+    }
 
     /** Add no button. */
     fun no(): Button = add(ButtonType.NO)
 
-    /** Add no button, invoking DSL to customize it as node. */
-    inline fun no(configuration: Button.() -> Unit): Button = no().apply(configuration)
+    /** Add no button using [configuration] block. */
+    inline fun no(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.NO)
+        button.configuration()
+        return button
+    }
 
     /** Add finish button. */
     fun finish(): Button = add(ButtonType.FINISH)
 
-    /** Add finish button, invoking DSL to customize it as node. */
-    inline fun finish(configuration: Button.() -> Unit): Button = finish().apply(configuration)
+    /** Add finish button using [configuration] block. */
+    inline fun finish(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.FINISH)
+        button.configuration()
+        return button
+    }
 
     /** Add next button. */
     fun next(): Button = add(ButtonType.NEXT)
 
-    /** Add next button, invoking DSL to customize it as node. */
-    inline fun next(configuration: Button.() -> Unit): Button = next().apply(configuration)
+    /** Add next button using [configuration] block. */
+    inline fun next(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.NEXT)
+        button.configuration()
+        return button
+    }
 
     /** Add previous button. */
     fun previous(): Button = add(ButtonType.PREVIOUS)
 
-    /** Add previous button, invoking DSL to customize it as node. */
-    inline fun previous(configuration: Button.() -> Unit): Button = previous().apply(configuration)
+    /** Add previous button using [configuration] block. */
+    inline fun previous(configuration: Button.() -> Unit): Button {
+        val button = add(ButtonType.PREVIOUS)
+        button.configuration()
+        return button
+    }
 
-    /** Add custom button specifying text and type. */
+    /** Add custom button specifying [text] and [data]. */
     fun custom(
         text: String,
         data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER
     ): Button = add(ButtonType(text, data))
 
-    /** Add custom button specifying text and type, invoking DSL to customize it as node. */
+    /** Add custom button specifying [text] and [data] using [configuration] block. */
     inline fun custom(
         text: String,
         data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER,
         configuration: Button.() -> Unit
-    ): Button = custom(text, data).apply(configuration)
+    ): Button {
+        val button = add(ButtonType(text, data))
+        button.configuration()
+        return button
+    }
 
-    private fun add(type: ButtonType): Button {
+    @PublishedApi internal fun add(type: ButtonType): Button {
         nativeDialog.dialogPane.buttonTypes += type
         return nativeDialog.dialogPane.lookupButton(type) as Button
     }
 }
 
-/** Scope of [DialogButtonContainer]. */
+/** Receiver for `buttons` block. */
 class DialogButtonContainerScope @PublishedApi internal constructor(nativeDialog: Dialog<*>) :
     DialogButtonContainer(nativeDialog) {
 

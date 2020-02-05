@@ -55,3 +55,12 @@ inline fun TreeView<String>.textFieldCellFactory(): Unit =
 inline fun <T> TreeView<T>.textFieldCellFactory(
     converter: StringConverter<T> = KtfxCellUtils.defaultStringConverter()
 ): Unit = setCellFactory(TextFieldTreeCell.forTreeView(converter))
+
+/** Set custom cell factory to this [TreeView]. */
+inline fun <T> TreeView<T>.cellFactory(
+    crossinline builderAction: KtfxTreeCell<T>.(TreeView<T>) -> Unit
+): Unit = setCellFactory {
+    val builder = KtfxTreeCell<T>()
+    builder.builderAction(it)
+    builder
+}

@@ -29,7 +29,7 @@ class BindingsCreateObjectTest {
         val dependency = SimpleObjectProperty(1.m)
         val binding = dependency.toBinding { it }
         assertEquals(60.s, binding.value)
-        dependency.clear()
+        dependency.value = null
         assertNull(binding.value)
     }
 

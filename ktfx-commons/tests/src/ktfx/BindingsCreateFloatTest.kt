@@ -25,7 +25,7 @@ class BindingsCreateFloatTest {
         val dependency = SimpleObjectProperty(1.m)
         val binding = dependency.toFloatBinding { it?.toMillis()?.toFloat() ?: 0f }
         assertEquals(60000f, binding.value)
-        dependency.clear()
+        dependency.value = null
         assertEquals(0f, binding.value)
     }
 

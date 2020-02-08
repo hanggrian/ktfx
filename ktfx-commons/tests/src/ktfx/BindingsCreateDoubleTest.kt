@@ -25,7 +25,7 @@ class BindingsCreateDoubleTest {
         val dependency = SimpleObjectProperty(1.m)
         val binding = dependency.toDoubleBinding { it?.toMillis() ?: 0.0 }
         assertEquals(60000.0, binding.value)
-        dependency.clear()
+        dependency.value = null
         assertEquals(0.0, binding.value)
     }
 

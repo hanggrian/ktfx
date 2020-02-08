@@ -25,7 +25,7 @@ class BindingsCreateLongTest {
         val dependency = SimpleObjectProperty(1.m)
         val binding = dependency.toLongBinding { it?.toMillis()?.toLong() ?: 0 }
         assertEquals(60000, binding.value)
-        dependency.clear()
+        dependency.value = null
         assertEquals(0, binding.value)
     }
 

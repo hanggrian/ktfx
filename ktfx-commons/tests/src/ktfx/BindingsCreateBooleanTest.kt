@@ -27,7 +27,7 @@ class BindingsCreateBooleanTest {
         val dependency = SimpleObjectProperty(1.m)
         val binding = dependency.toBooleanBinding { it == 60.s }
         assertTrue(binding.value)
-        dependency.clear()
+        dependency.value = null
         assertFalse(binding.value)
     }
 

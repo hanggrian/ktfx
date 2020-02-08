@@ -26,7 +26,7 @@ class BindingsCreateStringTest {
         val dependency = SimpleObjectProperty(1.m)
         val binding = dependency.toStringBinding { it.toString() }
         assertEquals("60000.0 ms", binding.value)
-        dependency.clear()
+        dependency.value = null
         assertEquals("null", binding.value)
     }
 

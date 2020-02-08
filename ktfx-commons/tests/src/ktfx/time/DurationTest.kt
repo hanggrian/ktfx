@@ -3,8 +3,6 @@ package ktfx.time
 import javafx.util.Duration
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 import kotlin.time.ExperimentalTime
 import kotlin.time.seconds
 
@@ -56,31 +54,6 @@ class DurationTest {
     }
 
     @Test fun unaryMinus() = assertEquals(Duration.ONE.negate(), (-1).ms)
-
-    @Test fun isNegative() {
-        assertTrue((-1).ms.isNegative())
-        assertFalse(1.ms.isNegative())
-    }
-
-    @Test fun isPositive() {
-        assertFalse((-1).ms.isPositive())
-        assertTrue(1.ms.isPositive())
-    }
-
-    @Test fun isInfinite() {
-        assertTrue(Duration.INDEFINITE.isInfinite())
-        assertFalse(Duration.ONE.isInfinite())
-    }
-
-    @Test fun isFinite() {
-        assertFalse(Duration.INDEFINITE.isFinite())
-        assertTrue(Duration.ONE.isFinite())
-    }
-
-    @Test fun absoluteValue() {
-        assertEquals(1.0, (-1).ms.absoluteValue.toMillis())
-        assertEquals(1.0, 1.ms.absoluteValue.toMillis())
-    }
 
     @ExperimentalTime
     @Test fun toKotlinDuration() {

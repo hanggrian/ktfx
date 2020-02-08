@@ -124,36 +124,6 @@ inline operator fun Duration.div(scale: Double): Duration = divide(scale)
  */
 inline operator fun Duration.unaryMinus(): Duration = negate()
 
-/**
- * Returns true, if the duration value is less than zero.
- * @see kotlin.time.Duration.isNegative
- */
-inline fun Duration.isNegative(): Boolean = toMillis() < 0
-
-/**
- * Returns true, if the duration value is greater than zero.
- * @see kotlin.time.Duration.isPositive
- */
-inline fun Duration.isPositive(): Boolean = toMillis() > 0
-
-/**
- * Returns true, if the duration value is infinite.
- * @see kotlin.time.Duration.isInfinite
- */
-inline fun Duration.isInfinite(): Boolean = toMillis().isInfinite()
-
-/**
- * Returns true, if the duration value is finite.
- * @see kotlin.time.Duration.isFinite
- */
-inline fun Duration.isFinite(): Boolean = toMillis().isFinite()
-
-/**
- * Returns the absolute value of this value. The returned value is always non-negative.
- * @see kotlin.time.Duration.absoluteValue
- */
-val Duration.absoluteValue: Duration get() = if (isNegative()) -this else this
-
 /** Returns this [Duration] as a [kotlin.time.Duration]. */
 @ExperimentalTime
 inline fun Duration.toKotlinDuration(): kotlin.time.Duration = toMillis().toDuration(DurationUnit.MILLISECONDS)

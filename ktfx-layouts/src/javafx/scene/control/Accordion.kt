@@ -18,29 +18,27 @@ open class KtfxAccordion : Accordion(), TitledPaneManager {
 
     final override fun <C : TitledPane> addChild(child: C): C = child.also { panes += it }
 
-    final override val childCount: Int get() = panes.size
-
     /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(
-        init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
-    ): TitledPane = titledPane(this, init)
+        configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
+    ): TitledPane = titledPane(this, configuration)
 }
 
-/** Create an [Accordion] with initialization block. */
+/** Create an [Accordion] with configurationialization block. */
 inline fun accordion(
-    init: (@LayoutsDslMarker KtfxAccordion).() -> Unit
+    configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxAccordion().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxAccordion().apply(configuration)
 }
 
 /** Add an [Accordion] to this manager. */
 fun NodeManager.accordion(): Accordion = addChild(KtfxAccordion())
 
-/** Add an [Accordion] with initialization block to this manager. */
+/** Add an [Accordion] with configurationialization block to this manager. */
 inline fun NodeManager.accordion(
-    init: (@LayoutsDslMarker KtfxAccordion).() -> Unit
+    configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxAccordion(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxAccordion(), configuration)
 }

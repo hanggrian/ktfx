@@ -3,11 +3,11 @@ package ktfx.layouts
 import javafx.scene.control.TabPane
 import ktfx.test.LayoutsTest
 
-class TabPaneTest : LayoutsTest<NodeManager, TabPane>() {
+class TabPaneTest : LayoutsTest<KtfxPane, TabPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = tabPane { }
-    override fun NodeManager.child2() = tabPane()
-    override fun NodeManager.child3() = tabPane { }
+    override fun KtfxPane.child2() = tabPane()
+    override fun KtfxPane.child3() = tabPane { }
 }

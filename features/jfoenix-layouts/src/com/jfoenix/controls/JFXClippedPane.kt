@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
@@ -20,25 +20,23 @@ import ktfx.layouts.addChild
 open class KtfxJFXClippedPane : JFXClippedPane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
-
-    final override val childCount: Int get() = childrenUnmodifiable.size
 }
 
-/** Create a [JFXClippedPane] with initialization block. */
+/** Create a [JFXClippedPane] with configurationialization block. */
 inline fun jfxClippedPane(
-    init: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXClippedPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXClippedPane().apply(configuration)
 }
 
 /** Add a [JFXClippedPane] to this manager. */
 fun NodeManager.jfxClippedPane(): JFXClippedPane = addChild(KtfxJFXClippedPane())
 
-/** Add a [JFXClippedPane] with initialization block to this manager. */
+/** Add a [JFXClippedPane] with configurationialization block to this manager. */
 inline fun NodeManager.jfxClippedPane(
-    init: (@LayoutsDslMarker KtfxJFXClippedPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXClippedPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXClippedPane(), configuration)
 }

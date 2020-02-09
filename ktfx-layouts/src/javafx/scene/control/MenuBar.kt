@@ -19,30 +19,28 @@ open class KtfxMenuBar : MenuBar(), MenuManager {
 
     final override fun <C : Menu> addChild(child: C): C = child.also { menus += it }
 
-    final override val childCount: Int get() = menus.size
-
     /** Call [MenuManager.menu] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker KtfxMenu).() -> Unit
-    ): Menu = menu(this, graphic, init)
+        configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
+    ): Menu = menu(this, graphic, configuration)
 }
 
-/** Create a [MenuBar] with initialization block. */
+/** Create a [MenuBar] with configurationialization block. */
 inline fun menuBar(
-    init: (@LayoutsDslMarker KtfxMenuBar).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMenuBar().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxMenuBar().apply(configuration)
 }
 
 /** Add a [MenuBar] to this manager. */
 fun NodeManager.menuBar(): MenuBar = addChild(KtfxMenuBar())
 
-/** Add a [MenuBar] with initialization block to this manager. */
+/** Add a [MenuBar] with configurationialization block to this manager. */
 inline fun NodeManager.menuBar(
-    init: (@LayoutsDslMarker KtfxMenuBar).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMenuBar(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMenuBar(), configuration)
 }

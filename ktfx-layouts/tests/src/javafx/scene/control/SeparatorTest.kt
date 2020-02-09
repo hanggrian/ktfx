@@ -6,13 +6,13 @@ import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SeparatorTest : LayoutsTest<NodeManager, Separator>() {
+class SeparatorTest : LayoutsTest<KtfxPane, Separator>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = separator { }
-    override fun NodeManager.child2() = separator()
-    override fun NodeManager.child3() = separator { }
+    override fun KtfxPane.child2() = separator()
+    override fun KtfxPane.child3() = separator { }
 
     @Test fun verticalSeparator() {
         verticalSeparator {

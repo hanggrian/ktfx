@@ -10,13 +10,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [TreeTableView] with initialization block. */
+/** Create a [TreeTableView] with configurationialization block. */
 inline fun <S> treeTableView(
     root: TreeItem<S>? = null,
-    init: (@LayoutsDslMarker TreeTableView<S>).() -> Unit
+    configuration: (@LayoutDslMarker TreeTableView<S>).() -> Unit
 ): TreeTableView<S> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return TreeTableView(root).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return TreeTableView(root).apply(configuration)
 }
 
 /** Add a [TreeTableView] to this manager. */
@@ -24,11 +24,11 @@ fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null
 ): TreeTableView<S> = addChild(TreeTableView(root))
 
-/** Add a [TreeTableView] with initialization block to this manager. */
+/** Add a [TreeTableView] with configurationialization block to this manager. */
 inline fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null,
-    init: (@LayoutsDslMarker TreeTableView<S>).() -> Unit
+    configuration: (@LayoutDslMarker TreeTableView<S>).() -> Unit
 ): TreeTableView<S> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(TreeTableView(root), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(TreeTableView(root), configuration)
 }

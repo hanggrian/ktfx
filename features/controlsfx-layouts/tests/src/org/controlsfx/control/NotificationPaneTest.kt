@@ -1,15 +1,14 @@
 package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import org.controlsfx.control.NotificationPane
 
-class NotificationPaneTest : LayoutsTest<NodeManager, NotificationPane>() {
+class NotificationPaneTest : LayoutsTest<KtfxPane, NotificationPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = notificationPane { }
-    override fun NodeManager.child2() = notificationPane()
-    override fun NodeManager.child3() = notificationPane { }
+    override fun KtfxPane.child2() = notificationPane()
+    override fun KtfxPane.child3() = notificationPane { }
 }

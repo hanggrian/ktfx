@@ -4,13 +4,13 @@ import javafx.scene.control.CheckBox
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class CheckBoxTest : LayoutsTest<NodeManager, CheckBox>() {
+class CheckBoxTest : LayoutsTest<KtfxPane, CheckBox>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = checkBox { }
-    override fun NodeManager.child2() = checkBox()
-    override fun NodeManager.child3() = checkBox { }
+    override fun KtfxPane.child2() = checkBox()
+    override fun KtfxPane.child3() = checkBox { }
 
     override fun CheckBox.testDefaultValues() {
         assertNull(text)

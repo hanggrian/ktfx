@@ -9,15 +9,15 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Slider] with initialization block. */
+/** Create a [Slider] with configurationialization block. */
 inline fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    init: (@LayoutsDslMarker Slider).() -> Unit
+    configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Slider(min, max, value).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Slider(min, max, value).apply(configuration)
 }
 
 /** Add a [Slider] to this manager. */
@@ -27,13 +27,13 @@ fun NodeManager.slider(
     value: Double = 0.0
 ): Slider = addChild(Slider(min, max, value))
 
-/** Add a [Slider] with initialization block to this manager. */
+/** Add a [Slider] with configurationialization block to this manager. */
 inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    init: (@LayoutsDslMarker Slider).() -> Unit
+    configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Slider(min, max, value), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Slider(min, max, value), configuration)
 }

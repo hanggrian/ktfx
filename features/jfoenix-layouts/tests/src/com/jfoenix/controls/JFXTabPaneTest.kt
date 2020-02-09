@@ -2,19 +2,18 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTabPane
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.layouts.tab
 import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class JFXTabPaneTest : LayoutsTest<NodeManager, JFXTabPane>() {
+class JFXTabPaneTest : LayoutsTest<KtfxPane, JFXTabPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxTabPane { }
-    override fun NodeManager.child2() = jfxTabPane()
-    override fun NodeManager.child3() = jfxTabPane { }
+    override fun KtfxPane.child2() = jfxTabPane()
+    override fun KtfxPane.child3() = jfxTabPane { }
 
     @Test fun stringInvocation() {
         jfxTabPane {

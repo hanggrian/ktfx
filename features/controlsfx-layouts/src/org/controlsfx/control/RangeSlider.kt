@@ -7,21 +7,21 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.RangeSlider
 
-/** Create a [RangeSlider] with initialization block. */
+/** Create a [RangeSlider] with configurationialization block. */
 inline fun rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
-    init: (@LayoutsDslMarker RangeSlider).() -> Unit
+    configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return RangeSlider(min, max, lowValue, highValue).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return RangeSlider(min, max, lowValue, highValue).apply(configuration)
 }
 
 /** Add a [RangeSlider] to this manager. */
@@ -32,14 +32,14 @@ fun NodeManager.rangeSlider(
     highValue: Double = 0.75
 ): RangeSlider = addChild(RangeSlider(min, max, lowValue, highValue))
 
-/** Add a [RangeSlider] with initialization block to this manager. */
+/** Add a [RangeSlider] with configurationialization block to this manager. */
 inline fun NodeManager.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
     highValue: Double = 0.75,
-    init: (@LayoutsDslMarker RangeSlider).() -> Unit
+    configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(RangeSlider(min, max, lowValue, highValue), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(RangeSlider(min, max, lowValue, highValue), configuration)
 }

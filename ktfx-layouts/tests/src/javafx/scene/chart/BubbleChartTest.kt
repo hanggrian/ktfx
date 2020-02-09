@@ -6,7 +6,7 @@ import javafx.scene.chart.NumberAxis
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class BubbleChartTest : LayoutsTest<NodeManager, BubbleChart<Number, Number>>() {
+class BubbleChartTest : LayoutsTest<KtfxPane, BubbleChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 
@@ -17,10 +17,10 @@ class BubbleChartTest : LayoutsTest<NodeManager, BubbleChart<Number, Number>>() 
     }
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = bubbleChart(axis1, axis2) { }
-    override fun NodeManager.child2() = bubbleChart(axis1, axis2)
-    override fun NodeManager.child3() = bubbleChart(axis1, axis2) { }
+    override fun KtfxPane.child2() = bubbleChart(axis1, axis2)
+    override fun KtfxPane.child3() = bubbleChart(axis1, axis2) { }
 
     override fun BubbleChart<Number, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)

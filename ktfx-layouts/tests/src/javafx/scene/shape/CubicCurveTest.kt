@@ -4,13 +4,13 @@ import javafx.scene.shape.CubicCurve
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class CubicCurveTest : LayoutsTest<NodeManager, CubicCurve>() {
+class CubicCurveTest : LayoutsTest<KtfxPane, CubicCurve>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = cubicCurve { }
-    override fun NodeManager.child2() = cubicCurve()
-    override fun NodeManager.child3() = cubicCurve { }
+    override fun KtfxPane.child2() = cubicCurve()
+    override fun KtfxPane.child3() = cubicCurve { }
 
     override fun CubicCurve.testDefaultValues() {
         assertEquals(0.0, startX)

@@ -4,13 +4,13 @@ import javafx.scene.shape.Ellipse
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class EllipseTest : LayoutsTest<NodeManager, Ellipse>() {
+class EllipseTest : LayoutsTest<KtfxPane, Ellipse>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = ellipse { }
-    override fun NodeManager.child2() = ellipse()
-    override fun NodeManager.child3() = ellipse { }
+    override fun KtfxPane.child2() = ellipse()
+    override fun KtfxPane.child3() = ellipse { }
 
     override fun Ellipse.testDefaultValues() {
         assertEquals(0.0, centerX)

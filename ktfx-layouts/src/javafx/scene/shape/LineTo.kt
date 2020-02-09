@@ -9,14 +9,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [LineTo] with initialization block. */
+/** Create a [LineTo] with configurationialization block. */
 inline fun lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@LayoutsDslMarker LineTo).() -> Unit
+    configuration: (@LayoutDslMarker LineTo).() -> Unit
 ): LineTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return LineTo(x, y).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return LineTo(x, y).apply(configuration)
 }
 
 /** Add a [LineTo] to this manager. */
@@ -25,12 +25,12 @@ fun PathElementManager.lineTo(
     y: Double = 0.0
 ): LineTo = addChild(LineTo(x, y))
 
-/** Add a [LineTo] with initialization block to this manager. */
+/** Add a [LineTo] with configurationialization block to this manager. */
 inline fun PathElementManager.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@LayoutsDslMarker LineTo).() -> Unit
+    configuration: (@LayoutDslMarker LineTo).() -> Unit
 ): LineTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(LineTo(x, y), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(LineTo(x, y), configuration)
 }

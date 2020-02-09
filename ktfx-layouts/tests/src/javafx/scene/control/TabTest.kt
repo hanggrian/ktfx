@@ -4,13 +4,13 @@ import javafx.scene.control.Tab
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class TabTest : LayoutsTest<TabManager, Tab>() {
+class TabTest : LayoutsTest<KtfxTabPane, Tab>() {
 
     override fun manager() = KtfxTabPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxTabPane.childCount() = tabs.size
     override fun child1() = tab { }
-    override fun TabManager.child2() = tab()
-    override fun TabManager.child3() = tab { }
+    override fun KtfxTabPane.child2() = tab()
+    override fun KtfxTabPane.child3() = tab { }
 
     override fun Tab.testDefaultValues() {
         assertNull(text)

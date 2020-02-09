@@ -19,23 +19,21 @@ open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuIte
 
     final override fun <C : MenuItem> addChild(child: C): C = child.also { items += it }
 
-    final override val childCount: Int get() = items.size
-
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker MenuItem).() -> Unit
-    ): MenuItem = menuItem(this, graphic, init)
+        configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    ): MenuItem = menuItem(this, graphic, configuration)
 }
 
-/** Create a [Menu] with initialization block. */
+/** Create a [Menu] with configurationialization block. */
 inline fun menu(
     text: String = "",
     graphic: Node? = null,
-    init: (@LayoutsDslMarker KtfxMenu).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMenu(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxMenu(text, graphic).apply(configuration)
 }
 
 /** Add a [Menu] to this manager. */
@@ -44,14 +42,14 @@ fun MenuManager.menu(
     graphic: Node? = null
 ): Menu = addChild(KtfxMenu(text, graphic))
 
-/** Add a [Menu] with initialization block to this manager. */
+/** Add a [Menu] with configurationialization block to this manager. */
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
-    init: (@LayoutsDslMarker KtfxMenu).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMenu(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMenu(text, graphic), configuration)
 }
 
 /** Add a [Menu] to this manager. */
@@ -60,12 +58,12 @@ fun MenuItemManager.menu(
     graphic: Node? = null
 ): Menu = addChild(KtfxMenu(text, graphic))
 
-/** Add a [Menu] with initialization block to this manager. */
+/** Add a [Menu] with configurationialization block to this manager. */
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
-    init: (@LayoutsDslMarker KtfxMenu).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMenu(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMenu(text, graphic), configuration)
 }

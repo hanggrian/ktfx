@@ -4,13 +4,13 @@ import javafx.scene.shape.Arc
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class ArcTest : LayoutsTest<NodeManager, Arc>() {
+class ArcTest : LayoutsTest<KtfxPane, Arc>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = arc { }
-    override fun NodeManager.child2() = arc()
-    override fun NodeManager.child3() = arc { }
+    override fun KtfxPane.child2() = arc()
+    override fun KtfxPane.child3() = arc { }
 
     override fun Arc.testDefaultValues() {
         assertEquals(0.0, centerX)

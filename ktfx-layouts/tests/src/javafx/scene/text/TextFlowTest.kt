@@ -6,13 +6,13 @@ import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TextFlowTest : LayoutsTest<NodeManager, TextFlow>() {
+class TextFlowTest : LayoutsTest<KtfxPane, TextFlow>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = textFlow { }
-    override fun NodeManager.child2() = textFlow()
-    override fun NodeManager.child3() = textFlow { }
+    override fun KtfxPane.child2() = textFlow()
+    override fun KtfxPane.child3() = textFlow { }
 
     @Test fun stringInvocation() {
         textFlow {

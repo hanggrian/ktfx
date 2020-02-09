@@ -3,11 +3,10 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXChip
 import com.jfoenix.controls.JFXChipView
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class JFXChipTest : LayoutsTest<NodeManager, JFXChip<String>>() {
+class JFXChipTest : LayoutsTest<KtfxPane, JFXChip<String>>() {
     private lateinit var jfxChipView: JFXChipView<String>
 
     override fun onCreate() {
@@ -16,10 +15,10 @@ class JFXChipTest : LayoutsTest<NodeManager, JFXChip<String>>() {
     }
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxChip(jfxChipView, "Yo") { }
-    override fun NodeManager.child2() = jfxChip(jfxChipView, "Yo")
-    override fun NodeManager.child3() = jfxChip(jfxChipView, "Yo") { }
+    override fun KtfxPane.child2() = jfxChip(jfxChipView, "Yo")
+    override fun KtfxPane.child3() = jfxChip(jfxChipView, "Yo") { }
 
     override fun JFXChip<String>.testDefaultValues() {
         assertEquals(jfxChipView, chipView)

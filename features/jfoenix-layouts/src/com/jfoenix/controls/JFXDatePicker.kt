@@ -9,17 +9,17 @@ import java.time.LocalDate
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXDatePicker] with initialization block. */
+/** Create a [JFXDatePicker] with configurationialization block. */
 inline fun jfxDatePicker(
     value: LocalDate? = null,
-    init: (@LayoutsDslMarker JFXDatePicker).() -> Unit
+    configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXDatePicker(value).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXDatePicker(value).apply(configuration)
 }
 
 /** Add a [JFXDatePicker] to this manager. */
@@ -27,11 +27,11 @@ fun NodeManager.jfxDatePicker(
     value: LocalDate? = null
 ): JFXDatePicker = addChild(JFXDatePicker(value))
 
-/** Add a [JFXDatePicker] with initialization block to this manager. */
+/** Add a [JFXDatePicker] with configurationialization block to this manager. */
 inline fun NodeManager.jfxDatePicker(
     value: LocalDate? = null,
-    init: (@LayoutsDslMarker JFXDatePicker).() -> Unit
+    configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXDatePicker(value), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXDatePicker(value), configuration)
 }

@@ -10,13 +10,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create an [ImageView] with initialization block. */
+/** Create an [ImageView] with configurationialization block. */
 inline fun imageView(
     image: Image? = null,
-    init: (@LayoutsDslMarker ImageView).() -> Unit
+    configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ImageView(image).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ImageView(image).apply(configuration)
 }
 
 /** Add an [ImageView] to this manager. */
@@ -24,22 +24,22 @@ fun NodeManager.imageView(
     image: Image? = null
 ): ImageView = addChild(ImageView(image))
 
-/** Add an [ImageView] with initialization block to this manager. */
+/** Add an [ImageView] with configurationialization block to this manager. */
 inline fun NodeManager.imageView(
     image: Image? = null,
-    init: (@LayoutsDslMarker ImageView).() -> Unit
+    configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ImageView(image), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ImageView(image), configuration)
 }
 
-/** Create an [ImageView] with initialization block. */
+/** Create an [ImageView] with configurationialization block. */
 inline fun imageView(
     imageUrl: String,
-    init: (@LayoutsDslMarker ImageView).() -> Unit
+    configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return imageView(Image(imageUrl), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return imageView(Image(imageUrl), configuration)
 }
 
 /** Add an [ImageView] to this manager. */
@@ -48,11 +48,11 @@ inline fun NodeManager.imageView(
     imageUrl: String
 ): ImageView = imageView(Image(imageUrl))
 
-/** Add an [ImageView] with initialization block to this manager. */
+/** Add an [ImageView] with configurationialization block to this manager. */
 inline fun NodeManager.imageView(
     imageUrl: String,
-    init: (@LayoutsDslMarker ImageView).() -> Unit
+    configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return imageView(Image(imageUrl), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return imageView(Image(imageUrl), configuration)
 }

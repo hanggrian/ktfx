@@ -10,16 +10,16 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Circle] with initialization block. */
+/** Create a [Circle] with configurationialization block. */
 inline fun circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null,
-    init: (@LayoutsDslMarker Circle).() -> Unit
+    configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Circle(centerX, centerY, radius, fill).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Circle(centerX, centerY, radius, fill).apply(configuration)
 }
 
 /** Add a [Circle] to this manager. */
@@ -30,14 +30,14 @@ fun NodeManager.circle(
     fill: Paint? = null
 ): Circle = addChild(Circle(centerX, centerY, radius, fill))
 
-/** Add a [Circle] with initialization block to this manager. */
+/** Add a [Circle] with configurationialization block to this manager. */
 inline fun NodeManager.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null,
-    init: (@LayoutsDslMarker Circle).() -> Unit
+    configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Circle(centerX, centerY, radius, fill), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Circle(centerX, centerY, radius, fill), configuration)
 }

@@ -2,17 +2,16 @@ package ktfx.controlsfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import org.controlsfx.control.PropertySheet
 
-class PropertySheetTest : LayoutsTest<NodeManager, PropertySheet>() {
+class PropertySheetTest : LayoutsTest<KtfxPane, PropertySheet>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = propertySheet { }
-    override fun NodeManager.child2() = propertySheet()
-    override fun NodeManager.child3() = propertySheet { }
+    override fun KtfxPane.child2() = propertySheet()
+    override fun KtfxPane.child3() = propertySheet { }
 
     override fun PropertySheet.testDefaultValues() {
         assertThat(items).isEmpty()

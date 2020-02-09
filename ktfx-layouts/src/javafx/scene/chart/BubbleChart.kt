@@ -13,15 +13,15 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [BubbleChart] with initialization block. */
+/** Create a [BubbleChart] with configurationialization block. */
 inline fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker BubbleChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return BubbleChart(x, y, data).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return BubbleChart(x, y, data).apply(configuration)
 }
 
 /** Add a [BubbleChart] to this manager. */
@@ -31,13 +31,13 @@ fun <X, Y> NodeManager.bubbleChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList()
 ): BubbleChart<X, Y> = addChild(BubbleChart(x, y, data))
 
-/** Add a [BubbleChart] with initialization block to this manager. */
+/** Add a [BubbleChart] with configurationialization block to this manager. */
 inline fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker BubbleChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(BubbleChart(x, y, data), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(BubbleChart(x, y, data), configuration)
 }

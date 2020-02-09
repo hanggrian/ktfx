@@ -19,23 +19,21 @@ open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, grap
 
     final override fun <C : MenuItem> addChild(child: C): C = child.also { items + it }
 
-    final override val childCount: Int get() = items.size
-
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker MenuItem).() -> Unit
-    ): MenuItem = menuItem(this, graphic, init)
+        configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    ): MenuItem = menuItem(this, graphic, configuration)
 }
 
-/** Create a [MenuButton] with initialization block. */
+/** Create a [MenuButton] with configurationialization block. */
 inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMenuButton(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxMenuButton(text, graphic).apply(configuration)
 }
 
 /** Add a [MenuButton] to this manager. */
@@ -44,12 +42,12 @@ fun NodeManager.menuButton(
     graphic: Node? = null
 ): MenuButton = addChild(KtfxMenuButton(text, graphic))
 
-/** Add a [MenuButton] with initialization block to this manager. */
+/** Add a [MenuButton] with configurationialization block to this manager. */
 inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker KtfxMenuButton).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMenuButton(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMenuButton(text, graphic), configuration)
 }

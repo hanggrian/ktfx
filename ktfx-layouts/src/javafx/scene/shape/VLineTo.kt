@@ -9,13 +9,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [VLineTo] with initialization block. */
+/** Create a [VLineTo] with configurationialization block. */
 inline fun vlineTo(
     y: Double = 0.0,
-    init: (@LayoutsDslMarker VLineTo).() -> Unit
+    configuration: (@LayoutDslMarker VLineTo).() -> Unit
 ): VLineTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return VLineTo(y).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return VLineTo(y).apply(configuration)
 }
 
 /** Add a [VLineTo] to this manager. */
@@ -23,11 +23,11 @@ fun PathElementManager.vlineTo(
     y: Double = 0.0
 ): VLineTo = addChild(VLineTo(y))
 
-/** Add a [VLineTo] with initialization block to this manager. */
+/** Add a [VLineTo] with configurationialization block to this manager. */
 inline fun PathElementManager.vlineTo(
     y: Double = 0.0,
-    init: (@LayoutsDslMarker VLineTo).() -> Unit
+    configuration: (@LayoutDslMarker VLineTo).() -> Unit
 ): VLineTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(VLineTo(y), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(VLineTo(y), configuration)
 }

@@ -9,13 +9,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Polyline] with initialization block. */
+/** Create a [Polyline] with configurationialization block. */
 inline fun polyline(
     vararg points: Double,
-    init: (@LayoutsDslMarker Polyline).() -> Unit
+    configuration: (@LayoutDslMarker Polyline).() -> Unit
 ): Polyline {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Polyline(*points).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Polyline(*points).apply(configuration)
 }
 
 /** Add a [Polyline] to this manager. */
@@ -23,11 +23,11 @@ fun NodeManager.polyline(
     vararg points: Double
 ): Polyline = addChild(Polyline(*points))
 
-/** Add a [Polyline] with initialization block to this manager. */
+/** Add a [Polyline] with configurationialization block to this manager. */
 inline fun NodeManager.polyline(
     vararg points: Double,
-    init: (@LayoutsDslMarker Polyline).() -> Unit
+    configuration: (@LayoutDslMarker Polyline).() -> Unit
 ): Polyline {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Polyline(*points), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Polyline(*points), configuration)
 }

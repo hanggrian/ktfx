@@ -4,13 +4,13 @@ import com.google.common.truth.Truth.assertThat
 import javafx.scene.shape.Polygon
 import ktfx.test.LayoutsTest
 
-class PolygonTest : LayoutsTest<NodeManager, Polygon>() {
+class PolygonTest : LayoutsTest<KtfxPane, Polygon>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = polygon { }
-    override fun NodeManager.child2() = polygon()
-    override fun NodeManager.child3() = polygon { }
+    override fun KtfxPane.child2() = polygon()
+    override fun KtfxPane.child3() = polygon { }
 
     override fun Polygon.testDefaultValues() {
         assertThat(points).isEmpty()

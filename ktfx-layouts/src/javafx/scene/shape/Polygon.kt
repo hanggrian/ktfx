@@ -9,13 +9,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Polygon] with initialization block. */
+/** Create a [Polygon] with configurationialization block. */
 inline fun polygon(
     vararg points: Double,
-    init: (@LayoutsDslMarker Polygon).() -> Unit
+    configuration: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Polygon(*points).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Polygon(*points).apply(configuration)
 }
 
 /** Add a [Polygon] to this manager. */
@@ -23,11 +23,11 @@ fun NodeManager.polygon(
     vararg points: Double
 ): Polygon = addChild(Polygon(*points))
 
-/** Add a [Polygon] with initialization block to this manager. */
+/** Add a [Polygon] with configurationialization block to this manager. */
 inline fun NodeManager.polygon(
     vararg points: Double,
-    init: (@LayoutsDslMarker Polygon).() -> Unit
+    configuration: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Polygon(*points), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Polygon(*points), configuration)
 }

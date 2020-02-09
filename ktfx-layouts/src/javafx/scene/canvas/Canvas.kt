@@ -9,14 +9,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Canvas] with initialization block. */
+/** Create a [Canvas] with configurationialization block. */
 inline fun canvas(
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutsDslMarker Canvas).() -> Unit
+    configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Canvas(width, height).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Canvas(width, height).apply(configuration)
 }
 
 /** Add a [Canvas] to this manager. */
@@ -25,12 +25,12 @@ fun NodeManager.canvas(
     height: Double = 0.0
 ): Canvas = addChild(Canvas(width, height))
 
-/** Add a [Canvas] with initialization block to this manager. */
+/** Add a [Canvas] with configurationialization block to this manager. */
 inline fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutsDslMarker Canvas).() -> Unit
+    configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Canvas(width, height), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Canvas(width, height), configuration)
 }

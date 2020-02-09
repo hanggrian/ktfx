@@ -10,14 +10,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Label] with initialization block. */
+/** Create a [Label] with configurationialization block. */
 inline fun label(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Label).() -> Unit
+    configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Label(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Label(text, graphic).apply(configuration)
 }
 
 /** Add a [Label] to this manager. */
@@ -26,12 +26,12 @@ fun NodeManager.label(
     graphic: Node? = null
 ): Label = addChild(Label(text, graphic))
 
-/** Add a [Label] with initialization block to this manager. */
+/** Add a [Label] with configurationialization block to this manager. */
 inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Label).() -> Unit
+    configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Label(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Label(text, graphic), configuration)
 }

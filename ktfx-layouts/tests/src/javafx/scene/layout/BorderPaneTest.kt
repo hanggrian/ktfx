@@ -3,11 +3,11 @@ package ktfx.layouts
 import javafx.scene.layout.BorderPane
 import ktfx.test.LayoutsTest
 
-class BorderPaneTest : LayoutsTest<NodeManager, BorderPane>() {
+class BorderPaneTest : LayoutsTest<KtfxPane, BorderPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = borderPane { }
-    override fun NodeManager.child2() = borderPane()
-    override fun NodeManager.child3() = borderPane { }
+    override fun KtfxPane.child2() = borderPane()
+    override fun KtfxPane.child3() = borderPane { }
 }

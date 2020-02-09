@@ -8,25 +8,25 @@ import com.jfoenix.controls.JFXListCell
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXListCell] with initialization block. */
+/** Create a [JFXListCell] with configurationialization block. */
 inline fun <T> jfxListCell(
-    init: (@LayoutsDslMarker JFXListCell<T>).() -> Unit
+    configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit
 ): JFXListCell<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXListCell<T>().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXListCell<T>().apply(configuration)
 }
 
 /** Add a [JFXListCell] to this manager. */
 fun <T> NodeManager.jfxListCell(): JFXListCell<T> = addChild(JFXListCell())
 
-/** Add a [JFXListCell] with initialization block to this manager. */
+/** Add a [JFXListCell] with configurationialization block to this manager. */
 inline fun <T> NodeManager.jfxListCell(
-    init: (@LayoutsDslMarker JFXListCell<T>).() -> Unit
+    configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit
 ): JFXListCell<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXListCell(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXListCell(), configuration)
 }

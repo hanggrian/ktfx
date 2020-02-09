@@ -2,17 +2,16 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXButton
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class JFXButtonTest : LayoutsTest<NodeManager, JFXButton>() {
+class JFXButtonTest : LayoutsTest<KtfxPane, JFXButton>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxButton { }
-    override fun NodeManager.child2() = jfxButton()
-    override fun NodeManager.child3() = jfxButton { }
+    override fun KtfxPane.child2() = jfxButton()
+    override fun KtfxPane.child3() = jfxButton { }
 
     override fun JFXButton.testDefaultValues() {
         assertNull(text)

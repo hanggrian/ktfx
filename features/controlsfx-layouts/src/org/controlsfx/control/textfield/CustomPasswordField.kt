@@ -7,26 +7,26 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.textfield.CustomPasswordField
 
-/** Create a [CustomPasswordField] with initialization block. */
+/** Create a [CustomPasswordField] with configurationialization block. */
 inline fun customPasswordField(
-    init: (@LayoutsDslMarker CustomPasswordField).() -> Unit
+    configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return CustomPasswordField().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return CustomPasswordField().apply(configuration)
 }
 
 /** Add a [CustomPasswordField] to this manager. */
 fun NodeManager.customPasswordField(): CustomPasswordField = addChild(CustomPasswordField())
 
-/** Add a [CustomPasswordField] with initialization block to this manager. */
+/** Add a [CustomPasswordField] with configurationialization block to this manager. */
 inline fun NodeManager.customPasswordField(
-    init: (@LayoutsDslMarker CustomPasswordField).() -> Unit
+    configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(CustomPasswordField(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(CustomPasswordField(), configuration)
 }

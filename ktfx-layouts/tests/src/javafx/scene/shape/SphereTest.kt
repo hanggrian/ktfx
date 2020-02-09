@@ -4,13 +4,13 @@ import javafx.scene.shape.Sphere
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class SphereTest : LayoutsTest<NodeManager, Sphere>() {
+class SphereTest : LayoutsTest<KtfxPane, Sphere>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = sphere { }
-    override fun NodeManager.child2() = sphere()
-    override fun NodeManager.child3() = sphere { }
+    override fun KtfxPane.child2() = sphere()
+    override fun KtfxPane.child3() = sphere { }
 
     override fun Sphere.testDefaultValues() {
         assertEquals(1.0, radius)

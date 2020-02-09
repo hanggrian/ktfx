@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
@@ -20,26 +20,24 @@ import ktfx.layouts.addChild
 open class KtfxJFXRippler : JFXRippler(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { control = it }
-
-    final override val childCount: Int get() = if (control != null) 1 else 0
 }
 
-/** Create a [JFXRippler] with initialization block. */
+/** Create a [JFXRippler] with configurationialization block. */
 inline fun jfxRippler(
-    init: (@LayoutsDslMarker KtfxJFXRippler).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXRippler().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXRippler().apply(configuration)
 }
 
 /** Add a [JFXRippler] to this manager. */
 fun NodeManager.jfxRippler(): JFXRippler =
     addChild(KtfxJFXRippler())
 
-/** Add a [JFXRippler] with initialization block to this manager. */
+/** Add a [JFXRippler] with configurationialization block to this manager. */
 inline fun NodeManager.jfxRippler(
-    init: (@LayoutsDslMarker KtfxJFXRippler).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXRippler(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXRippler(), configuration)
 }

@@ -9,14 +9,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Sphere] with initialization block. */
+/** Create a [Sphere] with configurationialization block. */
 inline fun sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    init: (@LayoutsDslMarker Sphere).() -> Unit
+    configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Sphere(radius, division).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Sphere(radius, division).apply(configuration)
 }
 
 /** Add a [Sphere] to this manager. */
@@ -25,12 +25,12 @@ fun NodeManager.sphere(
     division: Int = 64
 ): Sphere = addChild(Sphere(radius, division))
 
-/** Add a [Sphere] with initialization block to this manager. */
+/** Add a [Sphere] with configurationialization block to this manager. */
 inline fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    init: (@LayoutsDslMarker Sphere).() -> Unit
+    configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Sphere(radius, division), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Sphere(radius, division), configuration)
 }

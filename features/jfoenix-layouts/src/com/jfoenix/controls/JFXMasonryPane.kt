@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
@@ -20,25 +20,23 @@ import ktfx.layouts.addChild
 open class KtfxJFXMasonryPane : JFXMasonryPane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
-
-    final override val childCount: Int get() = childrenUnmodifiable.size
 }
 
-/** Create a [JFXMasonryPane] with initialization block. */
+/** Create a [JFXMasonryPane] with configurationialization block. */
 inline fun jfxMasonryPane(
-    init: (@LayoutsDslMarker KtfxJFXMasonryPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXMasonryPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXMasonryPane().apply(configuration)
 }
 
 /** Add a [JFXMasonryPane] to this manager. */
 fun NodeManager.jfxMasonryPane(): JFXMasonryPane = addChild(JFXMasonryPane())
 
-/** Add a [JFXMasonryPane] with initialization block to this manager. */
+/** Add a [JFXMasonryPane] with configurationialization block to this manager. */
 inline fun NodeManager.jfxMasonryPane(
-    init: (@LayoutsDslMarker KtfxJFXMasonryPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXMasonryPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXMasonryPane(), configuration)
 }

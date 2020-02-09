@@ -25,8 +25,6 @@ open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : 
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
-
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
@@ -134,15 +132,15 @@ open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : 
     }
 }
 
-/** Create a [FlowPane] with initialization block. */
+/** Create a [FlowPane] with configurationialization block. */
 inline fun flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap,
-    init: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxFlowPane(orientation, hgap, vgap).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxFlowPane(orientation, hgap, vgap).apply(configuration)
 }
 
 /** Add a [FlowPane] to this manager. */
@@ -152,13 +150,13 @@ fun NodeManager.flowPane(
     vgap: Double = hgap
 ): FlowPane = addChild(KtfxFlowPane(orientation, hgap, vgap))
 
-/** Add a [FlowPane] with initialization block to this manager. */
+/** Add a [FlowPane] with configurationialization block to this manager. */
 inline fun NodeManager.flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap,
-    init: (@LayoutsDslMarker KtfxFlowPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxFlowPane(orientation, hgap, vgap), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxFlowPane(orientation, hgap, vgap), configuration)
 }

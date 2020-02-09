@@ -6,11 +6,11 @@ import kotlin.test.Ignore
 
 /** Error on [child1], [child2] and [child3] because creating [WebView] must be in FX thread. */
 @Ignore
-class WebViewTest : LayoutsTest<NodeManager, WebView>() {
+class WebViewTest : LayoutsTest<KtfxPane, WebView>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = webView { }
-    override fun NodeManager.child2() = webView()
-    override fun NodeManager.child3() = webView { }
+    override fun KtfxPane.child2() = webView()
+    override fun KtfxPane.child3() = webView { }
 }

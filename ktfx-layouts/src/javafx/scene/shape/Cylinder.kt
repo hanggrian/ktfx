@@ -9,15 +9,15 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Cylinder] with initialization block. */
+/** Create a [Cylinder] with configurationialization block. */
 inline fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    init: (@LayoutsDslMarker Cylinder).() -> Unit
+    configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Cylinder(radius, height, division).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Cylinder(radius, height, division).apply(configuration)
 }
 
 /** Add a [Cylinder] to this manager. */
@@ -27,13 +27,13 @@ fun NodeManager.cylinder(
     division: Int = 64
 ): Cylinder = addChild(Cylinder(radius, height, division))
 
-/** Add a [Cylinder] with initialization block to this manager. */
+/** Add a [Cylinder] with configurationialization block to this manager. */
 inline fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    init: (@LayoutsDslMarker Cylinder).() -> Unit
+    configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Cylinder(radius, height, division), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Cylinder(radius, height, division), configuration)
 }

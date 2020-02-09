@@ -2,17 +2,16 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTreeView
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class JFXTreeViewTest : LayoutsTest<NodeManager, JFXTreeView<String>>() {
+class JFXTreeViewTest : LayoutsTest<KtfxPane, JFXTreeView<String>>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxTreeView<String> { }
-    override fun NodeManager.child2() = jfxTreeView<String>()
-    override fun NodeManager.child3() = jfxTreeView<String> { }
+    override fun KtfxPane.child2() = jfxTreeView<String>()
+    override fun KtfxPane.child3() = jfxTreeView<String> { }
 
     override fun JFXTreeView<String>.testDefaultValues() {
         assertNull(root)

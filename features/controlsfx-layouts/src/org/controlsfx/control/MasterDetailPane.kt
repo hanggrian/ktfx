@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.MasterDetailPane
@@ -30,18 +30,16 @@ open class KtfxMasterDetailPane(detailSide: Side, showDetail: Boolean) :
                 else -> error("Master and detail node has been set.")
             }
         }
-
-    final override val childCount: Int get() = size
 }
 
-/** Create a [MasterDetailPane] with initialization block. */
+/** Create a [MasterDetailPane] with configurationialization block. */
 inline fun masterDetailPane(
     detailSide: Side = Side.RIGHT,
     showDetailNode: Boolean = true,
-    init: (@LayoutsDslMarker KtfxMasterDetailPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxMasterDetailPane(detailSide, showDetailNode).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxMasterDetailPane(detailSide, showDetailNode).apply(configuration)
 }
 
 /** Add a [MasterDetailPane] to this manager. */
@@ -50,12 +48,12 @@ fun NodeManager.masterDetailPane(
     showDetailNode: Boolean = true
 ): MasterDetailPane = addChild(KtfxMasterDetailPane(detailSide, showDetailNode))
 
-/** Add a [MasterDetailPane] with initialization block to this manager. */
+/** Add a [MasterDetailPane] with configurationialization block to this manager. */
 inline fun NodeManager.masterDetailPane(
     detailSide: Side = Side.RIGHT,
     showDetailNode: Boolean = true,
-    init: (@LayoutsDslMarker KtfxMasterDetailPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxMasterDetailPane(detailSide, showDetailNode), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxMasterDetailPane(detailSide, showDetailNode), configuration)
 }

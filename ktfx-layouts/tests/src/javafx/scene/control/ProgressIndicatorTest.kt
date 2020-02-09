@@ -5,13 +5,13 @@ import javafx.scene.control.ProgressIndicator
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class ProgressIndicatorTest : LayoutsTest<NodeManager, ProgressIndicator>() {
+class ProgressIndicatorTest : LayoutsTest<KtfxPane, ProgressIndicator>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = progressIndicator { }
-    override fun NodeManager.child2() = progressIndicator()
-    override fun NodeManager.child3() = progressIndicator { }
+    override fun KtfxPane.child2() = progressIndicator()
+    override fun KtfxPane.child3() = progressIndicator { }
 
     override fun ProgressIndicator.testDefaultValues() {
         assertEquals(ProgressBar.INDETERMINATE_PROGRESS, progress)

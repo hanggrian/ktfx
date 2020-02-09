@@ -7,13 +7,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class MenuButtonTest : LayoutsTest<NodeManager, MenuButton>() {
+class MenuButtonTest : LayoutsTest<KtfxPane, MenuButton>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = menuButton { }
-    override fun NodeManager.child2() = menuButton()
-    override fun NodeManager.child3() = menuButton { }
+    override fun KtfxPane.child2() = menuButton()
+    override fun KtfxPane.child3() = menuButton { }
 
     override fun MenuButton.testDefaultValues() {
         assertEquals("", text)

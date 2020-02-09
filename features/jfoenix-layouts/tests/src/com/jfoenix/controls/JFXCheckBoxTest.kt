@@ -2,17 +2,16 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXCheckBox
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class JFXCheckBoxTest : LayoutsTest<NodeManager, JFXCheckBox>() {
+class JFXCheckBoxTest : LayoutsTest<KtfxPane, JFXCheckBox>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxCheckBox { }
-    override fun NodeManager.child2() = jfxCheckBox()
-    override fun NodeManager.child3() = jfxCheckBox { }
+    override fun KtfxPane.child2() = jfxCheckBox()
+    override fun KtfxPane.child3() = jfxCheckBox { }
 
     override fun JFXCheckBox.testDefaultValues() {
         assertNull(text)

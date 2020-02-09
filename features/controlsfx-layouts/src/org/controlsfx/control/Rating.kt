@@ -7,19 +7,19 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.Rating
 
-/** Create a [Rating] with initialization block. */
+/** Create a [Rating] with configurationialization block. */
 inline fun rating(
     max: Int = 5,
     rating: Int = -1,
-    init: (@LayoutsDslMarker Rating).() -> Unit
+    configuration: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Rating(max, rating).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Rating(max, rating).apply(configuration)
 }
 
 /** Add a [Rating] to this manager. */
@@ -28,12 +28,12 @@ fun NodeManager.rating(
     rating: Int = -1
 ): Rating = addChild(Rating(max, rating))
 
-/** Add a [Rating] with initialization block to this manager. */
+/** Add a [Rating] with configurationialization block to this manager. */
 inline fun NodeManager.rating(
     max: Int = 5,
     rating: Int = -1,
-    init: (@LayoutsDslMarker Rating).() -> Unit
+    configuration: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Rating(max, rating), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Rating(max, rating), configuration)
 }

@@ -13,15 +13,15 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ScatterChart] with initialization block. */
+/** Create a [ScatterChart] with configurationialization block. */
 inline fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ScatterChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ScatterChart(x, y, data).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ScatterChart(x, y, data).apply(configuration)
 }
 
 /** Add a [ScatterChart] to this manager. */
@@ -31,13 +31,13 @@ fun <X, Y> NodeManager.scatterChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList()
 ): ScatterChart<X, Y> = addChild(ScatterChart(x, y, data))
 
-/** Add a [ScatterChart] with initialization block to this manager. */
+/** Add a [ScatterChart] with configurationialization block to this manager. */
 inline fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ScatterChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ScatterChart(x, y, data), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ScatterChart(x, y, data), configuration)
 }

@@ -4,13 +4,13 @@ import javafx.scene.shape.MoveTo
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class MoveToTest : LayoutsTest<PathElementManager, MoveTo>() {
+class MoveToTest : LayoutsTest<KtfxPath, MoveTo>() {
 
     override fun manager() = KtfxPath()
-    override fun childCount() = manager.childCount
+    override fun KtfxPath.childCount() = elements.size
     override fun child1() = moveTo { }
-    override fun PathElementManager.child2() = moveTo()
-    override fun PathElementManager.child3() = moveTo { }
+    override fun KtfxPath.child2() = moveTo()
+    override fun KtfxPath.child3() = moveTo { }
 
     override fun MoveTo.testDefaultValues() {
         assertEquals(0.0, x)

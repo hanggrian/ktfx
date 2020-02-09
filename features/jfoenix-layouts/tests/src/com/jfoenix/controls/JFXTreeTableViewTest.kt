@@ -3,17 +3,16 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class JFXTreeTableViewTest : LayoutsTest<NodeManager, JFXTreeTableView<JFXTreeTableViewTest.Person>>() {
+class JFXTreeTableViewTest : LayoutsTest<KtfxPane, JFXTreeTableView<JFXTreeTableViewTest.Person>>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxTreeTableView<Person> { }
-    override fun NodeManager.child2() = jfxTreeTableView<Person>()
-    override fun NodeManager.child3() = jfxTreeTableView<Person> { }
+    override fun KtfxPane.child2() = jfxTreeTableView<Person>()
+    override fun KtfxPane.child3() = jfxTreeTableView<Person> { }
 
     override fun JFXTreeTableView<Person>.testDefaultValues() {
         assertNull(root)

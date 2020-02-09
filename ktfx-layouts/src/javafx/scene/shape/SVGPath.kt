@@ -9,21 +9,21 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [SVGPath] with initialization block. */
+/** Create a [SVGPath] with configurationialization block. */
 inline fun svgPath(
-    init: (@LayoutsDslMarker SVGPath).() -> Unit
+    configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return SVGPath().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return SVGPath().apply(configuration)
 }
 
 /** Add a [SVGPath] to this manager. */
 fun NodeManager.svgPath(): SVGPath = addChild(SVGPath())
 
-/** Add a [SVGPath] with initialization block to this manager. */
+/** Add a [SVGPath] with configurationialization block to this manager. */
 inline fun NodeManager.svgPath(
-    init: (@LayoutsDslMarker SVGPath).() -> Unit
+    configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(SVGPath(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(SVGPath(), configuration)
 }

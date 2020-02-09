@@ -17,25 +17,23 @@ import kotlin.contracts.contract
 open class KtfxPath : Path(), PathElementManager {
 
     final override fun <C : PathElement> addChild(child: C): C = child.also { elements += it }
-
-    final override val childCount: Int get() = elements.size
 }
 
-/** Create a [Path] with initialization block. */
+/** Create a [Path] with configurationialization block. */
 inline fun path(
-    init: (@LayoutsDslMarker KtfxPath).() -> Unit
+    configuration: (@LayoutDslMarker KtfxPath).() -> Unit
 ): Path {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxPath().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxPath().apply(configuration)
 }
 
 /** Add a [Path] to this manager. */
 fun NodeManager.path(): Path = addChild(KtfxPath())
 
-/** Add a [Path] with initialization block to this manager. */
+/** Add a [Path] with configurationialization block to this manager. */
 inline fun NodeManager.path(
-    init: (@LayoutsDslMarker KtfxPath).() -> Unit
+    configuration: (@LayoutDslMarker KtfxPath).() -> Unit
 ): Path {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxPath(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxPath(), configuration)
 }

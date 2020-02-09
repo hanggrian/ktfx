@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
@@ -20,25 +20,23 @@ import ktfx.layouts.addChild
 open class KtfxJFXDrawer : JFXDrawer(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { content += it }
-
-    final override val childCount: Int get() = if (content != null) 1 else 0
 }
 
-/** Create a [JFXDrawer] with initialization block. */
+/** Create a [JFXDrawer] with configurationialization block. */
 inline fun jfxDrawer(
-    init: (@LayoutsDslMarker KtfxJFXDrawer).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXDrawer().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXDrawer().apply(configuration)
 }
 
 /** Add a [JFXDrawer] to this manager. */
 fun NodeManager.jfxDrawer(): JFXDrawer = addChild(JFXDrawer())
 
-/** Add a [JFXDrawer] with initialization block to this manager. */
+/** Add a [JFXDrawer] with configurationialization block to this manager. */
 inline fun NodeManager.jfxDrawer(
-    init: (@LayoutsDslMarker KtfxJFXDrawer).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXDrawer(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXDrawer(), configuration)
 }

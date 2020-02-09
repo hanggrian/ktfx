@@ -24,8 +24,6 @@ open class KtfxStackPane : StackPane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
-
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
@@ -144,21 +142,21 @@ open class KtfxStackPane : StackPane(), NodeManager {
     }
 }
 
-/** Create a [StackPane] with initialization block. */
+/** Create a [StackPane] with configurationialization block. */
 inline fun stackPane(
-    init: (@LayoutsDslMarker KtfxStackPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit
 ): StackPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxStackPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxStackPane().apply(configuration)
 }
 
 /** Add a [StackPane] to this manager. */
 fun NodeManager.stackPane(): StackPane = addChild(KtfxStackPane())
 
-/** Add a [StackPane] with initialization block to this manager. */
+/** Add a [StackPane] with configurationialization block to this manager. */
 inline fun NodeManager.stackPane(
-    init: (@LayoutsDslMarker KtfxStackPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit
 ): StackPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxStackPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxStackPane(), configuration)
 }

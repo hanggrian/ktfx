@@ -13,16 +13,16 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [BarChart] with initialization block. */
+/** Create a [BarChart] with configurationialization block. */
 inline fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     categoryGap: Double = 10.0,
-    init: (@LayoutsDslMarker BarChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return BarChart(x, y, data, categoryGap).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return BarChart(x, y, data, categoryGap).apply(configuration)
 }
 
 /** Add a [BarChart] to this manager. */
@@ -33,14 +33,14 @@ fun <X, Y> NodeManager.barChart(
     categoryGap: Double = 10.0
 ): BarChart<X, Y> = addChild(BarChart(x, y, data, categoryGap))
 
-/** Add a [BarChart] with initialization block to this manager. */
+/** Add a [BarChart] with configurationialization block to this manager. */
 inline fun <X, Y> NodeManager.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
     categoryGap: Double = 10.0,
-    init: (@LayoutsDslMarker BarChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(BarChart(x, y, data, categoryGap), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(BarChart(x, y, data, categoryGap), configuration)
 }

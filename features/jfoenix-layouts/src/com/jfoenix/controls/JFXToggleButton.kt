@@ -8,25 +8,25 @@ import com.jfoenix.controls.JFXToggleButton
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXToggleButton] with initialization block. */
+/** Create a [JFXToggleButton] with configurationialization block. */
 inline fun jfxToggleButton(
-    init: (@LayoutsDslMarker JFXToggleButton).() -> Unit
+    configuration: (@LayoutDslMarker JFXToggleButton).() -> Unit
 ): JFXToggleButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXToggleButton().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXToggleButton().apply(configuration)
 }
 
 /** Add a [JFXToggleButton] to this manager. */
 fun NodeManager.jfxToggleButton(): JFXToggleButton = addChild(JFXToggleButton())
 
-/** Add a [JFXToggleButton] with initialization block to this manager. */
+/** Add a [JFXToggleButton] with configurationialization block to this manager. */
 inline fun NodeManager.jfxToggleButton(
-    init: (@LayoutsDslMarker JFXToggleButton).() -> Unit
+    configuration: (@LayoutDslMarker JFXToggleButton).() -> Unit
 ): JFXToggleButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXToggleButton(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXToggleButton(), configuration)
 }

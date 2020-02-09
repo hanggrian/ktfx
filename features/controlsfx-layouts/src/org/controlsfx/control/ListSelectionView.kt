@@ -7,26 +7,26 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.ListSelectionView
 
-/** Create a [ListSelectionView] with initialization block. */
+/** Create a [ListSelectionView] with configurationialization block. */
 inline fun <T> listSelectionView(
-    init: (@LayoutsDslMarker ListSelectionView<T>).() -> Unit
+    configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ListSelectionView<T>().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ListSelectionView<T>().apply(configuration)
 }
 
 /** Add a [ListSelectionView] to this manager. */
 fun <T> NodeManager.listSelectionView(): ListSelectionView<T> = addChild(ListSelectionView())
 
-/** Add a [ListSelectionView] with initialization block to this manager. */
+/** Add a [ListSelectionView] with configurationialization block to this manager. */
 inline fun <T> NodeManager.listSelectionView(
-    init: (@LayoutsDslMarker ListSelectionView<T>).() -> Unit
+    configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ListSelectionView(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ListSelectionView(), configuration)
 }

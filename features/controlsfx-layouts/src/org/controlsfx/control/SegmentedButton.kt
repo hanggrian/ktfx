@@ -9,7 +9,7 @@ import javafx.scene.control.ToggleButton
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.ToggleButtonManager
 import ktfx.layouts.addChild
@@ -24,30 +24,28 @@ open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
 
     final override fun <C : ToggleButton> addChild(child: C): C = child.also { buttons += it }
 
-    final override val childCount: Int get() = buttons.size
-
     /** Call [ToggleButtonManager.toggleButton] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker ToggleButton).() -> Unit
-    ): ToggleButton = toggleButton(this, graphic, init)
+        configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+    ): ToggleButton = toggleButton(this, graphic, configuration)
 }
 
-/** Create a [SegmentedButton] with initialization block. */
+/** Create a [SegmentedButton] with configurationialization block. */
 inline fun segmentedButton(
-    init: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
+    configuration: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxSegmentedButton().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxSegmentedButton().apply(configuration)
 }
 
 /** Add a [SegmentedButton] to this manager. */
 fun NodeManager.segmentedButton(): SegmentedButton = addChild(KtfxSegmentedButton())
 
-/** Add a [SegmentedButton] with initialization block to this manager. */
+/** Add a [SegmentedButton] with configurationialization block to this manager. */
 inline fun NodeManager.segmentedButton(
-    init: (@LayoutsDslMarker KtfxSegmentedButton).() -> Unit
+    configuration: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxSegmentedButton(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxSegmentedButton(), configuration)
 }

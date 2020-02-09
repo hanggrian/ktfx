@@ -9,18 +9,18 @@ import com.jfoenix.controls.JFXDefaultChip
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXDefaultChip] with initialization block. */
+/** Create a [JFXDefaultChip] with configurationialization block. */
 inline fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
-    init: (@LayoutsDslMarker JFXDefaultChip<T>).() -> Unit
+    configuration: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXDefaultChip(view, item).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXDefaultChip(view, item).apply(configuration)
 }
 
 /** Add a [JFXDefaultChip] to this manager. */
@@ -29,12 +29,12 @@ fun <T> NodeManager.jfxDefaultChip(
     item: T
 ): JFXDefaultChip<T> = addChild(JFXDefaultChip(view, item))
 
-/** Add a [JFXDefaultChip] with initialization block to this manager. */
+/** Add a [JFXDefaultChip] with configurationialization block to this manager. */
 inline fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
-    init: (@LayoutsDslMarker JFXDefaultChip<T>).() -> Unit
+    configuration: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXDefaultChip(view, item), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXDefaultChip(view, item), configuration)
 }

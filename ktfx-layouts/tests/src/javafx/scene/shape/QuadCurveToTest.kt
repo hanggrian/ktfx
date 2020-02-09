@@ -4,13 +4,13 @@ import javafx.scene.shape.QuadCurveTo
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class QuadCurveToTest : LayoutsTest<PathElementManager, QuadCurveTo>() {
+class QuadCurveToTest : LayoutsTest<KtfxPath, QuadCurveTo>() {
 
     override fun manager() = KtfxPath()
-    override fun childCount() = manager.childCount
+    override fun KtfxPath.childCount() = elements.size
     override fun child1() = quadCurveTo { }
-    override fun PathElementManager.child2() = quadCurveTo()
-    override fun PathElementManager.child3() = quadCurveTo { }
+    override fun KtfxPath.child2() = quadCurveTo()
+    override fun KtfxPath.child3() = quadCurveTo { }
 
     override fun QuadCurveTo.testDefaultValues() {
         assertEquals(0.0, controlX)

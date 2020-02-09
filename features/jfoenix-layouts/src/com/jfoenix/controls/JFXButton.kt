@@ -9,18 +9,18 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXButton] with initialization block. */
+/** Create a [JFXButton] with configurationialization block. */
 inline fun jfxButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker JFXButton).() -> Unit
+    configuration: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXButton(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXButton(text, graphic).apply(configuration)
 }
 
 /** Add a [JFXButton] to this manager. */
@@ -29,12 +29,12 @@ fun NodeManager.jfxButton(
     graphic: Node? = null
 ): JFXButton = addChild(JFXButton(text, graphic))
 
-/** Add a [JFXButton] with initialization block to this manager. */
+/** Add a [JFXButton] with configurationialization block to this manager. */
 inline fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker JFXButton).() -> Unit
+    configuration: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXButton(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXButton(text, graphic), configuration)
 }

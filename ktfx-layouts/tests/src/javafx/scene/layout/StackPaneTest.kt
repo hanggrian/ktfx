@@ -3,11 +3,11 @@ package ktfx.layouts
 import javafx.scene.layout.StackPane
 import ktfx.test.LayoutsTest
 
-class StackPaneTest : LayoutsTest<NodeManager, StackPane>() {
+class StackPaneTest : LayoutsTest<KtfxPane, StackPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = stackPane { }
-    override fun NodeManager.child2() = stackPane()
-    override fun NodeManager.child3() = stackPane { }
+    override fun KtfxPane.child2() = stackPane()
+    override fun KtfxPane.child3() = stackPane { }
 }

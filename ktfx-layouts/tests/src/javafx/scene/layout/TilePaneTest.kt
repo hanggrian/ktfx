@@ -5,13 +5,13 @@ import javafx.scene.layout.TilePane
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class TilePaneTest : LayoutsTest<NodeManager, TilePane>() {
+class TilePaneTest : LayoutsTest<KtfxPane, TilePane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = tilePane { }
-    override fun NodeManager.child2() = tilePane()
-    override fun NodeManager.child3() = tilePane { }
+    override fun KtfxPane.child2() = tilePane()
+    override fun KtfxPane.child3() = tilePane { }
 
     override fun TilePane.testDefaultValues() {
         assertEquals(Orientation.HORIZONTAL, orientation)

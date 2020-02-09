@@ -7,7 +7,7 @@ import javafx.scene.chart.StackedBarChart
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class StackedBarChartTest : LayoutsTest<NodeManager, StackedBarChart<String, Number>>() {
+class StackedBarChartTest : LayoutsTest<KtfxPane, StackedBarChart<String, Number>>() {
     private lateinit var axis1: CategoryAxis
     private lateinit var axis2: NumberAxis
 
@@ -18,10 +18,10 @@ class StackedBarChartTest : LayoutsTest<NodeManager, StackedBarChart<String, Num
     }
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = stackedBarChart(axis1, axis2) { }
-    override fun NodeManager.child2() = stackedBarChart(axis1, axis2)
-    override fun NodeManager.child3() = stackedBarChart(axis1, axis2) { }
+    override fun KtfxPane.child2() = stackedBarChart(axis1, axis2)
+    override fun KtfxPane.child3() = stackedBarChart(axis1, axis2) { }
 
     override fun StackedBarChart<String, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)

@@ -4,13 +4,13 @@ import javafx.scene.control.Button
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class ButtonTest : LayoutsTest<NodeManager, Button>() {
+class ButtonTest : LayoutsTest<KtfxButtonBar, Button>() {
 
-    override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun manager() = KtfxButtonBar(null)
+    override fun KtfxButtonBar.childCount() = buttons.size
     override fun child1() = button { }
-    override fun NodeManager.child2() = button()
-    override fun NodeManager.child3() = button { }
+    override fun KtfxButtonBar.child2() = button()
+    override fun KtfxButtonBar.child3() = button { }
 
     override fun Button.testDefaultValues() {
         assertNull(text)

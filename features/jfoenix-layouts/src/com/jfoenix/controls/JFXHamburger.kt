@@ -8,25 +8,25 @@ import com.jfoenix.controls.JFXHamburger
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXHamburger] with initialization block. */
+/** Create a [JFXHamburger] with configurationialization block. */
 inline fun jfxHamburger(
-    init: (@LayoutsDslMarker JFXHamburger).() -> Unit
+    configuration: (@LayoutDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXHamburger().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXHamburger().apply(configuration)
 }
 
 /** Add a [JFXHamburger] to this manager. */
 fun NodeManager.jfxHamburger(): JFXHamburger = addChild(JFXHamburger())
 
-/** Add a [JFXHamburger] with initialization block to this manager. */
+/** Add a [JFXHamburger] with configurationialization block to this manager. */
 inline fun NodeManager.jfxHamburger(
-    init: (@LayoutsDslMarker JFXHamburger).() -> Unit
+    configuration: (@LayoutDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXHamburger(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXHamburger(), configuration)
 }

@@ -4,13 +4,13 @@ import javafx.scene.control.TextField
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class TextFieldTest : LayoutsTest<NodeManager, TextField>() {
+class TextFieldTest : LayoutsTest<KtfxPane, TextField>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = textField { }
-    override fun NodeManager.child2() = textField()
-    override fun NodeManager.child3() = textField { }
+    override fun KtfxPane.child2() = textField()
+    override fun KtfxPane.child3() = textField { }
 
     override fun TextField.testDefaultValues() {
         assertEquals("", text)

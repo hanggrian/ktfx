@@ -4,17 +4,16 @@ import com.google.common.truth.Truth.assertThat
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXToolbar
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import kotlin.test.Test
 
-class JFXToolbarTest : LayoutsTest<NodeManager, JFXToolbar>() {
+class JFXToolbarTest : LayoutsTest<KtfxPane, JFXToolbar>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxToolbar { }
-    override fun NodeManager.child2() = jfxToolbar()
-    override fun NodeManager.child3() = jfxToolbar { }
+    override fun KtfxPane.child2() = jfxToolbar()
+    override fun KtfxPane.child3() = jfxToolbar { }
 
     @Test fun leftAndRightItems() {
         val left1: JFXButton

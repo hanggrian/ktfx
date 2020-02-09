@@ -5,13 +5,13 @@ import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class GridPaneTest : LayoutsTest<NodeManager, GridPane>() {
+class GridPaneTest : LayoutsTest<KtfxPane, GridPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = gridPane { }
-    override fun NodeManager.child2() = gridPane()
-    override fun NodeManager.child3() = gridPane { }
+    override fun KtfxPane.child2() = gridPane()
+    override fun KtfxPane.child3() = gridPane { }
 
     @Test fun colAndRow() {
         gridPane {

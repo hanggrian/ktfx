@@ -17,17 +17,15 @@ import kotlin.contracts.contract
 open class KtfxTitledPane(title: String?) : TitledPane(title, null), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
-
-    final override val childCount: Int get() = if (content != null) 1 else 0
 }
 
-/** Create a [TitledPane] with initialization block. */
+/** Create a [TitledPane] with configurationialization block. */
 inline fun titledPane(
     title: String? = null,
-    init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxTitledPane(title).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxTitledPane(title).apply(configuration)
 }
 
 /** Add a [TitledPane] to this manager. */
@@ -35,13 +33,13 @@ fun NodeManager.titledPane(
     title: String? = null
 ): TitledPane = addChild(KtfxTitledPane(title))
 
-/** Add a [TitledPane] with initialization block to this manager. */
+/** Add a [TitledPane] with configurationialization block to this manager. */
 inline fun NodeManager.titledPane(
     title: String? = null,
-    init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTitledPane(title), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTitledPane(title), configuration)
 }
 
 /** Add a [TitledPane] to this manager. */
@@ -49,11 +47,11 @@ fun TitledPaneManager.titledPane(
     title: String? = null
 ): TitledPane = addChild(KtfxTitledPane(title))
 
-/** Add a [TitledPane] with initialization block to this manager. */
+/** Add a [TitledPane] with configurationialization block to this manager. */
 inline fun TitledPaneManager.titledPane(
     title: String? = null,
-    init: (@LayoutsDslMarker KtfxTitledPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTitledPane(title), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTitledPane(title), configuration)
 }

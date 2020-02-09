@@ -10,14 +10,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Button] with initialization block. */
+/** Create a [Button] with configurationialization block. */
 inline fun button(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Button).() -> Unit
+    configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Button(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Button(text, graphic).apply(configuration)
 }
 
 /** Add a [Button] to this manager. */
@@ -26,12 +26,12 @@ fun NodeManager.button(
     graphic: Node? = null
 ): Button = addChild(Button(text, graphic))
 
-/** Add a [Button] with initialization block to this manager. */
+/** Add a [Button] with configurationialization block to this manager. */
 inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Button).() -> Unit
+    configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Button(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Button(text, graphic), configuration)
 }

@@ -26,8 +26,6 @@ open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : 
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
-
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
@@ -146,15 +144,15 @@ open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : 
     }
 }
 
-/** Create a [TilePane] with initialization block. */
+/** Create a [TilePane] with configurationialization block. */
 inline fun tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = hgap,
-    init: (@LayoutsDslMarker KtfxTilePane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxTilePane(orientation, hgap, vgap).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxTilePane(orientation, hgap, vgap).apply(configuration)
 }
 
 /** Add a [TilePane] to this manager. */
@@ -164,13 +162,13 @@ fun NodeManager.tilePane(
     vgap: Double = hgap
 ): TilePane = addChild(KtfxTilePane(orientation, hgap, vgap))
 
-/** Add a [TilePane] with initialization block to this manager. */
+/** Add a [TilePane] with configurationialization block to this manager. */
 inline fun NodeManager.tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
     vgap: Double = 0.0,
-    init: (@LayoutsDslMarker KtfxTilePane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTilePane(orientation, hgap, vgap), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTilePane(orientation, hgap, vgap), configuration)
 }

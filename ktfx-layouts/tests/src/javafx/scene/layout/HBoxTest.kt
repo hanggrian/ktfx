@@ -4,13 +4,13 @@ import javafx.scene.layout.HBox
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class HBoxTest : LayoutsTest<NodeManager, HBox>() {
+class HBoxTest : LayoutsTest<KtfxPane, HBox>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = hbox { }
-    override fun NodeManager.child2() = hbox()
-    override fun NodeManager.child3() = hbox { }
+    override fun KtfxPane.child2() = hbox()
+    override fun KtfxPane.child3() = hbox { }
 
     override fun HBox.testDefaultValues() {
         assertEquals(0.0, spacing)

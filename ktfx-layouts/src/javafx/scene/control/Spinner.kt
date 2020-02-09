@@ -9,21 +9,21 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Spinner] with initialization block. */
+/** Create a [Spinner] with configurationialization block. */
 inline fun <T> spinner(
-    init: (@LayoutsDslMarker Spinner<T>).() -> Unit
+    configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Spinner<T>().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Spinner<T>().apply(configuration)
 }
 
 /** Add a [Spinner] to this manager. */
 fun <T> NodeManager.spinner(): Spinner<T> = addChild(Spinner())
 
-/** Add a [Spinner] with initialization block to this manager. */
+/** Add a [Spinner] with configurationialization block to this manager. */
 inline fun <T> NodeManager.spinner(
-    init: (@LayoutsDslMarker Spinner<T>).() -> Unit
+    configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Spinner(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Spinner(), configuration)
 }

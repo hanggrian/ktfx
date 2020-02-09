@@ -9,16 +9,16 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Rectangle] with initialization block. */
+/** Create a [Rectangle] with configurationialization block. */
 inline fun rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutsDslMarker Rectangle).() -> Unit
+    configuration: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Rectangle(x, y, width, height).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Rectangle(x, y, width, height).apply(configuration)
 }
 
 /** Add a [Rectangle] to this manager. */
@@ -29,14 +29,14 @@ fun NodeManager.rectangle(
     height: Double = 0.0
 ): Rectangle = addChild(Rectangle(x, y, width, height))
 
-/** Add a [Rectangle] with initialization block to this manager. */
+/** Add a [Rectangle] with configurationialization block to this manager. */
 inline fun NodeManager.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    init: (@LayoutsDslMarker Rectangle).() -> Unit
+    configuration: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Rectangle(x, y, width, height), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Rectangle(x, y, width, height), configuration)
 }

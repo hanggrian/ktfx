@@ -22,8 +22,6 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
-
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
@@ -114,21 +112,21 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
     }
 }
 
-/** Create an [AnchorPane] with initialization block. */
+/** Create an [AnchorPane] with configurationialization block. */
 inline fun anchorPane(
-    init: (@LayoutsDslMarker KtfxAnchorPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxAnchorPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxAnchorPane().apply(configuration)
 }
 
 /** Add an [AnchorPane] to this manager. */
 fun NodeManager.anchorPane(): AnchorPane = addChild(KtfxAnchorPane())
 
-/** Add an [AnchorPane] with initialization block to this manager. */
+/** Add an [AnchorPane] with configurationialization block to this manager. */
 inline fun NodeManager.anchorPane(
-    init: (@LayoutsDslMarker KtfxAnchorPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxAnchorPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxAnchorPane(), configuration)
 }

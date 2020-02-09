@@ -1,5 +1,3 @@
-@file:UseExperimental(ExperimentalContracts::class)
-
 package ktfx.layouts
 
 import javafx.scene.Node
@@ -13,10 +11,11 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Alias of [BaseManager.addChild] with [init] builder. */
-inline fun <C : T, T> BaseManager<T>.addChild(child: C, init: C.() -> Unit): C {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    child.init()
+/** Alias of [LayoutManager.addChild] with [configuration] builder. */
+@UseExperimental(ExperimentalContracts::class)
+inline fun <C : T, T> LayoutManager<T>.addChild(child: C, configuration: C.() -> Unit): C {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    child.configuration()
     return addChild(child)
 }
 
@@ -24,7 +23,7 @@ inline fun <C : T, T> BaseManager<T>.addChild(child: C, init: C.() -> Unit): C {
  * A manager contains a set of children.
  * @param T type of the child.
  */
-interface BaseManager<T> {
+interface LayoutManager<T> {
 
     /**
      * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
@@ -32,9 +31,6 @@ interface BaseManager<T> {
      * @return the child added
      */
     fun <C : T> addChild(child: C): C
-
-    /** Size of this manager. */
-    val childCount: Int
 }
 
 /**
@@ -44,38 +40,38 @@ interface BaseManager<T> {
  * @see javafx.scene.control.MenuButton
  * @see javafx.scene.control.SplitMenuButton
  */
-interface MenuItemManager : BaseManager<MenuItem>
+interface MenuItemManager : LayoutManager<MenuItem>
 
 /**
  * Container of [Menu].
  * @see javafx.scene.control.MenuBar
  */
-interface MenuManager : BaseManager<Menu>
+interface MenuManager : LayoutManager<Menu>
 
 /** Container of [Node], being used in most subclasses of [javafx.scene.Parent]. */
-interface NodeManager : BaseManager<Node>
+interface NodeManager : LayoutManager<Node>
 
 /**
  * Container of [PathElement].
  * @see javafx.scene.shape.Path
  */
-interface PathElementManager : BaseManager<PathElement>
+interface PathElementManager : LayoutManager<PathElement>
 
 /**
  * Container of [Tab].
  * Also being used in `JFXTabPane.kt`.
  * @see javafx.scene.control.TabPane
  */
-interface TabManager : BaseManager<Tab>
+interface TabManager : LayoutManager<Tab>
 
 /**
  * Container of [TitledPane].
  * @see javafx.scene.control.Accordion
  */
-interface TitledPaneManager : BaseManager<TitledPane>
+interface TitledPaneManager : LayoutManager<TitledPane>
 
 /**
  * Container of [ToggleButton].
  * Used for `SegmentedButton.kt`.
  */
-interface ToggleButtonManager : BaseManager<ToggleButton>
+interface ToggleButtonManager : LayoutManager<ToggleButton>

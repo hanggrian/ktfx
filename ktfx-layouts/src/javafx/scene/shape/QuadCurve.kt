@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [QuadCurve] with initialization block. */
+/** Create a [QuadCurve] with configurationialization block. */
 inline fun quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
@@ -17,10 +17,10 @@ inline fun quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: (@LayoutsDslMarker QuadCurve).() -> Unit
+    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return QuadCurve(startX, startY, controlX, controlY, endX, endY).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return QuadCurve(startX, startY, controlX, controlY, endX, endY).apply(configuration)
 }
 
 /** Add a [QuadCurve] to this manager. */
@@ -33,7 +33,7 @@ fun NodeManager.quadCurve(
     endY: Double = 0.0
 ): QuadCurve = addChild(QuadCurve(startX, startY, controlX, controlY, endX, endY))
 
-/** Add a [QuadCurve] with initialization block to this manager. */
+/** Add a [QuadCurve] with configurationialization block to this manager. */
 inline fun NodeManager.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
@@ -41,8 +41,8 @@ inline fun NodeManager.quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    init: (@LayoutsDslMarker QuadCurve).() -> Unit
+    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), configuration)
 }

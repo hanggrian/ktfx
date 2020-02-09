@@ -10,14 +10,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Hyperlink] with initialization block. */
+/** Create a [Hyperlink] with configurationialization block. */
 inline fun hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Hyperlink).() -> Unit
+    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Hyperlink(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Hyperlink(text, graphic).apply(configuration)
 }
 
 /** Add a [Hyperlink] to this manager. */
@@ -26,12 +26,12 @@ fun NodeManager.hyperlink(
     graphic: Node? = null
 ): Hyperlink = addChild(Hyperlink(text, graphic))
 
-/** Add a [Hyperlink] with initialization block to this manager. */
+/** Add a [Hyperlink] with configurationialization block to this manager. */
 inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker Hyperlink).() -> Unit
+    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Hyperlink(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Hyperlink(text, graphic), configuration)
 }

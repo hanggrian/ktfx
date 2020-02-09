@@ -4,13 +4,13 @@ import javafx.scene.control.MenuItem
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class MenuItemTest : LayoutsTest<MenuItemManager, MenuItem>() {
+class MenuItemTest : LayoutsTest<KtfxMenu, MenuItem>() {
 
     override fun manager() = KtfxMenu("", null)
-    override fun childCount() = manager.childCount
+    override fun KtfxMenu.childCount() = items.size
     override fun child1() = menuItem { }
-    override fun MenuItemManager.child2() = menuItem()
-    override fun MenuItemManager.child3() = menuItem { }
+    override fun KtfxMenu.child2() = menuItem()
+    override fun KtfxMenu.child3() = menuItem { }
 
     override fun MenuItem.testDefaultValues() {
         assertNull(text)

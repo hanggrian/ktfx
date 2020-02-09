@@ -11,7 +11,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.layouts.KtfxTab
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.TabManager
 import ktfx.layouts.addChild
@@ -25,31 +25,29 @@ open class KtfxJFXTabPane : JFXTabPane(), TabManager {
 
     final override fun <C : Tab> addChild(child: C): C = child.also { tabs += it }
 
-    final override val childCount: Int get() = tabs.size
-
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker KtfxTab).() -> Unit
-    ): Tab = tab(this, graphic, init)
+        configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+    ): Tab = tab(this, graphic, configuration)
 }
 
-/** Create a [JFXTabPane] with initialization block. */
+/** Create a [JFXTabPane] with configurationialization block. */
 inline fun jfxTabPane(
-    init: (@LayoutsDslMarker KtfxJFXTabPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXTabPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXTabPane().apply(configuration)
 }
 
 /** Add a [JFXTabPane] to this manager. */
 fun NodeManager.jfxTabPane(): JFXTabPane =
     addChild(KtfxJFXTabPane())
 
-/** Add a [JFXTabPane] with initialization block to this manager. */
+/** Add a [JFXTabPane] with configurationialization block to this manager. */
 inline fun NodeManager.jfxTabPane(
-    init: (@LayoutsDslMarker KtfxJFXTabPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXTabPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXTabPane(), configuration)
 }

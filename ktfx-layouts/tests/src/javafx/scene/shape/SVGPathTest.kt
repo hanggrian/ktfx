@@ -3,11 +3,11 @@ package ktfx.layouts
 import javafx.scene.shape.SVGPath
 import ktfx.test.LayoutsTest
 
-class SVGPathTest : LayoutsTest<NodeManager, SVGPath>() {
+class SVGPathTest : LayoutsTest<KtfxPane, SVGPath>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = svgPath { }
-    override fun NodeManager.child2() = svgPath()
-    override fun NodeManager.child3() = svgPath { }
+    override fun KtfxPane.child2() = svgPath()
+    override fun KtfxPane.child3() = svgPath { }
 }

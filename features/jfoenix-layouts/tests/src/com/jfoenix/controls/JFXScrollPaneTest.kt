@@ -4,17 +4,16 @@ import com.google.common.truth.Truth.assertThat
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXScrollPane
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import kotlin.test.Test
 
-class JFXScrollPaneTest : LayoutsTest<NodeManager, JFXScrollPane>() {
+class JFXScrollPaneTest : LayoutsTest<KtfxPane, JFXScrollPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxScrollPane { }
-    override fun NodeManager.child2() = jfxScrollPane()
-    override fun NodeManager.child3() = jfxScrollPane { }
+    override fun KtfxPane.child2() = jfxScrollPane()
+    override fun KtfxPane.child3() = jfxScrollPane { }
 
     @Test fun barAndHeader() {
         jfxScrollPane {

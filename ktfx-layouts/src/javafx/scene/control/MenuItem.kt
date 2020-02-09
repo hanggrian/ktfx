@@ -10,14 +10,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [MenuItem] with initialization block. */
+/** Create a [MenuItem] with configurationialization block. */
 inline fun menuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker MenuItem).() -> Unit
+    configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return MenuItem(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return MenuItem(text, graphic).apply(configuration)
 }
 
 /** Add a [MenuItem] to this manager. */
@@ -26,12 +26,12 @@ fun MenuItemManager.menuItem(
     graphic: Node? = null
 ): MenuItem = addChild(MenuItem(text, graphic))
 
-/** Add a [MenuItem] with initialization block to this manager. */
+/** Add a [MenuItem] with configurationialization block to this manager. */
 inline fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker MenuItem).() -> Unit
+    configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(MenuItem(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(MenuItem(text, graphic), configuration)
 }

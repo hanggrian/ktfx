@@ -17,17 +17,15 @@ import kotlin.contracts.contract
 open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
-
-    final override val childCount: Int get() = if (content != null) 1 else 0
 }
 
-/** Create a [ScrollPane] with initialization block. */
+/** Create a [ScrollPane] with configurationialization block. */
 inline fun scrollPane(
     content: Node? = null,
-    init: (@LayoutsDslMarker KtfxScrollPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxScrollPane(content).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxScrollPane(content).apply(configuration)
 }
 
 /** Add a [ScrollPane] to this manager. */
@@ -35,11 +33,11 @@ fun NodeManager.scrollPane(
     content: Node? = null
 ): ScrollPane = addChild(KtfxScrollPane(content))
 
-/** Add a [ScrollPane] with initialization block to this manager. */
+/** Add a [ScrollPane] with configurationialization block to this manager. */
 inline fun NodeManager.scrollPane(
     content: Node? = null,
-    init: (@LayoutsDslMarker KtfxScrollPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxScrollPane(content), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxScrollPane(content), configuration)
 }

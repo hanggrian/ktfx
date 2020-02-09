@@ -5,13 +5,13 @@ import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class CircleTest : LayoutsTest<NodeManager, Circle>() {
+class CircleTest : LayoutsTest<KtfxPane, Circle>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = circle { }
-    override fun NodeManager.child2() = circle()
-    override fun NodeManager.child3() = circle { }
+    override fun KtfxPane.child2() = circle()
+    override fun KtfxPane.child3() = circle { }
 
     override fun Circle.testDefaultValues() {
         assertEquals(0.0, centerX)

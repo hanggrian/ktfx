@@ -1,15 +1,14 @@
 package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import org.controlsfx.control.SnapshotView
 
-class SnapshotViewTest : LayoutsTest<NodeManager, SnapshotView>() {
+class SnapshotViewTest : LayoutsTest<KtfxPane, SnapshotView>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = snapshotView { }
-    override fun NodeManager.child2() = snapshotView()
-    override fun NodeManager.child3() = snapshotView { }
+    override fun KtfxPane.child2() = snapshotView()
+    override fun KtfxPane.child3() = snapshotView { }
 }

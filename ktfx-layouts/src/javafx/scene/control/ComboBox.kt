@@ -11,13 +11,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ComboBox] with initialization block. */
+/** Create a [ComboBox] with configurationialization block. */
 inline fun <T> comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ComboBox<T>).() -> Unit
+    configuration: (@LayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ComboBox(items).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ComboBox(items).apply(configuration)
 }
 
 /** Add a [ComboBox] to this manager. */
@@ -25,11 +25,11 @@ fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList()
 ): ComboBox<T> = addChild(ComboBox(items))
 
-/** Add a [ComboBox] with initialization block to this manager. */
+/** Add a [ComboBox] with configurationialization block to this manager. */
 inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ComboBox<T>).() -> Unit
+    configuration: (@LayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ComboBox(items), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ComboBox(items), configuration)
 }

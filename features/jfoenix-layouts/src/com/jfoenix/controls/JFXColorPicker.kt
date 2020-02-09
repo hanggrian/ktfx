@@ -9,17 +9,17 @@ import javafx.scene.paint.Color
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXColorPicker] with initialization block. */
+/** Create a [JFXColorPicker] with configurationialization block. */
 inline fun jfxColorPicker(
     value: Color? = null,
-    init: (@LayoutsDslMarker JFXColorPicker).() -> Unit
+    configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXColorPicker(value).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXColorPicker(value).apply(configuration)
 }
 
 /** Add a [JFXColorPicker] to this manager. */
@@ -27,11 +27,11 @@ fun NodeManager.jfxColorPicker(
     value: Color? = null
 ): JFXColorPicker = addChild(JFXColorPicker(value))
 
-/** Add a [JFXColorPicker] with initialization block to this manager. */
+/** Add a [JFXColorPicker] with configurationialization block to this manager. */
 inline fun NodeManager.jfxColorPicker(
     value: Color? = null,
-    init: (@LayoutsDslMarker JFXColorPicker).() -> Unit
+    configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXColorPicker(value), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXColorPicker(value), configuration)
 }

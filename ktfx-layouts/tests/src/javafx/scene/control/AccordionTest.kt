@@ -8,13 +8,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class AccordionTest : LayoutsTest<NodeManager, Accordion>() {
+class AccordionTest : LayoutsTest<KtfxPane, Accordion>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = accordion { }
-    override fun NodeManager.child2() = accordion()
-    override fun NodeManager.child3() = accordion { }
+    override fun KtfxPane.child2() = accordion()
+    override fun KtfxPane.child3() = accordion { }
 
     @Test fun stringInvocation() {
         accordion {

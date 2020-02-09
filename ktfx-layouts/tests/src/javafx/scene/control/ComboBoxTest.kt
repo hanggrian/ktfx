@@ -4,13 +4,13 @@ import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ComboBox
 import ktfx.test.LayoutsTest
 
-class ComboBoxTest : LayoutsTest<NodeManager, ComboBox<String>>() {
+class ComboBoxTest : LayoutsTest<KtfxPane, ComboBox<String>>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = comboBox<String> { }
-    override fun NodeManager.child2() = comboBox<String>()
-    override fun NodeManager.child3() = comboBox<String> { }
+    override fun KtfxPane.child2() = comboBox<String>()
+    override fun KtfxPane.child3() = comboBox<String> { }
 
     override fun ComboBox<String>.testDefaultValues() {
         assertThat(items).isEmpty()

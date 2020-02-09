@@ -9,13 +9,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Text] with initialization block. */
+/** Create a [Text] with configurationialization block. */
 inline fun text(
     text: String? = null,
-    init: (@LayoutsDslMarker Text).() -> Unit
+    configuration: (@LayoutDslMarker Text).() -> Unit
 ): Text {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Text(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Text(text).apply(configuration)
 }
 
 /** Add a [Text] to this manager. */
@@ -23,11 +23,11 @@ fun NodeManager.text(
     text: String? = null
 ): Text = addChild(Text(text))
 
-/** Add a [Text] with initialization block to this manager. */
+/** Add a [Text] with configurationialization block to this manager. */
 inline fun NodeManager.text(
     text: String? = null,
-    init: (@LayoutsDslMarker Text).() -> Unit
+    configuration: (@LayoutDslMarker Text).() -> Unit
 ): Text {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Text(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Text(text), configuration)
 }

@@ -7,13 +7,13 @@ import org.apache.commons.lang3.SystemUtils
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class ButtonBarTest : LayoutsTest<NodeManager, ButtonBar>() {
+class ButtonBarTest : LayoutsTest<KtfxPane, ButtonBar>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = buttonBar { }
-    override fun NodeManager.child2() = buttonBar()
-    override fun NodeManager.child3() = buttonBar { }
+    override fun KtfxPane.child2() = buttonBar()
+    override fun KtfxPane.child3() = buttonBar { }
 
     override fun ButtonBar.testDefaultValues() {
         assertEquals(

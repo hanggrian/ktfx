@@ -10,13 +10,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [DatePicker] with initialization block. */
+/** Create a [DatePicker] with configurationialization block. */
 inline fun datePicker(
     value: LocalDate? = null,
-    init: (@LayoutsDslMarker DatePicker).() -> Unit
+    configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return DatePicker(value).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return DatePicker(value).apply(configuration)
 }
 
 /** Add a [DatePicker] to this manager. */
@@ -24,11 +24,11 @@ fun NodeManager.datePicker(
     value: LocalDate? = null
 ): DatePicker = addChild(DatePicker(value))
 
-/** Add a [DatePicker] with initialization block to this manager. */
+/** Add a [DatePicker] with configurationialization block to this manager. */
 inline fun NodeManager.datePicker(
     value: LocalDate? = null,
-    init: (@LayoutsDslMarker DatePicker).() -> Unit
+    configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(DatePicker(value), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(DatePicker(value), configuration)
 }

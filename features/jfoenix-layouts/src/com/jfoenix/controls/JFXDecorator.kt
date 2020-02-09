@@ -10,21 +10,21 @@ import javafx.stage.Stage
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXDecorator] with initialization block. */
+/** Create a [JFXDecorator] with configurationialization block. */
 inline fun jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    init: (@LayoutsDslMarker JFXDecorator).() -> Unit
+    configuration: (@LayoutDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXDecorator(stage, node, fullScreen, max, min).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXDecorator(stage, node, fullScreen, max, min).apply(configuration)
 }
 
 /** Add a [JFXDecorator] to this manager. */
@@ -36,15 +36,15 @@ fun NodeManager.jfxDecorator(
     min: Boolean = true
 ): JFXDecorator = addChild(JFXDecorator(stage, node, fullScreen, max, min))
 
-/** Add a [JFXDecorator] with initialization block to this manager. */
+/** Add a [JFXDecorator] with configurationialization block to this manager. */
 inline fun NodeManager.jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
     max: Boolean = true,
     min: Boolean = true,
-    init: (@LayoutsDslMarker JFXDecorator).() -> Unit
+    configuration: (@LayoutDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXDecorator(stage, node, fullScreen, max, min), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXDecorator(stage, node, fullScreen, max, min), configuration)
 }

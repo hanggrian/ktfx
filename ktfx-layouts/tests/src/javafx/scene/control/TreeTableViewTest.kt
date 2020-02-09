@@ -4,13 +4,13 @@ import javafx.scene.control.TreeTableView
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class TreeTableViewTest : LayoutsTest<NodeManager, TreeTableView<String>>() {
+class TreeTableViewTest : LayoutsTest<KtfxPane, TreeTableView<String>>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = treeTableView<String> { }
-    override fun NodeManager.child2() = treeTableView<String>()
-    override fun NodeManager.child3() = treeTableView<String> { }
+    override fun KtfxPane.child2() = treeTableView<String>()
+    override fun KtfxPane.child3() = treeTableView<String> { }
 
     override fun TreeTableView<String>.testDefaultValues() {
         assertNull(root)

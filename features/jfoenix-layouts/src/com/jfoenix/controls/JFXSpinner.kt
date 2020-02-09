@@ -8,17 +8,17 @@ import com.jfoenix.controls.JFXSpinner
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXSpinner] with initialization block to this manager. */
+/** Create a [JFXSpinner] with configurationialization block to this manager. */
 inline fun jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
-    init: (@LayoutsDslMarker JFXSpinner).() -> Unit
+    configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXSpinner(progress).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXSpinner(progress).apply(configuration)
 }
 
 /** Add a [JFXSpinner] to this manager. */
@@ -26,11 +26,11 @@ fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS
 ): JFXSpinner = addChild(JFXSpinner(progress))
 
-/** Add a [JFXSpinner] with initialization block to this manager. */
+/** Add a [JFXSpinner] with configurationialization block to this manager. */
 inline fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
-    init: (@LayoutsDslMarker JFXSpinner).() -> Unit
+    configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXSpinner(progress), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXSpinner(progress), configuration)
 }

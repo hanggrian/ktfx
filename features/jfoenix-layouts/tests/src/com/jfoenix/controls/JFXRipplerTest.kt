@@ -2,14 +2,13 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXRippler
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 
-class JFXRipplerTest : LayoutsTest<NodeManager, JFXRippler>() {
+class JFXRipplerTest : LayoutsTest<KtfxPane, JFXRippler>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxRippler { }
-    override fun NodeManager.child2() = jfxRippler()
-    override fun NodeManager.child3() = jfxRippler { }
+    override fun KtfxPane.child2() = jfxRippler()
+    override fun KtfxPane.child3() = jfxRippler { }
 }

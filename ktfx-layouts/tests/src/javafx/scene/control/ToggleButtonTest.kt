@@ -4,13 +4,13 @@ import javafx.scene.control.ToggleButton
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class ToggleButtonTest : LayoutsTest<NodeManager, ToggleButton>() {
+class ToggleButtonTest : LayoutsTest<KtfxPane, ToggleButton>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = toggleButton { }
-    override fun NodeManager.child2() = toggleButton()
-    override fun NodeManager.child3() = toggleButton { }
+    override fun KtfxPane.child2() = toggleButton()
+    override fun KtfxPane.child3() = toggleButton { }
 
     override fun ToggleButton.testDefaultValues() {
         assertNull(text)

@@ -5,13 +5,13 @@ import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class AnchorPaneTest : LayoutsTest<NodeManager, AnchorPane>() {
+class AnchorPaneTest : LayoutsTest<KtfxPane, AnchorPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = anchorPane { }
-    override fun NodeManager.child2() = anchorPane()
-    override fun NodeManager.child3() = anchorPane { }
+    override fun KtfxPane.child2() = anchorPane()
+    override fun KtfxPane.child3() = anchorPane { }
 
     @Test fun anchors() {
         anchorPane {

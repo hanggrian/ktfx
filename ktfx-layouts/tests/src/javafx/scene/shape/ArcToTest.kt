@@ -5,13 +5,13 @@ import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 
-class ArcToTest : LayoutsTest<PathElementManager, ArcTo>() {
+class ArcToTest : LayoutsTest<KtfxPath, ArcTo>() {
 
     override fun manager() = KtfxPath()
-    override fun childCount() = manager.childCount
+    override fun KtfxPath.childCount() = elements.size
     override fun child1() = arcTo { }
-    override fun PathElementManager.child2() = arcTo()
-    override fun PathElementManager.child3() = arcTo { }
+    override fun KtfxPath.child2() = arcTo()
+    override fun KtfxPath.child3() = arcTo { }
 
     override fun ArcTo.testDefaultValues() {
         assertEquals(0.0, radiusX)

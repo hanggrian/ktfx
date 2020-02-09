@@ -9,21 +9,21 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ClosePath] with initialization block. */
+/** Create a [ClosePath] with configurationialization block. */
 inline fun closePath(
-    init: (@LayoutsDslMarker ClosePath).() -> Unit
+    configuration: (@LayoutDslMarker ClosePath).() -> Unit
 ): ClosePath {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ClosePath().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ClosePath().apply(configuration)
 }
 
 /** Add a [ClosePath] to this manager. */
 fun PathElementManager.closePath(): ClosePath = addChild(ClosePath())
 
-/** Add a [ClosePath] with initialization block to this manager. */
+/** Add a [ClosePath] with configurationialization block to this manager. */
 inline fun PathElementManager.closePath(
-    init: (@LayoutsDslMarker ClosePath).() -> Unit
+    configuration: (@LayoutDslMarker ClosePath).() -> Unit
 ): ClosePath {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ClosePath(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ClosePath(), configuration)
 }

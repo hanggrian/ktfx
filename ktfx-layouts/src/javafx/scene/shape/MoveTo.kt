@@ -9,14 +9,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [MoveTo] with initialization block. */
+/** Create a [MoveTo] with configurationialization block. */
 inline fun moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@LayoutsDslMarker MoveTo).() -> Unit
+    configuration: (@LayoutDslMarker MoveTo).() -> Unit
 ): MoveTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return MoveTo(x, y).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return MoveTo(x, y).apply(configuration)
 }
 
 /** Add a [MoveTo] to this manager. */
@@ -25,12 +25,12 @@ fun PathElementManager.moveTo(
     y: Double = 0.0
 ): MoveTo = addChild(MoveTo(x, y))
 
-/** Add a [MoveTo] with initialization block to this manager. */
+/** Add a [MoveTo] with configurationialization block to this manager. */
 inline fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    init: (@LayoutsDslMarker MoveTo).() -> Unit
+    configuration: (@LayoutDslMarker MoveTo).() -> Unit
 ): MoveTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(MoveTo(x, y), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(MoveTo(x, y), configuration)
 }

@@ -11,13 +11,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ListView] with initialization block. */
+/** Create a [ListView] with configurationialization block. */
 inline fun <T> listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ListView<T>).() -> Unit
+    configuration: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ListView(items).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ListView(items).apply(configuration)
 }
 
 /** Add a [ListView] to this manager. */
@@ -25,11 +25,11 @@ fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList()
 ): ListView<T> = addChild(ListView(items))
 
-/** Add a [ListView] with initialization block to this manager. */
+/** Add a [ListView] with configurationialization block to this manager. */
 inline fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ListView<T>).() -> Unit
+    configuration: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ListView(items), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ListView(items), configuration)
 }

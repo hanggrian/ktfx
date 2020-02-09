@@ -17,25 +17,23 @@ import kotlin.contracts.contract
 open class KtfxPane : Pane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
-
-    final override val childCount: Int get() = childrenUnmodifiable.size
 }
 
-/** Create a [Pane] with initialization block. */
+/** Create a [Pane] with configurationialization block. */
 inline fun pane(
-    init: (@LayoutsDslMarker KtfxPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxPane().apply(configuration)
 }
 
 /** Add a [Pane] to this manager. */
 fun NodeManager.pane(): Pane = addChild(KtfxPane())
 
-/** Add a [Pane] with initialization block to this manager. */
+/** Add a [Pane] with configurationialization block to this manager. */
 inline fun NodeManager.pane(
-    init: (@LayoutsDslMarker KtfxPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxPane(), configuration)
 }

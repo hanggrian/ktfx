@@ -24,8 +24,6 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
-
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
@@ -150,13 +148,13 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
     }
 }
 
-/** Create a [VBox] with initialization block. */
+/** Create a [VBox] with configurationialization block. */
 inline fun vbox(
     spacing: Double = 0.0,
-    init: (@LayoutsDslMarker KtfxVBox).() -> Unit
+    configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxVBox(spacing).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxVBox(spacing).apply(configuration)
 }
 
 /** Add a [VBox] to this manager. */
@@ -164,11 +162,11 @@ fun NodeManager.vbox(
     spacing: Double = 0.0
 ): VBox = addChild(KtfxVBox(spacing))
 
-/** Add a [VBox] with initialization block to this manager. */
+/** Add a [VBox] with configurationialization block to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
-    init: (@LayoutsDslMarker KtfxVBox).() -> Unit
+    configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxVBox(spacing), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxVBox(spacing), configuration)
 }

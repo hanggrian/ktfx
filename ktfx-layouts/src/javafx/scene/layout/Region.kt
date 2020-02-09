@@ -9,21 +9,21 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Region] with initialization block. */
+/** Create a [Region] with configurationialization block. */
 inline fun region(
-    init: (@LayoutsDslMarker Region).() -> Unit
+    configuration: (@LayoutDslMarker Region).() -> Unit
 ): Region {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Region().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Region().apply(configuration)
 }
 
 /** Add a [Region] to this manager. */
 fun NodeManager.region(): Region = addChild(Region())
 
-/** Add a [Region] with initialization block to this manager. */
+/** Add a [Region] with configurationialization block to this manager. */
 inline fun NodeManager.region(
-    init: (@LayoutsDslMarker Region).() -> Unit
+    configuration: (@LayoutDslMarker Region).() -> Unit
 ): Region {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Region(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Region(), configuration)
 }

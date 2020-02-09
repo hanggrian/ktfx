@@ -4,13 +4,13 @@ import javafx.scene.shape.Cylinder
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class CylinderTest : LayoutsTest<NodeManager, Cylinder>() {
+class CylinderTest : LayoutsTest<KtfxPane, Cylinder>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = cylinder { }
-    override fun NodeManager.child2() = cylinder()
-    override fun NodeManager.child3() = cylinder { }
+    override fun KtfxPane.child2() = cylinder()
+    override fun KtfxPane.child3() = cylinder { }
 
     override fun Cylinder.testDefaultValues() {
         assertEquals(1.0, radius)

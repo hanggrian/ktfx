@@ -22,55 +22,53 @@ open class KtfxContextMenu : ContextMenu(), MenuItemManager {
 
     final override fun <C : MenuItem> addChild(child: C): C = child.also { items += it }
 
-    final override val childCount: Int get() = items.size
-
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker MenuItem).() -> Unit
-    ): MenuItem = menuItem(this, graphic, init)
+        configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    ): MenuItem = menuItem(this, graphic, configuration)
 }
 
-/** Create a [ContextMenu] with initialization block. */
+/** Create a [ContextMenu] with configurationialization block. */
 inline fun contextMenu(
-    init: (@LayoutsDslMarker KtfxContextMenu).() -> Unit
+    configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxContextMenu().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxContextMenu().apply(configuration)
 }
 
 /** Set a [ContextMenu] to this [Control]. */
 fun Control.contextMenu(): ContextMenu =
     KtfxContextMenu().also { contextMenu = it }
 
-/** Set a [ContextMenu] with initialization block to this [Control]. */
+/** Set a [ContextMenu] with configurationialization block to this [Control]. */
 inline fun Control.contextMenu(
-    init: (@LayoutsDslMarker KtfxContextMenu).() -> Unit
+    configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.contextMenu(init).also { contextMenu = it }
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
 }
 
 /** Set a [ContextMenu] to this [Tab]. */
 fun Tab.contextMenu(): ContextMenu =
     KtfxContextMenu().also { contextMenu = it }
 
-/** Set a [ContextMenu] with initialization block to this [Tab]. */
+/** Set a [ContextMenu] with configurationialization block to this [Tab]. */
 inline fun Tab.contextMenu(
-    init: (@LayoutsDslMarker KtfxContextMenu).() -> Unit
+    configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.contextMenu(init).also { contextMenu = it }
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
 }
 
 /** Set a [ContextMenu] to this [TableColumnBase]. */
 fun <S, T> TableColumnBase<S, T>.contextMenu(): ContextMenu =
     ktfx.layouts.contextMenu { }.also { contextMenu = it }
 
-/** Set a [ContextMenu] with initialization block to this [TableColumnBase]. */
+/** Set a [ContextMenu] with configurationialization block to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
-    init: (@LayoutsDslMarker KtfxContextMenu).() -> Unit
+    configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.contextMenu(init).also { contextMenu = it }
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
 }

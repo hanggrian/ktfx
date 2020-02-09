@@ -6,13 +6,13 @@ import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MenuBarTest : LayoutsTest<NodeManager, MenuBar>() {
+class MenuBarTest : LayoutsTest<KtfxPane, MenuBar>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = menuBar { }
-    override fun NodeManager.child2() = menuBar()
-    override fun NodeManager.child3() = menuBar { }
+    override fun KtfxPane.child2() = menuBar()
+    override fun KtfxPane.child3() = menuBar { }
 
     @Test fun stringInvocation() {
         menuBar {

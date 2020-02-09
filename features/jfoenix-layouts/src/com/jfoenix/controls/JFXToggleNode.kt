@@ -9,17 +9,17 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXToggleNode] with initialization block. */
+/** Create a [JFXToggleNode] with configurationialization block. */
 inline fun jfxToggleNode(
     graphic: Node? = null,
-    init: (@LayoutsDslMarker JFXToggleNode).() -> Unit
+    configuration: (@LayoutDslMarker JFXToggleNode).() -> Unit
 ): JFXToggleNode {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXToggleNode(graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXToggleNode(graphic).apply(configuration)
 }
 
 /** Add a [JFXToggleNode] to this manager. */
@@ -27,11 +27,11 @@ fun NodeManager.jfxToggleNode(
     graphic: Node? = null
 ): JFXToggleNode = addChild(JFXToggleNode(graphic))
 
-/** Add a [JFXToggleNode] with initialization block to this manager. */
+/** Add a [JFXToggleNode] with configurationialization block to this manager. */
 inline fun NodeManager.jfxToggleNode(
     graphic: Node? = null,
-    init: (@LayoutsDslMarker JFXToggleNode).() -> Unit
+    configuration: (@LayoutDslMarker JFXToggleNode).() -> Unit
 ): JFXToggleNode {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXToggleNode(graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXToggleNode(graphic), configuration)
 }

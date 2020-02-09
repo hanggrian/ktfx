@@ -11,13 +11,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ChoiceBox] with initialization block. */
+/** Create a [ChoiceBox] with configurationialization block. */
 inline fun <T> choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
+    configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ChoiceBox(items).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ChoiceBox(items).apply(configuration)
 }
 
 /** Add a [ChoiceBox] to this manager. */
@@ -25,11 +25,11 @@ fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList()
 ): ChoiceBox<T> = addChild(ChoiceBox(items))
 
-/** Add a [ChoiceBox] with initialization block to this manager. */
+/** Add a [ChoiceBox] with configurationialization block to this manager. */
 inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker ChoiceBox<T>).() -> Unit
+    configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ChoiceBox(items), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ChoiceBox(items), configuration)
 }

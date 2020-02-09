@@ -9,13 +9,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ProgressBar] with initialization block. */
+/** Create a [ProgressBar] with configurationialization block. */
 inline fun progressBar(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
-    init: (@LayoutsDslMarker ProgressBar).() -> Unit
+    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ProgressBar(progress).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ProgressBar(progress).apply(configuration)
 }
 
 /** Add a [ProgressBar] to this manager. */
@@ -23,11 +23,11 @@ fun NodeManager.progressBar(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS
 ): ProgressBar = addChild(ProgressBar(progress))
 
-/** Add a [ProgressBar] with initialization block to this manager. */
+/** Add a [ProgressBar] with configurationialization block to this manager. */
 inline fun NodeManager.progressBar(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
-    init: (@LayoutsDslMarker ProgressBar).() -> Unit
+    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ProgressBar(progress), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ProgressBar(progress), configuration)
 }

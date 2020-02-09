@@ -2,17 +2,16 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDatePicker
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
-class JFXDatePickerTest : LayoutsTest<NodeManager, JFXDatePicker>() {
+class JFXDatePickerTest : LayoutsTest<KtfxPane, JFXDatePicker>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxDatePicker { }
-    override fun NodeManager.child2() = jfxDatePicker()
-    override fun NodeManager.child3() = jfxDatePicker { }
+    override fun KtfxPane.child2() = jfxDatePicker()
+    override fun KtfxPane.child3() = jfxDatePicker { }
 
     override fun JFXDatePicker.testDefaultValues() {
         assertNull(value)

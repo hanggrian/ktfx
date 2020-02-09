@@ -8,17 +8,17 @@ import com.jfoenix.controls.JFXTextField
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXTextField] with initialization block. */
+/** Create a [JFXTextField] with configurationialization block. */
 inline fun jfxTextField(
     text: String? = null,
-    init: (@LayoutsDslMarker JFXTextField).() -> Unit
+    configuration: (@LayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXTextField(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXTextField(text).apply(configuration)
 }
 
 /** Add a [JFXTextField] to this manager. */
@@ -26,11 +26,11 @@ fun NodeManager.jfxTextField(
     text: String? = null
 ): JFXTextField = addChild(JFXTextField(text))
 
-/** Add a [JFXTextField] with initialization block to this manager. */
+/** Add a [JFXTextField] with configurationialization block to this manager. */
 inline fun NodeManager.jfxTextField(
     text: String? = null,
-    init: (@LayoutsDslMarker JFXTextField).() -> Unit
+    configuration: (@LayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXTextField(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXTextField(text), configuration)
 }

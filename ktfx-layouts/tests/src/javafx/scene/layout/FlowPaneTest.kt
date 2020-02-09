@@ -7,13 +7,13 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
-class FlowPaneTest : LayoutsTest<NodeManager, FlowPane>() {
+class FlowPaneTest : LayoutsTest<KtfxPane, FlowPane>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = flowPane { }
-    override fun NodeManager.child2() = flowPane()
-    override fun NodeManager.child3() = flowPane { }
+    override fun KtfxPane.child2() = flowPane()
+    override fun KtfxPane.child3() = flowPane { }
 
     override fun FlowPane.testDefaultValues() {
         assertEquals(Orientation.HORIZONTAL, orientation)

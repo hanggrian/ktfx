@@ -13,15 +13,15 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create an [AreaChart] with initialization block. */
+/** Create an [AreaChart] with configurationialization block. */
 inline fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker AreaChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return AreaChart(x, y, data).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return AreaChart(x, y, data).apply(configuration)
 }
 
 /** Add an [AreaChart] to this manager. */
@@ -31,13 +31,13 @@ fun <X, Y> NodeManager.areaChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList()
 ): AreaChart<X, Y> = addChild(AreaChart(x, y, data))
 
-/** Add an [AreaChart] with initialization block to this manager. */
+/** Add an [AreaChart] with configurationialization block to this manager. */
 inline fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker AreaChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(AreaChart(x, y, data), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(AreaChart(x, y, data), configuration)
 }

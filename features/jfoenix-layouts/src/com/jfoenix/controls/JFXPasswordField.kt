@@ -8,26 +8,26 @@ import com.jfoenix.controls.JFXPasswordField
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXPasswordField] with initialization block. */
+/** Create a [JFXPasswordField] with configurationialization block. */
 inline fun jfxPasswordField(
-    init: (@LayoutsDslMarker JFXPasswordField).() -> Unit
+    configuration: (@LayoutDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXPasswordField().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXPasswordField().apply(configuration)
 }
 
 /** Add a [JFXPasswordField] to this manager. */
 fun NodeManager.jfxPasswordField(): JFXPasswordField =
     addChild(JFXPasswordField())
 
-/** Add a [JFXPasswordField] with initialization block to this manager. */
+/** Add a [JFXPasswordField] with configurationialization block to this manager. */
 inline fun NodeManager.jfxPasswordField(
-    init: (@LayoutsDslMarker JFXPasswordField).() -> Unit
+    configuration: (@LayoutDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXPasswordField(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXPasswordField(), configuration)
 }

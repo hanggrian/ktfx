@@ -2,14 +2,13 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXListCell
 import ktfx.layouts.KtfxPane
-import ktfx.layouts.NodeManager
 import ktfx.test.LayoutsTest
 
-class JFXListCellTest : LayoutsTest<NodeManager, JFXListCell<String>>() {
+class JFXListCellTest : LayoutsTest<KtfxPane, JFXListCell<String>>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = jfxListCell<String> { }
-    override fun NodeManager.child2() = jfxListCell<String>()
-    override fun NodeManager.child3() = jfxListCell<String> { }
+    override fun KtfxPane.child2() = jfxListCell<String>()
+    override fun KtfxPane.child3() = jfxListCell<String> { }
 }

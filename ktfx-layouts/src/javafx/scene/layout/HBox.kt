@@ -24,8 +24,6 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
-
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
@@ -150,13 +148,13 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
     }
 }
 
-/** Create an [HBox] with initialization block. */
+/** Create an [HBox] with configurationialization block. */
 inline fun hbox(
     spacing: Double = 0.0,
-    init: (@LayoutsDslMarker KtfxHBox).() -> Unit
+    configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxHBox(spacing).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxHBox(spacing).apply(configuration)
 }
 
 /** Add an [HBox] to this manager. */
@@ -164,11 +162,11 @@ fun NodeManager.hbox(
     spacing: Double = 0.0
 ): HBox = addChild(KtfxHBox(spacing))
 
-/** Add an [HBox] with initialization block to this manager. */
+/** Add an [HBox] with configurationialization block to this manager. */
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
-    init: (@LayoutsDslMarker KtfxHBox).() -> Unit
+    configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxHBox(spacing), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxHBox(spacing), configuration)
 }

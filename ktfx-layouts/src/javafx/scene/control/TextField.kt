@@ -9,13 +9,13 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [TextField] with initialization block. */
+/** Create a [TextField] with configurationialization block. */
 inline fun textField(
     text: String = "",
-    init: (@LayoutsDslMarker TextField).() -> Unit
+    configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return TextField(text).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return TextField(text).apply(configuration)
 }
 
 /** Add a [TextField] to this manager. */
@@ -23,11 +23,11 @@ fun NodeManager.textField(
     text: String = ""
 ): TextField = addChild(TextField(text))
 
-/** Add a [TextField] with initialization block to this manager. */
+/** Add a [TextField] with configurationialization block to this manager. */
 inline fun NodeManager.textField(
     text: String = "",
-    init: (@LayoutsDslMarker TextField).() -> Unit
+    configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(TextField(text), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(TextField(text), configuration)
 }

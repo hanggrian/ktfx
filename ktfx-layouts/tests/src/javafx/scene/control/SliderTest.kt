@@ -4,13 +4,13 @@ import javafx.scene.control.Slider
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class SliderTest : LayoutsTest<NodeManager, Slider>() {
+class SliderTest : LayoutsTest<KtfxPane, Slider>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = slider { }
-    override fun NodeManager.child2() = slider()
-    override fun NodeManager.child3() = slider { }
+    override fun KtfxPane.child2() = slider()
+    override fun KtfxPane.child3() = slider { }
 
     override fun Slider.testDefaultValues() {
         assertEquals(0.0, min)

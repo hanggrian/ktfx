@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 
 /** There are 3 ways to create/add a child. This test ensures that each way produces the same child result. */
 abstract class LayoutsTest<M : Any, C> {
-    lateinit var manager: M
+    private lateinit var manager: M
 
     @BeforeTest open fun onCreate() {
         initToolkit()
@@ -14,7 +14,7 @@ abstract class LayoutsTest<M : Any, C> {
     }
 
     abstract fun manager(): M
-    abstract fun childCount(): Int
+    abstract fun M.childCount(): Int
     abstract fun child1(): C
     abstract fun M.child2(): C
     abstract fun M.child3(): C
@@ -26,18 +26,18 @@ abstract class LayoutsTest<M : Any, C> {
     @Test fun createChildWithBuilder() {
         val child = child1()
         child.testDefaultValues()
-        assertEquals(0, childCount())
+        assertEquals(0, manager.childCount())
     }
 
     @Test fun addChild() {
         val child = manager.child3()
         child.testDefaultValues()
-        assertEquals(1, childCount())
+        assertEquals(1, manager.childCount())
     }
 
     @Test fun addChildWithBuilder() {
         val child = manager.child2()
         child.testDefaultValues()
-        assertEquals(1, childCount())
+        assertEquals(1, manager.childCount())
     }
 }

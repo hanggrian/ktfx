@@ -27,8 +27,6 @@ open class KtfxGridPane : GridPane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
-
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
@@ -274,21 +272,21 @@ open class KtfxGridPane : GridPane(), NodeManager {
     }
 }
 
-/** Create a [GridPane] with initialization block. */
+/** Create a [GridPane] with configurationialization block. */
 inline fun gridPane(
-    init: (@LayoutsDslMarker KtfxGridPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxGridPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxGridPane().apply(configuration)
 }
 
 /** Add a [GridPane] to this manager. */
 fun NodeManager.gridPane(): GridPane = addChild(KtfxGridPane())
 
-/** Add a [GridPane] with initialization block to this manager. */
+/** Add a [GridPane] with configurationialization block to this manager. */
 inline fun NodeManager.gridPane(
-    init: (@LayoutsDslMarker KtfxGridPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxGridPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxGridPane(), configuration)
 }

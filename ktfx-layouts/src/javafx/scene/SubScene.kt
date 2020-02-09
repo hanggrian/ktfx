@@ -19,16 +19,14 @@ import kotlin.contracts.contract
 open class KtfxSubScene(root: Parent, width: Double, height: Double) : SubScene(root, width, height), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { root = it as? Pane ?: Pane(it) }
-
-    final override val childCount: Int get() = root.childrenUnmodifiable.size
 }
 
-/** Create a [SubScene] with initialization block. */
+/** Create a [SubScene] with configurationialization block. */
 inline fun subScene(
     width: Double = -1.0,
     height: Double = -1.0,
-    init: (@LayoutsDslMarker KtfxSubScene).() -> Unit
+    configuration: (@LayoutDslMarker KtfxSubScene).() -> Unit
 ): SubScene {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxSubScene(Pane(), width, height).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxSubScene(Pane(), width, height).apply(configuration)
 }

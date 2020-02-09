@@ -4,13 +4,13 @@ import javafx.scene.shape.Rectangle
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class RectangleTest : LayoutsTest<NodeManager, Rectangle>() {
+class RectangleTest : LayoutsTest<KtfxPane, Rectangle>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = rectangle { }
-    override fun NodeManager.child2() = rectangle()
-    override fun NodeManager.child3() = rectangle { }
+    override fun KtfxPane.child2() = rectangle()
+    override fun KtfxPane.child3() = rectangle { }
 
     override fun Rectangle.testDefaultValues() {
         assertEquals(0.0, x)

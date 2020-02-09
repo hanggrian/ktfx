@@ -4,13 +4,13 @@ import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.PieChart
 import ktfx.test.LayoutsTest
 
-class PieChartTest : LayoutsTest<NodeManager, PieChart>() {
+class PieChartTest : LayoutsTest<KtfxPane, PieChart>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = pieChart { }
-    override fun NodeManager.child2() = pieChart()
-    override fun NodeManager.child3() = pieChart { }
+    override fun KtfxPane.child2() = pieChart()
+    override fun KtfxPane.child3() = pieChart { }
 
     override fun PieChart.testDefaultValues() {
         assertThat(data).isEmpty()

@@ -10,14 +10,14 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ToggleButton] with initialization block. */
+/** Create a [ToggleButton] with configurationialization block. */
 inline fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker ToggleButton).() -> Unit
+    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ToggleButton(text, graphic).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ToggleButton(text, graphic).apply(configuration)
 }
 
 /** Add a [ToggleButton] to this manager. */
@@ -26,14 +26,14 @@ fun NodeManager.toggleButton(
     graphic: Node? = null
 ): ToggleButton = addChild(ToggleButton(text, graphic))
 
-/** Add a [ToggleButton] with initialization block to this manager. */
+/** Add a [ToggleButton] with configurationialization block to this manager. */
 inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker ToggleButton).() -> Unit
+    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ToggleButton(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ToggleButton(text, graphic), configuration)
 }
 
 /** Add a [ToggleButton] to this manager. */
@@ -42,12 +42,12 @@ fun ToggleButtonManager.toggleButton(
     graphic: Node? = null
 ): ToggleButton = addChild(ToggleButton(text, graphic))
 
-/** Add a [ToggleButton] with initialization block to this manager. */
+/** Add a [ToggleButton] with configurationialization block to this manager. */
 inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
-    init: (@LayoutsDslMarker ToggleButton).() -> Unit
+    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ToggleButton(text, graphic), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ToggleButton(text, graphic), configuration)
 }

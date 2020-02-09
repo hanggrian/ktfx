@@ -6,13 +6,13 @@ import ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class SplitMenuButtonTest : LayoutsTest<NodeManager, SplitMenuButton>() {
+class SplitMenuButtonTest : LayoutsTest<KtfxPane, SplitMenuButton>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = splitMenuButton { }
-    override fun NodeManager.child2() = splitMenuButton()
-    override fun NodeManager.child3() = splitMenuButton { }
+    override fun KtfxPane.child2() = splitMenuButton()
+    override fun KtfxPane.child3() = splitMenuButton { }
 
     @Test fun stringInvocation() {
         splitMenuButton {

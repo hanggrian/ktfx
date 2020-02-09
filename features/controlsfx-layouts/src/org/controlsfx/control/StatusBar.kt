@@ -7,26 +7,26 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.StatusBar
 
-/** Create a [StatusBar] with initialization block. */
+/** Create a [StatusBar] with configurationialization block. */
 inline fun statusBar(
-    init: (@LayoutsDslMarker StatusBar).() -> Unit
+    configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return StatusBar().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return StatusBar().apply(configuration)
 }
 
 /** Add a [StatusBar] to this manager. */
 fun NodeManager.statusBar(): StatusBar = addChild(StatusBar())
 
-/** Add a [StatusBar] with initialization block to this manager. */
+/** Add a [StatusBar] with configurationialization block to this manager. */
 inline fun NodeManager.statusBar(
-    init: (@LayoutsDslMarker StatusBar).() -> Unit
+    configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(StatusBar(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(StatusBar(), configuration)
 }

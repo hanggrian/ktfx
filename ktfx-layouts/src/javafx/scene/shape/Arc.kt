@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create an [Arc] with initialization block. */
+/** Create an [Arc] with configurationialization block. */
 inline fun arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
@@ -17,10 +17,10 @@ inline fun arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-    init: (@LayoutsDslMarker Arc).() -> Unit
+    configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return Arc(centerX, centerY, radiusX, radiusY, startAngle, length).apply(configuration)
 }
 
 /** Add an [Arc] to this manager. */
@@ -33,7 +33,7 @@ fun NodeManager.arc(
     length: Double = 0.0
 ): Arc = addChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length))
 
-/** Add an [Arc] with initialization block to this manager. */
+/** Add an [Arc] with configurationialization block to this manager. */
 inline fun NodeManager.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
@@ -41,8 +41,8 @@ inline fun NodeManager.arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-    init: (@LayoutsDslMarker Arc).() -> Unit
+    configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), configuration)
 }

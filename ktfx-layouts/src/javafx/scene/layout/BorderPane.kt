@@ -25,8 +25,6 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { center = it }
 
-    final override val childCount: Int get() = childrenUnmodifiable.size
-
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
@@ -145,21 +143,21 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
     }
 }
 
-/** Create a [BorderPane] with initialization block. */
+/** Create a [BorderPane] with configurationialization block. */
 inline fun borderPane(
-    init: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxBorderPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxBorderPane().apply(configuration)
 }
 
 /** Add a [BorderPane] to this manager. */
 fun NodeManager.borderPane(): BorderPane = addChild(KtfxBorderPane())
 
-/** Add a [BorderPane] with initialization block to this manager. */
+/** Add a [BorderPane] with configurationialization block to this manager. */
 inline fun NodeManager.borderPane(
-    init: (@LayoutsDslMarker KtfxBorderPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxBorderPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxBorderPane(), configuration)
 }

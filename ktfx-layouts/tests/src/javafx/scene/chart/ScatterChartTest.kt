@@ -6,7 +6,7 @@ import javafx.scene.chart.ScatterChart
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
-class ScatterChartTest : LayoutsTest<NodeManager, ScatterChart<Number, Number>>() {
+class ScatterChartTest : LayoutsTest<KtfxPane, ScatterChart<Number, Number>>() {
     private lateinit var axis1: NumberAxis
     private lateinit var axis2: NumberAxis
 
@@ -17,10 +17,10 @@ class ScatterChartTest : LayoutsTest<NodeManager, ScatterChart<Number, Number>>(
     }
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = scatterChart(axis1, axis2) { }
-    override fun NodeManager.child2() = scatterChart(axis1, axis2)
-    override fun NodeManager.child3() = scatterChart(axis1, axis2) { }
+    override fun KtfxPane.child2() = scatterChart(axis1, axis2)
+    override fun KtfxPane.child3() = scatterChart(axis1, axis2) { }
 
     override fun ScatterChart<Number, Number>.testDefaultValues() {
         assertEquals(axis1, xAxis)

@@ -4,13 +4,13 @@ import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ListView
 import ktfx.test.LayoutsTest
 
-class ListViewTest : LayoutsTest<NodeManager, ListView<String>>() {
+class ListViewTest : LayoutsTest<KtfxPane, ListView<String>>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = listView<String> { }
-    override fun NodeManager.child2() = listView<String>()
-    override fun NodeManager.child3() = listView<String> { }
+    override fun KtfxPane.child2() = listView<String>()
+    override fun KtfxPane.child3() = listView<String> { }
 
     override fun ListView<String>.testDefaultValues() {
         assertThat(items).isEmpty()

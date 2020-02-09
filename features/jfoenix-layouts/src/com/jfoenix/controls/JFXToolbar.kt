@@ -15,7 +15,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
@@ -28,7 +28,6 @@ open class KtfxJFXToolbar : JFXToolbar() {
     @Suppress("NOTHING_TO_INLINE")
     class HBoxConstraints @PublishedApi internal constructor(private val list: MutableList<Node>) : NodeManager {
         override fun <C : Node> addChild(child: C): C = child.also { list += it }
-        override val childCount: Int get() = list.size
 
         /** Clear children constraints. */
         @JvmName("clearConstraints2")
@@ -156,32 +155,32 @@ open class KtfxJFXToolbar : JFXToolbar() {
 }
 
 /** Add children to [JFXToolbar] left items with DSL. */
-inline fun KtfxJFXToolbar.leftItems(init: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    KtfxJFXToolbar.HBoxConstraints(leftItems).init()
+inline fun KtfxJFXToolbar.leftItems(configuration: (@LayoutDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    KtfxJFXToolbar.HBoxConstraints(leftItems).configuration()
 }
 
 /** Add children to [JFXToolbar] right items with DSL. */
-inline fun KtfxJFXToolbar.rightItems(init: (@LayoutsDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    KtfxJFXToolbar.HBoxConstraints(rightItems).init()
+inline fun KtfxJFXToolbar.rightItems(configuration: (@LayoutDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    KtfxJFXToolbar.HBoxConstraints(rightItems).configuration()
 }
 
-/** Create a [JFXToolbar] with initialization block. */
+/** Create a [JFXToolbar] with configurationialization block. */
 inline fun jfxToolbar(
-    init: (@LayoutsDslMarker KtfxJFXToolbar).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXToolbar().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXToolbar().apply(configuration)
 }
 
 /** Add a [JFXToolbar] to this manager. */
 fun NodeManager.jfxToolbar(): JFXToolbar = addChild(KtfxJFXToolbar())
 
-/** Add a [JFXToolbar] with initialization block to this manager. */
+/** Add a [JFXToolbar] with configurationialization block to this manager. */
 inline fun NodeManager.jfxToolbar(
-    init: (@LayoutsDslMarker KtfxJFXToolbar).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXToolbar(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXToolbar(), configuration)
 }

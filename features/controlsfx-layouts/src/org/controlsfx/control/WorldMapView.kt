@@ -7,27 +7,27 @@ package ktfx.controlsfx.layouts
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.WorldMapView
 
-/** Create a [WorldMapView] with initialization block. */
+/** Create a [WorldMapView] with configurationialization block. */
 inline fun worldMapView(
-    init: (@LayoutsDslMarker WorldMapView).() -> Unit
+    configuration: (@LayoutDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return WorldMapView().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return WorldMapView().apply(configuration)
 }
 
 /** Add a [WorldMapView] to this manager. */
 fun NodeManager.worldMapView(): WorldMapView =
     addChild(WorldMapView())
 
-/** Add a [WorldMapView] with initialization block to this manager. */
+/** Add a [WorldMapView] with configurationialization block to this manager. */
 inline fun NodeManager.worldMapView(
-    init: (@LayoutsDslMarker WorldMapView).() -> Unit
+    configuration: (@LayoutDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(WorldMapView(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(WorldMapView(), configuration)
 }

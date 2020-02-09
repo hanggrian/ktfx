@@ -17,18 +17,16 @@ import kotlin.contracts.contract
 open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
-
-    final override val childCount: Int get() = if (content != null) 1 else 0
 }
 
-/** Create a [Tab] with initialization block. */
+/** Create a [Tab] with configurationialization block. */
 inline fun tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutsDslMarker KtfxTab).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxTab(text, content).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxTab(text, content).apply(configuration)
 }
 
 /** Add a [Tab] to this manager. */
@@ -37,12 +35,12 @@ fun TabManager.tab(
     content: Node? = null
 ): Tab = addChild(KtfxTab(text, content))
 
-/** Add a [Tab] with initialization block to this manager. */
+/** Add a [Tab] with configurationialization block to this manager. */
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
-    init: (@LayoutsDslMarker KtfxTab).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTab(text, content), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTab(text, content), configuration)
 }

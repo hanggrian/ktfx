@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
@@ -20,26 +20,24 @@ import ktfx.layouts.addChild
 open class KtfxJFXNodesList : JFXNodesList(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
-
-    final override val childCount: Int get() = childrenUnmodifiable.size
 }
 
-/** Create a [JFXNodesList] with initialization block. */
+/** Create a [JFXNodesList] with configurationialization block. */
 inline fun jfxNodesList(
-    init: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXNodesList().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXNodesList().apply(configuration)
 }
 
 /** Add a [JFXNodesList] to this manager. */
 fun NodeManager.jfxNodesList(): JFXNodesList =
     addChild(JFXNodesList())
 
-/** Add a [JFXNodesList] with initialization block to this manager. */
+/** Add a [JFXNodesList] with configurationialization block to this manager. */
 inline fun NodeManager.jfxNodesList(
-    init: (@LayoutsDslMarker KtfxJFXNodesList).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXNodesList(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXNodesList(), configuration)
 }

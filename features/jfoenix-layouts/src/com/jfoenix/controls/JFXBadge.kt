@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
@@ -20,25 +20,23 @@ import ktfx.layouts.addChild
 open class KtfxJFXBadge : JFXBadge(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { control = it }
-
-    final override val childCount: Int get() = if (control != null) 1 else 0
 }
 
-/** Create a [JFXBadge] with initialization block. */
+/** Create a [JFXBadge] with configurationialization block. */
 inline fun jfxBadge(
-    init: (@LayoutsDslMarker KtfxJFXBadge).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXBadge().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXBadge().apply(configuration)
 }
 
 /** Add a [JFXBadge] to this manager. */
 fun NodeManager.jfxBadge(): JFXBadge = addChild(KtfxJFXBadge())
 
-/** Add a [JFXBadge] with initialization block to this manager. */
+/** Add a [JFXBadge] with configurationialization block to this manager. */
 inline fun NodeManager.jfxBadge(
-    init: (@LayoutsDslMarker KtfxJFXBadge).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXBadge(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXBadge(), configuration)
 }

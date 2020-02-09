@@ -9,17 +9,17 @@ import javafx.scene.control.TreeItem
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXTreeView] with initialization block. */
+/** Create a [JFXTreeView] with configurationialization block. */
 inline fun <T> jfxTreeView(
     root: TreeItem<T>? = null,
-    init: (@LayoutsDslMarker JFXTreeView<T>).() -> Unit
+    configuration: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return JFXTreeView(root).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return JFXTreeView(root).apply(configuration)
 }
 
 /** Add a [JFXTreeView] to this manager. */
@@ -27,11 +27,11 @@ fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null
 ): JFXTreeView<T> = addChild(JFXTreeView(root))
 
-/** Add a [JFXTreeView] with initialization block to this manager. */
+/** Add a [JFXTreeView] with configurationialization block to this manager. */
 inline fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null,
-    init: (@LayoutsDslMarker JFXTreeView<T>).() -> Unit
+    configuration: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(JFXTreeView(root), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(JFXTreeView(root), configuration)
 }

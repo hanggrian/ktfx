@@ -13,15 +13,15 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [StackedBarChart] with initialization block. */
+/** Create a [StackedBarChart] with configurationialization block. */
 inline fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker StackedBarChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return StackedBarChart(x, y, data).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return StackedBarChart(x, y, data).apply(configuration)
 }
 
 /** Add a [StackedBarChart] to this manager. */
@@ -31,13 +31,13 @@ fun <X, Y> NodeManager.stackedBarChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList()
 ): StackedBarChart<X, Y> = addChild(StackedBarChart(x, y, data))
 
-/** Add a [StackedBarChart] with initialization block to this manager. */
+/** Add a [StackedBarChart] with configurationialization block to this manager. */
 inline fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList(),
-    init: (@LayoutsDslMarker StackedBarChart<X, Y>).() -> Unit
+    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(StackedBarChart(x, y, data), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(StackedBarChart(x, y, data), configuration)
 }

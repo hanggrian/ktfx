@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create an [ArcTo] with initialization block. */
+/** Create an [ArcTo] with configurationialization block. */
 inline fun arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
@@ -18,10 +18,10 @@ inline fun arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
-    init: (@LayoutsDslMarker ArcTo).() -> Unit
+    configuration: (@LayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag).apply(configuration)
 }
 
 /** Add an [ArcTo] to this manager. */
@@ -35,7 +35,7 @@ fun PathElementManager.arcTo(
     sweepFlag: Boolean = false
 ): ArcTo = addChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag))
 
-/** Add an [ArcTo] with initialization block to this manager. */
+/** Add an [ArcTo] with configurationialization block to this manager. */
 inline fun PathElementManager.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
@@ -44,8 +44,8 @@ inline fun PathElementManager.arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
-    init: (@LayoutsDslMarker ArcTo).() -> Unit
+    configuration: (@LayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag), configuration)
 }

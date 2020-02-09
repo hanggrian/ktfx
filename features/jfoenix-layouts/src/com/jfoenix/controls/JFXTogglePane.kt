@@ -9,7 +9,7 @@ import javafx.scene.Node
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutsDslMarker
+import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
@@ -20,25 +20,23 @@ import ktfx.layouts.addChild
 open class KtfxJFXTogglePane : JFXTogglePane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { contentNode = it }
-
-    final override val childCount: Int get() = if (contentNode != null) 1 else 0
 }
 
-/** Create a [JFXTogglePane] with initialization block. */
+/** Create a [JFXTogglePane] with configurationialization block. */
 inline fun jfxTogglePane(
-    init: (@LayoutsDslMarker KtfxJFXTogglePane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxJFXTogglePane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxJFXTogglePane().apply(configuration)
 }
 
 /** Add a [JFXTogglePane] to this manager. */
 fun NodeManager.jfxTogglePane(): JFXTogglePane = addChild(JFXTogglePane())
 
-/** Add a [JFXTogglePane] with initialization block to this manager. */
+/** Add a [JFXTogglePane] with configurationialization block to this manager. */
 inline fun NodeManager.jfxTogglePane(
-    init: (@LayoutsDslMarker KtfxJFXTogglePane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxJFXTogglePane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxJFXTogglePane(), configuration)
 }

@@ -3,11 +3,11 @@ package ktfx.layouts
 import javafx.scene.shape.Path
 import ktfx.test.LayoutsTest
 
-class PathTest : LayoutsTest<NodeManager, Path>() {
+class PathTest : LayoutsTest<KtfxPane, Path>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = path { }
-    override fun NodeManager.child2() = path()
-    override fun NodeManager.child3() = path { }
+    override fun KtfxPane.child2() = path()
+    override fun KtfxPane.child3() = path { }
 }

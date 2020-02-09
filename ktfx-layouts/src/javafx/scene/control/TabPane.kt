@@ -19,30 +19,28 @@ open class KtfxTabPane : TabPane(), TabManager {
 
     final override fun <C : Tab> addChild(child: C): C = child.also { tabs += it }
 
-    final override val childCount: Int get() = tabs.size
-
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        init: (@LayoutsDslMarker KtfxTab).() -> Unit
-    ): Tab = tab(this, graphic, init)
+        configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+    ): Tab = tab(this, graphic, configuration)
 }
 
-/** Create a [TabPane] with initialization block. */
+/** Create a [TabPane] with configurationialization block. */
 inline fun tabPane(
-    init: (@LayoutsDslMarker KtfxTabPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxTabPane().apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxTabPane().apply(configuration)
 }
 
 /** Add a [TabPane] to this manager. */
 fun NodeManager.tabPane(): TabPane = addChild(KtfxTabPane())
 
-/** Add a [TabPane] with initialization block to this manager. */
+/** Add a [TabPane] with configurationialization block to this manager. */
 inline fun NodeManager.tabPane(
-    init: (@LayoutsDslMarker KtfxTabPane).() -> Unit
+    configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTabPane(), init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return addChild(KtfxTabPane(), configuration)
 }

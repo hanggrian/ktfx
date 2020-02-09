@@ -3,11 +3,11 @@ package ktfx.layouts
 import javafx.scene.control.ToolBar
 import ktfx.test.LayoutsTest
 
-class ToolBarTest : LayoutsTest<NodeManager, ToolBar>() {
+class ToolBarTest : LayoutsTest<KtfxPane, ToolBar>() {
 
     override fun manager() = KtfxPane()
-    override fun childCount() = manager.childCount
+    override fun KtfxPane.childCount() = children.size
     override fun child1() = toolBar { }
-    override fun NodeManager.child2() = toolBar()
-    override fun NodeManager.child3() = toolBar { }
+    override fun KtfxPane.child2() = toolBar()
+    override fun KtfxPane.child3() = toolBar { }
 }

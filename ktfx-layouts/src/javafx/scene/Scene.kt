@@ -23,19 +23,17 @@ open class KtfxScene(root: Parent, width: Double, height: Double, fill: Paint) :
     Scene(root, width, height, fill), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { root = it as? Pane ?: Pane(it) }
-
-    final override val childCount: Int get() = root.childrenUnmodifiable.size
 }
 
-/** Create a [Scene] with initialization block. */
+/** Create a [Scene] with configurationialization block. */
 inline fun scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = Color.WHITE,
-    init: (@LayoutsDslMarker KtfxScene).() -> Unit
+    configuration: (@LayoutDslMarker KtfxScene).() -> Unit
 ): Scene {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return KtfxScene(Pane(), width, height, fill).apply(init)
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return KtfxScene(Pane(), width, height, fill).apply(configuration)
 }
 
 /** Add a [Scene] to this window. */
@@ -45,13 +43,13 @@ fun Stage.scene(
     fill: Paint = Color.WHITE
 ): Scene = KtfxScene(Pane(), width, height, fill).also { scene = it }
 
-/** Add a [Scene] with initialization block to this window. */
+/** Add a [Scene] with configurationialization block to this window. */
 inline fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = Color.WHITE,
-    init: (@LayoutsDslMarker KtfxScene).() -> Unit
+    configuration: (@LayoutDslMarker KtfxScene).() -> Unit
 ): Scene {
-    contract { callsInPlace(init, InvocationKind.EXACTLY_ONCE) }
-    return ktfx.layouts.scene(width, height, fill, init).also { scene = it }
+    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
+    return ktfx.layouts.scene(width, height, fill, configuration).also { scene = it }
 }

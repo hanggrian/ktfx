@@ -9,7 +9,7 @@
 <br/>
 <h1>DialogButtonContainer</h1>
 <code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">DialogButtonContainer</span></code>
-<p>Supporting class to build dialog buttons with Kotlin DSL.</p>
+<p>Container of <a href="#">ButtonType</a>, providing sets of useful operation.</p>
 <h3>Functions</h3>
 <table>
 <tbody>
@@ -20,7 +20,7 @@
 <td>
 <p>Add apply button.</p>
 <code><span class="keyword">fun </span><span class="identifier">apply</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add apply button, invoking DSL to customize it as node.</p>
+<p>Add apply button using <a href="apply.html#ktfx.dialogs.DialogButtonContainer$apply(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">apply</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$apply(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -30,7 +30,7 @@
 <td>
 <p>Add cancel button.</p>
 <code><span class="keyword">fun </span><span class="identifier">cancel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add cancel button, invoking DSL to customize it as node.</p>
+<p>Add cancel button using <a href="cancel.html#ktfx.dialogs.DialogButtonContainer$cancel(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">cancel</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$cancel(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -40,7 +40,7 @@
 <td>
 <p>Add close button.</p>
 <code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add close button, invoking DSL to customize it as node.</p>
+<p>Add close button using <a href="close.html#ktfx.dialogs.DialogButtonContainer$close(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">close</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$close(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -48,9 +48,9 @@
 <h4><a href="custom.html">custom</a></h4>
 </td>
 <td>
-<p>Add custom button specifying text and type.</p>
+<p>Add custom button specifying <a href="custom.html#ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData)/text">text</a> and <a href="custom.html#ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData)/data">data</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">custom</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData)/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData)/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ButtonData</span>&nbsp;<span class="symbol">=</span>&nbsp;ButtonBar.ButtonData.OTHER<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add custom button specifying text and type, invoking DSL to customize it as node.</p>
+<p>Add custom button specifying <a href="custom.html#ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/text">text</a> and <a href="custom.html#ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/data">data</a> using <a href="custom.html#ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">custom</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/text">text</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/data">data</span><span class="symbol">:</span>&nbsp;<span class="identifier">ButtonData</span>&nbsp;<span class="symbol">=</span>&nbsp;ButtonBar.ButtonData.OTHER<span class="symbol">, </span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$custom(kotlin.String, javafx.scene.control.ButtonBar.ButtonData, kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -60,7 +60,7 @@
 <td>
 <p>Add finish button.</p>
 <code><span class="keyword">fun </span><span class="identifier">finish</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add finish button, invoking DSL to customize it as node.</p>
+<p>Add finish button using <a href="finish.html#ktfx.dialogs.DialogButtonContainer$finish(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">finish</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$finish(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -70,7 +70,7 @@
 <td>
 <p>Add next button.</p>
 <code><span class="keyword">fun </span><span class="identifier">next</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add next button, invoking DSL to customize it as node.</p>
+<p>Add next button using <a href="next.html#ktfx.dialogs.DialogButtonContainer$next(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">next</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$next(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -80,7 +80,7 @@
 <td>
 <p>Add no button.</p>
 <code><span class="keyword">fun </span><span class="identifier">no</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add no button, invoking DSL to customize it as node.</p>
+<p>Add no button using <a href="no.html#ktfx.dialogs.DialogButtonContainer$no(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">no</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$no(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -90,7 +90,7 @@
 <td>
 <p>Add ok button.</p>
 <code><span class="keyword">fun </span><span class="identifier">ok</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add ok button, invoking DSL to customize it as node.</p>
+<p>Add ok button using <a href="ok.html#ktfx.dialogs.DialogButtonContainer$ok(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">ok</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$ok(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -100,7 +100,7 @@
 <td>
 <p>Add previous button.</p>
 <code><span class="keyword">fun </span><span class="identifier">previous</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add previous button, invoking DSL to customize it as node.</p>
+<p>Add previous button using <a href="previous.html#ktfx.dialogs.DialogButtonContainer$previous(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">previous</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$previous(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@
 <td>
 <p>Add yes button.</p>
 <code><span class="keyword">fun </span><span class="identifier">yes</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code>
-<p>Add yes button, invoking DSL to customize it as node.</p>
+<p>Add yes button using <a href="yes.html#ktfx.dialogs.DialogButtonContainer$yes(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</a> block.</p>
 <code><span class="keyword">fun </span><span class="identifier">yes</span><span class="symbol">(</span><span class="identifier" id="ktfx.dialogs.DialogButtonContainer$yes(kotlin.Function1((javafx.scene.control.Button, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Button</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Button</span></code></td>
 </tr>
 </tbody>
@@ -123,7 +123,7 @@
 <h4><a href="../-dialog-button-container-scope/index.html">DialogButtonContainerScope</a></h4>
 </td>
 <td>
-<p>Scope of <a href="./index.html">DialogButtonContainer</a>.</p>
+<p>Receiver for <code>buttons</code> block.</p>
 <code><span class="keyword">class </span><span class="identifier">DialogButtonContainerScope</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="./index.html"><span class="identifier">DialogButtonContainer</span></a></code></td>
 </tr>
 </tbody>

@@ -1,7 +1,6 @@
 $dokka.format:html
 $dokka.linkExtension:html
 $dokka.location:ktfx.controlsfx.controls$addDecoration(javafx.scene.Node, org.controlsfx.control.decoration.Decoration)ktfx.controlsfx.controls/javafx.scene.-node/add-decoration.html
-$dokka.location:ktfx.controlsfx.controls$addDecorations(javafx.scene.Node, kotlin.Array((org.controlsfx.control.decoration.Decoration)))ktfx.controlsfx.controls/javafx.scene.-node/add-decorations.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, javafx.util.StringConverter((ktfx.controlsfx.controls.bindAutoCompletion.T)), kotlin.Function1((org.controlsfx.control.textfield.AutoCompletionBinding.ISuggestionRequest, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.Array((ktfx.controlsfx.controls.bindAutoCompletion.T)))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
 $dokka.location:ktfx.controlsfx.controls$bindAutoCompletion(javafx.scene.control.TextField, kotlin.Function1((org.controlsfx.control.textfield.AutoCompletionBinding.ISuggestionRequest, kotlin.collections.Collection((ktfx.controlsfx.controls.bindAutoCompletion.T)))))ktfx.controlsfx.controls/javafx.scene.control.-text-field/bind-auto-completion.html
@@ -16,6 +15,9 @@ $dokka.location:ktfx.controlsfx.controls$registerRegexValidator(javafx.scene.con
 $dokka.location:ktfx.controlsfx.controls$registerRegexValidator(javafx.scene.control.Control, kotlin.String, kotlin.text.Regex, org.controlsfx.validation.Severity, kotlin.Boolean, org.controlsfx.validation.ValidationSupport)ktfx.controlsfx.controls/javafx.scene.control.-control/register-regex-validator.html
 $dokka.location:ktfx.controlsfx.controls$removeDecoration(javafx.scene.Node, org.controlsfx.control.decoration.Decoration)ktfx.controlsfx.controls/javafx.scene.-node/remove-decoration.html
 $dokka.location:ktfx.controlsfx.controls$wrapBorders(javafx.scene.Node, kotlin.Function1((ktfx.controlsfx.controls.BordersBuilder, kotlin.Unit)))ktfx.controlsfx.controls/javafx.scene.-node/wrap-borders.html
+$dokka.location:ktfx.controlsfx.controls$wrapEmptyBorder(javafx.scene.Node, kotlin.Function1((ktfx.controlsfx.controls.BordersBuilder.EmptyBuilder, kotlin.Unit)))ktfx.controlsfx.controls/javafx.scene.-node/wrap-empty-border.html
+$dokka.location:ktfx.controlsfx.controls$wrapEtchedBorder(javafx.scene.Node, kotlin.Function1((ktfx.controlsfx.controls.BordersBuilder.EtchedBuilder, kotlin.Unit)))ktfx.controlsfx.controls/javafx.scene.-node/wrap-etched-border.html
+$dokka.location:ktfx.controlsfx.controls$wrapLineBorder(javafx.scene.Node, kotlin.Function1((ktfx.controlsfx.controls.BordersBuilder.LineBuilder, kotlin.Unit)))ktfx.controlsfx.controls/javafx.scene.-node/wrap-line-border.html
 $dokka.location:ktfx.controlsfx.text$color(org.controlsfx.glyphfont.Glyph, javafx.scene.paint.Color)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/color.html
 $dokka.location:ktfx.controlsfx.text$family(org.controlsfx.glyphfont.Glyph, kotlin.String)ktfx.controlsfx.text/org.controlsfx.glyphfont.-glyph/family.html
 $dokka.location:ktfx.controlsfx.text$glyph(kotlin.String, kotlin.String)ktfx.controlsfx.text/kotlin.-string/glyph.html

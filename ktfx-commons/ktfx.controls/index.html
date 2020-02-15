@@ -16,7 +16,7 @@
 <h4><a href="-background-builder/index.html">BackgroundBuilder</a></h4>
 </td>
 <td>
-<p>Class to support adding backgrounds to node with Kotlin DSL.</p>
+<p>Class to support adding <a href="#">Background</a> to node with DSL.</p>
 <code><span class="keyword">class </span><span class="identifier">BackgroundBuilder</span></code></td>
 </tr>
 <tr>
@@ -24,24 +24,56 @@
 <h4><a href="-border-builder/index.html">BorderBuilder</a></h4>
 </td>
 <td>
-<p>Class to support adding backgrounds to node with Kotlin DSL.</p>
+<p>Class to support adding <a href="#">Border</a> to node with DSL.</p>
 <code><span class="keyword">class </span><span class="identifier">BorderBuilder</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="-table-columns-builder/index.html">TableColumnsBuilder</a></h4>
+<h4><a href="-column-constraints-container/index.html">ColumnConstraintsContainer</a></h4>
 </td>
 <td>
-<p>Interface to build <a href="#">TableColumn</a> with Kotlin DSL.</p>
-<code><span class="keyword">class </span><span class="identifier">TableColumnsBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+<p>Container of <a href="#">ColumnConstraints</a>, providing sets of useful operation.</p>
+<code><span class="keyword">class </span><span class="identifier">ColumnConstraintsContainer</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="-tree-table-columns-builder/index.html">TreeTableColumnsBuilder</a></h4>
+<h4><a href="-row-constraints-container/index.html">RowConstraintsContainer</a></h4>
 </td>
 <td>
-<p>Interface to build <a href="#">TreeTableColumn</a> with Kotlin DSL.</p>
-<code><span class="keyword">class </span><span class="identifier">TreeTableColumnsBuilder</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+<p>Container of <a href="#">RowConstraints</a>, providing sets of useful operation.</p>
+<code><span class="keyword">class </span><span class="identifier">RowConstraintsContainer</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-table-column-container/index.html">TableColumnContainer</a></h4>
+</td>
+<td>
+<p>Container of <a href="#">TableColumn</a>, providing sets of useful operation.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">TableColumnContainer</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-table-column-container-scope/index.html">TableColumnContainerScope</a></h4>
+</td>
+<td>
+<p>Receiver for <code>tableColumns</code> block.</p>
+<code><span class="keyword">class </span><span class="identifier">TableColumnContainerScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-table-column-container/index.html"><span class="identifier">TableColumnContainer</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-tree-table-column-container/index.html">TreeTableColumnContainer</a></h4>
+</td>
+<td>
+<p>Container of <a href="#">TreeTableColumn</a>, providing sets of useful operation.</p>
+<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">TreeTableColumnContainer</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-tree-table-column-container-scope/index.html">TreeTableColumnContainerScope</a></h4>
+</td>
+<td>
+<p>Receiver for <code>tableColumns</code> block.</p>
+<code><span class="keyword">class </span><span class="identifier">TreeTableColumnContainerScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-tree-table-column-container/index.html"><span class="identifier">TreeTableColumnContainer</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -61,6 +93,13 @@
 <h3>Extensions for External Classes</h3>
 <table>
 <tbody>
+<tr>
+<td>
+<h4><a href="java.awt.image.-buffered-image/index.html">java.awt.image.BufferedImage</a></h4>
+</td>
+<td>
+</td>
+</tr>
 <tr>
 <td>
 <h4><a href="javafx.scene.control.-multiple-selection-model/index.html">javafx.scene.control.MultipleSelectionModel</a></h4>
@@ -106,6 +145,13 @@
 <tr>
 <td>
 <h4><a href="javafx.scene.control.-tree-table-view/index.html">javafx.scene.control.TreeTableView</a></h4>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td>
+<h4><a href="javafx.scene.image.-image/index.html">javafx.scene.image.Image</a></h4>
 </td>
 <td>
 </td>
@@ -173,12 +219,28 @@
 <tbody>
 <tr>
 <td>
+<h4><a href="build-background.html">buildBackground</a></h4>
+</td>
+<td>
+<p>Create multiple <a href="#">BackgroundFill</a> and/or <a href="#">BackgroundImage</a> using DSL.</p>
+<code><span class="keyword">fun </span><span class="identifier">buildBackground</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$buildBackground(kotlin.Function1((ktfx.controls.BackgroundBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="-background-builder/index.html"><span class="identifier">BackgroundBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Background</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="build-border.html">buildBorder</a></h4>
+</td>
+<td>
+<p>Create multiple <a href="#">BorderStroke</a> and/or <a href="#">BorderImage</a> using DSL.</p>
+<code><span class="keyword">fun </span><span class="identifier">buildBorder</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$buildBorder(kotlin.Function1((ktfx.controls.BorderBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="-border-builder/index.html"><span class="identifier">BorderBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Border</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="stage.html">stage</a></h4>
 </td>
 <td>
 <p>Creates a stage with options.</p>
-<code><span class="keyword">fun </span><span class="identifier">stage</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/icon">icon</span><span class="symbol">:</span>&nbsp;<span class="identifier">Image</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/style">style</span><span class="symbol">:</span>&nbsp;<span class="identifier">StageStyle</span>&nbsp;<span class="symbol">=</span>&nbsp;DECORATED<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Stage</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Stage</span></code><br/>
-<code><span class="keyword">fun </span><span class="identifier">stage</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$stage(javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/style">style</span><span class="symbol">:</span>&nbsp;<span class="identifier">StageStyle</span>&nbsp;<span class="symbol">=</span>&nbsp;DECORATED<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/init">init</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">Stage</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Stage</span></code></td>
+<code><span class="keyword">fun </span><span class="identifier">stage</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/icon">icon</span><span class="symbol">:</span>&nbsp;<span class="identifier">Image</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/style">style</span><span class="symbol">:</span>&nbsp;<span class="identifier">StageStyle</span>&nbsp;<span class="symbol">=</span>&nbsp;StageStyle.DECORATED<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Stage</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Stage</span></code><br/>
+<code><span class="keyword">fun </span><span class="identifier">stage</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$stage(javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/style">style</span><span class="symbol">:</span>&nbsp;<span class="identifier">StageStyle</span>&nbsp;<span class="symbol">=</span>&nbsp;StageStyle.DECORATED<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Stage</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Stage</span></code></td>
 </tr>
 </tbody>
 </table>

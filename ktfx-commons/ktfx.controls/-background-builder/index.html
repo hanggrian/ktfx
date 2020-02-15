@@ -9,10 +9,50 @@
 <br/>
 <h1>BackgroundBuilder</h1>
 <code><span class="keyword">class </span><span class="identifier">BackgroundBuilder</span></code>
-<p>Class to support adding backgrounds to node with Kotlin DSL.</p>
+<p>Class to support adding <a href="#">Background</a> to node with DSL.</p>
 <p><strong>See Also</strong><br/>
 <p><a href="../javafx.scene.layout.-region/background.html">Region.background</a></p>
 </p>
+<h3>Types</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-fill-builder/index.html">FillBuilder</a></h4>
+</td>
+<td>
+<p>Class to support adding <a href="#">BackgroundFill</a> to node with DSL.</p>
+<code><span class="keyword">class </span><span class="identifier">FillBuilder</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-image-builder/index.html">ImageBuilder</a></h4>
+</td>
+<td>
+<p>Class to support adding <a href="#">BackgroundImage</a> to node with DSL.</p>
+<code><span class="keyword">class </span><span class="identifier">ImageBuilder</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="fills.html">fills</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">fills</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">BackgroundFill</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="images.html">images</a></h4>
+</td>
+<td>
+<code><span class="keyword">val </span><span class="identifier">images</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">BackgroundImage</span><span class="symbol">&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Functions</h3>
 <table>
 <tbody>
@@ -21,20 +61,16 @@
 <h4><a href="fill.html">fill</a></h4>
 </td>
 <td>
-<p>Add a new <a href="#">BackgroundFill</a> to node with the specified fill, radii, and insets.</p>
-<code><span class="keyword">fun </span><span class="identifier">fill</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BackgroundBuilder$fill(javafx.scene.paint.Paint, javafx.scene.layout.CornerRadii, javafx.geometry.Insets)/fill">fill</span><span class="symbol">:</span>&nbsp;<span class="identifier">Paint</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$fill(javafx.scene.paint.Paint, javafx.scene.layout.CornerRadii, javafx.geometry.Insets)/radii">radii</span><span class="symbol">:</span>&nbsp;<span class="identifier">CornerRadii</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$fill(javafx.scene.paint.Paint, javafx.scene.layout.CornerRadii, javafx.geometry.Insets)/insets">insets</span><span class="symbol">:</span>&nbsp;<span class="identifier">Insets</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundFill</span></code></td>
+<p>Add a new <a href="#">BackgroundFill</a> to node using DSL.</p>
+<code><span class="keyword">fun </span><span class="identifier">fill</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BackgroundBuilder$fill(kotlin.Function1((ktfx.controls.BackgroundBuilder.FillBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<span class="identifier">FillBuilder</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundFill</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="image.html">image</a></h4>
 </td>
 <td>
-<p>Add a new <a href="#">BackgroundImage</a> to node.
-The image must be specified or a NullPointerException will be thrown.</p>
-<code><span class="keyword">fun </span><span class="identifier">image</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/image">image</span><span class="symbol">:</span>&nbsp;<span class="identifier">Image</span><span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/repeatX">repeatX</span><span class="symbol">:</span>&nbsp;<span class="identifier">BackgroundRepeat</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/repeatY">repeatY</span><span class="symbol">:</span>&nbsp;<span class="identifier">BackgroundRepeat</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/position">position</span><span class="symbol">:</span>&nbsp;<span class="identifier">BackgroundPosition</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">BackgroundSize</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundImage</span></code>
-<p>Add a new <a href="#">BackgroundImage</a> to node using string url.
-The image must be specified or a NullPointerException will be thrown.</p>
-<code><span class="keyword">fun </span><span class="identifier">image</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(kotlin.String, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/image">image</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(kotlin.String, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/repeatX">repeatX</span><span class="symbol">:</span>&nbsp;<span class="identifier">BackgroundRepeat</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(kotlin.String, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/repeatY">repeatY</span><span class="symbol">:</span>&nbsp;<span class="identifier">BackgroundRepeat</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(kotlin.String, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/position">position</span><span class="symbol">:</span>&nbsp;<span class="identifier">BackgroundPosition</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(kotlin.String, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundRepeat, javafx.scene.layout.BackgroundPosition, javafx.scene.layout.BackgroundSize)/size">size</span><span class="symbol">:</span>&nbsp;<span class="identifier">BackgroundSize</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundImage</span></code></td>
+<p>Add a new <a href="#">BackgroundImage</a> to node using DSL.</p>
+<code><span class="keyword">fun </span><span class="identifier">image</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, kotlin.Function1((ktfx.controls.BackgroundBuilder.ImageBuilder, kotlin.Unit)))/image">image</span><span class="symbol">:</span>&nbsp;<span class="identifier">Image</span><span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, kotlin.Function1((ktfx.controls.BackgroundBuilder.ImageBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<span class="identifier">ImageBuilder</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundImage</span></code></td>
 </tr>
 </tbody>
 </table>

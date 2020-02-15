@@ -15,8 +15,16 @@
 <h4><a href="contains.html">contains</a></h4>
 </td>
 <td>
-<p>Returns true if <a href="contains.html#ktfx.collections$contains(javafx.collections.ObservableFloatArray, kotlin.Float)/element">element</a> exists in this observable array.</p>
+<p>Returns <code>true</code> if <a href="contains.html#ktfx.collections$contains(javafx.collections.ObservableFloatArray, kotlin.Float)/element">element</a> is found in the array.</p>
 <code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">contains</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$contains(javafx.collections.ObservableFloatArray, kotlin.Float)/element">element</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="copy-of.html">copyOf</a></h4>
+</td>
+<td>
+<p>Returns new observable array which is a copy of the original array.</p>
+<code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">copyOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableFloatArray</span></code></td>
 </tr>
 <tr>
 <td>
@@ -47,7 +55,7 @@
 <h4><a href="for-each-indexed.html">forEachIndexed</a></h4>
 </td>
 <td>
-<p>Performs the given <a href="for-each-indexed.html#ktfx.collections$forEachIndexed(javafx.collections.ObservableFloatArray, kotlin.Function2((kotlin.Int, kotlin.Float, kotlin.Unit)))/action">action</a> on each element, accompanied with the index of the element.</p>
+<p>Performs the given <a href="for-each-indexed.html#ktfx.collections$forEachIndexed(javafx.collections.ObservableFloatArray, kotlin.Function2((kotlin.Int, kotlin.Float, kotlin.Unit)))/action">action</a> on each element, providing sequential index with the element.</p>
 <code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">forEachIndexed</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$forEachIndexed(javafx.collections.ObservableFloatArray, kotlin.Function2((kotlin.Int, kotlin.Float, kotlin.Unit)))/action">action</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code></td>
 </tr>
 <tr>
@@ -59,6 +67,46 @@
 <code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">getBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$getBinding(javafx.collections.ObservableFloatArray, kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatBinding</span></code><br/>
 <code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">getBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$getBinding(javafx.collections.ObservableFloatArray, javafx.beans.value.ObservableNumberValue)/index">index</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableNumberValue</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatBinding</span></code><br/>
 <code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">getBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$getBinding(javafx.collections.ObservableFloatArray, javafx.beans.value.ObservableIntegerValue)/index">index</span><span class="symbol">:</span>&nbsp;<span class="identifier">ObservableIntegerValue</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatBinding</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-or-else.html">getOrElse</a></h4>
+</td>
+<td>
+<p>Returns an element at the given <a href="get-or-else.html#ktfx.collections$getOrElse(javafx.collections.ObservableFloatArray, kotlin.Int, kotlin.Function1((kotlin.Int, kotlin.Float)))/index">index</a> or the result of calling the <a href="get-or-else.html#ktfx.collections$getOrElse(javafx.collections.ObservableFloatArray, kotlin.Int, kotlin.Function1((kotlin.Int, kotlin.Float)))/defaultValue">defaultValue</a> function if the <a href="get-or-else.html#ktfx.collections$getOrElse(javafx.collections.ObservableFloatArray, kotlin.Int, kotlin.Function1((kotlin.Int, kotlin.Float)))/index">index</a> is out of bounds of this array.</p>
+<code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">getOrElse</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$getOrElse(javafx.collections.ObservableFloatArray, kotlin.Int, kotlin.Function1((kotlin.Int, kotlin.Float)))/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">, </span><span class="identifier" id="ktfx.collections$getOrElse(javafx.collections.ObservableFloatArray, kotlin.Int, kotlin.Function1((kotlin.Int, kotlin.Float)))/defaultValue">defaultValue</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="get-or-null.html">getOrNull</a></h4>
+</td>
+<td>
+<p>Returns an element at the given <a href="get-or-null.html#ktfx.collections$getOrNull(javafx.collections.ObservableFloatArray, kotlin.Int)/index">index</a> or <code>null</code> if the <a href="get-or-null.html#ktfx.collections$getOrNull(javafx.collections.ObservableFloatArray, kotlin.Int)/index">index</a> is out of bounds of this array.</p>
+<code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">getOrNull</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$getOrNull(javafx.collections.ObservableFloatArray, kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">?</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="index-of.html">indexOf</a></h4>
+</td>
+<td>
+<p>Returns first index of <a href="index-of.html#ktfx.collections$indexOf(javafx.collections.ObservableFloatArray, kotlin.Float)/element">element</a>, or -1 if the array does not contain element.</p>
+<code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">indexOf</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$indexOf(javafx.collections.ObservableFloatArray, kotlin.Float)/element">element</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="iterator.html">iterator</a></h4>
+</td>
+<td>
+<p>Creates an iterator over the elements of the array.</p>
+<code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">iterator</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-float-iterator/index.html"><span class="identifier">FloatIterator</span></a></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="last-index-of.html">lastIndexOf</a></h4>
+</td>
+<td>
+<p>Returns last index of <a href="last-index-of.html#ktfx.collections$lastIndexOf(javafx.collections.ObservableFloatArray, kotlin.Float)/element">element</a>, or -1 if the array does not contain element.</p>
+<code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">lastIndexOf</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$lastIndexOf(javafx.collections.ObservableFloatArray, kotlin.Float)/element">element</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a></code></td>
 </tr>
 <tr>
 <td>
@@ -74,11 +122,11 @@
 </tr>
 <tr>
 <td>
-<h4><a href="to-observable-array.html">toObservableArray</a></h4>
+<h4><a href="to-float-array.html">toFloatArray</a></h4>
 </td>
 <td>
-<p>Creates a copy of this <a href="#">ObservableFloatArray</a>.</p>
-<code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">toObservableArray</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableFloatArray</span></code></td>
+<p>Returns an array containing copy of the observable array.</p>
+<code><span class="keyword">fun </span><span class="identifier">ObservableFloatArray</span><span class="symbol">.</span><span class="identifier">toFloatArray</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float-array/index.html"><span class="identifier">FloatArray</span></a></code></td>
 </tr>
 </tbody>
 </table>

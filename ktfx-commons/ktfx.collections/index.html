@@ -123,10 +123,26 @@
 <tbody>
 <tr>
 <td>
+<h4><a href="empty-observable-float-array.html">emptyObservableFloatArray</a></h4>
+</td>
+<td>
+<p>Creates a new empty observable <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a> array.</p>
+<code><span class="keyword">fun </span><span class="identifier">emptyObservableFloatArray</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableFloatArray</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="empty-observable-int-array.html">emptyObservableIntArray</a></h4>
+</td>
+<td>
+<p>Creates a new empty observable <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> array.</p>
+<code><span class="keyword">fun </span><span class="identifier">emptyObservableIntArray</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableIntegerArray</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="empty-observable-list.html">emptyObservableList</a></h4>
 </td>
 <td>
-<p>Returns an empty immutable <a href="#">ObservableList</a>.</p>
+<p>Returns an empty read-only observable list.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">emptyObservableList</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -142,7 +158,7 @@
 <h4><a href="empty-observable-set.html">emptyObservableSet</a></h4>
 </td>
 <td>
-<p>Returns an empty immutable <a href="#">ObservableSet</a>.</p>
+<p>Returns an empty read-only observable set.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">emptyObservableSet</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -180,9 +196,9 @@
 <h4><a href="observable-float-array-of.html">observableFloatArrayOf</a></h4>
 </td>
 <td>
-<p>Returns an empty <a href="#">ObservableFloatArray</a>.</p>
+<p>Creates a new empty observable <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a> array.</p>
 <code><span class="keyword">fun </span><span class="identifier">observableFloatArrayOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableFloatArray</span></code>
-<p>Returns an <a href="#">ObservableFloatArray</a> of <a href="observable-float-array-of.html#ktfx.collections$observableFloatArrayOf(kotlin.FloatArray)/elements">elements</a>.</p>
+<p>Returns an observable array containing the specified <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a> numbers.</p>
 <code><span class="keyword">fun </span><span class="identifier">observableFloatArrayOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.collections$observableFloatArrayOf(kotlin.FloatArray)/elements">elements</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableFloatArray</span></code></td>
 </tr>
 <tr>
@@ -190,9 +206,9 @@
 <h4><a href="observable-int-array-of.html">observableIntArrayOf</a></h4>
 </td>
 <td>
-<p>Returns an empty <a href="#">ObservableIntegerArray</a>.</p>
+<p>Creates a new empty observable <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> array.</p>
 <code><span class="keyword">fun </span><span class="identifier">observableIntArrayOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableIntegerArray</span></code>
-<p>Returns an <a href="#">ObservableIntegerArray</a> of <a href="observable-int-array-of.html#ktfx.collections$observableIntArrayOf(kotlin.IntArray)/elements">elements</a>.</p>
+<p>Returns an observable array containing the specified <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> numbers.</p>
 <code><span class="keyword">fun </span><span class="identifier">observableIntArrayOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.collections$observableIntArrayOf(kotlin.IntArray)/elements">elements</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableIntegerArray</span></code></td>
 </tr>
 <tr>
@@ -200,7 +216,7 @@
 <h4><a href="observable-list-of.html">observableListOf</a></h4>
 </td>
 <td>
-<p>Alias of <a href="empty-observable-list.html">emptyObservableList</a>.</p>
+<p>Returns an empty read-only observable list.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">observableListOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
 <p>Returns an immutable <a href="#">ObservableList</a> of one <a href="observable-list-of.html#ktfx.collections$observableListOf(ktfx.collections.observableListOf.T)/element">element</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">observableListOf</span><span class="symbol">(</span><span class="identifier" id="ktfx.collections$observableListOf(ktfx.collections.observableListOf.T)/element">element</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableList</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
@@ -222,7 +238,7 @@
 <h4><a href="observable-set-of.html">observableSetOf</a></h4>
 </td>
 <td>
-<p>Alias of <a href="empty-observable-set.html">emptyObservableSet</a>.</p>
+<p>Returns an empty read-only set.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">observableSetOf</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code>
 <p>Returns an immutable <a href="#">ObservableSet</a> containing all <a href="observable-set-of.html#ktfx.collections$observableSetOf(kotlin.Array((ktfx.collections.observableSetOf.T)))/elements">elements</a>.</p>
 <code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">observableSetOf</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx.collections$observableSetOf(kotlin.Array((ktfx.collections.observableSetOf.T)))/elements">elements</span><span class="symbol">:</span>&nbsp;<span class="identifier">T</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObservableSet</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>

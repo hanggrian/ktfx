@@ -2,7 +2,6 @@ package ktfx.controls
 
 import javafx.scene.Node
 import javafx.scene.SnapshotParameters
-import javafx.scene.SnapshotResult
 import javafx.scene.image.WritableImage
 
 /** Alias of [Node.lookup] with non-null return and specified type. */
@@ -13,10 +12,3 @@ inline fun Node.snapshot(
     image: WritableImage? = null,
     configuration: SnapshotParameters.() -> Unit
 ): WritableImage = snapshot(SnapshotParameters().apply(configuration), image)
-
-/** Take a snapshot of this [Node] using callback. */
-inline fun Node.snapshot(
-    image: WritableImage? = null,
-    configuration: SnapshotParameters.() -> Unit,
-    crossinline callback: (SnapshotResult) -> Unit
-): Unit = snapshot({ callback(it); null }, SnapshotParameters().apply(configuration), image)

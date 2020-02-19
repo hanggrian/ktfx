@@ -250,25 +250,25 @@ fun Scene.onDragDone(
     action: suspend CoroutineScope.(DragEvent) -> Unit
 ): Unit = setOnDragDone { event -> GlobalScope.launch(context) { action(event) } }
 
-/** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been pressed. */
+/** Defines a function to be called when some `Node` of this [Scene] has input focus and a key has been pressed. */
 fun Scene.onKeyPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(KeyEvent) -> Unit
 ): Unit = setOnKeyPressed { event -> GlobalScope.launch(context) { action(event) } }
 
-/** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been released. */
+/** Defines a function to be called when some `Node` of this [Scene] has input focus and a key has been released. */
 fun Scene.onKeyReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(KeyEvent) -> Unit
 ): Unit = setOnKeyReleased { event -> GlobalScope.launch(context) { action(event) } }
 
-/** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been typed. */
+/** Defines a function to be called when some `Node` of this [Scene] has input focus and a key has been typed. */
 fun Scene.onKeyTyped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(KeyEvent) -> Unit
 ): Unit = setOnKeyTyped { event -> GlobalScope.launch(context) { action(event) } }
 
-/** Defines a function to be called when this [Node] has input focus and the input method text has changed. */
+/** Defines a function to be called when this `Node` has input focus and the input method text has changed. */
 fun Scene.onInputMethodTextChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(InputMethodEvent) -> Unit

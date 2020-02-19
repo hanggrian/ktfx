@@ -209,22 +209,22 @@ inline fun Scene.onDragDone(
     noinline action: (DragEvent) -> Unit
 ): Unit = setOnDragDone(action)
 
-/** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been pressed. */
+/** Defines a function to be called when some `Node` of this [Scene] has input focus and a key has been pressed. */
 inline fun Scene.onKeyPressed(
     noinline action: (KeyEvent) -> Unit
 ): Unit = setOnKeyPressed(action)
 
-/** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been released. */
+/** Defines a function to be called when some `Node` of this [Scene] has input focus and a key has been released. */
 inline fun Scene.onKeyReleased(
     noinline action: (KeyEvent) -> Unit
 ): Unit = setOnKeyReleased(action)
 
-/** Defines a function to be called when some [Node] of this [Scene] has input focus and a key has been typed. */
+/** Defines a function to be called when some `Node` of this [Scene] has input focus and a key has been typed. */
 inline fun Scene.onKeyTyped(
     noinline action: (KeyEvent) -> Unit
 ): Unit = setOnKeyTyped(action)
 
-/** Defines a function to be called when this [Node] has input focus and the input method text has changed. */
+/** Defines a function to be called when this `Node` has input focus and the input method text has changed. */
 inline fun Scene.onInputMethodTextChanged(
     noinline action: (InputMethodEvent) -> Unit
 ): Unit = setOnInputMethodTextChanged(action)

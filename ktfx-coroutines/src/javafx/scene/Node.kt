@@ -283,7 +283,11 @@ fun Node.onInputMethodTextChanged(
 /** Takes a snapshot of this node at the next frame and calls the specified callback method when the image is ready. */
 fun Node.snapshot(
     context: CoroutineContext = Dispatchers.JavaFx,
-    params: SnapshotParameters? = null,
     image: WritableImage? = null,
-    callback: suspend CoroutineScope.(SnapshotResult) -> Unit
-): Unit = snapshot({ param -> GlobalScope.launch(context) { callback(param) }; null }, params, image)
+    configuration: SnapshotParameters.() -> Unit,
+    callback: suspend (SnapshotResult) -> Unit
+): Unit = snapshot(
+    { param -> GlobalScope.launch(context) { callback(param) }; null },
+    SnapshotParameters().apply(configuration),
+    image
+)

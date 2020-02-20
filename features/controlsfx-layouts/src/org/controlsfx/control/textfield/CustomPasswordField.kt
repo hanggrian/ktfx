@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.textfield.CustomPasswordField
 
-/** Create a [CustomPasswordField] with configurationialization block. */
+/** Create a [CustomPasswordField] with configuration block. */
 inline fun customPasswordField(
     configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
@@ -23,7 +23,7 @@ inline fun customPasswordField(
 /** Add a [CustomPasswordField] to this manager. */
 fun NodeManager.customPasswordField(): CustomPasswordField = addChild(CustomPasswordField())
 
-/** Add a [CustomPasswordField] with configurationialization block to this manager. */
+/** Add a [CustomPasswordField] with configuration block to this manager. */
 inline fun NodeManager.customPasswordField(
     configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {

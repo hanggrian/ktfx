@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [LineTo] with configurationialization block. */
+/** Create a [LineTo] with configuration block. */
 inline fun lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
@@ -25,7 +25,7 @@ fun PathElementManager.lineTo(
     y: Double = 0.0
 ): LineTo = addChild(LineTo(x, y))
 
-/** Add a [LineTo] with configurationialization block to this manager. */
+/** Add a [LineTo] with configuration block to this manager. */
 inline fun PathElementManager.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,

@@ -22,7 +22,7 @@ open class KtfxJFXTogglePane : JFXTogglePane(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { contentNode = it }
 }
 
-/** Create a [JFXTogglePane] with configurationialization block. */
+/** Create a [JFXTogglePane] with configuration block. */
 inline fun jfxTogglePane(
     configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
@@ -33,7 +33,7 @@ inline fun jfxTogglePane(
 /** Add a [JFXTogglePane] to this manager. */
 fun NodeManager.jfxTogglePane(): JFXTogglePane = addChild(JFXTogglePane())
 
-/** Add a [JFXTogglePane] with configurationialization block to this manager. */
+/** Add a [JFXTogglePane] with configuration block to this manager. */
 inline fun NodeManager.jfxTogglePane(
     configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {

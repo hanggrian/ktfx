@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Line] with configurationialization block. */
+/** Create a [Line] with configuration block. */
 inline fun line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
@@ -29,7 +29,7 @@ fun NodeManager.line(
     endY: Double = 0.0
 ): Line = addChild(Line(centerX, centerY, endX, endY))
 
-/** Add a [Line] with configurationialization block to this manager. */
+/** Add a [Line] with configuration block to this manager. */
 inline fun NodeManager.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,

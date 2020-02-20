@@ -112,7 +112,7 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
     }
 }
 
-/** Create an [AnchorPane] with configurationialization block. */
+/** Create an [AnchorPane] with configuration block. */
 inline fun anchorPane(
     configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
@@ -123,7 +123,7 @@ inline fun anchorPane(
 /** Add an [AnchorPane] to this manager. */
 fun NodeManager.anchorPane(): AnchorPane = addChild(KtfxAnchorPane())
 
-/** Add an [AnchorPane] with configurationialization block to this manager. */
+/** Add an [AnchorPane] with configuration block to this manager. */
 inline fun NodeManager.anchorPane(
     configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {

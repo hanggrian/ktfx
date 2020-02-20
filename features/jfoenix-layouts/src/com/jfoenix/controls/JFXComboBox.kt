@@ -14,7 +14,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXComboBox] with configurationialization block. */
+/** Create a [JFXComboBox] with configuration block. */
 inline fun <T> jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
@@ -28,7 +28,7 @@ fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList()
 ): JFXComboBox<T> = addChild(JFXComboBox(items))
 
-/** Add a [JFXComboBox] with configurationialization block to this manager. */
+/** Add a [JFXComboBox] with configuration block to this manager. */
 inline fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker JFXComboBox<T>).() -> Unit

@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [MeshView] with configurationialization block. */
+/** Create a [MeshView] with configuration block. */
 inline fun meshView(
     mesh: Mesh? = null,
     configuration: (@LayoutDslMarker MeshView).() -> Unit
@@ -24,7 +24,7 @@ fun NodeManager.meshView(
     mesh: Mesh? = null
 ): MeshView = addChild(MeshView(mesh))
 
-/** Add a [MeshView] with configurationialization block to this manager. */
+/** Add a [MeshView] with configuration block to this manager. */
 inline fun NodeManager.meshView(
     mesh: Mesh? = null,
     configuration: (@LayoutDslMarker MeshView).() -> Unit

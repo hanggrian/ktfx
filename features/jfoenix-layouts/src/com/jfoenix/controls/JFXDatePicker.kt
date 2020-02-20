@@ -13,7 +13,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXDatePicker] with configurationialization block. */
+/** Create a [JFXDatePicker] with configuration block. */
 inline fun jfxDatePicker(
     value: LocalDate? = null,
     configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
@@ -27,7 +27,7 @@ fun NodeManager.jfxDatePicker(
     value: LocalDate? = null
 ): JFXDatePicker = addChild(JFXDatePicker(value))
 
-/** Add a [JFXDatePicker] with configurationialization block to this manager. */
+/** Add a [JFXDatePicker] with configuration block to this manager. */
 inline fun NodeManager.jfxDatePicker(
     value: LocalDate? = null,
     configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit

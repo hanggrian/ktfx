@@ -14,7 +14,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.GridView
 
-/** Create a [GridView] with configurationialization block. */
+/** Create a [GridView] with configuration block. */
 inline fun <T> gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker GridView<T>).() -> Unit
@@ -28,7 +28,7 @@ fun <T> NodeManager.gridView(
     items: ObservableList<T> = FXCollections.observableArrayList()
 ): GridView<T> = addChild(GridView(items))
 
-/** Add a [GridView] with configurationialization block to this manager. */
+/** Add a [GridView] with configuration block to this manager. */
 inline fun <T> NodeManager.gridView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker GridView<T>).() -> Unit

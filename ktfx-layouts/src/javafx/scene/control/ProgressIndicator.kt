@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ProgressIndicator] with configurationialization block. */
+/** Create a [ProgressIndicator] with configuration block. */
 inline fun progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
     configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
@@ -24,7 +24,7 @@ fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS
 ): ProgressIndicator = addChild(ProgressIndicator(progress))
 
-/** Add a [ProgressIndicator] with configurationialization block to this manager. */
+/** Add a [ProgressIndicator] with configuration block to this manager. */
 inline fun NodeManager.progressIndicator(
     progress: Double = ProgressBar.INDETERMINATE_PROGRESS,
     configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit

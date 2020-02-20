@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [MediaView] with configurationialization block. */
+/** Create a [MediaView] with configuration block. */
 inline fun mediaView(
     mediaPlayer: MediaPlayer? = null,
     configuration: (@LayoutDslMarker MediaView).() -> Unit
@@ -24,7 +24,7 @@ fun NodeManager.mediaView(
     mediaPlayer: MediaPlayer? = null
 ): MediaView = addChild(MediaView(mediaPlayer))
 
-/** Add a [MediaView] with configurationialization block to this manager. */
+/** Add a [MediaView] with configuration block to this manager. */
 inline fun NodeManager.mediaView(
     mediaPlayer: MediaPlayer? = null,
     configuration: (@LayoutDslMarker MediaView).() -> Unit

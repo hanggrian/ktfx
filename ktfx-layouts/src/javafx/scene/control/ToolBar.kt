@@ -19,7 +19,7 @@ open class KtfxToolBar : ToolBar(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { items += it }
 }
 
-/** Create a [ToolBar] with configurationialization block. */
+/** Create a [ToolBar] with configuration block. */
 inline fun toolBar(
     configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
@@ -30,7 +30,7 @@ inline fun toolBar(
 /** Add a [ToolBar] to this manager. */
 fun NodeManager.toolBar(): ToolBar = addChild(KtfxToolBar())
 
-/** Add a [ToolBar] with configurationialization block to this manager. */
+/** Add a [ToolBar] with configuration block to this manager. */
 inline fun NodeManager.toolBar(
     configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {

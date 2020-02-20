@@ -142,7 +142,7 @@ open class KtfxStackPane : StackPane(), NodeManager {
     }
 }
 
-/** Create a [StackPane] with configurationialization block. */
+/** Create a [StackPane] with configuration block. */
 inline fun stackPane(
     configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit
 ): StackPane {
@@ -153,7 +153,7 @@ inline fun stackPane(
 /** Add a [StackPane] to this manager. */
 fun NodeManager.stackPane(): StackPane = addChild(KtfxStackPane())
 
-/** Add a [StackPane] with configurationialization block to this manager. */
+/** Add a [StackPane] with configuration block to this manager. */
 inline fun NodeManager.stackPane(
     configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit
 ): StackPane {

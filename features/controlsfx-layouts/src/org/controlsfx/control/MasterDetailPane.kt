@@ -32,7 +32,7 @@ open class KtfxMasterDetailPane(detailSide: Side, showDetail: Boolean) :
         }
 }
 
-/** Create a [MasterDetailPane] with configurationialization block. */
+/** Create a [MasterDetailPane] with configuration block. */
 inline fun masterDetailPane(
     detailSide: Side = Side.RIGHT,
     showDetailNode: Boolean = true,
@@ -48,7 +48,7 @@ fun NodeManager.masterDetailPane(
     showDetailNode: Boolean = true
 ): MasterDetailPane = addChild(KtfxMasterDetailPane(detailSide, showDetailNode))
 
-/** Add a [MasterDetailPane] with configurationialization block to this manager. */
+/** Add a [MasterDetailPane] with configuration block to this manager. */
 inline fun NodeManager.masterDetailPane(
     detailSide: Side = Side.RIGHT,
     showDetailNode: Boolean = true,

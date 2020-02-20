@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.MaskerPane
 
-/** Create a [MaskerPane] with configurationialization block. */
+/** Create a [MaskerPane] with configuration block. */
 inline fun maskerPane(
     configuration: (@LayoutDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
@@ -23,7 +23,7 @@ inline fun maskerPane(
 /** Add a [MaskerPane] to this manager. */
 fun NodeManager.maskerPane(): MaskerPane = addChild(MaskerPane())
 
-/** Add a [MaskerPane] with configurationialization block to this manager. */
+/** Add a [MaskerPane] with configuration block to this manager. */
 inline fun NodeManager.maskerPane(
     configuration: (@LayoutDslMarker MaskerPane).() -> Unit
 ): MaskerPane {

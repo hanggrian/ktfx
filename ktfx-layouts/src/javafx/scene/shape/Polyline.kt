@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Polyline] with configurationialization block. */
+/** Create a [Polyline] with configuration block. */
 inline fun polyline(
     vararg points: Double,
     configuration: (@LayoutDslMarker Polyline).() -> Unit
@@ -23,7 +23,7 @@ fun NodeManager.polyline(
     vararg points: Double
 ): Polyline = addChild(Polyline(*points))
 
-/** Add a [Polyline] with configurationialization block to this manager. */
+/** Add a [Polyline] with configuration block to this manager. */
 inline fun NodeManager.polyline(
     vararg points: Double,
     configuration: (@LayoutDslMarker Polyline).() -> Unit

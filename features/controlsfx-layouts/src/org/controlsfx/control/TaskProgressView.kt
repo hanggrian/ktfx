@@ -13,7 +13,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.TaskProgressView
 
-/** Create a [TaskProgressView] with configurationialization block. */
+/** Create a [TaskProgressView] with configuration block. */
 inline fun <T : Task<*>> taskProgressView(
     configuration: (@LayoutDslMarker TaskProgressView<T>).() -> Unit
 ): TaskProgressView<T> {
@@ -24,7 +24,7 @@ inline fun <T : Task<*>> taskProgressView(
 /** Add a [TaskProgressView] to this manager. */
 fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> = addChild(TaskProgressView())
 
-/** Add a [TaskProgressView] with configurationialization block to this manager. */
+/** Add a [TaskProgressView] with configuration block to this manager. */
 inline fun <T : Task<*>> NodeManager.taskProgressView(
     configuration: (@LayoutDslMarker TaskProgressView<T>).() -> Unit
 ): TaskProgressView<T> {

@@ -26,7 +26,7 @@ open class KtfxTabPane : TabPane(), TabManager {
     ): Tab = tab(this, graphic, configuration)
 }
 
-/** Create a [TabPane] with configurationialization block. */
+/** Create a [TabPane] with configuration block. */
 inline fun tabPane(
     configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
@@ -37,7 +37,7 @@ inline fun tabPane(
 /** Add a [TabPane] to this manager. */
 fun NodeManager.tabPane(): TabPane = addChild(KtfxTabPane())
 
-/** Add a [TabPane] with configurationialization block to this manager. */
+/** Add a [TabPane] with configuration block to this manager. */
 inline fun NodeManager.tabPane(
     configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {

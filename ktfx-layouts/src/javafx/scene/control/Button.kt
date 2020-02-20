@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Button] with configurationialization block. */
+/** Create a [Button] with configuration block. */
 inline fun button(
     text: String? = null,
     graphic: Node? = null,
@@ -26,7 +26,7 @@ fun NodeManager.button(
     graphic: Node? = null
 ): Button = addChild(Button(text, graphic))
 
-/** Add a [Button] with configurationialization block to this manager. */
+/** Add a [Button] with configuration block to this manager. */
 inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,

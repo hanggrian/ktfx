@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [CustomMenuItem] with configurationialization block. */
+/** Create a [CustomMenuItem] with configuration block. */
 inline fun customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
@@ -26,7 +26,7 @@ fun MenuItemManager.customMenuItem(
     hideOnClick: Boolean = true
 ): CustomMenuItem = addChild(CustomMenuItem(content, hideOnClick))
 
-/** Add a [CustomMenuItem] with configurationialization block to this manager. */
+/** Add a [CustomMenuItem] with configuration block to this manager. */
 inline fun MenuItemManager.customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,

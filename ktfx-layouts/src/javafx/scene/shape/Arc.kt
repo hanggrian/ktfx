@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create an [Arc] with configurationialization block. */
+/** Create an [Arc] with configuration block. */
 inline fun arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
@@ -33,7 +33,7 @@ fun NodeManager.arc(
     length: Double = 0.0
 ): Arc = addChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length))
 
-/** Add an [Arc] with configurationialization block to this manager. */
+/** Add an [Arc] with configuration block to this manager. */
 inline fun NodeManager.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,

@@ -52,7 +52,7 @@ inline fun KtfxJFXScrollPane.condensedHeader(configuration: (@LayoutDslMarker No
     condensedHeader.children.addAll(NodeManagerImpl().apply(configuration))
 }
 
-/** Create a [JFXScrollPane] with configurationialization block. */
+/** Create a [JFXScrollPane] with configuration block. */
 inline fun jfxScrollPane(
     configuration: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
@@ -64,7 +64,7 @@ inline fun jfxScrollPane(
 fun NodeManager.jfxScrollPane(): JFXScrollPane =
     addChild(KtfxJFXScrollPane())
 
-/** Add a [JFXScrollPane] with configurationialization block to this manager. */
+/** Add a [JFXScrollPane] with configuration block to this manager. */
 inline fun NodeManager.jfxScrollPane(
     configuration: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {

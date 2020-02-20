@@ -22,7 +22,7 @@ open class KtfxJFXDrawer : JFXDrawer(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { content += it }
 }
 
-/** Create a [JFXDrawer] with configurationialization block. */
+/** Create a [JFXDrawer] with configuration block. */
 inline fun jfxDrawer(
     configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
@@ -33,7 +33,7 @@ inline fun jfxDrawer(
 /** Add a [JFXDrawer] to this manager. */
 fun NodeManager.jfxDrawer(): JFXDrawer = addChild(JFXDrawer())
 
-/** Add a [JFXDrawer] with configurationialization block to this manager. */
+/** Add a [JFXDrawer] with configuration block to this manager. */
 inline fun NodeManager.jfxDrawer(
     configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {

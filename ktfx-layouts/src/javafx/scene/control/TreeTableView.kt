@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [TreeTableView] with configurationialization block. */
+/** Create a [TreeTableView] with configuration block. */
 inline fun <S> treeTableView(
     root: TreeItem<S>? = null,
     configuration: (@LayoutDslMarker TreeTableView<S>).() -> Unit
@@ -24,7 +24,7 @@ fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null
 ): TreeTableView<S> = addChild(TreeTableView(root))
 
-/** Add a [TreeTableView] with configurationialization block to this manager. */
+/** Add a [TreeTableView] with configuration block to this manager. */
 inline fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null,
     configuration: (@LayoutDslMarker TreeTableView<S>).() -> Unit

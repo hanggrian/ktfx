@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ScrollBar] with configurationialization block. */
+/** Create a [ScrollBar] with configuration block. */
 inline fun scrollBar(
     configuration: (@LayoutDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
@@ -20,7 +20,7 @@ inline fun scrollBar(
 /** Add a [ScrollBar] to this manager. */
 fun NodeManager.scrollBar(): ScrollBar = addChild(ScrollBar())
 
-/** Add a [ScrollBar] with configurationialization block to this manager. */
+/** Add a [ScrollBar] with configuration block to this manager. */
 inline fun NodeManager.scrollBar(
     configuration: (@LayoutDslMarker ScrollBar).() -> Unit
 ): ScrollBar {

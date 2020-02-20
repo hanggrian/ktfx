@@ -166,7 +166,7 @@ inline fun KtfxJFXToolbar.rightItems(configuration: (@LayoutDslMarker KtfxJFXToo
     KtfxJFXToolbar.HBoxConstraints(rightItems).configuration()
 }
 
-/** Create a [JFXToolbar] with configurationialization block. */
+/** Create a [JFXToolbar] with configuration block. */
 inline fun jfxToolbar(
     configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
@@ -177,7 +177,7 @@ inline fun jfxToolbar(
 /** Add a [JFXToolbar] to this manager. */
 fun NodeManager.jfxToolbar(): JFXToolbar = addChild(KtfxJFXToolbar())
 
-/** Add a [JFXToolbar] with configurationialization block to this manager. */
+/** Add a [JFXToolbar] with configuration block to this manager. */
 inline fun NodeManager.jfxToolbar(
     configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {

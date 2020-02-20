@@ -14,7 +14,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.CheckListView
 
-/** Create a [CheckListView] with configurationialization block. */
+/** Create a [CheckListView] with configuration block. */
 inline fun <T> checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker CheckListView<T>).() -> Unit
@@ -28,7 +28,7 @@ fun <T> NodeManager.checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList()
 ): CheckListView<T> = addChild(CheckListView(items))
 
-/** Add a [CheckListView] with configurationialization block to this manager. */
+/** Add a [CheckListView] with configuration block to this manager. */
 inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker CheckListView<T>).() -> Unit

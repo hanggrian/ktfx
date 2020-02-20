@@ -14,7 +14,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXDecorator] with configurationialization block. */
+/** Create a [JFXDecorator] with configuration block. */
 inline fun jfxDecorator(
     stage: Stage,
     node: Node,
@@ -36,7 +36,7 @@ fun NodeManager.jfxDecorator(
     min: Boolean = true
 ): JFXDecorator = addChild(JFXDecorator(stage, node, fullScreen, max, min))
 
-/** Add a [JFXDecorator] with configurationialization block to this manager. */
+/** Add a [JFXDecorator] with configuration block to this manager. */
 inline fun NodeManager.jfxDecorator(
     stage: Stage,
     node: Node,

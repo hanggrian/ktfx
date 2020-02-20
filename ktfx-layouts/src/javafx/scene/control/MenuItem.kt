@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [MenuItem] with configurationialization block. */
+/** Create a [MenuItem] with configuration block. */
 inline fun menuItem(
     text: String? = null,
     graphic: Node? = null,
@@ -26,7 +26,7 @@ fun MenuItemManager.menuItem(
     graphic: Node? = null
 ): MenuItem = addChild(MenuItem(text, graphic))
 
-/** Add a [MenuItem] with configurationialization block to this manager. */
+/** Add a [MenuItem] with configuration block to this manager. */
 inline fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null,

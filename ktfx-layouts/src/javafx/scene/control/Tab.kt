@@ -19,7 +19,7 @@ open class KtfxTab(title: String?, content: Node?) : Tab(title, content), NodeMa
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
 }
 
-/** Create a [Tab] with configurationialization block. */
+/** Create a [Tab] with configuration block. */
 inline fun tab(
     text: String? = null,
     content: Node? = null,
@@ -35,7 +35,7 @@ fun TabManager.tab(
     content: Node? = null
 ): Tab = addChild(KtfxTab(text, content))
 
-/** Add a [Tab] with configurationialization block to this manager. */
+/** Add a [Tab] with configuration block to this manager. */
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,

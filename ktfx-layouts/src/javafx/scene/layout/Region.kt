@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Region] with configurationialization block. */
+/** Create a [Region] with configuration block. */
 inline fun region(
     configuration: (@LayoutDslMarker Region).() -> Unit
 ): Region {
@@ -20,7 +20,7 @@ inline fun region(
 /** Add a [Region] to this manager. */
 fun NodeManager.region(): Region = addChild(Region())
 
-/** Add a [Region] with configurationialization block to this manager. */
+/** Add a [Region] with configuration block to this manager. */
 inline fun NodeManager.region(
     configuration: (@LayoutDslMarker Region).() -> Unit
 ): Region {

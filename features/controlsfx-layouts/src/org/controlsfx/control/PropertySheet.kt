@@ -13,7 +13,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.PropertySheet
 
-/** Create a [PropertySheet] with configurationialization block. */
+/** Create a [PropertySheet] with configuration block. */
 inline fun propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     configuration: (@LayoutDslMarker PropertySheet).() -> Unit
@@ -27,7 +27,7 @@ fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null
 ): PropertySheet = addChild(PropertySheet(items))
 
-/** Add a [PropertySheet] with configurationialization block to this manager. */
+/** Add a [PropertySheet] with configuration block to this manager. */
 inline fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     configuration: (@LayoutDslMarker PropertySheet).() -> Unit

@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [RadioButton] with configurationialization block. */
+/** Create a [RadioButton] with configuration block. */
 inline fun radioButton(
     text: String? = null,
     configuration: (@LayoutDslMarker RadioButton).() -> Unit
@@ -23,7 +23,7 @@ fun NodeManager.radioButton(
     text: String? = null
 ): RadioButton = addChild(RadioButton(text))
 
-/** Add a [RadioButton] with configurationialization block to this manager. */
+/** Add a [RadioButton] with configuration block to this manager. */
 inline fun NodeManager.radioButton(
     text: String? = null,
     configuration: (@LayoutDslMarker RadioButton).() -> Unit

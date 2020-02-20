@@ -19,7 +19,7 @@ open class KtfxPath : Path(), PathElementManager {
     final override fun <C : PathElement> addChild(child: C): C = child.also { elements += it }
 }
 
-/** Create a [Path] with configurationialization block. */
+/** Create a [Path] with configuration block. */
 inline fun path(
     configuration: (@LayoutDslMarker KtfxPath).() -> Unit
 ): Path {
@@ -30,7 +30,7 @@ inline fun path(
 /** Add a [Path] to this manager. */
 fun NodeManager.path(): Path = addChild(KtfxPath())
 
-/** Add a [Path] with configurationialization block to this manager. */
+/** Add a [Path] with configuration block to this manager. */
 inline fun NodeManager.path(
     configuration: (@LayoutDslMarker KtfxPath).() -> Unit
 ): Path {

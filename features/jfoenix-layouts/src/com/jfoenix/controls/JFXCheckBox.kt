@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXCheckBox] with configurationialization block. */
+/** Create a [JFXCheckBox] with configuration block. */
 inline fun jfxCheckBox(
     text: String? = null,
     configuration: (@LayoutDslMarker JFXCheckBox).() -> Unit
@@ -26,7 +26,7 @@ fun NodeManager.jfxCheckBox(
     text: String? = null
 ): JFXCheckBox = addChild(JFXCheckBox(text))
 
-/** Add a [JFXCheckBox] with configurationialization block to this manager. */
+/** Add a [JFXCheckBox] with configuration block to this manager. */
 inline fun NodeManager.jfxCheckBox(
     text: String? = null,
     configuration: (@LayoutDslMarker JFXCheckBox).() -> Unit

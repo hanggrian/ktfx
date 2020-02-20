@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Text] with configurationialization block. */
+/** Create a [Text] with configuration block. */
 inline fun text(
     text: String? = null,
     configuration: (@LayoutDslMarker Text).() -> Unit
@@ -23,7 +23,7 @@ fun NodeManager.text(
     text: String? = null
 ): Text = addChild(Text(text))
 
-/** Add a [Text] with configurationialization block to this manager. */
+/** Add a [Text] with configuration block to this manager. */
 inline fun NodeManager.text(
     text: String? = null,
     configuration: (@LayoutDslMarker Text).() -> Unit

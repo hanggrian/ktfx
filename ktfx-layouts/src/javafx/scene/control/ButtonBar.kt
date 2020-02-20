@@ -26,7 +26,7 @@ open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeMan
     ): Button = button(this, graphic, configuration)
 }
 
-/** Create a [ButtonBar] with configurationialization block. */
+/** Create a [ButtonBar] with configuration block. */
 inline fun buttonBar(
     buttonOrder: String? = null,
     configuration: (@LayoutDslMarker KtfxButtonBar).() -> Unit
@@ -40,7 +40,7 @@ fun NodeManager.buttonBar(
     buttonOrder: String? = null
 ): ButtonBar = addChild(KtfxButtonBar(buttonOrder))
 
-/** Add a [ButtonBar] with configurationialization block to this manager. */
+/** Add a [ButtonBar] with configuration block to this manager. */
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
     configuration: (@LayoutDslMarker KtfxButtonBar).() -> Unit

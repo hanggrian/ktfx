@@ -25,7 +25,7 @@ open class KtfxScene(root: Parent, width: Double, height: Double, fill: Paint) :
     final override fun <C : Node> addChild(child: C): C = child.also { root = it as? Pane ?: Pane(it) }
 }
 
-/** Create a [Scene] with configurationialization block. */
+/** Create a [Scene] with configuration block. */
 inline fun scene(
     width: Double = -1.0,
     height: Double = -1.0,
@@ -43,7 +43,7 @@ fun Stage.scene(
     fill: Paint = Color.WHITE
 ): Scene = KtfxScene(Pane(), width, height, fill).also { scene = it }
 
-/** Add a [Scene] with configurationialization block to this window. */
+/** Add a [Scene] with configuration block to this window. */
 inline fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,

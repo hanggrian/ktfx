@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXListView] with configurationialization. */
+/** Create a [JFXListView] with configuration. */
 inline fun <T> jfxListView(
     configuration: (@LayoutDslMarker JFXListView<T>).() -> Unit
 ): JFXListView<T> {
@@ -23,7 +23,7 @@ inline fun <T> jfxListView(
 /** Add a [JFXListView] to this manager. */
 fun <T> NodeManager.jfxListView(): JFXListView<T> = addChild(JFXListView())
 
-/** Add a [JFXListView] with configurationialization to this manager. */
+/** Add a [JFXListView] with configuration to this manager. */
 inline fun <T> NodeManager.jfxListView(
     configuration: (@LayoutDslMarker JFXListView<T>).() -> Unit
 ): JFXListView<T> {

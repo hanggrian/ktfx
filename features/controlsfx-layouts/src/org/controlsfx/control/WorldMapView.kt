@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.WorldMapView
 
-/** Create a [WorldMapView] with configurationialization block. */
+/** Create a [WorldMapView] with configuration block. */
 inline fun worldMapView(
     configuration: (@LayoutDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
@@ -24,7 +24,7 @@ inline fun worldMapView(
 fun NodeManager.worldMapView(): WorldMapView =
     addChild(WorldMapView())
 
-/** Add a [WorldMapView] with configurationialization block to this manager. */
+/** Add a [WorldMapView] with configuration block to this manager. */
 inline fun NodeManager.worldMapView(
     configuration: (@LayoutDslMarker WorldMapView).() -> Unit
 ): WorldMapView {

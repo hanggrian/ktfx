@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.Rating
 
-/** Create a [Rating] with configurationialization block. */
+/** Create a [Rating] with configuration block. */
 inline fun rating(
     max: Int = 5,
     rating: Int = -1,
@@ -28,7 +28,7 @@ fun NodeManager.rating(
     rating: Int = -1
 ): Rating = addChild(Rating(max, rating))
 
-/** Add a [Rating] with configurationialization block to this manager. */
+/** Add a [Rating] with configuration block to this manager. */
 inline fun NodeManager.rating(
     max: Int = 5,
     rating: Int = -1,

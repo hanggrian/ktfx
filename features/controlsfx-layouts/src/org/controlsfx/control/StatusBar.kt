@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.StatusBar
 
-/** Create a [StatusBar] with configurationialization block. */
+/** Create a [StatusBar] with configuration block. */
 inline fun statusBar(
     configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
@@ -23,7 +23,7 @@ inline fun statusBar(
 /** Add a [StatusBar] to this manager. */
 fun NodeManager.statusBar(): StatusBar = addChild(StatusBar())
 
-/** Add a [StatusBar] with configurationialization block to this manager. */
+/** Add a [StatusBar] with configuration block to this manager. */
 inline fun NodeManager.statusBar(
     configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {

@@ -25,7 +25,7 @@ open class KtfxTextFlow : TextFlow(), NodeManager {
     ): Text = text(this, configuration)
 }
 
-/** Create a [TextFlow] with configurationialization block. */
+/** Create a [TextFlow] with configuration block. */
 inline fun textFlow(
     configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
@@ -36,7 +36,7 @@ inline fun textFlow(
 /** Add a [TextFlow] to this manager. */
 fun NodeManager.textFlow(): TextFlow = addChild(KtfxTextFlow())
 
-/** Add a [TextFlow] with configurationialization block to this manager. */
+/** Add a [TextFlow] with configuration block to this manager. */
 inline fun NodeManager.textFlow(
     configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {

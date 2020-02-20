@@ -13,7 +13,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXColorPicker] with configurationialization block. */
+/** Create a [JFXColorPicker] with configuration block. */
 inline fun jfxColorPicker(
     value: Color? = null,
     configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
@@ -27,7 +27,7 @@ fun NodeManager.jfxColorPicker(
     value: Color? = null
 ): JFXColorPicker = addChild(JFXColorPicker(value))
 
-/** Add a [JFXColorPicker] with configurationialization block to this manager. */
+/** Add a [JFXColorPicker] with configuration block to this manager. */
 inline fun NodeManager.jfxColorPicker(
     value: Color? = null,
     configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit

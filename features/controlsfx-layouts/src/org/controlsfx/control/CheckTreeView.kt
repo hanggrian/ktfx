@@ -13,7 +13,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.CheckTreeView
 
-/** Create a [CheckTreeView] with configurationialization block. */
+/** Create a [CheckTreeView] with configuration block. */
 inline fun <T> checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
     configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
@@ -27,7 +27,7 @@ fun <T> NodeManager.checkTreeView(
     root: CheckBoxTreeItem<T>? = null
 ): CheckTreeView<T> = addChild(CheckTreeView(root))
 
-/** Add a [CheckTreeView] with configurationialization block to this manager. */
+/** Add a [CheckTreeView] with configuration block to this manager. */
 inline fun <T> NodeManager.checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
     configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit

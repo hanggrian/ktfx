@@ -11,7 +11,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ComboBox] with configurationialization block. */
+/** Create a [ComboBox] with configuration block. */
 inline fun <T> comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker ComboBox<T>).() -> Unit
@@ -25,7 +25,7 @@ fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList()
 ): ComboBox<T> = addChild(ComboBox(items))
 
-/** Add a [ComboBox] with configurationialization block to this manager. */
+/** Add a [ComboBox] with configuration block to this manager. */
 inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker ComboBox<T>).() -> Unit

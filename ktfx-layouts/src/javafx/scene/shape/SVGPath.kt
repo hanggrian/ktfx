@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [SVGPath] with configurationialization block. */
+/** Create a [SVGPath] with configuration block. */
 inline fun svgPath(
     configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
@@ -20,7 +20,7 @@ inline fun svgPath(
 /** Add a [SVGPath] to this manager. */
 fun NodeManager.svgPath(): SVGPath = addChild(SVGPath())
 
-/** Add a [SVGPath] with configurationialization block to this manager. */
+/** Add a [SVGPath] with configuration block to this manager. */
 inline fun NodeManager.svgPath(
     configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {

@@ -26,7 +26,7 @@ open class KtfxSplitMenuButton : SplitMenuButton(), MenuItemManager {
     ): MenuItem = menuItem(this, graphic, configuration)
 }
 
-/** Create a [SplitMenuButton] with configurationialization block. */
+/** Create a [SplitMenuButton] with configuration block. */
 inline fun splitMenuButton(
     configuration: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
@@ -37,7 +37,7 @@ inline fun splitMenuButton(
 /** Add a [SplitMenuButton] to this manager. */
 fun NodeManager.splitMenuButton(): SplitMenuButton = addChild(KtfxSplitMenuButton())
 
-/** Add a [SplitMenuButton] with configurationialization block to this manager. */
+/** Add a [SplitMenuButton] with configuration block to this manager. */
 inline fun NodeManager.splitMenuButton(
     configuration: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {

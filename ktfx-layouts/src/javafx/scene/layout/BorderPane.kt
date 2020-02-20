@@ -143,7 +143,7 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
     }
 }
 
-/** Create a [BorderPane] with configurationialization block. */
+/** Create a [BorderPane] with configuration block. */
 inline fun borderPane(
     configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
@@ -154,7 +154,7 @@ inline fun borderPane(
 /** Add a [BorderPane] to this manager. */
 fun NodeManager.borderPane(): BorderPane = addChild(KtfxBorderPane())
 
-/** Add a [BorderPane] with configurationialization block to this manager. */
+/** Add a [BorderPane] with configuration block to this manager. */
 inline fun NodeManager.borderPane(
     configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {

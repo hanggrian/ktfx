@@ -11,7 +11,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ListView] with configurationialization block. */
+/** Create a [ListView] with configuration block. */
 inline fun <T> listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker ListView<T>).() -> Unit
@@ -25,7 +25,7 @@ fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList()
 ): ListView<T> = addChild(ListView(items))
 
-/** Add a [ListView] with configurationialization block to this manager. */
+/** Add a [ListView] with configuration block to this manager. */
 inline fun <T> NodeManager.listView(
     items: ObservableList<T> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker ListView<T>).() -> Unit

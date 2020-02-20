@@ -13,7 +13,7 @@ import ktfx.layouts.addChild
 import org.controlsfx.control.SegmentedBar
 import org.controlsfx.control.SegmentedBar.Segment
 
-/** Create a [SegmentedBar] with configurationialization block. */
+/** Create a [SegmentedBar] with configuration block. */
 inline fun <T : Segment> segmentedBar(
     configuration: (@LayoutDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {
@@ -24,7 +24,7 @@ inline fun <T : Segment> segmentedBar(
 /** Add a [SegmentedBar] to this manager. */
 fun <T : Segment> NodeManager.segmentedBar(): SegmentedBar<T> = addChild(SegmentedBar())
 
-/** Add a [SegmentedBar] with configurationialization block to this manager. */
+/** Add a [SegmentedBar] with configuration block to this manager. */
 inline fun <T : Segment> NodeManager.segmentedBar(
     configuration: (@LayoutDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {

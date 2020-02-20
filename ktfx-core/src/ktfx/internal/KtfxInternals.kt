@@ -1,5 +1,7 @@
 package ktfx.internal
 
+import javafx.scene.Node
+
 /** Ktfx internal class, ignore it. */
 object KtfxInternals {
 
@@ -7,4 +9,10 @@ object KtfxInternals {
 
     /** Some mutable backing fields are only used to set value. */
     fun noGetter(): Nothing = throw UnsupportedOperationException(NO_GETTER)
+
+    inline fun <T : Node> newChild(child: T, vararg styleClasses: String, configuration: T.() -> Unit): T {
+        child.styleClass += styleClasses
+        child.configuration()
+        return child
+    }
 }

@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [CubicCurve] with configurationialization block. */
+/** Create a [CubicCurve] with configuration block. */
 inline fun cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
@@ -37,7 +37,7 @@ fun NodeManager.cubicCurve(
     endY: Double = 0.0
 ): CubicCurve = addChild(CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY))
 
-/** Add a [CubicCurve] with configurationialization block to this manager. */
+/** Add a [CubicCurve] with configuration block to this manager. */
 inline fun NodeManager.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,

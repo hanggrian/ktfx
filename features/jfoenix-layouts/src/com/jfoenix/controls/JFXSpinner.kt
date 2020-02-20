@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXSpinner] with configurationialization block to this manager. */
+/** Create a [JFXSpinner] with configuration block to this manager. */
 inline fun jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
     configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
@@ -26,7 +26,7 @@ fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS
 ): JFXSpinner = addChild(JFXSpinner(progress))
 
-/** Add a [JFXSpinner] with configurationialization block to this manager. */
+/** Add a [JFXSpinner] with configuration block to this manager. */
 inline fun NodeManager.jfxSpinner(
     progress: Double = JFXSpinner.INDETERMINATE_PROGRESS,
     configuration: (@LayoutDslMarker JFXSpinner).() -> Unit

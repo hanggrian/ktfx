@@ -20,7 +20,7 @@ open class KtfxGroup : Group(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 }
 
-/** Create a [Group] with configurationialization block. */
+/** Create a [Group] with configuration block. */
 inline fun group(
     configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
@@ -31,7 +31,7 @@ inline fun group(
 /** Add a [Group] to this manager. */
 fun NodeManager.group(): Group = addChild(KtfxGroup())
 
-/** Add a [Group] with configurationialization block to this manager. */
+/** Add a [Group] with configuration block to this manager. */
 inline fun NodeManager.group(
     configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
 ): Group {

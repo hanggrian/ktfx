@@ -13,7 +13,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [StackedAreaChart] with configurationialization block. */
+/** Create a [StackedAreaChart] with configuration block. */
 inline fun <X, Y> stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
@@ -31,7 +31,7 @@ fun <X, Y> NodeManager.stackedAreaChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList()
 ): StackedAreaChart<X, Y> = addChild(StackedAreaChart(x, y, data))
 
-/** Add a [StackedAreaChart] with configurationialization block to this manager. */
+/** Add a [StackedAreaChart] with configuration block to this manager. */
 inline fun <X, Y> NodeManager.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,

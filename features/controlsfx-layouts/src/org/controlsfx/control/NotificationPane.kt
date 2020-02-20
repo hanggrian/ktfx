@@ -22,7 +22,7 @@ open class KtfxNotificationPane : NotificationPane(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
 }
 
-/** Create a [NotificationPane] with configurationialization block. */
+/** Create a [NotificationPane] with configuration block. */
 inline fun notificationPane(
     configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
@@ -33,7 +33,7 @@ inline fun notificationPane(
 /** Add a [NotificationPane] to this manager. */
 fun NodeManager.notificationPane(): NotificationPane = addChild(KtfxNotificationPane())
 
-/** Add a [NotificationPane] with configurationialization block to this manager. */
+/** Add a [NotificationPane] with configuration block to this manager. */
 inline fun NodeManager.notificationPane(
     configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {

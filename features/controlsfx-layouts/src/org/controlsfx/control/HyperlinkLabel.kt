@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.HyperlinkLabel
 
-/** Create a [HyperlinkLabel] with configurationialization block. */
+/** Create a [HyperlinkLabel] with configuration block. */
 inline fun hyperlinkLabel(
     text: String? = null,
     configuration: (@LayoutDslMarker HyperlinkLabel).() -> Unit
@@ -26,7 +26,7 @@ fun NodeManager.hyperlinkLabel(
     text: String? = null
 ): HyperlinkLabel = addChild(HyperlinkLabel(text))
 
-/** Add a [HyperlinkLabel] with configurationialization block to this manager. */
+/** Add a [HyperlinkLabel] with configuration block to this manager. */
 inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
     configuration: (@LayoutDslMarker HyperlinkLabel).() -> Unit

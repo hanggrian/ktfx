@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ColorPicker] with configurationialization block. */
+/** Create a [ColorPicker] with configuration block. */
 inline fun colorPicker(
     value: Color = Color.WHITE,
     configuration: (@LayoutDslMarker ColorPicker).() -> Unit
@@ -24,7 +24,7 @@ fun NodeManager.colorPicker(
     value: Color = Color.WHITE
 ): ColorPicker = addChild(ColorPicker(value))
 
-/** Add a [ColorPicker] with configurationialization block to this manager. */
+/** Add a [ColorPicker] with configuration block to this manager. */
 inline fun NodeManager.colorPicker(
     value: Color = Color.WHITE,
     configuration: (@LayoutDslMarker ColorPicker).() -> Unit

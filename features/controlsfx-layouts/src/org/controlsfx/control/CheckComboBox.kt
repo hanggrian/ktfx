@@ -13,7 +13,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.CheckComboBox
 
-/** Create a [CheckComboBox] with configurationialization block. */
+/** Create a [CheckComboBox] with configuration block. */
 inline fun <T> checkComboBox(
     items: ObservableList<T>? = null,
     configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
@@ -27,7 +27,7 @@ fun <T> NodeManager.checkComboBox(
     items: ObservableList<T>? = null
 ): CheckComboBox<T> = addChild(CheckComboBox(items))
 
-/** Add a [CheckComboBox] with configurationialization block to this manager. */
+/** Add a [CheckComboBox] with configuration block to this manager. */
 inline fun <T> NodeManager.checkComboBox(
     items: ObservableList<T>? = null,
     configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit

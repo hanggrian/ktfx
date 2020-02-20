@@ -19,7 +19,7 @@ open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
 }
 
-/** Create a [ScrollPane] with configurationialization block. */
+/** Create a [ScrollPane] with configuration block. */
 inline fun scrollPane(
     content: Node? = null,
     configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
@@ -33,7 +33,7 @@ fun NodeManager.scrollPane(
     content: Node? = null
 ): ScrollPane = addChild(KtfxScrollPane(content))
 
-/** Add a [ScrollPane] with configurationialization block to this manager. */
+/** Add a [ScrollPane] with configuration block to this manager. */
 inline fun NodeManager.scrollPane(
     content: Node? = null,
     configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit

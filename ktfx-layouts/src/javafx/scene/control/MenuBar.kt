@@ -26,7 +26,7 @@ open class KtfxMenuBar : MenuBar(), MenuManager {
     ): Menu = menu(this, graphic, configuration)
 }
 
-/** Create a [MenuBar] with configurationialization block. */
+/** Create a [MenuBar] with configuration block. */
 inline fun menuBar(
     configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
@@ -37,7 +37,7 @@ inline fun menuBar(
 /** Add a [MenuBar] to this manager. */
 fun NodeManager.menuBar(): MenuBar = addChild(KtfxMenuBar())
 
-/** Add a [MenuBar] with configurationialization block to this manager. */
+/** Add a [MenuBar] with configuration block to this manager. */
 inline fun NodeManager.menuBar(
     configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {

@@ -19,7 +19,7 @@ open class KtfxPane : Pane(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 }
 
-/** Create a [Pane] with configurationialization block. */
+/** Create a [Pane] with configuration block. */
 inline fun pane(
     configuration: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
@@ -30,7 +30,7 @@ inline fun pane(
 /** Add a [Pane] to this manager. */
 fun NodeManager.pane(): Pane = addChild(KtfxPane())
 
-/** Add a [Pane] with configurationialization block to this manager. */
+/** Add a [Pane] with configuration block to this manager. */
 inline fun NodeManager.pane(
     configuration: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane {

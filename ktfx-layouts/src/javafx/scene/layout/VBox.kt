@@ -148,7 +148,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
     }
 }
 
-/** Create a [VBox] with configurationialization block. */
+/** Create a [VBox] with configuration block. */
 inline fun vbox(
     spacing: Double = 0.0,
     configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
@@ -162,7 +162,7 @@ fun NodeManager.vbox(
     spacing: Double = 0.0
 ): VBox = addChild(KtfxVBox(spacing))
 
-/** Add a [VBox] with configurationialization block to this manager. */
+/** Add a [VBox] with configuration block to this manager. */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     configuration: (@LayoutDslMarker KtfxVBox).() -> Unit

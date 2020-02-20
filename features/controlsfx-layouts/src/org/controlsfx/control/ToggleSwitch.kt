@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.ToggleSwitch
 
-/** Create a [ToggleSwitch] with configurationialization block. */
+/** Create a [ToggleSwitch] with configuration block. */
 inline fun toggleSwitch(
     text: String? = null,
     configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
@@ -26,7 +26,7 @@ fun NodeManager.toggleSwitch(
     text: String? = null
 ): ToggleSwitch = addChild(ToggleSwitch(text))
 
-/** Add a [ToggleSwitch] with configurationialization block to this manager. */
+/** Add a [ToggleSwitch] with configuration block to this manager. */
 inline fun NodeManager.toggleSwitch(
     text: String? = null,
     configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit

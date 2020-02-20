@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [QuadCurve] with configurationialization block. */
+/** Create a [QuadCurve] with configuration block. */
 inline fun quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
@@ -33,7 +33,7 @@ fun NodeManager.quadCurve(
     endY: Double = 0.0
 ): QuadCurve = addChild(QuadCurve(startX, startY, controlX, controlY, endX, endY))
 
-/** Add a [QuadCurve] with configurationialization block to this manager. */
+/** Add a [QuadCurve] with configuration block to this manager. */
 inline fun NodeManager.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,

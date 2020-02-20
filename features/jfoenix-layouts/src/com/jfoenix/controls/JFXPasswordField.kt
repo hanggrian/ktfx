@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXPasswordField] with configurationialization block. */
+/** Create a [JFXPasswordField] with configuration block. */
 inline fun jfxPasswordField(
     configuration: (@LayoutDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
@@ -24,7 +24,7 @@ inline fun jfxPasswordField(
 fun NodeManager.jfxPasswordField(): JFXPasswordField =
     addChild(JFXPasswordField())
 
-/** Add a [JFXPasswordField] with configurationialization block to this manager. */
+/** Add a [JFXPasswordField] with configuration block to this manager. */
 inline fun NodeManager.jfxPasswordField(
     configuration: (@LayoutDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {

@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [CheckBox] with configurationialization block. */
+/** Create a [CheckBox] with configuration block. */
 inline fun checkBox(
     text: String? = null,
     configuration: (@LayoutDslMarker CheckBox).() -> Unit
@@ -23,7 +23,7 @@ fun NodeManager.checkBox(
     text: String? = null
 ): CheckBox = addChild(CheckBox(text))
 
-/** Add a [CheckBox] with configurationialization block to this manager. */
+/** Add a [CheckBox] with configuration block to this manager. */
 inline fun NodeManager.checkBox(
     text: String? = null,
     configuration: (@LayoutDslMarker CheckBox).() -> Unit

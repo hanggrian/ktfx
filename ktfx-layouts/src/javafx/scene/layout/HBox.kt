@@ -148,7 +148,7 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
     }
 }
 
-/** Create an [HBox] with configurationialization block. */
+/** Create an [HBox] with configuration block. */
 inline fun hbox(
     spacing: Double = 0.0,
     configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
@@ -162,7 +162,7 @@ fun NodeManager.hbox(
     spacing: Double = 0.0
 ): HBox = addChild(KtfxHBox(spacing))
 
-/** Add an [HBox] with configurationialization block to this manager. */
+/** Add an [HBox] with configuration block to this manager. */
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
     configuration: (@LayoutDslMarker KtfxHBox).() -> Unit

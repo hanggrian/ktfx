@@ -13,7 +13,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXDefaultChip] with configurationialization block. */
+/** Create a [JFXDefaultChip] with configuration block. */
 inline fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
@@ -29,7 +29,7 @@ fun <T> NodeManager.jfxDefaultChip(
     item: T
 ): JFXDefaultChip<T> = addChild(JFXDefaultChip(view, item))
 
-/** Add a [JFXDefaultChip] with configurationialization block to this manager. */
+/** Add a [JFXDefaultChip] with configuration block to this manager. */
 inline fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,

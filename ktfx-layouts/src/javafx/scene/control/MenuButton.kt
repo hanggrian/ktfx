@@ -26,7 +26,7 @@ open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, grap
     ): MenuItem = menuItem(this, graphic, configuration)
 }
 
-/** Create a [MenuButton] with configurationialization block. */
+/** Create a [MenuButton] with configuration block. */
 inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
@@ -42,7 +42,7 @@ fun NodeManager.menuButton(
     graphic: Node? = null
 ): MenuButton = addChild(KtfxMenuButton(text, graphic))
 
-/** Add a [MenuButton] with configurationialization block to this manager. */
+/** Add a [MenuButton] with configuration block to this manager. */
 inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,

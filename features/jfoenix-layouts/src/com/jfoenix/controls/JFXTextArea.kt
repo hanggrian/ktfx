@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXTextArea] with configurationialization block. */
+/** Create a [JFXTextArea] with configuration block. */
 inline fun jfxTextArea(
     text: String? = null,
     configuration: (@LayoutDslMarker JFXTextArea).() -> Unit
@@ -26,7 +26,7 @@ fun NodeManager.jfxTextArea(
     text: String? = null
 ): JFXTextArea = addChild(JFXTextArea(text))
 
-/** Add a [JFXTextArea] with configurationialization block to this manager. */
+/** Add a [JFXTextArea] with configuration block to this manager. */
 inline fun NodeManager.jfxTextArea(
     text: String? = null,
     configuration: (@LayoutDslMarker JFXTextArea).() -> Unit

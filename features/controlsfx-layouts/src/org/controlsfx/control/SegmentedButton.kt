@@ -31,7 +31,7 @@ open class KtfxSegmentedButton : SegmentedButton(), ToggleButtonManager {
     ): ToggleButton = toggleButton(this, graphic, configuration)
 }
 
-/** Create a [SegmentedButton] with configurationialization block. */
+/** Create a [SegmentedButton] with configuration block. */
 inline fun segmentedButton(
     configuration: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
@@ -42,7 +42,7 @@ inline fun segmentedButton(
 /** Add a [SegmentedButton] to this manager. */
 fun NodeManager.segmentedButton(): SegmentedButton = addChild(KtfxSegmentedButton())
 
-/** Add a [SegmentedButton] with configurationialization block to this manager. */
+/** Add a [SegmentedButton] with configuration block to this manager. */
 inline fun NodeManager.segmentedButton(
     configuration: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {

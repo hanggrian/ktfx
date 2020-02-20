@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Label] with configurationialization block. */
+/** Create a [Label] with configuration block. */
 inline fun label(
     text: String? = null,
     graphic: Node? = null,
@@ -26,7 +26,7 @@ fun NodeManager.label(
     graphic: Node? = null
 ): Label = addChild(Label(text, graphic))
 
-/** Add a [Label] with configurationialization block to this manager. */
+/** Add a [Label] with configuration block to this manager. */
 inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,

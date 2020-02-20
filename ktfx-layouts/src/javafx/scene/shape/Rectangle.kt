@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Rectangle] with configurationialization block. */
+/** Create a [Rectangle] with configuration block. */
 inline fun rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
@@ -29,7 +29,7 @@ fun NodeManager.rectangle(
     height: Double = 0.0
 ): Rectangle = addChild(Rectangle(x, y, width, height))
 
-/** Add a [Rectangle] with configurationialization block to this manager. */
+/** Add a [Rectangle] with configuration block to this manager. */
 inline fun NodeManager.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,

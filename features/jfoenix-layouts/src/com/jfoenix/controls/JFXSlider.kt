@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXSlider] with configurationialization block. */
+/** Create a [JFXSlider] with configuration block. */
 inline fun jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
@@ -30,7 +30,7 @@ fun NodeManager.jfxSlider(
     value: Double = 50.0
 ): JFXSlider = addChild(JFXSlider(min, max, value))
 
-/** Add a [JFXSlider] with configurationialization block to this manager. */
+/** Add a [JFXSlider] with configuration block to this manager. */
 inline fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,

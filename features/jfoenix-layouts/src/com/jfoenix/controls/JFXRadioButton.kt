@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXRadioButton] with configurationialization block. */
+/** Create a [JFXRadioButton] with configuration block. */
 inline fun jfxRadioButton(
     text: String? = null,
     configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
@@ -26,7 +26,7 @@ fun NodeManager.jfxRadioButton(
     text: String? = null
 ): JFXRadioButton = addChild(JFXRadioButton(text))
 
-/** Add a [JFXRadioButton] with configurationialization block to this manager. */
+/** Add a [JFXRadioButton] with configuration block to this manager. */
 inline fun NodeManager.jfxRadioButton(
     text: String? = null,
     configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit

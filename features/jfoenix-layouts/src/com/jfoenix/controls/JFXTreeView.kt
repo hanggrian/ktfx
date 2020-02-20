@@ -13,7 +13,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXTreeView] with configurationialization block. */
+/** Create a [JFXTreeView] with configuration block. */
 inline fun <T> jfxTreeView(
     root: TreeItem<T>? = null,
     configuration: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
@@ -27,7 +27,7 @@ fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null
 ): JFXTreeView<T> = addChild(JFXTreeView(root))
 
-/** Add a [JFXTreeView] with configurationialization block to this manager. */
+/** Add a [JFXTreeView] with configuration block to this manager. */
 inline fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null,
     configuration: (@LayoutDslMarker JFXTreeView<T>).() -> Unit

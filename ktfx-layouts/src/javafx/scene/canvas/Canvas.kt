@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Canvas] with configurationialization block. */
+/** Create a [Canvas] with configuration block. */
 inline fun canvas(
     width: Double = 0.0,
     height: Double = 0.0,
@@ -25,7 +25,7 @@ fun NodeManager.canvas(
     height: Double = 0.0
 ): Canvas = addChild(Canvas(width, height))
 
-/** Add a [Canvas] with configurationialization block to this manager. */
+/** Add a [Canvas] with configuration block to this manager. */
 inline fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0,

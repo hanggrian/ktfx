@@ -13,7 +13,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [StackedBarChart] with configurationialization block. */
+/** Create a [StackedBarChart] with configuration block. */
 inline fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
@@ -31,7 +31,7 @@ fun <X, Y> NodeManager.stackedBarChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList()
 ): StackedBarChart<X, Y> = addChild(StackedBarChart(x, y, data))
 
-/** Add a [StackedBarChart] with configurationialization block to this manager. */
+/** Add a [StackedBarChart] with configuration block to this manager. */
 inline fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,

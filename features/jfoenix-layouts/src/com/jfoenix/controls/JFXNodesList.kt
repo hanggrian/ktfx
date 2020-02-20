@@ -22,7 +22,7 @@ open class KtfxJFXNodesList : JFXNodesList(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 }
 
-/** Create a [JFXNodesList] with configurationialization block. */
+/** Create a [JFXNodesList] with configuration block. */
 inline fun jfxNodesList(
     configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
@@ -34,7 +34,7 @@ inline fun jfxNodesList(
 fun NodeManager.jfxNodesList(): JFXNodesList =
     addChild(JFXNodesList())
 
-/** Add a [JFXNodesList] with configurationialization block to this manager. */
+/** Add a [JFXNodesList] with configuration block to this manager. */
 inline fun NodeManager.jfxNodesList(
     configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {

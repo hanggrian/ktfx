@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [RadioMenuItem] with configurationialization block. */
+/** Create a [RadioMenuItem] with configuration block. */
 inline fun radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
@@ -26,7 +26,7 @@ fun MenuItemManager.radioMenuItem(
     graphic: Node? = null
 ): RadioMenuItem = addChild(RadioMenuItem(text, graphic))
 
-/** Add a [RadioMenuItem] with configurationialization block to this manager. */
+/** Add a [RadioMenuItem] with configuration block to this manager. */
 inline fun MenuItemManager.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,

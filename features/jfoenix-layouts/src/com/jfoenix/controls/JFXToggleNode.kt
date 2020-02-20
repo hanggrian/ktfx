@@ -13,7 +13,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXToggleNode] with configurationialization block. */
+/** Create a [JFXToggleNode] with configuration block. */
 inline fun jfxToggleNode(
     graphic: Node? = null,
     configuration: (@LayoutDslMarker JFXToggleNode).() -> Unit
@@ -27,7 +27,7 @@ fun NodeManager.jfxToggleNode(
     graphic: Node? = null
 ): JFXToggleNode = addChild(JFXToggleNode(graphic))
 
-/** Add a [JFXToggleNode] with configurationialization block to this manager. */
+/** Add a [JFXToggleNode] with configuration block to this manager. */
 inline fun NodeManager.jfxToggleNode(
     graphic: Node? = null,
     configuration: (@LayoutDslMarker JFXToggleNode).() -> Unit

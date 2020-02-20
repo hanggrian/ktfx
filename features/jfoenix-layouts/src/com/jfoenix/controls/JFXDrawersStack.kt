@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXDrawersStack] with configurationialization block. */
+/** Create a [JFXDrawersStack] with configuration block. */
 inline fun jfxDrawersStack(
     configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
@@ -23,7 +23,7 @@ inline fun jfxDrawersStack(
 /** Add a [JFXDrawersStack] to this manager. */
 fun NodeManager.jfxDrawersStack(): JFXDrawersStack = addChild(JFXDrawersStack())
 
-/** Add a [JFXDrawersStack] with configurationialization block to this manager. */
+/** Add a [JFXDrawersStack] with configuration block to this manager. */
 inline fun NodeManager.jfxDrawersStack(
     configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {

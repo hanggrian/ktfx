@@ -11,7 +11,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [TableView] with configurationialization block. */
+/** Create a [TableView] with configuration block. */
 inline fun <S> tableView(
     items: ObservableList<S> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker TableView<S>).() -> Unit
@@ -25,7 +25,7 @@ fun <S> NodeManager.tableView(
     items: ObservableList<S> = FXCollections.observableArrayList()
 ): TableView<S> = addChild(TableView(items))
 
-/** Add a [TableView] with configurationialization block to this manager. */
+/** Add a [TableView] with configuration block to this manager. */
 inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker TableView<S>).() -> Unit

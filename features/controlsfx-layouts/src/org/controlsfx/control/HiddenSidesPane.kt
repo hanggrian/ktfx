@@ -22,7 +22,7 @@ open class KtfxHiddenSidesPane : HiddenSidesPane(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
 }
 
-/** Create a [HiddenSidesPane] with configurationialization block. */
+/** Create a [HiddenSidesPane] with configuration block. */
 inline fun hiddenSidesPane(
     configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
@@ -33,7 +33,7 @@ inline fun hiddenSidesPane(
 /** Add a [HiddenSidesPane] to this manager. */
 fun NodeManager.hiddenSidesPane(): HiddenSidesPane = addChild(KtfxHiddenSidesPane())
 
-/** Add a [HiddenSidesPane] with configurationialization block to this manager. */
+/** Add a [HiddenSidesPane] with configuration block to this manager. */
 inline fun NodeManager.hiddenSidesPane(
     configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {

@@ -272,7 +272,7 @@ open class KtfxGridPane : GridPane(), NodeManager {
     }
 }
 
-/** Create a [GridPane] with configurationialization block. */
+/** Create a [GridPane] with configuration block. */
 inline fun gridPane(
     configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
@@ -283,7 +283,7 @@ inline fun gridPane(
 /** Add a [GridPane] to this manager. */
 fun NodeManager.gridPane(): GridPane = addChild(KtfxGridPane())
 
-/** Add a [GridPane] with configurationialization block to this manager. */
+/** Add a [GridPane] with configuration block to this manager. */
 inline fun NodeManager.gridPane(
     configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {

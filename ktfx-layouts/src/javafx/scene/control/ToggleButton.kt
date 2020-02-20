@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ToggleButton] with configurationialization block. */
+/** Create a [ToggleButton] with configuration block. */
 inline fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
@@ -26,7 +26,7 @@ fun NodeManager.toggleButton(
     graphic: Node? = null
 ): ToggleButton = addChild(ToggleButton(text, graphic))
 
-/** Add a [ToggleButton] with configurationialization block to this manager. */
+/** Add a [ToggleButton] with configuration block to this manager. */
 inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
@@ -42,7 +42,7 @@ fun ToggleButtonManager.toggleButton(
     graphic: Node? = null
 ): ToggleButton = addChild(ToggleButton(text, graphic))
 
-/** Add a [ToggleButton] with configurationialization block to this manager. */
+/** Add a [ToggleButton] with configuration block to this manager. */
 inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,

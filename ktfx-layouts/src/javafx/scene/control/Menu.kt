@@ -26,7 +26,7 @@ open class KtfxMenu(text: String, graphic: Node?) : Menu(text, graphic), MenuIte
     ): MenuItem = menuItem(this, graphic, configuration)
 }
 
-/** Create a [Menu] with configurationialization block. */
+/** Create a [Menu] with configuration block. */
 inline fun menu(
     text: String = "",
     graphic: Node? = null,
@@ -42,7 +42,7 @@ fun MenuManager.menu(
     graphic: Node? = null
 ): Menu = addChild(KtfxMenu(text, graphic))
 
-/** Add a [Menu] with configurationialization block to this manager. */
+/** Add a [Menu] with configuration block to this manager. */
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
@@ -58,7 +58,7 @@ fun MenuItemManager.menu(
     graphic: Node? = null
 ): Menu = addChild(KtfxMenu(text, graphic))
 
-/** Add a [Menu] with configurationialization block to this manager. */
+/** Add a [Menu] with configuration block to this manager. */
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,

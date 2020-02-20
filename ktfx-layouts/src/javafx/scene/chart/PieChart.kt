@@ -12,7 +12,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [PieChart] with configurationialization block. */
+/** Create a [PieChart] with configuration block. */
 inline fun pieChart(
     data: ObservableList<Data> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker PieChart).() -> Unit
@@ -26,7 +26,7 @@ fun NodeManager.pieChart(
     data: ObservableList<Data> = FXCollections.observableArrayList()
 ): PieChart = addChild(PieChart(data))
 
-/** Add a [PieChart] with configurationialization block to this manager. */
+/** Add a [PieChart] with configuration block to this manager. */
 inline fun NodeManager.pieChart(
     data: ObservableList<Data> = FXCollections.observableArrayList(),
     configuration: (@LayoutDslMarker PieChart).() -> Unit

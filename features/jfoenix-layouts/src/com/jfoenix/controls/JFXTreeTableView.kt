@@ -14,7 +14,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXTreeTableView] with configurationialization block. */
+/** Create a [JFXTreeTableView] with configuration block. */
 inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
     root: TreeItem<S>? = null,
     configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
@@ -28,7 +28,7 @@ fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     root: TreeItem<S>? = null
 ): JFXTreeTableView<S> = addChild(JFXTreeTableView(root))
 
-/** Add a [JFXTreeTableView] with configurationialization block to this manager. */
+/** Add a [JFXTreeTableView] with configuration block to this manager. */
 inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     root: TreeItem<S>? = null,
     configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit

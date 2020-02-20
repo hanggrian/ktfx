@@ -22,7 +22,7 @@ open class KtfxJFXMasonryPane : JFXMasonryPane(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 }
 
-/** Create a [JFXMasonryPane] with configurationialization block. */
+/** Create a [JFXMasonryPane] with configuration block. */
 inline fun jfxMasonryPane(
     configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
@@ -33,7 +33,7 @@ inline fun jfxMasonryPane(
 /** Add a [JFXMasonryPane] to this manager. */
 fun NodeManager.jfxMasonryPane(): JFXMasonryPane = addChild(JFXMasonryPane())
 
-/** Add a [JFXMasonryPane] with configurationialization block to this manager. */
+/** Add a [JFXMasonryPane] with configuration block to this manager. */
 inline fun NodeManager.jfxMasonryPane(
     configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {

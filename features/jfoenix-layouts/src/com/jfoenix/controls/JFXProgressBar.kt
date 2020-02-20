@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXProgressBar] with configurationialization block. */
+/** Create a [JFXProgressBar] with configuration block. */
 inline fun jfxProgressBar(
     progress: Double = 0.0,
     configuration: (@LayoutDslMarker JFXProgressBar).() -> Unit
@@ -26,7 +26,7 @@ fun NodeManager.jfxProgressBar(
     progress: Double = 0.0
 ): JFXProgressBar = addChild(JFXProgressBar(progress))
 
-/** Add a [JFXProgressBar] with configurationialization block to this manager. */
+/** Add a [JFXProgressBar] with configuration block to this manager. */
 inline fun NodeManager.jfxProgressBar(
     progress: Double = 0.0,
     configuration: (@LayoutDslMarker JFXProgressBar).() -> Unit

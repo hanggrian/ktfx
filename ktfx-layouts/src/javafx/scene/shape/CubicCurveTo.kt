@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [CubicCurveTo] with configurationialization block. */
+/** Create a [CubicCurveTo] with configuration block. */
 inline fun cubicCurveTo(
     controlX1: Double = 0.0,
     controlY1: Double = 0.0,
@@ -33,7 +33,7 @@ fun PathElementManager.cubicCurveTo(
     y: Double = 0.0
 ): CubicCurveTo = addChild(CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y))
 
-/** Add a [CubicCurveTo] with configurationialization block to this manager. */
+/** Add a [CubicCurveTo] with configuration block to this manager. */
 inline fun PathElementManager.cubicCurveTo(
     controlX1: Double = 0.0,
     controlY1: Double = 0.0,

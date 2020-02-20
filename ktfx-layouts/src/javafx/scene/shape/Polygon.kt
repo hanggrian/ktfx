@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Polygon] with configurationialization block. */
+/** Create a [Polygon] with configuration block. */
 inline fun polygon(
     vararg points: Double,
     configuration: (@LayoutDslMarker Polygon).() -> Unit
@@ -23,7 +23,7 @@ fun NodeManager.polygon(
     vararg points: Double
 ): Polygon = addChild(Polygon(*points))
 
-/** Add a [Polygon] with configurationialization block to this manager. */
+/** Add a [Polygon] with configuration block to this manager. */
 inline fun NodeManager.polygon(
     vararg points: Double,
     configuration: (@LayoutDslMarker Polygon).() -> Unit

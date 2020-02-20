@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [SeparatorMenuItem] with configurationialization block. */
+/** Create a [SeparatorMenuItem] with configuration block. */
 inline fun separatorMenuItem(
     configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
@@ -20,7 +20,7 @@ inline fun separatorMenuItem(
 /** Add a [SeparatorMenuItem] to this manager. */
 fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = addChild(SeparatorMenuItem())
 
-/** Add a [SeparatorMenuItem] with configurationialization block to this manager. */
+/** Add a [SeparatorMenuItem] with configuration block to this manager. */
 inline fun MenuItemManager.separatorMenuItem(
     configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {

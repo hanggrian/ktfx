@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create an [ArcTo] with configurationialization block. */
+/** Create an [ArcTo] with configuration block. */
 inline fun arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
@@ -35,7 +35,7 @@ fun PathElementManager.arcTo(
     sweepFlag: Boolean = false
 ): ArcTo = addChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag))
 
-/** Add an [ArcTo] with configurationialization block to this manager. */
+/** Add an [ArcTo] with configuration block to this manager. */
 inline fun PathElementManager.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,

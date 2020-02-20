@@ -9,6 +9,7 @@ includeDir("features")
 includeDir("ruleset")
 includeDir("testing")
 
+include("generator")
 include("website")
 include("demo")
 

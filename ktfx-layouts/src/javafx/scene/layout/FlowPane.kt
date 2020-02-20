@@ -132,7 +132,7 @@ open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : 
     }
 }
 
-/** Create a [FlowPane] with configurationialization block. */
+/** Create a [FlowPane] with configuration block. */
 inline fun flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
@@ -150,7 +150,7 @@ fun NodeManager.flowPane(
     vgap: Double = hgap
 ): FlowPane = addChild(KtfxFlowPane(orientation, hgap, vgap))
 
-/** Add a [FlowPane] with configurationialization block to this manager. */
+/** Add a [FlowPane] with configuration block to this manager. */
 inline fun NodeManager.flowPane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,

@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [CheckMenuItem] with configurationialization block. */
+/** Create a [CheckMenuItem] with configuration block. */
 inline fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
@@ -26,7 +26,7 @@ fun MenuItemManager.checkMenuItem(
     graphic: Node? = null
 ): CheckMenuItem = addChild(CheckMenuItem(text, graphic))
 
-/** Add a [CheckMenuItem] with configurationialization block to this manager. */
+/** Add a [CheckMenuItem] with configuration block to this manager. */
 inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,

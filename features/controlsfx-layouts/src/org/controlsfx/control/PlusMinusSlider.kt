@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.PlusMinusSlider
 
-/** Create a [PlusMinusSlider] with configurationialization block. */
+/** Create a [PlusMinusSlider] with configuration block. */
 inline fun plusMinusSlider(
     configuration: (@LayoutDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {
@@ -24,7 +24,7 @@ inline fun plusMinusSlider(
 fun NodeManager.plusMinusSlider(): PlusMinusSlider =
     addChild(PlusMinusSlider())
 
-/** Add a [PlusMinusSlider] with configurationialization block to this manager. */
+/** Add a [PlusMinusSlider] with configuration block to this manager. */
 inline fun NodeManager.plusMinusSlider(
     configuration: (@LayoutDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {

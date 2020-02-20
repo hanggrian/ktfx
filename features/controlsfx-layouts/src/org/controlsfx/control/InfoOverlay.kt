@@ -22,7 +22,7 @@ open class KtfxInfoOverlay(graphic: Node?, text: String?) : InfoOverlay(graphic,
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
 }
 
-/** Create a [InfoOverlay] with configurationialization block. */
+/** Create a [InfoOverlay] with configuration block. */
 inline fun infoOverlay(
     content: Node? = null,
     text: String? = null,
@@ -38,7 +38,7 @@ fun NodeManager.infoOverlay(
     text: String? = null
 ): InfoOverlay = addChild(InfoOverlay(content, text))
 
-/** Add a [InfoOverlay] with configurationialization block to this manager. */
+/** Add a [InfoOverlay] with configuration block to this manager. */
 inline fun NodeManager.infoOverlay(
     content: Node? = null,
     text: String? = null,

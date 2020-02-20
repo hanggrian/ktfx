@@ -19,7 +19,7 @@ open class KtfxTitledPane(title: String?) : TitledPane(title, null), NodeManager
     final override fun <C : Node> addChild(child: C): C = child.also { content = it }
 }
 
-/** Create a [TitledPane] with configurationialization block. */
+/** Create a [TitledPane] with configuration block. */
 inline fun titledPane(
     title: String? = null,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
@@ -33,7 +33,7 @@ fun NodeManager.titledPane(
     title: String? = null
 ): TitledPane = addChild(KtfxTitledPane(title))
 
-/** Add a [TitledPane] with configurationialization block to this manager. */
+/** Add a [TitledPane] with configuration block to this manager. */
 inline fun NodeManager.titledPane(
     title: String? = null,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
@@ -47,7 +47,7 @@ fun TitledPaneManager.titledPane(
     title: String? = null
 ): TitledPane = addChild(KtfxTitledPane(title))
 
-/** Add a [TitledPane] with configurationialization block to this manager. */
+/** Add a [TitledPane] with configuration block to this manager. */
 inline fun TitledPaneManager.titledPane(
     title: String? = null,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit

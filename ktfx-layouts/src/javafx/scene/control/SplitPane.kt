@@ -19,7 +19,7 @@ open class KtfxSplitPane : SplitPane(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { items += it }
 }
 
-/** Create a [SplitPane] with configurationialization block. */
+/** Create a [SplitPane] with configuration block. */
 inline fun splitPane(
     configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
@@ -30,7 +30,7 @@ inline fun splitPane(
 /** Add a [SplitPane] to this manager. */
 fun NodeManager.splitPane(): SplitPane = addChild(KtfxSplitPane())
 
-/** Add a [SplitPane] with configurationialization block to this manager. */
+/** Add a [SplitPane] with configuration block to this manager. */
 inline fun NodeManager.splitPane(
     configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {

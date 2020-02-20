@@ -144,7 +144,7 @@ open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : 
     }
 }
 
-/** Create a [TilePane] with configurationialization block. */
+/** Create a [TilePane] with configuration block. */
 inline fun tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,
@@ -162,7 +162,7 @@ fun NodeManager.tilePane(
     vgap: Double = hgap
 ): TilePane = addChild(KtfxTilePane(orientation, hgap, vgap))
 
-/** Add a [TilePane] with configurationialization block to this manager. */
+/** Add a [TilePane] with configuration block to this manager. */
 inline fun NodeManager.tilePane(
     orientation: Orientation = Orientation.HORIZONTAL,
     hgap: Double = 0.0,

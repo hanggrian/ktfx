@@ -13,7 +13,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXButton] with configurationialization block. */
+/** Create a [JFXButton] with configuration block. */
 inline fun jfxButton(
     text: String? = null,
     graphic: Node? = null,
@@ -29,7 +29,7 @@ fun NodeManager.jfxButton(
     graphic: Node? = null
 ): JFXButton = addChild(JFXButton(text, graphic))
 
-/** Add a [JFXButton] with configurationialization block to this manager. */
+/** Add a [JFXButton] with configuration block to this manager. */
 inline fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null,

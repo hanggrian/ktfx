@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Spinner] with configurationialization block. */
+/** Create a [Spinner] with configuration block. */
 inline fun <T> spinner(
     configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
@@ -20,7 +20,7 @@ inline fun <T> spinner(
 /** Add a [Spinner] to this manager. */
 fun <T> NodeManager.spinner(): Spinner<T> = addChild(Spinner())
 
-/** Add a [Spinner] with configurationialization block to this manager. */
+/** Add a [Spinner] with configuration block to this manager. */
 inline fun <T> NodeManager.spinner(
     configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {

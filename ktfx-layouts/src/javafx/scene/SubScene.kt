@@ -21,7 +21,7 @@ open class KtfxSubScene(root: Parent, width: Double, height: Double) : SubScene(
     final override fun <C : Node> addChild(child: C): C = child.also { root = it as? Pane ?: Pane(it) }
 }
 
-/** Create a [SubScene] with configurationialization block. */
+/** Create a [SubScene] with configuration block. */
 inline fun subScene(
     width: Double = -1.0,
     height: Double = -1.0,

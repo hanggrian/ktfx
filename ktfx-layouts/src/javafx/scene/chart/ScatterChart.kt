@@ -13,7 +13,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ScatterChart] with configurationialization block. */
+/** Create a [ScatterChart] with configuration block. */
 inline fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
@@ -31,7 +31,7 @@ fun <X, Y> NodeManager.scatterChart(
     data: ObservableList<Series<X, Y>> = FXCollections.observableArrayList()
 ): ScatterChart<X, Y> = addChild(ScatterChart(x, y, data))
 
-/** Add a [ScatterChart] with configurationialization block to this manager. */
+/** Add a [ScatterChart] with configuration block to this manager. */
 inline fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,

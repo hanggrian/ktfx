@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [TextField] with configurationialization block. */
+/** Create a [TextField] with configuration block. */
 inline fun textField(
     text: String = "",
     configuration: (@LayoutDslMarker TextField).() -> Unit
@@ -23,7 +23,7 @@ fun NodeManager.textField(
     text: String = ""
 ): TextField = addChild(TextField(text))
 
-/** Add a [TextField] with configurationialization block to this manager. */
+/** Add a [TextField] with configuration block to this manager. */
 inline fun NodeManager.textField(
     text: String = "",
     configuration: (@LayoutDslMarker TextField).() -> Unit

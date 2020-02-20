@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXHamburger] with configurationialization block. */
+/** Create a [JFXHamburger] with configuration block. */
 inline fun jfxHamburger(
     configuration: (@LayoutDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
@@ -23,7 +23,7 @@ inline fun jfxHamburger(
 /** Add a [JFXHamburger] to this manager. */
 fun NodeManager.jfxHamburger(): JFXHamburger = addChild(JFXHamburger())
 
-/** Add a [JFXHamburger] with configurationialization block to this manager. */
+/** Add a [JFXHamburger] with configuration block to this manager. */
 inline fun NodeManager.jfxHamburger(
     configuration: (@LayoutDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {

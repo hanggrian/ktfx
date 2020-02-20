@@ -22,7 +22,7 @@ open class KtfxSnapshotView : SnapshotView(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { this.node = it }
 }
 
-/** Create a [SnapshotView] with configurationialization block. */
+/** Create a [SnapshotView] with configuration block. */
 inline fun snapshotView(
     configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
@@ -33,7 +33,7 @@ inline fun snapshotView(
 /** Add a [SnapshotView] to this manager. */
 fun NodeManager.snapshotView(): SnapshotView = addChild(KtfxSnapshotView())
 
-/** Add a [SnapshotView] with configurationialization block to this manager. */
+/** Add a [SnapshotView] with configuration block to this manager. */
 inline fun NodeManager.snapshotView(
     configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {

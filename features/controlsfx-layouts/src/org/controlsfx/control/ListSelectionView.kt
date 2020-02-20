@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.ListSelectionView
 
-/** Create a [ListSelectionView] with configurationialization block. */
+/** Create a [ListSelectionView] with configuration block. */
 inline fun <T> listSelectionView(
     configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
@@ -23,7 +23,7 @@ inline fun <T> listSelectionView(
 /** Add a [ListSelectionView] to this manager. */
 fun <T> NodeManager.listSelectionView(): ListSelectionView<T> = addChild(ListSelectionView())
 
-/** Add a [ListSelectionView] with configurationialization block to this manager. */
+/** Add a [ListSelectionView] with configuration block to this manager. */
 inline fun <T> NodeManager.listSelectionView(
     configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {

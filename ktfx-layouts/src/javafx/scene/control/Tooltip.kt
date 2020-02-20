@@ -12,7 +12,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Tooltip] with configurationialization block. */
+/** Create a [Tooltip] with configuration block. */
 inline fun tooltip(
     text: String? = null,
     configuration: (@LayoutDslMarker Tooltip).() -> Unit
@@ -26,7 +26,7 @@ fun Node.tooltip(
     text: String? = null
 ): Tooltip = Tooltip(text).also { Tooltip.install(this, it) }
 
-/** Set a [Tooltip] with configurationialization block to this [Node]. */
+/** Set a [Tooltip] with configuration block to this [Node]. */
 inline fun Node.tooltip(
     text: String? = null,
     configuration: (@LayoutDslMarker Tooltip).() -> Unit
@@ -40,7 +40,7 @@ fun Control.tooltip(
     text: String? = null
 ): Tooltip = Tooltip(text).also { tooltip = it }
 
-/** Set a [Tooltip] with configurationialization block to this [Control]. */
+/** Set a [Tooltip] with configuration block to this [Control]. */
 inline fun Control.tooltip(
     text: String? = null,
     configuration: (@LayoutDslMarker Tooltip).() -> Unit
@@ -54,7 +54,7 @@ fun Tab.tooltip(
     text: String? = null
 ): Tooltip = Tooltip(text).also { tooltip = it }
 
-/** Set a [Tooltip] with configurationialization block to this [Tab]. */
+/** Set a [Tooltip] with configuration block to this [Tab]. */
 inline fun Tab.tooltip(
     text: String? = null,
     configuration: (@LayoutDslMarker Tooltip).() -> Unit

@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [ClosePath] with configurationialization block. */
+/** Create a [ClosePath] with configuration block. */
 inline fun closePath(
     configuration: (@LayoutDslMarker ClosePath).() -> Unit
 ): ClosePath {
@@ -20,7 +20,7 @@ inline fun closePath(
 /** Add a [ClosePath] to this manager. */
 fun PathElementManager.closePath(): ClosePath = addChild(ClosePath())
 
-/** Add a [ClosePath] with configurationialization block to this manager. */
+/** Add a [ClosePath] with configuration block to this manager. */
 inline fun PathElementManager.closePath(
     configuration: (@LayoutDslMarker ClosePath).() -> Unit
 ): ClosePath {

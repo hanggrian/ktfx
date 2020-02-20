@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Slider] with configurationialization block. */
+/** Create a [Slider] with configuration block. */
 inline fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
@@ -27,7 +27,7 @@ fun NodeManager.slider(
     value: Double = 0.0
 ): Slider = addChild(Slider(min, max, value))
 
-/** Add a [Slider] with configurationialization block to this manager. */
+/** Add a [Slider] with configuration block to this manager. */
 inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,

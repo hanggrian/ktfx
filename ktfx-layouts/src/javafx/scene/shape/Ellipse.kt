@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create an [Ellipse] with configurationialization block. */
+/** Create an [Ellipse] with configuration block. */
 inline fun ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
@@ -29,7 +29,7 @@ fun NodeManager.ellipse(
     radiusY: Double = 0.0
 ): Ellipse = addChild(Ellipse(centerX, centerY, radiusX, radiusY))
 
-/** Add an [Ellipse] with configurationialization block to this manager. */
+/** Add an [Ellipse] with configuration block to this manager. */
 inline fun NodeManager.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,

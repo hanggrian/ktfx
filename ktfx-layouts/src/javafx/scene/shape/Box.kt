@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Box] with configurationialization block. */
+/** Create a [Box] with configuration block. */
 inline fun box(
     width: Double = Box.DEFAULT_SIZE,
     height: Double = Box.DEFAULT_SIZE,
@@ -27,7 +27,7 @@ fun NodeManager.box(
     depth: Double = Box.DEFAULT_SIZE
 ): Box = addChild(Box(width, height, depth))
 
-/** Add a [Box] with configurationialization block to this manager. */
+/** Add a [Box] with configuration block to this manager. */
 inline fun NodeManager.box(
     width: Double = Box.DEFAULT_SIZE,
     height: Double = Box.DEFAULT_SIZE,

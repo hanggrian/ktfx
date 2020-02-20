@@ -12,7 +12,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXTreeCell] with configurationialization block. */
+/** Create a [JFXTreeCell] with configuration block. */
 inline fun <T> jfxTreeCell(
     configuration: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
@@ -23,7 +23,7 @@ inline fun <T> jfxTreeCell(
 /** Add a [JFXTreeCell] to this manager. */
 fun <T> NodeManager.jfxTreeCell(): JFXTreeCell<T> = addChild(JFXTreeCell())
 
-/** Add a [JFXTreeCell] with configurationialization block to this manager. */
+/** Add a [JFXTreeCell] with configuration block to this manager. */
 inline fun <T> NodeManager.jfxTreeCell(
     configuration: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {

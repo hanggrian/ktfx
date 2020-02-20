@@ -10,7 +10,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Circle] with configurationialization block. */
+/** Create a [Circle] with configuration block. */
 inline fun circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
@@ -30,7 +30,7 @@ fun NodeManager.circle(
     fill: Paint? = null
 ): Circle = addChild(Circle(centerX, centerY, radius, fill))
 
-/** Add a [Circle] with configurationialization block to this manager. */
+/** Add a [Circle] with configuration block to this manager. */
 inline fun NodeManager.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,

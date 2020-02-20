@@ -13,7 +13,7 @@ import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 
-/** Create a [JFXTimePicker] with configurationialization block. */
+/** Create a [JFXTimePicker] with configuration block. */
 inline fun jfxTimePicker(
     value: LocalTime? = null,
     configuration: (@LayoutDslMarker JFXTimePicker).() -> Unit
@@ -27,7 +27,7 @@ fun NodeManager.jfxTimePicker(
     value: LocalTime? = null
 ): JFXTimePicker = addChild(JFXTimePicker(value))
 
-/** Add a [JFXTimePicker] with configurationialization block to this manager. */
+/** Add a [JFXTimePicker] with configuration block to this manager. */
 inline fun NodeManager.jfxTimePicker(
     value: LocalTime? = null,
     configuration: (@LayoutDslMarker JFXTimePicker).() -> Unit

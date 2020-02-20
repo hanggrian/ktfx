@@ -22,7 +22,7 @@ open class KtfxJFXRippler : JFXRippler(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { control = it }
 }
 
-/** Create a [JFXRippler] with configurationialization block. */
+/** Create a [JFXRippler] with configuration block. */
 inline fun jfxRippler(
     configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
@@ -34,7 +34,7 @@ inline fun jfxRippler(
 fun NodeManager.jfxRippler(): JFXRippler =
     addChild(KtfxJFXRippler())
 
-/** Add a [JFXRippler] with configurationialization block to this manager. */
+/** Add a [JFXRippler] with configuration block to this manager. */
 inline fun NodeManager.jfxRippler(
     configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {

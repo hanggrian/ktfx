@@ -22,7 +22,7 @@ open class KtfxJFXBadge : JFXBadge(), NodeManager {
     final override fun <C : Node> addChild(child: C): C = child.also { control = it }
 }
 
-/** Create a [JFXBadge] with configurationialization block. */
+/** Create a [JFXBadge] with configuration block. */
 inline fun jfxBadge(
     configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
@@ -33,7 +33,7 @@ inline fun jfxBadge(
 /** Add a [JFXBadge] to this manager. */
 fun NodeManager.jfxBadge(): JFXBadge = addChild(KtfxJFXBadge())
 
-/** Add a [JFXBadge] with configurationialization block to this manager. */
+/** Add a [JFXBadge] with configuration block to this manager. */
 inline fun NodeManager.jfxBadge(
     configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {

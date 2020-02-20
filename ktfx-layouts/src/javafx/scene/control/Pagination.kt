@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Pagination] with configurationialization block. */
+/** Create a [Pagination] with configuration block. */
 inline fun pagination(
     pageCount: Int = Pagination.INDETERMINATE,
     currentPageIndex: Int = 0,
@@ -25,7 +25,7 @@ fun NodeManager.pagination(
     currentPageIndex: Int = 0
 ): Pagination = addChild(Pagination(pageCount, currentPageIndex))
 
-/** Add a [Pagination] with configurationialization block to this manager. */
+/** Add a [Pagination] with configuration block to this manager. */
 inline fun NodeManager.pagination(
     pageCount: Int = Pagination.INDETERMINATE,
     currentPageIndex: Int = 0,

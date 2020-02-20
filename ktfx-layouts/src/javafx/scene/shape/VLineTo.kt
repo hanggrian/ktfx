@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [VLineTo] with configurationialization block. */
+/** Create a [VLineTo] with configuration block. */
 inline fun vlineTo(
     y: Double = 0.0,
     configuration: (@LayoutDslMarker VLineTo).() -> Unit
@@ -23,7 +23,7 @@ fun PathElementManager.vlineTo(
     y: Double = 0.0
 ): VLineTo = addChild(VLineTo(y))
 
-/** Add a [VLineTo] with configurationialization block to this manager. */
+/** Add a [VLineTo] with configuration block to this manager. */
 inline fun PathElementManager.vlineTo(
     y: Double = 0.0,
     configuration: (@LayoutDslMarker VLineTo).() -> Unit

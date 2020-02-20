@@ -29,7 +29,7 @@ open class KtfxContextMenu : ContextMenu(), MenuItemManager {
     ): MenuItem = menuItem(this, graphic, configuration)
 }
 
-/** Create a [ContextMenu] with configurationialization block. */
+/** Create a [ContextMenu] with configuration block. */
 inline fun contextMenu(
     configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
@@ -41,7 +41,7 @@ inline fun contextMenu(
 fun Control.contextMenu(): ContextMenu =
     KtfxContextMenu().also { contextMenu = it }
 
-/** Set a [ContextMenu] with configurationialization block to this [Control]. */
+/** Set a [ContextMenu] with configuration block to this [Control]. */
 inline fun Control.contextMenu(
     configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
@@ -53,7 +53,7 @@ inline fun Control.contextMenu(
 fun Tab.contextMenu(): ContextMenu =
     KtfxContextMenu().also { contextMenu = it }
 
-/** Set a [ContextMenu] with configurationialization block to this [Tab]. */
+/** Set a [ContextMenu] with configuration block to this [Tab]. */
 inline fun Tab.contextMenu(
     configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
@@ -65,7 +65,7 @@ inline fun Tab.contextMenu(
 fun <S, T> TableColumnBase<S, T>.contextMenu(): ContextMenu =
     ktfx.layouts.contextMenu { }.also { contextMenu = it }
 
-/** Set a [ContextMenu] with configurationialization block to this [TableColumnBase]. */
+/** Set a [ContextMenu] with configuration block to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
     configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {

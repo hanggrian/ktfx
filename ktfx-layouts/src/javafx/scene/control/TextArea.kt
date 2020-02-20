@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [TextArea] with configurationialization block. */
+/** Create a [TextArea] with configuration block. */
 inline fun textArea(
     text: String = "",
     configuration: (@LayoutDslMarker TextArea).() -> Unit
@@ -23,7 +23,7 @@ fun NodeManager.textArea(
     text: String = ""
 ): TextArea = addChild(TextArea(text))
 
-/** Add a [TextArea] with configurationialization block to this manager. */
+/** Add a [TextArea] with configuration block to this manager. */
 inline fun NodeManager.textArea(
     text: String = "",
     configuration: (@LayoutDslMarker TextArea).() -> Unit

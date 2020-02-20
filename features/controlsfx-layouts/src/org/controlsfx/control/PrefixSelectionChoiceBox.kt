@@ -12,7 +12,7 @@ import ktfx.layouts.NodeManager
 import ktfx.layouts.addChild
 import org.controlsfx.control.PrefixSelectionChoiceBox
 
-/** Create a [PrefixSelectionChoiceBox] with configurationialization block. */
+/** Create a [PrefixSelectionChoiceBox] with configuration block. */
 inline fun <T> prefixSelectionChoiceBox(
     configuration: (@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
 ): PrefixSelectionChoiceBox<T> {
@@ -23,7 +23,7 @@ inline fun <T> prefixSelectionChoiceBox(
 /** Add a [PrefixSelectionChoiceBox] to this manager. */
 fun <T> NodeManager.prefixSelectionChoiceBox(): PrefixSelectionChoiceBox<T> = addChild(PrefixSelectionChoiceBox())
 
-/** Add a [PrefixSelectionChoiceBox] with configurationialization block to this manager. */
+/** Add a [PrefixSelectionChoiceBox] with configuration block to this manager. */
 inline fun <T> NodeManager.prefixSelectionChoiceBox(
     configuration: (@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
 ): PrefixSelectionChoiceBox<T> {

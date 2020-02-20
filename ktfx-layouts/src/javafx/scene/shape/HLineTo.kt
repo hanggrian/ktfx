@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [HLineTo] with configurationialization block. */
+/** Create a [HLineTo] with configuration block. */
 inline fun hlineTo(
     x: Double = 0.0,
     configuration: (@LayoutDslMarker HLineTo).() -> Unit
@@ -23,7 +23,7 @@ fun PathElementManager.hlineTo(
     x: Double = 0.0
 ): HLineTo = addChild(HLineTo(x))
 
-/** Add a [HLineTo] with configurationialization block to this manager. */
+/** Add a [HLineTo] with configuration block to this manager. */
 inline fun PathElementManager.hlineTo(
     x: Double = 0.0,
     configuration: (@LayoutDslMarker HLineTo).() -> Unit

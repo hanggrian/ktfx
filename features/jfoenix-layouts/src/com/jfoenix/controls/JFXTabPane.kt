@@ -32,7 +32,7 @@ open class KtfxJFXTabPane : JFXTabPane(), TabManager {
     ): Tab = tab(this, graphic, configuration)
 }
 
-/** Create a [JFXTabPane] with configurationialization block. */
+/** Create a [JFXTabPane] with configuration block. */
 inline fun jfxTabPane(
     configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
@@ -44,7 +44,7 @@ inline fun jfxTabPane(
 fun NodeManager.jfxTabPane(): JFXTabPane =
     addChild(KtfxJFXTabPane())
 
-/** Add a [JFXTabPane] with configurationialization block to this manager. */
+/** Add a [JFXTabPane] with configuration block to this manager. */
 inline fun NodeManager.jfxTabPane(
     configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {

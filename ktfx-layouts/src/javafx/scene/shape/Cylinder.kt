@@ -9,7 +9,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Create a [Cylinder] with configurationialization block. */
+/** Create a [Cylinder] with configuration block. */
 inline fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
@@ -27,7 +27,7 @@ fun NodeManager.cylinder(
     division: Int = 64
 ): Cylinder = addChild(Cylinder(radius, height, division))
 
-/** Add a [Cylinder] with configurationialization block to this manager. */
+/** Add a [Cylinder] with configuration block to this manager. */
 inline fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,

@@ -4,6 +4,7 @@ import com.hendraanggrian.kotlinpoet.FunSpecBuilder
 import com.hendraanggrian.kotlinpoet.buildAnnotation
 import com.hendraanggrian.kotlinpoet.buildFile
 import com.hendraanggrian.kotlinpoet.dsl.ParameterSpecContainerScope
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.asClassName
@@ -25,23 +26,29 @@ object LayoutsGenerator {
                     USE_EXPERIMENTAL { addMember("%T::class", EXPERIMENTAL_CONTRACTS) }
                 }
                 functions {
-                    repeatTwice { isAdd ->
+                    repeat(factory.managerClassNames) { managerClassName ->
                         factory.styledFunctionName {
-                            if (isAdd) receiver = factory.managerClassName
-                            kdoc += factory.getComment(isAdd = isAdd, isStyled = true)
+                            if (managerClassName != null) receiver = managerClassName
+                            kdoc += factory.getComment(
+                                add = managerClassName != null, styled = true, configured = false
+                            )
                             returns = factory.className
                             parameters {
                                 factory.parameterSpecs.forEach(::add)
                                 styleClass()
                             }
-                            appendln("return ${factory.styledFunctionName}(styleClass = *styleClass) { }")
+                            appendln(
+                                "return ${factory.styledFunctionName}(${factory.getParameterName(
+                                    namedArgument = true, commaSuffix = true
+                                )}styleClass = *styleClass) { }"
+                            )
                         }
                     }
-                    repeatTwice { isAdd ->
+                    repeat(factory.managerClassNames) { managerClassName ->
                         factory.styledFunctionName {
-                            if (isAdd) receiver = factory.managerClassName
+                            if (managerClassName != null) receiver = managerClassName
                             addModifiers(KModifier.INLINE)
-                            kdoc += factory.getComment(isAdd = isAdd, isStyled = true, hasConfiguration = true)
+                            kdoc += factory.getComment(add = managerClassName != null, styled = true, configured = true)
                             returns = factory.className
                             parameters {
                                 factory.parameterSpecs.forEach(::add)
@@ -50,30 +57,39 @@ object LayoutsGenerator {
                             }
                             contractln()
                             append("return ")
-                            if (isAdd) append("addChild(")
+                            if (managerClassName != null) append("addChild(")
                             append(
-                                "%M(%T(), styleClass = *styleClass, configuration = configuration)",
-                                NEW_CHILD,
-                                factory.customClassName
+                                "%M(%T(${factory.getParameterName(
+                                    namedArgument = false, commaSuffix = false
+                                )}), styleClass = *styleClass, configuration = configuration)",
+                                NEW_CHILD, factory.customClassName
                             )
-                            if (isAdd) append(")")
+                            if (managerClassName != null) append(")")
                             appendln()
                         }
                     }
-                    factory.functionName {
-                        receiver = factory.managerClassName
-                        kdoc += factory.getComment(isAdd = true)
-                        returns = factory.className
-                        parameters {
-                            factory.parameterSpecs.forEach(::add)
-                        }
-                        appendln("return ${factory.functionName} { }")
-                    }
-                    repeatTwice { isAdd ->
+                    factory.managerClassNames.forEach {
                         factory.functionName {
-                            if (isAdd) receiver = factory.managerClassName
+                            receiver = it
+                            kdoc += factory.getComment(add = true, styled = false, configured = false)
+                            returns = factory.className
+                            parameters {
+                                factory.parameterSpecs.forEach(::add)
+                            }
+                            appendln(
+                                "return ${factory.functionName}(${factory.getParameterName(
+                                    namedArgument = true, commaSuffix = false
+                                )}) { }"
+                            )
+                        }
+                    }
+                    repeat(factory.managerClassNames) { managerClassName ->
+                        factory.functionName {
+                            if (managerClassName != null) receiver = managerClassName
                             addModifiers(KModifier.INLINE)
-                            kdoc += factory.getComment(isAdd = isAdd, hasConfiguration = true)
+                            kdoc += factory.getComment(
+                                add = managerClassName != null, styled = false, configured = true
+                            )
                             returns = factory.className
                             parameters {
                                 factory.parameterSpecs.forEach(::add)
@@ -81,9 +97,14 @@ object LayoutsGenerator {
                             }
                             contractln()
                             append("return ")
-                            if (isAdd) append("addChild(")
-                            append("%M(%T(), configuration = configuration)", NEW_CHILD, factory.customClassName)
-                            if (isAdd) append(")")
+                            if (managerClassName != null) append("addChild(")
+                            append(
+                                "%M(%T(${factory.getParameterName(
+                                    namedArgument = false, commaSuffix = false
+                                )}), configuration = configuration)",
+                                NEW_CHILD, factory.customClassName
+                            )
+                            if (managerClassName != null) append(")")
                             appendln()
                         }
                     }
@@ -92,7 +113,8 @@ object LayoutsGenerator {
         }
     }
 
-    private fun repeatTwice(action: (isAdd: Boolean) -> Unit) = repeat(2) { action(it == 1) }
+    private fun repeat(managerClassNames: List<ClassName>, action: (managerClassName: ClassName?) -> Unit) =
+        repeat(1 + managerClassNames.size) { action((listOf(null, *managerClassNames.toTypedArray()))[it]) }
 
     private fun FunSpecBuilder.contractln() = appendln("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
 

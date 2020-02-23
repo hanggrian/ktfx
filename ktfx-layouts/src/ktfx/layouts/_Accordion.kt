@@ -29,8 +29,11 @@ fun NodeManager.styledAccordion(vararg styleClass: String): Accordion = styledAc
 /**
  * Create a styled [Accordion] with configuration block.
  */
-inline fun styledAccordion(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxAccordion).() -> Unit): Accordion {
+inline fun styledAccordion(
+    vararg styleClass: String,
+    configuration: (@LayoutDslMarker    
+            KtfxAccordion).() -> Unit
+): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxAccordion(), styleClass = *styleClass, configuration = configuration)
 }
@@ -38,8 +41,11 @@ inline fun styledAccordion(vararg styleClass: String, configuration: (@LayoutDsl
 /**
  * Add a styled [Accordion] with configuration block to this manager.
  */
-inline fun NodeManager.styledAccordion(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxAccordion).() -> Unit): Accordion {
+inline fun NodeManager.styledAccordion(
+    vararg styleClass: String,
+    configuration: (@LayoutDslMarker    
+            KtfxAccordion).() -> Unit
+): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxAccordion(), styleClass = *styleClass, configuration =
             configuration))
@@ -48,7 +54,7 @@ inline fun NodeManager.styledAccordion(vararg styleClass: String, configuration:
 /**
  * Add an [Accordion] to this manager.
  */
-fun NodeManager.accordion(): Accordion = accordion { }
+fun NodeManager.accordion(): Accordion = accordion() { }
 
 /**
  * Create an [Accordion] with configuration block.

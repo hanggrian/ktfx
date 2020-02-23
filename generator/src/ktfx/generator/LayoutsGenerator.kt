@@ -10,108 +10,98 @@ import com.squareup.kotlinpoet.asClassName
 import java.io.File
 
 object LayoutsGenerator {
+    private const val OUTPUT_PATH = "ktfx-layouts/src"
+    private const val OUTPUT_CLASS = "LayoutsKt"
 
     @JvmStatic fun main(args: Array<String>) {
+        println("Generating to $OUTPUT_PATH:")
         LayoutsFactory.values().forEach { factory ->
-            println("Generating ${factory.simpleName}...")
-            buildFile(KTFX_LAYOUTS, "_${factory.simpleName}") {
+            println(factory.generatedName)
+            buildFile(KTFX_LAYOUTS, factory.generatedName) {
                 indentCount = 4
                 annotations {
                     add<JvmMultifileClass>()
-                    JvmName::class { addMember("%S", "LayoutsKt") }
-                    USE_EXPERIMENTAL { addMember("ExperimentalContracts::class") }
+                    JvmName::class { addMember("%S", OUTPUT_CLASS) }
+                    USE_EXPERIMENTAL { addMember("%T::class", EXPERIMENTAL_CONTRACTS) }
                 }
-                addImport("kotlin.contracts", "ExperimentalContracts", "InvocationKind", "contract")
-                addImport("ktfx.internal.KtfxInternals", "newChild")
                 functions {
-                    repeat(2) { time ->
+                    repeatTwice { isAdd ->
                         factory.styledFunctionName {
-                            if (time == 1) receiver = factory.managerClassName
-                            kdoc.append(factory.getComment(hasReceiver = time == 1, isStyled = true))
-                            returns(factory.kClass)
+                            if (isAdd) receiver = factory.managerClassName
+                            kdoc += factory.getComment(isAdd = isAdd, isStyled = true)
+                            returns = factory.className
                             parameters {
                                 factory.parameterSpecs.forEach(::add)
                                 styleClass()
                             }
-                            appendln("return ${factory.styledFunctionName}(*styleClass) { }")
+                            appendln("return ${factory.styledFunctionName}(styleClass = *styleClass) { }")
                         }
                     }
-                    repeat(2) { time ->
+                    repeatTwice { isAdd ->
                         factory.styledFunctionName {
-                            if (time == 1) receiver = factory.managerClassName
+                            if (isAdd) receiver = factory.managerClassName
                             addModifiers(KModifier.INLINE)
-                            kdoc.append(
-                                factory.getComment(
-                                    hasReceiver = time == 1,
-                                    isStyled = true,
-                                    hasConfiguration = true
-                                )
-                            )
-                            returns(factory.kClass)
+                            kdoc += factory.getComment(isAdd = isAdd, isStyled = true, hasConfiguration = true)
+                            returns = factory.className
                             parameters {
                                 factory.parameterSpecs.forEach(::add)
                                 styleClass()
                                 configuration(factory)
                             }
-                            appendlnContract()
-                            appendln(
-                                buildString {
-                                    append("return ")
-                                    if (time == 1) append("addChild(")
-                                    append("newChild(%T(), *styleClass, configuration = configuration)")
-                                    if (time == 1) append(')')
-                                },
+                            contractln()
+                            append("return ")
+                            if (isAdd) append("addChild(")
+                            append(
+                                "%M(%T(), styleClass = *styleClass, configuration = configuration)",
+                                NEW_CHILD,
                                 factory.customClassName
                             )
+                            if (isAdd) append(")")
+                            appendln()
                         }
                     }
                     factory.functionName {
                         receiver = factory.managerClassName
-                        kdoc.append(factory.getComment(hasReceiver = true))
-                        returns(factory.kClass)
+                        kdoc += factory.getComment(isAdd = true)
+                        returns = factory.className
                         parameters {
                             factory.parameterSpecs.forEach(::add)
                         }
                         appendln("return ${factory.functionName} { }")
                     }
-                    repeat(2) { time ->
+                    repeatTwice { isAdd ->
                         factory.functionName {
-                            if (time == 1) receiver = factory.managerClassName
+                            if (isAdd) receiver = factory.managerClassName
                             addModifiers(KModifier.INLINE)
-                            kdoc.append(factory.getComment(hasReceiver = time == 1, hasConfiguration = true))
-                            returns(factory.kClass)
+                            kdoc += factory.getComment(isAdd = isAdd, hasConfiguration = true)
+                            returns = factory.className
                             parameters {
                                 factory.parameterSpecs.forEach(::add)
                                 configuration(factory)
                             }
-                            appendlnContract()
-                            appendln(
-                                buildString {
-                                    append("return ")
-                                    if (time == 1) append("addChild(")
-                                    append("newChild(%T(), configuration = configuration)")
-                                    if (time == 1) append(')')
-                                },
-                                factory.customClassName
-                            )
+                            contractln()
+                            append("return ")
+                            if (isAdd) append("addChild(")
+                            append("%M(%T(), configuration = configuration)", NEW_CHILD, factory.customClassName)
+                            if (isAdd) append(")")
+                            appendln()
                         }
                     }
                 }
-            }.writeTo(File("ktfx-layouts/src"))
+            }.writeTo(File(OUTPUT_PATH))
         }
     }
 
-    private fun FunSpecBuilder.appendlnContract() =
-        appendln("contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }")
+    private fun repeatTwice(action: (isAdd: Boolean) -> Unit) = repeat(2) { action(it == 1) }
 
-    private fun ParameterSpecContainerScope.styleClass() =
-        add("styleClass", String::class, KModifier.VARARG)
+    private fun FunSpecBuilder.contractln() = appendln("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
 
-    private fun ParameterSpecContainerScope.configuration(factory: LayoutsFactory) =
-        add(
-            "configuration", LambdaTypeName.get(
-                factory.customClassName.copy(annotations = listOf(buildAnnotation(LAYOUTS_DSL_MARKER))),
-                returnType = Unit::class.asClassName()
-            )
+    private fun ParameterSpecContainerScope.styleClass() = add("styleClass", String::class, KModifier.VARARG)
+
+    private fun ParameterSpecContainerScope.configuration(factory: LayoutsFactory) = add(
+        "configuration", LambdaTypeName.get(
+            factory.customClassName.copy(annotations = listOf(buildAnnotation(LAYOUTS_DSL_MARKER))),
+            returnType = Unit::class.asClassName()
         )
+    )
 }

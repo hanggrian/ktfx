@@ -17,6 +17,35 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [ProgressBar] to this manager.
+ */
+fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
+        progressBar(progress = progress) { }
+
+/**
+ * Create a [ProgressBar] with configuration block.
+ */
+inline fun progressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker    
+            ProgressBar).() -> Unit
+): ProgressBar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(ProgressBar(progress), configuration = configuration)
+}
+
+/**
+ * Add a [ProgressBar] with configuration block to this manager.
+ */
+inline fun NodeManager.progressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
+): ProgressBar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(ProgressBar(progress), configuration = configuration))
+}
+
+/**
  * Create a styled [ProgressBar].
  */
 fun styledProgressBar(progress: Double = INDETERMINATE_PROGRESS, vararg styleClass: String):
@@ -55,33 +84,4 @@ inline fun NodeManager.styledProgressBar(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ProgressBar(progress), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [ProgressBar] to this manager.
- */
-fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
-        progressBar(progress = progress) { }
-
-/**
- * Create a [ProgressBar] with configuration block.
- */
-inline fun progressBar(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker    
-            ProgressBar).() -> Unit
-): ProgressBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ProgressBar(progress), configuration = configuration)
-}
-
-/**
- * Add a [ProgressBar] with configuration block to this manager.
- */
-inline fun NodeManager.progressBar(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
-): ProgressBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ProgressBar(progress), configuration = configuration))
 }

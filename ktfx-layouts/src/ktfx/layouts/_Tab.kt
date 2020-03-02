@@ -16,6 +16,36 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [Tab] to this manager.
+ */
+fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(text = text, content =
+        content) { }
+
+/**
+ * Create a [Tab] with configuration block.
+ */
+inline fun tab(
+    text: String? = null,
+    content: Node? = null,
+    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+): Tab {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxTab(text, content), configuration = configuration)
+}
+
+/**
+ * Add a [Tab] with configuration block to this manager.
+ */
+inline fun TabManager.tab(
+    text: String? = null,
+    content: Node? = null,
+    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+): Tab {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxTab(text, content), configuration = configuration))
+}
+
+/**
  * Create a styled [Tab].
  */
 fun styledTab(
@@ -58,34 +88,4 @@ inline fun TabManager.styledTab(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxTab(text, content), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [Tab] to this manager.
- */
-fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(text = text, content =
-        content) { }
-
-/**
- * Create a [Tab] with configuration block.
- */
-inline fun tab(
-    text: String? = null,
-    content: Node? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
-): Tab {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTab(text, content), configuration = configuration)
-}
-
-/**
- * Add a [Tab] with configuration block to this manager.
- */
-inline fun TabManager.tab(
-    text: String? = null,
-    content: Node? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
-): Tab {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTab(text, content), configuration = configuration))
 }

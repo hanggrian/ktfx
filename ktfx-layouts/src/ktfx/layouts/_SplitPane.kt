@@ -15,6 +15,28 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [SplitPane] to this manager.
+ */
+fun NodeManager.splitPane(): SplitPane = splitPane() { }
+
+/**
+ * Create a [SplitPane] with configuration block.
+ */
+inline fun splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit): SplitPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxSplitPane(), configuration = configuration)
+}
+
+/**
+ * Add a [SplitPane] with configuration block to this manager.
+ */
+inline fun NodeManager.splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit):
+        SplitPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxSplitPane(), configuration = configuration))
+}
+
+/**
  * Create a styled [SplitPane].
  */
 fun styledSplitPane(vararg styleClass: String): SplitPane = styledSplitPane(styleClass =
@@ -49,26 +71,4 @@ inline fun NodeManager.styledSplitPane(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxSplitPane(), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [SplitPane] to this manager.
- */
-fun NodeManager.splitPane(): SplitPane = splitPane() { }
-
-/**
- * Create a [SplitPane] with configuration block.
- */
-inline fun splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit): SplitPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxSplitPane(), configuration = configuration)
-}
-
-/**
- * Add a [SplitPane] with configuration block to this manager.
- */
-inline fun NodeManager.splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit):
-        SplitPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxSplitPane(), configuration = configuration))
 }

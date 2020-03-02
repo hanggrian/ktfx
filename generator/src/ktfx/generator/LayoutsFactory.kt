@@ -1,9 +1,9 @@
 package ktfx.generator
 
 import com.hendraanggrian.kotlinpoet.buildParameter
+import com.hendraanggrian.kotlinpoet.member
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.KModifier
-import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.asClassName
 import javafx.scene.Node
@@ -47,59 +47,53 @@ import java.time.LocalDate
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSuperclassOf
 
-enum class LayoutsFactory(
+class LayoutsFactory(
     private val kClass: KClass<*>,
-    private vararg val params: P,
+    private vararg val params: LayoutsParameter,
     private val customClass: Boolean = false
 ) {
-    // javafx.scene.control
-    ACCORDION(Accordion::class, customClass = true),
-    BUTTON(Button::class, P.TEXT, P.GRAPHIC),
-    BUTTON_BAR(ButtonBar::class, P("buttonOrder", String::class), customClass = true),
-    CHECK_BOX(CheckBox::class, P.TEXT),
-    CHECK_MENU_ITEM(CheckMenuItem::class, P.TEXT, P.GRAPHIC),
-    COLOR_PICKER(
-        ColorPicker::class,
-        P("value", Color::class, "%M", MemberName("javafx.scene.paint.Color", "WHITE"))
-    ),
-    CUSTOM_MENU_ITEM(CustomMenuItem::class, P.CONTENT, P("hideOnClick", Boolean::class, "false")),
-    DATE_PICKER(DatePicker::class, P("value", LocalDate::class)),
-    HYPERLINK(Hyperlink::class, P.TEXT, P.GRAPHIC),
-    LABEL(Label::class, P.TEXT, P.GRAPHIC),
-    MENU(Menu::class, P.TEXT_EMPTY, P.GRAPHIC, customClass = true),
-    MENU_BAR(MenuBar::class, customClass = true),
-    MENU_BUTTON(MenuButton::class, P.TEXT, P.GRAPHIC, customClass = true),
-    MENU_ITEM(MenuItem::class, P.TEXT, P.GRAPHIC),
-    PAGINATION(
-        Pagination::class,
-        P("pageCount", Int::class, "%M", MemberName("javafx.scene.control.Pagination", "INDETERMINATE")),
-        P("currentPageIndex", Int::class, "0")
-    ),
-    PASSWORD_FIELD(PasswordField::class),
-    PROGRESS_BAR(ProgressBar::class, P.PROGRESS),
-    PROGRESS_INDICATOR(ProgressIndicator::class, P.PROGRESS),
-    RADIO_BUTTON(RadioButton::class, P.TEXT),
-    RADIO_MENU_ITEM(RadioMenuItem::class, P.TEXT, P.GRAPHIC),
-    SCROLL_BAR(ScrollBar::class),
-    SCROLL_PANE(ScrollPane::class, P.CONTENT, customClass = true),
-    SEPARATOR(Separator::class),
-    SEPARATOR_MENU_ITEM(SeparatorMenuItem::class),
-    SLIDER(
-        Slider::class,
-        P("min", Double::class, "0.0"), P("max", Double::class, "100.0"), P("value", Double::class, "0.0")
-    ),
-    SPLIT_MENU_BUTTON(SplitMenuButton::class, customClass = true),
-    SPLIT_PANE(SplitPane::class, customClass = true),
-    TAB(Tab::class, P.TEXT, P.CONTENT, customClass = true),
-    TAB_PANE(TabPane::class, customClass = true),
-    TEXT_AREA(TextArea::class, P.TEXT_EMPTY),
-    TEXT_FIELD(TextField::class, P.TEXT_EMPTY),
-    TITLED_PANE(TitledPane::class, P.TITLE, customClass = true),
-    TOGGLE_BUTTON(ToggleButton::class, P.TEXT, P.GRAPHIC),
-    TOOLBAR(ToolBar::class, customClass = true);
-
     companion object {
-        val VALID_MANAGERS: Set<KClass<*>> = setOf(
+        fun listAll(): List<LayoutsFactory> = listOf(
+            Accordion::class(customClass = true),
+            Button::class(PARAM_TEXT, PARAM_GRAPHIC),
+            ButtonBar::class("buttonOrder"<String>(), customClass = true),
+            CheckBox::class(PARAM_TEXT),
+            CheckMenuItem::class(PARAM_TEXT, PARAM_GRAPHIC),
+            ColorPicker::class("value"<Color>("%M", Color::class.asClassName().member("WHITE"))),
+            CustomMenuItem::class(PARAM_CONTENT, "hideOnClick"<Boolean>("true")),
+            DatePicker::class("value"<LocalDate>()),
+            Hyperlink::class(PARAM_TEXT, PARAM_GRAPHIC),
+            Label::class(PARAM_TEXT, PARAM_GRAPHIC),
+            Menu::class(PARAM_TEXT_EMPTY, PARAM_GRAPHIC, customClass = true),
+            MenuBar::class(customClass = true),
+            MenuButton::class(PARAM_TEXT, PARAM_GRAPHIC, customClass = true),
+            MenuItem::class(PARAM_TEXT, PARAM_GRAPHIC),
+            Pagination::class(
+                "pageCount"<Int>("%M", Pagination::class.asClassName().member("INDETERMINATE")),
+                "currentPageIndex"<Int>("0")
+            ),
+            PasswordField::class(),
+            ProgressBar::class(PARAM_PROGRESS),
+            ProgressIndicator::class(PARAM_PROGRESS),
+            RadioButton::class(PARAM_TEXT),
+            RadioMenuItem::class(PARAM_TEXT, PARAM_GRAPHIC),
+            ScrollBar::class(),
+            ScrollPane::class(PARAM_CONTENT, customClass = true),
+            Separator::class(),
+            SeparatorMenuItem::class(),
+            Slider::class("min"<Double>("0.0"), "max"<Double>("100.0"), "value"<Double>("0.0")),
+            SplitMenuButton::class(customClass = true),
+            SplitPane::class(customClass = true),
+            Tab::class(PARAM_TEXT, PARAM_CONTENT, customClass = true),
+            TabPane::class(customClass = true),
+            TextArea::class(PARAM_TEXT_EMPTY),
+            TextField::class(PARAM_TEXT_EMPTY),
+            TitledPane::class(PARAM_TITLE, customClass = true),
+            ToggleButton::class(PARAM_TEXT, PARAM_GRAPHIC),
+            ToolBar::class(customClass = true)
+        )
+
+        private val VALID_MANAGERS: Set<KClass<*>> = setOf(
             MenuItem::class,
             Menu::class,
             Node::class,
@@ -117,32 +111,34 @@ enum class LayoutsFactory(
     val className: ClassName get() = kClass.asClassName()
 
     val customClassName: ClassName
-        get() = ClassName(KTFX_LAYOUTS, "Ktfx$simpleName").takeIf { customClass } ?: className
+        get() = className.takeUnless { customClass } ?: ClassName(KTFX_LAYOUTS, "Ktfx$simpleName")
 
     val managerClassNames: List<ClassName>
         get() = VALID_MANAGERS.filter { it == kClass || it.isSuperclassOf(kClass) }
-            .map { ClassName(KTFX_LAYOUTS, it.simpleName!! + "Manager") }
+            .map { ClassName(KTFX_LAYOUTS, "${it.simpleName}Manager") }
 
-    val functionName: String get() = simpleName.first().toLowerCase() + simpleName.substring(1)
+    val fullManagerClassNames: List<ClassName?>
+        get() = listOf(null, *managerClassNames.toTypedArray())
+
+    val functionName: String get() = "${simpleName.first().toLowerCase()}${simpleName.substring(1)}"
 
     val styledFunctionName: String get() = "styled$simpleName"
 
-    fun getComment(add: Boolean, styled: Boolean, configured: Boolean): String =
-        buildString {
-            append(if (!add) "Create" else "Add")
-            append(when {
-                !styled && simpleName.first().let { it == 'A' || it == 'E' || it == 'I' || it == 'O' || it == 'U' } ->
-                    " an"
-                else -> " a"
-            })
-            if (styled) append(" styled")
-            append(" [$simpleName]")
-            if (configured) append(" with configuration block")
-            if (add) append(" to this manager")
-            append('.')
-        }
+    fun getComment(add: Boolean, styled: Boolean, configured: Boolean): String = buildString {
+        append(if (!add) "Create" else "Add")
+        append(when {
+            !styled && simpleName.first().let { it == 'A' || it == 'E' || it == 'I' || it == 'O' || it == 'U' } ->
+                " an"
+            else -> " a"
+        })
+        if (styled) append(" styled")
+        append(" [$simpleName]")
+        if (configured) append(" with configuration block")
+        if (add) append(" to this manager")
+        append('.')
+    }
 
-    val parameterSpecs: List<ParameterSpec>
+    val parameters: List<ParameterSpec>
         get() = params.map { param ->
             val className = param.type.asClassName()
             buildParameter(
@@ -163,24 +159,33 @@ enum class LayoutsFactory(
         })
         if (commaSuffix && params.isNotEmpty()) append(", ")
     }
+}
 
-    class P(
-        val name: String,
-        val type: KClass<*>,
-        val defFormat: String = "null",
-        vararg val defArgs: Any = emptyArray(),
-        val vararg: Boolean = false
-    ) {
-        companion object {
-            val TEXT = P("text", String::class)
-            val TEXT_EMPTY = P("text", String::class, "\"\"")
-            val TITLE = P("title", String::class)
-            val GRAPHIC = P("graphic", Node::class)
-            val CONTENT = P("content", Node::class)
-            val PROGRESS = P(
-                "progress",
-                Double::class, "%M", MemberName("javafx.scene.control.ProgressBar", "INDETERMINATE_PROGRESS")
-            )
-        }
-    }
+private operator fun KClass<*>.invoke(
+    vararg params: LayoutsParameter,
+    customClass: Boolean = false
+) = LayoutsFactory(this, *params, customClass = customClass)
+
+private val PARAM_TEXT = "text"<String>()
+private val PARAM_TEXT_EMPTY = "text"<String>("\"\"")
+private val PARAM_TITLE = "title"<String>()
+private val PARAM_GRAPHIC = "graphic"<Node>()
+private val PARAM_CONTENT = "content"<Node>()
+private val PARAM_PROGRESS = "progress"<Double>("%M", ProgressBar::class.asClassName().member("INDETERMINATE_PROGRESS"))
+
+private inline operator fun <reified T> String.invoke(
+    defFormat: String = "null",
+    vararg defArgs: Any = emptyArray(),
+    vararg: Boolean = false
+) = LayoutsParameter(this, T::class, defFormat, defArgs, vararg)
+
+data class LayoutsParameter(
+    val name: String,
+    val type: KClass<*>,
+    val defFormat: String,
+    val defArgs: Array<out Any>,
+    val vararg: Boolean
+) {
+    override fun equals(other: Any?) = other is LayoutsParameter && other.name == name
+    override fun hashCode() = name.hashCode()
 }

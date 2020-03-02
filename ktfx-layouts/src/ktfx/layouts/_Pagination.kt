@@ -17,6 +17,37 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [Pagination] to this manager.
+ */
+fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0): Pagination =
+        pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
+
+/**
+ * Create a [Pagination] with configuration block.
+ */
+inline fun pagination(
+    pageCount: Int = INDETERMINATE,
+    currentPageIndex: Int = 0,
+    configuration: (@LayoutDslMarker Pagination).() -> Unit
+): Pagination {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Pagination(pageCount, currentPageIndex), configuration = configuration)
+}
+
+/**
+ * Add a [Pagination] with configuration block to this manager.
+ */
+inline fun NodeManager.pagination(
+    pageCount: Int = INDETERMINATE,
+    currentPageIndex: Int = 0,
+    configuration: (@LayoutDslMarker Pagination).() -> Unit
+): Pagination {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(Pagination(pageCount, currentPageIndex), configuration =
+            configuration))
+}
+
+/**
  * Create a styled [Pagination].
  */
 fun styledPagination(
@@ -62,35 +93,4 @@ inline fun NodeManager.styledPagination(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass,
             configuration = configuration))
-}
-
-/**
- * Add a [Pagination] to this manager.
- */
-fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0): Pagination =
-        pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
-
-/**
- * Create a [Pagination] with configuration block.
- */
-inline fun pagination(
-    pageCount: Int = INDETERMINATE,
-    currentPageIndex: Int = 0,
-    configuration: (@LayoutDslMarker Pagination).() -> Unit
-): Pagination {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Pagination(pageCount, currentPageIndex), configuration = configuration)
-}
-
-/**
- * Add a [Pagination] with configuration block to this manager.
- */
-inline fun NodeManager.pagination(
-    pageCount: Int = INDETERMINATE,
-    currentPageIndex: Int = 0,
-    configuration: (@LayoutDslMarker Pagination).() -> Unit
-): Pagination {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Pagination(pageCount, currentPageIndex), configuration =
-            configuration))
 }

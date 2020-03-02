@@ -15,6 +15,28 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add an [Accordion] to this manager.
+ */
+fun NodeManager.accordion(): Accordion = accordion() { }
+
+/**
+ * Create an [Accordion] with configuration block.
+ */
+inline fun accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxAccordion(), configuration = configuration)
+}
+
+/**
+ * Add an [Accordion] with configuration block to this manager.
+ */
+inline fun NodeManager.accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit):
+        Accordion {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxAccordion(), configuration = configuration))
+}
+
+/**
  * Create a styled [Accordion].
  */
 fun styledAccordion(vararg styleClass: String): Accordion = styledAccordion(styleClass =
@@ -49,26 +71,4 @@ inline fun NodeManager.styledAccordion(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxAccordion(), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add an [Accordion] to this manager.
- */
-fun NodeManager.accordion(): Accordion = accordion() { }
-
-/**
- * Create an [Accordion] with configuration block.
- */
-inline fun accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxAccordion(), configuration = configuration)
-}
-
-/**
- * Add an [Accordion] with configuration block to this manager.
- */
-inline fun NodeManager.accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit):
-        Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxAccordion(), configuration = configuration))
 }

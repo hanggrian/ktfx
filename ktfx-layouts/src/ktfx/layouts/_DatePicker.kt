@@ -16,6 +16,35 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [DatePicker] to this manager.
+ */
+fun NodeManager.datePicker(value: LocalDate? = null): DatePicker = datePicker(value = value) { }
+
+/**
+ * Create a [DatePicker] with configuration block.
+ */
+inline fun datePicker(
+    value: LocalDate? = null,
+    configuration: (@LayoutDslMarker DatePicker).() ->    
+            Unit
+): DatePicker {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(DatePicker(value), configuration = configuration)
+}
+
+/**
+ * Add a [DatePicker] with configuration block to this manager.
+ */
+inline fun NodeManager.datePicker(
+    value: LocalDate? = null,
+    configuration: (@LayoutDslMarker    
+            DatePicker).() -> Unit
+): DatePicker {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(DatePicker(value), configuration = configuration))
+}
+
+/**
  * Create a styled [DatePicker].
  */
 fun styledDatePicker(value: LocalDate? = null, vararg styleClass: String): DatePicker =
@@ -50,33 +79,4 @@ inline fun NodeManager.styledDatePicker(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(DatePicker(value), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [DatePicker] to this manager.
- */
-fun NodeManager.datePicker(value: LocalDate? = null): DatePicker = datePicker(value = value) { }
-
-/**
- * Create a [DatePicker] with configuration block.
- */
-inline fun datePicker(
-    value: LocalDate? = null,
-    configuration: (@LayoutDslMarker DatePicker).() ->    
-            Unit
-): DatePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(DatePicker(value), configuration = configuration)
-}
-
-/**
- * Add a [DatePicker] with configuration block to this manager.
- */
-inline fun NodeManager.datePicker(
-    value: LocalDate? = null,
-    configuration: (@LayoutDslMarker    
-            DatePicker).() -> Unit
-): DatePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(DatePicker(value), configuration = configuration))
 }

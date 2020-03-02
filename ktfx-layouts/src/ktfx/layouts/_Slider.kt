@@ -16,6 +16,41 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [Slider] to this manager.
+ */
+fun NodeManager.slider(
+    min: Double = 0.0,
+    max: Double = 100.0,
+    value: Double = 0.0
+): Slider = slider(min = min, max = max, value = value) { }
+
+/**
+ * Create a [Slider] with configuration block.
+ */
+inline fun slider(
+    min: Double = 0.0,
+    max: Double = 100.0,
+    value: Double = 0.0,
+    configuration: (@LayoutDslMarker Slider).() -> Unit
+): Slider {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Slider(min, max, value), configuration = configuration)
+}
+
+/**
+ * Add a [Slider] with configuration block to this manager.
+ */
+inline fun NodeManager.slider(
+    min: Double = 0.0,
+    max: Double = 100.0,
+    value: Double = 0.0,
+    configuration: (@LayoutDslMarker Slider).() -> Unit
+): Slider {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(Slider(min, max, value), configuration = configuration))
+}
+
+/**
  * Create a styled [Slider].
  */
 fun styledSlider(
@@ -63,39 +98,4 @@ inline fun NodeManager.styledSlider(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(Slider(min, max, value), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [Slider] to this manager.
- */
-fun NodeManager.slider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0
-): Slider = slider(min = min, max = max, value = value) { }
-
-/**
- * Create a [Slider] with configuration block.
- */
-inline fun slider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
-): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Slider(min, max, value), configuration = configuration)
-}
-
-/**
- * Add a [Slider] with configuration block to this manager.
- */
-inline fun NodeManager.slider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
-): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Slider(min, max, value), configuration = configuration))
 }

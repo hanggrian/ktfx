@@ -1,2 +1,2 @@
-[*.kt]
-trim_trailing_whitespace = true
+[*.{kt,kts}]
+disabled_rules=no-trailing-spaces

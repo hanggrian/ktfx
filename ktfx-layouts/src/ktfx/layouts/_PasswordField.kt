@@ -15,6 +15,29 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [PasswordField] to this manager.
+ */
+fun NodeManager.passwordField(): PasswordField = passwordField() { }
+
+/**
+ * Create a [PasswordField] with configuration block.
+ */
+inline fun passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
+        PasswordField {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(PasswordField(), configuration = configuration)
+}
+
+/**
+ * Add a [PasswordField] with configuration block to this manager.
+ */
+inline fun NodeManager.passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
+        PasswordField {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(PasswordField(), configuration = configuration))
+}
+
+/**
  * Create a styled [PasswordField].
  */
 fun styledPasswordField(vararg styleClass: String): PasswordField = styledPasswordField(styleClass =
@@ -48,27 +71,4 @@ inline fun NodeManager.styledPasswordField(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(PasswordField(), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [PasswordField] to this manager.
- */
-fun NodeManager.passwordField(): PasswordField = passwordField() { }
-
-/**
- * Create a [PasswordField] with configuration block.
- */
-inline fun passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
-        PasswordField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PasswordField(), configuration = configuration)
-}
-
-/**
- * Add a [PasswordField] with configuration block to this manager.
- */
-inline fun NodeManager.passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
-        PasswordField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PasswordField(), configuration = configuration))
 }

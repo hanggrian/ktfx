@@ -15,6 +15,36 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [ButtonBar] to this manager.
+ */
+fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(buttonOrder =
+        buttonOrder) { }
+
+/**
+ * Create a [ButtonBar] with configuration block.
+ */
+inline fun buttonBar(
+    buttonOrder: String? = null,
+    configuration: (@LayoutDslMarker    
+            KtfxButtonBar).() -> Unit
+): ButtonBar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxButtonBar(buttonOrder), configuration = configuration)
+}
+
+/**
+ * Add a [ButtonBar] with configuration block to this manager.
+ */
+inline fun NodeManager.buttonBar(
+    buttonOrder: String? = null,
+    configuration: (@LayoutDslMarker    
+            KtfxButtonBar).() -> Unit
+): ButtonBar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxButtonBar(buttonOrder), configuration = configuration))
+}
+
+/**
  * Create a styled [ButtonBar].
  */
 fun styledButtonBar(buttonOrder: String? = null, vararg styleClass: String): ButtonBar =
@@ -50,34 +80,4 @@ inline fun NodeManager.styledButtonBar(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxButtonBar(buttonOrder), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [ButtonBar] to this manager.
- */
-fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(buttonOrder =
-        buttonOrder) { }
-
-/**
- * Create a [ButtonBar] with configuration block.
- */
-inline fun buttonBar(
-    buttonOrder: String? = null,
-    configuration: (@LayoutDslMarker    
-            KtfxButtonBar).() -> Unit
-): ButtonBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxButtonBar(buttonOrder), configuration = configuration)
-}
-
-/**
- * Add a [ButtonBar] with configuration block to this manager.
- */
-inline fun NodeManager.buttonBar(
-    buttonOrder: String? = null,
-    configuration: (@LayoutDslMarker    
-            KtfxButtonBar).() -> Unit
-): ButtonBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxButtonBar(buttonOrder), configuration = configuration))
 }

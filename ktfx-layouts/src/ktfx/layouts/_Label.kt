@@ -16,6 +16,36 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [Label] to this manager.
+ */
+fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(text = text,
+        graphic = graphic) { }
+
+/**
+ * Create a [Label] with configuration block.
+ */
+inline fun label(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker Label).() -> Unit
+): Label {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Label(text, graphic), configuration = configuration)
+}
+
+/**
+ * Add a [Label] with configuration block to this manager.
+ */
+inline fun NodeManager.label(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker Label).() -> Unit
+): Label {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(Label(text, graphic), configuration = configuration))
+}
+
+/**
  * Create a styled [Label].
  */
 fun styledLabel(
@@ -58,34 +88,4 @@ inline fun NodeManager.styledLabel(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(Label(text, graphic), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [Label] to this manager.
- */
-fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(text = text,
-        graphic = graphic) { }
-
-/**
- * Create a [Label] with configuration block.
- */
-inline fun label(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker Label).() -> Unit
-): Label {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Label(text, graphic), configuration = configuration)
-}
-
-/**
- * Add a [Label] with configuration block to this manager.
- */
-inline fun NodeManager.label(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker Label).() -> Unit
-): Label {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Label(text, graphic), configuration = configuration))
 }

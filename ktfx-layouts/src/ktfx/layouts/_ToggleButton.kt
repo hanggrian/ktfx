@@ -16,6 +16,54 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [ToggleButton] to this manager.
+ */
+fun NodeManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
+        toggleButton(text = text, graphic = graphic) { }
+
+/**
+ * Add a [ToggleButton] to this manager.
+ */
+fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
+        toggleButton(text = text, graphic = graphic) { }
+
+/**
+ * Create a [ToggleButton] with configuration block.
+ */
+inline fun toggleButton(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+): ToggleButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(ToggleButton(text, graphic), configuration = configuration)
+}
+
+/**
+ * Add a [ToggleButton] with configuration block to this manager.
+ */
+inline fun NodeManager.toggleButton(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+): ToggleButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
+}
+
+/**
+ * Add a [ToggleButton] with configuration block to this manager.
+ */
+inline fun ToggleButtonManager.toggleButton(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+): ToggleButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
+}
+
+/**
  * Create a styled [ToggleButton].
  */
 fun styledToggleButton(
@@ -82,52 +130,4 @@ inline fun ToggleButtonManager.styledToggleButton(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ToggleButton(text, graphic), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [ToggleButton] to this manager.
- */
-fun NodeManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-        toggleButton(text = text, graphic = graphic) { }
-
-/**
- * Add a [ToggleButton] to this manager.
- */
-fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-        toggleButton(text = text, graphic = graphic) { }
-
-/**
- * Create a [ToggleButton] with configuration block.
- */
-inline fun toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ToggleButton(text, graphic), configuration = configuration)
-}
-
-/**
- * Add a [ToggleButton] with configuration block to this manager.
- */
-inline fun NodeManager.toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
-}
-
-/**
- * Add a [ToggleButton] with configuration block to this manager.
- */
-inline fun ToggleButtonManager.toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
-): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
 }

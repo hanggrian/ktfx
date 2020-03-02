@@ -16,6 +16,36 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [MenuButton] to this manager.
+ */
+fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
+        menuButton(text = text, graphic = graphic) { }
+
+/**
+ * Create a [MenuButton] with configuration block.
+ */
+inline fun menuButton(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+): MenuButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxMenuButton(text, graphic), configuration = configuration)
+}
+
+/**
+ * Add a [MenuButton] with configuration block to this manager.
+ */
+inline fun NodeManager.menuButton(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+): MenuButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxMenuButton(text, graphic), configuration = configuration))
+}
+
+/**
  * Create a styled [MenuButton].
  */
 fun styledMenuButton(
@@ -59,34 +89,4 @@ inline fun NodeManager.styledMenuButton(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxMenuButton(text, graphic), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [MenuButton] to this manager.
- */
-fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
-        menuButton(text = text, graphic = graphic) { }
-
-/**
- * Create a [MenuButton] with configuration block.
- */
-inline fun menuButton(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
-): MenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxMenuButton(text, graphic), configuration = configuration)
-}
-
-/**
- * Add a [MenuButton] with configuration block to this manager.
- */
-inline fun NodeManager.menuButton(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
-): MenuButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenuButton(text, graphic), configuration = configuration))
 }

@@ -15,6 +15,28 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [ScrollBar] to this manager.
+ */
+fun NodeManager.scrollBar(): ScrollBar = scrollBar() { }
+
+/**
+ * Create a [ScrollBar] with configuration block.
+ */
+inline fun scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit): ScrollBar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(ScrollBar(), configuration = configuration)
+}
+
+/**
+ * Add a [ScrollBar] with configuration block to this manager.
+ */
+inline fun NodeManager.scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit):
+        ScrollBar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(ScrollBar(), configuration = configuration))
+}
+
+/**
  * Create a styled [ScrollBar].
  */
 fun styledScrollBar(vararg styleClass: String): ScrollBar = styledScrollBar(styleClass =
@@ -48,26 +70,4 @@ inline fun NodeManager.styledScrollBar(
 ): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ScrollBar(), styleClass = *styleClass, configuration = configuration))
-}
-
-/**
- * Add a [ScrollBar] to this manager.
- */
-fun NodeManager.scrollBar(): ScrollBar = scrollBar() { }
-
-/**
- * Create a [ScrollBar] with configuration block.
- */
-inline fun scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit): ScrollBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ScrollBar(), configuration = configuration)
-}
-
-/**
- * Add a [ScrollBar] with configuration block to this manager.
- */
-inline fun NodeManager.scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit):
-        ScrollBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ScrollBar(), configuration = configuration))
 }

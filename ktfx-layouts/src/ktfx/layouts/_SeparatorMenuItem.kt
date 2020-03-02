@@ -15,6 +15,31 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [SeparatorMenuItem] to this manager.
+ */
+fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem() { }
+
+/**
+ * Create a [SeparatorMenuItem] with configuration block.
+ */
+inline fun separatorMenuItem(configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit):
+        SeparatorMenuItem {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(SeparatorMenuItem(), configuration = configuration)
+}
+
+/**
+ * Add a [SeparatorMenuItem] with configuration block to this manager.
+ */
+inline fun MenuItemManager.separatorMenuItem(
+    configuration: (@LayoutDslMarker
+SeparatorMenuItem).() -> Unit
+): SeparatorMenuItem {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(SeparatorMenuItem(), configuration = configuration))
+}
+
+/**
  * Create a styled [SeparatorMenuItem].
  */
 fun styledSeparatorMenuItem(vararg styleClass: String): SeparatorMenuItem =
@@ -48,29 +73,4 @@ inline fun MenuItemManager.styledSeparatorMenuItem(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(SeparatorMenuItem(), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [SeparatorMenuItem] to this manager.
- */
-fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem() { }
-
-/**
- * Create a [SeparatorMenuItem] with configuration block.
- */
-inline fun separatorMenuItem(configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit):
-        SeparatorMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(SeparatorMenuItem(), configuration = configuration)
-}
-
-/**
- * Add a [SeparatorMenuItem] with configuration block to this manager.
- */
-inline fun MenuItemManager.separatorMenuItem(
-    configuration: (@LayoutDslMarker
-SeparatorMenuItem).() -> Unit
-): SeparatorMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(SeparatorMenuItem(), configuration = configuration))
 }

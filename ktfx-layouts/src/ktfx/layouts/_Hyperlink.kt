@@ -16,6 +16,36 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [Hyperlink] to this manager.
+ */
+fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink = hyperlink(text =
+        text, graphic = graphic) { }
+
+/**
+ * Create a [Hyperlink] with configuration block.
+ */
+inline fun hyperlink(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
+): Hyperlink {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Hyperlink(text, graphic), configuration = configuration)
+}
+
+/**
+ * Add a [Hyperlink] with configuration block to this manager.
+ */
+inline fun NodeManager.hyperlink(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
+): Hyperlink {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(Hyperlink(text, graphic), configuration = configuration))
+}
+
+/**
  * Create a styled [Hyperlink].
  */
 fun styledHyperlink(
@@ -59,34 +89,4 @@ inline fun NodeManager.styledHyperlink(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(Hyperlink(text, graphic), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [Hyperlink] to this manager.
- */
-fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink = hyperlink(text =
-        text, graphic = graphic) { }
-
-/**
- * Create a [Hyperlink] with configuration block.
- */
-inline fun hyperlink(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
-): Hyperlink {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Hyperlink(text, graphic), configuration = configuration)
-}
-
-/**
- * Add a [Hyperlink] with configuration block to this manager.
- */
-inline fun NodeManager.hyperlink(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
-): Hyperlink {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Hyperlink(text, graphic), configuration = configuration))
 }

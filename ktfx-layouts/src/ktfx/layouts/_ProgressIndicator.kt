@@ -17,6 +17,34 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [ProgressIndicator] to this manager.
+ */
+fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS): ProgressIndicator =
+        progressIndicator(progress = progress) { }
+
+/**
+ * Create a [ProgressIndicator] with configuration block.
+ */
+inline fun progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
+): ProgressIndicator {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(ProgressIndicator(progress), configuration = configuration)
+}
+
+/**
+ * Add a [ProgressIndicator] with configuration block to this manager.
+ */
+inline fun NodeManager.progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
+): ProgressIndicator {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(ProgressIndicator(progress), configuration = configuration))
+}
+
+/**
  * Create a styled [ProgressIndicator].
  */
 fun styledProgressIndicator(progress: Double = INDETERMINATE_PROGRESS, vararg styleClass: String):
@@ -57,32 +85,4 @@ inline fun NodeManager.styledProgressIndicator(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ProgressIndicator(progress), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [ProgressIndicator] to this manager.
- */
-fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS): ProgressIndicator =
-        progressIndicator(progress = progress) { }
-
-/**
- * Create a [ProgressIndicator] with configuration block.
- */
-inline fun progressIndicator(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
-): ProgressIndicator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ProgressIndicator(progress), configuration = configuration)
-}
-
-/**
- * Add a [ProgressIndicator] with configuration block to this manager.
- */
-inline fun NodeManager.progressIndicator(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
-): ProgressIndicator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ProgressIndicator(progress), configuration = configuration))
 }

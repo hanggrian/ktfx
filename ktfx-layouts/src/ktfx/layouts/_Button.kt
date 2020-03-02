@@ -16,6 +16,36 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [Button] to this manager.
+ */
+fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(text = text,
+        graphic = graphic) { }
+
+/**
+ * Create a [Button] with configuration block.
+ */
+inline fun button(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker Button).() -> Unit
+): Button {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Button(text, graphic), configuration = configuration)
+}
+
+/**
+ * Add a [Button] with configuration block to this manager.
+ */
+inline fun NodeManager.button(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker Button).() -> Unit
+): Button {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(Button(text, graphic), configuration = configuration))
+}
+
+/**
  * Create a styled [Button].
  */
 fun styledButton(
@@ -58,34 +88,4 @@ inline fun NodeManager.styledButton(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(Button(text, graphic), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [Button] to this manager.
- */
-fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(text = text,
-        graphic = graphic) { }
-
-/**
- * Create a [Button] with configuration block.
- */
-inline fun button(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
-): Button {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Button(text, graphic), configuration = configuration)
-}
-
-/**
- * Add a [Button] with configuration block to this manager.
- */
-inline fun NodeManager.button(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
-): Button {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Button(text, graphic), configuration = configuration))
 }

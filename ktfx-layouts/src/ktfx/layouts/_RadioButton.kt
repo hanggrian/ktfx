@@ -15,6 +15,53 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [RadioButton] to this manager.
+ */
+fun NodeManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) { }
+
+/**
+ * Add a [RadioButton] to this manager.
+ */
+fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) {
+        }
+
+/**
+ * Create a [RadioButton] with configuration block.
+ */
+inline fun radioButton(
+    text: String? = null,
+    configuration: (@LayoutDslMarker RadioButton).() ->    
+            Unit
+): RadioButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(RadioButton(text), configuration = configuration)
+}
+
+/**
+ * Add a [RadioButton] with configuration block to this manager.
+ */
+inline fun NodeManager.radioButton(
+    text: String? = null,
+    configuration: (@LayoutDslMarker    
+            RadioButton).() -> Unit
+): RadioButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(RadioButton(text), configuration = configuration))
+}
+
+/**
+ * Add a [RadioButton] with configuration block to this manager.
+ */
+inline fun ToggleButtonManager.radioButton(
+    text: String? = null,
+    configuration: (@LayoutDslMarker    
+            RadioButton).() -> Unit
+): RadioButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(RadioButton(text), configuration = configuration))
+}
+
+/**
  * Create a styled [RadioButton].
  */
 fun styledRadioButton(text: String? = null, vararg styleClass: String): RadioButton =
@@ -68,51 +115,4 @@ inline fun ToggleButtonManager.styledRadioButton(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(RadioButton(text), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [RadioButton] to this manager.
- */
-fun NodeManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) { }
-
-/**
- * Add a [RadioButton] to this manager.
- */
-fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) {
-        }
-
-/**
- * Create a [RadioButton] with configuration block.
- */
-inline fun radioButton(
-    text: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() ->    
-            Unit
-): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(RadioButton(text), configuration = configuration)
-}
-
-/**
- * Add a [RadioButton] with configuration block to this manager.
- */
-inline fun NodeManager.radioButton(
-    text: String? = null,
-    configuration: (@LayoutDslMarker    
-            RadioButton).() -> Unit
-): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioButton(text), configuration = configuration))
-}
-
-/**
- * Add a [RadioButton] with configuration block to this manager.
- */
-inline fun ToggleButtonManager.radioButton(
-    text: String? = null,
-    configuration: (@LayoutDslMarker    
-            RadioButton).() -> Unit
-): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioButton(text), configuration = configuration))
 }

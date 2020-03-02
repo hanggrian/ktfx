@@ -16,6 +16,35 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [ScrollPane] to this manager.
+ */
+fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(content = content) { }
+
+/**
+ * Create a [ScrollPane] with configuration block.
+ */
+inline fun scrollPane(
+    content: Node? = null,
+    configuration: (@LayoutDslMarker KtfxScrollPane).() ->    
+            Unit
+): ScrollPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxScrollPane(content), configuration = configuration)
+}
+
+/**
+ * Add a [ScrollPane] with configuration block to this manager.
+ */
+inline fun NodeManager.scrollPane(
+    content: Node? = null,
+    configuration: (@LayoutDslMarker    
+            KtfxScrollPane).() -> Unit
+): ScrollPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxScrollPane(content), configuration = configuration))
+}
+
+/**
  * Create a styled [ScrollPane].
  */
 fun styledScrollPane(content: Node? = null, vararg styleClass: String): ScrollPane =
@@ -51,33 +80,4 @@ inline fun NodeManager.styledScrollPane(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxScrollPane(content), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [ScrollPane] to this manager.
- */
-fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(content = content) { }
-
-/**
- * Create a [ScrollPane] with configuration block.
- */
-inline fun scrollPane(
-    content: Node? = null,
-    configuration: (@LayoutDslMarker KtfxScrollPane).() ->    
-            Unit
-): ScrollPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxScrollPane(content), configuration = configuration)
-}
-
-/**
- * Add a [ScrollPane] with configuration block to this manager.
- */
-inline fun NodeManager.scrollPane(
-    content: Node? = null,
-    configuration: (@LayoutDslMarker    
-            KtfxScrollPane).() -> Unit
-): ScrollPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxScrollPane(content), configuration = configuration))
 }

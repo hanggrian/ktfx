@@ -16,6 +16,36 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [RadioMenuItem] to this manager.
+ */
+fun MenuItemManager.radioMenuItem(text: String? = null, graphic: Node? = null): RadioMenuItem =
+        radioMenuItem(text = text, graphic = graphic) { }
+
+/**
+ * Create a [RadioMenuItem] with configuration block.
+ */
+inline fun radioMenuItem(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
+): RadioMenuItem {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(RadioMenuItem(text, graphic), configuration = configuration)
+}
+
+/**
+ * Add a [RadioMenuItem] with configuration block to this manager.
+ */
+inline fun MenuItemManager.radioMenuItem(
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
+): RadioMenuItem {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(RadioMenuItem(text, graphic), configuration = configuration))
+}
+
+/**
  * Create a styled [RadioMenuItem].
  */
 fun styledRadioMenuItem(
@@ -59,34 +89,4 @@ inline fun MenuItemManager.styledRadioMenuItem(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(RadioMenuItem(text, graphic), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [RadioMenuItem] to this manager.
- */
-fun MenuItemManager.radioMenuItem(text: String? = null, graphic: Node? = null): RadioMenuItem =
-        radioMenuItem(text = text, graphic = graphic) { }
-
-/**
- * Create a [RadioMenuItem] with configuration block.
- */
-inline fun radioMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
-): RadioMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(RadioMenuItem(text, graphic), configuration = configuration)
-}
-
-/**
- * Add a [RadioMenuItem] with configuration block to this manager.
- */
-inline fun MenuItemManager.radioMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
-): RadioMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioMenuItem(text, graphic), configuration = configuration))
 }

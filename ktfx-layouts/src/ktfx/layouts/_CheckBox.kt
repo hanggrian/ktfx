@@ -15,6 +15,32 @@ import kotlin.jvm.JvmName
 import ktfx.internal.KtfxInternals.newChild
 
 /**
+ * Add a [CheckBox] to this manager.
+ */
+fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text) { }
+
+/**
+ * Create a [CheckBox] with configuration block.
+ */
+inline fun checkBox(text: String? = null, configuration: (@LayoutDslMarker CheckBox).() -> Unit):
+        CheckBox {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(CheckBox(text), configuration = configuration)
+}
+
+/**
+ * Add a [CheckBox] with configuration block to this manager.
+ */
+inline fun NodeManager.checkBox(
+    text: String? = null,
+    configuration: (@LayoutDslMarker    
+            CheckBox).() -> Unit
+): CheckBox {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(CheckBox(text), configuration = configuration))
+}
+
+/**
  * Create a styled [CheckBox].
  */
 fun styledCheckBox(text: String? = null, vararg styleClass: String): CheckBox = styledCheckBox(text =
@@ -49,30 +75,4 @@ inline fun NodeManager.styledCheckBox(
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(CheckBox(text), styleClass = *styleClass, configuration =
             configuration))
-}
-
-/**
- * Add a [CheckBox] to this manager.
- */
-fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text) { }
-
-/**
- * Create a [CheckBox] with configuration block.
- */
-inline fun checkBox(text: String? = null, configuration: (@LayoutDslMarker CheckBox).() -> Unit):
-        CheckBox {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CheckBox(text), configuration = configuration)
-}
-
-/**
- * Add a [CheckBox] with configuration block to this manager.
- */
-inline fun NodeManager.checkBox(
-    text: String? = null,
-    configuration: (@LayoutDslMarker    
-            CheckBox).() -> Unit
-): CheckBox {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CheckBox(text), configuration = configuration))
 }

@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -31,10 +31,8 @@ inline fun splitMenuButton(configuration: (@LayoutDslMarker KtfxSplitMenuButton)
 /**
  * Add a [SplitMenuButton] with configuration block to this manager.
  */
-inline fun NodeManager.splitMenuButton(
-    configuration: (@LayoutDslMarker KtfxSplitMenuButton).() ->
-Unit
-): SplitMenuButton {
+inline fun NodeManager.splitMenuButton(configuration: (@LayoutDslMarker KtfxSplitMenuButton).() ->
+        Unit): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxSplitMenuButton(), configuration = configuration))
 }
@@ -54,11 +52,8 @@ fun NodeManager.styledSplitMenuButton(vararg styleClass: String): SplitMenuButto
 /**
  * Create a styled [SplitMenuButton] with configuration block.
  */
-inline fun styledSplitMenuButton(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxSplitMenuButton).() -> Unit
-): SplitMenuButton {
+inline fun styledSplitMenuButton(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxSplitMenuButton).() -> Unit): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxSplitMenuButton(), styleClass = *styleClass, configuration = configuration)
 }
@@ -66,10 +61,8 @@ inline fun styledSplitMenuButton(
 /**
  * Add a styled [SplitMenuButton] with configuration block to this manager.
  */
-inline fun NodeManager.styledSplitMenuButton(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
-): SplitMenuButton {
+inline fun NodeManager.styledSplitMenuButton(vararg styleClass: String,
+        configuration: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxSplitMenuButton(), styleClass = *styleClass, configuration =
             configuration))

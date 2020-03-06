@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,15 +18,14 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [Tab] to this manager.
  */
-fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(text = text, content =
-        content) { }
+fun TabManager.tab(text: String, content: Node): Tab = tab(text = text, content = content) { }
 
 /**
  * Create a [Tab] with configuration block.
  */
 inline fun tab(
-    text: String? = null,
-    content: Node? = null,
+    text: String,
+    content: Node,
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +36,8 @@ inline fun tab(
  * Add a [Tab] with configuration block to this manager.
  */
 inline fun TabManager.tab(
-    text: String? = null,
-    content: Node? = null,
+    text: String,
+    content: Node,
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,8 +48,8 @@ inline fun TabManager.tab(
  * Create a styled [Tab].
  */
 fun styledTab(
-    text: String? = null,
-    content: Node? = null,
+    text: String,
+    content: Node,
     vararg styleClass: String
 ): Tab = styledTab(text = text, content = content, styleClass = *styleClass) { }
 
@@ -58,8 +57,8 @@ fun styledTab(
  * Add a styled [Tab] to this manager.
  */
 fun TabManager.styledTab(
-    text: String? = null,
-    content: Node? = null,
+    text: String,
+    content: Node,
     vararg styleClass: String
 ): Tab = styledTab(text = text, content = content, styleClass = *styleClass) { }
 
@@ -67,8 +66,8 @@ fun TabManager.styledTab(
  * Create a styled [Tab] with configuration block.
  */
 inline fun styledTab(
-    text: String? = null,
-    content: Node? = null,
+    text: String,
+    content: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
@@ -80,8 +79,8 @@ inline fun styledTab(
  * Add a styled [Tab] with configuration block to this manager.
  */
 inline fun TabManager.styledTab(
-    text: String? = null,
-    content: Node? = null,
+    text: String,
+    content: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {

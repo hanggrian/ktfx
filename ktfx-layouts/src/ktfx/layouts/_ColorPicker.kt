@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -24,11 +24,8 @@ fun NodeManager.colorPicker(value: Color = WHITE): ColorPicker = colorPicker(val
 /**
  * Create a [ColorPicker] with configuration block.
  */
-inline fun colorPicker(
-    value: Color = WHITE,
-    configuration: (@LayoutDslMarker ColorPicker).() ->    
-            Unit
-): ColorPicker {
+inline fun colorPicker(value: Color = WHITE, configuration: (@LayoutDslMarker ColorPicker).() ->
+        Unit): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ColorPicker(value), configuration = configuration)
 }
@@ -36,11 +33,8 @@ inline fun colorPicker(
 /**
  * Add a [ColorPicker] with configuration block to this manager.
  */
-inline fun NodeManager.colorPicker(
-    value: Color = WHITE,
-    configuration: (@LayoutDslMarker    
-            ColorPicker).() -> Unit
-): ColorPicker {
+inline fun NodeManager.colorPicker(value: Color = WHITE, configuration: (@LayoutDslMarker
+        ColorPicker).() -> Unit): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ColorPicker(value), configuration = configuration))
 }

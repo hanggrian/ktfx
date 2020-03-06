@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -31,10 +31,8 @@ inline fun separatorMenuItem(configuration: (@LayoutDslMarker SeparatorMenuItem)
 /**
  * Add a [SeparatorMenuItem] with configuration block to this manager.
  */
-inline fun MenuItemManager.separatorMenuItem(
-    configuration: (@LayoutDslMarker
-SeparatorMenuItem).() -> Unit
-): SeparatorMenuItem {
+inline fun MenuItemManager.separatorMenuItem(configuration: (@LayoutDslMarker
+        SeparatorMenuItem).() -> Unit): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(SeparatorMenuItem(), configuration = configuration))
 }
@@ -54,11 +52,8 @@ fun MenuItemManager.styledSeparatorMenuItem(vararg styleClass: String): Separato
 /**
  * Create a styled [SeparatorMenuItem] with configuration block.
  */
-inline fun styledSeparatorMenuItem(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            SeparatorMenuItem).() -> Unit
-): SeparatorMenuItem {
+inline fun styledSeparatorMenuItem(vararg styleClass: String, configuration: (@LayoutDslMarker
+        SeparatorMenuItem).() -> Unit): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(SeparatorMenuItem(), styleClass = *styleClass, configuration = configuration)
 }
@@ -66,10 +61,8 @@ inline fun styledSeparatorMenuItem(
 /**
  * Add a styled [SeparatorMenuItem] with configuration block to this manager.
  */
-inline fun MenuItemManager.styledSeparatorMenuItem(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
-): SeparatorMenuItem {
+inline fun MenuItemManager.styledSeparatorMenuItem(vararg styleClass: String,
+        configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(SeparatorMenuItem(), styleClass = *styleClass, configuration =
             configuration))

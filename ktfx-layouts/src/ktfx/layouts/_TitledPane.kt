@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -17,21 +17,18 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [TitledPane] to this manager.
  */
-fun NodeManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
+fun NodeManager.titledPane(title: String): TitledPane = titledPane(title = title) { }
 
 /**
  * Add a [TitledPane] to this manager.
  */
-fun TitledPaneManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
+fun TitledPaneManager.titledPane(title: String): TitledPane = titledPane(title = title) { }
 
 /**
  * Create a [TitledPane] with configuration block.
  */
-inline fun titledPane(
-    title: String? = null,
-    configuration: (@LayoutDslMarker KtfxTitledPane).() ->    
-            Unit
-): TitledPane {
+inline fun titledPane(title: String, configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit):
+        TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxTitledPane(title), configuration = configuration)
 }
@@ -39,11 +36,8 @@ inline fun titledPane(
 /**
  * Add a [TitledPane] with configuration block to this manager.
  */
-inline fun NodeManager.titledPane(
-    title: String? = null,
-    configuration: (@LayoutDslMarker    
-            KtfxTitledPane).() -> Unit
-): TitledPane {
+inline fun NodeManager.titledPane(title: String, configuration: (@LayoutDslMarker
+        KtfxTitledPane).() -> Unit): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxTitledPane(title), configuration = configuration))
 }
@@ -51,11 +45,8 @@ inline fun NodeManager.titledPane(
 /**
  * Add a [TitledPane] with configuration block to this manager.
  */
-inline fun TitledPaneManager.titledPane(
-    title: String? = null,
-    configuration: (@LayoutDslMarker    
-            KtfxTitledPane).() -> Unit
-): TitledPane {
+inline fun TitledPaneManager.titledPane(title: String, configuration: (@LayoutDslMarker
+        KtfxTitledPane).() -> Unit): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxTitledPane(title), configuration = configuration))
 }
@@ -63,26 +54,26 @@ inline fun TitledPaneManager.titledPane(
 /**
  * Create a styled [TitledPane].
  */
-fun styledTitledPane(title: String? = null, vararg styleClass: String): TitledPane =
+fun styledTitledPane(title: String, vararg styleClass: String): TitledPane = styledTitledPane(title
+        = title, styleClass = *styleClass) { }
+
+/**
+ * Add a styled [TitledPane] to this manager.
+ */
+fun NodeManager.styledTitledPane(title: String, vararg styleClass: String): TitledPane =
         styledTitledPane(title = title, styleClass = *styleClass) { }
 
 /**
  * Add a styled [TitledPane] to this manager.
  */
-fun NodeManager.styledTitledPane(title: String? = null, vararg styleClass: String): TitledPane =
-        styledTitledPane(title = title, styleClass = *styleClass) { }
-
-/**
- * Add a styled [TitledPane] to this manager.
- */
-fun TitledPaneManager.styledTitledPane(title: String? = null, vararg styleClass: String): TitledPane =
+fun TitledPaneManager.styledTitledPane(title: String, vararg styleClass: String): TitledPane =
         styledTitledPane(title = title, styleClass = *styleClass) { }
 
 /**
  * Create a styled [TitledPane] with configuration block.
  */
 inline fun styledTitledPane(
-    title: String? = null,
+    title: String,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
@@ -94,7 +85,7 @@ inline fun styledTitledPane(
  * Add a styled [TitledPane] with configuration block to this manager.
  */
 inline fun NodeManager.styledTitledPane(
-    title: String? = null,
+    title: String,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
@@ -107,7 +98,7 @@ inline fun NodeManager.styledTitledPane(
  * Add a styled [TitledPane] with configuration block to this manager.
  */
 inline fun TitledPaneManager.styledTitledPane(
-    title: String? = null,
+    title: String,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {

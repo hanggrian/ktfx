@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -25,11 +25,8 @@ fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): Progress
 /**
  * Create a [ProgressBar] with configuration block.
  */
-inline fun progressBar(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker    
-            ProgressBar).() -> Unit
-): ProgressBar {
+inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS, configuration: (@LayoutDslMarker
+        ProgressBar).() -> Unit): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ProgressBar(progress), configuration = configuration)
 }
@@ -37,10 +34,8 @@ inline fun progressBar(
 /**
  * Add a [ProgressBar] with configuration block to this manager.
  */
-inline fun NodeManager.progressBar(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
-): ProgressBar {
+inline fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS,
+        configuration: (@LayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ProgressBar(progress), configuration = configuration))
 }
@@ -54,11 +49,8 @@ fun styledProgressBar(progress: Double = INDETERMINATE_PROGRESS, vararg styleCla
 /**
  * Add a styled [ProgressBar] to this manager.
  */
-fun NodeManager.styledProgressBar(
-    progress: Double = INDETERMINATE_PROGRESS,
-    vararg    
-            styleClass: String
-): ProgressBar = styledProgressBar(progress = progress, styleClass =
+fun NodeManager.styledProgressBar(progress: Double = INDETERMINATE_PROGRESS, vararg
+        styleClass: String): ProgressBar = styledProgressBar(progress = progress, styleClass =
         *styleClass) { }
 
 /**

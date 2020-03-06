@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -51,11 +51,8 @@ fun NodeManager.styledSplitPane(vararg styleClass: String): SplitPane = styledSp
 /**
  * Create a styled [SplitPane] with configuration block.
  */
-inline fun styledSplitPane(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxSplitPane).() -> Unit
-): SplitPane {
+inline fun styledSplitPane(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxSplitPane).() -> Unit): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxSplitPane(), styleClass = *styleClass, configuration = configuration)
 }
@@ -63,11 +60,8 @@ inline fun styledSplitPane(
 /**
  * Add a styled [SplitPane] with configuration block to this manager.
  */
-inline fun NodeManager.styledSplitPane(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxSplitPane).() -> Unit
-): SplitPane {
+inline fun NodeManager.styledSplitPane(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxSplitPane).() -> Unit): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxSplitPane(), styleClass = *styleClass, configuration =
             configuration))

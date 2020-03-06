@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -31,11 +31,8 @@ inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea
 /**
  * Add a [TextArea] with configuration block to this manager.
  */
-inline fun NodeManager.textArea(
-    text: String = "",
-    configuration: (@LayoutDslMarker TextArea).() ->    
-            Unit
-): TextArea {
+inline fun NodeManager.textArea(text: String = "", configuration: (@LayoutDslMarker TextArea).() ->
+        Unit): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(TextArea(text), configuration = configuration))
 }

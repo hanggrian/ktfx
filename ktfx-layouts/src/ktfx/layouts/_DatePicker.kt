@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,16 +18,13 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [DatePicker] to this manager.
  */
-fun NodeManager.datePicker(value: LocalDate? = null): DatePicker = datePicker(value = value) { }
+fun NodeManager.datePicker(value: LocalDate): DatePicker = datePicker(value = value) { }
 
 /**
  * Create a [DatePicker] with configuration block.
  */
-inline fun datePicker(
-    value: LocalDate? = null,
-    configuration: (@LayoutDslMarker DatePicker).() ->    
-            Unit
-): DatePicker {
+inline fun datePicker(value: LocalDate, configuration: (@LayoutDslMarker DatePicker).() -> Unit):
+        DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(DatePicker(value), configuration = configuration)
 }
@@ -35,11 +32,8 @@ inline fun datePicker(
 /**
  * Add a [DatePicker] with configuration block to this manager.
  */
-inline fun NodeManager.datePicker(
-    value: LocalDate? = null,
-    configuration: (@LayoutDslMarker    
-            DatePicker).() -> Unit
-): DatePicker {
+inline fun NodeManager.datePicker(value: LocalDate, configuration: (@LayoutDslMarker
+        DatePicker).() -> Unit): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(DatePicker(value), configuration = configuration))
 }
@@ -47,20 +41,20 @@ inline fun NodeManager.datePicker(
 /**
  * Create a styled [DatePicker].
  */
-fun styledDatePicker(value: LocalDate? = null, vararg styleClass: String): DatePicker =
+fun styledDatePicker(value: LocalDate, vararg styleClass: String): DatePicker =
         styledDatePicker(value = value, styleClass = *styleClass) { }
 
 /**
  * Add a styled [DatePicker] to this manager.
  */
-fun NodeManager.styledDatePicker(value: LocalDate? = null, vararg styleClass: String): DatePicker =
+fun NodeManager.styledDatePicker(value: LocalDate, vararg styleClass: String): DatePicker =
         styledDatePicker(value = value, styleClass = *styleClass) { }
 
 /**
  * Create a styled [DatePicker] with configuration block.
  */
 inline fun styledDatePicker(
-    value: LocalDate? = null,
+    value: LocalDate,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
@@ -72,7 +66,7 @@ inline fun styledDatePicker(
  * Add a styled [DatePicker] with configuration block to this manager.
  */
 inline fun NodeManager.styledDatePicker(
-    value: LocalDate? = null,
+    value: LocalDate,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {

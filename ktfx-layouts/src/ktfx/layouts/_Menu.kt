@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,21 +18,20 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [Menu] to this manager.
  */
-fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text, graphic =
-        graphic) { }
+fun MenuItemManager.menu(text: String, graphic: Node): Menu = menu(text = text, graphic = graphic) {
+        }
 
 /**
  * Add a [Menu] to this manager.
  */
-fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text, graphic =
-        graphic) { }
+fun MenuManager.menu(text: String, graphic: Node): Menu = menu(text = text, graphic = graphic) { }
 
 /**
  * Create a [Menu] with configuration block.
  */
 inline fun menu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -43,8 +42,8 @@ inline fun menu(
  * Add a [Menu] with configuration block to this manager.
  */
 inline fun MenuItemManager.menu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -55,8 +54,8 @@ inline fun MenuItemManager.menu(
  * Add a [Menu] with configuration block to this manager.
  */
 inline fun MenuManager.menu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -67,8 +66,8 @@ inline fun MenuManager.menu(
  * Create a styled [Menu].
  */
 fun styledMenu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -76,8 +75,8 @@ fun styledMenu(
  * Add a styled [Menu] to this manager.
  */
 fun MenuItemManager.styledMenu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -85,8 +84,8 @@ fun MenuItemManager.styledMenu(
  * Add a styled [Menu] to this manager.
  */
 fun MenuManager.styledMenu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -94,8 +93,8 @@ fun MenuManager.styledMenu(
  * Create a styled [Menu] with configuration block.
  */
 inline fun styledMenu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
@@ -108,8 +107,8 @@ inline fun styledMenu(
  * Add a styled [Menu] with configuration block to this manager.
  */
 inline fun MenuItemManager.styledMenu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
@@ -122,8 +121,8 @@ inline fun MenuItemManager.styledMenu(
  * Add a styled [Menu] with configuration block to this manager.
  */
 inline fun MenuManager.styledMenu(
-    text: String = "",
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {

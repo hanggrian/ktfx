@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [RadioMenuItem] to this manager.
  */
-fun MenuItemManager.radioMenuItem(text: String? = null, graphic: Node? = null): RadioMenuItem =
-        radioMenuItem(text = text, graphic = graphic) { }
+fun MenuItemManager.radioMenuItem(text: String, graphic: Node): RadioMenuItem = radioMenuItem(text =
+        text, graphic = graphic) { }
 
 /**
  * Create a [RadioMenuItem] with configuration block.
  */
 inline fun radioMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun radioMenuItem(
  * Add a [RadioMenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.radioMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,8 +49,8 @@ inline fun MenuItemManager.radioMenuItem(
  * Create a styled [RadioMenuItem].
  */
 fun styledRadioMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -58,8 +58,8 @@ fun styledRadioMenuItem(
  * Add a styled [RadioMenuItem] to this manager.
  */
 fun MenuItemManager.styledRadioMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -67,8 +67,8 @@ fun MenuItemManager.styledRadioMenuItem(
  * Create a styled [RadioMenuItem] with configuration block.
  */
 inline fun styledRadioMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
@@ -81,8 +81,8 @@ inline fun styledRadioMenuItem(
  * Add a styled [RadioMenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.styledRadioMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {

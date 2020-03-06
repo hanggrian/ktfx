@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [CheckMenuItem] to this manager.
  */
-fun MenuItemManager.checkMenuItem(text: String? = null, graphic: Node? = null): CheckMenuItem =
-        checkMenuItem(text = text, graphic = graphic) { }
+fun MenuItemManager.checkMenuItem(text: String, graphic: Node): CheckMenuItem = checkMenuItem(text =
+        text, graphic = graphic) { }
 
 /**
  * Create a [CheckMenuItem] with configuration block.
  */
 inline fun checkMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun checkMenuItem(
  * Add a [CheckMenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.checkMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,8 +49,8 @@ inline fun MenuItemManager.checkMenuItem(
  * Create a styled [CheckMenuItem].
  */
 fun styledCheckMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): CheckMenuItem = styledCheckMenuItem(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -58,8 +58,8 @@ fun styledCheckMenuItem(
  * Add a styled [CheckMenuItem] to this manager.
  */
 fun MenuItemManager.styledCheckMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): CheckMenuItem = styledCheckMenuItem(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -67,8 +67,8 @@ fun MenuItemManager.styledCheckMenuItem(
  * Create a styled [CheckMenuItem] with configuration block.
  */
 inline fun styledCheckMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
@@ -81,8 +81,8 @@ inline fun styledCheckMenuItem(
  * Add a styled [CheckMenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.styledCheckMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {

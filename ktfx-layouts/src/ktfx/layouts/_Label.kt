@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [Label] to this manager.
  */
-fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(text = text,
-        graphic = graphic) { }
+fun NodeManager.label(text: String, graphic: Node): Label = label(text = text, graphic = graphic) {
+        }
 
 /**
  * Create a [Label] with configuration block.
  */
 inline fun label(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun label(
  * Add a [Label] with configuration block to this manager.
  */
 inline fun NodeManager.label(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,8 +49,8 @@ inline fun NodeManager.label(
  * Create a styled [Label].
  */
 fun styledLabel(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -58,8 +58,8 @@ fun styledLabel(
  * Add a styled [Label] to this manager.
  */
 fun NodeManager.styledLabel(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -67,8 +67,8 @@ fun NodeManager.styledLabel(
  * Create a styled [Label] with configuration block.
  */
 inline fun styledLabel(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
@@ -80,8 +80,8 @@ inline fun styledLabel(
  * Add a styled [Label] with configuration block to this manager.
  */
 inline fun NodeManager.styledLabel(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {

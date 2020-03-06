@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -49,11 +49,8 @@ fun NodeManager.styledTabPane(vararg styleClass: String): TabPane = styledTabPan
 /**
  * Create a styled [TabPane] with configuration block.
  */
-inline fun styledTabPane(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxTabPane).() -> Unit
-): TabPane {
+inline fun styledTabPane(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxTabPane(), styleClass = *styleClass, configuration = configuration)
 }
@@ -61,11 +58,8 @@ inline fun styledTabPane(
 /**
  * Add a styled [TabPane] with configuration block to this manager.
  */
-inline fun NodeManager.styledTabPane(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxTabPane).() -> Unit
-): TabPane {
+inline fun NodeManager.styledTabPane(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxTabPane(), styleClass = *styleClass, configuration =
             configuration))

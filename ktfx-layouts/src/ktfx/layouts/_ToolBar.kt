@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -49,11 +49,8 @@ fun NodeManager.styledToolBar(vararg styleClass: String): ToolBar = styledToolBa
 /**
  * Create a styled [ToolBar] with configuration block.
  */
-inline fun styledToolBar(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxToolBar).() -> Unit
-): ToolBar {
+inline fun styledToolBar(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxToolBar(), styleClass = *styleClass, configuration = configuration)
 }
@@ -61,11 +58,8 @@ inline fun styledToolBar(
 /**
  * Add a styled [ToolBar] with configuration block to this manager.
  */
-inline fun NodeManager.styledToolBar(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxToolBar).() -> Unit
-): ToolBar {
+inline fun NodeManager.styledToolBar(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxToolBar(), styleClass = *styleClass, configuration =
             configuration))

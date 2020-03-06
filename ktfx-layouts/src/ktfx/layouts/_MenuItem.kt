@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [MenuItem] to this manager.
  */
-fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem = menuItem(text =
-        text, graphic = graphic) { }
+fun MenuItemManager.menuItem(text: String, graphic: Node): MenuItem = menuItem(text = text, graphic
+        = graphic) { }
 
 /**
  * Create a [MenuItem] with configuration block.
  */
 inline fun menuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun menuItem(
  * Add a [MenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.menuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,8 +49,8 @@ inline fun MenuItemManager.menuItem(
  * Create a styled [MenuItem].
  */
 fun styledMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -58,8 +58,8 @@ fun styledMenuItem(
  * Add a styled [MenuItem] to this manager.
  */
 fun MenuItemManager.styledMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -67,8 +67,8 @@ fun MenuItemManager.styledMenuItem(
  * Create a styled [MenuItem] with configuration block.
  */
 inline fun styledMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
@@ -81,8 +81,8 @@ inline fun styledMenuItem(
  * Add a styled [MenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.styledMenuItem(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {

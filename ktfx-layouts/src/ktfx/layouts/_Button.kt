@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [Button] to this manager.
  */
-fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(text = text,
-        graphic = graphic) { }
+fun NodeManager.button(text: String, graphic: Node): Button = button(text = text, graphic = graphic)
+        { }
 
 /**
  * Create a [Button] with configuration block.
  */
 inline fun button(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun button(
  * Add a [Button] with configuration block to this manager.
  */
 inline fun NodeManager.button(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,8 +49,8 @@ inline fun NodeManager.button(
  * Create a styled [Button].
  */
 fun styledButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Button = styledButton(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -58,8 +58,8 @@ fun styledButton(
  * Add a styled [Button] to this manager.
  */
 fun NodeManager.styledButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Button = styledButton(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -67,8 +67,8 @@ fun NodeManager.styledButton(
  * Create a styled [Button] with configuration block.
  */
 inline fun styledButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
@@ -80,8 +80,8 @@ inline fun styledButton(
  * Add a styled [Button] with configuration block to this manager.
  */
 inline fun NodeManager.styledButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {

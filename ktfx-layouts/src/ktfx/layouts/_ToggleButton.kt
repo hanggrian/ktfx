@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,21 +18,21 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [ToggleButton] to this manager.
  */
-fun NodeManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-        toggleButton(text = text, graphic = graphic) { }
+fun NodeManager.toggleButton(text: String, graphic: Node): ToggleButton = toggleButton(text = text,
+        graphic = graphic) { }
 
 /**
  * Add a [ToggleButton] to this manager.
  */
-fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-        toggleButton(text = text, graphic = graphic) { }
+fun ToggleButtonManager.toggleButton(text: String, graphic: Node): ToggleButton = toggleButton(text
+        = text, graphic = graphic) { }
 
 /**
  * Create a [ToggleButton] with configuration block.
  */
 inline fun toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -43,8 +43,8 @@ inline fun toggleButton(
  * Add a [ToggleButton] with configuration block to this manager.
  */
 inline fun NodeManager.toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -55,8 +55,8 @@ inline fun NodeManager.toggleButton(
  * Add a [ToggleButton] with configuration block to this manager.
  */
 inline fun ToggleButtonManager.toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -67,8 +67,8 @@ inline fun ToggleButtonManager.toggleButton(
  * Create a styled [ToggleButton].
  */
 fun styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -76,8 +76,8 @@ fun styledToggleButton(
  * Add a styled [ToggleButton] to this manager.
  */
 fun NodeManager.styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -85,8 +85,8 @@ fun NodeManager.styledToggleButton(
  * Add a styled [ToggleButton] to this manager.
  */
 fun ToggleButtonManager.styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -94,8 +94,8 @@ fun ToggleButtonManager.styledToggleButton(
  * Create a styled [ToggleButton] with configuration block.
  */
 inline fun styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
@@ -108,8 +108,8 @@ inline fun styledToggleButton(
  * Add a styled [ToggleButton] with configuration block to this manager.
  */
 inline fun NodeManager.styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
@@ -122,8 +122,8 @@ inline fun NodeManager.styledToggleButton(
  * Add a styled [ToggleButton] with configuration block to this manager.
  */
 inline fun ToggleButtonManager.styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {

@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -51,11 +51,8 @@ fun NodeManager.styledSeparator(vararg styleClass: String): Separator = styledSe
 /**
  * Create a styled [Separator] with configuration block.
  */
-inline fun styledSeparator(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            Separator).() -> Unit
-): Separator {
+inline fun styledSeparator(vararg styleClass: String, configuration: (@LayoutDslMarker
+        Separator).() -> Unit): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(Separator(), styleClass = *styleClass, configuration = configuration)
 }
@@ -63,11 +60,8 @@ inline fun styledSeparator(
 /**
  * Add a styled [Separator] with configuration block to this manager.
  */
-inline fun NodeManager.styledSeparator(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            Separator).() -> Unit
-): Separator {
+inline fun NodeManager.styledSeparator(vararg styleClass: String, configuration: (@LayoutDslMarker
+        Separator).() -> Unit): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(Separator(), styleClass = *styleClass, configuration = configuration))
 }

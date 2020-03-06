@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -49,11 +49,8 @@ fun NodeManager.styledMenuBar(vararg styleClass: String): MenuBar = styledMenuBa
 /**
  * Create a styled [MenuBar] with configuration block.
  */
-inline fun styledMenuBar(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxMenuBar).() -> Unit
-): MenuBar {
+inline fun styledMenuBar(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxMenuBar(), styleClass = *styleClass, configuration = configuration)
 }
@@ -61,11 +58,8 @@ inline fun styledMenuBar(
 /**
  * Add a styled [MenuBar] with configuration block to this manager.
  */
-inline fun NodeManager.styledMenuBar(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            KtfxMenuBar).() -> Unit
-): MenuBar {
+inline fun NodeManager.styledMenuBar(vararg styleClass: String, configuration: (@LayoutDslMarker
+        KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxMenuBar(), styleClass = *styleClass, configuration =
             configuration))

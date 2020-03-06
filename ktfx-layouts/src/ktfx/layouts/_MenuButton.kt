@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [MenuButton] to this manager.
  */
-fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
-        menuButton(text = text, graphic = graphic) { }
+fun NodeManager.menuButton(text: String, graphic: Node): MenuButton = menuButton(text = text,
+        graphic = graphic) { }
 
 /**
  * Create a [MenuButton] with configuration block.
  */
 inline fun menuButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun menuButton(
  * Add a [MenuButton] with configuration block to this manager.
  */
 inline fun NodeManager.menuButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,8 +49,8 @@ inline fun NodeManager.menuButton(
  * Create a styled [MenuButton].
  */
 fun styledMenuButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -58,8 +58,8 @@ fun styledMenuButton(
  * Add a styled [MenuButton] to this manager.
  */
 fun NodeManager.styledMenuButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -67,8 +67,8 @@ fun NodeManager.styledMenuButton(
  * Create a styled [MenuButton] with configuration block.
  */
 inline fun styledMenuButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
@@ -81,12 +81,12 @@ inline fun styledMenuButton(
  * Add a styled [MenuButton] with configuration block to this manager.
  */
 inline fun NodeManager.styledMenuButton(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenuButton(text, graphic), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(KtfxMenuButton(text, graphic), styleClass = *styleClass, configuration
+            = configuration))
 }

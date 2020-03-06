@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -77,8 +77,8 @@ inline fun styledPagination(
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass, configuration =
-            configuration)
+    return newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass, configuration
+            = configuration)
 }
 
 /**

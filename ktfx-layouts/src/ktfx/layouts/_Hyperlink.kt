@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [Hyperlink] to this manager.
  */
-fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink = hyperlink(text =
-        text, graphic = graphic) { }
+fun NodeManager.hyperlink(text: String, graphic: Node): Hyperlink = hyperlink(text = text, graphic =
+        graphic) { }
 
 /**
  * Create a [Hyperlink] with configuration block.
  */
 inline fun hyperlink(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun hyperlink(
  * Add a [Hyperlink] with configuration block to this manager.
  */
 inline fun NodeManager.hyperlink(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     configuration: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,8 +49,8 @@ inline fun NodeManager.hyperlink(
  * Create a styled [Hyperlink].
  */
 fun styledHyperlink(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Hyperlink = styledHyperlink(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -58,8 +58,8 @@ fun styledHyperlink(
  * Add a styled [Hyperlink] to this manager.
  */
 fun NodeManager.styledHyperlink(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String
 ): Hyperlink = styledHyperlink(text = text, graphic = graphic, styleClass = *styleClass) { }
 
@@ -67,8 +67,8 @@ fun NodeManager.styledHyperlink(
  * Create a styled [Hyperlink] with configuration block.
  */
 inline fun styledHyperlink(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
@@ -81,8 +81,8 @@ inline fun styledHyperlink(
  * Add a styled [Hyperlink] with configuration block to this manager.
  */
 inline fun NodeManager.styledHyperlink(
-    text: String? = null,
-    graphic: Node? = null,
+    text: String,
+    graphic: Node,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {

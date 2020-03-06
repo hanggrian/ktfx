@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -17,22 +17,18 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [RadioButton] to this manager.
  */
-fun NodeManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) { }
+fun NodeManager.radioButton(text: String): RadioButton = radioButton(text = text) { }
 
 /**
  * Add a [RadioButton] to this manager.
  */
-fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) {
-        }
+fun ToggleButtonManager.radioButton(text: String): RadioButton = radioButton(text = text) { }
 
 /**
  * Create a [RadioButton] with configuration block.
  */
-inline fun radioButton(
-    text: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() ->    
-            Unit
-): RadioButton {
+inline fun radioButton(text: String, configuration: (@LayoutDslMarker RadioButton).() -> Unit):
+        RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(RadioButton(text), configuration = configuration)
 }
@@ -40,11 +36,8 @@ inline fun radioButton(
 /**
  * Add a [RadioButton] with configuration block to this manager.
  */
-inline fun NodeManager.radioButton(
-    text: String? = null,
-    configuration: (@LayoutDslMarker    
-            RadioButton).() -> Unit
-): RadioButton {
+inline fun NodeManager.radioButton(text: String, configuration: (@LayoutDslMarker RadioButton).() ->
+        Unit): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(RadioButton(text), configuration = configuration))
 }
@@ -52,11 +45,8 @@ inline fun NodeManager.radioButton(
 /**
  * Add a [RadioButton] with configuration block to this manager.
  */
-inline fun ToggleButtonManager.radioButton(
-    text: String? = null,
-    configuration: (@LayoutDslMarker    
-            RadioButton).() -> Unit
-): RadioButton {
+inline fun ToggleButtonManager.radioButton(text: String, configuration: (@LayoutDslMarker
+        RadioButton).() -> Unit): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(RadioButton(text), configuration = configuration))
 }
@@ -64,26 +54,26 @@ inline fun ToggleButtonManager.radioButton(
 /**
  * Create a styled [RadioButton].
  */
-fun styledRadioButton(text: String? = null, vararg styleClass: String): RadioButton =
+fun styledRadioButton(text: String, vararg styleClass: String): RadioButton = styledRadioButton(text
+        = text, styleClass = *styleClass) { }
+
+/**
+ * Add a styled [RadioButton] to this manager.
+ */
+fun NodeManager.styledRadioButton(text: String, vararg styleClass: String): RadioButton =
         styledRadioButton(text = text, styleClass = *styleClass) { }
 
 /**
  * Add a styled [RadioButton] to this manager.
  */
-fun NodeManager.styledRadioButton(text: String? = null, vararg styleClass: String): RadioButton =
+fun ToggleButtonManager.styledRadioButton(text: String, vararg styleClass: String): RadioButton =
         styledRadioButton(text = text, styleClass = *styleClass) { }
-
-/**
- * Add a styled [RadioButton] to this manager.
- */
-fun ToggleButtonManager.styledRadioButton(text: String? = null, vararg styleClass: String):
-        RadioButton = styledRadioButton(text = text, styleClass = *styleClass) { }
 
 /**
  * Create a styled [RadioButton] with configuration block.
  */
 inline fun styledRadioButton(
-    text: String? = null,
+    text: String,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
@@ -95,7 +85,7 @@ inline fun styledRadioButton(
  * Add a styled [RadioButton] with configuration block to this manager.
  */
 inline fun NodeManager.styledRadioButton(
-    text: String? = null,
+    text: String,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
@@ -108,7 +98,7 @@ inline fun NodeManager.styledRadioButton(
  * Add a styled [RadioButton] with configuration block to this manager.
  */
 inline fun ToggleButtonManager.styledRadioButton(
-    text: String? = null,
+    text: String,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {

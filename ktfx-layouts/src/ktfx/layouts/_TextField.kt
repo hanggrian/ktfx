@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -31,11 +31,8 @@ inline fun textField(text: String = "", configuration: (@LayoutDslMarker TextFie
 /**
  * Add a [TextField] with configuration block to this manager.
  */
-inline fun NodeManager.textField(
-    text: String = "",
-    configuration: (@LayoutDslMarker    
-            TextField).() -> Unit
-): TextField {
+inline fun NodeManager.textField(text: String = "", configuration: (@LayoutDslMarker
+        TextField).() -> Unit): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(TextField(text), configuration = configuration))
 }
@@ -43,8 +40,8 @@ inline fun NodeManager.textField(
 /**
  * Create a styled [TextField].
  */
-fun styledTextField(text: String = "", vararg styleClass: String): TextField = styledTextField(text =
-        text, styleClass = *styleClass) { }
+fun styledTextField(text: String = "", vararg styleClass: String): TextField = styledTextField(text
+        = text, styleClass = *styleClass) { }
 
 /**
  * Add a styled [TextField] to this manager.

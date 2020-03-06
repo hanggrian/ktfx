@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -19,14 +19,14 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [CustomMenuItem] to this manager.
  */
-fun MenuItemManager.customMenuItem(content: Node? = null, hideOnClick: Boolean = true):
-        CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) { }
+fun MenuItemManager.customMenuItem(content: Node, hideOnClick: Boolean = true): CustomMenuItem =
+        customMenuItem(content = content, hideOnClick = hideOnClick) { }
 
 /**
  * Create a [CustomMenuItem] with configuration block.
  */
 inline fun customMenuItem(
-    content: Node? = null,
+    content: Node,
     hideOnClick: Boolean = true,
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
@@ -38,7 +38,7 @@ inline fun customMenuItem(
  * Add a [CustomMenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.customMenuItem(
-    content: Node? = null,
+    content: Node,
     hideOnClick: Boolean = true,
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
@@ -50,7 +50,7 @@ inline fun MenuItemManager.customMenuItem(
  * Create a styled [CustomMenuItem].
  */
 fun styledCustomMenuItem(
-    content: Node? = null,
+    content: Node,
     hideOnClick: Boolean = true,
     vararg styleClass: String
 ): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
@@ -60,7 +60,7 @@ fun styledCustomMenuItem(
  * Add a styled [CustomMenuItem] to this manager.
  */
 fun MenuItemManager.styledCustomMenuItem(
-    content: Node? = null,
+    content: Node,
     hideOnClick: Boolean = true,
     vararg styleClass: String
 ): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
@@ -70,7 +70,7 @@ fun MenuItemManager.styledCustomMenuItem(
  * Create a styled [CustomMenuItem] with configuration block.
  */
 inline fun styledCustomMenuItem(
-    content: Node? = null,
+    content: Node,
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
@@ -84,7 +84,7 @@ inline fun styledCustomMenuItem(
  * Add a styled [CustomMenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.styledCustomMenuItem(
-    content: Node? = null,
+    content: Node,
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit

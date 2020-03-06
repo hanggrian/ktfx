@@ -1,9 +1,10 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
+import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 import javafx.scene.control.ProgressIndicator
 import kotlin.Double
@@ -25,10 +26,8 @@ fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS): Pr
 /**
  * Create a [ProgressIndicator] with configuration block.
  */
-inline fun progressIndicator(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
-): ProgressIndicator {
+inline fun progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
+        configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ProgressIndicator(progress), configuration = configuration)
 }
@@ -36,10 +35,8 @@ inline fun progressIndicator(
 /**
  * Add a [ProgressIndicator] with configuration block to this manager.
  */
-inline fun NodeManager.progressIndicator(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
-): ProgressIndicator {
+inline fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
+        configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ProgressIndicator(progress), configuration = configuration))
 }
@@ -54,11 +51,8 @@ fun styledProgressIndicator(progress: Double = INDETERMINATE_PROGRESS, vararg st
 /**
  * Add a styled [ProgressIndicator] to this manager.
  */
-fun NodeManager.styledProgressIndicator(
-    progress: Double = INDETERMINATE_PROGRESS,
-    vararg    
-            styleClass: String
-): ProgressIndicator = styledProgressIndicator(progress = progress,
+fun NodeManager.styledProgressIndicator(progress: Double = INDETERMINATE_PROGRESS, vararg
+        styleClass: String): ProgressIndicator = styledProgressIndicator(progress = progress,
         styleClass = *styleClass) { }
 
 /**

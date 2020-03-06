@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -52,11 +52,8 @@ fun NodeManager.styledPasswordField(vararg styleClass: String): PasswordField =
 /**
  * Create a styled [PasswordField] with configuration block.
  */
-inline fun styledPasswordField(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            PasswordField).() -> Unit
-): PasswordField {
+inline fun styledPasswordField(vararg styleClass: String, configuration: (@LayoutDslMarker
+        PasswordField).() -> Unit): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(PasswordField(), styleClass = *styleClass, configuration = configuration)
 }
@@ -64,10 +61,8 @@ inline fun styledPasswordField(
 /**
  * Add a styled [PasswordField] with configuration block to this manager.
  */
-inline fun NodeManager.styledPasswordField(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker PasswordField).() -> Unit
-): PasswordField {
+inline fun NodeManager.styledPasswordField(vararg styleClass: String,
+        configuration: (@LayoutDslMarker PasswordField).() -> Unit): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(PasswordField(), styleClass = *styleClass, configuration =
             configuration))

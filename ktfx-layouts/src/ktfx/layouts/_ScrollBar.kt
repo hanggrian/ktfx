@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
 
@@ -51,11 +51,8 @@ fun NodeManager.styledScrollBar(vararg styleClass: String): ScrollBar = styledSc
 /**
  * Create a styled [ScrollBar] with configuration block.
  */
-inline fun styledScrollBar(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            ScrollBar).() -> Unit
-): ScrollBar {
+inline fun styledScrollBar(vararg styleClass: String, configuration: (@LayoutDslMarker
+        ScrollBar).() -> Unit): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ScrollBar(), styleClass = *styleClass, configuration = configuration)
 }
@@ -63,11 +60,8 @@ inline fun styledScrollBar(
 /**
  * Add a styled [ScrollBar] with configuration block to this manager.
  */
-inline fun NodeManager.styledScrollBar(
-    vararg styleClass: String,
-    configuration: (@LayoutDslMarker    
-            ScrollBar).() -> Unit
-): ScrollBar {
+inline fun NodeManager.styledScrollBar(vararg styleClass: String, configuration: (@LayoutDslMarker
+        ScrollBar).() -> Unit): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ScrollBar(), styleClass = *styleClass, configuration = configuration))
 }

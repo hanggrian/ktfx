@@ -38,29 +38,36 @@ inline fun NodeManager.toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() 
 /**
  * Create a styled [ToolBar].
  */
-fun styledToolBar(vararg styleClass: String): ToolBar = styledToolBar(styleClass = *styleClass) { }
+fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styledToolBar(styleClass =
+        *styleClass, id = id) { }
 
 /**
  * Add a styled [ToolBar] to this manager.
  */
-fun NodeManager.styledToolBar(vararg styleClass: String): ToolBar = styledToolBar(styleClass =
-        *styleClass) { }
+fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
+        styledToolBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ToolBar] with configuration block.
  */
-inline fun styledToolBar(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxToolBar).() -> Unit): ToolBar {
+inline fun styledToolBar(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
+): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxToolBar(), styleClass = *styleClass, configuration = configuration)
+    return newChild(KtfxToolBar(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
  * Add a styled [ToolBar] with configuration block to this manager.
  */
-inline fun NodeManager.styledToolBar(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxToolBar).() -> Unit): ToolBar {
+inline fun NodeManager.styledToolBar(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
+): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxToolBar(), styleClass = *styleClass, configuration =
+    return addChild(newChild(KtfxToolBar(), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

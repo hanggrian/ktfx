@@ -39,29 +39,36 @@ inline fun NodeManager.scrollBar(configuration: (@LayoutDslMarker ScrollBar).() 
 /**
  * Create a styled [ScrollBar].
  */
-fun styledScrollBar(vararg styleClass: String): ScrollBar = styledScrollBar(styleClass =
-        *styleClass) { }
+fun styledScrollBar(vararg styleClass: String, id: String? = null): ScrollBar =
+        styledScrollBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ScrollBar] to this manager.
  */
-fun NodeManager.styledScrollBar(vararg styleClass: String): ScrollBar = styledScrollBar(styleClass =
-        *styleClass) { }
+fun NodeManager.styledScrollBar(vararg styleClass: String, id: String? = null): ScrollBar =
+        styledScrollBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ScrollBar] with configuration block.
  */
-inline fun styledScrollBar(vararg styleClass: String, configuration: (@LayoutDslMarker
-        ScrollBar).() -> Unit): ScrollBar {
+inline fun styledScrollBar(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker ScrollBar).() -> Unit
+): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ScrollBar(), styleClass = *styleClass, configuration = configuration)
+    return newChild(ScrollBar(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
  * Add a styled [ScrollBar] with configuration block to this manager.
  */
-inline fun NodeManager.styledScrollBar(vararg styleClass: String, configuration: (@LayoutDslMarker
-        ScrollBar).() -> Unit): ScrollBar {
+inline fun NodeManager.styledScrollBar(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker ScrollBar).() -> Unit
+): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ScrollBar(), styleClass = *styleClass, configuration = configuration))
+    return addChild(newChild(ScrollBar(), styleClass = *styleClass, id = id, configuration =
+            configuration))
 }

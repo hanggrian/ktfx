@@ -17,13 +17,17 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [ButtonBar] to this manager.
  */
-fun NodeManager.buttonBar(buttonOrder: String): ButtonBar = buttonBar(buttonOrder = buttonOrder) { }
+fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(buttonOrder =
+        buttonOrder) { }
 
 /**
  * Create a [ButtonBar] with configuration block.
  */
-inline fun buttonBar(buttonOrder: String, configuration: (@LayoutDslMarker KtfxButtonBar).() ->
-        Unit): ButtonBar {
+inline fun buttonBar(
+    buttonOrder: String? = null,
+    configuration: (@LayoutDslMarker    
+            KtfxButtonBar).() -> Unit
+): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxButtonBar(buttonOrder), configuration = configuration)
 }
@@ -31,8 +35,11 @@ inline fun buttonBar(buttonOrder: String, configuration: (@LayoutDslMarker KtfxB
 /**
  * Add a [ButtonBar] with configuration block to this manager.
  */
-inline fun NodeManager.buttonBar(buttonOrder: String, configuration: (@LayoutDslMarker
-        KtfxButtonBar).() -> Unit): ButtonBar {
+inline fun NodeManager.buttonBar(
+    buttonOrder: String? = null,
+    configuration: (@LayoutDslMarker    
+            KtfxButtonBar).() -> Unit
+): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxButtonBar(buttonOrder), configuration = configuration))
 }
@@ -40,25 +47,32 @@ inline fun NodeManager.buttonBar(buttonOrder: String, configuration: (@LayoutDsl
 /**
  * Create a styled [ButtonBar].
  */
-fun styledButtonBar(buttonOrder: String, vararg styleClass: String): ButtonBar =
-        styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass) { }
+fun styledButtonBar(
+    buttonOrder: String? = null,
+    vararg styleClass: String,
+    id: String? = null
+): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ButtonBar] to this manager.
  */
-fun NodeManager.styledButtonBar(buttonOrder: String, vararg styleClass: String): ButtonBar =
-        styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass) { }
+fun NodeManager.styledButtonBar(
+    buttonOrder: String? = null,
+    vararg styleClass: String,
+    id: String? = null
+): ButtonBar = styledButtonBar(buttonOrder = buttonOrder, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ButtonBar] with configuration block.
  */
 inline fun styledButtonBar(
-    buttonOrder: String,
+    buttonOrder: String? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxButtonBar(buttonOrder), styleClass = *styleClass, configuration =
+    return newChild(KtfxButtonBar(buttonOrder), styleClass = *styleClass, id = id, configuration =
             configuration)
 }
 
@@ -66,11 +80,12 @@ inline fun styledButtonBar(
  * Add a styled [ButtonBar] with configuration block to this manager.
  */
 inline fun NodeManager.styledButtonBar(
-    buttonOrder: String,
+    buttonOrder: String? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxButtonBar(buttonOrder), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(KtfxButtonBar(buttonOrder), styleClass = *styleClass, id = id,
+            configuration = configuration))
 }

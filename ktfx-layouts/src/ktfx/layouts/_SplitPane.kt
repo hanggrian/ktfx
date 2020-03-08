@@ -39,30 +39,37 @@ inline fun NodeManager.splitPane(configuration: (@LayoutDslMarker KtfxSplitPane)
 /**
  * Create a styled [SplitPane].
  */
-fun styledSplitPane(vararg styleClass: String): SplitPane = styledSplitPane(styleClass =
-        *styleClass) { }
+fun styledSplitPane(vararg styleClass: String, id: String? = null): SplitPane =
+        styledSplitPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [SplitPane] to this manager.
  */
-fun NodeManager.styledSplitPane(vararg styleClass: String): SplitPane = styledSplitPane(styleClass =
-        *styleClass) { }
+fun NodeManager.styledSplitPane(vararg styleClass: String, id: String? = null): SplitPane =
+        styledSplitPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [SplitPane] with configuration block.
  */
-inline fun styledSplitPane(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxSplitPane).() -> Unit): SplitPane {
+inline fun styledSplitPane(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit
+): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxSplitPane(), styleClass = *styleClass, configuration = configuration)
+    return newChild(KtfxSplitPane(), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
  * Add a styled [SplitPane] with configuration block to this manager.
  */
-inline fun NodeManager.styledSplitPane(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxSplitPane).() -> Unit): SplitPane {
+inline fun NodeManager.styledSplitPane(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit
+): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxSplitPane(), styleClass = *styleClass, configuration =
+    return addChild(newChild(KtfxSplitPane(), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

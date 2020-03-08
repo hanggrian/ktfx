@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("LayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts

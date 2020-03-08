@@ -38,29 +38,36 @@ inline fun NodeManager.tabPane(configuration: (@LayoutDslMarker KtfxTabPane).() 
 /**
  * Create a styled [TabPane].
  */
-fun styledTabPane(vararg styleClass: String): TabPane = styledTabPane(styleClass = *styleClass) { }
+fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane = styledTabPane(styleClass =
+        *styleClass, id = id) { }
 
 /**
  * Add a styled [TabPane] to this manager.
  */
-fun NodeManager.styledTabPane(vararg styleClass: String): TabPane = styledTabPane(styleClass =
-        *styleClass) { }
+fun NodeManager.styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
+        styledTabPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TabPane] with configuration block.
  */
-inline fun styledTabPane(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxTabPane).() -> Unit): TabPane {
+inline fun styledTabPane(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
+): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTabPane(), styleClass = *styleClass, configuration = configuration)
+    return newChild(KtfxTabPane(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
  * Add a styled [TabPane] with configuration block to this manager.
  */
-inline fun NodeManager.styledTabPane(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxTabPane).() -> Unit): TabPane {
+inline fun NodeManager.styledTabPane(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
+): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTabPane(), styleClass = *styleClass, configuration =
+    return addChild(newChild(KtfxTabPane(), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

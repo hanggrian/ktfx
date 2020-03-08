@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [MenuItem] to this manager.
  */
-fun MenuItemManager.menuItem(text: String, graphic: Node): MenuItem = menuItem(text = text, graphic
-        = graphic) { }
+fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem = menuItem(text =
+        text, graphic = graphic) { }
 
 /**
  * Create a [MenuItem] with configuration block.
  */
 inline fun menuItem(
-    text: String,
-    graphic: Node,
+    text: String? = null,
+    graphic: Node? = null,
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun menuItem(
  * Add a [MenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.menuItem(
-    text: String,
-    graphic: Node,
+    text: String? = null,
+    graphic: Node? = null,
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,31 +49,34 @@ inline fun MenuItemManager.menuItem(
  * Create a styled [MenuItem].
  */
 fun styledMenuItem(
-    text: String,
-    graphic: Node,
-    vararg styleClass: String
-): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass) { }
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [MenuItem] to this manager.
  */
 fun MenuItemManager.styledMenuItem(
-    text: String,
-    graphic: Node,
-    vararg styleClass: String
-): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass) { }
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [MenuItem] with configuration block.
  */
 inline fun styledMenuItem(
-    text: String,
-    graphic: Node,
+    text: String? = null,
+    graphic: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(MenuItem(text, graphic), styleClass = *styleClass, configuration =
+    return newChild(MenuItem(text, graphic), styleClass = *styleClass, id = id, configuration =
             configuration)
 }
 
@@ -81,12 +84,13 @@ inline fun styledMenuItem(
  * Add a styled [MenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.styledMenuItem(
-    text: String,
-    graphic: Node,
+    text: String? = null,
+    graphic: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(MenuItem(text, graphic), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(MenuItem(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration))
 }

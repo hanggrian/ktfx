@@ -18,14 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [Tab] to this manager.
  */
-fun TabManager.tab(text: String, content: Node): Tab = tab(text = text, content = content) { }
+fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(text = text, content =
+        content) { }
 
 /**
  * Create a [Tab] with configuration block.
  */
 inline fun tab(
-    text: String,
-    content: Node,
+    text: String? = null,
+    content: Node? = null,
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -36,8 +37,8 @@ inline fun tab(
  * Add a [Tab] with configuration block to this manager.
  */
 inline fun TabManager.tab(
-    text: String,
-    content: Node,
+    text: String? = null,
+    content: Node? = null,
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -48,43 +49,48 @@ inline fun TabManager.tab(
  * Create a styled [Tab].
  */
 fun styledTab(
-    text: String,
-    content: Node,
-    vararg styleClass: String
-): Tab = styledTab(text = text, content = content, styleClass = *styleClass) { }
+    text: String? = null,
+    content: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Tab = styledTab(text = text, content = content, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Tab] to this manager.
  */
 fun TabManager.styledTab(
-    text: String,
-    content: Node,
-    vararg styleClass: String
-): Tab = styledTab(text = text, content = content, styleClass = *styleClass) { }
+    text: String? = null,
+    content: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Tab = styledTab(text = text, content = content, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Tab] with configuration block.
  */
 inline fun styledTab(
-    text: String,
-    content: Node,
+    text: String? = null,
+    content: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTab(text, content), styleClass = *styleClass, configuration = configuration)
+    return newChild(KtfxTab(text, content), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
  * Add a styled [Tab] with configuration block to this manager.
  */
 inline fun TabManager.styledTab(
-    text: String,
-    content: Node,
+    text: String? = null,
+    content: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTab(text, content), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(KtfxTab(text, content), styleClass = *styleClass, id = id,
+            configuration = configuration))
 }

@@ -18,20 +18,21 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [Menu] to this manager.
  */
-fun MenuItemManager.menu(text: String, graphic: Node): Menu = menu(text = text, graphic = graphic) {
-        }
+fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text, graphic =
+        graphic) { }
 
 /**
  * Add a [Menu] to this manager.
  */
-fun MenuManager.menu(text: String, graphic: Node): Menu = menu(text = text, graphic = graphic) { }
+fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text, graphic =
+        graphic) { }
 
 /**
  * Create a [Menu] with configuration block.
  */
 inline fun menu(
-    text: String,
-    graphic: Node,
+    text: String = "",
+    graphic: Node? = null,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -42,8 +43,8 @@ inline fun menu(
  * Add a [Menu] with configuration block to this manager.
  */
 inline fun MenuItemManager.menu(
-    text: String,
-    graphic: Node,
+    text: String = "",
+    graphic: Node? = null,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -54,8 +55,8 @@ inline fun MenuItemManager.menu(
  * Add a [Menu] with configuration block to this manager.
  */
 inline fun MenuManager.menu(
-    text: String,
-    graphic: Node,
+    text: String = "",
+    graphic: Node? = null,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -66,40 +67,44 @@ inline fun MenuManager.menu(
  * Create a styled [Menu].
  */
 fun styledMenu(
-    text: String,
-    graphic: Node,
-    vararg styleClass: String
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass) { }
+    text: String = "",
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Menu] to this manager.
  */
 fun MenuItemManager.styledMenu(
-    text: String,
-    graphic: Node,
-    vararg styleClass: String
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass) { }
+    text: String = "",
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Menu] to this manager.
  */
 fun MenuManager.styledMenu(
-    text: String,
-    graphic: Node,
-    vararg styleClass: String
-): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass) { }
+    text: String = "",
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Menu] with configuration block.
  */
 inline fun styledMenu(
-    text: String,
-    graphic: Node,
+    text: String = "",
+    graphic: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxMenu(text, graphic), styleClass = *styleClass, configuration =
+    return newChild(KtfxMenu(text, graphic), styleClass = *styleClass, id = id, configuration =
             configuration)
 }
 
@@ -107,26 +112,28 @@ inline fun styledMenu(
  * Add a styled [Menu] with configuration block to this manager.
  */
 inline fun MenuItemManager.styledMenu(
-    text: String,
-    graphic: Node,
+    text: String = "",
+    graphic: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenu(text, graphic), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(KtfxMenu(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration))
 }
 
 /**
  * Add a styled [Menu] with configuration block to this manager.
  */
 inline fun MenuManager.styledMenu(
-    text: String,
-    graphic: Node,
+    text: String = "",
+    graphic: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenu(text, graphic), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(KtfxMenu(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration))
 }

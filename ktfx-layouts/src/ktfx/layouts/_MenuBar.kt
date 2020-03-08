@@ -38,29 +38,36 @@ inline fun NodeManager.menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() 
 /**
  * Create a styled [MenuBar].
  */
-fun styledMenuBar(vararg styleClass: String): MenuBar = styledMenuBar(styleClass = *styleClass) { }
+fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styledMenuBar(styleClass =
+        *styleClass, id = id) { }
 
 /**
  * Add a styled [MenuBar] to this manager.
  */
-fun NodeManager.styledMenuBar(vararg styleClass: String): MenuBar = styledMenuBar(styleClass =
-        *styleClass) { }
+fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
+        styledMenuBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [MenuBar] with configuration block.
  */
-inline fun styledMenuBar(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxMenuBar).() -> Unit): MenuBar {
+inline fun styledMenuBar(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
+): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxMenuBar(), styleClass = *styleClass, configuration = configuration)
+    return newChild(KtfxMenuBar(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
  * Add a styled [MenuBar] with configuration block to this manager.
  */
-inline fun NodeManager.styledMenuBar(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxMenuBar).() -> Unit): MenuBar {
+inline fun NodeManager.styledMenuBar(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
+): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenuBar(), styleClass = *styleClass, configuration =
+    return addChild(newChild(KtfxMenuBar(), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

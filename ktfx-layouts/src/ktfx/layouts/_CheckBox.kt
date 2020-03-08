@@ -17,12 +17,13 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [CheckBox] to this manager.
  */
-fun NodeManager.checkBox(text: String): CheckBox = checkBox(text = text) { }
+fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text) { }
 
 /**
  * Create a [CheckBox] with configuration block.
  */
-inline fun checkBox(text: String, configuration: (@LayoutDslMarker CheckBox).() -> Unit): CheckBox {
+inline fun checkBox(text: String? = null, configuration: (@LayoutDslMarker CheckBox).() -> Unit):
+        CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(CheckBox(text), configuration = configuration)
 }
@@ -30,8 +31,11 @@ inline fun checkBox(text: String, configuration: (@LayoutDslMarker CheckBox).() 
 /**
  * Add a [CheckBox] with configuration block to this manager.
  */
-inline fun NodeManager.checkBox(text: String, configuration: (@LayoutDslMarker CheckBox).() ->
-        Unit): CheckBox {
+inline fun NodeManager.checkBox(
+    text: String? = null,
+    configuration: (@LayoutDslMarker    
+            CheckBox).() -> Unit
+): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(CheckBox(text), configuration = configuration))
 }
@@ -39,36 +43,45 @@ inline fun NodeManager.checkBox(text: String, configuration: (@LayoutDslMarker C
 /**
  * Create a styled [CheckBox].
  */
-fun styledCheckBox(text: String, vararg styleClass: String): CheckBox = styledCheckBox(text = text,
-        styleClass = *styleClass) { }
+fun styledCheckBox(
+    text: String? = null,
+    vararg styleClass: String,
+    id: String? = null
+): CheckBox = styledCheckBox(text = text, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [CheckBox] to this manager.
  */
-fun NodeManager.styledCheckBox(text: String, vararg styleClass: String): CheckBox =
-        styledCheckBox(text = text, styleClass = *styleClass) { }
+fun NodeManager.styledCheckBox(
+    text: String? = null,
+    vararg styleClass: String,
+    id: String? = null
+): CheckBox = styledCheckBox(text = text, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [CheckBox] with configuration block.
  */
 inline fun styledCheckBox(
-    text: String,
+    text: String? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker CheckBox).() -> Unit
 ): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CheckBox(text), styleClass = *styleClass, configuration = configuration)
+    return newChild(CheckBox(text), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
  * Add a styled [CheckBox] with configuration block to this manager.
  */
 inline fun NodeManager.styledCheckBox(
-    text: String,
+    text: String? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker CheckBox).() -> Unit
 ): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CheckBox(text), styleClass = *styleClass, configuration =
+    return addChild(newChild(CheckBox(text), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

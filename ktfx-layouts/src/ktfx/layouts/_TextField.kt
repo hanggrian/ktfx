@@ -31,8 +31,11 @@ inline fun textField(text: String = "", configuration: (@LayoutDslMarker TextFie
 /**
  * Add a [TextField] with configuration block to this manager.
  */
-inline fun NodeManager.textField(text: String = "", configuration: (@LayoutDslMarker
-        TextField).() -> Unit): TextField {
+inline fun NodeManager.textField(
+    text: String = "",
+    configuration: (@LayoutDslMarker    
+            TextField).() -> Unit
+): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(TextField(text), configuration = configuration))
 }
@@ -40,14 +43,20 @@ inline fun NodeManager.textField(text: String = "", configuration: (@LayoutDslMa
 /**
  * Create a styled [TextField].
  */
-fun styledTextField(text: String = "", vararg styleClass: String): TextField = styledTextField(text
-        = text, styleClass = *styleClass) { }
+fun styledTextField(
+    text: String = "",
+    vararg styleClass: String,
+    id: String? = null
+): TextField = styledTextField(text = text, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [TextField] to this manager.
  */
-fun NodeManager.styledTextField(text: String = "", vararg styleClass: String): TextField =
-        styledTextField(text = text, styleClass = *styleClass) { }
+fun NodeManager.styledTextField(
+    text: String = "",
+    vararg styleClass: String,
+    id: String? = null
+): TextField = styledTextField(text = text, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TextField] with configuration block.
@@ -55,10 +64,12 @@ fun NodeManager.styledTextField(text: String = "", vararg styleClass: String): T
 inline fun styledTextField(
     text: String = "",
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TextField(text), styleClass = *styleClass, configuration = configuration)
+    return newChild(TextField(text), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
@@ -67,9 +78,10 @@ inline fun styledTextField(
 inline fun NodeManager.styledTextField(
     text: String = "",
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TextField(text), styleClass = *styleClass, configuration =
+    return addChild(newChild(TextField(text), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

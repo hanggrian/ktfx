@@ -12,7 +12,7 @@ import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 /** Alias of [LayoutManager.addChild] with [configuration] builder. */
-@UseExperimental(ExperimentalContracts::class)
+@OptIn(ExperimentalContracts::class)
 inline fun <C : T, T> LayoutManager<T>.addChild(child: C, configuration: C.() -> Unit): C {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     child.configuration()

@@ -4,6 +4,5 @@ class LayoutsGeneratorTest {
 
     // @Test
     fun test() {
-        LayoutsGenerator.generate()
     }
 }

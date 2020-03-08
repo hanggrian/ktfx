@@ -40,30 +40,37 @@ inline fun NodeManager.passwordField(configuration: (@LayoutDslMarker PasswordFi
 /**
  * Create a styled [PasswordField].
  */
-fun styledPasswordField(vararg styleClass: String): PasswordField = styledPasswordField(styleClass =
-        *styleClass) { }
+fun styledPasswordField(vararg styleClass: String, id: String? = null): PasswordField =
+        styledPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [PasswordField] to this manager.
  */
-fun NodeManager.styledPasswordField(vararg styleClass: String): PasswordField =
-        styledPasswordField(styleClass = *styleClass) { }
+fun NodeManager.styledPasswordField(vararg styleClass: String, id: String? = null): PasswordField =
+        styledPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [PasswordField] with configuration block.
  */
-inline fun styledPasswordField(vararg styleClass: String, configuration: (@LayoutDslMarker
-        PasswordField).() -> Unit): PasswordField {
+inline fun styledPasswordField(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker PasswordField).() -> Unit
+): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PasswordField(), styleClass = *styleClass, configuration = configuration)
+    return newChild(PasswordField(), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
  * Add a styled [PasswordField] with configuration block to this manager.
  */
-inline fun NodeManager.styledPasswordField(vararg styleClass: String,
-        configuration: (@LayoutDslMarker PasswordField).() -> Unit): PasswordField {
+inline fun NodeManager.styledPasswordField(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker PasswordField).() -> Unit
+): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PasswordField(), styleClass = *styleClass, configuration =
+    return addChild(newChild(PasswordField(), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

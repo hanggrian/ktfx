@@ -18,15 +18,15 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [Label] to this manager.
  */
-fun NodeManager.label(text: String, graphic: Node): Label = label(text = text, graphic = graphic) {
-        }
+fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(text = text,
+        graphic = graphic) { }
 
 /**
  * Create a [Label] with configuration block.
  */
 inline fun label(
-    text: String,
-    graphic: Node,
+    text: String? = null,
+    graphic: Node? = null,
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,8 +37,8 @@ inline fun label(
  * Add a [Label] with configuration block to this manager.
  */
 inline fun NodeManager.label(
-    text: String,
-    graphic: Node,
+    text: String? = null,
+    graphic: Node? = null,
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -49,43 +49,48 @@ inline fun NodeManager.label(
  * Create a styled [Label].
  */
 fun styledLabel(
-    text: String,
-    graphic: Node,
-    vararg styleClass: String
-): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass) { }
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Label] to this manager.
  */
 fun NodeManager.styledLabel(
-    text: String,
-    graphic: Node,
-    vararg styleClass: String
-): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass) { }
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Label] with configuration block.
  */
 inline fun styledLabel(
-    text: String,
-    graphic: Node,
+    text: String? = null,
+    graphic: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Label(text, graphic), styleClass = *styleClass, configuration = configuration)
+    return newChild(Label(text, graphic), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
  * Add a styled [Label] with configuration block to this manager.
  */
 inline fun NodeManager.styledLabel(
-    text: String,
-    graphic: Node,
+    text: String? = null,
+    graphic: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Label(text, graphic), styleClass = *styleClass, configuration =
+    return addChild(newChild(Label(text, graphic), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

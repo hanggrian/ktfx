@@ -25,8 +25,11 @@ fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): Progress
 /**
  * Create a [ProgressBar] with configuration block.
  */
-inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS, configuration: (@LayoutDslMarker
-        ProgressBar).() -> Unit): ProgressBar {
+inline fun progressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker    
+            ProgressBar).() -> Unit
+): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ProgressBar(progress), configuration = configuration)
 }
@@ -34,8 +37,10 @@ inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS, configuration:
 /**
  * Add a [ProgressBar] with configuration block to this manager.
  */
-inline fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS,
-        configuration: (@LayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
+inline fun NodeManager.progressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
+): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ProgressBar(progress), configuration = configuration))
 }
@@ -43,15 +48,20 @@ inline fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS,
 /**
  * Create a styled [ProgressBar].
  */
-fun styledProgressBar(progress: Double = INDETERMINATE_PROGRESS, vararg styleClass: String):
-        ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass) { }
+fun styledProgressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    vararg styleClass: String,
+    id: String? = null
+): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ProgressBar] to this manager.
  */
-fun NodeManager.styledProgressBar(progress: Double = INDETERMINATE_PROGRESS, vararg
-        styleClass: String): ProgressBar = styledProgressBar(progress = progress, styleClass =
-        *styleClass) { }
+fun NodeManager.styledProgressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    vararg styleClass: String,
+    id: String? = null
+): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ProgressBar] with configuration block.
@@ -59,10 +69,12 @@ fun NodeManager.styledProgressBar(progress: Double = INDETERMINATE_PROGRESS, var
 inline fun styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ProgressBar(progress), styleClass = *styleClass, configuration = configuration)
+    return newChild(ProgressBar(progress), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
@@ -71,9 +83,10 @@ inline fun styledProgressBar(
 inline fun NodeManager.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ProgressBar(progress), styleClass = *styleClass, configuration =
+    return addChild(newChild(ProgressBar(progress), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

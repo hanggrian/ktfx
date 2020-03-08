@@ -39,30 +39,37 @@ inline fun NodeManager.accordion(configuration: (@LayoutDslMarker KtfxAccordion)
 /**
  * Create a styled [Accordion].
  */
-fun styledAccordion(vararg styleClass: String): Accordion = styledAccordion(styleClass =
-        *styleClass) { }
+fun styledAccordion(vararg styleClass: String, id: String? = null): Accordion =
+        styledAccordion(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Accordion] to this manager.
  */
-fun NodeManager.styledAccordion(vararg styleClass: String): Accordion = styledAccordion(styleClass =
-        *styleClass) { }
+fun NodeManager.styledAccordion(vararg styleClass: String, id: String? = null): Accordion =
+        styledAccordion(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Accordion] with configuration block.
  */
-inline fun styledAccordion(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxAccordion).() -> Unit): Accordion {
+inline fun styledAccordion(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
+): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxAccordion(), styleClass = *styleClass, configuration = configuration)
+    return newChild(KtfxAccordion(), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
  * Add a styled [Accordion] with configuration block to this manager.
  */
-inline fun NodeManager.styledAccordion(vararg styleClass: String, configuration: (@LayoutDslMarker
-        KtfxAccordion).() -> Unit): Accordion {
+inline fun NodeManager.styledAccordion(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
+): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxAccordion(), styleClass = *styleClass, configuration =
+    return addChild(newChild(KtfxAccordion(), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

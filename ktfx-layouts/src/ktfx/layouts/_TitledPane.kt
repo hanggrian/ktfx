@@ -17,18 +17,21 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [TitledPane] to this manager.
  */
-fun NodeManager.titledPane(title: String): TitledPane = titledPane(title = title) { }
+fun NodeManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
 
 /**
  * Add a [TitledPane] to this manager.
  */
-fun TitledPaneManager.titledPane(title: String): TitledPane = titledPane(title = title) { }
+fun TitledPaneManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
 
 /**
  * Create a [TitledPane] with configuration block.
  */
-inline fun titledPane(title: String, configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit):
-        TitledPane {
+inline fun titledPane(
+    title: String? = null,
+    configuration: (@LayoutDslMarker KtfxTitledPane).() ->    
+            Unit
+): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxTitledPane(title), configuration = configuration)
 }
@@ -36,8 +39,11 @@ inline fun titledPane(title: String, configuration: (@LayoutDslMarker KtfxTitled
 /**
  * Add a [TitledPane] with configuration block to this manager.
  */
-inline fun NodeManager.titledPane(title: String, configuration: (@LayoutDslMarker
-        KtfxTitledPane).() -> Unit): TitledPane {
+inline fun NodeManager.titledPane(
+    title: String? = null,
+    configuration: (@LayoutDslMarker    
+            KtfxTitledPane).() -> Unit
+): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxTitledPane(title), configuration = configuration))
 }
@@ -45,8 +51,11 @@ inline fun NodeManager.titledPane(title: String, configuration: (@LayoutDslMarke
 /**
  * Add a [TitledPane] with configuration block to this manager.
  */
-inline fun TitledPaneManager.titledPane(title: String, configuration: (@LayoutDslMarker
-        KtfxTitledPane).() -> Unit): TitledPane {
+inline fun TitledPaneManager.titledPane(
+    title: String? = null,
+    configuration: (@LayoutDslMarker    
+            KtfxTitledPane).() -> Unit
+): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxTitledPane(title), configuration = configuration))
 }
@@ -54,43 +63,55 @@ inline fun TitledPaneManager.titledPane(title: String, configuration: (@LayoutDs
 /**
  * Create a styled [TitledPane].
  */
-fun styledTitledPane(title: String, vararg styleClass: String): TitledPane = styledTitledPane(title
-        = title, styleClass = *styleClass) { }
+fun styledTitledPane(
+    title: String? = null,
+    vararg styleClass: String,
+    id: String? = null
+): TitledPane = styledTitledPane(title = title, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [TitledPane] to this manager.
  */
-fun NodeManager.styledTitledPane(title: String, vararg styleClass: String): TitledPane =
-        styledTitledPane(title = title, styleClass = *styleClass) { }
+fun NodeManager.styledTitledPane(
+    title: String? = null,
+    vararg styleClass: String,
+    id: String? = null
+): TitledPane = styledTitledPane(title = title, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [TitledPane] to this manager.
  */
-fun TitledPaneManager.styledTitledPane(title: String, vararg styleClass: String): TitledPane =
-        styledTitledPane(title = title, styleClass = *styleClass) { }
+fun TitledPaneManager.styledTitledPane(
+    title: String? = null,
+    vararg styleClass: String,
+    id: String? = null
+): TitledPane = styledTitledPane(title = title, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TitledPane] with configuration block.
  */
 inline fun styledTitledPane(
-    title: String,
+    title: String? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTitledPane(title), styleClass = *styleClass, configuration = configuration)
+    return newChild(KtfxTitledPane(title), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
  * Add a styled [TitledPane] with configuration block to this manager.
  */
 inline fun NodeManager.styledTitledPane(
-    title: String,
+    title: String? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTitledPane(title), styleClass = *styleClass, configuration =
+    return addChild(newChild(KtfxTitledPane(title), styleClass = *styleClass, id = id, configuration =
             configuration))
 }
 
@@ -98,11 +119,12 @@ inline fun NodeManager.styledTitledPane(
  * Add a styled [TitledPane] with configuration block to this manager.
  */
 inline fun TitledPaneManager.styledTitledPane(
-    title: String,
+    title: String? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTitledPane(title), styleClass = *styleClass, configuration =
+    return addChild(newChild(KtfxTitledPane(title), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

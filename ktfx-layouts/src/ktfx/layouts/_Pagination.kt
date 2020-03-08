@@ -53,9 +53,10 @@ inline fun NodeManager.pagination(
 fun styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
-    vararg styleClass: String
+    vararg styleClass: String,
+    id: String? = null
 ): Pagination = styledPagination(pageCount = pageCount, currentPageIndex = currentPageIndex,
-        styleClass = *styleClass) { }
+        styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Pagination] to this manager.
@@ -63,9 +64,10 @@ fun styledPagination(
 fun NodeManager.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
-    vararg styleClass: String
+    vararg styleClass: String,
+    id: String? = null
 ): Pagination = styledPagination(pageCount = pageCount, currentPageIndex = currentPageIndex,
-        styleClass = *styleClass) { }
+        styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Pagination] with configuration block.
@@ -74,11 +76,12 @@ inline fun styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass, configuration
-            = configuration)
+    return newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass, id = id,
+            configuration = configuration)
 }
 
 /**
@@ -88,9 +91,10 @@ inline fun NodeManager.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass,
-            configuration = configuration))
+    return addChild(newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass, id =
+            id, configuration = configuration))
 }

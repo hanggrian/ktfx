@@ -1,4 +1,4 @@
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.controls
 

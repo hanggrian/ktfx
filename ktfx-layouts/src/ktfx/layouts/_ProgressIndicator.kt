@@ -4,7 +4,6 @@
 
 package ktfx.layouts
 
-import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 import javafx.scene.control.ProgressIndicator
 import kotlin.Double
@@ -26,8 +25,10 @@ fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS): Pr
 /**
  * Create a [ProgressIndicator] with configuration block.
  */
-inline fun progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
-        configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
+inline fun progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
+): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ProgressIndicator(progress), configuration = configuration)
 }
@@ -35,8 +36,10 @@ inline fun progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
 /**
  * Add a [ProgressIndicator] with configuration block to this manager.
  */
-inline fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
-        configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
+inline fun NodeManager.progressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
+): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ProgressIndicator(progress), configuration = configuration))
 }
@@ -44,16 +47,22 @@ inline fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRE
 /**
  * Create a styled [ProgressIndicator].
  */
-fun styledProgressIndicator(progress: Double = INDETERMINATE_PROGRESS, vararg styleClass: String):
-        ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = *styleClass) {
-        }
+fun styledProgressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    vararg styleClass: String,
+    id: String? = null
+): ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = *styleClass, id =
+        id) { }
 
 /**
  * Add a styled [ProgressIndicator] to this manager.
  */
-fun NodeManager.styledProgressIndicator(progress: Double = INDETERMINATE_PROGRESS, vararg
-        styleClass: String): ProgressIndicator = styledProgressIndicator(progress = progress,
-        styleClass = *styleClass) { }
+fun NodeManager.styledProgressIndicator(
+    progress: Double = INDETERMINATE_PROGRESS,
+    vararg styleClass: String,
+    id: String? = null
+): ProgressIndicator = styledProgressIndicator(progress = progress, styleClass = *styleClass, id =
+        id) { }
 
 /**
  * Create a styled [ProgressIndicator] with configuration block.
@@ -61,10 +70,11 @@ fun NodeManager.styledProgressIndicator(progress: Double = INDETERMINATE_PROGRES
 inline fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ProgressIndicator(progress), styleClass = *styleClass, configuration =
+    return newChild(ProgressIndicator(progress), styleClass = *styleClass, id = id, configuration =
             configuration)
 }
 
@@ -74,9 +84,10 @@ inline fun styledProgressIndicator(
 inline fun NodeManager.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ProgressIndicator(progress), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(ProgressIndicator(progress), styleClass = *styleClass, id = id,
+            configuration = configuration))
 }

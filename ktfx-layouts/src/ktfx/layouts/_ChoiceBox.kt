@@ -4,7 +4,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
@@ -26,8 +25,10 @@ fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList()):
 /**
  * Create a [ChoiceBox] with configuration block.
  */
-inline fun <T> choiceBox(items: ObservableList<T> = observableArrayList(),
-        configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit): ChoiceBox<T> {
+inline fun <T> choiceBox(
+    items: ObservableList<T> = observableArrayList(),
+    configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
+): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ChoiceBox<T>(items), configuration = configuration)
 }
@@ -35,8 +36,10 @@ inline fun <T> choiceBox(items: ObservableList<T> = observableArrayList(),
 /**
  * Add a [ChoiceBox] with configuration block to this manager.
  */
-inline fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList(),
-        configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit): ChoiceBox<T> {
+inline fun <T> NodeManager.choiceBox(
+    items: ObservableList<T> = observableArrayList(),
+    configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
+): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ChoiceBox<T>(items), configuration = configuration))
 }
@@ -44,16 +47,20 @@ inline fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayL
 /**
  * Create a styled [ChoiceBox].
  */
-fun <T> styledChoiceBox(items: ObservableList<T> = observableArrayList(), vararg
-        styleClass: String): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = *styleClass)
-        { }
+fun <T> styledChoiceBox(
+    items: ObservableList<T> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
+): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ChoiceBox] to this manager.
  */
-fun <T> NodeManager.styledChoiceBox(items: ObservableList<T> = observableArrayList(), vararg
-        styleClass: String): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = *styleClass)
-        { }
+fun <T> NodeManager.styledChoiceBox(
+    items: ObservableList<T> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
+): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ChoiceBox] with configuration block.
@@ -61,10 +68,12 @@ fun <T> NodeManager.styledChoiceBox(items: ObservableList<T> = observableArrayLi
 inline fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ChoiceBox<T>(items), styleClass = *styleClass, configuration = configuration)
+    return newChild(ChoiceBox<T>(items), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
@@ -73,9 +82,10 @@ inline fun <T> styledChoiceBox(
 inline fun <T> NodeManager.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ChoiceBox<T>(items), styleClass = *styleClass, configuration =
+    return addChild(newChild(ChoiceBox<T>(items), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

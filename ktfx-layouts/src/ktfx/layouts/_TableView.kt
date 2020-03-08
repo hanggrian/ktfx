@@ -4,7 +4,6 @@
 
 package ktfx.layouts
 
-import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.control.TableView
@@ -26,8 +25,10 @@ fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList()):
 /**
  * Create a [TableView] with configuration block.
  */
-inline fun <S> tableView(items: ObservableList<S> = observableArrayList(),
-        configuration: (@LayoutDslMarker TableView<S>).() -> Unit): TableView<S> {
+inline fun <S> tableView(
+    items: ObservableList<S> = observableArrayList(),
+    configuration: (@LayoutDslMarker TableView<S>).() -> Unit
+): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(TableView<S>(items), configuration = configuration)
 }
@@ -35,8 +36,10 @@ inline fun <S> tableView(items: ObservableList<S> = observableArrayList(),
 /**
  * Add a [TableView] with configuration block to this manager.
  */
-inline fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList(),
-        configuration: (@LayoutDslMarker TableView<S>).() -> Unit): TableView<S> {
+inline fun <S> NodeManager.tableView(
+    items: ObservableList<S> = observableArrayList(),
+    configuration: (@LayoutDslMarker TableView<S>).() -> Unit
+): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(TableView<S>(items), configuration = configuration))
 }
@@ -44,16 +47,20 @@ inline fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayL
 /**
  * Create a styled [TableView].
  */
-fun <S> styledTableView(items: ObservableList<S> = observableArrayList(), vararg
-        styleClass: String): TableView<S> = styledTableView(items = items, styleClass = *styleClass)
-        { }
+fun <S> styledTableView(
+    items: ObservableList<S> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
+): TableView<S> = styledTableView(items = items, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [TableView] to this manager.
  */
-fun <S> NodeManager.styledTableView(items: ObservableList<S> = observableArrayList(), vararg
-        styleClass: String): TableView<S> = styledTableView(items = items, styleClass = *styleClass)
-        { }
+fun <S> NodeManager.styledTableView(
+    items: ObservableList<S> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
+): TableView<S> = styledTableView(items = items, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TableView] with configuration block.
@@ -61,10 +68,12 @@ fun <S> NodeManager.styledTableView(items: ObservableList<S> = observableArrayLi
 inline fun <S> styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TableView<S>(items), styleClass = *styleClass, configuration = configuration)
+    return newChild(TableView<S>(items), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
@@ -73,9 +82,10 @@ inline fun <S> styledTableView(
 inline fun <S> NodeManager.styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TableView<S>(items), styleClass = *styleClass, configuration =
+    return addChild(newChild(TableView<S>(items), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

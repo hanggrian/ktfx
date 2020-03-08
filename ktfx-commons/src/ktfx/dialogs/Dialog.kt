@@ -42,7 +42,7 @@ var Dialog<*>.headerTitle: String
 val Dialog<*>.buttons: DialogButtonContainer get() = DialogButtonContainer(this)
 
 /** Configure buttons of this [Dialog] using [configuration] block. */
-@UseExperimental(ExperimentalContracts::class)
+@OptIn(ExperimentalContracts::class)
 inline fun Dialog<*>.buttons(configuration: DialogButtonContainerScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     DialogButtonContainerScope(this).configuration()

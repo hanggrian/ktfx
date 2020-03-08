@@ -31,8 +31,11 @@ inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea
 /**
  * Add a [TextArea] with configuration block to this manager.
  */
-inline fun NodeManager.textArea(text: String = "", configuration: (@LayoutDslMarker TextArea).() ->
-        Unit): TextArea {
+inline fun NodeManager.textArea(
+    text: String = "",
+    configuration: (@LayoutDslMarker TextArea).() ->    
+            Unit
+): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(TextArea(text), configuration = configuration))
 }
@@ -40,14 +43,20 @@ inline fun NodeManager.textArea(text: String = "", configuration: (@LayoutDslMar
 /**
  * Create a styled [TextArea].
  */
-fun styledTextArea(text: String = "", vararg styleClass: String): TextArea = styledTextArea(text =
-        text, styleClass = *styleClass) { }
+fun styledTextArea(
+    text: String = "",
+    vararg styleClass: String,
+    id: String? = null
+): TextArea = styledTextArea(text = text, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [TextArea] to this manager.
  */
-fun NodeManager.styledTextArea(text: String = "", vararg styleClass: String): TextArea =
-        styledTextArea(text = text, styleClass = *styleClass) { }
+fun NodeManager.styledTextArea(
+    text: String = "",
+    vararg styleClass: String,
+    id: String? = null
+): TextArea = styledTextArea(text = text, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TextArea] with configuration block.
@@ -55,10 +64,12 @@ fun NodeManager.styledTextArea(text: String = "", vararg styleClass: String): Te
 inline fun styledTextArea(
     text: String = "",
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TextArea(text), styleClass = *styleClass, configuration = configuration)
+    return newChild(TextArea(text), styleClass = *styleClass, id = id, configuration =
+            configuration)
 }
 
 /**
@@ -67,9 +78,10 @@ inline fun styledTextArea(
 inline fun NodeManager.styledTextArea(
     text: String = "",
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TextArea(text), styleClass = *styleClass, configuration =
+    return addChild(newChild(TextArea(text), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

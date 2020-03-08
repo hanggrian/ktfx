@@ -1,6 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("ControlsFxLayoutsKt")
-@file:UseExperimental(ExperimentalContracts::class)
+@file:OptIn(ExperimentalContracts::class)
 
 package ktfx.controlsfx.layouts
 

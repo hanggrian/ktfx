@@ -18,13 +18,16 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [ScrollPane] to this manager.
  */
-fun NodeManager.scrollPane(content: Node): ScrollPane = scrollPane(content = content) { }
+fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(content = content) { }
 
 /**
  * Create a [ScrollPane] with configuration block.
  */
-inline fun scrollPane(content: Node, configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit):
-        ScrollPane {
+inline fun scrollPane(
+    content: Node? = null,
+    configuration: (@LayoutDslMarker KtfxScrollPane).() ->    
+            Unit
+): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxScrollPane(content), configuration = configuration)
 }
@@ -32,8 +35,11 @@ inline fun scrollPane(content: Node, configuration: (@LayoutDslMarker KtfxScroll
 /**
  * Add a [ScrollPane] with configuration block to this manager.
  */
-inline fun NodeManager.scrollPane(content: Node, configuration: (@LayoutDslMarker
-        KtfxScrollPane).() -> Unit): ScrollPane {
+inline fun NodeManager.scrollPane(
+    content: Node? = null,
+    configuration: (@LayoutDslMarker    
+            KtfxScrollPane).() -> Unit
+): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxScrollPane(content), configuration = configuration))
 }
@@ -41,25 +47,32 @@ inline fun NodeManager.scrollPane(content: Node, configuration: (@LayoutDslMarke
 /**
  * Create a styled [ScrollPane].
  */
-fun styledScrollPane(content: Node, vararg styleClass: String): ScrollPane =
-        styledScrollPane(content = content, styleClass = *styleClass) { }
+fun styledScrollPane(
+    content: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): ScrollPane = styledScrollPane(content = content, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ScrollPane] to this manager.
  */
-fun NodeManager.styledScrollPane(content: Node, vararg styleClass: String): ScrollPane =
-        styledScrollPane(content = content, styleClass = *styleClass) { }
+fun NodeManager.styledScrollPane(
+    content: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): ScrollPane = styledScrollPane(content = content, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ScrollPane] with configuration block.
  */
 inline fun styledScrollPane(
-    content: Node,
+    content: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxScrollPane(content), styleClass = *styleClass, configuration =
+    return newChild(KtfxScrollPane(content), styleClass = *styleClass, id = id, configuration =
             configuration)
 }
 
@@ -67,11 +80,12 @@ inline fun styledScrollPane(
  * Add a styled [ScrollPane] with configuration block to this manager.
  */
 inline fun NodeManager.styledScrollPane(
-    content: Node,
+    content: Node? = null,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxScrollPane(content), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(KtfxScrollPane(content), styleClass = *styleClass, id = id,
+            configuration = configuration))
 }

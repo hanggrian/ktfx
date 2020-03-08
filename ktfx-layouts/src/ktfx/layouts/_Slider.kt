@@ -57,8 +57,9 @@ fun styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    vararg styleClass: String
-): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass) { }
+    vararg styleClass: String,
+    id: String? = null
+): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Slider] to this manager.
@@ -67,8 +68,9 @@ fun NodeManager.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    vararg styleClass: String
-): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass) { }
+    vararg styleClass: String,
+    id: String? = null
+): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Slider] with configuration block.
@@ -78,10 +80,11 @@ inline fun styledSlider(
     max: Double = 100.0,
     value: Double = 0.0,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Slider(min, max, value), styleClass = *styleClass, configuration =
+    return newChild(Slider(min, max, value), styleClass = *styleClass, id = id, configuration =
             configuration)
 }
 
@@ -93,9 +96,10 @@ inline fun NodeManager.styledSlider(
     max: Double = 100.0,
     value: Double = 0.0,
     vararg styleClass: String,
+    id: String? = null,
     configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Slider(min, max, value), styleClass = *styleClass, configuration =
-            configuration))
+    return addChild(newChild(Slider(min, max, value), styleClass = *styleClass, id = id,
+            configuration = configuration))
 }

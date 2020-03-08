@@ -13,26 +13,50 @@ object KtfxInternals {
     /** Some mutable backing fields are only used to set value. */
     fun noGetter(): Nothing = throw UnsupportedOperationException(NO_GETTER)
 
-    inline fun <T : MenuItem> newChild(child: T, vararg styleClass: String, configuration: T.() -> Unit): T {
+    inline fun <T : MenuItem> newChild(
+        child: T,
+        vararg styleClass: String,
+        id: String? = null,
+        configuration: T.() -> Unit
+    ): T {
         child.styleClass += styleClass
+        child.id = id
         child.configuration()
         return child
     }
 
-    inline fun <T : Node> newChild(child: T, vararg styleClass: String, configuration: T.() -> Unit): T {
+    inline fun <T : Node> newChild(
+        child: T,
+        vararg styleClass: String,
+        id: String? = null,
+        configuration: T.() -> Unit
+    ): T {
         child.styleClass += styleClass
+        child.id = id
         child.configuration()
         return child
     }
 
-    inline fun <T : Tab> newChild(child: T, vararg styleClass: String, configuration: T.() -> Unit): T {
+    inline fun <T : Tab> newChild(
+        child: T,
+        vararg styleClass: String,
+        id: String? = null,
+        configuration: T.() -> Unit
+    ): T {
         child.styleClass += styleClass
+        child.id = id
         child.configuration()
         return child
     }
 
-    inline fun <T : TitledPane> newChild(child: T, vararg styleClass: String, configuration: T.() -> Unit): T {
+    inline fun <T : TitledPane> newChild(
+        child: T,
+        vararg styleClass: String,
+        id: String? = null,
+        configuration: T.() -> Unit
+    ): T {
         child.styleClass += styleClass
+        child.id = id
         child.configuration()
         return child
     }

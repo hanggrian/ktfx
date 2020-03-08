@@ -39,29 +39,36 @@ inline fun NodeManager.separator(configuration: (@LayoutDslMarker Separator).() 
 /**
  * Create a styled [Separator].
  */
-fun styledSeparator(vararg styleClass: String): Separator = styledSeparator(styleClass =
-        *styleClass) { }
+fun styledSeparator(vararg styleClass: String, id: String? = null): Separator =
+        styledSeparator(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Separator] to this manager.
  */
-fun NodeManager.styledSeparator(vararg styleClass: String): Separator = styledSeparator(styleClass =
-        *styleClass) { }
+fun NodeManager.styledSeparator(vararg styleClass: String, id: String? = null): Separator =
+        styledSeparator(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Separator] with configuration block.
  */
-inline fun styledSeparator(vararg styleClass: String, configuration: (@LayoutDslMarker
-        Separator).() -> Unit): Separator {
+inline fun styledSeparator(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker Separator).() -> Unit
+): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Separator(), styleClass = *styleClass, configuration = configuration)
+    return newChild(Separator(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
  * Add a styled [Separator] with configuration block to this manager.
  */
-inline fun NodeManager.styledSeparator(vararg styleClass: String, configuration: (@LayoutDslMarker
-        Separator).() -> Unit): Separator {
+inline fun NodeManager.styledSeparator(
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker Separator).() -> Unit
+): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Separator(), styleClass = *styleClass, configuration = configuration))
+    return addChild(newChild(Separator(), styleClass = *styleClass, id = id, configuration =
+            configuration))
 }

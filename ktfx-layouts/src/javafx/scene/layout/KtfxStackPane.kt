@@ -8,22 +8,19 @@ package ktfx.layouts
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
-import javafx.scene.layout.BorderPane
+import javafx.scene.layout.StackPane
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /**
- * [BorderPane] with dynamic-layout dsl support.
- * Invoking dsl will only set its center. There is currently no way to configure other areas (top, left, right, bottom) with dsl.
- * Instead, create an instance and set it manually (e.g: `left = ktfx.layouts.label()`).
+ * [StackPane] with dynamic-layout dsl support.
+ * Invoking dsl will add its children.
  */
-open class KtfxBorderPane : BorderPane(), NodeManager {
+open class KtfxStackPane : StackPane(), NodeManager {
 
-    final override fun <C : Node> addChild(child: C): C = child.also { center = it }
+    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
@@ -141,23 +138,4 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
         margins = margin
         return this
     }
-}
-
-/** Create a [BorderPane] with configuration block. */
-inline fun borderPane(
-    configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
-): BorderPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxBorderPane().apply(configuration)
-}
-
-/** Add a [BorderPane] to this manager. */
-fun NodeManager.borderPane(): BorderPane = addChild(KtfxBorderPane())
-
-/** Add a [BorderPane] with configuration block to this manager. */
-inline fun NodeManager.borderPane(
-    configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
-): BorderPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxBorderPane(), configuration)
 }

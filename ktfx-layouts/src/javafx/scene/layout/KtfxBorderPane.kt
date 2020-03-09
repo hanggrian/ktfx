@@ -6,28 +6,37 @@
 package ktfx.layouts
 
 import javafx.geometry.Insets
-import javafx.geometry.Orientation
+import javafx.geometry.Pos
 import javafx.scene.Node
-import javafx.scene.layout.FlowPane
+import javafx.scene.layout.BorderPane
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /**
- * [FlowPane] with dynamic-layout dsl support.
- * Invoking dsl will add its children.
+ * [BorderPane] with dynamic-layout dsl support.
+ * Invoking dsl will only set its center. There is currently no way to configure other areas (top, left, right, bottom) with dsl.
+ * Instead, create an instance and set it manually (e.g: `left = ktfx.layouts.label()`).
  */
-open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
-    NodeManager {
+open class KtfxBorderPane : BorderPane(), NodeManager {
 
-    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+    final override fun <C : Node> addChild(child: C): C = child.also { center = it }
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
+
+    /** Children alignment in this layout. */
+    inline var Node.alignment: Pos?
+        @JvmName("getAlignment2") get() = getAlignment(this)
+        @JvmName("setAlignment2") set(value) = setAlignment(this, value)
+
+    /** Configure alignment fluidly using infix operator. */
+    inline infix fun <C : Node> C.align(pos: Pos): C {
+        alignment = pos
+        return this
+    }
 
     /** Children margin in this layout. */
     inline var Node.margin: Insets?
@@ -130,33 +139,4 @@ open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : 
         margins = margin
         return this
     }
-}
-
-/** Create a [FlowPane] with configuration block. */
-inline fun flowPane(
-    orientation: Orientation = Orientation.HORIZONTAL,
-    hgap: Double = 0.0,
-    vgap: Double = hgap,
-    configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
-): FlowPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxFlowPane(orientation, hgap, vgap).apply(configuration)
-}
-
-/** Add a [FlowPane] to this manager. */
-fun NodeManager.flowPane(
-    orientation: Orientation = Orientation.HORIZONTAL,
-    hgap: Double = 0.0,
-    vgap: Double = hgap
-): FlowPane = addChild(KtfxFlowPane(orientation, hgap, vgap))
-
-/** Add a [FlowPane] with configuration block to this manager. */
-inline fun NodeManager.flowPane(
-    orientation: Orientation = Orientation.HORIZONTAL,
-    hgap: Double = 0.0,
-    vgap: Double = hgap,
-    configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
-): FlowPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxFlowPane(orientation, hgap, vgap), configuration)
 }

@@ -22,8 +22,13 @@ object LayoutsGenerator {
     fun generate(entries: LayoutsEntries) {
         println("Generating to ${entries.path}:")
         entries.forEach { entry ->
-            println(entry.generatedName)
-            buildFile(KTFX_LAYOUTS, entry.generatedName) {
+            val filteredEntries = entries.filter { it.kClass == entry.kClass }
+            val fileName = when (filteredEntries.size) {
+                1 -> entry.generatedName
+                else -> "${entry.generatedName}${filteredEntries.indexOf(entry)}"
+            }
+            println(fileName)
+            buildFile(KTFX_LAYOUTS, fileName) {
                 indentSize = 4
                 annotations {
                     add<JvmMultifileClass>()
@@ -38,7 +43,7 @@ object LayoutsGenerator {
                             kdoc += entry.getComment(add = true, styled = false, configured = false)
                             returns = entry.typeName
                             parameters {
-                                entry.parameterSpecs.forEach(::add)
+                                entry.parameters.forEach(::add)
                             }
                             appendln(
                                 "return ${entry.functionName}(${entry.getParameterName(
@@ -57,7 +62,7 @@ object LayoutsGenerator {
                             )
                             returns = entry.typeName
                             parameters {
-                                entry.parameterSpecs.forEach(::add)
+                                entry.parameters.forEach(::add)
                                 configuration(entry)
                             }
                             contractln()
@@ -82,7 +87,7 @@ object LayoutsGenerator {
                             )
                             returns = entry.typeName
                             parameters {
-                                entry.parameterSpecs.forEach(::add)
+                                entry.parameters.forEach(::add)
                                 styleClass()
                                 id()
                             }
@@ -98,10 +103,12 @@ object LayoutsGenerator {
                             entry.typeVariableNames.forEach(::addTypeVariable)
                             if (managerClassName != null) receiver = managerClassName
                             addModifiers(KModifier.INLINE)
-                            kdoc += entry.getComment(add = managerClassName != null, styled = true, configured = true)
+                            kdoc += entry.getComment(
+                                add = managerClassName != null, styled = true, configured = true
+                            )
                             returns = entry.typeName
                             parameters {
-                                entry.parameterSpecs.forEach(::add)
+                                entry.parameters.forEach(::add)
                                 styleClass()
                                 id()
                                 configuration(entry)
@@ -125,11 +132,7 @@ object LayoutsGenerator {
         println("Finished!")
     }
 
-    private fun FunSpecBuilder.contractln() = appendln(
-        "%M { callsInPlace(configuration, %M) }",
-        CONTRACT,
-        EXACTLY_ONCE
-    )
+    private fun FunSpecBuilder.contractln() = appendln("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
 
     private fun ParameterSpecContainerScope.styleClass() = add("styleClass", String::class, KModifier.VARARG)
 

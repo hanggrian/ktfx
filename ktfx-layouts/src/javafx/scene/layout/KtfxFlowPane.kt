@@ -6,44 +6,28 @@
 package ktfx.layouts
 
 import javafx.geometry.Insets
+import javafx.geometry.Orientation
 import javafx.scene.Node
-import javafx.scene.layout.HBox
-import javafx.scene.layout.Priority
+import javafx.scene.layout.FlowPane
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /**
- * [HBox] with dynamic-layout dsl support.
+ * [FlowPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
+open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
+    NodeManager {
+
+    constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
     /** Clear children constraints. */
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
-
-    /** Children horizontal grow priority in this layout. */
-    inline var Node.hgrow: Priority?
-        @JvmName("getHgrow2") get() = getHgrow(this)
-        @JvmName("setHgrow2") set(value) = setHgrow(this, value)
-
-    /** Configure horizontal grow fluidly using infix operator. */
-    inline infix fun <C : Node> C.hgrow(priority: Priority): C {
-        hgrow = priority
-        return this
-    }
-
-    /** Configure horizontal grow fluidly using infix operator. */
-    infix fun <C : Node> C.hgrow(always: Boolean): C {
-        hgrow = if (always) Priority.ALWAYS else Priority.NEVER
-        return this
-    }
 
     /** Children margin in this layout. */
     inline var Node.margin: Insets?
@@ -146,27 +130,4 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
         margins = margin
         return this
     }
-}
-
-/** Create an [HBox] with configuration block. */
-inline fun hbox(
-    spacing: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
-): HBox {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxHBox(spacing).apply(configuration)
-}
-
-/** Add an [HBox] to this manager. */
-fun NodeManager.hbox(
-    spacing: Double = 0.0
-): HBox = addChild(KtfxHBox(spacing))
-
-/** Add an [HBox] with configuration block to this manager. */
-inline fun NodeManager.hbox(
-    spacing: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
-): HBox {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxHBox(spacing), configuration)
 }

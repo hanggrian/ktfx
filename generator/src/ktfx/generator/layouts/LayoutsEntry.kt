@@ -36,8 +36,8 @@ open class LayoutsEntries(
 ) : List<LayoutsEntry> by entries.asList()
 
 class LayoutsEntry(
-    private val kClass: KClass<*>,
-    val parameterSpecs: List<ParameterSpec>,
+    val kClass: KClass<*>,
+    val parameters: List<ParameterSpec>,
     val typeVariableNames: List<TypeVariableName>,
     private val customClass: Boolean
 ) {
@@ -76,7 +76,12 @@ class LayoutsEntry(
     val fullManagerClassNames: List<ClassName?>
         get() = listOf(null, *managerClassNames.toTypedArray())
 
-    val functionName: String get() = "${simpleName.first().toLowerCase()}${simpleName.substring(1)}"
+    val functionName: String
+        get() = when (val func = "${simpleName[0].toLowerCase()}${simpleName.substring(1)}") {
+            "hBox" -> "hbox"
+            "vBox" -> "vbox"
+            else -> func
+        }
 
     val styledFunctionName: String get() = "styled$simpleName"
 
@@ -94,13 +99,14 @@ class LayoutsEntry(
         append('.')
     }
 
-    fun getParameterName(namedArgument: Boolean, commaSuffix: Boolean): String = buildString {
-        append(parameterSpecs.joinToString {
-            buildString {
-                append(it.name)
-                if (namedArgument) append(" = ${it.name}")
-            }
-        })
-        if (commaSuffix && parameterSpecs.isNotEmpty()) append(", ")
-    }
+    fun getParameterName(namedArgument: Boolean, commaSuffix: Boolean): String =
+        buildString {
+            append(parameters.joinToString {
+                buildString {
+                    append(it.name)
+                    if (namedArgument) append(" = ${it.name}")
+                }
+            })
+            if (commaSuffix && parameters.isNotEmpty()) append(", ")
+        }
 }

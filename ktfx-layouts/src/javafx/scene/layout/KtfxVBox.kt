@@ -11,8 +11,6 @@ import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
@@ -146,27 +144,4 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
         margins = margin
         return this
     }
-}
-
-/** Create a [VBox] with configuration block. */
-inline fun vbox(
-    spacing: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
-): VBox {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxVBox(spacing).apply(configuration)
-}
-
-/** Add a [VBox] to this manager. */
-fun NodeManager.vbox(
-    spacing: Double = 0.0
-): VBox = addChild(KtfxVBox(spacing))
-
-/** Add a [VBox] with configuration block to this manager. */
-inline fun NodeManager.vbox(
-    spacing: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
-): VBox {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxVBox(spacing), configuration)
 }

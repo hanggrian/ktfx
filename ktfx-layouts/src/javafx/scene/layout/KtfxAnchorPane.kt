@@ -9,8 +9,6 @@ import javafx.scene.Node
 import javafx.scene.layout.AnchorPane
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
@@ -110,23 +108,4 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
         anchors = anchor
         return this
     }
-}
-
-/** Create an [AnchorPane] with configuration block. */
-inline fun anchorPane(
-    configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
-): AnchorPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxAnchorPane().apply(configuration)
-}
-
-/** Add an [AnchorPane] to this manager. */
-fun NodeManager.anchorPane(): AnchorPane = addChild(KtfxAnchorPane())
-
-/** Add an [AnchorPane] with configuration block to this manager. */
-inline fun NodeManager.anchorPane(
-    configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
-): AnchorPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxAnchorPane(), configuration)
 }

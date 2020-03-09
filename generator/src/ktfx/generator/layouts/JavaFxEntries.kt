@@ -9,6 +9,7 @@ import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.asClassName
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import javafx.geometry.Orientation
 import javafx.scene.Node
 import javafx.scene.canvas.Canvas
 import javafx.scene.chart.AreaChart
@@ -62,6 +63,20 @@ import javafx.scene.control.ToolBar
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeTableView
 import javafx.scene.control.TreeView
+import javafx.scene.image.Image
+import javafx.scene.image.ImageView
+import javafx.scene.layout.AnchorPane
+import javafx.scene.layout.BorderPane
+import javafx.scene.layout.FlowPane
+import javafx.scene.layout.GridPane
+import javafx.scene.layout.HBox
+import javafx.scene.layout.Pane
+import javafx.scene.layout.Region
+import javafx.scene.layout.StackPane
+import javafx.scene.layout.TilePane
+import javafx.scene.layout.VBox
+import javafx.scene.media.MediaPlayer
+import javafx.scene.media.MediaView
 import javafx.scene.paint.Color
 import java.time.LocalDate
 import kotlin.reflect.KClass
@@ -69,8 +84,10 @@ import kotlin.reflect.KClass
 object JavaFxEntries : LayoutsEntries(
     "ktfx-layouts/src",
     "LayoutsKt",
+
     // javafx.scene.canvas
     Canvas::class(width, height),
+
     // javafx.scene.chart
     AreaChart::class(xAxis, yAxis, seriesData, typeVariables = "XY"),
     BarChart::class(
@@ -83,6 +100,7 @@ object JavaFxEntries : LayoutsEntries(
     ScatterChart::class(xAxis, yAxis, seriesData, typeVariables = "XY"),
     StackedAreaChart::class(xAxis, yAxis, seriesData, typeVariables = "XY"),
     StackedBarChart::class(xAxis, yAxis, seriesData, typeVariables = "XY"),
+
     // javafx.scene.control
     Accordion::class(customClass = true),
     Button::class(text, graphic),
@@ -115,7 +133,7 @@ object JavaFxEntries : LayoutsEntries(
     RadioMenuItem::class(text, graphic),
     ScrollBar::class(),
     ScrollPane::class(content, customClass = true),
-    Separator::class(),
+    Separator::class(orientation),
     SeparatorMenuItem::class(),
     Slider::class(
         buildParameter<Double>("min") { defaultValue("0.0") },
@@ -134,7 +152,30 @@ object JavaFxEntries : LayoutsEntries(
     ToggleButton::class(text, graphic),
     ToolBar::class(customClass = true),
     TreeTableView::class(root(TreeItem::class, S), typeVariables = "S"),
-    TreeView::class(root(TreeItem::class, T), typeVariables = "T")
+    TreeView::class(root(TreeItem::class, T), typeVariables = "T"),
+
+    // javafx.scene.image
+    ImageView::class(buildParameter("image", Image::class.asClassName().asNullable()) { defaultValue("null") }),
+    ImageView::class(buildParameter<String>("imageUrl")),
+
+    // javafx.scene.media
+    MediaView::class(
+        buildParameter("mediaPlayer", MediaPlayer::class.asClassName().asNullable()) { defaultValue("null") }
+    ),
+
+    // javafx.scene.layout
+    AnchorPane::class(customClass = true),
+    BorderPane::class(customClass = true),
+    FlowPane::class(orientation, buildParameter<Double>("hgap"), buildParameter<Double>("vgap"), customClass = true),
+    FlowPane::class(orientation, buildParameter<Double>("gap") { defaultValue("0.0") }, customClass = true),
+    GridPane::class(customClass = true),
+    HBox::class(spacing, customClass = true),
+    Pane::class(customClass = true),
+    Region::class(),
+    StackPane::class(customClass = true),
+    TilePane::class(orientation, buildParameter<Double>("hgap"), buildParameter<Double>("vgap"), customClass = true),
+    TilePane::class(orientation, buildParameter<Double>("gap") { defaultValue("0.0") }, customClass = true),
+    VBox::class(spacing, customClass = true)
 )
 
 private val T = "T".typeVariableBy()
@@ -150,6 +191,11 @@ private val content = buildParameter("content", Node::class.asClassName().asNull
 private val progress = buildParameter<Double>("progress") {
     defaultValue("%M", ProgressBar::class.memberOf("INDETERMINATE_PROGRESS"))
 }
+
+private val orientation = buildParameter<Orientation>("orientation") {
+    defaultValue("%M", Orientation::class.memberOf("HORIZONTAL"))
+}
+private val spacing = buildParameter<Double>("spacing") { defaultValue("0.0") }
 
 private fun root(rootClass: KClass<*>, typeVariableName: TypeVariableName) = buildParameter(
     "root", rootClass.asClassName().parameterizedBy(typeVariableName).asNullable()

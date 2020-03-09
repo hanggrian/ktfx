@@ -14,8 +14,6 @@ import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
@@ -270,23 +268,4 @@ open class KtfxGridPane : GridPane(), NodeManager {
         margins = margin
         return this
     }
-}
-
-/** Create a [GridPane] with configuration block. */
-inline fun gridPane(
-    configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
-): GridPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxGridPane().apply(configuration)
-}
-
-/** Add a [GridPane] to this manager. */
-fun NodeManager.gridPane(): GridPane = addChild(KtfxGridPane())
-
-/** Add a [GridPane] with configuration block to this manager. */
-inline fun NodeManager.gridPane(
-    configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
-): GridPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxGridPane(), configuration)
 }

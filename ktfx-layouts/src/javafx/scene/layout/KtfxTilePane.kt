@@ -6,21 +6,23 @@
 package ktfx.layouts
 
 import javafx.geometry.Insets
+import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import javafx.scene.Node
-import javafx.scene.layout.StackPane
+import javafx.scene.layout.TilePane
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /**
- * [StackPane] with dynamic-layout dsl support.
+ * [TilePane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxStackPane : StackPane(), NodeManager {
+open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
+    NodeManager {
+
+    constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
@@ -140,23 +142,4 @@ open class KtfxStackPane : StackPane(), NodeManager {
         margins = margin
         return this
     }
-}
-
-/** Create a [StackPane] with configuration block. */
-inline fun stackPane(
-    configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit
-): StackPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxStackPane().apply(configuration)
-}
-
-/** Add a [StackPane] to this manager. */
-fun NodeManager.stackPane(): StackPane = addChild(KtfxStackPane())
-
-/** Add a [StackPane] with configuration block to this manager. */
-inline fun NodeManager.stackPane(
-    configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit
-): StackPane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxStackPane(), configuration)
 }

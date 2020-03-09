@@ -6,23 +6,19 @@
 package ktfx.layouts
 
 import javafx.geometry.Insets
-import javafx.geometry.Orientation
-import javafx.geometry.Pos
 import javafx.scene.Node
-import javafx.scene.layout.TilePane
+import javafx.scene.layout.HBox
+import javafx.scene.layout.Priority
 import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /**
- * [TilePane] with dynamic-layout dsl support.
+ * [HBox] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
-    NodeManager {
+open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
@@ -30,14 +26,20 @@ open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : 
     @JvmName("clearConstraints2")
     inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 
-    /** Children alignment in this layout. */
-    inline var Node.alignment: Pos?
-        @JvmName("getAlignment2") get() = getAlignment(this)
-        @JvmName("setAlignment2") set(value) = setAlignment(this, value)
+    /** Children horizontal grow priority in this layout. */
+    inline var Node.hgrow: Priority?
+        @JvmName("getHgrow2") get() = getHgrow(this)
+        @JvmName("setHgrow2") set(value) = setHgrow(this, value)
 
-    /** Configure alignment fluidly using infix operator. */
-    inline infix fun <C : Node> C.align(pos: Pos): C {
-        alignment = pos
+    /** Configure horizontal grow fluidly using infix operator. */
+    inline infix fun <C : Node> C.hgrow(priority: Priority): C {
+        hgrow = priority
+        return this
+    }
+
+    /** Configure horizontal grow fluidly using infix operator. */
+    infix fun <C : Node> C.hgrow(always: Boolean): C {
+        hgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
 
@@ -142,33 +144,4 @@ open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : 
         margins = margin
         return this
     }
-}
-
-/** Create a [TilePane] with configuration block. */
-inline fun tilePane(
-    orientation: Orientation = Orientation.HORIZONTAL,
-    hgap: Double = 0.0,
-    vgap: Double = hgap,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
-): TilePane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return KtfxTilePane(orientation, hgap, vgap).apply(configuration)
-}
-
-/** Add a [TilePane] to this manager. */
-fun NodeManager.tilePane(
-    orientation: Orientation = Orientation.HORIZONTAL,
-    hgap: Double = 0.0,
-    vgap: Double = hgap
-): TilePane = addChild(KtfxTilePane(orientation, hgap, vgap))
-
-/** Add a [TilePane] with configuration block to this manager. */
-inline fun NodeManager.tilePane(
-    orientation: Orientation = Orientation.HORIZONTAL,
-    hgap: Double = 0.0,
-    vgap: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
-): TilePane {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    return addChild(KtfxTilePane(orientation, hgap, vgap), configuration)
 }

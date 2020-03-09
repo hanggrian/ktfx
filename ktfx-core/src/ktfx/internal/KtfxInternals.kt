@@ -4,6 +4,7 @@ import javafx.scene.Node
 import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TitledPane
+import javafx.scene.shape.PathElement
 
 /** Ktfx internal class, ignore it. */
 object KtfxInternals {
@@ -33,6 +34,14 @@ object KtfxInternals {
     ): T {
         child.styleClass += styleClass
         child.id = id
+        child.configuration()
+        return child
+    }
+
+    inline fun <T : PathElement> newChild(
+        child: T,
+        configuration: T.() -> Unit
+    ): T {
         child.configuration()
         return child
     }

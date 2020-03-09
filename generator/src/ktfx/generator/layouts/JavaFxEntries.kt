@@ -5,11 +5,13 @@ import com.hendraanggrian.kotlinpoet.buildParameter
 import com.hendraanggrian.kotlinpoet.memberOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
 import com.hendraanggrian.kotlinpoet.typeVariableBy
+import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.asClassName
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.geometry.Orientation
+import javafx.scene.Group
 import javafx.scene.Node
 import javafx.scene.canvas.Canvas
 import javafx.scene.chart.AreaChart
@@ -78,12 +80,42 @@ import javafx.scene.layout.VBox
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
 import javafx.scene.paint.Color
+import javafx.scene.paint.Paint
+import javafx.scene.shape.Arc
+import javafx.scene.shape.ArcTo
+import javafx.scene.shape.Box
+import javafx.scene.shape.Circle
+import javafx.scene.shape.ClosePath
+import javafx.scene.shape.CubicCurve
+import javafx.scene.shape.CubicCurveTo
+import javafx.scene.shape.Cylinder
+import javafx.scene.shape.Ellipse
+import javafx.scene.shape.HLineTo
+import javafx.scene.shape.Line
+import javafx.scene.shape.LineTo
+import javafx.scene.shape.Mesh
+import javafx.scene.shape.MeshView
+import javafx.scene.shape.MoveTo
+import javafx.scene.shape.Path
+import javafx.scene.shape.Polygon
+import javafx.scene.shape.Polyline
+import javafx.scene.shape.QuadCurve
+import javafx.scene.shape.QuadCurveTo
+import javafx.scene.shape.Rectangle
+import javafx.scene.shape.SVGPath
+import javafx.scene.shape.Sphere
+import javafx.scene.shape.VLineTo
+import javafx.scene.text.Text
+import javafx.scene.text.TextFlow
+import javafx.scene.web.WebView
 import java.time.LocalDate
-import kotlin.reflect.KClass
 
 object JavaFxEntries : LayoutsEntries(
     "ktfx-layouts/src",
     "LayoutsKt",
+
+    // javafx.scene
+    Group::class(customClass = true),
 
     // javafx.scene.canvas
     Canvas::class(width, height),
@@ -110,14 +142,14 @@ object JavaFxEntries : LayoutsEntries(
     ),
     CheckBox::class(text),
     CheckMenuItem::class(text, graphic),
-    ChoiceBox::class(items(T), typeVariables = "T"),
+    ChoiceBox::class(T.items, typeVariables = "T"),
     ColorPicker::class(buildParameter<Color>("value") { defaultValue("%M", Color::class.memberOf("WHITE")) }),
-    ComboBox::class(items(T), typeVariables = "T"),
+    ComboBox::class(T.items, typeVariables = "T"),
     CustomMenuItem::class(content, buildParameter<Boolean>("hideOnClick") { defaultValue("true") }),
     DatePicker::class(buildParameter("value", LocalDate::class.asClassName().asNullable()) { defaultValue("null") }),
     Hyperlink::class(text, graphic),
     Label::class(text, graphic),
-    ListView::class(items(T), typeVariables = "T"),
+    ListView::class(T.items, typeVariables = "T"),
     Menu::class(emptyText, graphic, customClass = true),
     MenuBar::class(customClass = true),
     MenuButton::class(text, graphic, customClass = true),
@@ -144,15 +176,15 @@ object JavaFxEntries : LayoutsEntries(
     SplitMenuButton::class(customClass = true),
     SplitPane::class(customClass = true),
     Tab::class(text, content, customClass = true),
-    TableView::class(items(S), typeVariables = "S"),
+    TableView::class(S.items, typeVariables = "S"),
     TabPane::class(customClass = true),
     TextArea::class(emptyText),
     TextField::class(emptyText),
     TitledPane::class(title, customClass = true),
     ToggleButton::class(text, graphic),
     ToolBar::class(customClass = true),
-    TreeTableView::class(root(TreeItem::class, S), typeVariables = "S"),
-    TreeView::class(root(TreeItem::class, T), typeVariables = "T"),
+    TreeTableView::class(S.root, typeVariables = "S"),
+    TreeView::class(T.root, typeVariables = "T"),
 
     // javafx.scene.image
     ImageView::class(buildParameter("image", Image::class.asClassName().asNullable()) { defaultValue("null") }),
@@ -175,7 +207,49 @@ object JavaFxEntries : LayoutsEntries(
     StackPane::class(customClass = true),
     TilePane::class(orientation, buildParameter<Double>("hgap"), buildParameter<Double>("vgap"), customClass = true),
     TilePane::class(orientation, buildParameter<Double>("gap") { defaultValue("0.0") }, customClass = true),
-    VBox::class(spacing, customClass = true)
+    VBox::class(spacing, customClass = true),
+
+    // javafx.scene.shape
+    Arc::class(centerX, centerY, radiusX, radiusY, startAngle, length),
+    ArcTo::class(
+        radiusX, radiusY,
+        buildParameter<Double>("xAxisRotation") { defaultValue("0.0") },
+        x, y,
+        buildParameter<Boolean>("largeArcFlag") { defaultValue("false") },
+        buildParameter<Boolean>("sweepFlag") { defaultValue("false") }
+    ),
+    Box::class(
+        buildParameter<Double>("width") { defaultValue("%M", Box::class.memberOf("DEFAULT_SIZE")) },
+        buildParameter<Double>("height") { defaultValue("%M", Box::class.memberOf("DEFAULT_SIZE")) },
+        buildParameter<Double>("depth") { defaultValue("%M", Box::class.memberOf("DEFAULT_SIZE")) }
+    ),
+    Circle::class(centerX, centerY, 0.0.radius, fill),
+    ClosePath::class(),
+    CubicCurve::class(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY),
+    CubicCurveTo::class(controlX1, controlY1, controlX2, controlY2, x, y),
+    Cylinder::class(1.0.radius, buildParameter<Double>("height") { defaultValue("2.0") }, division),
+    Ellipse::class(centerX, centerY, radiusX, radiusY),
+    HLineTo::class(x),
+    Line::class(centerX, centerY, endX, endY),
+    LineTo::class(x, y),
+    MeshView::class(buildParameter("mesh", Mesh::class.asClassName().asNullable()) { defaultValue("null") }),
+    MoveTo::class(x, y),
+    Path::class(customClass = true),
+    Polygon::class(), // points param not included since vararg is reserved
+    Polyline::class(), // points param not included since vararg is reserved
+    QuadCurve::class(startX, startY, controlX, controlY, endX, endY),
+    QuadCurveTo::class(controlX, controlY, x, y),
+    Rectangle::class(x, y, width, height),
+    Sphere::class(1.0.radius, division),
+    SVGPath::class(),
+    VLineTo::class(y),
+
+    // javafx.scene.text
+    Text::class(text),
+    TextFlow::class(customClass = true),
+
+    // javafx.scene.web
+    WebView::class()
 )
 
 private val T = "T".typeVariableBy()
@@ -197,17 +271,18 @@ private val orientation = buildParameter<Orientation>("orientation") {
 }
 private val spacing = buildParameter<Double>("spacing") { defaultValue("0.0") }
 
-private fun root(rootClass: KClass<*>, typeVariableName: TypeVariableName) = buildParameter(
-    "root", rootClass.asClassName().parameterizedBy(typeVariableName).asNullable()
-) { defaultValue("null") }
+private val TypeVariableName.root
+    get() = buildParameter("root", TreeItem::class.asClassName().parameterizedBy(this).asNullable()) {
+        defaultValue("null")
+    }
 
 private val width = buildParameter<Double>("width") { defaultValue("0.0") }
 private val height = buildParameter<Double>("height") { defaultValue("0.0") }
 
-private fun items(typeVariableName: TypeVariableName) = buildParameter(
-    "items",
-    ObservableList::class.asClassName().parameterizedBy(typeVariableName)
-) { defaultValue("%M()", FXCollections::class.memberOf("observableArrayList")) }
+private val TypeVariableName.items
+    get() = buildParameter("items", ObservableList::class.asClassName().parameterizedBy(this)) {
+        defaultValue("%M()", FXCollections::class.memberOf("observableArrayList"))
+    }
 
 private val xAxis = buildParameter("x", Axis::class.asClassName().parameterizedBy(X))
 private val yAxis = buildParameter("y", Axis::class.asClassName().parameterizedBy(Y))
@@ -221,3 +296,25 @@ private val seriesData = buildParameter(
 private val dataData = buildParameter("data", ObservableList::class.parameterizedBy(PieChart.Data::class)) {
     defaultValue("%M()", FXCollections::class.memberOf("observableArrayList"))
 }
+
+private val x = buildParameter<Double>("x") { defaultValue("0.0") }
+private val y = buildParameter<Double>("y") { defaultValue("0.0") }
+private val startX = buildParameter<Double>("startX") { defaultValue("0.0") }
+private val startY = buildParameter<Double>("startY") { defaultValue("0.0") }
+private val endX = buildParameter<Double>("endX") { defaultValue("0.0") }
+private val endY = buildParameter<Double>("endY") { defaultValue("0.0") }
+private val centerX = buildParameter<Double>("centerX") { defaultValue("0.0") }
+private val centerY = buildParameter<Double>("centerY") { defaultValue("0.0") }
+private val radiusX = buildParameter<Double>("radiusX") { defaultValue("0.0") }
+private val radiusY = buildParameter<Double>("radiusY") { defaultValue("0.0") }
+private val startAngle = buildParameter<Double>("startAngle") { defaultValue("0.0") }
+private val length = buildParameter<Double>("length") { defaultValue("0.0") }
+private val Double.radius: ParameterSpec get() = buildParameter<Double>("radius") { defaultValue(this@radius.toString()) }
+private val fill = buildParameter("fill", Paint::class.asClassName().asNullable()) { defaultValue("null") }
+private val controlX = buildParameter<Double>("controlX") { defaultValue("0.0") }
+private val controlY = buildParameter<Double>("controlY") { defaultValue("0.0") }
+private val controlX1 = buildParameter<Double>("controlX1") { defaultValue("0.0") }
+private val controlY1 = buildParameter<Double>("controlY1") { defaultValue("0.0") }
+private val controlX2 = buildParameter<Double>("controlX2") { defaultValue("0.0") }
+private val controlY2 = buildParameter<Double>("controlY2") { defaultValue("0.0") }
+private val division = buildParameter<Int>("division") { defaultValue("64") }

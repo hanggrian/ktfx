@@ -1,8 +1,10 @@
 package ktfx.generator.layouts
 
+import com.hendraanggrian.kotlinpoet.classOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
 import com.hendraanggrian.kotlinpoet.typeVariableBy
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeVariableName
@@ -77,13 +79,17 @@ class LayoutsEntry(
         get() = listOf(null, *managerClassNames.toTypedArray())
 
     val functionName: String
-        get() = when (val func = "${simpleName[0].toLowerCase()}${simpleName.substring(1)}") {
-            "hBox" -> "hbox"
-            "vBox" -> "vbox"
-            else -> func
-        }
+        get() = simpleName.mapIndexed { index, c ->
+            when {
+                index == 0 || index == 1 -> c.toLowerCase()
+                c.isUpperCase() && simpleName.getOrNull(index + 1)?.isUpperCase() ?: false -> c.toLowerCase()
+                else -> c
+            }
+        }.joinToString("")
 
     val styledFunctionName: String get() = "styled$simpleName"
+
+    val supportStyledFunction: Boolean get() = "ktfx.layouts".classOf("PathElementManager") !in managerClassNames
 
     fun getComment(add: Boolean, styled: Boolean, configured: Boolean): String = buildString {
         append(if (!add) "Create" else "Add")
@@ -102,10 +108,15 @@ class LayoutsEntry(
     fun getParameterName(namedArgument: Boolean, commaSuffix: Boolean): String =
         buildString {
             append(parameters.joinToString {
-                buildString {
+                var s = buildString {
                     append(it.name)
                     if (namedArgument) append(" = ${it.name}")
                 }
+                if (KModifier.VARARG in it.modifiers) {
+                    val index = s.lastIndexOf(it.name)
+                    s = s.substring(0, index) + '*' + s.substring(index)
+                }
+                s
             })
             if (commaSuffix && parameters.isNotEmpty()) append(", ")
         }

@@ -78,52 +78,54 @@ object LayoutsGenerator {
                             appendln()
                         }
                     }
-                    entry.fullManagerClassNames.forEach { managerClassName ->
-                        entry.styledFunctionName {
-                            entry.typeVariableNames.forEach(::addTypeVariable)
-                            if (managerClassName != null) receiver = managerClassName
-                            kdoc += entry.getComment(
-                                add = managerClassName != null, styled = true, configured = false
-                            )
-                            returns = entry.typeName
-                            parameters {
-                                entry.parameters.forEach(::add)
-                                styleClass()
-                                id()
+                    if (entry.supportStyledFunction)  {
+                        entry.fullManagerClassNames.forEach { managerClassName ->
+                            entry.styledFunctionName {
+                                entry.typeVariableNames.forEach(::addTypeVariable)
+                                if (managerClassName != null) receiver = managerClassName
+                                kdoc += entry.getComment(
+                                    add = managerClassName != null, styled = true, configured = false
+                                )
+                                returns = entry.typeName
+                                parameters {
+                                    entry.parameters.forEach(::add)
+                                    styleClass()
+                                    id()
+                                }
+                                appendln(
+                                    "return ${entry.styledFunctionName}(${entry.getParameterName(
+                                        namedArgument = true, commaSuffix = true
+                                    )}styleClass = *styleClass, id = id) { }"
+                                )
                             }
-                            appendln(
-                                "return ${entry.styledFunctionName}(${entry.getParameterName(
-                                    namedArgument = true, commaSuffix = true
-                                )}styleClass = *styleClass, id = id) { }"
-                            )
                         }
-                    }
-                    entry.fullManagerClassNames.forEach { managerClassName ->
-                        entry.styledFunctionName {
-                            entry.typeVariableNames.forEach(::addTypeVariable)
-                            if (managerClassName != null) receiver = managerClassName
-                            addModifiers(KModifier.INLINE)
-                            kdoc += entry.getComment(
-                                add = managerClassName != null, styled = true, configured = true
-                            )
-                            returns = entry.typeName
-                            parameters {
-                                entry.parameters.forEach(::add)
-                                styleClass()
-                                id()
-                                configuration(entry)
+                        entry.fullManagerClassNames.forEach { managerClassName ->
+                            entry.styledFunctionName {
+                                entry.typeVariableNames.forEach(::addTypeVariable)
+                                if (managerClassName != null) receiver = managerClassName
+                                addModifiers(KModifier.INLINE)
+                                kdoc += entry.getComment(
+                                    add = managerClassName != null, styled = true, configured = true
+                                )
+                                returns = entry.typeName
+                                parameters {
+                                    entry.parameters.forEach(::add)
+                                    styleClass()
+                                    id()
+                                    configuration(entry)
+                                }
+                                contractln()
+                                append("return ")
+                                if (managerClassName != null) append("addChild(")
+                                append(
+                                    "%M(%T(${entry.getParameterName(
+                                        namedArgument = false, commaSuffix = false
+                                    )}), styleClass = *styleClass, id = id, configuration = configuration)",
+                                    NEW_CHILD, entry.customTypeName
+                                )
+                                if (managerClassName != null) append(")")
+                                appendln()
                             }
-                            contractln()
-                            append("return ")
-                            if (managerClassName != null) append("addChild(")
-                            append(
-                                "%M(%T(${entry.getParameterName(
-                                    namedArgument = false, commaSuffix = false
-                                )}), styleClass = *styleClass, id = id, configuration = configuration)",
-                                NEW_CHILD, entry.customTypeName
-                            )
-                            if (managerClassName != null) append(")")
-                            appendln()
                         }
                     }
                 }

@@ -1,9 +1,10 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXColorPicker
+import javafx.scene.paint.Color
 import ktfx.layouts.KtfxPane
 import ktfx.test.LayoutsTest
-import kotlin.test.assertNull
+import kotlin.test.assertEquals
 
 class JFXColorPickerTest : LayoutsTest<KtfxPane, JFXColorPicker>() {
 
@@ -14,6 +15,6 @@ class JFXColorPickerTest : LayoutsTest<KtfxPane, JFXColorPicker>() {
     override fun KtfxPane.child3() = jfxColorPicker { }
 
     override fun JFXColorPicker.testDefaultValues() {
-        assertNull(value)
+        assertEquals(Color.WHITE, value)
     }
 }

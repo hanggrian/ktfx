@@ -4,30 +4,13 @@
 
 package ktfx.layouts
 
-import javafx.scene.Node
 import javafx.scene.control.ContextMenu
 import javafx.scene.control.Control
-import javafx.scene.control.MenuItem
 import javafx.scene.control.Tab
 import javafx.scene.control.TableColumnBase
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-
-/**
- * [ContextMenu] with dynamic-layout dsl support.
- * Invoking dsl will add its children.
- */
-open class KtfxContextMenu : ContextMenu(), MenuItemManager {
-
-    final override fun <C : MenuItem> addChild(child: C): C = child.also { items += it }
-
-    /** Call [MenuItemManager.menuItem] by string invocation. */
-    inline operator fun String.invoke(
-        graphic: Node? = null,
-        configuration: (@LayoutDslMarker MenuItem).() -> Unit
-    ): MenuItem = menuItem(this, graphic, configuration)
-}
 
 /** Create a [ContextMenu] with configuration block. */
 inline fun contextMenu(

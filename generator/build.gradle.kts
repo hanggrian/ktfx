@@ -12,4 +12,8 @@ dependencies {
     implementation(kotlin("reflect", VERSION_KOTLIN))
     implementation(kotlinx("coroutines-core", VERSION_COROUTINES))
     implementation(kotlinpoetKtx())
+    implementation(controlsFx())
+    implementation(jfoenix())
+
+    testImplementation(kotlin("test-junit", VERSION_KOTLIN))
 }

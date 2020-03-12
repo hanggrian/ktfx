@@ -1,6 +1,7 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXProgressBar
+import javafx.scene.control.ProgressBar
 import ktfx.layouts.KtfxPane
 import ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
@@ -14,6 +15,6 @@ class JFXProgressBarTest : LayoutsTest<KtfxPane, JFXProgressBar>() {
     override fun KtfxPane.child3() = jfxProgressBar { }
 
     override fun JFXProgressBar.testDefaultValues() {
-        assertEquals(0.0, progress)
+        assertEquals(ProgressBar.INDETERMINATE_PROGRESS, progress)
     }
 }

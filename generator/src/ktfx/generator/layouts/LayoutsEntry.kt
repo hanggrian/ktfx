@@ -2,7 +2,6 @@ package ktfx.generator.layouts
 
 import com.hendraanggrian.kotlinpoet.classOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
-import com.hendraanggrian.kotlinpoet.typeVariableBy
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
@@ -20,24 +19,8 @@ import ktfx.generator.KTFX_LAYOUTS
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSuperclassOf
 
-operator fun KClass<*>.invoke(
-    vararg parameters: ParameterSpec,
-    typeVariables: String = "",
-    customClass: Boolean = false
-) = LayoutsEntry(
-    this,
-    parameters.asList(),
-    typeVariables.map { "$it".typeVariableBy() },
-    customClass = customClass
-)
-
-open class LayoutsEntries(
-    val path: String,
-    val className: String,
-    vararg entries: LayoutsEntry
-) : List<LayoutsEntry> by entries.asList()
-
-class LayoutsEntry(
+data class LayoutsEntry(
+    private val packageName: String,
     val kClass: KClass<*>,
     val parameters: List<ParameterSpec>,
     val typeVariableNames: List<TypeVariableName>,
@@ -69,11 +52,11 @@ class LayoutsEntry(
         }
 
     val customTypeName: TypeName
-        get() = typeName.takeUnless { customClass } ?: ClassName(KTFX_LAYOUTS, "Ktfx$simpleName")
+        get() = typeName.takeUnless { customClass } ?: packageName.classOf("Ktfx$simpleName")
 
     val managerClassNames: List<ClassName>
         get() = VALID_MANAGERS.filter { it == kClass || it.isSuperclassOf(kClass) }
-            .map { ClassName(KTFX_LAYOUTS, "${it.simpleName}Manager") }
+            .map { KTFX_LAYOUTS.classOf("${it.simpleName}Manager") }
 
     val fullManagerClassNames: List<ClassName?>
         get() = listOf(null, *managerClassNames.toTypedArray())

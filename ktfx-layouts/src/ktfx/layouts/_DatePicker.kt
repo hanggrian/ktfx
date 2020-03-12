@@ -18,61 +18,61 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [DatePicker] to this manager.
  */
-fun NodeManager.datePicker(value: LocalDate? = null): DatePicker = datePicker(value = value) { }
+fun NodeManager.datePicker(date: LocalDate? = null): DatePicker = datePicker(date = date) { }
 
 /**
  * Create a [DatePicker] with configuration block.
  */
 inline fun datePicker(
-    value: LocalDate? = null,
+    date: LocalDate? = null,
     configuration: (@LayoutDslMarker DatePicker).() ->    
             Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(DatePicker(value), configuration = configuration)
+    return newChild(DatePicker(date), configuration = configuration)
 }
 
 /**
  * Add a [DatePicker] with configuration block to this manager.
  */
 inline fun NodeManager.datePicker(
-    value: LocalDate? = null,
+    date: LocalDate? = null,
     configuration: (@LayoutDslMarker    
             DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(DatePicker(value), configuration = configuration))
+    return addChild(newChild(DatePicker(date), configuration = configuration))
 }
 
 /**
  * Create a styled [DatePicker].
  */
 fun styledDatePicker(
-    value: LocalDate? = null,
+    date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null
-): DatePicker = styledDatePicker(value = value, styleClass = *styleClass, id = id) { }
+): DatePicker = styledDatePicker(date = date, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [DatePicker] to this manager.
  */
 fun NodeManager.styledDatePicker(
-    value: LocalDate? = null,
+    date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null
-): DatePicker = styledDatePicker(value = value, styleClass = *styleClass, id = id) { }
+): DatePicker = styledDatePicker(date = date, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [DatePicker] with configuration block.
  */
 inline fun styledDatePicker(
-    value: LocalDate? = null,
+    date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
     configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(DatePicker(value), styleClass = *styleClass, id = id, configuration =
+    return newChild(DatePicker(date), styleClass = *styleClass, id = id, configuration =
             configuration)
 }
 
@@ -80,12 +80,12 @@ inline fun styledDatePicker(
  * Add a styled [DatePicker] with configuration block to this manager.
  */
 inline fun NodeManager.styledDatePicker(
-    value: LocalDate? = null,
+    date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
     configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(DatePicker(value), styleClass = *styleClass, id = id, configuration =
+    return addChild(newChild(DatePicker(date), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

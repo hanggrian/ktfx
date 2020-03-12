@@ -19,61 +19,61 @@ import ktfx.internal.KtfxInternals.newChild
 /**
  * Add a [ColorPicker] to this manager.
  */
-fun NodeManager.colorPicker(value: Color = WHITE): ColorPicker = colorPicker(value = value) { }
+fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color = color) { }
 
 /**
  * Create a [ColorPicker] with configuration block.
  */
 inline fun colorPicker(
-    value: Color = WHITE,
+    color: Color = WHITE,
     configuration: (@LayoutDslMarker ColorPicker).() ->    
             Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ColorPicker(value), configuration = configuration)
+    return newChild(ColorPicker(color), configuration = configuration)
 }
 
 /**
  * Add a [ColorPicker] with configuration block to this manager.
  */
 inline fun NodeManager.colorPicker(
-    value: Color = WHITE,
+    color: Color = WHITE,
     configuration: (@LayoutDslMarker    
             ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ColorPicker(value), configuration = configuration))
+    return addChild(newChild(ColorPicker(color), configuration = configuration))
 }
 
 /**
  * Create a styled [ColorPicker].
  */
 fun styledColorPicker(
-    value: Color = WHITE,
+    color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null
-): ColorPicker = styledColorPicker(value = value, styleClass = *styleClass, id = id) { }
+): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ColorPicker] to this manager.
  */
 fun NodeManager.styledColorPicker(
-    value: Color = WHITE,
+    color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null
-): ColorPicker = styledColorPicker(value = value, styleClass = *styleClass, id = id) { }
+): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ColorPicker] with configuration block.
  */
 inline fun styledColorPicker(
-    value: Color = WHITE,
+    color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
     configuration: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ColorPicker(value), styleClass = *styleClass, id = id, configuration =
+    return newChild(ColorPicker(color), styleClass = *styleClass, id = id, configuration =
             configuration)
 }
 
@@ -81,12 +81,12 @@ inline fun styledColorPicker(
  * Add a styled [ColorPicker] with configuration block to this manager.
  */
 inline fun NodeManager.styledColorPicker(
-    value: Color = WHITE,
+    color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
     configuration: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ColorPicker(value), styleClass = *styleClass, id = id, configuration =
+    return addChild(newChild(ColorPicker(color), styleClass = *styleClass, id = id, configuration =
             configuration))
 }

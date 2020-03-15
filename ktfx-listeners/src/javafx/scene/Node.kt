@@ -237,6 +237,6 @@ inline fun Node.onInputMethodTextChanged(
 /** Takes a snapshot of this node at the next frame and calls the specified callback method when the image is ready. */
 inline fun Node.snapshot(
     image: WritableImage? = null,
-    configuration: SnapshotParameters.() -> Unit,
+    configuration: SnapshotParameters.() -> Unit = { },
     noinline callback: (SnapshotResult) -> Unit
 ): Unit = snapshot({ callback(it); null }, SnapshotParameters().apply(configuration), image)

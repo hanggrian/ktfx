@@ -5,7 +5,7 @@ import com.hendraanggrian.kotlinpoet.dsl.ParameterSpecContainer
 import com.hendraanggrian.kotlinpoet.dsl.ParameterSpecContainerScope
 import com.hendraanggrian.kotlinpoet.memberOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
-import com.hendraanggrian.kotlinpoet.typeVariableBy
+import com.hendraanggrian.kotlinpoet.typeVarOf
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.asClassName
@@ -42,19 +42,16 @@ abstract class LayoutsFactory(
         entries += LayoutsEntry(packageName, this, parameters, typeVariables.asList(), customClass = customClass)
     }
 
-    val T = "T".typeVariableBy()
-    val S = "S".typeVariableBy()
-    val X = "X".typeVariableBy()
-    val Y = "Y".typeVariableBy()
+    val T = "T".typeVarOf()
+    val S = "S".typeVarOf()
+    val X = "X".typeVarOf()
+    val Y = "Y".typeVarOf()
 
-    fun ParameterSpecContainerScope.text() =
-        "text"(String::class.asClassName().asNullable()) { defaultValue("null") }
+    fun ParameterSpecContainerScope.text() = "text"(String::class.asNullable()) { defaultValue("null") }
 
-    fun ParameterSpecContainerScope.graphic() =
-        "graphic"(Node::class.asClassName().asNullable()) { defaultValue("null") }
+    fun ParameterSpecContainerScope.graphic() = "graphic"(Node::class.asNullable()) { defaultValue("null") }
 
-    fun ParameterSpecContainerScope.content() =
-        "content"(Node::class.asClassName().asNullable()) { defaultValue("null") }
+    fun ParameterSpecContainerScope.content() = "content"(Node::class.asNullable()) { defaultValue("null") }
 
     fun ParameterSpecContainerScope.progress() =
         "progress"<Double> { defaultValue("%M", ProgressBar::class.memberOf("INDETERMINATE_PROGRESS")) }
@@ -62,16 +59,15 @@ abstract class LayoutsFactory(
     fun ParameterSpecContainerScope.color() =
         "color"<Color> { defaultValue("%M", Color::class.memberOf("WHITE")) }
 
-    fun ParameterSpecContainerScope.date() =
-        "date"(LocalDate::class.asClassName().asNullable()) { defaultValue("null") }
+    fun ParameterSpecContainerScope.date() = "date"(LocalDate::class.asNullable()) { defaultValue("null") }
 
     fun ParameterSpecContainerScope.items(name: TypeVariableName) =
-        "items"(ObservableList::class.asClassName().parameterizedBy(name)) {
+        "items"(ObservableList::class.parameterizedBy(name)) {
             defaultValue("%M()", FXCollections::class.memberOf("observableArrayList"))
         }
 
     fun ParameterSpecContainerScope.treeItem(name: String, variable: TypeVariableName) =
-        name(TreeItem::class.asClassName().parameterizedBy(variable).asNullable()) { defaultValue("null") }
+        name(TreeItem::class.parameterizedBy(variable).asNullable()) { defaultValue("null") }
 
     fun ParameterSpecContainerScope.slider(value: String) {
         "min"<Double> { defaultValue("0.0") }

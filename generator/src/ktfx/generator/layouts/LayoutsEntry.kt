@@ -23,7 +23,7 @@ data class LayoutsEntry(
     private val packageName: String,
     val kClass: KClass<*>,
     val parameters: List<ParameterSpec>,
-    val typeVariableNames: List<TypeVariableName>,
+    val typeVarNames: List<TypeVariableName>,
     private val customClass: Boolean
 ) {
     private companion object {
@@ -45,10 +45,7 @@ data class LayoutsEntry(
     val typeName: TypeName
         get() {
             val name = kClass.asClassName()
-            if (typeVariableNames.isNotEmpty()) {
-                return name.parameterizedBy(*typeVariableNames.toTypedArray())
-            }
-            return name
+            return name.takeIf { typeVarNames.isEmpty() } ?: name.parameterizedBy(typeVarNames)
         }
 
     val customTypeName: TypeName

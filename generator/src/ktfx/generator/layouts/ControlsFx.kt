@@ -3,9 +3,8 @@ package ktfx.generator.layouts
 import com.hendraanggrian.kotlinpoet.asNullable
 import com.hendraanggrian.kotlinpoet.memberOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
-import com.hendraanggrian.kotlinpoet.producerOf
-import com.hendraanggrian.kotlinpoet.typeVariableBy
-import com.squareup.kotlinpoet.asClassName
+import com.hendraanggrian.kotlinpoet.typeVarBy
+import com.hendraanggrian.kotlinpoet.typeVarOf
 import javafx.collections.ObservableList
 import javafx.concurrent.Task
 import javafx.geometry.Side
@@ -52,7 +51,7 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
             CheckComboBox::class(T) { items(T) }
             CheckListView::class(T) { items(T) }
             CheckTreeView::class(T) {
-                "root"(CheckBoxTreeItem::class.asClassName().parameterizedBy(T).asNullable()) { defaultValue("null") }
+                "root"(CheckBoxTreeItem::class.parameterizedBy(T).asNullable()) { defaultValue("null") }
             }
             GridView::class(T) { items(T) }
             HiddenSidesPane::class(customClass = true)
@@ -83,11 +82,11 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                 "max"<Int> { defaultValue("5") }
                 "rating"<Int> { defaultValue("-1") }
             }
-            SegmentedBar::class("T".typeVariableBy(SegmentedBar.Segment::class))
+            SegmentedBar::class("T".typeVarBy(SegmentedBar.Segment::class))
             SegmentedButton::class(customClass = true)
             SnapshotView::class(customClass = true)
             StatusBar::class()
-            TaskProgressView::class("T".typeVariableBy(Task::class.asClassName().parameterizedBy("*".typeVariableBy())))
+            TaskProgressView::class("T".typeVarBy(Task::class.parameterizedBy("*".typeVarOf())))
             ToggleSwitch::class { text() }
             WorldMapView::class()
         }

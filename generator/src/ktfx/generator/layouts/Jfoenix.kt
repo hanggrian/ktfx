@@ -3,7 +3,8 @@ package ktfx.generator.layouts
 import com.hendraanggrian.kotlinpoet.asNullable
 import com.hendraanggrian.kotlinpoet.dsl.ParameterSpecContainerScope
 import com.hendraanggrian.kotlinpoet.parameterizedBy
-import com.hendraanggrian.kotlinpoet.typeVariableBy
+import com.hendraanggrian.kotlinpoet.typeVarBy
+import com.hendraanggrian.kotlinpoet.typeVarOf
 import com.jfoenix.controls.JFXBadge
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXCheckBox
@@ -91,12 +92,12 @@ val LayoutsFactory.Companion.Jfoenix: LayoutsFactory
             JFXTogglePane::class(customClass = true)
             JFXToolbar::class(customClass = true)
             JFXTreeCell::class(T)
-            JFXTreeTableView::class("S".typeVariableBy(RecursiveTreeObject::class.asClassName().parameterizedBy(S))) {
+            JFXTreeTableView::class("S".typeVarBy(RecursiveTreeObject::class.parameterizedBy(S))) {
                 treeItem("root", S)
             }
             JFXTreeView::class(T) { treeItem("root", T) }
             JFXTreeViewPath::class {
-                "treeView"(TreeView::class.asClassName().parameterizedBy("*".typeVariableBy()).asNullable()) {
+                "treeView"(TreeView::class.asClassName().parameterizedBy("*".typeVarOf()).asNullable()) {
                     defaultValue("null")
                 }
             }

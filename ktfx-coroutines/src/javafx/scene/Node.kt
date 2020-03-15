@@ -284,7 +284,7 @@ fun Node.onInputMethodTextChanged(
 fun Node.snapshot(
     context: CoroutineContext = Dispatchers.JavaFx,
     image: WritableImage? = null,
-    configuration: SnapshotParameters.() -> Unit,
+    configuration: SnapshotParameters.() -> Unit = { },
     callback: suspend (SnapshotResult) -> Unit
 ): Unit = snapshot(
     { param -> GlobalScope.launch(context) { callback(param) }; null },

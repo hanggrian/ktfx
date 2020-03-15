@@ -129,9 +129,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
             // javafx.scene.control
             Accordion::class(customClass = true)
             Button::class { text(); graphic() }
-            ButtonBar::class(customClass = true) {
-                "buttonOrder"(String::class.asClassName().asNullable()) { defaultValue("null") }
-            }
+            ButtonBar::class(customClass = true) { "buttonOrder"(String::class.asNullable()) { defaultValue("null") } }
             CheckBox::class { text() }
             CheckMenuItem::class { text(); graphic() }
             ChoiceBox::class(T) { items(T) }
@@ -168,22 +166,18 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
             TabPane::class(customClass = true)
             TextArea::class { emptyText() }
             TextField::class { emptyText() }
-            TitledPane::class(customClass = true) {
-                "title"(String::class.asClassName().asNullable()) { defaultValue("null") }
-            }
+            TitledPane::class(customClass = true) { "title"(String::class.asNullable()) { defaultValue("null") } }
             ToggleButton::class { text(); graphic() }
             ToolBar::class(customClass = true)
             TreeTableView::class(S) { treeItem("root", S) }
             TreeView::class(T) { treeItem("root", T) }
 
             // javafx.scene.image
-            ImageView::class { add("image", Image::class.asClassName().asNullable()) { defaultValue("null") } }
+            ImageView::class { add("image", Image::class.asNullable()) { defaultValue("null") } }
             ImageView::class { add<String>("imageUrl") }
 
             // javafx.scene.media
-            MediaView::class {
-                add("mediaPlayer", MediaPlayer::class.asClassName().asNullable()) { defaultValue("null") }
-            }
+            MediaView::class { add("mediaPlayer", MediaPlayer::class.asNullable()) { defaultValue("null") } }
 
             // javafx.scene.layout
             AnchorPane::class(customClass = true)
@@ -257,13 +251,9 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
         fun ParameterSpecContainerScope.height() = "height"<Double> { defaultValue("0.0") }
 
         fun ParameterSpecContainerScope.xyChartParameters() {
-            add("x", Axis::class.asClassName().parameterizedBy(X))
-            add("y", Axis::class.asClassName().parameterizedBy(Y))
-            "data"(
-                ObservableList::class.asClassName().parameterizedBy(
-                    XYChart.Series::class.asClassName().parameterizedBy(X, Y)
-                )
-            ) {
+            add("x", Axis::class.parameterizedBy(X))
+            add("y", Axis::class.parameterizedBy(Y))
+            "data"(ObservableList::class.parameterizedBy(XYChart.Series::class.parameterizedBy(X, Y))) {
                 defaultValue("%M()", FXCollections::class.memberOf("observableArrayList"))
             }
         }
@@ -291,11 +281,9 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
             "radiusY"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.radius(radius: Double) =
-            "radius"<Double> { defaultValue("$radius") }
+        fun ParameterSpecContainerScope.radius(radius: Double) = "radius"<Double> { defaultValue("$radius") }
 
-        fun ParameterSpecContainerScope.fill() =
-            "fill"(Paint::class.asClassName().asNullable()) { defaultValue("null") }
+        fun ParameterSpecContainerScope.fill() = "fill"(Paint::class.asNullable()) { defaultValue("null") }
 
         fun ParameterSpecContainerScope.controlXY() {
             "controlX"<Double> { defaultValue("0.0") }
@@ -312,6 +300,5 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
             "controlY2"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.division() =
-            "division"<Int> { defaultValue("64") }
+        fun ParameterSpecContainerScope.division() = "division"<Int> { defaultValue("64") }
     }

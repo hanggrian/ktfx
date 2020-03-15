@@ -1,3 +1,3 @@
-private const val VERSION_KOTLINPOET_KTX = "0.2"
+private const val VERSION_KOTLINPOET_KTX = "0.3"
 
 fun Dependencies.kotlinpoetKtx() = "com.hendraanggrian:kotlinpoet-ktx:$VERSION_KOTLINPOET_KTX"

@@ -12,14 +12,14 @@ import javafx.beans.value.ObservableDoubleValue
 import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
-import javafx.beans.value.ObservableValue
+import javafx.beans.value.ObservableObjectValue
 
 /** Create a [FloatBinding] with multiple [Observable] dependencies. */
 inline fun floatBindingOf(vararg dependencies: Observable, crossinline valueProvider: () -> Float): FloatBinding =
     Bindings.createFloatBinding(Callable { valueProvider() }, *dependencies)
 
-/** Create a [FloatBinding] with single [ObservableValue] dependency. */
-inline fun <V> ObservableValue<V>.toFloatBinding(crossinline valueProvider: (V?) -> Float): FloatBinding =
+/** Create a [FloatBinding] with single [ObservableObjectValue] dependency. */
+inline fun <V> ObservableObjectValue<V>.toFloatBinding(crossinline valueProvider: (V?) -> Float): FloatBinding =
     Bindings.createFloatBinding(Callable { valueProvider(value) }, this)
 
 /** Create a [FloatBinding] with single [ObservableBooleanValue] dependency. */

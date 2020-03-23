@@ -280,7 +280,7 @@ fun Scene.onContextMenuRequested(
 ): Unit = setOnContextMenuRequested { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Takes a snapshot of this scene at the next frame and calls the specified callback method when the image is ready. */
-fun Scene.snapshot(
+fun Scene.capture(
     context: CoroutineContext = Dispatchers.JavaFx,
     image: WritableImage? = null,
     callback: suspend CoroutineScope.(SnapshotResult) -> Unit

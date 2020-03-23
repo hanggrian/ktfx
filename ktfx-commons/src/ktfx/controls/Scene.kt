@@ -9,4 +9,4 @@ inline fun <reified T : Node> Scene.find(selector: String): T = lookup(selector)
 
 /** Take a snapshot of this [Node] returning image it wrote. */
 @Suppress("NOTHING_TO_INLINE")
-inline fun Scene.snapshot(): WritableImage = snapshot(null)
+inline fun Scene.capture(): WritableImage = snapshot(null)

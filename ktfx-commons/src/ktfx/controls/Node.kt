@@ -8,7 +8,7 @@ import javafx.scene.image.WritableImage
 inline fun <reified T : Node> Node.find(selector: String): T = lookup(selector) as T
 
 /** Take a snapshot of this [Node] returning image it wrote. */
-inline fun Node.snapshot(
+inline fun Node.capture(
     image: WritableImage? = null,
-    configuration: SnapshotParameters.() -> Unit
+    configuration: SnapshotParameters.() -> Unit = { }
 ): WritableImage = snapshot(SnapshotParameters().apply(configuration), image)

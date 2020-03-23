@@ -234,7 +234,7 @@ inline fun Scene.onContextMenuRequested(
 ): Unit = setOnContextMenuRequested(action)
 
 /** Takes a snapshot of this scene at the next frame and calls the specified callback method when the image is ready. */
-inline fun Scene.snapshot(
+inline fun Scene.capture(
     image: WritableImage? = null,
     noinline callback: (SnapshotResult) -> Unit
 ): Unit = snapshot({ callback(it); null }, image)

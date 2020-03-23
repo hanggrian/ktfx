@@ -281,7 +281,7 @@ fun Node.onInputMethodTextChanged(
 ): Unit = setOnInputMethodTextChanged { event -> GlobalScope.launch(context) { action(event) } }
 
 /** Takes a snapshot of this node at the next frame and calls the specified callback method when the image is ready. */
-fun Node.snapshot(
+fun Node.capture(
     context: CoroutineContext = Dispatchers.JavaFx,
     image: WritableImage? = null,
     configuration: SnapshotParameters.() -> Unit = { },

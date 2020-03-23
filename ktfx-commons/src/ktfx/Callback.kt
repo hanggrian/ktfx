@@ -14,7 +14,7 @@ inline fun <P, R> callbackBindingOf(
     vararg dependencies: Observable,
     crossinline valueProvider: (P) -> R?
 ): ObjectBinding<Callback<P, R>> =
-    Bindings.createObjectBinding<Callback<P, R>>(Callable { Callback<P, R> { valueProvider(it) } }, *dependencies)
+    Bindings.createObjectBinding(Callable { Callback<P, R> { valueProvider(it) } }, *dependencies)
 
 /** Converts the object provided into its string form. */
 @Suppress("NOTHING_TO_INLINE")

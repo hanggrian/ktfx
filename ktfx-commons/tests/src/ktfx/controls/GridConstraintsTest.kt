@@ -9,9 +9,11 @@ class GridConstraintsTest {
 
     @Test fun rowConstraints() {
         val gridPane = GridPane()
+        gridPane.rowConstraints2.append()
         gridPane.rowConstraints {
-            constraints()
-            constraints { isFillHeight = true }
+            append {
+                isFillHeight = true
+            }
         }
         assertEquals(2, gridPane.rowConstraints.size)
         assertTrue(gridPane.rowConstraints.last().isFillHeight)
@@ -19,9 +21,11 @@ class GridConstraintsTest {
 
     @Test fun columnConstraints() {
         val gridPane = GridPane()
+        gridPane.columnConstraints2.append()
         gridPane.columnConstraints {
-            constraints()
-            constraints { prefWidth = 72.0 }
+            append {
+                prefWidth = 72.0
+            }
         }
         assertEquals(2, gridPane.columnConstraints.size)
         assertEquals(72.0, gridPane.columnConstraints.last().prefWidth)

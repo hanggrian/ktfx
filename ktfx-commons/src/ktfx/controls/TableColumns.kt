@@ -16,37 +16,37 @@ import kotlin.contracts.contract
 annotation class TableColumnDslMarker
 
 /** Return columns configurator of this [TableView]. */
-inline val <S> TableView<S>.tableColumns: TableColumnContainer<S> get() = TableColumnContainer(columns)
+inline val <S> TableView<S>.columns2: TableColumnContainer<S> get() = TableColumnContainer(columns)
 
 /** Configure columns of this [TableView] using [configuration] block. */
-inline fun <S> TableView<S>.tableColumns(configuration: TableColumnContainerScope<S>.() -> Unit) {
+inline fun <S> TableView<S>.columns(configuration: TableColumnContainerScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     TableColumnContainerScope(columns).configuration()
 }
 
 /** Return columns configurator of this [TableColumn]. */
-inline val <S> TableColumn<S, *>.tableColumns: TableColumnContainer<S> get() = TableColumnContainer(columns)
+inline val <S> TableColumn<S, *>.columns2: TableColumnContainer<S> get() = TableColumnContainer(columns)
 
 /** Configure columns of this [TableColumn] using [configuration] block. */
-inline fun <S> TableColumn<S, *>.tableColumns(configuration: TableColumnContainer<S>.() -> Unit) {
+inline fun <S> TableColumn<S, *>.columns(configuration: TableColumnContainer<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     TableColumnContainerScope<S>(columns).configuration()
 }
 
 /** Return columns configurator of this [TreeTableView]. */
-inline val <S> TreeTableView<S>.tableColumns: TreeTableColumnContainer<S> get() = TreeTableColumnContainer(columns)
+inline val <S> TreeTableView<S>.columns2: TreeTableColumnContainer<S> get() = TreeTableColumnContainer(columns)
 
 /** Configure columns of this [TreeTableView] using [configuration] block. */
-inline fun <S> TreeTableView<S>.tableColumns(configuration: TreeTableColumnContainerScope<S>.() -> Unit) {
+inline fun <S> TreeTableView<S>.columns(configuration: TreeTableColumnContainerScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     TreeTableColumnContainerScope<S>(columns).configuration()
 }
 
 /** Return columns configurator of this [TreeTableColumn]. */
-inline val <S> TreeTableColumn<S, *>.tableColumns: TreeTableColumnContainer<S> get() = TreeTableColumnContainer(columns)
+inline val <S> TreeTableColumn<S, *>.columns2: TreeTableColumnContainer<S> get() = TreeTableColumnContainer(columns)
 
 /** Configure columns of this [TreeTableColumn] using [configuration] block. */
-inline fun <S> TreeTableColumn<S, *>.tableColumns(configuration: TreeTableColumnContainerScope<S>.() -> Unit) {
+inline fun <S> TreeTableColumn<S, *>.columns(configuration: TreeTableColumnContainerScope<S>.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     TreeTableColumnContainerScope<S>(columns).configuration()
 }
@@ -57,11 +57,11 @@ open class TableColumnContainer<S> @PublishedApi internal constructor(
 ) {
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> column(text: String? = null): TableColumn<S, T> =
+    fun <T> append(text: String? = null): TableColumn<S, T> =
         TableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
-    inline fun <T> column(
+    inline fun <T> append(
         text: String? = null,
         configuration: TableColumn<S, T>.() -> Unit
     ): TableColumn<S, T> {
@@ -81,7 +81,7 @@ class TableColumnContainerScope<S> @PublishedApi internal constructor(
     /** Add a column using receiver and [configuration] block, returning the column added. */
     inline operator fun <T> String.invoke(
         configuration: TableColumn<S, T>.() -> Unit
-    ): TableColumn<S, T> = column(this, configuration)
+    ): TableColumn<S, T> = append(this, configuration)
 }
 
 /** Container of [TreeTableColumn], providing sets of useful operation. */
@@ -90,11 +90,11 @@ open class TreeTableColumnContainer<S> @PublishedApi internal constructor(
 ) {
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> column(text: String? = null): TreeTableColumn<S, T> =
+    fun <T> append(text: String? = null): TreeTableColumn<S, T> =
         TreeTableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
-    inline fun <T> column(
+    inline fun <T> append(
         text: String? = null,
         configuration: TreeTableColumn<S, T>.() -> Unit
     ): TreeTableColumn<S, T> {
@@ -114,5 +114,5 @@ class TreeTableColumnContainerScope<S> @PublishedApi internal constructor(
     /** Add a column using receiver and [configuration] block, returning the column added. */
     inline operator fun <T> String.invoke(
         configuration: TreeTableColumn<S, T>.() -> Unit
-    ): TreeTableColumn<S, T> = column(this, configuration)
+    ): TreeTableColumn<S, T> = append(this, configuration)
 }

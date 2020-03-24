@@ -32,12 +32,11 @@ inline fun GridPane.columnConstraints(configuration: ColumnConstraintsContainer.
 class RowConstraintsContainer @PublishedApi internal constructor(
     @PublishedApi internal val constraints: ObservableList<RowConstraints>
 ) {
-
     /** Add a default [RowConstraints], returning the constraints added. */
-    fun constraints(): RowConstraints = RowConstraints().also { constraints += it }
+    fun append(): RowConstraints = RowConstraints().also { constraints += it }
 
     /** Add a [RowConstraints] using [configuration] block, returning the constraints added. */
-    inline fun constraints(configuration: RowConstraints.() -> Unit): RowConstraints {
+    inline fun append(configuration: RowConstraints.() -> Unit): RowConstraints {
         val constraints = RowConstraints()
         constraints.configuration()
         this.constraints += constraints
@@ -49,12 +48,11 @@ class RowConstraintsContainer @PublishedApi internal constructor(
 class ColumnConstraintsContainer @PublishedApi internal constructor(
     @PublishedApi internal val constraints: ObservableList<ColumnConstraints>
 ) {
-
     /** Add a default [ColumnConstraints], returning the constraints added. */
-    fun constraints(): ColumnConstraints = ColumnConstraints().also { constraints += it }
+    fun append(): ColumnConstraints = ColumnConstraints().also { constraints += it }
 
     /** Add a [ColumnConstraints] using [configuration] block, returning the constraints added. */
-    inline fun constraints(configuration: ColumnConstraints.() -> Unit): ColumnConstraints {
+    inline fun append(configuration: ColumnConstraints.() -> Unit): ColumnConstraints {
         val constraints = ColumnConstraints()
         constraints.configuration()
         this.constraints += constraints

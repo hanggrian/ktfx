@@ -7,20 +7,20 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TableConstraintsTest {
+class TableColumnsTest {
 
     @BeforeTest fun start() = initToolkit()
 
     @Test fun tableView() {
         val table = TableView<Nothing>()
-        table.tableColumns {
+        table.columns {
             "Full name"<String> {
-                tableColumns {
-                    column<String>("First name")
-                    column<String>("Last name")
+                columns {
+                    append<String>("First name")
+                    append<String>("Last name")
                 }
             }
-            column<Int>("Age")
+            append<Int>("Age")
         }
         assertEquals(table.columns[0].text, "Full name")
         assertEquals(table.columns[0].columns[0].text, "First name")
@@ -30,14 +30,14 @@ class TableConstraintsTest {
 
     @Test fun treeTableView() {
         val treeTable = TreeTableView<Nothing>()
-        treeTable.tableColumns {
+        treeTable.columns {
             "Full name"<String> {
-                tableColumns {
-                    column<String>("First name")
-                    column<String>("Last name")
+                columns {
+                    append<String>("First name")
+                    append<String>("Last name")
                 }
             }
-            column<Int>("Age")
+            append<Int>("Age")
         }
         assertEquals(treeTable.columns[0].text, "Full name")
         assertEquals(treeTable.columns[0].columns[0].text, "First name")

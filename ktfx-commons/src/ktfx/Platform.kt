@@ -77,7 +77,5 @@ inline fun <T> T.letLater(crossinline block: (T) -> Unit) {
  */
 inline fun repeatLater(times: Int, crossinline action: (Int) -> Unit) {
     contract { callsInPlace(action) }
-    for (index in 0 until times) {
-        action(index)
-    }
+    Platform.runLater { for (index in 0 until times) action(index) }
 }

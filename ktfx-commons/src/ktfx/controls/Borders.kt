@@ -79,7 +79,10 @@ class BorderBuilder @PublishedApi internal constructor() {
         var stroke: Paint?
             @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
-                topStroke = value; rightStroke = value; bottomStroke = value; leftStroke = value
+                topStroke = value
+                rightStroke = value
+                bottomStroke = value
+                leftStroke = value
             }
 
         /** The style to use on the top. If null, defaults to [BorderStrokeStyle.NONE]. */
@@ -98,7 +101,10 @@ class BorderBuilder @PublishedApi internal constructor() {
         var style: BorderStrokeStyle?
             @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
-                topStyle = value; rightStyle = value; bottomStyle = value; leftStyle = value
+                topStyle = value
+                rightStyle = value
+                bottomStyle = value
+                leftStyle = value
             }
 
         /** The radii. If null, we default to square corners by using [CornerRadii.EMPTY]. */
@@ -132,7 +138,7 @@ class BorderBuilder @PublishedApi internal constructor() {
         /** The slices for the image. If null, defaults to [BorderWidths.DEFAULT]. */
         var slices: BorderWidths? = null
 
-        var isFill: Boolean = false
+        var isFilled: Boolean = false
 
         /** The repeat value for the border image in the x direction. If null, defaults to [BorderRepeat.STRETCH]. */
         var repeatX: BorderRepeat? = null
@@ -144,10 +150,11 @@ class BorderBuilder @PublishedApi internal constructor() {
         var repeat: BorderRepeat?
             @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
-                repeatX = value; repeatY = value
+                repeatX = value
+                repeatY = value
             }
 
         @PublishedApi internal fun build(): BorderImage =
-            BorderImage(image, widths, insets, slices, isFill, repeatX, repeatY)
+            BorderImage(image, widths, insets, slices, isFilled, repeatX, repeatY)
     }
 }

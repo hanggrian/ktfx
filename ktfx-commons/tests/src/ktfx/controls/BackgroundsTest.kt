@@ -1,41 +1,61 @@
 package ktfx.controls
 
-import javafx.scene.layout.BorderWidths
+import javafx.geometry.Insets
+import javafx.scene.layout.BackgroundPosition
+import javafx.scene.layout.BackgroundRepeat
+import javafx.scene.layout.BackgroundSize
 import javafx.scene.layout.CornerRadii
 import javafx.scene.layout.Region
 import javafx.scene.paint.Color
+import ktfx.test.SampleImage
 import ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNull
 
 class BackgroundsTest {
+    private lateinit var region: Region
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest fun start() {
+        initToolkit()
+        region = Region()
+    }
 
+    @Test fun multiple() {
+        region.background {
+            fill { }
+            image(SampleImage()) { }
+        }
+        assertEquals(1, region.background.fills.size)
+        assertEquals(1, region.background.images.size)
+    }
 
-    @Test fun background() {
-        val region = Region()
-        assertNull(region.background)
+    @Test fun singleFill() {
         region.backgroundFill {
             fill = Color.RED
             radii = CornerRadii(5.0)
+            insets = Insets(10.0)
         }
         val fill = region.background.fills.first()
         assertEquals(Color.RED, fill.fill)
         assertEquals(5.0, fill.radii.bottomLeftHorizontalRadius)
+        assertEquals(Insets(10.0), fill.insets)
     }
 
-    @Test fun border() {
-        val region = Region()
-        assertNull(region.border)
-        region.borderStroke {
-            stroke = Color.RED
-            widths = BorderWidths.FULL
+    @Test fun singleImage() {
+        val sample = SampleImage()
+        val backgroundSize = BackgroundSize(1.0, 2.0, true, true, true, true)
+        region.backgroundImage(sample) {
+            repeat = BackgroundRepeat.ROUND
+            position = BackgroundPosition.CENTER
+            size = backgroundSize
         }
-        val stroke = region.border.strokes.first()
-        assertEquals(Color.RED, stroke.topStroke)
-        assertEquals(BorderWidths.FULL, stroke.widths)
+        region.background.images.first().let {
+            assertEquals(sample, it.image)
+            assertEquals(BackgroundRepeat.ROUND, it.repeatX)
+            assertEquals(BackgroundRepeat.ROUND, it.repeatY)
+            assertEquals(BackgroundPosition.CENTER, it.position)
+            assertEquals(backgroundSize, it.size)
+        }
     }
 }

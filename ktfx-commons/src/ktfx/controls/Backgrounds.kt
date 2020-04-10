@@ -91,7 +91,8 @@ class BackgroundBuilder @PublishedApi internal constructor() {
         var repeat: BackgroundRepeat?
             @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
             set(value) {
-                repeatX = value; repeatY = value
+                repeatX = value
+                repeatY = value
             }
 
         /** The position to use. If null, defaults to [BackgroundPosition.DEFAULT]. */

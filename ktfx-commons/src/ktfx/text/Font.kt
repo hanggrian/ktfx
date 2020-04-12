@@ -13,7 +13,10 @@ val Int.pt: Font get() = Font.font(toDouble())
 /** Returns a default font with size of this [Double] number. */
 inline val Double.pt: Font get() = Font.font(this)
 
-/** Returns [FontWeight] parsed from [Font.style]. */
+/**
+ * Returns [FontWeight] by finding appropriate keyword in [Font.style].
+ * The result may be OS dependant.
+ */
 val Font.weight: FontWeight
     get() = when {
         "Light" in style -> when {
@@ -31,7 +34,10 @@ val Font.weight: FontWeight
         else -> FontWeight.NORMAL
     }
 
-/** Returns [FontPosture] parsed from [Font.style]. */
+/**
+ * Returns [FontPosture] by finding appropriate keyword in [Font.style].
+ * The result may be OS dependant.
+ */
 val Font.posture: FontPosture
     get() = when {
         "Italic" in style -> FontPosture.ITALIC

@@ -8,28 +8,28 @@ import javafx.scene.text.Font
 import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 
-/** Sets [Labeled] current font family while keeping other attributes. */
+/** Font family of this [Labeled]. */
 inline var Labeled.fontFamily: String
     get() = font.family
     set(value) {
         font = Font.font(value, font.weight, font.posture, font.size)
     }
 
-/** Sets [Labeled] current font weight while keeping other attributes. */
+/** Font weight of this [Labeled], parsed from its style string. */
 inline var Labeled.fontWeight: FontWeight
     get() = font.weight
     set(value) {
         font = Font.font(font.family, value, font.posture, font.size)
     }
 
-/** Sets [Labeled] current font posture while keeping other attributes. */
+/** Font posture of this [Labeled], parsed from its style string. */
 inline var Labeled.fontPosture: FontPosture
     get() = font.posture
     set(value) {
         font = Font.font(font.family, font.weight, value, font.size)
     }
 
-/** Sets [Labeled] current font size while keeping other attributes. */
+/** Font size of this [Labeled]. */
 inline var Labeled.fontSize: Double
     get() = font.size
     set(value) {

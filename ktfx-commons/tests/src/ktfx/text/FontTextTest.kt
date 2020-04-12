@@ -5,7 +5,9 @@ import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 import javafx.scene.text.Text
 import ktfx.test.BaseFontTest
+import kotlin.test.Ignore
 
+@Ignore
 class FontTextTest : BaseFontTest<Text>() {
 
     override fun getContainer(): Text = Text()

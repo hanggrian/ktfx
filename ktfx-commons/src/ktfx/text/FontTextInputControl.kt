@@ -8,28 +8,28 @@ import javafx.scene.text.Font
 import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
 
-/** Sets [TextInputControl] current font family while keeping other attributes. */
+/** Font family of this [TextInputControl]. */
 inline var TextInputControl.fontFamily: String
     get() = font.family
     set(value) {
         font = Font.font(value, font.weight, font.posture, font.size)
     }
 
-/** Sets [TextInputControl] current font weight while keeping other attributes. */
+/** Font weight of this [TextInputControl], parsed from its style string. */
 inline var TextInputControl.fontWeight: FontWeight
     get() = font.weight
     set(value) {
         font = Font.font(font.family, value, font.posture, font.size)
     }
 
-/** Sets [TextInputControl] current font posture while keeping other attributes. */
+/** Font posture of this [TextInputControl], parsed from its style string. */
 inline var TextInputControl.fontPosture: FontPosture
     get() = font.posture
     set(value) {
         font = Font.font(font.family, font.weight, value, font.size)
     }
 
-/** Sets [TextInputControl] current font size while keeping other attributes. */
+/** Font size of this [TextInputControl]. */
 inline var TextInputControl.fontSize: Double
     get() = font.size
     set(value) {

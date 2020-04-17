@@ -5,19 +5,13 @@
 
 Ktfx
 ====
-[Kotlin] extensions for JavaFX app development that focuses on API similarity to Kotlin standard library.
-Written in spirit of [anko].
-
-Ktfx consists of several parts:
- * Ktfx Commons: a lightweight library full of helpers.
- * Ktfx Layouts: a fast and type-safe way to write dynamic JavaFX layouts.
- * Ktfx Listeners: use standard Kotlin functions in JavaFX events.
- * Ktfx Coroutines: much like Ktfx Listeners, but with `kotlinx.coroutines` capabilities.
+Written in spirit of [anko], it aims to make JavaFX app development less painful with the help of Kotlin technologies.
+* Full of helpers for common JavaFX operations.
+* Write dynamic layout with Kotlin DSL.
+* Use coroutines directly from JavaFX API.
 
 [Download](https://github.com/hendraanggrian/ktfx/wiki/Download)
 ----------
-All artifacts are linked to [JCenter].
-
 ```gradle
 repositories {
     jcenter()
@@ -199,10 +193,16 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
-[Kotlin]: https://kotlinlang.org/
 [anko]: https://github.com/Kotlin/anko
 [kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
 [releases]: https://github.com/hendraanggrian/ktfx/releases
 [TestFX]: https://github.com/TestFX/TestFX
-[JCenter]: https://bintray.com/bintray/jcenter
+[demo_layouts]: /art/demo_layouts.png
+Center]: https://bintray.com/bintray/jcenter
+[demo_layouts]: /art/demo_layouts.png
+oroutines]: https://github.com/Kotlin/kotlinx.coroutines
+[releases]: https://github.com/hendraanggrian/ktfx/releases
+[TestFX]: https://github.com/TestFX/TestFX
+[demo_layouts]: /art/demo_layouts.png
+Center]: https://bintray.com/bintray/jcenter
 [demo_layouts]: /art/demo_layouts.png

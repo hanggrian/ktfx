@@ -2,7 +2,7 @@ package ktfx.controlsfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import ktfx.layouts.KtfxPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import org.controlsfx.control.CheckListView
 
 class CheckListViewTest : LayoutsTest<KtfxPane, CheckListView<String>>() {

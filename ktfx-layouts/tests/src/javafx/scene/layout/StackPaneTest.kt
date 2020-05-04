@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.StackPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class StackPaneTest : LayoutsTest<KtfxPane, StackPane>() {
 

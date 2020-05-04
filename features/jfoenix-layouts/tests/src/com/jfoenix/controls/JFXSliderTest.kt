@@ -2,7 +2,7 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXSlider
 import ktfx.layouts.KtfxPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class JFXSliderTest : LayoutsTest<KtfxPane, JFXSlider>() {

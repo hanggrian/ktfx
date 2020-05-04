@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.event.ActionEvent
 import javafx.scene.control.ButtonBase
-import ktfx.test.BaseButtonBaseTest
+import com.hendraanggrian.ktfx.test.BaseButtonBaseTest
 
 class ButtonBaseTest : BaseButtonBaseTest() {
 

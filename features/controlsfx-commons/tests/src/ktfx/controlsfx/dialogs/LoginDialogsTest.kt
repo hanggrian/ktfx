@@ -1,6 +1,6 @@
 package ktfx.controlsfx.dialogs
 
-import ktfx.test.DialogShowingTest
+import com.hendraanggrian.ktfx.test.DialogShowingTest
 import ktfx.toFxPair
 import kotlin.test.Ignore
 import kotlin.test.Test

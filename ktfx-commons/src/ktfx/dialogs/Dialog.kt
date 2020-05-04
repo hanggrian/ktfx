@@ -23,7 +23,7 @@ inline var Dialog<*>.icon: Image
     }
 
 /** Apply [ImageView] as graphic and icon of this dialog. */
-var Dialog<*>.graphicIcon: ImageView
+inline var Dialog<*>.graphicIcon: ImageView
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         graphic = value
@@ -31,7 +31,7 @@ var Dialog<*>.graphicIcon: ImageView
     }
 
 /** Apply string as header text and title of this dialog. */
-var Dialog<*>.headerTitle: String
+inline var Dialog<*>.headerTitle: String
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) {
         headerText = value
@@ -43,105 +43,67 @@ val Dialog<*>.buttons: DialogButtonContainer get() = DialogButtonContainer(this)
 
 /** Configure buttons of this [Dialog] using [configuration] block. */
 @OptIn(ExperimentalContracts::class)
-inline fun Dialog<*>.buttons(configuration: DialogButtonContainerScope.() -> Unit) {
+fun Dialog<*>.buttons(configuration: DialogButtonContainerScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     DialogButtonContainerScope(this).configuration()
 }
 
 /** Container of [ButtonType], providing sets of useful operation. */
-open class DialogButtonContainer internal constructor(
-    @PublishedApi internal val nativeDialog: Dialog<*>
-) {
+open class DialogButtonContainer internal constructor(private val nativeDialog: Dialog<*>) {
 
     /** Add apply button. */
     fun apply(): Button = add(ButtonType.APPLY)
 
     /** Add apply button using [configuration] block. */
-    inline fun apply(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.APPLY)
-        button.configuration()
-        return button
-    }
+    inline fun apply(configuration: Button.() -> Unit): Button = add(ButtonType.APPLY).apply(configuration)
 
     /** Add ok button. */
     fun ok(): Button = add(ButtonType.OK)
 
     /** Add ok button using [configuration] block. */
-    inline fun ok(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.OK)
-        button.configuration()
-        return button
-    }
+    inline fun ok(configuration: Button.() -> Unit): Button = add(ButtonType.OK).apply(configuration)
 
     /** Add cancel button. */
     fun cancel(): Button = add(ButtonType.CANCEL)
 
     /** Add cancel button using [configuration] block. */
-    inline fun cancel(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.CANCEL)
-        button.configuration()
-        return button
-    }
+    inline fun cancel(configuration: Button.() -> Unit): Button = add(ButtonType.CANCEL).apply(configuration)
 
     /** Add close button. */
     fun close(): Button = add(ButtonType.CLOSE)
 
     /** Add close button using [configuration] block. */
-    inline fun close(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.CLOSE)
-        button.configuration()
-        return button
-    }
+    inline fun close(configuration: Button.() -> Unit): Button = add(ButtonType.CLOSE).apply(configuration)
 
     /** Add yes button. */
     fun yes(): Button = add(ButtonType.YES)
 
     /** Add yes button using [configuration] block. */
-    inline fun yes(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.YES)
-        button.configuration()
-        return button
-    }
+    inline fun yes(configuration: Button.() -> Unit): Button = add(ButtonType.YES).apply(configuration)
 
     /** Add no button. */
     fun no(): Button = add(ButtonType.NO)
 
     /** Add no button using [configuration] block. */
-    inline fun no(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.NO)
-        button.configuration()
-        return button
-    }
+    inline fun no(configuration: Button.() -> Unit): Button = add(ButtonType.NO).apply(configuration)
 
     /** Add finish button. */
     fun finish(): Button = add(ButtonType.FINISH)
 
     /** Add finish button using [configuration] block. */
-    inline fun finish(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.FINISH)
-        button.configuration()
-        return button
-    }
+    inline fun finish(configuration: Button.() -> Unit): Button = add(ButtonType.FINISH).apply(configuration)
 
     /** Add next button. */
     fun next(): Button = add(ButtonType.NEXT)
 
     /** Add next button using [configuration] block. */
-    inline fun next(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.NEXT)
-        button.configuration()
-        return button
-    }
+    inline fun next(configuration: Button.() -> Unit): Button = add(ButtonType.NEXT).apply(configuration)
 
     /** Add previous button. */
     fun previous(): Button = add(ButtonType.PREVIOUS)
 
     /** Add previous button using [configuration] block. */
-    inline fun previous(configuration: Button.() -> Unit): Button {
-        val button = add(ButtonType.PREVIOUS)
-        button.configuration()
-        return button
-    }
+    inline fun previous(configuration: Button.() -> Unit): Button = add(ButtonType.PREVIOUS).apply(configuration)
 
     /** Add custom button specifying [text] and [data]. */
     fun custom(
@@ -154,21 +116,22 @@ open class DialogButtonContainer internal constructor(
         text: String,
         data: ButtonBar.ButtonData = ButtonBar.ButtonData.OTHER,
         configuration: Button.() -> Unit
-    ): Button {
-        val button = add(ButtonType(text, data))
-        button.configuration()
-        return button
-    }
+    ): Button = add(ButtonType(text, data)).apply(configuration)
 
-    @PublishedApi internal fun add(type: ButtonType): Button {
+    /** Add raw [ButtonType]. */
+    fun add(type: ButtonType): Button {
         nativeDialog.dialogPane.buttonTypes += type
         return nativeDialog.dialogPane.lookupButton(type) as Button
+    }
+
+    /** Add raw [ButtonType] with Kotlin operator. */
+    operator fun plusAssign(type: ButtonType) {
+        add(type)
     }
 }
 
 /** Receiver for `buttons` block. */
-class DialogButtonContainerScope @PublishedApi internal constructor(nativeDialog: Dialog<*>) :
-    DialogButtonContainer(nativeDialog) {
+class DialogButtonContainerScope internal constructor(nativeDialog: Dialog<*>) : DialogButtonContainer(nativeDialog) {
 
     /** Alias of [custom] with operator function. */
     inline operator fun String.invoke(

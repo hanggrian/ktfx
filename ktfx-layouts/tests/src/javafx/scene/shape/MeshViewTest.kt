@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.MeshView
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class MeshViewTest : LayoutsTest<KtfxPane, MeshView>() {

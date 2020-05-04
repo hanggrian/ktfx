@@ -2,7 +2,7 @@ package ktfx.controlsfx.layouts
 
 import javafx.concurrent.Task
 import ktfx.layouts.KtfxPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import org.controlsfx.control.TaskProgressView
 
 class TaskProgressViewTest : LayoutsTest<KtfxPane, TaskProgressView<Task<String>>>() {

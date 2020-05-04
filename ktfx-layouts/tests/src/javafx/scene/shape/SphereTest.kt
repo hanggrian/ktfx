@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Sphere
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class SphereTest : LayoutsTest<KtfxPane, Sphere>() {

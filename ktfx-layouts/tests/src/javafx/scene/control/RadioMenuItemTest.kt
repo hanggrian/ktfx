@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.RadioMenuItem
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class RadioMenuItemTest : LayoutsTest<KtfxMenu, RadioMenuItem>() {

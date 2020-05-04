@@ -1,6 +1,6 @@
 package javafx.stage
 
-import ktfx.test.testScene
+import com.hendraanggrian.ktfx.test.testScene
 import org.testfx.framework.junit.ApplicationTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

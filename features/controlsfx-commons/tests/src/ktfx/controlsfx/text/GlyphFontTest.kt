@@ -1,6 +1,6 @@
 package ktfx.controlsfx.text
 
-import ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import org.controlsfx.glyphfont.FontAwesome
 import org.controlsfx.glyphfont.GlyphFontRegistry
 import kotlin.test.BeforeTest

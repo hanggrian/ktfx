@@ -5,7 +5,7 @@ import javafx.scene.control.SortEvent
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import kotlinx.coroutines.Dispatchers
-import ktfx.test.BaseTableViewTest
+import com.hendraanggrian.ktfx.test.BaseTableViewTest
 
 class TableViewTest : BaseTableViewTest() {
 

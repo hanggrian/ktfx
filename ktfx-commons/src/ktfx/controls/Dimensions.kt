@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.controls
 
 import javafx.geometry.Insets
@@ -11,7 +13,7 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /** Sets horizontal and vertical gap of this [FlowPane]. */
-fun FlowPane.setGap(horizontal: Double, vertical: Double) {
+inline fun FlowPane.setGap(horizontal: Double, vertical: Double) {
     hgap = horizontal
     vgap = vertical
 }
@@ -22,7 +24,7 @@ inline var FlowPane.gap: Double
     set(value) = setGap(value, value)
 
 /** Sets horizontal and vertical gap of this [GridPane]. */
-fun GridPane.setGap(horizontal: Double, vertical: Double) {
+inline fun GridPane.setGap(horizontal: Double, vertical: Double) {
     hgap = horizontal
     vgap = vertical
 }
@@ -33,7 +35,7 @@ inline var GridPane.gap: Double
     set(value) = setGap(value, value)
 
 /** Sets horizontal and vertical gap of this [GridPane]. */
-fun TilePane.setGap(horizontal: Double, vertical: Double) {
+inline fun TilePane.setGap(horizontal: Double, vertical: Double) {
     hgap = horizontal
     vgap = vertical
 }
@@ -106,8 +108,9 @@ inline var Region.prefSize: Double
 inline var Region.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMaxSize(value, value)
+
 /** Convenient method for overriding the stage's computed minimum width and height. */
-fun Stage.setMinSize(width: Double, height: Double) {
+inline fun Stage.setMinSize(width: Double, height: Double) {
     minWidth = width
     minHeight = height
 }
@@ -118,7 +121,7 @@ inline var Stage.minSize: Double
     set(value) = setMinSize(value, value)
 
 /** Convenient method for overriding the stage's computed width and height. */
-fun Stage.setSize(width: Double, height: Double) {
+inline fun Stage.setSize(width: Double, height: Double) {
     setWidth(width)
     setHeight(height)
 }
@@ -129,7 +132,7 @@ inline var Stage.size: Double
     set(value) = setSize(value, value)
 
 /** Convenient method for overriding the stage's computed maximum width and height. */
-fun Stage.setMaxSize(width: Double, height: Double) {
+inline fun Stage.setMaxSize(width: Double, height: Double) {
     maxWidth = width
     maxHeight = height
 }

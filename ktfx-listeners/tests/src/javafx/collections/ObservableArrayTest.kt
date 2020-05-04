@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.beans.Observable
 import javafx.collections.ObservableArray
-import ktfx.test.BaseObservableArrayTest
+import com.hendraanggrian.ktfx.test.BaseObservableArrayTest
 
 class ObservableArrayTest : BaseObservableArrayTest() {
 

@@ -8,8 +8,8 @@ import javafx.scene.control.TreeTableView
  * @param S The type of the elements contained within the [TreeTableView].
  * @param configuration custom initialization block that configures [KtfxTreeTableRow].
  */
-inline fun <S> TreeTableView<S>.rowFactory(
-    crossinline configuration: KtfxTreeTableRow<S>.(TreeTableView<S>) -> Unit
+fun <S> TreeTableView<S>.rowFactory(
+    configuration: KtfxTreeTableRow<S>.(TreeTableView<S>) -> Unit
 ): Unit = setRowFactory {
     val builder = KtfxTreeTableRow<S>()
     builder.configuration(it)
@@ -17,7 +17,7 @@ inline fun <S> TreeTableView<S>.rowFactory(
 }
 
 /** Custom [TreeTableRow] configurator class. */
-class KtfxTreeTableRow<T> @PublishedApi internal constructor() : TreeTableRow<T>(), KtfxCell<T> {
+class KtfxTreeTableRow<T> internal constructor() : TreeTableRow<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

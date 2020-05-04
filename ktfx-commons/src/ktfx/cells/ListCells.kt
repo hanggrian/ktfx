@@ -148,8 +148,8 @@ inline fun <T> ListView<T>.textFieldCellFactory(
  * @param T The type of the elements contained within the [ListView].
  * @param configuration custom initialization block that configures [KtfxListCell].
  */
-inline fun <T> ListView<T>.cellFactory(
-    crossinline configuration: KtfxListCell<T>.(ListView<T>) -> Unit
+fun <T> ListView<T>.cellFactory(
+    configuration: KtfxListCell<T>.(ListView<T>) -> Unit
 ): Unit = setCellFactory {
     val cell = KtfxListCell<T>()
     cell.configuration(it)
@@ -161,8 +161,8 @@ inline fun <T> ListView<T>.cellFactory(
  * @param T The type of the elements contained within the [ComboBox].
  * @param configuration custom initialization block that configures [KtfxListCell].
  */
-inline fun <T> ComboBox<T>.cellFactory(
-    crossinline configuration: KtfxListCell<T>.(ListView<T>) -> Unit
+fun <T> ComboBox<T>.cellFactory(
+    configuration: KtfxListCell<T>.(ListView<T>) -> Unit
 ): Unit = setCellFactory {
     val cell = KtfxListCell<T>()
     cell.configuration(it)
@@ -170,7 +170,7 @@ inline fun <T> ComboBox<T>.cellFactory(
 }
 
 /** Custom [ListCell] configurator class. */
-class KtfxListCell<T> @PublishedApi internal constructor() : ListCell<T>(), KtfxCell<T> {
+class KtfxListCell<T> internal constructor() : ListCell<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

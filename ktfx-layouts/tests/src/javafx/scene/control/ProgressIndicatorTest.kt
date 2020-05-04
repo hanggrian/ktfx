@@ -2,7 +2,7 @@ package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressIndicator
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class ProgressIndicatorTest : LayoutsTest<KtfxPane, ProgressIndicator>() {

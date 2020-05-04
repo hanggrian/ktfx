@@ -1,4 +1,4 @@
-package ktfx.test
+package com.hendraanggrian.ktfx.test
 
 import javafx.concurrent.Task
 import javafx.concurrent.WorkerStateEvent

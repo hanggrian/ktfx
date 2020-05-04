@@ -1,4 +1,4 @@
-package ktfx.test
+package com.hendraanggrian.ktfx.test
 
 import javafx.event.ActionEvent
 import javafx.scene.control.TextField

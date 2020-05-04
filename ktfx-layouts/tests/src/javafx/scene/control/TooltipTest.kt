@@ -2,7 +2,7 @@ package ktfx.layouts
 
 import javafx.scene.control.TableColumn
 import javafx.util.Duration
-import ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertNotNull

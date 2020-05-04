@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.MenuItem
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class MenuItemTest : LayoutsTest<KtfxMenu, MenuItem>() {

@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.controls
 
 import javafx.geometry.Insets
@@ -16,53 +18,55 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /** Create multiple [BackgroundFill] and/or [BackgroundImage] using DSL. */
-inline fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background =
+fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background =
     BackgroundBuilder().apply(builderAction).build()
 
 /** Add multiple [BackgroundFill] and/or [BackgroundImage] to node using DSL. */
-inline fun Region.background(builderAction: BackgroundBuilder.() -> Unit): Background {
+inline fun Region.background(noinline builderAction: BackgroundBuilder.() -> Unit): Background {
     val background = buildBackground(builderAction)
     setBackground(background)
     return background
 }
 
 /** Add a new [BackgroundFill] to node using DSL. */
-inline fun Region.backgroundFill(builderAction: BackgroundBuilder.FillBuilder.() -> Unit): Background =
+inline fun Region.backgroundFill(noinline builderAction: BackgroundBuilder.FillBuilder.() -> Unit): Background =
     background { fill(builderAction) }
 
 /** Add a new [BackgroundImage] to node using DSL. */
-inline fun Region.backgroundImage(image: Image, builderAction: BackgroundBuilder.ImageBuilder.() -> Unit): Background =
-    background { image(image, builderAction) }
+inline fun Region.backgroundImage(
+    image: Image,
+    noinline builderAction: BackgroundBuilder.ImageBuilder.() -> Unit
+): Background = background { image(image, builderAction) }
 
 /**
  * Class to support adding [Background] to node with DSL.
  * @see Region.background
  */
-class BackgroundBuilder @PublishedApi internal constructor() {
+class BackgroundBuilder internal constructor() {
     val fills: MutableList<BackgroundFill> = mutableListOf()
     val images: MutableList<BackgroundImage> = mutableListOf()
 
     /** Add a new [BackgroundFill] to node using DSL. */
-    inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill {
+    fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill {
         val backgroundFill = FillBuilder().apply(builderAction).build()
         fills += backgroundFill
         return backgroundFill
     }
 
     /** Add a new [BackgroundImage] to node using DSL. */
-    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage {
+    fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage {
         val backgroundImage = ImageBuilder(image).apply(builderAction).build()
         images += backgroundImage
         return backgroundImage
     }
 
-    @PublishedApi internal fun build(): Background = Background(fills, images)
+    internal fun build(): Background = Background(fills, images)
 
     /**
      * Class to support adding [BackgroundFill] to node with DSL.
      * @see BackgroundBuilder.fill
      */
-    class FillBuilder @PublishedApi internal constructor() {
+    class FillBuilder internal constructor() {
         /** Any Paint. If null, the value [javafx.scene.paint.Color.TRANSPARENT] is used.. */
         var fill: Paint? = null
 
@@ -72,7 +76,7 @@ class BackgroundBuilder @PublishedApi internal constructor() {
         /** The insets. If null, the value Insets.EMPTY is used. */
         var insets: Insets? = null
 
-        @PublishedApi internal fun build(): BackgroundFill = BackgroundFill(fill, radii, insets)
+        internal fun build(): BackgroundFill = BackgroundFill(fill, radii, insets)
     }
 
     /**
@@ -80,7 +84,7 @@ class BackgroundBuilder @PublishedApi internal constructor() {
      * @param image the image to use as background.
      * @see BackgroundBuilder.image
      */
-    class ImageBuilder @PublishedApi internal constructor(private val image: Image) {
+    class ImageBuilder internal constructor(private val image: Image) {
         /** The repeat for the x axis. If null, this value defaults to [BackgroundRepeat.REPEAT]. */
         var repeatX: BackgroundRepeat? = null
 
@@ -101,6 +105,6 @@ class BackgroundBuilder @PublishedApi internal constructor() {
         /** The size. If null, defaults to [BackgroundSize.DEFAULT]. */
         var size: BackgroundSize? = null
 
-        @PublishedApi internal fun build(): BackgroundImage = BackgroundImage(image, repeatX, repeatY, position, size)
+        internal fun build(): BackgroundImage = BackgroundImage(image, repeatX, repeatY, position, size)
     }
 }

@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.event.Event
 import javafx.scene.control.Tab
-import ktfx.test.BaseTabTest
+import com.hendraanggrian.ktfx.test.BaseTabTest
 
 class TabTest : BaseTabTest() {
 

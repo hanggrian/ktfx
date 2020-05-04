@@ -1,6 +1,6 @@
 package ktfx.jfoenix.controls
 
-import ktfx.test.TableColumnTest
+import com.hendraanggrian.ktfx.test.TableColumnTest
 
 class JFXTableColumnsTest : TableColumnTest() {
 

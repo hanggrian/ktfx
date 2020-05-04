@@ -4,7 +4,7 @@ import javafx.event.ActionEvent
 import javafx.event.Event
 import javafx.scene.control.ChoiceBox
 import kotlinx.coroutines.Dispatchers
-import ktfx.test.BaseChoiceBoxTest
+import com.hendraanggrian.ktfx.test.BaseChoiceBoxTest
 
 class ChoiceBoxTest : BaseChoiceBoxTest() {
 

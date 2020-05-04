@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Path
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class PathTest : LayoutsTest<KtfxPane, Path>() {
 

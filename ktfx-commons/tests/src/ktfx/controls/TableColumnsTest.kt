@@ -2,7 +2,7 @@ package ktfx.controls
 
 import javafx.scene.control.TableView
 import javafx.scene.control.TreeTableView
-import ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

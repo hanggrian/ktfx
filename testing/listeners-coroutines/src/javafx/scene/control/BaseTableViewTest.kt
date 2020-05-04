@@ -1,4 +1,4 @@
-package ktfx.test
+package com.hendraanggrian.ktfx.test
 
 import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.SortEvent

@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.SplitPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class SplitPaneTest : LayoutsTest<KtfxPane, SplitPane>() {
 

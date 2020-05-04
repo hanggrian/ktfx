@@ -7,17 +7,6 @@ import javafx.scene.control.Tab
 import javafx.scene.control.TitledPane
 import javafx.scene.control.ToggleButton
 import javafx.scene.shape.PathElement
-import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
-
-/** Alias of [LayoutManager.addChild] with [configuration] builder. */
-@OptIn(ExperimentalContracts::class)
-inline fun <C : T, T> LayoutManager<T>.addChild(child: C, configuration: C.() -> Unit): C {
-    contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    child.configuration()
-    return addChild(child)
-}
 
 /**
  * A manager contains a set of children.

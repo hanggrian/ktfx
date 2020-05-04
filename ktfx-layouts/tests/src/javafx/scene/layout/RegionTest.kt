@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.Region
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class RegionTest : LayoutsTest<KtfxPane, Region>() {
 

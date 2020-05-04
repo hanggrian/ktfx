@@ -7,8 +7,8 @@ import javafx.scene.layout.BorderWidths
 import javafx.scene.layout.CornerRadii
 import javafx.scene.layout.Region
 import javafx.scene.paint.Color
-import ktfx.test.SampleImage
-import ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.SampleImage
+import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

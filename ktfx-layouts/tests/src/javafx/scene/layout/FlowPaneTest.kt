@@ -2,7 +2,7 @@ package ktfx.layouts
 
 import javafx.geometry.Orientation
 import javafx.scene.layout.FlowPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull

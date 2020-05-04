@@ -2,7 +2,7 @@ package ktfx.jfoenix.test
 
 import com.jfoenix.controls.JFXDialog
 import com.jfoenix.controls.events.JFXDialogEvent
-import ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

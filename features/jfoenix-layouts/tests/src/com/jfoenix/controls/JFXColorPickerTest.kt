@@ -3,7 +3,7 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXColorPicker
 import javafx.scene.paint.Color
 import ktfx.layouts.KtfxPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class JFXColorPickerTest : LayoutsTest<KtfxPane, JFXColorPicker>() {

@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.Pagination
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class PaginationTest : LayoutsTest<KtfxPane, Pagination>() {

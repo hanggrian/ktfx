@@ -2,7 +2,7 @@ package ktfx.layouts
 
 import javafx.geometry.Orientation
 import javafx.scene.layout.TilePane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class TilePaneTest : LayoutsTest<KtfxPane, TilePane>() {

@@ -3,7 +3,7 @@ package ktfx.listeners
 import javafx.event.ActionEvent
 import javafx.event.Event
 import javafx.scene.control.ComboBoxBase
-import ktfx.test.BaseComboBoxBaseTest
+import com.hendraanggrian.ktfx.test.BaseComboBoxBaseTest
 
 class ComboBoxBaseTest : BaseComboBoxBaseTest() {
 

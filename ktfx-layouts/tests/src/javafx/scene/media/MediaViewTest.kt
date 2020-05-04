@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.media.MediaView
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class MediaViewTest : LayoutsTest<KtfxPane, MediaView>() {

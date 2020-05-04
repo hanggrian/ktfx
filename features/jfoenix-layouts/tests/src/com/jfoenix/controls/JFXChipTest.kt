@@ -3,7 +3,7 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXChip
 import com.jfoenix.controls.JFXChipView
 import ktfx.layouts.KtfxPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class JFXChipTest : LayoutsTest<KtfxPane, JFXChip<String>>() {

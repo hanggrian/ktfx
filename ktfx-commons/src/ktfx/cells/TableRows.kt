@@ -8,8 +8,8 @@ import javafx.scene.control.TableView
  * @param S The type of the elements contained within the [TableView].
  * @param configuration custom initialization block that configures [KtfxTableRow].
  */
-inline fun <S> TableView<S>.rowFactory(
-    crossinline configuration: KtfxTableRow<S>.(TableView<S>) -> Unit
+fun <S> TableView<S>.rowFactory(
+    configuration: KtfxTableRow<S>.(TableView<S>) -> Unit
 ): Unit = setRowFactory {
     val builder = KtfxTableRow<S>()
     builder.configuration(it)
@@ -17,7 +17,7 @@ inline fun <S> TableView<S>.rowFactory(
 }
 
 /** Custom [TableRow] configurator class. */
-class KtfxTableRow<T> @PublishedApi internal constructor() : TableRow<T>(), KtfxCell<T> {
+class KtfxTableRow<T> internal constructor() : TableRow<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

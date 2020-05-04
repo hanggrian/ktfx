@@ -1,4 +1,4 @@
-package ktfx.test
+package com.hendraanggrian.ktfx.test
 
 import javafx.collections.FXCollections
 import javafx.collections.ListChangeListener

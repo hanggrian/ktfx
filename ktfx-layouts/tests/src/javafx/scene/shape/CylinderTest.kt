@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Cylinder
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class CylinderTest : LayoutsTest<KtfxPane, Cylinder>() {

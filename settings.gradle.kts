@@ -9,9 +9,9 @@ includeDir("features")
 includeDir("ruleset")
 includeDir("testing")
 
-include("generator")
+include("codegen")
 include("website")
-include("demo")
+include("example")
 
 fun includeDir(dir: String) = file(dir)
     .listFiles()!!

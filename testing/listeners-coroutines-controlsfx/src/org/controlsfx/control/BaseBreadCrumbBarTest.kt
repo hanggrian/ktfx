@@ -1,6 +1,6 @@
 package ktfx.controlsfx.test
 
-import ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import org.controlsfx.control.BreadCrumbBar
 import kotlin.test.BeforeTest
 import kotlin.test.Test

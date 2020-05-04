@@ -12,32 +12,32 @@ import kotlin.contracts.contract
 import ktfx.controls.TableColumnDslMarker
 
 /** Return columns configurator of this [JFXTreeTableView]. */
-inline val <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.tableColumns: JFXTreeTableColumnContainer<S>
+val <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns2: JFXTreeTableColumnContainer<S>
     get() = JFXTreeTableColumnContainer(columns)
 
 /** Configure columns of this [JFXTreeTableView] using [configuration] block. */
-inline fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.tableColumns(
+fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
     configuration: JFXTreeTableColumnContainerScope<S>.() -> Unit
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    JFXTreeTableColumnContainerScope<S>(columns).configuration()
+    JFXTreeTableColumnContainerScope(columns).configuration()
 }
 
 /** Return columns configurator of this [JFXTreeTableColumn]. */
-inline val <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.tableColumns: JFXTreeTableColumnContainer<S>
+val <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns2: JFXTreeTableColumnContainer<S>
     get() = JFXTreeTableColumnContainer(columns)
 
 /** Configure columns of this [JFXTreeTableColumn] using [configuration] block. */
-inline fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.tableColumns(
+fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns(
     configuration: JFXTreeTableColumnContainerScope<S>.() -> Unit
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    JFXTreeTableColumnContainerScope<S>(columns).configuration()
+    JFXTreeTableColumnContainerScope(columns).configuration()
 }
 
 /** Container of [JFXTreeTableColumn], providing sets of useful operation. */
-open class JFXTreeTableColumnContainer<S : RecursiveTreeObject<S>> @PublishedApi internal constructor(
-    @PublishedApi internal val columns: MutableCollection<TreeTableColumn<S, *>>
+open class JFXTreeTableColumnContainer<S : RecursiveTreeObject<S>> internal constructor(
+    val columns: MutableCollection<TreeTableColumn<S, *>>
 ) {
 
     /** Add a default column using [text], returning the column added. */
@@ -49,8 +49,7 @@ open class JFXTreeTableColumnContainer<S : RecursiveTreeObject<S>> @PublishedApi
         text: String? = null,
         configuration: JFXTreeTableColumn<S, T>.() -> Unit
     ): JFXTreeTableColumn<S, T> {
-        val column = JFXTreeTableColumn<S, T>(text)
-        column.configuration()
+        val column = JFXTreeTableColumn<S, T>(text).apply(configuration)
         columns += column
         return column
     }
@@ -58,7 +57,7 @@ open class JFXTreeTableColumnContainer<S : RecursiveTreeObject<S>> @PublishedApi
 
 /** Receiver for `tableColumns` block. */
 @TableColumnDslMarker
-class JFXTreeTableColumnContainerScope<S : RecursiveTreeObject<S>> @PublishedApi internal constructor(
+class JFXTreeTableColumnContainerScope<S : RecursiveTreeObject<S>> internal constructor(
     columns: MutableCollection<TreeTableColumn<S, *>>
 ) : JFXTreeTableColumnContainer<S>(columns) {
 

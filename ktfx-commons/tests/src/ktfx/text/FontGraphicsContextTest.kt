@@ -5,7 +5,7 @@ import javafx.scene.canvas.GraphicsContext
 import javafx.scene.text.Font
 import javafx.scene.text.FontPosture
 import javafx.scene.text.FontWeight
-import ktfx.test.BaseFontTest
+import com.hendraanggrian.ktfx.test.BaseFontTest
 import kotlin.test.Ignore
 
 @Ignore

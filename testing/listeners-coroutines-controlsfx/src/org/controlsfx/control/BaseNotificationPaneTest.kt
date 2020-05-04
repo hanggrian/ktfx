@@ -1,8 +1,8 @@
 package ktfx.controlsfx.test
 
 import javafx.event.Event
-import ktfx.test.FakeEventTarget
-import ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.FakeEventTarget
+import com.hendraanggrian.ktfx.test.initToolkit
 import org.controlsfx.control.NotificationPane
 import kotlin.test.BeforeTest
 import kotlin.test.Test

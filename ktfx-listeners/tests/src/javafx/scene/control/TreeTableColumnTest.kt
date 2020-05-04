@@ -1,7 +1,7 @@
 package ktfx.listeners
 
 import javafx.scene.control.TreeTableColumn
-import ktfx.test.BaseTreeTableColumnTest
+import com.hendraanggrian.ktfx.test.BaseTreeTableColumnTest
 
 class TreeTableColumnTest : BaseTreeTableColumnTest() {
 

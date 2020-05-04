@@ -3,8 +3,8 @@ package ktfx.controlsfx.controls
 import javafx.geometry.Pos
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
-import ktfx.test.SampleImageView
-import ktfx.test.testScene
+import com.hendraanggrian.ktfx.test.SampleImageView
+import com.hendraanggrian.ktfx.test.testScene
 import ktfx.time.s
 import org.controlsfx.control.Notifications
 import org.testfx.framework.junit.ApplicationTest

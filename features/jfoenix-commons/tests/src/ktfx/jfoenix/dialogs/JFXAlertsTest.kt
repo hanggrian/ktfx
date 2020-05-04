@@ -1,7 +1,7 @@
 package ktfx.jfoenix.dialogs
 
 import ktfx.dialogs.buttons
-import ktfx.test.DialogShowingTest
+import com.hendraanggrian.ktfx.test.DialogShowingTest
 import ktfx.callbackOf
 import kotlin.test.Ignore
 import kotlin.test.Test

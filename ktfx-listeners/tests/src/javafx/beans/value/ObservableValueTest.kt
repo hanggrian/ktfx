@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.beans.Observable
 import javafx.beans.value.ObservableValue
-import ktfx.test.BaseObservableValueTest
+import com.hendraanggrian.ktfx.test.BaseObservableValueTest
 
 class ObservableValueTest : BaseObservableValueTest() {
 

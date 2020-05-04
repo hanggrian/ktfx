@@ -3,7 +3,7 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTreeView
 import com.jfoenix.controls.JFXTreeViewPath
 import ktfx.layouts.KtfxPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class JFXTreeViewPathTest : LayoutsTest<KtfxPane, JFXTreeViewPath>() {
     private lateinit var jfxTreeView: JFXTreeView<String>

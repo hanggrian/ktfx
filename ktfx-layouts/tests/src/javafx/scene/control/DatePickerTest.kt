@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.DatePicker
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class DatePickerTest : LayoutsTest<KtfxPane, DatePicker>() {

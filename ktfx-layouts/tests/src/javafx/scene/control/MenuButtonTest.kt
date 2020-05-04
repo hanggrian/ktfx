@@ -2,7 +2,7 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.MenuButton
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull

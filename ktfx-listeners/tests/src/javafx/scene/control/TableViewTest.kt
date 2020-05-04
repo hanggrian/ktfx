@@ -4,7 +4,7 @@ import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.SortEvent
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
-import ktfx.test.BaseTableViewTest
+import com.hendraanggrian.ktfx.test.BaseTableViewTest
 
 class TableViewTest : BaseTableViewTest() {
 

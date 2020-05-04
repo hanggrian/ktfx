@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextField
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class TextFieldTest : LayoutsTest<KtfxPane, TextField>() {

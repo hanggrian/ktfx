@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.animation.Animation
 import javafx.event.ActionEvent
-import ktfx.test.BaseAnimationTest
+import com.hendraanggrian.ktfx.test.BaseAnimationTest
 
 class AnimationTest : BaseAnimationTest() {
 

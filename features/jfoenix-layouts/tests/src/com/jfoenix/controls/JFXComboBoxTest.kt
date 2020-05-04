@@ -3,7 +3,7 @@ package ktfx.jfoenix.layouts
 import com.google.common.truth.Truth.assertThat
 import com.jfoenix.controls.JFXComboBox
 import ktfx.layouts.KtfxPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class JFXComboBoxTest : LayoutsTest<KtfxPane, JFXComboBox<String>>() {
 

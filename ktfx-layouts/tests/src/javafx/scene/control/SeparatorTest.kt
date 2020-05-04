@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.Separator
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class SeparatorTest : LayoutsTest<KtfxPane, Separator>() {
 

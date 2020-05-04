@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class QuadCurveTest : LayoutsTest<KtfxPane, QuadCurve>() {

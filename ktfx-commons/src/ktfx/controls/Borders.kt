@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.controls
 
 import javafx.geometry.Insets
@@ -16,53 +18,53 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 
 /** Create multiple [BorderStroke] and/or [BorderImage] using DSL. */
-inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
+fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
     BorderBuilder().apply(builderAction).build()
 
 /** Add multiple [BorderStroke] and/or [BorderImage] to node using DSL. */
-inline fun Region.border(builderAction: BorderBuilder.() -> Unit): Border {
+inline fun Region.border(noinline builderAction: BorderBuilder.() -> Unit): Border {
     val border = buildBorder(builderAction)
     setBorder(border)
     return border
 }
 
 /** Add a new [BorderStroke] to node using DSL. */
-inline fun Region.borderStroke(builderAction: BorderBuilder.StrokeBuilder.() -> Unit): Border =
+inline fun Region.borderStroke(noinline builderAction: BorderBuilder.StrokeBuilder.() -> Unit): Border =
     border { stroke(builderAction) }
 
 /** Add a new [BorderImage] to node using DSL. */
-inline fun Region.borderImage(image: Image, builderAction: BorderBuilder.ImageBuilder.() -> Unit): Border =
+inline fun Region.borderImage(image: Image, noinline builderAction: BorderBuilder.ImageBuilder.() -> Unit): Border =
     border { image(image, builderAction) }
 
 /**
  * Class to support adding [Border] to node with DSL.
  * @see Region.border
  */
-class BorderBuilder @PublishedApi internal constructor() {
+class BorderBuilder internal constructor() {
     val strokes: MutableList<BorderStroke> = mutableListOf()
     val images: MutableList<BorderImage> = mutableListOf()
 
     /** Add a new [BorderStroke] to node using DSL. */
-    inline fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke {
+    fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke {
         val borderStroke = StrokeBuilder().apply(builderAction).build()
         strokes += borderStroke
         return borderStroke
     }
 
     /** Add a new [BorderImage] to node using DSL. */
-    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage {
+    fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage {
         val borderImage = ImageBuilder(image).apply(builderAction).build()
         images += borderImage
         return borderImage
     }
 
-    @PublishedApi internal fun build(): Border = Border(strokes, images)
+    internal fun build(): Border = Border(strokes, images)
 
     /**
      * Class to support adding [BorderStroke] stroke to node with DSL.
      * @see BorderBuilder.stroke
      */
-    class StrokeBuilder @PublishedApi internal constructor() {
+    class StrokeBuilder internal constructor() {
         /** The fill to use on the top. If null, defaults to [javafx.scene.paint.Color.BLACK]. */
         var topStroke: Paint? = null
 
@@ -116,7 +118,7 @@ class BorderBuilder @PublishedApi internal constructor() {
         /** The insets indicating where to draw the border relative to the region edges. */
         var insets: Insets? = null
 
-        @PublishedApi internal fun build(): BorderStroke = BorderStroke(
+        internal fun build(): BorderStroke = BorderStroke(
             topStroke, rightStroke, bottomStroke, leftStroke,
             topStyle, rightStyle, bottomStyle, leftStyle,
             radii, widths, insets
@@ -128,7 +130,7 @@ class BorderBuilder @PublishedApi internal constructor() {
      * @param image the image to use as border.
      * @see BorderBuilder.image
      */
-    class ImageBuilder @PublishedApi internal constructor(private val image: Image) {
+    class ImageBuilder internal constructor(private val image: Image) {
         /** The widths of the border in each dimension. A null value results in [BorderWidths.EMPTY]. */
         var widths: BorderWidths? = null
 
@@ -154,7 +156,7 @@ class BorderBuilder @PublishedApi internal constructor() {
                 repeatY = value
             }
 
-        @PublishedApi internal fun build(): BorderImage =
+        internal fun build(): BorderImage =
             BorderImage(image, widths, insets, slices, isFilled, repeatX, repeatY)
     }
 }

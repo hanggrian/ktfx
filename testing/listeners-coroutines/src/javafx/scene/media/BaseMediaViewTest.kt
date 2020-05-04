@@ -1,4 +1,4 @@
-package ktfx.test
+package com.hendraanggrian.ktfx.test
 
 import javafx.scene.media.MediaErrorEvent
 import javafx.scene.media.MediaView

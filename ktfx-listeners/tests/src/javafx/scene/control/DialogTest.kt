@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.scene.control.Dialog
 import javafx.scene.control.DialogEvent
-import ktfx.test.BaseDialogTest
+import com.hendraanggrian.ktfx.test.BaseDialogTest
 import kotlin.test.Ignore
 
 @Ignore

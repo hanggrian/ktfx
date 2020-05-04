@@ -12,7 +12,7 @@ import javafx.scene.input.ScrollEvent
 import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
-import ktfx.test.BaseNodeTest
+import com.hendraanggrian.ktfx.test.BaseNodeTest
 
 class NodeTest : BaseNodeTest() {
 

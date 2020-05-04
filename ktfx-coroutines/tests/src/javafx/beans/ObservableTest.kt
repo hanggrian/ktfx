@@ -2,7 +2,7 @@ package ktfx.coroutines
 
 import javafx.beans.Observable
 import kotlinx.coroutines.Dispatchers
-import ktfx.test.BaseObservableTest
+import com.hendraanggrian.ktfx.test.BaseObservableTest
 
 class ObservableTest : BaseObservableTest() {
 

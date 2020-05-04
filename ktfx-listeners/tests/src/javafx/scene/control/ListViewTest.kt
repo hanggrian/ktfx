@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.scene.control.ListView
 import javafx.scene.control.ScrollToEvent
-import ktfx.test.BaseListViewTest
+import com.hendraanggrian.ktfx.test.BaseListViewTest
 
 class ListViewTest : BaseListViewTest() {
 

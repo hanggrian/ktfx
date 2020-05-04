@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.GridPane
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

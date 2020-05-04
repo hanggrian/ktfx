@@ -155,8 +155,8 @@ inline fun <T> TreeView<T>.textFieldCellFactory(
  * @param T The type of the elements contained within the [TreeView].
  * @param configuration custom initialization block that configures [KtfxListCell].
  */
-inline fun <T> TreeView<T>.cellFactory(
-    crossinline configuration: KtfxTreeCell<T>.(TreeView<T>) -> Unit
+fun <T> TreeView<T>.cellFactory(
+    configuration: KtfxTreeCell<T>.(TreeView<T>) -> Unit
 ): Unit = setCellFactory {
     val builder = KtfxTreeCell<T>()
     builder.configuration(it)
@@ -164,7 +164,7 @@ inline fun <T> TreeView<T>.cellFactory(
 }
 
 /** Custom [TreeCell] configurator class. */
-class KtfxTreeCell<T> @PublishedApi internal constructor() : TreeCell<T>(), KtfxCell<T> {
+class KtfxTreeCell<T> internal constructor() : TreeCell<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

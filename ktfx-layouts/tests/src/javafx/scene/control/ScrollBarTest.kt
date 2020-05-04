@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.ScrollBar
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class ScrollBarTest : LayoutsTest<KtfxPane, ScrollBar>() {
 

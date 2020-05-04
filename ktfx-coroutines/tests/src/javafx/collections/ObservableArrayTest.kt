@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.beans.Observable
 import javafx.collections.ObservableArray
 import kotlinx.coroutines.Dispatchers
-import ktfx.test.BaseObservableArrayTest
+import com.hendraanggrian.ktfx.test.BaseObservableArrayTest
 
 class ObservableArrayTest : BaseObservableArrayTest() {
 

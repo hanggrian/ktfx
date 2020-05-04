@@ -1,4 +1,4 @@
-package ktfx.test
+package com.hendraanggrian.ktfx.test
 
 import javafx.beans.Observable
 import javafx.beans.property.SimpleStringProperty

@@ -9,11 +9,11 @@ import javafx.util.StringConverter
  * and [StringConverterBuilder.fromString] using provided [builderAction].
  * @see kotlin.text.buildString
  */
-inline fun <T> buildStringConverter(builderAction: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
+fun <T> buildStringConverter(builderAction: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
     StringConverterBuilder<T>().apply(builderAction).build()
 
 /** Receiver for `buildStringConverter` block. */
-class StringConverterBuilder<T> @PublishedApi internal constructor() {
+class StringConverterBuilder<T> internal constructor() {
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
 
@@ -27,7 +27,7 @@ class StringConverterBuilder<T> @PublishedApi internal constructor() {
         _fromString = listener
     }
 
-    @PublishedApi internal fun build(): StringConverter<T> = object : StringConverter<T>() {
+    internal fun build(): StringConverter<T> = object : StringConverter<T>() {
         override fun toString(any: T?): String = _toString(any)
         override fun fromString(string: String): T? = _fromString(string)
     }

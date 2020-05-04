@@ -11,13 +11,13 @@ import kotlin.contracts.contract
 import ktfx.layouts.LayoutDslMarker
 
 /** Add children to [JFXToolbar] left items with DSL. */
-inline fun KtfxJFXToolbar.leftItems(configuration: (@LayoutDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
+inline fun JFXToolbar.leftItems(configuration: (@LayoutDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     KtfxJFXToolbar.HBoxConstraints(leftItems).configuration()
 }
 
 /** Add children to [JFXToolbar] right items with DSL. */
-inline fun KtfxJFXToolbar.rightItems(configuration: (@LayoutDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
+inline fun JFXToolbar.rightItems(configuration: (@LayoutDslMarker KtfxJFXToolbar.HBoxConstraints).() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     KtfxJFXToolbar.HBoxConstraints(rightItems).configuration()
 }

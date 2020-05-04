@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.animation.Animation
 import javafx.event.ActionEvent
 import kotlinx.coroutines.Dispatchers
-import ktfx.test.BaseAnimationTest
+import com.hendraanggrian.ktfx.test.BaseAnimationTest
 
 class AnimationTest : BaseAnimationTest() {
 

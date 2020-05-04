@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.LineTo
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class LineToTest : LayoutsTest<KtfxPath, LineTo>() {

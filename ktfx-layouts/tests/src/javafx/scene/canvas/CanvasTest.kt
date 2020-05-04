@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.canvas.Canvas
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class CanvasTest : LayoutsTest<KtfxPane, Canvas>() {

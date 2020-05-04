@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.CustomMenuItem
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 

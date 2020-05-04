@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.beans.Observable
 import javafx.beans.value.ObservableValue
 import kotlinx.coroutines.Dispatchers
-import ktfx.test.BaseObservableValueTest
+import com.hendraanggrian.ktfx.test.BaseObservableValueTest
 
 class ObservableValueTest : BaseObservableValueTest() {
 

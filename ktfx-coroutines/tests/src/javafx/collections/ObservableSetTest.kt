@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.collections.ObservableSet
 import javafx.collections.SetChangeListener
 import kotlinx.coroutines.Dispatchers
-import ktfx.test.BaseObservableSetTest
+import com.hendraanggrian.ktfx.test.BaseObservableSetTest
 
 class ObservableSetTest : BaseObservableSetTest() {
 

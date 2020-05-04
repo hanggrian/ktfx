@@ -2,7 +2,7 @@ package ktfx.controls
 
 import javafx.scene.control.Label
 import javafx.scene.shape.Rectangle
-import ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import ktfx.time.ms
 import kotlin.test.BeforeTest
 import kotlin.test.Test

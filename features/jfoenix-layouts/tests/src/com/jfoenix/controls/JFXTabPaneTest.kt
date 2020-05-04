@@ -3,7 +3,7 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTabPane
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.tab
-import ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

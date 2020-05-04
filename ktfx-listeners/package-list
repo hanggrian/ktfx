@@ -1,5 +1,7 @@
 $dokka.format:html
 $dokka.linkExtension:html
+$dokka.location:ktfx.listeners$capture(javafx.scene.Node, javafx.scene.image.WritableImage, kotlin.Function1((javafx.scene.SnapshotParameters, kotlin.Unit)), kotlin.Function1((javafx.scene.SnapshotResult, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/capture.html
+$dokka.location:ktfx.listeners$capture(javafx.scene.Scene, javafx.scene.image.WritableImage, kotlin.Function1((javafx.scene.SnapshotResult, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/capture.html
 $dokka.location:ktfx.listeners$eventFilter(javafx.concurrent.Service((kotlin.Any)), javafx.event.EventType((ktfx.listeners.eventFilter.E)), kotlin.Function1((ktfx.listeners.eventFilter.E, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-service/event-filter.html
 $dokka.location:ktfx.listeners$eventFilter(javafx.concurrent.Task((kotlin.Any)), javafx.event.EventType((ktfx.listeners.eventFilter.E)), kotlin.Function1((ktfx.listeners.eventFilter.E, kotlin.Unit)))ktfx.listeners/javafx.concurrent.-task/event-filter.html
 $dokka.location:ktfx.listeners$eventFilter(javafx.scene.Node, javafx.event.EventType((ktfx.listeners.eventFilter.E)), kotlin.Function1((ktfx.listeners.eventFilter.E, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/event-filter.html
@@ -182,6 +184,4 @@ $dokka.location:ktfx.listeners$onZoomFinished(javafx.scene.Node, kotlin.Function
 $dokka.location:ktfx.listeners$onZoomFinished(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.ZoomEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-zoom-finished.html
 $dokka.location:ktfx.listeners$onZoomStarted(javafx.scene.Node, kotlin.Function1((javafx.scene.input.ZoomEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/on-zoom-started.html
 $dokka.location:ktfx.listeners$onZoomStarted(javafx.scene.Scene, kotlin.Function1((javafx.scene.input.ZoomEvent, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/on-zoom-started.html
-$dokka.location:ktfx.listeners$snapshot(javafx.scene.Node, javafx.scene.image.WritableImage, kotlin.Function1((javafx.scene.SnapshotParameters, kotlin.Unit)), kotlin.Function1((javafx.scene.SnapshotResult, kotlin.Unit)))ktfx.listeners/javafx.scene.-node/snapshot.html
-$dokka.location:ktfx.listeners$snapshot(javafx.scene.Scene, javafx.scene.image.WritableImage, kotlin.Function1((javafx.scene.SnapshotResult, kotlin.Unit)))ktfx.listeners/javafx.scene.-scene/snapshot.html
 ktfx.listeners

@@ -74,62 +74,6 @@
 <p>Creates a string binding used to get a member.</p>
 <code><span class="keyword">fun </span><span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">selectString</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$selectString(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringBinding</span></code></td>
 </tr>
-<tr>
-<td>
-<h4><a href="to-binding.html">toBinding</a></h4>
-</td>
-<td>
-<p>Create an <a href="#">ObjectBinding</a> with single <a href="#">ObservableValue</a> dependency.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">, </span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx$toBinding(javafx.beans.value.ObservableValue((ktfx.toBinding.V)), kotlin.Function1((ktfx.toBinding.V, ktfx.toBinding.T)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<span class="identifier">T</span><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectBinding</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="to-boolean-binding.html">toBooleanBinding</a></h4>
-</td>
-<td>
-<p>Create a <a href="#">BooleanBinding</a> with single <a href="#">ObservableValue</a> dependency.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toBooleanBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx$toBooleanBinding(javafx.beans.value.ObservableValue((ktfx.toBooleanBinding.V)), kotlin.Function1((ktfx.toBooleanBinding.V, kotlin.Boolean)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="to-double-binding.html">toDoubleBinding</a></h4>
-</td>
-<td>
-<p>Create a <a href="#">DoubleBinding</a> with single <a href="#">ObservableValue</a> dependency.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toDoubleBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx$toDoubleBinding(javafx.beans.value.ObservableValue((ktfx.toDoubleBinding.V)), kotlin.Function1((ktfx.toDoubleBinding.V, kotlin.Double)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="to-float-binding.html">toFloatBinding</a></h4>
-</td>
-<td>
-<p>Create a <a href="#">FloatBinding</a> with single <a href="#">ObservableValue</a> dependency.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toFloatBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx$toFloatBinding(javafx.beans.value.ObservableValue((ktfx.toFloatBinding.V)), kotlin.Function1((ktfx.toFloatBinding.V, kotlin.Float)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html"><span class="identifier">Float</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="to-int-binding.html">toIntBinding</a></h4>
-</td>
-<td>
-<p>Create an <a href="#">IntegerBinding</a> with single <a href="#">ObservableValue</a> dependency.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toIntBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx$toIntBinding(javafx.beans.value.ObservableValue((ktfx.toIntBinding.V)), kotlin.Function1((ktfx.toIntBinding.V, kotlin.Int)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="to-long-binding.html">toLongBinding</a></h4>
-</td>
-<td>
-<p>Create a <a href="#">LongBinding</a> with single <a href="#">ObservableValue</a> dependency.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toLongBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx$toLongBinding(javafx.beans.value.ObservableValue((ktfx.toLongBinding.V)), kotlin.Function1((ktfx.toLongBinding.V, kotlin.Long)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html"><span class="identifier">Long</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="to-string-binding.html">toStringBinding</a></h4>
-</td>
-<td>
-<p>Create a <a href="#">StringBinding</a> with single <a href="#">ObservableValue</a> dependency.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">toStringBinding</span><span class="symbol">(</span><span class="identifier" id="ktfx$toStringBinding(javafx.beans.value.ObservableValue((ktfx.toStringBinding.V)), kotlin.Function1((ktfx.toStringBinding.V, kotlin.String)))/valueProvider">valueProvider</span><span class="symbol">:</span>&nbsp;<span class="symbol">(</span><span class="identifier">V</span><span class="symbol">?</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringBinding</span></code></td>
-</tr>
 </tbody>
 </table>
 </BODY>

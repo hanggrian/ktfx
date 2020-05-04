@@ -1,5 +1,7 @@
 $dokka.format:html
 $dokka.linkExtension:html
+$dokka.location:ktfx.jfoenix.layouts$bottomBar(com.jfoenix.controls.JFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))ktfx.jfoenix.layouts/com.jfoenix.controls.-j-f-x-scroll-pane/bottom-bar.html
+$dokka.location:ktfx.jfoenix.layouts$condensedHeader(com.jfoenix.controls.JFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))ktfx.jfoenix.layouts/com.jfoenix.controls.-j-f-x-scroll-pane/condensed-header.html
 $dokka.location:ktfx.jfoenix.layouts$jfxBadge(ktfx.layouts.NodeManager)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-badge.html
 $dokka.location:ktfx.jfoenix.layouts$jfxBadge(ktfx.layouts.NodeManager, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXBadge, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-badge.html
 $dokka.location:ktfx.jfoenix.layouts$jfxButton(ktfx.layouts.NodeManager, kotlin.String, javafx.scene.Node)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-button.html
@@ -80,6 +82,10 @@ $dokka.location:ktfx.jfoenix.layouts$jfxTreeView(ktfx.layouts.NodeManager, javaf
 $dokka.location:ktfx.jfoenix.layouts$jfxTreeView(ktfx.layouts.NodeManager, javafx.scene.control.TreeItem((ktfx.jfoenix.layouts.jfxTreeView.T)), kotlin.Function1((com.jfoenix.controls.JFXTreeView((ktfx.jfoenix.layouts.jfxTreeView.T)), kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-tree-view.html
 $dokka.location:ktfx.jfoenix.layouts$jfxTreeViewPath(ktfx.layouts.NodeManager, javafx.scene.control.TreeView((kotlin.Any)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-tree-view-path.html
 $dokka.location:ktfx.jfoenix.layouts$jfxTreeViewPath(ktfx.layouts.NodeManager, javafx.scene.control.TreeView((kotlin.Any)), kotlin.Function1((com.jfoenix.controls.JFXTreeViewPath, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/jfx-tree-view-path.html
+$dokka.location:ktfx.jfoenix.layouts$leftItems(com.jfoenix.controls.JFXToolbar, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXToolbar.HBoxConstraints, kotlin.Unit)))ktfx.jfoenix.layouts/com.jfoenix.controls.-j-f-x-toolbar/left-items.html
+$dokka.location:ktfx.jfoenix.layouts$mainHeader(com.jfoenix.controls.JFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))ktfx.jfoenix.layouts/com.jfoenix.controls.-j-f-x-scroll-pane/main-header.html
+$dokka.location:ktfx.jfoenix.layouts$midBar(com.jfoenix.controls.JFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))ktfx.jfoenix.layouts/com.jfoenix.controls.-j-f-x-scroll-pane/mid-bar.html
+$dokka.location:ktfx.jfoenix.layouts$rightItems(com.jfoenix.controls.JFXToolbar, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXToolbar.HBoxConstraints, kotlin.Unit)))ktfx.jfoenix.layouts/com.jfoenix.controls.-j-f-x-toolbar/right-items.html
 $dokka.location:ktfx.jfoenix.layouts$styledJFXBadge(ktfx.layouts.NodeManager, kotlin.Array((kotlin.String)), kotlin.String)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/styled-j-f-x-badge.html
 $dokka.location:ktfx.jfoenix.layouts$styledJFXBadge(ktfx.layouts.NodeManager, kotlin.Array((kotlin.String)), kotlin.String, kotlin.Function1((ktfx.jfoenix.layouts.KtfxJFXBadge, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/styled-j-f-x-badge.html
 $dokka.location:ktfx.jfoenix.layouts$styledJFXButton(ktfx.layouts.NodeManager, kotlin.String, javafx.scene.Node, kotlin.Array((kotlin.String)), kotlin.String)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/styled-j-f-x-button.html
@@ -160,4 +166,5 @@ $dokka.location:ktfx.jfoenix.layouts$styledJFXTreeView(ktfx.layouts.NodeManager,
 $dokka.location:ktfx.jfoenix.layouts$styledJFXTreeView(ktfx.layouts.NodeManager, javafx.scene.control.TreeItem((ktfx.jfoenix.layouts.styledJFXTreeView.T)), kotlin.Array((kotlin.String)), kotlin.String, kotlin.Function1((com.jfoenix.controls.JFXTreeView((ktfx.jfoenix.layouts.styledJFXTreeView.T)), kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/styled-j-f-x-tree-view.html
 $dokka.location:ktfx.jfoenix.layouts$styledJFXTreeViewPath(ktfx.layouts.NodeManager, javafx.scene.control.TreeView((kotlin.Any)), kotlin.Array((kotlin.String)), kotlin.String)ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/styled-j-f-x-tree-view-path.html
 $dokka.location:ktfx.jfoenix.layouts$styledJFXTreeViewPath(ktfx.layouts.NodeManager, javafx.scene.control.TreeView((kotlin.Any)), kotlin.Array((kotlin.String)), kotlin.String, kotlin.Function1((com.jfoenix.controls.JFXTreeViewPath, kotlin.Unit)))ktfx.jfoenix.layouts/ktfx.layouts.-node-manager/styled-j-f-x-tree-view-path.html
+$dokka.location:ktfx.jfoenix.layouts$topBar(com.jfoenix.controls.JFXScrollPane, kotlin.Function1((ktfx.layouts.NodeManager, kotlin.Unit)))ktfx.jfoenix.layouts/com.jfoenix.controls.-j-f-x-scroll-pane/top-bar.html
 ktfx.jfoenix.layouts

@@ -10,26 +10,26 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-/** Return row constraints configurator of this [GridPane]. */
-val GridPane.rowConstraints2: RowConstraintsContainer get() = RowConstraintsContainer(rowConstraints)
-
-/** Configure row constraints of this [GridPane] using [configuration] block. */
-fun GridPane.rowConstraints(configuration: RowConstraintsContainer.() -> Unit) {
+/**
+ * Configure [GridPane] row constraints.
+ * @param configuration the configuration block.
+ */
+fun GridPane.rowConstraints(configuration: RowConstraintsScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    RowConstraintsContainer(rowConstraints).apply(configuration)
+    RowConstraintsScope(rowConstraints).apply(configuration)
 }
 
-/** Return column constraints configurator of this [GridPane]. */
-val GridPane.columnConstraints2: ColumnConstraintsContainer get() = ColumnConstraintsContainer(columnConstraints)
-
-/** Configure column constraints of this [GridPane] using [configuration] block. */
-fun GridPane.columnConstraints(configuration: ColumnConstraintsContainer.() -> Unit) {
+/**
+ * Configure [GridPane] column constraints.
+ * @param configuration the configuration block.
+ */
+fun GridPane.columnConstraints(configuration: ColumnConstraintsScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    ColumnConstraintsContainer(columnConstraints).apply(configuration)
+    ColumnConstraintsScope(columnConstraints).apply(configuration)
 }
 
 /** Container of [RowConstraints], providing sets of useful operation. */
-class RowConstraintsContainer internal constructor(val constraints: ObservableList<RowConstraints>) {
+class RowConstraintsScope internal constructor(val constraints: ObservableList<RowConstraints>) {
 
     /** Add a default [RowConstraints], returning the constraints added. */
     fun append(): RowConstraints = RowConstraints().also { constraints += it }
@@ -43,7 +43,7 @@ class RowConstraintsContainer internal constructor(val constraints: ObservableLi
 }
 
 /** Container of [ColumnConstraints], providing sets of useful operation. */
-class ColumnConstraintsContainer internal constructor(val constraints: ObservableList<ColumnConstraints>) {
+class ColumnConstraintsScope internal constructor(val constraints: ObservableList<ColumnConstraints>) {
 
     /** Add a default [ColumnConstraints], returning the constraints added. */
     fun append(): ColumnConstraints = ColumnConstraints().also { constraints += it }

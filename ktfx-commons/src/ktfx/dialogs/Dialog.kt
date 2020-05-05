@@ -10,10 +10,10 @@ import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.controls.icon
-import ktfx.controls.stage
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import ktfx.windows.icon
+import ktfx.windows.stage
 
 /** Removes old icons and set a new one to this dialog. */
 inline var Dialog<*>.icon: Image
@@ -38,10 +38,13 @@ inline var Dialog<*>.headerTitle: String
         title = value
     }
 
-/** Return buttons configurator of this [Dialog]. */
+/** Returns button configurator of this [Dialog]. */
 val Dialog<*>.buttons: DialogButtonContainer get() = DialogButtonContainer(this)
 
-/** Configure buttons of this [Dialog] using [configuration] block. */
+/**
+ * Configure [Dialog] buttons.
+ * @param configuration the configuration block.
+ */
 @OptIn(ExperimentalContracts::class)
 fun Dialog<*>.buttons(configuration: DialogButtonContainerScope.() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }

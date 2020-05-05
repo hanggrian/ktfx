@@ -7,7 +7,6 @@ import javafx.scene.layout.FlowPane
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Region
 import javafx.scene.layout.TilePane
-import javafx.stage.Stage
 import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
@@ -106,38 +105,5 @@ inline var Region.prefSize: Double
 
 /** Sets max width and height of region. */
 inline var Region.maxSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMaxSize(value, value)
-
-/** Convenient method for overriding the stage's computed minimum width and height. */
-inline fun Stage.setMinSize(width: Double, height: Double) {
-    minWidth = width
-    minHeight = height
-}
-
-/** Convenient method for overriding the stage's computed minimum width and height. */
-inline var Stage.minSize: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value, value)
-
-/** Convenient method for overriding the stage's computed width and height. */
-inline fun Stage.setSize(width: Double, height: Double) {
-    setWidth(width)
-    setHeight(height)
-}
-
-/** Convenient method for overriding the stage's computed width and height. */
-inline var Stage.size: Double
-    @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setSize(value, value)
-
-/** Convenient method for overriding the stage's computed maximum width and height. */
-inline fun Stage.setMaxSize(width: Double, height: Double) {
-    maxWidth = width
-    maxHeight = height
-}
-
-/** Convenient method for overriding the stage's computed maximum width and height. */
-inline var Stage.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMaxSize(value, value)

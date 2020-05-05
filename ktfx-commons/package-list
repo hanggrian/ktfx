@@ -519,16 +519,11 @@ $dokka.location:ktfx.controls$capture(javafx.scene.Node, javafx.scene.image.Writ
 $dokka.location:ktfx.controls$capture(javafx.scene.Scene)ktfx.controls/javafx.scene.-scene/capture.html
 $dokka.location:ktfx.controls$colorAdjustEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.ColorAdjust, kotlin.Unit)))ktfx.controls/javafx.scene.-node/color-adjust-effect.html
 $dokka.location:ktfx.controls$colorInputEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.ColorInput, kotlin.Unit)))ktfx.controls/javafx.scene.-node/color-input-effect.html
-$dokka.location:ktfx.controls$columnConstraints(javafx.scene.layout.GridPane, kotlin.Function1((ktfx.controls.ColumnConstraintsContainer, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-grid-pane/column-constraints.html
-$dokka.location:ktfx.controls$columnConstraints2#javafx.scene.layout.GridPanektfx.controls/javafx.scene.layout.-grid-pane/column-constraints2.html
-$dokka.location:ktfx.controls$columns(javafx.scene.control.TableColumn((ktfx.controls.columns.S, kotlin.Any)), kotlin.Function1((ktfx.controls.TableColumnContainer((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-table-column/columns.html
-$dokka.location:ktfx.controls$columns(javafx.scene.control.TableView((ktfx.controls.columns.S)), kotlin.Function1((ktfx.controls.TableColumnContainerScope((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-table-view/columns.html
-$dokka.location:ktfx.controls$columns(javafx.scene.control.TreeTableColumn((ktfx.controls.columns.S, kotlin.Any)), kotlin.Function1((ktfx.controls.TreeTableColumnContainerScope((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-tree-table-column/columns.html
-$dokka.location:ktfx.controls$columns(javafx.scene.control.TreeTableView((ktfx.controls.columns.S)), kotlin.Function1((ktfx.controls.TreeTableColumnContainerScope((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-tree-table-view/columns.html
-$dokka.location:ktfx.controls$columns2#javafx.scene.control.TableColumn((ktfx.controls.columns2.S, kotlin.Any))ktfx.controls/javafx.scene.control.-table-column/columns2.html
-$dokka.location:ktfx.controls$columns2#javafx.scene.control.TableView((ktfx.controls.columns2.S))ktfx.controls/javafx.scene.control.-table-view/columns2.html
-$dokka.location:ktfx.controls$columns2#javafx.scene.control.TreeTableColumn((ktfx.controls.columns2.S, kotlin.Any))ktfx.controls/javafx.scene.control.-tree-table-column/columns2.html
-$dokka.location:ktfx.controls$columns2#javafx.scene.control.TreeTableView((ktfx.controls.columns2.S))ktfx.controls/javafx.scene.control.-tree-table-view/columns2.html
+$dokka.location:ktfx.controls$columnConstraints(javafx.scene.layout.GridPane, kotlin.Function1((ktfx.controls.ColumnConstraintsScope, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-grid-pane/column-constraints.html
+$dokka.location:ktfx.controls$columns(javafx.scene.control.TableColumn((ktfx.controls.columns.S, kotlin.Any)), kotlin.Function1((ktfx.controls.TableColumnScope((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-table-column/columns.html
+$dokka.location:ktfx.controls$columns(javafx.scene.control.TableView((ktfx.controls.columns.S)), kotlin.Function1((ktfx.controls.TableColumnScope((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-table-view/columns.html
+$dokka.location:ktfx.controls$columns(javafx.scene.control.TreeTableColumn((ktfx.controls.columns.S, kotlin.Any)), kotlin.Function1((ktfx.controls.TreeTableColumnScope((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-tree-table-column/columns.html
+$dokka.location:ktfx.controls$columns(javafx.scene.control.TreeTableView((ktfx.controls.columns.S)), kotlin.Function1((ktfx.controls.TreeTableColumnScope((ktfx.controls.columns.S)), kotlin.Unit)))ktfx.controls/javafx.scene.control.-tree-table-view/columns.html
 $dokka.location:ktfx.controls$constrained(javafx.scene.control.TableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-table-view/constrained.html
 $dokka.location:ktfx.controls$constrained(javafx.scene.control.TreeTableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-tree-table-view/constrained.html
 $dokka.location:ktfx.controls$displacementMapEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.DisplacementMap, kotlin.Unit)))ktfx.controls/javafx.scene.-node/displacement-map-effect.html
@@ -543,7 +538,6 @@ $dokka.location:ktfx.controls$gap#javafx.scene.layout.TilePanektfx.controls/jav
 $dokka.location:ktfx.controls$gaussianBlurEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.GaussianBlur, kotlin.Unit)))ktfx.controls/javafx.scene.-node/gaussian-blur-effect.html
 $dokka.location:ktfx.controls$glowEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.Glow, kotlin.Unit)))ktfx.controls/javafx.scene.-node/glow-effect.html
 $dokka.location:ktfx.controls$horizontalPadding#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/horizontal-padding.html
-$dokka.location:ktfx.controls$icon#javafx.stage.Stagektfx.controls/javafx.stage.-stage/icon.html
 $dokka.location:ktfx.controls$imageInputEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.ImageInput, kotlin.Unit)))ktfx.controls/javafx.scene.-node/image-input-effect.html
 $dokka.location:ktfx.controls$innerShadowEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.InnerShadow, kotlin.Unit)))ktfx.controls/javafx.scene.-node/inner-shadow-effect.html
 $dokka.location:ktfx.controls$isNotSelected(javafx.scene.control.MultipleSelectionModel((kotlin.Any)))ktfx.controls/javafx.scene.control.-multiple-selection-model/is-not-selected.html
@@ -555,9 +549,7 @@ $dokka.location:ktfx.controls$isSelected(javafx.scene.control.ToggleGroup)ktfx.
 $dokka.location:ktfx.controls$leftPadding#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/left-padding.html
 $dokka.location:ktfx.controls$lightingEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.Lighting, kotlin.Unit)))ktfx.controls/javafx.scene.-node/lighting-effect.html
 $dokka.location:ktfx.controls$maxSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/max-size.html
-$dokka.location:ktfx.controls$maxSize#javafx.stage.Stagektfx.controls/javafx.stage.-stage/max-size.html
 $dokka.location:ktfx.controls$minSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/min-size.html
-$dokka.location:ktfx.controls$minSize#javafx.stage.Stagektfx.controls/javafx.stage.-stage/min-size.html
 $dokka.location:ktfx.controls$motionBlurEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.MotionBlur, kotlin.Unit)))ktfx.controls/javafx.scene.-node/motion-blur-effect.html
 $dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.MultipleSelectionModel((kotlin.Any))ktfx.controls/javafx.scene.control.-multiple-selection-model/not-selected-binding.html
 $dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.SelectionModel((kotlin.Any))ktfx.controls/javafx.scene.control.-selection-model/not-selected-binding.html
@@ -571,8 +563,7 @@ $dokka.location:ktfx.controls$reflectionEffect(javafx.scene.Node, kotlin.Functio
 $dokka.location:ktfx.controls$rightPadding#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/right-padding.html
 $dokka.location:ktfx.controls$rotateTransform(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Rotate, kotlin.Unit)))ktfx.controls/javafx.scene.-node/rotate-transform.html
 $dokka.location:ktfx.controls$rotateTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.animation.RotateTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/rotate-transition.html
-$dokka.location:ktfx.controls$rowConstraints(javafx.scene.layout.GridPane, kotlin.Function1((ktfx.controls.RowConstraintsContainer, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-grid-pane/row-constraints.html
-$dokka.location:ktfx.controls$rowConstraints2#javafx.scene.layout.GridPanektfx.controls/javafx.scene.layout.-grid-pane/row-constraints2.html
+$dokka.location:ktfx.controls$rowConstraints(javafx.scene.layout.GridPane, kotlin.Function1((ktfx.controls.RowConstraintsScope, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-grid-pane/row-constraints.html
 $dokka.location:ktfx.controls$scaleTransform(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Scale, kotlin.Unit)))ktfx.controls/javafx.scene.-node/scale-transform.html
 $dokka.location:ktfx.controls$scaleTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.animation.ScaleTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/scale-transition.html
 $dokka.location:ktfx.controls$selectIndex(javafx.scene.control.ToggleGroup, kotlin.Int)ktfx.controls/javafx.scene.control.-toggle-group/select-index.html
@@ -585,13 +576,8 @@ $dokka.location:ktfx.controls$sequentialTransition(javafx.scene.Node, kotlin.Arr
 $dokka.location:ktfx.controls$setGap(javafx.scene.layout.FlowPane, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-flow-pane/set-gap.html
 $dokka.location:ktfx.controls$setGap(javafx.scene.layout.GridPane, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-grid-pane/set-gap.html
 $dokka.location:ktfx.controls$setGap(javafx.scene.layout.TilePane, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-tile-pane/set-gap.html
-$dokka.location:ktfx.controls$setMaxSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.controls/javafx.stage.-stage/set-max-size.html
-$dokka.location:ktfx.controls$setMinSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.controls/javafx.stage.-stage/set-min-size.html
-$dokka.location:ktfx.controls$setSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.controls/javafx.stage.-stage/set-size.html
 $dokka.location:ktfx.controls$shadowEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.Shadow, kotlin.Unit)))ktfx.controls/javafx.scene.-node/shadow-effect.html
 $dokka.location:ktfx.controls$shearTransform(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Shear, kotlin.Unit)))ktfx.controls/javafx.scene.-node/shear-transform.html
-$dokka.location:ktfx.controls$size#javafx.stage.Stagektfx.controls/javafx.stage.-stage/size.html
-$dokka.location:ktfx.controls$stage#javafx.scene.Scenektfx.controls/javafx.scene.-scene/stage.html
 $dokka.location:ktfx.controls$strokeTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color, kotlin.Function1((javafx.animation.StrokeTransition, kotlin.Unit)))ktfx.controls/javafx.scene.shape.-shape/stroke-transition.html
 $dokka.location:ktfx.controls$toFxImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.controls/java.awt.image.-buffered-image/to-fx-image.html
 $dokka.location:ktfx.controls$toSwingImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.controls/javafx.scene.image.-image/to-swing-image.html
@@ -603,19 +589,6 @@ $dokka.location:ktfx.controls$unconstrained(javafx.scene.control.TreeTableView((
 $dokka.location:ktfx.controls$verticalPadding#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/vertical-padding.html
 $dokka.location:ktfx.dialogs$buttons#javafx.scene.control.Dialog((kotlin.Any))ktfx.dialogs/javafx.scene.control.-dialog/buttons.html
 $dokka.location:ktfx.dialogs$buttons(javafx.scene.control.Dialog((kotlin.Any)), kotlin.Function1((ktfx.dialogs.DialogButtonContainerScope, kotlin.Unit)))ktfx.dialogs/javafx.scene.control.-dialog/buttons.html
-$dokka.location:ktfx.dialogs$chooseDirectory(javafx.stage.Window, kotlin.String, java.io.File)ktfx.dialogs/javafx.stage.-window/choose-directory.html
-$dokka.location:ktfx.dialogs$chooseFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.dialogs/javafx.stage.-window/choose-file.html
-$dokka.location:ktfx.dialogs$chooseFile(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.dialogs/javafx.stage.-window/choose-file.html
-$dokka.location:ktfx.dialogs$chooseFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.dialogs/javafx.stage.-window/choose-file.html
-$dokka.location:ktfx.dialogs$chooseFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.dialogs/javafx.stage.-window/choose-file.html
-$dokka.location:ktfx.dialogs$chooseFiles(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.dialogs/javafx.stage.-window/choose-files.html
-$dokka.location:ktfx.dialogs$chooseFiles(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.dialogs/javafx.stage.-window/choose-files.html
-$dokka.location:ktfx.dialogs$chooseFiles(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.dialogs/javafx.stage.-window/choose-files.html
-$dokka.location:ktfx.dialogs$chooseFiles(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.dialogs/javafx.stage.-window/choose-files.html
-$dokka.location:ktfx.dialogs$chooseSaveFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.dialogs/javafx.stage.-window/choose-save-file.html
-$dokka.location:ktfx.dialogs$chooseSaveFile(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.dialogs/javafx.stage.-window/choose-save-file.html
-$dokka.location:ktfx.dialogs$chooseSaveFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.dialogs/javafx.stage.-window/choose-save-file.html
-$dokka.location:ktfx.dialogs$chooseSaveFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.dialogs/javafx.stage.-window/choose-save-file.html
 $dokka.location:ktfx.dialogs$graphicIcon#javafx.scene.control.Dialog((kotlin.Any))ktfx.dialogs/javafx.scene.control.-dialog/graphic-icon.html
 $dokka.location:ktfx.dialogs$headerTitle#javafx.scene.control.Dialog((kotlin.Any))ktfx.dialogs/javafx.scene.control.-dialog/header-title.html
 $dokka.location:ktfx.dialogs$icon#javafx.scene.control.Dialog((kotlin.Any))ktfx.dialogs/javafx.scene.control.-dialog/icon.html
@@ -697,6 +670,34 @@ $dokka.location:ktfx.time$toDuration(kotlin.String)ktfx.time/kotlin.-string/to-
 $dokka.location:ktfx.time$toFxDuration(kotlin.time.Duration)ktfx.time/kotlin.time.-duration/to-fx-duration.html
 $dokka.location:ktfx.time$toKotlinDuration(javafx.util.Duration)ktfx.time/javafx.util.-duration/to-kotlin-duration.html
 $dokka.location:ktfx.time$unaryMinus(javafx.util.Duration)ktfx.time/javafx.util.-duration/unary-minus.html
+$dokka.location:ktfx.windows$chooseDirectory(javafx.stage.Window, kotlin.String, java.io.File)ktfx.windows/javafx.stage.-window/choose-directory.html
+$dokka.location:ktfx.windows$chooseFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.windows/javafx.stage.-window/choose-file.html
+$dokka.location:ktfx.windows$chooseFile(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.windows/javafx.stage.-window/choose-file.html
+$dokka.location:ktfx.windows$chooseFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.windows/javafx.stage.-window/choose-file.html
+$dokka.location:ktfx.windows$chooseFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.windows/javafx.stage.-window/choose-file.html
+$dokka.location:ktfx.windows$chooseFiles(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.windows/javafx.stage.-window/choose-files.html
+$dokka.location:ktfx.windows$chooseFiles(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.windows/javafx.stage.-window/choose-files.html
+$dokka.location:ktfx.windows$chooseFiles(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.windows/javafx.stage.-window/choose-files.html
+$dokka.location:ktfx.windows$chooseFiles(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.windows/javafx.stage.-window/choose-files.html
+$dokka.location:ktfx.windows$chooseSaveFile(javafx.stage.Window, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.windows/javafx.stage.-window/choose-save-file.html
+$dokka.location:ktfx.windows$chooseSaveFile(javafx.stage.Window, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.windows/javafx.stage.-window/choose-save-file.html
+$dokka.location:ktfx.windows$chooseSaveFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((javafx.stage.FileChooser.ExtensionFilter)))ktfx.windows/javafx.stage.-window/choose-save-file.html
+$dokka.location:ktfx.windows$chooseSaveFile(javafx.stage.Window, kotlin.String, java.io.File, kotlin.String, kotlin.Array((kotlin.Pair((kotlin.String, )))))ktfx.windows/javafx.stage.-window/choose-save-file.html
+$dokka.location:ktfx.windows$icon#javafx.stage.Stagektfx.windows/javafx.stage.-stage/icon.html
+$dokka.location:ktfx.windows$maxSize#javafx.stage.Stagektfx.windows/javafx.stage.-stage/max-size.html
+$dokka.location:ktfx.windows$minSize#javafx.stage.Stagektfx.windows/javafx.stage.-stage/min-size.html
+$dokka.location:ktfx.windows$moveTo(javafx.stage.Window, javafx.scene.input.ContextMenuEvent)ktfx.windows/javafx.stage.-window/move-to.html
+$dokka.location:ktfx.windows$moveTo(javafx.stage.Window, javafx.scene.input.DragEvent)ktfx.windows/javafx.stage.-window/move-to.html
+$dokka.location:ktfx.windows$moveTo(javafx.stage.Window, javafx.scene.input.GestureEvent)ktfx.windows/javafx.stage.-window/move-to.html
+$dokka.location:ktfx.windows$moveTo(javafx.stage.Window, javafx.scene.input.MouseEvent)ktfx.windows/javafx.stage.-window/move-to.html
+$dokka.location:ktfx.windows$moveTo(javafx.stage.Window, javafx.scene.input.TouchPoint)ktfx.windows/javafx.stage.-window/move-to.html
+$dokka.location:ktfx.windows$moveTo(javafx.stage.Window, kotlin.Double, kotlin.Double)ktfx.windows/javafx.stage.-window/move-to.html
+$dokka.location:ktfx.windows$moveTo(javafx.stage.Window, kotlin.Number, kotlin.Number)ktfx.windows/javafx.stage.-window/move-to.html
+$dokka.location:ktfx.windows$setMaxSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.windows/javafx.stage.-stage/set-max-size.html
+$dokka.location:ktfx.windows$setMinSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.windows/javafx.stage.-stage/set-min-size.html
+$dokka.location:ktfx.windows$setSize(javafx.stage.Stage, kotlin.Double, kotlin.Double)ktfx.windows/javafx.stage.-stage/set-size.html
+$dokka.location:ktfx.windows$size#javafx.stage.Stagektfx.windows/javafx.stage.-stage/size.html
+$dokka.location:ktfx.windows$stage#javafx.scene.Scenektfx.windows/javafx.scene.-scene/stage.html
 ktfx
 ktfx.cells
 ktfx.collections
@@ -706,3 +707,4 @@ ktfx.inputs
 ktfx.print
 ktfx.text
 ktfx.time
+ktfx.windows

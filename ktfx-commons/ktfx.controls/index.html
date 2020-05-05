@@ -29,51 +29,35 @@
 </tr>
 <tr>
 <td>
-<h4><a href="-column-constraints-container/index.html">ColumnConstraintsContainer</a></h4>
+<h4><a href="-column-constraints-scope/index.html">ColumnConstraintsScope</a></h4>
 </td>
 <td>
 <p>Container of <a href="#">ColumnConstraints</a>, providing sets of useful operation.</p>
-<code><span class="keyword">class </span><span class="identifier">ColumnConstraintsContainer</span></code></td>
+<code><span class="keyword">class </span><span class="identifier">ColumnConstraintsScope</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="-row-constraints-container/index.html">RowConstraintsContainer</a></h4>
+<h4><a href="-row-constraints-scope/index.html">RowConstraintsScope</a></h4>
 </td>
 <td>
 <p>Container of <a href="#">RowConstraints</a>, providing sets of useful operation.</p>
-<code><span class="keyword">class </span><span class="identifier">RowConstraintsContainer</span></code></td>
+<code><span class="keyword">class </span><span class="identifier">RowConstraintsScope</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="-table-column-container/index.html">TableColumnContainer</a></h4>
+<h4><a href="-table-column-scope/index.html">TableColumnScope</a></h4>
 </td>
 <td>
 <p>Container of <a href="#">TableColumn</a>, providing sets of useful operation.</p>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">TableColumnContainer</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">class </span><span class="identifier">TableColumnScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="-table-column-container-scope/index.html">TableColumnContainerScope</a></h4>
-</td>
-<td>
-<p>Receiver for <code>tableColumns</code> block.</p>
-<code><span class="keyword">class </span><span class="identifier">TableColumnContainerScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-table-column-container/index.html"><span class="identifier">TableColumnContainer</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="-tree-table-column-container/index.html">TreeTableColumnContainer</a></h4>
+<h4><a href="-tree-table-column-scope/index.html">TreeTableColumnScope</a></h4>
 </td>
 <td>
 <p>Container of <a href="#">TreeTableColumn</a>, providing sets of useful operation.</p>
-<code><span class="keyword">open</span> <span class="keyword">class </span><span class="identifier">TreeTableColumnContainer</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="-tree-table-column-container-scope/index.html">TreeTableColumnContainerScope</a></h4>
-</td>
-<td>
-<p>Receiver for <code>tableColumns</code> block.</p>
-<code><span class="keyword">class </span><span class="identifier">TreeTableColumnContainerScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-tree-table-column-container/index.html"><span class="identifier">TreeTableColumnContainer</span></a><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">class </span><span class="identifier">TreeTableColumnScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -205,13 +189,6 @@
 <td>
 </td>
 </tr>
-<tr>
-<td>
-<h4><a href="javafx.stage.-stage/index.html">javafx.stage.Stage</a></h4>
-</td>
-<td>
-</td>
-</tr>
 </tbody>
 </table>
 <h3>Functions</h3>
@@ -232,15 +209,6 @@
 <td>
 <p>Create multiple <a href="#">BorderStroke</a> and/or <a href="#">BorderImage</a> using DSL.</p>
 <code><span class="keyword">fun </span><span class="identifier">buildBorder</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$buildBorder(kotlin.Function1((ktfx.controls.BorderBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="-border-builder/index.html"><span class="identifier">BorderBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Border</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="stage.html">stage</a></h4>
-</td>
-<td>
-<p>Creates a stage with options.</p>
-<code><span class="keyword">fun </span><span class="identifier">stage</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/title">title</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/icon">icon</span><span class="symbol">:</span>&nbsp;<span class="identifier">Image</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/style">style</span><span class="symbol">:</span>&nbsp;<span class="identifier">StageStyle</span>&nbsp;<span class="symbol">=</span>&nbsp;StageStyle.DECORATED<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(kotlin.String, javafx.scene.image.Image, javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Stage</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Stage</span></code><br/>
-<code><span class="keyword">fun </span><span class="identifier">stage</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$stage(javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/style">style</span><span class="symbol">:</span>&nbsp;<span class="identifier">StageStyle</span>&nbsp;<span class="symbol">=</span>&nbsp;StageStyle.DECORATED<span class="symbol">, </span><span class="identifier" id="ktfx.controls$stage(javafx.stage.StageStyle, kotlin.Function1((javafx.stage.Stage, kotlin.Unit)))/configuration">configuration</span><span class="symbol">:</span>&nbsp;<span class="identifier">Stage</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Stage</span></code></td>
 </tr>
 </tbody>
 </table>

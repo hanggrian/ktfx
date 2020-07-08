@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.Slider
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Slider] to this manager.
@@ -84,8 +84,11 @@ inline fun styledSlider(
     configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Slider(min, max, value), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Slider(min, max, value), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -100,6 +103,10 @@ inline fun NodeManager.styledSlider(
     configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Slider(min, max, value), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            Slider(min, max, value), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

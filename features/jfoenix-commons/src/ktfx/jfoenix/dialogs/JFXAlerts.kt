@@ -3,12 +3,12 @@
 package ktfx.jfoenix.dialogs
 
 import com.jfoenix.controls.JFXAlert
-import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.image.ImageView
 import javafx.stage.Stage
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
+import java.util.Optional
 
 /**
  * Show a JFoenix alert with title and graphic.

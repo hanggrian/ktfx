@@ -6,6 +6,9 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXSpinner
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,23 +17,22 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXSpinner] to this manager.
  */
 fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinner =
-        jfxSpinner(progress = progress) { }
+    jfxSpinner(progress = progress) { }
 
 /**
  * Create a [JFXSpinner] with configuration block.
  */
 inline fun jfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker    
-            JFXSpinner).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        JFXSpinner
+    ).() -> Unit
 ): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(JFXSpinner(progress), configuration = configuration)
@@ -75,8 +77,11 @@ inline fun styledJFXSpinner(
     configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXSpinner(progress), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXSpinner(progress), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -89,6 +94,11 @@ inline fun NodeManager.styledJFXSpinner(
     configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXSpinner(progress), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            JFXSpinner(progress), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

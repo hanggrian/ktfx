@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Arc
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [Arc] to this manager.
@@ -25,8 +25,12 @@ fun NodeManager.arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0
-): Arc = arc(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY, startAngle =
-        startAngle, length = length) { }
+): Arc = arc(
+    centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
+    startAngle =
+        startAngle,
+    length = length
+) { }
 
 /**
  * Create an [Arc] with configuration block.
@@ -41,8 +45,11 @@ inline fun arc(
     configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), configuration =
-            configuration)
+    return newChild(
+        Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -58,8 +65,12 @@ inline fun NodeManager.arc(
     configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
-            configuration = configuration))
+    return addChild(
+        newChild(
+            Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
+            configuration = configuration
+        )
+    )
 }
 
 /**
@@ -74,8 +85,10 @@ fun styledArc(
     length: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): Arc = styledArc(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
-        startAngle = startAngle, length = length, styleClass = *styleClass, id = id) { }
+): Arc = styledArc(
+    centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
+    startAngle = startAngle, length = length, styleClass = *styleClass, id = id
+) { }
 
 /**
  * Add a styled [Arc] to this manager.
@@ -89,8 +102,10 @@ fun NodeManager.styledArc(
     length: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): Arc = styledArc(centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
-        startAngle = startAngle, length = length, styleClass = *styleClass, id = id) { }
+): Arc = styledArc(
+    centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
+    startAngle = startAngle, length = length, styleClass = *styleClass, id = id
+) { }
 
 /**
  * Create a styled [Arc] with configuration block.
@@ -107,8 +122,12 @@ inline fun styledArc(
     configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), styleClass =
-            *styleClass, id = id, configuration = configuration)
+    return newChild(
+        Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
+        styleClass =
+            *styleClass,
+        id = id, configuration = configuration
+    )
 }
 
 /**
@@ -126,6 +145,12 @@ inline fun NodeManager.styledArc(
     configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Arc(centerX, centerY, radiusX, radiusY, startAngle, length), styleClass =
-            *styleClass, id = id, configuration = configuration))
+    return addChild(
+        newChild(
+            Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
+            styleClass =
+                *styleClass,
+            id = id, configuration = configuration
+        )
+    )
 }

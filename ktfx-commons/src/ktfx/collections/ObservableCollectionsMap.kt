@@ -40,9 +40,11 @@ inline fun <K, V> mutableObservableMapOf(): ObservableMap<K, V> = FXCollections.
  */
 fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = when {
     pairs.isEmpty() -> mutableObservableMapOf()
-    else -> FXCollections.observableMap(HashMap<K, V>().apply {
-        for ((key, value) in pairs) put(key, value)
-    })
+    else -> FXCollections.observableMap(
+        HashMap<K, V>().apply {
+            for ((key, value) in pairs) put(key, value)
+        }
+    )
 }
 
 /**

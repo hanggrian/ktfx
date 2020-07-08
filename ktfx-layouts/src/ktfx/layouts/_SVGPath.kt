@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.SVGPath
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [SVGPath] to this manager.
@@ -38,14 +38,17 @@ inline fun NodeManager.svgPath(configuration: (@LayoutDslMarker SVGPath).() -> U
 /**
  * Create a styled [SVGPath].
  */
-fun styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath = styledSVGPath(styleClass =
-        *styleClass, id = id) { }
+fun styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath = styledSVGPath(
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [SVGPath] to this manager.
  */
 fun NodeManager.styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath =
-        styledSVGPath(styleClass = *styleClass, id = id) { }
+    styledSVGPath(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [SVGPath] with configuration block.
@@ -68,6 +71,11 @@ inline fun NodeManager.styledSVGPath(
     configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(SVGPath(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            SVGPath(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

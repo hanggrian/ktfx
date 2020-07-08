@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurveTo
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [QuadCurveTo] to this manager.

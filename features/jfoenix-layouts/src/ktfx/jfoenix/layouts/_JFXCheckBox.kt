@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXCheckBox
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXCheckBox] to this manager.
@@ -27,7 +27,7 @@ fun NodeManager.jfxCheckBox(text: String? = null): JFXCheckBox = jfxCheckBox(tex
 inline fun jfxCheckBox(
     text: String? = null,
     configuration: (@LayoutDslMarker JFXCheckBox).() ->    
-            Unit
+    Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(JFXCheckBox(text), configuration = configuration)
@@ -38,8 +38,10 @@ inline fun jfxCheckBox(
  */
 inline fun NodeManager.jfxCheckBox(
     text: String? = null,
-    configuration: (@LayoutDslMarker    
-            JFXCheckBox).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        JFXCheckBox
+    ).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(JFXCheckBox(text), configuration = configuration))
@@ -73,8 +75,11 @@ inline fun styledJFXCheckBox(
     configuration: (@LayoutDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXCheckBox(text), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXCheckBox(text), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -87,6 +92,11 @@ inline fun NodeManager.styledJFXCheckBox(
     configuration: (@LayoutDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXCheckBox(text), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            JFXCheckBox(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

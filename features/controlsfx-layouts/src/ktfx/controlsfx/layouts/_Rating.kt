@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.Rating
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
@@ -12,10 +16,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.Rating
 
 /**
  * Add a [Rating] to this manager.
@@ -77,8 +77,11 @@ inline fun styledRating(
     configuration: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Rating(max, rating), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Rating(max, rating), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -92,6 +95,11 @@ inline fun NodeManager.styledRating(
     configuration: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Rating(max, rating), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            Rating(max, rating), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

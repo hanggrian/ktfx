@@ -6,10 +6,10 @@ package ktfx.controlsfx.controls
 import javafx.scene.Node
 import javafx.scene.layout.BorderStrokeStyle
 import javafx.scene.paint.Color
-import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import org.controlsfx.tools.Borders
+import kotlin.DeprecationLevel.ERROR
 
 /** Wraps this [Node] with borders using Kotlin DSL, returning the wrapped node. */
 fun Node.wrapBorders(builderAction: BordersBuilder.() -> Unit): Node =

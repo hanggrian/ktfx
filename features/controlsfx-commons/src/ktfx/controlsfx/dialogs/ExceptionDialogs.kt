@@ -2,13 +2,13 @@
 
 package ktfx.controlsfx.dialogs
 
-import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.control.ButtonType
 import javafx.scene.image.ImageView
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
 import org.controlsfx.dialog.ExceptionDialog
+import java.util.Optional
 
 /**
  * Build an exception dialog with Kotlin DSL.

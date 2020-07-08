@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Rectangle
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Rectangle] to this manager.
@@ -63,8 +63,12 @@ fun styledRectangle(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): Rectangle = styledRectangle(x = x, y = y, width = width, height = height, styleClass =
-        *styleClass, id = id) { }
+): Rectangle = styledRectangle(
+    x = x, y = y, width = width, height = height,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [Rectangle] to this manager.
@@ -76,8 +80,12 @@ fun NodeManager.styledRectangle(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): Rectangle = styledRectangle(x = x, y = y, width = width, height = height, styleClass =
-        *styleClass, id = id) { }
+): Rectangle = styledRectangle(
+    x = x, y = y, width = width, height = height,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [Rectangle] with configuration block.
@@ -92,8 +100,11 @@ inline fun styledRectangle(
     configuration: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Rectangle(x, y, width, height), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Rectangle(x, y, width, height), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -109,6 +120,10 @@ inline fun NodeManager.styledRectangle(
     configuration: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Rectangle(x, y, width, height), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            Rectangle(x, y, width, height), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

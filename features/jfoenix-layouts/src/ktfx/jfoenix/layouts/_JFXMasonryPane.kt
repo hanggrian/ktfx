@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXMasonryPane
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXMasonryPane] to this manager.
@@ -25,17 +25,17 @@ fun NodeManager.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
  * Create a [JFXMasonryPane] with configuration block.
  */
 inline fun jfxMasonryPane(configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit):
-        JFXMasonryPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxJFXMasonryPane(), configuration = configuration)
-}
+    JFXMasonryPane {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxJFXMasonryPane(), configuration = configuration)
+    }
 
 /**
  * Add a [JFXMasonryPane] with configuration block to this manager.
  */
 inline fun NodeManager.jfxMasonryPane(
     configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() ->
-Unit
+    Unit
 ): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxJFXMasonryPane(), configuration = configuration))
@@ -45,13 +45,13 @@ Unit
  * Create a styled [JFXMasonryPane].
  */
 fun styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMasonryPane =
-        styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
+    styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXMasonryPane] to this manager.
  */
 fun NodeManager.styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMasonryPane =
-        styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
+    styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXMasonryPane] with configuration block.
@@ -62,8 +62,11 @@ inline fun styledJFXMasonryPane(
     configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxJFXMasonryPane(), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxJFXMasonryPane(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -75,6 +78,11 @@ inline fun NodeManager.styledJFXMasonryPane(
     configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxJFXMasonryPane(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            KtfxJFXMasonryPane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

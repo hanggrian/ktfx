@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,21 +15,22 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ProgressBar] to this manager.
  */
 fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
-        progressBar(progress = progress) { }
+    progressBar(progress = progress) { }
 
 /**
  * Create a [ProgressBar] with configuration block.
  */
 inline fun progressBar(
     progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker    
-            ProgressBar).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        ProgressBar
+    ).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ProgressBar(progress), configuration = configuration)
@@ -73,8 +75,11 @@ inline fun styledProgressBar(
     configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ProgressBar(progress), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        ProgressBar(progress), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -87,6 +92,11 @@ inline fun NodeManager.styledProgressBar(
     configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ProgressBar(progress), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            ProgressBar(progress), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

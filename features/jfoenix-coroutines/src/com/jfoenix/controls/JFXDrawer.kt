@@ -5,12 +5,12 @@ package ktfx.jfoenix.coroutines
 
 import com.jfoenix.controls.JFXDrawer
 import com.jfoenix.controls.events.JFXDrawerEvent
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 fun JFXDrawer.onDrawerClosed(
     context: CoroutineContext = Dispatchers.JavaFx,

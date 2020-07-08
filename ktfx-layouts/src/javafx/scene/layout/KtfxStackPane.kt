@@ -9,10 +9,10 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.StackPane
-import kotlin.DeprecationLevel.ERROR
-import kotlin.contracts.ExperimentalContracts
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [StackPane] with dynamic-layout dsl support.

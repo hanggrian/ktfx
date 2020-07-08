@@ -10,16 +10,17 @@ import javafx.geometry.Orientation
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.scene.layout.TilePane
-import kotlin.DeprecationLevel.ERROR
-import kotlin.contracts.ExperimentalContracts
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [TilePane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) : TilePane(orientation, hgap, vgap),
+open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) :
+    TilePane(orientation, hgap, vgap),
     NodeManager {
 
     constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)

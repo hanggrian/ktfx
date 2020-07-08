@@ -9,10 +9,10 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
-import kotlin.DeprecationLevel.ERROR
-import kotlin.contracts.ExperimentalContracts
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [VBox] with dynamic-layout dsl support.

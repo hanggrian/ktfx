@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Menu
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,19 +14,24 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Menu] to this manager.
  */
-fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text, graphic =
-        graphic) { }
+fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
+    text = text,
+    graphic =
+        graphic
+) { }
 
 /**
  * Add a [Menu] to this manager.
  */
-fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text, graphic =
-        graphic) { }
+fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
+    text = text,
+    graphic =
+        graphic
+) { }
 
 /**
  * Create a [Menu] with configuration block.
@@ -104,8 +110,11 @@ inline fun styledMenu(
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxMenu(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxMenu(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -119,8 +128,12 @@ inline fun MenuItemManager.styledMenu(
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenu(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            KtfxMenu(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }
 
 /**
@@ -134,6 +147,10 @@ inline fun MenuManager.styledMenu(
     configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenu(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            KtfxMenu(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

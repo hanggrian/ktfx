@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.ToolBar
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ToolBar] to this manager.
@@ -38,14 +38,17 @@ inline fun NodeManager.toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() 
 /**
  * Create a styled [ToolBar].
  */
-fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styledToolBar(styleClass =
-        *styleClass, id = id) { }
+fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styledToolBar(
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [ToolBar] to this manager.
  */
 fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
-        styledToolBar(styleClass = *styleClass, id = id) { }
+    styledToolBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ToolBar] with configuration block.
@@ -68,6 +71,11 @@ inline fun NodeManager.styledToolBar(
     configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxToolBar(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            KtfxToolBar(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

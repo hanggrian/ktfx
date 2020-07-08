@@ -9,6 +9,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.AreaChart
 import javafx.scene.chart.Axis
 import javafx.scene.chart.XYChart
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -16,7 +17,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [AreaChart] to this manager.
@@ -63,7 +63,7 @@ fun <X, Y> styledAreaChart(
     vararg styleClass: String,
     id: String? = null
 ): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {
-        }
+}
 
 /**
  * Add a styled [AreaChart] to this manager.
@@ -75,7 +75,7 @@ fun <X, Y> NodeManager.styledAreaChart(
     vararg styleClass: String,
     id: String? = null
 ): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {
-        }
+}
 
 /**
  * Create a styled [AreaChart] with configuration block.
@@ -89,8 +89,11 @@ inline fun <X, Y> styledAreaChart(
     configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(AreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        AreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -105,6 +108,10 @@ inline fun <X, Y> NodeManager.styledAreaChart(
     configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(AreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            AreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

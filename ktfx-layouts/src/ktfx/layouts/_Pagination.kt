@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.control.Pagination
 import javafx.scene.control.Pagination.INDETERMINATE
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
@@ -14,13 +15,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Pagination] to this manager.
  */
 fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0): Pagination =
-        pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
+    pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
 
 /**
  * Create a [Pagination] with configuration block.
@@ -43,8 +43,13 @@ inline fun NodeManager.pagination(
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Pagination(pageCount, currentPageIndex), configuration =
-            configuration))
+    return addChild(
+        newChild(
+            Pagination(pageCount, currentPageIndex),
+            configuration =
+                configuration
+        )
+    )
 }
 
 /**
@@ -55,8 +60,10 @@ fun styledPagination(
     currentPageIndex: Int = 0,
     vararg styleClass: String,
     id: String? = null
-): Pagination = styledPagination(pageCount = pageCount, currentPageIndex = currentPageIndex,
-        styleClass = *styleClass, id = id) { }
+): Pagination = styledPagination(
+    pageCount = pageCount, currentPageIndex = currentPageIndex,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Add a styled [Pagination] to this manager.
@@ -66,8 +73,10 @@ fun NodeManager.styledPagination(
     currentPageIndex: Int = 0,
     vararg styleClass: String,
     id: String? = null
-): Pagination = styledPagination(pageCount = pageCount, currentPageIndex = currentPageIndex,
-        styleClass = *styleClass, id = id) { }
+): Pagination = styledPagination(
+    pageCount = pageCount, currentPageIndex = currentPageIndex,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Create a styled [Pagination] with configuration block.
@@ -80,8 +89,10 @@ inline fun styledPagination(
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass, id = id,
-            configuration = configuration)
+    return newChild(
+        Pagination(pageCount, currentPageIndex), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -95,6 +106,12 @@ inline fun NodeManager.styledPagination(
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Pagination(pageCount, currentPageIndex), styleClass = *styleClass, id =
-            id, configuration = configuration))
+    return addChild(
+        newChild(
+            Pagination(pageCount, currentPageIndex), styleClass = *styleClass,
+            id =
+                id,
+            configuration = configuration
+        )
+    )
 }

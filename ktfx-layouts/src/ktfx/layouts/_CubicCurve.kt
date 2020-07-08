@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurve
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [CubicCurve] to this manager.
@@ -27,8 +27,12 @@ fun NodeManager.cubicCurve(
     controlY2: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0
-): CubicCurve = cubicCurve(startX = startX, startY = startY, controlX1 = controlX1, controlY1 =
-        controlY1, controlX2 = controlX2, controlY2 = controlY2, endX = endX, endY = endY) { }
+): CubicCurve = cubicCurve(
+    startX = startX, startY = startY, controlX1 = controlX1,
+    controlY1 =
+        controlY1,
+    controlX2 = controlX2, controlY2 = controlY2, endX = endX, endY = endY
+) { }
 
 /**
  * Create a [CubicCurve] with configuration block.
@@ -45,8 +49,13 @@ inline fun cubicCurve(
     configuration: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX,
-            endY), configuration = configuration)
+    return newChild(
+        CubicCurve(
+            startX, startY, controlX1, controlY1, controlX2, controlY2, endX,
+            endY
+        ),
+        configuration = configuration
+    )
 }
 
 /**
@@ -64,8 +73,15 @@ inline fun NodeManager.cubicCurve(
     configuration: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2,
-            endX, endY), configuration = configuration))
+    return addChild(
+        newChild(
+            CubicCurve(
+                startX, startY, controlX1, controlY1, controlX2, controlY2,
+                endX, endY
+            ),
+            configuration = configuration
+        )
+    )
 }
 
 /**
@@ -82,9 +98,13 @@ fun styledCubicCurve(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): CubicCurve = styledCubicCurve(startX = startX, startY = startY, controlX1 = controlX1, controlY1 =
-        controlY1, controlX2 = controlX2, controlY2 = controlY2, endX = endX, endY = endY,
-        styleClass = *styleClass, id = id) { }
+): CubicCurve = styledCubicCurve(
+    startX = startX, startY = startY, controlX1 = controlX1,
+    controlY1 =
+        controlY1,
+    controlX2 = controlX2, controlY2 = controlY2, endX = endX, endY = endY,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Add a styled [CubicCurve] to this manager.
@@ -100,9 +120,13 @@ fun NodeManager.styledCubicCurve(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): CubicCurve = styledCubicCurve(startX = startX, startY = startY, controlX1 = controlX1, controlY1 =
-        controlY1, controlX2 = controlX2, controlY2 = controlY2, endX = endX, endY = endY,
-        styleClass = *styleClass, id = id) { }
+): CubicCurve = styledCubicCurve(
+    startX = startX, startY = startY, controlX1 = controlX1,
+    controlY1 =
+        controlY1,
+    controlX2 = controlX2, controlY2 = controlY2, endX = endX, endY = endY,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Create a styled [CubicCurve] with configuration block.
@@ -121,8 +145,13 @@ inline fun styledCubicCurve(
     configuration: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX,
-            endY), styleClass = *styleClass, id = id, configuration = configuration)
+    return newChild(
+        CubicCurve(
+            startX, startY, controlX1, controlY1, controlX2, controlY2, endX,
+            endY
+        ),
+        styleClass = *styleClass, id = id, configuration = configuration
+    )
 }
 
 /**
@@ -142,6 +171,13 @@ inline fun NodeManager.styledCubicCurve(
     configuration: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2,
-            endX, endY), styleClass = *styleClass, id = id, configuration = configuration))
+    return addChild(
+        newChild(
+            CubicCurve(
+                startX, startY, controlX1, controlY1, controlX2, controlY2,
+                endX, endY
+            ),
+            styleClass = *styleClass, id = id, configuration = configuration
+        )
+    )
 }

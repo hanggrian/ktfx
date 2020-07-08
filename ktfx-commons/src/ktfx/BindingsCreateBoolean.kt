@@ -3,7 +3,6 @@
 
 package ktfx
 
-import java.util.concurrent.Callable
 import javafx.beans.Observable
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.BooleanBinding
@@ -13,6 +12,7 @@ import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
+import java.util.concurrent.Callable
 
 /** Create a [BooleanBinding] with multiple [Observable] dependencies. */
 inline fun booleanBindingOf(vararg dependencies: Observable, crossinline valueProvider: () -> Boolean): BooleanBinding =

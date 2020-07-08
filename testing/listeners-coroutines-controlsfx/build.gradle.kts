@@ -11,5 +11,5 @@ sourceSets {
 
 dependencies {
     api(project(":testing:listeners-coroutines"))
-    api(controlsFx())
+    api(controlsfx())
 }

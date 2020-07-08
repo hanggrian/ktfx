@@ -13,9 +13,9 @@ import javafx.scene.layout.BorderWidths
 import javafx.scene.layout.CornerRadii
 import javafx.scene.layout.Region
 import javafx.scene.paint.Paint
-import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
 
 /** Create multiple [BorderStroke] and/or [BorderImage] using DSL. */
 fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =

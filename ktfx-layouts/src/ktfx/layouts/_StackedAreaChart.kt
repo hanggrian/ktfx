@@ -9,6 +9,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedAreaChart
 import javafx.scene.chart.XYChart
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -16,7 +17,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [StackedAreaChart] to this manager.
@@ -62,8 +62,12 @@ fun <X, Y> styledStackedAreaChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
-): StackedAreaChart<X, Y> = styledStackedAreaChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+): StackedAreaChart<X, Y> = styledStackedAreaChart(
+    x = x, y = y, data = data,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [StackedAreaChart] to this manager.
@@ -74,8 +78,12 @@ fun <X, Y> NodeManager.styledStackedAreaChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
-): StackedAreaChart<X, Y> = styledStackedAreaChart(x = x, y = y, data = data, styleClass =
-        *styleClass, id = id) { }
+): StackedAreaChart<X, Y> = styledStackedAreaChart(
+    x = x, y = y, data = data,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [StackedAreaChart] with configuration block.
@@ -89,8 +97,10 @@ inline fun <X, Y> styledStackedAreaChart(
     configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-            configuration = configuration)
+    return newChild(
+        StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -105,6 +115,10 @@ inline fun <X, Y> NodeManager.styledStackedAreaChart(
     configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

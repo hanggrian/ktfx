@@ -7,6 +7,9 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeItem
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,15 +17,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXTreeTableView] to this manager.
  */
 fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(root: TreeItem<S>? = null):
-        JFXTreeTableView<S> = jfxTreeTableView(root = root) { }
+    JFXTreeTableView<S> = jfxTreeTableView(root = root) { }
 
 /**
  * Create a [JFXTreeTableView] with configuration block.
@@ -74,8 +74,11 @@ inline fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
     configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXTreeTableView<S>(root), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXTreeTableView<S>(root), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -88,6 +91,10 @@ inline fun <S : RecursiveTreeObject<S>> NodeManager.styledJFXTreeTableView(
     configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXTreeTableView<S>(root), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            JFXTreeTableView<S>(root), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

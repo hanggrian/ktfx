@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.text.TextFlow
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [TextFlow] to this manager.
@@ -31,22 +31,22 @@ inline fun textFlow(configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit): 
  * Add a [TextFlow] with configuration block to this manager.
  */
 inline fun NodeManager.textFlow(configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit):
-        TextFlow {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTextFlow(), configuration = configuration))
-}
+    TextFlow {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(KtfxTextFlow(), configuration = configuration))
+    }
 
 /**
  * Create a styled [TextFlow].
  */
 fun styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
-        styledTextFlow(styleClass = *styleClass, id = id) { }
+    styledTextFlow(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [TextFlow] to this manager.
  */
 fun NodeManager.styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
-        styledTextFlow(styleClass = *styleClass, id = id) { }
+    styledTextFlow(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TextFlow] with configuration block.
@@ -57,8 +57,11 @@ inline fun styledTextFlow(
     configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTextFlow(), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxTextFlow(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -70,6 +73,11 @@ inline fun NodeManager.styledTextFlow(
     configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTextFlow(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            KtfxTextFlow(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,19 +14,18 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ToggleButton] to this manager.
  */
 fun NodeManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-        toggleButton(text = text, graphic = graphic) { }
+    toggleButton(text = text, graphic = graphic) { }
 
 /**
  * Add a [ToggleButton] to this manager.
  */
 fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-        toggleButton(text = text, graphic = graphic) { }
+    toggleButton(text = text, graphic = graphic) { }
 
 /**
  * Create a [ToggleButton] with configuration block.
@@ -71,8 +71,11 @@ fun styledToggleButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): ToggleButton = styledToggleButton(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [ToggleButton] to this manager.
@@ -82,8 +85,11 @@ fun NodeManager.styledToggleButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): ToggleButton = styledToggleButton(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [ToggleButton] to this manager.
@@ -93,8 +99,11 @@ fun ToggleButtonManager.styledToggleButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null
-): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): ToggleButton = styledToggleButton(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Create a styled [ToggleButton] with configuration block.
@@ -107,8 +116,11 @@ inline fun styledToggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ToggleButton(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        ToggleButton(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -122,8 +134,12 @@ inline fun NodeManager.styledToggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            ToggleButton(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }
 
 /**
@@ -137,6 +153,10 @@ inline fun ToggleButtonManager.styledToggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            ToggleButton(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

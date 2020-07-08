@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ArcTo
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Boolean
 import kotlin.Double
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [ArcTo] to this manager.
@@ -26,8 +26,10 @@ fun PathElementManager.arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false
-): ArcTo = arcTo(radiusX = radiusX, radiusY = radiusY, xAxisRotation = xAxisRotation, x = x, y = y,
-        largeArcFlag = largeArcFlag, sweepFlag = sweepFlag) { }
+): ArcTo = arcTo(
+    radiusX = radiusX, radiusY = radiusY, xAxisRotation = xAxisRotation, x = x, y = y,
+    largeArcFlag = largeArcFlag, sweepFlag = sweepFlag
+) { }
 
 /**
  * Create an [ArcTo] with configuration block.
@@ -43,8 +45,10 @@ inline fun arcTo(
     configuration: (@LayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
-            configuration = configuration)
+    return newChild(
+        ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
+        configuration = configuration
+    )
 }
 
 /**
@@ -61,6 +65,10 @@ inline fun PathElementManager.arcTo(
     configuration: (@LayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
-            configuration = configuration))
+    return addChild(
+        newChild(
+            ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
+            configuration = configuration
+        )
+    )
 }

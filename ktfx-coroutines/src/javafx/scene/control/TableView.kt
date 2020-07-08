@@ -7,12 +7,12 @@ import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.SortEvent
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Called when there's a request to sort the control. */
 fun <S> TableView<S>.onSort(

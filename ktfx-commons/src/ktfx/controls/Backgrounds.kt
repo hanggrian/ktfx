@@ -13,9 +13,9 @@ import javafx.scene.layout.BackgroundSize
 import javafx.scene.layout.CornerRadii
 import javafx.scene.layout.Region
 import javafx.scene.paint.Paint
-import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
 
 /** Create multiple [BackgroundFill] and/or [BackgroundImage] using DSL. */
 fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background =

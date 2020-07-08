@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.ListSelectionView
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.ListSelectionView
 
 /**
  * Add a [ListSelectionView] to this manager.
@@ -25,17 +25,19 @@ fun <T> NodeManager.listSelectionView(): ListSelectionView<T> = listSelectionVie
  * Create a [ListSelectionView] with configuration block.
  */
 inline fun <T> listSelectionView(configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit):
-        ListSelectionView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ListSelectionView<T>(), configuration = configuration)
-}
+    ListSelectionView<T> {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(ListSelectionView<T>(), configuration = configuration)
+    }
 
 /**
  * Add a [ListSelectionView] with configuration block to this manager.
  */
 inline fun <T> NodeManager.listSelectionView(
-    configuration: (@LayoutDslMarker
-ListSelectionView<T>).() -> Unit
+    configuration: (
+        @LayoutDslMarker
+        ListSelectionView<T>
+    ).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ListSelectionView<T>(), configuration = configuration))
@@ -45,13 +47,13 @@ ListSelectionView<T>).() -> Unit
  * Create a styled [ListSelectionView].
  */
 fun <T> styledListSelectionView(vararg styleClass: String, id: String? = null): ListSelectionView<T> =
-        styledListSelectionView(styleClass = *styleClass, id = id) { }
+    styledListSelectionView(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ListSelectionView] to this manager.
  */
 fun <T> NodeManager.styledListSelectionView(vararg styleClass: String, id: String? = null):
-        ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) { }
+    ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ListSelectionView] with configuration block.
@@ -62,8 +64,11 @@ inline fun <T> styledListSelectionView(
     configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ListSelectionView<T>(), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        ListSelectionView<T>(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -75,6 +80,10 @@ inline fun <T> NodeManager.styledListSelectionView(
     configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ListSelectionView<T>(), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            ListSelectionView<T>(), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

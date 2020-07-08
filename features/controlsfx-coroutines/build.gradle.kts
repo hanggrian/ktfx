@@ -19,7 +19,7 @@ ktlint { add ->
 
 dependencies {
     api(project(":$RELEASE_ARTIFACT-coroutines"))
-    api(controlsFx())
+    api(controlsfx())
 
     testImplementation(project(":testing:listeners-coroutines-controlsfx"))
 }

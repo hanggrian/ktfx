@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.text.Text
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Text] to this manager.
@@ -33,7 +33,7 @@ inline fun text(text: String? = null, configuration: (@LayoutDslMarker Text).() 
 inline fun NodeManager.text(
     text: String? = null,
     configuration: (@LayoutDslMarker Text).() ->    
-            Unit
+    Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(Text(text), configuration = configuration))
@@ -80,6 +80,11 @@ inline fun NodeManager.styledText(
     configuration: (@LayoutDslMarker Text).() -> Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Text(text), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            Text(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

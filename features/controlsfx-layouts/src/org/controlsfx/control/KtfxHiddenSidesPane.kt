@@ -5,9 +5,9 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
-import kotlin.contracts.ExperimentalContracts
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.HiddenSidesPane
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [HiddenSidesPane] with dynamic-layout dsl support.

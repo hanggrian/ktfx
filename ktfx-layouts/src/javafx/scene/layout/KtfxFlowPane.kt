@@ -9,16 +9,17 @@ import javafx.geometry.Insets
 import javafx.geometry.Orientation
 import javafx.scene.Node
 import javafx.scene.layout.FlowPane
-import kotlin.DeprecationLevel.ERROR
-import kotlin.contracts.ExperimentalContracts
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [FlowPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) : FlowPane(orientation, hgap, vgap),
+open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) :
+    FlowPane(orientation, hgap, vgap),
     NodeManager {
 
     constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)

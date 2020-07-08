@@ -6,10 +6,10 @@ import com.jfoenix.controls.JFXTreeTableColumn
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeTableColumn
+import ktfx.controls.TableColumnDslMarker
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.controls.TableColumnDslMarker
 
 /**
  * Configure [JFXTreeTableView] columns.

@@ -4,13 +4,13 @@
 package ktfx.controlsfx.coroutines
 
 import javafx.event.ActionEvent
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import org.controlsfx.control.HyperlinkLabel
+import kotlin.coroutines.CoroutineContext
 
 /** Sets a new EventHandler which will be invoked whenever a hyperlink is fired. */
 fun HyperlinkLabel.onAction(

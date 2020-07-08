@@ -5,6 +5,10 @@
 package ktfx.controlsfx.layouts
 
 import javafx.collections.ObservableList
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.PropertySheet
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,16 +16,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.PropertySheet
 
 /**
  * Add a [PropertySheet] to this manager.
  */
 fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? = null): PropertySheet =
-        propertySheet(items = items) { }
+    propertySheet(items = items) { }
 
 /**
  * Create a [PropertySheet] with configuration block.
@@ -73,8 +73,11 @@ inline fun styledPropertySheet(
     configuration: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PropertySheet(items), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        PropertySheet(items), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -87,6 +90,11 @@ inline fun NodeManager.styledPropertySheet(
     configuration: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PropertySheet(items), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            PropertySheet(items), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

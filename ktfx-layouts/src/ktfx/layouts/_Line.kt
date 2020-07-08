@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Line
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Line] to this manager.
@@ -63,8 +63,12 @@ fun styledLine(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): Line = styledLine(centerX = centerX, centerY = centerY, endX = endX, endY = endY, styleClass =
-        *styleClass, id = id) { }
+): Line = styledLine(
+    centerX = centerX, centerY = centerY, endX = endX, endY = endY,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [Line] to this manager.
@@ -76,8 +80,12 @@ fun NodeManager.styledLine(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): Line = styledLine(centerX = centerX, centerY = centerY, endX = endX, endY = endY, styleClass =
-        *styleClass, id = id) { }
+): Line = styledLine(
+    centerX = centerX, centerY = centerY, endX = endX, endY = endY,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [Line] with configuration block.
@@ -92,8 +100,10 @@ inline fun styledLine(
     configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
-            configuration = configuration)
+    return newChild(
+        Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -109,6 +119,10 @@ inline fun NodeManager.styledLine(
     configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

@@ -9,6 +9,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.XYChart
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -17,7 +18,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [BarChart] to this manager.
@@ -54,8 +54,13 @@ inline fun <X, Y> NodeManager.barChart(
     configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(BarChart<X, Y>(x, y, data, categoryGap), configuration =
-            configuration))
+    return addChild(
+        newChild(
+            BarChart<X, Y>(x, y, data, categoryGap),
+            configuration =
+                configuration
+        )
+    )
 }
 
 /**
@@ -68,8 +73,12 @@ fun <X, Y> styledBarChart(
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null
-): BarChart<X, Y> = styledBarChart(x = x, y = y, data = data, categoryGap = categoryGap, styleClass =
-        *styleClass, id = id) { }
+): BarChart<X, Y> = styledBarChart(
+    x = x, y = y, data = data, categoryGap = categoryGap,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [BarChart] to this manager.
@@ -81,8 +90,12 @@ fun <X, Y> NodeManager.styledBarChart(
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null
-): BarChart<X, Y> = styledBarChart(x = x, y = y, data = data, categoryGap = categoryGap, styleClass =
-        *styleClass, id = id) { }
+): BarChart<X, Y> = styledBarChart(
+    x = x, y = y, data = data, categoryGap = categoryGap,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [BarChart] with configuration block.
@@ -97,8 +110,10 @@ inline fun <X, Y> styledBarChart(
     configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass, id = id,
-            configuration = configuration)
+    return newChild(
+        BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -114,6 +129,12 @@ inline fun <X, Y> NodeManager.styledBarChart(
     configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass, id =
-            id, configuration = configuration))
+    return addChild(
+        newChild(
+            BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass,
+            id =
+                id,
+            configuration = configuration
+        )
+    )
 }

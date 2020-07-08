@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,21 +14,24 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [MediaView] to this manager.
  */
-fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView = mediaView(mediaPlayer =
-        mediaPlayer) { }
+fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView = mediaView(
+    mediaPlayer =
+        mediaPlayer
+) { }
 
 /**
  * Create a [MediaView] with configuration block.
  */
 inline fun mediaView(
     mediaPlayer: MediaPlayer? = null,
-    configuration: (@LayoutDslMarker    
-            MediaView).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        MediaView
+    ).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(MediaView(mediaPlayer), configuration = configuration)
@@ -38,8 +42,10 @@ inline fun mediaView(
  */
 inline fun NodeManager.mediaView(
     mediaPlayer: MediaPlayer? = null,
-    configuration: (@LayoutDslMarker    
-            MediaView).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        MediaView
+    ).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(MediaView(mediaPlayer), configuration = configuration))
@@ -73,8 +79,11 @@ inline fun styledMediaView(
     configuration: (@LayoutDslMarker MediaView).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(MediaView(mediaPlayer), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        MediaView(mediaPlayer), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -87,6 +96,10 @@ inline fun NodeManager.styledMediaView(
     configuration: (@LayoutDslMarker MediaView).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(MediaView(mediaPlayer), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            MediaView(mediaPlayer), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

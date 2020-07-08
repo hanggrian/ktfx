@@ -6,6 +6,9 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXChip
 import com.jfoenix.controls.JFXChipView
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,15 +16,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXChip] to this manager.
  */
-fun <T> NodeManager.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip(view = view, item =
-        item) { }
+fun <T> NodeManager.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip(
+    view = view,
+    item =
+        item
+) { }
 
 /**
  * Create a [JFXChip] with configuration block.
@@ -78,8 +81,11 @@ inline fun <T> styledJFXChip(
     configuration: (@LayoutDslMarker JFXChip<T>).() -> Unit
 ): JFXChip<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXChip<T>(view, item), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXChip<T>(view, item), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -93,6 +99,10 @@ inline fun <T> NodeManager.styledJFXChip(
     configuration: (@LayoutDslMarker JFXChip<T>).() -> Unit
 ): JFXChip<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXChip<T>(view, item), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            JFXChip<T>(view, item), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

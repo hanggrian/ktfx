@@ -18,7 +18,7 @@ ktlint { add ->
 
 dependencies {
     api(project(":$RELEASE_ARTIFACT-commons"))
-    api(controlsFx())
+    api(controlsfx())
 
     testImplementation(project(":testing:commons"))
     testImplementation(project(":$RELEASE_ARTIFACT-layouts"))

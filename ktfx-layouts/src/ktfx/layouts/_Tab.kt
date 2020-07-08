@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Tab
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,13 +14,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Tab] to this manager.
  */
-fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(text = text, content =
-        content) { }
+fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
+    text = text,
+    content =
+        content
+) { }
 
 /**
  * Create a [Tab] with configuration block.
@@ -76,8 +79,11 @@ inline fun styledTab(
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTab(text, content), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxTab(text, content), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -91,6 +97,10 @@ inline fun TabManager.styledTab(
     configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTab(text, content), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            KtfxTab(text, content), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.Box
 import javafx.scene.shape.Box.DEFAULT_SIZE
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,7 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Box] to this manager.
@@ -85,8 +85,11 @@ inline fun styledBox(
     configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Box(width, height, depth), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Box(width, height, depth), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -101,6 +104,10 @@ inline fun NodeManager.styledBox(
     configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Box(width, height, depth), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            Box(width, height, depth), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

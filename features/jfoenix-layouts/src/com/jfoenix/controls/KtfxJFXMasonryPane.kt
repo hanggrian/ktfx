@@ -6,8 +6,8 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXMasonryPane
 import javafx.scene.Node
-import kotlin.contracts.ExperimentalContracts
 import ktfx.layouts.NodeManager
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [JFXMasonryPane] with dynamic-layout dsl support.

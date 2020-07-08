@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ScrollPane] to this manager.
@@ -26,7 +26,7 @@ fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(conte
 inline fun scrollPane(
     content: Node? = null,
     configuration: (@LayoutDslMarker KtfxScrollPane).() ->    
-            Unit
+    Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(KtfxScrollPane(content), configuration = configuration)
@@ -37,8 +37,10 @@ inline fun scrollPane(
  */
 inline fun NodeManager.scrollPane(
     content: Node? = null,
-    configuration: (@LayoutDslMarker    
-            KtfxScrollPane).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        KtfxScrollPane
+    ).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxScrollPane(content), configuration = configuration))
@@ -72,8 +74,11 @@ inline fun styledScrollPane(
     configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxScrollPane(content), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxScrollPane(content), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -86,6 +91,10 @@ inline fun NodeManager.styledScrollPane(
     configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxScrollPane(content), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            KtfxScrollPane(content), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

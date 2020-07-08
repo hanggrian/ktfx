@@ -6,11 +6,11 @@ package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
-import kotlin.contracts.ExperimentalContracts
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.ToggleButtonManager
 import ktfx.layouts.toggleButton
 import org.controlsfx.control.SegmentedButton
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [SegmentedButton] with dynamic-layout dsl support.

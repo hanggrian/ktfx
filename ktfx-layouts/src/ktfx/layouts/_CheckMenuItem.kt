@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,13 +14,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [CheckMenuItem] to this manager.
  */
 fun MenuItemManager.checkMenuItem(text: String? = null, graphic: Node? = null): CheckMenuItem =
-        checkMenuItem(text = text, graphic = graphic) { }
+    checkMenuItem(text = text, graphic = graphic) { }
 
 /**
  * Create a [CheckMenuItem] with configuration block.
@@ -53,8 +53,11 @@ fun styledCheckMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null
-): CheckMenuItem = styledCheckMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): CheckMenuItem = styledCheckMenuItem(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [CheckMenuItem] to this manager.
@@ -64,8 +67,11 @@ fun MenuItemManager.styledCheckMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null
-): CheckMenuItem = styledCheckMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): CheckMenuItem = styledCheckMenuItem(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Create a styled [CheckMenuItem] with configuration block.
@@ -78,8 +84,11 @@ inline fun styledCheckMenuItem(
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CheckMenuItem(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        CheckMenuItem(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -93,6 +102,10 @@ inline fun MenuItemManager.styledCheckMenuItem(
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CheckMenuItem(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            CheckMenuItem(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

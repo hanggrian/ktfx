@@ -7,6 +7,7 @@ package ktfx.layouts
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.control.Separator
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,21 +15,24 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Separator] to this manager.
  */
-fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = separator(orientation =
-        orientation) { }
+fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = separator(
+    orientation =
+        orientation
+) { }
 
 /**
  * Create a [Separator] with configuration block.
  */
 inline fun separator(
     orientation: Orientation = HORIZONTAL,
-    configuration: (@LayoutDslMarker    
-            Separator).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        Separator
+    ).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(Separator(orientation), configuration = configuration)
@@ -73,8 +77,11 @@ inline fun styledSeparator(
     configuration: (@LayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Separator(orientation), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Separator(orientation), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -87,6 +94,10 @@ inline fun NodeManager.styledSeparator(
     configuration: (@LayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Separator(orientation), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            Separator(orientation), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

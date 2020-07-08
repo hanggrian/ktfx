@@ -7,6 +7,7 @@ package ktfx.layouts
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.control.ListView
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,13 +15,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ListView] to this manager.
  */
 fun <T> NodeManager.listView(items: ObservableList<T> = observableArrayList()): ListView<T> =
-        listView(items = items) { }
+    listView(items = items) { }
 
 /**
  * Create a [ListView] with configuration block.
@@ -72,8 +72,11 @@ inline fun <T> styledListView(
     configuration: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ListView<T>(items), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        ListView<T>(items), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -86,6 +89,11 @@ inline fun <T> NodeManager.styledListView(
     configuration: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ListView<T>(items), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            ListView<T>(items), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

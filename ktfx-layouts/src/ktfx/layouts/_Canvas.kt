@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.canvas.Canvas
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,13 +14,14 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Canvas] to this manager.
  */
-fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(width = width,
-        height = height) { }
+fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(
+    width = width,
+    height = height
+) { }
 
 /**
  * Create a [Canvas] with configuration block.
@@ -76,8 +78,11 @@ inline fun styledCanvas(
     configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Canvas(width, height), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Canvas(width, height), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -91,6 +96,11 @@ inline fun NodeManager.styledCanvas(
     configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Canvas(width, height), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            Canvas(width, height), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

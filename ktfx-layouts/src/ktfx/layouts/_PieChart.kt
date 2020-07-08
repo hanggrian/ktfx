@@ -7,6 +7,7 @@ package ktfx.layouts
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.chart.PieChart
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,13 +15,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [PieChart] to this manager.
  */
 fun NodeManager.pieChart(data: ObservableList<PieChart.Data> = observableArrayList()): PieChart =
-        pieChart(data = data) { }
+    pieChart(data = data) { }
 
 /**
  * Create a [PieChart] with configuration block.
@@ -72,8 +72,11 @@ inline fun styledPieChart(
     configuration: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PieChart(data), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        PieChart(data), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -86,6 +89,11 @@ inline fun NodeManager.styledPieChart(
     configuration: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PieChart(data), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            PieChart(data), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

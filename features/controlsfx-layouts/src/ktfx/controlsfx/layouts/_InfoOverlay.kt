@@ -5,6 +5,10 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.InfoOverlay
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,16 +16,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.InfoOverlay
 
 /**
  * Add an [InfoOverlay] to this manager.
  */
 fun NodeManager.infoOverlay(content: Node? = null, text: String? = null): InfoOverlay =
-        infoOverlay(content = content, text = text) { }
+    infoOverlay(content = content, text = text) { }
 
 /**
  * Create an [InfoOverlay] with configuration block.
@@ -55,8 +55,11 @@ fun styledInfoOverlay(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
-): InfoOverlay = styledInfoOverlay(content = content, text = text, styleClass = *styleClass, id =
-        id) { }
+): InfoOverlay = styledInfoOverlay(
+    content = content, text = text, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [InfoOverlay] to this manager.
@@ -66,8 +69,11 @@ fun NodeManager.styledInfoOverlay(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
-): InfoOverlay = styledInfoOverlay(content = content, text = text, styleClass = *styleClass, id =
-        id) { }
+): InfoOverlay = styledInfoOverlay(
+    content = content, text = text, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Create a styled [InfoOverlay] with configuration block.
@@ -80,8 +86,11 @@ inline fun styledInfoOverlay(
     configuration: (@LayoutDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxInfoOverlay(content, text), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxInfoOverlay(content, text), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -95,6 +104,10 @@ inline fun NodeManager.styledInfoOverlay(
     configuration: (@LayoutDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxInfoOverlay(content, text), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            KtfxInfoOverlay(content, text), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

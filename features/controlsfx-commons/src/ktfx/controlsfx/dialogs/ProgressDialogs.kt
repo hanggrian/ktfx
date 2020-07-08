@@ -2,13 +2,13 @@
 
 package ktfx.controlsfx.dialogs
 
-import java.util.Optional
 import javafx.concurrent.Worker
 import javafx.scene.Node
 import javafx.scene.image.ImageView
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
 import org.controlsfx.dialog.ProgressDialog
+import java.util.Optional
 
 /**
  * Build a progress dialog with Kotlin DSL.

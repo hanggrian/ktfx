@@ -2,7 +2,6 @@
 
 package ktfx.controlsfx.dialogs
 
-import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.image.ImageView
 import ktfx.dialogs.graphicIcon
@@ -10,6 +9,7 @@ import ktfx.dialogs.headerTitle
 import ktfx.toFxPair
 import ktfx.toKotlinPair
 import org.controlsfx.dialog.LoginDialog
+import java.util.Optional
 
 /**
  * Build a login dialog with Kotlin DSL.

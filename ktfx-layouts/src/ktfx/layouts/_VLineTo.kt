@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.VLineTo
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [VLineTo] to this manager.
@@ -32,8 +32,10 @@ inline fun vlineTo(y: Double = 0.0, configuration: (@LayoutDslMarker VLineTo).()
  */
 inline fun PathElementManager.vlineTo(
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker    
-            VLineTo).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        VLineTo
+    ).() -> Unit
 ): VLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(VLineTo(y), configuration = configuration))

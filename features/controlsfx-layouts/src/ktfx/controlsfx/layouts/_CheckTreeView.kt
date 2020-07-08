@@ -5,6 +5,10 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.control.CheckBoxTreeItem
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.CheckTreeView
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,24 +16,22 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.CheckTreeView
 
 /**
  * Add a [CheckTreeView] to this manager.
  */
 fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeView<T> =
-        checkTreeView(root = root) { }
+    checkTreeView(root = root) { }
 
 /**
  * Create a [CheckTreeView] with configuration block.
  */
 inline fun <T> checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
-    configuration: (@LayoutDslMarker    
-            CheckTreeView<T>).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        CheckTreeView<T>
+    ).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(CheckTreeView<T>(root), configuration = configuration)
@@ -74,8 +76,11 @@ inline fun <T> styledCheckTreeView(
     configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CheckTreeView<T>(root), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        CheckTreeView<T>(root), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -88,6 +93,10 @@ inline fun <T> NodeManager.styledCheckTreeView(
     configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CheckTreeView<T>(root), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            CheckTreeView<T>(root), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

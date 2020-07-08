@@ -7,6 +7,9 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXComboBox
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,15 +17,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXComboBox] to this manager.
  */
 fun <T> NodeManager.jfxComboBox(items: ObservableList<T> = observableArrayList()): JFXComboBox<T> =
-        jfxComboBox(items = items) { }
+    jfxComboBox(items = items) { }
 
 /**
  * Create a [JFXComboBox] with configuration block.
@@ -74,8 +74,11 @@ inline fun <T> styledJFXComboBox(
     configuration: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXComboBox<T>(items), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXComboBox<T>(items), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -88,6 +91,11 @@ inline fun <T> NodeManager.styledJFXComboBox(
     configuration: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXComboBox<T>(items), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            JFXComboBox<T>(items), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

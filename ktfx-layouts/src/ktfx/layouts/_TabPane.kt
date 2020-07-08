@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.TabPane
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [TabPane] to this manager.
@@ -38,14 +38,17 @@ inline fun NodeManager.tabPane(configuration: (@LayoutDslMarker KtfxTabPane).() 
 /**
  * Create a styled [TabPane].
  */
-fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane = styledTabPane(styleClass =
-        *styleClass, id = id) { }
+fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane = styledTabPane(
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [TabPane] to this manager.
  */
 fun NodeManager.styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
-        styledTabPane(styleClass = *styleClass, id = id) { }
+    styledTabPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TabPane] with configuration block.
@@ -68,6 +71,11 @@ inline fun NodeManager.styledTabPane(
     configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTabPane(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            KtfxTabPane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

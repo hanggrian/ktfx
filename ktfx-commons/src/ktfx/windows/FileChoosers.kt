@@ -2,11 +2,11 @@
 
 package ktfx.windows
 
-import java.io.File
 import javafx.stage.DirectoryChooser
 import javafx.stage.FileChooser
 import javafx.stage.FileChooser.ExtensionFilter
 import javafx.stage.Window
+import java.io.File
 
 /**
  * Choose a directory.

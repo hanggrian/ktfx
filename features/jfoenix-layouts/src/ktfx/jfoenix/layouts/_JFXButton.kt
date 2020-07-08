@@ -6,6 +6,9 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXButton
 import javafx.scene.Node
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,15 +16,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXButton] to this manager.
  */
-fun NodeManager.jfxButton(text: String? = null, graphic: Node? = null): JFXButton = jfxButton(text =
-        text, graphic = graphic) { }
+fun NodeManager.jfxButton(text: String? = null, graphic: Node? = null): JFXButton = jfxButton(
+    text =
+        text,
+    graphic = graphic
+) { }
 
 /**
  * Create a [JFXButton] with configuration block.
@@ -56,7 +59,7 @@ fun styledJFXButton(
     vararg styleClass: String,
     id: String? = null
 ): JFXButton = styledJFXButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {
-        }
+}
 
 /**
  * Add a styled [JFXButton] to this manager.
@@ -67,7 +70,7 @@ fun NodeManager.styledJFXButton(
     vararg styleClass: String,
     id: String? = null
 ): JFXButton = styledJFXButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) {
-        }
+}
 
 /**
  * Create a styled [JFXButton] with configuration block.
@@ -80,8 +83,11 @@ inline fun styledJFXButton(
     configuration: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXButton(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXButton(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -95,6 +101,10 @@ inline fun NodeManager.styledJFXButton(
     configuration: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            JFXButton(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

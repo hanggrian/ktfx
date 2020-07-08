@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.RadioMenuItem
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,13 +14,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [RadioMenuItem] to this manager.
  */
 fun MenuItemManager.radioMenuItem(text: String? = null, graphic: Node? = null): RadioMenuItem =
-        radioMenuItem(text = text, graphic = graphic) { }
+    radioMenuItem(text = text, graphic = graphic) { }
 
 /**
  * Create a [RadioMenuItem] with configuration block.
@@ -53,8 +53,11 @@ fun styledRadioMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null
-): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): RadioMenuItem = styledRadioMenuItem(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [RadioMenuItem] to this manager.
@@ -64,8 +67,11 @@ fun MenuItemManager.styledRadioMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null
-): RadioMenuItem = styledRadioMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id =
-        id) { }
+): RadioMenuItem = styledRadioMenuItem(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Create a styled [RadioMenuItem] with configuration block.
@@ -78,8 +84,11 @@ inline fun styledRadioMenuItem(
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(RadioMenuItem(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        RadioMenuItem(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -93,6 +102,10 @@ inline fun MenuItemManager.styledRadioMenuItem(
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioMenuItem(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            RadioMenuItem(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

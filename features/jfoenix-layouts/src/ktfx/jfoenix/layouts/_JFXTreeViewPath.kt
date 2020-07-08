@@ -6,6 +6,9 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTreeViewPath
 import javafx.scene.control.TreeView
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,23 +16,22 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXTreeViewPath] to this manager.
  */
 fun NodeManager.jfxTreeViewPath(treeView: TreeView<*>? = null): JFXTreeViewPath =
-        jfxTreeViewPath(treeView = treeView) { }
+    jfxTreeViewPath(treeView = treeView) { }
 
 /**
  * Create a [JFXTreeViewPath] with configuration block.
  */
 inline fun jfxTreeViewPath(
     treeView: TreeView<*>? = null,
-    configuration: (@LayoutDslMarker    
-            JFXTreeViewPath).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        JFXTreeViewPath
+    ).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(JFXTreeViewPath(treeView), configuration = configuration)
@@ -54,7 +56,7 @@ fun styledJFXTreeViewPath(
     vararg styleClass: String,
     id: String? = null
 ): JFXTreeViewPath = styledJFXTreeViewPath(treeView = treeView, styleClass = *styleClass, id = id) {
-        }
+}
 
 /**
  * Add a styled [JFXTreeViewPath] to this manager.
@@ -64,7 +66,7 @@ fun NodeManager.styledJFXTreeViewPath(
     vararg styleClass: String,
     id: String? = null
 ): JFXTreeViewPath = styledJFXTreeViewPath(treeView = treeView, styleClass = *styleClass, id = id) {
-        }
+}
 
 /**
  * Create a styled [JFXTreeViewPath] with configuration block.
@@ -76,8 +78,11 @@ inline fun styledJFXTreeViewPath(
     configuration: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXTreeViewPath(treeView), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXTreeViewPath(treeView), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -90,6 +95,10 @@ inline fun NodeManager.styledJFXTreeViewPath(
     configuration: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXTreeViewPath(treeView), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            JFXTreeViewPath(treeView), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

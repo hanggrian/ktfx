@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.HBox
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [HBox] to this manager.
@@ -24,10 +24,10 @@ fun NodeManager.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
  * Create a [HBox] with configuration block.
  */
 inline fun hbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxHBox).() -> Unit):
-        HBox {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxHBox(spacing), configuration = configuration)
-}
+    HBox {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxHBox(spacing), configuration = configuration)
+    }
 
 /**
  * Add a [HBox] with configuration block to this manager.
@@ -35,7 +35,7 @@ inline fun hbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxHBox
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
     configuration: (@LayoutDslMarker KtfxHBox).() ->    
-            Unit
+    Unit
 ): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxHBox(spacing), configuration = configuration))
@@ -69,8 +69,11 @@ inline fun styledHBox(
     configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxHBox(spacing), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxHBox(spacing), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -83,6 +86,11 @@ inline fun NodeManager.styledHBox(
     configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxHBox(spacing), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            KtfxHBox(spacing), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

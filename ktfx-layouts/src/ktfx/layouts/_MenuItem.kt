@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,13 +14,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [MenuItem] to this manager.
  */
-fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem = menuItem(text =
-        text, graphic = graphic) { }
+fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem = menuItem(
+    text =
+        text,
+    graphic = graphic
+) { }
 
 /**
  * Create a [MenuItem] with configuration block.
@@ -76,8 +79,11 @@ inline fun styledMenuItem(
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(MenuItem(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        MenuItem(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -91,6 +97,10 @@ inline fun MenuItemManager.styledMenuItem(
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(MenuItem(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            MenuItem(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

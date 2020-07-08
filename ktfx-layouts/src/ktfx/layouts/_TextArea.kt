@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextArea
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [TextArea] to this manager.
@@ -23,10 +23,10 @@ fun NodeManager.textArea(text: String = ""): TextArea = textArea(text = text) { 
  * Create a [TextArea] with configuration block.
  */
 inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea).() -> Unit):
-        TextArea {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TextArea(text), configuration = configuration)
-}
+    TextArea {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(TextArea(text), configuration = configuration)
+    }
 
 /**
  * Add a [TextArea] with configuration block to this manager.
@@ -34,7 +34,7 @@ inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea
 inline fun NodeManager.textArea(
     text: String = "",
     configuration: (@LayoutDslMarker TextArea).() ->    
-            Unit
+    Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(TextArea(text), configuration = configuration))
@@ -68,8 +68,11 @@ inline fun styledTextArea(
     configuration: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TextArea(text), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        TextArea(text), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -82,6 +85,11 @@ inline fun NodeManager.styledTextArea(
     configuration: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TextArea(text), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            TextArea(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

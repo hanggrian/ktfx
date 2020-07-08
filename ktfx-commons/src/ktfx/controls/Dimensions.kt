@@ -7,9 +7,9 @@ import javafx.scene.layout.FlowPane
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Region
 import javafx.scene.layout.TilePane
-import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
 
 /** Sets horizontal and vertical gap of this [FlowPane]. */
 inline fun FlowPane.setGap(horizontal: Double, vertical: Double) {

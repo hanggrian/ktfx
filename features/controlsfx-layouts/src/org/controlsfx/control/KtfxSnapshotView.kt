@@ -5,9 +5,9 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
-import kotlin.contracts.ExperimentalContracts
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.SnapshotView
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [SnapshotView] with dynamic-layout dsl support.

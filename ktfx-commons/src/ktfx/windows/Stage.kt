@@ -6,9 +6,9 @@ import javafx.scene.Scene
 import javafx.scene.image.Image
 import javafx.stage.Stage
 import javafx.stage.StageStyle
-import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
 
 /** Get window as [Stage]. */
 inline val Scene.stage: Stage get() = window as Stage

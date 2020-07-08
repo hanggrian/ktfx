@@ -4,10 +4,10 @@
 
 package ktfx.collections
 
-import java.util.Comparator
-import java.util.Random
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
+import java.util.Comparator
+import java.util.Random
 
 /**
  * Returns an empty read-only observable list.

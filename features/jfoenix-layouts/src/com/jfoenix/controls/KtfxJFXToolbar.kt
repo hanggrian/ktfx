@@ -9,11 +9,11 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
-import kotlin.DeprecationLevel.ERROR
-import kotlin.contracts.ExperimentalContracts
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import ktfx.layouts.NodeManager
+import kotlin.DeprecationLevel.ERROR
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [JFXToolbar] with dynamic-layout dsl support.

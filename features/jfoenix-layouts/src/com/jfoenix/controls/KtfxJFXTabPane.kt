@@ -7,11 +7,11 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTabPane
 import javafx.scene.Node
 import javafx.scene.control.Tab
-import kotlin.contracts.ExperimentalContracts
 import ktfx.layouts.KtfxTab
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.TabManager
 import ktfx.layouts.tab
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [JFXTabPane] with dynamic-layout dsl support.

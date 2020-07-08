@@ -5,10 +5,10 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXToolbar
+import ktfx.layouts.LayoutDslMarker
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
 
 /**
  * Configure [JFXToolbar] left items.

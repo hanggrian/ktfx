@@ -2,10 +2,10 @@
 
 package ktfx.controls
 
-import java.awt.image.BufferedImage
 import javafx.embed.swing.SwingFXUtils
 import javafx.scene.image.Image
 import javafx.scene.image.WritableImage
+import java.awt.image.BufferedImage
 
 /**
  * Snapshots the specified [BufferedImage] and stores a copy of its pixels into a JavaFX [Image] object,

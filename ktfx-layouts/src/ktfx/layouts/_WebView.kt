@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.web.WebView
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [WebView] to this manager.
@@ -38,14 +38,17 @@ inline fun NodeManager.webView(configuration: (@LayoutDslMarker WebView).() -> U
 /**
  * Create a styled [WebView].
  */
-fun styledWebView(vararg styleClass: String, id: String? = null): WebView = styledWebView(styleClass =
-        *styleClass, id = id) { }
+fun styledWebView(vararg styleClass: String, id: String? = null): WebView = styledWebView(
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [WebView] to this manager.
  */
 fun NodeManager.styledWebView(vararg styleClass: String, id: String? = null): WebView =
-        styledWebView(styleClass = *styleClass, id = id) { }
+    styledWebView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [WebView] with configuration block.
@@ -68,6 +71,11 @@ inline fun NodeManager.styledWebView(
     configuration: (@LayoutDslMarker WebView).() -> Unit
 ): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(WebView(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            WebView(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

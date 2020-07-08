@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [ImageView] to this manager.
@@ -24,18 +24,20 @@ fun NodeManager.imageView(image: Image? = null): ImageView = imageView(image = i
  * Create an [ImageView] with configuration block.
  */
 inline fun imageView(image: Image? = null, configuration: (@LayoutDslMarker ImageView).() -> Unit):
-        ImageView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ImageView(image), configuration = configuration)
-}
+    ImageView {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(ImageView(image), configuration = configuration)
+    }
 
 /**
  * Add an [ImageView] with configuration block to this manager.
  */
 inline fun NodeManager.imageView(
     image: Image? = null,
-    configuration: (@LayoutDslMarker    
-            ImageView).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        ImageView
+    ).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ImageView(image), configuration = configuration))
@@ -69,8 +71,11 @@ inline fun styledImageView(
     configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ImageView(image), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        ImageView(image), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -83,6 +88,11 @@ inline fun NodeManager.styledImageView(
     configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ImageView(image), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            ImageView(image), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

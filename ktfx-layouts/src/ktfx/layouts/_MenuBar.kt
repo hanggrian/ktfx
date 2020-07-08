@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.MenuBar
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [MenuBar] to this manager.
@@ -38,14 +38,17 @@ inline fun NodeManager.menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() 
 /**
  * Create a styled [MenuBar].
  */
-fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styledMenuBar(styleClass =
-        *styleClass, id = id) { }
+fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styledMenuBar(
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [MenuBar] to this manager.
  */
 fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
-        styledMenuBar(styleClass = *styleClass, id = id) { }
+    styledMenuBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [MenuBar] with configuration block.
@@ -68,6 +71,11 @@ inline fun NodeManager.styledMenuBar(
     configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenuBar(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            KtfxMenuBar(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

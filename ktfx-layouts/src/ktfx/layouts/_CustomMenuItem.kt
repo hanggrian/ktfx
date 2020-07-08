@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Boolean
 import kotlin.String
 import kotlin.Unit
@@ -14,13 +15,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [CustomMenuItem] to this manager.
  */
 fun MenuItemManager.customMenuItem(content: Node? = null, hideOnClick: Boolean = true):
-        CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) { }
+    CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) { }
 
 /**
  * Create a [CustomMenuItem] with configuration block.
@@ -54,8 +54,12 @@ fun styledCustomMenuItem(
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     id: String? = null
-): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
-        *styleClass, id = id) { }
+): CustomMenuItem = styledCustomMenuItem(
+    content = content, hideOnClick = hideOnClick,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [CustomMenuItem] to this manager.
@@ -65,8 +69,12 @@ fun MenuItemManager.styledCustomMenuItem(
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     id: String? = null
-): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
-        *styleClass, id = id) { }
+): CustomMenuItem = styledCustomMenuItem(
+    content = content, hideOnClick = hideOnClick,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [CustomMenuItem] with configuration block.
@@ -79,8 +87,10 @@ inline fun styledCustomMenuItem(
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CustomMenuItem(content, hideOnClick), styleClass = *styleClass, id = id,
-            configuration = configuration)
+    return newChild(
+        CustomMenuItem(content, hideOnClick), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -94,6 +104,12 @@ inline fun MenuItemManager.styledCustomMenuItem(
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CustomMenuItem(content, hideOnClick), styleClass = *styleClass, id =
-            id, configuration = configuration))
+    return addChild(
+        newChild(
+            CustomMenuItem(content, hideOnClick), styleClass = *styleClass,
+            id =
+                id,
+            configuration = configuration
+        )
+    )
 }

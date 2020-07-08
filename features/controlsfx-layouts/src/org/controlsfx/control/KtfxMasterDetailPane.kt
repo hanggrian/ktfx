@@ -6,9 +6,9 @@ package ktfx.controlsfx.layouts
 
 import javafx.geometry.Side
 import javafx.scene.Node
-import kotlin.contracts.ExperimentalContracts
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.MasterDetailPane
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [MasterDetailPane] with dynamic-layout dsl support.

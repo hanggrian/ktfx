@@ -7,6 +7,7 @@ package ktfx.layouts
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.control.ChoiceBox
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,13 +15,12 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ChoiceBox] to this manager.
  */
 fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList()): ChoiceBox<T> =
-        choiceBox(items = items) { }
+    choiceBox(items = items) { }
 
 /**
  * Create a [ChoiceBox] with configuration block.
@@ -72,8 +72,11 @@ inline fun <T> styledChoiceBox(
     configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ChoiceBox<T>(items), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        ChoiceBox<T>(items), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -86,6 +89,11 @@ inline fun <T> NodeManager.styledChoiceBox(
     configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ChoiceBox<T>(items), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            ChoiceBox<T>(items), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

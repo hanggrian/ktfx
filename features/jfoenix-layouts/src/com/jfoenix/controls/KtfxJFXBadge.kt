@@ -6,8 +6,8 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXBadge
 import javafx.scene.Node
-import kotlin.contracts.ExperimentalContracts
 import ktfx.layouts.NodeManager
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [JFXBadge] with dynamic-layout dsl support.

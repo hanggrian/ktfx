@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextField
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [TextField] to this manager.
@@ -23,18 +23,20 @@ fun NodeManager.textField(text: String = ""): TextField = textField(text = text)
  * Create a [TextField] with configuration block.
  */
 inline fun textField(text: String = "", configuration: (@LayoutDslMarker TextField).() -> Unit):
-        TextField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TextField(text), configuration = configuration)
-}
+    TextField {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(TextField(text), configuration = configuration)
+    }
 
 /**
  * Add a [TextField] with configuration block to this manager.
  */
 inline fun NodeManager.textField(
     text: String = "",
-    configuration: (@LayoutDslMarker    
-            TextField).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        TextField
+    ).() -> Unit
 ): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(TextField(text), configuration = configuration))
@@ -68,8 +70,11 @@ inline fun styledTextField(
     configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TextField(text), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        TextField(text), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -82,6 +87,11 @@ inline fun NodeManager.styledTextField(
     configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TextField(text), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            TextField(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

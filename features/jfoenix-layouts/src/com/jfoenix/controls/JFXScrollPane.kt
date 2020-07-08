@@ -6,11 +6,11 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXScrollPane
 import javafx.scene.Node
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 @PublishedApi
 internal class NodeManagerImpl : NodeManager {

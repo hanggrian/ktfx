@@ -5,6 +5,10 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXRadioButton
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import ktfx.layouts.ToggleButtonManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,30 +16,30 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import ktfx.layouts.ToggleButtonManager
 
 /**
  * Add a [JFXRadioButton] to this manager.
  */
 fun NodeManager.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(text = text) {
-        }
+}
 
 /**
  * Add a [JFXRadioButton] to this manager.
  */
-fun ToggleButtonManager.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(text =
-        text) { }
+fun ToggleButtonManager.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(
+    text =
+        text
+) { }
 
 /**
  * Create a [JFXRadioButton] with configuration block.
  */
 inline fun jfxRadioButton(
     text: String? = null,
-    configuration: (@LayoutDslMarker    
-            JFXRadioButton).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        JFXRadioButton
+    ).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(JFXRadioButton(text), configuration = configuration)
@@ -46,8 +50,10 @@ inline fun jfxRadioButton(
  */
 inline fun NodeManager.jfxRadioButton(
     text: String? = null,
-    configuration: (@LayoutDslMarker    
-            JFXRadioButton).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        JFXRadioButton
+    ).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(JFXRadioButton(text), configuration = configuration))
@@ -58,8 +64,10 @@ inline fun NodeManager.jfxRadioButton(
  */
 inline fun ToggleButtonManager.jfxRadioButton(
     text: String? = null,
-    configuration: (@LayoutDslMarker    
-            JFXRadioButton).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        JFXRadioButton
+    ).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(JFXRadioButton(text), configuration = configuration))
@@ -102,8 +110,11 @@ inline fun styledJFXRadioButton(
     configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXRadioButton(text), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXRadioButton(text), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -116,8 +127,13 @@ inline fun NodeManager.styledJFXRadioButton(
     configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXRadioButton(text), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            JFXRadioButton(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }
 
 /**
@@ -130,6 +146,11 @@ inline fun ToggleButtonManager.styledJFXRadioButton(
     configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXRadioButton(text), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            JFXRadioButton(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

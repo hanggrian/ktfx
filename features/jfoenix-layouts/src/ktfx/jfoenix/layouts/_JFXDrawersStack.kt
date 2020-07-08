@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDrawersStack
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXDrawersStack] to this manager.
@@ -25,17 +25,17 @@ fun NodeManager.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
  * Create a [JFXDrawersStack] with configuration block.
  */
 inline fun jfxDrawersStack(configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit):
-        JFXDrawersStack {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXDrawersStack(), configuration = configuration)
-}
+    JFXDrawersStack {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(JFXDrawersStack(), configuration = configuration)
+    }
 
 /**
  * Add a [JFXDrawersStack] with configuration block to this manager.
  */
 inline fun NodeManager.jfxDrawersStack(
     configuration: (@LayoutDslMarker JFXDrawersStack).() ->
-Unit
+    Unit
 ): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(JFXDrawersStack(), configuration = configuration))
@@ -45,13 +45,13 @@ Unit
  * Create a styled [JFXDrawersStack].
  */
 fun styledJFXDrawersStack(vararg styleClass: String, id: String? = null): JFXDrawersStack =
-        styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
+    styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXDrawersStack] to this manager.
  */
 fun NodeManager.styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
-        JFXDrawersStack = styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
+    JFXDrawersStack = styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXDrawersStack] with configuration block.
@@ -62,8 +62,11 @@ inline fun styledJFXDrawersStack(
     configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXDrawersStack(), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXDrawersStack(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -75,6 +78,11 @@ inline fun NodeManager.styledJFXDrawersStack(
     configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXDrawersStack(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            JFXDrawersStack(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

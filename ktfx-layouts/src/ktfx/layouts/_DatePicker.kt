@@ -4,8 +4,9 @@
 
 package ktfx.layouts
 
-import java.time.LocalDate
 import javafx.scene.control.DatePicker
+import ktfx.internal.KtfxInternals.newChild
+import java.time.LocalDate
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [DatePicker] to this manager.
@@ -26,7 +26,7 @@ fun NodeManager.datePicker(date: LocalDate? = null): DatePicker = datePicker(dat
 inline fun datePicker(
     date: LocalDate? = null,
     configuration: (@LayoutDslMarker DatePicker).() ->    
-            Unit
+    Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(DatePicker(date), configuration = configuration)
@@ -37,8 +37,10 @@ inline fun datePicker(
  */
 inline fun NodeManager.datePicker(
     date: LocalDate? = null,
-    configuration: (@LayoutDslMarker    
-            DatePicker).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        DatePicker
+    ).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(DatePicker(date), configuration = configuration))
@@ -72,8 +74,11 @@ inline fun styledDatePicker(
     configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(DatePicker(date), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        DatePicker(date), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -86,6 +91,11 @@ inline fun NodeManager.styledDatePicker(
     configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(DatePicker(date), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            DatePicker(date), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

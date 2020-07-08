@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,7 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Circle] to this manager.
@@ -64,8 +64,10 @@ fun styledCircle(
     fill: Paint? = null,
     vararg styleClass: String,
     id: String? = null
-): Circle = styledCircle(centerX = centerX, centerY = centerY, radius = radius, fill = fill,
-        styleClass = *styleClass, id = id) { }
+): Circle = styledCircle(
+    centerX = centerX, centerY = centerY, radius = radius, fill = fill,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Add a styled [Circle] to this manager.
@@ -77,8 +79,10 @@ fun NodeManager.styledCircle(
     fill: Paint? = null,
     vararg styleClass: String,
     id: String? = null
-): Circle = styledCircle(centerX = centerX, centerY = centerY, radius = radius, fill = fill,
-        styleClass = *styleClass, id = id) { }
+): Circle = styledCircle(
+    centerX = centerX, centerY = centerY, radius = radius, fill = fill,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Create a styled [Circle] with configuration block.
@@ -93,8 +97,10 @@ inline fun styledCircle(
     configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Circle(centerX, centerY, radius, fill), styleClass = *styleClass, id = id,
-            configuration = configuration)
+    return newChild(
+        Circle(centerX, centerY, radius, fill), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -110,6 +116,12 @@ inline fun NodeManager.styledCircle(
     configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Circle(centerX, centerY, radius, fill), styleClass = *styleClass, id =
-            id, configuration = configuration))
+    return addChild(
+        newChild(
+            Circle(centerX, centerY, radius, fill), styleClass = *styleClass,
+            id =
+                id,
+            configuration = configuration
+        )
+    )
 }

@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.ToggleSwitch
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.ToggleSwitch
 
 /**
  * Add a [ToggleSwitch] to this manager.
@@ -27,7 +27,7 @@ fun NodeManager.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(
 inline fun toggleSwitch(
     text: String? = null,
     configuration: (@LayoutDslMarker ToggleSwitch).() ->    
-            Unit
+    Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ToggleSwitch(text), configuration = configuration)
@@ -38,8 +38,10 @@ inline fun toggleSwitch(
  */
 inline fun NodeManager.toggleSwitch(
     text: String? = null,
-    configuration: (@LayoutDslMarker    
-            ToggleSwitch).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        ToggleSwitch
+    ).() -> Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ToggleSwitch(text), configuration = configuration))
@@ -73,8 +75,11 @@ inline fun styledToggleSwitch(
     configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ToggleSwitch(text), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        ToggleSwitch(text), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -87,6 +92,11 @@ inline fun NodeManager.styledToggleSwitch(
     configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleSwitch(text), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            ToggleSwitch(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

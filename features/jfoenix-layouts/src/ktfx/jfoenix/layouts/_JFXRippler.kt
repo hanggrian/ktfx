@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXRippler
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXRippler] to this manager.
@@ -33,22 +33,22 @@ inline fun jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Uni
  * Add a [JFXRippler] with configuration block to this manager.
  */
 inline fun NodeManager.jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit):
-        JFXRippler {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxJFXRippler(), configuration = configuration))
-}
+    JFXRippler {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(KtfxJFXRippler(), configuration = configuration))
+    }
 
 /**
  * Create a styled [JFXRippler].
  */
 fun styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
-        styledJFXRippler(styleClass = *styleClass, id = id) { }
+    styledJFXRippler(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXRippler] to this manager.
  */
 fun NodeManager.styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
-        styledJFXRippler(styleClass = *styleClass, id = id) { }
+    styledJFXRippler(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXRippler] with configuration block.
@@ -59,8 +59,11 @@ inline fun styledJFXRippler(
     configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxJFXRippler(), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxJFXRippler(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -72,6 +75,11 @@ inline fun NodeManager.styledJFXRippler(
     configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxJFXRippler(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            KtfxJFXRippler(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

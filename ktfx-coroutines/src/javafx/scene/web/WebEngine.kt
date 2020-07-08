@@ -7,12 +7,12 @@ import javafx.geometry.Rectangle2D
 import javafx.scene.web.WebEngine
 import javafx.scene.web.WebErrorEvent
 import javafx.scene.web.WebEvent
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Sets the JavaScript {@code alert} handler. */
 fun WebEngine.onAlert(

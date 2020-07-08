@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.VBox
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [VBox] to this manager.
@@ -24,10 +24,10 @@ fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
  * Create a [VBox] with configuration block.
  */
 inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox).() -> Unit):
-        VBox {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxVBox(spacing), configuration = configuration)
-}
+    VBox {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxVBox(spacing), configuration = configuration)
+    }
 
 /**
  * Add a [VBox] with configuration block to this manager.
@@ -35,7 +35,7 @@ inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     configuration: (@LayoutDslMarker KtfxVBox).() ->    
-            Unit
+    Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(KtfxVBox(spacing), configuration = configuration))
@@ -69,8 +69,11 @@ inline fun styledVBox(
     configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxVBox(spacing), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        KtfxVBox(spacing), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -83,6 +86,11 @@ inline fun NodeManager.styledVBox(
     configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxVBox(spacing), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            KtfxVBox(spacing), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

@@ -5,6 +5,10 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.control.TreeItem
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.BreadCrumbBar
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,24 +16,22 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.BreadCrumbBar
 
 /**
  * Add a [BreadCrumbBar] to this manager.
  */
 fun <T> NodeManager.breadCrumbBar(selectedCrumb: TreeItem<T>? = null): BreadCrumbBar<T> =
-        breadCrumbBar(selectedCrumb = selectedCrumb) { }
+    breadCrumbBar(selectedCrumb = selectedCrumb) { }
 
 /**
  * Create a [BreadCrumbBar] with configuration block.
  */
 inline fun <T> breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
-    configuration: (@LayoutDslMarker    
-            BreadCrumbBar<T>).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        BreadCrumbBar<T>
+    ).() -> Unit
 ): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(BreadCrumbBar<T>(selectedCrumb), configuration = configuration)
@@ -53,8 +55,10 @@ fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
-): BreadCrumbBar<T> = styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = *styleClass,
-        id = id) { }
+): BreadCrumbBar<T> = styledBreadCrumbBar(
+    selectedCrumb = selectedCrumb, styleClass = *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [BreadCrumbBar] to this manager.
@@ -63,8 +67,10 @@ fun <T> NodeManager.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
-): BreadCrumbBar<T> = styledBreadCrumbBar(selectedCrumb = selectedCrumb, styleClass = *styleClass,
-        id = id) { }
+): BreadCrumbBar<T> = styledBreadCrumbBar(
+    selectedCrumb = selectedCrumb, styleClass = *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [BreadCrumbBar] with configuration block.
@@ -76,8 +82,10 @@ inline fun <T> styledBreadCrumbBar(
     configuration: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(BreadCrumbBar<T>(selectedCrumb), styleClass = *styleClass, id = id,
-            configuration = configuration)
+    return newChild(
+        BreadCrumbBar<T>(selectedCrumb), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -90,6 +98,10 @@ inline fun <T> NodeManager.styledBreadCrumbBar(
     configuration: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(BreadCrumbBar<T>(selectedCrumb), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            BreadCrumbBar<T>(selectedCrumb), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

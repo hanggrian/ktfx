@@ -4,13 +4,13 @@
 package ktfx.controlsfx.coroutines
 
 import javafx.event.Event
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import org.controlsfx.control.NotificationPane
+import kotlin.coroutines.CoroutineContext
 
 /** Called just prior to the [NotificationPane] being shown. */
 fun NotificationPane.onShowing(

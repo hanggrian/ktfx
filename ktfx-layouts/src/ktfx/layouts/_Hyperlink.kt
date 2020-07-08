@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Hyperlink
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,13 +14,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Hyperlink] to this manager.
  */
-fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink = hyperlink(text =
-        text, graphic = graphic) { }
+fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink = hyperlink(
+    text =
+        text,
+    graphic = graphic
+) { }
 
 /**
  * Create a [Hyperlink] with configuration block.
@@ -54,7 +57,7 @@ fun styledHyperlink(
     vararg styleClass: String,
     id: String? = null
 ): Hyperlink = styledHyperlink(text = text, graphic = graphic, styleClass = *styleClass, id = id) {
-        }
+}
 
 /**
  * Add a styled [Hyperlink] to this manager.
@@ -65,7 +68,7 @@ fun NodeManager.styledHyperlink(
     vararg styleClass: String,
     id: String? = null
 ): Hyperlink = styledHyperlink(text = text, graphic = graphic, styleClass = *styleClass, id = id) {
-        }
+}
 
 /**
  * Create a styled [Hyperlink] with configuration block.
@@ -78,8 +81,11 @@ inline fun styledHyperlink(
     configuration: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Hyperlink(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Hyperlink(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -93,6 +99,10 @@ inline fun NodeManager.styledHyperlink(
     configuration: (@LayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Hyperlink(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            Hyperlink(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

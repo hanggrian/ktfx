@@ -5,12 +5,12 @@ package ktfx.coroutines
 
 import javafx.event.Event
 import javafx.scene.control.Tab
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Defines a function to be called when a selection changed has occurred on the [Tab]. */
 fun Tab.onSelectionChanged(

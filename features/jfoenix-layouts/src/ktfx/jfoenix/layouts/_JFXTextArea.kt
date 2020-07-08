@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTextArea
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXTextArea] to this manager.
@@ -27,7 +27,7 @@ fun NodeManager.jfxTextArea(text: String? = null): JFXTextArea = jfxTextArea(tex
 inline fun jfxTextArea(
     text: String? = null,
     configuration: (@LayoutDslMarker JFXTextArea).() ->    
-            Unit
+    Unit
 ): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(JFXTextArea(text), configuration = configuration)
@@ -38,8 +38,10 @@ inline fun jfxTextArea(
  */
 inline fun NodeManager.jfxTextArea(
     text: String? = null,
-    configuration: (@LayoutDslMarker    
-            JFXTextArea).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        JFXTextArea
+    ).() -> Unit
 ): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(JFXTextArea(text), configuration = configuration))
@@ -73,8 +75,11 @@ inline fun styledJFXTextArea(
     configuration: (@LayoutDslMarker JFXTextArea).() -> Unit
 ): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXTextArea(text), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXTextArea(text), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -87,6 +92,11 @@ inline fun NodeManager.styledJFXTextArea(
     configuration: (@LayoutDslMarker JFXTextArea).() -> Unit
 ): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXTextArea(text), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            JFXTextArea(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

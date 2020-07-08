@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.StatusBar
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.StatusBar
 
 /**
  * Add a [StatusBar] to this manager.
@@ -33,22 +33,22 @@ inline fun statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit): St
  * Add a [StatusBar] with configuration block to this manager.
  */
 inline fun NodeManager.statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit):
-        StatusBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(StatusBar(), configuration = configuration))
-}
+    StatusBar {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(StatusBar(), configuration = configuration))
+    }
 
 /**
  * Create a styled [StatusBar].
  */
 fun styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
-        styledStatusBar(styleClass = *styleClass, id = id) { }
+    styledStatusBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [StatusBar] to this manager.
  */
 fun NodeManager.styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
-        styledStatusBar(styleClass = *styleClass, id = id) { }
+    styledStatusBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [StatusBar] with configuration block.
@@ -71,6 +71,11 @@ inline fun NodeManager.styledStatusBar(
     configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(StatusBar(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            StatusBar(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

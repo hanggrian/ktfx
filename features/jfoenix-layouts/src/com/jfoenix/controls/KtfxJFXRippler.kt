@@ -6,8 +6,8 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXRippler
 import javafx.scene.Node
-import kotlin.contracts.ExperimentalContracts
 import ktfx.layouts.NodeManager
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * [JFXRippler] with dynamic-layout dsl support.

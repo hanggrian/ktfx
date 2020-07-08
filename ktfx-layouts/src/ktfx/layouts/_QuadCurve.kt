@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [QuadCurve] to this manager.
@@ -25,8 +25,10 @@ fun NodeManager.quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0
-): QuadCurve = quadCurve(startX = startX, startY = startY, controlX = controlX, controlY = controlY,
-        endX = endX, endY = endY) { }
+): QuadCurve = quadCurve(
+    startX = startX, startY = startY, controlX = controlX, controlY = controlY,
+    endX = endX, endY = endY
+) { }
 
 /**
  * Create a [QuadCurve] with configuration block.
@@ -41,8 +43,11 @@ inline fun quadCurve(
     configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), configuration =
-            configuration)
+    return newChild(
+        QuadCurve(startX, startY, controlX, controlY, endX, endY),
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -58,8 +63,12 @@ inline fun NodeManager.quadCurve(
     configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(QuadCurve(startX, startY, controlX, controlY, endX, endY),
-            configuration = configuration))
+    return addChild(
+        newChild(
+            QuadCurve(startX, startY, controlX, controlY, endX, endY),
+            configuration = configuration
+        )
+    )
 }
 
 /**
@@ -74,8 +83,12 @@ fun styledQuadCurve(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): QuadCurve = styledQuadCurve(startX = startX, startY = startY, controlX = controlX, controlY =
-        controlY, endX = endX, endY = endY, styleClass = *styleClass, id = id) { }
+): QuadCurve = styledQuadCurve(
+    startX = startX, startY = startY, controlX = controlX,
+    controlY =
+        controlY,
+    endX = endX, endY = endY, styleClass = *styleClass, id = id
+) { }
 
 /**
  * Add a styled [QuadCurve] to this manager.
@@ -89,8 +102,12 @@ fun NodeManager.styledQuadCurve(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
-): QuadCurve = styledQuadCurve(startX = startX, startY = startY, controlX = controlX, controlY =
-        controlY, endX = endX, endY = endY, styleClass = *styleClass, id = id) { }
+): QuadCurve = styledQuadCurve(
+    startX = startX, startY = startY, controlX = controlX,
+    controlY =
+        controlY,
+    endX = endX, endY = endY, styleClass = *styleClass, id = id
+) { }
 
 /**
  * Create a styled [QuadCurve] with configuration block.
@@ -107,8 +124,12 @@ inline fun styledQuadCurve(
     configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), styleClass =
-            *styleClass, id = id, configuration = configuration)
+    return newChild(
+        QuadCurve(startX, startY, controlX, controlY, endX, endY),
+        styleClass =
+            *styleClass,
+        id = id, configuration = configuration
+    )
 }
 
 /**
@@ -126,6 +147,12 @@ inline fun NodeManager.styledQuadCurve(
     configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), styleClass =
-            *styleClass, id = id, configuration = configuration))
+    return addChild(
+        newChild(
+            QuadCurve(startX, startY, controlX, controlY, endX, endY),
+            styleClass =
+                *styleClass,
+            id = id, configuration = configuration
+        )
+    )
 }

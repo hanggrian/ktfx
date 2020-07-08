@@ -4,11 +4,11 @@ import javafx.event.ActionEvent
 import javafx.geometry.Pos
 import javafx.scene.Node
 import javafx.util.Duration
-import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import org.controlsfx.control.Notifications
 import org.controlsfx.control.action.Action
+import kotlin.DeprecationLevel.ERROR
 
 /** Build notifications with Kotlin DSL. */
 fun buildNotifications(builderAction: NotificationsBuilder.() -> Unit): Notifications =

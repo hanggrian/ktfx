@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Button
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,13 +14,14 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Button] to this manager.
  */
-fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(text = text,
-        graphic = graphic) { }
+fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(
+    text = text,
+    graphic = graphic
+) { }
 
 /**
  * Create a [Button] with configuration block.
@@ -76,8 +78,11 @@ inline fun styledButton(
     configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Button(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Button(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -91,6 +96,11 @@ inline fun NodeManager.styledButton(
     configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Button(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            Button(text, graphic), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

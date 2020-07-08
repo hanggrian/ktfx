@@ -2,13 +2,13 @@
 
 package ktfx.controlsfx.dialogs
 
-import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.image.ImageView
 import javafx.scene.text.Font
 import ktfx.dialogs.graphicIcon
 import ktfx.dialogs.headerTitle
 import org.controlsfx.dialog.FontSelectorDialog
+import java.util.Optional
 
 /**
  * Build a font selector dialog with Kotlin DSL.

@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXSlider
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,9 +16,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXSlider] to this manager.
@@ -61,8 +61,11 @@ fun styledJFXSlider(
     value: Double = 50.0,
     vararg styleClass: String,
     id: String? = null
-): JFXSlider = styledJFXSlider(min = min, max = max, value = value, styleClass = *styleClass, id =
-        id) { }
+): JFXSlider = styledJFXSlider(
+    min = min, max = max, value = value, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [JFXSlider] to this manager.
@@ -73,8 +76,11 @@ fun NodeManager.styledJFXSlider(
     value: Double = 50.0,
     vararg styleClass: String,
     id: String? = null
-): JFXSlider = styledJFXSlider(min = min, max = max, value = value, styleClass = *styleClass, id =
-        id) { }
+): JFXSlider = styledJFXSlider(
+    min = min, max = max, value = value, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Create a styled [JFXSlider] with configuration block.
@@ -88,8 +94,11 @@ inline fun styledJFXSlider(
     configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXSlider(min, max, value), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        JFXSlider(min, max, value), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -104,6 +113,10 @@ inline fun NodeManager.styledJFXSlider(
     configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXSlider(min, max, value), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            JFXSlider(min, max, value), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

@@ -1,10 +1,10 @@
 package ktfx
 
-import java.util.concurrent.Callable
 import javafx.beans.Observable
 import javafx.beans.binding.Bindings
 import javafx.beans.binding.ObjectBinding
 import javafx.util.Callback
+import java.util.concurrent.Callable
 
 /** Create new callback using Kotlin function type. */
 inline fun <P, R> callbackOf(crossinline callback: (P) -> R?): Callback<P, R> = Callback { callback(it) }

@@ -2,10 +2,10 @@
 
 package ktfx.dialogs
 
-import java.util.Optional
 import javafx.scene.Node
 import javafx.scene.control.TextInputDialog
 import javafx.scene.image.ImageView
+import java.util.Optional
 
 /**
  * Show a text input dialog with title and graphic.

@@ -6,12 +6,12 @@ package ktfx.coroutines
 import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.TreeView
 import javafx.scene.control.TreeView.EditEvent
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
 
 /** Sets the handler that will be called when the user begins an edit. */
 fun <T> TreeView<T>.onEditStart(

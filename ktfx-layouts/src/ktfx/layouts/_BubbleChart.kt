@@ -9,6 +9,7 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.BubbleChart
 import javafx.scene.chart.XYChart
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -16,7 +17,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [BubbleChart] to this manager.
@@ -62,8 +62,11 @@ fun <X, Y> styledBubbleChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
-): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id =
-        id) { }
+): BubbleChart<X, Y> = styledBubbleChart(
+    x = x, y = y, data = data, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [BubbleChart] to this manager.
@@ -74,8 +77,11 @@ fun <X, Y> NodeManager.styledBubbleChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
-): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id =
-        id) { }
+): BubbleChart<X, Y> = styledBubbleChart(
+    x = x, y = y, data = data, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Create a styled [BubbleChart] with configuration block.
@@ -89,8 +95,11 @@ inline fun <X, Y> styledBubbleChart(
     configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(BubbleChart<X, Y>(x, y, data), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        BubbleChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -105,6 +114,10 @@ inline fun <X, Y> NodeManager.styledBubbleChart(
     configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(BubbleChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-            configuration = configuration))
+    return addChild(
+        newChild(
+            BubbleChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

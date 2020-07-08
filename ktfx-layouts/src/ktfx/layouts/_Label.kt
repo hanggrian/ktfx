@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Label
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,13 +14,14 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Label] to this manager.
  */
-fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(text = text,
-        graphic = graphic) { }
+fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(
+    text = text,
+    graphic = graphic
+) { }
 
 /**
  * Create a [Label] with configuration block.
@@ -76,8 +78,11 @@ inline fun styledLabel(
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Label(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        Label(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -91,6 +96,11 @@ inline fun NodeManager.styledLabel(
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Label(text, graphic), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            Label(text, graphic), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

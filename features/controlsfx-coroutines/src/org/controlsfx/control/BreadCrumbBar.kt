@@ -3,13 +3,13 @@
 
 package ktfx.controlsfx.coroutines
 
-import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.launch
 import org.controlsfx.control.BreadCrumbBar
+import kotlin.coroutines.CoroutineContext
 
 /** Set a new EventHandler for when a user selects a crumb. */
 fun <T> BreadCrumbBar<T>.onCrumbAction(

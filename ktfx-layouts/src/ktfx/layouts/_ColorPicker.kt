@@ -7,6 +7,7 @@ package ktfx.layouts
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,7 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ColorPicker] to this manager.
@@ -27,7 +27,7 @@ fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(col
 inline fun colorPicker(
     color: Color = WHITE,
     configuration: (@LayoutDslMarker ColorPicker).() ->    
-            Unit
+    Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return newChild(ColorPicker(color), configuration = configuration)
@@ -38,8 +38,10 @@ inline fun colorPicker(
  */
 inline fun NodeManager.colorPicker(
     color: Color = WHITE,
-    configuration: (@LayoutDslMarker    
-            ColorPicker).() -> Unit
+    configuration: (
+        @LayoutDslMarker    
+        ColorPicker
+    ).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(ColorPicker(color), configuration = configuration))
@@ -73,8 +75,11 @@ inline fun styledColorPicker(
     configuration: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ColorPicker(color), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        ColorPicker(color), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -87,6 +92,11 @@ inline fun NodeManager.styledColorPicker(
     configuration: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ColorPicker(color), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            ColorPicker(color), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

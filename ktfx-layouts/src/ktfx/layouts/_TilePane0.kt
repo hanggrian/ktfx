@@ -7,6 +7,7 @@ package ktfx.layouts
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.layout.TilePane
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -15,7 +16,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [TilePane] to this manager.
@@ -61,8 +61,12 @@ fun styledTilePane(
     vgap: Double,
     vararg styleClass: String,
     id: String? = null
-): TilePane = styledTilePane(orientation = orientation, hgap = hgap, vgap = vgap, styleClass =
-        *styleClass, id = id) { }
+): TilePane = styledTilePane(
+    orientation = orientation, hgap = hgap, vgap = vgap,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [TilePane] to this manager.
@@ -73,8 +77,12 @@ fun NodeManager.styledTilePane(
     vgap: Double,
     vararg styleClass: String,
     id: String? = null
-): TilePane = styledTilePane(orientation = orientation, hgap = hgap, vgap = vgap, styleClass =
-        *styleClass, id = id) { }
+): TilePane = styledTilePane(
+    orientation = orientation, hgap = hgap, vgap = vgap,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [TilePane] with configuration block.
@@ -88,8 +96,10 @@ inline fun styledTilePane(
     configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTilePane(orientation, hgap, vgap), styleClass = *styleClass, id = id,
-            configuration = configuration)
+    return newChild(
+        KtfxTilePane(orientation, hgap, vgap), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -104,6 +114,12 @@ inline fun NodeManager.styledTilePane(
     configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTilePane(orientation, hgap, vgap), styleClass = *styleClass, id =
-            id, configuration = configuration))
+    return addChild(
+        newChild(
+            KtfxTilePane(orientation, hgap, vgap), styleClass = *styleClass,
+            id =
+                id,
+            configuration = configuration
+        )
+    )
 }

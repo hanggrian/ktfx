@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polygon
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Polygon] to this manager.
@@ -38,14 +38,17 @@ inline fun NodeManager.polygon(configuration: (@LayoutDslMarker Polygon).() -> U
 /**
  * Create a styled [Polygon].
  */
-fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon = styledPolygon(styleClass =
-        *styleClass, id = id) { }
+fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon = styledPolygon(
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [Polygon] to this manager.
  */
 fun NodeManager.styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
-        styledPolygon(styleClass = *styleClass, id = id) { }
+    styledPolygon(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Polygon] with configuration block.
@@ -68,6 +71,11 @@ inline fun NodeManager.styledPolygon(
     configuration: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Polygon(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            Polygon(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

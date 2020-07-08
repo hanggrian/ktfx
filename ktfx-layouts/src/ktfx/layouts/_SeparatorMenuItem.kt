@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.SeparatorMenuItem
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [SeparatorMenuItem] to this manager.
@@ -23,17 +23,19 @@ fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem()
  * Create a [SeparatorMenuItem] with configuration block.
  */
 inline fun separatorMenuItem(configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit):
-        SeparatorMenuItem {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(SeparatorMenuItem(), configuration = configuration)
-}
+    SeparatorMenuItem {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(SeparatorMenuItem(), configuration = configuration)
+    }
 
 /**
  * Add a [SeparatorMenuItem] with configuration block to this manager.
  */
 inline fun MenuItemManager.separatorMenuItem(
-    configuration: (@LayoutDslMarker
-SeparatorMenuItem).() -> Unit
+    configuration: (
+        @LayoutDslMarker
+        SeparatorMenuItem
+    ).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     return addChild(newChild(SeparatorMenuItem(), configuration = configuration))
@@ -43,13 +45,13 @@ SeparatorMenuItem).() -> Unit
  * Create a styled [SeparatorMenuItem].
  */
 fun styledSeparatorMenuItem(vararg styleClass: String, id: String? = null): SeparatorMenuItem =
-        styledSeparatorMenuItem(styleClass = *styleClass, id = id) { }
+    styledSeparatorMenuItem(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [SeparatorMenuItem] to this manager.
  */
 fun MenuItemManager.styledSeparatorMenuItem(vararg styleClass: String, id: String? = null):
-        SeparatorMenuItem = styledSeparatorMenuItem(styleClass = *styleClass, id = id) { }
+    SeparatorMenuItem = styledSeparatorMenuItem(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [SeparatorMenuItem] with configuration block.
@@ -60,8 +62,11 @@ inline fun styledSeparatorMenuItem(
     configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(SeparatorMenuItem(), styleClass = *styleClass, id = id, configuration =
-            configuration)
+    return newChild(
+        SeparatorMenuItem(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -73,6 +78,11 @@ inline fun MenuItemManager.styledSeparatorMenuItem(
     configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(SeparatorMenuItem(), styleClass = *styleClass, id = id, configuration =
-            configuration))
+    return addChild(
+        newChild(
+            SeparatorMenuItem(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

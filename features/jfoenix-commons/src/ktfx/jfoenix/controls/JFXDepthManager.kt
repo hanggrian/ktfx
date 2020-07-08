@@ -4,9 +4,9 @@ package ktfx.jfoenix.controls
 
 import com.jfoenix.effects.JFXDepthManager
 import javafx.scene.Node
-import kotlin.DeprecationLevel.ERROR
 import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
+import kotlin.DeprecationLevel.ERROR
 
 /** This method is used to add shadow effect to the [Node]. */
 inline var Node.depth: Int

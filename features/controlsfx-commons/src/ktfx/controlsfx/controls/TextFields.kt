@@ -17,11 +17,11 @@ inline fun <T> TextField.bindAutoCompletion(possibleSuggestions: Collection<T>):
 
 /** Create a new auto-completion binding between the given [TextField] and the given suggestion provider. */
 inline fun <T> TextField.bindAutoCompletion(
-    crossinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
-): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this) { suggestionProvider(it) }
+    noinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
+): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider)
 
 /** Create a new auto-completion binding between the given [TextField] and the given suggestion provider. */
 inline fun <T> TextField.bindAutoCompletion(
     converter: StringConverter<T>,
-    crossinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
-): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, { suggestionProvider(it) }, converter)
+    noinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
+): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider, converter)

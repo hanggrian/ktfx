@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class BindingsOperatorObjectTest {
+class BindingsInfixObjectTest {
 
     @Test fun eq() {
         assertFalse((property<Duration>() eq property(1.m)).value)

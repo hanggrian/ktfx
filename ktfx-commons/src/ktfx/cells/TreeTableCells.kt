@@ -26,8 +26,8 @@ inline fun <S> TreeTableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
  *  will return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
 inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
-    crossinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn { selectedPropertyProvider(it) })
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(selectedPropertyProvider))
 
 /**
  * Sets a [CheckBoxTreeTableCell] factory for use in this [TreeTableColumn].
@@ -39,8 +39,8 @@ inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
  */
 inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     converter: StringConverter<T>,
-    crossinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn({ selectedPropertyProvider(it) }, converter))
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(selectedPropertyProvider, converter))
 
 /**
  * Sets a [CheckBoxTreeTableCell] factory for use in this [TreeTableColumn].
@@ -52,8 +52,8 @@ inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
  */
 inline fun <S, T> TreeTableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
-    crossinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn({ selectedPropertyProvider(it) }, showLabel))
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTreeTableCell.forTreeTableColumn(selectedPropertyProvider, showLabel))
 
 /**
  * Sets a [CheckBoxTreeTableCell] factory for use in this [TreeTableColumn].

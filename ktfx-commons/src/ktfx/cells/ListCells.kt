@@ -20,8 +20,8 @@ import javafx.util.StringConverter
  *  will return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
 inline fun <T> ListView<T>.checkBoxCellFactory(
-    crossinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxListCell.forListView { selectedPropertyProvider(it) })
+    noinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxListCell.forListView(selectedPropertyProvider))
 
 /**
  * Sets a [CheckBoxListCell] factory for use in this [ListView].
@@ -33,8 +33,8 @@ inline fun <T> ListView<T>.checkBoxCellFactory(
  */
 inline fun <T> ListView<T>.checkBoxCellFactory(
     converter: StringConverter<T>,
-    crossinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxListCell.forListView({ selectedPropertyProvider(it) }, converter))
+    noinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxListCell.forListView(selectedPropertyProvider, converter))
 
 /**
  * Sets a [ChoiceBoxListCell] factory for use in this [ListView].

@@ -27,8 +27,8 @@ inline fun <T> TreeView<T>.checkBoxCellFactory(): Unit =
  *  will return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
 inline fun <T> TreeView<T>.checkBoxCellFactory(
-    crossinline selectedPropertyProvider: (TreeItem<T>) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTreeCell.forTreeView { selectedPropertyProvider(it) })
+    noinline selectedPropertyProvider: (TreeItem<T>) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTreeCell.forTreeView(selectedPropertyProvider))
 
 /**
  * Sets a [CheckBoxTreeCell] factory for use in this [TreeView].
@@ -40,8 +40,8 @@ inline fun <T> TreeView<T>.checkBoxCellFactory(
  */
 inline fun <T> TreeView<T>.checkBoxCellFactory(
     converter: StringConverter<TreeItem<T>>,
-    crossinline selectedPropertyProvider: (TreeItem<T>) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTreeCell.forTreeView({ selectedPropertyProvider(it) }, converter))
+    noinline selectedPropertyProvider: (TreeItem<T>) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTreeCell.forTreeView(selectedPropertyProvider, converter))
 
 /**
  * Sets a [ChoiceBoxTreeCell] factory for use in this [TreeView].

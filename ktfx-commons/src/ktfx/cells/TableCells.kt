@@ -26,8 +26,8 @@ inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
  *  will return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
-    crossinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTableCell.forTableColumn { selectedPropertyProvider(it) })
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider))
 
 /**
  * Sets a [CheckBoxTableCell] factory for use in this [TableColumn].
@@ -39,8 +39,8 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
  */
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     converter: StringConverter<T>,
-    crossinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTableCell.forTableColumn({ selectedPropertyProvider(it) }, converter))
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider, converter))
 
 /**
  * Sets a [CheckBoxTableCell] factory for use in this [TableColumn].
@@ -52,8 +52,8 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
  */
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
-    crossinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
-): Unit = setCellFactory(CheckBoxTableCell.forTableColumn({ selectedPropertyProvider(it) }, showLabel))
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider, showLabel))
 
 /**
  * Sets a [CheckBoxTableCell] factory for use in this [TableColumn].

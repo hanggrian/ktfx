@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx
 
 import javafx.beans.Observable
@@ -7,12 +9,12 @@ import javafx.util.Callback
 import java.util.concurrent.Callable
 
 /** Create new callback using Kotlin function type. */
-inline fun <P, R> callbackOf(crossinline callback: (P) -> R?): Callback<P, R> = Callback { callback(it) }
+inline fun <P, R> callbackOf(noinline callback: (P) -> R?): Callback<P, R> = Callback { callback(it) }
 
 /** Create an [ObjectBinding] of [Callback] with multiple [Observable] dependencies. */
 inline fun <P, R> callbackBindingOf(
     vararg dependencies: Observable,
-    crossinline valueProvider: (P) -> R?
+    noinline valueProvider: (P) -> R?
 ): ObjectBinding<Callback<P, R>> =
     Bindings.createObjectBinding(Callable { Callback<P, R> { valueProvider(it) } }, *dependencies)
 

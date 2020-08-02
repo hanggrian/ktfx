@@ -4,7 +4,7 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class BindingsOperatorStringTest {
+class BindingsInfixStringTest {
 
     @Test fun eq() {
         assertFalse((stringProperty() eq stringProperty("Hendra")).value)

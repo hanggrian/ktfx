@@ -19,7 +19,10 @@ fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
     configuration: JFXTreeTableColumnScope<S>.() -> Unit
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    JFXTreeTableColumnScope(columns).configuration()
+    val columns2 = columns // explicit ref to avoid ambiguous label
+    object : JFXTreeTableColumnScope<S> {
+        override val columns: MutableCollection<TreeTableColumn<S, *>> get() = columns2
+    }.configuration()
 }
 
 /**
@@ -30,21 +33,26 @@ fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns(
     configuration: JFXTreeTableColumnScope<S>.() -> Unit
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    JFXTreeTableColumnScope(columns).configuration()
+    val columns2 = columns // explicit ref to avoid ambiguous label
+    object : JFXTreeTableColumnScope<S> {
+        override val columns: MutableCollection<TreeTableColumn<S, *>> get() = columns2
+    }.configuration()
 }
 
 /** Container of [JFXTreeTableColumn], providing sets of useful operation. */
 @TableColumnDslMarker
-class JFXTreeTableColumnScope<S : RecursiveTreeObject<S>> internal constructor(
+interface JFXTreeTableColumnScope<S : RecursiveTreeObject<S>> {
+
+    /** Collection of columns within this scope. */
     val columns: MutableCollection<TreeTableColumn<S, *>>
-) {
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> column(text: String? = null): JFXTreeTableColumn<S, T> =
-        JFXTreeTableColumn<S, T>(text).also { columns += it }
+    fun <T> column(
+        text: String? = null
+    ): JFXTreeTableColumn<S, T> = JFXTreeTableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
-    inline fun <T> column(
+    fun <T> column(
         text: String? = null,
         configuration: JFXTreeTableColumn<S, T>.() -> Unit
     ): JFXTreeTableColumn<S, T> {
@@ -54,7 +62,7 @@ class JFXTreeTableColumnScope<S : RecursiveTreeObject<S>> internal constructor(
     }
 
     /** Add a column using receiver and [configuration] block, returning the column added. */
-    inline operator fun <T> String.invoke(
+    operator fun <T> String.invoke(
         configuration: JFXTreeTableColumn<S, T>.() -> Unit
     ): JFXTreeTableColumn<S, T> = column(this, configuration)
 }

@@ -9,10 +9,20 @@
 <br/>
 <h1>FillBuilder</h1>
 <code><span class="keyword">class </span><span class="identifier">FillBuilder</span></code>
-<p>Class to support adding <a href="#">BackgroundFill</a> to node with DSL.</p>
-<p><strong>See Also</strong><br/>
-<p><a href="../fill.html">BackgroundBuilder.fill</a></p>
-</p>
+<p>Background fill configurator class.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Background fill configurator class.</p>
+<code><span class="identifier">FillBuilder</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Properties</h3>
 <table>
 <tbody>
@@ -39,6 +49,19 @@
 <td>
 <p>The corner Radii. If null, the value Radii.EMPTY is used.</p>
 <code><span class="keyword">var </span><span class="identifier">radii</span><span class="symbol">: </span><span class="identifier">CornerRadii</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="build.html">build</a></h4>
+</td>
+<td>
+<p>Return background fill based on current configuration.</p>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundFill</span></code></td>
 </tr>
 </tbody>
 </table>

@@ -9,13 +9,20 @@
 <br/>
 <h1>ImageBuilder</h1>
 <code><span class="keyword">class </span><span class="identifier">ImageBuilder</span></code>
-<p>Class to support adding <a href="#">BackgroundImage</a> to node with DSL.</p>
-<h3>Parameters</h3>
-<p><a name="image"></a>
-<code>image</code> - the image to use as background.</p>
-<p><strong>See Also</strong><br/>
-<p><a href="../image.html">BackgroundBuilder.image</a></p>
-</p>
+<p>Background image configurator class.</p>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Background image configurator class.</p>
+<code><span class="identifier">ImageBuilder</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BackgroundBuilder.ImageBuilder$<init>(javafx.scene.image.Image)/image">image</span><span class="symbol">:</span>&nbsp;<span class="identifier">Image</span><span class="symbol">)</span></code></td>
+</tr>
+</tbody>
+</table>
 <h3>Properties</h3>
 <table>
 <tbody>
@@ -58,6 +65,19 @@
 <td>
 <p>The size. If null, defaults to <a href="#">BackgroundSize.DEFAULT</a>.</p>
 <code><span class="keyword">var </span><span class="identifier">size</span><span class="symbol">: </span><span class="identifier">BackgroundSize</span><span class="symbol">?</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="build.html">build</a></h4>
+</td>
+<td>
+<p>Return background image based on current configuration.</p>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundImage</span></code></td>
 </tr>
 </tbody>
 </table>

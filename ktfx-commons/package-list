@@ -504,7 +504,7 @@ $dokka.location:ktfx.collections$unbindContent(kotlin.collections.Set((ktfx.coll
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-list/unbind-content-bidirectional.html
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableMap((ktfx.collections.unbindContentBidirectional.K, ktfx.collections.unbindContentBidirectional.V)), javafx.collections.ObservableMap((ktfx.collections.unbindContentBidirectional.K, ktfx.collections.unbindContentBidirectional.V)))ktfx.collections/javafx.collections.-observable-map/unbind-content-bidirectional.html
 $dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-set/unbind-content-bidirectional.html
-$dokka.location:ktfx.controls$affineTransform(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Affine, kotlin.Unit)))ktfx.controls/javafx.scene.-node/affine-transform.html
+$dokka.location:ktfx.controls$affineTransformation(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Affine, kotlin.Unit)))ktfx.controls/javafx.scene.-node/affine-transformation.html
 $dokka.location:ktfx.controls$background(javafx.scene.layout.Region, kotlin.Function1((ktfx.controls.BackgroundBuilder, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-region/background.html
 $dokka.location:ktfx.controls$backgroundFill(javafx.scene.layout.Region, kotlin.Function1((ktfx.controls.BackgroundBuilder.FillBuilder, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-region/background-fill.html
 $dokka.location:ktfx.controls$backgroundImage(javafx.scene.layout.Region, javafx.scene.image.Image, kotlin.Function1((ktfx.controls.BackgroundBuilder.ImageBuilder, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-region/background-image.html
@@ -555,16 +555,16 @@ $dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.MultipleSe
 $dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.SelectionModel((kotlin.Any))ktfx.controls/javafx.scene.control.-selection-model/not-selected-binding.html
 $dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.ToggleGroupktfx.controls/javafx.scene.control.-toggle-group/not-selected-binding.html
 $dokka.location:ktfx.controls$paddings#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/paddings.html
-$dokka.location:ktfx.controls$parallelTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)), kotlin.Function1((javafx.animation.ParallelTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/parallel-transition.html
+$dokka.location:ktfx.controls$parallelTransition(javafx.scene.Node, kotlin.Function1((ktfx.controls.AnimationScope, kotlin.Unit)))ktfx.controls/javafx.scene.-node/parallel-transition.html
 $dokka.location:ktfx.controls$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape, kotlin.Function1((javafx.animation.PathTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/path-transition.html
 $dokka.location:ktfx.controls$perspectiveTransformEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.PerspectiveTransform, kotlin.Unit)))ktfx.controls/javafx.scene.-node/perspective-transform-effect.html
 $dokka.location:ktfx.controls$prefSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/pref-size.html
 $dokka.location:ktfx.controls$reflectionEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.Reflection, kotlin.Unit)))ktfx.controls/javafx.scene.-node/reflection-effect.html
 $dokka.location:ktfx.controls$rightPadding#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/right-padding.html
-$dokka.location:ktfx.controls$rotateTransform(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Rotate, kotlin.Unit)))ktfx.controls/javafx.scene.-node/rotate-transform.html
+$dokka.location:ktfx.controls$rotateTransformation(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Rotate, kotlin.Unit)))ktfx.controls/javafx.scene.-node/rotate-transformation.html
 $dokka.location:ktfx.controls$rotateTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.animation.RotateTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/rotate-transition.html
 $dokka.location:ktfx.controls$rowConstraints(javafx.scene.layout.GridPane, kotlin.Function1((ktfx.controls.RowConstraintsScope, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-grid-pane/row-constraints.html
-$dokka.location:ktfx.controls$scaleTransform(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Scale, kotlin.Unit)))ktfx.controls/javafx.scene.-node/scale-transform.html
+$dokka.location:ktfx.controls$scaleTransformation(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Scale, kotlin.Unit)))ktfx.controls/javafx.scene.-node/scale-transformation.html
 $dokka.location:ktfx.controls$scaleTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.animation.ScaleTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/scale-transition.html
 $dokka.location:ktfx.controls$selectIndex(javafx.scene.control.ToggleGroup, kotlin.Int)ktfx.controls/javafx.scene.control.-toggle-group/select-index.html
 $dokka.location:ktfx.controls$selectedBinding#javafx.scene.control.MultipleSelectionModel((kotlin.Any))ktfx.controls/javafx.scene.control.-multiple-selection-model/selected-binding.html
@@ -572,17 +572,19 @@ $dokka.location:ktfx.controls$selectedBinding#javafx.scene.control.SelectionMode
 $dokka.location:ktfx.controls$selectedBinding#javafx.scene.control.ToggleGroupktfx.controls/javafx.scene.control.-toggle-group/selected-binding.html
 $dokka.location:ktfx.controls$selectedIndex#javafx.scene.control.ToggleGroupktfx.controls/javafx.scene.control.-toggle-group/selected-index.html
 $dokka.location:ktfx.controls$sepiaToneEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.SepiaTone, kotlin.Unit)))ktfx.controls/javafx.scene.-node/sepia-tone-effect.html
-$dokka.location:ktfx.controls$sequentialTransition(javafx.scene.Node, kotlin.Array((javafx.animation.Animation)), kotlin.Function1((javafx.animation.SequentialTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/sequential-transition.html
+$dokka.location:ktfx.controls$sequentialTransition(javafx.scene.Node, kotlin.Function1((ktfx.controls.AnimationScope, kotlin.Unit)))ktfx.controls/javafx.scene.-node/sequential-transition.html
 $dokka.location:ktfx.controls$setGap(javafx.scene.layout.FlowPane, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-flow-pane/set-gap.html
 $dokka.location:ktfx.controls$setGap(javafx.scene.layout.GridPane, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-grid-pane/set-gap.html
 $dokka.location:ktfx.controls$setGap(javafx.scene.layout.TilePane, kotlin.Double, kotlin.Double)ktfx.controls/javafx.scene.layout.-tile-pane/set-gap.html
 $dokka.location:ktfx.controls$shadowEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.Shadow, kotlin.Unit)))ktfx.controls/javafx.scene.-node/shadow-effect.html
-$dokka.location:ktfx.controls$shearTransform(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Shear, kotlin.Unit)))ktfx.controls/javafx.scene.-node/shear-transform.html
+$dokka.location:ktfx.controls$shapeParallelTransition(javafx.scene.shape.Shape, kotlin.Function1((ktfx.controls.ShapeAnimationScope, kotlin.Unit)))ktfx.controls/javafx.scene.shape.-shape/shape-parallel-transition.html
+$dokka.location:ktfx.controls$shapeSequentialTransition(javafx.scene.shape.Shape, kotlin.Function1((ktfx.controls.ShapeAnimationScope, kotlin.Unit)))ktfx.controls/javafx.scene.shape.-shape/shape-sequential-transition.html
+$dokka.location:ktfx.controls$shearTransformation(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Shear, kotlin.Unit)))ktfx.controls/javafx.scene.-node/shear-transformation.html
 $dokka.location:ktfx.controls$strokeTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color, kotlin.Function1((javafx.animation.StrokeTransition, kotlin.Unit)))ktfx.controls/javafx.scene.shape.-shape/stroke-transition.html
 $dokka.location:ktfx.controls$toFxImage(java.awt.image.BufferedImage, javafx.scene.image.WritableImage)ktfx.controls/java.awt.image.-buffered-image/to-fx-image.html
 $dokka.location:ktfx.controls$toSwingImage(javafx.scene.image.Image, java.awt.image.BufferedImage)ktfx.controls/javafx.scene.image.-image/to-swing-image.html
 $dokka.location:ktfx.controls$topPadding#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/top-padding.html
-$dokka.location:ktfx.controls$translateTransform(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Translate, kotlin.Unit)))ktfx.controls/javafx.scene.-node/translate-transform.html
+$dokka.location:ktfx.controls$translateTransformation(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Translate, kotlin.Unit)))ktfx.controls/javafx.scene.-node/translate-transformation.html
 $dokka.location:ktfx.controls$translateTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.animation.TranslateTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/translate-transition.html
 $dokka.location:ktfx.controls$unconstrained(javafx.scene.control.TableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-table-view/unconstrained.html
 $dokka.location:ktfx.controls$unconstrained(javafx.scene.control.TreeTableView((kotlin.Any)))ktfx.controls/javafx.scene.control.-tree-table-view/unconstrained.html

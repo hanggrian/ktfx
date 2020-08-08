@@ -9,10 +9,7 @@
 <br/>
 <h1>BorderBuilder</h1>
 <code><span class="keyword">class </span><span class="identifier">BorderBuilder</span></code>
-<p>Class to support adding <a href="#">Border</a> to node with DSL.</p>
-<p><strong>See Also</strong><br/>
-<p><a href="../javafx.scene.layout.-region/border.html">Region.border</a></p>
-</p>
+<p>Border configurator class.</p>
 <h3>Types</h3>
 <table>
 <tbody>
@@ -21,7 +18,7 @@
 <h4><a href="-image-builder/index.html">ImageBuilder</a></h4>
 </td>
 <td>
-<p>Class to support adding <a href="#">BorderImage</a> to node with DSL.</p>
+<p>Border image configurator class.</p>
 <code><span class="keyword">class </span><span class="identifier">ImageBuilder</span></code></td>
 </tr>
 <tr>
@@ -29,8 +26,21 @@
 <h4><a href="-stroke-builder/index.html">StrokeBuilder</a></h4>
 </td>
 <td>
-<p>Class to support adding <a href="#">BorderStroke</a> stroke to node with DSL.</p>
+<p>Border stroke configurator class.</p>
 <code><span class="keyword">class </span><span class="identifier">StrokeBuilder</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Border configurator class.</p>
+<code><span class="identifier">BorderBuilder</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -42,6 +52,7 @@
 <h4><a href="images.html">images</a></h4>
 </td>
 <td>
+<p>Current images within this border.</p>
 <code><span class="keyword">val </span><span class="identifier">images</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">BorderImage</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -49,6 +60,7 @@
 <h4><a href="strokes.html">strokes</a></h4>
 </td>
 <td>
+<p>Current strokes within this border.</p>
 <code><span class="keyword">val </span><span class="identifier">strokes</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">BorderStroke</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
@@ -58,10 +70,18 @@
 <tbody>
 <tr>
 <td>
+<h4><a href="build.html">build</a></h4>
+</td>
+<td>
+<p>Return border based on current configuration.</p>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Border</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="image.html">image</a></h4>
 </td>
 <td>
-<p>Add a new <a href="#">BorderImage</a> to node using DSL.</p>
+<p>Append a <a href="#">BorderImage</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">image</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BorderBuilder$image(javafx.scene.image.Image, kotlin.Function1((ktfx.controls.BorderBuilder.ImageBuilder, kotlin.Unit)))/image">image</span><span class="symbol">:</span>&nbsp;<span class="identifier">Image</span><span class="symbol">, </span><span class="identifier" id="ktfx.controls.BorderBuilder$image(javafx.scene.image.Image, kotlin.Function1((ktfx.controls.BorderBuilder.ImageBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<span class="identifier">ImageBuilder</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BorderImage</span></code></td>
 </tr>
 <tr>
@@ -69,7 +89,7 @@
 <h4><a href="stroke.html">stroke</a></h4>
 </td>
 <td>
-<p>Add a new <a href="#">BorderStroke</a> to node using DSL.</p>
+<p>Append a <a href="#">BorderStroke</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">stroke</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BorderBuilder$stroke(kotlin.Function1((ktfx.controls.BorderBuilder.StrokeBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<span class="identifier">StrokeBuilder</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BorderStroke</span></code></td>
 </tr>
 </tbody>

@@ -9,10 +9,7 @@
 <br/>
 <h1>BackgroundBuilder</h1>
 <code><span class="keyword">class </span><span class="identifier">BackgroundBuilder</span></code>
-<p>Class to support adding <a href="#">Background</a> to node with DSL.</p>
-<p><strong>See Also</strong><br/>
-<p><a href="../javafx.scene.layout.-region/background.html">Region.background</a></p>
-</p>
+<p>Background configurator class.</p>
 <h3>Types</h3>
 <table>
 <tbody>
@@ -21,7 +18,7 @@
 <h4><a href="-fill-builder/index.html">FillBuilder</a></h4>
 </td>
 <td>
-<p>Class to support adding <a href="#">BackgroundFill</a> to node with DSL.</p>
+<p>Background fill configurator class.</p>
 <code><span class="keyword">class </span><span class="identifier">FillBuilder</span></code></td>
 </tr>
 <tr>
@@ -29,8 +26,21 @@
 <h4><a href="-image-builder/index.html">ImageBuilder</a></h4>
 </td>
 <td>
-<p>Class to support adding <a href="#">BackgroundImage</a> to node with DSL.</p>
+<p>Background image configurator class.</p>
 <code><span class="keyword">class </span><span class="identifier">ImageBuilder</span></code></td>
+</tr>
+</tbody>
+</table>
+<h3>Constructors</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<h4><a href="-init-.html">&lt;init&gt;</a></h4>
+</td>
+<td>
+<p>Background configurator class.</p>
+<code><span class="identifier">BackgroundBuilder</span><span class="symbol">(</span><span class="symbol">)</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -42,6 +52,7 @@
 <h4><a href="fills.html">fills</a></h4>
 </td>
 <td>
+<p>Current fills within this background.</p>
 <code><span class="keyword">val </span><span class="identifier">fills</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">BackgroundFill</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
@@ -49,6 +60,7 @@
 <h4><a href="images.html">images</a></h4>
 </td>
 <td>
+<p>Current images within this background.</p>
 <code><span class="keyword">val </span><span class="identifier">images</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html"><span class="identifier">MutableList</span></a><span class="symbol">&lt;</span><span class="identifier">BackgroundImage</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
@@ -58,10 +70,18 @@
 <tbody>
 <tr>
 <td>
+<h4><a href="build.html">build</a></h4>
+</td>
+<td>
+<p>Return background based on current configuration.</p>
+<code><span class="keyword">fun </span><span class="identifier">build</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Background</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="fill.html">fill</a></h4>
 </td>
 <td>
-<p>Add a new <a href="#">BackgroundFill</a> to node using DSL.</p>
+<p>Append a <a href="#">BackgroundFill</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">fill</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BackgroundBuilder$fill(kotlin.Function1((ktfx.controls.BackgroundBuilder.FillBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<span class="identifier">FillBuilder</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundFill</span></code></td>
 </tr>
 <tr>
@@ -69,7 +89,7 @@
 <h4><a href="image.html">image</a></h4>
 </td>
 <td>
-<p>Add a new <a href="#">BackgroundImage</a> to node using DSL.</p>
+<p>Append a <a href="#">BackgroundImage</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">image</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, kotlin.Function1((ktfx.controls.BackgroundBuilder.ImageBuilder, kotlin.Unit)))/image">image</span><span class="symbol">:</span>&nbsp;<span class="identifier">Image</span><span class="symbol">, </span><span class="identifier" id="ktfx.controls.BackgroundBuilder$image(javafx.scene.image.Image, kotlin.Function1((ktfx.controls.BackgroundBuilder.ImageBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<span class="identifier">ImageBuilder</span><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BackgroundImage</span></code></td>
 </tr>
 </tbody>

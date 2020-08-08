@@ -13,10 +13,18 @@
 <tbody>
 <tr>
 <td>
+<h4><a href="-animation-scope/index.html">AnimationScope</a></h4>
+</td>
+<td>
+<p>Node animations configurator interface for <a href="#">ParallelTransition</a> and <a href="#">SequentialTransition</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">AnimationScope</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="-background-builder/index.html">BackgroundBuilder</a></h4>
 </td>
 <td>
-<p>Class to support adding <a href="#">Background</a> to node with DSL.</p>
+<p>Background configurator class.</p>
 <code><span class="keyword">class </span><span class="identifier">BackgroundBuilder</span></code></td>
 </tr>
 <tr>
@@ -24,7 +32,7 @@
 <h4><a href="-border-builder/index.html">BorderBuilder</a></h4>
 </td>
 <td>
-<p>Class to support adding <a href="#">Border</a> to node with DSL.</p>
+<p>Border configurator class.</p>
 <code><span class="keyword">class </span><span class="identifier">BorderBuilder</span></code></td>
 </tr>
 <tr>
@@ -32,32 +40,40 @@
 <h4><a href="-column-constraints-scope/index.html">ColumnConstraintsScope</a></h4>
 </td>
 <td>
-<p>Container of <a href="#">ColumnConstraints</a>, providing sets of useful operation.</p>
-<code><span class="keyword">class </span><span class="identifier">ColumnConstraintsScope</span></code></td>
+<p><a href="#">ColumnConstraints</a> configurator interface.</p>
+<code><span class="keyword">interface </span><span class="identifier">ColumnConstraintsScope</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="-row-constraints-scope/index.html">RowConstraintsScope</a></h4>
 </td>
 <td>
-<p>Container of <a href="#">RowConstraints</a>, providing sets of useful operation.</p>
-<code><span class="keyword">class </span><span class="identifier">RowConstraintsScope</span></code></td>
+<p><a href="#">RowConstraints</a> configurator interface.</p>
+<code><span class="keyword">interface </span><span class="identifier">RowConstraintsScope</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="-shape-animation-scope/index.html">ShapeAnimationScope</a></h4>
+</td>
+<td>
+<p>Shape animations configurator interface for <a href="#">ParallelTransition</a> and <a href="#">SequentialTransition</a>.</p>
+<code><span class="keyword">interface </span><span class="identifier">ShapeAnimationScope</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-animation-scope/index.html"><span class="identifier">AnimationScope</span></a></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="-table-column-scope/index.html">TableColumnScope</a></h4>
 </td>
 <td>
-<p>Container of <a href="#">TableColumn</a>, providing sets of useful operation.</p>
-<code><span class="keyword">class </span><span class="identifier">TableColumnScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+<p><a href="#">TableColumn</a> configurator interface.</p>
+<code><span class="keyword">interface </span><span class="identifier">TableColumnScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="-tree-table-column-scope/index.html">TreeTableColumnScope</a></h4>
 </td>
 <td>
-<p>Container of <a href="#">TreeTableColumn</a>, providing sets of useful operation.</p>
-<code><span class="keyword">class </span><span class="identifier">TreeTableColumnScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
+<p><a href="#">TreeTableColumn</a> configurator interface.</p>
+<code><span class="keyword">interface </span><span class="identifier">TreeTableColumnScope</span><span class="symbol">&lt;</span><span class="identifier">S</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -199,7 +215,7 @@
 <h4><a href="build-background.html">buildBackground</a></h4>
 </td>
 <td>
-<p>Create multiple <a href="#">BackgroundFill</a> and/or <a href="#">BackgroundImage</a> using DSL.</p>
+<p>Builds new background with multiple <a href="#">BackgroundFill</a> and/or <a href="#">BackgroundImage</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">buildBackground</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$buildBackground(kotlin.Function1((ktfx.controls.BackgroundBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="-background-builder/index.html"><span class="identifier">BackgroundBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Background</span></code></td>
 </tr>
 <tr>
@@ -207,7 +223,7 @@
 <h4><a href="build-border.html">buildBorder</a></h4>
 </td>
 <td>
-<p>Create multiple <a href="#">BorderStroke</a> and/or <a href="#">BorderImage</a> using DSL.</p>
+<p>Builds new border with multiple <a href="#">BorderStroke</a> and/or <a href="#">BorderImage</a>.</p>
 <code><span class="keyword">fun </span><span class="identifier">buildBorder</span><span class="symbol">(</span><span class="identifier" id="ktfx.controls$buildBorder(kotlin.Function1((ktfx.controls.BorderBuilder, kotlin.Unit)))/builderAction">builderAction</span><span class="symbol">:</span>&nbsp;<a href="-border-builder/index.html"><span class="identifier">BorderBuilder</span></a><span class="symbol">.</span><span class="symbol">(</span><span class="symbol">)</span>&nbsp;<span class="symbol">-&gt;</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">Border</span></code></td>
 </tr>
 </tbody>

@@ -19,12 +19,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [BreadCrumbBar] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.breadCrumbBar(selectedCrumb: TreeItem<T>? = null): BreadCrumbBar<T> =
     breadCrumbBar(selectedCrumb = selectedCrumb) { }
 
 /**
  * Create a [BreadCrumbBar] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
@@ -39,6 +44,9 @@ inline fun <T> breadCrumbBar(
 
 /**
  * Add a [BreadCrumbBar] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
@@ -50,6 +58,10 @@ inline fun <T> NodeManager.breadCrumbBar(
 
 /**
  * Create a styled [BreadCrumbBar].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
@@ -62,6 +74,10 @@ fun <T> styledBreadCrumbBar(
 
 /**
  * Add a styled [BreadCrumbBar] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
@@ -74,6 +90,11 @@ fun <T> NodeManager.styledBreadCrumbBar(
 
 /**
  * Create a styled [BreadCrumbBar] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
@@ -90,6 +111,11 @@ inline fun <T> styledBreadCrumbBar(
 
 /**
  * Add a styled [BreadCrumbBar] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,

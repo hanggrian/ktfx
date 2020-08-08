@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXTextArea] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxTextArea(text: String? = null): JFXTextArea = jfxTextArea(text = text) { }
 
 /**
  * Create a [JFXTextArea] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxTextArea(
     text: String? = null,
@@ -35,6 +40,9 @@ inline fun jfxTextArea(
 
 /**
  * Add a [JFXTextArea] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxTextArea(
     text: String? = null,
@@ -49,6 +57,10 @@ inline fun NodeManager.jfxTextArea(
 
 /**
  * Create a styled [JFXTextArea].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXTextArea(
     text: String? = null,
@@ -58,6 +70,10 @@ fun styledJFXTextArea(
 
 /**
  * Add a styled [JFXTextArea] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXTextArea(
     text: String? = null,
@@ -67,6 +83,11 @@ fun NodeManager.styledJFXTextArea(
 
 /**
  * Create a styled [JFXTextArea] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXTextArea(
     text: String? = null,
@@ -84,6 +105,11 @@ inline fun styledJFXTextArea(
 
 /**
  * Add a styled [JFXTextArea] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXTextArea(
     text: String? = null,

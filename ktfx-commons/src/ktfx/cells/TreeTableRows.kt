@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.cells
 
 import javafx.scene.control.TreeTableRow
@@ -10,14 +12,10 @@ import javafx.scene.control.TreeTableView
  */
 fun <S> TreeTableView<S>.rowFactory(
     configuration: KtfxTreeTableRow<S>.(TreeTableView<S>) -> Unit
-): Unit = setRowFactory {
-    val builder = KtfxTreeTableRow<S>()
-    builder.configuration(it)
-    builder
-}
+): Unit = setRowFactory { KtfxTreeTableRow<S>().apply { configuration(it) } }
 
 /** Custom [TreeTableRow] configurator class. */
-class KtfxTreeTableRow<T> internal constructor() : TreeTableRow<T>(), KtfxCell<T> {
+class KtfxTreeTableRow<T> : TreeTableRow<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

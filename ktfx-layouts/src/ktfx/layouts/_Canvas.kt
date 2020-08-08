@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Canvas] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(
     width = width,
@@ -25,6 +27,9 @@ fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canv
 
 /**
  * Create a [Canvas] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun canvas(
     width: Double = 0.0,
@@ -37,6 +42,9 @@ inline fun canvas(
 
 /**
  * Add a [Canvas] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.canvas(
     width: Double = 0.0,
@@ -49,6 +57,10 @@ inline fun NodeManager.canvas(
 
 /**
  * Create a styled [Canvas].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledCanvas(
     width: Double = 0.0,
@@ -59,6 +71,10 @@ fun styledCanvas(
 
 /**
  * Add a styled [Canvas] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledCanvas(
     width: Double = 0.0,
@@ -69,6 +85,11 @@ fun NodeManager.styledCanvas(
 
 /**
  * Create a styled [Canvas] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledCanvas(
     width: Double = 0.0,
@@ -87,6 +108,11 @@ inline fun styledCanvas(
 
 /**
  * Add a styled [Canvas] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledCanvas(
     width: Double = 0.0,

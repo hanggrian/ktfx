@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXRippler] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxRippler(): JFXRippler = jfxRippler() { }
 
 /**
  * Create a [JFXRippler] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit): JFXRippler {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -31,6 +36,9 @@ inline fun jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Uni
 
 /**
  * Add a [JFXRippler] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit):
     JFXRippler {
@@ -40,18 +48,31 @@ inline fun NodeManager.jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRipple
 
 /**
  * Create a styled [JFXRippler].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
     styledJFXRippler(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXRippler] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
     styledJFXRippler(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXRippler] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXRippler(
     vararg styleClass: String,
@@ -68,6 +89,11 @@ inline fun styledJFXRippler(
 
 /**
  * Add a styled [JFXRippler] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXRippler(
     vararg styleClass: String,

@@ -19,12 +19,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [CheckTreeView] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeView<T> =
     checkTreeView(root = root) { }
 
 /**
  * Create a [CheckTreeView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
@@ -39,6 +44,9 @@ inline fun <T> checkTreeView(
 
 /**
  * Add a [CheckTreeView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
@@ -50,6 +58,10 @@ inline fun <T> NodeManager.checkTreeView(
 
 /**
  * Create a styled [CheckTreeView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
@@ -59,6 +71,10 @@ fun <T> styledCheckTreeView(
 
 /**
  * Add a styled [CheckTreeView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
@@ -68,6 +84,11 @@ fun <T> NodeManager.styledCheckTreeView(
 
 /**
  * Create a styled [CheckTreeView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
@@ -85,6 +106,11 @@ inline fun <T> styledCheckTreeView(
 
 /**
  * Add a styled [CheckTreeView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,

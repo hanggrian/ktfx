@@ -5,15 +5,16 @@ package ktfx.text
 import javafx.util.StringConverter
 
 /**
- * Build a new string converter by configuring [StringConverterBuilder.toString]
- * and [StringConverterBuilder.fromString] using provided [builderAction].
+ * Builds new string converter.
+ * @param builderAction configure [StringConverterBuilder.toString] and [StringConverterBuilder.fromString]
+ * @return configured string converter.
  * @see kotlin.text.buildString
  */
-fun <T> buildStringConverter(builderAction: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
+inline fun <T> buildStringConverter(builderAction: StringConverterBuilder<T>.() -> Unit): StringConverter<T> =
     StringConverterBuilder<T>().apply(builderAction).build()
 
 /** Receiver for `buildStringConverter` block. */
-class StringConverterBuilder<T> internal constructor() {
+class StringConverterBuilder<T> {
     private var _toString: (T?) -> String = { it?.toString() ?: "" }
     private var _fromString: (String) -> T? = { null }
 
@@ -27,7 +28,8 @@ class StringConverterBuilder<T> internal constructor() {
         _fromString = listener
     }
 
-    internal fun build(): StringConverter<T> = object : StringConverter<T>() {
+    /** Create to native builder. */
+    fun build(): StringConverter<T> = object : StringConverter<T>() {
         override fun toString(any: T?): String = _toString(any)
         override fun fromString(string: String): T? = _fromString(string)
     }

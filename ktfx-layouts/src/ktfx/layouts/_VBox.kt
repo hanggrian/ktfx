@@ -17,11 +17,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [VBox] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
 
 /**
  * Create a [VBox] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox).() -> Unit):
     VBox {
@@ -31,6 +36,9 @@ inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox
 
 /**
  * Add a [VBox] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
@@ -43,6 +51,10 @@ inline fun NodeManager.vbox(
 
 /**
  * Create a styled [VBox].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledVBox(
     spacing: Double = 0.0,
@@ -52,6 +64,10 @@ fun styledVBox(
 
 /**
  * Add a styled [VBox] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledVBox(
     spacing: Double = 0.0,
@@ -61,6 +77,11 @@ fun NodeManager.styledVBox(
 
 /**
  * Create a styled [VBox] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledVBox(
     spacing: Double = 0.0,
@@ -78,6 +99,11 @@ inline fun styledVBox(
 
 /**
  * Add a styled [VBox] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledVBox(
     spacing: Double = 0.0,

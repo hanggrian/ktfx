@@ -17,56 +17,73 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-/** Create multiple [BackgroundFill] and/or [BackgroundImage] using DSL. */
-fun buildBackground(builderAction: BackgroundBuilder.() -> Unit): Background =
-    BackgroundBuilder().apply(builderAction).build()
+/**
+ * Builds new background with multiple [BackgroundFill] and/or [BackgroundImage].
+ * @param builderAction populate newly created fill and/or image.
+ * @return created background.
+ */
+inline fun buildBackground(
+    builderAction: BackgroundBuilder.() -> Unit
+): Background = BackgroundBuilder().apply(builderAction).build()
 
-/** Add multiple [BackgroundFill] and/or [BackgroundImage] to node using DSL. */
-inline fun Region.background(noinline builderAction: BackgroundBuilder.() -> Unit): Background {
-    val background = buildBackground(builderAction)
-    setBackground(background)
-    return background
-}
+/**
+ * Sets new background with multiple [BackgroundFill] and/or [BackgroundImage].
+ * @param builderAction populate newly created fill and/or image.
+ * @return applied background.
+ */
+inline fun Region.background(
+    noinline builderAction: BackgroundBuilder.() -> Unit
+): Background = buildBackground(builderAction).also { background = it }
 
-/** Add a new [BackgroundFill] to node using DSL. */
-inline fun Region.backgroundFill(noinline builderAction: BackgroundBuilder.FillBuilder.() -> Unit): Background =
-    background { fill(builderAction) }
+/**
+ * Sets new background with single [BackgroundFill].
+ * @param builderAction fill configurator.
+ * @return applied background.
+ */
+inline fun Region.backgroundFill(
+    noinline builderAction: BackgroundBuilder.FillBuilder.() -> Unit
+): Background = background { fill(builderAction) }
 
-/** Add a new [BackgroundImage] to node using DSL. */
+/**
+ * Sets new background with single [BackgroundImage].
+ * @param builderAction image configurator.
+ * @return applied background.
+ */
 inline fun Region.backgroundImage(
     image: Image,
     noinline builderAction: BackgroundBuilder.ImageBuilder.() -> Unit
 ): Background = background { image(image, builderAction) }
 
-/**
- * Class to support adding [Background] to node with DSL.
- * @see Region.background
- */
-class BackgroundBuilder internal constructor() {
+/** Background configurator class. */
+class BackgroundBuilder {
+
+    /** Current fills within this background. */
     val fills: MutableList<BackgroundFill> = mutableListOf()
+
+    /** Current images within this background. */
     val images: MutableList<BackgroundImage> = mutableListOf()
 
-    /** Add a new [BackgroundFill] to node using DSL. */
-    fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill {
-        val backgroundFill = FillBuilder().apply(builderAction).build()
-        fills += backgroundFill
-        return backgroundFill
-    }
-
-    /** Add a new [BackgroundImage] to node using DSL. */
-    fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage {
-        val backgroundImage = ImageBuilder(image).apply(builderAction).build()
-        images += backgroundImage
-        return backgroundImage
-    }
-
-    internal fun build(): Background = Background(fills, images)
+    /**
+     * Append a [BackgroundFill].
+     * @param builderAction fill configurator.
+     * @return added fill.
+     */
+    inline fun fill(builderAction: FillBuilder.() -> Unit): BackgroundFill =
+        FillBuilder().apply(builderAction).build().also { fills += it }
 
     /**
-     * Class to support adding [BackgroundFill] to node with DSL.
-     * @see BackgroundBuilder.fill
+     * Append a [BackgroundImage].
+     * @param builderAction image configurator.
+     * @return added image.
      */
-    class FillBuilder internal constructor() {
+    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BackgroundImage =
+        ImageBuilder(image).apply(builderAction).build().also { images += it }
+
+    /** Return background based on current configuration. */
+    fun build(): Background = Background(fills, images)
+
+    /** Background fill configurator class. */
+    class FillBuilder {
         /** Any Paint. If null, the value [javafx.scene.paint.Color.TRANSPARENT] is used.. */
         var fill: Paint? = null
 
@@ -76,15 +93,12 @@ class BackgroundBuilder internal constructor() {
         /** The insets. If null, the value Insets.EMPTY is used. */
         var insets: Insets? = null
 
-        internal fun build(): BackgroundFill = BackgroundFill(fill, radii, insets)
+        /** Return background fill based on current configuration. */
+        fun build(): BackgroundFill = BackgroundFill(fill, radii, insets)
     }
 
-    /**
-     * Class to support adding [BackgroundImage] to node with DSL.
-     * @param image the image to use as background.
-     * @see BackgroundBuilder.image
-     */
-    class ImageBuilder internal constructor(private val image: Image) {
+    /** Background image configurator class. */
+    class ImageBuilder(private val image: Image) {
         /** The repeat for the x axis. If null, this value defaults to [BackgroundRepeat.REPEAT]. */
         var repeatX: BackgroundRepeat? = null
 
@@ -105,6 +119,7 @@ class BackgroundBuilder internal constructor() {
         /** The size. If null, defaults to [BackgroundSize.DEFAULT]. */
         var size: BackgroundSize? = null
 
-        internal fun build(): BackgroundImage = BackgroundImage(image, repeatX, repeatY, position, size)
+        /** Return background image based on current configuration. */
+        fun build(): BackgroundImage = BackgroundImage(image, repeatX, repeatY, position, size)
     }
 }

@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [TextField] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.textField(text: String = ""): TextField = textField(text = text) { }
 
 /**
  * Create a [TextField] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun textField(text: String = "", configuration: (@LayoutDslMarker TextField).() -> Unit):
     TextField {
@@ -30,6 +35,9 @@ inline fun textField(text: String = "", configuration: (@LayoutDslMarker TextFie
 
 /**
  * Add a [TextField] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.textField(
     text: String = "",
@@ -44,6 +52,10 @@ inline fun NodeManager.textField(
 
 /**
  * Create a styled [TextField].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledTextField(
     text: String = "",
@@ -53,6 +65,10 @@ fun styledTextField(
 
 /**
  * Add a styled [TextField] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledTextField(
     text: String = "",
@@ -62,6 +78,11 @@ fun NodeManager.styledTextField(
 
 /**
  * Create a styled [TextField] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledTextField(
     text: String = "",
@@ -79,6 +100,11 @@ inline fun styledTextField(
 
 /**
  * Add a styled [TextField] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledTextField(
     text: String = "",

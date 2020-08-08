@@ -17,11 +17,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [DatePicker] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.datePicker(date: LocalDate? = null): DatePicker = datePicker(date = date) { }
 
 /**
  * Create a [DatePicker] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun datePicker(
     date: LocalDate? = null,
@@ -34,6 +39,9 @@ inline fun datePicker(
 
 /**
  * Add a [DatePicker] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.datePicker(
     date: LocalDate? = null,
@@ -48,6 +56,10 @@ inline fun NodeManager.datePicker(
 
 /**
  * Create a styled [DatePicker].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledDatePicker(
     date: LocalDate? = null,
@@ -57,6 +69,10 @@ fun styledDatePicker(
 
 /**
  * Add a styled [DatePicker] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledDatePicker(
     date: LocalDate? = null,
@@ -66,6 +82,11 @@ fun NodeManager.styledDatePicker(
 
 /**
  * Create a styled [DatePicker] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledDatePicker(
     date: LocalDate? = null,
@@ -83,6 +104,11 @@ inline fun styledDatePicker(
 
 /**
  * Add a styled [DatePicker] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledDatePicker(
     date: LocalDate? = null,

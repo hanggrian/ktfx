@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Label] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(
     text = text,
@@ -25,6 +27,9 @@ fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = labe
 
 /**
  * Create a [Label] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun label(
     text: String? = null,
@@ -37,6 +42,9 @@ inline fun label(
 
 /**
  * Add a [Label] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.label(
     text: String? = null,
@@ -49,6 +57,10 @@ inline fun NodeManager.label(
 
 /**
  * Create a styled [Label].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledLabel(
     text: String? = null,
@@ -59,6 +71,10 @@ fun styledLabel(
 
 /**
  * Add a styled [Label] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledLabel(
     text: String? = null,
@@ -69,6 +85,11 @@ fun NodeManager.styledLabel(
 
 /**
  * Create a styled [Label] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledLabel(
     text: String? = null,
@@ -87,6 +108,11 @@ inline fun styledLabel(
 
 /**
  * Add a styled [Label] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledLabel(
     text: String? = null,

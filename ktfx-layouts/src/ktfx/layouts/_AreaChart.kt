@@ -20,6 +20,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add an [AreaChart] to this manager.
+ *
+ * @return the control added.
  */
 fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
@@ -29,6 +31,9 @@ fun <X, Y> NodeManager.areaChart(
 
 /**
  * Create an [AreaChart] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <X, Y> areaChart(
     x: Axis<X>,
@@ -42,6 +47,9 @@ inline fun <X, Y> areaChart(
 
 /**
  * Add an [AreaChart] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
@@ -55,6 +63,10 @@ inline fun <X, Y> NodeManager.areaChart(
 
 /**
  * Create a styled [AreaChart].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <X, Y> styledAreaChart(
     x: Axis<X>,
@@ -67,6 +79,10 @@ fun <X, Y> styledAreaChart(
 
 /**
  * Add a styled [AreaChart] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledAreaChart(
     x: Axis<X>,
@@ -79,6 +95,11 @@ fun <X, Y> NodeManager.styledAreaChart(
 
 /**
  * Create a styled [AreaChart] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <X, Y> styledAreaChart(
     x: Axis<X>,
@@ -98,6 +119,11 @@ inline fun <X, Y> styledAreaChart(
 
 /**
  * Add a styled [AreaChart] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledAreaChart(
     x: Axis<X>,

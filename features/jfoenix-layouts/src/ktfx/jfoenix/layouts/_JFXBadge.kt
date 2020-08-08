@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXBadge] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxBadge(): JFXBadge = jfxBadge() { }
 
 /**
  * Create a [JFXBadge] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxBadge(configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit): JFXBadge {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -31,6 +36,9 @@ inline fun jfxBadge(configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit): 
 
 /**
  * Add a [JFXBadge] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxBadge(configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit):
     JFXBadge {
@@ -40,18 +48,31 @@ inline fun NodeManager.jfxBadge(configuration: (@LayoutDslMarker KtfxJFXBadge).(
 
 /**
  * Create a styled [JFXBadge].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXBadge(vararg styleClass: String, id: String? = null): JFXBadge =
     styledJFXBadge(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXBadge] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXBadge(vararg styleClass: String, id: String? = null): JFXBadge =
     styledJFXBadge(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXBadge] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXBadge(
     vararg styleClass: String,
@@ -68,6 +89,11 @@ inline fun styledJFXBadge(
 
 /**
  * Add a styled [JFXBadge] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXBadge(
     vararg styleClass: String,

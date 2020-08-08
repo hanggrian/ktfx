@@ -16,16 +16,23 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [TitledPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
 
 /**
  * Add a [TitledPane] to this manager.
+ *
+ * @return the control added.
  */
 fun TitledPaneManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
 
 /**
  * Create a [TitledPane] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun titledPane(
     title: String? = null,
@@ -38,6 +45,9 @@ inline fun titledPane(
 
 /**
  * Add a [TitledPane] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.titledPane(
     title: String? = null,
@@ -52,6 +62,9 @@ inline fun NodeManager.titledPane(
 
 /**
  * Add a [TitledPane] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun TitledPaneManager.titledPane(
     title: String? = null,
@@ -66,6 +79,10 @@ inline fun TitledPaneManager.titledPane(
 
 /**
  * Create a styled [TitledPane].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledTitledPane(
     title: String? = null,
@@ -75,6 +92,10 @@ fun styledTitledPane(
 
 /**
  * Add a styled [TitledPane] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledTitledPane(
     title: String? = null,
@@ -84,6 +105,10 @@ fun NodeManager.styledTitledPane(
 
 /**
  * Add a styled [TitledPane] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun TitledPaneManager.styledTitledPane(
     title: String? = null,
@@ -93,6 +118,11 @@ fun TitledPaneManager.styledTitledPane(
 
 /**
  * Create a styled [TitledPane] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledTitledPane(
     title: String? = null,
@@ -110,6 +140,11 @@ inline fun styledTitledPane(
 
 /**
  * Add a styled [TitledPane] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledTitledPane(
     title: String? = null,
@@ -129,6 +164,11 @@ inline fun NodeManager.styledTitledPane(
 
 /**
  * Add a styled [TitledPane] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun TitledPaneManager.styledTitledPane(
     title: String? = null,

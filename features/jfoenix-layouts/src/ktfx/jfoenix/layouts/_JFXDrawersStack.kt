@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXDrawersStack] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
 
 /**
  * Create a [JFXDrawersStack] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxDrawersStack(configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit):
     JFXDrawersStack {
@@ -32,6 +37,9 @@ inline fun jfxDrawersStack(configuration: (@LayoutDslMarker JFXDrawersStack).() 
 
 /**
  * Add a [JFXDrawersStack] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxDrawersStack(
     configuration: (@LayoutDslMarker JFXDrawersStack).() ->
@@ -43,18 +51,31 @@ inline fun NodeManager.jfxDrawersStack(
 
 /**
  * Create a styled [JFXDrawersStack].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXDrawersStack(vararg styleClass: String, id: String? = null): JFXDrawersStack =
     styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXDrawersStack] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
     JFXDrawersStack = styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXDrawersStack] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXDrawersStack(
     vararg styleClass: String,
@@ -71,6 +92,11 @@ inline fun styledJFXDrawersStack(
 
 /**
  * Add a styled [JFXDrawersStack] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXDrawersStack(
     vararg styleClass: String,

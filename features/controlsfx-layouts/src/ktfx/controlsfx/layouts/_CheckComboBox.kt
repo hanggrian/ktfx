@@ -20,12 +20,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [CheckComboBox] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableArrayList()):
     CheckComboBox<T> = checkComboBox(items = items) { }
 
 /**
  * Create a [CheckComboBox] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> checkComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -37,6 +42,9 @@ inline fun <T> checkComboBox(
 
 /**
  * Add a [CheckComboBox] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.checkComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -48,6 +56,10 @@ inline fun <T> NodeManager.checkComboBox(
 
 /**
  * Create a styled [CheckComboBox].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -57,6 +69,10 @@ fun <T> styledCheckComboBox(
 
 /**
  * Add a styled [CheckComboBox] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -66,6 +82,11 @@ fun <T> NodeManager.styledCheckComboBox(
 
 /**
  * Create a styled [CheckComboBox] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -83,6 +104,11 @@ inline fun <T> styledCheckComboBox(
 
 /**
  * Add a styled [CheckComboBox] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),

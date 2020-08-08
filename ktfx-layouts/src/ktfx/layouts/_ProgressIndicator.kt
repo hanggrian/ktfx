@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ProgressIndicator] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS): ProgressIndicator =
     progressIndicator(progress = progress) { }
 
 /**
  * Create a [ProgressIndicator] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun progressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -35,6 +40,9 @@ inline fun progressIndicator(
 
 /**
  * Add a [ProgressIndicator] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.progressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -46,6 +54,10 @@ inline fun NodeManager.progressIndicator(
 
 /**
  * Create a styled [ProgressIndicator].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -59,6 +71,10 @@ fun styledProgressIndicator(
 
 /**
  * Add a styled [ProgressIndicator] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -72,6 +88,11 @@ fun NodeManager.styledProgressIndicator(
 
 /**
  * Create a styled [ProgressIndicator] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -89,6 +110,11 @@ inline fun styledProgressIndicator(
 
 /**
  * Add a styled [ProgressIndicator] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,

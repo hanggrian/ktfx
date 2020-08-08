@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [CustomMenuItem] to this manager.
+ *
+ * @return the control added.
  */
 fun MenuItemManager.customMenuItem(content: Node? = null, hideOnClick: Boolean = true):
     CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) { }
 
 /**
  * Create a [CustomMenuItem] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun customMenuItem(
     content: Node? = null,
@@ -36,6 +41,9 @@ inline fun customMenuItem(
 
 /**
  * Add a [CustomMenuItem] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun MenuItemManager.customMenuItem(
     content: Node? = null,
@@ -48,6 +56,10 @@ inline fun MenuItemManager.customMenuItem(
 
 /**
  * Create a styled [CustomMenuItem].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledCustomMenuItem(
     content: Node? = null,
@@ -63,6 +75,10 @@ fun styledCustomMenuItem(
 
 /**
  * Add a styled [CustomMenuItem] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun MenuItemManager.styledCustomMenuItem(
     content: Node? = null,
@@ -78,6 +94,11 @@ fun MenuItemManager.styledCustomMenuItem(
 
 /**
  * Create a styled [CustomMenuItem] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledCustomMenuItem(
     content: Node? = null,
@@ -95,6 +116,11 @@ inline fun styledCustomMenuItem(
 
 /**
  * Add a styled [CustomMenuItem] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun MenuItemManager.styledCustomMenuItem(
     content: Node? = null,

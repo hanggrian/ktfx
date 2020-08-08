@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Menu] to this manager.
+ *
+ * @return the control added.
  */
 fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
     text = text,
@@ -26,6 +28,8 @@ fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
 
 /**
  * Add a [Menu] to this manager.
+ *
+ * @return the control added.
  */
 fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
     text = text,
@@ -35,6 +39,9 @@ fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
 
 /**
  * Create a [Menu] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun menu(
     text: String = "",
@@ -47,6 +54,9 @@ inline fun menu(
 
 /**
  * Add a [Menu] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun MenuItemManager.menu(
     text: String = "",
@@ -59,6 +69,9 @@ inline fun MenuItemManager.menu(
 
 /**
  * Add a [Menu] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun MenuManager.menu(
     text: String = "",
@@ -71,6 +84,10 @@ inline fun MenuManager.menu(
 
 /**
  * Create a styled [Menu].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledMenu(
     text: String = "",
@@ -81,6 +98,10 @@ fun styledMenu(
 
 /**
  * Add a styled [Menu] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun MenuItemManager.styledMenu(
     text: String = "",
@@ -91,6 +112,10 @@ fun MenuItemManager.styledMenu(
 
 /**
  * Add a styled [Menu] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun MenuManager.styledMenu(
     text: String = "",
@@ -101,6 +126,11 @@ fun MenuManager.styledMenu(
 
 /**
  * Create a styled [Menu] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledMenu(
     text: String = "",
@@ -119,6 +149,11 @@ inline fun styledMenu(
 
 /**
  * Add a styled [Menu] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun MenuItemManager.styledMenu(
     text: String = "",
@@ -138,6 +173,11 @@ inline fun MenuItemManager.styledMenu(
 
 /**
  * Add a styled [Menu] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun MenuManager.styledMenu(
     text: String = "",

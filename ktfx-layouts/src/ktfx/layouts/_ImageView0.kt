@@ -17,11 +17,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add an [ImageView] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.imageView(image: Image? = null): ImageView = imageView(image = image) { }
 
 /**
  * Create an [ImageView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun imageView(image: Image? = null, configuration: (@LayoutDslMarker ImageView).() -> Unit):
     ImageView {
@@ -31,6 +36,9 @@ inline fun imageView(image: Image? = null, configuration: (@LayoutDslMarker Imag
 
 /**
  * Add an [ImageView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.imageView(
     image: Image? = null,
@@ -45,6 +53,10 @@ inline fun NodeManager.imageView(
 
 /**
  * Create a styled [ImageView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledImageView(
     image: Image? = null,
@@ -54,6 +66,10 @@ fun styledImageView(
 
 /**
  * Add a styled [ImageView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledImageView(
     image: Image? = null,
@@ -63,6 +79,11 @@ fun NodeManager.styledImageView(
 
 /**
  * Create a styled [ImageView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledImageView(
     image: Image? = null,
@@ -80,6 +101,11 @@ inline fun styledImageView(
 
 /**
  * Add a styled [ImageView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledImageView(
     image: Image? = null,

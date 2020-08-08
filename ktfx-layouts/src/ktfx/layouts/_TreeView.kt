@@ -17,11 +17,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [TreeView] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.treeView(root: TreeItem<T>? = null): TreeView<T> = treeView(root = root) { }
 
 /**
  * Create a [TreeView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> treeView(
     root: TreeItem<T>? = null,
@@ -36,6 +41,9 @@ inline fun <T> treeView(
 
 /**
  * Add a [TreeView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.treeView(
     root: TreeItem<T>? = null,
@@ -50,6 +58,10 @@ inline fun <T> NodeManager.treeView(
 
 /**
  * Create a styled [TreeView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledTreeView(
     root: TreeItem<T>? = null,
@@ -59,6 +71,10 @@ fun <T> styledTreeView(
 
 /**
  * Add a styled [TreeView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledTreeView(
     root: TreeItem<T>? = null,
@@ -68,6 +84,11 @@ fun <T> NodeManager.styledTreeView(
 
 /**
  * Create a styled [TreeView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledTreeView(
     root: TreeItem<T>? = null,
@@ -85,6 +106,11 @@ inline fun <T> styledTreeView(
 
 /**
  * Add a styled [TreeView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledTreeView(
     root: TreeItem<T>? = null,

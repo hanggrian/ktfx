@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [PasswordField] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.passwordField(): PasswordField = passwordField() { }
 
 /**
  * Create a [PasswordField] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
     PasswordField {
@@ -30,6 +35,9 @@ inline fun passwordField(configuration: (@LayoutDslMarker PasswordField).() -> U
 
 /**
  * Add a [PasswordField] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
     PasswordField {
@@ -39,18 +47,31 @@ inline fun NodeManager.passwordField(configuration: (@LayoutDslMarker PasswordFi
 
 /**
  * Create a styled [PasswordField].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledPasswordField(vararg styleClass: String, id: String? = null): PasswordField =
     styledPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [PasswordField] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledPasswordField(vararg styleClass: String, id: String? = null): PasswordField =
     styledPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [PasswordField] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledPasswordField(
     vararg styleClass: String,
@@ -67,6 +88,11 @@ inline fun styledPasswordField(
 
 /**
  * Add a styled [PasswordField] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledPasswordField(
     vararg styleClass: String,

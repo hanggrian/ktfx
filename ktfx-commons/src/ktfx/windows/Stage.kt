@@ -20,35 +20,47 @@ inline var Stage.icon: Image
         icons.setAll(value)
     }
 
-/** Convenient method for overriding the stage's computed minimum width and height. */
+/**
+ * Sets minimum width and height of this [Stage].
+ * @param width width value.
+ * @param height height value.
+ */
 inline fun Stage.setMinSize(width: Double, height: Double) {
     minWidth = width
     minHeight = height
 }
 
-/** Convenient method for overriding the stage's computed minimum width and height. */
+/** Sets minimum width and height of this [Stage] to the same value. */
 inline var Stage.minSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMinSize(value, value)
 
-/** Convenient method for overriding the stage's computed width and height. */
+/**
+ * Sets width and height of this [Stage].
+ * @param width width value.
+ * @param height height value.
+ */
 inline fun Stage.setSize(width: Double, height: Double) {
     setWidth(width)
     setHeight(height)
 }
 
-/** Convenient method for overriding the stage's computed width and height. */
+/** Sets width and height of this [Stage] to the same value. */
 inline var Stage.size: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setSize(value, value)
 
-/** Convenient method for overriding the stage's computed maximum width and height. */
+/**
+ * Sets maximum width and height of this [Stage].
+ * @param width width value.
+ * @param height height value.
+ */
 inline fun Stage.setMaxSize(width: Double, height: Double) {
     maxWidth = width
     maxHeight = height
 }
 
-/** Convenient method for overriding the stage's computed maximum width and height. */
+/** Sets maximum width and height of this [Stage] to the same value. */
 inline var Stage.maxSize: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setMaxSize(value, value)

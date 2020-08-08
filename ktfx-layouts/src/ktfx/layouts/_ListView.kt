@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ListView] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.listView(items: ObservableList<T> = observableArrayList()): ListView<T> =
     listView(items = items) { }
 
 /**
  * Create a [ListView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> listView(
     items: ObservableList<T> = observableArrayList(),
@@ -35,6 +40,9 @@ inline fun <T> listView(
 
 /**
  * Add a [ListView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.listView(
     items: ObservableList<T> = observableArrayList(),
@@ -46,6 +54,10 @@ inline fun <T> NodeManager.listView(
 
 /**
  * Create a styled [ListView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledListView(
     items: ObservableList<T> = observableArrayList(),
@@ -55,6 +67,10 @@ fun <T> styledListView(
 
 /**
  * Add a styled [ListView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledListView(
     items: ObservableList<T> = observableArrayList(),
@@ -64,6 +80,11 @@ fun <T> NodeManager.styledListView(
 
 /**
  * Create a styled [ListView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledListView(
     items: ObservableList<T> = observableArrayList(),
@@ -81,6 +102,11 @@ inline fun <T> styledListView(
 
 /**
  * Add a styled [ListView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledListView(
     items: ObservableList<T> = observableArrayList(),

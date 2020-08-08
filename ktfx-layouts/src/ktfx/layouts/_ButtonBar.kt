@@ -16,6 +16,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ButtonBar] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(
     buttonOrder =
@@ -24,6 +26,9 @@ fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(
 
 /**
  * Create a [ButtonBar] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun buttonBar(
     buttonOrder: String? = null,
@@ -38,6 +43,9 @@ inline fun buttonBar(
 
 /**
  * Add a [ButtonBar] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
@@ -52,6 +60,10 @@ inline fun NodeManager.buttonBar(
 
 /**
  * Create a styled [ButtonBar].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledButtonBar(
     buttonOrder: String? = null,
@@ -61,6 +73,10 @@ fun styledButtonBar(
 
 /**
  * Add a styled [ButtonBar] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledButtonBar(
     buttonOrder: String? = null,
@@ -70,6 +86,11 @@ fun NodeManager.styledButtonBar(
 
 /**
  * Create a styled [ButtonBar] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledButtonBar(
     buttonOrder: String? = null,
@@ -87,6 +108,11 @@ inline fun styledButtonBar(
 
 /**
  * Add a styled [ButtonBar] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledButtonBar(
     buttonOrder: String? = null,

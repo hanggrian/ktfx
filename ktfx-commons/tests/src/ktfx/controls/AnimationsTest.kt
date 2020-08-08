@@ -1,12 +1,15 @@
 package ktfx.controls
 
+import com.hendraanggrian.ktfx.test.initToolkit
+import javafx.animation.FadeTransition
+import javafx.animation.FillTransition
 import javafx.scene.control.Label
 import javafx.scene.shape.Rectangle
-import com.hendraanggrian.ktfx.test.initToolkit
 import ktfx.time.ms
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 class AnimationsTest {
 
@@ -47,12 +50,6 @@ class AnimationsTest {
         assertEquals(400.ms, transition.duration)
     }
 
-    @Test fun sequentialTransition() {
-        val node = Label()
-        val transition = node.sequentialTransition { }
-        assertEquals(node, transition.node)
-    }
-
     @Test fun strokeTransition() {
         val shape = Rectangle()
         val transition = shape.strokeTransition { }
@@ -65,5 +62,41 @@ class AnimationsTest {
         val transition = node.translateTransition { }
         assertEquals(node, transition.node)
         assertEquals(400.ms, transition.duration)
+    }
+
+    @Test fun parallelTransition() {
+        val node = Label()
+        val transition = node.parallelTransition {
+            fade { }
+        }
+        assertEquals(node, transition.node)
+        assertTrue(transition.children.first() is FadeTransition)
+    }
+
+    @Test fun shapeParallelTransition() {
+        val shape = Rectangle()
+        val transition = shape.shapeParallelTransition {
+            fill { }
+        }
+        assertEquals(shape, transition.node)
+        assertTrue(transition.children.first() is FillTransition)
+    }
+
+    @Test fun sequentialTransition() {
+        val node = Label()
+        val transition = node.sequentialTransition {
+            fade { }
+        }
+        assertEquals(node, transition.node)
+        assertTrue(transition.children.first() is FadeTransition)
+    }
+
+    @Test fun shapeSequentialTransition() {
+        val shape = Rectangle()
+        val transition = shape.shapeSequentialTransition {
+            fill { }
+        }
+        assertEquals(shape, transition.node)
+        assertTrue(transition.children.first() is FillTransition)
     }
 }

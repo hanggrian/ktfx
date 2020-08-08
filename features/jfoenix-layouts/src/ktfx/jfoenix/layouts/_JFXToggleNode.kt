@@ -20,6 +20,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXToggleNode] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxToggleNode(graphic: Node? = null): JFXToggleNode = jfxToggleNode(
     graphic =
@@ -28,6 +30,8 @@ fun NodeManager.jfxToggleNode(graphic: Node? = null): JFXToggleNode = jfxToggleN
 
 /**
  * Add a [JFXToggleNode] to this manager.
+ *
+ * @return the control added.
  */
 fun ToggleButtonManager.jfxToggleNode(graphic: Node? = null): JFXToggleNode = jfxToggleNode(
     graphic =
@@ -36,6 +40,9 @@ fun ToggleButtonManager.jfxToggleNode(graphic: Node? = null): JFXToggleNode = jf
 
 /**
  * Create a [JFXToggleNode] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxToggleNode(
     graphic: Node? = null,
@@ -50,6 +57,9 @@ inline fun jfxToggleNode(
 
 /**
  * Add a [JFXToggleNode] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxToggleNode(
     graphic: Node? = null,
@@ -64,6 +74,9 @@ inline fun NodeManager.jfxToggleNode(
 
 /**
  * Add a [JFXToggleNode] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun ToggleButtonManager.jfxToggleNode(
     graphic: Node? = null,
@@ -78,6 +91,10 @@ inline fun ToggleButtonManager.jfxToggleNode(
 
 /**
  * Create a styled [JFXToggleNode].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXToggleNode(
     graphic: Node? = null,
@@ -87,6 +104,10 @@ fun styledJFXToggleNode(
 
 /**
  * Add a styled [JFXToggleNode] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXToggleNode(
     graphic: Node? = null,
@@ -96,6 +117,10 @@ fun NodeManager.styledJFXToggleNode(
 
 /**
  * Add a styled [JFXToggleNode] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun ToggleButtonManager.styledJFXToggleNode(
     graphic: Node? = null,
@@ -105,6 +130,11 @@ fun ToggleButtonManager.styledJFXToggleNode(
 
 /**
  * Create a styled [JFXToggleNode] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXToggleNode(
     graphic: Node? = null,
@@ -122,6 +152,11 @@ inline fun styledJFXToggleNode(
 
 /**
  * Add a styled [JFXToggleNode] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXToggleNode(
     graphic: Node? = null,
@@ -140,6 +175,11 @@ inline fun NodeManager.styledJFXToggleNode(
 
 /**
  * Add a styled [JFXToggleNode] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun ToggleButtonManager.styledJFXToggleNode(
     graphic: Node? = null,

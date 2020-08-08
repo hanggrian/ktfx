@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ComboBox] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.comboBox(items: ObservableList<T> = observableArrayList()): ComboBox<T> =
     comboBox(items = items) { }
 
 /**
  * Create a [ComboBox] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> comboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -35,6 +40,9 @@ inline fun <T> comboBox(
 
 /**
  * Add a [ComboBox] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -46,6 +54,10 @@ inline fun <T> NodeManager.comboBox(
 
 /**
  * Create a styled [ComboBox].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -55,6 +67,10 @@ fun <T> styledComboBox(
 
 /**
  * Add a styled [ComboBox] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -64,6 +80,11 @@ fun <T> NodeManager.styledComboBox(
 
 /**
  * Create a styled [ComboBox] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -81,6 +102,11 @@ inline fun <T> styledComboBox(
 
 /**
  * Add a styled [ComboBox] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledComboBox(
     items: ObservableList<T> = observableArrayList(),

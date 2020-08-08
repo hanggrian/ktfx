@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [CubicCurve] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.cubicCurve(
     startX: Double = 0.0,
@@ -36,6 +38,9 @@ fun NodeManager.cubicCurve(
 
 /**
  * Create a [CubicCurve] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun cubicCurve(
     startX: Double = 0.0,
@@ -60,6 +65,9 @@ inline fun cubicCurve(
 
 /**
  * Add a [CubicCurve] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.cubicCurve(
     startX: Double = 0.0,
@@ -86,6 +94,10 @@ inline fun NodeManager.cubicCurve(
 
 /**
  * Create a styled [CubicCurve].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledCubicCurve(
     startX: Double = 0.0,
@@ -108,6 +120,10 @@ fun styledCubicCurve(
 
 /**
  * Add a styled [CubicCurve] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledCubicCurve(
     startX: Double = 0.0,
@@ -130,6 +146,11 @@ fun NodeManager.styledCubicCurve(
 
 /**
  * Create a styled [CubicCurve] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledCubicCurve(
     startX: Double = 0.0,
@@ -156,6 +177,11 @@ inline fun styledCubicCurve(
 
 /**
  * Add a styled [CubicCurve] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledCubicCurve(
     startX: Double = 0.0,

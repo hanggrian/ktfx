@@ -16,6 +16,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [QuadCurveTo] to this manager.
+ *
+ * @return the control added.
  */
 fun PathElementManager.quadCurveTo(
     controlX: Double = 0.0,
@@ -26,6 +28,9 @@ fun PathElementManager.quadCurveTo(
 
 /**
  * Create a [QuadCurveTo] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun quadCurveTo(
     controlX: Double = 0.0,
@@ -40,6 +45,9 @@ inline fun quadCurveTo(
 
 /**
  * Add a [QuadCurveTo] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun PathElementManager.quadCurveTo(
     controlX: Double = 0.0,

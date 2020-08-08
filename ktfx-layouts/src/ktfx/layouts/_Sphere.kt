@@ -18,6 +18,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Sphere] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(
     radius = radius,
@@ -26,6 +28,9 @@ fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = spher
 
 /**
  * Create a [Sphere] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun sphere(
     radius: Double = 1.0,
@@ -38,6 +43,9 @@ inline fun sphere(
 
 /**
  * Add a [Sphere] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.sphere(
     radius: Double = 1.0,
@@ -50,6 +58,10 @@ inline fun NodeManager.sphere(
 
 /**
  * Create a styled [Sphere].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledSphere(
     radius: Double = 1.0,
@@ -61,6 +73,10 @@ fun styledSphere(
 
 /**
  * Add a styled [Sphere] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledSphere(
     radius: Double = 1.0,
@@ -72,6 +88,11 @@ fun NodeManager.styledSphere(
 
 /**
  * Create a styled [Sphere] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledSphere(
     radius: Double = 1.0,
@@ -90,6 +111,11 @@ inline fun styledSphere(
 
 /**
  * Add a styled [Sphere] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledSphere(
     radius: Double = 1.0,

@@ -19,6 +19,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXChip] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip(
     view = view,
@@ -28,6 +30,9 @@ fun <T> NodeManager.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip
 
 /**
  * Create a [JFXChip] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> jfxChip(
     view: JFXChipView<T>,
@@ -40,6 +45,9 @@ inline fun <T> jfxChip(
 
 /**
  * Add a [JFXChip] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.jfxChip(
     view: JFXChipView<T>,
@@ -52,6 +60,10 @@ inline fun <T> NodeManager.jfxChip(
 
 /**
  * Create a styled [JFXChip].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledJFXChip(
     view: JFXChipView<T>,
@@ -62,6 +74,10 @@ fun <T> styledJFXChip(
 
 /**
  * Add a styled [JFXChip] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledJFXChip(
     view: JFXChipView<T>,
@@ -72,6 +88,11 @@ fun <T> NodeManager.styledJFXChip(
 
 /**
  * Create a styled [JFXChip] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledJFXChip(
     view: JFXChipView<T>,
@@ -90,6 +111,11 @@ inline fun <T> styledJFXChip(
 
 /**
  * Add a styled [JFXChip] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXChip(
     view: JFXChipView<T>,

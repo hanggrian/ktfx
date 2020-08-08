@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXTogglePane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
 
 /**
  * Create a [JFXTogglePane] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxTogglePane(configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit):
     JFXTogglePane {
@@ -32,6 +37,9 @@ inline fun jfxTogglePane(configuration: (@LayoutDslMarker KtfxJFXTogglePane).() 
 
 /**
  * Add a [JFXTogglePane] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxTogglePane(
     configuration: (@LayoutDslMarker KtfxJFXTogglePane).() ->
@@ -43,18 +51,31 @@ inline fun NodeManager.jfxTogglePane(
 
 /**
  * Create a styled [JFXTogglePane].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXTogglePane(vararg styleClass: String, id: String? = null): JFXTogglePane =
     styledJFXTogglePane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTogglePane] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXTogglePane(vararg styleClass: String, id: String? = null): JFXTogglePane =
     styledJFXTogglePane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTogglePane] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXTogglePane(
     vararg styleClass: String,
@@ -71,6 +92,11 @@ inline fun styledJFXTogglePane(
 
 /**
  * Add a styled [JFXTogglePane] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXTogglePane(
     vararg styleClass: String,

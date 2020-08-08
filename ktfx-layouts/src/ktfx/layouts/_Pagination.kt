@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Pagination] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0): Pagination =
     pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
 
 /**
  * Create a [Pagination] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun pagination(
     pageCount: Int = INDETERMINATE,
@@ -36,6 +41,9 @@ inline fun pagination(
 
 /**
  * Add a [Pagination] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.pagination(
     pageCount: Int = INDETERMINATE,
@@ -54,6 +62,10 @@ inline fun NodeManager.pagination(
 
 /**
  * Create a styled [Pagination].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledPagination(
     pageCount: Int = INDETERMINATE,
@@ -67,6 +79,10 @@ fun styledPagination(
 
 /**
  * Add a styled [Pagination] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledPagination(
     pageCount: Int = INDETERMINATE,
@@ -80,6 +96,11 @@ fun NodeManager.styledPagination(
 
 /**
  * Create a styled [Pagination] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledPagination(
     pageCount: Int = INDETERMINATE,
@@ -97,6 +118,11 @@ inline fun styledPagination(
 
 /**
  * Add a styled [Pagination] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledPagination(
     pageCount: Int = INDETERMINATE,

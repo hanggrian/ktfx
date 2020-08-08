@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Text] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.text(text: String? = null): Text = text(text = text) { }
 
 /**
  * Create a [Text] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun text(text: String? = null, configuration: (@LayoutDslMarker Text).() -> Unit): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun text(text: String? = null, configuration: (@LayoutDslMarker Text).() 
 
 /**
  * Add a [Text] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.text(
     text: String? = null,
@@ -41,6 +49,10 @@ inline fun NodeManager.text(
 
 /**
  * Create a styled [Text].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledText(
     text: String? = null,
@@ -50,6 +62,10 @@ fun styledText(
 
 /**
  * Add a styled [Text] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledText(
     text: String? = null,
@@ -59,6 +75,11 @@ fun NodeManager.styledText(
 
 /**
  * Create a styled [Text] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledText(
     text: String? = null,
@@ -72,6 +93,11 @@ inline fun styledText(
 
 /**
  * Add a styled [Text] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledText(
     text: String? = null,

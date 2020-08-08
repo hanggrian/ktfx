@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add an [Arc] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.arc(
     centerX: Double = 0.0,
@@ -34,6 +36,9 @@ fun NodeManager.arc(
 
 /**
  * Create an [Arc] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun arc(
     centerX: Double = 0.0,
@@ -54,6 +59,9 @@ inline fun arc(
 
 /**
  * Add an [Arc] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.arc(
     centerX: Double = 0.0,
@@ -75,6 +83,10 @@ inline fun NodeManager.arc(
 
 /**
  * Create a styled [Arc].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledArc(
     centerX: Double = 0.0,
@@ -92,6 +104,10 @@ fun styledArc(
 
 /**
  * Add a styled [Arc] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledArc(
     centerX: Double = 0.0,
@@ -109,6 +125,11 @@ fun NodeManager.styledArc(
 
 /**
  * Create a styled [Arc] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledArc(
     centerX: Double = 0.0,
@@ -132,6 +153,11 @@ inline fun styledArc(
 
 /**
  * Add a styled [Arc] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledArc(
     centerX: Double = 0.0,

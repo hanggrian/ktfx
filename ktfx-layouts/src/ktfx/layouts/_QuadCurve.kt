@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [QuadCurve] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.quadCurve(
     startX: Double = 0.0,
@@ -32,6 +34,9 @@ fun NodeManager.quadCurve(
 
 /**
  * Create a [QuadCurve] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun quadCurve(
     startX: Double = 0.0,
@@ -52,6 +57,9 @@ inline fun quadCurve(
 
 /**
  * Add a [QuadCurve] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.quadCurve(
     startX: Double = 0.0,
@@ -73,6 +81,10 @@ inline fun NodeManager.quadCurve(
 
 /**
  * Create a styled [QuadCurve].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledQuadCurve(
     startX: Double = 0.0,
@@ -92,6 +104,10 @@ fun styledQuadCurve(
 
 /**
  * Add a styled [QuadCurve] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledQuadCurve(
     startX: Double = 0.0,
@@ -111,6 +127,11 @@ fun NodeManager.styledQuadCurve(
 
 /**
  * Create a styled [QuadCurve] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledQuadCurve(
     startX: Double = 0.0,
@@ -134,6 +155,11 @@ inline fun styledQuadCurve(
 
 /**
  * Add a styled [QuadCurve] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledQuadCurve(
     startX: Double = 0.0,

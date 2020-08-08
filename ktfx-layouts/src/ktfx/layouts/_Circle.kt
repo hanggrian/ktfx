@@ -18,6 +18,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Circle] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.circle(
     centerX: Double = 0.0,
@@ -28,6 +30,9 @@ fun NodeManager.circle(
 
 /**
  * Create a [Circle] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun circle(
     centerX: Double = 0.0,
@@ -42,6 +47,9 @@ inline fun circle(
 
 /**
  * Add a [Circle] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.circle(
     centerX: Double = 0.0,
@@ -56,6 +64,10 @@ inline fun NodeManager.circle(
 
 /**
  * Create a styled [Circle].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledCircle(
     centerX: Double = 0.0,
@@ -71,6 +83,10 @@ fun styledCircle(
 
 /**
  * Add a styled [Circle] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledCircle(
     centerX: Double = 0.0,
@@ -86,6 +102,11 @@ fun NodeManager.styledCircle(
 
 /**
  * Create a styled [Circle] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledCircle(
     centerX: Double = 0.0,
@@ -105,6 +126,11 @@ inline fun styledCircle(
 
 /**
  * Add a styled [Circle] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledCircle(
     centerX: Double = 0.0,

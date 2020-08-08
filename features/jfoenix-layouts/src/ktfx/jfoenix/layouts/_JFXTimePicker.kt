@@ -19,12 +19,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXTimePicker] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimePicker(time = time) {
 }
 
 /**
  * Create a [JFXTimePicker] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxTimePicker(
     time: LocalTime? = null,
@@ -39,6 +44,9 @@ inline fun jfxTimePicker(
 
 /**
  * Add a [JFXTimePicker] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxTimePicker(
     time: LocalTime? = null,
@@ -53,6 +61,10 @@ inline fun NodeManager.jfxTimePicker(
 
 /**
  * Create a styled [JFXTimePicker].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXTimePicker(
     time: LocalTime? = null,
@@ -62,6 +74,10 @@ fun styledJFXTimePicker(
 
 /**
  * Add a styled [JFXTimePicker] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXTimePicker(
     time: LocalTime? = null,
@@ -71,6 +87,11 @@ fun NodeManager.styledJFXTimePicker(
 
 /**
  * Create a styled [JFXTimePicker] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXTimePicker(
     time: LocalTime? = null,
@@ -88,6 +109,11 @@ inline fun styledJFXTimePicker(
 
 /**
  * Add a styled [JFXTimePicker] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXTimePicker(
     time: LocalTime? = null,

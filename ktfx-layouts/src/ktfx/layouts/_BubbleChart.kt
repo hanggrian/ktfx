@@ -20,6 +20,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [BubbleChart] to this manager.
+ *
+ * @return the control added.
  */
 fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
@@ -29,6 +31,9 @@ fun <X, Y> NodeManager.bubbleChart(
 
 /**
  * Create a [BubbleChart] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <X, Y> bubbleChart(
     x: Axis<X>,
@@ -42,6 +47,9 @@ inline fun <X, Y> bubbleChart(
 
 /**
  * Add a [BubbleChart] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
@@ -55,6 +63,10 @@ inline fun <X, Y> NodeManager.bubbleChart(
 
 /**
  * Create a styled [BubbleChart].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <X, Y> styledBubbleChart(
     x: Axis<X>,
@@ -70,6 +82,10 @@ fun <X, Y> styledBubbleChart(
 
 /**
  * Add a styled [BubbleChart] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledBubbleChart(
     x: Axis<X>,
@@ -85,6 +101,11 @@ fun <X, Y> NodeManager.styledBubbleChart(
 
 /**
  * Create a styled [BubbleChart] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <X, Y> styledBubbleChart(
     x: Axis<X>,
@@ -104,6 +125,11 @@ inline fun <X, Y> styledBubbleChart(
 
 /**
  * Add a styled [BubbleChart] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledBubbleChart(
     x: Axis<X>,

@@ -2,6 +2,7 @@ package com.hendraanggrian.ktfx.codegen.layouts
 
 import com.hendraanggrian.kotlinpoet.classOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
+import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
@@ -15,7 +16,6 @@ import javafx.scene.control.Tab
 import javafx.scene.control.TitledPane
 import javafx.scene.control.ToggleButton
 import javafx.scene.shape.PathElement
-import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 import kotlin.reflect.KClass
 import kotlin.reflect.full.isSuperclassOf
 
@@ -71,7 +71,7 @@ data class LayoutsEntry(
 
     val supportStyledFunction: Boolean get() = "ktfx.layouts".classOf("PathElementManager") !in managerClassNames
 
-    fun getComment(add: Boolean, styled: Boolean, configured: Boolean): String = buildString {
+    fun getFileComment(add: Boolean, styled: Boolean, configured: Boolean): String = buildString {
         append(if (!add) "Create" else "Add")
         append(when {
             !styled && simpleName.first().let { it == 'A' || it == 'E' || it == 'I' || it == 'O' || it == 'U' } ->
@@ -82,6 +82,19 @@ data class LayoutsEntry(
         append(" [$simpleName]")
         if (configured) append(" with configuration block")
         if (add) append(" to this manager")
+        append('.')
+    }
+
+    fun getReturnsComment(add: Boolean, styled: Boolean): String = buildString {
+        append("the")
+        if (styled) append(" styled")
+        append(" control")
+        append(
+            when {
+                add -> " added"
+                else -> " created"
+            }
+        )
         append('.')
     }
 

@@ -17,12 +17,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [RadioMenuItem] to this manager.
+ *
+ * @return the control added.
  */
 fun MenuItemManager.radioMenuItem(text: String? = null, graphic: Node? = null): RadioMenuItem =
     radioMenuItem(text = text, graphic = graphic) { }
 
 /**
  * Create a [RadioMenuItem] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun radioMenuItem(
     text: String? = null,
@@ -35,6 +40,9 @@ inline fun radioMenuItem(
 
 /**
  * Add a [RadioMenuItem] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun MenuItemManager.radioMenuItem(
     text: String? = null,
@@ -47,6 +55,10 @@ inline fun MenuItemManager.radioMenuItem(
 
 /**
  * Create a styled [RadioMenuItem].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledRadioMenuItem(
     text: String? = null,
@@ -61,6 +73,10 @@ fun styledRadioMenuItem(
 
 /**
  * Add a styled [RadioMenuItem] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun MenuItemManager.styledRadioMenuItem(
     text: String? = null,
@@ -75,6 +91,11 @@ fun MenuItemManager.styledRadioMenuItem(
 
 /**
  * Create a styled [RadioMenuItem] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledRadioMenuItem(
     text: String? = null,
@@ -93,6 +114,11 @@ inline fun styledRadioMenuItem(
 
 /**
  * Add a styled [RadioMenuItem] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun MenuItemManager.styledRadioMenuItem(
     text: String? = null,

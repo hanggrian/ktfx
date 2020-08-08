@@ -17,12 +17,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [CheckMenuItem] to this manager.
+ *
+ * @return the control added.
  */
 fun MenuItemManager.checkMenuItem(text: String? = null, graphic: Node? = null): CheckMenuItem =
     checkMenuItem(text = text, graphic = graphic) { }
 
 /**
  * Create a [CheckMenuItem] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun checkMenuItem(
     text: String? = null,
@@ -35,6 +40,9 @@ inline fun checkMenuItem(
 
 /**
  * Add a [CheckMenuItem] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
@@ -47,6 +55,10 @@ inline fun MenuItemManager.checkMenuItem(
 
 /**
  * Create a styled [CheckMenuItem].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledCheckMenuItem(
     text: String? = null,
@@ -61,6 +73,10 @@ fun styledCheckMenuItem(
 
 /**
  * Add a styled [CheckMenuItem] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun MenuItemManager.styledCheckMenuItem(
     text: String? = null,
@@ -75,6 +91,11 @@ fun MenuItemManager.styledCheckMenuItem(
 
 /**
  * Create a styled [CheckMenuItem] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledCheckMenuItem(
     text: String? = null,
@@ -93,6 +114,11 @@ inline fun styledCheckMenuItem(
 
 /**
  * Add a styled [CheckMenuItem] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun MenuItemManager.styledCheckMenuItem(
     text: String? = null,

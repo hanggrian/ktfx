@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [GridPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.gridPane(): GridPane = gridPane() { }
 
 /**
  * Create a [GridPane] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit): 
 
 /**
  * Add a [GridPane] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit):
     GridPane {
@@ -38,18 +46,31 @@ inline fun NodeManager.gridPane(configuration: (@LayoutDslMarker KtfxGridPane).(
 
 /**
  * Create a styled [GridPane].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledGridPane(vararg styleClass: String, id: String? = null): GridPane =
     styledGridPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [GridPane] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledGridPane(vararg styleClass: String, id: String? = null): GridPane =
     styledGridPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [GridPane] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledGridPane(
     vararg styleClass: String,
@@ -66,6 +87,11 @@ inline fun styledGridPane(
 
 /**
  * Add a styled [GridPane] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledGridPane(
     vararg styleClass: String,

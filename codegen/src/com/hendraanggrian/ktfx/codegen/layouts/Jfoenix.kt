@@ -1,7 +1,7 @@
 package com.hendraanggrian.ktfx.codegen.layouts
 
 import com.hendraanggrian.kotlinpoet.asNullable
-import com.hendraanggrian.kotlinpoet.dsl.ParameterSpecContainerScope
+import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
 import com.hendraanggrian.kotlinpoet.parameterizedBy
 import com.hendraanggrian.kotlinpoet.typeVarBy
 import com.hendraanggrian.kotlinpoet.typeVarOf
@@ -103,6 +103,6 @@ val LayoutsFactory.Companion.Jfoenix: LayoutsFactory
             }
         }
 
-        fun ParameterSpecContainerScope.chipView() = add("view", JFXChipView::class.asClassName().parameterizedBy(T))
-        fun ParameterSpecContainerScope.item() = add("item", T)
+        fun ParameterSpecListScope.chipView() = add("view", JFXChipView::class.asClassName().parameterizedBy(T))
+        fun ParameterSpecListScope.item() = add("item", T)
     }

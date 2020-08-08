@@ -17,54 +17,73 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-/** Create multiple [BorderStroke] and/or [BorderImage] using DSL. */
-fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
-    BorderBuilder().apply(builderAction).build()
-
-/** Add multiple [BorderStroke] and/or [BorderImage] to node using DSL. */
-inline fun Region.border(noinline builderAction: BorderBuilder.() -> Unit): Border {
-    val border = buildBorder(builderAction)
-    setBorder(border)
-    return border
-}
-
-/** Add a new [BorderStroke] to node using DSL. */
-inline fun Region.borderStroke(noinline builderAction: BorderBuilder.StrokeBuilder.() -> Unit): Border =
-    border { stroke(builderAction) }
-
-/** Add a new [BorderImage] to node using DSL. */
-inline fun Region.borderImage(image: Image, noinline builderAction: BorderBuilder.ImageBuilder.() -> Unit): Border =
-    border { image(image, builderAction) }
+/**
+ * Builds new border with multiple [BorderStroke] and/or [BorderImage].
+ * @param builderAction populate newly created stroke and/or image.
+ * @return created border.
+ */
+inline fun buildBorder(
+    builderAction: BorderBuilder.() -> Unit
+): Border = BorderBuilder().apply(builderAction).build()
 
 /**
- * Class to support adding [Border] to node with DSL.
- * @see Region.border
+ * Sets new border with multiple [BorderStroke] and/or [BorderImage].
+ * @param builderAction populate newly created stroke and/or image.
+ * @return applied border.
  */
-class BorderBuilder internal constructor() {
+inline fun Region.border(
+    noinline builderAction: BorderBuilder.() -> Unit
+): Border = buildBorder(builderAction).also { border = it }
+
+/**
+ * Sets new border with single [BorderStroke].
+ * @param builderAction stroke configurator.
+ * @return applied border.
+ */
+inline fun Region.borderStroke(
+    noinline builderAction: BorderBuilder.StrokeBuilder.() -> Unit
+): Border = border { stroke(builderAction) }
+
+/**
+ * Sets new border with single [BorderImage].
+ * @param builderAction image configurator.
+ * @return applied border.
+ */
+inline fun Region.borderImage(
+    image: Image,
+    noinline builderAction: BorderBuilder.ImageBuilder.() -> Unit
+): Border = border { image(image, builderAction) }
+
+/** Border configurator class. */
+class BorderBuilder {
+
+    /** Current strokes within this border. */
     val strokes: MutableList<BorderStroke> = mutableListOf()
+
+    /** Current images within this border. */
     val images: MutableList<BorderImage> = mutableListOf()
 
-    /** Add a new [BorderStroke] to node using DSL. */
-    fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke {
-        val borderStroke = StrokeBuilder().apply(builderAction).build()
-        strokes += borderStroke
-        return borderStroke
-    }
-
-    /** Add a new [BorderImage] to node using DSL. */
-    fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage {
-        val borderImage = ImageBuilder(image).apply(builderAction).build()
-        images += borderImage
-        return borderImage
-    }
-
-    internal fun build(): Border = Border(strokes, images)
+    /**
+     * Append a [BorderStroke].
+     * @param builderAction stroke configurator.
+     * @return added stroke.
+     */
+    inline fun stroke(builderAction: StrokeBuilder.() -> Unit): BorderStroke =
+        StrokeBuilder().apply(builderAction).build().also { strokes += it }
 
     /**
-     * Class to support adding [BorderStroke] stroke to node with DSL.
-     * @see BorderBuilder.stroke
+     * Append a [BorderImage].
+     * @param builderAction image configurator.
+     * @return added image.
      */
-    class StrokeBuilder internal constructor() {
+    inline fun image(image: Image, builderAction: ImageBuilder.() -> Unit): BorderImage =
+        ImageBuilder(image).apply(builderAction).build().also { images += it }
+
+    /** Return border based on current configuration. */
+    fun build(): Border = Border(strokes, images)
+
+    /** Border stroke configurator class. */
+    class StrokeBuilder {
         /** The fill to use on the top. If null, defaults to [javafx.scene.paint.Color.BLACK]. */
         var topStroke: Paint? = null
 
@@ -118,19 +137,16 @@ class BorderBuilder internal constructor() {
         /** The insets indicating where to draw the border relative to the region edges. */
         var insets: Insets? = null
 
-        internal fun build(): BorderStroke = BorderStroke(
+        /** Return border stroke based on current configuration. */
+        fun build(): BorderStroke = BorderStroke(
             topStroke, rightStroke, bottomStroke, leftStroke,
             topStyle, rightStyle, bottomStyle, leftStyle,
             radii, widths, insets
         )
     }
 
-    /**
-     * Class to support adding [BorderImage] to node with DSL.
-     * @param image the image to use as border.
-     * @see BorderBuilder.image
-     */
-    class ImageBuilder internal constructor(private val image: Image) {
+    /** Border image configurator class. */
+    class ImageBuilder(private val image: Image) {
         /** The widths of the border in each dimension. A null value results in [BorderWidths.EMPTY]. */
         var widths: BorderWidths? = null
 
@@ -156,7 +172,7 @@ class BorderBuilder internal constructor() {
                 repeatY = value
             }
 
-        internal fun build(): BorderImage =
-            BorderImage(image, widths, insets, slices, isFilled, repeatX, repeatY)
+        /** Return border image based on current configuration. */
+        fun build(): BorderImage = BorderImage(image, widths, insets, slices, isFilled, repeatX, repeatY)
     }
 }

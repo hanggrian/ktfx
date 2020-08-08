@@ -21,6 +21,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXDecorator] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxDecorator(
     stage: Stage,
@@ -36,6 +38,9 @@ fun NodeManager.jfxDecorator(
 
 /**
  * Create a [JFXDecorator] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxDecorator(
     stage: Stage,
@@ -51,6 +56,9 @@ inline fun jfxDecorator(
 
 /**
  * Add a [JFXDecorator] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxDecorator(
     stage: Stage,
@@ -72,6 +80,10 @@ inline fun NodeManager.jfxDecorator(
 
 /**
  * Create a styled [JFXDecorator].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXDecorator(
     stage: Stage,
@@ -88,6 +100,10 @@ fun styledJFXDecorator(
 
 /**
  * Add a styled [JFXDecorator] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXDecorator(
     stage: Stage,
@@ -104,6 +120,11 @@ fun NodeManager.styledJFXDecorator(
 
 /**
  * Create a styled [JFXDecorator] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXDecorator(
     stage: Stage,
@@ -126,6 +147,11 @@ inline fun styledJFXDecorator(
 
 /**
  * Add a styled [JFXDecorator] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXDecorator(
     stage: Stage,

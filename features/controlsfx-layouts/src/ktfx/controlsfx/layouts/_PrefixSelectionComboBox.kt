@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [PrefixSelectionComboBox] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
     prefixSelectionComboBox() { }
 
 /**
  * Create a [PrefixSelectionComboBox] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun <T> prefixSelectionComboBox(
     configuration: (
@@ -37,6 +42,9 @@ inline fun <T> prefixSelectionComboBox(
 
 /**
  * Add a [PrefixSelectionComboBox] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun <T> NodeManager.prefixSelectionComboBox(
     configuration: (
@@ -50,6 +58,10 @@ inline fun <T> NodeManager.prefixSelectionComboBox(
 
 /**
  * Create a styled [PrefixSelectionComboBox].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = null):
     PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(
@@ -60,6 +72,10 @@ fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = n
 
 /**
  * Add a styled [PrefixSelectionComboBox] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = null):
     PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(
@@ -70,6 +86,11 @@ fun <T> NodeManager.styledPrefixSelectionComboBox(vararg styleClass: String, id:
 
 /**
  * Create a styled [PrefixSelectionComboBox] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun <T> styledPrefixSelectionComboBox(
     vararg styleClass: String,
@@ -86,6 +107,11 @@ inline fun <T> styledPrefixSelectionComboBox(
 
 /**
  * Add a styled [PrefixSelectionComboBox] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledPrefixSelectionComboBox(
     vararg styleClass: String,

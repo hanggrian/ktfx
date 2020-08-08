@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Polygon] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.polygon(): Polygon = polygon() { }
 
 /**
  * Create a [Polygon] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygo
 
 /**
  * Add a [Polygon] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,6 +45,10 @@ inline fun NodeManager.polygon(configuration: (@LayoutDslMarker Polygon).() -> U
 
 /**
  * Create a styled [Polygon].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon = styledPolygon(
     styleClass =
@@ -46,12 +58,21 @@ fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon = styl
 
 /**
  * Add a styled [Polygon] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
     styledPolygon(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Polygon] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledPolygon(
     vararg styleClass: String,
@@ -64,6 +85,11 @@ inline fun styledPolygon(
 
 /**
  * Add a styled [Polygon] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledPolygon(
     vararg styleClass: String,

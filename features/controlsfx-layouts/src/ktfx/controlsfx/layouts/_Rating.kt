@@ -19,11 +19,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Rating] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.rating(max: Int = 5, rating: Int = -1): Rating = rating(max = max, rating = rating) { }
 
 /**
  * Create a [Rating] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun rating(
     max: Int = 5,
@@ -36,6 +41,9 @@ inline fun rating(
 
 /**
  * Add a [Rating] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.rating(
     max: Int = 5,
@@ -48,6 +56,10 @@ inline fun NodeManager.rating(
 
 /**
  * Create a styled [Rating].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledRating(
     max: Int = 5,
@@ -58,6 +70,10 @@ fun styledRating(
 
 /**
  * Add a styled [Rating] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledRating(
     max: Int = 5,
@@ -68,6 +84,11 @@ fun NodeManager.styledRating(
 
 /**
  * Create a styled [Rating] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledRating(
     max: Int = 5,
@@ -86,6 +107,11 @@ inline fun styledRating(
 
 /**
  * Add a styled [Rating] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledRating(
     max: Int = 5,

@@ -19,12 +19,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXDefaultChip] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXDefaultChip<T> =
     jfxDefaultChip(view = view, item = item) { }
 
 /**
  * Create a [JFXDefaultChip] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
@@ -37,6 +42,9 @@ inline fun <T> jfxDefaultChip(
 
 /**
  * Add a [JFXDefaultChip] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
@@ -49,6 +57,10 @@ inline fun <T> NodeManager.jfxDefaultChip(
 
 /**
  * Create a styled [JFXDefaultChip].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledJFXDefaultChip(
     view: JFXChipView<T>,
@@ -63,6 +75,10 @@ fun <T> styledJFXDefaultChip(
 
 /**
  * Add a styled [JFXDefaultChip] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledJFXDefaultChip(
     view: JFXChipView<T>,
@@ -77,6 +93,11 @@ fun <T> NodeManager.styledJFXDefaultChip(
 
 /**
  * Create a styled [JFXDefaultChip] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledJFXDefaultChip(
     view: JFXChipView<T>,
@@ -95,6 +116,11 @@ inline fun <T> styledJFXDefaultChip(
 
 /**
  * Add a styled [JFXDefaultChip] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXDefaultChip(
     view: JFXChipView<T>,

@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package ktfx.cells
 
 import javafx.scene.control.TableRow
@@ -10,14 +12,10 @@ import javafx.scene.control.TableView
  */
 fun <S> TableView<S>.rowFactory(
     configuration: KtfxTableRow<S>.(TableView<S>) -> Unit
-): Unit = setRowFactory {
-    val builder = KtfxTableRow<S>()
-    builder.configuration(it)
-    builder
-}
+): Unit = setRowFactory { KtfxTableRow<S>().apply { configuration(it) } }
 
 /** Custom [TableRow] configurator class. */
-class KtfxTableRow<T> internal constructor() : TableRow<T>(), KtfxCell<T> {
+class KtfxTableRow<T> : TableRow<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

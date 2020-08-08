@@ -19,6 +19,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [FlowPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
@@ -28,6 +30,9 @@ fun NodeManager.flowPane(
 
 /**
  * Create a [FlowPane] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
@@ -41,6 +46,9 @@ inline fun flowPane(
 
 /**
  * Add a [FlowPane] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
@@ -54,6 +62,10 @@ inline fun NodeManager.flowPane(
 
 /**
  * Create a styled [FlowPane].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
@@ -70,6 +82,10 @@ fun styledFlowPane(
 
 /**
  * Add a styled [FlowPane] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
@@ -86,6 +102,11 @@ fun NodeManager.styledFlowPane(
 
 /**
  * Create a styled [FlowPane] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
@@ -104,6 +125,11 @@ inline fun styledFlowPane(
 
 /**
  * Add a styled [FlowPane] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledFlowPane(
     orientation: Orientation = HORIZONTAL,

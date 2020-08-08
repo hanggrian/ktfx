@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Group] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.group(): Group = group() { }
 
 /**
  * Create a [Group] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group 
 
 /**
  * Add a [Group] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,6 +45,10 @@ inline fun NodeManager.group(configuration: (@LayoutDslMarker KtfxGroup).() -> U
 
 /**
  * Create a styled [Group].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledGroup(vararg styleClass: String, id: String? = null): Group = styledGroup(
     styleClass =
@@ -46,12 +58,21 @@ fun styledGroup(vararg styleClass: String, id: String? = null): Group = styledGr
 
 /**
  * Add a styled [Group] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledGroup(vararg styleClass: String, id: String? = null): Group =
     styledGroup(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Group] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledGroup(
     vararg styleClass: String,
@@ -64,6 +85,11 @@ inline fun styledGroup(
 
 /**
  * Add a styled [Group] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledGroup(
     vararg styleClass: String,

@@ -19,6 +19,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXTreeView] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfxTreeView(
     root =
@@ -27,6 +29,9 @@ fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfx
 
 /**
  * Create a [JFXTreeView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> jfxTreeView(
     root: TreeItem<T>? = null,
@@ -41,6 +46,9 @@ inline fun <T> jfxTreeView(
 
 /**
  * Add a [JFXTreeView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null,
@@ -55,6 +63,10 @@ inline fun <T> NodeManager.jfxTreeView(
 
 /**
  * Create a styled [JFXTreeView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledJFXTreeView(
     root: TreeItem<T>? = null,
@@ -64,6 +76,10 @@ fun <T> styledJFXTreeView(
 
 /**
  * Add a styled [JFXTreeView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledJFXTreeView(
     root: TreeItem<T>? = null,
@@ -73,6 +89,11 @@ fun <T> NodeManager.styledJFXTreeView(
 
 /**
  * Create a styled [JFXTreeView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledJFXTreeView(
     root: TreeItem<T>? = null,
@@ -90,6 +111,11 @@ inline fun <T> styledJFXTreeView(
 
 /**
  * Add a styled [JFXTreeView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXTreeView(
     root: TreeItem<T>? = null,

@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ScrollBar] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.scrollBar(): ScrollBar = scrollBar() { }
 
 /**
  * Create a [ScrollBar] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit): Sc
 
 /**
  * Add a [ScrollBar] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit):
     ScrollBar {
@@ -38,18 +46,31 @@ inline fun NodeManager.scrollBar(configuration: (@LayoutDslMarker ScrollBar).() 
 
 /**
  * Create a styled [ScrollBar].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledScrollBar(vararg styleClass: String, id: String? = null): ScrollBar =
     styledScrollBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ScrollBar] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledScrollBar(vararg styleClass: String, id: String? = null): ScrollBar =
     styledScrollBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ScrollBar] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledScrollBar(
     vararg styleClass: String,
@@ -62,6 +83,11 @@ inline fun styledScrollBar(
 
 /**
  * Add a styled [ScrollBar] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledScrollBar(
     vararg styleClass: String,

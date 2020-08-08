@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [StackPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.stackPane(): StackPane = stackPane() { }
 
 /**
  * Create a [StackPane] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun stackPane(configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit): StackPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun stackPane(configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit)
 
 /**
  * Add a [StackPane] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.stackPane(configuration: (@LayoutDslMarker KtfxStackPane).() -> Unit):
     StackPane {
@@ -38,18 +46,31 @@ inline fun NodeManager.stackPane(configuration: (@LayoutDslMarker KtfxStackPane)
 
 /**
  * Create a styled [StackPane].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
     styledStackPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [StackPane] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
     styledStackPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [StackPane] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledStackPane(
     vararg styleClass: String,
@@ -66,6 +87,11 @@ inline fun styledStackPane(
 
 /**
  * Add a styled [StackPane] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledStackPane(
     vararg styleClass: String,

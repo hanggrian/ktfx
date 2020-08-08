@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Pane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.pane(): Pane = pane() { }
 
 /**
  * Create a [Pane] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
 
 /**
  * Add a [Pane] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,6 +45,10 @@ inline fun NodeManager.pane(configuration: (@LayoutDslMarker KtfxPane).() -> Uni
 
 /**
  * Create a styled [Pane].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledPane(vararg styleClass: String, id: String? = null): Pane = styledPane(
     styleClass =
@@ -46,12 +58,21 @@ fun styledPane(vararg styleClass: String, id: String? = null): Pane = styledPane
 
 /**
  * Add a styled [Pane] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledPane(vararg styleClass: String, id: String? = null): Pane =
     styledPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Pane] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledPane(
     vararg styleClass: String,
@@ -64,6 +85,11 @@ inline fun styledPane(
 
 /**
  * Add a styled [Pane] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledPane(
     vararg styleClass: String,

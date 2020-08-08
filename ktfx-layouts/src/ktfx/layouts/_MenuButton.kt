@@ -17,12 +17,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [MenuButton] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
     menuButton(text = text, graphic = graphic) { }
 
 /**
  * Create a [MenuButton] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun menuButton(
     text: String? = null,
@@ -35,6 +40,9 @@ inline fun menuButton(
 
 /**
  * Add a [MenuButton] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.menuButton(
     text: String? = null,
@@ -47,6 +55,10 @@ inline fun NodeManager.menuButton(
 
 /**
  * Create a styled [MenuButton].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledMenuButton(
     text: String? = null,
@@ -57,6 +69,10 @@ fun styledMenuButton(
 
 /**
  * Add a styled [MenuButton] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledMenuButton(
     text: String? = null,
@@ -67,6 +83,11 @@ fun NodeManager.styledMenuButton(
 
 /**
  * Create a styled [MenuButton] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledMenuButton(
     text: String? = null,
@@ -85,6 +106,11 @@ inline fun styledMenuButton(
 
 /**
  * Add a styled [MenuButton] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledMenuButton(
     text: String? = null,

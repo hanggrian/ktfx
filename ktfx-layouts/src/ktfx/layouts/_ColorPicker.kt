@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ColorPicker] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color = color) { }
 
 /**
  * Create a [ColorPicker] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun colorPicker(
     color: Color = WHITE,
@@ -35,6 +40,9 @@ inline fun colorPicker(
 
 /**
  * Add a [ColorPicker] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.colorPicker(
     color: Color = WHITE,
@@ -49,6 +57,10 @@ inline fun NodeManager.colorPicker(
 
 /**
  * Create a styled [ColorPicker].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledColorPicker(
     color: Color = WHITE,
@@ -58,6 +70,10 @@ fun styledColorPicker(
 
 /**
  * Add a styled [ColorPicker] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledColorPicker(
     color: Color = WHITE,
@@ -67,6 +83,11 @@ fun NodeManager.styledColorPicker(
 
 /**
  * Create a styled [ColorPicker] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledColorPicker(
     color: Color = WHITE,
@@ -84,6 +105,11 @@ inline fun styledColorPicker(
 
 /**
  * Add a styled [ColorPicker] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledColorPicker(
     color: Color = WHITE,

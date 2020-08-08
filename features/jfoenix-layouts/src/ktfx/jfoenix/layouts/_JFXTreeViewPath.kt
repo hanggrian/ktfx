@@ -19,12 +19,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXTreeViewPath] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxTreeViewPath(treeView: TreeView<*>? = null): JFXTreeViewPath =
     jfxTreeViewPath(treeView = treeView) { }
 
 /**
  * Create a [JFXTreeViewPath] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxTreeViewPath(
     treeView: TreeView<*>? = null,
@@ -39,6 +44,9 @@ inline fun jfxTreeViewPath(
 
 /**
  * Add a [JFXTreeViewPath] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null,
@@ -50,6 +58,10 @@ inline fun NodeManager.jfxTreeViewPath(
 
 /**
  * Create a styled [JFXTreeViewPath].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXTreeViewPath(
     treeView: TreeView<*>? = null,
@@ -60,6 +72,10 @@ fun styledJFXTreeViewPath(
 
 /**
  * Add a styled [JFXTreeViewPath] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXTreeViewPath(
     treeView: TreeView<*>? = null,
@@ -70,6 +86,11 @@ fun NodeManager.styledJFXTreeViewPath(
 
 /**
  * Create a styled [JFXTreeViewPath] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXTreeViewPath(
     treeView: TreeView<*>? = null,
@@ -87,6 +108,11 @@ inline fun styledJFXTreeViewPath(
 
 /**
  * Add a styled [JFXTreeViewPath] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXTreeViewPath(
     treeView: TreeView<*>? = null,

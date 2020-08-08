@@ -16,6 +16,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [CubicCurveTo] to this manager.
+ *
+ * @return the control added.
  */
 fun PathElementManager.cubicCurveTo(
     controlX1: Double = 0.0,
@@ -31,6 +33,9 @@ fun PathElementManager.cubicCurveTo(
 
 /**
  * Create a [CubicCurveTo] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun cubicCurveTo(
     controlX1: Double = 0.0,
@@ -51,6 +56,9 @@ inline fun cubicCurveTo(
 
 /**
  * Add a [CubicCurveTo] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun PathElementManager.cubicCurveTo(
     controlX1: Double = 0.0,

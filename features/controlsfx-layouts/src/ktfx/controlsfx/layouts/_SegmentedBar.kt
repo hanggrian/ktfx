@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [SegmentedBar] to this manager.
+ *
+ * @return the control added.
  */
 fun <T : SegmentedBar.Segment> NodeManager.segmentedBar(): SegmentedBar<T> = segmentedBar() { }
 
 /**
  * Create a [SegmentedBar] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun <T : SegmentedBar.Segment> segmentedBar(
     configuration: (
@@ -36,6 +41,9 @@ inline fun <T : SegmentedBar.Segment> segmentedBar(
 
 /**
  * Add a [SegmentedBar] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun <T : SegmentedBar.Segment> NodeManager.segmentedBar(
     configuration: (
@@ -49,12 +57,20 @@ inline fun <T : SegmentedBar.Segment> NodeManager.segmentedBar(
 
 /**
  * Create a styled [SegmentedBar].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun <T : SegmentedBar.Segment> styledSegmentedBar(vararg styleClass: String, id: String? = null):
     SegmentedBar<T> = styledSegmentedBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [SegmentedBar] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun <T : SegmentedBar.Segment> NodeManager.styledSegmentedBar(
     vararg styleClass: String,
@@ -64,6 +80,11 @@ fun <T : SegmentedBar.Segment> NodeManager.styledSegmentedBar(
 
 /**
  * Create a styled [SegmentedBar] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun <T : SegmentedBar.Segment> styledSegmentedBar(
     vararg styleClass: String,
@@ -80,6 +101,11 @@ inline fun <T : SegmentedBar.Segment> styledSegmentedBar(
 
 /**
  * Add a styled [SegmentedBar] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun <T : SegmentedBar.Segment> NodeManager.styledSegmentedBar(
     vararg styleClass: String,

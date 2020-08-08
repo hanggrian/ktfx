@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXNodesList] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxNodesList(): JFXNodesList = jfxNodesList() { }
 
 /**
  * Create a [JFXNodesList] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxNodesList(configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit):
     JFXNodesList {
@@ -32,6 +37,9 @@ inline fun jfxNodesList(configuration: (@LayoutDslMarker KtfxJFXNodesList).() ->
 
 /**
  * Add a [JFXNodesList] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxNodesList(configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit):
     JFXNodesList {
@@ -41,18 +49,31 @@ inline fun NodeManager.jfxNodesList(configuration: (@LayoutDslMarker KtfxJFXNode
 
 /**
  * Create a styled [JFXNodesList].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXNodesList(vararg styleClass: String, id: String? = null): JFXNodesList =
     styledJFXNodesList(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXNodesList] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXNodesList(vararg styleClass: String, id: String? = null): JFXNodesList =
     styledJFXNodesList(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXNodesList] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXNodesList(
     vararg styleClass: String,
@@ -69,6 +90,11 @@ inline fun styledJFXNodesList(
 
 /**
  * Add a styled [JFXNodesList] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXNodesList(
     vararg styleClass: String,

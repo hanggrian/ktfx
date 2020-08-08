@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [VLineTo] to this manager.
+ *
+ * @return the control added.
  */
 fun PathElementManager.vlineTo(y: Double = 0.0): VLineTo = vlineTo(y = y) { }
 
 /**
  * Create a [VLineTo] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun vlineTo(y: Double = 0.0, configuration: (@LayoutDslMarker VLineTo).() -> Unit): VLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun vlineTo(y: Double = 0.0, configuration: (@LayoutDslMarker VLineTo).()
 
 /**
  * Add a [VLineTo] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun PathElementManager.vlineTo(
     y: Double = 0.0,

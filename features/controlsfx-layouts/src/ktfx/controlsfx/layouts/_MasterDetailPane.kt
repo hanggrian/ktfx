@@ -21,6 +21,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [MasterDetailPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boolean = true):
     MasterDetailPane = masterDetailPane(
@@ -31,6 +33,9 @@ fun NodeManager.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boole
 
 /**
  * Create a [MasterDetailPane] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun masterDetailPane(
     detailSide: Side = RIGHT,
@@ -43,6 +48,9 @@ inline fun masterDetailPane(
 
 /**
  * Add a [MasterDetailPane] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.masterDetailPane(
     detailSide: Side = RIGHT,
@@ -61,6 +69,10 @@ inline fun NodeManager.masterDetailPane(
 
 /**
  * Create a styled [MasterDetailPane].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledMasterDetailPane(
     detailSide: Side = RIGHT,
@@ -76,6 +88,10 @@ fun styledMasterDetailPane(
 
 /**
  * Add a styled [MasterDetailPane] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledMasterDetailPane(
     detailSide: Side = RIGHT,
@@ -91,6 +107,11 @@ fun NodeManager.styledMasterDetailPane(
 
 /**
  * Create a styled [MasterDetailPane] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledMasterDetailPane(
     detailSide: Side = RIGHT,
@@ -110,6 +131,11 @@ inline fun styledMasterDetailPane(
 
 /**
  * Add a styled [MasterDetailPane] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledMasterDetailPane(
     detailSide: Side = RIGHT,

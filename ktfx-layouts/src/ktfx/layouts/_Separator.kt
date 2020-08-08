@@ -18,6 +18,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Separator] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = separator(
     orientation =
@@ -26,6 +28,9 @@ fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = se
 
 /**
  * Create a [Separator] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun separator(
     orientation: Orientation = HORIZONTAL,
@@ -40,6 +45,9 @@ inline fun separator(
 
 /**
  * Add a [Separator] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.separator(
     orientation: Orientation = HORIZONTAL,
@@ -51,6 +59,10 @@ inline fun NodeManager.separator(
 
 /**
  * Create a styled [Separator].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledSeparator(
     orientation: Orientation = HORIZONTAL,
@@ -60,6 +72,10 @@ fun styledSeparator(
 
 /**
  * Add a styled [Separator] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledSeparator(
     orientation: Orientation = HORIZONTAL,
@@ -69,6 +85,11 @@ fun NodeManager.styledSeparator(
 
 /**
  * Create a styled [Separator] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledSeparator(
     orientation: Orientation = HORIZONTAL,
@@ -86,6 +107,11 @@ inline fun styledSeparator(
 
 /**
  * Add a styled [Separator] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledSeparator(
     orientation: Orientation = HORIZONTAL,

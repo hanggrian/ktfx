@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXCheckBox] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxCheckBox(text: String? = null): JFXCheckBox = jfxCheckBox(text = text) { }
 
 /**
  * Create a [JFXCheckBox] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxCheckBox(
     text: String? = null,
@@ -35,6 +40,9 @@ inline fun jfxCheckBox(
 
 /**
  * Add a [JFXCheckBox] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxCheckBox(
     text: String? = null,
@@ -49,6 +57,10 @@ inline fun NodeManager.jfxCheckBox(
 
 /**
  * Create a styled [JFXCheckBox].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXCheckBox(
     text: String? = null,
@@ -58,6 +70,10 @@ fun styledJFXCheckBox(
 
 /**
  * Add a styled [JFXCheckBox] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXCheckBox(
     text: String? = null,
@@ -67,6 +83,11 @@ fun NodeManager.styledJFXCheckBox(
 
 /**
  * Create a styled [JFXCheckBox] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXCheckBox(
     text: String? = null,
@@ -84,6 +105,11 @@ inline fun styledJFXCheckBox(
 
 /**
  * Add a styled [JFXCheckBox] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXCheckBox(
     text: String? = null,

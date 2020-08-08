@@ -175,14 +175,10 @@ inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
  */
 fun <S, T> TableColumn<S, T>.cellFactory(
     configuration: KtfxTableCell<S, T>.(TableColumn<S, T>) -> Unit
-): Unit = setCellFactory {
-    val builder = KtfxTableCell<S, T>()
-    builder.configuration(it)
-    builder
-}
+): Unit = setCellFactory { KtfxTableCell<S, T>().apply { configuration(it) } }
 
 /** Custom [TableCell] configurator class. */
-class KtfxTableCell<S, T> internal constructor() : TableCell<S, T>(), KtfxCell<T> {
+class KtfxTableCell<S, T> : TableCell<S, T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

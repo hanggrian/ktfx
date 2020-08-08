@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Slider] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.slider(
     min: Double = 0.0,
@@ -26,6 +28,9 @@ fun NodeManager.slider(
 
 /**
  * Create a [Slider] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun slider(
     min: Double = 0.0,
@@ -39,6 +44,9 @@ inline fun slider(
 
 /**
  * Add a [Slider] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.slider(
     min: Double = 0.0,
@@ -52,6 +60,10 @@ inline fun NodeManager.slider(
 
 /**
  * Create a styled [Slider].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledSlider(
     min: Double = 0.0,
@@ -63,6 +75,10 @@ fun styledSlider(
 
 /**
  * Add a styled [Slider] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledSlider(
     min: Double = 0.0,
@@ -74,6 +90,11 @@ fun NodeManager.styledSlider(
 
 /**
  * Create a styled [Slider] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledSlider(
     min: Double = 0.0,
@@ -93,6 +114,11 @@ inline fun styledSlider(
 
 /**
  * Add a styled [Slider] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledSlider(
     min: Double = 0.0,

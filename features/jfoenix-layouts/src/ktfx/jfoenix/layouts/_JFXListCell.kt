@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXListCell] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.jfxListCell(): JFXListCell<T> = jfxListCell() { }
 
 /**
  * Create a [JFXListCell] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun <T> jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit):
     JFXListCell<T> {
@@ -32,6 +37,9 @@ inline fun <T> jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -
 
 /**
  * Add a [JFXListCell] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun <T> NodeManager.jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit):
     JFXListCell<T> {
@@ -41,18 +49,31 @@ inline fun <T> NodeManager.jfxListCell(configuration: (@LayoutDslMarker JFXListC
 
 /**
  * Create a styled [JFXListCell].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun <T> styledJFXListCell(vararg styleClass: String, id: String? = null): JFXListCell<T> =
     styledJFXListCell(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXListCell] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledJFXListCell(vararg styleClass: String, id: String? = null): JFXListCell<T> =
     styledJFXListCell(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXListCell] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun <T> styledJFXListCell(
     vararg styleClass: String,
@@ -69,6 +90,11 @@ inline fun <T> styledJFXListCell(
 
 /**
  * Add a styled [JFXListCell] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXListCell(
     vararg styleClass: String,

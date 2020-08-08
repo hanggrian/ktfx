@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Line] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.line(
     centerX: Double = 0.0,
@@ -27,6 +29,9 @@ fun NodeManager.line(
 
 /**
  * Create a [Line] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun line(
     centerX: Double = 0.0,
@@ -41,6 +46,9 @@ inline fun line(
 
 /**
  * Add a [Line] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.line(
     centerX: Double = 0.0,
@@ -55,6 +63,10 @@ inline fun NodeManager.line(
 
 /**
  * Create a styled [Line].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledLine(
     centerX: Double = 0.0,
@@ -72,6 +84,10 @@ fun styledLine(
 
 /**
  * Add a styled [Line] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledLine(
     centerX: Double = 0.0,
@@ -89,6 +105,11 @@ fun NodeManager.styledLine(
 
 /**
  * Create a styled [Line] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledLine(
     centerX: Double = 0.0,
@@ -108,6 +129,11 @@ inline fun styledLine(
 
 /**
  * Add a styled [Line] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledLine(
     centerX: Double = 0.0,

@@ -20,12 +20,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [GridView] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.gridView(items: ObservableList<T> = observableArrayList()): GridView<T> =
     gridView(items = items) { }
 
 /**
  * Create a [GridView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> gridView(
     items: ObservableList<T> = observableArrayList(),
@@ -37,6 +42,9 @@ inline fun <T> gridView(
 
 /**
  * Add a [GridView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.gridView(
     items: ObservableList<T> = observableArrayList(),
@@ -48,6 +56,10 @@ inline fun <T> NodeManager.gridView(
 
 /**
  * Create a styled [GridView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledGridView(
     items: ObservableList<T> = observableArrayList(),
@@ -57,6 +69,10 @@ fun <T> styledGridView(
 
 /**
  * Add a styled [GridView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledGridView(
     items: ObservableList<T> = observableArrayList(),
@@ -66,6 +82,11 @@ fun <T> NodeManager.styledGridView(
 
 /**
  * Create a styled [GridView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledGridView(
     items: ObservableList<T> = observableArrayList(),
@@ -83,6 +104,11 @@ inline fun <T> styledGridView(
 
 /**
  * Add a styled [GridView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledGridView(
     items: ObservableList<T> = observableArrayList(),

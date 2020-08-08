@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [HyperlinkLabel] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.hyperlinkLabel(text: String? = null): HyperlinkLabel = hyperlinkLabel(text = text) {
 }
 
 /**
  * Create a [HyperlinkLabel] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun hyperlinkLabel(
     text: String? = null,
@@ -38,6 +43,9 @@ inline fun hyperlinkLabel(
 
 /**
  * Add a [HyperlinkLabel] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
@@ -52,6 +60,10 @@ inline fun NodeManager.hyperlinkLabel(
 
 /**
  * Create a styled [HyperlinkLabel].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledHyperlinkLabel(
     text: String? = null,
@@ -61,6 +73,10 @@ fun styledHyperlinkLabel(
 
 /**
  * Add a styled [HyperlinkLabel] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledHyperlinkLabel(
     text: String? = null,
@@ -70,6 +86,11 @@ fun NodeManager.styledHyperlinkLabel(
 
 /**
  * Create a styled [HyperlinkLabel] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledHyperlinkLabel(
     text: String? = null,
@@ -87,6 +108,11 @@ inline fun styledHyperlinkLabel(
 
 /**
  * Add a styled [HyperlinkLabel] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledHyperlinkLabel(
     text: String? = null,

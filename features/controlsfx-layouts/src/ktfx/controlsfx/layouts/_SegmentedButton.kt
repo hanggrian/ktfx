@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [SegmentedButton] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.segmentedButton(): SegmentedButton = segmentedButton() { }
 
 /**
  * Create a [SegmentedButton] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun segmentedButton(configuration: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit):
     SegmentedButton {
@@ -32,6 +37,9 @@ inline fun segmentedButton(configuration: (@LayoutDslMarker KtfxSegmentedButton)
 
 /**
  * Add a [SegmentedButton] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.segmentedButton(
     configuration: (@LayoutDslMarker KtfxSegmentedButton).() ->
@@ -43,18 +51,31 @@ inline fun NodeManager.segmentedButton(
 
 /**
  * Create a styled [SegmentedButton].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledSegmentedButton(vararg styleClass: String, id: String? = null): SegmentedButton =
     styledSegmentedButton(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [SegmentedButton] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledSegmentedButton(vararg styleClass: String, id: String? = null):
     SegmentedButton = styledSegmentedButton(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [SegmentedButton] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledSegmentedButton(
     vararg styleClass: String,
@@ -71,6 +92,11 @@ inline fun styledSegmentedButton(
 
 /**
  * Add a styled [SegmentedButton] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledSegmentedButton(
     vararg styleClass: String,

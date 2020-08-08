@@ -1,9 +1,10 @@
 package com.hendraanggrian.ktfx.codegen.layouts
 
 import com.hendraanggrian.kotlinpoet.asNullable
-import com.hendraanggrian.kotlinpoet.dsl.ParameterSpecContainerScope
+import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
 import com.hendraanggrian.kotlinpoet.memberOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
+import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 import com.squareup.kotlinpoet.asClassName
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
@@ -102,7 +103,6 @@ import javafx.scene.shape.VLineTo
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
 import javafx.scene.web.WebView
-import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 
 val LayoutsFactory.Companion.JavaFx: LayoutsFactory
     get() = object : LayoutsFactory("ktfx-layouts/src", KTFX_LAYOUTS, "LayoutsKt") {
@@ -240,17 +240,17 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
             WebView::class()
         }
 
-        fun ParameterSpecContainerScope.emptyText() = "text"<String> { defaultValue("\"\"") }
+        fun ParameterSpecListScope.emptyText() = "text"<String> { defaultValue("\"\"") }
 
-        fun ParameterSpecContainerScope.orientation() =
+        fun ParameterSpecListScope.orientation() =
             "orientation"<Orientation> { defaultValue("%M", Orientation::class.memberOf("HORIZONTAL")) }
 
-        fun ParameterSpecContainerScope.spacing() = "spacing"<Double> { defaultValue("0.0") }
+        fun ParameterSpecListScope.spacing() = "spacing"<Double> { defaultValue("0.0") }
 
-        fun ParameterSpecContainerScope.width() = "width"<Double> { defaultValue("0.0") }
-        fun ParameterSpecContainerScope.height() = "height"<Double> { defaultValue("0.0") }
+        fun ParameterSpecListScope.width() = "width"<Double> { defaultValue("0.0") }
+        fun ParameterSpecListScope.height() = "height"<Double> { defaultValue("0.0") }
 
-        fun ParameterSpecContainerScope.xyChartParameters() {
+        fun ParameterSpecListScope.xyChartParameters() {
             add("x", Axis::class.parameterizedBy(X))
             add("y", Axis::class.parameterizedBy(Y))
             "data"(ObservableList::class.parameterizedBy(XYChart.Series::class.parameterizedBy(X, Y))) {
@@ -258,47 +258,47 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
             }
         }
 
-        fun ParameterSpecContainerScope.x() = "x"<Double> { defaultValue("0.0") }
-        fun ParameterSpecContainerScope.y() = "y"<Double> { defaultValue("0.0") }
+        fun ParameterSpecListScope.x() = "x"<Double> { defaultValue("0.0") }
+        fun ParameterSpecListScope.y() = "y"<Double> { defaultValue("0.0") }
 
-        fun ParameterSpecContainerScope.startXY() {
+        fun ParameterSpecListScope.startXY() {
             "startX"<Double> { defaultValue("0.0") }
             "startY"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.endXY() {
+        fun ParameterSpecListScope.endXY() {
             "endX"<Double> { defaultValue("0.0") }
             "endY"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.centerXY() {
+        fun ParameterSpecListScope.centerXY() {
             "centerX"<Double> { defaultValue("0.0") }
             "centerY"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.radiusXY() {
+        fun ParameterSpecListScope.radiusXY() {
             "radiusX"<Double> { defaultValue("0.0") }
             "radiusY"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.radius(radius: Double) = "radius"<Double> { defaultValue("$radius") }
+        fun ParameterSpecListScope.radius(radius: Double) = "radius"<Double> { defaultValue("$radius") }
 
-        fun ParameterSpecContainerScope.fill() = "fill"(Paint::class.asNullable()) { defaultValue("null") }
+        fun ParameterSpecListScope.fill() = "fill"(Paint::class.asNullable()) { defaultValue("null") }
 
-        fun ParameterSpecContainerScope.controlXY() {
+        fun ParameterSpecListScope.controlXY() {
             "controlX"<Double> { defaultValue("0.0") }
             "controlY"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.controlXY1() {
+        fun ParameterSpecListScope.controlXY1() {
             "controlX1"<Double> { defaultValue("0.0") }
             "controlY1"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.controlXY2() {
+        fun ParameterSpecListScope.controlXY2() {
             "controlX2"<Double> { defaultValue("0.0") }
             "controlY2"<Double> { defaultValue("0.0") }
         }
 
-        fun ParameterSpecContainerScope.division() = "division"<Int> { defaultValue("64") }
+        fun ParameterSpecListScope.division() = "division"<Int> { defaultValue("64") }
     }

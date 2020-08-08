@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add an [Ellipse] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.ellipse(
     centerX: Double = 0.0,
@@ -27,6 +29,9 @@ fun NodeManager.ellipse(
 
 /**
  * Create an [Ellipse] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun ellipse(
     centerX: Double = 0.0,
@@ -41,6 +46,9 @@ inline fun ellipse(
 
 /**
  * Add an [Ellipse] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.ellipse(
     centerX: Double = 0.0,
@@ -61,6 +69,10 @@ inline fun NodeManager.ellipse(
 
 /**
  * Create a styled [Ellipse].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledEllipse(
     centerX: Double = 0.0,
@@ -78,6 +90,10 @@ fun styledEllipse(
 
 /**
  * Add a styled [Ellipse] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledEllipse(
     centerX: Double = 0.0,
@@ -95,6 +111,11 @@ fun NodeManager.styledEllipse(
 
 /**
  * Create a styled [Ellipse] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledEllipse(
     centerX: Double = 0.0,
@@ -114,6 +135,11 @@ inline fun styledEllipse(
 
 /**
  * Add a styled [Ellipse] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledEllipse(
     centerX: Double = 0.0,

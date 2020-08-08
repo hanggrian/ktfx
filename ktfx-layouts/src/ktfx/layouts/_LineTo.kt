@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [LineTo] to this manager.
+ *
+ * @return the control added.
  */
 fun PathElementManager.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo = lineTo(x = x, y = y) { }
 
 /**
  * Create a [LineTo] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun lineTo(
     x: Double = 0.0,
@@ -33,6 +38,9 @@ inline fun lineTo(
 
 /**
  * Add a [LineTo] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun PathElementManager.lineTo(
     x: Double = 0.0,

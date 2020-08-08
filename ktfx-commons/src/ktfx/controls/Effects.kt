@@ -19,121 +19,173 @@ import javafx.scene.effect.Reflection
 import javafx.scene.effect.SepiaTone
 import javafx.scene.effect.Shadow
 
-/** Set [Blend] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.blendEffect(configuration: Blend.() -> Unit): Blend {
-    val effect = Blend().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [Blend] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.blendEffect(configuration: Blend.() -> Unit): Blend = Blend().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [Bloom] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom {
-    val effect = Bloom().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [Bloom] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom = Bloom().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [BoxBlur] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur {
-    val effect = BoxBlur().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [BoxBlur] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur = BoxBlur().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [ColorAdjust] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.colorAdjustEffect(configuration: ColorAdjust.() -> Unit): ColorAdjust {
-    val effect = ColorAdjust().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [ColorAdjust] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.colorAdjustEffect(configuration: ColorAdjust.() -> Unit): ColorAdjust = ColorAdjust().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [ColorInput] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInput {
-    val effect = ColorInput().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [ColorInput] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInput = ColorInput().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [DisplacementMap] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.displacementMapEffect(configuration: DisplacementMap.() -> Unit): DisplacementMap {
-    val effect = DisplacementMap().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [DisplacementMap] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.displacementMapEffect(configuration: DisplacementMap.() -> Unit): DisplacementMap = DisplacementMap().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [DropShadow] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShadow {
-    val effect = DropShadow().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [DropShadow] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShadow = DropShadow().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [GaussianBlur] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.gaussianBlurEffect(configuration: GaussianBlur.() -> Unit): GaussianBlur {
-    val effect = GaussianBlur().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [GaussianBlur] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.gaussianBlurEffect(configuration: GaussianBlur.() -> Unit): GaussianBlur = GaussianBlur().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [Glow] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.glowEffect(configuration: Glow.() -> Unit): Glow {
-    val effect = Glow().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [Glow] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.glowEffect(configuration: Glow.() -> Unit): Glow = Glow().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [ImageInput] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInput {
-    val effect = ImageInput().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [ImageInput] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInput = ImageInput().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [InnerShadow] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.innerShadowEffect(configuration: InnerShadow.() -> Unit): InnerShadow {
-    val effect = InnerShadow().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [InnerShadow] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.innerShadowEffect(configuration: InnerShadow.() -> Unit): InnerShadow = InnerShadow().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [Lighting] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting {
-    val effect = Lighting().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [Lighting] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting = Lighting().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [MotionBlur] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBlur {
-    val effect = MotionBlur().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [MotionBlur] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBlur = MotionBlur().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [PerspectiveTransform] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.perspectiveTransformEffect(configuration: PerspectiveTransform.() -> Unit): PerspectiveTransform {
-    val effect = PerspectiveTransform().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [PerspectiveTransform] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.perspectiveTransformEffect(configuration: PerspectiveTransform.() -> Unit): PerspectiveTransform =
+    PerspectiveTransform().also {
+        it.configuration()
+        effect = it
+    }
+
+/**
+ * Sets [Reflection] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection = Reflection().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [Reflection] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection {
-    val effect = Reflection().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [SepiaTone] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone = SepiaTone().also {
+    it.configuration()
+    effect = it
 }
 
-/** Set [SepiaTone] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone {
-    val effect = SepiaTone().apply(configuration)
-    setEffect(effect)
-    return effect
-}
-
-/** Set [Shadow] effect with [configuration] block to this [Node], returning the effect added. */
-inline fun Node.shadowEffect(configuration: Shadow.() -> Unit): Shadow {
-    val effect = Shadow().apply(configuration)
-    setEffect(effect)
-    return effect
+/**
+ * Sets [Shadow] effect.
+ * @param configuration the configuration block that customizes effect.
+ * @return the effect applied.
+ */
+fun Node.shadowEffect(configuration: Shadow.() -> Unit): Shadow = Shadow().also {
+    it.configuration()
+    effect = it
 }

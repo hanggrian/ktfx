@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [MaskerPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.maskerPane(): MaskerPane = maskerPane() { }
 
 /**
  * Create a [MaskerPane] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit): MaskerPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -31,6 +36,9 @@ inline fun maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit): 
 
 /**
  * Add a [MaskerPane] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit):
     MaskerPane {
@@ -40,18 +48,31 @@ inline fun NodeManager.maskerPane(configuration: (@LayoutDslMarker MaskerPane).(
 
 /**
  * Create a styled [MaskerPane].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane =
     styledMaskerPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [MaskerPane] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane =
     styledMaskerPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [MaskerPane] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledMaskerPane(
     vararg styleClass: String,
@@ -64,6 +85,11 @@ inline fun styledMaskerPane(
 
 /**
  * Add a styled [MaskerPane] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledMaskerPane(
     vararg styleClass: String,

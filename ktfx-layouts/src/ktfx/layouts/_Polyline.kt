@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Polyline] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.polyline(): Polyline = polyline() { }
 
 /**
  * Create a [Polyline] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Poly
 
 /**
  * Add a [Polyline] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,18 +45,31 @@ inline fun NodeManager.polyline(configuration: (@LayoutDslMarker Polyline).() ->
 
 /**
  * Create a styled [Polyline].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
     styledPolyline(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Polyline] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
     styledPolyline(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Polyline] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledPolyline(
     vararg styleClass: String,
@@ -61,6 +82,11 @@ inline fun styledPolyline(
 
 /**
  * Add a styled [Polyline] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledPolyline(
     vararg styleClass: String,

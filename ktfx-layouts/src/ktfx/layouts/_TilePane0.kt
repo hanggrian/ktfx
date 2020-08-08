@@ -19,6 +19,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [TilePane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
@@ -28,6 +30,9 @@ fun NodeManager.tilePane(
 
 /**
  * Create a [TilePane] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun tilePane(
     orientation: Orientation = HORIZONTAL,
@@ -41,6 +46,9 @@ inline fun tilePane(
 
 /**
  * Add a [TilePane] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
@@ -54,6 +62,10 @@ inline fun NodeManager.tilePane(
 
 /**
  * Create a styled [TilePane].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
@@ -70,6 +82,10 @@ fun styledTilePane(
 
 /**
  * Add a styled [TilePane] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledTilePane(
     orientation: Orientation = HORIZONTAL,
@@ -86,6 +102,11 @@ fun NodeManager.styledTilePane(
 
 /**
  * Create a styled [TilePane] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
@@ -104,6 +125,11 @@ inline fun styledTilePane(
 
 /**
  * Add a styled [TilePane] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledTilePane(
     orientation: Orientation = HORIZONTAL,

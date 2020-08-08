@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXPasswordField] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxPasswordField(): JFXPasswordField = jfxPasswordField() { }
 
 /**
  * Create a [JFXPasswordField] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxPasswordField(configuration: (@LayoutDslMarker JFXPasswordField).() -> Unit):
     JFXPasswordField {
@@ -32,6 +37,9 @@ inline fun jfxPasswordField(configuration: (@LayoutDslMarker JFXPasswordField).(
 
 /**
  * Add a [JFXPasswordField] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxPasswordField(
     configuration: (@LayoutDslMarker JFXPasswordField).() ->
@@ -43,18 +51,31 @@ inline fun NodeManager.jfxPasswordField(
 
 /**
  * Create a styled [JFXPasswordField].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXPasswordField(vararg styleClass: String, id: String? = null): JFXPasswordField =
     styledJFXPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXPasswordField] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXPasswordField(vararg styleClass: String, id: String? = null):
     JFXPasswordField = styledJFXPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXPasswordField] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXPasswordField(
     vararg styleClass: String,
@@ -71,6 +92,11 @@ inline fun styledJFXPasswordField(
 
 /**
  * Add a styled [JFXPasswordField] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXPasswordField(
     vararg styleClass: String,

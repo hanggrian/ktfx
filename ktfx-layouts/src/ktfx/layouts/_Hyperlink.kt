@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Hyperlink] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink = hyperlink(
     text =
@@ -26,6 +28,9 @@ fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlin
 
 /**
  * Create a [Hyperlink] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun hyperlink(
     text: String? = null,
@@ -38,6 +43,9 @@ inline fun hyperlink(
 
 /**
  * Add a [Hyperlink] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.hyperlink(
     text: String? = null,
@@ -50,6 +58,10 @@ inline fun NodeManager.hyperlink(
 
 /**
  * Create a styled [Hyperlink].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledHyperlink(
     text: String? = null,
@@ -61,6 +73,10 @@ fun styledHyperlink(
 
 /**
  * Add a styled [Hyperlink] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledHyperlink(
     text: String? = null,
@@ -72,6 +88,11 @@ fun NodeManager.styledHyperlink(
 
 /**
  * Create a styled [Hyperlink] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledHyperlink(
     text: String? = null,
@@ -90,6 +111,11 @@ inline fun styledHyperlink(
 
 /**
  * Add a styled [Hyperlink] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledHyperlink(
     text: String? = null,

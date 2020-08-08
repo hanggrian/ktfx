@@ -17,11 +17,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [MeshView] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) { }
 
 /**
  * Create a [MeshView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun meshView(mesh: Mesh? = null, configuration: (@LayoutDslMarker MeshView).() -> Unit):
     MeshView {
@@ -31,6 +36,9 @@ inline fun meshView(mesh: Mesh? = null, configuration: (@LayoutDslMarker MeshVie
 
 /**
  * Add a [MeshView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.meshView(
     mesh: Mesh? = null,
@@ -43,6 +51,10 @@ inline fun NodeManager.meshView(
 
 /**
  * Create a styled [MeshView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledMeshView(
     mesh: Mesh? = null,
@@ -52,6 +64,10 @@ fun styledMeshView(
 
 /**
  * Add a styled [MeshView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledMeshView(
     mesh: Mesh? = null,
@@ -61,6 +77,11 @@ fun NodeManager.styledMeshView(
 
 /**
  * Create a styled [MeshView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledMeshView(
     mesh: Mesh? = null,
@@ -78,6 +99,11 @@ inline fun styledMeshView(
 
 /**
  * Add a styled [MeshView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledMeshView(
     mesh: Mesh? = null,

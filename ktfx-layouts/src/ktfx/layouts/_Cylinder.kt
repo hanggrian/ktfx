@@ -18,6 +18,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Cylinder] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.cylinder(
     radius: Double = 1.0,
@@ -27,6 +29,9 @@ fun NodeManager.cylinder(
 
 /**
  * Create a [Cylinder] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun cylinder(
     radius: Double = 1.0,
@@ -40,6 +45,9 @@ inline fun cylinder(
 
 /**
  * Add a [Cylinder] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.cylinder(
     radius: Double = 1.0,
@@ -53,6 +61,10 @@ inline fun NodeManager.cylinder(
 
 /**
  * Create a styled [Cylinder].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledCylinder(
     radius: Double = 1.0,
@@ -69,6 +81,10 @@ fun styledCylinder(
 
 /**
  * Add a styled [Cylinder] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledCylinder(
     radius: Double = 1.0,
@@ -85,6 +101,11 @@ fun NodeManager.styledCylinder(
 
 /**
  * Create a styled [Cylinder] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledCylinder(
     radius: Double = 1.0,
@@ -103,6 +124,11 @@ inline fun styledCylinder(
 
 /**
  * Add a styled [Cylinder] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledCylinder(
     radius: Double = 1.0,

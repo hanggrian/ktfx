@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [StatusBar] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.statusBar(): StatusBar = statusBar() { }
 
 /**
  * Create a [StatusBar] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit): StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -31,6 +36,9 @@ inline fun statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit): St
 
 /**
  * Add a [StatusBar] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit):
     StatusBar {
@@ -40,18 +48,31 @@ inline fun NodeManager.statusBar(configuration: (@LayoutDslMarker StatusBar).() 
 
 /**
  * Create a styled [StatusBar].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
     styledStatusBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [StatusBar] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledStatusBar(vararg styleClass: String, id: String? = null): StatusBar =
     styledStatusBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [StatusBar] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledStatusBar(
     vararg styleClass: String,
@@ -64,6 +85,11 @@ inline fun styledStatusBar(
 
 /**
  * Add a styled [StatusBar] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledStatusBar(
     vararg styleClass: String,

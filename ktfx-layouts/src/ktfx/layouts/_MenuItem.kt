@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [MenuItem] to this manager.
+ *
+ * @return the control added.
  */
 fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem = menuItem(
     text =
@@ -26,6 +28,9 @@ fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuI
 
 /**
  * Create a [MenuItem] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun menuItem(
     text: String? = null,
@@ -38,6 +43,9 @@ inline fun menuItem(
 
 /**
  * Add a [MenuItem] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun MenuItemManager.menuItem(
     text: String? = null,
@@ -50,6 +58,10 @@ inline fun MenuItemManager.menuItem(
 
 /**
  * Create a styled [MenuItem].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledMenuItem(
     text: String? = null,
@@ -60,6 +72,10 @@ fun styledMenuItem(
 
 /**
  * Add a styled [MenuItem] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun MenuItemManager.styledMenuItem(
     text: String? = null,
@@ -70,6 +86,11 @@ fun MenuItemManager.styledMenuItem(
 
 /**
  * Create a styled [MenuItem] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledMenuItem(
     text: String? = null,
@@ -88,6 +109,11 @@ inline fun styledMenuItem(
 
 /**
  * Add a styled [MenuItem] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun MenuItemManager.styledMenuItem(
     text: String? = null,

@@ -20,12 +20,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [CheckListView] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.checkListView(items: ObservableList<T> = observableArrayList()):
     CheckListView<T> = checkListView(items = items) { }
 
 /**
  * Create a [CheckListView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> checkListView(
     items: ObservableList<T> = observableArrayList(),
@@ -37,6 +42,9 @@ inline fun <T> checkListView(
 
 /**
  * Add a [CheckListView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = observableArrayList(),
@@ -48,6 +56,10 @@ inline fun <T> NodeManager.checkListView(
 
 /**
  * Create a styled [CheckListView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
@@ -57,6 +69,10 @@ fun <T> styledCheckListView(
 
 /**
  * Add a styled [CheckListView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
@@ -66,6 +82,11 @@ fun <T> NodeManager.styledCheckListView(
 
 /**
  * Create a styled [CheckListView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
@@ -83,6 +104,11 @@ inline fun <T> styledCheckListView(
 
 /**
  * Add a styled [CheckListView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledCheckListView(
     items: ObservableList<T> = observableArrayList(),

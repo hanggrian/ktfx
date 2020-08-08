@@ -20,6 +20,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [StackedBarChart] to this manager.
+ *
+ * @return the control added.
  */
 fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
@@ -29,6 +31,9 @@ fun <X, Y> NodeManager.stackedBarChart(
 
 /**
  * Create a [StackedBarChart] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <X, Y> stackedBarChart(
     x: Axis<X>,
@@ -42,6 +47,9 @@ inline fun <X, Y> stackedBarChart(
 
 /**
  * Add a [StackedBarChart] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
@@ -55,6 +63,10 @@ inline fun <X, Y> NodeManager.stackedBarChart(
 
 /**
  * Create a styled [StackedBarChart].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <X, Y> styledStackedBarChart(
     x: Axis<X>,
@@ -71,6 +83,10 @@ fun <X, Y> styledStackedBarChart(
 
 /**
  * Add a styled [StackedBarChart] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledStackedBarChart(
     x: Axis<X>,
@@ -87,6 +103,11 @@ fun <X, Y> NodeManager.styledStackedBarChart(
 
 /**
  * Create a styled [StackedBarChart] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <X, Y> styledStackedBarChart(
     x: Axis<X>,
@@ -105,6 +126,11 @@ inline fun <X, Y> styledStackedBarChart(
 
 /**
  * Add a styled [StackedBarChart] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledStackedBarChart(
     x: Axis<X>,

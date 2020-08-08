@@ -20,12 +20,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXComboBox] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.jfxComboBox(items: ObservableList<T> = observableArrayList()): JFXComboBox<T> =
     jfxComboBox(items = items) { }
 
 /**
  * Create a [JFXComboBox] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> jfxComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -37,6 +42,9 @@ inline fun <T> jfxComboBox(
 
 /**
  * Add a [JFXComboBox] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -48,6 +56,10 @@ inline fun <T> NodeManager.jfxComboBox(
 
 /**
  * Create a styled [JFXComboBox].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -57,6 +69,10 @@ fun <T> styledJFXComboBox(
 
 /**
  * Add a styled [JFXComboBox] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -66,6 +82,11 @@ fun <T> NodeManager.styledJFXComboBox(
 
 /**
  * Create a styled [JFXComboBox] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
@@ -83,6 +104,11 @@ inline fun <T> styledJFXComboBox(
 
 /**
  * Add a styled [JFXComboBox] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),

@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Tab] to this manager.
+ *
+ * @return the control added.
  */
 fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
     text = text,
@@ -26,6 +28,9 @@ fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
 
 /**
  * Create a [Tab] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun tab(
     text: String? = null,
@@ -38,6 +43,9 @@ inline fun tab(
 
 /**
  * Add a [Tab] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun TabManager.tab(
     text: String? = null,
@@ -50,6 +58,10 @@ inline fun TabManager.tab(
 
 /**
  * Create a styled [Tab].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledTab(
     text: String? = null,
@@ -60,6 +72,10 @@ fun styledTab(
 
 /**
  * Add a styled [Tab] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun TabManager.styledTab(
     text: String? = null,
@@ -70,6 +86,11 @@ fun TabManager.styledTab(
 
 /**
  * Create a styled [Tab] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledTab(
     text: String? = null,
@@ -88,6 +109,11 @@ inline fun styledTab(
 
 /**
  * Add a styled [Tab] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun TabManager.styledTab(
     text: String? = null,

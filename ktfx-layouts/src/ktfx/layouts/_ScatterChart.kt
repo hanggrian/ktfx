@@ -20,6 +20,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ScatterChart] to this manager.
+ *
+ * @return the control added.
  */
 fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
@@ -29,6 +31,9 @@ fun <X, Y> NodeManager.scatterChart(
 
 /**
  * Create a [ScatterChart] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <X, Y> scatterChart(
     x: Axis<X>,
@@ -42,6 +47,9 @@ inline fun <X, Y> scatterChart(
 
 /**
  * Add a [ScatterChart] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
@@ -55,6 +63,10 @@ inline fun <X, Y> NodeManager.scatterChart(
 
 /**
  * Create a styled [ScatterChart].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <X, Y> styledScatterChart(
     x: Axis<X>,
@@ -70,6 +82,10 @@ fun <X, Y> styledScatterChart(
 
 /**
  * Add a styled [ScatterChart] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledScatterChart(
     x: Axis<X>,
@@ -85,6 +101,11 @@ fun <X, Y> NodeManager.styledScatterChart(
 
 /**
  * Create a styled [ScatterChart] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <X, Y> styledScatterChart(
     x: Axis<X>,
@@ -104,6 +125,11 @@ inline fun <X, Y> styledScatterChart(
 
 /**
  * Add a styled [ScatterChart] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledScatterChart(
     x: Axis<X>,

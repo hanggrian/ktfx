@@ -19,16 +19,23 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXToggleButton] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxToggleButton(): JFXToggleButton = jfxToggleButton() { }
 
 /**
  * Add a [JFXToggleButton] to this manager.
+ *
+ * @return the control added.
  */
 fun ToggleButtonManager.jfxToggleButton(): JFXToggleButton = jfxToggleButton() { }
 
 /**
  * Create a [JFXToggleButton] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxToggleButton(configuration: (@LayoutDslMarker JFXToggleButton).() -> Unit):
     JFXToggleButton {
@@ -38,6 +45,9 @@ inline fun jfxToggleButton(configuration: (@LayoutDslMarker JFXToggleButton).() 
 
 /**
  * Add a [JFXToggleButton] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxToggleButton(
     configuration: (@LayoutDslMarker JFXToggleButton).() ->
@@ -49,6 +59,9 @@ inline fun NodeManager.jfxToggleButton(
 
 /**
  * Add a [JFXToggleButton] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun ToggleButtonManager.jfxToggleButton(
     configuration: (
@@ -62,24 +75,41 @@ inline fun ToggleButtonManager.jfxToggleButton(
 
 /**
  * Create a styled [JFXToggleButton].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXToggleButton(vararg styleClass: String, id: String? = null): JFXToggleButton =
     styledJFXToggleButton(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXToggleButton] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXToggleButton(vararg styleClass: String, id: String? = null):
     JFXToggleButton = styledJFXToggleButton(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXToggleButton] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun ToggleButtonManager.styledJFXToggleButton(vararg styleClass: String, id: String? = null):
     JFXToggleButton = styledJFXToggleButton(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXToggleButton] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXToggleButton(
     vararg styleClass: String,
@@ -96,6 +126,11 @@ inline fun styledJFXToggleButton(
 
 /**
  * Add a styled [JFXToggleButton] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXToggleButton(
     vararg styleClass: String,
@@ -114,6 +149,11 @@ inline fun NodeManager.styledJFXToggleButton(
 
 /**
  * Add a styled [JFXToggleButton] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun ToggleButtonManager.styledJFXToggleButton(
     vararg styleClass: String,

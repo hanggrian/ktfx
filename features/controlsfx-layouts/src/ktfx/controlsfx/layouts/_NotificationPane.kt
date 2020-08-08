@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [NotificationPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.notificationPane(): NotificationPane = notificationPane() { }
 
 /**
  * Create a [NotificationPane] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun notificationPane(configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit):
     NotificationPane {
@@ -32,6 +37,9 @@ inline fun notificationPane(configuration: (@LayoutDslMarker KtfxNotificationPan
 
 /**
  * Add a [NotificationPane] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.notificationPane(
     configuration: (@LayoutDslMarker KtfxNotificationPane).() ->
@@ -43,18 +51,31 @@ inline fun NodeManager.notificationPane(
 
 /**
  * Create a styled [NotificationPane].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledNotificationPane(vararg styleClass: String, id: String? = null): NotificationPane =
     styledNotificationPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [NotificationPane] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledNotificationPane(vararg styleClass: String, id: String? = null):
     NotificationPane = styledNotificationPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [NotificationPane] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledNotificationPane(
     vararg styleClass: String,
@@ -71,6 +92,11 @@ inline fun styledNotificationPane(
 
 /**
  * Add a styled [NotificationPane] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledNotificationPane(
     vararg styleClass: String,

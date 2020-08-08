@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [MenuBar] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.menuBar(): MenuBar = menuBar() { }
 
 /**
  * Create a [MenuBar] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): Me
 
 /**
  * Add a [MenuBar] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,6 +45,10 @@ inline fun NodeManager.menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() 
 
 /**
  * Create a styled [MenuBar].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styledMenuBar(
     styleClass =
@@ -46,12 +58,21 @@ fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styl
 
 /**
  * Add a styled [MenuBar] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
     styledMenuBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [MenuBar] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledMenuBar(
     vararg styleClass: String,
@@ -64,6 +85,11 @@ inline fun styledMenuBar(
 
 /**
  * Add a styled [MenuBar] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledMenuBar(
     vararg styleClass: String,

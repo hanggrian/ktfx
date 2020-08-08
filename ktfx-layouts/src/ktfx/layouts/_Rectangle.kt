@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Rectangle] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.rectangle(
     x: Double = 0.0,
@@ -27,6 +29,9 @@ fun NodeManager.rectangle(
 
 /**
  * Create a [Rectangle] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun rectangle(
     x: Double = 0.0,
@@ -41,6 +46,9 @@ inline fun rectangle(
 
 /**
  * Add a [Rectangle] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.rectangle(
     x: Double = 0.0,
@@ -55,6 +63,10 @@ inline fun NodeManager.rectangle(
 
 /**
  * Create a styled [Rectangle].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledRectangle(
     x: Double = 0.0,
@@ -72,6 +84,10 @@ fun styledRectangle(
 
 /**
  * Add a styled [Rectangle] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledRectangle(
     x: Double = 0.0,
@@ -89,6 +105,11 @@ fun NodeManager.styledRectangle(
 
 /**
  * Create a styled [Rectangle] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledRectangle(
     x: Double = 0.0,
@@ -109,6 +130,11 @@ inline fun styledRectangle(
 
 /**
  * Add a styled [Rectangle] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledRectangle(
     x: Double = 0.0,

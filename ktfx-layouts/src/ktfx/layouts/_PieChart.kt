@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [PieChart] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.pieChart(data: ObservableList<PieChart.Data> = observableArrayList()): PieChart =
     pieChart(data = data) { }
 
 /**
  * Create a [PieChart] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun pieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
@@ -35,6 +40,9 @@ inline fun pieChart(
 
 /**
  * Add a [PieChart] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.pieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
@@ -46,6 +54,10 @@ inline fun NodeManager.pieChart(
 
 /**
  * Create a styled [PieChart].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledPieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
@@ -55,6 +67,10 @@ fun styledPieChart(
 
 /**
  * Add a styled [PieChart] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledPieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
@@ -64,6 +80,11 @@ fun NodeManager.styledPieChart(
 
 /**
  * Create a styled [PieChart] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledPieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
@@ -81,6 +102,11 @@ inline fun styledPieChart(
 
 /**
  * Add a styled [PieChart] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledPieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),

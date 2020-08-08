@@ -19,12 +19,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add an [InfoOverlay] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.infoOverlay(content: Node? = null, text: String? = null): InfoOverlay =
     infoOverlay(content = content, text = text) { }
 
 /**
  * Create an [InfoOverlay] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun infoOverlay(
     content: Node? = null,
@@ -37,6 +42,9 @@ inline fun infoOverlay(
 
 /**
  * Add an [InfoOverlay] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.infoOverlay(
     content: Node? = null,
@@ -49,6 +57,10 @@ inline fun NodeManager.infoOverlay(
 
 /**
  * Create a styled [InfoOverlay].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledInfoOverlay(
     content: Node? = null,
@@ -63,6 +75,10 @@ fun styledInfoOverlay(
 
 /**
  * Add a styled [InfoOverlay] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledInfoOverlay(
     content: Node? = null,
@@ -77,6 +93,11 @@ fun NodeManager.styledInfoOverlay(
 
 /**
  * Create a styled [InfoOverlay] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledInfoOverlay(
     content: Node? = null,
@@ -95,6 +116,11 @@ inline fun styledInfoOverlay(
 
 /**
  * Add a styled [InfoOverlay] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledInfoOverlay(
     content: Node? = null,

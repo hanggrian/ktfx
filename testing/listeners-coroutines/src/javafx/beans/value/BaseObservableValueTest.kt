@@ -13,7 +13,7 @@ abstract class BaseObservableValueTest {
 
     abstract fun ObservableValue<String>.callListener(action: (Observable, String, String) -> Unit)
 
-    @Test fun listener() {
+    @Test fun listen() {
         val property = SimpleStringProperty()
         property.callListener { observable, oldValue, value ->
             assertTrue(observable is StringProperty)

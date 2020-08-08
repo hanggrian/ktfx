@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ToolBar] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.toolBar(): ToolBar = toolBar() { }
 
 /**
  * Create a [ToolBar] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): To
 
 /**
  * Add a [ToolBar] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,6 +45,10 @@ inline fun NodeManager.toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() 
 
 /**
  * Create a styled [ToolBar].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styledToolBar(
     styleClass =
@@ -46,12 +58,21 @@ fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styl
 
 /**
  * Add a styled [ToolBar] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
     styledToolBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [ToolBar] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledToolBar(
     vararg styleClass: String,
@@ -64,6 +85,11 @@ inline fun styledToolBar(
 
 /**
  * Add a styled [ToolBar] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledToolBar(
     vararg styleClass: String,

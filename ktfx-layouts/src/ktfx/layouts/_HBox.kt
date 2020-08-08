@@ -17,11 +17,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [HBox] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
 
 /**
  * Create a [HBox] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun hbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxHBox).() -> Unit):
     HBox {
@@ -31,6 +36,9 @@ inline fun hbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxHBox
 
 /**
  * Add a [HBox] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.hbox(
     spacing: Double = 0.0,
@@ -43,6 +51,10 @@ inline fun NodeManager.hbox(
 
 /**
  * Create a styled [HBox].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledHBox(
     spacing: Double = 0.0,
@@ -52,6 +64,10 @@ fun styledHBox(
 
 /**
  * Add a styled [HBox] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledHBox(
     spacing: Double = 0.0,
@@ -61,6 +77,11 @@ fun NodeManager.styledHBox(
 
 /**
  * Create a styled [HBox] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledHBox(
     spacing: Double = 0.0,
@@ -78,6 +99,11 @@ inline fun styledHBox(
 
 /**
  * Add a styled [HBox] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledHBox(
     spacing: Double = 0.0,

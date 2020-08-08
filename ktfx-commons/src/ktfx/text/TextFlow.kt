@@ -19,7 +19,7 @@ operator fun TextFlow.set(index: Int, value: String) {
  * Clears the content of this flow making it empty.
  * @see kotlin.text.clear
  */
-fun TextFlow.clear(): TextFlow = apply { children.clear() }
+inline fun TextFlow.clear(): TextFlow = apply { children.clear() }
 
 /**
  * Appends [value] to this flow.

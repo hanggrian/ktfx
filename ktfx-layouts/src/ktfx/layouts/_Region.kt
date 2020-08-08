@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Region] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.region(): Region = region() { }
 
 /**
  * Create a [Region] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
 
 /**
  * Add a [Region] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -37,6 +45,10 @@ inline fun NodeManager.region(configuration: (@LayoutDslMarker Region).() -> Uni
 
 /**
  * Create a styled [Region].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledRegion(vararg styleClass: String, id: String? = null): Region = styledRegion(
     styleClass =
@@ -46,12 +58,21 @@ fun styledRegion(vararg styleClass: String, id: String? = null): Region = styled
 
 /**
  * Add a styled [Region] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledRegion(vararg styleClass: String, id: String? = null): Region =
     styledRegion(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Region] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledRegion(
     vararg styleClass: String,
@@ -64,6 +85,11 @@ inline fun styledRegion(
 
 /**
  * Add a styled [Region] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledRegion(
     vararg styleClass: String,

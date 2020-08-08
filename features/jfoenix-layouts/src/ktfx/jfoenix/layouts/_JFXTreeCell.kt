@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXTreeCell] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.jfxTreeCell(): JFXTreeCell<T> = jfxTreeCell() { }
 
 /**
  * Create a [JFXTreeCell] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun <T> jfxTreeCell(configuration: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit):
     JFXTreeCell<T> {
@@ -32,6 +37,9 @@ inline fun <T> jfxTreeCell(configuration: (@LayoutDslMarker JFXTreeCell<T>).() -
 
 /**
  * Add a [JFXTreeCell] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun <T> NodeManager.jfxTreeCell(configuration: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit):
     JFXTreeCell<T> {
@@ -41,18 +49,31 @@ inline fun <T> NodeManager.jfxTreeCell(configuration: (@LayoutDslMarker JFXTreeC
 
 /**
  * Create a styled [JFXTreeCell].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun <T> styledJFXTreeCell(vararg styleClass: String, id: String? = null): JFXTreeCell<T> =
     styledJFXTreeCell(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXTreeCell] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledJFXTreeCell(vararg styleClass: String, id: String? = null): JFXTreeCell<T> =
     styledJFXTreeCell(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTreeCell] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun <T> styledJFXTreeCell(
     vararg styleClass: String,
@@ -69,6 +90,11 @@ inline fun <T> styledJFXTreeCell(
 
 /**
  * Add a styled [JFXTreeCell] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXTreeCell(
     vararg styleClass: String,

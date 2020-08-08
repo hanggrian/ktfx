@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXTextField] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxTextField(text: String? = null): JFXTextField = jfxTextField(text = text) { }
 
 /**
  * Create a [JFXTextField] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxTextField(
     text: String? = null,
@@ -35,6 +40,9 @@ inline fun jfxTextField(
 
 /**
  * Add a [JFXTextField] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxTextField(
     text: String? = null,
@@ -49,6 +57,10 @@ inline fun NodeManager.jfxTextField(
 
 /**
  * Create a styled [JFXTextField].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXTextField(
     text: String? = null,
@@ -58,6 +70,10 @@ fun styledJFXTextField(
 
 /**
  * Add a styled [JFXTextField] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXTextField(
     text: String? = null,
@@ -67,6 +83,11 @@ fun NodeManager.styledJFXTextField(
 
 /**
  * Create a styled [JFXTextField] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXTextField(
     text: String? = null,
@@ -84,6 +105,11 @@ inline fun styledJFXTextField(
 
 /**
  * Add a styled [JFXTextField] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXTextField(
     text: String? = null,

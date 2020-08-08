@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ChoiceBox] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList()): ChoiceBox<T> =
     choiceBox(items = items) { }
 
 /**
  * Create a [ChoiceBox] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <T> choiceBox(
     items: ObservableList<T> = observableArrayList(),
@@ -35,6 +40,9 @@ inline fun <T> choiceBox(
 
 /**
  * Add a [ChoiceBox] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = observableArrayList(),
@@ -46,6 +54,10 @@ inline fun <T> NodeManager.choiceBox(
 
 /**
  * Create a styled [ChoiceBox].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
@@ -55,6 +67,10 @@ fun <T> styledChoiceBox(
 
 /**
  * Add a styled [ChoiceBox] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
@@ -64,6 +80,11 @@ fun <T> NodeManager.styledChoiceBox(
 
 /**
  * Create a styled [ChoiceBox] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
@@ -81,6 +102,11 @@ inline fun <T> styledChoiceBox(
 
 /**
  * Add a styled [ChoiceBox] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),

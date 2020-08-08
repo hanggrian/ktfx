@@ -11,35 +11,47 @@ import ktfx.internal.KtfxInternals.NO_GETTER
 import ktfx.internal.KtfxInternals.noGetter
 import kotlin.DeprecationLevel.ERROR
 
-/** Sets horizontal and vertical gap of this [FlowPane]. */
+/**
+ * Sets separate spacing of this [FlowPane].
+ * @param horizontal horizontal spacing.
+ * @param vertical vertical spacing.
+ */
 inline fun FlowPane.setGap(horizontal: Double, vertical: Double) {
     hgap = horizontal
     vgap = vertical
 }
 
-/** Convenient method to set horizontal and vertical gap of this [FlowPane] to the same value. */
+/** Sets unified spacing of this [FlowPane]. */
 inline var FlowPane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setGap(value, value)
 
-/** Sets horizontal and vertical gap of this [GridPane]. */
+/**
+ * Sets separate spacing of this [GridPane].
+ * @param horizontal horizontal spacing.
+ * @param vertical vertical spacing.
+ */
 inline fun GridPane.setGap(horizontal: Double, vertical: Double) {
     hgap = horizontal
     vgap = vertical
 }
 
-/** Convenient method to set horizontal and vertical gap of this [GridPane] to the same value. */
+/** Sets unified spacing of this [GridPane]. */
 inline var GridPane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setGap(value, value)
 
-/** Sets horizontal and vertical gap of this [GridPane]. */
+/**
+ * Sets separate spacing of this [TilePane].
+ * @param horizontal horizontal spacing.
+ * @param vertical vertical spacing.
+ */
 inline fun TilePane.setGap(horizontal: Double, vertical: Double) {
     hgap = horizontal
     vgap = vertical
 }
 
-/** Convenient method to set horizontal and vertical gap of this [GridPane] to the same value. */
+/** Sets unified spacing of this [TilePane]. */
 inline var TilePane.gap: Double
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
     set(value) = setGap(value, value)

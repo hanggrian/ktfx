@@ -19,12 +19,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXRadioButton] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(text = text) {
 }
 
 /**
  * Add a [JFXRadioButton] to this manager.
+ *
+ * @return the control added.
  */
 fun ToggleButtonManager.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(
     text =
@@ -33,6 +37,9 @@ fun ToggleButtonManager.jfxRadioButton(text: String? = null): JFXRadioButton = j
 
 /**
  * Create a [JFXRadioButton] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxRadioButton(
     text: String? = null,
@@ -47,6 +54,9 @@ inline fun jfxRadioButton(
 
 /**
  * Add a [JFXRadioButton] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxRadioButton(
     text: String? = null,
@@ -61,6 +71,9 @@ inline fun NodeManager.jfxRadioButton(
 
 /**
  * Add a [JFXRadioButton] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun ToggleButtonManager.jfxRadioButton(
     text: String? = null,
@@ -75,6 +88,10 @@ inline fun ToggleButtonManager.jfxRadioButton(
 
 /**
  * Create a styled [JFXRadioButton].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXRadioButton(
     text: String? = null,
@@ -84,6 +101,10 @@ fun styledJFXRadioButton(
 
 /**
  * Add a styled [JFXRadioButton] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXRadioButton(
     text: String? = null,
@@ -93,6 +114,10 @@ fun NodeManager.styledJFXRadioButton(
 
 /**
  * Add a styled [JFXRadioButton] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun ToggleButtonManager.styledJFXRadioButton(
     text: String? = null,
@@ -102,6 +127,11 @@ fun ToggleButtonManager.styledJFXRadioButton(
 
 /**
  * Create a styled [JFXRadioButton] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXRadioButton(
     text: String? = null,
@@ -119,6 +149,11 @@ inline fun styledJFXRadioButton(
 
 /**
  * Add a styled [JFXRadioButton] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXRadioButton(
     text: String? = null,
@@ -138,6 +173,11 @@ inline fun NodeManager.styledJFXRadioButton(
 
 /**
  * Add a styled [JFXRadioButton] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun ToggleButtonManager.styledJFXRadioButton(
     text: String? = null,

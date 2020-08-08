@@ -20,11 +20,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXColorPicker] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorPicker(color = color) { }
 
 /**
  * Create a [JFXColorPicker] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxColorPicker(
     color: Color = WHITE,
@@ -39,6 +44,9 @@ inline fun jfxColorPicker(
 
 /**
  * Add a [JFXColorPicker] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxColorPicker(
     color: Color = WHITE,
@@ -53,6 +61,10 @@ inline fun NodeManager.jfxColorPicker(
 
 /**
  * Create a styled [JFXColorPicker].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXColorPicker(
     color: Color = WHITE,
@@ -62,6 +74,10 @@ fun styledJFXColorPicker(
 
 /**
  * Add a styled [JFXColorPicker] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXColorPicker(
     color: Color = WHITE,
@@ -71,6 +87,11 @@ fun NodeManager.styledJFXColorPicker(
 
 /**
  * Create a styled [JFXColorPicker] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXColorPicker(
     color: Color = WHITE,
@@ -88,6 +109,11 @@ inline fun styledJFXColorPicker(
 
 /**
  * Add a styled [JFXColorPicker] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXColorPicker(
     color: Color = WHITE,

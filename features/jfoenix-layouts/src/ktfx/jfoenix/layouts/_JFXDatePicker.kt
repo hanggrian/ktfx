@@ -19,12 +19,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXDatePicker] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDatePicker(date = date) {
 }
 
 /**
  * Create a [JFXDatePicker] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxDatePicker(
     date: LocalDate? = null,
@@ -39,6 +44,9 @@ inline fun jfxDatePicker(
 
 /**
  * Add a [JFXDatePicker] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxDatePicker(
     date: LocalDate? = null,
@@ -53,6 +61,10 @@ inline fun NodeManager.jfxDatePicker(
 
 /**
  * Create a styled [JFXDatePicker].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXDatePicker(
     date: LocalDate? = null,
@@ -62,6 +74,10 @@ fun styledJFXDatePicker(
 
 /**
  * Add a styled [JFXDatePicker] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXDatePicker(
     date: LocalDate? = null,
@@ -71,6 +87,11 @@ fun NodeManager.styledJFXDatePicker(
 
 /**
  * Create a styled [JFXDatePicker] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXDatePicker(
     date: LocalDate? = null,
@@ -88,6 +109,11 @@ inline fun styledJFXDatePicker(
 
 /**
  * Add a styled [JFXDatePicker] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXDatePicker(
     date: LocalDate? = null,

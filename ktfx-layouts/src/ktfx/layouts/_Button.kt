@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Button] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(
     text = text,
@@ -25,6 +27,9 @@ fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = bu
 
 /**
  * Create a [Button] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun button(
     text: String? = null,
@@ -37,6 +42,9 @@ inline fun button(
 
 /**
  * Add a [Button] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.button(
     text: String? = null,
@@ -49,6 +57,10 @@ inline fun NodeManager.button(
 
 /**
  * Create a styled [Button].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledButton(
     text: String? = null,
@@ -59,6 +71,10 @@ fun styledButton(
 
 /**
  * Add a styled [Button] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledButton(
     text: String? = null,
@@ -69,6 +85,11 @@ fun NodeManager.styledButton(
 
 /**
  * Create a styled [Button] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledButton(
     text: String? = null,
@@ -87,6 +108,11 @@ inline fun styledButton(
 
 /**
  * Add a styled [Button] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledButton(
     text: String? = null,

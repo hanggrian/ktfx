@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXHamburger] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxHamburger(): JFXHamburger = jfxHamburger() { }
 
 /**
  * Create a [JFXHamburger] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxHamburger(configuration: (@LayoutDslMarker JFXHamburger).() -> Unit): JFXHamburger {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -31,6 +36,9 @@ inline fun jfxHamburger(configuration: (@LayoutDslMarker JFXHamburger).() -> Uni
 
 /**
  * Add a [JFXHamburger] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxHamburger(configuration: (@LayoutDslMarker JFXHamburger).() -> Unit):
     JFXHamburger {
@@ -40,18 +48,31 @@ inline fun NodeManager.jfxHamburger(configuration: (@LayoutDslMarker JFXHamburge
 
 /**
  * Create a styled [JFXHamburger].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXHamburger(vararg styleClass: String, id: String? = null): JFXHamburger =
     styledJFXHamburger(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXHamburger] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXHamburger(vararg styleClass: String, id: String? = null): JFXHamburger =
     styledJFXHamburger(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXHamburger] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXHamburger(
     vararg styleClass: String,
@@ -68,6 +89,11 @@ inline fun styledJFXHamburger(
 
 /**
  * Add a styled [JFXHamburger] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXHamburger(
     vararg styleClass: String,

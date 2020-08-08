@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [MediaView] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView = mediaView(
     mediaPlayer =
@@ -25,6 +27,9 @@ fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView = mediaVi
 
 /**
  * Create a [MediaView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun mediaView(
     mediaPlayer: MediaPlayer? = null,
@@ -39,6 +44,9 @@ inline fun mediaView(
 
 /**
  * Add a [MediaView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.mediaView(
     mediaPlayer: MediaPlayer? = null,
@@ -53,6 +61,10 @@ inline fun NodeManager.mediaView(
 
 /**
  * Create a styled [MediaView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
@@ -62,6 +74,10 @@ fun styledMediaView(
 
 /**
  * Add a styled [MediaView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
@@ -71,6 +87,11 @@ fun NodeManager.styledMediaView(
 
 /**
  * Create a styled [MediaView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
@@ -88,6 +109,11 @@ inline fun styledMediaView(
 
 /**
  * Add a styled [MediaView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledMediaView(
     mediaPlayer: MediaPlayer? = null,

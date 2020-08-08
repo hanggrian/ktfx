@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add an [Accordion] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.accordion(): Accordion = accordion() { }
 
 /**
  * Create an [Accordion] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -29,6 +34,9 @@ inline fun accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit)
 
 /**
  * Add an [Accordion] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit):
     Accordion {
@@ -38,18 +46,31 @@ inline fun NodeManager.accordion(configuration: (@LayoutDslMarker KtfxAccordion)
 
 /**
  * Create a styled [Accordion].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledAccordion(vararg styleClass: String, id: String? = null): Accordion =
     styledAccordion(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Accordion] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledAccordion(vararg styleClass: String, id: String? = null): Accordion =
     styledAccordion(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Accordion] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledAccordion(
     vararg styleClass: String,
@@ -66,6 +87,11 @@ inline fun styledAccordion(
 
 /**
  * Add a styled [Accordion] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledAccordion(
     vararg styleClass: String,

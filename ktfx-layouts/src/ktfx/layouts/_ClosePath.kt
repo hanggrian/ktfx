@@ -15,11 +15,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ClosePath] to this manager.
+ *
+ * @return the control added.
  */
 fun PathElementManager.closePath(): ClosePath = closePath() { }
 
 /**
  * Create a [ClosePath] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit): ClosePath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -28,6 +33,9 @@ inline fun closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit): Cl
 
 /**
  * Add a [ClosePath] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun PathElementManager.closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit):
     ClosePath {

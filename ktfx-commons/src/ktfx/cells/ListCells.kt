@@ -150,11 +150,7 @@ inline fun <T> ListView<T>.textFieldCellFactory(
  */
 fun <T> ListView<T>.cellFactory(
     configuration: KtfxListCell<T>.(ListView<T>) -> Unit
-): Unit = setCellFactory {
-    val cell = KtfxListCell<T>()
-    cell.configuration(it)
-    cell
-}
+): Unit = setCellFactory { KtfxListCell<T>().apply { configuration(it) } }
 
 /**
  * Sets a custom cell factory to use in this [ComboBox].
@@ -163,14 +159,10 @@ fun <T> ListView<T>.cellFactory(
  */
 fun <T> ComboBox<T>.cellFactory(
     configuration: KtfxListCell<T>.(ListView<T>) -> Unit
-): Unit = setCellFactory {
-    val cell = KtfxListCell<T>()
-    cell.configuration(it)
-    cell
-}
+): Unit = setCellFactory { KtfxListCell<T>().apply { configuration(it) } }
 
 /** Custom [ListCell] configurator class. */
-class KtfxListCell<T> internal constructor() : ListCell<T>(), KtfxCell<T> {
+class KtfxListCell<T> : ListCell<T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

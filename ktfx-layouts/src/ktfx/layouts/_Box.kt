@@ -18,6 +18,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [Box] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.box(
     width: Double = DEFAULT_SIZE,
@@ -27,6 +29,9 @@ fun NodeManager.box(
 
 /**
  * Create a [Box] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun box(
     width: Double = DEFAULT_SIZE,
@@ -40,6 +45,9 @@ inline fun box(
 
 /**
  * Add a [Box] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.box(
     width: Double = DEFAULT_SIZE,
@@ -53,6 +61,10 @@ inline fun NodeManager.box(
 
 /**
  * Create a styled [Box].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledBox(
     width: Double = DEFAULT_SIZE,
@@ -64,6 +76,10 @@ fun styledBox(
 
 /**
  * Add a styled [Box] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledBox(
     width: Double = DEFAULT_SIZE,
@@ -75,6 +91,11 @@ fun NodeManager.styledBox(
 
 /**
  * Create a styled [Box] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledBox(
     width: Double = DEFAULT_SIZE,
@@ -94,6 +115,11 @@ inline fun styledBox(
 
 /**
  * Add a styled [Box] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledBox(
     width: Double = DEFAULT_SIZE,

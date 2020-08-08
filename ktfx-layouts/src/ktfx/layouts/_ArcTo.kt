@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add an [ArcTo] to this manager.
+ *
+ * @return the control added.
  */
 fun PathElementManager.arcTo(
     radiusX: Double = 0.0,
@@ -33,6 +35,9 @@ fun PathElementManager.arcTo(
 
 /**
  * Create an [ArcTo] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun arcTo(
     radiusX: Double = 0.0,
@@ -53,6 +58,9 @@ inline fun arcTo(
 
 /**
  * Add an [ArcTo] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun PathElementManager.arcTo(
     radiusX: Double = 0.0,

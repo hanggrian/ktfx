@@ -17,6 +17,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [TreeTableView] to this manager.
+ *
+ * @return the control added.
  */
 fun <S> NodeManager.treeTableView(root: TreeItem<S>? = null): TreeTableView<S> = treeTableView(
     root =
@@ -25,6 +27,9 @@ fun <S> NodeManager.treeTableView(root: TreeItem<S>? = null): TreeTableView<S> =
 
 /**
  * Create a [TreeTableView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <S> treeTableView(
     root: TreeItem<S>? = null,
@@ -39,6 +44,9 @@ inline fun <S> treeTableView(
 
 /**
  * Add a [TreeTableView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null,
@@ -53,6 +61,10 @@ inline fun <S> NodeManager.treeTableView(
 
 /**
  * Create a styled [TreeTableView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <S> styledTreeTableView(
     root: TreeItem<S>? = null,
@@ -62,6 +74,10 @@ fun <S> styledTreeTableView(
 
 /**
  * Add a styled [TreeTableView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <S> NodeManager.styledTreeTableView(
     root: TreeItem<S>? = null,
@@ -71,6 +87,11 @@ fun <S> NodeManager.styledTreeTableView(
 
 /**
  * Create a styled [TreeTableView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <S> styledTreeTableView(
     root: TreeItem<S>? = null,
@@ -88,6 +109,11 @@ inline fun <S> styledTreeTableView(
 
 /**
  * Add a styled [TreeTableView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <S> NodeManager.styledTreeTableView(
     root: TreeItem<S>? = null,

@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [SnapshotView] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.snapshotView(): SnapshotView = snapshotView() { }
 
 /**
  * Create a [SnapshotView] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit):
     SnapshotView {
@@ -32,6 +37,9 @@ inline fun snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() ->
 
 /**
  * Add a [SnapshotView] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit):
     SnapshotView {
@@ -41,18 +49,31 @@ inline fun NodeManager.snapshotView(configuration: (@LayoutDslMarker KtfxSnapsho
 
 /**
  * Create a styled [SnapshotView].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledSnapshotView(vararg styleClass: String, id: String? = null): SnapshotView =
     styledSnapshotView(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [SnapshotView] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledSnapshotView(vararg styleClass: String, id: String? = null): SnapshotView =
     styledSnapshotView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [SnapshotView] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledSnapshotView(
     vararg styleClass: String,
@@ -69,6 +90,11 @@ inline fun styledSnapshotView(
 
 /**
  * Add a styled [SnapshotView] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledSnapshotView(
     vararg styleClass: String,

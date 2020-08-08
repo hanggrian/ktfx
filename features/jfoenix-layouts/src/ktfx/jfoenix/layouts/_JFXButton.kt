@@ -19,6 +19,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXButton] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxButton(text: String? = null, graphic: Node? = null): JFXButton = jfxButton(
     text =
@@ -28,6 +30,9 @@ fun NodeManager.jfxButton(text: String? = null, graphic: Node? = null): JFXButto
 
 /**
  * Create a [JFXButton] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxButton(
     text: String? = null,
@@ -40,6 +45,9 @@ inline fun jfxButton(
 
 /**
  * Add a [JFXButton] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxButton(
     text: String? = null,
@@ -52,6 +60,10 @@ inline fun NodeManager.jfxButton(
 
 /**
  * Create a styled [JFXButton].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXButton(
     text: String? = null,
@@ -63,6 +75,10 @@ fun styledJFXButton(
 
 /**
  * Add a styled [JFXButton] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXButton(
     text: String? = null,
@@ -74,6 +90,11 @@ fun NodeManager.styledJFXButton(
 
 /**
  * Create a styled [JFXButton] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXButton(
     text: String? = null,
@@ -92,6 +113,11 @@ inline fun styledJFXButton(
 
 /**
  * Add a styled [JFXButton] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXButton(
     text: String? = null,

@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [PrefixSelectionChoiceBox] to this manager.
+ *
+ * @return the control added.
  */
 fun <T> NodeManager.prefixSelectionChoiceBox(): PrefixSelectionChoiceBox<T> =
     prefixSelectionChoiceBox() { }
 
 /**
  * Create a [PrefixSelectionChoiceBox] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun <T> prefixSelectionChoiceBox(
     configuration: (
@@ -37,6 +42,9 @@ inline fun <T> prefixSelectionChoiceBox(
 
 /**
  * Add a [PrefixSelectionChoiceBox] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun <T> NodeManager.prefixSelectionChoiceBox(
     configuration: (
@@ -50,6 +58,10 @@ inline fun <T> NodeManager.prefixSelectionChoiceBox(
 
 /**
  * Create a styled [PrefixSelectionChoiceBox].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun <T> styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = null):
     PrefixSelectionChoiceBox<T> = styledPrefixSelectionChoiceBox(
@@ -60,6 +72,10 @@ fun <T> styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = 
 
 /**
  * Add a styled [PrefixSelectionChoiceBox] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun <T> NodeManager.styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = null):
     PrefixSelectionChoiceBox<T> = styledPrefixSelectionChoiceBox(
@@ -70,6 +86,11 @@ fun <T> NodeManager.styledPrefixSelectionChoiceBox(vararg styleClass: String, id
 
 /**
  * Create a styled [PrefixSelectionChoiceBox] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun <T> styledPrefixSelectionChoiceBox(
     vararg styleClass: String,
@@ -86,6 +107,11 @@ inline fun <T> styledPrefixSelectionChoiceBox(
 
 /**
  * Add a styled [PrefixSelectionChoiceBox] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun <T> NodeManager.styledPrefixSelectionChoiceBox(
     vararg styleClass: String,

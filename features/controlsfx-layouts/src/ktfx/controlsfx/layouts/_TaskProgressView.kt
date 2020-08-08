@@ -19,11 +19,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [TaskProgressView] to this manager.
+ *
+ * @return the control added.
  */
 fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> = taskProgressView() { }
 
 /**
  * Create a [TaskProgressView] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun <T : Task<*>> taskProgressView(
     configuration: (
@@ -37,6 +42,9 @@ inline fun <T : Task<*>> taskProgressView(
 
 /**
  * Add a [TaskProgressView] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun <T : Task<*>> NodeManager.taskProgressView(
     configuration: (
@@ -50,18 +58,31 @@ inline fun <T : Task<*>> NodeManager.taskProgressView(
 
 /**
  * Create a styled [TaskProgressView].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun <T : Task<*>> styledTaskProgressView(vararg styleClass: String, id: String? = null):
     TaskProgressView<T> = styledTaskProgressView(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [TaskProgressView] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun <T : Task<*>> NodeManager.styledTaskProgressView(vararg styleClass: String, id: String? = null):
     TaskProgressView<T> = styledTaskProgressView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TaskProgressView] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun <T : Task<*>> styledTaskProgressView(
     vararg styleClass: String,
@@ -78,6 +99,11 @@ inline fun <T : Task<*>> styledTaskProgressView(
 
 /**
  * Add a styled [TaskProgressView] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun <T : Task<*>> NodeManager.styledTaskProgressView(
     vararg styleClass: String,

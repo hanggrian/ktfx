@@ -19,6 +19,8 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXSlider] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxSlider(
     min: Double = 0.0,
@@ -28,6 +30,9 @@ fun NodeManager.jfxSlider(
 
 /**
  * Create a [JFXSlider] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxSlider(
     min: Double = 0.0,
@@ -41,6 +46,9 @@ inline fun jfxSlider(
 
 /**
  * Add a [JFXSlider] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxSlider(
     min: Double = 0.0,
@@ -54,6 +62,10 @@ inline fun NodeManager.jfxSlider(
 
 /**
  * Create a styled [JFXSlider].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXSlider(
     min: Double = 0.0,
@@ -69,6 +81,10 @@ fun styledJFXSlider(
 
 /**
  * Add a styled [JFXSlider] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXSlider(
     min: Double = 0.0,
@@ -84,6 +100,11 @@ fun NodeManager.styledJFXSlider(
 
 /**
  * Create a styled [JFXSlider] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXSlider(
     min: Double = 0.0,
@@ -103,6 +124,11 @@ inline fun styledJFXSlider(
 
 /**
  * Add a styled [JFXSlider] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXSlider(
     min: Double = 0.0,

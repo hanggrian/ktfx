@@ -20,12 +20,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXSpinner] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinner =
     jfxSpinner(progress = progress) { }
 
 /**
  * Create a [JFXSpinner] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun jfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -40,6 +45,9 @@ inline fun jfxSpinner(
 
 /**
  * Add a [JFXSpinner] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.jfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -51,6 +59,10 @@ inline fun NodeManager.jfxSpinner(
 
 /**
  * Create a styled [JFXSpinner].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -60,6 +72,10 @@ fun styledJFXSpinner(
 
 /**
  * Add a styled [JFXSpinner] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -69,6 +85,11 @@ fun NodeManager.styledJFXSpinner(
 
 /**
  * Create a styled [JFXSpinner] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
@@ -86,6 +107,11 @@ inline fun styledJFXSpinner(
 
 /**
  * Add a styled [JFXSpinner] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,

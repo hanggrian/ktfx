@@ -63,7 +63,7 @@ fun <S> TreeTableColumn<S, *>.columns(configuration: TreeTableColumnScope<S>.() 
     }.configuration()
 }
 
-/** Container of [TableColumn], providing sets of useful operation. */
+/** [TableColumn] configurator interface. */
 @TableColumnDslMarker
 interface TableColumnScope<S> {
 
@@ -91,7 +91,7 @@ interface TableColumnScope<S> {
     ): TableColumn<S, T> = append(this, configuration)
 }
 
-/** Container of [TreeTableColumn], providing sets of useful operation. */
+/** [TreeTableColumn] configurator interface. */
 @TableColumnDslMarker
 interface TreeTableColumnScope<S> {
 
@@ -107,10 +107,9 @@ interface TreeTableColumnScope<S> {
     fun <T> append(
         text: String? = null,
         configuration: TreeTableColumn<S, T>.() -> Unit
-    ): TreeTableColumn<S, T> {
-        val column = TreeTableColumn<S, T>(text).apply(configuration)
-        columns += column
-        return column
+    ): TreeTableColumn<S, T> = TreeTableColumn<S, T>(text).also {
+        it.configuration()
+        columns += it
     }
 
     /** Add a column using receiver and [configuration] block, returning the column added. */

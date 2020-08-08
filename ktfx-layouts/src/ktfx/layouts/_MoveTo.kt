@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [MoveTo] to this manager.
+ *
+ * @return the control added.
  */
 fun PathElementManager.moveTo(x: Double = 0.0, y: Double = 0.0): MoveTo = moveTo(x = x, y = y) { }
 
 /**
  * Create a [MoveTo] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun moveTo(
     x: Double = 0.0,
@@ -33,6 +38,9 @@ inline fun moveTo(
 
 /**
  * Add a [MoveTo] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun PathElementManager.moveTo(
     x: Double = 0.0,

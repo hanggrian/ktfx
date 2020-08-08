@@ -18,11 +18,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [JFXScrollPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.jfxScrollPane(): JFXScrollPane = jfxScrollPane() { }
 
 /**
  * Create a [JFXScrollPane] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun jfxScrollPane(configuration: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit):
     JFXScrollPane {
@@ -32,6 +37,9 @@ inline fun jfxScrollPane(configuration: (@LayoutDslMarker KtfxJFXScrollPane).() 
 
 /**
  * Add a [JFXScrollPane] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.jfxScrollPane(
     configuration: (@LayoutDslMarker KtfxJFXScrollPane).() ->
@@ -43,18 +51,31 @@ inline fun NodeManager.jfxScrollPane(
 
 /**
  * Create a styled [JFXScrollPane].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledJFXScrollPane(vararg styleClass: String, id: String? = null): JFXScrollPane =
     styledJFXScrollPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [JFXScrollPane] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledJFXScrollPane(vararg styleClass: String, id: String? = null): JFXScrollPane =
     styledJFXScrollPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXScrollPane] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledJFXScrollPane(
     vararg styleClass: String,
@@ -71,6 +92,11 @@ inline fun styledJFXScrollPane(
 
 /**
  * Add a styled [JFXScrollPane] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledJFXScrollPane(
     vararg styleClass: String,

@@ -175,14 +175,10 @@ inline fun <S, T> TreeTableColumn<S, T>.textFieldCellFactory(
  */
 fun <S, T> TreeTableColumn<S, T>.cellFactory(
     configuration: KtfxTreeTableCell<S, T>.(TreeTableColumn<S, T>) -> Unit
-): Unit = setCellFactory {
-    val builder = KtfxTreeTableCell<S, T>()
-    builder.configuration(it)
-    builder
-}
+): Unit = setCellFactory { KtfxTreeTableCell<S, T>().apply { configuration(it) } }
 
 /** Custom [TreeTableCell] configurator class. */
-class KtfxTreeTableCell<S, T> internal constructor() : TreeTableCell<S, T>(), KtfxCell<T> {
+class KtfxTreeTableCell<S, T> : TreeTableCell<S, T>(), KtfxCell<T> {
     private var onEditStart: (() -> Unit)? = null
     private var onEditCommit: ((T?) -> Unit)? = null
     private var onEditCancel: (() -> Unit)? = null

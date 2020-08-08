@@ -16,11 +16,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [SplitMenuButton] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.splitMenuButton(): SplitMenuButton = splitMenuButton() { }
 
 /**
  * Create a [SplitMenuButton] with configuration block.
+ *
+ * @param configuration the configuration block.
+ * @return the control created.
  */
 inline fun splitMenuButton(configuration: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit):
     SplitMenuButton {
@@ -30,6 +35,9 @@ inline fun splitMenuButton(configuration: (@LayoutDslMarker KtfxSplitMenuButton)
 
 /**
  * Add a [SplitMenuButton] with configuration block to this manager.
+ *
+ * @param configuration the configuration block.
+ * @return the control added.
  */
 inline fun NodeManager.splitMenuButton(
     configuration: (@LayoutDslMarker KtfxSplitMenuButton).() ->
@@ -41,18 +49,31 @@ inline fun NodeManager.splitMenuButton(
 
 /**
  * Create a styled [SplitMenuButton].
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control created.
  */
 fun styledSplitMenuButton(vararg styleClass: String, id: String? = null): SplitMenuButton =
     styledSplitMenuButton(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [SplitMenuButton] to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @return the styled control added.
  */
 fun NodeManager.styledSplitMenuButton(vararg styleClass: String, id: String? = null):
     SplitMenuButton = styledSplitMenuButton(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [SplitMenuButton] with configuration block.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control created.
  */
 inline fun styledSplitMenuButton(
     vararg styleClass: String,
@@ -69,6 +90,11 @@ inline fun styledSplitMenuButton(
 
 /**
  * Add a styled [SplitMenuButton] with configuration block to this manager.
+ *
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ * @return the styled control added.
  */
 inline fun NodeManager.styledSplitMenuButton(
     vararg styleClass: String,

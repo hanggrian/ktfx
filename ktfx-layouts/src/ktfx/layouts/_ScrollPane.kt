@@ -17,11 +17,16 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [ScrollPane] to this manager.
+ *
+ * @return the control added.
  */
 fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(content = content) { }
 
 /**
  * Create a [ScrollPane] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun scrollPane(
     content: Node? = null,
@@ -34,6 +39,9 @@ inline fun scrollPane(
 
 /**
  * Add a [ScrollPane] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun NodeManager.scrollPane(
     content: Node? = null,
@@ -48,6 +56,10 @@ inline fun NodeManager.scrollPane(
 
 /**
  * Create a styled [ScrollPane].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun styledScrollPane(
     content: Node? = null,
@@ -57,6 +69,10 @@ fun styledScrollPane(
 
 /**
  * Add a styled [ScrollPane] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun NodeManager.styledScrollPane(
     content: Node? = null,
@@ -66,6 +82,11 @@ fun NodeManager.styledScrollPane(
 
 /**
  * Create a styled [ScrollPane] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun styledScrollPane(
     content: Node? = null,
@@ -83,6 +104,11 @@ inline fun styledScrollPane(
 
 /**
  * Add a styled [ScrollPane] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun NodeManager.styledScrollPane(
     content: Node? = null,

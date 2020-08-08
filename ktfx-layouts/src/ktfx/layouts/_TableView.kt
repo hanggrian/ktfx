@@ -18,12 +18,17 @@ import kotlin.jvm.JvmName
 
 /**
  * Add a [TableView] to this manager.
+ *
+ * @return the control added.
  */
 fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList()): TableView<S> =
     tableView(items = items) { }
 
 /**
  * Create a [TableView] with configuration block.
+ * @param configuration the configuration block.
+ *
+ * @return the control created.
  */
 inline fun <S> tableView(
     items: ObservableList<S> = observableArrayList(),
@@ -35,6 +40,9 @@ inline fun <S> tableView(
 
 /**
  * Add a [TableView] with configuration block to this manager.
+ * @param configuration the configuration block.
+ *
+ * @return the control added.
  */
 inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = observableArrayList(),
@@ -46,6 +54,10 @@ inline fun <S> NodeManager.tableView(
 
 /**
  * Create a styled [TableView].
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control created.
  */
 fun <S> styledTableView(
     items: ObservableList<S> = observableArrayList(),
@@ -55,6 +67,10 @@ fun <S> styledTableView(
 
 /**
  * Add a styled [TableView] to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ *
+ * @return the styled control added.
  */
 fun <S> NodeManager.styledTableView(
     items: ObservableList<S> = observableArrayList(),
@@ -64,6 +80,11 @@ fun <S> NodeManager.styledTableView(
 
 /**
  * Create a styled [TableView] with configuration block.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control created.
  */
 inline fun <S> styledTableView(
     items: ObservableList<S> = observableArrayList(),
@@ -81,6 +102,11 @@ inline fun <S> styledTableView(
 
 /**
  * Add a styled [TableView] with configuration block to this manager.
+ * @param styleClass the CSS style class.
+ * @param id the CSS id.
+ * @param configuration the configuration block.
+ *
+ * @return the styled control added.
  */
 inline fun <S> NodeManager.styledTableView(
     items: ObservableList<S> = observableArrayList(),

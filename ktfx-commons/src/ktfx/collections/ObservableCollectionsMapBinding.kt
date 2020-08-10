@@ -30,13 +30,13 @@ inline fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>): Unit = Bind
 inline fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>): Unit = Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableMap]. */
-inline val <K, V> ObservableMap<K, V>.sizeBinding: IntegerBinding get() = Bindings.size(this)
+inline fun <K, V> ObservableMap<K, V>.size(): IntegerBinding = Bindings.size(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableMap] is empty. */
-inline val <K, V> ObservableMap<K, V>.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
+inline val <K, V> ObservableMap<K, V>.isEmpty: BooleanBinding get() = Bindings.isEmpty(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableMap] is not empty. */
-inline val <K, V> ObservableMap<K, V>.notEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)
+inline val <K, V> ObservableMap<K, V>.isNotEmpty: BooleanBinding get() = Bindings.isNotEmpty(this)
 
 /** Creates a new [ObjectBinding] that contains the mapping of a specific key in an [ObservableMap]. */
 inline fun <K, V> ObservableMap<K, V>.getBinding(key: K): ObjectBinding<V> =

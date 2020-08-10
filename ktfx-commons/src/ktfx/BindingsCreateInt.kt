@@ -13,6 +13,9 @@ import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
+import javafx.beans.value.ObservableStringValue
+import javafx.collections.ObservableList
+import ktfx.collections.observableListOf
 import java.util.concurrent.Callable
 
 /** Create an [IntegerBinding] with multiple [Observable] dependencies. */
@@ -20,25 +23,85 @@ inline fun intBindingOf(vararg dependencies: Observable, noinline valueProvider:
     Bindings.createIntegerBinding(Callable(valueProvider), *dependencies)
 
 /** Create an [IntegerBinding] with single [ObservableObjectValue] dependency. */
-inline fun <V> ObservableObjectValue<V>.toIntBinding(noinline valueProvider: (V?) -> Int): IntegerBinding =
-    Bindings.createIntegerBinding(Callable { valueProvider(value) }, this)
+fun <V> ObservableObjectValue<V>.toIntBinding(valueProvider: (V?) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@toIntBinding)
+        override fun computeValue(): Int = valueProvider(this@toIntBinding.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toIntBinding)
+
+        init {
+            bind(this@toIntBinding)
+        }
+    }
+
+/** Create an [IntegerBinding] with single [ObservableStringValue] dependency. */
+fun ObservableStringValue.toIntBinding(valueProvider: (String) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@toIntBinding)
+        override fun computeValue(): Int = valueProvider(this@toIntBinding.value.orEmpty())
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toIntBinding)
+
+        init {
+            bind(this@toIntBinding)
+        }
+    }
 
 /** Create an [IntegerBinding] with single [ObservableBooleanValue] dependency. */
-inline fun ObservableBooleanValue.toIntBinding(noinline valueProvider: (Boolean) -> Int): IntegerBinding =
-    Bindings.createIntegerBinding(Callable { valueProvider(value) }, this)
+fun ObservableBooleanValue.toIntBinding(valueProvider: (Boolean) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@toIntBinding)
+        override fun computeValue(): Int = valueProvider(this@toIntBinding.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toIntBinding)
+
+        init {
+            bind(this@toIntBinding)
+        }
+    }
 
 /** Create an [IntegerBinding] with single [ObservableDoubleValue] dependency. */
-inline fun ObservableDoubleValue.toIntBinding(noinline valueProvider: (Double) -> Int): IntegerBinding =
-    Bindings.createIntegerBinding(Callable { valueProvider(value as Double) }, this)
+fun ObservableDoubleValue.toIntBinding(valueProvider: (Double) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@toIntBinding)
+        override fun computeValue(): Int = valueProvider(this@toIntBinding.value as Double)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toIntBinding)
+
+        init {
+            bind(this@toIntBinding)
+        }
+    }
 
 /** Create an [IntegerBinding] with single [ObservableFloatValue] dependency. */
-inline fun ObservableFloatValue.toIntBinding(noinline valueProvider: (Float) -> Int): IntegerBinding =
-    Bindings.createIntegerBinding(Callable { valueProvider(value as Float) }, this)
+fun ObservableFloatValue.toIntBinding(valueProvider: (Float) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@toIntBinding)
+        override fun computeValue(): Int = valueProvider(this@toIntBinding.value as Float)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toIntBinding)
+
+        init {
+            bind(this@toIntBinding)
+        }
+    }
 
 /** Create an [IntegerBinding] with single [ObservableIntegerValue] dependency. */
-inline fun ObservableIntegerValue.toIntBinding(noinline valueProvider: (Int) -> Int): IntegerBinding =
-    Bindings.createIntegerBinding(Callable { valueProvider(value as Int) }, this)
+fun ObservableIntegerValue.toIntBinding(valueProvider: (Int) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@toIntBinding)
+        override fun computeValue(): Int = valueProvider(this@toIntBinding.value as Int)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toIntBinding)
+
+        init {
+            bind(this@toIntBinding)
+        }
+    }
 
 /** Create an [IntegerBinding] with single [ObservableLongValue] dependency. */
-inline fun ObservableLongValue.toIntBinding(noinline valueProvider: (Long) -> Int): IntegerBinding =
-    Bindings.createIntegerBinding(Callable { valueProvider(value as Long) }, this)
+fun ObservableLongValue.toIntBinding(valueProvider: (Long) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@toIntBinding)
+        override fun computeValue(): Int = valueProvider(this@toIntBinding.value as Long)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toIntBinding)
+
+        init {
+            bind(this@toIntBinding)
+        }
+    }

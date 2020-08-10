@@ -13,6 +13,9 @@ import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
+import javafx.beans.value.ObservableStringValue
+import javafx.collections.ObservableList
+import ktfx.collections.observableListOf
 import java.util.concurrent.Callable
 
 /** Create a [FloatBinding] with multiple [Observable] dependencies. */
@@ -20,25 +23,85 @@ inline fun floatBindingOf(vararg dependencies: Observable, noinline valueProvide
     Bindings.createFloatBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [FloatBinding] with single [ObservableObjectValue] dependency. */
-inline fun <V> ObservableObjectValue<V>.toFloatBinding(noinline valueProvider: (V?) -> Float): FloatBinding =
-    Bindings.createFloatBinding(Callable { valueProvider(value) }, this)
+fun <V> ObservableObjectValue<V>.toFloatBinding(valueProvider: (V?) -> Float): FloatBinding =
+    object : FloatBinding() {
+        override fun dispose(): Unit = unbind(this@toFloatBinding)
+        override fun computeValue(): Float = valueProvider(this@toFloatBinding.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toFloatBinding)
+
+        init {
+            bind(this@toFloatBinding)
+        }
+    }
+
+/** Create a [FloatBinding] with single [ObservableStringValue] dependency. */
+fun ObservableStringValue.toFloatBinding(valueProvider: (String) -> Float): FloatBinding =
+    object : FloatBinding() {
+        override fun dispose(): Unit = unbind(this@toFloatBinding)
+        override fun computeValue(): Float = valueProvider(this@toFloatBinding.value.orEmpty())
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toFloatBinding)
+
+        init {
+            bind(this@toFloatBinding)
+        }
+    }
 
 /** Create a [FloatBinding] with single [ObservableBooleanValue] dependency. */
-inline fun ObservableBooleanValue.toFloatBinding(noinline valueProvider: (Boolean) -> Float): FloatBinding =
-    Bindings.createFloatBinding(Callable { valueProvider(value) }, this)
+fun ObservableBooleanValue.toFloatBinding(valueProvider: (Boolean) -> Float): FloatBinding =
+    object : FloatBinding() {
+        override fun dispose(): Unit = unbind(this@toFloatBinding)
+        override fun computeValue(): Float = valueProvider(this@toFloatBinding.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toFloatBinding)
+
+        init {
+            bind(this@toFloatBinding)
+        }
+    }
 
 /** Create a [FloatBinding] with single [ObservableDoubleValue] dependency. */
-inline fun ObservableDoubleValue.toFloatBinding(noinline valueProvider: (Double) -> Float): FloatBinding =
-    Bindings.createFloatBinding(Callable { valueProvider(value as Double) }, this)
+fun ObservableDoubleValue.toFloatBinding(valueProvider: (Double) -> Float): FloatBinding =
+    object : FloatBinding() {
+        override fun dispose(): Unit = unbind(this@toFloatBinding)
+        override fun computeValue(): Float = valueProvider(this@toFloatBinding.value as Double)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toFloatBinding)
+
+        init {
+            bind(this@toFloatBinding)
+        }
+    }
 
 /** Create a [FloatBinding] with single [ObservableFloatValue] dependency. */
-inline fun ObservableFloatValue.toFloatBinding(noinline valueProvider: (Float) -> Float): FloatBinding =
-    Bindings.createFloatBinding(Callable { valueProvider(value as Float) }, this)
+fun ObservableFloatValue.toFloatBinding(valueProvider: (Float) -> Float): FloatBinding =
+    object : FloatBinding() {
+        override fun dispose(): Unit = unbind(this@toFloatBinding)
+        override fun computeValue(): Float = valueProvider(this@toFloatBinding.value as Float)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toFloatBinding)
+
+        init {
+            bind(this@toFloatBinding)
+        }
+    }
 
 /** Create a [FloatBinding] with single [ObservableIntegerValue] dependency. */
-inline fun ObservableIntegerValue.toFloatBinding(noinline valueProvider: (Int) -> Float): FloatBinding =
-    Bindings.createFloatBinding(Callable { valueProvider(value as Int) }, this)
+fun ObservableIntegerValue.toFloatBinding(valueProvider: (Int) -> Float): FloatBinding =
+    object : FloatBinding() {
+        override fun dispose(): Unit = unbind(this@toFloatBinding)
+        override fun computeValue(): Float = valueProvider(this@toFloatBinding.value as Int)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toFloatBinding)
+
+        init {
+            bind(this@toFloatBinding)
+        }
+    }
 
 /** Create a [FloatBinding] with single [ObservableLongValue] dependency. */
-inline fun ObservableLongValue.toFloatBinding(noinline valueProvider: (Long) -> Float): FloatBinding =
-    Bindings.createFloatBinding(Callable { valueProvider(value as Long) }, this)
+fun ObservableLongValue.toFloatBinding(valueProvider: (Long) -> Float): FloatBinding =
+    object : FloatBinding() {
+        override fun dispose(): Unit = unbind(this@toFloatBinding)
+        override fun computeValue(): Float = valueProvider(this@toFloatBinding.value as Long)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toFloatBinding)
+
+        init {
+            bind(this@toFloatBinding)
+        }
+    }

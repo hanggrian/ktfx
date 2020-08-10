@@ -13,6 +13,9 @@ import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
+import javafx.beans.value.ObservableStringValue
+import javafx.collections.ObservableList
+import ktfx.collections.observableListOf
 import java.util.concurrent.Callable
 
 /** Create a [DoubleBinding] with multiple [Observable] dependencies. */
@@ -20,25 +23,85 @@ inline fun doubleBindingOf(vararg dependencies: Observable, noinline valueProvid
     Bindings.createDoubleBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [DoubleBinding] with single [ObservableObjectValue] dependency. */
-inline fun <V> ObservableObjectValue<V>.toDoubleBinding(noinline valueProvider: (V?) -> Double): DoubleBinding =
-    Bindings.createDoubleBinding(Callable { valueProvider(value) }, this)
+fun <V> ObservableObjectValue<V>.toDoubleBinding(valueProvider: (V?) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@toDoubleBinding)
+        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+
+        init {
+            bind(this@toDoubleBinding)
+        }
+    }
+
+/** Create a [DoubleBinding] with single [ObservableStringValue] dependency. */
+fun ObservableStringValue.toDoubleBinding(valueProvider: (String) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@toDoubleBinding)
+        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value.orEmpty())
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+
+        init {
+            bind(this@toDoubleBinding)
+        }
+    }
 
 /** Create a [DoubleBinding] with single [ObservableBooleanValue] dependency. */
-inline fun ObservableBooleanValue.toDoubleBinding(noinline valueProvider: (Boolean) -> Double): DoubleBinding =
-    Bindings.createDoubleBinding(Callable { valueProvider(value) }, this)
+fun ObservableBooleanValue.toDoubleBinding(valueProvider: (Boolean) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@toDoubleBinding)
+        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+
+        init {
+            bind(this@toDoubleBinding)
+        }
+    }
 
 /** Create a [DoubleBinding] with single [ObservableDoubleValue] dependency. */
-inline fun ObservableDoubleValue.toDoubleBinding(noinline valueProvider: (Double) -> Double): DoubleBinding =
-    Bindings.createDoubleBinding(Callable { valueProvider(value as Double) }, this)
+fun ObservableDoubleValue.toDoubleBinding(valueProvider: (Double) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@toDoubleBinding)
+        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value as Double)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+
+        init {
+            bind(this@toDoubleBinding)
+        }
+    }
 
 /** Create a [DoubleBinding] with single [ObservableFloatValue] dependency. */
-inline fun ObservableFloatValue.toDoubleBinding(noinline valueProvider: (Float) -> Double): DoubleBinding =
-    Bindings.createDoubleBinding(Callable { valueProvider(value as Float) }, this)
+fun ObservableFloatValue.toDoubleBinding(valueProvider: (Float) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@toDoubleBinding)
+        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value as Float)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+
+        init {
+            bind(this@toDoubleBinding)
+        }
+    }
 
 /** Create a [DoubleBinding] with single [ObservableIntegerValue] dependency. */
-inline fun ObservableIntegerValue.toDoubleBinding(noinline valueProvider: (Int) -> Double): DoubleBinding =
-    Bindings.createDoubleBinding(Callable { valueProvider(value as Int) }, this)
+fun ObservableIntegerValue.toDoubleBinding(valueProvider: (Int) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@toDoubleBinding)
+        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value as Int)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+
+        init {
+            bind(this@toDoubleBinding)
+        }
+    }
 
 /** Create a [DoubleBinding] with single [ObservableLongValue] dependency. */
-inline fun ObservableLongValue.toDoubleBinding(noinline valueProvider: (Long) -> Double): DoubleBinding =
-    Bindings.createDoubleBinding(Callable { valueProvider(value as Long) }, this)
+fun ObservableLongValue.toDoubleBinding(valueProvider: (Long) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@toDoubleBinding)
+        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value as Long)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+
+        init {
+            bind(this@toDoubleBinding)
+        }
+    }

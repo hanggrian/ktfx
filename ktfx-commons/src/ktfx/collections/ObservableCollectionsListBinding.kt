@@ -32,13 +32,13 @@ inline fun <E> List<E>.bindContent(other: ObservableList<E>): Unit = Bindings.bi
 inline fun <E> List<E>.unbindContent(other: ObservableList<E>): Unit = Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableList]. */
-inline val <E> ObservableList<E>.sizeBinding: IntegerBinding get() = Bindings.size(this)
+inline fun <E> ObservableList<E>.size(): IntegerBinding = Bindings.size(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableList] is empty. */
-inline val <E> ObservableList<E>.emptyBinding: BooleanBinding get() = Bindings.isEmpty(this)
+inline val <E> ObservableList<E>.isEmpty: BooleanBinding get() = Bindings.isEmpty(this)
 
 /** Creates a new [BooleanBinding] that holds `true` if a given [ObservableList] is not empty. */
-inline val <E> ObservableList<E>.notEmptyBinding: BooleanBinding get() = Bindings.isNotEmpty(this)
+inline val <E> ObservableList<E>.isNotEmpty: BooleanBinding get() = Bindings.isNotEmpty(this)
 
 /** Creates a new [ObjectBinding] that contains the element of an [ObservableList] at the specified position. */
 inline fun <E> ObservableList<E>.getBinding(index: Int): ObjectBinding<E> =

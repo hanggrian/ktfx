@@ -5,8 +5,8 @@ package ktfx.controls
 import javafx.beans.binding.BooleanBinding
 import javafx.scene.control.MultipleSelectionModel
 import javafx.scene.control.SelectionModel
-import ktfx.collections.emptyBinding
-import ktfx.collections.notEmptyBinding
+import ktfx.collections.isEmpty
+import ktfx.collections.isNotEmpty
 
 /** Returns `true` if the model is selected. */
 inline fun SelectionModel<*>.isSelected(): Boolean = selectedItem != null
@@ -27,7 +27,7 @@ inline val SelectionModel<*>.selectedBinding: BooleanBinding get() = selectedIte
 inline val SelectionModel<*>.notSelectedBinding: BooleanBinding get() = selectedItemProperty().isNull
 
 /** Returns a boolean binding that holds `true` when item is selected. */
-inline val MultipleSelectionModel<*>.selectedBinding: BooleanBinding get() = selectedItems.notEmptyBinding
+inline val MultipleSelectionModel<*>.selectedBinding: BooleanBinding get() = selectedItems.isNotEmpty
 
 /** Returns a boolean binding that holds `true` when item is not selected. */
-inline val MultipleSelectionModel<*>.notSelectedBinding: BooleanBinding get() = selectedItems.emptyBinding
+inline val MultipleSelectionModel<*>.notSelectedBinding: BooleanBinding get() = selectedItems.isEmpty

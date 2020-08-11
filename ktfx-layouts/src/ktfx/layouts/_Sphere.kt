@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Sphere
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Int
 import kotlin.String
@@ -15,16 +14,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Sphere] to this manager.
  *
  * @return the control added.
  */
-fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(
-    radius = radius,
-    division = division
-) { }
+fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(radius = radius,
+    division = division) { }
 
 /**
  * Create a [Sphere] with configuration block.
@@ -33,12 +31,12 @@ fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = spher
  * @return the control created.
  */
 inline fun sphere(
-    radius: Double = 1.0,
-    division: Int = 64,
-    configuration: (@LayoutDslMarker Sphere).() -> Unit
+  radius: Double = 1.0,
+  division: Int = 64,
+  configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Sphere(radius, division), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Sphere(radius, division), configuration = configuration)
 }
 
 /**
@@ -48,12 +46,12 @@ inline fun sphere(
  * @return the control added.
  */
 inline fun NodeManager.sphere(
-    radius: Double = 1.0,
-    division: Int = 64,
-    configuration: (@LayoutDslMarker Sphere).() -> Unit
+  radius: Double = 1.0,
+  division: Int = 64,
+  configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Sphere(radius, division), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Sphere(radius, division), configuration = configuration))
 }
 
 /**
@@ -64,12 +62,12 @@ inline fun NodeManager.sphere(
  * @return the styled control created.
  */
 fun styledSphere(
-    radius: Double = 1.0,
-    division: Int = 64,
-    vararg styleClass: String,
-    id: String? = null
+  radius: Double = 1.0,
+  division: Int = 64,
+  vararg styleClass: String,
+  id: String? = null
 ): Sphere = styledSphere(radius = radius, division = division, styleClass = *styleClass, id = id) {
-}
+    }
 
 /**
  * Add a styled [Sphere] to this manager.
@@ -79,12 +77,12 @@ fun styledSphere(
  * @return the styled control added.
  */
 fun NodeManager.styledSphere(
-    radius: Double = 1.0,
-    division: Int = 64,
-    vararg styleClass: String,
-    id: String? = null
+  radius: Double = 1.0,
+  division: Int = 64,
+  vararg styleClass: String,
+  id: String? = null
 ): Sphere = styledSphere(radius = radius, division = division, styleClass = *styleClass, id = id) {
-}
+    }
 
 /**
  * Create a styled [Sphere] with configuration block.
@@ -95,18 +93,15 @@ fun NodeManager.styledSphere(
  * @return the styled control created.
  */
 inline fun styledSphere(
-    radius: Double = 1.0,
-    division: Int = 64,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Sphere).() -> Unit
+  radius: Double = 1.0,
+  division: Int = 64,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Sphere(radius, division), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Sphere(radius, division), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -118,17 +113,13 @@ inline fun styledSphere(
  * @return the styled control added.
  */
 inline fun NodeManager.styledSphere(
-    radius: Double = 1.0,
-    division: Int = 64,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Sphere).() -> Unit
+  radius: Double = 1.0,
+  division: Int = 64,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Sphere(radius, division), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Sphere(radius, division), styleClass = *styleClass, id = id,
+      configuration = configuration))
 }

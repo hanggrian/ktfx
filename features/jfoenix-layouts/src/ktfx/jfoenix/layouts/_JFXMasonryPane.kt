@@ -5,9 +5,6 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXMasonryPane
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +12,9 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXMasonryPane] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
  */
 inline fun jfxMasonryPane(configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit):
     JFXMasonryPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxJFXMasonryPane(), configuration = configuration)
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxJFXMasonryPane(), configuration = configuration)
+}
 
 /**
  * Add a [JFXMasonryPane] with configuration block to this manager.
@@ -41,12 +41,10 @@ inline fun jfxMasonryPane(configuration: (@LayoutDslMarker KtfxJFXMasonryPane).(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxMasonryPane(
-    configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() ->
-    Unit
-): JFXMasonryPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxJFXMasonryPane(), configuration = configuration))
+inline fun NodeManager.jfxMasonryPane(configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() ->
+    Unit): JFXMasonryPane {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxJFXMasonryPane(), configuration = configuration))
 }
 
 /**
@@ -66,8 +64,8 @@ fun styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMaso
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMasonryPane =
-    styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
+fun NodeManager.styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMasonryPane
+    = styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXMasonryPane] with configuration block.
@@ -78,16 +76,13 @@ fun NodeManager.styledJFXMasonryPane(vararg styleClass: String, id: String? = nu
  * @return the styled control created.
  */
 inline fun styledJFXMasonryPane(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXMasonryPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxJFXMasonryPane(), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -99,16 +94,11 @@ inline fun styledJFXMasonryPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXMasonryPane(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXMasonryPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxJFXMasonryPane(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

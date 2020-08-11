@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.layout.AnchorPane
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [AnchorPane] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.anchorPane(): AnchorPane = anchorPane() { }
  * @return the control created.
  */
 inline fun anchorPane(configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit): AnchorPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxAnchorPane(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxAnchorPane(), configuration = configuration)
 }
 
 /**
@@ -40,9 +40,9 @@ inline fun anchorPane(configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Uni
  */
 inline fun NodeManager.anchorPane(configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit):
     AnchorPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxAnchorPane(), configuration = configuration))
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxAnchorPane(), configuration = configuration))
+}
 
 /**
  * Create a styled [AnchorPane].
@@ -73,16 +73,13 @@ fun NodeManager.styledAnchorPane(vararg styleClass: String, id: String? = null):
  * @return the styled control created.
  */
 inline fun styledAnchorPane(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxAnchorPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxAnchorPane(), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -94,16 +91,11 @@ inline fun styledAnchorPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledAnchorPane(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxAnchorPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxAnchorPane(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

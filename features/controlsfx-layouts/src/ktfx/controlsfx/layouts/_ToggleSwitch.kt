@@ -4,10 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.ToggleSwitch
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +11,10 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.ToggleSwitch
 
 /**
  * Add a [ToggleSwitch] to this manager.
@@ -29,13 +29,10 @@ fun NodeManager.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(
  *
  * @return the control created.
  */
-inline fun toggleSwitch(
-    text: String? = null,
-    configuration: (@LayoutDslMarker ToggleSwitch).() ->    
-    Unit
-): ToggleSwitch {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ToggleSwitch(text), configuration = configuration)
+inline fun toggleSwitch(text: String? = null, configuration: (@LayoutDslMarker ToggleSwitch).() ->
+    Unit): ToggleSwitch {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ToggleSwitch(text), configuration = configuration)
 }
 
 /**
@@ -44,15 +41,10 @@ inline fun toggleSwitch(
  *
  * @return the control added.
  */
-inline fun NodeManager.toggleSwitch(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        ToggleSwitch
-    ).() -> Unit
-): ToggleSwitch {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleSwitch(text), configuration = configuration))
+inline fun NodeManager.toggleSwitch(text: String? = null, configuration: (@LayoutDslMarker
+    ToggleSwitch).() -> Unit): ToggleSwitch {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ToggleSwitch(text), configuration = configuration))
 }
 
 /**
@@ -63,9 +55,9 @@ inline fun NodeManager.toggleSwitch(
  * @return the styled control created.
  */
 fun styledToggleSwitch(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): ToggleSwitch = styledToggleSwitch(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -76,9 +68,9 @@ fun styledToggleSwitch(
  * @return the styled control added.
  */
 fun NodeManager.styledToggleSwitch(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): ToggleSwitch = styledToggleSwitch(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -90,17 +82,14 @@ fun NodeManager.styledToggleSwitch(
  * @return the styled control created.
  */
 inline fun styledToggleSwitch(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ToggleSwitch(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ToggleSwitch(text), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -112,17 +101,12 @@ inline fun styledToggleSwitch(
  * @return the styled control added.
  */
 inline fun NodeManager.styledToggleSwitch(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ToggleSwitch(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ToggleSwitch(text), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.ToolBar
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ToolBar] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.toolBar(): ToolBar = toolBar() { }
  * @return the control created.
  */
 inline fun toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxToolBar(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxToolBar(), configuration = configuration)
 }
 
 /**
@@ -39,8 +39,8 @@ inline fun toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): To
  * @return the control added.
  */
 inline fun NodeManager.toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxToolBar(), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxToolBar(), configuration = configuration))
 }
 
 /**
@@ -50,11 +50,8 @@ inline fun NodeManager.toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() 
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styledToolBar(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styledToolBar(styleClass
+    = *styleClass, id = id) { }
 
 /**
  * Add a styled [ToolBar] to this manager.
@@ -75,12 +72,12 @@ fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): To
  * @return the styled control created.
  */
 inline fun styledToolBar(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxToolBar(), styleClass = *styleClass, id = id, configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxToolBar(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -92,16 +89,11 @@ inline fun styledToolBar(
  * @return the styled control added.
  */
 inline fun NodeManager.styledToolBar(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxToolBar(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxToolBar(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

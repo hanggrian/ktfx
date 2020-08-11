@@ -7,7 +7,6 @@ package ktfx.layouts
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.control.Separator
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,16 +14,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Separator] to this manager.
  *
  * @return the control added.
  */
-fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = separator(
-    orientation =
-        orientation
-) { }
+fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = separator(orientation
+    = orientation) { }
 
 /**
  * Create a [Separator] with configuration block.
@@ -32,15 +30,10 @@ fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = se
  *
  * @return the control created.
  */
-inline fun separator(
-    orientation: Orientation = HORIZONTAL,
-    configuration: (
-        @LayoutDslMarker    
-        Separator
-    ).() -> Unit
-): Separator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Separator(orientation), configuration = configuration)
+inline fun separator(orientation: Orientation = HORIZONTAL, configuration: (@LayoutDslMarker
+    Separator).() -> Unit): Separator {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Separator(orientation), configuration = configuration)
 }
 
 /**
@@ -49,12 +42,10 @@ inline fun separator(
  *
  * @return the control added.
  */
-inline fun NodeManager.separator(
-    orientation: Orientation = HORIZONTAL,
-    configuration: (@LayoutDslMarker Separator).() -> Unit
-): Separator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Separator(orientation), configuration = configuration))
+inline fun NodeManager.separator(orientation: Orientation = HORIZONTAL,
+    configuration: (@LayoutDslMarker Separator).() -> Unit): Separator {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Separator(orientation), configuration = configuration))
 }
 
 /**
@@ -65,9 +56,9 @@ inline fun NodeManager.separator(
  * @return the styled control created.
  */
 fun styledSeparator(
-    orientation: Orientation = HORIZONTAL,
-    vararg styleClass: String,
-    id: String? = null
+  orientation: Orientation = HORIZONTAL,
+  vararg styleClass: String,
+  id: String? = null
 ): Separator = styledSeparator(orientation = orientation, styleClass = *styleClass, id = id) { }
 
 /**
@@ -78,9 +69,9 @@ fun styledSeparator(
  * @return the styled control added.
  */
 fun NodeManager.styledSeparator(
-    orientation: Orientation = HORIZONTAL,
-    vararg styleClass: String,
-    id: String? = null
+  orientation: Orientation = HORIZONTAL,
+  vararg styleClass: String,
+  id: String? = null
 ): Separator = styledSeparator(orientation = orientation, styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,17 +83,14 @@ fun NodeManager.styledSeparator(
  * @return the styled control created.
  */
 inline fun styledSeparator(
-    orientation: Orientation = HORIZONTAL,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Separator).() -> Unit
+  orientation: Orientation = HORIZONTAL,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Separator).() -> Unit
 ): Separator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Separator(orientation), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Separator(orientation), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -114,16 +102,12 @@ inline fun styledSeparator(
  * @return the styled control added.
  */
 inline fun NodeManager.styledSeparator(
-    orientation: Orientation = HORIZONTAL,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Separator).() -> Unit
+  orientation: Orientation = HORIZONTAL,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Separator).() -> Unit
 ): Separator {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Separator(orientation), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Separator(orientation), styleClass = *styleClass, id = id, configuration
+      = configuration))
 }

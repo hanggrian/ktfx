@@ -1,5 +1,3 @@
-@file:JvmMultifileClass
-@file:JvmName("BindingsKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx
@@ -13,6 +11,21 @@ import javafx.beans.binding.LongBinding
 import javafx.beans.binding.ObjectBinding
 import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableValue
+import javafx.beans.value.WritableValue
+import kotlin.reflect.KProperty
+
+/** Delegated property of this read-only [V] value, use with `by` keyword. */
+inline operator fun <V> ObservableValue<V>.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): V? = value
+
+/** Delegated property of this writable [V] value, use with `by` keyword. */
+inline operator fun <V> WritableValue<in V>.setValue(
+    thisRef: Any?,
+    property: KProperty<*>,
+    value: V?
+): Unit = setValue(value)
 
 /** Creates an object binding used to get a member. */
 inline fun <T> Any.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)

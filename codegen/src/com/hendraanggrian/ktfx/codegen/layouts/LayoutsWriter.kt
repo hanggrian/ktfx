@@ -12,6 +12,7 @@ import com.hendraanggrian.ktfx.codegen.EXPERIMENTAL_CONTRACTS
 import com.hendraanggrian.ktfx.codegen.LAYOUTS_DSL_MARKER
 import com.hendraanggrian.ktfx.codegen.NEW_CHILD
 import com.hendraanggrian.ktfx.codegen.OPT_IN
+import com.hendraanggrian.ktfx.codegen.toString
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.asClassName
 import java.io.File
@@ -28,7 +29,6 @@ object LayoutsWriter {
             }
             println(fileName)
             buildFileSpec(factory.packageName, fileName) {
-                indentSize = 4
                 annotations {
                     add<JvmMultifileClass>()
                     JvmName::class { addMember("%S", factory.className) }
@@ -45,7 +45,7 @@ object LayoutsWriter {
                                 entry.parameters.forEach(::plusAssign)
                             }
                             appendln(
-                                "return ${entry.functionName}(${entry.getParameterName(
+                                "return ${entry.functionName}(${entry.parameters.toString(
                                     namedArgument = true, commaSuffix = false
                                 )}) { }"
                             )
@@ -70,7 +70,7 @@ object LayoutsWriter {
                             append("return ")
                             if (managerClassName != null) append("addChild(")
                             append(
-                                "%M(%T(${entry.getParameterName(
+                                "%M(%T(${entry.parameters.toString(
                                     namedArgument = false, commaSuffix = false
                                 )}), configuration = configuration)",
                                 NEW_CHILD, entry.customTypeName
@@ -97,7 +97,7 @@ object LayoutsWriter {
                                     id()
                                 }
                                 appendln(
-                                    "return ${entry.styledFunctionName}(${entry.getParameterName(
+                                    "return ${entry.styledFunctionName}(${entry.parameters.toString(
                                         namedArgument = true, commaSuffix = true
                                     )}styleClass = *styleClass, id = id) { }"
                                 )
@@ -125,7 +125,7 @@ object LayoutsWriter {
                                 append("return ")
                                 if (managerClassName != null) append("addChild(")
                                 append(
-                                    "%M(%T(${entry.getParameterName(
+                                    "%M(%T(${entry.parameters.toString(
                                         namedArgument = false, commaSuffix = false
                                     )}), styleClass = *styleClass, id = id, configuration = configuration)",
                                     NEW_CHILD, entry.customTypeName

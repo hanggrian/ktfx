@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.canvas.Canvas
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,16 +13,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Canvas] to this manager.
  *
  * @return the control added.
  */
-fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(
-    width = width,
-    height = height
-) { }
+fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(width = width,
+    height = height) { }
 
 /**
  * Create a [Canvas] with configuration block.
@@ -32,12 +30,12 @@ fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canv
  * @return the control created.
  */
 inline fun canvas(
-    width: Double = 0.0,
-    height: Double = 0.0,
-    configuration: (@LayoutDslMarker Canvas).() -> Unit
+  width: Double = 0.0,
+  height: Double = 0.0,
+  configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Canvas(width, height), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Canvas(width, height), configuration = configuration)
 }
 
 /**
@@ -47,12 +45,12 @@ inline fun canvas(
  * @return the control added.
  */
 inline fun NodeManager.canvas(
-    width: Double = 0.0,
-    height: Double = 0.0,
-    configuration: (@LayoutDslMarker Canvas).() -> Unit
+  width: Double = 0.0,
+  height: Double = 0.0,
+  configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Canvas(width, height), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Canvas(width, height), configuration = configuration))
 }
 
 /**
@@ -63,10 +61,10 @@ inline fun NodeManager.canvas(
  * @return the styled control created.
  */
 fun styledCanvas(
-    width: Double = 0.0,
-    height: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null
+  width: Double = 0.0,
+  height: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null
 ): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,10 +75,10 @@ fun styledCanvas(
  * @return the styled control added.
  */
 fun NodeManager.styledCanvas(
-    width: Double = 0.0,
-    height: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null
+  width: Double = 0.0,
+  height: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null
 ): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,18 +90,15 @@ fun NodeManager.styledCanvas(
  * @return the styled control created.
  */
 inline fun styledCanvas(
-    width: Double = 0.0,
-    height: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Canvas).() -> Unit
+  width: Double = 0.0,
+  height: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Canvas(width, height), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Canvas(width, height), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -115,18 +110,13 @@ inline fun styledCanvas(
  * @return the styled control added.
  */
 inline fun NodeManager.styledCanvas(
-    width: Double = 0.0,
-    height: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Canvas).() -> Unit
+  width: Double = 0.0,
+  height: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Canvas(width, height), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Canvas(width, height), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

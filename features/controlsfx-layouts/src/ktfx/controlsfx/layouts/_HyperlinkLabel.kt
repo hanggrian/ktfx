@@ -4,10 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.HyperlinkLabel
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +11,10 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.HyperlinkLabel
 
 /**
  * Add a [HyperlinkLabel] to this manager.
@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun NodeManager.hyperlinkLabel(text: String? = null): HyperlinkLabel = hyperlinkLabel(text = text) {
-}
+    }
 
 /**
  * Create a [HyperlinkLabel] with configuration block.
@@ -30,15 +30,10 @@ fun NodeManager.hyperlinkLabel(text: String? = null): HyperlinkLabel = hyperlink
  *
  * @return the control created.
  */
-inline fun hyperlinkLabel(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        HyperlinkLabel
-    ).() -> Unit
-): HyperlinkLabel {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(HyperlinkLabel(text), configuration = configuration)
+inline fun hyperlinkLabel(text: String? = null, configuration: (@LayoutDslMarker
+    HyperlinkLabel).() -> Unit): HyperlinkLabel {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(HyperlinkLabel(text), configuration = configuration)
 }
 
 /**
@@ -47,15 +42,10 @@ inline fun hyperlinkLabel(
  *
  * @return the control added.
  */
-inline fun NodeManager.hyperlinkLabel(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        HyperlinkLabel
-    ).() -> Unit
-): HyperlinkLabel {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(HyperlinkLabel(text), configuration = configuration))
+inline fun NodeManager.hyperlinkLabel(text: String? = null, configuration: (@LayoutDslMarker
+    HyperlinkLabel).() -> Unit): HyperlinkLabel {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(HyperlinkLabel(text), configuration = configuration))
 }
 
 /**
@@ -66,9 +56,9 @@ inline fun NodeManager.hyperlinkLabel(
  * @return the styled control created.
  */
 fun styledHyperlinkLabel(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -79,9 +69,9 @@ fun styledHyperlinkLabel(
  * @return the styled control added.
  */
 fun NodeManager.styledHyperlinkLabel(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): HyperlinkLabel = styledHyperlinkLabel(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -93,17 +83,14 @@ fun NodeManager.styledHyperlinkLabel(
  * @return the styled control created.
  */
 inline fun styledHyperlinkLabel(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker HyperlinkLabel).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        HyperlinkLabel(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(HyperlinkLabel(text), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -115,17 +102,12 @@ inline fun styledHyperlinkLabel(
  * @return the styled control added.
  */
 inline fun NodeManager.styledHyperlinkLabel(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker HyperlinkLabel).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            HyperlinkLabel(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(HyperlinkLabel(text), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

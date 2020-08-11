@@ -5,9 +5,6 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXRippler
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +12,9 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXRippler] to this manager.
@@ -30,8 +30,8 @@ fun NodeManager.jfxRippler(): JFXRippler = jfxRippler() { }
  * @return the control created.
  */
 inline fun jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit): JFXRippler {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxJFXRippler(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxJFXRippler(), configuration = configuration)
 }
 
 /**
@@ -42,9 +42,9 @@ inline fun jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Uni
  */
 inline fun NodeManager.jfxRippler(configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit):
     JFXRippler {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxJFXRippler(), configuration = configuration))
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxJFXRippler(), configuration = configuration))
+}
 
 /**
  * Create a styled [JFXRippler].
@@ -75,16 +75,13 @@ fun NodeManager.styledJFXRippler(vararg styleClass: String, id: String? = null):
  * @return the styled control created.
  */
 inline fun styledJFXRippler(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXRippler(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxJFXRippler(), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -96,16 +93,11 @@ inline fun styledJFXRippler(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXRippler(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxJFXRippler).() -> Unit
 ): JFXRippler {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXRippler(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxJFXRippler(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polygon
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Polygon] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.polygon(): Polygon = polygon() { }
  * @return the control created.
  */
 inline fun polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Polygon(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Polygon(), configuration = configuration)
 }
 
 /**
@@ -39,8 +39,8 @@ inline fun polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygo
  * @return the control added.
  */
 inline fun NodeManager.polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Polygon(), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Polygon(), configuration = configuration))
 }
 
 /**
@@ -50,11 +50,8 @@ inline fun NodeManager.polygon(configuration: (@LayoutDslMarker Polygon).() -> U
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon = styledPolygon(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon = styledPolygon(styleClass
+    = *styleClass, id = id) { }
 
 /**
  * Add a styled [Polygon] to this manager.
@@ -75,12 +72,12 @@ fun NodeManager.styledPolygon(vararg styleClass: String, id: String? = null): Po
  * @return the styled control created.
  */
 inline fun styledPolygon(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Polygon).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Polygon(), styleClass = *styleClass, id = id, configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Polygon(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -92,16 +89,11 @@ inline fun styledPolygon(
  * @return the styled control added.
  */
 inline fun NodeManager.styledPolygon(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Polygon).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Polygon(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Polygon(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

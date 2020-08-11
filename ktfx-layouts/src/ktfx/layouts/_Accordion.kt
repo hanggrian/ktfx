@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Accordion
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [Accordion] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.accordion(): Accordion = accordion() { }
  * @return the control created.
  */
 inline fun accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxAccordion(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxAccordion(), configuration = configuration)
 }
 
 /**
@@ -40,9 +40,9 @@ inline fun accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit)
  */
 inline fun NodeManager.accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit):
     Accordion {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxAccordion(), configuration = configuration))
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxAccordion(), configuration = configuration))
+}
 
 /**
  * Create a styled [Accordion].
@@ -73,16 +73,12 @@ fun NodeManager.styledAccordion(vararg styleClass: String, id: String? = null): 
  * @return the styled control created.
  */
 inline fun styledAccordion(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxAccordion(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxAccordion(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -94,16 +90,11 @@ inline fun styledAccordion(
  * @return the styled control added.
  */
 inline fun NodeManager.styledAccordion(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxAccordion(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxAccordion(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

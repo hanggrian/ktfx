@@ -5,9 +5,6 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXSlider
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -16,6 +13,9 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXSlider] to this manager.
@@ -23,9 +23,9 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun NodeManager.jfxSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 50.0
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 50.0
 ): JFXSlider = jfxSlider(min = min, max = max, value = value) { }
 
 /**
@@ -35,13 +35,13 @@ fun NodeManager.jfxSlider(
  * @return the control created.
  */
 inline fun jfxSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 50.0,
-    configuration: (@LayoutDslMarker JFXSlider).() -> Unit
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 50.0,
+  configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXSlider(min, max, value), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXSlider(min, max, value), configuration = configuration)
 }
 
 /**
@@ -51,13 +51,13 @@ inline fun jfxSlider(
  * @return the control added.
  */
 inline fun NodeManager.jfxSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 50.0,
-    configuration: (@LayoutDslMarker JFXSlider).() -> Unit
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 50.0,
+  configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXSlider(min, max, value), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXSlider(min, max, value), configuration = configuration))
 }
 
 /**
@@ -68,16 +68,13 @@ inline fun NodeManager.jfxSlider(
  * @return the styled control created.
  */
 fun styledJFXSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 50.0,
-    vararg styleClass: String,
-    id: String? = null
-): JFXSlider = styledJFXSlider(
-    min = min, max = max, value = value, styleClass = *styleClass,
-    id =
-        id
-) { }
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 50.0,
+  vararg styleClass: String,
+  id: String? = null
+): JFXSlider = styledJFXSlider(min = min, max = max, value = value, styleClass = *styleClass, id =
+    id) { }
 
 /**
  * Add a styled [JFXSlider] to this manager.
@@ -87,16 +84,13 @@ fun styledJFXSlider(
  * @return the styled control added.
  */
 fun NodeManager.styledJFXSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 50.0,
-    vararg styleClass: String,
-    id: String? = null
-): JFXSlider = styledJFXSlider(
-    min = min, max = max, value = value, styleClass = *styleClass,
-    id =
-        id
-) { }
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 50.0,
+  vararg styleClass: String,
+  id: String? = null
+): JFXSlider = styledJFXSlider(min = min, max = max, value = value, styleClass = *styleClass, id =
+    id) { }
 
 /**
  * Create a styled [JFXSlider] with configuration block.
@@ -107,19 +101,16 @@ fun NodeManager.styledJFXSlider(
  * @return the styled control created.
  */
 inline fun styledJFXSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 50.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXSlider).() -> Unit
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 50.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXSlider(min, max, value), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXSlider(min, max, value), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -131,18 +122,14 @@ inline fun styledJFXSlider(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 50.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXSlider).() -> Unit
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 50.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXSlider(min, max, value), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXSlider(min, max, value), styleClass = *styleClass, id = id,
+      configuration = configuration))
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.image.ImageView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [ImageView] to this manager.
@@ -29,9 +29,9 @@ fun NodeManager.imageView(imageUrl: String): ImageView = imageView(imageUrl = im
  */
 inline fun imageView(imageUrl: String, configuration: (@LayoutDslMarker ImageView).() -> Unit):
     ImageView {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(ImageView(imageUrl), configuration = configuration)
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ImageView(imageUrl), configuration = configuration)
+}
 
 /**
  * Add an [ImageView] with configuration block to this manager.
@@ -39,13 +39,10 @@ inline fun imageView(imageUrl: String, configuration: (@LayoutDslMarker ImageVie
  *
  * @return the control added.
  */
-inline fun NodeManager.imageView(
-    imageUrl: String,
-    configuration: (@LayoutDslMarker ImageView).() ->    
-    Unit
-): ImageView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ImageView(imageUrl), configuration = configuration))
+inline fun NodeManager.imageView(imageUrl: String, configuration: (@LayoutDslMarker ImageView).() ->
+    Unit): ImageView {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ImageView(imageUrl), configuration = configuration))
 }
 
 /**
@@ -56,9 +53,9 @@ inline fun NodeManager.imageView(
  * @return the styled control created.
  */
 fun styledImageView(
-    imageUrl: String,
-    vararg styleClass: String,
-    id: String? = null
+  imageUrl: String,
+  vararg styleClass: String,
+  id: String? = null
 ): ImageView = styledImageView(imageUrl = imageUrl, styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,9 +66,9 @@ fun styledImageView(
  * @return the styled control added.
  */
 fun NodeManager.styledImageView(
-    imageUrl: String,
-    vararg styleClass: String,
-    id: String? = null
+  imageUrl: String,
+  vararg styleClass: String,
+  id: String? = null
 ): ImageView = styledImageView(imageUrl = imageUrl, styleClass = *styleClass, id = id) { }
 
 /**
@@ -83,17 +80,14 @@ fun NodeManager.styledImageView(
  * @return the styled control created.
  */
 inline fun styledImageView(
-    imageUrl: String,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ImageView).() -> Unit
+  imageUrl: String,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ImageView(imageUrl), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ImageView(imageUrl), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -105,17 +99,12 @@ inline fun styledImageView(
  * @return the styled control added.
  */
 inline fun NodeManager.styledImageView(
-    imageUrl: String,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ImageView).() -> Unit
+  imageUrl: String,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ImageView(imageUrl), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ImageView(imageUrl), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

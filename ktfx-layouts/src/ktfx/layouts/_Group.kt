@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.Group
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Group] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.group(): Group = group() { }
  * @return the control created.
  */
 inline fun group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxGroup(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxGroup(), configuration = configuration)
 }
 
 /**
@@ -39,8 +39,8 @@ inline fun group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group 
  * @return the control added.
  */
 inline fun NodeManager.group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxGroup(), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxGroup(), configuration = configuration))
 }
 
 /**
@@ -50,11 +50,8 @@ inline fun NodeManager.group(configuration: (@LayoutDslMarker KtfxGroup).() -> U
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledGroup(vararg styleClass: String, id: String? = null): Group = styledGroup(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+fun styledGroup(vararg styleClass: String, id: String? = null): Group = styledGroup(styleClass =
+    *styleClass, id = id) { }
 
 /**
  * Add a styled [Group] to this manager.
@@ -75,12 +72,12 @@ fun NodeManager.styledGroup(vararg styleClass: String, id: String? = null): Grou
  * @return the styled control created.
  */
 inline fun styledGroup(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxGroup(), styleClass = *styleClass, id = id, configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxGroup(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -92,16 +89,11 @@ inline fun styledGroup(
  * @return the styled control added.
  */
 inline fun NodeManager.styledGroup(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxGroup(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxGroup(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

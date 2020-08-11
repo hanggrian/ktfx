@@ -7,9 +7,6 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -17,13 +14,17 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXColorPicker] to this manager.
  *
  * @return the control added.
  */
-fun NodeManager.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorPicker(color = color) { }
+fun NodeManager.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorPicker(color = color)
+    { }
 
 /**
  * Create a [JFXColorPicker] with configuration block.
@@ -31,15 +32,10 @@ fun NodeManager.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorP
  *
  * @return the control created.
  */
-inline fun jfxColorPicker(
-    color: Color = WHITE,
-    configuration: (
-        @LayoutDslMarker    
-        JFXColorPicker
-    ).() -> Unit
-): JFXColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXColorPicker(color), configuration = configuration)
+inline fun jfxColorPicker(color: Color = WHITE, configuration: (@LayoutDslMarker
+    JFXColorPicker).() -> Unit): JFXColorPicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXColorPicker(color), configuration = configuration)
 }
 
 /**
@@ -48,15 +44,10 @@ inline fun jfxColorPicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxColorPicker(
-    color: Color = WHITE,
-    configuration: (
-        @LayoutDslMarker    
-        JFXColorPicker
-    ).() -> Unit
-): JFXColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXColorPicker(color), configuration = configuration))
+inline fun NodeManager.jfxColorPicker(color: Color = WHITE, configuration: (@LayoutDslMarker
+    JFXColorPicker).() -> Unit): JFXColorPicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXColorPicker(color), configuration = configuration))
 }
 
 /**
@@ -67,9 +58,9 @@ inline fun NodeManager.jfxColorPicker(
  * @return the styled control created.
  */
 fun styledJFXColorPicker(
-    color: Color = WHITE,
-    vararg styleClass: String,
-    id: String? = null
+  color: Color = WHITE,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXColorPicker = styledJFXColorPicker(color = color, styleClass = *styleClass, id = id) { }
 
 /**
@@ -80,9 +71,9 @@ fun styledJFXColorPicker(
  * @return the styled control added.
  */
 fun NodeManager.styledJFXColorPicker(
-    color: Color = WHITE,
-    vararg styleClass: String,
-    id: String? = null
+  color: Color = WHITE,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXColorPicker = styledJFXColorPicker(color = color, styleClass = *styleClass, id = id) { }
 
 /**
@@ -94,17 +85,14 @@ fun NodeManager.styledJFXColorPicker(
  * @return the styled control created.
  */
 inline fun styledJFXColorPicker(
-    color: Color = WHITE,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
+  color: Color = WHITE,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXColorPicker(color), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXColorPicker(color), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -116,17 +104,12 @@ inline fun styledJFXColorPicker(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXColorPicker(
-    color: Color = WHITE,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
+  color: Color = WHITE,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXColorPicker(color), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXColorPicker(color), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.SVGPath
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [SVGPath] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.svgPath(): SVGPath = svgPath() { }
  * @return the control created.
  */
 inline fun svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPath {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(SVGPath(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(SVGPath(), configuration = configuration)
 }
 
 /**
@@ -39,8 +39,8 @@ inline fun svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPat
  * @return the control added.
  */
 inline fun NodeManager.svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPath {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(SVGPath(), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(SVGPath(), configuration = configuration))
 }
 
 /**
@@ -50,11 +50,8 @@ inline fun NodeManager.svgPath(configuration: (@LayoutDslMarker SVGPath).() -> U
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath = styledSVGPath(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+fun styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath = styledSVGPath(styleClass
+    = *styleClass, id = id) { }
 
 /**
  * Add a styled [SVGPath] to this manager.
@@ -75,12 +72,12 @@ fun NodeManager.styledSVGPath(vararg styleClass: String, id: String? = null): SV
  * @return the styled control created.
  */
 inline fun styledSVGPath(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker SVGPath).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(SVGPath(), styleClass = *styleClass, id = id, configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(SVGPath(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -92,16 +89,11 @@ inline fun styledSVGPath(
  * @return the styled control added.
  */
 inline fun NodeManager.styledSVGPath(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker SVGPath).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            SVGPath(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(SVGPath(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Line
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,6 +13,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Line] to this manager.
@@ -21,10 +21,10 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun NodeManager.line(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0
+  centerX: Double = 0.0,
+  centerY: Double = 0.0,
+  endX: Double = 0.0,
+  endY: Double = 0.0
 ): Line = line(centerX = centerX, centerY = centerY, endX = endX, endY = endY) { }
 
 /**
@@ -34,14 +34,14 @@ fun NodeManager.line(
  * @return the control created.
  */
 inline fun line(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0,
-    configuration: (@LayoutDslMarker Line).() -> Unit
+  centerX: Double = 0.0,
+  centerY: Double = 0.0,
+  endX: Double = 0.0,
+  endY: Double = 0.0,
+  configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Line(centerX, centerY, endX, endY), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Line(centerX, centerY, endX, endY), configuration = configuration)
 }
 
 /**
@@ -51,14 +51,14 @@ inline fun line(
  * @return the control added.
  */
 inline fun NodeManager.line(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0,
-    configuration: (@LayoutDslMarker Line).() -> Unit
+  centerX: Double = 0.0,
+  centerY: Double = 0.0,
+  endX: Double = 0.0,
+  endY: Double = 0.0,
+  configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Line(centerX, centerY, endX, endY), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Line(centerX, centerY, endX, endY), configuration = configuration))
 }
 
 /**
@@ -69,18 +69,14 @@ inline fun NodeManager.line(
  * @return the styled control created.
  */
 fun styledLine(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null
-): Line = styledLine(
-    centerX = centerX, centerY = centerY, endX = endX, endY = endY,
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+  centerX: Double = 0.0,
+  centerY: Double = 0.0,
+  endX: Double = 0.0,
+  endY: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null
+): Line = styledLine(centerX = centerX, centerY = centerY, endX = endX, endY = endY, styleClass =
+    *styleClass, id = id) { }
 
 /**
  * Add a styled [Line] to this manager.
@@ -90,18 +86,14 @@ fun styledLine(
  * @return the styled control added.
  */
 fun NodeManager.styledLine(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null
-): Line = styledLine(
-    centerX = centerX, centerY = centerY, endX = endX, endY = endY,
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+  centerX: Double = 0.0,
+  centerY: Double = 0.0,
+  endX: Double = 0.0,
+  endY: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null
+): Line = styledLine(centerX = centerX, centerY = centerY, endX = endX, endY = endY, styleClass =
+    *styleClass, id = id) { }
 
 /**
  * Create a styled [Line] with configuration block.
@@ -112,19 +104,17 @@ fun NodeManager.styledLine(
  * @return the styled control created.
  */
 inline fun styledLine(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Line).() -> Unit
+  centerX: Double = 0.0,
+  centerY: Double = 0.0,
+  endX: Double = 0.0,
+  endY: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
+      configuration = configuration)
 }
 
 /**
@@ -136,19 +126,15 @@ inline fun styledLine(
  * @return the styled control added.
  */
 inline fun NodeManager.styledLine(
-    centerX: Double = 0.0,
-    centerY: Double = 0.0,
-    endX: Double = 0.0,
-    endY: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Line).() -> Unit
+  centerX: Double = 0.0,
+  centerY: Double = 0.0,
+  endX: Double = 0.0,
+  endY: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
+      configuration = configuration))
 }

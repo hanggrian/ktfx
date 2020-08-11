@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Tab
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,17 +13,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Tab] to this manager.
  *
  * @return the control added.
  */
-fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
-    text = text,
-    content =
-        content
-) { }
+fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(text = text, content =
+    content) { }
 
 /**
  * Create a [Tab] with configuration block.
@@ -33,12 +30,12 @@ fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
  * @return the control created.
  */
 inline fun tab(
-    text: String? = null,
-    content: Node? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+  text: String? = null,
+  content: Node? = null,
+  configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTab(text, content), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxTab(text, content), configuration = configuration)
 }
 
 /**
@@ -48,12 +45,12 @@ inline fun tab(
  * @return the control added.
  */
 inline fun TabManager.tab(
-    text: String? = null,
-    content: Node? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+  text: String? = null,
+  content: Node? = null,
+  configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTab(text, content), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxTab(text, content), configuration = configuration))
 }
 
 /**
@@ -64,10 +61,10 @@ inline fun TabManager.tab(
  * @return the styled control created.
  */
 fun styledTab(
-    text: String? = null,
-    content: Node? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  content: Node? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): Tab = styledTab(text = text, content = content, styleClass = *styleClass, id = id) { }
 
 /**
@@ -78,10 +75,10 @@ fun styledTab(
  * @return the styled control added.
  */
 fun TabManager.styledTab(
-    text: String? = null,
-    content: Node? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  content: Node? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): Tab = styledTab(text = text, content = content, styleClass = *styleClass, id = id) { }
 
 /**
@@ -93,18 +90,15 @@ fun TabManager.styledTab(
  * @return the styled control created.
  */
 inline fun styledTab(
-    text: String? = null,
-    content: Node? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+  text: String? = null,
+  content: Node? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxTab(text, content), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxTab(text, content), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -116,17 +110,13 @@ inline fun styledTab(
  * @return the styled control added.
  */
 inline fun TabManager.styledTab(
-    text: String? = null,
-    content: Node? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+  text: String? = null,
+  content: Node? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxTab(text, content), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxTab(text, content), styleClass = *styleClass, id = id, configuration
+      = configuration))
 }

@@ -21,7 +21,6 @@ abstract class LayoutsFactory(
     val packageName: String,
     val className: String
 ) {
-
     companion object
 
     val entries = mutableListOf<LayoutsEntry>()
@@ -32,7 +31,7 @@ abstract class LayoutsFactory(
         configuration: ParameterSpecListScope.() -> Unit = { }
     ) {
         val parameters = mutableListOf<ParameterSpec>()
-        ParameterSpecListScope(parameters).apply(configuration)
+        ParameterSpecListScope(parameters).configuration()
         entries += LayoutsEntry(packageName, this, parameters, typeVariables.asList(), customClass = customClass)
     }
 
@@ -42,11 +41,8 @@ abstract class LayoutsFactory(
     val Y = "Y".typeVarOf()
 
     fun ParameterSpecListScope.text() = "text"(String::class.asNullable()) { defaultValue("null") }
-
     fun ParameterSpecListScope.graphic() = "graphic"(Node::class.asNullable()) { defaultValue("null") }
-
     fun ParameterSpecListScope.content() = "content"(Node::class.asNullable()) { defaultValue("null") }
-
     fun ParameterSpecListScope.progress() =
         "progress"<Double> { defaultValue("%M", ProgressBar::class.memberOf("INDETERMINATE_PROGRESS")) }
 

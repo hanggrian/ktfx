@@ -7,7 +7,6 @@ package ktfx.layouts
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +14,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ColorPicker] to this manager.
@@ -29,13 +29,10 @@ fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(col
  *
  * @return the control created.
  */
-inline fun colorPicker(
-    color: Color = WHITE,
-    configuration: (@LayoutDslMarker ColorPicker).() ->    
-    Unit
-): ColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ColorPicker(color), configuration = configuration)
+inline fun colorPicker(color: Color = WHITE, configuration: (@LayoutDslMarker ColorPicker).() ->
+    Unit): ColorPicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ColorPicker(color), configuration = configuration)
 }
 
 /**
@@ -44,15 +41,10 @@ inline fun colorPicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.colorPicker(
-    color: Color = WHITE,
-    configuration: (
-        @LayoutDslMarker    
-        ColorPicker
-    ).() -> Unit
-): ColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ColorPicker(color), configuration = configuration))
+inline fun NodeManager.colorPicker(color: Color = WHITE, configuration: (@LayoutDslMarker
+    ColorPicker).() -> Unit): ColorPicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ColorPicker(color), configuration = configuration))
 }
 
 /**
@@ -63,9 +55,9 @@ inline fun NodeManager.colorPicker(
  * @return the styled control created.
  */
 fun styledColorPicker(
-    color: Color = WHITE,
-    vararg styleClass: String,
-    id: String? = null
+  color: Color = WHITE,
+  vararg styleClass: String,
+  id: String? = null
 ): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
 
 /**
@@ -76,9 +68,9 @@ fun styledColorPicker(
  * @return the styled control added.
  */
 fun NodeManager.styledColorPicker(
-    color: Color = WHITE,
-    vararg styleClass: String,
-    id: String? = null
+  color: Color = WHITE,
+  vararg styleClass: String,
+  id: String? = null
 ): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
 
 /**
@@ -90,17 +82,14 @@ fun NodeManager.styledColorPicker(
  * @return the styled control created.
  */
 inline fun styledColorPicker(
-    color: Color = WHITE,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ColorPicker).() -> Unit
+  color: Color = WHITE,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ColorPicker(color), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ColorPicker(color), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -112,17 +101,12 @@ inline fun styledColorPicker(
  * @return the styled control added.
  */
 inline fun NodeManager.styledColorPicker(
-    color: Color = WHITE,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ColorPicker).() -> Unit
+  color: Color = WHITE,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ColorPicker(color), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ColorPicker(color), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

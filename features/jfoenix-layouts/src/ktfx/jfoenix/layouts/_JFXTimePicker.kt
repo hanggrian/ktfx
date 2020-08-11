@@ -5,9 +5,6 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTimePicker
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import java.time.LocalTime
 import kotlin.String
 import kotlin.Unit
@@ -16,6 +13,9 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXTimePicker] to this manager.
@@ -23,7 +23,7 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun NodeManager.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimePicker(time = time) {
-}
+    }
 
 /**
  * Create a [JFXTimePicker] with configuration block.
@@ -31,15 +31,10 @@ fun NodeManager.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimeP
  *
  * @return the control created.
  */
-inline fun jfxTimePicker(
-    time: LocalTime? = null,
-    configuration: (
-        @LayoutDslMarker    
-        JFXTimePicker
-    ).() -> Unit
-): JFXTimePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXTimePicker(time), configuration = configuration)
+inline fun jfxTimePicker(time: LocalTime? = null, configuration: (@LayoutDslMarker
+    JFXTimePicker).() -> Unit): JFXTimePicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXTimePicker(time), configuration = configuration)
 }
 
 /**
@@ -48,15 +43,10 @@ inline fun jfxTimePicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxTimePicker(
-    time: LocalTime? = null,
-    configuration: (
-        @LayoutDslMarker    
-        JFXTimePicker
-    ).() -> Unit
-): JFXTimePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXTimePicker(time), configuration = configuration))
+inline fun NodeManager.jfxTimePicker(time: LocalTime? = null, configuration: (@LayoutDslMarker
+    JFXTimePicker).() -> Unit): JFXTimePicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXTimePicker(time), configuration = configuration))
 }
 
 /**
@@ -67,9 +57,9 @@ inline fun NodeManager.jfxTimePicker(
  * @return the styled control created.
  */
 fun styledJFXTimePicker(
-    time: LocalTime? = null,
-    vararg styleClass: String,
-    id: String? = null
+  time: LocalTime? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXTimePicker = styledJFXTimePicker(time = time, styleClass = *styleClass, id = id) { }
 
 /**
@@ -80,9 +70,9 @@ fun styledJFXTimePicker(
  * @return the styled control added.
  */
 fun NodeManager.styledJFXTimePicker(
-    time: LocalTime? = null,
-    vararg styleClass: String,
-    id: String? = null
+  time: LocalTime? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXTimePicker = styledJFXTimePicker(time = time, styleClass = *styleClass, id = id) { }
 
 /**
@@ -94,17 +84,14 @@ fun NodeManager.styledJFXTimePicker(
  * @return the styled control created.
  */
 inline fun styledJFXTimePicker(
-    time: LocalTime? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXTimePicker).() -> Unit
+  time: LocalTime? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXTimePicker(time), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXTimePicker(time), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -116,17 +103,12 @@ inline fun styledJFXTimePicker(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXTimePicker(
-    time: LocalTime? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXTimePicker).() -> Unit
+  time: LocalTime? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXTimePicker(time), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXTimePicker(time), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

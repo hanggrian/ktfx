@@ -4,10 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.PlusMinusSlider
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +11,10 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.PlusMinusSlider
 
 /**
  * Add a [PlusMinusSlider] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { }
  */
 inline fun plusMinusSlider(configuration: (@LayoutDslMarker PlusMinusSlider).() -> Unit):
     PlusMinusSlider {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(PlusMinusSlider(), configuration = configuration)
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(PlusMinusSlider(), configuration = configuration)
+}
 
 /**
  * Add a [PlusMinusSlider] with configuration block to this manager.
@@ -41,12 +41,10 @@ inline fun plusMinusSlider(configuration: (@LayoutDslMarker PlusMinusSlider).() 
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.plusMinusSlider(
-    configuration: (@LayoutDslMarker PlusMinusSlider).() ->
-    Unit
-): PlusMinusSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PlusMinusSlider(), configuration = configuration))
+inline fun NodeManager.plusMinusSlider(configuration: (@LayoutDslMarker PlusMinusSlider).() ->
+    Unit): PlusMinusSlider {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(PlusMinusSlider(), configuration = configuration))
 }
 
 /**
@@ -78,16 +76,13 @@ fun NodeManager.styledPlusMinusSlider(vararg styleClass: String, id: String? = n
  * @return the styled control created.
  */
 inline fun styledPlusMinusSlider(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker PlusMinusSlider).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        PlusMinusSlider(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(PlusMinusSlider(), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -99,16 +94,11 @@ inline fun styledPlusMinusSlider(
  * @return the styled control added.
  */
 inline fun NodeManager.styledPlusMinusSlider(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker PlusMinusSlider).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker PlusMinusSlider).() -> Unit
 ): PlusMinusSlider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            PlusMinusSlider(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(PlusMinusSlider(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

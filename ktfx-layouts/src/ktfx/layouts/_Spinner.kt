@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Spinner
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Spinner] to this manager.
@@ -28,8 +28,8 @@ fun <T> NodeManager.spinner(): Spinner<T> = spinner() { }
  * @return the control created.
  */
 inline fun <T> spinner(configuration: (@LayoutDslMarker Spinner<T>).() -> Unit): Spinner<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Spinner<T>(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Spinner<T>(), configuration = configuration)
 }
 
 /**
@@ -40,9 +40,9 @@ inline fun <T> spinner(configuration: (@LayoutDslMarker Spinner<T>).() -> Unit):
  */
 inline fun <T> NodeManager.spinner(configuration: (@LayoutDslMarker Spinner<T>).() -> Unit):
     Spinner<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(Spinner<T>(), configuration = configuration))
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Spinner<T>(), configuration = configuration))
+}
 
 /**
  * Create a styled [Spinner].
@@ -73,12 +73,12 @@ fun <T> NodeManager.styledSpinner(vararg styleClass: String, id: String? = null)
  * @return the styled control created.
  */
 inline fun <T> styledSpinner(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Spinner<T>(), styleClass = *styleClass, id = id, configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Spinner<T>(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -90,16 +90,11 @@ inline fun <T> styledSpinner(
  * @return the styled control added.
  */
 inline fun <T> NodeManager.styledSpinner(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Spinner<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Spinner<T>(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

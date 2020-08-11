@@ -4,9 +4,8 @@
 
 package ktfx.layouts
 
-import javafx.scene.control.DatePicker
-import ktfx.internal.KtfxInternals.newChild
 import java.time.LocalDate
+import javafx.scene.control.DatePicker
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,6 +13,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [DatePicker] to this manager.
@@ -28,13 +28,10 @@ fun NodeManager.datePicker(date: LocalDate? = null): DatePicker = datePicker(dat
  *
  * @return the control created.
  */
-inline fun datePicker(
-    date: LocalDate? = null,
-    configuration: (@LayoutDslMarker DatePicker).() ->    
-    Unit
-): DatePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(DatePicker(date), configuration = configuration)
+inline fun datePicker(date: LocalDate? = null, configuration: (@LayoutDslMarker DatePicker).() ->
+    Unit): DatePicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(DatePicker(date), configuration = configuration)
 }
 
 /**
@@ -43,15 +40,10 @@ inline fun datePicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.datePicker(
-    date: LocalDate? = null,
-    configuration: (
-        @LayoutDslMarker    
-        DatePicker
-    ).() -> Unit
-): DatePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(DatePicker(date), configuration = configuration))
+inline fun NodeManager.datePicker(date: LocalDate? = null, configuration: (@LayoutDslMarker
+    DatePicker).() -> Unit): DatePicker {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(DatePicker(date), configuration = configuration))
 }
 
 /**
@@ -62,9 +54,9 @@ inline fun NodeManager.datePicker(
  * @return the styled control created.
  */
 fun styledDatePicker(
-    date: LocalDate? = null,
-    vararg styleClass: String,
-    id: String? = null
+  date: LocalDate? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): DatePicker = styledDatePicker(date = date, styleClass = *styleClass, id = id) { }
 
 /**
@@ -75,9 +67,9 @@ fun styledDatePicker(
  * @return the styled control added.
  */
 fun NodeManager.styledDatePicker(
-    date: LocalDate? = null,
-    vararg styleClass: String,
-    id: String? = null
+  date: LocalDate? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): DatePicker = styledDatePicker(date = date, styleClass = *styleClass, id = id) { }
 
 /**
@@ -89,17 +81,14 @@ fun NodeManager.styledDatePicker(
  * @return the styled control created.
  */
 inline fun styledDatePicker(
-    date: LocalDate? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker DatePicker).() -> Unit
+  date: LocalDate? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        DatePicker(date), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(DatePicker(date), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -111,17 +100,12 @@ inline fun styledDatePicker(
  * @return the styled control added.
  */
 inline fun NodeManager.styledDatePicker(
-    date: LocalDate? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker DatePicker).() -> Unit
+  date: LocalDate? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            DatePicker(date), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(DatePicker(date), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

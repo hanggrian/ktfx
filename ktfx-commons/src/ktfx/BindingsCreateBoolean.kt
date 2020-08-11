@@ -13,7 +13,6 @@ import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
-import javafx.beans.value.ObservableStringValue
 import javafx.collections.ObservableList
 import ktfx.collections.observableListOf
 import java.util.concurrent.Callable
@@ -27,18 +26,6 @@ fun <V> ObservableObjectValue<V>.toBooleanBinding(valueProvider: (V?) -> Boolean
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@toBooleanBinding)
         override fun computeValue(): Boolean = valueProvider(this@toBooleanBinding.value)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toBooleanBinding)
-
-        init {
-            bind(this@toBooleanBinding)
-        }
-    }
-
-/** Create a [BooleanBinding] with single [ObservableStringValue] dependency. */
-fun ObservableStringValue.toBooleanBinding(valueProvider: (String) -> Boolean): BooleanBinding =
-    object : BooleanBinding() {
-        override fun dispose(): Unit = unbind(this@toBooleanBinding)
-        override fun computeValue(): Boolean = valueProvider(this@toBooleanBinding.value.orEmpty())
         override fun getDependencies(): ObservableList<*> = observableListOf(this@toBooleanBinding)
 
         init {

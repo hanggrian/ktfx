@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.ScrollBar
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ScrollBar] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.scrollBar(): ScrollBar = scrollBar() { }
  * @return the control created.
  */
 inline fun scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit): ScrollBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ScrollBar(), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ScrollBar(), configuration = configuration)
 }
 
 /**
@@ -40,9 +40,9 @@ inline fun scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit): Sc
  */
 inline fun NodeManager.scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit):
     ScrollBar {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(ScrollBar(), configuration = configuration))
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ScrollBar(), configuration = configuration))
+}
 
 /**
  * Create a styled [ScrollBar].
@@ -73,12 +73,12 @@ fun NodeManager.styledScrollBar(vararg styleClass: String, id: String? = null): 
  * @return the styled control created.
  */
 inline fun styledScrollBar(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ScrollBar).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ScrollBar(), styleClass = *styleClass, id = id, configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ScrollBar(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -90,16 +90,11 @@ inline fun styledScrollBar(
  * @return the styled control added.
  */
 inline fun NodeManager.styledScrollBar(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ScrollBar).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ScrollBar(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ScrollBar(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

@@ -246,7 +246,6 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
             "orientation"<Orientation> { defaultValue("%M", Orientation::class.memberOf("HORIZONTAL")) }
 
         fun ParameterSpecListScope.spacing() = "spacing"<Double> { defaultValue("0.0") }
-
         fun ParameterSpecListScope.width() = "width"<Double> { defaultValue("0.0") }
         fun ParameterSpecListScope.height() = "height"<Double> { defaultValue("0.0") }
 

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextArea
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [TextArea] to this manager.
@@ -29,9 +29,9 @@ fun NodeManager.textArea(text: String = ""): TextArea = textArea(text = text) { 
  */
 inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea).() -> Unit):
     TextArea {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(TextArea(text), configuration = configuration)
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(TextArea(text), configuration = configuration)
+}
 
 /**
  * Add a [TextArea] with configuration block to this manager.
@@ -39,13 +39,10 @@ inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea
  *
  * @return the control added.
  */
-inline fun NodeManager.textArea(
-    text: String = "",
-    configuration: (@LayoutDslMarker TextArea).() ->    
-    Unit
-): TextArea {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TextArea(text), configuration = configuration))
+inline fun NodeManager.textArea(text: String = "", configuration: (@LayoutDslMarker TextArea).() ->
+    Unit): TextArea {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(TextArea(text), configuration = configuration))
 }
 
 /**
@@ -56,9 +53,9 @@ inline fun NodeManager.textArea(
  * @return the styled control created.
  */
 fun styledTextArea(
-    text: String = "",
-    vararg styleClass: String,
-    id: String? = null
+  text: String = "",
+  vararg styleClass: String,
+  id: String? = null
 ): TextArea = styledTextArea(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,9 +66,9 @@ fun styledTextArea(
  * @return the styled control added.
  */
 fun NodeManager.styledTextArea(
-    text: String = "",
-    vararg styleClass: String,
-    id: String? = null
+  text: String = "",
+  vararg styleClass: String,
+  id: String? = null
 ): TextArea = styledTextArea(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -83,17 +80,13 @@ fun NodeManager.styledTextArea(
  * @return the styled control created.
  */
 inline fun styledTextArea(
-    text: String = "",
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker TextArea).() -> Unit
+  text: String = "",
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        TextArea(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(TextArea(text), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -105,17 +98,12 @@ inline fun styledTextArea(
  * @return the styled control added.
  */
 inline fun NodeManager.styledTextArea(
-    text: String = "",
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker TextArea).() -> Unit
+  text: String = "",
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            TextArea(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(TextArea(text), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

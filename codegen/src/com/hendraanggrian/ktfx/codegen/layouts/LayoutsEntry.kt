@@ -4,7 +4,6 @@ import com.hendraanggrian.kotlinpoet.classOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
 import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 import com.squareup.kotlinpoet.ClassName
-import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeVariableName
@@ -97,20 +96,4 @@ data class LayoutsEntry(
         )
         append('.')
     }
-
-    fun getParameterName(namedArgument: Boolean, commaSuffix: Boolean): String =
-        buildString {
-            append(parameters.joinToString {
-                var s = buildString {
-                    append(it.name)
-                    if (namedArgument) append(" = ${it.name}")
-                }
-                if (KModifier.VARARG in it.modifiers) {
-                    val index = s.lastIndexOf(it.name)
-                    s = s.substring(0, index) + '*' + s.substring(index)
-                }
-                s
-            })
-            if (commaSuffix && parameters.isNotEmpty()) append(", ")
-        }
 }

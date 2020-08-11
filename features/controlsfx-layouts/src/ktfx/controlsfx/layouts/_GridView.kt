@@ -4,12 +4,9 @@
 
 package ktfx.controlsfx.layouts
 
+import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.GridView
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -17,6 +14,10 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.GridView
 
 /**
  * Add a [GridView] to this manager.
@@ -32,12 +33,10 @@ fun <T> NodeManager.gridView(items: ObservableList<T> = observableArrayList()): 
  *
  * @return the control created.
  */
-inline fun <T> gridView(
-    items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker GridView<T>).() -> Unit
-): GridView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(GridView<T>(items), configuration = configuration)
+inline fun <T> gridView(items: ObservableList<T> = observableArrayList(),
+    configuration: (@LayoutDslMarker GridView<T>).() -> Unit): GridView<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(GridView<T>(items), configuration = configuration)
 }
 
 /**
@@ -46,12 +45,10 @@ inline fun <T> gridView(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.gridView(
-    items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker GridView<T>).() -> Unit
-): GridView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(GridView<T>(items), configuration = configuration))
+inline fun <T> NodeManager.gridView(items: ObservableList<T> = observableArrayList(),
+    configuration: (@LayoutDslMarker GridView<T>).() -> Unit): GridView<T> {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(GridView<T>(items), configuration = configuration))
 }
 
 /**
@@ -62,9 +59,9 @@ inline fun <T> NodeManager.gridView(
  * @return the styled control created.
  */
 fun <T> styledGridView(
-    items: ObservableList<T> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null
+  items: ObservableList<T> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null
 ): GridView<T> = styledGridView(items = items, styleClass = *styleClass, id = id) { }
 
 /**
@@ -75,9 +72,9 @@ fun <T> styledGridView(
  * @return the styled control added.
  */
 fun <T> NodeManager.styledGridView(
-    items: ObservableList<T> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null
+  items: ObservableList<T> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null
 ): GridView<T> = styledGridView(items = items, styleClass = *styleClass, id = id) { }
 
 /**
@@ -89,17 +86,14 @@ fun <T> NodeManager.styledGridView(
  * @return the styled control created.
  */
 inline fun <T> styledGridView(
-    items: ObservableList<T> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker GridView<T>).() -> Unit
+  items: ObservableList<T> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        GridView<T>(items), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(GridView<T>(items), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -111,17 +105,12 @@ inline fun <T> styledGridView(
  * @return the styled control added.
  */
 inline fun <T> NodeManager.styledGridView(
-    items: ObservableList<T> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker GridView<T>).() -> Unit
+  items: ObservableList<T> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            GridView<T>(items), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(GridView<T>(items), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

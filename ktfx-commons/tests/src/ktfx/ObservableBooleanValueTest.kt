@@ -4,7 +4,15 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class BindingsInfixBooleanTest {
+class ObservableBooleanValueTest {
+    private val booleanProperty = booleanProperty()
+    private var boolean by booleanProperty
+
+    @Test fun delegate() {
+        assertFalse(boolean)
+        boolean = true
+        assertTrue(booleanProperty.value)
+    }
 
     @Test fun and() {
         assertFalse((booleanProperty(false) and booleanProperty(false)).value)

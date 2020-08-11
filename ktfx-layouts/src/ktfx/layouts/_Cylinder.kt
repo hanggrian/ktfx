@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Cylinder
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Int
 import kotlin.String
@@ -15,6 +14,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Cylinder] to this manager.
@@ -22,9 +22,9 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun NodeManager.cylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64
+  radius: Double = 1.0,
+  height: Double = 2.0,
+  division: Int = 64
 ): Cylinder = cylinder(radius = radius, height = height, division = division) { }
 
 /**
@@ -34,13 +34,13 @@ fun NodeManager.cylinder(
  * @return the control created.
  */
 inline fun cylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64,
-    configuration: (@LayoutDslMarker Cylinder).() -> Unit
+  radius: Double = 1.0,
+  height: Double = 2.0,
+  division: Int = 64,
+  configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Cylinder(radius, height, division), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Cylinder(radius, height, division), configuration = configuration)
 }
 
 /**
@@ -50,13 +50,13 @@ inline fun cylinder(
  * @return the control added.
  */
 inline fun NodeManager.cylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64,
-    configuration: (@LayoutDslMarker Cylinder).() -> Unit
+  radius: Double = 1.0,
+  height: Double = 2.0,
+  division: Int = 64,
+  configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Cylinder(radius, height, division), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Cylinder(radius, height, division), configuration = configuration))
 }
 
 /**
@@ -67,17 +67,13 @@ inline fun NodeManager.cylinder(
  * @return the styled control created.
  */
 fun styledCylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64,
-    vararg styleClass: String,
-    id: String? = null
-): Cylinder = styledCylinder(
-    radius = radius, height = height, division = division,
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+  radius: Double = 1.0,
+  height: Double = 2.0,
+  division: Int = 64,
+  vararg styleClass: String,
+  id: String? = null
+): Cylinder = styledCylinder(radius = radius, height = height, division = division, styleClass =
+    *styleClass, id = id) { }
 
 /**
  * Add a styled [Cylinder] to this manager.
@@ -87,17 +83,13 @@ fun styledCylinder(
  * @return the styled control added.
  */
 fun NodeManager.styledCylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64,
-    vararg styleClass: String,
-    id: String? = null
-): Cylinder = styledCylinder(
-    radius = radius, height = height, division = division,
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+  radius: Double = 1.0,
+  height: Double = 2.0,
+  division: Int = 64,
+  vararg styleClass: String,
+  id: String? = null
+): Cylinder = styledCylinder(radius = radius, height = height, division = division, styleClass =
+    *styleClass, id = id) { }
 
 /**
  * Create a styled [Cylinder] with configuration block.
@@ -108,18 +100,16 @@ fun NodeManager.styledCylinder(
  * @return the styled control created.
  */
 inline fun styledCylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Cylinder).() -> Unit
+  radius: Double = 1.0,
+  height: Double = 2.0,
+  division: Int = 64,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Cylinder(radius, height, division), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Cylinder(radius, height, division), styleClass = *styleClass, id = id,
+      configuration = configuration)
 }
 
 /**
@@ -131,18 +121,14 @@ inline fun styledCylinder(
  * @return the styled control added.
  */
 inline fun NodeManager.styledCylinder(
-    radius: Double = 1.0,
-    height: Double = 2.0,
-    division: Int = 64,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Cylinder).() -> Unit
+  radius: Double = 1.0,
+  height: Double = 2.0,
+  division: Int = 64,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Cylinder(radius, height, division), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Cylinder(radius, height, division), styleClass = *styleClass, id = id,
+      configuration = configuration))
 }

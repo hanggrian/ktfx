@@ -13,7 +13,6 @@ import javafx.beans.value.ObservableFloatValue
 import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
-import javafx.beans.value.ObservableStringValue
 import javafx.collections.ObservableList
 import ktfx.collections.observableListOf
 import java.util.concurrent.Callable
@@ -27,18 +26,6 @@ fun <V> ObservableObjectValue<V>.toDoubleBinding(valueProvider: (V?) -> Double):
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@toDoubleBinding)
         override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
-
-        init {
-            bind(this@toDoubleBinding)
-        }
-    }
-
-/** Create a [DoubleBinding] with single [ObservableStringValue] dependency. */
-fun ObservableStringValue.toDoubleBinding(valueProvider: (String) -> Double): DoubleBinding =
-    object : DoubleBinding() {
-        override fun dispose(): Unit = unbind(this@toDoubleBinding)
-        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value.orEmpty())
         override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
 
         init {

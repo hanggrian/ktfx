@@ -4,10 +4,10 @@
 
 package ktfx.layouts
 
+import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.chart.PieChart
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +15,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [PieChart] to this manager.
@@ -30,12 +31,10 @@ fun NodeManager.pieChart(data: ObservableList<PieChart.Data> = observableArrayLi
  *
  * @return the control created.
  */
-inline fun pieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
-    configuration: (@LayoutDslMarker PieChart).() -> Unit
-): PieChart {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PieChart(data), configuration = configuration)
+inline fun pieChart(data: ObservableList<PieChart.Data> = observableArrayList(),
+    configuration: (@LayoutDslMarker PieChart).() -> Unit): PieChart {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(PieChart(data), configuration = configuration)
 }
 
 /**
@@ -44,12 +43,10 @@ inline fun pieChart(
  *
  * @return the control added.
  */
-inline fun NodeManager.pieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
-    configuration: (@LayoutDslMarker PieChart).() -> Unit
-): PieChart {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PieChart(data), configuration = configuration))
+inline fun NodeManager.pieChart(data: ObservableList<PieChart.Data> = observableArrayList(),
+    configuration: (@LayoutDslMarker PieChart).() -> Unit): PieChart {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(PieChart(data), configuration = configuration))
 }
 
 /**
@@ -60,9 +57,9 @@ inline fun NodeManager.pieChart(
  * @return the styled control created.
  */
 fun styledPieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null
+  data: ObservableList<PieChart.Data> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null
 ): PieChart = styledPieChart(data = data, styleClass = *styleClass, id = id) { }
 
 /**
@@ -73,9 +70,9 @@ fun styledPieChart(
  * @return the styled control added.
  */
 fun NodeManager.styledPieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null
+  data: ObservableList<PieChart.Data> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null
 ): PieChart = styledPieChart(data = data, styleClass = *styleClass, id = id) { }
 
 /**
@@ -87,17 +84,13 @@ fun NodeManager.styledPieChart(
  * @return the styled control created.
  */
 inline fun styledPieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker PieChart).() -> Unit
+  data: ObservableList<PieChart.Data> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        PieChart(data), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(PieChart(data), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -109,17 +102,12 @@ inline fun styledPieChart(
  * @return the styled control added.
  */
 inline fun NodeManager.styledPieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker PieChart).() -> Unit
+  data: ObservableList<PieChart.Data> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            PieChart(data), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(PieChart(data), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

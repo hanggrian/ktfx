@@ -5,9 +5,6 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTextField
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +12,9 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXTextField] to this manager.
@@ -29,13 +29,10 @@ fun NodeManager.jfxTextField(text: String? = null): JFXTextField = jfxTextField(
  *
  * @return the control created.
  */
-inline fun jfxTextField(
-    text: String? = null,
-    configuration: (@LayoutDslMarker JFXTextField).() ->    
-    Unit
-): JFXTextField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXTextField(text), configuration = configuration)
+inline fun jfxTextField(text: String? = null, configuration: (@LayoutDslMarker JFXTextField).() ->
+    Unit): JFXTextField {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXTextField(text), configuration = configuration)
 }
 
 /**
@@ -44,15 +41,10 @@ inline fun jfxTextField(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxTextField(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        JFXTextField
-    ).() -> Unit
-): JFXTextField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXTextField(text), configuration = configuration))
+inline fun NodeManager.jfxTextField(text: String? = null, configuration: (@LayoutDslMarker
+    JFXTextField).() -> Unit): JFXTextField {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXTextField(text), configuration = configuration))
 }
 
 /**
@@ -63,9 +55,9 @@ inline fun NodeManager.jfxTextField(
  * @return the styled control created.
  */
 fun styledJFXTextField(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXTextField = styledJFXTextField(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -76,9 +68,9 @@ fun styledJFXTextField(
  * @return the styled control added.
  */
 fun NodeManager.styledJFXTextField(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXTextField = styledJFXTextField(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -90,17 +82,14 @@ fun NodeManager.styledJFXTextField(
  * @return the styled control created.
  */
 inline fun styledJFXTextField(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXTextField).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXTextField(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXTextField(text), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -112,17 +101,12 @@ inline fun styledJFXTextField(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXTextField(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXTextField).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXTextField(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXTextField(text), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

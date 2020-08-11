@@ -5,10 +5,6 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXRadioButton
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import ktfx.layouts.ToggleButtonManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -16,6 +12,10 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import ktfx.layouts.ToggleButtonManager
 
 /**
  * Add a [JFXRadioButton] to this manager.
@@ -23,17 +23,15 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun NodeManager.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(text = text) {
-}
+    }
 
 /**
  * Add a [JFXRadioButton] to this manager.
  *
  * @return the control added.
  */
-fun ToggleButtonManager.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(
-    text =
-        text
-) { }
+fun ToggleButtonManager.jfxRadioButton(text: String? = null): JFXRadioButton = jfxRadioButton(text =
+    text) { }
 
 /**
  * Create a [JFXRadioButton] with configuration block.
@@ -41,15 +39,10 @@ fun ToggleButtonManager.jfxRadioButton(text: String? = null): JFXRadioButton = j
  *
  * @return the control created.
  */
-inline fun jfxRadioButton(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        JFXRadioButton
-    ).() -> Unit
-): JFXRadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXRadioButton(text), configuration = configuration)
+inline fun jfxRadioButton(text: String? = null, configuration: (@LayoutDslMarker
+    JFXRadioButton).() -> Unit): JFXRadioButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXRadioButton(text), configuration = configuration)
 }
 
 /**
@@ -58,15 +51,10 @@ inline fun jfxRadioButton(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxRadioButton(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        JFXRadioButton
-    ).() -> Unit
-): JFXRadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXRadioButton(text), configuration = configuration))
+inline fun NodeManager.jfxRadioButton(text: String? = null, configuration: (@LayoutDslMarker
+    JFXRadioButton).() -> Unit): JFXRadioButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXRadioButton(text), configuration = configuration))
 }
 
 /**
@@ -75,15 +63,10 @@ inline fun NodeManager.jfxRadioButton(
  *
  * @return the control added.
  */
-inline fun ToggleButtonManager.jfxRadioButton(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        JFXRadioButton
-    ).() -> Unit
-): JFXRadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXRadioButton(text), configuration = configuration))
+inline fun ToggleButtonManager.jfxRadioButton(text: String? = null, configuration: (@LayoutDslMarker
+    JFXRadioButton).() -> Unit): JFXRadioButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXRadioButton(text), configuration = configuration))
 }
 
 /**
@@ -94,9 +77,9 @@ inline fun ToggleButtonManager.jfxRadioButton(
  * @return the styled control created.
  */
 fun styledJFXRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXRadioButton = styledJFXRadioButton(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -107,9 +90,9 @@ fun styledJFXRadioButton(
  * @return the styled control added.
  */
 fun NodeManager.styledJFXRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXRadioButton = styledJFXRadioButton(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -120,9 +103,9 @@ fun NodeManager.styledJFXRadioButton(
  * @return the styled control added.
  */
 fun ToggleButtonManager.styledJFXRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXRadioButton = styledJFXRadioButton(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -134,17 +117,14 @@ fun ToggleButtonManager.styledJFXRadioButton(
  * @return the styled control created.
  */
 inline fun styledJFXRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXRadioButton(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXRadioButton(text), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -156,19 +136,14 @@ inline fun styledJFXRadioButton(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXRadioButton(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXRadioButton(text), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }
 
 /**
@@ -180,17 +155,12 @@ inline fun NodeManager.styledJFXRadioButton(
  * @return the styled control added.
  */
 inline fun ToggleButtonManager.styledJFXRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXRadioButton).() -> Unit
 ): JFXRadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXRadioButton(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXRadioButton(text), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

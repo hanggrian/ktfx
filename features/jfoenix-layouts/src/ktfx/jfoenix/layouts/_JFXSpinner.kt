@@ -5,10 +5,8 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXSpinner
+import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -17,6 +15,9 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXSpinner] to this manager.
@@ -32,15 +33,10 @@ fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinne
  *
  * @return the control created.
  */
-inline fun jfxSpinner(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (
-        @LayoutDslMarker    
-        JFXSpinner
-    ).() -> Unit
-): JFXSpinner {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXSpinner(progress), configuration = configuration)
+inline fun jfxSpinner(progress: Double = INDETERMINATE_PROGRESS, configuration: (@LayoutDslMarker
+    JFXSpinner).() -> Unit): JFXSpinner {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXSpinner(progress), configuration = configuration)
 }
 
 /**
@@ -49,12 +45,10 @@ inline fun jfxSpinner(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxSpinner(
-    progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
-): JFXSpinner {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXSpinner(progress), configuration = configuration))
+inline fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker JFXSpinner).() -> Unit): JFXSpinner {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXSpinner(progress), configuration = configuration))
 }
 
 /**
@@ -65,9 +59,9 @@ inline fun NodeManager.jfxSpinner(
  * @return the styled control created.
  */
 fun styledJFXSpinner(
-    progress: Double = INDETERMINATE_PROGRESS,
-    vararg styleClass: String,
-    id: String? = null
+  progress: Double = INDETERMINATE_PROGRESS,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXSpinner = styledJFXSpinner(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
@@ -78,9 +72,9 @@ fun styledJFXSpinner(
  * @return the styled control added.
  */
 fun NodeManager.styledJFXSpinner(
-    progress: Double = INDETERMINATE_PROGRESS,
-    vararg styleClass: String,
-    id: String? = null
+  progress: Double = INDETERMINATE_PROGRESS,
+  vararg styleClass: String,
+  id: String? = null
 ): JFXSpinner = styledJFXSpinner(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,17 +86,14 @@ fun NodeManager.styledJFXSpinner(
  * @return the styled control created.
  */
 inline fun styledJFXSpinner(
-    progress: Double = INDETERMINATE_PROGRESS,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
+  progress: Double = INDETERMINATE_PROGRESS,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXSpinner(progress), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXSpinner(progress), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -114,17 +105,12 @@ inline fun styledJFXSpinner(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXSpinner(
-    progress: Double = INDETERMINATE_PROGRESS,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
+  progress: Double = INDETERMINATE_PROGRESS,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXSpinner(progress), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXSpinner(progress), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

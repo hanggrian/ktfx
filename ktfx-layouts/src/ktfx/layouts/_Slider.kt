@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Slider
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,6 +13,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Slider] to this manager.
@@ -21,9 +21,9 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun NodeManager.slider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 0.0
 ): Slider = slider(min = min, max = max, value = value) { }
 
 /**
@@ -33,13 +33,13 @@ fun NodeManager.slider(
  * @return the control created.
  */
 inline fun slider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 0.0,
+  configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Slider(min, max, value), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Slider(min, max, value), configuration = configuration)
 }
 
 /**
@@ -49,13 +49,13 @@ inline fun slider(
  * @return the control added.
  */
 inline fun NodeManager.slider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 0.0,
+  configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Slider(min, max, value), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Slider(min, max, value), configuration = configuration))
 }
 
 /**
@@ -66,11 +66,11 @@ inline fun NodeManager.slider(
  * @return the styled control created.
  */
 fun styledSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null
 ): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
 
 /**
@@ -81,11 +81,11 @@ fun styledSlider(
  * @return the styled control added.
  */
 fun NodeManager.styledSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null
 ): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
 
 /**
@@ -97,19 +97,16 @@ fun NodeManager.styledSlider(
  * @return the styled control created.
  */
 inline fun styledSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Slider(min, max, value), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Slider(min, max, value), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -121,18 +118,14 @@ inline fun styledSlider(
  * @return the styled control added.
  */
 inline fun NodeManager.styledSlider(
-    min: Double = 0.0,
-    max: Double = 100.0,
-    value: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
+  min: Double = 0.0,
+  max: Double = 100.0,
+  value: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Slider(min, max, value), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Slider(min, max, value), styleClass = *styleClass, id = id, configuration
+      = configuration))
 }

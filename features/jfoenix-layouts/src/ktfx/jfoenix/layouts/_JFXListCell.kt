@@ -5,9 +5,6 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXListCell
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +12,9 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXListCell] to this manager.
@@ -31,9 +31,9 @@ fun <T> NodeManager.jfxListCell(): JFXListCell<T> = jfxListCell() { }
  */
 inline fun <T> jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit):
     JFXListCell<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(JFXListCell<T>(), configuration = configuration)
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXListCell<T>(), configuration = configuration)
+}
 
 /**
  * Add a [JFXListCell] with configuration block to this manager.
@@ -43,9 +43,9 @@ inline fun <T> jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -
  */
 inline fun <T> NodeManager.jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit):
     JFXListCell<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(JFXListCell<T>(), configuration = configuration))
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXListCell<T>(), configuration = configuration))
+}
 
 /**
  * Create a styled [JFXListCell].
@@ -64,8 +64,8 @@ fun <T> styledJFXListCell(vararg styleClass: String, id: String? = null): JFXLis
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun <T> NodeManager.styledJFXListCell(vararg styleClass: String, id: String? = null): JFXListCell<T> =
-    styledJFXListCell(styleClass = *styleClass, id = id) { }
+fun <T> NodeManager.styledJFXListCell(vararg styleClass: String, id: String? = null): JFXListCell<T>
+    = styledJFXListCell(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXListCell] with configuration block.
@@ -76,16 +76,13 @@ fun <T> NodeManager.styledJFXListCell(vararg styleClass: String, id: String? = n
  * @return the styled control created.
  */
 inline fun <T> styledJFXListCell(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit
 ): JFXListCell<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXListCell<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXListCell<T>(), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -97,16 +94,11 @@ inline fun <T> styledJFXListCell(
  * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXListCell(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit
 ): JFXListCell<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXListCell<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXListCell<T>(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

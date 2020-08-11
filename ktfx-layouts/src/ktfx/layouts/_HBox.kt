@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.layout.HBox
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,6 +13,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [HBox] to this manager.
@@ -30,9 +30,9 @@ fun NodeManager.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
  */
 inline fun hbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxHBox).() -> Unit):
     HBox {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxHBox(spacing), configuration = configuration)
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxHBox(spacing), configuration = configuration)
+}
 
 /**
  * Add a [HBox] with configuration block to this manager.
@@ -40,13 +40,10 @@ inline fun hbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxHBox
  *
  * @return the control added.
  */
-inline fun NodeManager.hbox(
-    spacing: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxHBox).() ->    
-    Unit
-): HBox {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxHBox(spacing), configuration = configuration))
+inline fun NodeManager.hbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxHBox).() ->
+    Unit): HBox {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxHBox(spacing), configuration = configuration))
 }
 
 /**
@@ -57,9 +54,9 @@ inline fun NodeManager.hbox(
  * @return the styled control created.
  */
 fun styledHBox(
-    spacing: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null
+  spacing: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null
 ): HBox = styledHBox(spacing = spacing, styleClass = *styleClass, id = id) { }
 
 /**
@@ -70,9 +67,9 @@ fun styledHBox(
  * @return the styled control added.
  */
 fun NodeManager.styledHBox(
-    spacing: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null
+  spacing: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null
 ): HBox = styledHBox(spacing = spacing, styleClass = *styleClass, id = id) { }
 
 /**
@@ -84,17 +81,14 @@ fun NodeManager.styledHBox(
  * @return the styled control created.
  */
 inline fun styledHBox(
-    spacing: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
+  spacing: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxHBox(spacing), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(KtfxHBox(spacing), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -106,17 +100,12 @@ inline fun styledHBox(
  * @return the styled control added.
  */
 inline fun NodeManager.styledHBox(
-    spacing: Double = 0.0,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
+  spacing: Double = 0.0,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxHBox(spacing), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(KtfxHBox(spacing), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

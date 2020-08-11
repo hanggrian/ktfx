@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.RadioButton
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,6 +12,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [RadioButton] to this manager.
@@ -27,7 +27,7 @@ fun NodeManager.radioButton(text: String? = null): RadioButton = radioButton(tex
  * @return the control added.
  */
 fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) {
-}
+    }
 
 /**
  * Create a [RadioButton] with configuration block.
@@ -35,13 +35,10 @@ fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioBu
  *
  * @return the control created.
  */
-inline fun radioButton(
-    text: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() ->    
-    Unit
-): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(RadioButton(text), configuration = configuration)
+inline fun radioButton(text: String? = null, configuration: (@LayoutDslMarker RadioButton).() ->
+    Unit): RadioButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(RadioButton(text), configuration = configuration)
 }
 
 /**
@@ -50,15 +47,10 @@ inline fun radioButton(
  *
  * @return the control added.
  */
-inline fun NodeManager.radioButton(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        RadioButton
-    ).() -> Unit
-): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioButton(text), configuration = configuration))
+inline fun NodeManager.radioButton(text: String? = null, configuration: (@LayoutDslMarker
+    RadioButton).() -> Unit): RadioButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(RadioButton(text), configuration = configuration))
 }
 
 /**
@@ -67,15 +59,10 @@ inline fun NodeManager.radioButton(
  *
  * @return the control added.
  */
-inline fun ToggleButtonManager.radioButton(
-    text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        RadioButton
-    ).() -> Unit
-): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioButton(text), configuration = configuration))
+inline fun ToggleButtonManager.radioButton(text: String? = null, configuration: (@LayoutDslMarker
+    RadioButton).() -> Unit): RadioButton {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(RadioButton(text), configuration = configuration))
 }
 
 /**
@@ -86,9 +73,9 @@ inline fun ToggleButtonManager.radioButton(
  * @return the styled control created.
  */
 fun styledRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): RadioButton = styledRadioButton(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -99,9 +86,9 @@ fun styledRadioButton(
  * @return the styled control added.
  */
 fun NodeManager.styledRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): RadioButton = styledRadioButton(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -112,9 +99,9 @@ fun NodeManager.styledRadioButton(
  * @return the styled control added.
  */
 fun ToggleButtonManager.styledRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): RadioButton = styledRadioButton(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -126,17 +113,14 @@ fun ToggleButtonManager.styledRadioButton(
  * @return the styled control created.
  */
 inline fun styledRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        RadioButton(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(RadioButton(text), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -148,19 +132,14 @@ inline fun styledRadioButton(
  * @return the styled control added.
  */
 inline fun NodeManager.styledRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            RadioButton(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(RadioButton(text), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }
 
 /**
@@ -172,17 +151,12 @@ inline fun NodeManager.styledRadioButton(
  * @return the styled control added.
  */
 inline fun ToggleButtonManager.styledRadioButton(
-    text: String? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() -> Unit
+  text: String? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            RadioButton(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(RadioButton(text), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

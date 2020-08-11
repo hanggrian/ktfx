@@ -5,9 +5,6 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXChipView
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -15,6 +12,9 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXChipView] to this manager.
@@ -31,9 +31,9 @@ fun <T> NodeManager.jfxChipView(): JFXChipView<T> = jfxChipView() { }
  */
 inline fun <T> jfxChipView(configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit):
     JFXChipView<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(JFXChipView<T>(), configuration = configuration)
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXChipView<T>(), configuration = configuration)
+}
 
 /**
  * Add a [JFXChipView] with configuration block to this manager.
@@ -43,9 +43,9 @@ inline fun <T> jfxChipView(configuration: (@LayoutDslMarker JFXChipView<T>).() -
  */
 inline fun <T> NodeManager.jfxChipView(configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit):
     JFXChipView<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(JFXChipView<T>(), configuration = configuration))
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXChipView<T>(), configuration = configuration))
+}
 
 /**
  * Create a styled [JFXChipView].
@@ -64,8 +64,8 @@ fun <T> styledJFXChipView(vararg styleClass: String, id: String? = null): JFXChi
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun <T> NodeManager.styledJFXChipView(vararg styleClass: String, id: String? = null): JFXChipView<T> =
-    styledJFXChipView(styleClass = *styleClass, id = id) { }
+fun <T> NodeManager.styledJFXChipView(vararg styleClass: String, id: String? = null): JFXChipView<T>
+    = styledJFXChipView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXChipView] with configuration block.
@@ -76,16 +76,13 @@ fun <T> NodeManager.styledJFXChipView(vararg styleClass: String, id: String? = n
  * @return the styled control created.
  */
 inline fun <T> styledJFXChipView(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXChipView<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(JFXChipView<T>(), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -97,16 +94,11 @@ inline fun <T> styledJFXChipView(
  * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXChipView(
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXChipView<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(JFXChipView<T>(), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

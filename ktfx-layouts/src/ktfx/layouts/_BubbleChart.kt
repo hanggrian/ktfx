@@ -4,12 +4,12 @@
 
 package ktfx.layouts
 
+import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.BubbleChart
 import javafx.scene.chart.XYChart
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -17,6 +17,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [BubbleChart] to this manager.
@@ -24,9 +25,9 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun <X, Y> NodeManager.bubbleChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): BubbleChart<X, Y> = bubbleChart(x = x, y = y, data = data) { }
 
 /**
@@ -36,13 +37,13 @@ fun <X, Y> NodeManager.bubbleChart(
  * @return the control created.
  */
 inline fun <X, Y> bubbleChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(BubbleChart<X, Y>(x, y, data), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(BubbleChart<X, Y>(x, y, data), configuration = configuration)
 }
 
 /**
@@ -52,13 +53,13 @@ inline fun <X, Y> bubbleChart(
  * @return the control added.
  */
 inline fun <X, Y> NodeManager.bubbleChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(BubbleChart<X, Y>(x, y, data), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(BubbleChart<X, Y>(x, y, data), configuration = configuration))
 }
 
 /**
@@ -69,16 +70,13 @@ inline fun <X, Y> NodeManager.bubbleChart(
  * @return the styled control created.
  */
 fun <X, Y> styledBubbleChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null
-): BubbleChart<X, Y> = styledBubbleChart(
-    x = x, y = y, data = data, styleClass = *styleClass,
-    id =
-        id
-) { }
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null
+): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id =
+    id) { }
 
 /**
  * Add a styled [BubbleChart] to this manager.
@@ -88,16 +86,13 @@ fun <X, Y> styledBubbleChart(
  * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledBubbleChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null
-): BubbleChart<X, Y> = styledBubbleChart(
-    x = x, y = y, data = data, styleClass = *styleClass,
-    id =
-        id
-) { }
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null
+): BubbleChart<X, Y> = styledBubbleChart(x = x, y = y, data = data, styleClass = *styleClass, id =
+    id) { }
 
 /**
  * Create a styled [BubbleChart] with configuration block.
@@ -108,19 +103,16 @@ fun <X, Y> NodeManager.styledBubbleChart(
  * @return the styled control created.
  */
 inline fun <X, Y> styledBubbleChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        BubbleChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(BubbleChart<X, Y>(x, y, data), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -132,18 +124,14 @@ inline fun <X, Y> styledBubbleChart(
  * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledBubbleChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            BubbleChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(BubbleChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+      configuration = configuration))
 }

@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Button
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,16 +13,15 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Button] to this manager.
  *
  * @return the control added.
  */
-fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(
-    text = text,
-    graphic = graphic
-) { }
+fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(text = text,
+    graphic = graphic) { }
 
 /**
  * Create a [Button] with configuration block.
@@ -32,12 +30,12 @@ fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = bu
  * @return the control created.
  */
 inline fun button(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Button(text, graphic), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Button(text, graphic), configuration = configuration)
 }
 
 /**
@@ -47,12 +45,12 @@ inline fun button(
  * @return the control added.
  */
 inline fun NodeManager.button(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Button(text, graphic), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Button(text, graphic), configuration = configuration))
 }
 
 /**
@@ -63,10 +61,10 @@ inline fun NodeManager.button(
  * @return the styled control created.
  */
 fun styledButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): Button = styledButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,10 +75,10 @@ fun styledButton(
  * @return the styled control added.
  */
 fun NodeManager.styledButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): Button = styledButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,18 +90,15 @@ fun NodeManager.styledButton(
  * @return the styled control created.
  */
 inline fun styledButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Button(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(Button(text, graphic), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -115,18 +110,13 @@ inline fun styledButton(
  * @return the styled control added.
  */
 inline fun NodeManager.styledButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker Button).() -> Unit
 ): Button {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Button(text, graphic), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(Button(text, graphic), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

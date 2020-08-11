@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,6 +13,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ToggleButton] to this manager.
@@ -38,12 +38,12 @@ fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null
  * @return the control created.
  */
 inline fun toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ToggleButton(text, graphic), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ToggleButton(text, graphic), configuration = configuration)
 }
 
 /**
@@ -53,12 +53,12 @@ inline fun toggleButton(
  * @return the control added.
  */
 inline fun NodeManager.toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
 }
 
 /**
@@ -68,12 +68,12 @@ inline fun NodeManager.toggleButton(
  * @return the control added.
  */
 inline fun ToggleButtonManager.toggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
 }
 
 /**
@@ -84,15 +84,12 @@ inline fun ToggleButtonManager.toggleButton(
  * @return the styled control created.
  */
 fun styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null
-): ToggleButton = styledToggleButton(
-    text = text, graphic = graphic, styleClass = *styleClass,
-    id =
-        id
-) { }
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null
+): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
+    id) { }
 
 /**
  * Add a styled [ToggleButton] to this manager.
@@ -102,15 +99,12 @@ fun styledToggleButton(
  * @return the styled control added.
  */
 fun NodeManager.styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null
-): ToggleButton = styledToggleButton(
-    text = text, graphic = graphic, styleClass = *styleClass,
-    id =
-        id
-) { }
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null
+): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
+    id) { }
 
 /**
  * Add a styled [ToggleButton] to this manager.
@@ -120,15 +114,12 @@ fun NodeManager.styledToggleButton(
  * @return the styled control added.
  */
 fun ToggleButtonManager.styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null
-): ToggleButton = styledToggleButton(
-    text = text, graphic = graphic, styleClass = *styleClass,
-    id =
-        id
-) { }
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null
+): ToggleButton = styledToggleButton(text = text, graphic = graphic, styleClass = *styleClass, id =
+    id) { }
 
 /**
  * Create a styled [ToggleButton] with configuration block.
@@ -139,18 +130,15 @@ fun ToggleButtonManager.styledToggleButton(
  * @return the styled control created.
  */
 inline fun styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ToggleButton(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ToggleButton(text, graphic), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -162,19 +150,15 @@ inline fun styledToggleButton(
  * @return the styled control added.
  */
 inline fun NodeManager.styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ToggleButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ToggleButton(text, graphic), styleClass = *styleClass, id = id,
+      configuration = configuration))
 }
 
 /**
@@ -186,17 +170,13 @@ inline fun NodeManager.styledToggleButton(
  * @return the styled control added.
  */
 inline fun ToggleButtonManager.styledToggleButton(
-    text: String? = null,
-    graphic: Node? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ToggleButton).() -> Unit
+  text: String? = null,
+  graphic: Node? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ToggleButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ToggleButton(text, graphic), styleClass = *styleClass, id = id,
+      configuration = configuration))
 }

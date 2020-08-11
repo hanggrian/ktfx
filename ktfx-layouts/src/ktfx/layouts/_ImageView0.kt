@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,6 +13,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [ImageView] to this manager.
@@ -30,9 +30,9 @@ fun NodeManager.imageView(image: Image? = null): ImageView = imageView(image = i
  */
 inline fun imageView(image: Image? = null, configuration: (@LayoutDslMarker ImageView).() -> Unit):
     ImageView {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(ImageView(image), configuration = configuration)
-    }
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ImageView(image), configuration = configuration)
+}
 
 /**
  * Add an [ImageView] with configuration block to this manager.
@@ -40,15 +40,10 @@ inline fun imageView(image: Image? = null, configuration: (@LayoutDslMarker Imag
  *
  * @return the control added.
  */
-inline fun NodeManager.imageView(
-    image: Image? = null,
-    configuration: (
-        @LayoutDslMarker    
-        ImageView
-    ).() -> Unit
-): ImageView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ImageView(image), configuration = configuration))
+inline fun NodeManager.imageView(image: Image? = null, configuration: (@LayoutDslMarker
+    ImageView).() -> Unit): ImageView {
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ImageView(image), configuration = configuration))
 }
 
 /**
@@ -59,9 +54,9 @@ inline fun NodeManager.imageView(
  * @return the styled control created.
  */
 fun styledImageView(
-    image: Image? = null,
-    vararg styleClass: String,
-    id: String? = null
+  image: Image? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): ImageView = styledImageView(image = image, styleClass = *styleClass, id = id) { }
 
 /**
@@ -72,9 +67,9 @@ fun styledImageView(
  * @return the styled control added.
  */
 fun NodeManager.styledImageView(
-    image: Image? = null,
-    vararg styleClass: String,
-    id: String? = null
+  image: Image? = null,
+  vararg styleClass: String,
+  id: String? = null
 ): ImageView = styledImageView(image = image, styleClass = *styleClass, id = id) { }
 
 /**
@@ -86,17 +81,14 @@ fun NodeManager.styledImageView(
  * @return the styled control created.
  */
 inline fun styledImageView(
-    image: Image? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ImageView).() -> Unit
+  image: Image? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ImageView(image), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(ImageView(image), styleClass = *styleClass, id = id, configuration =
+      configuration)
 }
 
 /**
@@ -108,17 +100,12 @@ inline fun styledImageView(
  * @return the styled control added.
  */
 inline fun NodeManager.styledImageView(
-    image: Image? = null,
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker ImageView).() -> Unit
+  image: Image? = null,
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ImageView(image), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(ImageView(image), styleClass = *styleClass, id = id, configuration =
+      configuration))
 }

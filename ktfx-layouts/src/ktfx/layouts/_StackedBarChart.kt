@@ -4,12 +4,12 @@
 
 package ktfx.layouts
 
+import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedBarChart
 import javafx.scene.chart.XYChart
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -17,6 +17,7 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
+import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [StackedBarChart] to this manager.
@@ -24,9 +25,9 @@ import kotlin.jvm.JvmName
  * @return the control added.
  */
 fun <X, Y> NodeManager.stackedBarChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): StackedBarChart<X, Y> = stackedBarChart(x = x, y = y, data = data) { }
 
 /**
@@ -36,13 +37,13 @@ fun <X, Y> NodeManager.stackedBarChart(
  * @return the control created.
  */
 inline fun <X, Y> stackedBarChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(StackedBarChart<X, Y>(x, y, data), configuration = configuration)
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(StackedBarChart<X, Y>(x, y, data), configuration = configuration)
 }
 
 /**
@@ -52,13 +53,13 @@ inline fun <X, Y> stackedBarChart(
  * @return the control added.
  */
 inline fun <X, Y> NodeManager.stackedBarChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(StackedBarChart<X, Y>(x, y, data), configuration = configuration))
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(StackedBarChart<X, Y>(x, y, data), configuration = configuration))
 }
 
 /**
@@ -69,17 +70,13 @@ inline fun <X, Y> NodeManager.stackedBarChart(
  * @return the styled control created.
  */
 fun <X, Y> styledStackedBarChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null
-): StackedBarChart<X, Y> = styledStackedBarChart(
-    x = x, y = y, data = data,
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null
+): StackedBarChart<X, Y> = styledStackedBarChart(x = x, y = y, data = data, styleClass =
+    *styleClass, id = id) { }
 
 /**
  * Add a styled [StackedBarChart] to this manager.
@@ -89,17 +86,13 @@ fun <X, Y> styledStackedBarChart(
  * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledStackedBarChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null
-): StackedBarChart<X, Y> = styledStackedBarChart(
-    x = x, y = y, data = data,
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null
+): StackedBarChart<X, Y> = styledStackedBarChart(x = x, y = y, data = data, styleClass =
+    *styleClass, id = id) { }
 
 /**
  * Create a styled [StackedBarChart] with configuration block.
@@ -110,18 +103,16 @@ fun <X, Y> NodeManager.styledStackedBarChart(
  * @return the styled control created.
  */
 inline fun <X, Y> styledStackedBarChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        StackedBarChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return newChild(StackedBarChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+      configuration = configuration)
 }
 
 /**
@@ -133,18 +124,14 @@ inline fun <X, Y> styledStackedBarChart(
  * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledStackedBarChart(
-    x: Axis<X>,
-    y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    vararg styleClass: String,
-    id: String? = null,
-    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+  x: Axis<X>,
+  y: Axis<Y>,
+  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+  vararg styleClass: String,
+  id: String? = null,
+  configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            StackedBarChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+  contract { callsInPlace(configuration, EXACTLY_ONCE) }
+  return addChild(newChild(StackedBarChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+      configuration = configuration))
 }

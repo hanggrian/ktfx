@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.MenuBar
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [MenuBar] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.menuBar(): MenuBar = menuBar() { }
  * @return the control created.
  */
 inline fun menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxMenuBar(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxMenuBar(), configuration = configuration)
 }
 
 /**
@@ -39,8 +39,8 @@ inline fun menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): Me
  * @return the control added.
  */
 inline fun NodeManager.menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxMenuBar(), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxMenuBar(), configuration = configuration))
 }
 
 /**
@@ -50,8 +50,11 @@ inline fun NodeManager.menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() 
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styledMenuBar(styleClass
-    = *styleClass, id = id) { }
+fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styledMenuBar(
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [MenuBar] to this manager.
@@ -72,12 +75,12 @@ fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): Me
  * @return the styled control created.
  */
 inline fun styledMenuBar(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxMenuBar(), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxMenuBar(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -89,11 +92,16 @@ inline fun styledMenuBar(
  * @return the styled control added.
  */
 inline fun NodeManager.styledMenuBar(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxMenuBar(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxMenuBar(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

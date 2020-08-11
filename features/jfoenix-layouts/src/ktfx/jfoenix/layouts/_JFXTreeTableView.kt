@@ -7,6 +7,9 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeItem
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,9 +17,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXTreeTableView] to this manager.
@@ -32,10 +32,12 @@ fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(root: TreeItem<S>?
  *
  * @return the control created.
  */
-inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S>? = null,
-    configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit): JFXTreeTableView<S> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(JFXTreeTableView<S>(root), configuration = configuration)
+inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
+    root: TreeItem<S>? = null,
+    configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
+): JFXTreeTableView<S> {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(JFXTreeTableView<S>(root), configuration = configuration)
 }
 
 /**
@@ -44,10 +46,12 @@ inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S>? = nu
  *
  * @return the control added.
  */
-inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(root: TreeItem<S>? = null,
-    configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit): JFXTreeTableView<S> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(JFXTreeTableView<S>(root), configuration = configuration))
+inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
+    root: TreeItem<S>? = null,
+    configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
+): JFXTreeTableView<S> {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(JFXTreeTableView<S>(root), configuration = configuration))
 }
 
 /**
@@ -58,9 +62,9 @@ inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(root: TreeI
  * @return the styled control created.
  */
 fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
-  root: TreeItem<S>? = null,
-  vararg styleClass: String,
-  id: String? = null
+    root: TreeItem<S>? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): JFXTreeTableView<S> = styledJFXTreeTableView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
@@ -71,9 +75,9 @@ fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
  * @return the styled control added.
  */
 fun <S : RecursiveTreeObject<S>> NodeManager.styledJFXTreeTableView(
-  root: TreeItem<S>? = null,
-  vararg styleClass: String,
-  id: String? = null
+    root: TreeItem<S>? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): JFXTreeTableView<S> = styledJFXTreeTableView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
@@ -85,14 +89,17 @@ fun <S : RecursiveTreeObject<S>> NodeManager.styledJFXTreeTableView(
  * @return the styled control created.
  */
 inline fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
-  root: TreeItem<S>? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
+    root: TreeItem<S>? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(JFXTreeTableView<S>(root), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        JFXTreeTableView<S>(root), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -104,12 +111,16 @@ inline fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
  * @return the styled control added.
  */
 inline fun <S : RecursiveTreeObject<S>> NodeManager.styledJFXTreeTableView(
-  root: TreeItem<S>? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
+    root: TreeItem<S>? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(JFXTreeTableView<S>(root), styleClass = *styleClass, id = id,
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            JFXTreeTableView<S>(root), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

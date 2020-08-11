@@ -8,11 +8,12 @@ import java.io.File
 object StringsWriter {
 
     fun write(factory: StringsFactory) {
-        println("Generating to ${factory.path}:")
-        buildFileSpec(factory.packageName, "_${factory.className}") {
+        println("Generating to ktfx-commons/src")
+        buildFileSpec("ktfx.bindings", "_${factory.className}") {
+            indentSize = 4
             annotations {
                 add<JvmMultifileClass>()
-                JvmName::class { addMember("%S", "ObservableStringValueKt") }
+                JvmName::class { addMember("%S", "ObservableStringBindingKt") }
                 Suppress::class { addMember("%S", "NOTHING_TO_INLINE") }
             }
             functions {
@@ -27,7 +28,7 @@ object StringsWriter {
                     }
                 }
             }
-        }.writeTo(File(factory.path))
+        }.writeTo(File("ktfx-commons/src"))
         println("Finished!")
         println()
     }

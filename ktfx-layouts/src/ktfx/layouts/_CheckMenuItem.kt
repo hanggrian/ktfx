@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [CheckMenuItem] to this manager.
@@ -30,12 +30,12 @@ fun MenuItemManager.checkMenuItem(text: String? = null, graphic: Node? = null): 
  * @return the control created.
  */
 inline fun checkMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CheckMenuItem(text, graphic), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(CheckMenuItem(text, graphic), configuration = configuration)
 }
 
 /**
@@ -45,12 +45,12 @@ inline fun checkMenuItem(
  * @return the control added.
  */
 inline fun MenuItemManager.checkMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CheckMenuItem(text, graphic), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(CheckMenuItem(text, graphic), configuration = configuration))
 }
 
 /**
@@ -61,12 +61,15 @@ inline fun MenuItemManager.checkMenuItem(
  * @return the styled control created.
  */
 fun styledCheckMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null
-): CheckMenuItem = styledCheckMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id
-    = id) { }
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): CheckMenuItem = styledCheckMenuItem(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [CheckMenuItem] to this manager.
@@ -76,12 +79,15 @@ fun styledCheckMenuItem(
  * @return the styled control added.
  */
 fun MenuItemManager.styledCheckMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null
-): CheckMenuItem = styledCheckMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id
-    = id) { }
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): CheckMenuItem = styledCheckMenuItem(
+    text = text, graphic = graphic, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Create a styled [CheckMenuItem] with configuration block.
@@ -92,15 +98,18 @@ fun MenuItemManager.styledCheckMenuItem(
  * @return the styled control created.
  */
 inline fun styledCheckMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CheckMenuItem(text, graphic), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        CheckMenuItem(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -112,13 +121,17 @@ inline fun styledCheckMenuItem(
  * @return the styled control added.
  */
 inline fun MenuItemManager.styledCheckMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CheckMenuItem(text, graphic), styleClass = *styleClass, id = id,
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            CheckMenuItem(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

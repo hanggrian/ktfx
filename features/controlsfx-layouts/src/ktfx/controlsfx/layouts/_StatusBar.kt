@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.StatusBar
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.StatusBar
 
 /**
  * Add a [StatusBar] to this manager.
@@ -30,8 +30,8 @@ fun NodeManager.statusBar(): StatusBar = statusBar() { }
  * @return the control created.
  */
 inline fun statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit): StatusBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(StatusBar(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(StatusBar(), configuration = configuration)
 }
 
 /**
@@ -42,9 +42,9 @@ inline fun statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit): St
  */
 inline fun NodeManager.statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit):
     StatusBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(StatusBar(), configuration = configuration))
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(StatusBar(), configuration = configuration))
+    }
 
 /**
  * Create a styled [StatusBar].
@@ -75,12 +75,12 @@ fun NodeManager.styledStatusBar(vararg styleClass: String, id: String? = null): 
  * @return the styled control created.
  */
 inline fun styledStatusBar(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker StatusBar).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(StatusBar(), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(StatusBar(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -92,11 +92,16 @@ inline fun styledStatusBar(
  * @return the styled control added.
  */
 inline fun NodeManager.styledStatusBar(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker StatusBar).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(StatusBar(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            StatusBar(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDrawer
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXDrawer] to this manager.
@@ -30,8 +30,8 @@ fun NodeManager.jfxDrawer(): JFXDrawer = jfxDrawer() { }
  * @return the control created.
  */
 inline fun jfxDrawer(configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit): JFXDrawer {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXDrawer(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxJFXDrawer(), configuration = configuration)
 }
 
 /**
@@ -42,9 +42,9 @@ inline fun jfxDrawer(configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit)
  */
 inline fun NodeManager.jfxDrawer(configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit):
     JFXDrawer {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXDrawer(), configuration = configuration))
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(KtfxJFXDrawer(), configuration = configuration))
+    }
 
 /**
  * Create a styled [JFXDrawer].
@@ -75,12 +75,16 @@ fun NodeManager.styledJFXDrawer(vararg styleClass: String, id: String? = null): 
  * @return the styled control created.
  */
 inline fun styledJFXDrawer(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXDrawer(), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxJFXDrawer(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -92,11 +96,16 @@ inline fun styledJFXDrawer(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXDrawer(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXDrawer(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxJFXDrawer(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

@@ -2,12 +2,11 @@ package com.hendraanggrian.ktfx.codegen.commons
 
 import com.hendraanggrian.kotlinpoet.asNullable
 import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
-import com.hendraanggrian.ktfx.codegen.KTFX
 import com.squareup.kotlinpoet.KModifier
 import java.util.Locale
 
 val StringsFactory.Companion.StringsJVM: StringsFactory
-    get() = object : StringsFactory("ktfx-commons/src", KTFX, "ObservableStringValueJVM") {
+    get() = object : StringsFactory("ObservableStringValueJVM") {
         init {
             "equals"(BOOLEAN, notNull = false) { add("other", String::class.asNullable()); ignoreCase() }
             "replace"(STRING) { oldChar(); newChar(); ignoreCase() }

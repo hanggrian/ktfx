@@ -3,6 +3,8 @@ package com.example
 import javafx.application.Application
 import javafx.scene.control.Label
 import javafx.stage.Stage
+import ktfx.bindings.toBooleanBinding
+import ktfx.bindings.toStringBinding
 import ktfx.controls.horizontalPadding
 import ktfx.controls.minSize
 import ktfx.coroutines.onAction
@@ -14,8 +16,6 @@ import ktfx.layouts.gridPane
 import ktfx.layouts.label
 import ktfx.layouts.scene
 import ktfx.layouts.vbox
-import ktfx.toBooleanBinding
-import ktfx.toStringBinding
 
 class CalculatorApp : Application() {
     companion object {
@@ -36,7 +36,7 @@ class CalculatorApp : Application() {
 
                     resultLabel = label {
                         textProperty().bind(calculationLabel.textProperty().toStringBinding {
-                            if (endsWithOperator) "..." else {
+                            if (endsWithOperator(calculationLabel.text)) "..." else {
                                 val operators = calculationLabel.text
                                     .split("\\d".toRegex())
                                     .filter { it.isNotEmpty() }
@@ -142,7 +142,7 @@ class CalculatorApp : Application() {
                 button("=") {
                     minSize = 40.0
                     isDefaultButton = true
-                    disableProperty().bind(calculationLabel.textProperty().toBooleanBinding { endsWithOperator })
+                    disableProperty().bind(calculationLabel.textProperty().toBooleanBinding(::endsWithOperator))
                     onAction { infoAlert("Result", content = resultLabel.text) }
                 } row 4 col 4
             }
@@ -152,11 +152,11 @@ class CalculatorApp : Application() {
     }
 
     private fun appendText(text: String) {
-        if (text in OPERATORS && endsWithOperator) {
+        if (text in OPERATORS && endsWithOperator(text)) {
             calculationLabel.text = calculationLabel.text.substring(0, calculationLabel.text.length - 1)
         }
         calculationLabel.text += text
     }
 
-    private inline val endsWithOperator: Boolean get() = OPERATORS.any { calculationLabel.text.endsWith(it) }
+    private fun endsWithOperator(text: String?): Boolean = OPERATORS.any { text!!.endsWith(it) }
 }

@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.BorderPane
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [BorderPane] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.borderPane(): BorderPane = borderPane() { }
  * @return the control created.
  */
 inline fun borderPane(configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit): BorderPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxBorderPane(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxBorderPane(), configuration = configuration)
 }
 
 /**
@@ -40,9 +40,9 @@ inline fun borderPane(configuration: (@LayoutDslMarker KtfxBorderPane).() -> Uni
  */
 inline fun NodeManager.borderPane(configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit):
     BorderPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxBorderPane(), configuration = configuration))
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(KtfxBorderPane(), configuration = configuration))
+    }
 
 /**
  * Create a styled [BorderPane].
@@ -73,13 +73,16 @@ fun NodeManager.styledBorderPane(vararg styleClass: String, id: String? = null):
  * @return the styled control created.
  */
 inline fun styledBorderPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxBorderPane(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxBorderPane(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -91,11 +94,16 @@ inline fun styledBorderPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledBorderPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxBorderPane(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxBorderPane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

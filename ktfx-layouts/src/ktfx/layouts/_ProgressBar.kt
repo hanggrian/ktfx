@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,7 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ProgressBar] to this manager.
@@ -30,10 +30,15 @@ fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): Progress
  *
  * @return the control created.
  */
-inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS, configuration: (@LayoutDslMarker
-    ProgressBar).() -> Unit): ProgressBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(ProgressBar(progress), configuration = configuration)
+inline fun progressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (
+        @LayoutDslMarker    
+        ProgressBar
+    ).() -> Unit
+): ProgressBar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(ProgressBar(progress), configuration = configuration)
 }
 
 /**
@@ -42,10 +47,12 @@ inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS, configuration:
  *
  * @return the control added.
  */
-inline fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(ProgressBar(progress), configuration = configuration))
+inline fun NodeManager.progressBar(
+    progress: Double = INDETERMINATE_PROGRESS,
+    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
+): ProgressBar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(ProgressBar(progress), configuration = configuration))
 }
 
 /**
@@ -56,9 +63,9 @@ inline fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS,
  * @return the styled control created.
  */
 fun styledProgressBar(
-  progress: Double = INDETERMINATE_PROGRESS,
-  vararg styleClass: String,
-  id: String? = null
+    progress: Double = INDETERMINATE_PROGRESS,
+    vararg styleClass: String,
+    id: String? = null
 ): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,9 +76,9 @@ fun styledProgressBar(
  * @return the styled control added.
  */
 fun NodeManager.styledProgressBar(
-  progress: Double = INDETERMINATE_PROGRESS,
-  vararg styleClass: String,
-  id: String? = null
+    progress: Double = INDETERMINATE_PROGRESS,
+    vararg styleClass: String,
+    id: String? = null
 ): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
@@ -83,14 +90,17 @@ fun NodeManager.styledProgressBar(
  * @return the styled control created.
  */
 inline fun styledProgressBar(
-  progress: Double = INDETERMINATE_PROGRESS,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker ProgressBar).() -> Unit
+    progress: Double = INDETERMINATE_PROGRESS,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(ProgressBar(progress), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        ProgressBar(progress), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -102,12 +112,17 @@ inline fun styledProgressBar(
  * @return the styled control added.
  */
 inline fun NodeManager.styledProgressBar(
-  progress: Double = INDETERMINATE_PROGRESS,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker ProgressBar).() -> Unit
+    progress: Double = INDETERMINATE_PROGRESS,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(ProgressBar(progress), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            ProgressBar(progress), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

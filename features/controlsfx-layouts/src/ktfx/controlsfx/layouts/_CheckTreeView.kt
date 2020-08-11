@@ -5,6 +5,10 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.control.CheckBoxTreeItem
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.CheckTreeView
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,10 +16,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.CheckTreeView
 
 /**
  * Add a [CheckTreeView] to this manager.
@@ -31,10 +31,15 @@ fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeV
  *
  * @return the control created.
  */
-inline fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null, configuration: (@LayoutDslMarker
-    CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CheckTreeView<T>(root), configuration = configuration)
+inline fun <T> checkTreeView(
+    root: CheckBoxTreeItem<T>? = null,
+    configuration: (
+        @LayoutDslMarker    
+        CheckTreeView<T>
+    ).() -> Unit
+): CheckTreeView<T> {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(CheckTreeView<T>(root), configuration = configuration)
 }
 
 /**
@@ -43,10 +48,12 @@ inline fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null, configuration: (
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null,
-    configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CheckTreeView<T>(root), configuration = configuration))
+inline fun <T> NodeManager.checkTreeView(
+    root: CheckBoxTreeItem<T>? = null,
+    configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
+): CheckTreeView<T> {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(CheckTreeView<T>(root), configuration = configuration))
 }
 
 /**
@@ -57,9 +64,9 @@ inline fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null,
  * @return the styled control created.
  */
 fun <T> styledCheckTreeView(
-  root: CheckBoxTreeItem<T>? = null,
-  vararg styleClass: String,
-  id: String? = null
+    root: CheckBoxTreeItem<T>? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): CheckTreeView<T> = styledCheckTreeView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
@@ -70,9 +77,9 @@ fun <T> styledCheckTreeView(
  * @return the styled control added.
  */
 fun <T> NodeManager.styledCheckTreeView(
-  root: CheckBoxTreeItem<T>? = null,
-  vararg styleClass: String,
-  id: String? = null
+    root: CheckBoxTreeItem<T>? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): CheckTreeView<T> = styledCheckTreeView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
@@ -84,14 +91,17 @@ fun <T> NodeManager.styledCheckTreeView(
  * @return the styled control created.
  */
 inline fun <T> styledCheckTreeView(
-  root: CheckBoxTreeItem<T>? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
+    root: CheckBoxTreeItem<T>? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CheckTreeView<T>(root), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        CheckTreeView<T>(root), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -103,12 +113,16 @@ inline fun <T> styledCheckTreeView(
  * @return the styled control added.
  */
 inline fun <T> NodeManager.styledCheckTreeView(
-  root: CheckBoxTreeItem<T>? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
+    root: CheckBoxTreeItem<T>? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CheckTreeView<T>(root), styleClass = *styleClass, id = id, configuration
-      = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            CheckTreeView<T>(root), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.GridPane
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [GridPane] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.gridPane(): GridPane = gridPane() { }
  * @return the control created.
  */
 inline fun gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit): GridPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxGridPane(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxGridPane(), configuration = configuration)
 }
 
 /**
@@ -40,9 +40,9 @@ inline fun gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit): 
  */
 inline fun NodeManager.gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit):
     GridPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxGridPane(), configuration = configuration))
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(KtfxGridPane(), configuration = configuration))
+    }
 
 /**
  * Create a styled [GridPane].
@@ -73,12 +73,16 @@ fun NodeManager.styledGridPane(vararg styleClass: String, id: String? = null): G
  * @return the styled control created.
  */
 inline fun styledGridPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxGridPane(), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxGridPane(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -90,11 +94,16 @@ inline fun styledGridPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledGridPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxGridPane(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxGridPane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

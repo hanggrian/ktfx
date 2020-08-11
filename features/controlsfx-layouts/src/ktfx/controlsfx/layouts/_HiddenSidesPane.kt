@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.HiddenSidesPane
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.HiddenSidesPane
 
 /**
  * Add a [HiddenSidesPane] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() { }
  */
 inline fun hiddenSidesPane(configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit):
     HiddenSidesPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxHiddenSidesPane(), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxHiddenSidesPane(), configuration = configuration)
+    }
 
 /**
  * Add a [HiddenSidesPane] with configuration block to this manager.
@@ -41,10 +41,12 @@ inline fun hiddenSidesPane(configuration: (@LayoutDslMarker KtfxHiddenSidesPane)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.hiddenSidesPane(configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() ->
-    Unit): HiddenSidesPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxHiddenSidesPane(), configuration = configuration))
+inline fun NodeManager.hiddenSidesPane(
+    configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() ->
+    Unit
+): HiddenSidesPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxHiddenSidesPane(), configuration = configuration))
 }
 
 /**
@@ -76,13 +78,16 @@ fun NodeManager.styledHiddenSidesPane(vararg styleClass: String, id: String? = n
  * @return the styled control created.
  */
 inline fun styledHiddenSidesPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxHiddenSidesPane(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxHiddenSidesPane(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -94,11 +99,16 @@ inline fun styledHiddenSidesPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledHiddenSidesPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxHiddenSidesPane(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxHiddenSidesPane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

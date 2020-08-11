@@ -5,13 +5,13 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ClosePath
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [ClosePath] to this manager.
@@ -27,8 +27,8 @@ fun PathElementManager.closePath(): ClosePath = closePath() { }
  * @return the control created.
  */
 inline fun closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit): ClosePath {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(ClosePath(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(ClosePath(), configuration = configuration)
 }
 
 /**
@@ -39,6 +39,6 @@ inline fun closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit): Cl
  */
 inline fun PathElementManager.closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit):
     ClosePath {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(ClosePath(), configuration = configuration))
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(ClosePath(), configuration = configuration))
+    }

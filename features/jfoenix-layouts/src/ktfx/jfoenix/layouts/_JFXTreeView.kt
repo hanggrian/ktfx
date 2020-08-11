@@ -6,6 +6,9 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTreeView
 import javafx.scene.control.TreeItem
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,17 +16,16 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXTreeView] to this manager.
  *
  * @return the control added.
  */
-fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfxTreeView(root =
-    root) { }
+fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfxTreeView(
+    root =
+        root
+) { }
 
 /**
  * Create a [JFXTreeView] with configuration block.
@@ -31,10 +33,15 @@ fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfx
  *
  * @return the control created.
  */
-inline fun <T> jfxTreeView(root: TreeItem<T>? = null, configuration: (@LayoutDslMarker
-    JFXTreeView<T>).() -> Unit): JFXTreeView<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(JFXTreeView<T>(root), configuration = configuration)
+inline fun <T> jfxTreeView(
+    root: TreeItem<T>? = null,
+    configuration: (
+        @LayoutDslMarker    
+        JFXTreeView<T>
+    ).() -> Unit
+): JFXTreeView<T> {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(JFXTreeView<T>(root), configuration = configuration)
 }
 
 /**
@@ -43,10 +50,15 @@ inline fun <T> jfxTreeView(root: TreeItem<T>? = null, configuration: (@LayoutDsl
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null, configuration: (@LayoutDslMarker
-    JFXTreeView<T>).() -> Unit): JFXTreeView<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(JFXTreeView<T>(root), configuration = configuration))
+inline fun <T> NodeManager.jfxTreeView(
+    root: TreeItem<T>? = null,
+    configuration: (
+        @LayoutDslMarker    
+        JFXTreeView<T>
+    ).() -> Unit
+): JFXTreeView<T> {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(JFXTreeView<T>(root), configuration = configuration))
 }
 
 /**
@@ -57,9 +69,9 @@ inline fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null, configuration:
  * @return the styled control created.
  */
 fun <T> styledJFXTreeView(
-  root: TreeItem<T>? = null,
-  vararg styleClass: String,
-  id: String? = null
+    root: TreeItem<T>? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): JFXTreeView<T> = styledJFXTreeView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
@@ -70,9 +82,9 @@ fun <T> styledJFXTreeView(
  * @return the styled control added.
  */
 fun <T> NodeManager.styledJFXTreeView(
-  root: TreeItem<T>? = null,
-  vararg styleClass: String,
-  id: String? = null
+    root: TreeItem<T>? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): JFXTreeView<T> = styledJFXTreeView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
@@ -84,14 +96,17 @@ fun <T> NodeManager.styledJFXTreeView(
  * @return the styled control created.
  */
 inline fun <T> styledJFXTreeView(
-  root: TreeItem<T>? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
+    root: TreeItem<T>? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(JFXTreeView<T>(root), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        JFXTreeView<T>(root), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -103,12 +118,17 @@ inline fun <T> styledJFXTreeView(
  * @return the styled control added.
  */
 inline fun <T> NodeManager.styledJFXTreeView(
-  root: TreeItem<T>? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
+    root: TreeItem<T>? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(JFXTreeView<T>(root), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            JFXTreeView<T>(root), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

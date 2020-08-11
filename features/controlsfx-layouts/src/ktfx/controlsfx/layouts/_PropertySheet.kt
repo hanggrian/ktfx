@@ -5,6 +5,10 @@
 package ktfx.controlsfx.layouts
 
 import javafx.collections.ObservableList
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.PropertySheet
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,10 +16,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.PropertySheet
 
 /**
  * Add a [PropertySheet] to this manager.
@@ -31,10 +31,12 @@ fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? = null)
  *
  * @return the control created.
  */
-inline fun propertySheet(items: ObservableList<PropertySheet.Item>? = null,
-    configuration: (@LayoutDslMarker PropertySheet).() -> Unit): PropertySheet {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(PropertySheet(items), configuration = configuration)
+inline fun propertySheet(
+    items: ObservableList<PropertySheet.Item>? = null,
+    configuration: (@LayoutDslMarker PropertySheet).() -> Unit
+): PropertySheet {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(PropertySheet(items), configuration = configuration)
 }
 
 /**
@@ -43,10 +45,12 @@ inline fun propertySheet(items: ObservableList<PropertySheet.Item>? = null,
  *
  * @return the control added.
  */
-inline fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? = null,
-    configuration: (@LayoutDslMarker PropertySheet).() -> Unit): PropertySheet {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(PropertySheet(items), configuration = configuration))
+inline fun NodeManager.propertySheet(
+    items: ObservableList<PropertySheet.Item>? = null,
+    configuration: (@LayoutDslMarker PropertySheet).() -> Unit
+): PropertySheet {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(PropertySheet(items), configuration = configuration))
 }
 
 /**
@@ -57,9 +61,9 @@ inline fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? 
  * @return the styled control created.
  */
 fun styledPropertySheet(
-  items: ObservableList<PropertySheet.Item>? = null,
-  vararg styleClass: String,
-  id: String? = null
+    items: ObservableList<PropertySheet.Item>? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): PropertySheet = styledPropertySheet(items = items, styleClass = *styleClass, id = id) { }
 
 /**
@@ -70,9 +74,9 @@ fun styledPropertySheet(
  * @return the styled control added.
  */
 fun NodeManager.styledPropertySheet(
-  items: ObservableList<PropertySheet.Item>? = null,
-  vararg styleClass: String,
-  id: String? = null
+    items: ObservableList<PropertySheet.Item>? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): PropertySheet = styledPropertySheet(items = items, styleClass = *styleClass, id = id) { }
 
 /**
@@ -84,14 +88,17 @@ fun NodeManager.styledPropertySheet(
  * @return the styled control created.
  */
 inline fun styledPropertySheet(
-  items: ObservableList<PropertySheet.Item>? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker PropertySheet).() -> Unit
+    items: ObservableList<PropertySheet.Item>? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(PropertySheet(items), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        PropertySheet(items), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -103,12 +110,17 @@ inline fun styledPropertySheet(
  * @return the styled control added.
  */
 inline fun NodeManager.styledPropertySheet(
-  items: ObservableList<PropertySheet.Item>? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker PropertySheet).() -> Unit
+    items: ObservableList<PropertySheet.Item>? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(PropertySheet(items), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            PropertySheet(items), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

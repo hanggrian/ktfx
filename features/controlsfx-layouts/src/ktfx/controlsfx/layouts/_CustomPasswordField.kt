@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.textfield.CustomPasswordField
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.textfield.CustomPasswordField
 
 /**
  * Add a [CustomPasswordField] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.customPasswordField(): CustomPasswordField = customPasswordField
  */
 inline fun customPasswordField(configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit):
     CustomPasswordField {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CustomPasswordField(), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(CustomPasswordField(), configuration = configuration)
+    }
 
 /**
  * Add a [CustomPasswordField] with configuration block to this manager.
@@ -41,10 +41,14 @@ inline fun customPasswordField(configuration: (@LayoutDslMarker CustomPasswordFi
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.customPasswordField(configuration: (@LayoutDslMarker
-    CustomPasswordField).() -> Unit): CustomPasswordField {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CustomPasswordField(), configuration = configuration))
+inline fun NodeManager.customPasswordField(
+    configuration: (
+        @LayoutDslMarker
+        CustomPasswordField
+    ).() -> Unit
+): CustomPasswordField {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(CustomPasswordField(), configuration = configuration))
 }
 
 /**
@@ -76,13 +80,16 @@ fun NodeManager.styledCustomPasswordField(vararg styleClass: String, id: String?
  * @return the styled control created.
  */
 inline fun styledCustomPasswordField(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CustomPasswordField(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        CustomPasswordField(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -94,11 +101,16 @@ inline fun styledCustomPasswordField(
  * @return the styled control added.
  */
 inline fun NodeManager.styledCustomPasswordField(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CustomPasswordField(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            CustomPasswordField(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

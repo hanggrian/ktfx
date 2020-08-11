@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.RangeSlider
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -12,10 +16,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.RangeSlider
 
 /**
  * Add a [RangeSlider] to this manager.
@@ -23,10 +23,10 @@ import org.controlsfx.control.RangeSlider
  * @return the control added.
  */
 fun NodeManager.rangeSlider(
-  min: Double = 0.0,
-  max: Double = 1.0,
-  lowValue: Double = 0.25,
-  highValue: Double = 0.75
+    min: Double = 0.0,
+    max: Double = 1.0,
+    lowValue: Double = 0.25,
+    highValue: Double = 0.75
 ): RangeSlider = rangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue) { }
 
 /**
@@ -36,14 +36,14 @@ fun NodeManager.rangeSlider(
  * @return the control created.
  */
 inline fun rangeSlider(
-  min: Double = 0.0,
-  max: Double = 1.0,
-  lowValue: Double = 0.25,
-  highValue: Double = 0.75,
-  configuration: (@LayoutDslMarker RangeSlider).() -> Unit
+    min: Double = 0.0,
+    max: Double = 1.0,
+    lowValue: Double = 0.25,
+    highValue: Double = 0.75,
+    configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(RangeSlider(min, max, lowValue, highValue), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(RangeSlider(min, max, lowValue, highValue), configuration = configuration)
 }
 
 /**
@@ -53,15 +53,20 @@ inline fun rangeSlider(
  * @return the control added.
  */
 inline fun NodeManager.rangeSlider(
-  min: Double = 0.0,
-  max: Double = 1.0,
-  lowValue: Double = 0.25,
-  highValue: Double = 0.75,
-  configuration: (@LayoutDslMarker RangeSlider).() -> Unit
+    min: Double = 0.0,
+    max: Double = 1.0,
+    lowValue: Double = 0.25,
+    highValue: Double = 0.75,
+    configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(RangeSlider(min, max, lowValue, highValue), configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            RangeSlider(min, max, lowValue, highValue),
+            configuration =
+                configuration
+        )
+    )
 }
 
 /**
@@ -72,14 +77,16 @@ inline fun NodeManager.rangeSlider(
  * @return the styled control created.
  */
 fun styledRangeSlider(
-  min: Double = 0.0,
-  max: Double = 1.0,
-  lowValue: Double = 0.25,
-  highValue: Double = 0.75,
-  vararg styleClass: String,
-  id: String? = null
-): RangeSlider = styledRangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue,
-    styleClass = *styleClass, id = id) { }
+    min: Double = 0.0,
+    max: Double = 1.0,
+    lowValue: Double = 0.25,
+    highValue: Double = 0.75,
+    vararg styleClass: String,
+    id: String? = null
+): RangeSlider = styledRangeSlider(
+    min = min, max = max, lowValue = lowValue, highValue = highValue,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Add a styled [RangeSlider] to this manager.
@@ -89,14 +96,16 @@ fun styledRangeSlider(
  * @return the styled control added.
  */
 fun NodeManager.styledRangeSlider(
-  min: Double = 0.0,
-  max: Double = 1.0,
-  lowValue: Double = 0.25,
-  highValue: Double = 0.75,
-  vararg styleClass: String,
-  id: String? = null
-): RangeSlider = styledRangeSlider(min = min, max = max, lowValue = lowValue, highValue = highValue,
-    styleClass = *styleClass, id = id) { }
+    min: Double = 0.0,
+    max: Double = 1.0,
+    lowValue: Double = 0.25,
+    highValue: Double = 0.75,
+    vararg styleClass: String,
+    id: String? = null
+): RangeSlider = styledRangeSlider(
+    min = min, max = max, lowValue = lowValue, highValue = highValue,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Create a styled [RangeSlider] with configuration block.
@@ -107,17 +116,19 @@ fun NodeManager.styledRangeSlider(
  * @return the styled control created.
  */
 inline fun styledRangeSlider(
-  min: Double = 0.0,
-  max: Double = 1.0,
-  lowValue: Double = 0.25,
-  highValue: Double = 0.75,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker RangeSlider).() -> Unit
+    min: Double = 0.0,
+    max: Double = 1.0,
+    lowValue: Double = 0.25,
+    highValue: Double = 0.75,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(RangeSlider(min, max, lowValue, highValue), styleClass = *styleClass, id = id,
-      configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        RangeSlider(min, max, lowValue, highValue), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -129,15 +140,19 @@ inline fun styledRangeSlider(
  * @return the styled control added.
  */
 inline fun NodeManager.styledRangeSlider(
-  min: Double = 0.0,
-  max: Double = 1.0,
-  lowValue: Double = 0.25,
-  highValue: Double = 0.75,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker RangeSlider).() -> Unit
+    min: Double = 0.0,
+    max: Double = 1.0,
+    lowValue: Double = 0.25,
+    highValue: Double = 0.75,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(RangeSlider(min, max, lowValue, highValue), styleClass = *styleClass, id
-      = id, configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            RangeSlider(min, max, lowValue, highValue), styleClass = *styleClass,
+            id = id, configuration = configuration
+        )
+    )
 }

@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuButton
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [MenuButton] to this manager.
@@ -30,12 +30,12 @@ fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuBut
  * @return the control created.
  */
 inline fun menuButton(
-  text: String? = null,
-  graphic: Node? = null,
-  configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxMenuButton(text, graphic), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxMenuButton(text, graphic), configuration = configuration)
 }
 
 /**
@@ -45,12 +45,12 @@ inline fun menuButton(
  * @return the control added.
  */
 inline fun NodeManager.menuButton(
-  text: String? = null,
-  graphic: Node? = null,
-  configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxMenuButton(text, graphic), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxMenuButton(text, graphic), configuration = configuration))
 }
 
 /**
@@ -61,12 +61,11 @@ inline fun NodeManager.menuButton(
  * @return the styled control created.
  */
 fun styledMenuButton(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null
-): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id)
-    { }
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [MenuButton] to this manager.
@@ -76,12 +75,11 @@ fun styledMenuButton(
  * @return the styled control added.
  */
 fun NodeManager.styledMenuButton(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null
-): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id)
-    { }
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
+): MenuButton = styledMenuButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [MenuButton] with configuration block.
@@ -92,15 +90,18 @@ fun NodeManager.styledMenuButton(
  * @return the styled control created.
  */
 inline fun styledMenuButton(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxMenuButton(text, graphic), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxMenuButton(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -112,13 +113,17 @@ inline fun styledMenuButton(
  * @return the styled control added.
  */
 inline fun NodeManager.styledMenuButton(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxMenuButton(text, graphic), styleClass = *styleClass, id = id,
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxMenuButton(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

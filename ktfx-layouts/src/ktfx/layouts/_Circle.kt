@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,7 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Circle] to this manager.
@@ -22,10 +22,10 @@ import ktfx.internal.KtfxInternals.newChild
  * @return the control added.
  */
 fun NodeManager.circle(
-  centerX: Double = 0.0,
-  centerY: Double = 0.0,
-  radius: Double = 0.0,
-  fill: Paint? = null
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radius: Double = 0.0,
+    fill: Paint? = null
 ): Circle = circle(centerX = centerX, centerY = centerY, radius = radius, fill = fill) { }
 
 /**
@@ -35,14 +35,14 @@ fun NodeManager.circle(
  * @return the control created.
  */
 inline fun circle(
-  centerX: Double = 0.0,
-  centerY: Double = 0.0,
-  radius: Double = 0.0,
-  fill: Paint? = null,
-  configuration: (@LayoutDslMarker Circle).() -> Unit
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radius: Double = 0.0,
+    fill: Paint? = null,
+    configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(Circle(centerX, centerY, radius, fill), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Circle(centerX, centerY, radius, fill), configuration = configuration)
 }
 
 /**
@@ -52,14 +52,14 @@ inline fun circle(
  * @return the control added.
  */
 inline fun NodeManager.circle(
-  centerX: Double = 0.0,
-  centerY: Double = 0.0,
-  radius: Double = 0.0,
-  fill: Paint? = null,
-  configuration: (@LayoutDslMarker Circle).() -> Unit
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radius: Double = 0.0,
+    fill: Paint? = null,
+    configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(Circle(centerX, centerY, radius, fill), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(Circle(centerX, centerY, radius, fill), configuration = configuration))
 }
 
 /**
@@ -70,14 +70,16 @@ inline fun NodeManager.circle(
  * @return the styled control created.
  */
 fun styledCircle(
-  centerX: Double = 0.0,
-  centerY: Double = 0.0,
-  radius: Double = 0.0,
-  fill: Paint? = null,
-  vararg styleClass: String,
-  id: String? = null
-): Circle = styledCircle(centerX = centerX, centerY = centerY, radius = radius, fill = fill,
-    styleClass = *styleClass, id = id) { }
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radius: Double = 0.0,
+    fill: Paint? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Circle = styledCircle(
+    centerX = centerX, centerY = centerY, radius = radius, fill = fill,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Add a styled [Circle] to this manager.
@@ -87,14 +89,16 @@ fun styledCircle(
  * @return the styled control added.
  */
 fun NodeManager.styledCircle(
-  centerX: Double = 0.0,
-  centerY: Double = 0.0,
-  radius: Double = 0.0,
-  fill: Paint? = null,
-  vararg styleClass: String,
-  id: String? = null
-): Circle = styledCircle(centerX = centerX, centerY = centerY, radius = radius, fill = fill,
-    styleClass = *styleClass, id = id) { }
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radius: Double = 0.0,
+    fill: Paint? = null,
+    vararg styleClass: String,
+    id: String? = null
+): Circle = styledCircle(
+    centerX = centerX, centerY = centerY, radius = radius, fill = fill,
+    styleClass = *styleClass, id = id
+) { }
 
 /**
  * Create a styled [Circle] with configuration block.
@@ -105,17 +109,19 @@ fun NodeManager.styledCircle(
  * @return the styled control created.
  */
 inline fun styledCircle(
-  centerX: Double = 0.0,
-  centerY: Double = 0.0,
-  radius: Double = 0.0,
-  fill: Paint? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker Circle).() -> Unit
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radius: Double = 0.0,
+    fill: Paint? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(Circle(centerX, centerY, radius, fill), styleClass = *styleClass, id = id,
-      configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        Circle(centerX, centerY, radius, fill), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -127,15 +133,21 @@ inline fun styledCircle(
  * @return the styled control added.
  */
 inline fun NodeManager.styledCircle(
-  centerX: Double = 0.0,
-  centerY: Double = 0.0,
-  radius: Double = 0.0,
-  fill: Paint? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker Circle).() -> Unit
+    centerX: Double = 0.0,
+    centerY: Double = 0.0,
+    radius: Double = 0.0,
+    fill: Paint? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(Circle(centerX, centerY, radius, fill), styleClass = *styleClass, id =
-      id, configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            Circle(centerX, centerY, radius, fill), styleClass = *styleClass,
+            id =
+                id,
+            configuration = configuration
+        )
+    )
 }

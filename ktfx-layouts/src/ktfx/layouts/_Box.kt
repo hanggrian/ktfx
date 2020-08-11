@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.Box
 import javafx.scene.shape.Box.DEFAULT_SIZE
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -14,7 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Box] to this manager.
@@ -22,9 +22,9 @@ import ktfx.internal.KtfxInternals.newChild
  * @return the control added.
  */
 fun NodeManager.box(
-  width: Double = DEFAULT_SIZE,
-  height: Double = DEFAULT_SIZE,
-  depth: Double = DEFAULT_SIZE
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE
 ): Box = box(width = width, height = height, depth = depth) { }
 
 /**
@@ -34,13 +34,13 @@ fun NodeManager.box(
  * @return the control created.
  */
 inline fun box(
-  width: Double = DEFAULT_SIZE,
-  height: Double = DEFAULT_SIZE,
-  depth: Double = DEFAULT_SIZE,
-  configuration: (@LayoutDslMarker Box).() -> Unit
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE,
+    configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(Box(width, height, depth), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Box(width, height, depth), configuration = configuration)
 }
 
 /**
@@ -50,13 +50,13 @@ inline fun box(
  * @return the control added.
  */
 inline fun NodeManager.box(
-  width: Double = DEFAULT_SIZE,
-  height: Double = DEFAULT_SIZE,
-  depth: Double = DEFAULT_SIZE,
-  configuration: (@LayoutDslMarker Box).() -> Unit
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE,
+    configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(Box(width, height, depth), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(Box(width, height, depth), configuration = configuration))
 }
 
 /**
@@ -67,13 +67,12 @@ inline fun NodeManager.box(
  * @return the styled control created.
  */
 fun styledBox(
-  width: Double = DEFAULT_SIZE,
-  height: Double = DEFAULT_SIZE,
-  depth: Double = DEFAULT_SIZE,
-  vararg styleClass: String,
-  id: String? = null
-): Box = styledBox(width = width, height = height, depth = depth, styleClass = *styleClass, id = id)
-    { }
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE,
+    vararg styleClass: String,
+    id: String? = null
+): Box = styledBox(width = width, height = height, depth = depth, styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Box] to this manager.
@@ -83,13 +82,12 @@ fun styledBox(
  * @return the styled control added.
  */
 fun NodeManager.styledBox(
-  width: Double = DEFAULT_SIZE,
-  height: Double = DEFAULT_SIZE,
-  depth: Double = DEFAULT_SIZE,
-  vararg styleClass: String,
-  id: String? = null
-): Box = styledBox(width = width, height = height, depth = depth, styleClass = *styleClass, id = id)
-    { }
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE,
+    vararg styleClass: String,
+    id: String? = null
+): Box = styledBox(width = width, height = height, depth = depth, styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Box] with configuration block.
@@ -100,16 +98,19 @@ fun NodeManager.styledBox(
  * @return the styled control created.
  */
 inline fun styledBox(
-  width: Double = DEFAULT_SIZE,
-  height: Double = DEFAULT_SIZE,
-  depth: Double = DEFAULT_SIZE,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker Box).() -> Unit
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(Box(width, height, depth), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        Box(width, height, depth), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -121,14 +122,18 @@ inline fun styledBox(
  * @return the styled control added.
  */
 inline fun NodeManager.styledBox(
-  width: Double = DEFAULT_SIZE,
-  height: Double = DEFAULT_SIZE,
-  depth: Double = DEFAULT_SIZE,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker Box).() -> Unit
+    width: Double = DEFAULT_SIZE,
+    height: Double = DEFAULT_SIZE,
+    depth: Double = DEFAULT_SIZE,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(Box(width, height, depth), styleClass = *styleClass, id = id,
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            Box(width, height, depth), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

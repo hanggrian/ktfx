@@ -4,9 +4,12 @@
 
 package ktfx.controlsfx.layouts
 
-import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.CheckComboBox
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -14,10 +17,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.CheckComboBox
 
 /**
  * Add a [CheckComboBox] to this manager.
@@ -33,10 +32,12 @@ fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableArrayList
  *
  * @return the control created.
  */
-inline fun <T> checkComboBox(items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit): CheckComboBox<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CheckComboBox<T>(items), configuration = configuration)
+inline fun <T> checkComboBox(
+    items: ObservableList<T> = observableArrayList(),
+    configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
+): CheckComboBox<T> {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(CheckComboBox<T>(items), configuration = configuration)
 }
 
 /**
@@ -45,10 +46,12 @@ inline fun <T> checkComboBox(items: ObservableList<T> = observableArrayList(),
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit): CheckComboBox<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CheckComboBox<T>(items), configuration = configuration))
+inline fun <T> NodeManager.checkComboBox(
+    items: ObservableList<T> = observableArrayList(),
+    configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
+): CheckComboBox<T> {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(CheckComboBox<T>(items), configuration = configuration))
 }
 
 /**
@@ -59,9 +62,9 @@ inline fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableAr
  * @return the styled control created.
  */
 fun <T> styledCheckComboBox(
-  items: ObservableList<T> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null
+    items: ObservableList<T> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
 ): CheckComboBox<T> = styledCheckComboBox(items = items, styleClass = *styleClass, id = id) { }
 
 /**
@@ -72,9 +75,9 @@ fun <T> styledCheckComboBox(
  * @return the styled control added.
  */
 fun <T> NodeManager.styledCheckComboBox(
-  items: ObservableList<T> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null
+    items: ObservableList<T> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
 ): CheckComboBox<T> = styledCheckComboBox(items = items, styleClass = *styleClass, id = id) { }
 
 /**
@@ -86,14 +89,17 @@ fun <T> NodeManager.styledCheckComboBox(
  * @return the styled control created.
  */
 inline fun <T> styledCheckComboBox(
-  items: ObservableList<T> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
+    items: ObservableList<T> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CheckComboBox<T>(items), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        CheckComboBox<T>(items), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -105,12 +111,16 @@ inline fun <T> styledCheckComboBox(
  * @return the styled control added.
  */
 inline fun <T> NodeManager.styledCheckComboBox(
-  items: ObservableList<T> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
+    items: ObservableList<T> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CheckComboBox<T>(items), styleClass = *styleClass, id = id, configuration
-      = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            CheckComboBox<T>(items), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [MeshView] to this manager.
@@ -30,9 +30,9 @@ fun NodeManager.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) {
  */
 inline fun meshView(mesh: Mesh? = null, configuration: (@LayoutDslMarker MeshView).() -> Unit):
     MeshView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(MeshView(mesh), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(MeshView(mesh), configuration = configuration)
+    }
 
 /**
  * Add a [MeshView] with configuration block to this manager.
@@ -40,10 +40,13 @@ inline fun meshView(mesh: Mesh? = null, configuration: (@LayoutDslMarker MeshVie
  *
  * @return the control added.
  */
-inline fun NodeManager.meshView(mesh: Mesh? = null, configuration: (@LayoutDslMarker MeshView).() ->
-    Unit): MeshView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(MeshView(mesh), configuration = configuration))
+inline fun NodeManager.meshView(
+    mesh: Mesh? = null,
+    configuration: (@LayoutDslMarker MeshView).() ->    
+    Unit
+): MeshView {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(MeshView(mesh), configuration = configuration))
 }
 
 /**
@@ -54,9 +57,9 @@ inline fun NodeManager.meshView(mesh: Mesh? = null, configuration: (@LayoutDslMa
  * @return the styled control created.
  */
 fun styledMeshView(
-  mesh: Mesh? = null,
-  vararg styleClass: String,
-  id: String? = null
+    mesh: Mesh? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): MeshView = styledMeshView(mesh = mesh, styleClass = *styleClass, id = id) { }
 
 /**
@@ -67,9 +70,9 @@ fun styledMeshView(
  * @return the styled control added.
  */
 fun NodeManager.styledMeshView(
-  mesh: Mesh? = null,
-  vararg styleClass: String,
-  id: String? = null
+    mesh: Mesh? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): MeshView = styledMeshView(mesh = mesh, styleClass = *styleClass, id = id) { }
 
 /**
@@ -81,13 +84,17 @@ fun NodeManager.styledMeshView(
  * @return the styled control created.
  */
 inline fun styledMeshView(
-  mesh: Mesh? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker MeshView).() -> Unit
+    mesh: Mesh? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker MeshView).() -> Unit
 ): MeshView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(MeshView(mesh), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        MeshView(mesh), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -99,12 +106,17 @@ inline fun styledMeshView(
  * @return the styled control added.
  */
 inline fun NodeManager.styledMeshView(
-  mesh: Mesh? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker MeshView).() -> Unit
+    mesh: Mesh? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker MeshView).() -> Unit
 ): MeshView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(MeshView(mesh), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            MeshView(mesh), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

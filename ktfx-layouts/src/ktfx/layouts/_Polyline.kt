@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polyline
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [Polyline] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.polyline(): Polyline = polyline() { }
  * @return the control created.
  */
 inline fun polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Polyline {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(Polyline(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Polyline(), configuration = configuration)
 }
 
 /**
@@ -39,8 +39,8 @@ inline fun polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Poly
  * @return the control added.
  */
 inline fun NodeManager.polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Polyline {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(Polyline(), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(Polyline(), configuration = configuration))
 }
 
 /**
@@ -72,12 +72,12 @@ fun NodeManager.styledPolyline(vararg styleClass: String, id: String? = null): P
  * @return the styled control created.
  */
 inline fun styledPolyline(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker Polyline).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker Polyline).() -> Unit
 ): Polyline {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(Polyline(), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(Polyline(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -89,11 +89,16 @@ inline fun styledPolyline(
  * @return the styled control added.
  */
 inline fun NodeManager.styledPolyline(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker Polyline).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker Polyline).() -> Unit
 ): Polyline {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(Polyline(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            Polyline(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

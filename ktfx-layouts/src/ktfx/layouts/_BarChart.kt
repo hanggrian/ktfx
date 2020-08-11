@@ -4,12 +4,12 @@
 
 package ktfx.layouts
 
-import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.XYChart
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -18,7 +18,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [BarChart] to this manager.
@@ -26,10 +25,10 @@ import ktfx.internal.KtfxInternals.newChild
  * @return the control added.
  */
 fun <X, Y> NodeManager.barChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  categoryGap: Double = 10.0
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    categoryGap: Double = 10.0
 ): BarChart<X, Y> = barChart(x = x, y = y, data = data, categoryGap = categoryGap) { }
 
 /**
@@ -39,14 +38,14 @@ fun <X, Y> NodeManager.barChart(
  * @return the control created.
  */
 inline fun <X, Y> barChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  categoryGap: Double = 10.0,
-  configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    categoryGap: Double = 10.0,
+    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(BarChart<X, Y>(x, y, data, categoryGap), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(BarChart<X, Y>(x, y, data, categoryGap), configuration = configuration)
 }
 
 /**
@@ -56,14 +55,20 @@ inline fun <X, Y> barChart(
  * @return the control added.
  */
 inline fun <X, Y> NodeManager.barChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  categoryGap: Double = 10.0,
-  configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    categoryGap: Double = 10.0,
+    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(BarChart<X, Y>(x, y, data, categoryGap), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            BarChart<X, Y>(x, y, data, categoryGap),
+            configuration =
+                configuration
+        )
+    )
 }
 
 /**
@@ -74,14 +79,18 @@ inline fun <X, Y> NodeManager.barChart(
  * @return the styled control created.
  */
 fun <X, Y> styledBarChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  categoryGap: Double = 10.0,
-  vararg styleClass: String,
-  id: String? = null
-): BarChart<X, Y> = styledBarChart(x = x, y = y, data = data, categoryGap = categoryGap, styleClass
-    = *styleClass, id = id) { }
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    categoryGap: Double = 10.0,
+    vararg styleClass: String,
+    id: String? = null
+): BarChart<X, Y> = styledBarChart(
+    x = x, y = y, data = data, categoryGap = categoryGap,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [BarChart] to this manager.
@@ -91,14 +100,18 @@ fun <X, Y> styledBarChart(
  * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledBarChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  categoryGap: Double = 10.0,
-  vararg styleClass: String,
-  id: String? = null
-): BarChart<X, Y> = styledBarChart(x = x, y = y, data = data, categoryGap = categoryGap, styleClass
-    = *styleClass, id = id) { }
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    categoryGap: Double = 10.0,
+    vararg styleClass: String,
+    id: String? = null
+): BarChart<X, Y> = styledBarChart(
+    x = x, y = y, data = data, categoryGap = categoryGap,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [BarChart] with configuration block.
@@ -109,17 +122,19 @@ fun <X, Y> NodeManager.styledBarChart(
  * @return the styled control created.
  */
 inline fun <X, Y> styledBarChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  categoryGap: Double = 10.0,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    categoryGap: Double = 10.0,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass, id = id,
-      configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -131,15 +146,21 @@ inline fun <X, Y> styledBarChart(
  * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledBarChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  categoryGap: Double = 10.0,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    categoryGap: Double = 10.0,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass, id =
-      id, configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass,
+            id =
+                id,
+            configuration = configuration
+        )
+    )
 }

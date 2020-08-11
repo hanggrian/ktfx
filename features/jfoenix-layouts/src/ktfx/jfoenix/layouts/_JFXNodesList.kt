@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXNodesList
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXNodesList] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.jfxNodesList(): JFXNodesList = jfxNodesList() { }
  */
 inline fun jfxNodesList(configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit):
     JFXNodesList {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXNodesList(), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxJFXNodesList(), configuration = configuration)
+    }
 
 /**
  * Add a [JFXNodesList] with configuration block to this manager.
@@ -43,9 +43,9 @@ inline fun jfxNodesList(configuration: (@LayoutDslMarker KtfxJFXNodesList).() ->
  */
 inline fun NodeManager.jfxNodesList(configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit):
     JFXNodesList {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXNodesList(), configuration = configuration))
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(KtfxJFXNodesList(), configuration = configuration))
+    }
 
 /**
  * Create a styled [JFXNodesList].
@@ -76,13 +76,16 @@ fun NodeManager.styledJFXNodesList(vararg styleClass: String, id: String? = null
  * @return the styled control created.
  */
 inline fun styledJFXNodesList(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXNodesList(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxJFXNodesList(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -94,11 +97,16 @@ inline fun styledJFXNodesList(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXNodesList(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXNodesList).() -> Unit
 ): JFXNodesList {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXNodesList(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxJFXNodesList(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

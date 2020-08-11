@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXClippedPane
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXClippedPane] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.jfxClippedPane(): JFXClippedPane = jfxClippedPane() { }
  */
 inline fun jfxClippedPane(configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit):
     JFXClippedPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXClippedPane(), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxJFXClippedPane(), configuration = configuration)
+    }
 
 /**
  * Add a [JFXClippedPane] with configuration block to this manager.
@@ -41,10 +41,12 @@ inline fun jfxClippedPane(configuration: (@LayoutDslMarker KtfxJFXClippedPane).(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxClippedPane(configuration: (@LayoutDslMarker KtfxJFXClippedPane).() ->
-    Unit): JFXClippedPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXClippedPane(), configuration = configuration))
+inline fun NodeManager.jfxClippedPane(
+    configuration: (@LayoutDslMarker KtfxJFXClippedPane).() ->
+    Unit
+): JFXClippedPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxJFXClippedPane(), configuration = configuration))
 }
 
 /**
@@ -64,8 +66,8 @@ fun styledJFXClippedPane(vararg styleClass: String, id: String? = null): JFXClip
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXClippedPane(vararg styleClass: String, id: String? = null): JFXClippedPane
-    = styledJFXClippedPane(styleClass = *styleClass, id = id) { }
+fun NodeManager.styledJFXClippedPane(vararg styleClass: String, id: String? = null): JFXClippedPane =
+    styledJFXClippedPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXClippedPane] with configuration block.
@@ -76,13 +78,16 @@ fun NodeManager.styledJFXClippedPane(vararg styleClass: String, id: String? = nu
  * @return the styled control created.
  */
 inline fun styledJFXClippedPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXClippedPane(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxJFXClippedPane(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -94,11 +99,16 @@ inline fun styledJFXClippedPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXClippedPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXClippedPane(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxJFXClippedPane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

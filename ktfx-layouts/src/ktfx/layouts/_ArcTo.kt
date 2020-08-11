@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ArcTo
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Boolean
 import kotlin.Double
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [ArcTo] to this manager.
@@ -21,15 +21,17 @@ import ktfx.internal.KtfxInternals.newChild
  * @return the control added.
  */
 fun PathElementManager.arcTo(
-  radiusX: Double = 0.0,
-  radiusY: Double = 0.0,
-  xAxisRotation: Double = 0.0,
-  x: Double = 0.0,
-  y: Double = 0.0,
-  largeArcFlag: Boolean = false,
-  sweepFlag: Boolean = false
-): ArcTo = arcTo(radiusX = radiusX, radiusY = radiusY, xAxisRotation = xAxisRotation, x = x, y = y,
-    largeArcFlag = largeArcFlag, sweepFlag = sweepFlag) { }
+    radiusX: Double = 0.0,
+    radiusY: Double = 0.0,
+    xAxisRotation: Double = 0.0,
+    x: Double = 0.0,
+    y: Double = 0.0,
+    largeArcFlag: Boolean = false,
+    sweepFlag: Boolean = false
+): ArcTo = arcTo(
+    radiusX = radiusX, radiusY = radiusY, xAxisRotation = xAxisRotation, x = x, y = y,
+    largeArcFlag = largeArcFlag, sweepFlag = sweepFlag
+) { }
 
 /**
  * Create an [ArcTo] with configuration block.
@@ -38,18 +40,20 @@ fun PathElementManager.arcTo(
  * @return the control created.
  */
 inline fun arcTo(
-  radiusX: Double = 0.0,
-  radiusY: Double = 0.0,
-  xAxisRotation: Double = 0.0,
-  x: Double = 0.0,
-  y: Double = 0.0,
-  largeArcFlag: Boolean = false,
-  sweepFlag: Boolean = false,
-  configuration: (@LayoutDslMarker ArcTo).() -> Unit
+    radiusX: Double = 0.0,
+    radiusY: Double = 0.0,
+    xAxisRotation: Double = 0.0,
+    x: Double = 0.0,
+    y: Double = 0.0,
+    largeArcFlag: Boolean = false,
+    sweepFlag: Boolean = false,
+    configuration: (@LayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
-      configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
+        configuration = configuration
+    )
 }
 
 /**
@@ -59,16 +63,20 @@ inline fun arcTo(
  * @return the control added.
  */
 inline fun PathElementManager.arcTo(
-  radiusX: Double = 0.0,
-  radiusY: Double = 0.0,
-  xAxisRotation: Double = 0.0,
-  x: Double = 0.0,
-  y: Double = 0.0,
-  largeArcFlag: Boolean = false,
-  sweepFlag: Boolean = false,
-  configuration: (@LayoutDslMarker ArcTo).() -> Unit
+    radiusX: Double = 0.0,
+    radiusY: Double = 0.0,
+    xAxisRotation: Double = 0.0,
+    x: Double = 0.0,
+    y: Double = 0.0,
+    largeArcFlag: Boolean = false,
+    sweepFlag: Boolean = false,
+    configuration: (@LayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
+            configuration = configuration
+        )
+    )
 }

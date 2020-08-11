@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDatePicker
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import java.time.LocalDate
 import kotlin.String
 import kotlin.Unit
@@ -13,9 +16,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXDatePicker] to this manager.
@@ -23,7 +23,7 @@ import ktfx.layouts.NodeManager
  * @return the control added.
  */
 fun NodeManager.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDatePicker(date = date) {
-    }
+}
 
 /**
  * Create a [JFXDatePicker] with configuration block.
@@ -31,10 +31,15 @@ fun NodeManager.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDateP
  *
  * @return the control created.
  */
-inline fun jfxDatePicker(date: LocalDate? = null, configuration: (@LayoutDslMarker
-    JFXDatePicker).() -> Unit): JFXDatePicker {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(JFXDatePicker(date), configuration = configuration)
+inline fun jfxDatePicker(
+    date: LocalDate? = null,
+    configuration: (
+        @LayoutDslMarker    
+        JFXDatePicker
+    ).() -> Unit
+): JFXDatePicker {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(JFXDatePicker(date), configuration = configuration)
 }
 
 /**
@@ -43,10 +48,15 @@ inline fun jfxDatePicker(date: LocalDate? = null, configuration: (@LayoutDslMark
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxDatePicker(date: LocalDate? = null, configuration: (@LayoutDslMarker
-    JFXDatePicker).() -> Unit): JFXDatePicker {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(JFXDatePicker(date), configuration = configuration))
+inline fun NodeManager.jfxDatePicker(
+    date: LocalDate? = null,
+    configuration: (
+        @LayoutDslMarker    
+        JFXDatePicker
+    ).() -> Unit
+): JFXDatePicker {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(JFXDatePicker(date), configuration = configuration))
 }
 
 /**
@@ -57,9 +67,9 @@ inline fun NodeManager.jfxDatePicker(date: LocalDate? = null, configuration: (@L
  * @return the styled control created.
  */
 fun styledJFXDatePicker(
-  date: LocalDate? = null,
-  vararg styleClass: String,
-  id: String? = null
+    date: LocalDate? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): JFXDatePicker = styledJFXDatePicker(date = date, styleClass = *styleClass, id = id) { }
 
 /**
@@ -70,9 +80,9 @@ fun styledJFXDatePicker(
  * @return the styled control added.
  */
 fun NodeManager.styledJFXDatePicker(
-  date: LocalDate? = null,
-  vararg styleClass: String,
-  id: String? = null
+    date: LocalDate? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): JFXDatePicker = styledJFXDatePicker(date = date, styleClass = *styleClass, id = id) { }
 
 /**
@@ -84,14 +94,17 @@ fun NodeManager.styledJFXDatePicker(
  * @return the styled control created.
  */
 inline fun styledJFXDatePicker(
-  date: LocalDate? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
+    date: LocalDate? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(JFXDatePicker(date), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        JFXDatePicker(date), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -103,12 +116,17 @@ inline fun styledJFXDatePicker(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXDatePicker(
-  date: LocalDate? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
+    date: LocalDate? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(JFXDatePicker(date), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            JFXDatePicker(date), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

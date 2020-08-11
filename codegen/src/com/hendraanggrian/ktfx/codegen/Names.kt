@@ -5,8 +5,7 @@ import com.hendraanggrian.kotlinpoet.memberOf
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 
-const val KTFX = "ktfx"
-const val KTFX_LAYOUTS = "$KTFX.layouts"
+const val KTFX_LAYOUTS = "ktfx.layouts"
 const val KOTLIN_CONTRACTS = "kotlin.contracts"
 
 val OPT_IN = "".classOf("OptIn")

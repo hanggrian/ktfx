@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.VBox
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [VBox] to this manager.
@@ -30,9 +30,9 @@ fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
  */
 inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox).() -> Unit):
     VBox {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxVBox(spacing), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxVBox(spacing), configuration = configuration)
+    }
 
 /**
  * Add a [VBox] with configuration block to this manager.
@@ -40,10 +40,13 @@ inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox
  *
  * @return the control added.
  */
-inline fun NodeManager.vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox).() ->
-    Unit): VBox {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxVBox(spacing), configuration = configuration))
+inline fun NodeManager.vbox(
+    spacing: Double = 0.0,
+    configuration: (@LayoutDslMarker KtfxVBox).() ->    
+    Unit
+): VBox {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxVBox(spacing), configuration = configuration))
 }
 
 /**
@@ -54,9 +57,9 @@ inline fun NodeManager.vbox(spacing: Double = 0.0, configuration: (@LayoutDslMar
  * @return the styled control created.
  */
 fun styledVBox(
-  spacing: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null
+    spacing: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null
 ): VBox = styledVBox(spacing = spacing, styleClass = *styleClass, id = id) { }
 
 /**
@@ -67,9 +70,9 @@ fun styledVBox(
  * @return the styled control added.
  */
 fun NodeManager.styledVBox(
-  spacing: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null
+    spacing: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null
 ): VBox = styledVBox(spacing = spacing, styleClass = *styleClass, id = id) { }
 
 /**
@@ -81,14 +84,17 @@ fun NodeManager.styledVBox(
  * @return the styled control created.
  */
 inline fun styledVBox(
-  spacing: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
+    spacing: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxVBox(spacing), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxVBox(spacing), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -100,12 +106,17 @@ inline fun styledVBox(
  * @return the styled control added.
  */
 inline fun NodeManager.styledVBox(
-  spacing: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
+    spacing: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxVBox(spacing), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxVBox(spacing), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

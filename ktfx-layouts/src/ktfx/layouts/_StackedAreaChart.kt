@@ -4,12 +4,12 @@
 
 package ktfx.layouts
 
-import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedAreaChart
 import javafx.scene.chart.XYChart
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -17,7 +17,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [StackedAreaChart] to this manager.
@@ -25,9 +24,9 @@ import ktfx.internal.KtfxInternals.newChild
  * @return the control added.
  */
 fun <X, Y> NodeManager.stackedAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): StackedAreaChart<X, Y> = stackedAreaChart(x = x, y = y, data = data) { }
 
 /**
@@ -37,13 +36,13 @@ fun <X, Y> NodeManager.stackedAreaChart(
  * @return the control created.
  */
 inline fun <X, Y> stackedAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(StackedAreaChart<X, Y>(x, y, data), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(StackedAreaChart<X, Y>(x, y, data), configuration = configuration)
 }
 
 /**
@@ -53,13 +52,13 @@ inline fun <X, Y> stackedAreaChart(
  * @return the control added.
  */
 inline fun <X, Y> NodeManager.stackedAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(StackedAreaChart<X, Y>(x, y, data), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(StackedAreaChart<X, Y>(x, y, data), configuration = configuration))
 }
 
 /**
@@ -70,13 +69,17 @@ inline fun <X, Y> NodeManager.stackedAreaChart(
  * @return the styled control created.
  */
 fun <X, Y> styledStackedAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null
-): StackedAreaChart<X, Y> = styledStackedAreaChart(x = x, y = y, data = data, styleClass =
-    *styleClass, id = id) { }
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
+): StackedAreaChart<X, Y> = styledStackedAreaChart(
+    x = x, y = y, data = data,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [StackedAreaChart] to this manager.
@@ -86,13 +89,17 @@ fun <X, Y> styledStackedAreaChart(
  * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledStackedAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null
-): StackedAreaChart<X, Y> = styledStackedAreaChart(x = x, y = y, data = data, styleClass =
-    *styleClass, id = id) { }
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
+): StackedAreaChart<X, Y> = styledStackedAreaChart(
+    x = x, y = y, data = data,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [StackedAreaChart] with configuration block.
@@ -103,16 +110,18 @@ fun <X, Y> NodeManager.styledStackedAreaChart(
  * @return the styled control created.
  */
 inline fun <X, Y> styledStackedAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-      configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -124,14 +133,18 @@ inline fun <X, Y> styledStackedAreaChart(
  * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledStackedAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

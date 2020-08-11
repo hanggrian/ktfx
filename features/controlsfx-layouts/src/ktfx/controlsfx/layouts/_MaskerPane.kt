@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.MaskerPane
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.MaskerPane
 
 /**
  * Add a [MaskerPane] to this manager.
@@ -30,8 +30,8 @@ fun NodeManager.maskerPane(): MaskerPane = maskerPane() { }
  * @return the control created.
  */
 inline fun maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit): MaskerPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(MaskerPane(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(MaskerPane(), configuration = configuration)
 }
 
 /**
@@ -42,9 +42,9 @@ inline fun maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit): 
  */
 inline fun NodeManager.maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit):
     MaskerPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(MaskerPane(), configuration = configuration))
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(MaskerPane(), configuration = configuration))
+    }
 
 /**
  * Create a styled [MaskerPane].
@@ -75,12 +75,12 @@ fun NodeManager.styledMaskerPane(vararg styleClass: String, id: String? = null):
  * @return the styled control created.
  */
 inline fun styledMaskerPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker MaskerPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(MaskerPane(), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(MaskerPane(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -92,11 +92,16 @@ inline fun styledMaskerPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledMaskerPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker MaskerPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(MaskerPane(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            MaskerPane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

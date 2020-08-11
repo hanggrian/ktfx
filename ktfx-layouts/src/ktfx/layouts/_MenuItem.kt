@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -13,15 +14,17 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [MenuItem] to this manager.
  *
  * @return the control added.
  */
-fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem = menuItem(text
-    = text, graphic = graphic) { }
+fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem = menuItem(
+    text =
+        text,
+    graphic = graphic
+) { }
 
 /**
  * Create a [MenuItem] with configuration block.
@@ -30,12 +33,12 @@ fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuI
  * @return the control created.
  */
 inline fun menuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(MenuItem(text, graphic), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(MenuItem(text, graphic), configuration = configuration)
 }
 
 /**
@@ -45,12 +48,12 @@ inline fun menuItem(
  * @return the control added.
  */
 inline fun MenuItemManager.menuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(MenuItem(text, graphic), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(MenuItem(text, graphic), configuration = configuration))
 }
 
 /**
@@ -61,10 +64,10 @@ inline fun MenuItemManager.menuItem(
  * @return the styled control created.
  */
 fun styledMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
@@ -75,10 +78,10 @@ fun styledMenuItem(
  * @return the styled control added.
  */
 fun MenuItemManager.styledMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null
 ): MenuItem = styledMenuItem(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
@@ -90,15 +93,18 @@ fun MenuItemManager.styledMenuItem(
  * @return the styled control created.
  */
 inline fun styledMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(MenuItem(text, graphic), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        MenuItem(text, graphic), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -110,13 +116,17 @@ inline fun styledMenuItem(
  * @return the styled control added.
  */
 inline fun MenuItemManager.styledMenuItem(
-  text: String? = null,
-  graphic: Node? = null,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    text: String? = null,
+    graphic: Node? = null,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(MenuItem(text, graphic), styleClass = *styleClass, id = id, configuration
-      = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            MenuItem(text, graphic), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

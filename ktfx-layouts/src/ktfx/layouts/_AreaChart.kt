@@ -4,12 +4,12 @@
 
 package ktfx.layouts
 
-import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.chart.AreaChart
 import javafx.scene.chart.Axis
 import javafx.scene.chart.XYChart
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -17,7 +17,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add an [AreaChart] to this manager.
@@ -25,9 +24,9 @@ import ktfx.internal.KtfxInternals.newChild
  * @return the control added.
  */
 fun <X, Y> NodeManager.areaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): AreaChart<X, Y> = areaChart(x = x, y = y, data = data) { }
 
 /**
@@ -37,13 +36,13 @@ fun <X, Y> NodeManager.areaChart(
  * @return the control created.
  */
 inline fun <X, Y> areaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(AreaChart<X, Y>(x, y, data), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(AreaChart<X, Y>(x, y, data), configuration = configuration)
 }
 
 /**
@@ -53,13 +52,13 @@ inline fun <X, Y> areaChart(
  * @return the control added.
  */
 inline fun <X, Y> NodeManager.areaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(AreaChart<X, Y>(x, y, data), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(AreaChart<X, Y>(x, y, data), configuration = configuration))
 }
 
 /**
@@ -70,13 +69,13 @@ inline fun <X, Y> NodeManager.areaChart(
  * @return the styled control created.
  */
 fun <X, Y> styledAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
 ): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {
-    }
+}
 
 /**
  * Add a styled [AreaChart] to this manager.
@@ -86,13 +85,13 @@ fun <X, Y> styledAreaChart(
  * @return the styled control added.
  */
 fun <X, Y> NodeManager.styledAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null
 ): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {
-    }
+}
 
 /**
  * Create a styled [AreaChart] with configuration block.
@@ -103,16 +102,19 @@ fun <X, Y> NodeManager.styledAreaChart(
  * @return the styled control created.
  */
 inline fun <X, Y> styledAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(AreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        AreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -124,14 +126,18 @@ inline fun <X, Y> styledAreaChart(
  * @return the styled control added.
  */
 inline fun <X, Y> NodeManager.styledAreaChart(
-  x: Axis<X>,
-  y: Axis<Y>,
-  data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    x: Axis<X>,
+    y: Axis<Y>,
+    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(AreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            AreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextField
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [TextField] to this manager.
@@ -29,9 +29,9 @@ fun NodeManager.textField(text: String = ""): TextField = textField(text = text)
  */
 inline fun textField(text: String = "", configuration: (@LayoutDslMarker TextField).() -> Unit):
     TextField {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(TextField(text), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(TextField(text), configuration = configuration)
+    }
 
 /**
  * Add a [TextField] with configuration block to this manager.
@@ -39,10 +39,15 @@ inline fun textField(text: String = "", configuration: (@LayoutDslMarker TextFie
  *
  * @return the control added.
  */
-inline fun NodeManager.textField(text: String = "", configuration: (@LayoutDslMarker
-    TextField).() -> Unit): TextField {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(TextField(text), configuration = configuration))
+inline fun NodeManager.textField(
+    text: String = "",
+    configuration: (
+        @LayoutDslMarker    
+        TextField
+    ).() -> Unit
+): TextField {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(TextField(text), configuration = configuration))
 }
 
 /**
@@ -53,9 +58,9 @@ inline fun NodeManager.textField(text: String = "", configuration: (@LayoutDslMa
  * @return the styled control created.
  */
 fun styledTextField(
-  text: String = "",
-  vararg styleClass: String,
-  id: String? = null
+    text: String = "",
+    vararg styleClass: String,
+    id: String? = null
 ): TextField = styledTextField(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -66,9 +71,9 @@ fun styledTextField(
  * @return the styled control added.
  */
 fun NodeManager.styledTextField(
-  text: String = "",
-  vararg styleClass: String,
-  id: String? = null
+    text: String = "",
+    vararg styleClass: String,
+    id: String? = null
 ): TextField = styledTextField(text = text, styleClass = *styleClass, id = id) { }
 
 /**
@@ -80,13 +85,17 @@ fun NodeManager.styledTextField(
  * @return the styled control created.
  */
 inline fun styledTextField(
-  text: String = "",
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker TextField).() -> Unit
+    text: String = "",
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(TextField(text), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        TextField(text), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -98,12 +107,17 @@ inline fun styledTextField(
  * @return the styled control added.
  */
 inline fun NodeManager.styledTextField(
-  text: String = "",
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker TextField).() -> Unit
+    text: String = "",
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(TextField(text), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            TextField(text), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

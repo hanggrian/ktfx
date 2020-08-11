@@ -2,15 +2,19 @@
 
 package ktfx
 
-import javafx.beans.binding.Bindings
-import javafx.beans.binding.BooleanBinding
-import javafx.beans.binding.DoubleBinding
-import javafx.beans.binding.FloatBinding
-import javafx.beans.binding.IntegerBinding
-import javafx.beans.binding.LongBinding
-import javafx.beans.binding.ObjectBinding
-import javafx.beans.binding.StringBinding
+import javafx.beans.value.ObservableBooleanValue
+import javafx.beans.value.ObservableDoubleValue
+import javafx.beans.value.ObservableFloatValue
+import javafx.beans.value.ObservableIntegerValue
+import javafx.beans.value.ObservableLongValue
+import javafx.beans.value.ObservableStringValue
 import javafx.beans.value.ObservableValue
+import javafx.beans.value.WritableBooleanValue
+import javafx.beans.value.WritableDoubleValue
+import javafx.beans.value.WritableFloatValue
+import javafx.beans.value.WritableIntegerValue
+import javafx.beans.value.WritableLongValue
+import javafx.beans.value.WritableStringValue
 import javafx.beans.value.WritableValue
 import kotlin.reflect.KProperty
 
@@ -27,44 +31,80 @@ inline operator fun <V> WritableValue<in V>.setValue(
     value: V?
 ): Unit = setValue(value)
 
-/** Creates an object binding used to get a member. */
-inline fun <T> Any.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)
+/** Delegated property of this read-only [String] value, use with `by` keyword. */
+inline operator fun ObservableStringValue.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): String? = get()
 
-/** Creates an object binding used to get a member. */
-inline fun <T> ObservableValue<*>.select(vararg steps: String): ObjectBinding<T> = Bindings.select(this, *steps)
+/** Delegated property of this writable [String] value, use with `by` keyword. */
+inline operator fun WritableStringValue.setValue(
+    thisRef: Any?,
+    property: KProperty<*>,
+    value: String?
+): Unit = set(value)
 
-/** Creates a string binding used to get a member. */
-inline fun Any.selectString(vararg steps: String): StringBinding = Bindings.selectString(this, *steps)
+/** Delegated property of this read-only [Boolean] value, use with `by` keyword. */
+inline operator fun ObservableBooleanValue.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): Boolean = get()
 
-/** Creates a string binding used to get a member. */
-inline fun ObservableValue<*>.selectString(vararg steps: String): StringBinding = Bindings.selectString(this, *steps)
+/** Delegated property of this writable [Boolean] value, use with `by` keyword. */
+inline operator fun WritableBooleanValue.setValue(
+    thisRef: Any?,
+    property: KProperty<*>,
+    value: Boolean
+): Unit = set(value)
 
-/** Creates a boolean binding used to get a member. */
-inline fun Any.selectBoolean(vararg steps: String): BooleanBinding = Bindings.selectBoolean(this, *steps)
+/** Delegated property of this read-only [Double] value, use with `by` keyword. */
+inline operator fun ObservableDoubleValue.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): Double = get()
 
-/** Creates a boolean binding used to get a member. */
-inline fun ObservableValue<*>.selectBoolean(vararg steps: String): BooleanBinding = Bindings.selectBoolean(this, *steps)
+/** Delegated property of this writable [Double] value, use with `by` keyword. */
+inline operator fun WritableDoubleValue.setValue(
+    thisRef: Any?,
+    property: KProperty<*>,
+    value: Double
+): Unit = set(value)
 
-/** Creates a double binding used to get a member. */
-inline fun Any.selectDouble(vararg steps: String): DoubleBinding = Bindings.selectDouble(this, *steps)
+/** Delegated property of this read-only [Float] value, use with `by` keyword. */
+inline operator fun ObservableFloatValue.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): Float = get()
 
-/** Creates a double binding used to get a member. */
-inline fun ObservableValue<*>.selectDouble(vararg steps: String): DoubleBinding = Bindings.selectDouble(this, *steps)
+/** Delegated property of this writable [Float] value, use with `by` keyword. */
+inline operator fun WritableFloatValue.setValue(
+    thisRef: Any?,
+    property: KProperty<*>,
+    value: Float
+): Unit = set(value)
 
-/** Creates a float binding used to get a member. */
-inline fun Any.selectFloat(vararg steps: String): FloatBinding = Bindings.selectFloat(this, *steps)
+/** Delegated property of this read-only [Long] value, use with `by` keyword. */
+inline operator fun ObservableLongValue.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): Long = get()
 
-/** Creates a float binding used to get a member. */
-inline fun ObservableValue<*>.selectFloat(vararg steps: String): FloatBinding = Bindings.selectFloat(this, *steps)
+/** Delegated property of this writable [Long] value, use with `by` keyword. */
+inline operator fun WritableLongValue.setValue(
+    thisRef: Any?,
+    property: KProperty<*>,
+    value: Long
+): Unit = set(value)
 
-/** Creates an integer binding used to get a member. */
-inline fun Any.selectInt(vararg steps: String): IntegerBinding = Bindings.selectInteger(this, *steps)
+/** Delegated property of this read-only [Int] value, use with `by` keyword. */
+inline operator fun ObservableIntegerValue.getValue(
+    thisRef: Any?,
+    property: KProperty<*>
+): Int = get()
 
-/** Creates an integer binding used to get a member. */
-inline fun ObservableValue<*>.selectInt(vararg steps: String): IntegerBinding = Bindings.selectInteger(this, *steps)
-
-/** Creates a long binding used to get a member. */
-inline fun Any.selectLong(vararg steps: String): LongBinding = Bindings.selectLong(this, *steps)
-
-/** Creates a long binding used to get a member. */
-inline fun ObservableValue<*>.selectLong(vararg steps: String): LongBinding = Bindings.selectLong(this, *steps)
+/** Delegated property of this writable [Int] value, use with `by` keyword. */
+inline operator fun WritableIntegerValue.setValue(
+    thisRef: Any?,
+    property: KProperty<*>,
+    value: Int
+): Unit = set(value)

@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -13,7 +14,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [QuadCurve] to this manager.
@@ -21,14 +21,16 @@ import ktfx.internal.KtfxInternals.newChild
  * @return the control added.
  */
 fun NodeManager.quadCurve(
-  startX: Double = 0.0,
-  startY: Double = 0.0,
-  controlX: Double = 0.0,
-  controlY: Double = 0.0,
-  endX: Double = 0.0,
-  endY: Double = 0.0
-): QuadCurve = quadCurve(startX = startX, startY = startY, controlX = controlX, controlY = controlY,
-    endX = endX, endY = endY) { }
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0
+): QuadCurve = quadCurve(
+    startX = startX, startY = startY, controlX = controlX, controlY = controlY,
+    endX = endX, endY = endY
+) { }
 
 /**
  * Create a [QuadCurve] with configuration block.
@@ -37,17 +39,20 @@ fun NodeManager.quadCurve(
  * @return the control created.
  */
 inline fun quadCurve(
-  startX: Double = 0.0,
-  startY: Double = 0.0,
-  controlX: Double = 0.0,
-  controlY: Double = 0.0,
-  endX: Double = 0.0,
-  endY: Double = 0.0,
-  configuration: (@LayoutDslMarker QuadCurve).() -> Unit
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        QuadCurve(startX, startY, controlX, controlY, endX, endY),
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -57,17 +62,21 @@ inline fun quadCurve(
  * @return the control added.
  */
 inline fun NodeManager.quadCurve(
-  startX: Double = 0.0,
-  startY: Double = 0.0,
-  controlX: Double = 0.0,
-  controlY: Double = 0.0,
-  endX: Double = 0.0,
-  endY: Double = 0.0,
-  configuration: (@LayoutDslMarker QuadCurve).() -> Unit
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), configuration
-      = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            QuadCurve(startX, startY, controlX, controlY, endX, endY),
+            configuration = configuration
+        )
+    )
 }
 
 /**
@@ -78,16 +87,20 @@ inline fun NodeManager.quadCurve(
  * @return the styled control created.
  */
 fun styledQuadCurve(
-  startX: Double = 0.0,
-  startY: Double = 0.0,
-  controlX: Double = 0.0,
-  controlY: Double = 0.0,
-  endX: Double = 0.0,
-  endY: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null
-): QuadCurve = styledQuadCurve(startX = startX, startY = startY, controlX = controlX, controlY =
-    controlY, endX = endX, endY = endY, styleClass = *styleClass, id = id) { }
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null
+): QuadCurve = styledQuadCurve(
+    startX = startX, startY = startY, controlX = controlX,
+    controlY =
+        controlY,
+    endX = endX, endY = endY, styleClass = *styleClass, id = id
+) { }
 
 /**
  * Add a styled [QuadCurve] to this manager.
@@ -97,16 +110,20 @@ fun styledQuadCurve(
  * @return the styled control added.
  */
 fun NodeManager.styledQuadCurve(
-  startX: Double = 0.0,
-  startY: Double = 0.0,
-  controlX: Double = 0.0,
-  controlY: Double = 0.0,
-  endX: Double = 0.0,
-  endY: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null
-): QuadCurve = styledQuadCurve(startX = startX, startY = startY, controlX = controlX, controlY =
-    controlY, endX = endX, endY = endY, styleClass = *styleClass, id = id) { }
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null
+): QuadCurve = styledQuadCurve(
+    startX = startX, startY = startY, controlX = controlX,
+    controlY =
+        controlY,
+    endX = endX, endY = endY, styleClass = *styleClass, id = id
+) { }
 
 /**
  * Create a styled [QuadCurve] with configuration block.
@@ -117,19 +134,23 @@ fun NodeManager.styledQuadCurve(
  * @return the styled control created.
  */
 inline fun styledQuadCurve(
-  startX: Double = 0.0,
-  startY: Double = 0.0,
-  controlX: Double = 0.0,
-  controlY: Double = 0.0,
-  endX: Double = 0.0,
-  endY: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker QuadCurve).() -> Unit
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), styleClass =
-      *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        QuadCurve(startX, startY, controlX, controlY, endX, endY),
+        styleClass =
+            *styleClass,
+        id = id, configuration = configuration
+    )
 }
 
 /**
@@ -141,17 +162,23 @@ inline fun styledQuadCurve(
  * @return the styled control added.
  */
 inline fun NodeManager.styledQuadCurve(
-  startX: Double = 0.0,
-  startY: Double = 0.0,
-  controlX: Double = 0.0,
-  controlY: Double = 0.0,
-  endX: Double = 0.0,
-  endY: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker QuadCurve).() -> Unit
+    startX: Double = 0.0,
+    startY: Double = 0.0,
+    controlX: Double = 0.0,
+    controlY: Double = 0.0,
+    endX: Double = 0.0,
+    endY: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(QuadCurve(startX, startY, controlX, controlY, endX, endY), styleClass =
-      *styleClass, id = id, configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            QuadCurve(startX, startY, controlX, controlY, endX, endY),
+            styleClass =
+                *styleClass,
+            id = id, configuration = configuration
+        )
+    )
 }

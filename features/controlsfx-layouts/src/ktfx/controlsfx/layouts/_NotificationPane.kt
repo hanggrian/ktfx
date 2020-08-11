@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.NotificationPane
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.NotificationPane
 
 /**
  * Add a [NotificationPane] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.notificationPane(): NotificationPane = notificationPane() { }
  */
 inline fun notificationPane(configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit):
     NotificationPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxNotificationPane(), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxNotificationPane(), configuration = configuration)
+    }
 
 /**
  * Add a [NotificationPane] with configuration block to this manager.
@@ -41,10 +41,12 @@ inline fun notificationPane(configuration: (@LayoutDslMarker KtfxNotificationPan
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.notificationPane(configuration: (@LayoutDslMarker KtfxNotificationPane).() ->
-    Unit): NotificationPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxNotificationPane(), configuration = configuration))
+inline fun NodeManager.notificationPane(
+    configuration: (@LayoutDslMarker KtfxNotificationPane).() ->
+    Unit
+): NotificationPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxNotificationPane(), configuration = configuration))
 }
 
 /**
@@ -76,13 +78,16 @@ fun NodeManager.styledNotificationPane(vararg styleClass: String, id: String? = 
  * @return the styled control created.
  */
 inline fun styledNotificationPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxNotificationPane(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxNotificationPane(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -94,11 +99,15 @@ inline fun styledNotificationPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledNotificationPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxNotificationPane(), styleClass = *styleClass, id = id, configuration
-      = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxNotificationPane(), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

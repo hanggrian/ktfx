@@ -7,6 +7,7 @@ package ktfx.layouts
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.layout.TilePane
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -15,7 +16,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [TilePane] to this manager.
@@ -32,12 +32,12 @@ fun NodeManager.tilePane(orientation: Orientation = HORIZONTAL, gap: Double = 0.
  * @return the control created.
  */
 inline fun tilePane(
-  orientation: Orientation = HORIZONTAL,
-  gap: Double = 0.0,
-  configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    orientation: Orientation = HORIZONTAL,
+    gap: Double = 0.0,
+    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxTilePane(orientation, gap), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(KtfxTilePane(orientation, gap), configuration = configuration)
 }
 
 /**
@@ -47,12 +47,12 @@ inline fun tilePane(
  * @return the control added.
  */
 inline fun NodeManager.tilePane(
-  orientation: Orientation = HORIZONTAL,
-  gap: Double = 0.0,
-  configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    orientation: Orientation = HORIZONTAL,
+    gap: Double = 0.0,
+    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxTilePane(orientation, gap), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxTilePane(orientation, gap), configuration = configuration))
 }
 
 /**
@@ -63,12 +63,15 @@ inline fun NodeManager.tilePane(
  * @return the styled control created.
  */
 fun styledTilePane(
-  orientation: Orientation = HORIZONTAL,
-  gap: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null
-): TilePane = styledTilePane(orientation = orientation, gap = gap, styleClass = *styleClass, id =
-    id) { }
+    orientation: Orientation = HORIZONTAL,
+    gap: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null
+): TilePane = styledTilePane(
+    orientation = orientation, gap = gap, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Add a styled [TilePane] to this manager.
@@ -78,12 +81,15 @@ fun styledTilePane(
  * @return the styled control added.
  */
 fun NodeManager.styledTilePane(
-  orientation: Orientation = HORIZONTAL,
-  gap: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null
-): TilePane = styledTilePane(orientation = orientation, gap = gap, styleClass = *styleClass, id =
-    id) { }
+    orientation: Orientation = HORIZONTAL,
+    gap: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null
+): TilePane = styledTilePane(
+    orientation = orientation, gap = gap, styleClass = *styleClass,
+    id =
+        id
+) { }
 
 /**
  * Create a styled [TilePane] with configuration block.
@@ -94,15 +100,18 @@ fun NodeManager.styledTilePane(
  * @return the styled control created.
  */
 inline fun styledTilePane(
-  orientation: Orientation = HORIZONTAL,
-  gap: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    orientation: Orientation = HORIZONTAL,
+    gap: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxTilePane(orientation, gap), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxTilePane(orientation, gap), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -114,13 +123,17 @@ inline fun styledTilePane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledTilePane(
-  orientation: Orientation = HORIZONTAL,
-  gap: Double = 0.0,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    orientation: Orientation = HORIZONTAL,
+    gap: Double = 0.0,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxTilePane(orientation, gap), styleClass = *styleClass, id = id,
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxTilePane(orientation, gap), styleClass = *styleClass, id = id,
+            configuration = configuration
+        )
+    )
 }

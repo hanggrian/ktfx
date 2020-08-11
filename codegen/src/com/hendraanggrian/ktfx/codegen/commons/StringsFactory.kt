@@ -3,11 +3,7 @@ package com.hendraanggrian.ktfx.codegen.commons
 import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
 import com.squareup.kotlinpoet.ParameterSpec
 
-abstract class StringsFactory(
-    val path: String,
-    val packageName: String,
-    val className: String
-) {
+abstract class StringsFactory(val className: String) {
     companion object {
         const val BOOLEAN = "Boolean"
         const val DOUBLE = "Double"

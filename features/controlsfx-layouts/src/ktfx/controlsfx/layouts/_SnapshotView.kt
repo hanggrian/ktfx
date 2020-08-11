@@ -4,6 +4,10 @@
 
 package ktfx.controlsfx.layouts
 
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
+import org.controlsfx.control.SnapshotView
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -11,10 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.SnapshotView
 
 /**
  * Add a [SnapshotView] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.snapshotView(): SnapshotView = snapshotView() { }
  */
 inline fun snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit):
     SnapshotView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxSnapshotView(), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxSnapshotView(), configuration = configuration)
+    }
 
 /**
  * Add a [SnapshotView] with configuration block to this manager.
@@ -43,9 +43,9 @@ inline fun snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() ->
  */
 inline fun NodeManager.snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit):
     SnapshotView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxSnapshotView(), configuration = configuration))
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return addChild(newChild(KtfxSnapshotView(), configuration = configuration))
+    }
 
 /**
  * Create a styled [SnapshotView].
@@ -76,13 +76,16 @@ fun NodeManager.styledSnapshotView(vararg styleClass: String, id: String? = null
  * @return the styled control created.
  */
 inline fun styledSnapshotView(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxSnapshotView(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxSnapshotView(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -94,11 +97,16 @@ inline fun styledSnapshotView(
  * @return the styled control added.
  */
 inline fun NodeManager.styledSnapshotView(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxSnapshotView(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxSnapshotView(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

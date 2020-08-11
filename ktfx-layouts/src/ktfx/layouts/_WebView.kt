@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.web.WebView
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [WebView] to this manager.
@@ -28,8 +28,8 @@ fun NodeManager.webView(): WebView = webView() { }
  * @return the control created.
  */
 inline fun webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(WebView(), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(WebView(), configuration = configuration)
 }
 
 /**
@@ -39,8 +39,8 @@ inline fun webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebVie
  * @return the control added.
  */
 inline fun NodeManager.webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(WebView(), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(WebView(), configuration = configuration))
 }
 
 /**
@@ -50,8 +50,11 @@ inline fun NodeManager.webView(configuration: (@LayoutDslMarker WebView).() -> U
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledWebView(vararg styleClass: String, id: String? = null): WebView = styledWebView(styleClass
-    = *styleClass, id = id) { }
+fun styledWebView(vararg styleClass: String, id: String? = null): WebView = styledWebView(
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [WebView] to this manager.
@@ -72,12 +75,12 @@ fun NodeManager.styledWebView(vararg styleClass: String, id: String? = null): We
  * @return the styled control created.
  */
 inline fun styledWebView(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker WebView).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker WebView).() -> Unit
 ): WebView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(WebView(), styleClass = *styleClass, id = id, configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(WebView(), styleClass = *styleClass, id = id, configuration = configuration)
 }
 
 /**
@@ -89,11 +92,16 @@ inline fun styledWebView(
  * @return the styled control added.
  */
 inline fun NodeManager.styledWebView(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker WebView).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker WebView).() -> Unit
 ): WebView {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(WebView(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            WebView(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

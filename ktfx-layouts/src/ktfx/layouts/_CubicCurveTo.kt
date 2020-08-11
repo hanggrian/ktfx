@@ -5,6 +5,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurveTo
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,7 +13,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [CubicCurveTo] to this manager.
@@ -20,14 +20,16 @@ import ktfx.internal.KtfxInternals.newChild
  * @return the control added.
  */
 fun PathElementManager.cubicCurveTo(
-  controlX1: Double = 0.0,
-  controlY1: Double = 0.0,
-  controlX2: Double = 0.0,
-  controlY2: Double = 0.0,
-  x: Double = 0.0,
-  y: Double = 0.0
-): CubicCurveTo = cubicCurveTo(controlX1 = controlX1, controlY1 = controlY1, controlX2 = controlX2,
-    controlY2 = controlY2, x = x, y = y) { }
+    controlX1: Double = 0.0,
+    controlY1: Double = 0.0,
+    controlX2: Double = 0.0,
+    controlY2: Double = 0.0,
+    x: Double = 0.0,
+    y: Double = 0.0
+): CubicCurveTo = cubicCurveTo(
+    controlX1 = controlX1, controlY1 = controlY1, controlX2 = controlX2,
+    controlY2 = controlY2, x = x, y = y
+) { }
 
 /**
  * Create a [CubicCurveTo] with configuration block.
@@ -36,17 +38,20 @@ fun PathElementManager.cubicCurveTo(
  * @return the control created.
  */
 inline fun cubicCurveTo(
-  controlX1: Double = 0.0,
-  controlY1: Double = 0.0,
-  controlX2: Double = 0.0,
-  controlY2: Double = 0.0,
-  x: Double = 0.0,
-  y: Double = 0.0,
-  configuration: (@LayoutDslMarker CubicCurveTo).() -> Unit
+    controlX1: Double = 0.0,
+    controlY1: Double = 0.0,
+    controlX2: Double = 0.0,
+    controlY2: Double = 0.0,
+    x: Double = 0.0,
+    y: Double = 0.0,
+    configuration: (@LayoutDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y), configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y),
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -56,15 +61,19 @@ inline fun cubicCurveTo(
  * @return the control added.
  */
 inline fun PathElementManager.cubicCurveTo(
-  controlX1: Double = 0.0,
-  controlY1: Double = 0.0,
-  controlX2: Double = 0.0,
-  controlY2: Double = 0.0,
-  x: Double = 0.0,
-  y: Double = 0.0,
-  configuration: (@LayoutDslMarker CubicCurveTo).() -> Unit
+    controlX1: Double = 0.0,
+    controlY1: Double = 0.0,
+    controlX2: Double = 0.0,
+    controlY2: Double = 0.0,
+    x: Double = 0.0,
+    y: Double = 0.0,
+    configuration: (@LayoutDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y),
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y),
+            configuration = configuration
+        )
+    )
 }

@@ -2,11 +2,10 @@ package com.hendraanggrian.ktfx.codegen.commons
 
 import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
 import com.hendraanggrian.kotlinpoet.lambdaBy
-import com.hendraanggrian.ktfx.codegen.KTFX
 import com.squareup.kotlinpoet.KModifier
 
 val StringsFactory.Companion.Strings: StringsFactory
-    get() = object : StringsFactory("ktfx-commons/src", KTFX, "ObservableStringValue") {
+    get() = object : StringsFactory("ObservableStringValue") {
         init {
             "trim"(STRING) { predicate() }
             "trimStart"(STRING) { predicate() }

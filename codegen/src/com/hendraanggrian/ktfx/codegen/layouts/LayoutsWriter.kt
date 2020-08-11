@@ -29,6 +29,7 @@ object LayoutsWriter {
             }
             println(fileName)
             buildFileSpec(factory.packageName, fileName) {
+                indentSize = 4
                 annotations {
                     add<JvmMultifileClass>()
                     JvmName::class { addMember("%S", factory.className) }

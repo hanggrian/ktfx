@@ -6,6 +6,7 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
+import ktfx.internal.KtfxInternals.newChild
 import kotlin.Boolean
 import kotlin.String
 import kotlin.Unit
@@ -14,7 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
 
 /**
  * Add a [CustomMenuItem] to this manager.
@@ -31,12 +31,12 @@ fun MenuItemManager.customMenuItem(content: Node? = null, hideOnClick: Boolean =
  * @return the control created.
  */
 inline fun customMenuItem(
-  content: Node? = null,
-  hideOnClick: Boolean = true,
-  configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
+    content: Node? = null,
+    hideOnClick: Boolean = true,
+    configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CustomMenuItem(content, hideOnClick), configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(CustomMenuItem(content, hideOnClick), configuration = configuration)
 }
 
 /**
@@ -46,12 +46,12 @@ inline fun customMenuItem(
  * @return the control added.
  */
 inline fun MenuItemManager.customMenuItem(
-  content: Node? = null,
-  hideOnClick: Boolean = true,
-  configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
+    content: Node? = null,
+    hideOnClick: Boolean = true,
+    configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CustomMenuItem(content, hideOnClick), configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(CustomMenuItem(content, hideOnClick), configuration = configuration))
 }
 
 /**
@@ -62,12 +62,16 @@ inline fun MenuItemManager.customMenuItem(
  * @return the styled control created.
  */
 fun styledCustomMenuItem(
-  content: Node? = null,
-  hideOnClick: Boolean = true,
-  vararg styleClass: String,
-  id: String? = null
-): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
-    *styleClass, id = id) { }
+    content: Node? = null,
+    hideOnClick: Boolean = true,
+    vararg styleClass: String,
+    id: String? = null
+): CustomMenuItem = styledCustomMenuItem(
+    content = content, hideOnClick = hideOnClick,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Add a styled [CustomMenuItem] to this manager.
@@ -77,12 +81,16 @@ fun styledCustomMenuItem(
  * @return the styled control added.
  */
 fun MenuItemManager.styledCustomMenuItem(
-  content: Node? = null,
-  hideOnClick: Boolean = true,
-  vararg styleClass: String,
-  id: String? = null
-): CustomMenuItem = styledCustomMenuItem(content = content, hideOnClick = hideOnClick, styleClass =
-    *styleClass, id = id) { }
+    content: Node? = null,
+    hideOnClick: Boolean = true,
+    vararg styleClass: String,
+    id: String? = null
+): CustomMenuItem = styledCustomMenuItem(
+    content = content, hideOnClick = hideOnClick,
+    styleClass =
+        *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [CustomMenuItem] with configuration block.
@@ -93,15 +101,17 @@ fun MenuItemManager.styledCustomMenuItem(
  * @return the styled control created.
  */
 inline fun styledCustomMenuItem(
-  content: Node? = null,
-  hideOnClick: Boolean = true,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
+    content: Node? = null,
+    hideOnClick: Boolean = true,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(CustomMenuItem(content, hideOnClick), styleClass = *styleClass, id = id,
-      configuration = configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        CustomMenuItem(content, hideOnClick), styleClass = *styleClass, id = id,
+        configuration = configuration
+    )
 }
 
 /**
@@ -113,13 +123,19 @@ inline fun styledCustomMenuItem(
  * @return the styled control added.
  */
 inline fun MenuItemManager.styledCustomMenuItem(
-  content: Node? = null,
-  hideOnClick: Boolean = true,
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
+    content: Node? = null,
+    hideOnClick: Boolean = true,
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(CustomMenuItem(content, hideOnClick), styleClass = *styleClass, id = id,
-      configuration = configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            CustomMenuItem(content, hideOnClick), styleClass = *styleClass,
+            id =
+                id,
+            configuration = configuration
+        )
+    )
 }

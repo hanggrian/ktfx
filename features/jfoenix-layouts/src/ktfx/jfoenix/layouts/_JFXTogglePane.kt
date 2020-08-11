@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTogglePane
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXTogglePane] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
  */
 inline fun jfxTogglePane(configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit):
     JFXTogglePane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXTogglePane(), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxJFXTogglePane(), configuration = configuration)
+    }
 
 /**
  * Add a [JFXTogglePane] with configuration block to this manager.
@@ -41,10 +41,12 @@ inline fun jfxTogglePane(configuration: (@LayoutDslMarker KtfxJFXTogglePane).() 
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxTogglePane(configuration: (@LayoutDslMarker KtfxJFXTogglePane).() ->
-    Unit): JFXTogglePane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXTogglePane(), configuration = configuration))
+inline fun NodeManager.jfxTogglePane(
+    configuration: (@LayoutDslMarker KtfxJFXTogglePane).() ->
+    Unit
+): JFXTogglePane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxJFXTogglePane(), configuration = configuration))
 }
 
 /**
@@ -76,13 +78,16 @@ fun NodeManager.styledJFXTogglePane(vararg styleClass: String, id: String? = nul
  * @return the styled control created.
  */
 inline fun styledJFXTogglePane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXTogglePane(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxJFXTogglePane(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -94,11 +99,16 @@ inline fun styledJFXTogglePane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXTogglePane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXTogglePane(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxJFXTogglePane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

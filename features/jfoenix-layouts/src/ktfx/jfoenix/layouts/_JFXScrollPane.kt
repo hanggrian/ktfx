@@ -5,6 +5,9 @@
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXScrollPane
+import ktfx.internal.KtfxInternals.newChild
+import ktfx.layouts.LayoutDslMarker
+import ktfx.layouts.NodeManager
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -12,9 +15,6 @@ import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
-import ktfx.internal.KtfxInternals.newChild
-import ktfx.layouts.LayoutDslMarker
-import ktfx.layouts.NodeManager
 
 /**
  * Add a [JFXScrollPane] to this manager.
@@ -31,9 +31,9 @@ fun NodeManager.jfxScrollPane(): JFXScrollPane = jfxScrollPane() { }
  */
 inline fun jfxScrollPane(configuration: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit):
     JFXScrollPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXScrollPane(), configuration = configuration)
-}
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        return newChild(KtfxJFXScrollPane(), configuration = configuration)
+    }
 
 /**
  * Add a [JFXScrollPane] with configuration block to this manager.
@@ -41,10 +41,12 @@ inline fun jfxScrollPane(configuration: (@LayoutDslMarker KtfxJFXScrollPane).() 
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxScrollPane(configuration: (@LayoutDslMarker KtfxJFXScrollPane).() ->
-    Unit): JFXScrollPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXScrollPane(), configuration = configuration))
+inline fun NodeManager.jfxScrollPane(
+    configuration: (@LayoutDslMarker KtfxJFXScrollPane).() ->
+    Unit
+): JFXScrollPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(newChild(KtfxJFXScrollPane(), configuration = configuration))
 }
 
 /**
@@ -76,13 +78,16 @@ fun NodeManager.styledJFXScrollPane(vararg styleClass: String, id: String? = nul
  * @return the styled control created.
  */
 inline fun styledJFXScrollPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return newChild(KtfxJFXScrollPane(), styleClass = *styleClass, id = id, configuration =
-      configuration)
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return newChild(
+        KtfxJFXScrollPane(), styleClass = *styleClass, id = id,
+        configuration =
+            configuration
+    )
 }
 
 /**
@@ -94,11 +99,16 @@ inline fun styledJFXScrollPane(
  * @return the styled control added.
  */
 inline fun NodeManager.styledJFXScrollPane(
-  vararg styleClass: String,
-  id: String? = null,
-  configuration: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
+    vararg styleClass: String,
+    id: String? = null,
+    configuration: (@LayoutDslMarker KtfxJFXScrollPane).() -> Unit
 ): JFXScrollPane {
-  contract { callsInPlace(configuration, EXACTLY_ONCE) }
-  return addChild(newChild(KtfxJFXScrollPane(), styleClass = *styleClass, id = id, configuration =
-      configuration))
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    return addChild(
+        newChild(
+            KtfxJFXScrollPane(), styleClass = *styleClass, id = id,
+            configuration =
+                configuration
+        )
+    )
 }

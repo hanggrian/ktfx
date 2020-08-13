@@ -5,7 +5,7 @@ import com.hendraanggrian.kotlinpoet.lambdaBy
 import com.squareup.kotlinpoet.KModifier
 
 val StringsFactory.Companion.Strings: StringsFactory
-    get() = object : StringsFactory("ObservableStringValue") {
+    get() = object : StringsFactory("StringBinding") {
         init {
             "trim"(STRING) { predicate() }
             "trimStart"(STRING) { predicate() }

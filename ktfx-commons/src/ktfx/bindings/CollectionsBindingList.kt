@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("ObservableCollectionsBindingKt")
+@file:JvmName("CollectionsBindingKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.bindings

@@ -13,7 +13,7 @@ object StringsWriter {
             indentSize = 4
             annotations {
                 add<JvmMultifileClass>()
-                JvmName::class { addMember("%S", "ObservableStringBindingKt") }
+                JvmName::class { addMember("%S", "StringBindingKt") }
                 Suppress::class { addMember("%S", "NOTHING_TO_INLINE") }
             }
             functions {

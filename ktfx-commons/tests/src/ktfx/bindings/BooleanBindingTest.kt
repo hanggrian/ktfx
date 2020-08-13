@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class ObservableBooleanBindingTest {
+class BooleanBindingTest {
 
     @Test fun and() {
         assertFalse((booleanPropertyOf(false) and booleanPropertyOf(false)).value)

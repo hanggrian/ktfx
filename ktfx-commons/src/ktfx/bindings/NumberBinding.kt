@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("ObservableNumberBindingKt")
+@file:JvmName("NumberBindingKt")
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.bindings
@@ -89,7 +89,8 @@ inline fun Int.eq(other: ObservableNumberValue, epsilon: Double): BooleanBinding
     Bindings.equal(this, other, epsilon)
 
 /** @see NumberExpressionBase.isNotEqualTo */
-inline infix fun ObservableNumberValue.neq(other: ObservableNumberValue): BooleanBinding = Bindings.notEqual(this, other)
+inline infix fun ObservableNumberValue.neq(other: ObservableNumberValue): BooleanBinding =
+    Bindings.notEqual(this, other)
 
 /** @see NumberExpressionBase.isNotEqualTo */
 inline fun ObservableNumberValue.neq(other: ObservableNumberValue, epsilon: Double): BooleanBinding =

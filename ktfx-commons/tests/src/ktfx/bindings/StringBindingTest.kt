@@ -6,7 +6,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class ObservableStringBindingTest {
+class StringBindingTest {
 
     @Test fun eq() {
         assertFalse((stringPropertyOf("Hello") eq stringPropertyOf("World")).value)

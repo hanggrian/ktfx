@@ -6,7 +6,7 @@ import com.squareup.kotlinpoet.KModifier
 import java.util.Locale
 
 val StringsFactory.Companion.StringsJVM: StringsFactory
-    get() = object : StringsFactory("ObservableStringValueJVM") {
+    get() = object : StringsFactory("StringJVMBinding") {
         init {
             "equals"(BOOLEAN, notNull = false) { add("other", String::class.asNullable()); ignoreCase() }
             "replace"(STRING) { oldChar(); newChar(); ignoreCase() }

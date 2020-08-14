@@ -80,14 +80,14 @@ class NodeTest : BaseNodeTest() {
     override fun Node.callOnScrollFinished(action: (ScrollEvent) -> Unit) =
         onScrollFinished(Dispatchers.Unconfined) { action(it) }
 
-    override fun Node.callOnRotateStarted(action: (RotateEvent) -> Unit) =
-        onRotateStarted(Dispatchers.Unconfined) { action(it) }
+    override fun Node.callOnRotationStarted(action: (RotateEvent) -> Unit) =
+        onRotationStarted(Dispatchers.Unconfined) { action(it) }
 
     override fun Node.callOnRotate(action: (RotateEvent) -> Unit) =
         onRotate(Dispatchers.Unconfined) { action(it) }
 
-    override fun Node.callOnRotateFinished(action: (RotateEvent) -> Unit) =
-        onRotateFinished(Dispatchers.Unconfined) { action(it) }
+    override fun Node.callOnRotationFinished(action: (RotateEvent) -> Unit) =
+        onRotationFinished(Dispatchers.Unconfined) { action(it) }
 
     override fun Node.callOnZoomStarted(action: (ZoomEvent) -> Unit) =
         onZoomStarted(Dispatchers.Unconfined) { action(it) }

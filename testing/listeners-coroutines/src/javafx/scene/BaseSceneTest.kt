@@ -57,9 +57,9 @@ abstract class BaseSceneTest {
     abstract fun Scene.callOnScrollStarted(action: (ScrollEvent) -> Unit)
     abstract fun Scene.callOnScroll(action: (ScrollEvent) -> Unit)
     abstract fun Scene.callOnScrollFinished(action: (ScrollEvent) -> Unit)
-    abstract fun Scene.callOnRotateStarted(action: (RotateEvent) -> Unit)
+    abstract fun Scene.callOnRotationStarted(action: (RotateEvent) -> Unit)
     abstract fun Scene.callOnRotate(action: (RotateEvent) -> Unit)
-    abstract fun Scene.callOnRotateFinished(action: (RotateEvent) -> Unit)
+    abstract fun Scene.callOnRotationFinished(action: (RotateEvent) -> Unit)
     abstract fun Scene.callOnZoomStarted(action: (ZoomEvent) -> Unit)
     abstract fun Scene.callOnZoom(action: (ZoomEvent) -> Unit)
     abstract fun Scene.callOnZoomFinished(action: (ZoomEvent) -> Unit)
@@ -163,7 +163,7 @@ abstract class BaseSceneTest {
     }
 
     @Test fun onRotateStarted() {
-        scene.callOnRotateStarted { assertFakeRotateEvent(it, RotateEvent.ROTATION_STARTED) }
+        scene.callOnRotationStarted { assertFakeRotateEvent(it, RotateEvent.ROTATION_STARTED) }
         scene.onRotationStarted.handle(fakeRotateEventOf(RotateEvent.ROTATION_STARTED))
     }
 
@@ -173,7 +173,7 @@ abstract class BaseSceneTest {
     }
 
     @Test fun onRotateFinished() {
-        scene.callOnRotateFinished { assertFakeRotateEvent(it, RotateEvent.ROTATION_FINISHED) }
+        scene.callOnRotationFinished { assertFakeRotateEvent(it, RotateEvent.ROTATION_FINISHED) }
         scene.onRotationFinished.handle(fakeRotateEventOf(RotateEvent.ROTATION_FINISHED))
     }
 

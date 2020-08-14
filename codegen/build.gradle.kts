@@ -1,6 +1,9 @@
 plugins {
     kotlin("jvm")
+    application
 }
+
+application.mainClassName = "com.hendraanggrian.ktfx.codegen.Generator"
 
 sourceSets {
     get("main").java.srcDir("src")

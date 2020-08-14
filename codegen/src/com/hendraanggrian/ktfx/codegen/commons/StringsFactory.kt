@@ -12,6 +12,14 @@ abstract class StringsFactory(val className: String) {
         const val LONG = "Long"
         const val ANY = ""
         const val STRING = "String"
+
+        fun ParameterSpecListScope.ignoreCase() = "ignoreCase"<Boolean> { defaultValue("false") }
+        fun ParameterSpecListScope.startIndex() = add<Int>("startIndex")
+        fun ParameterSpecListScope.endIndex() = add<Int>("endIndex")
+        fun ParameterSpecListScope.length() = add<Int>("length")
+        fun ParameterSpecListScope.prefix() = add<String>("prefix")
+        fun ParameterSpecListScope.suffix() = add<String>("suffix")
+        fun ParameterSpecListScope.other() = add<String>("other")
     }
 
     val entries = mutableListOf<StringsEntry>()
@@ -25,12 +33,4 @@ abstract class StringsFactory(val className: String) {
         ParameterSpecListScope(parameters).configuration()
         entries += StringsEntry(type, this, notNull, parameters)
     }
-
-    fun ParameterSpecListScope.ignoreCase() = "ignoreCase"<Boolean> { defaultValue("false") }
-    fun ParameterSpecListScope.startIndex() = add<Int>("startIndex")
-    fun ParameterSpecListScope.endIndex() = add<Int>("endIndex")
-    fun ParameterSpecListScope.length() = add<Int>("length")
-    fun ParameterSpecListScope.prefix() = add<String>("prefix")
-    fun ParameterSpecListScope.suffix() = add<String>("suffix")
-    fun ParameterSpecListScope.other() = add<String>("other")
 }

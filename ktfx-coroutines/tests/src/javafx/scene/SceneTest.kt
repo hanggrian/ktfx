@@ -62,14 +62,14 @@ class SceneTest : BaseSceneTest() {
     override fun Scene.callOnScrollFinished(action: (ScrollEvent) -> Unit) =
         onScrollFinished(Dispatchers.Unconfined) { action(it) }
 
-    override fun Scene.callOnRotateStarted(action: (RotateEvent) -> Unit) =
-        onRotateStarted(Dispatchers.Unconfined) { action(it) }
+    override fun Scene.callOnRotationStarted(action: (RotateEvent) -> Unit) =
+        onRotationStarted(Dispatchers.Unconfined) { action(it) }
 
     override fun Scene.callOnRotate(action: (RotateEvent) -> Unit) =
         onRotate(Dispatchers.Unconfined) { action(it) }
 
-    override fun Scene.callOnRotateFinished(action: (RotateEvent) -> Unit) =
-        onRotateFinished(Dispatchers.Unconfined) { action(it) }
+    override fun Scene.callOnRotationFinished(action: (RotateEvent) -> Unit) =
+        onRotationFinished(Dispatchers.Unconfined) { action(it) }
 
     override fun Scene.callOnZoomStarted(action: (ZoomEvent) -> Unit) =
         onZoomStarted(Dispatchers.Unconfined) { action(it) }

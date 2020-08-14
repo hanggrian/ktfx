@@ -1,6 +1,9 @@
 plugins {
     kotlin("jvm")
+    application
 }
+
+application.mainClassName = "com.example.CalculatorApp"
 
 sourceSets {
     get("main").java.srcDir("src")

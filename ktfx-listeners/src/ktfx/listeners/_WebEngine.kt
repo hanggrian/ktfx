@@ -1,0 +1,44 @@
+@file:JvmMultifileClass
+@file:JvmName("FxListenersKt")
+@file:Suppress("NOTHING_TO_INLINE")
+
+package ktfx.listeners
+
+import javafx.geometry.Rectangle2D
+import javafx.scene.web.WebEngine
+import javafx.scene.web.WebErrorEvent
+import javafx.scene.web.WebEvent
+import kotlin.Boolean
+import kotlin.String
+import kotlin.Suppress
+import kotlin.Unit
+import kotlin.jvm.JvmMultifileClass
+import kotlin.jvm.JvmName
+
+/**
+ * @see WebEngine.setOnAlert
+ */
+inline fun WebEngine.onAlert(noinline action: (WebEvent<String>) -> Unit): Unit = setOnAlert(action)
+
+/**
+ * @see WebEngine.setOnStatusChanged
+ */
+inline fun WebEngine.onStatusChanged(noinline action: (WebEvent<String>) -> Unit): Unit =
+    setOnStatusChanged(action)
+
+/**
+ * @see WebEngine.setOnResized
+ */
+inline fun WebEngine.onResized(noinline action: (WebEvent<Rectangle2D>) -> Unit): Unit =
+    setOnResized(action)
+
+/**
+ * @see WebEngine.setOnVisibilityChanged
+ */
+inline fun WebEngine.onVisibilityChanged(noinline action: (WebEvent<Boolean>) -> Unit): Unit =
+    setOnVisibilityChanged(action)
+
+/**
+ * @see WebEngine.setOnError
+ */
+inline fun WebEngine.onError(noinline action: (WebErrorEvent) -> Unit): Unit = setOnError(action)

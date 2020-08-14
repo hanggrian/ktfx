@@ -21,7 +21,37 @@ abstract class LayoutsFactory(
     val packageName: String,
     val className: String
 ) {
-    companion object
+    companion object {
+        val T = "T".typeVarOf()
+        val S = "S".typeVarOf()
+        val X = "X".typeVarOf()
+        val Y = "Y".typeVarOf()
+
+        fun ParameterSpecListScope.text() = "text"(String::class.asNullable()) { defaultValue("null") }
+        fun ParameterSpecListScope.graphic() = "graphic"(Node::class.asNullable()) { defaultValue("null") }
+        fun ParameterSpecListScope.content() = "content"(Node::class.asNullable()) { defaultValue("null") }
+        fun ParameterSpecListScope.progress() =
+            "progress"<Double> { defaultValue("%M", ProgressBar::class.memberOf("INDETERMINATE_PROGRESS")) }
+
+        fun ParameterSpecListScope.color() =
+            "color"<Color> { defaultValue("%M", Color::class.memberOf("WHITE")) }
+
+        fun ParameterSpecListScope.date() = "date"(LocalDate::class.asNullable()) { defaultValue("null") }
+
+        fun ParameterSpecListScope.items(name: TypeVariableName) =
+            "items"(ObservableList::class.parameterizedBy(name)) {
+                defaultValue("%M()", FXCollections::class.memberOf("observableArrayList"))
+            }
+
+        fun ParameterSpecListScope.treeItem(name: String, variable: TypeVariableName) =
+            name(TreeItem::class.parameterizedBy(variable).asNullable()) { defaultValue("null") }
+
+        fun ParameterSpecListScope.slider(value: String) {
+            "min"<Double> { defaultValue("0.0") }
+            "max"<Double> { defaultValue("100.0") }
+            "value"<Double> { defaultValue(value) }
+        }
+    }
 
     val entries = mutableListOf<LayoutsEntry>()
 
@@ -33,35 +63,5 @@ abstract class LayoutsFactory(
         val parameters = mutableListOf<ParameterSpec>()
         ParameterSpecListScope(parameters).configuration()
         entries += LayoutsEntry(packageName, this, parameters, typeVariables.asList(), customClass = customClass)
-    }
-
-    val T = "T".typeVarOf()
-    val S = "S".typeVarOf()
-    val X = "X".typeVarOf()
-    val Y = "Y".typeVarOf()
-
-    fun ParameterSpecListScope.text() = "text"(String::class.asNullable()) { defaultValue("null") }
-    fun ParameterSpecListScope.graphic() = "graphic"(Node::class.asNullable()) { defaultValue("null") }
-    fun ParameterSpecListScope.content() = "content"(Node::class.asNullable()) { defaultValue("null") }
-    fun ParameterSpecListScope.progress() =
-        "progress"<Double> { defaultValue("%M", ProgressBar::class.memberOf("INDETERMINATE_PROGRESS")) }
-
-    fun ParameterSpecListScope.color() =
-        "color"<Color> { defaultValue("%M", Color::class.memberOf("WHITE")) }
-
-    fun ParameterSpecListScope.date() = "date"(LocalDate::class.asNullable()) { defaultValue("null") }
-
-    fun ParameterSpecListScope.items(name: TypeVariableName) =
-        "items"(ObservableList::class.parameterizedBy(name)) {
-            defaultValue("%M()", FXCollections::class.memberOf("observableArrayList"))
-        }
-
-    fun ParameterSpecListScope.treeItem(name: String, variable: TypeVariableName) =
-        name(TreeItem::class.parameterizedBy(variable).asNullable()) { defaultValue("null") }
-
-    fun ParameterSpecListScope.slider(value: String) {
-        "min"<Double> { defaultValue("0.0") }
-        "max"<Double> { defaultValue("100.0") }
-        "value"<Double> { defaultValue(value) }
     }
 }

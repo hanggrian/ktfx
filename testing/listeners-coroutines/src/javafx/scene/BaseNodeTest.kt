@@ -43,9 +43,9 @@ abstract class BaseNodeTest {
     abstract fun Node.callOnScrollStarted(action: (ScrollEvent) -> Unit)
     abstract fun Node.callOnScroll(action: (ScrollEvent) -> Unit)
     abstract fun Node.callOnScrollFinished(action: (ScrollEvent) -> Unit)
-    abstract fun Node.callOnRotateStarted(action: (RotateEvent) -> Unit)
+    abstract fun Node.callOnRotationStarted(action: (RotateEvent) -> Unit)
     abstract fun Node.callOnRotate(action: (RotateEvent) -> Unit)
-    abstract fun Node.callOnRotateFinished(action: (RotateEvent) -> Unit)
+    abstract fun Node.callOnRotationFinished(action: (RotateEvent) -> Unit)
     abstract fun Node.callOnZoomStarted(action: (ZoomEvent) -> Unit)
     abstract fun Node.callOnZoom(action: (ZoomEvent) -> Unit)
     abstract fun Node.callOnZoomFinished(action: (ZoomEvent) -> Unit)
@@ -189,7 +189,7 @@ abstract class BaseNodeTest {
     }
 
     @Test fun onRotateStarted() {
-        node.callOnRotateStarted { assertFakeRotateEvent(it, RotateEvent.ROTATION_STARTED) }
+        node.callOnRotationStarted { assertFakeRotateEvent(it, RotateEvent.ROTATION_STARTED) }
         node.onRotationStarted.handle(fakeRotateEventOf(RotateEvent.ROTATION_STARTED))
     }
 
@@ -199,7 +199,7 @@ abstract class BaseNodeTest {
     }
 
     @Test fun onRotateFinished() {
-        node.callOnRotateFinished { assertFakeRotateEvent(it, RotateEvent.ROTATION_FINISHED) }
+        node.callOnRotationFinished { assertFakeRotateEvent(it, RotateEvent.ROTATION_FINISHED) }
         node.onRotationFinished.handle(fakeRotateEventOf(RotateEvent.ROTATION_FINISHED))
     }
 

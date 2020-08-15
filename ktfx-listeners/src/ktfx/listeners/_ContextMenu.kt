@@ -14,4 +14,6 @@ import kotlin.jvm.JvmName
 /**
  * @see ContextMenu.setOnAction
  */
-inline fun ContextMenu.onAction(noinline action: (ActionEvent) -> Unit): Unit = setOnAction(action)
+inline fun ContextMenu.onAction(noinline action: (ActionEvent) -> Unit) {
+    return setOnAction(action)
+}

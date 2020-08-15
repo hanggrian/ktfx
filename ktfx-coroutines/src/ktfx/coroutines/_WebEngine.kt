@@ -26,8 +26,8 @@ fun WebEngine.onAlert(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebEvent<String>) -> Unit
-): Unit = setOnAlert { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnAlert { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -37,8 +37,8 @@ fun WebEngine.onStatusChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebEvent<String>) -> Unit
-): Unit = setOnStatusChanged { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnStatusChanged { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -48,8 +48,8 @@ fun WebEngine.onResized(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebEvent<Rectangle2D>) -> Unit
-): Unit = setOnResized { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnResized { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -59,8 +59,8 @@ fun WebEngine.onVisibilityChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebEvent<Boolean>) -> Unit
-): Unit = setOnVisibilityChanged { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnVisibilityChanged { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -70,6 +70,6 @@ fun WebEngine.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebErrorEvent) -> Unit
-): Unit = setOnError { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnError { event -> GlobalScope.launch(context) { action(event) } }
 }

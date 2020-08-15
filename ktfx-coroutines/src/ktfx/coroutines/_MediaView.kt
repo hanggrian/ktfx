@@ -22,6 +22,6 @@ fun MediaView.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MediaErrorEvent) -> Unit
-): Unit = setOnError { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnError { event -> GlobalScope.launch(context) { action(event) } }
 }

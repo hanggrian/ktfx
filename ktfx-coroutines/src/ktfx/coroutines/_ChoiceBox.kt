@@ -23,8 +23,8 @@ fun ChoiceBox<*>.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit
-): Unit = setOnAction { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnAction { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -34,7 +34,9 @@ fun ChoiceBox<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+}
 
 /**
  * @see ChoiceBox.setOnShown
@@ -43,10 +45,8 @@ fun ChoiceBox<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnShown { event ->
-    GlobalScope.launch(context) {
-        action(event)
-    }
+) {
+    return setOnShown { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -56,10 +56,8 @@ fun ChoiceBox<*>.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnHiding { event ->
-    GlobalScope.launch(context) {
-        action(event)
-    }
+) {
+    return setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -69,8 +67,6 @@ fun ChoiceBox<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnHidden { event ->
-    GlobalScope.launch(context) {
-        action(event)
-    }
+) {
+    return setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
 }

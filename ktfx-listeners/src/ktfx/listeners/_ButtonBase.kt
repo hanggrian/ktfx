@@ -14,4 +14,6 @@ import kotlin.jvm.JvmName
 /**
  * @see ButtonBase.setOnAction
  */
-inline fun ButtonBase.onAction(noinline action: (ActionEvent) -> Unit): Unit = setOnAction(action)
+inline fun ButtonBase.onAction(noinline action: (ActionEvent) -> Unit) {
+    return setOnAction(action)
+}

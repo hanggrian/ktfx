@@ -22,7 +22,9 @@ fun Menu.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
+}
 
 /**
  * @see Menu.setOnShown
@@ -31,10 +33,8 @@ fun Menu.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnShown { event ->
-    GlobalScope.launch(context) {
-        action(event)
-    }
+) {
+    return setOnShown { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -44,10 +44,8 @@ fun Menu.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnHiding { event ->
-    GlobalScope.launch(context) {
-        action(event)
-    }
+) {
+    return setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -57,8 +55,6 @@ fun Menu.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnHidden { event ->
-    GlobalScope.launch(context) {
-        action(event)
-    }
+) {
+    return setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
 }

@@ -22,4 +22,6 @@ fun PopupWindow.onAutoHide(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnAutoHide { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnAutoHide { event -> GlobalScope.launch(context) { action(event) } }
+}

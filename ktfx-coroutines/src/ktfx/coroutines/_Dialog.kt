@@ -22,8 +22,8 @@ fun Dialog<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
-): Unit = setOnShowing { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -33,8 +33,8 @@ fun Dialog<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
-): Unit = setOnShown { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnShown { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -44,8 +44,8 @@ fun Dialog<*>.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
-): Unit = setOnHiding { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnHiding { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -55,8 +55,8 @@ fun Dialog<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
-): Unit = setOnHidden { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnHidden { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -66,6 +66,6 @@ fun Dialog<*>.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
-): Unit = setOnCloseRequest { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
 }

@@ -16,7 +16,9 @@ import kotlin.jvm.JvmName
 inline fun <S, T> TreeTableColumn<S, T>.onEditStart(
     noinline
     action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditStart(action)
+) {
+    return setOnEditStart(action)
+}
 
 /**
  * @see TreeTableColumn.setOnEditCommit
@@ -24,7 +26,9 @@ inline fun <S, T> TreeTableColumn<S, T>.onEditStart(
 inline fun <S, T> TreeTableColumn<S, T>.onEditCommit(
     noinline
     action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditCommit(action)
+) {
+    return setOnEditCommit(action)
+}
 
 /**
  * @see TreeTableColumn.setOnEditCancel
@@ -32,4 +36,6 @@ inline fun <S, T> TreeTableColumn<S, T>.onEditCommit(
 inline fun <S, T> TreeTableColumn<S, T>.onEditCancel(
     noinline
     action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit
-): Unit = setOnEditCancel(action)
+) {
+    return setOnEditCancel(action)
+}

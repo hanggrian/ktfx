@@ -22,6 +22,6 @@ fun Transform.onTransformChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TransformChangedEvent) -> Unit
-): Unit = setOnTransformChanged { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnTransformChanged { event -> GlobalScope.launch(context) { action(event) } }
 }

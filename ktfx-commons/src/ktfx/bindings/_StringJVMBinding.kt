@@ -22,8 +22,10 @@ import kotlin.jvm.JvmName
 /**
  * @see String.equals
  */
-inline fun ObservableStringValue.equals(other: String?, ignoreCase: Boolean = false): BooleanBinding =
-    toBooleanBinding { it.equals(other, ignoreCase) }
+inline fun ObservableStringValue.equals(other: String?, ignoreCase: Boolean = false):
+    BooleanBinding {
+        return toBooleanBinding { it.equals(other, ignoreCase) }
+    }
 
 /**
  * @see String.replace
@@ -32,11 +34,13 @@ inline fun ObservableStringValue.replace(
     oldChar: Char,
     newChar: Char,
     ignoreCase: Boolean = false
-): StringBinding = toStringBinding {
-    checkNotNull(it) { "String value is null" }.replace(
-        oldChar,
-        newChar, ignoreCase
-    )
+): StringBinding {
+    return toStringBinding {
+        checkNotNull(it) { "String value is null" }.replace(
+            oldChar, newChar,
+            ignoreCase
+        )
+    }
 }
 
 /**
@@ -46,11 +50,13 @@ inline fun ObservableStringValue.replace(
     oldChar: String,
     newChar: String,
     ignoreCase: Boolean = false
-): StringBinding = toStringBinding {
-    checkNotNull(it) { "String value is null" }.replace(
-        oldChar,
-        newChar, ignoreCase
-    )
+): StringBinding {
+    return toStringBinding {
+        checkNotNull(it) { "String value is null" }.replace(
+            oldChar, newChar,
+            ignoreCase
+        )
+    }
 }
 
 /**
@@ -60,10 +66,13 @@ inline fun ObservableStringValue.replaceFirst(
     oldChar: Char,
     newChar: Char,
     ignoreCase: Boolean = false
-): StringBinding = toStringBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.replaceFirst(oldChar, newChar, ignoreCase)
+): StringBinding {
+    return toStringBinding {
+        checkNotNull(it) { "String value is null" }.replaceFirst(
+            oldChar,
+            newChar, ignoreCase
+        )
+    }
 }
 
 /**
@@ -73,69 +82,73 @@ inline fun ObservableStringValue.replaceFirst(
     oldChar: String,
     newChar: String,
     ignoreCase: Boolean = false
-): StringBinding = toStringBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.replaceFirst(oldChar, newChar, ignoreCase)
+): StringBinding {
+    return toStringBinding {
+        checkNotNull(it) { "String value is null" }.replaceFirst(
+            oldChar,
+            newChar, ignoreCase
+        )
+    }
 }
 
 /**
  * @see String.toUpperCase
  */
-inline fun ObservableStringValue.toUpperCase(): StringBinding = toStringBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.toUpperCase()
+inline fun ObservableStringValue.toUpperCase(): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.toUpperCase() }
 }
 
 /**
  * @see String.toLowerCase
  */
-inline fun ObservableStringValue.toLowerCase(): StringBinding = toStringBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.toLowerCase()
+inline fun ObservableStringValue.toLowerCase(): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.toLowerCase() }
 }
 
 /**
  * @see String.format
  */
-inline fun ObservableStringValue.format(vararg newChar: Any?): StringBinding = toStringBinding {
-    checkNotNull(it) { "String value is null" }.format(*newChar)
+inline fun ObservableStringValue.format(vararg newChar: Any?): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.format(*newChar) }
 }
 
 /**
  * @see String.format
  */
-inline fun ObservableStringValue.format(locale: Locale, vararg newChar: Any?): StringBinding =
-    toStringBinding { checkNotNull(it) { "String value is null" }.format(locale, *newChar) }
-
-/**
- * @see String.substring
- */
-inline fun ObservableStringValue.substring(startIndex: Int): StringBinding = toStringBinding {
-    checkNotNull(it) { "String value is null" }.substring(startIndex)
+inline fun ObservableStringValue.format(locale: Locale, vararg newChar: Any?): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.format(locale, *newChar) }
 }
 
 /**
  * @see String.substring
  */
-inline fun ObservableStringValue.substring(startIndex: Int, endIndex: Int): StringBinding =
-    toStringBinding {
+inline fun ObservableStringValue.substring(startIndex: Int): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.substring(startIndex) }
+}
+
+/**
+ * @see String.substring
+ */
+inline fun ObservableStringValue.substring(startIndex: Int, endIndex: Int): StringBinding {
+    return toStringBinding {
         checkNotNull(it) { "String value is null" }.substring(
             startIndex,
             endIndex
         )
     }
+}
 
 /**
  * @see String.startsWith
  */
 inline fun ObservableStringValue.startsWith(prefix: String, ignoreCase: Boolean = false):
-    BooleanBinding = toBooleanBinding {
-        checkNotNull(it) {
-            "String value is null"
-        }.startsWith(prefix, ignoreCase)
+    BooleanBinding {
+        return toBooleanBinding {
+            checkNotNull(it) { "String value is null" }.startsWith(
+                prefix,
+                ignoreCase
+            )
+        }
     }
 
 /**
@@ -145,90 +158,94 @@ inline fun ObservableStringValue.startsWith(
     prefix: String,
     startIndex: Int,
     ignoreCase: Boolean = false
-): BooleanBinding = toBooleanBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.startsWith(prefix, startIndex, ignoreCase)
+): BooleanBinding {
+    return toBooleanBinding {
+        checkNotNull(it) { "String value is null" }.startsWith(
+            prefix,
+            startIndex, ignoreCase
+        )
+    }
 }
 
 /**
  * @see String.endsWith
  */
 inline fun ObservableStringValue.endsWith(suffix: String, ignoreCase: Boolean = false):
-    BooleanBinding = toBooleanBinding {
-        checkNotNull(it) {
-            "String value is null"
-        }.endsWith(suffix, ignoreCase)
+    BooleanBinding {
+        return toBooleanBinding {
+            checkNotNull(it) { "String value is null" }.endsWith(
+                suffix,
+                ignoreCase
+            )
+        }
     }
 
 /**
  * @see String.codePointAt
  */
-inline fun ObservableStringValue.codePointAt(index: Int): IntegerBinding = toIntBinding {
-    checkNotNull(it) { "String value is null" }.codePointAt(index)
+inline fun ObservableStringValue.codePointAt(index: Int): IntegerBinding {
+    return toIntBinding { checkNotNull(it) { "String value is null" }.codePointAt(index) }
 }
 
 /**
  * @see String.codePointBefore
  */
-inline fun ObservableStringValue.codePointBefore(index: Int): IntegerBinding = toIntBinding {
-    checkNotNull(it) { "String value is null" }.codePointBefore(index)
+inline fun ObservableStringValue.codePointBefore(index: Int): IntegerBinding {
+    return toIntBinding { checkNotNull(it) { "String value is null" }.codePointBefore(index) }
 }
 
 /**
  * @see String.codePointCount
  */
-inline fun ObservableStringValue.codePointCount(startIndex: Int, endIndex: Int): IntegerBinding =
-    toIntBinding {
+inline fun ObservableStringValue.codePointCount(startIndex: Int, endIndex: Int): IntegerBinding {
+    return toIntBinding {
         checkNotNull(it) { "String value is null" }.codePointCount(
             startIndex,
             endIndex
         )
     }
+}
 
 /**
  * @see String.compareTo
  */
 inline fun ObservableStringValue.compareTo(other: String, ignoreCase: Boolean = false):
-    IntegerBinding = toIntBinding {
-        checkNotNull(it) { "String value is null" }.compareTo(
-            other,
-            ignoreCase
-        )
+    IntegerBinding {
+        return toIntBinding { checkNotNull(it) { "String value is null" }.compareTo(other, ignoreCase) }
     }
 
 /**
  * @see String.contentEquals
  */
-inline fun ObservableStringValue.contentEquals(buffer: StringBuffer): BooleanBinding =
-    toBooleanBinding { checkNotNull(it) { "String value is null" }.contentEquals(buffer) }
+inline fun ObservableStringValue.contentEquals(buffer: StringBuffer): BooleanBinding {
+    return toBooleanBinding { checkNotNull(it) { "String value is null" }.contentEquals(buffer) }
+}
 
 /**
  * @see String.intern
  */
-inline fun ObservableStringValue.intern(): StringBinding = toStringBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.intern()
+inline fun ObservableStringValue.intern(): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.intern() }
 }
 
 /**
  * @see String.isBlank
  */
-inline fun ObservableStringValue.isBlank(): BooleanBinding = toBooleanBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.isBlank()
+inline fun ObservableStringValue.isBlank(): BooleanBinding {
+    return toBooleanBinding { checkNotNull(it) { "String value is null" }.isBlank() }
 }
 
 /**
  * @see String.offsetByCodePoints
  */
 inline fun ObservableStringValue.offsetByCodePoints(index: Int, codePointOffset: Int):
-    IntegerBinding = toIntBinding {
-        checkNotNull(it) {
-            "String value is null"
-        }.offsetByCodePoints(index, codePointOffset)
+    IntegerBinding {
+        return toIntBinding {
+            checkNotNull(it) { "String value is null" }.offsetByCodePoints(
+                index,
+                codePointOffset
+            )
+        }
     }
 
 /**
@@ -240,41 +257,46 @@ inline fun ObservableStringValue.regionMatches(
     otherOffset: Int,
     length: Int,
     ignoreCase: Boolean = false
-): BooleanBinding = toBooleanBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.regionMatches(thisOffset, other, otherOffset, length, ignoreCase)
+): BooleanBinding {
+    return toBooleanBinding {
+        checkNotNull(it) { "String value is null" }.regionMatches(
+            thisOffset,
+            other, otherOffset, length, ignoreCase
+        )
+    }
 }
 
 /**
  * @see String.toUpperCase
  */
-inline fun ObservableStringValue.toUpperCase(locale: Locale): StringBinding = toStringBinding {
-    checkNotNull(it) { "String value is null" }.toUpperCase(locale)
+inline fun ObservableStringValue.toUpperCase(locale: Locale): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.toUpperCase(locale) }
 }
 
 /**
  * @see String.toLowerCase
  */
-inline fun ObservableStringValue.toLowerCase(locale: Locale): StringBinding = toStringBinding {
-    checkNotNull(it) { "String value is null" }.toLowerCase(locale)
+inline fun ObservableStringValue.toLowerCase(locale: Locale): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.toLowerCase(locale) }
 }
 
 /**
  * @see String.capitalize
  */
-inline fun ObservableStringValue.capitalize(): StringBinding = toStringBinding {
-    checkNotNull(it) {
-        "String value is null"
-    }.capitalize()
+inline fun ObservableStringValue.capitalize(): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.capitalize() }
 }
 
 /**
  * @see String.decapitalize
  */
-inline fun ObservableStringValue.decapitalize(): StringBinding = toStringBinding { checkNotNull(it) { "String value is null" }.decapitalize() }
+inline fun ObservableStringValue.decapitalize(): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.decapitalize() }
+}
 
 /**
  * @see String.repeat
  */
-inline fun ObservableStringValue.repeat(n: Int): StringBinding = toStringBinding { checkNotNull(it) { "String value is null" }.repeat(n) }
+inline fun ObservableStringValue.repeat(n: Int): StringBinding {
+    return toStringBinding { checkNotNull(it) { "String value is null" }.repeat(n) }
+}

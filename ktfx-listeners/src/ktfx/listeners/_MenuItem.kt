@@ -15,10 +15,13 @@ import kotlin.jvm.JvmName
 /**
  * @see MenuItem.setOnAction
  */
-inline fun MenuItem.onAction(noinline action: (ActionEvent) -> Unit): Unit = setOnAction(action)
+inline fun MenuItem.onAction(noinline action: (ActionEvent) -> Unit) {
+    return setOnAction(action)
+}
 
 /**
  * @see MenuItem.setOnMenuValidation
  */
-inline fun MenuItem.onMenuValidation(noinline action: (Event) -> Unit): Unit =
-    setOnMenuValidation(action)
+inline fun MenuItem.onMenuValidation(noinline action: (Event) -> Unit) {
+    return setOnMenuValidation(action)
+}

@@ -14,50 +14,69 @@ import kotlin.jvm.JvmName
 /**
  * @see MediaPlayer.setOnError
  */
-inline fun MediaPlayer.onError(noinline action: () -> Unit): Unit = setOnError(action)
+inline fun MediaPlayer.onError(noinline action: () -> Unit) {
+    return setOnError(action)
+}
 
 /**
  * @see MediaPlayer.setOnMarker
  */
-inline fun MediaPlayer.onMarker(noinline action: (MediaMarkerEvent) -> Unit): Unit =
-    setOnMarker(action)
+inline fun MediaPlayer.onMarker(noinline action: (MediaMarkerEvent) -> Unit) {
+    return setOnMarker(action)
+}
 
 /**
  * @see MediaPlayer.setOnEndOfMedia
  */
-inline fun MediaPlayer.onEndOfMedia(noinline action: () -> Unit): Unit = setOnEndOfMedia(action)
+inline fun MediaPlayer.onEndOfMedia(noinline action: () -> Unit) {
+    return setOnEndOfMedia(action)
+}
 
 /**
  * @see MediaPlayer.setOnReady
  */
-inline fun MediaPlayer.onReady(noinline action: () -> Unit): Unit = setOnReady(action)
+inline fun MediaPlayer.onReady(noinline action: () -> Unit) {
+    return setOnReady(action)
+}
 
 /**
  * @see MediaPlayer.setOnPlaying
  */
-inline fun MediaPlayer.onPlaying(noinline action: () -> Unit): Unit = setOnPlaying(action)
+inline fun MediaPlayer.onPlaying(noinline action: () -> Unit) {
+    return setOnPlaying(action)
+}
 
 /**
  * @see MediaPlayer.setOnPaused
  */
-inline fun MediaPlayer.onPaused(noinline action: () -> Unit): Unit = setOnPaused(action)
+inline fun MediaPlayer.onPaused(noinline action: () -> Unit) {
+    return setOnPaused(action)
+}
 
 /**
  * @see MediaPlayer.setOnStopped
  */
-inline fun MediaPlayer.onStopped(noinline action: () -> Unit): Unit = setOnStopped(action)
+inline fun MediaPlayer.onStopped(noinline action: () -> Unit) {
+    return setOnStopped(action)
+}
 
 /**
  * @see MediaPlayer.setOnHalted
  */
-inline fun MediaPlayer.onHalted(noinline action: () -> Unit): Unit = setOnHalted(action)
+inline fun MediaPlayer.onHalted(noinline action: () -> Unit) {
+    return setOnHalted(action)
+}
 
 /**
  * @see MediaPlayer.setOnRepeat
  */
-inline fun MediaPlayer.onRepeat(noinline action: () -> Unit): Unit = setOnRepeat(action)
+inline fun MediaPlayer.onRepeat(noinline action: () -> Unit) {
+    return setOnRepeat(action)
+}
 
 /**
  * @see MediaPlayer.setOnStalled
  */
-inline fun MediaPlayer.onStalled(noinline action: () -> Unit): Unit = setOnStalled(action)
+inline fun MediaPlayer.onStalled(noinline action: () -> Unit) {
+    return setOnStalled(action)
+}

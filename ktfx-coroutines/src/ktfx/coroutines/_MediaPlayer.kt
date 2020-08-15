@@ -22,7 +22,9 @@ fun MediaPlayer.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnError { GlobalScope.launch(context) { action() } }
+) {
+    return setOnError { GlobalScope.launch(context) { action() } }
+}
 
 /**
  * @see MediaPlayer.setOnMarker
@@ -31,8 +33,8 @@ fun MediaPlayer.onMarker(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MediaMarkerEvent) -> Unit
-): Unit = setOnMarker { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMarker { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -42,10 +44,8 @@ fun MediaPlayer.onEndOfMedia(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnEndOfMedia {
-    GlobalScope.launch(context) {
-        action()
-    }
+) {
+    return setOnEndOfMedia { GlobalScope.launch(context) { action() } }
 }
 
 /**
@@ -55,7 +55,9 @@ fun MediaPlayer.onReady(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnReady { GlobalScope.launch(context) { action() } }
+) {
+    return setOnReady { GlobalScope.launch(context) { action() } }
+}
 
 /**
  * @see MediaPlayer.setOnPlaying
@@ -64,7 +66,9 @@ fun MediaPlayer.onPlaying(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnPlaying { GlobalScope.launch(context) { action() } }
+) {
+    return setOnPlaying { GlobalScope.launch(context) { action() } }
+}
 
 /**
  * @see MediaPlayer.setOnPaused
@@ -73,7 +77,9 @@ fun MediaPlayer.onPaused(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnPaused { GlobalScope.launch(context) { action() } }
+) {
+    return setOnPaused { GlobalScope.launch(context) { action() } }
+}
 
 /**
  * @see MediaPlayer.setOnStopped
@@ -82,7 +88,9 @@ fun MediaPlayer.onStopped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnStopped { GlobalScope.launch(context) { action() } }
+) {
+    return setOnStopped { GlobalScope.launch(context) { action() } }
+}
 
 /**
  * @see MediaPlayer.setOnHalted
@@ -91,7 +99,9 @@ fun MediaPlayer.onHalted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnHalted { GlobalScope.launch(context) { action() } }
+) {
+    return setOnHalted { GlobalScope.launch(context) { action() } }
+}
 
 /**
  * @see MediaPlayer.setOnRepeat
@@ -100,7 +110,9 @@ fun MediaPlayer.onRepeat(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnRepeat { GlobalScope.launch(context) { action() } }
+) {
+    return setOnRepeat { GlobalScope.launch(context) { action() } }
+}
 
 /**
  * @see MediaPlayer.setOnStalled
@@ -109,4 +121,6 @@ fun MediaPlayer.onStalled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnStalled { GlobalScope.launch(context) { action() } }
+) {
+    return setOnStalled { GlobalScope.launch(context) { action() } }
+}

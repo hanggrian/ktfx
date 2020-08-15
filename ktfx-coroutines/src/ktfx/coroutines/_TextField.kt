@@ -22,6 +22,6 @@ fun TextField.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit
-): Unit = setOnAction { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnAction { event -> GlobalScope.launch(context) { action(event) } }
 }

@@ -25,8 +25,8 @@ fun <T> TreeTableView<T>.onSort(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SortEvent<TreeTableView<T>>) -> Unit
-): Unit = setOnSort { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnSort { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -36,8 +36,8 @@ fun <T> TreeTableView<T>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollToEvent<Int>) -> Unit
-): Unit = setOnScrollTo { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -46,5 +46,6 @@ fun <T> TreeTableView<T>.onScrollTo(
 fun <T> TreeTableView<T>.onScrollToColumn(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<TreeTableColumn<T, *>>) -> Unit
-): Unit =
-    setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
+}

@@ -18,7 +18,9 @@ inline fun <S, T> TableColumn<S, T>.onEditStart(
         TableColumn.CellEditEvent<S,
             T>
     ) -> Unit
-): Unit = setOnEditStart(action)
+) {
+    return setOnEditStart(action)
+}
 
 /**
  * @see TableColumn.setOnEditCommit
@@ -28,7 +30,9 @@ inline fun <S, T> TableColumn<S, T>.onEditCommit(
         TableColumn.CellEditEvent<S,
             T>
     ) -> Unit
-): Unit = setOnEditCommit(action)
+) {
+    return setOnEditCommit(action)
+}
 
 /**
  * @see TableColumn.setOnEditCancel
@@ -38,4 +42,6 @@ inline fun <S, T> TableColumn<S, T>.onEditCancel(
         TableColumn.CellEditEvent<S,
             T>
     ) -> Unit
-): Unit = setOnEditCancel(action)
+) {
+    return setOnEditCancel(action)
+}

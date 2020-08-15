@@ -26,26 +26,26 @@ class TextFlowTest {
         )
     }
 
-    @Test fun appendln() {
+    @Test fun appendLine() {
         assertEquals(
             """
                A wolf just ate
                2
                of them
             """.trimIndent(),
-            TextFlow().appendln("A wolf just ate").appendln(2).append("of them").text
+            TextFlow().appendLine("A wolf just ate").appendLine(2).append("of them").text
         )
         assertEquals(
-            StringBuilder().appendln("Here is ")
-                .appendln(null as String?)
-                .appendln(" String and ")
-                .appendln(null as Any?)
-                .appendln(" Object").toString(),
-            TextFlow().appendln("Here is ")
-                .appendln(null as String?)
-                .appendln(" String and ")
-                .appendln(null as Any?)
-                .appendln(" Object").text
+            StringBuilder().appendLine("Here is ")
+                .appendLine(null as String?)
+                .appendLine(" String and ")
+                .appendLine(null as Any?)
+                .appendLine(" Object").toString(),
+            TextFlow().appendLine("Here is ")
+                .appendLine(null as String?)
+                .appendLine(" String and ")
+                .appendLine(null as Any?)
+                .appendLine(" Object").text
         )
     }
 

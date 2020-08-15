@@ -32,8 +32,8 @@ fun Node.onDragEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
-): Unit = setOnDragEntered { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnDragEntered { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -43,8 +43,8 @@ fun Node.onDragExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
-): Unit = setOnDragExited { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnDragExited { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -54,8 +54,8 @@ fun Node.onDragOver(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
-): Unit = setOnDragOver { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnDragOver { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -65,8 +65,8 @@ fun Node.onDragDropped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
-): Unit = setOnDragDropped { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnDragDropped { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -76,8 +76,8 @@ fun Node.onDragDone(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
-): Unit = setOnDragDone { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnDragDone { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -87,8 +87,8 @@ fun Node.onContextMenuRequested(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ContextMenuEvent) -> Unit
-): Unit = setOnContextMenuRequested { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnContextMenuRequested { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -98,8 +98,8 @@ fun Node.onMouseClicked(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
-): Unit = setOnMouseClicked { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseClicked { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -109,8 +109,8 @@ fun Node.onMouseDragged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
-): Unit = setOnMouseDragged { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseDragged { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -120,8 +120,8 @@ fun Node.onMouseEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
-): Unit = setOnMouseEntered { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseEntered { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -131,8 +131,8 @@ fun Node.onMouseExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
-): Unit = setOnMouseExited { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseExited { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -142,8 +142,8 @@ fun Node.onMouseMoved(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
-): Unit = setOnMouseMoved { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseMoved { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -153,8 +153,8 @@ fun Node.onMousePressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
-): Unit = setOnMousePressed { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMousePressed { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -164,8 +164,8 @@ fun Node.onMouseReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
-): Unit = setOnMouseReleased { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseReleased { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -175,8 +175,8 @@ fun Node.onDragDetected(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
-): Unit = setOnDragDetected { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnDragDetected { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -186,8 +186,8 @@ fun Node.onMouseDragOver(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
-): Unit = setOnMouseDragOver { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseDragOver { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -197,8 +197,8 @@ fun Node.onMouseDragReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
-): Unit = setOnMouseDragReleased { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseDragReleased { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -208,8 +208,8 @@ fun Node.onMouseDragEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
-): Unit = setOnMouseDragEntered { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseDragEntered { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -219,8 +219,8 @@ fun Node.onMouseDragExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
-): Unit = setOnMouseDragExited { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMouseDragExited { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -230,8 +230,8 @@ fun Node.onScrollStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
-): Unit = setOnScrollStarted { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnScrollStarted { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -241,8 +241,8 @@ fun Node.onScroll(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
-): Unit = setOnScroll { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnScroll { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -252,8 +252,8 @@ fun Node.onScrollFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
-): Unit = setOnScrollFinished { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnScrollFinished { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -263,8 +263,8 @@ fun Node.onRotationStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
-): Unit = setOnRotationStarted { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnRotationStarted { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -274,8 +274,8 @@ fun Node.onRotate(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
-): Unit = setOnRotate { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnRotate { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -285,8 +285,8 @@ fun Node.onRotationFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
-): Unit = setOnRotationFinished { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnRotationFinished { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -296,8 +296,8 @@ fun Node.onZoomStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
-): Unit = setOnZoomStarted { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnZoomStarted { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -307,7 +307,9 @@ fun Node.onZoom(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
-): Unit = setOnZoom { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnZoom { event -> GlobalScope.launch(context) { action(event) } }
+}
 
 /**
  * @see Node.setOnZoomFinished
@@ -316,8 +318,8 @@ fun Node.onZoomFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
-): Unit = setOnZoomFinished { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnZoomFinished { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -327,8 +329,8 @@ fun Node.onSwipeUp(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
-): Unit = setOnSwipeUp { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnSwipeUp { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -338,8 +340,8 @@ fun Node.onSwipeDown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
-): Unit = setOnSwipeDown { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnSwipeDown { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -349,8 +351,8 @@ fun Node.onSwipeLeft(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
-): Unit = setOnSwipeLeft { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnSwipeLeft { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -360,8 +362,8 @@ fun Node.onSwipeRight(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
-): Unit = setOnSwipeRight { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnSwipeRight { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -371,8 +373,8 @@ fun Node.onTouchPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
-): Unit = setOnTouchPressed { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnTouchPressed { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -382,8 +384,8 @@ fun Node.onTouchMoved(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
-): Unit = setOnTouchMoved { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnTouchMoved { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -393,8 +395,8 @@ fun Node.onTouchReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
-): Unit = setOnTouchReleased { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnTouchReleased { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -404,8 +406,8 @@ fun Node.onTouchStationary(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
-): Unit = setOnTouchStationary { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnTouchStationary { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -415,8 +417,8 @@ fun Node.onKeyPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
-): Unit = setOnKeyPressed { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnKeyPressed { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -426,8 +428,8 @@ fun Node.onKeyReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
-): Unit = setOnKeyReleased { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnKeyReleased { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -437,8 +439,8 @@ fun Node.onKeyTyped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
-): Unit = setOnKeyTyped { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnKeyTyped { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -448,6 +450,6 @@ fun Node.onInputMethodTextChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(InputMethodEvent) -> Unit
-): Unit = setOnInputMethodTextChanged { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnInputMethodTextChanged { event -> GlobalScope.launch(context) { action(event) } }
 }

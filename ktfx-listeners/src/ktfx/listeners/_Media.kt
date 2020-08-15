@@ -13,4 +13,6 @@ import kotlin.jvm.JvmName
 /**
  * @see Media.setOnError
  */
-inline fun Media.onError(noinline action: () -> Unit): Unit = setOnError(action)
+inline fun Media.onError(noinline action: () -> Unit) {
+    return setOnError(action)
+}

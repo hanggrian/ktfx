@@ -17,16 +17,18 @@ import com.hendraanggrian.ktfx.codegen.listeners.ListenersWriter
 object Generator {
 
     @JvmStatic fun main(args: Array<String>) {
-        if (false) {
-            StringsWriter.write(StringsFactory.Strings)
-            StringsWriter.write(StringsFactory.StringsJVM)
-
+        if (true) {
             LayoutsWriter.write(LayoutsFactory.JavaFx)
             LayoutsWriter.write(LayoutsFactory.ControlsFx)
             LayoutsWriter.write(LayoutsFactory.Jfoenix)
         }
-
-        ListenersWriter.write(ListenersFactory.Listeners)
-        ListenersWriter.write(ListenersFactory.Coroutines)
+        if (false) {
+            StringsWriter.write(StringsFactory.Strings)
+            StringsWriter.write(StringsFactory.StringsJVM)
+        }
+        if (false) {
+            ListenersWriter.write(ListenersFactory.Listeners)
+            ListenersWriter.write(ListenersFactory.Coroutines)
+        }
     }
 }

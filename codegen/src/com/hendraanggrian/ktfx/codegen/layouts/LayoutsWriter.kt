@@ -45,7 +45,7 @@ object LayoutsWriter {
                             parameters {
                                 entry.parameters.forEach(::plusAssign)
                             }
-                            appendln(
+                            appendLine(
                                 "return ${entry.functionName}(${entry.parameters.toString(
                                     namedArgument = true, commaSuffix = false
                                 )}) { }"
@@ -68,16 +68,17 @@ object LayoutsWriter {
                                 configuration(entry)
                             }
                             contractln()
-                            append("return ")
-                            if (managerClassName != null) append("addChild(")
-                            append(
-                                "%M(%T(${entry.parameters.toString(
-                                    namedArgument = false, commaSuffix = false
-                                )}), configuration = configuration)",
-                                NEW_CHILD, entry.customTypeName
-                            )
-                            if (managerClassName != null) append(")")
-                            appendln()
+                            appendLine {
+                                append("return ")
+                                if (managerClassName != null) append("addChild(")
+                                append(
+                                    "%M(%T(${entry.parameters.toString(
+                                        namedArgument = false, commaSuffix = false
+                                    )}), configuration = configuration)",
+                                    NEW_CHILD, entry.customTypeName
+                                )
+                                if (managerClassName != null) append(")")
+                            }
                         }
                     }
                     if (entry.supportStyledFunction) {
@@ -97,7 +98,7 @@ object LayoutsWriter {
                                     styleClass()
                                     id()
                                 }
-                                appendln(
+                                appendLine(
                                     "return ${entry.styledFunctionName}(${entry.parameters.toString(
                                         namedArgument = true, commaSuffix = true
                                     )}styleClass = *styleClass, id = id) { }"
@@ -123,16 +124,17 @@ object LayoutsWriter {
                                     configuration(entry)
                                 }
                                 contractln()
-                                append("return ")
-                                if (managerClassName != null) append("addChild(")
-                                append(
-                                    "%M(%T(${entry.parameters.toString(
-                                        namedArgument = false, commaSuffix = false
-                                    )}), styleClass = *styleClass, id = id, configuration = configuration)",
-                                    NEW_CHILD, entry.customTypeName
-                                )
-                                if (managerClassName != null) append(")")
-                                appendln()
+                                appendLine {
+                                    append("return ")
+                                    if (managerClassName != null) append("addChild(")
+                                    append(
+                                        "%M(%T(${entry.parameters.toString(
+                                            namedArgument = false, commaSuffix = false
+                                        )}), styleClass = *styleClass, id = id, configuration = configuration)",
+                                        NEW_CHILD, entry.customTypeName
+                                    )
+                                    if (managerClassName != null) append(")")
+                                }
                             }
                         }
                     }
@@ -143,7 +145,7 @@ object LayoutsWriter {
         println()
     }
 
-    private fun FunSpecBuilder.contractln() = appendln("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
+    private fun FunSpecBuilder.contractln() = appendLine("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
 
     private fun ParameterSpecListScope.styleClass() = add("styleClass", String::class, KModifier.VARARG) {
         kdoc.append("the CSS style class.")

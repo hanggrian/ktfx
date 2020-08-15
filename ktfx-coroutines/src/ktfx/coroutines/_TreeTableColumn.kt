@@ -20,8 +20,9 @@ import kotlin.jvm.JvmName
 fun <S, T> TreeTableColumn<S, T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TreeTableColumn.CellEditEvent<S, T>) -> Unit
-): Unit =
-    setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
+}
 
 /**
  * @see TreeTableColumn.setOnEditCommit
@@ -29,8 +30,9 @@ fun <S, T> TreeTableColumn<S, T>.onEditStart(
 fun <S, T> TreeTableColumn<S, T>.onEditCommit(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TreeTableColumn.CellEditEvent<S, T>) -> Unit
-): Unit =
-    setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
+}
 
 /**
  * @see TreeTableColumn.setOnEditCancel
@@ -38,5 +40,6 @@ fun <S, T> TreeTableColumn<S, T>.onEditCommit(
 fun <S, T> TreeTableColumn<S, T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TreeTableColumn.CellEditEvent<S, T>) -> Unit
-): Unit =
-    setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
+}

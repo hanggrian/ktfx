@@ -23,8 +23,8 @@ fun MenuItem.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit
-): Unit = setOnAction { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnAction { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -34,6 +34,6 @@ fun MenuItem.onMenuValidation(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnMenuValidation { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnMenuValidation { event -> GlobalScope.launch(context) { action(event) } }
 }

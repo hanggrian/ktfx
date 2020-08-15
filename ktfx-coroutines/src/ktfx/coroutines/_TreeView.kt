@@ -23,8 +23,8 @@ fun <T> TreeView<T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TreeView.EditEvent<T>) -> Unit
-): Unit = setOnEditStart { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -34,8 +34,8 @@ fun <T> TreeView<T>.onEditCommit(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TreeView.EditEvent<T>) -> Unit
-): Unit = setOnEditCommit { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -45,8 +45,8 @@ fun <T> TreeView<T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TreeView.EditEvent<T>) -> Unit
-): Unit = setOnEditCancel { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -56,6 +56,6 @@ fun <T> TreeView<T>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollToEvent<Int>) -> Unit
-): Unit = setOnScrollTo { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 }

@@ -18,27 +18,34 @@ import kotlin.jvm.JvmName
 /**
  * @see WebEngine.setOnAlert
  */
-inline fun WebEngine.onAlert(noinline action: (WebEvent<String>) -> Unit): Unit = setOnAlert(action)
+inline fun WebEngine.onAlert(noinline action: (WebEvent<String>) -> Unit) {
+    return setOnAlert(action)
+}
 
 /**
  * @see WebEngine.setOnStatusChanged
  */
-inline fun WebEngine.onStatusChanged(noinline action: (WebEvent<String>) -> Unit): Unit =
-    setOnStatusChanged(action)
+inline fun WebEngine.onStatusChanged(noinline action: (WebEvent<String>) -> Unit) {
+    return setOnStatusChanged(action)
+}
 
 /**
  * @see WebEngine.setOnResized
  */
-inline fun WebEngine.onResized(noinline action: (WebEvent<Rectangle2D>) -> Unit): Unit =
-    setOnResized(action)
+inline fun WebEngine.onResized(noinline action: (WebEvent<Rectangle2D>) -> Unit) {
+    return setOnResized(action)
+}
 
 /**
  * @see WebEngine.setOnVisibilityChanged
  */
-inline fun WebEngine.onVisibilityChanged(noinline action: (WebEvent<Boolean>) -> Unit): Unit =
-    setOnVisibilityChanged(action)
+inline fun WebEngine.onVisibilityChanged(noinline action: (WebEvent<Boolean>) -> Unit) {
+    return setOnVisibilityChanged(action)
+}
 
 /**
  * @see WebEngine.setOnError
  */
-inline fun WebEngine.onError(noinline action: (WebErrorEvent) -> Unit): Unit = setOnError(action)
+inline fun WebEngine.onError(noinline action: (WebErrorEvent) -> Unit) {
+    return setOnError(action)
+}

@@ -1,7 +1,6 @@
 package com.hendraanggrian.ktfx.codegen.commons
 
 import com.hendraanggrian.kotlinpoet.parameterizedBy
-import com.hendraanggrian.ktfx.codegen.toString
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.asTypeName
@@ -30,22 +29,5 @@ data class StringsEntry(
             StringsFactory.ANY -> ObjectBinding::class.parameterizedBy()
             StringsFactory.STRING -> StringBinding::class.asTypeName()
             else -> error("Unrecognizable type")
-        }
-
-    val statement: String
-        get() = buildString {
-            append("return to${type}Binding { ")
-            append(
-                when {
-                    notNull -> "checkNotNull(it) { \"String value is null\" }"
-                    else -> "it"
-                }
-            )
-            append(
-                ".${functionName}(${parameters.toString(
-                    namedArgument = false,
-                    commaSuffix = false
-                )}) }"
-            )
         }
 }

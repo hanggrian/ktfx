@@ -22,8 +22,8 @@ fun Tab.onSelectionChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnSelectionChanged { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnSelectionChanged { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -33,10 +33,8 @@ fun Tab.onClosed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnClosed { event ->
-    GlobalScope.launch(context) {
-        action(event)
-    }
+) {
+    return setOnClosed { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -46,6 +44,6 @@ fun Tab.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
-): Unit = setOnCloseRequest { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnCloseRequest { event -> GlobalScope.launch(context) { action(event) } }
 }

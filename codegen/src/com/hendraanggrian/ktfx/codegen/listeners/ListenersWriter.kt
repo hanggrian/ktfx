@@ -1,6 +1,8 @@
 package com.hendraanggrian.ktfx.codegen.listeners
 
 import com.hendraanggrian.kotlinpoet.buildFileSpec
+import com.hendraanggrian.ktfx.codegen.toString
+import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName
 import com.squareup.kotlinpoet.STAR
 import java.io.File
@@ -35,12 +37,31 @@ object ListenersWriter {
                             parameters {
                                 functionEntry.parameters.forEach(::plusAssign)
                             }
-                            appendln(
+
+                            appendLine {
+                                append("return ")
                                 when ("coroutines") {
-                                    in factory.path -> functionEntry.coroutineStatement
-                                    else -> functionEntry.listenerStatement
+                                    !in factory.path -> append(
+                                        "${functionEntry.functionName}(${parameters.toString(
+                                            namedArgument = false,
+                                            commaSuffix = false
+                                        )})"
+                                    )
+                                    else -> {
+                                        val hasParam = (parameters.last().type as LambdaTypeName)
+                                            .parameters.isNotEmpty()
+                                        append("${functionEntry.functionName} {")
+                                        if (hasParam) {
+                                            append(" event ->")
+                                        }
+                                        append(" GlobalScope.launch(context) { ${parameters.last().name}(")
+                                        if (hasParam) {
+                                            append("event")
+                                        }
+                                        append(") } }")
+                                    }
                                 }
-                            )
+                            }
                         }
                     }
                 }

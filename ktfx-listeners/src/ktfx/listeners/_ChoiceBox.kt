@@ -15,24 +15,34 @@ import kotlin.jvm.JvmName
 /**
  * @see ChoiceBox.setOnAction
  */
-inline fun ChoiceBox<*>.onAction(noinline action: (ActionEvent) -> Unit): Unit = setOnAction(action)
+inline fun ChoiceBox<*>.onAction(noinline action: (ActionEvent) -> Unit) {
+    return setOnAction(action)
+}
 
 /**
  * @see ChoiceBox.setOnShowing
  */
-inline fun ChoiceBox<*>.onShowing(noinline action: (Event) -> Unit): Unit = setOnShowing(action)
+inline fun ChoiceBox<*>.onShowing(noinline action: (Event) -> Unit) {
+    return setOnShowing(action)
+}
 
 /**
  * @see ChoiceBox.setOnShown
  */
-inline fun ChoiceBox<*>.onShown(noinline action: (Event) -> Unit): Unit = setOnShown(action)
+inline fun ChoiceBox<*>.onShown(noinline action: (Event) -> Unit) {
+    return setOnShown(action)
+}
 
 /**
  * @see ChoiceBox.setOnHiding
  */
-inline fun ChoiceBox<*>.onHiding(noinline action: (Event) -> Unit): Unit = setOnHiding(action)
+inline fun ChoiceBox<*>.onHiding(noinline action: (Event) -> Unit) {
+    return setOnHiding(action)
+}
 
 /**
  * @see ChoiceBox.setOnHidden
  */
-inline fun ChoiceBox<*>.onHidden(noinline action: (Event) -> Unit): Unit = setOnHidden(action)
+inline fun ChoiceBox<*>.onHidden(noinline action: (Event) -> Unit) {
+    return setOnHidden(action)
+}

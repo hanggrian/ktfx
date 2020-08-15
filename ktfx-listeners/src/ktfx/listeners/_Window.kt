@@ -14,25 +14,34 @@ import kotlin.jvm.JvmName
 /**
  * @see Window.setOnCloseRequest
  */
-inline fun Window.onCloseRequest(noinline action: (WindowEvent) -> Unit): Unit =
-    setOnCloseRequest(action)
+inline fun Window.onCloseRequest(noinline action: (WindowEvent) -> Unit) {
+    return setOnCloseRequest(action)
+}
 
 /**
  * @see Window.setOnShowing
  */
-inline fun Window.onShowing(noinline action: (WindowEvent) -> Unit): Unit = setOnShowing(action)
+inline fun Window.onShowing(noinline action: (WindowEvent) -> Unit) {
+    return setOnShowing(action)
+}
 
 /**
  * @see Window.setOnShown
  */
-inline fun Window.onShown(noinline action: (WindowEvent) -> Unit): Unit = setOnShown(action)
+inline fun Window.onShown(noinline action: (WindowEvent) -> Unit) {
+    return setOnShown(action)
+}
 
 /**
  * @see Window.setOnHiding
  */
-inline fun Window.onHiding(noinline action: (WindowEvent) -> Unit): Unit = setOnHiding(action)
+inline fun Window.onHiding(noinline action: (WindowEvent) -> Unit) {
+    return setOnHiding(action)
+}
 
 /**
  * @see Window.setOnHidden
  */
-inline fun Window.onHidden(noinline action: (WindowEvent) -> Unit): Unit = setOnHidden(action)
+inline fun Window.onHidden(noinline action: (WindowEvent) -> Unit) {
+    return setOnHidden(action)
+}

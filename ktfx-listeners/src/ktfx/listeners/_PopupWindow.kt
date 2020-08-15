@@ -14,4 +14,6 @@ import kotlin.jvm.JvmName
 /**
  * @see PopupWindow.setOnAutoHide
  */
-inline fun PopupWindow.onAutoHide(noinline action: (Event) -> Unit): Unit = setOnAutoHide(action)
+inline fun PopupWindow.onAutoHide(noinline action: (Event) -> Unit) {
+    return setOnAutoHide(action)
+}

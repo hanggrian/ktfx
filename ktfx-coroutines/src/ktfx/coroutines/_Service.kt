@@ -22,8 +22,8 @@ fun Service<*>.onReady(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
-): Unit = setOnReady { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnReady { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -33,8 +33,8 @@ fun Service<*>.onScheduled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
-): Unit = setOnScheduled { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnScheduled { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -44,8 +44,8 @@ fun Service<*>.onRunning(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
-): Unit = setOnRunning { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnRunning { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -55,8 +55,8 @@ fun Service<*>.onSucceeded(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
-): Unit = setOnSucceeded { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnSucceeded { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -66,8 +66,8 @@ fun Service<*>.onCancelled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
-): Unit = setOnCancelled { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnCancelled { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -77,6 +77,6 @@ fun Service<*>.onFailed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
-): Unit = setOnFailed { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnFailed { event -> GlobalScope.launch(context) { action(event) } }
 }

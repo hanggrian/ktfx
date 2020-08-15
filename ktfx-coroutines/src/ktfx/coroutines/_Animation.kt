@@ -22,6 +22,6 @@ fun Animation.onFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit
-): Unit = setOnFinished { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnFinished { event -> GlobalScope.launch(context) { action(event) } }
 }

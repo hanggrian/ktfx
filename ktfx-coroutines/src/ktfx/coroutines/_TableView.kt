@@ -25,8 +25,8 @@ fun <S> TableView<S>.onSort(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SortEvent<TableView<S>>) -> Unit
-): Unit = setOnSort { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnSort { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -36,8 +36,8 @@ fun <S> TableView<S>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollToEvent<Int>) -> Unit
-): Unit = setOnScrollTo { event ->
-    GlobalScope.launch(context) { action(event) }
+) {
+    return setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 }
 
 /**
@@ -46,5 +46,6 @@ fun <S> TableView<S>.onScrollTo(
 fun <S> TableView<S>.onScrollToColumn(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<TableColumn<S, *>>) -> Unit
-): Unit =
-    setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnScrollToColumn { event -> GlobalScope.launch(context) { action(event) } }
+}

@@ -24,218 +24,272 @@ import kotlin.jvm.JvmName
 /**
  * @see Scene.setOnMouseClicked
  */
-inline fun Scene.onMouseClicked(noinline action: (MouseEvent) -> Unit): Unit =
-    setOnMouseClicked(action)
+inline fun Scene.onMouseClicked(noinline action: (MouseEvent) -> Unit) {
+    return setOnMouseClicked(action)
+}
 
 /**
  * @see Scene.setOnMouseDragged
  */
-inline fun Scene.onMouseDragged(noinline action: (MouseEvent) -> Unit): Unit =
-    setOnMouseDragged(action)
+inline fun Scene.onMouseDragged(noinline action: (MouseEvent) -> Unit) {
+    return setOnMouseDragged(action)
+}
 
 /**
  * @see Scene.setOnMouseEntered
  */
-inline fun Scene.onMouseEntered(noinline action: (MouseEvent) -> Unit): Unit =
-    setOnMouseEntered(action)
+inline fun Scene.onMouseEntered(noinline action: (MouseEvent) -> Unit) {
+    return setOnMouseEntered(action)
+}
 
 /**
  * @see Scene.setOnMouseExited
  */
-inline fun Scene.onMouseExited(noinline action: (MouseEvent) -> Unit): Unit =
-    setOnMouseExited(action)
+inline fun Scene.onMouseExited(noinline action: (MouseEvent) -> Unit) {
+    return setOnMouseExited(action)
+}
 
 /**
  * @see Scene.setOnMouseMoved
  */
-inline fun Scene.onMouseMoved(noinline action: (MouseEvent) -> Unit): Unit = setOnMouseMoved(action)
+inline fun Scene.onMouseMoved(noinline action: (MouseEvent) -> Unit) {
+    return setOnMouseMoved(action)
+}
 
 /**
  * @see Scene.setOnMousePressed
  */
-inline fun Scene.onMousePressed(noinline action: (MouseEvent) -> Unit): Unit =
-    setOnMousePressed(action)
+inline fun Scene.onMousePressed(noinline action: (MouseEvent) -> Unit) {
+    return setOnMousePressed(action)
+}
 
 /**
  * @see Scene.setOnMouseReleased
  */
-inline fun Scene.onMouseReleased(noinline action: (MouseEvent) -> Unit): Unit =
-    setOnMouseReleased(action)
+inline fun Scene.onMouseReleased(noinline action: (MouseEvent) -> Unit) {
+    return setOnMouseReleased(action)
+}
 
 /**
  * @see Scene.setOnDragDetected
  */
-inline fun Scene.onDragDetected(noinline action: (MouseEvent) -> Unit): Unit =
-    setOnDragDetected(action)
+inline fun Scene.onDragDetected(noinline action: (MouseEvent) -> Unit) {
+    return setOnDragDetected(action)
+}
 
 /**
  * @see Scene.setOnMouseDragOver
  */
-inline fun Scene.onMouseDragOver(noinline action: (MouseDragEvent) -> Unit): Unit =
-    setOnMouseDragOver(action)
+inline fun Scene.onMouseDragOver(noinline action: (MouseDragEvent) -> Unit) {
+    return setOnMouseDragOver(action)
+}
 
 /**
  * @see Scene.setOnMouseDragReleased
  */
-inline fun Scene.onMouseDragReleased(noinline action: (MouseDragEvent) -> Unit): Unit =
-    setOnMouseDragReleased(action)
+inline fun Scene.onMouseDragReleased(noinline action: (MouseDragEvent) -> Unit) {
+    return setOnMouseDragReleased(action)
+}
 
 /**
  * @see Scene.setOnMouseDragEntered
  */
-inline fun Scene.onMouseDragEntered(noinline action: (MouseDragEvent) -> Unit): Unit =
-    setOnMouseDragEntered(action)
+inline fun Scene.onMouseDragEntered(noinline action: (MouseDragEvent) -> Unit) {
+    return setOnMouseDragEntered(action)
+}
 
 /**
  * @see Scene.setOnMouseDragExited
  */
-inline fun Scene.onMouseDragExited(noinline action: (MouseDragEvent) -> Unit): Unit =
-    setOnMouseDragExited(action)
+inline fun Scene.onMouseDragExited(noinline action: (MouseDragEvent) -> Unit) {
+    return setOnMouseDragExited(action)
+}
 
 /**
  * @see Scene.setOnScrollStarted
  */
-inline fun Scene.onScrollStarted(noinline action: (ScrollEvent) -> Unit): Unit =
-    setOnScrollStarted(action)
+inline fun Scene.onScrollStarted(noinline action: (ScrollEvent) -> Unit) {
+    return setOnScrollStarted(action)
+}
 
 /**
  * @see Scene.setOnScroll
  */
-inline fun Scene.onScroll(noinline action: (ScrollEvent) -> Unit): Unit = setOnScroll(action)
+inline fun Scene.onScroll(noinline action: (ScrollEvent) -> Unit) {
+    return setOnScroll(action)
+}
 
 /**
  * @see Scene.setOnScrollFinished
  */
-inline fun Scene.onScrollFinished(noinline action: (ScrollEvent) -> Unit): Unit =
-    setOnScrollFinished(action)
+inline fun Scene.onScrollFinished(noinline action: (ScrollEvent) -> Unit) {
+    return setOnScrollFinished(action)
+}
 
 /**
  * @see Scene.setOnRotationStarted
  */
-inline fun Scene.onRotationStarted(noinline action: (RotateEvent) -> Unit): Unit =
-    setOnRotationStarted(action)
+inline fun Scene.onRotationStarted(noinline action: (RotateEvent) -> Unit) {
+    return setOnRotationStarted(action)
+}
 
 /**
  * @see Scene.setOnRotate
  */
-inline fun Scene.onRotate(noinline action: (RotateEvent) -> Unit): Unit = setOnRotate(action)
+inline fun Scene.onRotate(noinline action: (RotateEvent) -> Unit) {
+    return setOnRotate(action)
+}
 
 /**
  * @see Scene.setOnRotationFinished
  */
-inline fun Scene.onRotationFinished(noinline action: (RotateEvent) -> Unit): Unit =
-    setOnRotationFinished(action)
+inline fun Scene.onRotationFinished(noinline action: (RotateEvent) -> Unit) {
+    return setOnRotationFinished(action)
+}
 
 /**
  * @see Scene.setOnZoomStarted
  */
-inline fun Scene.onZoomStarted(noinline action: (ZoomEvent) -> Unit): Unit =
-    setOnZoomStarted(action)
+inline fun Scene.onZoomStarted(noinline action: (ZoomEvent) -> Unit) {
+    return setOnZoomStarted(action)
+}
 
 /**
  * @see Scene.setOnZoom
  */
-inline fun Scene.onZoom(noinline action: (ZoomEvent) -> Unit): Unit = setOnZoom(action)
+inline fun Scene.onZoom(noinline action: (ZoomEvent) -> Unit) {
+    return setOnZoom(action)
+}
 
 /**
  * @see Scene.setOnZoomFinished
  */
-inline fun Scene.onZoomFinished(noinline action: (ZoomEvent) -> Unit): Unit =
-    setOnZoomFinished(action)
+inline fun Scene.onZoomFinished(noinline action: (ZoomEvent) -> Unit) {
+    return setOnZoomFinished(action)
+}
 
 /**
  * @see Scene.setOnSwipeUp
  */
-inline fun Scene.onSwipeUp(noinline action: (SwipeEvent) -> Unit): Unit = setOnSwipeUp(action)
+inline fun Scene.onSwipeUp(noinline action: (SwipeEvent) -> Unit) {
+    return setOnSwipeUp(action)
+}
 
 /**
  * @see Scene.setOnSwipeDown
  */
-inline fun Scene.onSwipeDown(noinline action: (SwipeEvent) -> Unit): Unit = setOnSwipeDown(action)
+inline fun Scene.onSwipeDown(noinline action: (SwipeEvent) -> Unit) {
+    return setOnSwipeDown(action)
+}
 
 /**
  * @see Scene.setOnSwipeLeft
  */
-inline fun Scene.onSwipeLeft(noinline action: (SwipeEvent) -> Unit): Unit = setOnSwipeLeft(action)
+inline fun Scene.onSwipeLeft(noinline action: (SwipeEvent) -> Unit) {
+    return setOnSwipeLeft(action)
+}
 
 /**
  * @see Scene.setOnSwipeRight
  */
-inline fun Scene.onSwipeRight(noinline action: (SwipeEvent) -> Unit): Unit = setOnSwipeRight(action)
+inline fun Scene.onSwipeRight(noinline action: (SwipeEvent) -> Unit) {
+    return setOnSwipeRight(action)
+}
 
 /**
  * @see Scene.setOnTouchPressed
  */
-inline fun Scene.onTouchPressed(noinline action: (TouchEvent) -> Unit): Unit =
-    setOnTouchPressed(action)
+inline fun Scene.onTouchPressed(noinline action: (TouchEvent) -> Unit) {
+    return setOnTouchPressed(action)
+}
 
 /**
  * @see Scene.setOnTouchMoved
  */
-inline fun Scene.onTouchMoved(noinline action: (TouchEvent) -> Unit): Unit = setOnTouchMoved(action)
+inline fun Scene.onTouchMoved(noinline action: (TouchEvent) -> Unit) {
+    return setOnTouchMoved(action)
+}
 
 /**
  * @see Scene.setOnTouchReleased
  */
-inline fun Scene.onTouchReleased(noinline action: (TouchEvent) -> Unit): Unit =
-    setOnTouchReleased(action)
+inline fun Scene.onTouchReleased(noinline action: (TouchEvent) -> Unit) {
+    return setOnTouchReleased(action)
+}
 
 /**
  * @see Scene.setOnTouchStationary
  */
-inline fun Scene.onTouchStationary(noinline action: (TouchEvent) -> Unit): Unit =
-    setOnTouchStationary(action)
+inline fun Scene.onTouchStationary(noinline action: (TouchEvent) -> Unit) {
+    return setOnTouchStationary(action)
+}
 
 /**
  * @see Scene.setOnDragEntered
  */
-inline fun Scene.onDragEntered(noinline action: (DragEvent) -> Unit): Unit =
-    setOnDragEntered(action)
+inline fun Scene.onDragEntered(noinline action: (DragEvent) -> Unit) {
+    return setOnDragEntered(action)
+}
 
 /**
  * @see Scene.setOnDragExited
  */
-inline fun Scene.onDragExited(noinline action: (DragEvent) -> Unit): Unit = setOnDragExited(action)
+inline fun Scene.onDragExited(noinline action: (DragEvent) -> Unit) {
+    return setOnDragExited(action)
+}
 
 /**
  * @see Scene.setOnDragOver
  */
-inline fun Scene.onDragOver(noinline action: (DragEvent) -> Unit): Unit = setOnDragOver(action)
+inline fun Scene.onDragOver(noinline action: (DragEvent) -> Unit) {
+    return setOnDragOver(action)
+}
 
 /**
  * @see Scene.setOnDragDropped
  */
-inline fun Scene.onDragDropped(noinline action: (DragEvent) -> Unit): Unit =
-    setOnDragDropped(action)
+inline fun Scene.onDragDropped(noinline action: (DragEvent) -> Unit) {
+    return setOnDragDropped(action)
+}
 
 /**
  * @see Scene.setOnDragDone
  */
-inline fun Scene.onDragDone(noinline action: (DragEvent) -> Unit): Unit = setOnDragDone(action)
+inline fun Scene.onDragDone(noinline action: (DragEvent) -> Unit) {
+    return setOnDragDone(action)
+}
 
 /**
  * @see Scene.setOnKeyPressed
  */
-inline fun Scene.onKeyPressed(noinline action: (KeyEvent) -> Unit): Unit = setOnKeyPressed(action)
+inline fun Scene.onKeyPressed(noinline action: (KeyEvent) -> Unit) {
+    return setOnKeyPressed(action)
+}
 
 /**
  * @see Scene.setOnKeyReleased
  */
-inline fun Scene.onKeyReleased(noinline action: (KeyEvent) -> Unit): Unit = setOnKeyReleased(action)
+inline fun Scene.onKeyReleased(noinline action: (KeyEvent) -> Unit) {
+    return setOnKeyReleased(action)
+}
 
 /**
  * @see Scene.setOnKeyTyped
  */
-inline fun Scene.onKeyTyped(noinline action: (KeyEvent) -> Unit): Unit = setOnKeyTyped(action)
+inline fun Scene.onKeyTyped(noinline action: (KeyEvent) -> Unit) {
+    return setOnKeyTyped(action)
+}
 
 /**
  * @see Scene.setOnInputMethodTextChanged
  */
-inline fun Scene.onInputMethodTextChanged(noinline action: (InputMethodEvent) -> Unit): Unit =
-    setOnInputMethodTextChanged(action)
+inline fun Scene.onInputMethodTextChanged(noinline action: (InputMethodEvent) -> Unit) {
+    return setOnInputMethodTextChanged(action)
+}
 
 /**
  * @see Scene.setOnContextMenuRequested
  */
-inline fun Scene.onContextMenuRequested(noinline action: (ContextMenuEvent) -> Unit): Unit =
-    setOnContextMenuRequested(action)
+inline fun Scene.onContextMenuRequested(noinline action: (ContextMenuEvent) -> Unit) {
+    return setOnContextMenuRequested(action)
+}

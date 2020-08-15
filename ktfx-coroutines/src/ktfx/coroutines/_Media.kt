@@ -21,4 +21,6 @@ fun Media.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
-): Unit = setOnError { GlobalScope.launch(context) { action() } }
+) {
+    return setOnError { GlobalScope.launch(context) { action() } }
+}

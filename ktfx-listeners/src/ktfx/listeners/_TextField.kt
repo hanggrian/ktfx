@@ -14,4 +14,6 @@ import kotlin.jvm.JvmName
 /**
  * @see TextField.setOnAction
  */
-inline fun TextField.onAction(noinline action: (ActionEvent) -> Unit): Unit = setOnAction(action)
+inline fun TextField.onAction(noinline action: (ActionEvent) -> Unit) {
+    return setOnAction(action)
+}

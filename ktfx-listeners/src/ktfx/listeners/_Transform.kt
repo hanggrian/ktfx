@@ -14,5 +14,6 @@ import kotlin.jvm.JvmName
 /**
  * @see Transform.setOnTransformChanged
  */
-inline fun Transform.onTransformChanged(noinline action: (TransformChangedEvent) -> Unit): Unit =
-    setOnTransformChanged(action)
+inline fun Transform.onTransformChanged(noinline action: (TransformChangedEvent) -> Unit) {
+    return setOnTransformChanged(action)
+}

@@ -20,8 +20,9 @@ import kotlin.jvm.JvmName
 fun <S, T> TableColumn<S, T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit =
-    setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
+}
 
 /**
  * @see TableColumn.setOnEditCommit
@@ -29,8 +30,9 @@ fun <S, T> TableColumn<S, T>.onEditStart(
 fun <S, T> TableColumn<S, T>.onEditCommit(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit =
-    setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
+}
 
 /**
  * @see TableColumn.setOnEditCancel
@@ -38,5 +40,6 @@ fun <S, T> TableColumn<S, T>.onEditCommit(
 fun <S, T> TableColumn<S, T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TableColumn.CellEditEvent<S, T>) -> Unit
-): Unit =
-    setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
+) {
+    return setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
+}

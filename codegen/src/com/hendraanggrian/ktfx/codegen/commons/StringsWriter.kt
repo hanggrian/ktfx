@@ -1,6 +1,7 @@
 package com.hendraanggrian.ktfx.codegen.commons
 
 import com.hendraanggrian.kotlinpoet.buildFileSpec
+import com.hendraanggrian.ktfx.codegen.toString
 import com.squareup.kotlinpoet.KModifier
 import javafx.beans.value.ObservableStringValue
 import java.io.File
@@ -24,7 +25,21 @@ object StringsWriter {
                         receiver<ObservableStringValue>()
                         returns = it.returnType
                         parameters { it.parameters.forEach(::plusAssign) }
-                        appendln(it.statement)
+                        appendLine {
+                            append("return to${it.type}Binding { ")
+                            append(
+                                when {
+                                    it.notNull -> "checkNotNull(it) { \"String value is null\" }"
+                                    else -> "it"
+                                }
+                            )
+                            append(
+                                ".${it.functionName}(${parameters.toString(
+                                    namedArgument = false,
+                                    commaSuffix = false
+                                )}) }"
+                            )
+                        }
                     }
                 }
             }

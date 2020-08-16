@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuButton
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -35,7 +34,9 @@ inline fun menuButton(
     configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxMenuButton(text, graphic), configuration = configuration)
+    val child = KtfxMenuButton(text, graphic)
+    child.configuration()
+    return child
 }
 
 /**
@@ -50,7 +51,9 @@ inline fun NodeManager.menuButton(
     configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenuButton(text, graphic), configuration = configuration))
+    val child = KtfxMenuButton(text, graphic)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -97,11 +100,11 @@ inline fun styledMenuButton(
     configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxMenuButton(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxMenuButton(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -120,10 +123,9 @@ inline fun NodeManager.styledMenuButton(
     configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxMenuButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = KtfxMenuButton(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

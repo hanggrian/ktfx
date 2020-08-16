@@ -5,7 +5,6 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.Node
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.InfoOverlay
@@ -37,7 +36,9 @@ inline fun infoOverlay(
     configuration: (@LayoutDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxInfoOverlay(content, text), configuration = configuration)
+    val child = KtfxInfoOverlay(content, text)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun NodeManager.infoOverlay(
     configuration: (@LayoutDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxInfoOverlay(content, text), configuration = configuration))
+    val child = KtfxInfoOverlay(content, text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -107,11 +110,11 @@ inline fun styledInfoOverlay(
     configuration: (@LayoutDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxInfoOverlay(content, text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxInfoOverlay(content, text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -130,10 +133,9 @@ inline fun NodeManager.styledInfoOverlay(
     configuration: (@LayoutDslMarker KtfxInfoOverlay).() -> Unit
 ): InfoOverlay {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxInfoOverlay(content, text), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = KtfxInfoOverlay(content, text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -2,6 +2,7 @@ package com.hendraanggrian.ktfx.codegen
 
 import com.hendraanggrian.kotlinpoet.classOf
 import com.hendraanggrian.kotlinpoet.memberOf
+import com.hendraanggrian.kotlinpoet.typeVarOf
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 
@@ -13,8 +14,12 @@ val EXPERIMENTAL_CONTRACTS = KOTLIN_CONTRACTS.classOf("ExperimentalContracts")
 val CONTRACT = KOTLIN_CONTRACTS.memberOf("contract")
 val EXACTLY_ONCE = "$KOTLIN_CONTRACTS.InvocationKind".memberOf("EXACTLY_ONCE")
 
-val NEW_CHILD = "ktfx.internal.KtfxInternals".memberOf("newChild")
 val LAYOUTS_DSL_MARKER = KTFX_LAYOUTS.classOf("LayoutDslMarker")
+
+val T = "T".typeVarOf()
+val S = "S".typeVarOf()
+val X = "X".typeVarOf()
+val Y = "Y".typeVarOf()
 
 fun List<ParameterSpec>.toString(namedArgument: Boolean, commaSuffix: Boolean): String =
     buildString {

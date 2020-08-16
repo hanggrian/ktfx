@@ -1,12 +1,11 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXSpinner
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.Double
@@ -40,7 +39,9 @@ inline fun jfxSpinner(
     ).() -> Unit
 ): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXSpinner(progress), configuration = configuration)
+    val child = JFXSpinner(progress)
+    child.configuration()
+    return child
 }
 
 /**
@@ -54,7 +55,9 @@ inline fun NodeManager.jfxSpinner(
     configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXSpinner(progress), configuration = configuration))
+    val child = JFXSpinner(progress)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -98,11 +101,11 @@ inline fun styledJFXSpinner(
     configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXSpinner(progress), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXSpinner(progress)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -120,11 +123,9 @@ inline fun NodeManager.styledJFXSpinner(
     configuration: (@LayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXSpinner(progress), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXSpinner(progress)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

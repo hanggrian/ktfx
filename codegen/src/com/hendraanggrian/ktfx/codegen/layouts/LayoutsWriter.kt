@@ -10,7 +10,6 @@ import com.hendraanggrian.ktfx.codegen.CONTRACT
 import com.hendraanggrian.ktfx.codegen.EXACTLY_ONCE
 import com.hendraanggrian.ktfx.codegen.EXPERIMENTAL_CONTRACTS
 import com.hendraanggrian.ktfx.codegen.LAYOUTS_DSL_MARKER
-import com.hendraanggrian.ktfx.codegen.NEW_CHILD
 import com.hendraanggrian.ktfx.codegen.OPT_IN
 import com.hendraanggrian.ktfx.codegen.toString
 import com.squareup.kotlinpoet.KModifier
@@ -68,15 +67,16 @@ object LayoutsWriter {
                                 configuration(entry)
                             }
                             contractln()
+                            appendLine(
+                                "val child = %T(${entry.parameters.toString(
+                                    namedArgument = false, commaSuffix = false
+                                )})", entry.customTypeName
+                            )
+                            appendLine("child.configuration()")
                             appendLine {
                                 append("return ")
                                 if (managerClassName != null) append("addChild(")
-                                append(
-                                    "%M(%T(${entry.parameters.toString(
-                                        namedArgument = false, commaSuffix = false
-                                    )}), configuration = configuration)",
-                                    NEW_CHILD, entry.customTypeName
-                                )
+                                append("child")
                                 if (managerClassName != null) append(")")
                             }
                         }
@@ -124,15 +124,18 @@ object LayoutsWriter {
                                     configuration(entry)
                                 }
                                 contractln()
+                                appendLine(
+                                    "val child = %T(${entry.parameters.toString(
+                                        namedArgument = false, commaSuffix = false
+                                    )})", entry.customTypeName
+                                )
+                                appendLine("child.styleClass += styleClass")
+                                appendLine("child.id = id")
+                                appendLine("child.configuration()")
                                 appendLine {
                                     append("return ")
                                     if (managerClassName != null) append("addChild(")
-                                    append(
-                                        "%M(%T(${entry.parameters.toString(
-                                            namedArgument = false, commaSuffix = false
-                                        )}), styleClass = *styleClass, id = id, configuration = configuration)",
-                                        NEW_CHILD, entry.customTypeName
-                                    )
+                                    append("child")
                                     if (managerClassName != null) append(")")
                                 }
                             }
@@ -145,7 +148,8 @@ object LayoutsWriter {
         println()
     }
 
-    private fun FunSpecBuilder.contractln() = appendLine("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
+    private fun FunSpecBuilder.contractln() =
+        appendLine("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
 
     private fun ParameterSpecListScope.styleClass() = add("styleClass", String::class, KModifier.VARARG) {
         kdoc.append("the CSS style class.")

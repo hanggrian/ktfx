@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.RadioButton
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -41,7 +40,9 @@ inline fun radioButton(
     Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(RadioButton(text), configuration = configuration)
+    val child = RadioButton(text)
+    child.configuration()
+    return child
 }
 
 /**
@@ -58,7 +59,9 @@ inline fun NodeManager.radioButton(
     ).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioButton(text), configuration = configuration))
+    val child = RadioButton(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -75,7 +78,9 @@ inline fun ToggleButtonManager.radioButton(
     ).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioButton(text), configuration = configuration))
+    val child = RadioButton(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -132,11 +137,11 @@ inline fun styledRadioButton(
     configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        RadioButton(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = RadioButton(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -154,13 +159,11 @@ inline fun NodeManager.styledRadioButton(
     configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            RadioButton(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = RadioButton(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -178,11 +181,9 @@ inline fun ToggleButtonManager.styledRadioButton(
     configuration: (@LayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            RadioButton(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = RadioButton(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -7,7 +7,6 @@ package ktfx.layouts
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.control.TableView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -35,7 +34,9 @@ inline fun <S> tableView(
     configuration: (@LayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TableView<S>(items), configuration = configuration)
+    val child = TableView<S>(items)
+    child.configuration()
+    return child
 }
 
 /**
@@ -49,7 +50,9 @@ inline fun <S> NodeManager.tableView(
     configuration: (@LayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TableView<S>(items), configuration = configuration))
+    val child = TableView<S>(items)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -93,11 +96,11 @@ inline fun <S> styledTableView(
     configuration: (@LayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        TableView<S>(items), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = TableView<S>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -115,11 +118,9 @@ inline fun <S> NodeManager.styledTableView(
     configuration: (@LayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            TableView<S>(items), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = TableView<S>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextArea
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -30,7 +29,9 @@ fun NodeManager.textArea(text: String = ""): TextArea = textArea(text = text) { 
 inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea).() -> Unit):
     TextArea {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(TextArea(text), configuration = configuration)
+        val child = TextArea(text)
+        child.configuration()
+        return child
     }
 
 /**
@@ -45,7 +46,9 @@ inline fun NodeManager.textArea(
     Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TextArea(text), configuration = configuration))
+    val child = TextArea(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -89,11 +92,11 @@ inline fun styledTextArea(
     configuration: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        TextArea(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = TextArea(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -111,11 +114,9 @@ inline fun NodeManager.styledTextArea(
     configuration: (@LayoutDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            TextArea(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = TextArea(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

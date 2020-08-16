@@ -18,7 +18,7 @@ ktlint { add ->
 }
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-core"))
+    api(kotlin("stdlib"))
 
     testImplementation(project(":testing:listeners-coroutines"))
 }

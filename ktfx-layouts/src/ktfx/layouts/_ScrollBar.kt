@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.ScrollBar
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.scrollBar(): ScrollBar = scrollBar() { }
  */
 inline fun scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ScrollBar(), configuration = configuration)
+    val child = ScrollBar()
+    child.configuration()
+    return child
 }
 
 /**
@@ -41,7 +42,9 @@ inline fun scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit): Sc
 inline fun NodeManager.scrollBar(configuration: (@LayoutDslMarker ScrollBar).() -> Unit):
     ScrollBar {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(ScrollBar(), configuration = configuration))
+        val child = ScrollBar()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -78,7 +81,11 @@ inline fun styledScrollBar(
     configuration: (@LayoutDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ScrollBar(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = ScrollBar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -95,11 +102,9 @@ inline fun NodeManager.styledScrollBar(
     configuration: (@LayoutDslMarker ScrollBar).() -> Unit
 ): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ScrollBar(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = ScrollBar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

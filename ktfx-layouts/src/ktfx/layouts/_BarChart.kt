@@ -9,7 +9,6 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.XYChart
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -45,7 +44,9 @@ inline fun <X, Y> barChart(
     configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(BarChart<X, Y>(x, y, data, categoryGap), configuration = configuration)
+    val child = BarChart<X, Y>(x, y, data, categoryGap)
+    child.configuration()
+    return child
 }
 
 /**
@@ -62,13 +63,9 @@ inline fun <X, Y> NodeManager.barChart(
     configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            BarChart<X, Y>(x, y, data, categoryGap),
-            configuration =
-                configuration
-        )
-    )
+    val child = BarChart<X, Y>(x, y, data, categoryGap)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -131,10 +128,11 @@ inline fun <X, Y> styledBarChart(
     configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = BarChart<X, Y>(x, y, data, categoryGap)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -155,12 +153,9 @@ inline fun <X, Y> NodeManager.styledBarChart(
     configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            BarChart<X, Y>(x, y, data, categoryGap), styleClass = *styleClass,
-            id =
-                id,
-            configuration = configuration
-        )
-    )
+    val child = BarChart<X, Y>(x, y, data, categoryGap)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

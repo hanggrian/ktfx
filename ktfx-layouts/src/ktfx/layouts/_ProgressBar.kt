@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -38,7 +37,9 @@ inline fun progressBar(
     ).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ProgressBar(progress), configuration = configuration)
+    val child = ProgressBar(progress)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun NodeManager.progressBar(
     configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ProgressBar(progress), configuration = configuration))
+    val child = ProgressBar(progress)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -96,11 +99,11 @@ inline fun styledProgressBar(
     configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ProgressBar(progress), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ProgressBar(progress)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -118,11 +121,9 @@ inline fun NodeManager.styledProgressBar(
     configuration: (@LayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ProgressBar(progress), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = ProgressBar(progress)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -9,7 +9,6 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.ScatterChart
 import javafx.scene.chart.XYChart
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -42,7 +41,9 @@ inline fun <X, Y> scatterChart(
     configuration: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ScatterChart<X, Y>(x, y, data), configuration = configuration)
+    val child = ScatterChart<X, Y>(x, y, data)
+    child.configuration()
+    return child
 }
 
 /**
@@ -58,7 +59,9 @@ inline fun <X, Y> NodeManager.scatterChart(
     configuration: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ScatterChart<X, Y>(x, y, data), configuration = configuration))
+    val child = ScatterChart<X, Y>(x, y, data)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -116,11 +119,11 @@ inline fun <X, Y> styledScatterChart(
     configuration: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ScatterChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ScatterChart<X, Y>(x, y, data)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -140,10 +143,9 @@ inline fun <X, Y> NodeManager.styledScatterChart(
     configuration: (@LayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ScatterChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = ScatterChart<X, Y>(x, y, data)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

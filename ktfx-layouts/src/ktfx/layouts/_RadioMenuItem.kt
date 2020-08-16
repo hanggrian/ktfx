@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.RadioMenuItem
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -35,7 +34,9 @@ inline fun radioMenuItem(
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(RadioMenuItem(text, graphic), configuration = configuration)
+    val child = RadioMenuItem(text, graphic)
+    child.configuration()
+    return child
 }
 
 /**
@@ -50,7 +51,9 @@ inline fun MenuItemManager.radioMenuItem(
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(RadioMenuItem(text, graphic), configuration = configuration))
+    val child = RadioMenuItem(text, graphic)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -105,11 +108,11 @@ inline fun styledRadioMenuItem(
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        RadioMenuItem(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = RadioMenuItem(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -128,10 +131,9 @@ inline fun MenuItemManager.styledRadioMenuItem(
     configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            RadioMenuItem(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = RadioMenuItem(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

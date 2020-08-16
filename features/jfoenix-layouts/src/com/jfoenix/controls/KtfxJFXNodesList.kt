@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.TextField
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -30,7 +29,9 @@ fun NodeManager.textField(text: String = ""): TextField = textField(text = text)
 inline fun textField(text: String = "", configuration: (@LayoutDslMarker TextField).() -> Unit):
     TextField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(TextField(text), configuration = configuration)
+        val child = TextField(text)
+        child.configuration()
+        return child
     }
 
 /**
@@ -47,7 +48,9 @@ inline fun NodeManager.textField(
     ).() -> Unit
 ): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TextField(text), configuration = configuration))
+    val child = TextField(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -91,11 +94,11 @@ inline fun styledTextField(
     configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        TextField(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = TextField(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -113,11 +116,9 @@ inline fun NodeManager.styledTextField(
     configuration: (@LayoutDslMarker TextField).() -> Unit
 ): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            TextField(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = TextField(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

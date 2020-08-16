@@ -25,7 +25,7 @@ class BindingsBooleanTest {
 
     @Test fun anyDependency() {
         val dependency = propertyOf(1.m)
-        val binding = dependency.toBooleanBinding { it == 60.s }
+        val binding = dependency.asBoolean { it == 60.s }
         assertTrue(binding.value)
         dependency.value = null
         assertFalse(binding.value)
@@ -33,7 +33,7 @@ class BindingsBooleanTest {
 
     @Test fun booleanDependency() {
         val dependency = booleanPropertyOf()
-        val binding = dependency.toBooleanBinding { !it }
+        val binding = dependency.asBoolean { !it }
         assertTrue(binding.value)
         dependency.value = true
         assertFalse(binding.value)
@@ -41,7 +41,7 @@ class BindingsBooleanTest {
 
     @Test fun doubleDependency() {
         val dependency = doublePropertyOf()
-        val binding = dependency.toBooleanBinding { it == 0.0 }
+        val binding = dependency.asBoolean { it == 0.0 }
         assertTrue(binding.value)
         dependency.value = Double.MAX_VALUE
         assertFalse(binding.value)
@@ -49,7 +49,7 @@ class BindingsBooleanTest {
 
     @Test fun floatDependency() {
         val dependency = floatPropertyOf()
-        val binding = dependency.toBooleanBinding { it == 0f }
+        val binding = dependency.asBoolean { it == 0f }
         assertTrue(binding.value)
         dependency.value = Float.MAX_VALUE
         assertFalse(binding.value)
@@ -57,7 +57,7 @@ class BindingsBooleanTest {
 
     @Test fun intDependency() {
         val dependency = intPropertyOf()
-        val binding = dependency.toBooleanBinding { it == 0 }
+        val binding = dependency.asBoolean { it == 0 }
         assertTrue(binding.value)
         dependency.value = Int.MAX_VALUE
         assertFalse(binding.value)
@@ -65,7 +65,7 @@ class BindingsBooleanTest {
 
     @Test fun longDependency() {
         val dependency = longPropertyOf()
-        val binding = dependency.toBooleanBinding { it == 0L }
+        val binding = dependency.asBoolean { it == 0L }
         assertTrue(binding.value)
         dependency.value = Long.MAX_VALUE
         assertFalse(binding.value)

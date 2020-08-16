@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.WorldMapView
@@ -31,7 +30,9 @@ fun NodeManager.worldMapView(): WorldMapView = worldMapView() { }
  */
 inline fun worldMapView(configuration: (@LayoutDslMarker WorldMapView).() -> Unit): WorldMapView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(WorldMapView(), configuration = configuration)
+    val child = WorldMapView()
+    child.configuration()
+    return child
 }
 
 /**
@@ -43,7 +44,9 @@ inline fun worldMapView(configuration: (@LayoutDslMarker WorldMapView).() -> Uni
 inline fun NodeManager.worldMapView(configuration: (@LayoutDslMarker WorldMapView).() -> Unit):
     WorldMapView {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(WorldMapView(), configuration = configuration))
+        val child = WorldMapView()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -80,11 +83,11 @@ inline fun styledWorldMapView(
     configuration: (@LayoutDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        WorldMapView(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = WorldMapView()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -101,11 +104,9 @@ inline fun NodeManager.styledWorldMapView(
     configuration: (@LayoutDslMarker WorldMapView).() -> Unit
 ): WorldMapView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            WorldMapView(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = WorldMapView()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

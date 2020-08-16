@@ -5,6 +5,10 @@ import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
 import com.hendraanggrian.kotlinpoet.memberOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
 import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
+import com.hendraanggrian.ktfx.codegen.S
+import com.hendraanggrian.ktfx.codegen.T
+import com.hendraanggrian.ktfx.codegen.X
+import com.hendraanggrian.ktfx.codegen.Y
 import com.squareup.kotlinpoet.asClassName
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList

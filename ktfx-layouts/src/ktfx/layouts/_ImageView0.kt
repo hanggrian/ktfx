@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -31,7 +30,9 @@ fun NodeManager.imageView(image: Image? = null): ImageView = imageView(image = i
 inline fun imageView(image: Image? = null, configuration: (@LayoutDslMarker ImageView).() -> Unit):
     ImageView {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(ImageView(image), configuration = configuration)
+        val child = ImageView(image)
+        child.configuration()
+        return child
     }
 
 /**
@@ -48,7 +49,9 @@ inline fun NodeManager.imageView(
     ).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ImageView(image), configuration = configuration))
+    val child = ImageView(image)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -92,11 +95,11 @@ inline fun styledImageView(
     configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ImageView(image), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ImageView(image)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -114,11 +117,9 @@ inline fun NodeManager.styledImageView(
     configuration: (@LayoutDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ImageView(image), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = ImageView(image)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

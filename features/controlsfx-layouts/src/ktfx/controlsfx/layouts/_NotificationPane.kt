@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.NotificationPane
@@ -32,7 +31,9 @@ fun NodeManager.notificationPane(): NotificationPane = notificationPane() { }
 inline fun notificationPane(configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit):
     NotificationPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxNotificationPane(), configuration = configuration)
+        val child = KtfxNotificationPane()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.notificationPane(
     Unit
 ): NotificationPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxNotificationPane(), configuration = configuration))
+    val child = KtfxNotificationPane()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledNotificationPane(
     configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxNotificationPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxNotificationPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,10 +107,9 @@ inline fun NodeManager.styledNotificationPane(
     configuration: (@LayoutDslMarker KtfxNotificationPane).() -> Unit
 ): NotificationPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxNotificationPane(), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = KtfxNotificationPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

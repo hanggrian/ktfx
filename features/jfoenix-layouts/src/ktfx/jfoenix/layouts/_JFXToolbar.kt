@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXToolbar
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -31,7 +30,9 @@ fun NodeManager.jfxToolbar(): JFXToolbar = jfxToolbar() { }
  */
 inline fun jfxToolbar(configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit): JFXToolbar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxJFXToolbar(), configuration = configuration)
+    val child = KtfxJFXToolbar()
+    child.configuration()
+    return child
 }
 
 /**
@@ -43,7 +44,9 @@ inline fun jfxToolbar(configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Uni
 inline fun NodeManager.jfxToolbar(configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit):
     JFXToolbar {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxJFXToolbar(), configuration = configuration))
+        val child = KtfxJFXToolbar()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -80,11 +83,11 @@ inline fun styledJFXToolbar(
     configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXToolbar(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxJFXToolbar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -101,11 +104,9 @@ inline fun NodeManager.styledJFXToolbar(
     configuration: (@LayoutDslMarker KtfxJFXToolbar).() -> Unit
 ): JFXToolbar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXToolbar(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxJFXToolbar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXHamburger
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -31,7 +30,9 @@ fun NodeManager.jfxHamburger(): JFXHamburger = jfxHamburger() { }
  */
 inline fun jfxHamburger(configuration: (@LayoutDslMarker JFXHamburger).() -> Unit): JFXHamburger {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXHamburger(), configuration = configuration)
+    val child = JFXHamburger()
+    child.configuration()
+    return child
 }
 
 /**
@@ -43,7 +44,9 @@ inline fun jfxHamburger(configuration: (@LayoutDslMarker JFXHamburger).() -> Uni
 inline fun NodeManager.jfxHamburger(configuration: (@LayoutDslMarker JFXHamburger).() -> Unit):
     JFXHamburger {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(JFXHamburger(), configuration = configuration))
+        val child = JFXHamburger()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -80,11 +83,11 @@ inline fun styledJFXHamburger(
     configuration: (@LayoutDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXHamburger(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXHamburger()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -101,11 +104,9 @@ inline fun NodeManager.styledJFXHamburger(
     configuration: (@LayoutDslMarker JFXHamburger).() -> Unit
 ): JFXHamburger {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXHamburger(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXHamburger()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

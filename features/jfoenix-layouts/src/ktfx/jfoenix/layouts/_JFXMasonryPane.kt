@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXMasonryPane
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -32,7 +31,9 @@ fun NodeManager.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
 inline fun jfxMasonryPane(configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit):
     JFXMasonryPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxJFXMasonryPane(), configuration = configuration)
+        val child = KtfxJFXMasonryPane()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.jfxMasonryPane(
     Unit
 ): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxJFXMasonryPane(), configuration = configuration))
+    val child = KtfxJFXMasonryPane()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledJFXMasonryPane(
     configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXMasonryPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxJFXMasonryPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun NodeManager.styledJFXMasonryPane(
     configuration: (@LayoutDslMarker KtfxJFXMasonryPane).() -> Unit
 ): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXMasonryPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxJFXMasonryPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

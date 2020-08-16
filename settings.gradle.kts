@@ -1,4 +1,3 @@
-include("ktfx-core")
 include("ktfx-commons")
 include("ktfx-layouts")
 include("ktfx-listeners")

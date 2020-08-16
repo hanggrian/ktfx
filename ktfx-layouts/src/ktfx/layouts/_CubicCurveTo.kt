@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurveTo
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -47,11 +46,9 @@ inline fun cubicCurveTo(
     configuration: (@LayoutDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y),
-        configuration =
-            configuration
-    )
+    val child = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y)
+    child.configuration()
+    return child
 }
 
 /**
@@ -70,10 +67,7 @@ inline fun PathElementManager.cubicCurveTo(
     configuration: (@LayoutDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y),
-            configuration = configuration
-        )
-    )
+    val child = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y)
+    child.configuration()
+    return addChild(child)
 }

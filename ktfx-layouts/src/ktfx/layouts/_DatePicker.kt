@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.DatePicker
-import ktfx.internal.KtfxInternals.newChild
 import java.time.LocalDate
 import kotlin.String
 import kotlin.Unit
@@ -34,7 +33,9 @@ inline fun datePicker(
     Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(DatePicker(date), configuration = configuration)
+    val child = DatePicker(date)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun NodeManager.datePicker(
     ).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(DatePicker(date), configuration = configuration))
+    val child = DatePicker(date)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -95,11 +98,11 @@ inline fun styledDatePicker(
     configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        DatePicker(date), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = DatePicker(date)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -117,11 +120,9 @@ inline fun NodeManager.styledDatePicker(
     configuration: (@LayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            DatePicker(date), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = DatePicker(date)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

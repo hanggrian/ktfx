@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
@@ -7,7 +7,6 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import javafx.scene.control.TreeItem
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -37,7 +36,9 @@ inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(
     configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXTreeTableView<S>(root), configuration = configuration)
+    val child = JFXTreeTableView<S>(root)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXTreeTableView<S>(root), configuration = configuration))
+    val child = JFXTreeTableView<S>(root)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -95,11 +98,11 @@ inline fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
     configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXTreeTableView<S>(root), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXTreeTableView<S>(root)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -117,10 +120,9 @@ inline fun <S : RecursiveTreeObject<S>> NodeManager.styledJFXTreeTableView(
     configuration: (@LayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ): JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXTreeTableView<S>(root), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = JFXTreeTableView<S>(root)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

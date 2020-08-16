@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 import javafx.scene.control.ProgressIndicator
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -35,7 +34,9 @@ inline fun progressIndicator(
     configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ProgressIndicator(progress), configuration = configuration)
+    val child = ProgressIndicator(progress)
+    child.configuration()
+    return child
 }
 
 /**
@@ -49,7 +50,9 @@ inline fun NodeManager.progressIndicator(
     configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ProgressIndicator(progress), configuration = configuration))
+    val child = ProgressIndicator(progress)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -101,11 +104,11 @@ inline fun styledProgressIndicator(
     configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ProgressIndicator(progress), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ProgressIndicator(progress)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -123,10 +126,9 @@ inline fun NodeManager.styledProgressIndicator(
     configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ProgressIndicator(progress), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = ProgressIndicator(progress)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

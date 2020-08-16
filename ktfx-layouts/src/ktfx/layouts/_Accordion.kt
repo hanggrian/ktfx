@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Accordion
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.accordion(): Accordion = accordion() { }
  */
 inline fun accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxAccordion(), configuration = configuration)
+    val child = KtfxAccordion()
+    child.configuration()
+    return child
 }
 
 /**
@@ -41,7 +42,9 @@ inline fun accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit)
 inline fun NodeManager.accordion(configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit):
     Accordion {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxAccordion(), configuration = configuration))
+        val child = KtfxAccordion()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -78,11 +81,11 @@ inline fun styledAccordion(
     configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxAccordion(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxAccordion()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -99,11 +102,9 @@ inline fun NodeManager.styledAccordion(
     configuration: (@LayoutDslMarker KtfxAccordion).() -> Unit
 ): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxAccordion(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxAccordion()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

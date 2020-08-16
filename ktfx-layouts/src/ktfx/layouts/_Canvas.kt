@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.canvas.Canvas
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -37,7 +36,9 @@ inline fun canvas(
     configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Canvas(width, height), configuration = configuration)
+    val child = Canvas(width, height)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun NodeManager.canvas(
     configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Canvas(width, height), configuration = configuration))
+    val child = Canvas(width, height)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -99,11 +102,11 @@ inline fun styledCanvas(
     configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Canvas(width, height), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = Canvas(width, height)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -122,11 +125,9 @@ inline fun NodeManager.styledCanvas(
     configuration: (@LayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Canvas(width, height), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = Canvas(width, height)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

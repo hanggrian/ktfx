@@ -5,7 +5,6 @@
 package ktfx.controlsfx.layouts
 
 import javafx.concurrent.Task
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.TaskProgressView
@@ -37,7 +36,9 @@ inline fun <T : Task<*>> taskProgressView(
     ).() -> Unit
 ): TaskProgressView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TaskProgressView<T>(), configuration = configuration)
+    val child = TaskProgressView<T>()
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun <T : Task<*>> NodeManager.taskProgressView(
     ).() -> Unit
 ): TaskProgressView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TaskProgressView<T>(), configuration = configuration))
+    val child = TaskProgressView<T>()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -90,11 +93,11 @@ inline fun <T : Task<*>> styledTaskProgressView(
     configuration: (@LayoutDslMarker TaskProgressView<T>).() -> Unit
 ): TaskProgressView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        TaskProgressView<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = TaskProgressView<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -111,11 +114,9 @@ inline fun <T : Task<*>> NodeManager.styledTaskProgressView(
     configuration: (@LayoutDslMarker TaskProgressView<T>).() -> Unit
 ): TaskProgressView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            TaskProgressView<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = TaskProgressView<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

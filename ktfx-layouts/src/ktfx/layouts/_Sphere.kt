@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Sphere
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Int
 import kotlin.String
@@ -38,7 +37,9 @@ inline fun sphere(
     configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Sphere(radius, division), configuration = configuration)
+    val child = Sphere(radius, division)
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun NodeManager.sphere(
     configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Sphere(radius, division), configuration = configuration))
+    val child = Sphere(radius, division)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -102,11 +105,11 @@ inline fun styledSphere(
     configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Sphere(radius, division), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = Sphere(radius, division)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -125,10 +128,9 @@ inline fun NodeManager.styledSphere(
     configuration: (@LayoutDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Sphere(radius, division), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = Sphere(radius, division)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

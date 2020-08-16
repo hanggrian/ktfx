@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ToggleButton
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -43,7 +42,9 @@ inline fun toggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ToggleButton(text, graphic), configuration = configuration)
+    val child = ToggleButton(text, graphic)
+    child.configuration()
+    return child
 }
 
 /**
@@ -58,7 +59,9 @@ inline fun NodeManager.toggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
+    val child = ToggleButton(text, graphic)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -73,7 +76,9 @@ inline fun ToggleButtonManager.toggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleButton(text, graphic), configuration = configuration))
+    val child = ToggleButton(text, graphic)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -146,11 +151,11 @@ inline fun styledToggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ToggleButton(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ToggleButton(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -169,12 +174,11 @@ inline fun NodeManager.styledToggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ToggleButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = ToggleButton(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -193,10 +197,9 @@ inline fun ToggleButtonManager.styledToggleButton(
     configuration: (@LayoutDslMarker ToggleButton).() -> Unit
 ): ToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ToggleButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = ToggleButton(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

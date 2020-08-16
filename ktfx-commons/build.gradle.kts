@@ -17,7 +17,7 @@ ktlint { add ->
 }
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-core"))
+    api(kotlin("stdlib"))
 
     testImplementation(project(":testing:commons"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))

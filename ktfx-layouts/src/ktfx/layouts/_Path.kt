@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Path
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.path(): Path = path() { }
  */
 inline fun path(configuration: (@LayoutDslMarker KtfxPath).() -> Unit): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxPath(), configuration = configuration)
+    val child = KtfxPath()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun path(configuration: (@LayoutDslMarker KtfxPath).() -> Unit): Path {
  */
 inline fun NodeManager.path(configuration: (@LayoutDslMarker KtfxPath).() -> Unit): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxPath(), configuration = configuration))
+    val child = KtfxPath()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledPath(
     configuration: (@LayoutDslMarker KtfxPath).() -> Unit
 ): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxPath(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = KtfxPath()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledPath(
     configuration: (@LayoutDslMarker KtfxPath).() -> Unit
 ): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxPath(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxPath()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.SegmentedBar
@@ -36,7 +35,9 @@ inline fun <T : SegmentedBar.Segment> segmentedBar(
     ).() -> Unit
 ): SegmentedBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(SegmentedBar<T>(), configuration = configuration)
+    val child = SegmentedBar<T>()
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun <T : SegmentedBar.Segment> NodeManager.segmentedBar(
     ).() -> Unit
 ): SegmentedBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(SegmentedBar<T>(), configuration = configuration))
+    val child = SegmentedBar<T>()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -92,11 +95,11 @@ inline fun <T : SegmentedBar.Segment> styledSegmentedBar(
     configuration: (@LayoutDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        SegmentedBar<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = SegmentedBar<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -113,11 +116,9 @@ inline fun <T : SegmentedBar.Segment> NodeManager.styledSegmentedBar(
     configuration: (@LayoutDslMarker SegmentedBar<T>).() -> Unit
 ): SegmentedBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            SegmentedBar<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = SegmentedBar<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

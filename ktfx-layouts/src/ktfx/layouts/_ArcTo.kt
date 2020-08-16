@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ArcTo
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Boolean
 import kotlin.Double
 import kotlin.Unit
@@ -50,10 +49,9 @@ inline fun arcTo(
     configuration: (@LayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
-        configuration = configuration
-    )
+    val child = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag)
+    child.configuration()
+    return child
 }
 
 /**
@@ -73,10 +71,7 @@ inline fun PathElementManager.arcTo(
     configuration: (@LayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag),
-            configuration = configuration
-        )
-    )
+    val child = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag)
+    child.configuration()
+    return addChild(child)
 }

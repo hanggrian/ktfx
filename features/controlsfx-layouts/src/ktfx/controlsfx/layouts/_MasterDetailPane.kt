@@ -6,7 +6,6 @@ package ktfx.controlsfx.layouts
 
 import javafx.geometry.Side
 import javafx.geometry.Side.RIGHT
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.MasterDetailPane
@@ -43,7 +42,9 @@ inline fun masterDetailPane(
     configuration: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxMasterDetailPane(detailSide, showDetailNode), configuration = configuration)
+    val child = KtfxMasterDetailPane(detailSide, showDetailNode)
+    child.configuration()
+    return child
 }
 
 /**
@@ -58,13 +59,9 @@ inline fun NodeManager.masterDetailPane(
     configuration: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxMasterDetailPane(detailSide, showDetailNode),
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxMasterDetailPane(detailSide, showDetailNode)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -121,12 +118,11 @@ inline fun styledMasterDetailPane(
     configuration: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxMasterDetailPane(detailSide, showDetailNode), styleClass = *styleClass,
-        id =
-            id,
-        configuration = configuration
-    )
+    val child = KtfxMasterDetailPane(detailSide, showDetailNode)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -145,12 +141,9 @@ inline fun NodeManager.styledMasterDetailPane(
     configuration: (@LayoutDslMarker KtfxMasterDetailPane).() -> Unit
 ): MasterDetailPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxMasterDetailPane(detailSide, showDetailNode),
-            styleClass =
-                *styleClass,
-            id = id, configuration = configuration
-        )
-    )
+    val child = KtfxMasterDetailPane(detailSide, showDetailNode)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

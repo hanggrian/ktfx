@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.PrefixSelectionComboBox
@@ -37,7 +36,9 @@ inline fun <T> prefixSelectionComboBox(
     ).() -> Unit
 ): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PrefixSelectionComboBox<T>(), configuration = configuration)
+    val child = PrefixSelectionComboBox<T>()
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun <T> NodeManager.prefixSelectionComboBox(
     ).() -> Unit
 ): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PrefixSelectionComboBox<T>(), configuration = configuration))
+    val child = PrefixSelectionComboBox<T>()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -98,11 +101,11 @@ inline fun <T> styledPrefixSelectionComboBox(
     configuration: (@LayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit
 ): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        PrefixSelectionComboBox<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = PrefixSelectionComboBox<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -119,10 +122,9 @@ inline fun <T> NodeManager.styledPrefixSelectionComboBox(
     configuration: (@LayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit
 ): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            PrefixSelectionComboBox<T>(), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = PrefixSelectionComboBox<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

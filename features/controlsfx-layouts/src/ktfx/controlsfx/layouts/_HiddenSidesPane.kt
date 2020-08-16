@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.HiddenSidesPane
@@ -32,7 +31,9 @@ fun NodeManager.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() { }
 inline fun hiddenSidesPane(configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit):
     HiddenSidesPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxHiddenSidesPane(), configuration = configuration)
+        val child = KtfxHiddenSidesPane()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.hiddenSidesPane(
     Unit
 ): HiddenSidesPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxHiddenSidesPane(), configuration = configuration))
+    val child = KtfxHiddenSidesPane()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledHiddenSidesPane(
     configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxHiddenSidesPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxHiddenSidesPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun NodeManager.styledHiddenSidesPane(
     configuration: (@LayoutDslMarker KtfxHiddenSidesPane).() -> Unit
 ): HiddenSidesPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxHiddenSidesPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxHiddenSidesPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

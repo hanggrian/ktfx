@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.ListSelectionView
@@ -32,7 +31,9 @@ fun <T> NodeManager.listSelectionView(): ListSelectionView<T> = listSelectionVie
 inline fun <T> listSelectionView(configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit):
     ListSelectionView<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(ListSelectionView<T>(), configuration = configuration)
+        val child = ListSelectionView<T>()
+        child.configuration()
+        return child
     }
 
 /**
@@ -48,7 +49,9 @@ inline fun <T> NodeManager.listSelectionView(
     ).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ListSelectionView<T>(), configuration = configuration))
+    val child = ListSelectionView<T>()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -85,11 +88,11 @@ inline fun <T> styledListSelectionView(
     configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ListSelectionView<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ListSelectionView<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -106,10 +109,9 @@ inline fun <T> NodeManager.styledListSelectionView(
     configuration: (@LayoutDslMarker ListSelectionView<T>).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ListSelectionView<T>(), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = ListSelectionView<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

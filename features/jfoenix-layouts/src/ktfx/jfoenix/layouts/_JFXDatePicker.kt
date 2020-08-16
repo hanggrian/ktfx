@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDatePicker
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import java.time.LocalDate
@@ -39,7 +38,9 @@ inline fun jfxDatePicker(
     ).() -> Unit
 ): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXDatePicker(date), configuration = configuration)
+    val child = JFXDatePicker(date)
+    child.configuration()
+    return child
 }
 
 /**
@@ -56,7 +57,9 @@ inline fun NodeManager.jfxDatePicker(
     ).() -> Unit
 ): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXDatePicker(date), configuration = configuration))
+    val child = JFXDatePicker(date)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -100,11 +103,11 @@ inline fun styledJFXDatePicker(
     configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXDatePicker(date), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXDatePicker(date)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -122,11 +125,9 @@ inline fun NodeManager.styledJFXDatePicker(
     configuration: (@LayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXDatePicker(date), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXDatePicker(date)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

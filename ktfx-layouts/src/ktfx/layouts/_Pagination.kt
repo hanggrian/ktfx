@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.control.Pagination
 import javafx.scene.control.Pagination.INDETERMINATE
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Int
 import kotlin.String
 import kotlin.Unit
@@ -36,7 +35,9 @@ inline fun pagination(
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Pagination(pageCount, currentPageIndex), configuration = configuration)
+    val child = Pagination(pageCount, currentPageIndex)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,13 +52,9 @@ inline fun NodeManager.pagination(
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Pagination(pageCount, currentPageIndex),
-            configuration =
-                configuration
-        )
-    )
+    val child = Pagination(pageCount, currentPageIndex)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -110,10 +107,11 @@ inline fun styledPagination(
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Pagination(pageCount, currentPageIndex), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = Pagination(pageCount, currentPageIndex)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -132,12 +130,9 @@ inline fun NodeManager.styledPagination(
     configuration: (@LayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Pagination(pageCount, currentPageIndex), styleClass = *styleClass,
-            id =
-                id,
-            configuration = configuration
-        )
-    )
+    val child = Pagination(pageCount, currentPageIndex)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

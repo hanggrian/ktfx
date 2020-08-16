@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.CubicCurve
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -54,13 +53,9 @@ inline fun cubicCurve(
     configuration: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CubicCurve(
-            startX, startY, controlX1, controlY1, controlX2, controlY2, endX,
-            endY
-        ),
-        configuration = configuration
-    )
+    val child = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
+    child.configuration()
+    return child
 }
 
 /**
@@ -81,15 +76,9 @@ inline fun NodeManager.cubicCurve(
     configuration: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CubicCurve(
-                startX, startY, controlX1, controlY1, controlX2, controlY2,
-                endX, endY
-            ),
-            configuration = configuration
-        )
-    )
+    val child = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -166,13 +155,11 @@ inline fun styledCubicCurve(
     configuration: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CubicCurve(
-            startX, startY, controlX1, controlY1, controlX2, controlY2, endX,
-            endY
-        ),
-        styleClass = *styleClass, id = id, configuration = configuration
-    )
+    val child = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -197,13 +184,9 @@ inline fun NodeManager.styledCubicCurve(
     configuration: (@LayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CubicCurve(
-                startX, startY, controlX1, controlY1, controlX2, controlY2,
-                endX, endY
-            ),
-            styleClass = *styleClass, id = id, configuration = configuration
-        )
-    )
+    val child = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

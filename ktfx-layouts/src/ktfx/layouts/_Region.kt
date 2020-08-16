@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.layout.Region
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.region(): Region = region() { }
  */
 inline fun region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Region(), configuration = configuration)
+    val child = Region()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
  */
 inline fun NodeManager.region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Region(), configuration = configuration))
+    val child = Region()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledRegion(
     configuration: (@LayoutDslMarker Region).() -> Unit
 ): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Region(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = Region()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledRegion(
     configuration: (@LayoutDslMarker Region).() -> Unit
 ): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Region(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = Region()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

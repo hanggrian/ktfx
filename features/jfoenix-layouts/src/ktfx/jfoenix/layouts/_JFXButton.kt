@@ -1,12 +1,11 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXButton
 import javafx.scene.Node
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -40,7 +39,9 @@ inline fun jfxButton(
     configuration: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXButton(text, graphic), configuration = configuration)
+    val child = JFXButton(text, graphic)
+    child.configuration()
+    return child
 }
 
 /**
@@ -55,7 +56,9 @@ inline fun NodeManager.jfxButton(
     configuration: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXButton(text, graphic), configuration = configuration))
+    val child = JFXButton(text, graphic)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -104,11 +107,11 @@ inline fun styledJFXButton(
     configuration: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXButton(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXButton(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -127,10 +130,9 @@ inline fun NodeManager.styledJFXButton(
     configuration: (@LayoutDslMarker JFXButton).() -> Unit
 ): JFXButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXButton(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = JFXButton(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

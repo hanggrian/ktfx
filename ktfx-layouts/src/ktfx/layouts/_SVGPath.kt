@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.SVGPath
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.svgPath(): SVGPath = svgPath() { }
  */
 inline fun svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(SVGPath(), configuration = configuration)
+    val child = SVGPath()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPat
  */
 inline fun NodeManager.svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(SVGPath(), configuration = configuration))
+    val child = SVGPath()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledSVGPath(
     configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(SVGPath(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = SVGPath()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledSVGPath(
     configuration: (@LayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            SVGPath(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = SVGPath()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

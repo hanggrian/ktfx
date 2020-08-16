@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.SnapshotView
@@ -32,7 +31,9 @@ fun NodeManager.snapshotView(): SnapshotView = snapshotView() { }
 inline fun snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit):
     SnapshotView {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxSnapshotView(), configuration = configuration)
+        val child = KtfxSnapshotView()
+        child.configuration()
+        return child
     }
 
 /**
@@ -44,7 +45,9 @@ inline fun snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() ->
 inline fun NodeManager.snapshotView(configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit):
     SnapshotView {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxSnapshotView(), configuration = configuration))
+        val child = KtfxSnapshotView()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -81,11 +84,11 @@ inline fun styledSnapshotView(
     configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxSnapshotView(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxSnapshotView()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -102,11 +105,9 @@ inline fun NodeManager.styledSnapshotView(
     configuration: (@LayoutDslMarker KtfxSnapshotView).() -> Unit
 ): SnapshotView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxSnapshotView(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxSnapshotView()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

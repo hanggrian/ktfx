@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.text.TextFlow
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.textFlow(): TextFlow = textFlow() { }
  */
 inline fun textFlow(configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTextFlow(), configuration = configuration)
+    val child = KtfxTextFlow()
+    child.configuration()
+    return child
 }
 
 /**
@@ -41,7 +42,9 @@ inline fun textFlow(configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit): 
 inline fun NodeManager.textFlow(configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit):
     TextFlow {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxTextFlow(), configuration = configuration))
+        val child = KtfxTextFlow()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -78,11 +81,11 @@ inline fun styledTextFlow(
     configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxTextFlow(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxTextFlow()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -99,11 +102,9 @@ inline fun NodeManager.styledTextFlow(
     configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxTextFlow(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxTextFlow()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

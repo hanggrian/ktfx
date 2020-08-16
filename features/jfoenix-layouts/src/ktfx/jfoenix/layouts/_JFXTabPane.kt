@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTabPane
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -31,7 +30,9 @@ fun NodeManager.jfxTabPane(): JFXTabPane = jfxTabPane() { }
  */
 inline fun jfxTabPane(configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit): JFXTabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxJFXTabPane(), configuration = configuration)
+    val child = KtfxJFXTabPane()
+    child.configuration()
+    return child
 }
 
 /**
@@ -43,7 +44,9 @@ inline fun jfxTabPane(configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Uni
 inline fun NodeManager.jfxTabPane(configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit):
     JFXTabPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxJFXTabPane(), configuration = configuration))
+        val child = KtfxJFXTabPane()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -80,11 +83,11 @@ inline fun styledJFXTabPane(
     configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXTabPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxJFXTabPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -101,11 +104,9 @@ inline fun NodeManager.styledJFXTabPane(
     configuration: (@LayoutDslMarker KtfxJFXTabPane).() -> Unit
 ): JFXTabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXTabPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxJFXTabPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

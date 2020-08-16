@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.layout.AnchorPane
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.anchorPane(): AnchorPane = anchorPane() { }
  */
 inline fun anchorPane(configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit): AnchorPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxAnchorPane(), configuration = configuration)
+    val child = KtfxAnchorPane()
+    child.configuration()
+    return child
 }
 
 /**
@@ -41,7 +42,9 @@ inline fun anchorPane(configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Uni
 inline fun NodeManager.anchorPane(configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit):
     AnchorPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxAnchorPane(), configuration = configuration))
+        val child = KtfxAnchorPane()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -78,11 +81,11 @@ inline fun styledAnchorPane(
     configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxAnchorPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxAnchorPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -99,11 +102,9 @@ inline fun NodeManager.styledAnchorPane(
     configuration: (@LayoutDslMarker KtfxAnchorPane).() -> Unit
 ): AnchorPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxAnchorPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxAnchorPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

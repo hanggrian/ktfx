@@ -5,7 +5,6 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.control.TreeItem
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.BreadCrumbBar
@@ -39,7 +38,9 @@ inline fun <T> breadCrumbBar(
     ).() -> Unit
 ): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(BreadCrumbBar<T>(selectedCrumb), configuration = configuration)
+    val child = BreadCrumbBar<T>(selectedCrumb)
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun <T> NodeManager.breadCrumbBar(
     configuration: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(BreadCrumbBar<T>(selectedCrumb), configuration = configuration))
+    val child = BreadCrumbBar<T>(selectedCrumb)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -103,10 +106,11 @@ inline fun <T> styledBreadCrumbBar(
     configuration: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        BreadCrumbBar<T>(selectedCrumb), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = BreadCrumbBar<T>(selectedCrumb)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -124,10 +128,9 @@ inline fun <T> NodeManager.styledBreadCrumbBar(
     configuration: (@LayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            BreadCrumbBar<T>(selectedCrumb), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = BreadCrumbBar<T>(selectedCrumb)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

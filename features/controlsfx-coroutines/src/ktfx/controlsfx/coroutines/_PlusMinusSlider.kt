@@ -1,0 +1,26 @@
+@file:JvmMultifileClass
+@file:JvmName("ControlsFxCoroutinesKt")
+
+package ktfx.controlsfx.coroutines
+
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.javafx.JavaFx
+import kotlinx.coroutines.launch
+import org.controlsfx.control.PlusMinusSlider
+import kotlin.Unit
+import kotlin.coroutines.CoroutineContext
+import kotlin.jvm.JvmMultifileClass
+import kotlin.jvm.JvmName
+
+/**
+ * @see PlusMinusSlider.setOnValueChanged
+ */
+fun PlusMinusSlider.onValueChanged(
+    context: CoroutineContext = Dispatchers.JavaFx,
+    action: suspend    
+    CoroutineScope.(PlusMinusSlider.PlusMinusEvent) -> Unit
+) {
+    return setOnValueChanged { event -> GlobalScope.launch(context) { action(event) } }
+}

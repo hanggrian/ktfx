@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.MenuBar
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.menuBar(): MenuBar = menuBar() { }
  */
 inline fun menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxMenuBar(), configuration = configuration)
+    val child = KtfxMenuBar()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): Me
  */
 inline fun NodeManager.menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxMenuBar(), configuration = configuration))
+    val child = KtfxMenuBar()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledMenuBar(
     configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxMenuBar(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = KtfxMenuBar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledMenuBar(
     configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxMenuBar(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxMenuBar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

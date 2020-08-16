@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDrawersStack
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -32,7 +31,9 @@ fun NodeManager.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
 inline fun jfxDrawersStack(configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit):
     JFXDrawersStack {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(JFXDrawersStack(), configuration = configuration)
+        val child = JFXDrawersStack()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.jfxDrawersStack(
     Unit
 ): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXDrawersStack(), configuration = configuration))
+    val child = JFXDrawersStack()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledJFXDrawersStack(
     configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXDrawersStack(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXDrawersStack()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun NodeManager.styledJFXDrawersStack(
     configuration: (@LayoutDslMarker JFXDrawersStack).() -> Unit
 ): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXDrawersStack(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXDrawersStack()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

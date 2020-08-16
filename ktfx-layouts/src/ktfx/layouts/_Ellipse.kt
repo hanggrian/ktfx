@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Ellipse
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -41,7 +40,9 @@ inline fun ellipse(
     configuration: (@LayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Ellipse(centerX, centerY, radiusX, radiusY), configuration = configuration)
+    val child = Ellipse(centerX, centerY, radiusX, radiusY)
+    child.configuration()
+    return child
 }
 
 /**
@@ -58,13 +59,9 @@ inline fun NodeManager.ellipse(
     configuration: (@LayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Ellipse(centerX, centerY, radiusX, radiusY),
-            configuration =
-                configuration
-        )
-    )
+    val child = Ellipse(centerX, centerY, radiusX, radiusY)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -127,10 +124,11 @@ inline fun styledEllipse(
     configuration: (@LayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Ellipse(centerX, centerY, radiusX, radiusY), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = Ellipse(centerX, centerY, radiusX, radiusY)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -151,10 +149,9 @@ inline fun NodeManager.styledEllipse(
     configuration: (@LayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Ellipse(centerX, centerY, radiusX, radiusY), styleClass = *styleClass,
-            id = id, configuration = configuration
-        )
-    )
+    val child = Ellipse(centerX, centerY, radiusX, radiusY)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.RangeSlider
@@ -43,7 +42,9 @@ inline fun rangeSlider(
     configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(RangeSlider(min, max, lowValue, highValue), configuration = configuration)
+    val child = RangeSlider(min, max, lowValue, highValue)
+    child.configuration()
+    return child
 }
 
 /**
@@ -60,13 +61,9 @@ inline fun NodeManager.rangeSlider(
     configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            RangeSlider(min, max, lowValue, highValue),
-            configuration =
-                configuration
-        )
-    )
+    val child = RangeSlider(min, max, lowValue, highValue)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -125,10 +122,11 @@ inline fun styledRangeSlider(
     configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        RangeSlider(min, max, lowValue, highValue), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = RangeSlider(min, max, lowValue, highValue)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -149,10 +147,9 @@ inline fun NodeManager.styledRangeSlider(
     configuration: (@LayoutDslMarker RangeSlider).() -> Unit
 ): RangeSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            RangeSlider(min, max, lowValue, highValue), styleClass = *styleClass,
-            id = id, configuration = configuration
-        )
-    )
+    val child = RangeSlider(min, max, lowValue, highValue)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

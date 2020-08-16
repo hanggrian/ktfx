@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.Label
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -37,7 +36,9 @@ inline fun label(
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Label(text, graphic), configuration = configuration)
+    val child = Label(text, graphic)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun NodeManager.label(
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Label(text, graphic), configuration = configuration))
+    val child = Label(text, graphic)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -99,11 +102,11 @@ inline fun styledLabel(
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Label(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = Label(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -122,11 +125,9 @@ inline fun NodeManager.styledLabel(
     configuration: (@LayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Label(text, graphic), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = Label(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

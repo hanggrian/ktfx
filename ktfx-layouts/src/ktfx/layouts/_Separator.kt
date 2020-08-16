@@ -7,7 +7,6 @@ package ktfx.layouts
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.control.Separator
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -40,7 +39,9 @@ inline fun separator(
     ).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Separator(orientation), configuration = configuration)
+    val child = Separator(orientation)
+    child.configuration()
+    return child
 }
 
 /**
@@ -54,7 +55,9 @@ inline fun NodeManager.separator(
     configuration: (@LayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Separator(orientation), configuration = configuration))
+    val child = Separator(orientation)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -98,11 +101,11 @@ inline fun styledSeparator(
     configuration: (@LayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Separator(orientation), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = Separator(orientation)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -120,10 +123,9 @@ inline fun NodeManager.styledSeparator(
     configuration: (@LayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Separator(orientation), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = Separator(orientation)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

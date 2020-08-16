@@ -5,6 +5,7 @@ import com.hendraanggrian.kotlinpoet.memberOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
 import com.hendraanggrian.kotlinpoet.typeVarBy
 import com.hendraanggrian.kotlinpoet.typeVarOf
+import com.hendraanggrian.ktfx.codegen.T
 import javafx.collections.ObservableList
 import javafx.concurrent.Task
 import javafx.geometry.Side

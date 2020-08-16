@@ -5,7 +5,6 @@
 package ktfx.controlsfx.layouts
 
 import javafx.scene.control.CheckBoxTreeItem
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.CheckTreeView
@@ -39,7 +38,9 @@ inline fun <T> checkTreeView(
     ).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CheckTreeView<T>(root), configuration = configuration)
+    val child = CheckTreeView<T>(root)
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun <T> NodeManager.checkTreeView(
     configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CheckTreeView<T>(root), configuration = configuration))
+    val child = CheckTreeView<T>(root)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -97,11 +100,11 @@ inline fun <T> styledCheckTreeView(
     configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CheckTreeView<T>(root), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = CheckTreeView<T>(root)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -119,10 +122,9 @@ inline fun <T> NodeManager.styledCheckTreeView(
     configuration: (@LayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CheckTreeView<T>(root), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = CheckTreeView<T>(root)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

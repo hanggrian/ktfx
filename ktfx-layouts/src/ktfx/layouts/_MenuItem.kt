@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.MenuItem
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -38,7 +37,9 @@ inline fun menuItem(
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(MenuItem(text, graphic), configuration = configuration)
+    val child = MenuItem(text, graphic)
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun MenuItemManager.menuItem(
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(MenuItem(text, graphic), configuration = configuration))
+    val child = MenuItem(text, graphic)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -100,11 +103,11 @@ inline fun styledMenuItem(
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        MenuItem(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = MenuItem(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -123,10 +126,9 @@ inline fun MenuItemManager.styledMenuItem(
     configuration: (@LayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            MenuItem(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = MenuItem(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

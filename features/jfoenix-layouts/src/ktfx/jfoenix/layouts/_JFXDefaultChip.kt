@@ -1,12 +1,11 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXChipView
 import com.jfoenix.controls.JFXDefaultChip
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -37,7 +36,9 @@ inline fun <T> jfxDefaultChip(
     configuration: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXDefaultChip<T>(view, item), configuration = configuration)
+    val child = JFXDefaultChip<T>(view, item)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun <T> NodeManager.jfxDefaultChip(
     configuration: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXDefaultChip<T>(view, item), configuration = configuration))
+    val child = JFXDefaultChip<T>(view, item)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -107,11 +110,11 @@ inline fun <T> styledJFXDefaultChip(
     configuration: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXDefaultChip<T>(view, item), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXDefaultChip<T>(view, item)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -130,10 +133,9 @@ inline fun <T> NodeManager.styledJFXDefaultChip(
     configuration: (@LayoutDslMarker JFXDefaultChip<T>).() -> Unit
 ): JFXDefaultChip<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXDefaultChip<T>(view, item), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = JFXDefaultChip<T>(view, item)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

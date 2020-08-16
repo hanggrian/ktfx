@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXClippedPane
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -32,7 +31,9 @@ fun NodeManager.jfxClippedPane(): JFXClippedPane = jfxClippedPane() { }
 inline fun jfxClippedPane(configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit):
     JFXClippedPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxJFXClippedPane(), configuration = configuration)
+        val child = KtfxJFXClippedPane()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.jfxClippedPane(
     Unit
 ): JFXClippedPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxJFXClippedPane(), configuration = configuration))
+    val child = KtfxJFXClippedPane()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledJFXClippedPane(
     configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXClippedPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxJFXClippedPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun NodeManager.styledJFXClippedPane(
     configuration: (@LayoutDslMarker KtfxJFXClippedPane).() -> Unit
 ): JFXClippedPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXClippedPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxJFXClippedPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

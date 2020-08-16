@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXDrawer
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -31,7 +30,9 @@ fun NodeManager.jfxDrawer(): JFXDrawer = jfxDrawer() { }
  */
 inline fun jfxDrawer(configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit): JFXDrawer {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxJFXDrawer(), configuration = configuration)
+    val child = KtfxJFXDrawer()
+    child.configuration()
+    return child
 }
 
 /**
@@ -43,7 +44,9 @@ inline fun jfxDrawer(configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit)
 inline fun NodeManager.jfxDrawer(configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit):
     JFXDrawer {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxJFXDrawer(), configuration = configuration))
+        val child = KtfxJFXDrawer()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -80,11 +83,11 @@ inline fun styledJFXDrawer(
     configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXDrawer(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxJFXDrawer()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -101,11 +104,9 @@ inline fun NodeManager.styledJFXDrawer(
     configuration: (@LayoutDslMarker KtfxJFXDrawer).() -> Unit
 ): JFXDrawer {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXDrawer(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxJFXDrawer()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

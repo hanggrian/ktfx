@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.textfield.CustomPasswordField
@@ -32,7 +31,9 @@ fun NodeManager.customPasswordField(): CustomPasswordField = customPasswordField
 inline fun customPasswordField(configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit):
     CustomPasswordField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(CustomPasswordField(), configuration = configuration)
+        val child = CustomPasswordField()
+        child.configuration()
+        return child
     }
 
 /**
@@ -48,7 +49,9 @@ inline fun NodeManager.customPasswordField(
     ).() -> Unit
 ): CustomPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CustomPasswordField(), configuration = configuration))
+    val child = CustomPasswordField()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -85,11 +88,11 @@ inline fun styledCustomPasswordField(
     configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CustomPasswordField(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = CustomPasswordField()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -106,11 +109,9 @@ inline fun NodeManager.styledCustomPasswordField(
     configuration: (@LayoutDslMarker CustomPasswordField).() -> Unit
 ): CustomPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CustomPasswordField(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = CustomPasswordField()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

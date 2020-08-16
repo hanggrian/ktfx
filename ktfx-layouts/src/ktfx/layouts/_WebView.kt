@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.web.WebView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.webView(): WebView = webView() { }
  */
 inline fun webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(WebView(), configuration = configuration)
+    val child = WebView()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebVie
  */
 inline fun NodeManager.webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(WebView(), configuration = configuration))
+    val child = WebView()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledWebView(
     configuration: (@LayoutDslMarker WebView).() -> Unit
 ): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(WebView(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = WebView()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledWebView(
     configuration: (@LayoutDslMarker WebView).() -> Unit
 ): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            WebView(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = WebView()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

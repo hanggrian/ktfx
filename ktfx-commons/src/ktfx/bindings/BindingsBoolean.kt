@@ -22,73 +22,73 @@ inline fun booleanBindingOf(vararg dependencies: Observable, noinline valueProvi
     Bindings.createBooleanBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [BooleanBinding] with single [ObservableObjectValue] dependency. */
-fun <V> ObservableObjectValue<V>.toBooleanBinding(valueProvider: (V?) -> Boolean): BooleanBinding =
+fun <V> ObservableObjectValue<V>.asBoolean(valueProvider: (V?) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
-        override fun dispose(): Unit = unbind(this@toBooleanBinding)
-        override fun computeValue(): Boolean = valueProvider(this@toBooleanBinding.value)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toBooleanBinding)
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
-            bind(this@toBooleanBinding)
+            bind(this@asBoolean)
         }
     }
 
 /** Create a [BooleanBinding] with single [ObservableBooleanValue] dependency. */
-fun ObservableBooleanValue.toBooleanBinding(valueProvider: (Boolean) -> Boolean): BooleanBinding =
+fun ObservableBooleanValue.asBoolean(valueProvider: (Boolean) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
-        override fun dispose(): Unit = unbind(this@toBooleanBinding)
-        override fun computeValue(): Boolean = valueProvider(this@toBooleanBinding.value)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toBooleanBinding)
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
-            bind(this@toBooleanBinding)
+            bind(this@asBoolean)
         }
     }
 
 /** Create a [BooleanBinding] with single [ObservableDoubleValue] dependency. */
-fun ObservableDoubleValue.toBooleanBinding(valueProvider: (Double) -> Boolean): BooleanBinding =
+fun ObservableDoubleValue.asBoolean(valueProvider: (Double) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
-        override fun dispose(): Unit = unbind(this@toBooleanBinding)
-        override fun computeValue(): Boolean = valueProvider(this@toBooleanBinding.value as Double)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toBooleanBinding)
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean.value as Double)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
-            bind(this@toBooleanBinding)
+            bind(this@asBoolean)
         }
     }
 
 /** Create a [BooleanBinding] with single [ObservableFloatValue] dependency. */
-fun ObservableFloatValue.toBooleanBinding(valueProvider: (Float) -> Boolean): BooleanBinding =
+fun ObservableFloatValue.asBoolean(valueProvider: (Float) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
-        override fun dispose(): Unit = unbind(this@toBooleanBinding)
-        override fun computeValue(): Boolean = valueProvider(this@toBooleanBinding.value as Float)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toBooleanBinding)
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean.value as Float)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
-            bind(this@toBooleanBinding)
+            bind(this@asBoolean)
         }
     }
 
 /** Create a [BooleanBinding] with single [ObservableIntegerValue] dependency. */
-fun ObservableIntegerValue.toBooleanBinding(valueProvider: (Int) -> Boolean): BooleanBinding =
+fun ObservableIntegerValue.asBoolean(valueProvider: (Int) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
-        override fun dispose(): Unit = unbind(this@toBooleanBinding)
-        override fun computeValue(): Boolean = valueProvider(this@toBooleanBinding.value as Int)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toBooleanBinding)
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean.value as Int)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
-            bind(this@toBooleanBinding)
+            bind(this@asBoolean)
         }
     }
 
 /** Create a [BooleanBinding] with single [ObservableLongValue] dependency. */
-fun ObservableLongValue.toBooleanBinding(valueProvider: (Long) -> Boolean): BooleanBinding =
+fun ObservableLongValue.asBoolean(valueProvider: (Long) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
-        override fun dispose(): Unit = unbind(this@toBooleanBinding)
-        override fun computeValue(): Boolean = valueProvider(this@toBooleanBinding.value as Long)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toBooleanBinding)
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean.value as Long)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
-            bind(this@toBooleanBinding)
+            bind(this@asBoolean)
         }
     }

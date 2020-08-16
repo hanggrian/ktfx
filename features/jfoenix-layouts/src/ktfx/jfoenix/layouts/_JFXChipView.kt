@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXChipView
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -32,7 +31,9 @@ fun <T> NodeManager.jfxChipView(): JFXChipView<T> = jfxChipView() { }
 inline fun <T> jfxChipView(configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit):
     JFXChipView<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(JFXChipView<T>(), configuration = configuration)
+        val child = JFXChipView<T>()
+        child.configuration()
+        return child
     }
 
 /**
@@ -44,7 +45,9 @@ inline fun <T> jfxChipView(configuration: (@LayoutDslMarker JFXChipView<T>).() -
 inline fun <T> NodeManager.jfxChipView(configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit):
     JFXChipView<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(JFXChipView<T>(), configuration = configuration))
+        val child = JFXChipView<T>()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -81,11 +84,11 @@ inline fun <T> styledJFXChipView(
     configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXChipView<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXChipView<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -102,11 +105,9 @@ inline fun <T> NodeManager.styledJFXChipView(
     configuration: (@LayoutDslMarker JFXChipView<T>).() -> Unit
 ): JFXChipView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXChipView<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXChipView<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

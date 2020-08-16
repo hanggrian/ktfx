@@ -13,6 +13,7 @@ class PredefinedPackageRule : Rule("predefined-package") {
             "ktfx.coroutines",
             "ktfx.layouts",
             "ktfx.listeners",
+            "ktfx.internal",
             "ktfx.controlsfx.coroutines",
             "ktfx.controlsfx.layouts",
             "ktfx.controlsfx.listeners",

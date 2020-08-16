@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Line
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -41,7 +40,9 @@ inline fun line(
     configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Line(centerX, centerY, endX, endY), configuration = configuration)
+    val child = Line(centerX, centerY, endX, endY)
+    child.configuration()
+    return child
 }
 
 /**
@@ -58,7 +59,9 @@ inline fun NodeManager.line(
     configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Line(centerX, centerY, endX, endY), configuration = configuration))
+    val child = Line(centerX, centerY, endX, endY)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -121,10 +124,11 @@ inline fun styledLine(
     configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = Line(centerX, centerY, endX, endY)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -145,10 +149,9 @@ inline fun NodeManager.styledLine(
     configuration: (@LayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Line(centerX, centerY, endX, endY), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = Line(centerX, centerY, endX, endY)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -6,7 +6,6 @@ package ktfx.controlsfx.layouts
 
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.GridView
@@ -37,7 +36,9 @@ inline fun <T> gridView(
     configuration: (@LayoutDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(GridView<T>(items), configuration = configuration)
+    val child = GridView<T>(items)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun <T> NodeManager.gridView(
     configuration: (@LayoutDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(GridView<T>(items), configuration = configuration))
+    val child = GridView<T>(items)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -95,11 +98,11 @@ inline fun <T> styledGridView(
     configuration: (@LayoutDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        GridView<T>(items), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = GridView<T>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -117,11 +120,9 @@ inline fun <T> NodeManager.styledGridView(
     configuration: (@LayoutDslMarker GridView<T>).() -> Unit
 ): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            GridView<T>(items), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = GridView<T>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXSlider
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.Double
@@ -41,7 +40,9 @@ inline fun jfxSlider(
     configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXSlider(min, max, value), configuration = configuration)
+    val child = JFXSlider(min, max, value)
+    child.configuration()
+    return child
 }
 
 /**
@@ -57,7 +58,9 @@ inline fun NodeManager.jfxSlider(
     configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXSlider(min, max, value), configuration = configuration))
+    val child = JFXSlider(min, max, value)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -115,11 +118,11 @@ inline fun styledJFXSlider(
     configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXSlider(min, max, value), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXSlider(min, max, value)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -139,10 +142,9 @@ inline fun NodeManager.styledJFXSlider(
     configuration: (@LayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXSlider(min, max, value), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = JFXSlider(min, max, value)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.ToolBar
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.toolBar(): ToolBar = toolBar() { }
  */
 inline fun toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxToolBar(), configuration = configuration)
+    val child = KtfxToolBar()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): To
  */
 inline fun NodeManager.toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxToolBar(), configuration = configuration))
+    val child = KtfxToolBar()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledToolBar(
     configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxToolBar(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = KtfxToolBar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledToolBar(
     configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxToolBar(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxToolBar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

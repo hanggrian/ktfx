@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
@@ -7,7 +7,6 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -39,7 +38,9 @@ inline fun jfxColorPicker(
     ).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXColorPicker(color), configuration = configuration)
+    val child = JFXColorPicker(color)
+    child.configuration()
+    return child
 }
 
 /**
@@ -56,7 +57,9 @@ inline fun NodeManager.jfxColorPicker(
     ).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXColorPicker(color), configuration = configuration))
+    val child = JFXColorPicker(color)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -100,11 +103,11 @@ inline fun styledJFXColorPicker(
     configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXColorPicker(color), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXColorPicker(color)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -122,11 +125,9 @@ inline fun NodeManager.styledJFXColorPicker(
     configuration: (@LayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXColorPicker(color), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXColorPicker(color)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

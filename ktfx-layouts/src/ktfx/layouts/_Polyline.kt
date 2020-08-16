@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polyline
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.polyline(): Polyline = polyline() { }
  */
 inline fun polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Polyline(), configuration = configuration)
+    val child = Polyline()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Poly
  */
 inline fun NodeManager.polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Polyline(), configuration = configuration))
+    val child = Polyline()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -77,7 +80,11 @@ inline fun styledPolyline(
     configuration: (@LayoutDslMarker Polyline).() -> Unit
 ): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Polyline(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = Polyline()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -94,11 +101,9 @@ inline fun NodeManager.styledPolyline(
     configuration: (@LayoutDslMarker Polyline).() -> Unit
 ): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Polyline(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = Polyline()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

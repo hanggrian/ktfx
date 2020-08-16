@@ -9,7 +9,6 @@ import javafx.collections.ObservableList
 import javafx.scene.chart.Axis
 import javafx.scene.chart.StackedAreaChart
 import javafx.scene.chart.XYChart
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -42,7 +41,9 @@ inline fun <X, Y> stackedAreaChart(
     configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(StackedAreaChart<X, Y>(x, y, data), configuration = configuration)
+    val child = StackedAreaChart<X, Y>(x, y, data)
+    child.configuration()
+    return child
 }
 
 /**
@@ -58,7 +59,9 @@ inline fun <X, Y> NodeManager.stackedAreaChart(
     configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(StackedAreaChart<X, Y>(x, y, data), configuration = configuration))
+    val child = StackedAreaChart<X, Y>(x, y, data)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -118,10 +121,11 @@ inline fun <X, Y> styledStackedAreaChart(
     configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = StackedAreaChart<X, Y>(x, y, data)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -141,10 +145,9 @@ inline fun <X, Y> NodeManager.styledStackedAreaChart(
     configuration: (@LayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            StackedAreaChart<X, Y>(x, y, data), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = StackedAreaChart<X, Y>(x, y, data)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.Rating
@@ -36,7 +35,9 @@ inline fun rating(
     configuration: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Rating(max, rating), configuration = configuration)
+    val child = Rating(max, rating)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun NodeManager.rating(
     configuration: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Rating(max, rating), configuration = configuration))
+    val child = Rating(max, rating)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -98,11 +101,11 @@ inline fun styledRating(
     configuration: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Rating(max, rating), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = Rating(max, rating)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -121,11 +124,9 @@ inline fun NodeManager.styledRating(
     configuration: (@LayoutDslMarker Rating).() -> Unit
 ): Rating {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Rating(max, rating), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = Rating(max, rating)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

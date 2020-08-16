@@ -9,7 +9,7 @@ import java.io.File
 
 object ListenersWriter {
 
-    fun write(factory: ListenersFactory) {
+    fun write(factory: BaseListenersFactory) {
         println("Generating to ${factory.path}:")
         factory.entries.forEach { classEntry ->
             buildFileSpec(factory.packageName, "_${classEntry.generatedName}") {

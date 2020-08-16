@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
@@ -7,7 +7,6 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXComboBox
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -37,7 +36,9 @@ inline fun <T> jfxComboBox(
     configuration: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXComboBox<T>(items), configuration = configuration)
+    val child = JFXComboBox<T>(items)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun <T> NodeManager.jfxComboBox(
     configuration: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXComboBox<T>(items), configuration = configuration))
+    val child = JFXComboBox<T>(items)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -95,11 +98,11 @@ inline fun <T> styledJFXComboBox(
     configuration: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXComboBox<T>(items), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXComboBox<T>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -117,11 +120,9 @@ inline fun <T> NodeManager.styledJFXComboBox(
     configuration: (@LayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXComboBox<T>(items), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXComboBox<T>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

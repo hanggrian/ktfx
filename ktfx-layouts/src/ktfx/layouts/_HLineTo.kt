@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.HLineTo
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun PathElementManager.hlineTo(x: Double = 0.0): HLineTo = hlineTo(x = x) { }
  */
 inline fun hlineTo(x: Double = 0.0, configuration: (@LayoutDslMarker HLineTo).() -> Unit): HLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(HLineTo(x), configuration = configuration)
+    val child = HLineTo(x)
+    child.configuration()
+    return child
 }
 
 /**
@@ -46,5 +47,7 @@ inline fun PathElementManager.hlineTo(
     ).() -> Unit
 ): HLineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(HLineTo(x), configuration = configuration))
+    val child = HLineTo(x)
+    child.configuration()
+    return addChild(child)
 }

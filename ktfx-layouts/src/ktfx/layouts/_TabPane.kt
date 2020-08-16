@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.TabPane
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.tabPane(): TabPane = tabPane() { }
  */
 inline fun tabPane(configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTabPane(), configuration = configuration)
+    val child = KtfxTabPane()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun tabPane(configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit): Ta
  */
 inline fun NodeManager.tabPane(configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxTabPane(), configuration = configuration))
+    val child = KtfxTabPane()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledTabPane(
     configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxTabPane(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = KtfxTabPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledTabPane(
     configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxTabPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxTabPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

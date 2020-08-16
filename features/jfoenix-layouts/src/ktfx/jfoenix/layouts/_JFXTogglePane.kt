@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTogglePane
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -32,7 +31,9 @@ fun NodeManager.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
 inline fun jfxTogglePane(configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit):
     JFXTogglePane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxJFXTogglePane(), configuration = configuration)
+        val child = KtfxJFXTogglePane()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.jfxTogglePane(
     Unit
 ): JFXTogglePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxJFXTogglePane(), configuration = configuration))
+    val child = KtfxJFXTogglePane()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledJFXTogglePane(
     configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXTogglePane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxJFXTogglePane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun NodeManager.styledJFXTogglePane(
     configuration: (@LayoutDslMarker KtfxJFXTogglePane).() -> Unit
 ): JFXTogglePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXTogglePane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxJFXTogglePane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

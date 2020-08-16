@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.SegmentedButton
@@ -32,7 +31,9 @@ fun NodeManager.segmentedButton(): SegmentedButton = segmentedButton() { }
 inline fun segmentedButton(configuration: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit):
     SegmentedButton {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxSegmentedButton(), configuration = configuration)
+        val child = KtfxSegmentedButton()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.segmentedButton(
     Unit
 ): SegmentedButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxSegmentedButton(), configuration = configuration))
+    val child = KtfxSegmentedButton()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledSegmentedButton(
     configuration: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxSegmentedButton(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxSegmentedButton()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun NodeManager.styledSegmentedButton(
     configuration: (@LayoutDslMarker KtfxSegmentedButton).() -> Unit
 ): SegmentedButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxSegmentedButton(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxSegmentedButton()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

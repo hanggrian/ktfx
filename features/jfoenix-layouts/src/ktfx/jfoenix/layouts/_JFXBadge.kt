@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXBadge
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -31,7 +30,9 @@ fun NodeManager.jfxBadge(): JFXBadge = jfxBadge() { }
  */
 inline fun jfxBadge(configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit): JFXBadge {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxJFXBadge(), configuration = configuration)
+    val child = KtfxJFXBadge()
+    child.configuration()
+    return child
 }
 
 /**
@@ -43,7 +44,9 @@ inline fun jfxBadge(configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit): 
 inline fun NodeManager.jfxBadge(configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit):
     JFXBadge {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxJFXBadge(), configuration = configuration))
+        val child = KtfxJFXBadge()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -80,11 +83,11 @@ inline fun styledJFXBadge(
     configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxJFXBadge(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxJFXBadge()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -101,11 +104,9 @@ inline fun NodeManager.styledJFXBadge(
     configuration: (@LayoutDslMarker KtfxJFXBadge).() -> Unit
 ): JFXBadge {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxJFXBadge(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxJFXBadge()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

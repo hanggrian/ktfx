@@ -14,7 +14,7 @@ object StringsWriter {
             indentSize = 4
             annotations {
                 add<JvmMultifileClass>()
-                JvmName::class { addMember("%S", "StringBindingKt") }
+                JvmName::class { addMember("%S", "StringValueBindingKt") }
                 Suppress::class { addMember("%S", "NOTHING_TO_INLINE") }
             }
             functions {
@@ -26,7 +26,7 @@ object StringsWriter {
                         returns = it.returnType
                         parameters { it.parameters.forEach(::plusAssign) }
                         appendLine {
-                            append("return to${it.type}Binding { ")
+                            append("return as${it.type} { ")
                             append(
                                 when {
                                     it.notNull -> "checkNotNull(it) { \"String value is null\" }"

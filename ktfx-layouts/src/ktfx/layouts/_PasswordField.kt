@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.PasswordField
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -30,7 +29,9 @@ fun NodeManager.passwordField(): PasswordField = passwordField() { }
 inline fun passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
     PasswordField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(PasswordField(), configuration = configuration)
+        val child = PasswordField()
+        child.configuration()
+        return child
     }
 
 /**
@@ -42,7 +43,9 @@ inline fun passwordField(configuration: (@LayoutDslMarker PasswordField).() -> U
 inline fun NodeManager.passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
     PasswordField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(PasswordField(), configuration = configuration))
+        val child = PasswordField()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -79,11 +82,11 @@ inline fun styledPasswordField(
     configuration: (@LayoutDslMarker PasswordField).() -> Unit
 ): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        PasswordField(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = PasswordField()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -100,11 +103,9 @@ inline fun NodeManager.styledPasswordField(
     configuration: (@LayoutDslMarker PasswordField).() -> Unit
 ): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            PasswordField(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = PasswordField()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

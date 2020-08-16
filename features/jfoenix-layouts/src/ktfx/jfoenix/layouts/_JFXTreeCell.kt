@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTreeCell
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -32,7 +31,9 @@ fun <T> NodeManager.jfxTreeCell(): JFXTreeCell<T> = jfxTreeCell() { }
 inline fun <T> jfxTreeCell(configuration: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit):
     JFXTreeCell<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(JFXTreeCell<T>(), configuration = configuration)
+        val child = JFXTreeCell<T>()
+        child.configuration()
+        return child
     }
 
 /**
@@ -44,7 +45,9 @@ inline fun <T> jfxTreeCell(configuration: (@LayoutDslMarker JFXTreeCell<T>).() -
 inline fun <T> NodeManager.jfxTreeCell(configuration: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit):
     JFXTreeCell<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(JFXTreeCell<T>(), configuration = configuration))
+        val child = JFXTreeCell<T>()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -81,11 +84,11 @@ inline fun <T> styledJFXTreeCell(
     configuration: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXTreeCell<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXTreeCell<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -102,11 +105,9 @@ inline fun <T> NodeManager.styledJFXTreeCell(
     configuration: (@LayoutDslMarker JFXTreeCell<T>).() -> Unit
 ): JFXTreeCell<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXTreeCell<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXTreeCell<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

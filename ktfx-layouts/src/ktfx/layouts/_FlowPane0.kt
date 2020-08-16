@@ -7,7 +7,6 @@ package ktfx.layouts
 import javafx.geometry.Orientation
 import javafx.geometry.Orientation.HORIZONTAL
 import javafx.scene.layout.FlowPane
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -41,7 +40,9 @@ inline fun flowPane(
     configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxFlowPane(orientation, hgap, vgap), configuration = configuration)
+    val child = KtfxFlowPane(orientation, hgap, vgap)
+    child.configuration()
+    return child
 }
 
 /**
@@ -57,7 +58,9 @@ inline fun NodeManager.flowPane(
     configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxFlowPane(orientation, hgap, vgap), configuration = configuration))
+    val child = KtfxFlowPane(orientation, hgap, vgap)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -117,10 +120,11 @@ inline fun styledFlowPane(
     configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxFlowPane(orientation, hgap, vgap), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = KtfxFlowPane(orientation, hgap, vgap)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -140,12 +144,9 @@ inline fun NodeManager.styledFlowPane(
     configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxFlowPane(orientation, hgap, vgap), styleClass = *styleClass,
-            id =
-                id,
-            configuration = configuration
-        )
-    )
+    val child = KtfxFlowPane(orientation, hgap, vgap)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

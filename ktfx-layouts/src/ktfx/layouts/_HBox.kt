@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.layout.HBox
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -31,7 +30,9 @@ fun NodeManager.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
 inline fun hbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxHBox).() -> Unit):
     HBox {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxHBox(spacing), configuration = configuration)
+        val child = KtfxHBox(spacing)
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.hbox(
     Unit
 ): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxHBox(spacing), configuration = configuration))
+    val child = KtfxHBox(spacing)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -90,11 +93,11 @@ inline fun styledHBox(
     configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxHBox(spacing), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxHBox(spacing)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -112,11 +115,9 @@ inline fun NodeManager.styledHBox(
     configuration: (@LayoutDslMarker KtfxHBox).() -> Unit
 ): HBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxHBox(spacing), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxHBox(spacing)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

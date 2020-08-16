@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.Group
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.group(): Group = group() { }
  */
 inline fun group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxGroup(), configuration = configuration)
+    val child = KtfxGroup()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group 
  */
 inline fun NodeManager.group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxGroup(), configuration = configuration))
+    val child = KtfxGroup()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledGroup(
     configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxGroup(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = KtfxGroup()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledGroup(
     configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxGroup(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxGroup()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

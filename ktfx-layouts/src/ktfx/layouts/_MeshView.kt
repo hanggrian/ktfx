@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.shape.Mesh
 import javafx.scene.shape.MeshView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -31,7 +30,9 @@ fun NodeManager.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) {
 inline fun meshView(mesh: Mesh? = null, configuration: (@LayoutDslMarker MeshView).() -> Unit):
     MeshView {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(MeshView(mesh), configuration = configuration)
+        val child = MeshView(mesh)
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.meshView(
     Unit
 ): MeshView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(MeshView(mesh), configuration = configuration))
+    val child = MeshView(mesh)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -90,11 +93,11 @@ inline fun styledMeshView(
     configuration: (@LayoutDslMarker MeshView).() -> Unit
 ): MeshView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        MeshView(mesh), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = MeshView(mesh)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -112,11 +115,9 @@ inline fun NodeManager.styledMeshView(
     configuration: (@LayoutDslMarker MeshView).() -> Unit
 ): MeshView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            MeshView(mesh), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = MeshView(mesh)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

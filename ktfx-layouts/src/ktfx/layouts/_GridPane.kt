@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.layout.GridPane
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.gridPane(): GridPane = gridPane() { }
  */
 inline fun gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxGridPane(), configuration = configuration)
+    val child = KtfxGridPane()
+    child.configuration()
+    return child
 }
 
 /**
@@ -41,7 +42,9 @@ inline fun gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit): 
 inline fun NodeManager.gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit):
     GridPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxGridPane(), configuration = configuration))
+        val child = KtfxGridPane()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -78,11 +81,11 @@ inline fun styledGridPane(
     configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxGridPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxGridPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -99,11 +102,9 @@ inline fun NodeManager.styledGridPane(
     configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxGridPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxGridPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

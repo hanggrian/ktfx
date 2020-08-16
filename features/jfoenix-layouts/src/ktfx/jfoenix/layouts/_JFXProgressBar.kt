@@ -1,12 +1,11 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.Double
@@ -37,7 +36,9 @@ inline fun jfxProgressBar(
     configuration: (@LayoutDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXProgressBar(progress), configuration = configuration)
+    val child = JFXProgressBar(progress)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun NodeManager.jfxProgressBar(
     configuration: (@LayoutDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXProgressBar(progress), configuration = configuration))
+    val child = JFXProgressBar(progress)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -95,11 +98,11 @@ inline fun styledJFXProgressBar(
     configuration: (@LayoutDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXProgressBar(progress), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXProgressBar(progress)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -117,10 +120,9 @@ inline fun NodeManager.styledJFXProgressBar(
     configuration: (@LayoutDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXProgressBar(progress), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = JFXProgressBar(progress)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.ButtonBar
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -38,7 +37,9 @@ inline fun buttonBar(
     ).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxButtonBar(buttonOrder), configuration = configuration)
+    val child = KtfxButtonBar(buttonOrder)
+    child.configuration()
+    return child
 }
 
 /**
@@ -55,7 +56,9 @@ inline fun NodeManager.buttonBar(
     ).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxButtonBar(buttonOrder), configuration = configuration))
+    val child = KtfxButtonBar(buttonOrder)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -99,11 +102,11 @@ inline fun styledButtonBar(
     configuration: (@LayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxButtonBar(buttonOrder), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxButtonBar(buttonOrder)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -121,10 +124,9 @@ inline fun NodeManager.styledButtonBar(
     configuration: (@LayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxButtonBar(buttonOrder), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = KtfxButtonBar(buttonOrder)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

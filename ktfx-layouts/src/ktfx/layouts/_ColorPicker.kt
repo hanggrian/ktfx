@@ -7,7 +7,6 @@ package ktfx.layouts
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
 import javafx.scene.paint.Color.WHITE
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -35,7 +34,9 @@ inline fun colorPicker(
     Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ColorPicker(color), configuration = configuration)
+    val child = ColorPicker(color)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun NodeManager.colorPicker(
     ).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ColorPicker(color), configuration = configuration))
+    val child = ColorPicker(color)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -96,11 +99,11 @@ inline fun styledColorPicker(
     configuration: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ColorPicker(color), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ColorPicker(color)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -118,11 +121,9 @@ inline fun NodeManager.styledColorPicker(
     configuration: (@LayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ColorPicker(color), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = ColorPicker(color)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

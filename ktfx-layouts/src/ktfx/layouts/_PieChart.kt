@@ -7,7 +7,6 @@ package ktfx.layouts
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.chart.PieChart
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -35,7 +34,9 @@ inline fun pieChart(
     configuration: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PieChart(data), configuration = configuration)
+    val child = PieChart(data)
+    child.configuration()
+    return child
 }
 
 /**
@@ -49,7 +50,9 @@ inline fun NodeManager.pieChart(
     configuration: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PieChart(data), configuration = configuration))
+    val child = PieChart(data)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -93,11 +96,11 @@ inline fun styledPieChart(
     configuration: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        PieChart(data), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = PieChart(data)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -115,11 +118,9 @@ inline fun NodeManager.styledPieChart(
     configuration: (@LayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            PieChart(data), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = PieChart(data)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

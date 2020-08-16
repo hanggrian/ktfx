@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Arc
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -50,11 +49,9 @@ inline fun arc(
     configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
-        configuration =
-            configuration
-    )
+    val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
+    child.configuration()
+    return child
 }
 
 /**
@@ -73,12 +70,9 @@ inline fun NodeManager.arc(
     configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
-            configuration = configuration
-        )
-    )
+    val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -143,12 +137,11 @@ inline fun styledArc(
     configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
-        styleClass =
-            *styleClass,
-        id = id, configuration = configuration
-    )
+    val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -171,12 +164,9 @@ inline fun NodeManager.styledArc(
     configuration: (@LayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Arc(centerX, centerY, radiusX, radiusY, startAngle, length),
-            styleClass =
-                *styleClass,
-            id = id, configuration = configuration
-        )
-    )
+    val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

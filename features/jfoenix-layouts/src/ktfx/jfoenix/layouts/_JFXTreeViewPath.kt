@@ -1,12 +1,11 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTreeViewPath
 import javafx.scene.control.TreeView
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -39,7 +38,9 @@ inline fun jfxTreeViewPath(
     ).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXTreeViewPath(treeView), configuration = configuration)
+    val child = JFXTreeViewPath(treeView)
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun NodeManager.jfxTreeViewPath(
     configuration: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXTreeViewPath(treeView), configuration = configuration))
+    val child = JFXTreeViewPath(treeView)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -99,11 +102,11 @@ inline fun styledJFXTreeViewPath(
     configuration: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXTreeViewPath(treeView), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXTreeViewPath(treeView)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -121,10 +124,9 @@ inline fun NodeManager.styledJFXTreeViewPath(
     configuration: (@LayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXTreeViewPath(treeView), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = JFXTreeViewPath(treeView)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

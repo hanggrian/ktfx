@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.shape.Box
 import javafx.scene.shape.Box.DEFAULT_SIZE
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -40,7 +39,9 @@ inline fun box(
     configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Box(width, height, depth), configuration = configuration)
+    val child = Box(width, height, depth)
+    child.configuration()
+    return child
 }
 
 /**
@@ -56,7 +57,9 @@ inline fun NodeManager.box(
     configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Box(width, height, depth), configuration = configuration))
+    val child = Box(width, height, depth)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -106,11 +109,11 @@ inline fun styledBox(
     configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Box(width, height, depth), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = Box(width, height, depth)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -130,10 +133,9 @@ inline fun NodeManager.styledBox(
     configuration: (@LayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Box(width, height, depth), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = Box(width, height, depth)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

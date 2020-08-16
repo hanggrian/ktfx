@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.SplitPane
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.splitPane(): SplitPane = splitPane() { }
  */
 inline fun splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxSplitPane(), configuration = configuration)
+    val child = KtfxSplitPane()
+    child.configuration()
+    return child
 }
 
 /**
@@ -41,7 +42,9 @@ inline fun splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit)
 inline fun NodeManager.splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit):
     SplitPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(KtfxSplitPane(), configuration = configuration))
+        val child = KtfxSplitPane()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -78,11 +81,11 @@ inline fun styledSplitPane(
     configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxSplitPane(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxSplitPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -99,11 +102,9 @@ inline fun NodeManager.styledSplitPane(
     configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxSplitPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxSplitPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.MaskerPane
@@ -31,7 +30,9 @@ fun NodeManager.maskerPane(): MaskerPane = maskerPane() { }
  */
 inline fun maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit): MaskerPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(MaskerPane(), configuration = configuration)
+    val child = MaskerPane()
+    child.configuration()
+    return child
 }
 
 /**
@@ -43,7 +44,9 @@ inline fun maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit): 
 inline fun NodeManager.maskerPane(configuration: (@LayoutDslMarker MaskerPane).() -> Unit):
     MaskerPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(MaskerPane(), configuration = configuration))
+        val child = MaskerPane()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledMaskerPane(
     configuration: (@LayoutDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(MaskerPane(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = MaskerPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledMaskerPane(
     configuration: (@LayoutDslMarker MaskerPane).() -> Unit
 ): MaskerPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            MaskerPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = MaskerPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

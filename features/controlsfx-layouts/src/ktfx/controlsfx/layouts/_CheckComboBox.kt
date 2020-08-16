@@ -6,7 +6,6 @@ package ktfx.controlsfx.layouts
 
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.CheckComboBox
@@ -37,7 +36,9 @@ inline fun <T> checkComboBox(
     configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CheckComboBox<T>(items), configuration = configuration)
+    val child = CheckComboBox<T>(items)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun <T> NodeManager.checkComboBox(
     configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CheckComboBox<T>(items), configuration = configuration))
+    val child = CheckComboBox<T>(items)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -95,11 +98,11 @@ inline fun <T> styledCheckComboBox(
     configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CheckComboBox<T>(items), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = CheckComboBox<T>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -117,10 +120,9 @@ inline fun <T> NodeManager.styledCheckComboBox(
     configuration: (@LayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CheckComboBox<T>(items), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = CheckComboBox<T>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

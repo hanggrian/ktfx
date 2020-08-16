@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Polygon
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.polygon(): Polygon = polygon() { }
  */
 inline fun polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Polygon(), configuration = configuration)
+    val child = Polygon()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygo
  */
 inline fun NodeManager.polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Polygon(), configuration = configuration))
+    val child = Polygon()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledPolygon(
     configuration: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Polygon(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = Polygon()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledPolygon(
     configuration: (@LayoutDslMarker Polygon).() -> Unit
 ): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Polygon(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = Polygon()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

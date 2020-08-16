@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CheckMenuItem
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -35,7 +34,9 @@ inline fun checkMenuItem(
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CheckMenuItem(text, graphic), configuration = configuration)
+    val child = CheckMenuItem(text, graphic)
+    child.configuration()
+    return child
 }
 
 /**
@@ -50,7 +51,9 @@ inline fun MenuItemManager.checkMenuItem(
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CheckMenuItem(text, graphic), configuration = configuration))
+    val child = CheckMenuItem(text, graphic)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -105,11 +108,11 @@ inline fun styledCheckMenuItem(
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CheckMenuItem(text, graphic), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = CheckMenuItem(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -128,10 +131,9 @@ inline fun MenuItemManager.styledCheckMenuItem(
     configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CheckMenuItem(text, graphic), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = CheckMenuItem(text, graphic)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

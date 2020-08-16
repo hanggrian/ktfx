@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.HyperlinkLabel
@@ -38,7 +37,9 @@ inline fun hyperlinkLabel(
     ).() -> Unit
 ): HyperlinkLabel {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(HyperlinkLabel(text), configuration = configuration)
+    val child = HyperlinkLabel(text)
+    child.configuration()
+    return child
 }
 
 /**
@@ -55,7 +56,9 @@ inline fun NodeManager.hyperlinkLabel(
     ).() -> Unit
 ): HyperlinkLabel {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(HyperlinkLabel(text), configuration = configuration))
+    val child = HyperlinkLabel(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -99,11 +102,11 @@ inline fun styledHyperlinkLabel(
     configuration: (@LayoutDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        HyperlinkLabel(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = HyperlinkLabel(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -121,11 +124,9 @@ inline fun NodeManager.styledHyperlinkLabel(
     configuration: (@LayoutDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            HyperlinkLabel(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = HyperlinkLabel(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

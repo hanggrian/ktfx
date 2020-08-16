@@ -31,5 +31,12 @@ data class ListenersFunctionEntry(
     val parameters: List<ParameterSpec>
 ) {
 
-    val simpleFunctionName = functionName.replace("setOn", "on")
+    val simpleFunctionName: String
+        get() = when {
+            functionName.startsWith("set") -> {
+                val s = functionName.substringAfter("set")
+                s.first().toLowerCase() + s.drop(1)
+            }
+            else -> functionName
+        }
 }

@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.PrefixSelectionChoiceBox
@@ -37,7 +36,9 @@ inline fun <T> prefixSelectionChoiceBox(
     ).() -> Unit
 ): PrefixSelectionChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PrefixSelectionChoiceBox<T>(), configuration = configuration)
+    val child = PrefixSelectionChoiceBox<T>()
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun <T> NodeManager.prefixSelectionChoiceBox(
     ).() -> Unit
 ): PrefixSelectionChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PrefixSelectionChoiceBox<T>(), configuration = configuration))
+    val child = PrefixSelectionChoiceBox<T>()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -98,11 +101,11 @@ inline fun <T> styledPrefixSelectionChoiceBox(
     configuration: (@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
 ): PrefixSelectionChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        PrefixSelectionChoiceBox<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = PrefixSelectionChoiceBox<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -119,10 +122,9 @@ inline fun <T> NodeManager.styledPrefixSelectionChoiceBox(
     configuration: (@LayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
 ): PrefixSelectionChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            PrefixSelectionChoiceBox<T>(), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = PrefixSelectionChoiceBox<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurve
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -48,11 +47,9 @@ inline fun quadCurve(
     configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        QuadCurve(startX, startY, controlX, controlY, endX, endY),
-        configuration =
-            configuration
-    )
+    val child = QuadCurve(startX, startY, controlX, controlY, endX, endY)
+    child.configuration()
+    return child
 }
 
 /**
@@ -71,12 +68,9 @@ inline fun NodeManager.quadCurve(
     configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            QuadCurve(startX, startY, controlX, controlY, endX, endY),
-            configuration = configuration
-        )
-    )
+    val child = QuadCurve(startX, startY, controlX, controlY, endX, endY)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -145,12 +139,11 @@ inline fun styledQuadCurve(
     configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        QuadCurve(startX, startY, controlX, controlY, endX, endY),
-        styleClass =
-            *styleClass,
-        id = id, configuration = configuration
-    )
+    val child = QuadCurve(startX, startY, controlX, controlY, endX, endY)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -173,12 +166,9 @@ inline fun NodeManager.styledQuadCurve(
     configuration: (@LayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            QuadCurve(startX, startY, controlX, controlY, endX, endY),
-            styleClass =
-                *styleClass,
-            id = id, configuration = configuration
-        )
-    )
+    val child = QuadCurve(startX, startY, controlX, controlY, endX, endY)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

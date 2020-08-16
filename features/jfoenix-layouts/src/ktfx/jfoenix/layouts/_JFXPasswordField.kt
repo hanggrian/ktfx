@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXPasswordField
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -32,7 +31,9 @@ fun NodeManager.jfxPasswordField(): JFXPasswordField = jfxPasswordField() { }
 inline fun jfxPasswordField(configuration: (@LayoutDslMarker JFXPasswordField).() -> Unit):
     JFXPasswordField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(JFXPasswordField(), configuration = configuration)
+        val child = JFXPasswordField()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.jfxPasswordField(
     Unit
 ): JFXPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXPasswordField(), configuration = configuration))
+    val child = JFXPasswordField()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledJFXPasswordField(
     configuration: (@LayoutDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXPasswordField(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXPasswordField()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun NodeManager.styledJFXPasswordField(
     configuration: (@LayoutDslMarker JFXPasswordField).() -> Unit
 ): JFXPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXPasswordField(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXPasswordField()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

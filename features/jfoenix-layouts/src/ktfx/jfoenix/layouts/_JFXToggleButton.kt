@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXToggleButton
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import ktfx.layouts.ToggleButtonManager
@@ -40,7 +39,9 @@ fun ToggleButtonManager.jfxToggleButton(): JFXToggleButton = jfxToggleButton() {
 inline fun jfxToggleButton(configuration: (@LayoutDslMarker JFXToggleButton).() -> Unit):
     JFXToggleButton {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(JFXToggleButton(), configuration = configuration)
+        val child = JFXToggleButton()
+        child.configuration()
+        return child
     }
 
 /**
@@ -54,7 +55,9 @@ inline fun NodeManager.jfxToggleButton(
     Unit
 ): JFXToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXToggleButton(), configuration = configuration))
+    val child = JFXToggleButton()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -70,7 +73,9 @@ inline fun ToggleButtonManager.jfxToggleButton(
     ).() -> Unit
 ): JFXToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXToggleButton(), configuration = configuration))
+    val child = JFXToggleButton()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -117,11 +122,11 @@ inline fun styledJFXToggleButton(
     configuration: (@LayoutDslMarker JFXToggleButton).() -> Unit
 ): JFXToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXToggleButton(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXToggleButton()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -138,13 +143,11 @@ inline fun NodeManager.styledJFXToggleButton(
     configuration: (@LayoutDslMarker JFXToggleButton).() -> Unit
 ): JFXToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXToggleButton(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXToggleButton()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -161,11 +164,9 @@ inline fun ToggleButtonManager.styledJFXToggleButton(
     configuration: (@LayoutDslMarker JFXToggleButton).() -> Unit
 ): JFXToggleButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXToggleButton(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXToggleButton()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.LineTo
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -33,7 +32,9 @@ inline fun lineTo(
     configuration: (@LayoutDslMarker LineTo).() -> Unit
 ): LineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(LineTo(x, y), configuration = configuration)
+    val child = LineTo(x, y)
+    child.configuration()
+    return child
 }
 
 /**
@@ -48,5 +49,7 @@ inline fun PathElementManager.lineTo(
     configuration: (@LayoutDslMarker LineTo).() -> Unit
 ): LineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(LineTo(x, y), configuration = configuration))
+    val child = LineTo(x, y)
+    child.configuration()
+    return addChild(child)
 }

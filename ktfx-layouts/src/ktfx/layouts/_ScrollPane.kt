@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.ScrollPane
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -34,7 +33,9 @@ inline fun scrollPane(
     Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxScrollPane(content), configuration = configuration)
+    val child = KtfxScrollPane(content)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun NodeManager.scrollPane(
     ).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxScrollPane(content), configuration = configuration))
+    val child = KtfxScrollPane(content)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -95,11 +98,11 @@ inline fun styledScrollPane(
     configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxScrollPane(content), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxScrollPane(content)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -117,10 +120,9 @@ inline fun NodeManager.styledScrollPane(
     configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxScrollPane(content), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = KtfxScrollPane(content)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

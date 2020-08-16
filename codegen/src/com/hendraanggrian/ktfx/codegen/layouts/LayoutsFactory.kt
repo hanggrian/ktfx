@@ -16,17 +16,12 @@ import javafx.scene.paint.Color
 import java.time.LocalDate
 import kotlin.reflect.KClass
 
-abstract class LayoutsFactory(
+open class LayoutsFactory(
     val path: String,
     val packageName: String,
     val className: String
 ) {
     companion object {
-        val T = "T".typeVarOf()
-        val S = "S".typeVarOf()
-        val X = "X".typeVarOf()
-        val Y = "Y".typeVarOf()
-
         fun ParameterSpecListScope.text() = "text"(String::class.asNullable()) { defaultValue("null") }
         fun ParameterSpecListScope.graphic() = "graphic"(Node::class.asNullable()) { defaultValue("null") }
         fun ParameterSpecListScope.content() = "content"(Node::class.asNullable()) { defaultValue("null") }

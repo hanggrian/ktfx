@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.CheckBox
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -30,7 +29,9 @@ fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text)
 inline fun checkBox(text: String? = null, configuration: (@LayoutDslMarker CheckBox).() -> Unit):
     CheckBox {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(CheckBox(text), configuration = configuration)
+        val child = CheckBox(text)
+        child.configuration()
+        return child
     }
 
 /**
@@ -47,7 +48,9 @@ inline fun NodeManager.checkBox(
     ).() -> Unit
 ): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CheckBox(text), configuration = configuration))
+    val child = CheckBox(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -91,11 +94,11 @@ inline fun styledCheckBox(
     configuration: (@LayoutDslMarker CheckBox).() -> Unit
 ): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CheckBox(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = CheckBox(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -113,11 +116,9 @@ inline fun NodeManager.styledCheckBox(
     configuration: (@LayoutDslMarker CheckBox).() -> Unit
 ): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CheckBox(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = CheckBox(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

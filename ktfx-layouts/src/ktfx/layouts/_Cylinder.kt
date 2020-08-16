@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Cylinder
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Int
 import kotlin.String
@@ -40,7 +39,9 @@ inline fun cylinder(
     configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Cylinder(radius, height, division), configuration = configuration)
+    val child = Cylinder(radius, height, division)
+    child.configuration()
+    return child
 }
 
 /**
@@ -56,7 +57,9 @@ inline fun NodeManager.cylinder(
     configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Cylinder(radius, height, division), configuration = configuration))
+    val child = Cylinder(radius, height, division)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -116,10 +119,11 @@ inline fun styledCylinder(
     configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Cylinder(radius, height, division), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = Cylinder(radius, height, division)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -139,10 +143,9 @@ inline fun NodeManager.styledCylinder(
     configuration: (@LayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Cylinder(radius, height, division), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = Cylinder(radius, height, division)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

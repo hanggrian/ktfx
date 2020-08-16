@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.StatusBar
@@ -31,7 +30,9 @@ fun NodeManager.statusBar(): StatusBar = statusBar() { }
  */
 inline fun statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit): StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(StatusBar(), configuration = configuration)
+    val child = StatusBar()
+    child.configuration()
+    return child
 }
 
 /**
@@ -43,7 +44,9 @@ inline fun statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit): St
 inline fun NodeManager.statusBar(configuration: (@LayoutDslMarker StatusBar).() -> Unit):
     StatusBar {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(StatusBar(), configuration = configuration))
+        val child = StatusBar()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledStatusBar(
     configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(StatusBar(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = StatusBar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledStatusBar(
     configuration: (@LayoutDslMarker StatusBar).() -> Unit
 ): StatusBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            StatusBar(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = StatusBar()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

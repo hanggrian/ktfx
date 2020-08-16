@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
@@ -7,7 +7,6 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXDecorator
 import javafx.scene.Node
 import javafx.stage.Stage
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.Boolean
@@ -51,7 +50,9 @@ inline fun jfxDecorator(
     configuration: (@LayoutDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXDecorator(stage, node, fullScreen, max, min), configuration = configuration)
+    val child = JFXDecorator(stage, node, fullScreen, max, min)
+    child.configuration()
+    return child
 }
 
 /**
@@ -69,13 +70,9 @@ inline fun NodeManager.jfxDecorator(
     configuration: (@LayoutDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXDecorator(stage, node, fullScreen, max, min),
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXDecorator(stage, node, fullScreen, max, min)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -137,12 +134,11 @@ inline fun styledJFXDecorator(
     configuration: (@LayoutDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXDecorator(stage, node, fullScreen, max, min), styleClass = *styleClass,
-        id =
-            id,
-        configuration = configuration
-    )
+    val child = JFXDecorator(stage, node, fullScreen, max, min)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -164,12 +160,9 @@ inline fun NodeManager.styledJFXDecorator(
     configuration: (@LayoutDslMarker JFXDecorator).() -> Unit
 ): JFXDecorator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXDecorator(stage, node, fullScreen, max, min),
-            styleClass =
-                *styleClass,
-            id = id, configuration = configuration
-        )
-    )
+    val child = JFXDecorator(stage, node, fullScreen, max, min)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

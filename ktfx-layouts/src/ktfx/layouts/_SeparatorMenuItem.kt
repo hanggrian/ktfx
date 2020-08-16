@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.SeparatorMenuItem
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -30,7 +29,9 @@ fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem()
 inline fun separatorMenuItem(configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit):
     SeparatorMenuItem {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(SeparatorMenuItem(), configuration = configuration)
+        val child = SeparatorMenuItem()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun MenuItemManager.separatorMenuItem(
     ).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(SeparatorMenuItem(), configuration = configuration))
+    val child = SeparatorMenuItem()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledSeparatorMenuItem(
     configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        SeparatorMenuItem(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = SeparatorMenuItem()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun MenuItemManager.styledSeparatorMenuItem(
     configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            SeparatorMenuItem(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = SeparatorMenuItem()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

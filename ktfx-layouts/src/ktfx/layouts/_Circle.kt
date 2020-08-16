@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.paint.Paint
 import javafx.scene.shape.Circle
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -42,7 +41,9 @@ inline fun circle(
     configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Circle(centerX, centerY, radius, fill), configuration = configuration)
+    val child = Circle(centerX, centerY, radius, fill)
+    child.configuration()
+    return child
 }
 
 /**
@@ -59,7 +60,9 @@ inline fun NodeManager.circle(
     configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Circle(centerX, centerY, radius, fill), configuration = configuration))
+    val child = Circle(centerX, centerY, radius, fill)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -118,10 +121,11 @@ inline fun styledCircle(
     configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Circle(centerX, centerY, radius, fill), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = Circle(centerX, centerY, radius, fill)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -142,12 +146,9 @@ inline fun NodeManager.styledCircle(
     configuration: (@LayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Circle(centerX, centerY, radius, fill), styleClass = *styleClass,
-            id =
-                id,
-            configuration = configuration
-        )
-    )
+    val child = Circle(centerX, centerY, radius, fill)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

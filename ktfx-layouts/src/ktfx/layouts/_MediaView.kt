@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.media.MediaPlayer
 import javafx.scene.media.MediaView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -39,7 +38,9 @@ inline fun mediaView(
     ).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(MediaView(mediaPlayer), configuration = configuration)
+    val child = MediaView(mediaPlayer)
+    child.configuration()
+    return child
 }
 
 /**
@@ -56,7 +57,9 @@ inline fun NodeManager.mediaView(
     ).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(MediaView(mediaPlayer), configuration = configuration))
+    val child = MediaView(mediaPlayer)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -100,11 +103,11 @@ inline fun styledMediaView(
     configuration: (@LayoutDslMarker MediaView).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        MediaView(mediaPlayer), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = MediaView(mediaPlayer)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -122,10 +125,9 @@ inline fun NodeManager.styledMediaView(
     configuration: (@LayoutDslMarker MediaView).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            MediaView(mediaPlayer), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = MediaView(mediaPlayer)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

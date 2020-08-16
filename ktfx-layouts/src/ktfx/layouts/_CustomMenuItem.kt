@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.Node
 import javafx.scene.control.CustomMenuItem
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Boolean
 import kotlin.String
 import kotlin.Unit
@@ -36,7 +35,9 @@ inline fun customMenuItem(
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(CustomMenuItem(content, hideOnClick), configuration = configuration)
+    val child = CustomMenuItem(content, hideOnClick)
+    child.configuration()
+    return child
 }
 
 /**
@@ -51,7 +52,9 @@ inline fun MenuItemManager.customMenuItem(
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CustomMenuItem(content, hideOnClick), configuration = configuration))
+    val child = CustomMenuItem(content, hideOnClick)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -108,10 +111,11 @@ inline fun styledCustomMenuItem(
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CustomMenuItem(content, hideOnClick), styleClass = *styleClass, id = id,
-        configuration = configuration
-    )
+    val child = CustomMenuItem(content, hideOnClick)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -130,12 +134,9 @@ inline fun MenuItemManager.styledCustomMenuItem(
     configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CustomMenuItem(content, hideOnClick), styleClass = *styleClass,
-            id =
-                id,
-            configuration = configuration
-        )
-    )
+    val child = CustomMenuItem(content, hideOnClick)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

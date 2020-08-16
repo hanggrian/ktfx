@@ -5,7 +5,6 @@
 package ktfx.controlsfx.layouts
 
 import javafx.collections.ObservableList
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.PropertySheet
@@ -36,7 +35,9 @@ inline fun propertySheet(
     configuration: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(PropertySheet(items), configuration = configuration)
+    val child = PropertySheet(items)
+    child.configuration()
+    return child
 }
 
 /**
@@ -50,7 +51,9 @@ inline fun NodeManager.propertySheet(
     configuration: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(PropertySheet(items), configuration = configuration))
+    val child = PropertySheet(items)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -94,11 +97,11 @@ inline fun styledPropertySheet(
     configuration: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        PropertySheet(items), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = PropertySheet(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -116,11 +119,9 @@ inline fun NodeManager.styledPropertySheet(
     configuration: (@LayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            PropertySheet(items), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = PropertySheet(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

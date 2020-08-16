@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Rectangle
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -41,7 +40,9 @@ inline fun rectangle(
     configuration: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Rectangle(x, y, width, height), configuration = configuration)
+    val child = Rectangle(x, y, width, height)
+    child.configuration()
+    return child
 }
 
 /**
@@ -58,7 +59,9 @@ inline fun NodeManager.rectangle(
     configuration: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Rectangle(x, y, width, height), configuration = configuration))
+    val child = Rectangle(x, y, width, height)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -121,11 +124,11 @@ inline fun styledRectangle(
     configuration: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Rectangle(x, y, width, height), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = Rectangle(x, y, width, height)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -146,10 +149,9 @@ inline fun NodeManager.styledRectangle(
     configuration: (@LayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Rectangle(x, y, width, height), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = Rectangle(x, y, width, height)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

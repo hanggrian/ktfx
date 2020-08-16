@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.text.Text
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.text(text: String? = null): Text = text(text = text) { }
  */
 inline fun text(text: String? = null, configuration: (@LayoutDslMarker Text).() -> Unit): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Text(text), configuration = configuration)
+    val child = Text(text)
+    child.configuration()
+    return child
 }
 
 /**
@@ -44,7 +45,9 @@ inline fun NodeManager.text(
     Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Text(text), configuration = configuration))
+    val child = Text(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -88,7 +91,11 @@ inline fun styledText(
     configuration: (@LayoutDslMarker Text).() -> Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Text(text), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = Text(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -106,11 +113,9 @@ inline fun NodeManager.styledText(
     configuration: (@LayoutDslMarker Text).() -> Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Text(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = Text(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

@@ -22,73 +22,73 @@ inline fun doubleBindingOf(vararg dependencies: Observable, noinline valueProvid
     Bindings.createDoubleBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [DoubleBinding] with single [ObservableObjectValue] dependency. */
-fun <V> ObservableObjectValue<V>.toDoubleBinding(valueProvider: (V?) -> Double): DoubleBinding =
+fun <V> ObservableObjectValue<V>.asDouble(valueProvider: (V?) -> Double): DoubleBinding =
     object : DoubleBinding() {
-        override fun dispose(): Unit = unbind(this@toDoubleBinding)
-        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
-            bind(this@toDoubleBinding)
+            bind(this@asDouble)
         }
     }
 
 /** Create a [DoubleBinding] with single [ObservableBooleanValue] dependency. */
-fun ObservableBooleanValue.toDoubleBinding(valueProvider: (Boolean) -> Double): DoubleBinding =
+fun ObservableBooleanValue.asDouble(valueProvider: (Boolean) -> Double): DoubleBinding =
     object : DoubleBinding() {
-        override fun dispose(): Unit = unbind(this@toDoubleBinding)
-        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble.value)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
-            bind(this@toDoubleBinding)
+            bind(this@asDouble)
         }
     }
 
 /** Create a [DoubleBinding] with single [ObservableDoubleValue] dependency. */
-fun ObservableDoubleValue.toDoubleBinding(valueProvider: (Double) -> Double): DoubleBinding =
+fun ObservableDoubleValue.asDouble(valueProvider: (Double) -> Double): DoubleBinding =
     object : DoubleBinding() {
-        override fun dispose(): Unit = unbind(this@toDoubleBinding)
-        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value as Double)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble.value as Double)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
-            bind(this@toDoubleBinding)
+            bind(this@asDouble)
         }
     }
 
 /** Create a [DoubleBinding] with single [ObservableFloatValue] dependency. */
-fun ObservableFloatValue.toDoubleBinding(valueProvider: (Float) -> Double): DoubleBinding =
+fun ObservableFloatValue.asDouble(valueProvider: (Float) -> Double): DoubleBinding =
     object : DoubleBinding() {
-        override fun dispose(): Unit = unbind(this@toDoubleBinding)
-        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value as Float)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble.value as Float)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
-            bind(this@toDoubleBinding)
+            bind(this@asDouble)
         }
     }
 
 /** Create a [DoubleBinding] with single [ObservableIntegerValue] dependency. */
-fun ObservableIntegerValue.toDoubleBinding(valueProvider: (Int) -> Double): DoubleBinding =
+fun ObservableIntegerValue.asDouble(valueProvider: (Int) -> Double): DoubleBinding =
     object : DoubleBinding() {
-        override fun dispose(): Unit = unbind(this@toDoubleBinding)
-        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value as Int)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble.value as Int)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
-            bind(this@toDoubleBinding)
+            bind(this@asDouble)
         }
     }
 
 /** Create a [DoubleBinding] with single [ObservableLongValue] dependency. */
-fun ObservableLongValue.toDoubleBinding(valueProvider: (Long) -> Double): DoubleBinding =
+fun ObservableLongValue.asDouble(valueProvider: (Long) -> Double): DoubleBinding =
     object : DoubleBinding() {
-        override fun dispose(): Unit = unbind(this@toDoubleBinding)
-        override fun computeValue(): Double = valueProvider(this@toDoubleBinding.value as Long)
-        override fun getDependencies(): ObservableList<*> = observableListOf(this@toDoubleBinding)
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble.value as Long)
+        override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
-            bind(this@toDoubleBinding)
+            bind(this@asDouble)
         }
     }

@@ -6,7 +6,6 @@ package ktfx.layouts
 
 import javafx.scene.control.TreeItem
 import javafx.scene.control.TreeView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -36,7 +35,9 @@ inline fun <T> treeView(
     ).() -> Unit
 ): TreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(TreeView<T>(root), configuration = configuration)
+    val child = TreeView<T>(root)
+    child.configuration()
+    return child
 }
 
 /**
@@ -53,7 +54,9 @@ inline fun <T> NodeManager.treeView(
     ).() -> Unit
 ): TreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(TreeView<T>(root), configuration = configuration))
+    val child = TreeView<T>(root)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -97,11 +100,11 @@ inline fun <T> styledTreeView(
     configuration: (@LayoutDslMarker TreeView<T>).() -> Unit
 ): TreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        TreeView<T>(root), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = TreeView<T>(root)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -119,11 +122,9 @@ inline fun <T> NodeManager.styledTreeView(
     configuration: (@LayoutDslMarker TreeView<T>).() -> Unit
 ): TreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            TreeView<T>(root), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = TreeView<T>(root)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

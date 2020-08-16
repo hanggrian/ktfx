@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTextField
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -35,7 +34,9 @@ inline fun jfxTextField(
     Unit
 ): JFXTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXTextField(text), configuration = configuration)
+    val child = JFXTextField(text)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun NodeManager.jfxTextField(
     ).() -> Unit
 ): JFXTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXTextField(text), configuration = configuration))
+    val child = JFXTextField(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -96,11 +99,11 @@ inline fun styledJFXTextField(
     configuration: (@LayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXTextField(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXTextField(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -118,11 +121,9 @@ inline fun NodeManager.styledJFXTextField(
     configuration: (@LayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXTextField(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXTextField(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

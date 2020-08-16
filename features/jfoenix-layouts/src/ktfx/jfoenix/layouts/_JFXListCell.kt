@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXListCell
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -32,7 +31,9 @@ fun <T> NodeManager.jfxListCell(): JFXListCell<T> = jfxListCell() { }
 inline fun <T> jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit):
     JFXListCell<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(JFXListCell<T>(), configuration = configuration)
+        val child = JFXListCell<T>()
+        child.configuration()
+        return child
     }
 
 /**
@@ -44,7 +45,9 @@ inline fun <T> jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -
 inline fun <T> NodeManager.jfxListCell(configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit):
     JFXListCell<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(JFXListCell<T>(), configuration = configuration))
+        val child = JFXListCell<T>()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -81,11 +84,11 @@ inline fun <T> styledJFXListCell(
     configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit
 ): JFXListCell<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXListCell<T>(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXListCell<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -102,11 +105,9 @@ inline fun <T> NodeManager.styledJFXListCell(
     configuration: (@LayoutDslMarker JFXListCell<T>).() -> Unit
 ): JFXListCell<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXListCell<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXListCell<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

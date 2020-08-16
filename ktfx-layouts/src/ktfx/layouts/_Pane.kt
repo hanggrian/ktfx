@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.layout.Pane
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun NodeManager.pane(): Pane = pane() { }
  */
 inline fun pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxPane(), configuration = configuration)
+    val child = KtfxPane()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,7 +41,9 @@ inline fun pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
  */
 inline fun NodeManager.pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxPane(), configuration = configuration))
+    val child = KtfxPane()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -80,7 +83,11 @@ inline fun styledPane(
     configuration: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(KtfxPane(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = KtfxPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -97,11 +104,9 @@ inline fun NodeManager.styledPane(
     configuration: (@LayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxPane(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxPane()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

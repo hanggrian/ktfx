@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Spinner
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -29,7 +28,9 @@ fun <T> NodeManager.spinner(): Spinner<T> = spinner() { }
  */
 inline fun <T> spinner(configuration: (@LayoutDslMarker Spinner<T>).() -> Unit): Spinner<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Spinner<T>(), configuration = configuration)
+    val child = Spinner<T>()
+    child.configuration()
+    return child
 }
 
 /**
@@ -41,7 +42,9 @@ inline fun <T> spinner(configuration: (@LayoutDslMarker Spinner<T>).() -> Unit):
 inline fun <T> NodeManager.spinner(configuration: (@LayoutDslMarker Spinner<T>).() -> Unit):
     Spinner<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(Spinner<T>(), configuration = configuration))
+        val child = Spinner<T>()
+        child.configuration()
+        return addChild(child)
     }
 
 /**
@@ -78,7 +81,11 @@ inline fun <T> styledSpinner(
     configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Spinner<T>(), styleClass = *styleClass, id = id, configuration = configuration)
+    val child = Spinner<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -95,11 +102,9 @@ inline fun <T> NodeManager.styledSpinner(
     configuration: (@LayoutDslMarker Spinner<T>).() -> Unit
 ): Spinner<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Spinner<T>(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = Spinner<T>()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

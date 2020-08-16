@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.SplitMenuButton
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -30,7 +29,9 @@ fun NodeManager.splitMenuButton(): SplitMenuButton = splitMenuButton() { }
 inline fun splitMenuButton(configuration: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit):
     SplitMenuButton {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxSplitMenuButton(), configuration = configuration)
+        val child = KtfxSplitMenuButton()
+        child.configuration()
+        return child
     }
 
 /**
@@ -44,7 +45,9 @@ inline fun NodeManager.splitMenuButton(
     Unit
 ): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxSplitMenuButton(), configuration = configuration))
+    val child = KtfxSplitMenuButton()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -81,11 +84,11 @@ inline fun styledSplitMenuButton(
     configuration: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxSplitMenuButton(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxSplitMenuButton()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -102,11 +105,9 @@ inline fun NodeManager.styledSplitMenuButton(
     configuration: (@LayoutDslMarker KtfxSplitMenuButton).() -> Unit
 ): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxSplitMenuButton(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxSplitMenuButton()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

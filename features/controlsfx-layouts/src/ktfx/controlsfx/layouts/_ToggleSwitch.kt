@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.ToggleSwitch
@@ -35,7 +34,9 @@ inline fun toggleSwitch(
     Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ToggleSwitch(text), configuration = configuration)
+    val child = ToggleSwitch(text)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun NodeManager.toggleSwitch(
     ).() -> Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ToggleSwitch(text), configuration = configuration))
+    val child = ToggleSwitch(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -96,11 +99,11 @@ inline fun styledToggleSwitch(
     configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ToggleSwitch(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ToggleSwitch(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -118,11 +121,9 @@ inline fun NodeManager.styledToggleSwitch(
     configuration: (@LayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ToggleSwitch(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = ToggleSwitch(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

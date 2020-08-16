@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.layout.VBox
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -31,7 +30,9 @@ fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
 inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox).() -> Unit):
     VBox {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(KtfxVBox(spacing), configuration = configuration)
+        val child = KtfxVBox(spacing)
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.vbox(
     Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(KtfxVBox(spacing), configuration = configuration))
+    val child = KtfxVBox(spacing)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -90,11 +93,11 @@ inline fun styledVBox(
     configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        KtfxVBox(spacing), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = KtfxVBox(spacing)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -112,11 +115,9 @@ inline fun NodeManager.styledVBox(
     configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            KtfxVBox(spacing), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = KtfxVBox(spacing)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

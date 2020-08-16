@@ -1,11 +1,10 @@
 @file:JvmMultifileClass
-@file:JvmName("JfoenixLayoutsKt")
+@file:JvmName("JFoenixLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXCheckBox
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import kotlin.String
@@ -35,7 +34,9 @@ inline fun jfxCheckBox(
     Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(JFXCheckBox(text), configuration = configuration)
+    val child = JFXCheckBox(text)
+    child.configuration()
+    return child
 }
 
 /**
@@ -52,7 +53,9 @@ inline fun NodeManager.jfxCheckBox(
     ).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(JFXCheckBox(text), configuration = configuration))
+    val child = JFXCheckBox(text)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -96,11 +99,11 @@ inline fun styledJFXCheckBox(
     configuration: (@LayoutDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        JFXCheckBox(text), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = JFXCheckBox(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -118,11 +121,9 @@ inline fun NodeManager.styledJFXCheckBox(
     configuration: (@LayoutDslMarker JFXCheckBox).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            JFXCheckBox(text), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = JFXCheckBox(text)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

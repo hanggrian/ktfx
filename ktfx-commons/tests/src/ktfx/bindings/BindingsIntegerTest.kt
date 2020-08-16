@@ -26,7 +26,7 @@ class BindingsIntegerTest {
 
     @Test fun anyDependency() {
         val dependency = propertyOf(1.m)
-        val binding = dependency.toIntBinding { it?.toMillis()?.toInt() ?: 0 }
+        val binding = dependency.asInt { it?.toMillis()?.toInt() ?: 0 }
         assertEquals(60000, binding.value)
         dependency.value = null
         assertEquals(0, binding.value)
@@ -34,7 +34,7 @@ class BindingsIntegerTest {
 
     @Test fun booleanDependency() {
         val dependency = booleanPropertyOf()
-        val binding = dependency.toIntBinding { if (it) Int.MAX_VALUE else Int.MIN_VALUE }
+        val binding = dependency.asInt { if (it) Int.MAX_VALUE else Int.MIN_VALUE }
         assertEquals(Int.MIN_VALUE, binding.value)
         dependency.value = true
         assertEquals(Int.MAX_VALUE, binding.value)
@@ -42,7 +42,7 @@ class BindingsIntegerTest {
 
     @Test fun doubleDependency() {
         val dependency = doublePropertyOf()
-        val binding = dependency.toIntBinding { it.toInt() }
+        val binding = dependency.asInt { it.toInt() }
         assertEquals(0, binding.value)
         dependency.value = Double.MAX_VALUE
         assertEquals(Double.MAX_VALUE.toInt(), binding.value)
@@ -50,7 +50,7 @@ class BindingsIntegerTest {
 
     @Test fun floatDependency() {
         val dependency = floatPropertyOf()
-        val binding = dependency.toIntBinding { it.toInt() }
+        val binding = dependency.asInt { it.toInt() }
         assertEquals(0, binding.value)
         dependency.value = Float.MAX_VALUE
         assertEquals(Float.MAX_VALUE.toInt(), binding.value)
@@ -58,7 +58,7 @@ class BindingsIntegerTest {
 
     @Test fun intDependency() {
         val dependency = intPropertyOf()
-        val binding = dependency.toIntBinding { it }
+        val binding = dependency.asInt { it }
         assertEquals(0, binding.value)
         dependency.value = Int.MAX_VALUE
         assertEquals(Int.MAX_VALUE, binding.value)
@@ -66,7 +66,7 @@ class BindingsIntegerTest {
 
     @Test fun longDependency() {
         val dependency = longPropertyOf()
-        val binding = dependency.toIntBinding { it.toInt() }
+        val binding = dependency.asInt { it.toInt() }
         assertEquals(0, binding.value)
         dependency.value = Long.MAX_VALUE
         assertEquals(Long.MAX_VALUE.toInt(), binding.value)

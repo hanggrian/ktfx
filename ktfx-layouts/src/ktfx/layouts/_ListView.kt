@@ -7,7 +7,6 @@ package ktfx.layouts
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
 import javafx.scene.control.ListView
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.String
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -35,7 +34,9 @@ inline fun <T> listView(
     configuration: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ListView<T>(items), configuration = configuration)
+    val child = ListView<T>(items)
+    child.configuration()
+    return child
 }
 
 /**
@@ -49,7 +50,9 @@ inline fun <T> NodeManager.listView(
     configuration: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(ListView<T>(items), configuration = configuration))
+    val child = ListView<T>(items)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -93,11 +96,11 @@ inline fun <T> styledListView(
     configuration: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        ListView<T>(items), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = ListView<T>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -115,11 +118,9 @@ inline fun <T> NodeManager.styledListView(
     configuration: (@LayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            ListView<T>(items), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = ListView<T>(items)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

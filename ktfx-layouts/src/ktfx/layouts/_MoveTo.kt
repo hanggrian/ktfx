@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.MoveTo
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -33,7 +32,9 @@ inline fun moveTo(
     configuration: (@LayoutDslMarker MoveTo).() -> Unit
 ): MoveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(MoveTo(x, y), configuration = configuration)
+    val child = MoveTo(x, y)
+    child.configuration()
+    return child
 }
 
 /**
@@ -48,5 +49,7 @@ inline fun PathElementManager.moveTo(
     configuration: (@LayoutDslMarker MoveTo).() -> Unit
 ): MoveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(MoveTo(x, y), configuration = configuration))
+    val child = MoveTo(x, y)
+    child.configuration()
+    return addChild(child)
 }

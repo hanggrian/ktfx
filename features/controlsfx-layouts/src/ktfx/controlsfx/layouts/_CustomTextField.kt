@@ -4,7 +4,6 @@
 
 package ktfx.controlsfx.layouts
 
-import ktfx.internal.KtfxInternals.newChild
 import ktfx.layouts.LayoutDslMarker
 import ktfx.layouts.NodeManager
 import org.controlsfx.control.textfield.CustomTextField
@@ -32,7 +31,9 @@ fun NodeManager.customTextField(): CustomTextField = customTextField() { }
 inline fun customTextField(configuration: (@LayoutDslMarker CustomTextField).() -> Unit):
     CustomTextField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return newChild(CustomTextField(), configuration = configuration)
+        val child = CustomTextField()
+        child.configuration()
+        return child
     }
 
 /**
@@ -46,7 +47,9 @@ inline fun NodeManager.customTextField(
     Unit
 ): CustomTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(CustomTextField(), configuration = configuration))
+    val child = CustomTextField()
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -83,11 +86,11 @@ inline fun styledCustomTextField(
     configuration: (@LayoutDslMarker CustomTextField).() -> Unit
 ): CustomTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        CustomTextField(), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = CustomTextField()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -104,11 +107,9 @@ inline fun NodeManager.styledCustomTextField(
     configuration: (@LayoutDslMarker CustomTextField).() -> Unit
 ): CustomTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            CustomTextField(), styleClass = *styleClass, id = id,
-            configuration =
-                configuration
-        )
-    )
+    val child = CustomTextField()
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

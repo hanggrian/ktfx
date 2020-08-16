@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.QuadCurveTo
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
@@ -40,7 +39,9 @@ inline fun quadCurveTo(
     configuration: (@LayoutDslMarker QuadCurveTo).() -> Unit
 ): QuadCurveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(QuadCurveTo(controlX, controlY, x, y), configuration = configuration)
+    val child = QuadCurveTo(controlX, controlY, x, y)
+    child.configuration()
+    return child
 }
 
 /**
@@ -57,5 +58,7 @@ inline fun PathElementManager.quadCurveTo(
     configuration: (@LayoutDslMarker QuadCurveTo).() -> Unit
 ): QuadCurveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(QuadCurveTo(controlX, controlY, x, y), configuration = configuration))
+    val child = QuadCurveTo(controlX, controlY, x, y)
+    child.configuration()
+    return addChild(child)
 }

@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.control.Slider
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Double
 import kotlin.String
 import kotlin.Unit
@@ -39,7 +38,9 @@ inline fun slider(
     configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(Slider(min, max, value), configuration = configuration)
+    val child = Slider(min, max, value)
+    child.configuration()
+    return child
 }
 
 /**
@@ -55,7 +56,9 @@ inline fun NodeManager.slider(
     configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(newChild(Slider(min, max, value), configuration = configuration))
+    val child = Slider(min, max, value)
+    child.configuration()
+    return addChild(child)
 }
 
 /**
@@ -105,11 +108,11 @@ inline fun styledSlider(
     configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(
-        Slider(min, max, value), styleClass = *styleClass, id = id,
-        configuration =
-            configuration
-    )
+    val child = Slider(min, max, value)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return child
 }
 
 /**
@@ -129,10 +132,9 @@ inline fun NodeManager.styledSlider(
     configuration: (@LayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return addChild(
-        newChild(
-            Slider(min, max, value), styleClass = *styleClass, id = id,
-            configuration = configuration
-        )
-    )
+    val child = Slider(min, max, value)
+    child.styleClass += styleClass
+    child.id = id
+    child.configuration()
+    return addChild(child)
 }

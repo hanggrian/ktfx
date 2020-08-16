@@ -5,7 +5,6 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ClosePath
-import ktfx.internal.KtfxInternals.newChild
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
@@ -28,7 +27,9 @@ fun PathElementManager.closePath(): ClosePath = closePath() { }
  */
 inline fun closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit): ClosePath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    return newChild(ClosePath(), configuration = configuration)
+    val child = ClosePath()
+    child.configuration()
+    return child
 }
 
 /**
@@ -40,5 +41,7 @@ inline fun closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit): Cl
 inline fun PathElementManager.closePath(configuration: (@LayoutDslMarker ClosePath).() -> Unit):
     ClosePath {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        return addChild(newChild(ClosePath(), configuration = configuration))
+        val child = ClosePath()
+        child.configuration()
+        return addChild(child)
     }

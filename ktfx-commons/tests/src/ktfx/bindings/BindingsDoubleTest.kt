@@ -26,7 +26,7 @@ class BindingsDoubleTest {
 
     @Test fun anyDependency() {
         val dependency = propertyOf(1.m)
-        val binding = dependency.toDoubleBinding { it?.toMillis() ?: 0.0 }
+        val binding = dependency.asDouble { it?.toMillis() ?: 0.0 }
         assertEquals(60000.0, binding.value)
         dependency.value = null
         assertEquals(0.0, binding.value)
@@ -34,7 +34,7 @@ class BindingsDoubleTest {
 
     @Test fun booleanDependency() {
         val dependency = booleanPropertyOf()
-        val binding = dependency.toDoubleBinding { if (it) Double.MAX_VALUE else Double.MIN_VALUE }
+        val binding = dependency.asDouble { if (it) Double.MAX_VALUE else Double.MIN_VALUE }
         assertEquals(Double.MIN_VALUE, binding.value)
         dependency.value = true
         assertEquals(Double.MAX_VALUE, binding.value)
@@ -42,7 +42,7 @@ class BindingsDoubleTest {
 
     @Test fun doubleDependency() {
         val dependency = doublePropertyOf()
-        val binding = dependency.toDoubleBinding { it }
+        val binding = dependency.asDouble { it }
         assertEquals(0.0, binding.value)
         dependency.value = Double.MAX_VALUE
         assertEquals(Double.MAX_VALUE, binding.value)
@@ -50,7 +50,7 @@ class BindingsDoubleTest {
 
     @Test fun floatDependency() {
         val dependency = floatPropertyOf()
-        val binding = dependency.toDoubleBinding { it.toDouble() }
+        val binding = dependency.asDouble { it.toDouble() }
         assertEquals(0.0, binding.value)
         dependency.value = Float.MAX_VALUE
         assertEquals(Float.MAX_VALUE.toDouble(), binding.value)
@@ -58,7 +58,7 @@ class BindingsDoubleTest {
 
     @Test fun intDependency() {
         val dependency = intPropertyOf()
-        val binding = dependency.toDoubleBinding { it.toDouble() }
+        val binding = dependency.asDouble { it.toDouble() }
         assertEquals(0.0, binding.value)
         dependency.value = Int.MAX_VALUE
         assertEquals(Int.MAX_VALUE.toDouble(), binding.value)
@@ -66,7 +66,7 @@ class BindingsDoubleTest {
 
     @Test fun longDependency() {
         val dependency = longPropertyOf()
-        val binding = dependency.toDoubleBinding { it.toDouble() }
+        val binding = dependency.asDouble { it.toDouble() }
         assertEquals(0.0, binding.value)
         dependency.value = Long.MAX_VALUE
         assertEquals(Long.MAX_VALUE.toDouble(), binding.value)

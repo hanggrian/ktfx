@@ -1,6 +1,5 @@
 $dokka.format:html
 $dokka.linkExtension:html
-$dokka.location:ktfx$and(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx/javafx.beans.value.-observable-boolean-value/and.html
 $dokka.location:ktfx$asPrimitive(javafx.beans.property.Property((kotlin.Boolean)))ktfx/javafx.beans.property.-property/as-primitive.html
 $dokka.location:ktfx$asPrimitive(javafx.beans.property.Property((kotlin.Double)))ktfx/javafx.beans.property.-property/as-primitive.html
 $dokka.location:ktfx$asPrimitive(javafx.beans.property.Property((kotlin.Float)))ktfx/javafx.beans.property.-property/as-primitive.html
@@ -13,311 +12,521 @@ $dokka.location:ktfx$asPrimitive(javafx.beans.property.ReadOnlyProperty((kotlin.
 $dokka.location:ktfx$asPrimitive(javafx.beans.property.ReadOnlyProperty((kotlin.Long)))ktfx/javafx.beans.property.-read-only-property/as-primitive.html
 $dokka.location:ktfx$component1(javafx.util.Pair((ktfx.component1.F, ktfx.component1.S)))ktfx/javafx.util.-pair/component1.html
 $dokka.location:ktfx$component2(javafx.util.Pair((ktfx.component2.F, ktfx.component2.S)))ktfx/javafx.util.-pair/component2.html
-$dokka.location:ktfx$div(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-double-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx/javafx.beans.binding.-double-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.DoubleExpression, kotlin.Float)ktfx/javafx.beans.binding.-double-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.DoubleExpression, kotlin.Int)ktfx/javafx.beans.binding.-double-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.DoubleExpression, kotlin.Long)ktfx/javafx.beans.binding.-double-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.FloatExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-float-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.FloatExpression, kotlin.Double)ktfx/javafx.beans.binding.-float-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.FloatExpression, kotlin.Float)ktfx/javafx.beans.binding.-float-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.FloatExpression, kotlin.Int)ktfx/javafx.beans.binding.-float-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.FloatExpression, kotlin.Long)ktfx/javafx.beans.binding.-float-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.IntegerExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-integer-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.IntegerExpression, kotlin.Double)ktfx/javafx.beans.binding.-integer-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.IntegerExpression, kotlin.Float)ktfx/javafx.beans.binding.-integer-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.IntegerExpression, kotlin.Int)ktfx/javafx.beans.binding.-integer-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.IntegerExpression, kotlin.Long)ktfx/javafx.beans.binding.-integer-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.LongExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-long-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.LongExpression, kotlin.Double)ktfx/javafx.beans.binding.-long-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.LongExpression, kotlin.Float)ktfx/javafx.beans.binding.-long-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.LongExpression, kotlin.Int)ktfx/javafx.beans.binding.-long-expression/div.html
-$dokka.location:ktfx$div(javafx.beans.binding.LongExpression, kotlin.Long)ktfx/javafx.beans.binding.-long-expression/div.html
-$dokka.location:ktfx$div(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/div.html
-$dokka.location:ktfx$div(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/div.html
-$dokka.location:ktfx$div(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/div.html
-$dokka.location:ktfx$div(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/div.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx/javafx.beans.value.-observable-boolean-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx/javafx.beans.value.-observable-number-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx/javafx.beans.value.-observable-number-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableObjectValue((kotlin.Any)), javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx/javafx.beans.value.-observable-object-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableObjectValue((kotlin.Any)), kotlin.Any)ktfx/javafx.beans.value.-observable-object-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/eq.html
-$dokka.location:ktfx$eq(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/eq.html
-$dokka.location:ktfx$eq(kotlin.Any, javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx/kotlin.-any/eq.html
-$dokka.location:ktfx$eq(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/eq.html
-$dokka.location:ktfx$eq(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/eq.html
-$dokka.location:ktfx$eq(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/eq.html
-$dokka.location:ktfx$eq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/eq.html
-$dokka.location:ktfx$eq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/eq.html
-$dokka.location:ktfx$eqIg(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/eq-ig.html
-$dokka.location:ktfx$eqIg(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/eq-ig.html
-$dokka.location:ktfx$eqIg(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/eq-ig.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-boolean-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-double-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-float-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableIntegerValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-integer-value/get-value.html
-$dokka.location:ktfx$getValue(javafx.beans.value.ObservableListValue((ktfx.getValue.E)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-list-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableLongValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-long-value/get-value.html
-$dokka.location:ktfx$getValue(javafx.beans.value.ObservableMapValue((ktfx.getValue.K, ktfx.getValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-map-value/get-value.html
-$dokka.location:ktfx$getValue(javafx.beans.value.ObservableSetValue((ktfx.getValue.E)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-set-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-string-value/get-value.html
 $dokka.location:ktfx$getValue(javafx.beans.value.ObservableValue((ktfx.getValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))ktfx/javafx.beans.value.-observable-value/get-value.html
-$dokka.location:ktfx$greater(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/greater.html
-$dokka.location:ktfx$greater(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/greater.html
-$dokka.location:ktfx$greater(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/greater.html
-$dokka.location:ktfx$greater(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx/javafx.beans.value.-observable-number-value/greater.html
-$dokka.location:ktfx$greater(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx/javafx.beans.value.-observable-number-value/greater.html
-$dokka.location:ktfx$greater(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/greater.html
-$dokka.location:ktfx$greater(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/greater.html
-$dokka.location:ktfx$greater(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/greater.html
-$dokka.location:ktfx$greater(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/greater.html
-$dokka.location:ktfx$greater(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/greater.html
-$dokka.location:ktfx$greater(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/greater.html
-$dokka.location:ktfx$greater(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/greater.html
-$dokka.location:ktfx$greaterEq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/greater-eq.html
-$dokka.location:ktfx$greaterEq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/greater-eq.html
-$dokka.location:ktfx$greaterEq(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/greater-eq.html
-$dokka.location:ktfx$greaterEq(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx/javafx.beans.value.-observable-number-value/greater-eq.html
-$dokka.location:ktfx$greaterEq(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx/javafx.beans.value.-observable-number-value/greater-eq.html
-$dokka.location:ktfx$greaterEq(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/greater-eq.html
-$dokka.location:ktfx$greaterEq(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/greater-eq.html
-$dokka.location:ktfx$greaterEq(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/greater-eq.html
-$dokka.location:ktfx$greaterEq(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/greater-eq.html
-$dokka.location:ktfx$greaterEq(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/greater-eq.html
-$dokka.location:ktfx$greaterEq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/greater-eq.html
-$dokka.location:ktfx$greaterEq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/greater-eq.html
 $dokka.location:ktfx$invoke(javafx.util.Callback((ktfx.invoke.P, ktfx.invoke.R)), ktfx.invoke.P)ktfx/javafx.util.-callback/invoke.html
 $dokka.location:ktfx$isSupported(javafx.application.ConditionalFeature)ktfx/javafx.application.-conditional-feature/is-supported.html
-$dokka.location:ktfx$less(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/less.html
-$dokka.location:ktfx$less(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/less.html
-$dokka.location:ktfx$less(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/less.html
-$dokka.location:ktfx$less(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx/javafx.beans.value.-observable-number-value/less.html
-$dokka.location:ktfx$less(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx/javafx.beans.value.-observable-number-value/less.html
-$dokka.location:ktfx$less(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/less.html
-$dokka.location:ktfx$less(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/less.html
-$dokka.location:ktfx$less(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/less.html
-$dokka.location:ktfx$less(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/less.html
-$dokka.location:ktfx$less(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/less.html
-$dokka.location:ktfx$less(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/less.html
-$dokka.location:ktfx$less(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/less.html
-$dokka.location:ktfx$lessEq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/less-eq.html
-$dokka.location:ktfx$lessEq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/less-eq.html
-$dokka.location:ktfx$lessEq(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/less-eq.html
-$dokka.location:ktfx$lessEq(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx/javafx.beans.value.-observable-number-value/less-eq.html
-$dokka.location:ktfx$lessEq(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx/javafx.beans.value.-observable-number-value/less-eq.html
-$dokka.location:ktfx$lessEq(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/less-eq.html
-$dokka.location:ktfx$lessEq(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/less-eq.html
-$dokka.location:ktfx$lessEq(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/less-eq.html
-$dokka.location:ktfx$lessEq(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/less-eq.html
-$dokka.location:ktfx$lessEq(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/less-eq.html
-$dokka.location:ktfx$lessEq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/less-eq.html
-$dokka.location:ktfx$lessEq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/less-eq.html
-$dokka.location:ktfx$max(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/max.html
-$dokka.location:ktfx$max(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/max.html
-$dokka.location:ktfx$max(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/max.html
-$dokka.location:ktfx$max(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx/javafx.beans.value.-observable-number-value/max.html
-$dokka.location:ktfx$max(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx/javafx.beans.value.-observable-number-value/max.html
-$dokka.location:ktfx$max(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/max.html
-$dokka.location:ktfx$max(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/max.html
-$dokka.location:ktfx$max(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/max.html
-$dokka.location:ktfx$max(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/max.html
-$dokka.location:ktfx$min(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/min.html
-$dokka.location:ktfx$min(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/min.html
-$dokka.location:ktfx$min(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/min.html
-$dokka.location:ktfx$min(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx/javafx.beans.value.-observable-number-value/min.html
-$dokka.location:ktfx$min(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx/javafx.beans.value.-observable-number-value/min.html
-$dokka.location:ktfx$min(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/min.html
-$dokka.location:ktfx$min(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/min.html
-$dokka.location:ktfx$min(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/min.html
-$dokka.location:ktfx$min(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/min.html
-$dokka.location:ktfx$minus(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-double-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx/javafx.beans.binding.-double-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.DoubleExpression, kotlin.Float)ktfx/javafx.beans.binding.-double-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.DoubleExpression, kotlin.Int)ktfx/javafx.beans.binding.-double-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.DoubleExpression, kotlin.Long)ktfx/javafx.beans.binding.-double-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.FloatExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-float-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.FloatExpression, kotlin.Double)ktfx/javafx.beans.binding.-float-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.FloatExpression, kotlin.Float)ktfx/javafx.beans.binding.-float-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.FloatExpression, kotlin.Int)ktfx/javafx.beans.binding.-float-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.FloatExpression, kotlin.Long)ktfx/javafx.beans.binding.-float-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.IntegerExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-integer-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.IntegerExpression, kotlin.Double)ktfx/javafx.beans.binding.-integer-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.IntegerExpression, kotlin.Float)ktfx/javafx.beans.binding.-integer-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.IntegerExpression, kotlin.Int)ktfx/javafx.beans.binding.-integer-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.IntegerExpression, kotlin.Long)ktfx/javafx.beans.binding.-integer-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.LongExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-long-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.LongExpression, kotlin.Double)ktfx/javafx.beans.binding.-long-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.LongExpression, kotlin.Float)ktfx/javafx.beans.binding.-long-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.LongExpression, kotlin.Int)ktfx/javafx.beans.binding.-long-expression/minus.html
-$dokka.location:ktfx$minus(javafx.beans.binding.LongExpression, kotlin.Long)ktfx/javafx.beans.binding.-long-expression/minus.html
-$dokka.location:ktfx$minus(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/minus.html
-$dokka.location:ktfx$minus(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/minus.html
-$dokka.location:ktfx$minus(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/minus.html
-$dokka.location:ktfx$minus(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/minus.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx/javafx.beans.value.-observable-boolean-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.value.-observable-number-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx/javafx.beans.value.-observable-number-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx/javafx.beans.value.-observable-number-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx/javafx.beans.value.-observable-number-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx/javafx.beans.value.-observable-number-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableObjectValue((kotlin.Any)), javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx/javafx.beans.value.-observable-object-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableObjectValue((kotlin.Any)), kotlin.Any)ktfx/javafx.beans.value.-observable-object-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/neq.html
-$dokka.location:ktfx$neq(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/neq.html
-$dokka.location:ktfx$neq(kotlin.Any, javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx/kotlin.-any/neq.html
-$dokka.location:ktfx$neq(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/neq.html
-$dokka.location:ktfx$neq(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/neq.html
-$dokka.location:ktfx$neq(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/neq.html
-$dokka.location:ktfx$neq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/neq.html
-$dokka.location:ktfx$neq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/neq.html
-$dokka.location:ktfx$neqIg(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.value.-observable-string-value/neq-ig.html
-$dokka.location:ktfx$neqIg(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx/javafx.beans.value.-observable-string-value/neq-ig.html
-$dokka.location:ktfx$neqIg(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx/kotlin.-string/neq-ig.html
-$dokka.location:ktfx$or(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx/javafx.beans.value.-observable-boolean-value/or.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.BooleanConditionBuilder, javafx.beans.value.ObservableBooleanValue)ktfx/javafx.beans.binding.-when.-boolean-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.BooleanConditionBuilder, kotlin.Boolean)ktfx/javafx.beans.binding.-when.-boolean-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.NumberConditionBuilder, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Double)ktfx/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Float)ktfx/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Int)ktfx/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Long)ktfx/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.ObjectConditionBuilder((ktfx.otherwise.T)), javafx.beans.value.ObservableObjectValue((ktfx.otherwise.T)))ktfx/javafx.beans.binding.-when.-object-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.ObjectConditionBuilder((ktfx.otherwise.T)), ktfx.otherwise.T)ktfx/javafx.beans.binding.-when.-object-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.StringConditionBuilder, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.binding.-when.-string-condition-builder/otherwise.html
-$dokka.location:ktfx$otherwise(javafx.beans.binding.When.StringConditionBuilder, kotlin.String)ktfx/javafx.beans.binding.-when.-string-condition-builder/otherwise.html
-$dokka.location:ktfx$plus(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-double-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx/javafx.beans.binding.-double-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.DoubleExpression, kotlin.Float)ktfx/javafx.beans.binding.-double-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.DoubleExpression, kotlin.Int)ktfx/javafx.beans.binding.-double-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.DoubleExpression, kotlin.Long)ktfx/javafx.beans.binding.-double-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.FloatExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-float-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.FloatExpression, kotlin.Double)ktfx/javafx.beans.binding.-float-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.FloatExpression, kotlin.Float)ktfx/javafx.beans.binding.-float-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.FloatExpression, kotlin.Int)ktfx/javafx.beans.binding.-float-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.FloatExpression, kotlin.Long)ktfx/javafx.beans.binding.-float-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.IntegerExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-integer-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.IntegerExpression, kotlin.Double)ktfx/javafx.beans.binding.-integer-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.IntegerExpression, kotlin.Float)ktfx/javafx.beans.binding.-integer-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.IntegerExpression, kotlin.Int)ktfx/javafx.beans.binding.-integer-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.IntegerExpression, kotlin.Long)ktfx/javafx.beans.binding.-integer-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.LongExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-long-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.LongExpression, kotlin.Double)ktfx/javafx.beans.binding.-long-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.LongExpression, kotlin.Float)ktfx/javafx.beans.binding.-long-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.LongExpression, kotlin.Int)ktfx/javafx.beans.binding.-long-expression/plus.html
-$dokka.location:ktfx$plus(javafx.beans.binding.LongExpression, kotlin.Long)ktfx/javafx.beans.binding.-long-expression/plus.html
-$dokka.location:ktfx$plus(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/plus.html
-$dokka.location:ktfx$plus(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/plus.html
-$dokka.location:ktfx$plus(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/plus.html
-$dokka.location:ktfx$plus(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/plus.html
 $dokka.location:ktfx$resolveCodeURI(javafx.application.HostServices, kotlin.String)ktfx/javafx.application.-host-services/resolve-code-u-r-i.html
 $dokka.location:ktfx$resolveDocumentURI(javafx.application.HostServices, kotlin.String)ktfx/javafx.application.-host-services/resolve-document-u-r-i.html
-$dokka.location:ktfx$select(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx/javafx.beans.value.-observable-value/select.html
-$dokka.location:ktfx$select(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select.html
-$dokka.location:ktfx$selectBoolean(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx/javafx.beans.value.-observable-value/select-boolean.html
-$dokka.location:ktfx$selectBoolean(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select-boolean.html
-$dokka.location:ktfx$selectDouble(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx/javafx.beans.value.-observable-value/select-double.html
-$dokka.location:ktfx$selectDouble(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select-double.html
-$dokka.location:ktfx$selectFloat(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx/javafx.beans.value.-observable-value/select-float.html
-$dokka.location:ktfx$selectFloat(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select-float.html
-$dokka.location:ktfx$selectInt(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx/javafx.beans.value.-observable-value/select-int.html
-$dokka.location:ktfx$selectInt(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select-int.html
-$dokka.location:ktfx$selectLong(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx/javafx.beans.value.-observable-value/select-long.html
-$dokka.location:ktfx$selectLong(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select-long.html
-$dokka.location:ktfx$selectString(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx/javafx.beans.value.-observable-value/select-string.html
-$dokka.location:ktfx$selectString(kotlin.Any, kotlin.Array((kotlin.String)))ktfx/kotlin.-any/select-string.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableBooleanValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Boolean)ktfx/javafx.beans.value.-writable-boolean-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableDoubleValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Double)ktfx/javafx.beans.value.-writable-double-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableFloatValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Float)ktfx/javafx.beans.value.-writable-float-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableIntegerValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Int)ktfx/javafx.beans.value.-writable-integer-value/set-value.html
-$dokka.location:ktfx$setValue(javafx.beans.value.WritableListValue((ktfx.setValue.E)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), javafx.collections.ObservableList((ktfx.setValue.E)))ktfx/javafx.beans.value.-writable-list-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableLongValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.Long)ktfx/javafx.beans.value.-writable-long-value/set-value.html
-$dokka.location:ktfx$setValue(javafx.beans.value.WritableMapValue((ktfx.setValue.K, ktfx.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), javafx.collections.ObservableMap((ktfx.setValue.K, ktfx.setValue.V)))ktfx/javafx.beans.value.-writable-map-value/set-value.html
-$dokka.location:ktfx$setValue(javafx.beans.value.WritableSetValue((ktfx.setValue.E)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), javafx.collections.ObservableSet((ktfx.setValue.E)))ktfx/javafx.beans.value.-writable-set-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableStringValue, kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), kotlin.String)ktfx/javafx.beans.value.-writable-string-value/set-value.html
 $dokka.location:ktfx$setValue(javafx.beans.value.WritableValue((ktfx.setValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)), ktfx.setValue.V)ktfx/javafx.beans.value.-writable-value/set-value.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, javafx.beans.value.ObservableBooleanValue)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, javafx.beans.value.ObservableObjectValue((ktfx.then.T)))ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, javafx.beans.value.ObservableStringValue)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, kotlin.Boolean)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, kotlin.Double)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, kotlin.Float)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, kotlin.Int)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, kotlin.Long)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, kotlin.String)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$then(javafx.beans.binding.When, ktfx.then.T)ktfx/javafx.beans.binding.-when/then.html
-$dokka.location:ktfx$times(javafx.beans.binding.DoubleExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-double-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.DoubleExpression, kotlin.Double)ktfx/javafx.beans.binding.-double-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.DoubleExpression, kotlin.Float)ktfx/javafx.beans.binding.-double-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.DoubleExpression, kotlin.Int)ktfx/javafx.beans.binding.-double-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.DoubleExpression, kotlin.Long)ktfx/javafx.beans.binding.-double-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.FloatExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-float-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.FloatExpression, kotlin.Double)ktfx/javafx.beans.binding.-float-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.FloatExpression, kotlin.Float)ktfx/javafx.beans.binding.-float-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.FloatExpression, kotlin.Int)ktfx/javafx.beans.binding.-float-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.FloatExpression, kotlin.Long)ktfx/javafx.beans.binding.-float-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.IntegerExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-integer-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.IntegerExpression, kotlin.Double)ktfx/javafx.beans.binding.-integer-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.IntegerExpression, kotlin.Float)ktfx/javafx.beans.binding.-integer-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.IntegerExpression, kotlin.Int)ktfx/javafx.beans.binding.-integer-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.IntegerExpression, kotlin.Long)ktfx/javafx.beans.binding.-integer-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.LongExpression, javafx.beans.value.ObservableNumberValue)ktfx/javafx.beans.binding.-long-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.LongExpression, kotlin.Double)ktfx/javafx.beans.binding.-long-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.LongExpression, kotlin.Float)ktfx/javafx.beans.binding.-long-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.LongExpression, kotlin.Int)ktfx/javafx.beans.binding.-long-expression/times.html
-$dokka.location:ktfx$times(javafx.beans.binding.LongExpression, kotlin.Long)ktfx/javafx.beans.binding.-long-expression/times.html
-$dokka.location:ktfx$times(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-double/times.html
-$dokka.location:ktfx$times(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-float/times.html
-$dokka.location:ktfx$times(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-int/times.html
-$dokka.location:ktfx$times(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx/kotlin.-long/times.html
-$dokka.location:ktfx$toBinding(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, ktfx.toBinding.T)))ktfx/javafx.beans.value.-observable-boolean-value/to-binding.html
-$dokka.location:ktfx$toBinding(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, ktfx.toBinding.T)))ktfx/javafx.beans.value.-observable-double-value/to-binding.html
-$dokka.location:ktfx$toBinding(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, ktfx.toBinding.T)))ktfx/javafx.beans.value.-observable-float-value/to-binding.html
-$dokka.location:ktfx$toBinding(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, ktfx.toBinding.T)))ktfx/javafx.beans.value.-observable-integer-value/to-binding.html
-$dokka.location:ktfx$toBinding(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, ktfx.toBinding.T)))ktfx/javafx.beans.value.-observable-long-value/to-binding.html
-$dokka.location:ktfx$toBinding(javafx.beans.value.ObservableObjectValue((ktfx.toBinding.V)), kotlin.Function1((ktfx.toBinding.V, ktfx.toBinding.T)))ktfx/javafx.beans.value.-observable-object-value/to-binding.html
-$dokka.location:ktfx$toBooleanBinding(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, )))ktfx/javafx.beans.value.-observable-boolean-value/to-boolean-binding.html
-$dokka.location:ktfx$toBooleanBinding(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.Boolean)))ktfx/javafx.beans.value.-observable-double-value/to-boolean-binding.html
-$dokka.location:ktfx$toBooleanBinding(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.Boolean)))ktfx/javafx.beans.value.-observable-float-value/to-boolean-binding.html
-$dokka.location:ktfx$toBooleanBinding(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.Boolean)))ktfx/javafx.beans.value.-observable-integer-value/to-boolean-binding.html
-$dokka.location:ktfx$toBooleanBinding(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.Boolean)))ktfx/javafx.beans.value.-observable-long-value/to-boolean-binding.html
-$dokka.location:ktfx$toBooleanBinding(javafx.beans.value.ObservableObjectValue((ktfx.toBooleanBinding.V)), kotlin.Function1((ktfx.toBooleanBinding.V, kotlin.Boolean)))ktfx/javafx.beans.value.-observable-object-value/to-boolean-binding.html
-$dokka.location:ktfx$toDoubleBinding(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.Double)))ktfx/javafx.beans.value.-observable-boolean-value/to-double-binding.html
-$dokka.location:ktfx$toDoubleBinding(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, )))ktfx/javafx.beans.value.-observable-double-value/to-double-binding.html
-$dokka.location:ktfx$toDoubleBinding(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.Double)))ktfx/javafx.beans.value.-observable-float-value/to-double-binding.html
-$dokka.location:ktfx$toDoubleBinding(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.Double)))ktfx/javafx.beans.value.-observable-integer-value/to-double-binding.html
-$dokka.location:ktfx$toDoubleBinding(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.Double)))ktfx/javafx.beans.value.-observable-long-value/to-double-binding.html
-$dokka.location:ktfx$toDoubleBinding(javafx.beans.value.ObservableObjectValue((ktfx.toDoubleBinding.V)), kotlin.Function1((ktfx.toDoubleBinding.V, kotlin.Double)))ktfx/javafx.beans.value.-observable-object-value/to-double-binding.html
-$dokka.location:ktfx$toFloatBinding(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.Float)))ktfx/javafx.beans.value.-observable-boolean-value/to-float-binding.html
-$dokka.location:ktfx$toFloatBinding(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.Float)))ktfx/javafx.beans.value.-observable-double-value/to-float-binding.html
-$dokka.location:ktfx$toFloatBinding(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, )))ktfx/javafx.beans.value.-observable-float-value/to-float-binding.html
-$dokka.location:ktfx$toFloatBinding(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.Float)))ktfx/javafx.beans.value.-observable-integer-value/to-float-binding.html
-$dokka.location:ktfx$toFloatBinding(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.Float)))ktfx/javafx.beans.value.-observable-long-value/to-float-binding.html
-$dokka.location:ktfx$toFloatBinding(javafx.beans.value.ObservableObjectValue((ktfx.toFloatBinding.V)), kotlin.Function1((ktfx.toFloatBinding.V, kotlin.Float)))ktfx/javafx.beans.value.-observable-object-value/to-float-binding.html
 $dokka.location:ktfx$toFxPair(kotlin.Pair((ktfx.toFxPair.F, ktfx.toFxPair.S)))ktfx/kotlin.-pair/to-fx-pair.html
-$dokka.location:ktfx$toIntBinding(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.Int)))ktfx/javafx.beans.value.-observable-boolean-value/to-int-binding.html
-$dokka.location:ktfx$toIntBinding(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.Int)))ktfx/javafx.beans.value.-observable-double-value/to-int-binding.html
-$dokka.location:ktfx$toIntBinding(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.Int)))ktfx/javafx.beans.value.-observable-float-value/to-int-binding.html
-$dokka.location:ktfx$toIntBinding(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, )))ktfx/javafx.beans.value.-observable-integer-value/to-int-binding.html
-$dokka.location:ktfx$toIntBinding(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.Int)))ktfx/javafx.beans.value.-observable-long-value/to-int-binding.html
-$dokka.location:ktfx$toIntBinding(javafx.beans.value.ObservableObjectValue((ktfx.toIntBinding.V)), kotlin.Function1((ktfx.toIntBinding.V, kotlin.Int)))ktfx/javafx.beans.value.-observable-object-value/to-int-binding.html
 $dokka.location:ktfx$toKotlinPair(javafx.util.Pair((ktfx.toKotlinPair.F, ktfx.toKotlinPair.S)))ktfx/javafx.util.-pair/to-kotlin-pair.html
-$dokka.location:ktfx$toLongBinding(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.Long)))ktfx/javafx.beans.value.-observable-boolean-value/to-long-binding.html
-$dokka.location:ktfx$toLongBinding(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.Long)))ktfx/javafx.beans.value.-observable-double-value/to-long-binding.html
-$dokka.location:ktfx$toLongBinding(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.Long)))ktfx/javafx.beans.value.-observable-float-value/to-long-binding.html
-$dokka.location:ktfx$toLongBinding(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.Long)))ktfx/javafx.beans.value.-observable-integer-value/to-long-binding.html
-$dokka.location:ktfx$toLongBinding(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, )))ktfx/javafx.beans.value.-observable-long-value/to-long-binding.html
-$dokka.location:ktfx$toLongBinding(javafx.beans.value.ObservableObjectValue((ktfx.toLongBinding.V)), kotlin.Function1((ktfx.toLongBinding.V, kotlin.Long)))ktfx/javafx.beans.value.-observable-object-value/to-long-binding.html
-$dokka.location:ktfx$toStringBinding(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.String)))ktfx/javafx.beans.value.-observable-boolean-value/to-string-binding.html
-$dokka.location:ktfx$toStringBinding(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.String)))ktfx/javafx.beans.value.-observable-double-value/to-string-binding.html
-$dokka.location:ktfx$toStringBinding(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.String)))ktfx/javafx.beans.value.-observable-float-value/to-string-binding.html
-$dokka.location:ktfx$toStringBinding(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.String)))ktfx/javafx.beans.value.-observable-integer-value/to-string-binding.html
-$dokka.location:ktfx$toStringBinding(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.String)))ktfx/javafx.beans.value.-observable-long-value/to-string-binding.html
-$dokka.location:ktfx$toStringBinding(javafx.beans.value.ObservableObjectValue((ktfx.toStringBinding.V)), kotlin.Function1((ktfx.toStringBinding.V, kotlin.String)))ktfx/javafx.beans.value.-observable-object-value/to-string-binding.html
+$dokka.location:ktfx.bindings$and(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.value.-observable-boolean-value/and.html
+$dokka.location:ktfx.bindings$asAny(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, ktfx.bindings.asAny.T)))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-any.html
+$dokka.location:ktfx.bindings$asAny(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, ktfx.bindings.asAny.T)))ktfx.bindings/javafx.beans.value.-observable-double-value/as-any.html
+$dokka.location:ktfx.bindings$asAny(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, ktfx.bindings.asAny.T)))ktfx.bindings/javafx.beans.value.-observable-float-value/as-any.html
+$dokka.location:ktfx.bindings$asAny(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, ktfx.bindings.asAny.T)))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-any.html
+$dokka.location:ktfx.bindings$asAny(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, ktfx.bindings.asAny.T)))ktfx.bindings/javafx.beans.value.-observable-long-value/as-any.html
+$dokka.location:ktfx.bindings$asAny(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asAny.V)), kotlin.Function1((ktfx.bindings.asAny.V, ktfx.bindings.asAny.T)))ktfx.bindings/javafx.beans.value.-observable-object-value/as-any.html
+$dokka.location:ktfx.bindings$asBoolean(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, )))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-boolean.html
+$dokka.location:ktfx.bindings$asBoolean(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.Boolean)))ktfx.bindings/javafx.beans.value.-observable-double-value/as-boolean.html
+$dokka.location:ktfx.bindings$asBoolean(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.Boolean)))ktfx.bindings/javafx.beans.value.-observable-float-value/as-boolean.html
+$dokka.location:ktfx.bindings$asBoolean(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.Boolean)))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-boolean.html
+$dokka.location:ktfx.bindings$asBoolean(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.Boolean)))ktfx.bindings/javafx.beans.value.-observable-long-value/as-boolean.html
+$dokka.location:ktfx.bindings$asBoolean(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asBoolean.V)), kotlin.Function1((ktfx.bindings.asBoolean.V, kotlin.Boolean)))ktfx.bindings/javafx.beans.value.-observable-object-value/as-boolean.html
+$dokka.location:ktfx.bindings$asDouble(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.Double)))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-double.html
+$dokka.location:ktfx.bindings$asDouble(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, )))ktfx.bindings/javafx.beans.value.-observable-double-value/as-double.html
+$dokka.location:ktfx.bindings$asDouble(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.Double)))ktfx.bindings/javafx.beans.value.-observable-float-value/as-double.html
+$dokka.location:ktfx.bindings$asDouble(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.Double)))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-double.html
+$dokka.location:ktfx.bindings$asDouble(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.Double)))ktfx.bindings/javafx.beans.value.-observable-long-value/as-double.html
+$dokka.location:ktfx.bindings$asDouble(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asDouble.V)), kotlin.Function1((ktfx.bindings.asDouble.V, kotlin.Double)))ktfx.bindings/javafx.beans.value.-observable-object-value/as-double.html
+$dokka.location:ktfx.bindings$asFloat(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.Float)))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-float.html
+$dokka.location:ktfx.bindings$asFloat(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.Float)))ktfx.bindings/javafx.beans.value.-observable-double-value/as-float.html
+$dokka.location:ktfx.bindings$asFloat(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, )))ktfx.bindings/javafx.beans.value.-observable-float-value/as-float.html
+$dokka.location:ktfx.bindings$asFloat(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.Float)))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-float.html
+$dokka.location:ktfx.bindings$asFloat(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.Float)))ktfx.bindings/javafx.beans.value.-observable-long-value/as-float.html
+$dokka.location:ktfx.bindings$asFloat(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asFloat.V)), kotlin.Function1((ktfx.bindings.asFloat.V, kotlin.Float)))ktfx.bindings/javafx.beans.value.-observable-object-value/as-float.html
+$dokka.location:ktfx.bindings$asInt(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.Int)))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-int.html
+$dokka.location:ktfx.bindings$asInt(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.Int)))ktfx.bindings/javafx.beans.value.-observable-double-value/as-int.html
+$dokka.location:ktfx.bindings$asInt(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.Int)))ktfx.bindings/javafx.beans.value.-observable-float-value/as-int.html
+$dokka.location:ktfx.bindings$asInt(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, )))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-int.html
+$dokka.location:ktfx.bindings$asInt(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.Int)))ktfx.bindings/javafx.beans.value.-observable-long-value/as-int.html
+$dokka.location:ktfx.bindings$asInt(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asInt.V)), kotlin.Function1((ktfx.bindings.asInt.V, kotlin.Int)))ktfx.bindings/javafx.beans.value.-observable-object-value/as-int.html
+$dokka.location:ktfx.bindings$asList(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, javafx.collections.ObservableList((ktfx.bindings.asList.E)))))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-list.html
+$dokka.location:ktfx.bindings$asList(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, javafx.collections.ObservableList((ktfx.bindings.asList.E)))))ktfx.bindings/javafx.beans.value.-observable-double-value/as-list.html
+$dokka.location:ktfx.bindings$asList(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, javafx.collections.ObservableList((ktfx.bindings.asList.E)))))ktfx.bindings/javafx.beans.value.-observable-float-value/as-list.html
+$dokka.location:ktfx.bindings$asList(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, javafx.collections.ObservableList((ktfx.bindings.asList.E)))))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-list.html
+$dokka.location:ktfx.bindings$asList(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, javafx.collections.ObservableList((ktfx.bindings.asList.E)))))ktfx.bindings/javafx.beans.value.-observable-long-value/as-list.html
+$dokka.location:ktfx.bindings$asList(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asList.V)), kotlin.Function1((ktfx.bindings.asList.V, javafx.collections.ObservableList((ktfx.bindings.asList.E)))))ktfx.bindings/javafx.beans.value.-observable-object-value/as-list.html
+$dokka.location:ktfx.bindings$asLong(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.Long)))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-long.html
+$dokka.location:ktfx.bindings$asLong(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.Long)))ktfx.bindings/javafx.beans.value.-observable-double-value/as-long.html
+$dokka.location:ktfx.bindings$asLong(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.Long)))ktfx.bindings/javafx.beans.value.-observable-float-value/as-long.html
+$dokka.location:ktfx.bindings$asLong(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.Long)))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-long.html
+$dokka.location:ktfx.bindings$asLong(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, )))ktfx.bindings/javafx.beans.value.-observable-long-value/as-long.html
+$dokka.location:ktfx.bindings$asLong(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asLong.V)), kotlin.Function1((ktfx.bindings.asLong.V, kotlin.Long)))ktfx.bindings/javafx.beans.value.-observable-object-value/as-long.html
+$dokka.location:ktfx.bindings$asMap(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, javafx.collections.ObservableMap((ktfx.bindings.asMap.K, ktfx.bindings.asMap.V)))))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-map.html
+$dokka.location:ktfx.bindings$asMap(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, javafx.collections.ObservableMap((ktfx.bindings.asMap.K, ktfx.bindings.asMap.V)))))ktfx.bindings/javafx.beans.value.-observable-double-value/as-map.html
+$dokka.location:ktfx.bindings$asMap(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, javafx.collections.ObservableMap((ktfx.bindings.asMap.K, ktfx.bindings.asMap.V)))))ktfx.bindings/javafx.beans.value.-observable-float-value/as-map.html
+$dokka.location:ktfx.bindings$asMap(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, javafx.collections.ObservableMap((ktfx.bindings.asMap.K, ktfx.bindings.asMap.V)))))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-map.html
+$dokka.location:ktfx.bindings$asMap(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, javafx.collections.ObservableMap((ktfx.bindings.asMap.K, ktfx.bindings.asMap.V)))))ktfx.bindings/javafx.beans.value.-observable-long-value/as-map.html
+$dokka.location:ktfx.bindings$asMap(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asMap.V2)), kotlin.Function1((ktfx.bindings.asMap.V2, javafx.collections.ObservableMap((ktfx.bindings.asMap.K, ktfx.bindings.asMap.V)))))ktfx.bindings/javafx.beans.value.-observable-object-value/as-map.html
+$dokka.location:ktfx.bindings$asSet(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, javafx.collections.ObservableSet((ktfx.bindings.asSet.E)))))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-set.html
+$dokka.location:ktfx.bindings$asSet(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, javafx.collections.ObservableSet((ktfx.bindings.asSet.E)))))ktfx.bindings/javafx.beans.value.-observable-double-value/as-set.html
+$dokka.location:ktfx.bindings$asSet(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, javafx.collections.ObservableSet((ktfx.bindings.asSet.E)))))ktfx.bindings/javafx.beans.value.-observable-float-value/as-set.html
+$dokka.location:ktfx.bindings$asSet(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, javafx.collections.ObservableSet((ktfx.bindings.asSet.E)))))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-set.html
+$dokka.location:ktfx.bindings$asSet(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, javafx.collections.ObservableSet((ktfx.bindings.asSet.E)))))ktfx.bindings/javafx.beans.value.-observable-long-value/as-set.html
+$dokka.location:ktfx.bindings$asSet(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asSet.V)), kotlin.Function1((ktfx.bindings.asSet.V, javafx.collections.ObservableSet((ktfx.bindings.asSet.E)))))ktfx.bindings/javafx.beans.value.-observable-object-value/as-set.html
+$dokka.location:ktfx.bindings$asString(javafx.beans.value.ObservableBooleanValue, kotlin.Function1((kotlin.Boolean, kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-boolean-value/as-string.html
+$dokka.location:ktfx.bindings$asString(javafx.beans.value.ObservableDoubleValue, kotlin.Function1((kotlin.Double, kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-double-value/as-string.html
+$dokka.location:ktfx.bindings$asString(javafx.beans.value.ObservableFloatValue, kotlin.Function1((kotlin.Float, kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-float-value/as-string.html
+$dokka.location:ktfx.bindings$asString(javafx.beans.value.ObservableIntegerValue, kotlin.Function1((kotlin.Int, kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-integer-value/as-string.html
+$dokka.location:ktfx.bindings$asString(javafx.beans.value.ObservableLongValue, kotlin.Function1((kotlin.Long, kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-long-value/as-string.html
+$dokka.location:ktfx.bindings$asString(javafx.beans.value.ObservableObjectValue((ktfx.bindings.asString.V)), kotlin.Function1((ktfx.bindings.asString.V, kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-object-value/as-string.html
+$dokka.location:ktfx.bindings$bindContent(kotlin.collections.List((ktfx.bindings.bindContent.E)), javafx.collections.ObservableList((ktfx.bindings.bindContent.E)))ktfx.bindings/kotlin.collections.-list/bind-content.html
+$dokka.location:ktfx.bindings$bindContent(kotlin.collections.Map((ktfx.bindings.bindContent.K, ktfx.bindings.bindContent.V)), javafx.collections.ObservableMap((ktfx.bindings.bindContent.K, ktfx.bindings.bindContent.V)))ktfx.bindings/kotlin.collections.-map/bind-content.html
+$dokka.location:ktfx.bindings$bindContent(kotlin.collections.Set((ktfx.bindings.bindContent.E)), javafx.collections.ObservableSet((ktfx.bindings.bindContent.E)))ktfx.bindings/kotlin.collections.-set/bind-content.html
+$dokka.location:ktfx.bindings$bindContentBidirectional(javafx.collections.ObservableList((ktfx.bindings.bindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.bindings.bindContentBidirectional.E)))ktfx.bindings/javafx.collections.-observable-list/bind-content-bidirectional.html
+$dokka.location:ktfx.bindings$bindContentBidirectional(javafx.collections.ObservableMap((ktfx.bindings.bindContentBidirectional.K, ktfx.bindings.bindContentBidirectional.V)), javafx.collections.ObservableMap((ktfx.bindings.bindContentBidirectional.K, ktfx.bindings.bindContentBidirectional.V)))ktfx.bindings/javafx.collections.-observable-map/bind-content-bidirectional.html
+$dokka.location:ktfx.bindings$bindContentBidirectional(javafx.collections.ObservableSet((ktfx.bindings.bindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.bindings.bindContentBidirectional.E)))ktfx.bindings/javafx.collections.-observable-set/bind-content-bidirectional.html
+$dokka.location:ktfx.bindings$capitalize(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/capitalize.html
+$dokka.location:ktfx.bindings$codePointAt(javafx.beans.value.ObservableStringValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-string-value/code-point-at.html
+$dokka.location:ktfx.bindings$codePointBefore(javafx.beans.value.ObservableStringValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-string-value/code-point-before.html
+$dokka.location:ktfx.bindings$codePointCount(javafx.beans.value.ObservableStringValue, kotlin.Int, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-string-value/code-point-count.html
+$dokka.location:ktfx.bindings$commonPrefixWith(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/common-prefix-with.html
+$dokka.location:ktfx.bindings$commonSuffixWith(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/common-suffix-with.html
+$dokka.location:ktfx.bindings$compareTo(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/compare-to.html
+$dokka.location:ktfx.bindings$contains(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/contains.html
+$dokka.location:ktfx.bindings$contains(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/contains.html
+$dokka.location:ktfx.bindings$contains(javafx.beans.value.ObservableStringValue, kotlin.text.Regex)ktfx.bindings/javafx.beans.value.-observable-string-value/contains.html
+$dokka.location:ktfx.bindings$contentEquals(javafx.beans.value.ObservableStringValue, java.lang.StringBuffer)ktfx.bindings/javafx.beans.value.-observable-string-value/content-equals.html
+$dokka.location:ktfx.bindings$decapitalize(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/decapitalize.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableDoubleValue, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/javafx.beans.value.-observable-double-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableDoubleValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-double-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableDoubleValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-double-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableDoubleValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-double-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableDoubleValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-double-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableFloatValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-float-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableFloatValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-float-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableFloatValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-float-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableFloatValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-float-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableIntegerValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-integer-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableIntegerValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-integer-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableIntegerValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-integer-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableIntegerValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-integer-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableLongValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-long-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableLongValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-long-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableLongValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-long-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableLongValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-long-value/div.html
+$dokka.location:ktfx.bindings$div(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Double, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-double/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Double, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-double/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Double, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-double/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Double, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-double/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Float, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-float/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Float, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-float/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Float, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-float/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Float, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-float/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Int, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-int/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Int, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-int/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Int, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-int/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Int, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-int/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Long, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-long/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Long, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-long/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Long, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-long/div.html
+$dokka.location:ktfx.bindings$div(kotlin.Long, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-long/div.html
+$dokka.location:ktfx.bindings$endsWith(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/ends-with.html
+$dokka.location:ktfx.bindings$endsWith(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/ends-with.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.value.-observable-boolean-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, kotlin.Double, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, kotlin.Float, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, kotlin.Int, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableNumberValue, kotlin.Long, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableObjectValue((kotlin.Any)), javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx.bindings/javafx.beans.value.-observable-object-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableObjectValue((kotlin.Any)), kotlin.Any)ktfx.bindings/javafx.beans.value.-observable-object-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/eq.html
+$dokka.location:ktfx.bindings$eq(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Any, javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx.bindings/kotlin.-any/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-double/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Double, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/kotlin.-double/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-float/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Float, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/kotlin.-float/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-int/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Int, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/kotlin.-int/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-long/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.Long, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/kotlin.-long/eq.html
+$dokka.location:ktfx.bindings$eq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.bindings/kotlin.-string/eq.html
+$dokka.location:ktfx.bindings$eqIg(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/eq-ig.html
+$dokka.location:ktfx.bindings$eqIg(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/eq-ig.html
+$dokka.location:ktfx.bindings$eqIg(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.bindings/kotlin.-string/eq-ig.html
+$dokka.location:ktfx.bindings$equals(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/equals.html
+$dokka.location:ktfx.bindings$forEachBinding(javafx.collections.ObservableFloatArray, kotlin.Function1((javafx.beans.binding.FloatBinding, kotlin.Unit)))ktfx.bindings/javafx.collections.-observable-float-array/for-each-binding.html
+$dokka.location:ktfx.bindings$forEachBinding(javafx.collections.ObservableIntegerArray, kotlin.Function1((javafx.beans.binding.IntegerBinding, kotlin.Unit)))ktfx.bindings/javafx.collections.-observable-integer-array/for-each-binding.html
+$dokka.location:ktfx.bindings$forEachBinding(javafx.collections.ObservableList((ktfx.bindings.forEachBinding.E)), kotlin.Function1((javafx.beans.binding.Binding((ktfx.bindings.forEachBinding.E)), kotlin.Unit)))ktfx.bindings/javafx.collections.-observable-list/for-each-binding.html
+$dokka.location:ktfx.bindings$forEachBindingIndexed(javafx.collections.ObservableFloatArray, kotlin.Function2((kotlin.Int, javafx.beans.binding.FloatBinding, kotlin.Unit)))ktfx.bindings/javafx.collections.-observable-float-array/for-each-binding-indexed.html
+$dokka.location:ktfx.bindings$forEachBindingIndexed(javafx.collections.ObservableIntegerArray, kotlin.Function2((kotlin.Int, javafx.beans.binding.IntegerBinding, kotlin.Unit)))ktfx.bindings/javafx.collections.-observable-integer-array/for-each-binding-indexed.html
+$dokka.location:ktfx.bindings$forEachBindingIndexed(javafx.collections.ObservableList((ktfx.bindings.forEachBindingIndexed.E)), kotlin.Function2((kotlin.Int, javafx.beans.binding.Binding((ktfx.bindings.forEachBindingIndexed.E)), kotlin.Unit)))ktfx.bindings/javafx.collections.-observable-list/for-each-binding-indexed.html
+$dokka.location:ktfx.bindings$format(javafx.beans.value.ObservableStringValue, java.util.Locale, kotlin.Array((kotlin.Any)))ktfx.bindings/javafx.beans.value.-observable-string-value/format.html
+$dokka.location:ktfx.bindings$format(javafx.beans.value.ObservableStringValue, kotlin.Array((kotlin.Any)))ktfx.bindings/javafx.beans.value.-observable-string-value/format.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableFloatArray, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-float-array/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableFloatArray, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-float-array/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableFloatArray, kotlin.Int)ktfx.bindings/javafx.collections.-observable-float-array/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableIntegerArray, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-integer-array/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableIntegerArray, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-integer-array/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableIntegerArray, kotlin.Int)ktfx.bindings/javafx.collections.-observable-integer-array/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Boolean)), javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Boolean)), javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Boolean)), kotlin.Int)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Double)), javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Double)), javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Double)), kotlin.Int)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Float)), javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Float)), javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Float)), kotlin.Int)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Int)), javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Int)), javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Int)), kotlin.Int)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Long)), javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Long)), javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.Long)), kotlin.Int)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.String)), javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.String)), javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((kotlin.String)), kotlin.Int)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((ktfx.bindings.getBinding.E)), javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((ktfx.bindings.getBinding.E)), javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableList((ktfx.bindings.getBinding.E)), kotlin.Int)ktfx.bindings/javafx.collections.-observable-list/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Boolean)), javafx.beans.value.ObservableValue((ktfx.bindings.getBinding.K)))ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Boolean)), ktfx.bindings.getBinding.K)ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Double)), javafx.beans.value.ObservableValue((ktfx.bindings.getBinding.K)))ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Double)), ktfx.bindings.getBinding.K)ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Float)), javafx.beans.value.ObservableValue((ktfx.bindings.getBinding.K)))ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Float)), ktfx.bindings.getBinding.K)ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Int)), javafx.beans.value.ObservableValue((ktfx.bindings.getBinding.K)))ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Int)), ktfx.bindings.getBinding.K)ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Long)), javafx.beans.value.ObservableValue((ktfx.bindings.getBinding.K)))ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.Long)), ktfx.bindings.getBinding.K)ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.String)), javafx.beans.value.ObservableValue((ktfx.bindings.getBinding.K)))ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, kotlin.String)), ktfx.bindings.getBinding.K)ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, ktfx.bindings.getBinding.V)), javafx.beans.value.ObservableValue((ktfx.bindings.getBinding.K)))ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$getBinding(javafx.collections.ObservableMap((ktfx.bindings.getBinding.K, ktfx.bindings.getBinding.V)), ktfx.bindings.getBinding.K)ktfx.bindings/javafx.collections.-observable-map/get-binding.html
+$dokka.location:ktfx.bindings$greater(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/greater.html
+$dokka.location:ktfx.bindings$greater(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/greater.html
+$dokka.location:ktfx.bindings$greater(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-number-value/greater.html
+$dokka.location:ktfx.bindings$greater(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-number-value/greater.html
+$dokka.location:ktfx.bindings$greater(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-number-value/greater.html
+$dokka.location:ktfx.bindings$greater(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/greater.html
+$dokka.location:ktfx.bindings$greater(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/greater.html
+$dokka.location:ktfx.bindings$greater(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-double/greater.html
+$dokka.location:ktfx.bindings$greater(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-float/greater.html
+$dokka.location:ktfx.bindings$greater(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-int/greater.html
+$dokka.location:ktfx.bindings$greater(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-long/greater.html
+$dokka.location:ktfx.bindings$greater(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.bindings/kotlin.-string/greater.html
+$dokka.location:ktfx.bindings$greaterEq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-number-value/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-number-value/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-number-value/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-double/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-float/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-int/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-long/greater-eq.html
+$dokka.location:ktfx.bindings$greaterEq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.bindings/kotlin.-string/greater-eq.html
+$dokka.location:ktfx.bindings$intern(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/intern.html
+$dokka.location:ktfx.bindings$isBlank(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/is-blank.html
+$dokka.location:ktfx.bindings$isEmpty#javafx.collections.ObservableList((ktfx.bindings.isEmpty.E))ktfx.bindings/javafx.collections.-observable-list/is-empty.html
+$dokka.location:ktfx.bindings$isEmpty#javafx.collections.ObservableMap((ktfx.bindings.isEmpty.K, ktfx.bindings.isEmpty.V))ktfx.bindings/javafx.collections.-observable-map/is-empty.html
+$dokka.location:ktfx.bindings$isEmpty#javafx.collections.ObservableSet((ktfx.bindings.isEmpty.E))ktfx.bindings/javafx.collections.-observable-set/is-empty.html
+$dokka.location:ktfx.bindings$isEmpty(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/is-empty.html
+$dokka.location:ktfx.bindings$isNotBlank(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/is-not-blank.html
+$dokka.location:ktfx.bindings$isNotEmpty#javafx.collections.ObservableList((ktfx.bindings.isNotEmpty.E))ktfx.bindings/javafx.collections.-observable-list/is-not-empty.html
+$dokka.location:ktfx.bindings$isNotEmpty#javafx.collections.ObservableMap((ktfx.bindings.isNotEmpty.K, ktfx.bindings.isNotEmpty.V))ktfx.bindings/javafx.collections.-observable-map/is-not-empty.html
+$dokka.location:ktfx.bindings$isNotEmpty#javafx.collections.ObservableSet((ktfx.bindings.isNotEmpty.E))ktfx.bindings/javafx.collections.-observable-set/is-not-empty.html
+$dokka.location:ktfx.bindings$isNotEmpty(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/is-not-empty.html
+$dokka.location:ktfx.bindings$isNotNull(javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx.bindings/javafx.beans.value.-observable-object-value/is-not-null.html
+$dokka.location:ktfx.bindings$isNull(javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx.bindings/javafx.beans.value.-observable-object-value/is-null.html
+$dokka.location:ktfx.bindings$isNullOrBlank(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/is-null-or-blank.html
+$dokka.location:ktfx.bindings$isNullOrEmpty(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/is-null-or-empty.html
+$dokka.location:ktfx.bindings$length(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/length.html
+$dokka.location:ktfx.bindings$less(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/less.html
+$dokka.location:ktfx.bindings$less(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/less.html
+$dokka.location:ktfx.bindings$less(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-number-value/less.html
+$dokka.location:ktfx.bindings$less(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-number-value/less.html
+$dokka.location:ktfx.bindings$less(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-number-value/less.html
+$dokka.location:ktfx.bindings$less(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/less.html
+$dokka.location:ktfx.bindings$less(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/less.html
+$dokka.location:ktfx.bindings$less(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-double/less.html
+$dokka.location:ktfx.bindings$less(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-float/less.html
+$dokka.location:ktfx.bindings$less(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-int/less.html
+$dokka.location:ktfx.bindings$less(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-long/less.html
+$dokka.location:ktfx.bindings$less(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.bindings/kotlin.-string/less.html
+$dokka.location:ktfx.bindings$lessEq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-number-value/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-number-value/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-number-value/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-double/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-float/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-int/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-long/less-eq.html
+$dokka.location:ktfx.bindings$lessEq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.bindings/kotlin.-string/less-eq.html
+$dokka.location:ktfx.bindings$matches(javafx.beans.value.ObservableStringValue, kotlin.text.Regex)ktfx.bindings/javafx.beans.value.-observable-string-value/matches.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableDoubleValue, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/javafx.beans.value.-observable-double-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableDoubleValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-double-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableDoubleValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-double-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableDoubleValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-double-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableDoubleValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-double-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableFloatValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-float-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableFloatValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-float-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableFloatValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-float-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableFloatValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-float-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableIntegerValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-integer-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableIntegerValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-integer-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableIntegerValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-integer-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableIntegerValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-integer-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableLongValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-long-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableLongValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-long-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableLongValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-long-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableLongValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-long-value/minus.html
+$dokka.location:ktfx.bindings$minus(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Double, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-double/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Double, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-double/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Double, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-double/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Double, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-double/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Float, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-float/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Float, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-float/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Float, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-float/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Float, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-float/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Int, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-int/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Int, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-int/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Int, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-int/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Int, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-int/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Long, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-long/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Long, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-long/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Long, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-long/minus.html
+$dokka.location:ktfx.bindings$minus(kotlin.Long, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-long/minus.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.value.-observable-boolean-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, kotlin.Double, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, kotlin.Float, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, kotlin.Int, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableNumberValue, kotlin.Long, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-number-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableObjectValue((kotlin.Any)), javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx.bindings/javafx.beans.value.-observable-object-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableObjectValue((kotlin.Any)), kotlin.Any)ktfx.bindings/javafx.beans.value.-observable-object-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/neq.html
+$dokka.location:ktfx.bindings$neq(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Any, javafx.beans.value.ObservableObjectValue((kotlin.Any)))ktfx.bindings/kotlin.-any/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Double, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-double/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Double, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/kotlin.-double/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Float, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-float/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Float, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/kotlin.-float/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Int, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-int/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Int, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/kotlin.-int/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Long, javafx.beans.value.ObservableNumberValue)ktfx.bindings/kotlin.-long/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.Long, javafx.beans.value.ObservableNumberValue, kotlin.Double)ktfx.bindings/kotlin.-long/neq.html
+$dokka.location:ktfx.bindings$neq(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.bindings/kotlin.-string/neq.html
+$dokka.location:ktfx.bindings$neqIg(javafx.beans.value.ObservableStringValue, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/neq-ig.html
+$dokka.location:ktfx.bindings$neqIg(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/neq-ig.html
+$dokka.location:ktfx.bindings$neqIg(kotlin.String, javafx.beans.value.ObservableStringValue)ktfx.bindings/kotlin.-string/neq-ig.html
+$dokka.location:ktfx.bindings$not(javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.value.-observable-boolean-value/not.html
+$dokka.location:ktfx.bindings$offsetByCodePoints(javafx.beans.value.ObservableStringValue, kotlin.Int, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-string-value/offset-by-code-points.html
+$dokka.location:ktfx.bindings$or(javafx.beans.value.ObservableBooleanValue, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.value.-observable-boolean-value/or.html
+$dokka.location:ktfx.bindings$orEmpty(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/or-empty.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.BooleanConditionBuilder, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.binding.-when.-boolean-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.BooleanConditionBuilder, kotlin.Boolean)ktfx.bindings/javafx.beans.binding.-when.-boolean-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.NumberConditionBuilder, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Double)ktfx.bindings/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Float)ktfx.bindings/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Int)ktfx.bindings/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.NumberConditionBuilder, kotlin.Long)ktfx.bindings/javafx.beans.binding.-when.-number-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.ObjectConditionBuilder((ktfx.bindings.otherwise.T)), javafx.beans.value.ObservableObjectValue((ktfx.bindings.otherwise.T)))ktfx.bindings/javafx.beans.binding.-when.-object-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.ObjectConditionBuilder((ktfx.bindings.otherwise.T)), ktfx.bindings.otherwise.T)ktfx.bindings/javafx.beans.binding.-when.-object-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.StringConditionBuilder, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.binding.-when.-string-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$otherwise(javafx.beans.binding.When.StringConditionBuilder, kotlin.String)ktfx.bindings/javafx.beans.binding.-when.-string-condition-builder/otherwise.html
+$dokka.location:ktfx.bindings$padEnd(javafx.beans.value.ObservableStringValue, kotlin.Int, kotlin.Char)ktfx.bindings/javafx.beans.value.-observable-string-value/pad-end.html
+$dokka.location:ktfx.bindings$padStart(javafx.beans.value.ObservableStringValue, kotlin.Int, kotlin.Char)ktfx.bindings/javafx.beans.value.-observable-string-value/pad-start.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableDoubleValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-double-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableDoubleValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-double-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableDoubleValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-double-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableDoubleValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-double-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableDoubleValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-double-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableFloatValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-float-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableFloatValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-float-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableFloatValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-float-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableFloatValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-float-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableIntegerValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-integer-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableIntegerValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-integer-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableIntegerValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-integer-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableIntegerValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-integer-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableLongValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-long-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableLongValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-long-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableLongValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-long-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableLongValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-long-value/plus.html
+$dokka.location:ktfx.bindings$plus(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Double, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-double/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Double, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-double/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Double, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-double/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Double, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-double/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Float, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-float/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Float, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-float/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Float, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-float/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Float, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-float/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Int, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-int/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Int, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-int/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Int, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-int/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Int, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-int/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Long, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-long/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Long, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-long/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Long, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-long/plus.html
+$dokka.location:ktfx.bindings$plus(kotlin.Long, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-long/plus.html
+$dokka.location:ktfx.bindings$regionMatches(javafx.beans.value.ObservableStringValue, kotlin.Int, kotlin.String, kotlin.Int, kotlin.Int, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/region-matches.html
+$dokka.location:ktfx.bindings$removePrefix(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/remove-prefix.html
+$dokka.location:ktfx.bindings$removeRange(javafx.beans.value.ObservableStringValue, kotlin.Int, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-string-value/remove-range.html
+$dokka.location:ktfx.bindings$removeRange(javafx.beans.value.ObservableStringValue, kotlin.ranges.IntRange)ktfx.bindings/javafx.beans.value.-observable-string-value/remove-range.html
+$dokka.location:ktfx.bindings$removeSuffix(javafx.beans.value.ObservableStringValue, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/remove-suffix.html
+$dokka.location:ktfx.bindings$removeSurrounding(javafx.beans.value.ObservableStringValue, kotlin.CharSequence)ktfx.bindings/javafx.beans.value.-observable-string-value/remove-surrounding.html
+$dokka.location:ktfx.bindings$removeSurrounding(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/remove-surrounding.html
+$dokka.location:ktfx.bindings$repeat(javafx.beans.value.ObservableStringValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-string-value/repeat.html
+$dokka.location:ktfx.bindings$replace(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.Char, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/replace.html
+$dokka.location:ktfx.bindings$replace(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/replace.html
+$dokka.location:ktfx.bindings$replace(javafx.beans.value.ObservableStringValue, kotlin.text.Regex, kotlin.Function1((kotlin.text.MatchResult, kotlin.CharSequence)))ktfx.bindings/javafx.beans.value.-observable-string-value/replace.html
+$dokka.location:ktfx.bindings$replace(javafx.beans.value.ObservableStringValue, kotlin.text.Regex, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace.html
+$dokka.location:ktfx.bindings$replaceAfter(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-after.html
+$dokka.location:ktfx.bindings$replaceAfter(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-after.html
+$dokka.location:ktfx.bindings$replaceAfterLast(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-after-last.html
+$dokka.location:ktfx.bindings$replaceAfterLast(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-after-last.html
+$dokka.location:ktfx.bindings$replaceBefore(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-before.html
+$dokka.location:ktfx.bindings$replaceBefore(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-before.html
+$dokka.location:ktfx.bindings$replaceBeforeLast(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-before-last.html
+$dokka.location:ktfx.bindings$replaceBeforeLast(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-before-last.html
+$dokka.location:ktfx.bindings$replaceFirst(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.Char, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-first.html
+$dokka.location:ktfx.bindings$replaceFirst(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-first.html
+$dokka.location:ktfx.bindings$replaceFirst(javafx.beans.value.ObservableStringValue, kotlin.text.Regex, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-first.html
+$dokka.location:ktfx.bindings$replaceRange(javafx.beans.value.ObservableStringValue, kotlin.Int, kotlin.Int, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-range.html
+$dokka.location:ktfx.bindings$replaceRange(javafx.beans.value.ObservableStringValue, kotlin.ranges.IntRange, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/replace-range.html
+$dokka.location:ktfx.bindings$select(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-value/select.html
+$dokka.location:ktfx.bindings$select(kotlin.Any, kotlin.Array((kotlin.String)))ktfx.bindings/kotlin.-any/select.html
+$dokka.location:ktfx.bindings$selectBoolean(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-value/select-boolean.html
+$dokka.location:ktfx.bindings$selectBoolean(kotlin.Any, kotlin.Array((kotlin.String)))ktfx.bindings/kotlin.-any/select-boolean.html
+$dokka.location:ktfx.bindings$selectDouble(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-value/select-double.html
+$dokka.location:ktfx.bindings$selectDouble(kotlin.Any, kotlin.Array((kotlin.String)))ktfx.bindings/kotlin.-any/select-double.html
+$dokka.location:ktfx.bindings$selectFloat(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-value/select-float.html
+$dokka.location:ktfx.bindings$selectFloat(kotlin.Any, kotlin.Array((kotlin.String)))ktfx.bindings/kotlin.-any/select-float.html
+$dokka.location:ktfx.bindings$selectInt(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-value/select-int.html
+$dokka.location:ktfx.bindings$selectInt(kotlin.Any, kotlin.Array((kotlin.String)))ktfx.bindings/kotlin.-any/select-int.html
+$dokka.location:ktfx.bindings$selectLong(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-value/select-long.html
+$dokka.location:ktfx.bindings$selectLong(kotlin.Any, kotlin.Array((kotlin.String)))ktfx.bindings/kotlin.-any/select-long.html
+$dokka.location:ktfx.bindings$selectString(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))ktfx.bindings/javafx.beans.value.-observable-value/select-string.html
+$dokka.location:ktfx.bindings$selectString(kotlin.Any, kotlin.Array((kotlin.String)))ktfx.bindings/kotlin.-any/select-string.html
+$dokka.location:ktfx.bindings$size(javafx.collections.ObservableList((ktfx.bindings.size.E)))ktfx.bindings/javafx.collections.-observable-list/size.html
+$dokka.location:ktfx.bindings$size(javafx.collections.ObservableMap((ktfx.bindings.size.K, ktfx.bindings.size.V)))ktfx.bindings/javafx.collections.-observable-map/size.html
+$dokka.location:ktfx.bindings$size(javafx.collections.ObservableSet((ktfx.bindings.size.E)))ktfx.bindings/javafx.collections.-observable-set/size.html
+$dokka.location:ktfx.bindings$startsWith(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/starts-with.html
+$dokka.location:ktfx.bindings$startsWith(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/starts-with.html
+$dokka.location:ktfx.bindings$startsWith(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.Int, kotlin.Boolean)ktfx.bindings/javafx.beans.value.-observable-string-value/starts-with.html
+$dokka.location:ktfx.bindings$substring(javafx.beans.value.ObservableStringValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-string-value/substring.html
+$dokka.location:ktfx.bindings$substring(javafx.beans.value.ObservableStringValue, kotlin.Int, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-string-value/substring.html
+$dokka.location:ktfx.bindings$substring(javafx.beans.value.ObservableStringValue, kotlin.ranges.IntRange)ktfx.bindings/javafx.beans.value.-observable-string-value/substring.html
+$dokka.location:ktfx.bindings$substringAfter(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/substring-after.html
+$dokka.location:ktfx.bindings$substringAfter(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/substring-after.html
+$dokka.location:ktfx.bindings$substringAfterLast(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/substring-after-last.html
+$dokka.location:ktfx.bindings$substringAfterLast(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/substring-after-last.html
+$dokka.location:ktfx.bindings$substringBefore(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/substring-before.html
+$dokka.location:ktfx.bindings$substringBefore(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/substring-before.html
+$dokka.location:ktfx.bindings$substringBeforeLast(javafx.beans.value.ObservableStringValue, kotlin.Char, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/substring-before-last.html
+$dokka.location:ktfx.bindings$substringBeforeLast(javafx.beans.value.ObservableStringValue, kotlin.String, kotlin.String)ktfx.bindings/javafx.beans.value.-observable-string-value/substring-before-last.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, javafx.beans.value.ObservableBooleanValue)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, javafx.beans.value.ObservableObjectValue((ktfx.bindings.then.T)))ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, kotlin.Boolean)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, kotlin.Double)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, kotlin.Float)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, kotlin.Int)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, kotlin.Long)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, kotlin.String)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$then(javafx.beans.binding.When, ktfx.bindings.then.T)ktfx.bindings/javafx.beans.binding.-when/then.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableDoubleValue, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/javafx.beans.value.-observable-double-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableDoubleValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-double-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableDoubleValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-double-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableDoubleValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-double-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableDoubleValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-double-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableFloatValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-float-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableFloatValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-float-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableFloatValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-float-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableFloatValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-float-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableIntegerValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-integer-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableIntegerValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-integer-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableIntegerValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-integer-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableIntegerValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-integer-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableLongValue, kotlin.Double)ktfx.bindings/javafx.beans.value.-observable-long-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableLongValue, kotlin.Float)ktfx.bindings/javafx.beans.value.-observable-long-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableLongValue, kotlin.Int)ktfx.bindings/javafx.beans.value.-observable-long-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableLongValue, kotlin.Long)ktfx.bindings/javafx.beans.value.-observable-long-value/times.html
+$dokka.location:ktfx.bindings$times(javafx.beans.value.ObservableNumberValue, javafx.beans.value.ObservableNumberValue)ktfx.bindings/javafx.beans.value.-observable-number-value/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Double, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-double/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Double, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-double/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Double, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-double/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Double, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-double/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Float, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-float/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Float, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-float/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Float, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-float/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Float, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-float/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Int, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-int/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Int, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-int/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Int, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-int/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Int, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-int/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Long, javafx.beans.value.ObservableDoubleValue)ktfx.bindings/kotlin.-long/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Long, javafx.beans.value.ObservableFloatValue)ktfx.bindings/kotlin.-long/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Long, javafx.beans.value.ObservableIntegerValue)ktfx.bindings/kotlin.-long/times.html
+$dokka.location:ktfx.bindings$times(kotlin.Long, javafx.beans.value.ObservableLongValue)ktfx.bindings/kotlin.-long/times.html
+$dokka.location:ktfx.bindings$toLowerCase(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/to-lower-case.html
+$dokka.location:ktfx.bindings$toLowerCase(javafx.beans.value.ObservableStringValue, java.util.Locale)ktfx.bindings/javafx.beans.value.-observable-string-value/to-lower-case.html
+$dokka.location:ktfx.bindings$toUpperCase(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/to-upper-case.html
+$dokka.location:ktfx.bindings$toUpperCase(javafx.beans.value.ObservableStringValue, java.util.Locale)ktfx.bindings/javafx.beans.value.-observable-string-value/to-upper-case.html
+$dokka.location:ktfx.bindings$trim(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/trim.html
+$dokka.location:ktfx.bindings$trim(javafx.beans.value.ObservableStringValue, kotlin.CharArray)ktfx.bindings/javafx.beans.value.-observable-string-value/trim.html
+$dokka.location:ktfx.bindings$trim(javafx.beans.value.ObservableStringValue, kotlin.Function1((kotlin.Char, kotlin.Boolean)))ktfx.bindings/javafx.beans.value.-observable-string-value/trim.html
+$dokka.location:ktfx.bindings$trimEnd(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/trim-end.html
+$dokka.location:ktfx.bindings$trimEnd(javafx.beans.value.ObservableStringValue, kotlin.CharArray)ktfx.bindings/javafx.beans.value.-observable-string-value/trim-end.html
+$dokka.location:ktfx.bindings$trimEnd(javafx.beans.value.ObservableStringValue, kotlin.Function1((kotlin.Char, kotlin.Boolean)))ktfx.bindings/javafx.beans.value.-observable-string-value/trim-end.html
+$dokka.location:ktfx.bindings$trimStart(javafx.beans.value.ObservableStringValue)ktfx.bindings/javafx.beans.value.-observable-string-value/trim-start.html
+$dokka.location:ktfx.bindings$trimStart(javafx.beans.value.ObservableStringValue, kotlin.CharArray)ktfx.bindings/javafx.beans.value.-observable-string-value/trim-start.html
+$dokka.location:ktfx.bindings$trimStart(javafx.beans.value.ObservableStringValue, kotlin.Function1((kotlin.Char, kotlin.Boolean)))ktfx.bindings/javafx.beans.value.-observable-string-value/trim-start.html
+$dokka.location:ktfx.bindings$unaryMinus(javafx.beans.value.ObservableDoubleValue)ktfx.bindings/javafx.beans.value.-observable-double-value/unary-minus.html
+$dokka.location:ktfx.bindings$unaryMinus(javafx.beans.value.ObservableFloatValue)ktfx.bindings/javafx.beans.value.-observable-float-value/unary-minus.html
+$dokka.location:ktfx.bindings$unaryMinus(javafx.beans.value.ObservableIntegerValue)ktfx.bindings/javafx.beans.value.-observable-integer-value/unary-minus.html
+$dokka.location:ktfx.bindings$unaryMinus(javafx.beans.value.ObservableLongValue)ktfx.bindings/javafx.beans.value.-observable-long-value/unary-minus.html
+$dokka.location:ktfx.bindings$unbindContent(kotlin.collections.List((ktfx.bindings.unbindContent.E)), javafx.collections.ObservableList((ktfx.bindings.unbindContent.E)))ktfx.bindings/kotlin.collections.-list/unbind-content.html
+$dokka.location:ktfx.bindings$unbindContent(kotlin.collections.Map((ktfx.bindings.unbindContent.K, ktfx.bindings.unbindContent.V)), javafx.collections.ObservableMap((ktfx.bindings.unbindContent.K, ktfx.bindings.unbindContent.V)))ktfx.bindings/kotlin.collections.-map/unbind-content.html
+$dokka.location:ktfx.bindings$unbindContent(kotlin.collections.Set((ktfx.bindings.unbindContent.E)), javafx.collections.ObservableSet((ktfx.bindings.unbindContent.E)))ktfx.bindings/kotlin.collections.-set/unbind-content.html
+$dokka.location:ktfx.bindings$unbindContentBidirectional(javafx.collections.ObservableList((ktfx.bindings.unbindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.bindings.unbindContentBidirectional.E)))ktfx.bindings/javafx.collections.-observable-list/unbind-content-bidirectional.html
+$dokka.location:ktfx.bindings$unbindContentBidirectional(javafx.collections.ObservableMap((ktfx.bindings.unbindContentBidirectional.K, ktfx.bindings.unbindContentBidirectional.V)), javafx.collections.ObservableMap((ktfx.bindings.unbindContentBidirectional.K, ktfx.bindings.unbindContentBidirectional.V)))ktfx.bindings/javafx.collections.-observable-map/unbind-content-bidirectional.html
+$dokka.location:ktfx.bindings$unbindContentBidirectional(javafx.collections.ObservableSet((ktfx.bindings.unbindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.bindings.unbindContentBidirectional.E)))ktfx.bindings/javafx.collections.-observable-set/unbind-content-bidirectional.html
 $dokka.location:ktfx.cells$cellFactory(javafx.scene.control.ComboBox((ktfx.cells.cellFactory.T)), kotlin.Function2((ktfx.cells.KtfxListCell((ktfx.cells.cellFactory.T)), javafx.scene.control.ListView(()), kotlin.Unit)))ktfx.cells/javafx.scene.control.-combo-box/cell-factory.html
 $dokka.location:ktfx.cells$cellFactory(javafx.scene.control.ListView((ktfx.cells.cellFactory.T)), kotlin.Function2((ktfx.cells.KtfxListCell((ktfx.cells.cellFactory.T)), javafx.scene.control.ListView(()), kotlin.Unit)))ktfx.cells/javafx.scene.control.-list-view/cell-factory.html
 $dokka.location:ktfx.cells$cellFactory(javafx.scene.control.TableColumn((ktfx.cells.cellFactory.S, ktfx.cells.cellFactory.T)), kotlin.Function2((ktfx.cells.KtfxTableCell((ktfx.cells.cellFactory.S, ktfx.cells.cellFactory.T)), javafx.scene.control.TableColumn((, )), kotlin.Unit)))ktfx.cells/javafx.scene.control.-table-column/cell-factory.html
@@ -380,72 +589,16 @@ $dokka.location:ktfx.cells$textFieldCellFactory(javafx.scene.control.TreeTableCo
 $dokka.location:ktfx.cells$textFieldCellFactory(javafx.scene.control.TreeTableColumn((ktfx.cells.textFieldCellFactory.S, ktfx.cells.textFieldCellFactory.T)), javafx.util.StringConverter((ktfx.cells.textFieldCellFactory.T)))ktfx.cells/javafx.scene.control.-tree-table-column/text-field-cell-factory.html
 $dokka.location:ktfx.cells$textFieldCellFactory(javafx.scene.control.TreeView((kotlin.String)))ktfx.cells/javafx.scene.control.-tree-view/text-field-cell-factory.html
 $dokka.location:ktfx.cells$textFieldCellFactory(javafx.scene.control.TreeView((ktfx.cells.textFieldCellFactory.T)), javafx.util.StringConverter((ktfx.cells.textFieldCellFactory.T)))ktfx.cells/javafx.scene.control.-tree-view/text-field-cell-factory.html
-$dokka.location:ktfx.collections$bindContent(kotlin.collections.List((ktfx.collections.bindContent.E)), javafx.collections.ObservableList((ktfx.collections.bindContent.E)))ktfx.collections/kotlin.collections.-list/bind-content.html
-$dokka.location:ktfx.collections$bindContent(kotlin.collections.Map((ktfx.collections.bindContent.K, ktfx.collections.bindContent.V)), javafx.collections.ObservableMap((ktfx.collections.bindContent.K, ktfx.collections.bindContent.V)))ktfx.collections/kotlin.collections.-map/bind-content.html
-$dokka.location:ktfx.collections$bindContent(kotlin.collections.Set((ktfx.collections.bindContent.E)), javafx.collections.ObservableSet((ktfx.collections.bindContent.E)))ktfx.collections/kotlin.collections.-set/bind-content.html
-$dokka.location:ktfx.collections$bindContentBidirectional(javafx.collections.ObservableList((ktfx.collections.bindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.collections.bindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-list/bind-content-bidirectional.html
-$dokka.location:ktfx.collections$bindContentBidirectional(javafx.collections.ObservableMap((ktfx.collections.bindContentBidirectional.K, ktfx.collections.bindContentBidirectional.V)), javafx.collections.ObservableMap((ktfx.collections.bindContentBidirectional.K, ktfx.collections.bindContentBidirectional.V)))ktfx.collections/javafx.collections.-observable-map/bind-content-bidirectional.html
-$dokka.location:ktfx.collections$bindContentBidirectional(javafx.collections.ObservableSet((ktfx.collections.bindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.collections.bindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-set/bind-content-bidirectional.html
 $dokka.location:ktfx.collections$contains(javafx.collections.ObservableFloatArray, kotlin.Float)ktfx.collections/javafx.collections.-observable-float-array/contains.html
 $dokka.location:ktfx.collections$contains(javafx.collections.ObservableIntegerArray, kotlin.Int)ktfx.collections/javafx.collections.-observable-integer-array/contains.html
 $dokka.location:ktfx.collections$copyOf(javafx.collections.ObservableFloatArray)ktfx.collections/javafx.collections.-observable-float-array/copy-of.html
 $dokka.location:ktfx.collections$copyOf(javafx.collections.ObservableIntegerArray)ktfx.collections/javafx.collections.-observable-integer-array/copy-of.html
 $dokka.location:ktfx.collections$copyTo(javafx.collections.ObservableList((ktfx.collections.copyTo.T)), kotlin.collections.List((ktfx.collections.copyTo.T)))ktfx.collections/javafx.collections.-observable-list/copy-to.html
-$dokka.location:ktfx.collections$emptyBinding#javafx.collections.ObservableList((ktfx.collections.emptyBinding.E))ktfx.collections/javafx.collections.-observable-list/empty-binding.html
-$dokka.location:ktfx.collections$emptyBinding#javafx.collections.ObservableMap((ktfx.collections.emptyBinding.K, ktfx.collections.emptyBinding.V))ktfx.collections/javafx.collections.-observable-map/empty-binding.html
-$dokka.location:ktfx.collections$emptyBinding#javafx.collections.ObservableSet((ktfx.collections.emptyBinding.E))ktfx.collections/javafx.collections.-observable-set/empty-binding.html
 $dokka.location:ktfx.collections$fillTo(javafx.collections.ObservableList((ktfx.collections.fillTo.T)), ktfx.collections.fillTo.T)ktfx.collections/javafx.collections.-observable-list/fill-to.html
 $dokka.location:ktfx.collections$forEach(javafx.collections.ObservableFloatArray, kotlin.Function1((kotlin.Float, kotlin.Unit)))ktfx.collections/javafx.collections.-observable-float-array/for-each.html
 $dokka.location:ktfx.collections$forEach(javafx.collections.ObservableIntegerArray, kotlin.Function1((kotlin.Int, kotlin.Unit)))ktfx.collections/javafx.collections.-observable-integer-array/for-each.html
-$dokka.location:ktfx.collections$forEachBinding(javafx.collections.ObservableFloatArray, kotlin.Function1((javafx.beans.binding.FloatBinding, kotlin.Unit)))ktfx.collections/javafx.collections.-observable-float-array/for-each-binding.html
-$dokka.location:ktfx.collections$forEachBinding(javafx.collections.ObservableIntegerArray, kotlin.Function1((javafx.beans.binding.IntegerBinding, kotlin.Unit)))ktfx.collections/javafx.collections.-observable-integer-array/for-each-binding.html
-$dokka.location:ktfx.collections$forEachBinding(javafx.collections.ObservableList((ktfx.collections.forEachBinding.E)), kotlin.Function1((javafx.beans.binding.Binding((ktfx.collections.forEachBinding.E)), kotlin.Unit)))ktfx.collections/javafx.collections.-observable-list/for-each-binding.html
-$dokka.location:ktfx.collections$forEachBindingIndexed(javafx.collections.ObservableFloatArray, kotlin.Function2((kotlin.Int, javafx.beans.binding.FloatBinding, kotlin.Unit)))ktfx.collections/javafx.collections.-observable-float-array/for-each-binding-indexed.html
-$dokka.location:ktfx.collections$forEachBindingIndexed(javafx.collections.ObservableIntegerArray, kotlin.Function2((kotlin.Int, javafx.beans.binding.IntegerBinding, kotlin.Unit)))ktfx.collections/javafx.collections.-observable-integer-array/for-each-binding-indexed.html
-$dokka.location:ktfx.collections$forEachBindingIndexed(javafx.collections.ObservableList((ktfx.collections.forEachBindingIndexed.E)), kotlin.Function2((kotlin.Int, javafx.beans.binding.Binding((ktfx.collections.forEachBindingIndexed.E)), kotlin.Unit)))ktfx.collections/javafx.collections.-observable-list/for-each-binding-indexed.html
 $dokka.location:ktfx.collections$forEachIndexed(javafx.collections.ObservableFloatArray, kotlin.Function2((kotlin.Int, kotlin.Float, kotlin.Unit)))ktfx.collections/javafx.collections.-observable-float-array/for-each-indexed.html
 $dokka.location:ktfx.collections$forEachIndexed(javafx.collections.ObservableIntegerArray, kotlin.Function2((kotlin.Int, , kotlin.Unit)))ktfx.collections/javafx.collections.-observable-integer-array/for-each-indexed.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableFloatArray, javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-float-array/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableFloatArray, javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-float-array/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableFloatArray, kotlin.Int)ktfx.collections/javafx.collections.-observable-float-array/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableIntegerArray, javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-integer-array/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableIntegerArray, javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-integer-array/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableIntegerArray, kotlin.Int)ktfx.collections/javafx.collections.-observable-integer-array/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Boolean)), javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Boolean)), javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Boolean)), kotlin.Int)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Double)), javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Double)), javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Double)), kotlin.Int)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Float)), javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Float)), javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Float)), kotlin.Int)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Int)), javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Int)), javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Int)), kotlin.Int)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Long)), javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Long)), javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.Long)), kotlin.Int)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.String)), javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.String)), javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((kotlin.String)), kotlin.Int)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((ktfx.collections.getBinding.E)), javafx.beans.value.ObservableIntegerValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((ktfx.collections.getBinding.E)), javafx.beans.value.ObservableNumberValue)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableList((ktfx.collections.getBinding.E)), kotlin.Int)ktfx.collections/javafx.collections.-observable-list/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Boolean)), javafx.beans.value.ObservableValue((ktfx.collections.getBinding.K)))ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Boolean)), ktfx.collections.getBinding.K)ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Double)), javafx.beans.value.ObservableValue((ktfx.collections.getBinding.K)))ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Double)), ktfx.collections.getBinding.K)ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Float)), javafx.beans.value.ObservableValue((ktfx.collections.getBinding.K)))ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Float)), ktfx.collections.getBinding.K)ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Int)), javafx.beans.value.ObservableValue((ktfx.collections.getBinding.K)))ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Int)), ktfx.collections.getBinding.K)ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Long)), javafx.beans.value.ObservableValue((ktfx.collections.getBinding.K)))ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.Long)), ktfx.collections.getBinding.K)ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.String)), javafx.beans.value.ObservableValue((ktfx.collections.getBinding.K)))ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, kotlin.String)), ktfx.collections.getBinding.K)ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, ktfx.collections.getBinding.V)), javafx.beans.value.ObservableValue((ktfx.collections.getBinding.K)))ktfx.collections/javafx.collections.-observable-map/get-binding.html
-$dokka.location:ktfx.collections$getBinding(javafx.collections.ObservableMap((ktfx.collections.getBinding.K, ktfx.collections.getBinding.V)), ktfx.collections.getBinding.K)ktfx.collections/javafx.collections.-observable-map/get-binding.html
 $dokka.location:ktfx.collections$getOrElse(javafx.collections.ObservableFloatArray, kotlin.Int, kotlin.Function1((kotlin.Int, kotlin.Float)))ktfx.collections/javafx.collections.-observable-float-array/get-or-else.html
 $dokka.location:ktfx.collections$getOrElse(javafx.collections.ObservableIntegerArray, kotlin.Int, kotlin.Function1((kotlin.Int, )))ktfx.collections/javafx.collections.-observable-integer-array/get-or-else.html
 $dokka.location:ktfx.collections$getOrNull(javafx.collections.ObservableFloatArray, kotlin.Int)ktfx.collections/javafx.collections.-observable-float-array/get-or-null.html
@@ -460,9 +613,6 @@ $dokka.location:ktfx.collections$iterator(javafx.collections.ObservableIntegerAr
 $dokka.location:ktfx.collections$lastIndex#javafx.collections.ObservableArray((javafx.collections.ObservableArray(())))ktfx.collections/javafx.collections.-observable-array/last-index.html
 $dokka.location:ktfx.collections$lastIndexOf(javafx.collections.ObservableFloatArray, kotlin.Float)ktfx.collections/javafx.collections.-observable-float-array/last-index-of.html
 $dokka.location:ktfx.collections$lastIndexOf(javafx.collections.ObservableIntegerArray, kotlin.Int)ktfx.collections/javafx.collections.-observable-integer-array/last-index-of.html
-$dokka.location:ktfx.collections$notEmptyBinding#javafx.collections.ObservableList((ktfx.collections.notEmptyBinding.E))ktfx.collections/javafx.collections.-observable-list/not-empty-binding.html
-$dokka.location:ktfx.collections$notEmptyBinding#javafx.collections.ObservableMap((ktfx.collections.notEmptyBinding.K, ktfx.collections.notEmptyBinding.V))ktfx.collections/javafx.collections.-observable-map/not-empty-binding.html
-$dokka.location:ktfx.collections$notEmptyBinding#javafx.collections.ObservableSet((ktfx.collections.notEmptyBinding.E))ktfx.collections/javafx.collections.-observable-set/not-empty-binding.html
 $dokka.location:ktfx.collections$plusAssign(javafx.collections.ObservableFloatArray, javafx.collections.ObservableFloatArray)ktfx.collections/javafx.collections.-observable-float-array/plus-assign.html
 $dokka.location:ktfx.collections$plusAssign(javafx.collections.ObservableFloatArray, kotlin.Float)ktfx.collections/javafx.collections.-observable-float-array/plus-assign.html
 $dokka.location:ktfx.collections$plusAssign(javafx.collections.ObservableFloatArray, kotlin.FloatArray)ktfx.collections/javafx.collections.-observable-float-array/plus-assign.html
@@ -474,9 +624,6 @@ $dokka.location:ktfx.collections$reverse(javafx.collections.ObservableList((kotl
 $dokka.location:ktfx.collections$rotate(javafx.collections.ObservableList((kotlin.Any)), kotlin.Int)ktfx.collections/javafx.collections.-observable-list/rotate.html
 $dokka.location:ktfx.collections$shuffle(javafx.collections.ObservableList((kotlin.Any)), java.util.Random)ktfx.collections/javafx.collections.-observable-list/shuffle.html
 $dokka.location:ktfx.collections$sizeBinding#javafx.collections.ObservableArray((javafx.collections.ObservableArray(())))ktfx.collections/javafx.collections.-observable-array/size-binding.html
-$dokka.location:ktfx.collections$sizeBinding#javafx.collections.ObservableList((ktfx.collections.sizeBinding.E))ktfx.collections/javafx.collections.-observable-list/size-binding.html
-$dokka.location:ktfx.collections$sizeBinding#javafx.collections.ObservableMap((ktfx.collections.sizeBinding.K, ktfx.collections.sizeBinding.V))ktfx.collections/javafx.collections.-observable-map/size-binding.html
-$dokka.location:ktfx.collections$sizeBinding#javafx.collections.ObservableSet((ktfx.collections.sizeBinding.E))ktfx.collections/javafx.collections.-observable-set/size-binding.html
 $dokka.location:ktfx.collections$sort(javafx.collections.ObservableList((ktfx.collections.sort.T)))ktfx.collections/javafx.collections.-observable-list/sort.html
 $dokka.location:ktfx.collections$sort(javafx.collections.ObservableList((ktfx.collections.sort.T)), java.util.Comparator((ktfx.collections.sort.T)))ktfx.collections/javafx.collections.-observable-list/sort.html
 $dokka.location:ktfx.collections$toFloatArray(javafx.collections.ObservableFloatArray)ktfx.collections/javafx.collections.-observable-float-array/to-float-array.html
@@ -498,12 +645,6 @@ $dokka.location:ktfx.collections$toObservableMap(kotlin.collections.Map((ktfx.co
 $dokka.location:ktfx.collections$toObservableSet(kotlin.Array((ktfx.collections.toObservableSet.T)))ktfx.collections/kotlin.-array/to-observable-set.html
 $dokka.location:ktfx.collections$toObservableSet(kotlin.collections.Iterable((ktfx.collections.toObservableSet.T)))ktfx.collections/kotlin.collections.-iterable/to-observable-set.html
 $dokka.location:ktfx.collections$toObservableSet(kotlin.sequences.Sequence((ktfx.collections.toObservableSet.T)))ktfx.collections/kotlin.sequences.-sequence/to-observable-set.html
-$dokka.location:ktfx.collections$unbindContent(kotlin.collections.List((ktfx.collections.unbindContent.E)), javafx.collections.ObservableList((ktfx.collections.unbindContent.E)))ktfx.collections/kotlin.collections.-list/unbind-content.html
-$dokka.location:ktfx.collections$unbindContent(kotlin.collections.Map((ktfx.collections.unbindContent.K, ktfx.collections.unbindContent.V)), javafx.collections.ObservableMap((ktfx.collections.unbindContent.K, ktfx.collections.unbindContent.V)))ktfx.collections/kotlin.collections.-map/unbind-content.html
-$dokka.location:ktfx.collections$unbindContent(kotlin.collections.Set((ktfx.collections.unbindContent.E)), javafx.collections.ObservableSet((ktfx.collections.unbindContent.E)))ktfx.collections/kotlin.collections.-set/unbind-content.html
-$dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableList((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-list/unbind-content-bidirectional.html
-$dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableMap((ktfx.collections.unbindContentBidirectional.K, ktfx.collections.unbindContentBidirectional.V)), javafx.collections.ObservableMap((ktfx.collections.unbindContentBidirectional.K, ktfx.collections.unbindContentBidirectional.V)))ktfx.collections/javafx.collections.-observable-map/unbind-content-bidirectional.html
-$dokka.location:ktfx.collections$unbindContentBidirectional(javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)), javafx.collections.ObservableSet((ktfx.collections.unbindContentBidirectional.E)))ktfx.collections/javafx.collections.-observable-set/unbind-content-bidirectional.html
 $dokka.location:ktfx.controls$affineTransformation(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Affine, kotlin.Unit)))ktfx.controls/javafx.scene.-node/affine-transformation.html
 $dokka.location:ktfx.controls$background(javafx.scene.layout.Region, kotlin.Function1((ktfx.controls.BackgroundBuilder, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-region/background.html
 $dokka.location:ktfx.controls$backgroundFill(javafx.scene.layout.Region, kotlin.Function1((ktfx.controls.BackgroundBuilder.FillBuilder, kotlin.Unit)))ktfx.controls/javafx.scene.layout.-region/background-fill.html
@@ -619,9 +760,9 @@ $dokka.location:ktfx.print$createJob(javafx.print.Printer, kotlin.Function1((jav
 $dokka.location:ktfx.print$untilPage(kotlin.Int, kotlin.Int)ktfx.print/kotlin.-int/until-page.html
 $dokka.location:ktfx.text$append(javafx.scene.text.TextFlow, kotlin.Any)ktfx.text/javafx.scene.text.-text-flow/append.html
 $dokka.location:ktfx.text$append(javafx.scene.text.TextFlow, kotlin.String)ktfx.text/javafx.scene.text.-text-flow/append.html
-$dokka.location:ktfx.text$appendln(javafx.scene.text.TextFlow)ktfx.text/javafx.scene.text.-text-flow/appendln.html
-$dokka.location:ktfx.text$appendln(javafx.scene.text.TextFlow, kotlin.Any)ktfx.text/javafx.scene.text.-text-flow/appendln.html
-$dokka.location:ktfx.text$appendln(javafx.scene.text.TextFlow, kotlin.String)ktfx.text/javafx.scene.text.-text-flow/appendln.html
+$dokka.location:ktfx.text$appendLine(javafx.scene.text.TextFlow)ktfx.text/javafx.scene.text.-text-flow/append-line.html
+$dokka.location:ktfx.text$appendLine(javafx.scene.text.TextFlow, kotlin.Any)ktfx.text/javafx.scene.text.-text-flow/append-line.html
+$dokka.location:ktfx.text$appendLine(javafx.scene.text.TextFlow, kotlin.String)ktfx.text/javafx.scene.text.-text-flow/append-line.html
 $dokka.location:ktfx.text$clear(javafx.scene.text.TextFlow)ktfx.text/javafx.scene.text.-text-flow/clear.html
 $dokka.location:ktfx.text$fontFamily#javafx.scene.canvas.GraphicsContextktfx.text/javafx.scene.canvas.-graphics-context/font-family.html
 $dokka.location:ktfx.text$fontFamily#javafx.scene.control.Labeledktfx.text/javafx.scene.control.-labeled/font-family.html
@@ -701,11 +842,13 @@ $dokka.location:ktfx.windows$setSize(javafx.stage.Stage, kotlin.Double, kotlin.D
 $dokka.location:ktfx.windows$size#javafx.stage.Stagektfx.windows/javafx.stage.-stage/size.html
 $dokka.location:ktfx.windows$stage#javafx.scene.Scenektfx.windows/javafx.scene.-scene/stage.html
 ktfx
+ktfx.bindings
 ktfx.cells
 ktfx.collections
 ktfx.controls
 ktfx.dialogs
 ktfx.inputs
+ktfx.internal
 ktfx.print
 ktfx.text
 ktfx.time

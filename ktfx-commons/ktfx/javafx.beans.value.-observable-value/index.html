@@ -18,62 +18,6 @@
 <p>Delegated property of this read-only <a href="get-value.html#V">V</a> value, use with <code>by</code> keyword.</p>
 <code><span class="keyword">operator</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">V</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">getValue</span><span class="symbol">(</span><span class="identifier" id="ktfx$getValue(javafx.beans.value.ObservableValue((ktfx.getValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))/thisRef">thisRef</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html"><span class="identifier">Any</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="ktfx$getValue(javafx.beans.value.ObservableValue((ktfx.getValue.V)), kotlin.Any, kotlin.reflect.KProperty((kotlin.Any)))/property">property</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-property/index.html"><span class="identifier">KProperty</span></a><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">V</span><span class="symbol">?</span></code></td>
 </tr>
-<tr>
-<td>
-<h4><a href="select.html">select</a></h4>
-</td>
-<td>
-<p>Creates an object binding used to get a member.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span> <span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">select</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$select(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ObjectBinding</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="select-boolean.html">selectBoolean</a></h4>
-</td>
-<td>
-<p>Creates a boolean binding used to get a member.</p>
-<code><span class="keyword">fun </span><span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">selectBoolean</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$selectBoolean(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">BooleanBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="select-double.html">selectDouble</a></h4>
-</td>
-<td>
-<p>Creates a double binding used to get a member.</p>
-<code><span class="keyword">fun </span><span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">selectDouble</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$selectDouble(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">DoubleBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="select-float.html">selectFloat</a></h4>
-</td>
-<td>
-<p>Creates a float binding used to get a member.</p>
-<code><span class="keyword">fun </span><span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">selectFloat</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$selectFloat(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">FloatBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="select-int.html">selectInt</a></h4>
-</td>
-<td>
-<p>Creates an integer binding used to get a member.</p>
-<code><span class="keyword">fun </span><span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">selectInt</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$selectInt(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">IntegerBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="select-long.html">selectLong</a></h4>
-</td>
-<td>
-<p>Creates a long binding used to get a member.</p>
-<code><span class="keyword">fun </span><span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">selectLong</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$selectLong(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">LongBinding</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="select-string.html">selectString</a></h4>
-</td>
-<td>
-<p>Creates a string binding used to get a member.</p>
-<code><span class="keyword">fun </span><span class="identifier">ObservableValue</span><span class="symbol">&lt;</span><span class="identifier">*</span><span class="symbol">&gt;</span><span class="symbol">.</span><span class="identifier">selectString</span><span class="symbol">(</span><span class="keyword">vararg</span> <span class="identifier" id="ktfx$selectString(javafx.beans.value.ObservableValue((kotlin.Any)), kotlin.Array((kotlin.String)))/steps">steps</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">StringBinding</span></code></td>
-</tr>
 </tbody>
 </table>
 </BODY>

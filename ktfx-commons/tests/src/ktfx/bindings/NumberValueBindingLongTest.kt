@@ -4,7 +4,7 @@ import ktfx.longPropertyOf
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class NumberBindingLongTest {
+class NumberValueBindingLongTest {
 
     @Test fun unaryMinus() = assertEquals(-1L, (-longPropertyOf(1L)).value)
 

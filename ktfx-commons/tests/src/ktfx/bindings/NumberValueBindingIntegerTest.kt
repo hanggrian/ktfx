@@ -4,7 +4,7 @@ import ktfx.intPropertyOf
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class NumberBindingIntegerTest {
+class NumberValueBindingIntegerTest {
 
     @Test fun unaryMinus() = assertEquals(-1, (-intPropertyOf(1)).value)
 

@@ -7,7 +7,7 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 /** Most of these tests avoid double, since they have their own tests. */
-class NumberBindingTest {
+class NumberValueBindingTest {
 
     @Test fun plus() = assertEquals(3, (intPropertyOf(1) + intPropertyOf(2)).value)
 

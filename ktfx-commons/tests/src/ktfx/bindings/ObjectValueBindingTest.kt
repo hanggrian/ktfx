@@ -8,7 +8,7 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class ObjectBindingTest {
+class ObjectValueBindingTest {
 
     @Test fun eq() {
         assertFalse((propertyOf<Duration>() eq propertyOf(1.m)).value)

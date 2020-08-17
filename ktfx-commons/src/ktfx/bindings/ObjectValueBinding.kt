@@ -13,7 +13,6 @@ import javafx.beans.binding.ObjectExpression
 import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableObjectValue
 import javafx.beans.value.ObservableValue
-import java.util.Locale
 
 /** @see ObjectExpression.isEqualTo */
 inline infix fun ObservableObjectValue<*>.eq(other: ObservableObjectValue<*>): BooleanBinding =
@@ -34,20 +33,6 @@ inline infix fun ObservableObjectValue<*>.neq(other: Any): BooleanBinding = Bind
 
 /** @see ObjectExpression.isNotEqualTo */
 inline infix fun Any.neq(other: ObservableObjectValue<*>): BooleanBinding = Bindings.notEqual(this, other)
-
-/**
- * @see ObjectExpression.asString
- * @see com.sun.javafx.binding.StringFormatter.convert
- */
-fun ObservableObjectValue<*>.asString(): StringBinding = asString { it?.toString() ?: "null" }
-
-/** @see ObjectExpression.asString */
-inline fun ObservableObjectValue<*>.asString(format: String): StringBinding =
-    Bindings.format(format, this) as StringBinding
-
-/** @see ObjectExpression.asString */
-inline fun ObservableObjectValue<*>.asString(locale: Locale, format: String): StringBinding =
-    Bindings.format(locale, format, this) as StringBinding
 
 /** @see ObjectExpression.isNull */
 inline fun ObservableObjectValue<*>.isNull(): BooleanBinding = Bindings.isNull(this)

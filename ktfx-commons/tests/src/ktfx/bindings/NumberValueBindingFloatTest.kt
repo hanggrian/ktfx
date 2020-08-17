@@ -4,7 +4,7 @@ import ktfx.floatPropertyOf
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class NumberBindingFloatTest {
+class NumberValueBindingFloatTest {
 
     @Test fun unaryMinus() = assertEquals(-1f, (-floatPropertyOf(1f)).value)
 

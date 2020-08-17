@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class NumberBindingDoubleTest {
+class NumberValueBindingDoubleTest {
 
     @Test fun unaryMinus() = assertEquals(-1.0, (-doublePropertyOf(1.0)).value)
 

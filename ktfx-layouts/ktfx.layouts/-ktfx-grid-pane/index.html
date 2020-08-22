@@ -30,22 +30,6 @@ Invoking dsl will add its children.</p>
 <tbody>
 <tr>
 <td>
-<h4><a href="alignment.html">alignment</a></h4>
-</td>
-<td>
-<p>Children alignment in this layout.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">alignment</span><span class="symbol">: </span><span class="identifier">Pos</span><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="bottom-margin.html">bottomMargin</a></h4>
-</td>
-<td>
-<p>Bottom margin of this children.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">bottomMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="column-index.html">columnIndex</a></h4>
 </td>
 <td>
@@ -78,14 +62,6 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
-<h4><a href="horizontal-margin.html">horizontalMargin</a></h4>
-</td>
-<td>
-<p>Sets left and right margin of this children.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">horizontalMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="is-fill-height.html">isFillHeight</a></h4>
 </td>
 <td>
@@ -102,35 +78,11 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
-<h4><a href="left-margin.html">leftMargin</a></h4>
-</td>
-<td>
-<p>Left margin of this children.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">leftMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="margin.html">margin</a></h4>
 </td>
 <td>
 <p>Children margin in this layout.</p>
 <code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">: </span><span class="identifier">Insets</span><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="margins.html">margins</a></h4>
-</td>
-<td>
-<p>Sets margin to all sides of this children.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="right-margin.html">rightMargin</a></h4>
-</td>
-<td>
-<p>Right margin of this children.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">rightMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
@@ -150,27 +102,11 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
-<h4><a href="top-margin.html">topMargin</a></h4>
-</td>
-<td>
-<p>Top margin of this children.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">topMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="valignment.html">valignment</a></h4>
 </td>
 <td>
 <p>Children vertical alignment in this layout.</p>
 <code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">valignment</span><span class="symbol">: </span><span class="identifier">VPos</span><span class="symbol">?</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="vertical-margin.html">verticalMargin</a></h4>
-</td>
-<td>
-<p>Sets top and bottom margin of this children.</p>
-<code><span class="keyword">var </span><span class="identifier">Node</span><span class="symbol">.</span><span class="identifier">verticalMargin</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">?</span></code></td>
 </tr>
 <tr>
 <td>
@@ -198,16 +134,8 @@ Invoking dsl will add its children.</p>
 <h4><a href="align.html">align</a></h4>
 </td>
 <td>
-<p>Configure alignment fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">align</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$align(ktfx.layouts.KtfxGridPane.align.C, javafx.geometry.Pos)/pos">pos</span><span class="symbol">:</span>&nbsp;<span class="identifier">Pos</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="bottom-margin.html">bottomMargin</a></h4>
-</td>
-<td>
-<p>Configure bottom margin fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">bottomMargin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$bottomMargin(ktfx.layouts.KtfxGridPane.bottomMargin.C, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+<p>Configure horizontal alignment fluidly.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">align</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$align(ktfx.layouts.KtfxGridPane.align.C, javafx.geometry.HPos, javafx.geometry.VPos)/hpos">hpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">HPos</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;halignment<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$align(ktfx.layouts.KtfxGridPane.align.C, javafx.geometry.HPos, javafx.geometry.VPos)/vpos">vpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">VPos</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;valignment<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 <tr>
 <td>
@@ -219,129 +147,53 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
-<h4><a href="col.html">col</a></h4>
-</td>
-<td>
-<p>Configure column index fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">col</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$col(ktfx.layouts.KtfxGridPane.col.C, kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code>
-<p>Configure column index and span fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">col</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$col(ktfx.layouts.KtfxGridPane.col.C, kotlin.Pair((kotlin.Int, )))/pair">pair</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="fill-height.html">fillHeight</a></h4>
 </td>
 <td>
-<p>Configure fill height fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">fillHeight</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$fillHeight(ktfx.layouts.KtfxGridPane.fillHeight.C, kotlin.Boolean)/fill">fill</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+<p>Configure fill height fluidly.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">fillHeight</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$fillHeight(ktfx.layouts.KtfxGridPane.fillHeight.C, kotlin.Boolean)/fill">fill</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="fill-width.html">fillWidth</a></h4>
 </td>
 <td>
-<p>Configure fill width fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">fillWidth</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$fillWidth(ktfx.layouts.KtfxGridPane.fillWidth.C, kotlin.Boolean)/fill">fill</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+<p>Configure fill width fluidly.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">fillWidth</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$fillWidth(ktfx.layouts.KtfxGridPane.fillWidth.C, kotlin.Boolean)/fill">fill</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 <tr>
 <td>
-<h4><a href="halign.html">halign</a></h4>
+<h4><a href="grid.html">grid</a></h4>
 </td>
 <td>
-<p>Configure horizontal alignment fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">halign</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$halign(ktfx.layouts.KtfxGridPane.halign.C, javafx.geometry.HPos)/hpos">hpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">HPos</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">grid</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$grid(ktfx.layouts.KtfxGridPane.grid.C, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/row">row</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;rowIndex<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$grid(ktfx.layouts.KtfxGridPane.grid.C, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/col">col</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;columnIndex<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$grid(ktfx.layouts.KtfxGridPane.grid.C, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/rowSpan">rowSpan</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;this.rowSpan<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$grid(ktfx.layouts.KtfxGridPane.grid.C, kotlin.Int, kotlin.Int, kotlin.Int, kotlin.Int)/colSpan">colSpan</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;columnSpan<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="hgrow.html">hgrow</a></h4>
 </td>
 <td>
-<p>Configure horizontal grow fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">hgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$hgrow(ktfx.layouts.KtfxGridPane.hgrow.C, javafx.scene.layout.Priority)/priority">priority</span><span class="symbol">:</span>&nbsp;<span class="identifier">Priority</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code><br/>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">hgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$hgrow(ktfx.layouts.KtfxGridPane.hgrow.C, kotlin.Boolean)/always">always</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="horizontal-margin.html">horizontalMargin</a></h4>
-</td>
-<td>
-<p>Configure horizontal margin fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">horizontalMargin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$horizontalMargin(ktfx.layouts.KtfxGridPane.horizontalMargin.C, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="left-margin.html">leftMargin</a></h4>
-</td>
-<td>
-<p>Configure left margin fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">leftMargin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$leftMargin(ktfx.layouts.KtfxGridPane.leftMargin.C, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+<p>Configure horizontal grow fluidly.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">hgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$hgrow(ktfx.layouts.KtfxGridPane.hgrow.C, kotlin.Boolean)/always">always</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="margin.html">margin</a></h4>
 </td>
 <td>
-<p>Configure margin fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, javafx.geometry.Insets)/insets">insets</span><span class="symbol">:</span>&nbsp;<span class="identifier">Insets</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="margins.html">margins</a></h4>
-</td>
-<td>
-<p>Configure all margin fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margins</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margins(ktfx.layouts.KtfxGridPane.margins.C, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="right-margin.html">rightMargin</a></h4>
-</td>
-<td>
-<p>Configure right margin fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">rightMargin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$rightMargin(ktfx.layouts.KtfxGridPane.rightMargin.C, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="row.html">row</a></h4>
-</td>
-<td>
-<p>Configure row index fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">row</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$row(ktfx.layouts.KtfxGridPane.row.C, kotlin.Int)/index">index</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code>
-<p>Configure row index and span fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">row</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$row(ktfx.layouts.KtfxGridPane.row.C, kotlin.Pair((kotlin.Int, )))/pair">pair</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-pair/index.html"><span class="identifier">Pair</span></a><span class="symbol">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">,</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="top-margin.html">topMargin</a></h4>
-</td>
-<td>
-<p>Configure top margin fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">topMargin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$topMargin(ktfx.layouts.KtfxGridPane.topMargin.C, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="valign.html">valign</a></h4>
-</td>
-<td>
-<p>Configure vertical alignment fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">valign</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$valign(ktfx.layouts.KtfxGridPane.valign.C, javafx.geometry.VPos)/vpos">vpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">VPos</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
-<h4><a href="vertical-margin.html">verticalMargin</a></h4>
-</td>
-<td>
-<p>Configure vertical margin fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">verticalMargin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$verticalMargin(ktfx.layouts.KtfxGridPane.verticalMargin.C, kotlin.Double)/margin">margin</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html"><span class="identifier">Double</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+<p>Set children margin on all side in this layout.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number)/all">all</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code>
+<p>Set children margin on each side in this layout.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number)/horizontal">horizontal</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number)/vertical">vertical</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code><br/>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/top">top</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.top<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/right">right</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.right<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/bottom">bottom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.bottom<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/left">left</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.left<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 <tr>
 <td>
 <h4><a href="vgrow.html">vgrow</a></h4>
 </td>
 <td>
-<p>Configure vertical grow fluidly using infix operator.</p>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">vgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$vgrow(ktfx.layouts.KtfxGridPane.vgrow.C, javafx.scene.layout.Priority)/priority">priority</span><span class="symbol">:</span>&nbsp;<span class="identifier">Priority</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code><br/>
-<code><span class="keyword">infix</span> <span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">vgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$vgrow(ktfx.layouts.KtfxGridPane.vgrow.C, kotlin.Boolean)/always">always</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+<p>Configure vertical grow fluidly.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">vgrow</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$vgrow(ktfx.layouts.KtfxGridPane.vgrow.C, kotlin.Boolean)/always">always</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 </tbody>
 </table>

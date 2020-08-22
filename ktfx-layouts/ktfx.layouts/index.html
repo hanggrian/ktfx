@@ -95,6 +95,14 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
+<h4><a href="-ktfx-manager/index.html">KtfxManager</a></h4>
+</td>
+<td>
+<p>A manager contains a set of children.</p>
+<code><span class="keyword">interface </span><span class="identifier">KtfxManager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="-ktfx-menu/index.html">KtfxMenu</a></h4>
 </td>
 <td>
@@ -257,19 +265,11 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
-<h4><a href="-layout-manager/index.html">LayoutManager</a></h4>
-</td>
-<td>
-<p>A manager contains a set of children.</p>
-<code><span class="keyword">interface </span><span class="identifier">LayoutManager</span><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="-menu-item-manager.html">MenuItemManager</a></h4>
 </td>
 <td>
 <p>Container of <a href="#">MenuItem</a>.</p>
-<code><span class="keyword">interface </span><span class="identifier">MenuItemManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">MenuItemManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">MenuItem</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -277,7 +277,7 @@ Invoking dsl will add its children.</p>
 </td>
 <td>
 <p>Container of <a href="#">Menu</a>.</p>
-<code><span class="keyword">interface </span><span class="identifier">MenuManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">MenuManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Menu</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -285,7 +285,7 @@ Invoking dsl will add its children.</p>
 </td>
 <td>
 <p>Container of <a href="#">Node</a>, being used in most subclasses of <a href="#">javafx.scene.Parent</a>.</p>
-<code><span class="keyword">interface </span><span class="identifier">NodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">NodeManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Node</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -293,7 +293,7 @@ Invoking dsl will add its children.</p>
 </td>
 <td>
 <p>Container of <a href="#">PathElement</a>.</p>
-<code><span class="keyword">interface </span><span class="identifier">PathElementManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">PathElement</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">PathElementManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">PathElement</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -302,7 +302,7 @@ Invoking dsl will add its children.</p>
 <td>
 <p>Container of <a href="#">Tab</a>.
 Also being used in <code>JFXTabPane.kt</code>.</p>
-<code><span class="keyword">interface </span><span class="identifier">TabManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">TabManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">Tab</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -310,7 +310,7 @@ Also being used in <code>JFXTabPane.kt</code>.</p>
 </td>
 <td>
 <p>Container of <a href="#">TitledPane</a>.</p>
-<code><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">TitledPaneManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">TitledPane</span><span class="symbol">&gt;</span></code></td>
 </tr>
 <tr>
 <td>
@@ -319,7 +319,7 @@ Also being used in <code>JFXTabPane.kt</code>.</p>
 <td>
 <p>Container of <a href="#">ToggleButton</a>.
 Used for <code>SegmentedButton.kt</code>.</p>
-<code><span class="keyword">interface </span><span class="identifier">ToggleButtonManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-layout-manager/index.html"><span class="identifier">LayoutManager</span></a><span class="symbol">&lt;</span><span class="identifier">ToggleButton</span><span class="symbol">&gt;</span></code></td>
+<code><span class="keyword">interface </span><span class="identifier">ToggleButtonManager</span>&nbsp;<span class="symbol">:</span>&nbsp;<a href="-ktfx-manager/index.html"><span class="identifier">KtfxManager</span></a><span class="symbol">&lt;</span><span class="identifier">ToggleButton</span><span class="symbol">&gt;</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -328,11 +328,11 @@ Used for <code>SegmentedButton.kt</code>.</p>
 <tbody>
 <tr>
 <td>
-<h4><a href="-layout-dsl-marker/index.html">LayoutDslMarker</a></h4>
+<h4><a href="-ktfx-layout-dsl-marker/index.html">KtfxLayoutDslMarker</a></h4>
 </td>
 <td>
 <p>Delimits dynamic-layouts DSL.</p>
-<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">LayoutDslMarker</span></code></td>
+<code><span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">KtfxLayoutDslMarker</span></code></td>
 </tr>
 </tbody>
 </table>

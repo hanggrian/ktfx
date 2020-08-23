@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -15,7 +15,7 @@ import kotlin.contracts.contract
 /** Create a [Tooltip] with configuration block. */
 inline fun tooltip(
     text: String? = null,
-    configuration: (@LayoutDslMarker Tooltip).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit
 ): Tooltip {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return Tooltip(text).apply(configuration)
@@ -29,7 +29,7 @@ fun Node.tooltip(
 /** Set a [Tooltip] with configuration block to this [Node]. */
 inline fun Node.tooltip(
     text: String? = null,
-    configuration: (@LayoutDslMarker Tooltip).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit
 ): Tooltip {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, configuration).also { Tooltip.install(this, it) }
@@ -43,7 +43,7 @@ fun Control.tooltip(
 /** Set a [Tooltip] with configuration block to this [Control]. */
 inline fun Control.tooltip(
     text: String? = null,
-    configuration: (@LayoutDslMarker Tooltip).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit
 ): Tooltip {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, configuration).also { tooltip = it }
@@ -57,7 +57,7 @@ fun Tab.tooltip(
 /** Set a [Tooltip] with configuration block to this [Tab]. */
 inline fun Tab.tooltip(
     text: String? = null,
-    configuration: (@LayoutDslMarker Tooltip).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Tooltip).() -> Unit
 ): Tooltip {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.tooltip(text, configuration).also { tooltip = it }

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -50,7 +50,7 @@ inline fun cubicCurve(
     controlY2: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    configuration: (@LayoutDslMarker CubicCurve).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
@@ -73,7 +73,7 @@ inline fun NodeManager.cubicCurve(
     controlY2: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    configuration: (@LayoutDslMarker CubicCurve).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
@@ -152,7 +152,7 @@ inline fun styledCubicCurve(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker CubicCurve).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)
@@ -181,7 +181,7 @@ inline fun NodeManager.styledCubicCurve(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker CubicCurve).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CubicCurve).() -> Unit
 ): CubicCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CubicCurve(startX, startY, controlX1, controlY1, controlX2, controlY2, endX, endY)

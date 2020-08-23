@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun MenuItemManager.radioMenuItem(text: String? = null, graphic: Node? = null): 
 inline fun radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioMenuItem(text, graphic)
@@ -48,7 +48,7 @@ inline fun radioMenuItem(
 inline fun MenuItemManager.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioMenuItem(text, graphic)
@@ -105,7 +105,7 @@ inline fun styledRadioMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioMenuItem(text, graphic)
@@ -128,7 +128,7 @@ inline fun MenuItemManager.styledRadioMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker RadioMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit
 ): RadioMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioMenuItem(text, graphic)

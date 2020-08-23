@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -30,7 +30,7 @@ fun <T> NodeManager.treeView(root: TreeItem<T>? = null): TreeView<T> = treeView(
 inline fun <T> treeView(
     root: TreeItem<T>? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         TreeView<T>
     ).() -> Unit
 ): TreeView<T> {
@@ -49,7 +49,7 @@ inline fun <T> treeView(
 inline fun <T> NodeManager.treeView(
     root: TreeItem<T>? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         TreeView<T>
     ).() -> Unit
 ): TreeView<T> {
@@ -97,7 +97,7 @@ inline fun <T> styledTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker TreeView<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TreeView<T>).() -> Unit
 ): TreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TreeView<T>(root)
@@ -119,7 +119,7 @@ inline fun <T> NodeManager.styledTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker TreeView<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TreeView<T>).() -> Unit
 ): TreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TreeView<T>(root)

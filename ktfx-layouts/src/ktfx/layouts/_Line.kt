@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -37,7 +37,7 @@ inline fun line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    configuration: (@LayoutDslMarker Line).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Line(centerX, centerY, endX, endY)
@@ -56,7 +56,7 @@ inline fun NodeManager.line(
     centerY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    configuration: (@LayoutDslMarker Line).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Line(centerX, centerY, endX, endY)
@@ -121,7 +121,7 @@ inline fun styledLine(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Line).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Line(centerX, centerY, endX, endY)
@@ -146,7 +146,7 @@ inline fun NodeManager.styledLine(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Line).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Line).() -> Unit
 ): Line {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Line(centerX, centerY, endX, endY)

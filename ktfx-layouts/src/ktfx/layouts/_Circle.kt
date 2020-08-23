@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -38,7 +38,7 @@ inline fun circle(
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null,
-    configuration: (@LayoutDslMarker Circle).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Circle(centerX, centerY, radius, fill)
@@ -57,7 +57,7 @@ inline fun NodeManager.circle(
     centerY: Double = 0.0,
     radius: Double = 0.0,
     fill: Paint? = null,
-    configuration: (@LayoutDslMarker Circle).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Circle(centerX, centerY, radius, fill)
@@ -118,7 +118,7 @@ inline fun styledCircle(
     fill: Paint? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Circle).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Circle(centerX, centerY, radius, fill)
@@ -143,7 +143,7 @@ inline fun NodeManager.styledCircle(
     fill: Paint? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Circle).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Circle).() -> Unit
 ): Circle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Circle(centerX, centerY, radius, fill)

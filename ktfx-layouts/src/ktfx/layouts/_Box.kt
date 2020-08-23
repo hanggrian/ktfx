@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -36,7 +36,7 @@ inline fun box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
-    configuration: (@LayoutDslMarker Box).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Box(width, height, depth)
@@ -54,7 +54,7 @@ inline fun NodeManager.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
-    configuration: (@LayoutDslMarker Box).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Box(width, height, depth)
@@ -106,7 +106,7 @@ inline fun styledBox(
     depth: Double = DEFAULT_SIZE,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Box).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Box(width, height, depth)
@@ -130,7 +130,7 @@ inline fun NodeManager.styledBox(
     depth: Double = DEFAULT_SIZE,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Box).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Box).() -> Unit
 ): Box {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Box(width, height, depth)

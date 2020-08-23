@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -33,7 +33,7 @@ fun NodeManager.flowPane(orientation: Orientation = HORIZONTAL, gap: Double = 0.
 inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxFlowPane(orientation, gap)
@@ -50,7 +50,7 @@ inline fun flowPane(
 inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxFlowPane(orientation, gap)
@@ -107,7 +107,7 @@ inline fun styledFlowPane(
     gap: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxFlowPane(orientation, gap)
@@ -130,7 +130,7 @@ inline fun NodeManager.styledFlowPane(
     gap: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxFlowPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit
 ): FlowPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxFlowPane(orientation, gap)

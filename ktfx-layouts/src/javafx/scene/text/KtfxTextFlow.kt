@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -19,6 +19,6 @@ open class KtfxTextFlow : TextFlow(), NodeManager {
 
     /** Call [NodeManager.text] by string invocation. */
     inline operator fun String.invoke(
-        configuration: (@LayoutDslMarker Text).() -> Unit
+        configuration: (@KtfxLayoutDslMarker Text).() -> Unit
     ): Text = text(this, configuration)
 }

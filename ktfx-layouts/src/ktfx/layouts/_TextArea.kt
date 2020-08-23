@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.textArea(text: String = ""): TextArea = textArea(text = text) { 
  *
  * @return the control created.
  */
-inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea).() -> Unit):
+inline fun textArea(text: String = "", configuration: (@KtfxLayoutDslMarker TextArea).() -> Unit):
     TextArea {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = TextArea(text)
@@ -42,8 +42,10 @@ inline fun textArea(text: String = "", configuration: (@LayoutDslMarker TextArea
  */
 inline fun NodeManager.textArea(
     text: String = "",
-    configuration: (@LayoutDslMarker TextArea).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        TextArea
+    ).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextArea(text)
@@ -89,7 +91,7 @@ inline fun styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker TextArea).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextArea(text)
@@ -111,7 +113,7 @@ inline fun NodeManager.styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker TextArea).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TextArea).() -> Unit
 ): TextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextArea(text)

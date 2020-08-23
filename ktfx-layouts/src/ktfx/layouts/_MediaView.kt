@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -33,7 +33,7 @@ fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView = mediaVi
 inline fun mediaView(
     mediaPlayer: MediaPlayer? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         MediaView
     ).() -> Unit
 ): MediaView {
@@ -51,10 +51,7 @@ inline fun mediaView(
  */
 inline fun NodeManager.mediaView(
     mediaPlayer: MediaPlayer? = null,
-    configuration: (
-        @LayoutDslMarker    
-        MediaView
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MediaView(mediaPlayer)
@@ -100,7 +97,7 @@ inline fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker MediaView).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MediaView(mediaPlayer)
@@ -122,7 +119,7 @@ inline fun NodeManager.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker MediaView).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit
 ): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MediaView(mediaPlayer)

@@ -11,14 +11,14 @@ import org.controlsfx.control.PlusMinusSlider
 
 val ListenersFactory.Companion.ControlsFx: ListenersFactory
     get() = ListenersFactory(
-        "features/controlsfx-listeners/src",
+        "thirdparty/controlsfx-listeners/src",
         "ktfx.controlsfx.listeners",
         "ControlsFxListenersKt",
     ).apply { initControlsFx() }
 
 val CoroutinesFactory.Companion.ControlsFx: CoroutinesFactory
     get() = CoroutinesFactory(
-        "features/controlsfx-coroutines/src",
+        "thirdparty/controlsfx-coroutines/src",
         "ktfx.controlsfx.coroutines",
         "ControlsFxCoroutinesKt",
     ).apply { initControlsFx() }

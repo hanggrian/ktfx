@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -34,7 +34,7 @@ fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = se
 inline fun separator(
     orientation: Orientation = HORIZONTAL,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         Separator
     ).() -> Unit
 ): Separator {
@@ -52,7 +52,7 @@ inline fun separator(
  */
 inline fun NodeManager.separator(
     orientation: Orientation = HORIZONTAL,
-    configuration: (@LayoutDslMarker Separator).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)
@@ -98,7 +98,7 @@ inline fun styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Separator).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)
@@ -120,7 +120,7 @@ inline fun NodeManager.styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Separator).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)

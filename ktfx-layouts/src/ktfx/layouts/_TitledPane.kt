@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -35,8 +35,10 @@ fun TitledPaneManager.titledPane(title: String? = null): TitledPane = titledPane
  */
 inline fun titledPane(
     title: String? = null,
-    configuration: (@LayoutDslMarker KtfxTitledPane).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        KtfxTitledPane
+    ).() -> Unit
 ): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
@@ -53,7 +55,7 @@ inline fun titledPane(
 inline fun NodeManager.titledPane(
     title: String? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         KtfxTitledPane
     ).() -> Unit
 ): TitledPane {
@@ -72,7 +74,7 @@ inline fun NodeManager.titledPane(
 inline fun TitledPaneManager.titledPane(
     title: String? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         KtfxTitledPane
     ).() -> Unit
 ): TitledPane {
@@ -133,7 +135,7 @@ inline fun styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
@@ -155,7 +157,7 @@ inline fun NodeManager.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
@@ -177,7 +179,7 @@ inline fun TitledPaneManager.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)

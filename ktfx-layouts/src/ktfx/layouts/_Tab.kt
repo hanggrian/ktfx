@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -34,7 +34,7 @@ fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
 inline fun tab(
     text: String? = null,
     content: Node? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTab(text, content)
@@ -51,7 +51,7 @@ inline fun tab(
 inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTab(text, content)
@@ -100,7 +100,7 @@ inline fun styledTab(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTab(text, content)
@@ -123,7 +123,7 @@ inline fun TabManager.styledTab(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit
 ): Tab {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTab(text, content)

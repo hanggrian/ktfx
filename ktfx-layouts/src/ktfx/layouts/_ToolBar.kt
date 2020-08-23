@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.toolBar(): ToolBar = toolBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
+inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxToolBar()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): To
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.toolBar(configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxToolBar()
-    child.configuration()
-    return addChild(child)
-}
+inline fun NodeManager.toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit):
+    ToolBar {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxToolBar()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [ToolBar].
@@ -80,7 +81,7 @@ fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): To
 inline fun styledToolBar(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxToolBar()
@@ -101,7 +102,7 @@ inline fun styledToolBar(
 inline fun NodeManager.styledToolBar(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxToolBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit
 ): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxToolBar()

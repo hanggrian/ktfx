@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -38,7 +38,7 @@ inline fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = StackedBarChart<X, Y>(x, y, data)
@@ -56,7 +56,7 @@ inline fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = StackedBarChart<X, Y>(x, y, data)
@@ -118,7 +118,7 @@ inline fun <X, Y> styledStackedBarChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = StackedBarChart<X, Y>(x, y, data)
@@ -142,7 +142,7 @@ inline fun <X, Y> NodeManager.styledStackedBarChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker StackedBarChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = StackedBarChart<X, Y>(x, y, data)

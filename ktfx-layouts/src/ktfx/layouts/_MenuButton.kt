@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuBut
 inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuButton(text, graphic)
@@ -48,7 +48,7 @@ inline fun menuButton(
 inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuButton(text, graphic)
@@ -97,7 +97,7 @@ inline fun styledMenuButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuButton(text, graphic)
@@ -120,7 +120,7 @@ inline fun NodeManager.styledMenuButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxMenuButton).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit
 ): MenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuButton(text, graphic)

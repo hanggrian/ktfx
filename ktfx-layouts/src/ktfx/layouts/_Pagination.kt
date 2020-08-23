@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -32,7 +32,7 @@ fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int
 inline fun pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
-    configuration: (@LayoutDslMarker Pagination).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Pagination(pageCount, currentPageIndex)
@@ -49,7 +49,7 @@ inline fun pagination(
 inline fun NodeManager.pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
-    configuration: (@LayoutDslMarker Pagination).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Pagination(pageCount, currentPageIndex)
@@ -104,7 +104,7 @@ inline fun styledPagination(
     currentPageIndex: Int = 0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Pagination).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Pagination(pageCount, currentPageIndex)
@@ -127,7 +127,7 @@ inline fun NodeManager.styledPagination(
     currentPageIndex: Int = 0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Pagination).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit
 ): Pagination {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Pagination(pageCount, currentPageIndex)

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -18,6 +18,6 @@ open class KtfxAccordion : Accordion(), TitledPaneManager {
 
     /** Call [NodeManager.titledPane] by string invocation. */
     inline operator fun String.invoke(
-        configuration: (@LayoutDslMarker KtfxTitledPane).() -> Unit
+        configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit
     ): TitledPane = titledPane(this, configuration)
 }

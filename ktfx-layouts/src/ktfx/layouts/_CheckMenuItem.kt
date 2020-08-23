@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun MenuItemManager.checkMenuItem(text: String? = null, graphic: Node? = null): 
 inline fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckMenuItem(text, graphic)
@@ -48,7 +48,7 @@ inline fun checkMenuItem(
 inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckMenuItem(text, graphic)
@@ -105,7 +105,7 @@ inline fun styledCheckMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckMenuItem(text, graphic)
@@ -128,7 +128,7 @@ inline fun MenuItemManager.styledCheckMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker CheckMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CheckMenuItem).() -> Unit
 ): CheckMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckMenuItem(text, graphic)

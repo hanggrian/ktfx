@@ -14,13 +14,13 @@ inline fun String.toDuration(): Duration = Duration.valueOf(this)
  * Returns a duration equal to this [Int] number of milliseconds.
  * @see kotlin.time.milliseconds
  */
-val Int.ms: Duration get() = Duration.millis(toDouble())
+val Int.ms: Duration get() = toDouble().ms
 
 /**
  * Returns a duration equal to this [Long] number of milliseconds.
  * @see kotlin.time.milliseconds
  */
-val Long.ms: Duration get() = Duration.millis(toDouble())
+val Long.ms: Duration get() = toDouble().ms
 
 /**
  * Returns a duration equal to this [Double] number of milliseconds.
@@ -32,13 +32,13 @@ inline val Double.ms: Duration get() = Duration.millis(this)
  * Returns a duration equal to this [Int] number of seconds.
  * @see kotlin.time.seconds
  */
-val Int.s: Duration get() = Duration.seconds(toDouble())
+val Int.s: Duration get() = toDouble().s
 
 /**
  * Returns a duration equal to this [Long] number of seconds.
  * @see kotlin.time.seconds
  */
-val Long.s: Duration get() = Duration.seconds(toDouble())
+val Long.s: Duration get() = toDouble().s
 
 /**
  * Returns a duration equal to this [Double] number of seconds.
@@ -50,13 +50,13 @@ inline val Double.s: Duration get() = Duration.seconds(this)
  * Returns a duration equal to this [Int] number of minutes.
  * @see kotlin.time.minutes
  */
-val Int.m: Duration get() = Duration.minutes(toDouble())
+val Int.m: Duration get() = toDouble().m
 
 /**
  * Returns a duration equal to this [Long] number of minutes.
  * @see kotlin.time.minutes
  */
-val Long.m: Duration get() = Duration.minutes(toDouble())
+val Long.m: Duration get() = toDouble().m
 
 /**
  * Returns a duration equal to this [Double] number of minutes.
@@ -68,13 +68,13 @@ inline val Double.m: Duration get() = Duration.minutes(this)
  * Returns a duration equal to this [Int] number of hours.
  * @see kotlin.time.hours
  */
-val Int.h: Duration get() = Duration.hours(toDouble())
+val Int.h: Duration get() = toDouble().h
 
 /**
  * Returns a duration equal to this [Long] number of hours.
  * @see kotlin.time.hours
  */
-val Long.h: Duration get() = Duration.hours(toDouble())
+val Long.h: Duration get() = toDouble().h
 
 /**
  * Returns a duration equal to this [Double] number of hours.

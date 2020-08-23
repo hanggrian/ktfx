@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS): Pr
  */
 inline fun progressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressIndicator(progress)
@@ -47,7 +47,7 @@ inline fun progressIndicator(
  */
 inline fun NodeManager.progressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressIndicator(progress)
@@ -101,7 +101,7 @@ inline fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressIndicator(progress)
@@ -123,7 +123,7 @@ inline fun NodeManager.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ProgressIndicator).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressIndicator(progress)

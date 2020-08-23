@@ -11,6 +11,6 @@ sourceSets {
 
 dependencies {
     implementation(project(":ktfx"))
-    implementation(project(":features:controlsfx"))
-    implementation(project(":features:jfoenix"))
+    implementation(project(":thirdparty:controlsfx"))
+    implementation(project(":thirdparty:jfoenix"))
 }

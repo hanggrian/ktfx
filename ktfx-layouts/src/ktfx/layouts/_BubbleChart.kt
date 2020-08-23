@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -38,7 +38,7 @@ inline fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BubbleChart<X, Y>(x, y, data)
@@ -56,7 +56,7 @@ inline fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BubbleChart<X, Y>(x, y, data)
@@ -116,7 +116,7 @@ inline fun <X, Y> styledBubbleChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BubbleChart<X, Y>(x, y, data)
@@ -140,7 +140,7 @@ inline fun <X, Y> NodeManager.styledBubbleChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker BubbleChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BubbleChart<X, Y>(x, y, data)

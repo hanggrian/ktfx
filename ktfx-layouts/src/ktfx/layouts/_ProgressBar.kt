@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,10 +31,7 @@ fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): Progress
  */
 inline fun progressBar(
     progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (
-        @LayoutDslMarker    
-        ProgressBar
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)
@@ -50,7 +47,7 @@ inline fun progressBar(
  */
 inline fun NodeManager.progressBar(
     progress: Double = INDETERMINATE_PROGRESS,
-    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)
@@ -96,7 +93,7 @@ inline fun styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)
@@ -118,7 +115,7 @@ inline fun NodeManager.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ProgressBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)

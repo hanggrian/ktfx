@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.pane(): Pane = pane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
+inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.pane(configuration: (@LayoutDslMarker KtfxPane).() -> Unit): Pane {
+inline fun NodeManager.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
     child.configuration()
@@ -80,7 +80,7 @@ fun NodeManager.styledPane(vararg styleClass: String, id: String? = null): Pane 
 inline fun styledPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
@@ -101,7 +101,7 @@ inline fun styledPane(
 inline fun NodeManager.styledPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit
 ): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()

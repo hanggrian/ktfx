@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -41,7 +41,7 @@ inline fun <X, Y> barChart(
     y: Axis<Y>,
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
-    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BarChart<X, Y>(x, y, data, categoryGap)
@@ -60,7 +60,7 @@ inline fun <X, Y> NodeManager.barChart(
     y: Axis<Y>,
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
-    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BarChart<X, Y>(x, y, data, categoryGap)
@@ -125,7 +125,7 @@ inline fun <X, Y> styledBarChart(
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BarChart<X, Y>(x, y, data, categoryGap)
@@ -150,7 +150,7 @@ inline fun <X, Y> NodeManager.styledBarChart(
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker BarChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = BarChart<X, Y>(x, y, data, categoryGap)

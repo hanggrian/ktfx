@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -34,7 +34,7 @@ fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = spher
 inline fun sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    configuration: (@LayoutDslMarker Sphere).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Sphere(radius, division)
@@ -51,7 +51,7 @@ inline fun sphere(
 inline fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64,
-    configuration: (@LayoutDslMarker Sphere).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Sphere(radius, division)
@@ -102,7 +102,7 @@ inline fun styledSphere(
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Sphere).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Sphere(radius, division)
@@ -125,7 +125,7 @@ inline fun NodeManager.styledSphere(
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Sphere).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit
 ): Sphere {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Sphere(radius, division)

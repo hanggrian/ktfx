@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("FxCoroutinesKt")
+@file:JvmName("KtfxCoroutinesKt")
 
 package ktfx.coroutines
 

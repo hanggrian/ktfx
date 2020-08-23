@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.tabPane(): TabPane = tabPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun tabPane(configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
+inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTabPane()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun tabPane(configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit): Ta
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.tabPane(configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTabPane()
-    child.configuration()
-    return addChild(child)
-}
+inline fun NodeManager.tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit):
+    TabPane {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxTabPane()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [TabPane].
@@ -80,7 +81,7 @@ fun NodeManager.styledTabPane(vararg styleClass: String, id: String? = null): Ta
 inline fun styledTabPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTabPane()
@@ -101,7 +102,7 @@ inline fun styledTabPane(
 inline fun NodeManager.styledTabPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTabPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit
 ): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTabPane()

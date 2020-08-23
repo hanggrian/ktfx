@@ -4,8 +4,8 @@ include("ktfx-listeners")
 include("ktfx-coroutines")
 include("ktfx")
 
-includeDir("features")
-includeDir("ruleset")
+includeDir("thirdparty")
+includeDir("rulesets")
 includeDir("testing")
 
 include("codegen")

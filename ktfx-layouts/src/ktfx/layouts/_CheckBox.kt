@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,13 +26,16 @@ fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text)
  *
  * @return the control created.
  */
-inline fun checkBox(text: String? = null, configuration: (@LayoutDslMarker CheckBox).() -> Unit):
-    CheckBox {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = CheckBox(text)
-        child.configuration()
-        return child
-    }
+inline fun checkBox(
+    text: String? = null,
+    configuration: (@KtfxLayoutDslMarker CheckBox).() ->    
+    Unit
+): CheckBox {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = CheckBox(text)
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [CheckBox] with configuration block to this manager.
@@ -43,7 +46,7 @@ inline fun checkBox(text: String? = null, configuration: (@LayoutDslMarker Check
 inline fun NodeManager.checkBox(
     text: String? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         CheckBox
     ).() -> Unit
 ): CheckBox {
@@ -91,7 +94,7 @@ inline fun styledCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker CheckBox).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CheckBox).() -> Unit
 ): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckBox(text)
@@ -113,7 +116,7 @@ inline fun NodeManager.styledCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker CheckBox).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CheckBox).() -> Unit
 ): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckBox(text)

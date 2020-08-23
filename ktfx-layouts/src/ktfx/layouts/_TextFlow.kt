@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.textFlow(): TextFlow = textFlow() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun textFlow(configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit): TextFlow {
+inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTextFlow()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun textFlow(configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit): 
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.textFlow(configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit):
+inline fun NodeManager.textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit):
     TextFlow {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxTextFlow()
@@ -78,7 +78,7 @@ fun NodeManager.styledTextFlow(vararg styleClass: String, id: String? = null): T
 inline fun styledTextFlow(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTextFlow()
@@ -99,7 +99,7 @@ inline fun styledTextFlow(
 inline fun NodeManager.styledTextFlow(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTextFlow).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit
 ): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTextFlow()

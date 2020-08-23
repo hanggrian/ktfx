@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.imageView(imageUrl: String): ImageView = imageView(imageUrl = im
  *
  * @return the control created.
  */
-inline fun imageView(imageUrl: String, configuration: (@LayoutDslMarker ImageView).() -> Unit):
+inline fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker ImageView).() -> Unit):
     ImageView {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = ImageView(imageUrl)
@@ -42,8 +42,10 @@ inline fun imageView(imageUrl: String, configuration: (@LayoutDslMarker ImageVie
  */
 inline fun NodeManager.imageView(
     imageUrl: String,
-    configuration: (@LayoutDslMarker ImageView).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        ImageView
+    ).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(imageUrl)
@@ -89,7 +91,7 @@ inline fun styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ImageView).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(imageUrl)
@@ -111,7 +113,7 @@ inline fun NodeManager.styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ImageView).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ImageView).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(imageUrl)

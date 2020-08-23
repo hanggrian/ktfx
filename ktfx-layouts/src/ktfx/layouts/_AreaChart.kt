@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -38,7 +38,7 @@ inline fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = AreaChart<X, Y>(x, y, data)
@@ -56,7 +56,7 @@ inline fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
-    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = AreaChart<X, Y>(x, y, data)
@@ -110,7 +110,7 @@ inline fun <X, Y> styledAreaChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = AreaChart<X, Y>(x, y, data)
@@ -134,7 +134,7 @@ inline fun <X, Y> NodeManager.styledAreaChart(
     data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker AreaChart<X, Y>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = AreaChart<X, Y>(x, y, data)

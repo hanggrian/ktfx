@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -33,7 +33,7 @@ fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canv
 inline fun canvas(
     width: Double = 0.0,
     height: Double = 0.0,
-    configuration: (@LayoutDslMarker Canvas).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Canvas(width, height)
@@ -50,7 +50,7 @@ inline fun canvas(
 inline fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
-    configuration: (@LayoutDslMarker Canvas).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Canvas(width, height)
@@ -99,7 +99,7 @@ inline fun styledCanvas(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Canvas).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Canvas(width, height)
@@ -122,7 +122,7 @@ inline fun NodeManager.styledCanvas(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Canvas).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit
 ): Canvas {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Canvas(width, height)

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.borderPane(): BorderPane = borderPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun borderPane(configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit): BorderPane {
+inline fun borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit): BorderPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxBorderPane()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun borderPane(configuration: (@LayoutDslMarker KtfxBorderPane).() -> Uni
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.borderPane(configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit):
+inline fun NodeManager.borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit):
     BorderPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxBorderPane()
@@ -78,7 +78,7 @@ fun NodeManager.styledBorderPane(vararg styleClass: String, id: String? = null):
 inline fun styledBorderPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxBorderPane()
@@ -99,7 +99,7 @@ inline fun styledBorderPane(
 inline fun NodeManager.styledBorderPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxBorderPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit
 ): BorderPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxBorderPane()

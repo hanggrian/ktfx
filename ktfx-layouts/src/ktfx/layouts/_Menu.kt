@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -45,7 +45,7 @@ fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
 inline fun menu(
     text: String = "",
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenu(text, graphic)
@@ -62,7 +62,7 @@ inline fun menu(
 inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenu(text, graphic)
@@ -79,7 +79,7 @@ inline fun MenuItemManager.menu(
 inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenu(text, graphic)
@@ -142,7 +142,7 @@ inline fun styledMenu(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenu(text, graphic)
@@ -165,7 +165,7 @@ inline fun MenuItemManager.styledMenu(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenu(text, graphic)
@@ -188,7 +188,7 @@ inline fun MenuManager.styledMenu(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
 ): Menu {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenu(text, graphic)

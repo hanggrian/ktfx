@@ -14,7 +14,7 @@ val EXPERIMENTAL_CONTRACTS = KOTLIN_CONTRACTS.classOf("ExperimentalContracts")
 val CONTRACT = KOTLIN_CONTRACTS.memberOf("contract")
 val EXACTLY_ONCE = "$KOTLIN_CONTRACTS.InvocationKind".memberOf("EXACTLY_ONCE")
 
-val LAYOUTS_DSL_MARKER = KTFX_LAYOUTS.classOf("LayoutDslMarker")
+val DSL_MARKER = KTFX_LAYOUTS.classOf("KtfxLayoutDslMarker")
 
 val T = "T".typeVarOf()
 val S = "S".typeVarOf()

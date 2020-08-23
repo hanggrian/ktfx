@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -33,7 +33,7 @@ fun NodeManager.tilePane(orientation: Orientation = HORIZONTAL, gap: Double = 0.
 inline fun tilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTilePane(orientation, gap)
@@ -50,7 +50,7 @@ inline fun tilePane(
 inline fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTilePane(orientation, gap)
@@ -107,7 +107,7 @@ inline fun styledTilePane(
     gap: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTilePane(orientation, gap)
@@ -130,7 +130,7 @@ inline fun NodeManager.styledTilePane(
     gap: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTilePane(orientation, gap)

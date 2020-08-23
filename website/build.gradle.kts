@@ -24,9 +24,9 @@ val ktfxArtifacts: List<String>
     get() = listOf("commons", "layouts", "listeners", "coroutines").map { "$RELEASE_ARTIFACT-$it" } +
             listOf("controlsfx", "jfoenix").flatMap {
                 listOf(
-                    "features/$it-commons",
-                    "features/$it-layouts",
-                    "features/$it-listeners",
-                    "features/$it-coroutines"
+                    "thirdparty/$it-commons",
+                    "thirdparty/$it-layouts",
+                    "thirdparty/$it-listeners",
+                    "thirdparty/$it-coroutines"
                 )
             }

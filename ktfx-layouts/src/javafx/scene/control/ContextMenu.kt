@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -14,7 +14,7 @@ import kotlin.contracts.contract
 
 /** Create a [ContextMenu] with configuration block. */
 inline fun contextMenu(
-    configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return KtfxContextMenu().apply(configuration)
@@ -26,7 +26,7 @@ fun Control.contextMenu(): ContextMenu =
 
 /** Set a [ContextMenu] with configuration block to this [Control]. */
 inline fun Control.contextMenu(
-    configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
@@ -38,7 +38,7 @@ fun Tab.contextMenu(): ContextMenu =
 
 /** Set a [ContextMenu] with configuration block to this [Tab]. */
 inline fun Tab.contextMenu(
-    configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }
@@ -50,7 +50,7 @@ fun <S, T> TableColumnBase<S, T>.contextMenu(): ContextMenu =
 
 /** Set a [ContextMenu] with configuration block to this [TableColumnBase]. */
 inline fun <S, T> TableColumnBase<S, T>.contextMenu(
-    configuration: (@LayoutDslMarker KtfxContextMenu).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxContextMenu).() -> Unit
 ): ContextMenu {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.contextMenu(configuration).also { contextMenu = it }

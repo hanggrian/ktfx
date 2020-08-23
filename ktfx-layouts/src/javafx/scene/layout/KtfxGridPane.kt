@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
 
@@ -7,14 +7,10 @@ package ktfx.layouts
 
 import javafx.geometry.HPos
 import javafx.geometry.Insets
-import javafx.geometry.Pos
 import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
-import ktfx.internal.KtfxInternals.NO_GETTER
-import ktfx.internal.KtfxInternals.noGetter
-import kotlin.DeprecationLevel.ERROR
 import kotlin.contracts.ExperimentalContracts
 
 /**
@@ -49,39 +45,18 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("getColumnSpan2") get() = getColumnSpan(this)
         @JvmName("setColumnSpan2") set(value) = setColumnSpan(this, value)
 
-    /** Configure row index fluidly using infix operator. */
-    inline infix fun <C : Node> C.row(index: Int): C {
-        rowIndex = index
+    fun <C : Node> C.grid(
+        row: Int? = rowIndex,
+        col: Int? = columnIndex,
+        rowSpan: Int? = this.rowSpan,
+        colSpan: Int? = columnSpan
+    ): C {
+        if (row != rowIndex) rowIndex = row
+        if (col != columnIndex) columnIndex = col
+        if (rowSpan != this.rowSpan) this.rowSpan = rowSpan
+        if (colSpan != columnSpan) columnSpan = colSpan
         return this
     }
-
-    /** Configure row index and span fluidly using infix operator. */
-    infix fun <C : Node> C.row(pair: Pair<Int, Int>): C {
-        rowIndex = pair.first
-        rowSpan = pair.second
-        return this
-    }
-
-    /** Configure column index fluidly using infix operator. */
-    inline infix fun <C : Node> C.col(index: Int): C {
-        columnIndex = index
-        return this
-    }
-
-    /** Configure column index and span fluidly using infix operator. */
-    infix fun <C : Node> C.col(pair: Pair<Int, Int>): C {
-        columnIndex = pair.first
-        columnSpan = pair.second
-        return this
-    }
-
-    /** Children alignment in this layout. */
-    var Node.alignment: Pos?
-        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-        set(value) {
-            halignment = value?.hpos
-            valignment = value?.vpos
-        }
 
     /** Children horizontal alignment in this layout. */
     inline var Node.halignment: HPos?
@@ -93,21 +68,10 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("getValignment2") get() = getValignment(this)
         @JvmName("setValignment2") set(value) = setValignment(this, value)
 
-    /** Configure alignment fluidly using infix operator. */
-    inline infix fun <C : Node> C.align(pos: Pos): C {
-        alignment = pos
-        return this
-    }
-
-    /** Configure horizontal alignment fluidly using infix operator. */
-    inline infix fun <C : Node> C.halign(hpos: HPos): C {
-        halignment = hpos
-        return this
-    }
-
-    /** Configure vertical alignment fluidly using infix operator. */
-    inline infix fun <C : Node> C.valign(vpos: VPos): C {
-        valignment = vpos
+    /** Configure horizontal alignment fluidly. */
+    fun <C : Node> C.align(hpos: HPos? = halignment, vpos: VPos? = valignment): C {
+        if (hpos != halignment) halignment = hpos
+        if (vpos != valignment) valignment = vpos
         return this
     }
 
@@ -121,14 +85,14 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("isFillHeight2") get() = isFillHeight(this)
         @JvmName("setFillHeight2") set(value) = setFillHeight(this, value)
 
-    /** Configure fill width fluidly using infix operator. */
-    inline infix fun <C : Node> C.fillWidth(fill: Boolean): C {
+    /** Configure fill width fluidly. */
+    fun <C : Node> C.fillWidth(fill: Boolean = true): C {
         isFillWidth = fill
         return this
     }
 
-    /** Configure fill height fluidly using infix operator. */
-    inline infix fun <C : Node> C.fillHeight(fill: Boolean): C {
+    /** Configure fill height fluidly. */
+    fun <C : Node> C.fillHeight(fill: Boolean = true): C {
         isFillHeight = fill
         return this
     }
@@ -143,26 +107,14 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("getVgrow2") get() = getVgrow(this)
         @JvmName("setVgrow2") set(value) = setVgrow(this, value)
 
-    /** Configure horizontal grow fluidly using infix operator. */
-    inline infix fun <C : Node> C.hgrow(priority: Priority): C {
-        hgrow = priority
-        return this
-    }
-
-    /** Configure horizontal grow fluidly using infix operator. */
-    infix fun <C : Node> C.hgrow(always: Boolean): C {
+    /** Configure horizontal grow fluidly. */
+    fun <C : Node> C.hgrow(always: Boolean = true): C {
         hgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
 
-    /** Configure vertical grow fluidly using infix operator. */
-    inline infix fun <C : Node> C.vgrow(priority: Priority): C {
-        vgrow = priority
-        return this
-    }
-
-    /** Configure vertical grow fluidly using infix operator. */
-    infix fun <C : Node> C.vgrow(always: Boolean): C {
+    /** Configure vertical grow fluidly. */
+    fun <C : Node> C.vgrow(always: Boolean = true): C {
         vgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
@@ -172,100 +124,29 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("getMargin2") get() = getMargin(this)
         @JvmName("setMargin2") set(value) = setMargin(this, value)
 
-    /** Top margin of this children. */
-    var Node.topMargin: Double?
-        inline get() = margin?.top
-        set(value) {
-            margin = Insets(value ?: 0.0, rightMargin ?: 0.0, bottomMargin ?: 0.0, leftMargin ?: 0.0)
-        }
-
-    /** Right margin of this children. */
-    var Node.rightMargin: Double?
-        inline get() = margin?.right
-        set(value) {
-            margin = Insets(topMargin ?: 0.0, value ?: 0.0, bottomMargin ?: 0.0, leftMargin ?: 0.0)
-        }
-
-    /** Bottom margin of this children. */
-    var Node.bottomMargin: Double?
-        inline get() = margin?.bottom
-        set(value) {
-            margin = Insets(topMargin ?: 0.0, rightMargin ?: 0.0, value ?: 0.0, leftMargin ?: 0.0)
-        }
-
-    /** Left margin of this children. */
-    var Node.leftMargin: Double?
-        inline get() = margin?.left
-        set(value) {
-            margin = Insets(topMargin ?: 0.0, rightMargin ?: 0.0, bottomMargin ?: 0.0, value ?: 0.0)
-        }
-
-    /** Sets left and right margin of this children. */
-    var Node.horizontalMargin: Double?
-        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-        set(value) {
-            margin = Insets(topMargin ?: 0.0, value ?: 0.0, bottomMargin ?: 0.0, value ?: 0.0)
-        }
-
-    /** Sets top and bottom margin of this children. */
-    var Node.verticalMargin: Double?
-        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-        set(value) {
-            margin = Insets(value ?: 0.0, rightMargin ?: 0.0, value ?: 0.0, leftMargin ?: 0.0)
-        }
-
-    /** Sets margin to all sides of this children. */
-    var Node.margins: Double?
-        @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-        set(value) {
-            margin = Insets(value ?: 0.0)
-        }
-
-    /** Configure margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.margin(insets: Insets): C {
-        margin = insets
+    /** Set children margin on all side in this layout. */
+    fun <C : Node> C.margin(all: Number): C {
+        margin = Insets(all.toDouble())
         return this
     }
 
-    /** Configure top margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.topMargin(margin: Double): C {
-        topMargin = margin
-        return this
-    }
+    /** Set children margin on each side in this layout. */
+    fun <C : Node> C.margin(horizontal: Number? = null, vertical: Number? = null): C = margin(
+        vertical ?: margin?.top,
+        horizontal ?: margin?.right,
+        vertical ?: margin?.bottom,
+        horizontal ?: margin?.left
+    )
 
-    /** Configure right margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.rightMargin(margin: Double): C {
-        rightMargin = margin
-        return this
-    }
-
-    /** Configure bottom margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.bottomMargin(margin: Double): C {
-        bottomMargin = margin
-        return this
-    }
-
-    /** Configure left margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.leftMargin(margin: Double): C {
-        leftMargin = margin
-        return this
-    }
-
-    /** Configure horizontal margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.horizontalMargin(margin: Double): C {
-        horizontalMargin = margin
-        return this
-    }
-
-    /** Configure vertical margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.verticalMargin(margin: Double): C {
-        verticalMargin = margin
-        return this
-    }
-
-    /** Configure all margin fluidly using infix operator. */
-    inline infix fun <C : Node> C.margins(margin: Double): C {
-        margins = margin
+    /** Set children margin on each side in this layout. */
+    fun <C : Node> C.margin(
+        top: Number? = margin?.top,
+        right: Number? = margin?.right,
+        bottom: Number? = margin?.bottom,
+        left: Number? = margin?.left
+    ): C {
+        margin =
+            Insets(top?.toDouble() ?: 0.0, right?.toDouble() ?: 0.0, bottom?.toDouble() ?: 0.0, left?.toDouble() ?: 0.0)
         return this
     }
 }

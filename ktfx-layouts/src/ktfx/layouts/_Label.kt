@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -33,7 +33,7 @@ fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = labe
 inline fun label(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker Label).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Label(text, graphic)
@@ -50,7 +50,7 @@ inline fun label(
 inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker Label).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Label(text, graphic)
@@ -99,7 +99,7 @@ inline fun styledLabel(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Label).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Label(text, graphic)
@@ -122,7 +122,7 @@ inline fun NodeManager.styledLabel(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Label).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Label).() -> Unit
 ): Label {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Label(text, graphic)

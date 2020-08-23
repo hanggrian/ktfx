@@ -52,7 +52,7 @@ import javafx.stage.Stage
 import java.time.LocalTime
 
 val LayoutsFactory.Companion.JFoenix: LayoutsFactory
-    get() = object : LayoutsFactory("features/jfoenix-layouts/src", "ktfx.jfoenix.layouts", "JFoenixLayoutsKt") {
+    get() = object : LayoutsFactory("thirdparty/jfoenix-layouts/src", "ktfx.jfoenix.layouts", "JFoenixLayoutsKt") {
         init {
             JFXBadge::class(customClass = true)
             JFXButton::class { text(); graphic() }

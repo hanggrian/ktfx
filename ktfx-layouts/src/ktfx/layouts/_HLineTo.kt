@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,12 +26,13 @@ fun PathElementManager.hlineTo(x: Double = 0.0): HLineTo = hlineTo(x = x) { }
  *
  * @return the control created.
  */
-inline fun hlineTo(x: Double = 0.0, configuration: (@LayoutDslMarker HLineTo).() -> Unit): HLineTo {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = HLineTo(x)
-    child.configuration()
-    return child
-}
+inline fun hlineTo(x: Double = 0.0, configuration: (@KtfxLayoutDslMarker HLineTo).() -> Unit):
+    HLineTo {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = HLineTo(x)
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [HLineTo] with configuration block to this manager.
@@ -42,7 +43,7 @@ inline fun hlineTo(x: Double = 0.0, configuration: (@LayoutDslMarker HLineTo).()
 inline fun PathElementManager.hlineTo(
     x: Double = 0.0,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         HLineTo
     ).() -> Unit
 ): HLineTo {

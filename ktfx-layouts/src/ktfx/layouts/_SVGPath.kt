@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.svgPath(): SVGPath = svgPath() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPath {
+inline fun svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SVGPath()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPat
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.svgPath(configuration: (@LayoutDslMarker SVGPath).() -> Unit): SVGPath {
+inline fun NodeManager.svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SVGPath()
     child.configuration()
@@ -80,7 +80,7 @@ fun NodeManager.styledSVGPath(vararg styleClass: String, id: String? = null): SV
 inline fun styledSVGPath(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker SVGPath).() -> Unit
+    configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SVGPath()
@@ -101,7 +101,7 @@ inline fun styledSVGPath(
 inline fun NodeManager.styledSVGPath(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker SVGPath).() -> Unit
+    configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit
 ): SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SVGPath()

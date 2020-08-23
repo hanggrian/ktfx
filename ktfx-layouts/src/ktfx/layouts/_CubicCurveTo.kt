@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -43,7 +43,7 @@ inline fun cubicCurveTo(
     controlY2: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker CubicCurveTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y)
@@ -64,7 +64,7 @@ inline fun PathElementManager.cubicCurveTo(
     controlY2: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker CubicCurveTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CubicCurveTo).() -> Unit
 ): CubicCurveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CubicCurveTo(controlX1, controlY1, controlX2, controlY2, x, y)

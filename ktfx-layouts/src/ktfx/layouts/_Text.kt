@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.text(text: String? = null): Text = text(text = text) { }
  *
  * @return the control created.
  */
-inline fun text(text: String? = null, configuration: (@LayoutDslMarker Text).() -> Unit): Text {
+inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Text(text)
     child.configuration()
@@ -41,7 +41,7 @@ inline fun text(text: String? = null, configuration: (@LayoutDslMarker Text).() 
  */
 inline fun NodeManager.text(
     text: String? = null,
-    configuration: (@LayoutDslMarker Text).() ->    
+    configuration: (@KtfxLayoutDslMarker Text).() ->    
     Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -88,7 +88,7 @@ inline fun styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Text).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Text).() -> Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Text(text)
@@ -110,7 +110,7 @@ inline fun NodeManager.styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Text).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Text).() -> Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Text(text)

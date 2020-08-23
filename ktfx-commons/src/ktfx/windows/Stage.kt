@@ -20,50 +20,29 @@ inline var Stage.icon: Image
         icons.setAll(value)
     }
 
-/**
- * Sets minimum width and height of this [Stage].
- * @param width width value.
- * @param height height value.
- */
-inline fun Stage.setMinSize(width: Double, height: Double) {
-    minWidth = width
-    minHeight = height
-}
-
-/** Sets minimum width and height of this [Stage] to the same value. */
-inline var Stage.minSize: Double
+/** Sets minimum width and height of this [Stage]. */
+var Stage.minSize: Pair<Number, Number>
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMinSize(value, value)
+    set(value) {
+        minWidth = value.first.toDouble()
+        minHeight = value.second.toDouble()
+    }
 
-/**
- * Sets width and height of this [Stage].
- * @param width width value.
- * @param height height value.
- */
-inline fun Stage.setSize(width: Double, height: Double) {
-    setWidth(width)
-    setHeight(height)
-}
-
-/** Sets width and height of this [Stage] to the same value. */
-inline var Stage.size: Double
+/** Sets width and height of this [Stage]. */
+var Stage.size2: Pair<Number, Number>
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setSize(value, value)
+    set(value) {
+        width = value.first.toDouble()
+        height = value.second.toDouble()
+    }
 
-/**
- * Sets maximum width and height of this [Stage].
- * @param width width value.
- * @param height height value.
- */
-inline fun Stage.setMaxSize(width: Double, height: Double) {
-    maxWidth = width
-    maxHeight = height
-}
-
-/** Sets maximum width and height of this [Stage] to the same value. */
-inline var Stage.maxSize: Double
+/** Sets maximum width and height of this [Stage]. */
+var Stage.maxSize: Pair<Number, Number>
     @Deprecated(NO_GETTER, level = ERROR) get() = noGetter()
-    set(value) = setMaxSize(value, value)
+    set(value) {
+        maxWidth = value.first.toDouble()
+        maxHeight = value.second.toDouble()
+    }
 
 /** Creates a stage with options. */
 inline fun stage(

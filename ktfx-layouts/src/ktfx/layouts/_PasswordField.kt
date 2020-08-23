@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.passwordField(): PasswordField = passwordField() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
+inline fun passwordField(configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit):
     PasswordField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = PasswordField()
@@ -40,13 +40,15 @@ inline fun passwordField(configuration: (@LayoutDslMarker PasswordField).() -> U
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.passwordField(configuration: (@LayoutDslMarker PasswordField).() -> Unit):
-    PasswordField {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = PasswordField()
-        child.configuration()
-        return addChild(child)
-    }
+inline fun NodeManager.passwordField(
+    configuration: (@KtfxLayoutDslMarker PasswordField).() ->
+    Unit
+): PasswordField {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = PasswordField()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [PasswordField].
@@ -79,7 +81,7 @@ fun NodeManager.styledPasswordField(vararg styleClass: String, id: String? = nul
 inline fun styledPasswordField(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker PasswordField).() -> Unit
+    configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit
 ): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PasswordField()
@@ -100,7 +102,7 @@ inline fun styledPasswordField(
 inline fun NodeManager.styledPasswordField(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker PasswordField).() -> Unit
+    configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit
 ): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PasswordField()

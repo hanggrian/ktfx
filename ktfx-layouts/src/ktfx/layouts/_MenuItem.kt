@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -34,7 +34,7 @@ fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuI
 inline fun menuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MenuItem(text, graphic)
@@ -51,7 +51,7 @@ inline fun menuItem(
 inline fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MenuItem(text, graphic)
@@ -100,7 +100,7 @@ inline fun styledMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MenuItem(text, graphic)
@@ -123,7 +123,7 @@ inline fun MenuItemManager.styledMenuItem(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker MenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit
 ): MenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MenuItem(text, graphic)

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -29,7 +29,7 @@ fun PathElementManager.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo = lineTo
 inline fun lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker LineTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker LineTo).() -> Unit
 ): LineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = LineTo(x, y)
@@ -46,7 +46,7 @@ inline fun lineTo(
 inline fun PathElementManager.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker LineTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker LineTo).() -> Unit
 ): LineTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = LineTo(x, y)

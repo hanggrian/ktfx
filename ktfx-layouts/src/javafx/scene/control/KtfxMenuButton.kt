@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -20,6 +20,6 @@ open class KtfxMenuButton(text: String?, graphic: Node?) : MenuButton(text, grap
     /** Call [MenuItemManager.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@LayoutDslMarker MenuItem).() -> Unit
+        configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit
     ): MenuItem = menuItem(this, graphic, configuration)
 }

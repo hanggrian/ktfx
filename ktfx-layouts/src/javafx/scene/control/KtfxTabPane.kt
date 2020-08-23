@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -20,6 +20,6 @@ open class KtfxTabPane : TabPane(), TabManager {
     /** Call [TabManager.tab] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@LayoutDslMarker KtfxTab).() -> Unit
+        configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit
     ): Tab = tab(this, graphic, configuration)
 }

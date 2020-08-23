@@ -13,9 +13,9 @@ sourceSets {
 }
 
 ktlint { add ->
-    add(project(":ruleset:basic"))
-    add(project(":ruleset:non-commons"))
-    add(project(":ruleset:layouts"))
+    add(project(":rulesets:basic"))
+    add(project(":rulesets:non-commons"))
+    add(project(":rulesets:layouts"))
 }
 
 dependencies {

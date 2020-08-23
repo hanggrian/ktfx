@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -32,7 +32,7 @@ fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(
 inline fun buttonBar(
     buttonOrder: String? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         KtfxButtonBar
     ).() -> Unit
 ): ButtonBar {
@@ -51,7 +51,7 @@ inline fun buttonBar(
 inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         KtfxButtonBar
     ).() -> Unit
 ): ButtonBar {
@@ -99,7 +99,7 @@ inline fun styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxButtonBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxButtonBar(buttonOrder)
@@ -121,7 +121,7 @@ inline fun NodeManager.styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxButtonBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxButtonBar(buttonOrder)

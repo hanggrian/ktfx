@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem()
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun separatorMenuItem(configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit):
+inline fun separatorMenuItem(configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit):
     SeparatorMenuItem {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = SeparatorMenuItem()
@@ -42,7 +42,7 @@ inline fun separatorMenuItem(configuration: (@LayoutDslMarker SeparatorMenuItem)
  */
 inline fun MenuItemManager.separatorMenuItem(
     configuration: (
-        @LayoutDslMarker
+        @KtfxLayoutDslMarker
         SeparatorMenuItem
     ).() -> Unit
 ): SeparatorMenuItem {
@@ -83,7 +83,7 @@ fun MenuItemManager.styledSeparatorMenuItem(vararg styleClass: String, id: Strin
 inline fun styledSeparatorMenuItem(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SeparatorMenuItem()
@@ -104,7 +104,7 @@ inline fun styledSeparatorMenuItem(
 inline fun MenuItemManager.styledSeparatorMenuItem(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker SeparatorMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit
 ): SeparatorMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SeparatorMenuItem()

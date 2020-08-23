@@ -5,8 +5,8 @@ import javafx.scene.control.Label
 import javafx.stage.Stage
 import ktfx.bindings.asBoolean
 import ktfx.bindings.asString
-import ktfx.controls.horizontalPadding
 import ktfx.controls.minSize
+import ktfx.controls.padding
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
 import ktfx.dialogs.infoAlert
@@ -31,7 +31,7 @@ class CalculatorApp : Application() {
         stage.scene {
             gridPane {
                 vbox {
-                    horizontalPadding = 20.0
+                    padding(horizontal = 20)
                     calculationLabel = label("")
 
                     resultLabel = label {
@@ -64,87 +64,87 @@ class CalculatorApp : Application() {
                             }
                         })
                     }
-                } row 0 col (0 to 5) fillWidth true
+                }.grid(0, 0, colSpan = 5).fillWidth()
 
                 button("1") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("1") }
-                } row 1 col 0
+                }.grid(1, 0)
                 button("2") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("2") }
-                } row 1 col 1
+                }.grid(1, 1)
                 button("3") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("3") }
-                } row 1 col 2
+                }.grid(1, 2)
 
                 button("4") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("4") }
-                } row 2 col 0
+                }.grid(2, 0)
                 button("5") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("5") }
-                } row 2 col 1
+                }.grid(2, 1)
                 button("6") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("6") }
-                } row 2 col 2
+                }.grid(2, 2)
 
                 button("7") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("7") }
-                } row 3 col 0
+                }.grid(3, 0)
                 button("8") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("8") }
-                } row 3 col 1
+                }.grid(3, 1)
                 button("9") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("9") }
-                } row 3 col 2
+                }.grid(3, 2)
 
                 button("0") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("0") }
-                } row 4 col 0
+                }.grid(4, 0)
                 button("00") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("00") }
-                } row 4 col 1
+                }.grid(4, 1)
                 button(".") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { errorAlert(":(", content = "Not yet supported.") }
-                } row 4 col 2
+                }.grid(4, 2)
 
                 button("C") {
                     setMinSize(80.0, 40.0)
                     isCancelButton = true
                     onAction { calculationLabel.text = "" }
-                } row 1 col (3 to 2)
+                }.grid(1, 3, colSpan = 2)
                 button("*") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("*") }
-                } row 2 col 3
+                }.grid(2, 3)
                 button("/") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("/") }
-                } row 2 col 4
+                }.grid(2, 4)
                 button("+") {
-                    setMinSize(40.0, 80.0)
+                    minSize = 40 to 80
                     onAction { appendText("+") }
-                } row (3 to 2) col 3
+                }.grid(3, 3, rowSpan = 2)
                 button("-") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     onAction { appendText("-") }
-                } row 3 col 4
+                }.grid(3, 4)
                 button("=") {
-                    minSize = 40.0
+                    minSize = 40 to 40
                     isDefaultButton = true
                     disableProperty().bind(calculationLabel.textProperty().asBoolean(::endsWithOperator))
                     onAction { infoAlert("Result", content = resultLabel.text) }
-                } row 4 col 4
+                }.grid(4, 4)
             }
         }
         stage.isResizable = false

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList()):
  */
 inline fun <S> tableView(
     items: ObservableList<S> = observableArrayList(),
-    configuration: (@LayoutDslMarker TableView<S>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TableView<S>(items)
@@ -47,7 +47,7 @@ inline fun <S> tableView(
  */
 inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = observableArrayList(),
-    configuration: (@LayoutDslMarker TableView<S>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TableView<S>(items)
@@ -93,7 +93,7 @@ inline fun <S> styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker TableView<S>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TableView<S>(items)
@@ -115,7 +115,7 @@ inline fun <S> NodeManager.styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker TableView<S>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TableView<S>(items)

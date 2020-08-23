@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -20,6 +20,6 @@ open class KtfxButtonBar(buttonOrder: String?) : ButtonBar(buttonOrder), NodeMan
     /** Call [NodeManager.button] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@LayoutDslMarker Button).() -> Unit
+        configuration: (@KtfxLayoutDslMarker Button).() -> Unit
     ): Button = button(this, graphic, configuration)
 }

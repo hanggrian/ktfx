@@ -40,7 +40,7 @@ import org.controlsfx.control.textfield.CustomTextField
 
 val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
     get() = object : LayoutsFactory(
-        "features/controlsfx-layouts/src", "ktfx.controlsfx.layouts", "ControlsFxLayoutsKt"
+        "thirdparty/controlsfx-layouts/src", "ktfx.controlsfx.layouts", "ControlsFxLayoutsKt"
     ) {
         init {
             // org.controlsfx.control.textfield

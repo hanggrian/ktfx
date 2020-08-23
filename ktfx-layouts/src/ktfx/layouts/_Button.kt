@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -33,7 +33,7 @@ fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = bu
 inline fun button(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Button(text, graphic)
@@ -50,7 +50,7 @@ inline fun button(
 inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Button(text, graphic)
@@ -99,7 +99,7 @@ inline fun styledButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Button(text, graphic)
@@ -122,7 +122,7 @@ inline fun NodeManager.styledButton(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Button).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Button).() -> Unit
 ): Button {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Button(text, graphic)

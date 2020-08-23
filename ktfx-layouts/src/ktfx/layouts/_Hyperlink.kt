@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -34,7 +34,7 @@ fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlin
 inline fun hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Hyperlink(text, graphic)
@@ -51,7 +51,7 @@ inline fun hyperlink(
 inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
-    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Hyperlink(text, graphic)
@@ -102,7 +102,7 @@ inline fun styledHyperlink(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Hyperlink(text, graphic)
@@ -125,7 +125,7 @@ inline fun NodeManager.styledHyperlink(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Hyperlink).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit
 ): Hyperlink {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Hyperlink(text, graphic)

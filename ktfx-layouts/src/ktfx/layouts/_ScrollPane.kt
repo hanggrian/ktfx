@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -29,8 +29,10 @@ fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(conte
  */
 inline fun scrollPane(
     content: Node? = null,
-    configuration: (@LayoutDslMarker KtfxScrollPane).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        KtfxScrollPane
+    ).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxScrollPane(content)
@@ -47,7 +49,7 @@ inline fun scrollPane(
 inline fun NodeManager.scrollPane(
     content: Node? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         KtfxScrollPane
     ).() -> Unit
 ): ScrollPane {
@@ -95,7 +97,7 @@ inline fun styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxScrollPane(content)
@@ -117,7 +119,7 @@ inline fun NodeManager.styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxScrollPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxScrollPane).() -> Unit
 ): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxScrollPane(content)

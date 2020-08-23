@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -18,7 +18,7 @@ inline fun scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = Color.WHITE,
-    configuration: (@LayoutDslMarker KtfxScene).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxScene).() -> Unit
 ): Scene {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return KtfxScene(Pane(), width, height, fill).apply(configuration)
@@ -36,7 +36,7 @@ inline fun Stage.scene(
     width: Double = -1.0,
     height: Double = -1.0,
     fill: Paint = Color.WHITE,
-    configuration: (@LayoutDslMarker KtfxScene).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxScene).() -> Unit
 ): Scene {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     return ktfx.layouts.scene(width, height, fill, configuration).also { scene = it }

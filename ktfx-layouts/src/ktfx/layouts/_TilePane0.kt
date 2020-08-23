@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -37,7 +37,7 @@ inline fun tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTilePane(orientation, hgap, vgap)
@@ -55,7 +55,7 @@ inline fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTilePane(orientation, hgap, vgap)
@@ -117,7 +117,7 @@ inline fun styledTilePane(
     vgap: Double,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTilePane(orientation, hgap, vgap)
@@ -141,7 +141,7 @@ inline fun NodeManager.styledTilePane(
     vgap: Double,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxTilePane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
 ): TilePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTilePane(orientation, hgap, vgap)

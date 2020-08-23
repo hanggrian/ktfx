@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.path(): Path = path() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun path(configuration: (@LayoutDslMarker KtfxPath).() -> Unit): Path {
+inline fun path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPath()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun path(configuration: (@LayoutDslMarker KtfxPath).() -> Unit): Path {
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.path(configuration: (@LayoutDslMarker KtfxPath).() -> Unit): Path {
+inline fun NodeManager.path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPath()
     child.configuration()
@@ -80,7 +80,7 @@ fun NodeManager.styledPath(vararg styleClass: String, id: String? = null): Path 
 inline fun styledPath(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxPath).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit
 ): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPath()
@@ -101,7 +101,7 @@ inline fun styledPath(
 inline fun NodeManager.styledPath(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxPath).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit
 ): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPath()

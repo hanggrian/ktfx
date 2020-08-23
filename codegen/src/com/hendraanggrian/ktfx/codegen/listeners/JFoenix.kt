@@ -13,14 +13,14 @@ import com.jfoenix.transitions.JFXAnimationTimer
 
 val ListenersFactory.Companion.JFoenix: ListenersFactory
     get() = ListenersFactory(
-        "features/jfoenix-listeners/src",
+        "thirdparty/jfoenix-listeners/src",
         "ktfx.jfoenix.listeners",
         "JFoenixListenersKt",
     ).apply { initJFoenix() }
 
 val CoroutinesFactory.Companion.JFoenix: CoroutinesFactory
     get() = CoroutinesFactory(
-        "features/jfoenix-coroutines/src",
+        "thirdparty/jfoenix-coroutines/src",
         "ktfx.jfoenix.coroutines",
         "JFoenixCoroutinesKt",
     ).apply { initJFoenix() }

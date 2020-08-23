@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -30,7 +30,7 @@ fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(col
  */
 inline fun colorPicker(
     color: Color = WHITE,
-    configuration: (@LayoutDslMarker ColorPicker).() ->    
+    configuration: (@KtfxLayoutDslMarker ColorPicker).() ->    
     Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -48,7 +48,7 @@ inline fun colorPicker(
 inline fun NodeManager.colorPicker(
     color: Color = WHITE,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         ColorPicker
     ).() -> Unit
 ): ColorPicker {
@@ -96,7 +96,7 @@ inline fun styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ColorPicker).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ColorPicker(color)
@@ -118,7 +118,7 @@ inline fun NodeManager.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ColorPicker).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ColorPicker(color)

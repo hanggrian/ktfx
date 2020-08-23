@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -46,7 +46,7 @@ inline fun arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-    configuration: (@LayoutDslMarker Arc).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
@@ -67,7 +67,7 @@ inline fun NodeManager.arc(
     radiusY: Double = 0.0,
     startAngle: Double = 0.0,
     length: Double = 0.0,
-    configuration: (@LayoutDslMarker Arc).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
@@ -134,7 +134,7 @@ inline fun styledArc(
     length: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Arc).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)
@@ -161,7 +161,7 @@ inline fun NodeManager.styledArc(
     length: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Arc).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Arc).() -> Unit
 ): Arc {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Arc(centerX, centerY, radiusX, radiusY, startAngle, length)

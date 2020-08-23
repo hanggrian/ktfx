@@ -9,7 +9,7 @@ import com.hendraanggrian.kotlinpoet.lambdaBy
 import com.hendraanggrian.ktfx.codegen.CONTRACT
 import com.hendraanggrian.ktfx.codegen.EXACTLY_ONCE
 import com.hendraanggrian.ktfx.codegen.EXPERIMENTAL_CONTRACTS
-import com.hendraanggrian.ktfx.codegen.LAYOUTS_DSL_MARKER
+import com.hendraanggrian.ktfx.codegen.DSL_MARKER
 import com.hendraanggrian.ktfx.codegen.OPT_IN
 import com.hendraanggrian.ktfx.codegen.toString
 import com.squareup.kotlinpoet.KModifier
@@ -162,7 +162,7 @@ object LayoutsWriter {
 
     private fun ParameterSpecListScope.configuration(entry: LayoutsEntry) = add(
         "configuration", Unit::class.asClassName()
-            .lambdaBy(receiver = entry.customTypeName.annotate(LAYOUTS_DSL_MARKER))
+            .lambdaBy(receiver = entry.customTypeName.annotate(DSL_MARKER))
     ) {
         kdoc.append("the configuration block.")
     }

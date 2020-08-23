@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.polygon(): Polygon = polygon() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygon {
+inline fun polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polygon()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygo
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.polygon(configuration: (@LayoutDslMarker Polygon).() -> Unit): Polygon {
+inline fun NodeManager.polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polygon()
     child.configuration()
@@ -80,7 +80,7 @@ fun NodeManager.styledPolygon(vararg styleClass: String, id: String? = null): Po
 inline fun styledPolygon(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Polygon).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit
 ): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polygon()
@@ -101,7 +101,7 @@ inline fun styledPolygon(
 inline fun NodeManager.styledPolygon(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Polygon).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit
 ): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polygon()

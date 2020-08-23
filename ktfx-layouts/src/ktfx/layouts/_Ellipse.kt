@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -37,7 +37,7 @@ inline fun ellipse(
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
-    configuration: (@LayoutDslMarker Ellipse).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Ellipse(centerX, centerY, radiusX, radiusY)
@@ -56,7 +56,7 @@ inline fun NodeManager.ellipse(
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
-    configuration: (@LayoutDslMarker Ellipse).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Ellipse(centerX, centerY, radiusX, radiusY)
@@ -121,7 +121,7 @@ inline fun styledEllipse(
     radiusY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Ellipse).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Ellipse(centerX, centerY, radiusX, radiusY)
@@ -146,7 +146,7 @@ inline fun NodeManager.styledEllipse(
     radiusY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Ellipse).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Ellipse).() -> Unit
 ): Ellipse {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Ellipse(centerX, centerY, radiusX, radiusY)

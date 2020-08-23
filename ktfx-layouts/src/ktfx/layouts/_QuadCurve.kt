@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -44,7 +44,7 @@ inline fun quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
+    configuration: (@KtfxLayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = QuadCurve(startX, startY, controlX, controlY, endX, endY)
@@ -65,7 +65,7 @@ inline fun NodeManager.quadCurve(
     controlY: Double = 0.0,
     endX: Double = 0.0,
     endY: Double = 0.0,
-    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
+    configuration: (@KtfxLayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = QuadCurve(startX, startY, controlX, controlY, endX, endY)
@@ -136,7 +136,7 @@ inline fun styledQuadCurve(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
+    configuration: (@KtfxLayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = QuadCurve(startX, startY, controlX, controlY, endX, endY)
@@ -163,7 +163,7 @@ inline fun NodeManager.styledQuadCurve(
     endY: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker QuadCurve).() -> Unit
+    configuration: (@KtfxLayoutDslMarker QuadCurve).() -> Unit
 ): QuadCurve {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = QuadCurve(startX, startY, controlX, controlY, endX, endY)

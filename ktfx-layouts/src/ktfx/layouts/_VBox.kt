@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -27,7 +27,7 @@ fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
  *
  * @return the control created.
  */
-inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox).() -> Unit):
+inline fun vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker KtfxVBox).() -> Unit):
     VBox {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxVBox(spacing)
@@ -43,8 +43,10 @@ inline fun vbox(spacing: Double = 0.0, configuration: (@LayoutDslMarker KtfxVBox
  */
 inline fun NodeManager.vbox(
     spacing: Double = 0.0,
-    configuration: (@LayoutDslMarker KtfxVBox).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        KtfxVBox
+    ).() -> Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxVBox(spacing)
@@ -90,7 +92,7 @@ inline fun styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxVBox(spacing)
@@ -112,7 +114,7 @@ inline fun NodeManager.styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxVBox).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxVBox).() -> Unit
 ): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxVBox(spacing)

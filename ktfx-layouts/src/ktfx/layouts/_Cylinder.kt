@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -36,7 +36,7 @@ inline fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    configuration: (@LayoutDslMarker Cylinder).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Cylinder(radius, height, division)
@@ -54,7 +54,7 @@ inline fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
-    configuration: (@LayoutDslMarker Cylinder).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Cylinder(radius, height, division)
@@ -116,7 +116,7 @@ inline fun styledCylinder(
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Cylinder).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Cylinder(radius, height, division)
@@ -140,7 +140,7 @@ inline fun NodeManager.styledCylinder(
     division: Int = 64,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Cylinder).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Cylinder).() -> Unit
 ): Cylinder {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Cylinder(radius, height, division)

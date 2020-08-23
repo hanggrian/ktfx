@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.region(): Region = region() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
+inline fun region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Region()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.region(configuration: (@LayoutDslMarker Region).() -> Unit): Region {
+inline fun NodeManager.region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Region()
     child.configuration()
@@ -80,7 +80,7 @@ fun NodeManager.styledRegion(vararg styleClass: String, id: String? = null): Reg
 inline fun styledRegion(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Region).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Region).() -> Unit
 ): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Region()
@@ -101,7 +101,7 @@ inline fun styledRegion(
 inline fun NodeManager.styledRegion(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Region).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Region).() -> Unit
 ): Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Region()

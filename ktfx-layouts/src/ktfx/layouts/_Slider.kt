@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -35,7 +35,7 @@ inline fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Slider(min, max, value)
@@ -53,7 +53,7 @@ inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Slider(min, max, value)
@@ -105,7 +105,7 @@ inline fun styledSlider(
     value: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Slider(min, max, value)
@@ -129,7 +129,7 @@ inline fun NodeManager.styledSlider(
     value: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Slider).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Slider(min, max, value)

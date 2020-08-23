@@ -10,13 +10,10 @@ import javafx.scene.input.TouchPoint
 import javafx.stage.Window
 
 /** Move [Window] to specified location. */
-inline fun Window.moveTo(x: Double, y: Double) {
-    this.x = x
-    this.y = y
+fun Window.moveTo(x: Number, y: Number) {
+    this.x = x.toDouble()
+    this.y = y.toDouble()
 }
-
-/** Move [Window] to specified location using generic number. */
-fun Window.moveTo(x: Number, y: Number): Unit = moveTo(x.toDouble(), y.toDouble())
 
 /** Move [Window] to specified location using [ContextMenuEvent]. */
 inline fun Window.moveTo(event: ContextMenuEvent): Unit = moveTo(event.screenX, event.screenY)

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.polyline(): Polyline = polyline() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Polyline {
+inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Poly
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.polyline(configuration: (@LayoutDslMarker Polyline).() -> Unit): Polyline {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Polyline()
-    child.configuration()
-    return addChild(child)
-}
+inline fun NodeManager.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
+    Polyline {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = Polyline()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [Polyline].
@@ -77,7 +78,7 @@ fun NodeManager.styledPolyline(vararg styleClass: String, id: String? = null): P
 inline fun styledPolyline(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Polyline).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit
 ): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()
@@ -98,7 +99,7 @@ inline fun styledPolyline(
 inline fun NodeManager.styledPolyline(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Polyline).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit
 ): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()

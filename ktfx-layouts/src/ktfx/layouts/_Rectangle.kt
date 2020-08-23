@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -37,7 +37,7 @@ inline fun rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    configuration: (@LayoutDslMarker Rectangle).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Rectangle(x, y, width, height)
@@ -56,7 +56,7 @@ inline fun NodeManager.rectangle(
     y: Double = 0.0,
     width: Double = 0.0,
     height: Double = 0.0,
-    configuration: (@LayoutDslMarker Rectangle).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Rectangle(x, y, width, height)
@@ -121,7 +121,7 @@ inline fun styledRectangle(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Rectangle).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Rectangle(x, y, width, height)
@@ -146,7 +146,7 @@ inline fun NodeManager.styledRectangle(
     height: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker Rectangle).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Rectangle).() -> Unit
 ): Rectangle {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Rectangle(x, y, width, height)

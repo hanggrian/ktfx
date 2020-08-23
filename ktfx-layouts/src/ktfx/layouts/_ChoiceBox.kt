@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList()):
  */
 inline fun <T> choiceBox(
     items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)
@@ -47,7 +47,7 @@ inline fun <T> choiceBox(
  */
 inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)
@@ -93,7 +93,7 @@ inline fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)
@@ -115,7 +115,7 @@ inline fun <T> NodeManager.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ChoiceBox<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)

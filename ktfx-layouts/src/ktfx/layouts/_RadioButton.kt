@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -36,7 +36,7 @@ fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioBu
  */
 inline fun radioButton(
     text: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() ->    
+    configuration: (@KtfxLayoutDslMarker RadioButton).() ->    
     Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -54,7 +54,7 @@ inline fun radioButton(
 inline fun NodeManager.radioButton(
     text: String? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         RadioButton
     ).() -> Unit
 ): RadioButton {
@@ -72,10 +72,7 @@ inline fun NodeManager.radioButton(
  */
 inline fun ToggleButtonManager.radioButton(
     text: String? = null,
-    configuration: (
-        @LayoutDslMarker    
-        RadioButton
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
@@ -134,7 +131,7 @@ inline fun styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() -> Unit
+    configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
@@ -156,7 +153,7 @@ inline fun NodeManager.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() -> Unit
+    configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
@@ -178,7 +175,7 @@ inline fun ToggleButtonManager.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker RadioButton).() -> Unit
+    configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)

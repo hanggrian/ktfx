@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -46,7 +46,7 @@ inline fun arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
-    configuration: (@LayoutDslMarker ArcTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag)
@@ -68,7 +68,7 @@ inline fun PathElementManager.arcTo(
     y: Double = 0.0,
     largeArcFlag: Boolean = false,
     sweepFlag: Boolean = false,
-    configuration: (@LayoutDslMarker ArcTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ArcTo).() -> Unit
 ): ArcTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ArcTo(radiusX, radiusY, xAxisRotation, x, y, largeArcFlag, sweepFlag)

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.splitPane(): SplitPane = splitPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit): SplitPane {
+inline fun splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSplitPane()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.splitPane(configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit):
+inline fun NodeManager.splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit):
     SplitPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxSplitPane()
@@ -78,7 +78,7 @@ fun NodeManager.styledSplitPane(vararg styleClass: String, id: String? = null): 
 inline fun styledSplitPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSplitPane()
@@ -99,7 +99,7 @@ inline fun styledSplitPane(
 inline fun NodeManager.styledSplitPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxSplitPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit
 ): SplitPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSplitPane()

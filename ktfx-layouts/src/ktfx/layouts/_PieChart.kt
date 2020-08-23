@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun NodeManager.pieChart(data: ObservableList<PieChart.Data> = observableArrayLi
  */
 inline fun pieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
-    configuration: (@LayoutDslMarker PieChart).() -> Unit
+    configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PieChart(data)
@@ -47,7 +47,7 @@ inline fun pieChart(
  */
 inline fun NodeManager.pieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
-    configuration: (@LayoutDslMarker PieChart).() -> Unit
+    configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PieChart(data)
@@ -93,7 +93,7 @@ inline fun styledPieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker PieChart).() -> Unit
+    configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PieChart(data)
@@ -115,7 +115,7 @@ inline fun NodeManager.styledPieChart(
     data: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker PieChart).() -> Unit
+    configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PieChart(data)

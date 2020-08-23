@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun <T> NodeManager.listView(items: ObservableList<T> = observableArrayList()): 
  */
 inline fun <T> listView(
     items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker ListView<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListView<T>(items)
@@ -47,7 +47,7 @@ inline fun <T> listView(
  */
 inline fun <T> NodeManager.listView(
     items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker ListView<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListView<T>(items)
@@ -93,7 +93,7 @@ inline fun <T> styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ListView<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListView<T>(items)
@@ -115,7 +115,7 @@ inline fun <T> NodeManager.styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ListView<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListView<T>(items)

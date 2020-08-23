@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.menuBar(): MenuBar = menuBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
+inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuBar()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): Me
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.menuBar(configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxMenuBar()
-    child.configuration()
-    return addChild(child)
-}
+inline fun NodeManager.menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit):
+    MenuBar {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxMenuBar()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [MenuBar].
@@ -80,7 +81,7 @@ fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): Me
 inline fun styledMenuBar(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuBar()
@@ -101,7 +102,7 @@ inline fun styledMenuBar(
 inline fun NodeManager.styledMenuBar(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxMenuBar).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit
 ): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuBar()

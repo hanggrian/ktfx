@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.group(): Group = group() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group {
+inline fun group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGroup()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group 
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.group(configuration: (@LayoutDslMarker KtfxGroup).() -> Unit): Group {
+inline fun NodeManager.group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGroup()
     child.configuration()
@@ -80,7 +80,7 @@ fun NodeManager.styledGroup(vararg styleClass: String, id: String? = null): Grou
 inline fun styledGroup(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGroup()
@@ -101,7 +101,7 @@ inline fun styledGroup(
 inline fun NodeManager.styledGroup(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxGroup).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit
 ): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGroup()

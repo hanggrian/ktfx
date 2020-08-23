@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -36,7 +36,7 @@ inline fun quadCurveTo(
     controlY: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker QuadCurveTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker QuadCurveTo).() -> Unit
 ): QuadCurveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = QuadCurveTo(controlX, controlY, x, y)
@@ -55,7 +55,7 @@ inline fun PathElementManager.quadCurveTo(
     controlY: Double = 0.0,
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker QuadCurveTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker QuadCurveTo).() -> Unit
 ): QuadCurveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = QuadCurveTo(controlX, controlY, x, y)

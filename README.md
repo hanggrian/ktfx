@@ -27,7 +27,7 @@ dependencies {
     compile 'com.hendraanggrian.ktfx:ktfx-listeners:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-coroutines:$version'
 
-    // features
+    // third-party artifacts
     compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version'
     compile 'com.hendraanggrian.ktfx:ktfx-jfoenix:$version'
 }

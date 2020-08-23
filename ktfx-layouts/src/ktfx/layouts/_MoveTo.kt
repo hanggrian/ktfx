@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -29,7 +29,7 @@ fun PathElementManager.moveTo(x: Double = 0.0, y: Double = 0.0): MoveTo = moveTo
 inline fun moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker MoveTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MoveTo).() -> Unit
 ): MoveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MoveTo(x, y)
@@ -46,7 +46,7 @@ inline fun moveTo(
 inline fun PathElementManager.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
-    configuration: (@LayoutDslMarker MoveTo).() -> Unit
+    configuration: (@KtfxLayoutDslMarker MoveTo).() -> Unit
 ): MoveTo {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MoveTo(x, y)

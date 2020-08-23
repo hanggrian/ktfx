@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.gridPane(): GridPane = gridPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit): GridPane {
+inline fun gridPane(configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGridPane()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit): 
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.gridPane(configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit):
+inline fun NodeManager.gridPane(configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit):
     GridPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxGridPane()
@@ -78,7 +78,7 @@ fun NodeManager.styledGridPane(vararg styleClass: String, id: String? = null): G
 inline fun styledGridPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGridPane()
@@ -99,7 +99,7 @@ inline fun styledGridPane(
 inline fun NodeManager.styledGridPane(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker KtfxGridPane).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit
 ): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGridPane()

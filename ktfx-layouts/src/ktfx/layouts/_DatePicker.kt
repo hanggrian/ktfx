@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -29,8 +29,10 @@ fun NodeManager.datePicker(date: LocalDate? = null): DatePicker = datePicker(dat
  */
 inline fun datePicker(
     date: LocalDate? = null,
-    configuration: (@LayoutDslMarker DatePicker).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        DatePicker
+    ).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = DatePicker(date)
@@ -47,7 +49,7 @@ inline fun datePicker(
 inline fun NodeManager.datePicker(
     date: LocalDate? = null,
     configuration: (
-        @LayoutDslMarker    
+        @KtfxLayoutDslMarker    
         DatePicker
     ).() -> Unit
 ): DatePicker {
@@ -95,7 +97,7 @@ inline fun styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker DatePicker).() -> Unit
+    configuration: (@KtfxLayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = DatePicker(date)
@@ -117,7 +119,7 @@ inline fun NodeManager.styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker DatePicker).() -> Unit
+    configuration: (@KtfxLayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = DatePicker(date)

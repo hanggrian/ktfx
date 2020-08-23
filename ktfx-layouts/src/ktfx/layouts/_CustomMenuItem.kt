@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -32,7 +32,7 @@ fun MenuItemManager.customMenuItem(content: Node? = null, hideOnClick: Boolean =
 inline fun customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
-    configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomMenuItem(content, hideOnClick)
@@ -49,7 +49,7 @@ inline fun customMenuItem(
 inline fun MenuItemManager.customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
-    configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomMenuItem(content, hideOnClick)
@@ -108,7 +108,7 @@ inline fun styledCustomMenuItem(
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomMenuItem(content, hideOnClick)
@@ -131,7 +131,7 @@ inline fun MenuItemManager.styledCustomMenuItem(
     hideOnClick: Boolean = true,
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker CustomMenuItem).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit
 ): CustomMenuItem {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomMenuItem(content, hideOnClick)

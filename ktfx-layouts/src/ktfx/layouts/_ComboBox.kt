@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -31,7 +31,7 @@ fun <T> NodeManager.comboBox(items: ObservableList<T> = observableArrayList()): 
  */
 inline fun <T> comboBox(
     items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker ComboBox<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)
@@ -47,7 +47,7 @@ inline fun <T> comboBox(
  */
 inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = observableArrayList(),
-    configuration: (@LayoutDslMarker ComboBox<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)
@@ -93,7 +93,7 @@ inline fun <T> styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ComboBox<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)
@@ -115,7 +115,7 @@ inline fun <T> NodeManager.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker ComboBox<T>).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)

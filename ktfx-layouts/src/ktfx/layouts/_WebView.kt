@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("LayoutsKt")
+@file:JvmName("KtfxLayoutsKt")
 @file:OptIn(ExperimentalContracts::class)
 
 package ktfx.layouts
@@ -26,7 +26,7 @@ fun NodeManager.webView(): WebView = webView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebView {
+inline fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WebView()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebVie
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.webView(configuration: (@LayoutDslMarker WebView).() -> Unit): WebView {
+inline fun NodeManager.webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WebView()
     child.configuration()
@@ -80,7 +80,7 @@ fun NodeManager.styledWebView(vararg styleClass: String, id: String? = null): We
 inline fun styledWebView(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker WebView).() -> Unit
+    configuration: (@KtfxLayoutDslMarker WebView).() -> Unit
 ): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WebView()
@@ -101,7 +101,7 @@ inline fun styledWebView(
 inline fun NodeManager.styledWebView(
     vararg styleClass: String,
     id: String? = null,
-    configuration: (@LayoutDslMarker WebView).() -> Unit
+    configuration: (@KtfxLayoutDslMarker WebView).() -> Unit
 ): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WebView()

@@ -1,7 +1,7 @@
 package ktfx.layouts
 
-import javafx.scene.layout.GridPane
 import com.hendraanggrian.ktfx.test.LayoutsTest
+import javafx.scene.layout.GridPane
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -15,7 +15,7 @@ class GridPaneTest : LayoutsTest<KtfxPane, GridPane>() {
 
     @Test fun colAndRow() {
         gridPane {
-            val label = label() row (1 to 3) col (2 to 4)
+            val label = label().grid(row = 1, rowSpan = 3, col = 2, colSpan = 4)
             assertEquals(1, label.rowIndex)
             assertEquals(2, label.columnIndex)
             assertEquals(3, label.rowSpan)

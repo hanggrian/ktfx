@@ -131,14 +131,6 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
-<h4><a href="align.html">align</a></h4>
-</td>
-<td>
-<p>Configure horizontal alignment fluidly.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">align</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$align(ktfx.layouts.KtfxGridPane.align.C, javafx.geometry.HPos, javafx.geometry.VPos)/hpos">hpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">HPos</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;halignment<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$align(ktfx.layouts.KtfxGridPane.align.C, javafx.geometry.HPos, javafx.geometry.VPos)/vpos">vpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">VPos</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;valignment<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
-</tr>
-<tr>
-<td>
 <h4><a href="clear-constraints.html">clearConstraints</a></h4>
 </td>
 <td>
@@ -170,6 +162,14 @@ Invoking dsl will add its children.</p>
 </tr>
 <tr>
 <td>
+<h4><a href="halign.html">halign</a></h4>
+</td>
+<td>
+<p>Configure horizontal alignment fluidly.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">halign</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$halign(ktfx.layouts.KtfxGridPane.halign.C, javafx.geometry.HPos)/hpos">hpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">HPos</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+</tr>
+<tr>
+<td>
 <h4><a href="hgrow.html">hgrow</a></h4>
 </td>
 <td>
@@ -181,11 +181,16 @@ Invoking dsl will add its children.</p>
 <h4><a href="margin.html">margin</a></h4>
 </td>
 <td>
-<p>Set children margin on all side in this layout.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number)/all">all</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code>
-<p>Set children margin on each side in this layout.</p>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number)/horizontal">horizontal</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number)/vertical">vertical</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code><br/>
-<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/top">top</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.top<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/right">right</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.right<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/bottom">bottom</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.bottom<span class="symbol">, </span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)/left">left</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number/index.html"><span class="identifier">Number</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;margin?.left<span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+<p>Set children margin in this layout.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">margin</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$margin(ktfx.layouts.KtfxGridPane.margin.C, javafx.geometry.Insets)/insets">insets</span><span class="symbol">:</span>&nbsp;<span class="identifier">Insets</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
+</tr>
+<tr>
+<td>
+<h4><a href="valign.html">valign</a></h4>
+</td>
+<td>
+<p>Configure vertical alignment fluidly.</p>
+<code><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">C</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Node</span><span class="symbol">&gt;</span> <span class="identifier">C</span><span class="symbol">.</span><span class="identifier">valign</span><span class="symbol">(</span><span class="identifier" id="ktfx.layouts.KtfxGridPane$valign(ktfx.layouts.KtfxGridPane.valign.C, javafx.geometry.VPos)/vpos">vpos</span><span class="symbol">:</span>&nbsp;<span class="identifier">VPos</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">C</span></code></td>
 </tr>
 <tr>
 <td>

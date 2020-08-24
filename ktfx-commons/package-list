@@ -593,9 +593,6 @@ $dokka.location:ktfx.controls$fadeTransition(javafx.scene.Node, javafx.util.Dura
 $dokka.location:ktfx.controls$fillTransition(javafx.scene.shape.Shape, javafx.util.Duration, javafx.scene.paint.Color, javafx.scene.paint.Color, kotlin.Function1((javafx.animation.FillTransition, kotlin.Unit)))ktfx.controls/javafx.scene.shape.-shape/fill-transition.html
 $dokka.location:ktfx.controls$find(javafx.scene.Node, kotlin.String)ktfx.controls/javafx.scene.-node/find.html
 $dokka.location:ktfx.controls$find(javafx.scene.Scene, kotlin.String)ktfx.controls/javafx.scene.-scene/find.html
-$dokka.location:ktfx.controls$gap#javafx.scene.layout.FlowPanektfx.controls/javafx.scene.layout.-flow-pane/gap.html
-$dokka.location:ktfx.controls$gap#javafx.scene.layout.GridPanektfx.controls/javafx.scene.layout.-grid-pane/gap.html
-$dokka.location:ktfx.controls$gap#javafx.scene.layout.TilePanektfx.controls/javafx.scene.layout.-tile-pane/gap.html
 $dokka.location:ktfx.controls$gaussianBlurEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.GaussianBlur, kotlin.Unit)))ktfx.controls/javafx.scene.-node/gaussian-blur-effect.html
 $dokka.location:ktfx.controls$glowEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.Glow, kotlin.Unit)))ktfx.controls/javafx.scene.-node/glow-effect.html
 $dokka.location:ktfx.controls$imageInputEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.ImageInput, kotlin.Unit)))ktfx.controls/javafx.scene.-node/image-input-effect.html
@@ -607,19 +604,13 @@ $dokka.location:ktfx.controls$isSelected(javafx.scene.control.MultipleSelectionM
 $dokka.location:ktfx.controls$isSelected(javafx.scene.control.SelectionModel((kotlin.Any)))ktfx.controls/javafx.scene.control.-selection-model/is-selected.html
 $dokka.location:ktfx.controls$isSelected(javafx.scene.control.ToggleGroup)ktfx.controls/javafx.scene.control.-toggle-group/is-selected.html
 $dokka.location:ktfx.controls$lightingEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.Lighting, kotlin.Unit)))ktfx.controls/javafx.scene.-node/lighting-effect.html
-$dokka.location:ktfx.controls$maxSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/max-size.html
-$dokka.location:ktfx.controls$minSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/min-size.html
 $dokka.location:ktfx.controls$motionBlurEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.MotionBlur, kotlin.Unit)))ktfx.controls/javafx.scene.-node/motion-blur-effect.html
 $dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.MultipleSelectionModel((kotlin.Any))ktfx.controls/javafx.scene.control.-multiple-selection-model/not-selected-binding.html
 $dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.SelectionModel((kotlin.Any))ktfx.controls/javafx.scene.control.-selection-model/not-selected-binding.html
 $dokka.location:ktfx.controls$notSelectedBinding#javafx.scene.control.ToggleGroupktfx.controls/javafx.scene.control.-toggle-group/not-selected-binding.html
-$dokka.location:ktfx.controls$padding(javafx.scene.layout.Region, kotlin.Number)ktfx.controls/javafx.scene.layout.-region/padding.html
-$dokka.location:ktfx.controls$padding(javafx.scene.layout.Region, kotlin.Number, kotlin.Number)ktfx.controls/javafx.scene.layout.-region/padding.html
-$dokka.location:ktfx.controls$padding(javafx.scene.layout.Region, kotlin.Number, kotlin.Number, kotlin.Number, kotlin.Number)ktfx.controls/javafx.scene.layout.-region/padding.html
 $dokka.location:ktfx.controls$parallelTransition(javafx.scene.Node, kotlin.Function1((ktfx.controls.AnimationScope, kotlin.Unit)))ktfx.controls/javafx.scene.-node/parallel-transition.html
 $dokka.location:ktfx.controls$pathTransition(javafx.scene.Node, javafx.util.Duration, javafx.scene.shape.Shape, kotlin.Function1((javafx.animation.PathTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/path-transition.html
 $dokka.location:ktfx.controls$perspectiveTransformEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.PerspectiveTransform, kotlin.Unit)))ktfx.controls/javafx.scene.-node/perspective-transform-effect.html
-$dokka.location:ktfx.controls$prefSize#javafx.scene.layout.Regionktfx.controls/javafx.scene.layout.-region/pref-size.html
 $dokka.location:ktfx.controls$reflectionEffect(javafx.scene.Node, kotlin.Function1((javafx.scene.effect.Reflection, kotlin.Unit)))ktfx.controls/javafx.scene.-node/reflection-effect.html
 $dokka.location:ktfx.controls$rotateTransformation(javafx.scene.Node, kotlin.Function1((javafx.scene.transform.Rotate, kotlin.Unit)))ktfx.controls/javafx.scene.-node/rotate-transformation.html
 $dokka.location:ktfx.controls$rotateTransition(javafx.scene.Node, javafx.util.Duration, kotlin.Function1((javafx.animation.RotateTransition, kotlin.Unit)))ktfx.controls/javafx.scene.-node/rotate-transition.html
@@ -678,11 +669,6 @@ $dokka.location:ktfx.text$appendLine(javafx.scene.text.TextFlow)ktfx.text/javaf
 $dokka.location:ktfx.text$appendLine(javafx.scene.text.TextFlow, kotlin.Any)ktfx.text/javafx.scene.text.-text-flow/append-line.html
 $dokka.location:ktfx.text$appendLine(javafx.scene.text.TextFlow, kotlin.String)ktfx.text/javafx.scene.text.-text-flow/append-line.html
 $dokka.location:ktfx.text$clear(javafx.scene.text.TextFlow)ktfx.text/javafx.scene.text.-text-flow/clear.html
-$dokka.location:ktfx.text$font(javafx.scene.canvas.GraphicsContext, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Number)ktfx.text/javafx.scene.canvas.-graphics-context/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.Labeled, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Number)ktfx.text/javafx.scene.control.-labeled/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.TextInputControl, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Number)ktfx.text/javafx.scene.control.-text-input-control/font.html
-$dokka.location:ktfx.text$font(javafx.scene.control.Tooltip, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Number)ktfx.text/javafx.scene.control.-tooltip/font.html
-$dokka.location:ktfx.text$font(javafx.scene.text.Text, kotlin.String, javafx.scene.text.FontWeight, javafx.scene.text.FontPosture, kotlin.Number)ktfx.text/javafx.scene.text.-text/font.html
 $dokka.location:ktfx.text$get(javafx.util.StringConverter((ktfx.text.get.T)), kotlin.String)ktfx.text/javafx.util.-string-converter/get.html
 $dokka.location:ktfx.text$invoke(javafx.util.StringConverter((ktfx.text.invoke.T)), ktfx.text.invoke.T)ktfx.text/javafx.util.-string-converter/invoke.html
 $dokka.location:ktfx.text$pt#kotlin.Doublektfx.text/kotlin.-double/pt.html

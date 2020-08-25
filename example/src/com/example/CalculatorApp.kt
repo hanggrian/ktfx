@@ -5,8 +5,7 @@ import javafx.scene.control.Label
 import javafx.stage.Stage
 import ktfx.bindings.asBoolean
 import ktfx.bindings.asString
-import ktfx.controls.minSize
-import ktfx.controls.padding
+import ktfx.controls.insetsOf
 import ktfx.coroutines.onAction
 import ktfx.dialogs.errorAlert
 import ktfx.dialogs.infoAlert
@@ -31,7 +30,7 @@ class CalculatorApp : Application() {
         stage.scene {
             gridPane {
                 vbox {
-                    padding(horizontal = 20)
+                    padding = insetsOf(horizontal = 20)
                     calculationLabel = label("")
 
                     resultLabel = label {
@@ -67,54 +66,54 @@ class CalculatorApp : Application() {
                 }.grid(0, 0, colSpan = 5).fillWidth()
 
                 button("1") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("1") }
                 }.grid(1, 0)
                 button("2") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("2") }
                 }.grid(1, 1)
                 button("3") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("3") }
                 }.grid(1, 2)
 
                 button("4") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("4") }
                 }.grid(2, 0)
                 button("5") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("5") }
                 }.grid(2, 1)
                 button("6") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("6") }
                 }.grid(2, 2)
 
                 button("7") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("7") }
                 }.grid(3, 0)
                 button("8") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("8") }
                 }.grid(3, 1)
                 button("9") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("9") }
                 }.grid(3, 2)
 
                 button("0") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("0") }
                 }.grid(4, 0)
                 button("00") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("00") }
                 }.grid(4, 1)
                 button(".") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { errorAlert(":(", content = "Not yet supported.") }
                 }.grid(4, 2)
 
@@ -124,23 +123,23 @@ class CalculatorApp : Application() {
                     onAction { calculationLabel.text = "" }
                 }.grid(1, 3, colSpan = 2)
                 button("*") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("*") }
                 }.grid(2, 3)
                 button("/") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("/") }
                 }.grid(2, 4)
                 button("+") {
-                    minSize = 40 to 80
+                    setMinSize(40.0, 80.0)
                     onAction { appendText("+") }
                 }.grid(3, 3, rowSpan = 2)
                 button("-") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     onAction { appendText("-") }
                 }.grid(3, 4)
                 button("=") {
-                    minSize = 40 to 40
+                    setMinSize(40.0, 40.0)
                     isDefaultButton = true
                     disableProperty().bind(calculationLabel.textProperty().asBoolean(::endsWithOperator))
                     onAction { infoAlert("Result", content = resultLabel.text) }

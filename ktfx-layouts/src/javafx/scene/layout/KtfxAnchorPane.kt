@@ -17,10 +17,6 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
 
     final override fun <C : Node> addChild(child: C): C = child.also { children += it }
 
-    /** Clear children constraints. */
-    @JvmName("clearConstraints2")
-    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
-
     /** Top anchor of this children. */
     inline var Node.topAnchor: Double?
         @JvmName("getTopAnchor2") get() = getTopAnchor(this)
@@ -42,27 +38,68 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
         @JvmName("setLeftAnchor2") set(value) = setLeftAnchor(this, value)
 
     /** Set children anchor on all side in this layout. */
-    fun <C : Node> C.anchor(all: Number): C = anchor(all, all, all, all)
+    fun <C : Node> C.anchor(all: Int): C = anchor(all, all, all, all)
 
     /** Set children anchor on each side in this layout. */
-    fun <C : Node> C.anchor(horizontal: Number? = null, vertical: Number? = null): C = anchor(
-        vertical ?: topAnchor,
-        horizontal ?: rightAnchor,
-        vertical ?: bottomAnchor,
-        horizontal ?: leftAnchor
-    )
+    fun <C : Node> C.anchor(horizontal: Int = Int.MAX_VALUE, vertical: Int = Int.MAX_VALUE): C =
+        anchor(vertical, horizontal, vertical, horizontal)
 
     /** Set children anchor on each side in this layout. */
     fun <C : Node> C.anchor(
-        top: Number? = topAnchor,
-        right: Number? = rightAnchor,
-        bottom: Number? = bottomAnchor,
-        left: Number? = leftAnchor
+        top: Int = Int.MAX_VALUE,
+        right: Int = Int.MAX_VALUE,
+        bottom: Int = Int.MAX_VALUE,
+        left: Int = Int.MAX_VALUE
+    ): C = anchor(
+        if (top != Int.MAX_VALUE) top.toDouble() else Double.NaN,
+        if (right != Int.MAX_VALUE) right.toDouble() else Double.NaN,
+        if (bottom != Int.MAX_VALUE) bottom.toDouble() else Double.NaN,
+        if (left != Int.MAX_VALUE) left.toDouble() else Double.NaN
+    )
+
+    /** Set children anchor on all side in this layout. */
+    fun <C : Node> C.anchor(all: Long): C = anchor(all, all, all, all)
+
+    /** Set children anchor on each side in this layout. */
+    fun <C : Node> C.anchor(horizontal: Long = Long.MAX_VALUE, vertical: Long = Long.MAX_VALUE): C =
+        anchor(vertical, horizontal, vertical, horizontal)
+
+    /** Set children anchor on each side in this layout. */
+    fun <C : Node> C.anchor(
+        top: Long = Long.MAX_VALUE,
+        right: Long = Long.MAX_VALUE,
+        bottom: Long = Long.MAX_VALUE,
+        left: Long = Long.MAX_VALUE
+    ): C = anchor(
+        if (top != Long.MAX_VALUE) top.toDouble() else Double.NaN,
+        if (right != Long.MAX_VALUE) right.toDouble() else Double.NaN,
+        if (bottom != Long.MAX_VALUE) bottom.toDouble() else Double.NaN,
+        if (left != Long.MAX_VALUE) left.toDouble() else Double.NaN
+    )
+
+    /** Set children anchor on all side in this layout. */
+    fun <C : Node> C.anchor(all: Double): C = anchor(all, all, all, all)
+
+    /** Set children anchor on each side in this layout. */
+    fun <C : Node> C.anchor(horizontal: Double = Double.NaN, vertical: Double = Double.NaN): C =
+        anchor(vertical, horizontal, vertical, horizontal)
+
+    /** Set children anchor on each side in this layout. */
+    @Suppress("ConvertNaNEquality")
+    fun <C : Node> C.anchor(
+        top: Double = Double.NaN,
+        right: Double = Double.NaN,
+        bottom: Double = Double.NaN,
+        left: Double = Double.NaN
     ): C {
-        if (top != topAnchor) topAnchor = top?.toDouble()
-        if (right != rightAnchor) rightAnchor = right?.toDouble()
-        if (bottom != bottomAnchor) bottomAnchor = bottom?.toDouble()
-        if (left != leftAnchor) leftAnchor = left?.toDouble()
+        if (topAnchor != Double.NaN) topAnchor = top
+        if (rightAnchor != Double.NaN) rightAnchor = right
+        if (bottomAnchor != Double.NaN) bottomAnchor = bottom
+        if (leftAnchor != Double.NaN) leftAnchor = left
         return this
     }
+
+    /** Clear children constraints. */
+    @JvmName("clearConstraints2")
+    inline fun Node.clearConstraints(): Unit = clearConstraints(this)
 }

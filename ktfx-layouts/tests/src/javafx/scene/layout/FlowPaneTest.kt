@@ -3,6 +3,7 @@ package ktfx.layouts
 import com.hendraanggrian.ktfx.test.LayoutsTest
 import javafx.geometry.Orientation
 import javafx.scene.layout.FlowPane
+import ktfx.controls.insetsOf
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -23,17 +24,17 @@ class FlowPaneTest : LayoutsTest<KtfxPane, FlowPane>() {
 
     @Test fun margins() {
         flowPane {
-            val region1 = region().margin(5)
+            val region1 = region().margin(insetsOf(5))
             assertEquals(5.0, region1.margin!!.top)
             assertEquals(5.0, region1.margin!!.right)
             assertEquals(5.0, region1.margin!!.bottom)
             assertEquals(5.0, region1.margin!!.left)
-            val region2 = region().margin(top = 10, right = 20, bottom = 30, left = 40)
+            val region2 = region().margin(insetsOf(top = 10, right = 20, bottom = 30, left = 40))
             assertEquals(10.0, region2.margin!!.top)
             assertEquals(20.0, region2.margin!!.right)
             assertEquals(30.0, region2.margin!!.bottom)
             assertEquals(40.0, region2.margin!!.left)
-            val region3 = region().margin(vertical = 10, horizontal = 20)
+            val region3 = region().margin(insetsOf(vertical = 10, horizontal = 20))
             assertEquals(10.0, region3.margin!!.top)
             assertEquals(20.0, region3.margin!!.right)
             assertEquals(10.0, region3.margin!!.bottom)

@@ -24,7 +24,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
         @JvmName("getVgrow2") get() = getVgrow(this)
         @JvmName("setVgrow2") set(value) = setVgrow(this, value)
 
-    /** Configure vertical grow fluidly. */
+    /** Configure [vgrow] fluidly. */
     fun <C : Node> C.vgrow(always: Boolean = true): C {
         vgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
@@ -35,7 +35,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
         @JvmName("getMargin2") get() = getMargin(this)
         @JvmName("setMargin2") set(value) = setMargin(this, value)
 
-    /** Set children margin in this layout. */
+    /** Configure [margin] fluidly. */
     fun <C : Node> C.margin(insets: Insets): C {
         margin = insets
         return this

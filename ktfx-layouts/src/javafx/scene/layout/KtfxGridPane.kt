@@ -41,16 +41,44 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("getColumnSpan2") get() = getColumnSpan(this)
         @JvmName("setColumnSpan2") set(value) = setColumnSpan(this, value)
 
+    /** Configure [rowIndex] and [columnIndex] fluidly. */
+    fun <C : Node> C.grid(row: Int = 0, col: Int = 0): C {
+        rowIndex = row
+        columnIndex = col
+        return this
+    }
+
+    /** Configure [rowIndex], [rowSpan] and [columnIndex] fluidly. */
     fun <C : Node> C.grid(
-        row: Int? = rowIndex,
-        col: Int? = columnIndex,
-        rowSpan: Int? = this.rowSpan,
-        colSpan: Int? = columnSpan
+        row: Pair<Int, Int>,
+        col: Int = 0
     ): C {
-        if (row != rowIndex) rowIndex = row
-        if (col != columnIndex) columnIndex = col
-        if (rowSpan != this.rowSpan) this.rowSpan = rowSpan
-        if (colSpan != columnSpan) columnSpan = colSpan
+        rowIndex = row.first
+        rowSpan = row.second
+        columnIndex = col
+        return this
+    }
+
+    /** Configure [rowIndex], [columnIndex] and [columnSpan] fluidly. */
+    fun <C : Node> C.grid(
+        row: Int = 0,
+        col: Pair<Int, Int>
+    ): C {
+        rowIndex = row
+        columnIndex = col.first
+        columnSpan = col.second
+        return this
+    }
+
+    /** Configure [rowIndex], [rowSpan], [columnIndex] and [columnSpan] fluidly. */
+    fun <C : Node> C.grid(
+        row: Pair<Int, Int>,
+        col: Pair<Int, Int>
+    ): C {
+        rowIndex = row.first
+        rowSpan = row.second
+        columnIndex = col.first
+        columnSpan = col.second
         return this
     }
 
@@ -64,13 +92,13 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("getValignment2") get() = getValignment(this)
         @JvmName("setValignment2") set(value) = setValignment(this, value)
 
-    /** Configure horizontal alignment fluidly. */
+    /** Configure [halignment] fluidly. */
     fun <C : Node> C.halign(hpos: HPos): C {
         halignment = hpos
         return this
     }
 
-    /** Configure vertical alignment fluidly. */
+    /** Configure [valignment] fluidly. */
     fun <C : Node> C.valign(vpos: VPos): C {
         valignment = vpos
         return this
@@ -86,13 +114,13 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("isFillHeight2") get() = isFillHeight(this)
         @JvmName("setFillHeight2") set(value) = setFillHeight(this, value)
 
-    /** Configure fill width fluidly. */
+    /** Configure [isFillWidth] fluidly. */
     fun <C : Node> C.fillWidth(fill: Boolean = true): C {
         isFillWidth = fill
         return this
     }
 
-    /** Configure fill height fluidly. */
+    /** Configure [isFillHeight] fluidly. */
     fun <C : Node> C.fillHeight(fill: Boolean = true): C {
         isFillHeight = fill
         return this
@@ -108,13 +136,13 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("getVgrow2") get() = getVgrow(this)
         @JvmName("setVgrow2") set(value) = setVgrow(this, value)
 
-    /** Configure horizontal grow fluidly. */
+    /** Configure [hgrow] fluidly. */
     fun <C : Node> C.hgrow(always: Boolean = true): C {
         hgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
 
-    /** Configure vertical grow fluidly. */
+    /** Configure [vgrow] fluidly. */
     fun <C : Node> C.vgrow(always: Boolean = true): C {
         vgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
@@ -125,7 +153,7 @@ open class KtfxGridPane : GridPane(), NodeManager {
         @JvmName("getMargin2") get() = getMargin(this)
         @JvmName("setMargin2") set(value) = setMargin(this, value)
 
-    /** Set children margin in this layout. */
+    /** Configure [margin] fluidly. */
     fun <C : Node> C.margin(insets: Insets): C {
         margin = insets
         return this

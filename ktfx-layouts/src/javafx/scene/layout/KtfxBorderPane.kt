@@ -25,7 +25,7 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
         @JvmName("getAlignment2") get() = getAlignment(this)
         @JvmName("setAlignment2") set(value) = setAlignment(this, value)
 
-    /** Configure alignment fluidly. */
+    /** Configure [alignment] fluidly. */
     fun <C : Node> C.align(pos: Pos): C {
         alignment = pos
         return this
@@ -36,7 +36,7 @@ open class KtfxBorderPane : BorderPane(), NodeManager {
         @JvmName("getMargin2") get() = getMargin(this)
         @JvmName("setMargin2") set(value) = setMargin(this, value)
 
-    /** Set children margin in this layout. */
+    /** Configure [margin] fluidly. */
     fun <C : Node> C.margin(insets: Insets): C {
         margin = insets
         return this

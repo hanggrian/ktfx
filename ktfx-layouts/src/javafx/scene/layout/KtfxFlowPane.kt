@@ -28,7 +28,7 @@ open class KtfxFlowPane(orientation: Orientation, hgap: Double, vgap: Double) :
         @JvmName("getMargin2") get() = getMargin(this)
         @JvmName("setMargin2") set(value) = setMargin(this, value)
 
-    /** Set children margin in this layout. */
+    /** Configure [margin] fluidly. */
     fun <C : Node> C.margin(insets: Insets): C {
         margin = insets
         return this

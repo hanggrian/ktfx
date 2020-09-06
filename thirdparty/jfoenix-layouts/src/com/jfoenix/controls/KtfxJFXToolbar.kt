@@ -27,7 +27,7 @@ open class KtfxJFXToolbar : JFXToolbar() {
             @JvmName("getHgrow2") get() = HBox.getHgrow(this)
             @JvmName("setHgrow2") set(value) = HBox.setHgrow(this, value)
 
-        /** Configure horizontal grow fluidly. */
+        /** Configure [hgrow] fluidly. */
         fun <C : Node> C.hgrow(always: Boolean = true): C {
             hgrow = if (always) Priority.ALWAYS else Priority.NEVER
             return this
@@ -38,7 +38,7 @@ open class KtfxJFXToolbar : JFXToolbar() {
             @JvmName("getMargin2") get() = getMargin(this)
             @JvmName("setMargin2") set(value) = setMargin(this, value)
 
-        /** Set children margin in this layout. */
+        /** Configure [margin] fluidly. */
         fun <C : Node> C.margin(insets: Insets): C {
             margin = insets
             return this

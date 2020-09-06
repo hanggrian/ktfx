@@ -17,11 +17,20 @@ class GridPaneTest : LayoutsTest<KtfxPane, GridPane>() {
 
     @Test fun grid() {
         gridPane {
-            val label = label().grid(row = 1, rowSpan = 3, col = 2, colSpan = 4)
-            assertEquals(1, label.rowIndex)
-            assertEquals(2, label.columnIndex)
-            assertEquals(3, label.rowSpan)
-            assertEquals(4, label.columnSpan)
+            val label1 = label().grid(1, 2)
+            assertEquals(1, label1.rowIndex)
+            assertEquals(2, label1.columnIndex)
+            val label2 = label().grid(1 to 3)
+            assertEquals(1, label2.rowIndex)
+            assertEquals(3, label2.rowSpan)
+            val label3 = label().grid(col = 2 to 4)
+            assertEquals(2, label3.columnIndex)
+            assertEquals(4, label3.columnSpan)
+            val label4 = label().grid(1 to 3, 2 to 4)
+            assertEquals(1, label4.rowIndex)
+            assertEquals(2, label4.columnIndex)
+            assertEquals(3, label4.rowSpan)
+            assertEquals(4, label4.columnSpan)
         }
     }
 

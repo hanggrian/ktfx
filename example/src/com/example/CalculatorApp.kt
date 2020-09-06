@@ -63,7 +63,7 @@ class CalculatorApp : Application() {
                             }
                         })
                     }
-                }.grid(0, 0, colSpan = 5).fillWidth()
+                }.grid(0, 0 to 5).fillWidth()
 
                 button("1") {
                     setMinSize(40.0, 40.0)
@@ -121,7 +121,7 @@ class CalculatorApp : Application() {
                     setMinSize(80.0, 40.0)
                     isCancelButton = true
                     onAction { calculationLabel.text = "" }
-                }.grid(1, 3, colSpan = 2)
+                }.grid(1, 3 to 2)
                 button("*") {
                     setMinSize(40.0, 40.0)
                     onAction { appendText("*") }
@@ -133,7 +133,7 @@ class CalculatorApp : Application() {
                 button("+") {
                     setMinSize(40.0, 80.0)
                     onAction { appendText("+") }
-                }.grid(3, 3, rowSpan = 2)
+                }.grid(3 to 2, 3)
                 button("-") {
                     setMinSize(40.0, 40.0)
                     onAction { appendText("-") }
@@ -152,7 +152,7 @@ class CalculatorApp : Application() {
 
     private fun appendText(text: String) {
         if (text in OPERATORS && endsWithOperator(text)) {
-            calculationLabel.text = calculationLabel.text.substring(0, calculationLabel.text.length - 1)
+            calculationLabel.text = calculationLabel.text.substring(0, calculationLabel.text.length)
         }
         calculationLabel.text += text
     }

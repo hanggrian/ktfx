@@ -1,0 +1,16 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+ktfx
+ktfx.bindings
+ktfx.cells
+ktfx.collections
+ktfx.controls
+ktfx.dialogs
+ktfx.inputs
+ktfx.internal
+ktfx.print
+ktfx.text
+ktfx.time
+ktfx.windows
+

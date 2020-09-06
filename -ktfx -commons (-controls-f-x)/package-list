@@ -1,0 +1,8 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+ktfx.controlsfx
+ktfx.controlsfx.controls
+ktfx.controlsfx.dialogs
+ktfx.controlsfx.text
+

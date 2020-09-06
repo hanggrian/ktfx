@@ -16,10 +16,17 @@ class BindingsStringTest {
     @Test fun multipleDependencies() {
         val dependency1 = stringPropertyOf("Hello")
         val dependency2 = stringPropertyOf("World")
-        val binding = stringBindingOf(dependency1, dependency2) { dependency1.value + ' ' + dependency2.value }
-        assertEquals("Hello World", binding.value)
+        val binding1 = stringBindingOf(dependency1, dependency2) { dependency1.value + ' ' + dependency2.value }
+        assertEquals("Hello World", binding1.value)
         dependency1.value = "Goodbye"
-        assertEquals("Goodbye World", binding.value)
+        assertEquals("Goodbye World", binding1.value)
+
+        val dependency3 = stringPropertyOf("Hello")
+        val dependency4 = stringPropertyOf("World")
+        val binding2 = stringBindingOf(listOf(dependency3, dependency4)) { dependency3.value + ' ' + dependency4.value }
+        assertEquals("Hello World", binding2.value)
+        dependency3.value = "Goodbye"
+        assertEquals("Goodbye World", binding2.value)
     }
 
     @Test fun anyDependency() {

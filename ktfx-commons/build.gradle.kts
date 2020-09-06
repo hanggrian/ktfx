@@ -1,3 +1,6 @@
+import org.jetbrains.dokka.gradle.DokkaTask
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 group = RELEASE_GROUP
 version = RELEASE_VERSION
 
@@ -24,11 +27,18 @@ dependencies {
 }
 
 tasks {
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
-    }
-    withType<org.jetbrains.dokka.gradle.DokkaTask> {
-        outputDirectory = "$buildDir/docs"
+    withType<KotlinCompile> { kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn") }
+    dokkaHtml.configure {
+        dokkaSourceSets {
+            named("main") {
+                moduleDisplayName.set("$RELEASE_ARTIFACT-commons")
+                sourceLink {
+                    localDirectory.set(file("src"))
+                    remoteUrl.set(github("ktfx-commons"))
+                    remoteLineSuffix.set("#L")
+                }
+            }
+        }
         doFirst { file(outputDirectory).deleteRecursively() }
     }
 }

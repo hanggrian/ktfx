@@ -14,12 +14,55 @@ import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
 import javafx.collections.ObservableList
+import javafx.collections.ObservableMap
+import javafx.collections.ObservableSet
 import ktfx.collections.observableListOf
+import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create a [DoubleBinding] with multiple [Observable] dependencies. */
 inline fun doubleBindingOf(vararg dependencies: Observable, noinline valueProvider: () -> Double): DoubleBinding =
     Bindings.createDoubleBinding(Callable(valueProvider), *dependencies)
+
+/** Create a [DoubleBinding] with multiple [Observable] dependencies using collection. */
+fun doubleBindingOf(dependencies: Collection<Observable>, valueProvider: () -> Double): DoubleBinding =
+    doubleBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+
+/** Create an [DoubleBinding] with single [ObservableList] dependency. */
+fun <E> ObservableList<E>.asDouble(valueProvider: (List<E>) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble)
+        override fun getDependencies(): ObservableList<*> = this@asDouble
+
+        init {
+            bind(this@asDouble)
+        }
+    }
+
+/** Create an [DoubleBinding] with single [ObservableSet] dependency. */
+fun <E> ObservableSet<E>.asDouble(valueProvider: (Set<E>) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble)
+        override fun getDependencies(): ObservableList<*> = this@asDouble.toObservableList()
+
+        init {
+            bind(this@asDouble)
+        }
+    }
+
+/** Create an [DoubleBinding] with single [ObservableMap] dependency. */
+fun <K, V> ObservableMap<K, V>.asDouble(valueProvider: (Map<K, V>) -> Double): DoubleBinding =
+    object : DoubleBinding() {
+        override fun dispose(): Unit = unbind(this@asDouble)
+        override fun computeValue(): Double = valueProvider(this@asDouble)
+        override fun getDependencies(): ObservableList<*> = this@asDouble.keys.toObservableList()
+
+        init {
+            bind(this@asDouble)
+        }
+    }
 
 /** Create a [DoubleBinding] with single [ObservableObjectValue] dependency. */
 fun <V> ObservableObjectValue<V>.asDouble(valueProvider: (V?) -> Double): DoubleBinding =

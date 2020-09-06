@@ -15,13 +15,17 @@ class BindingsIntegerTest {
     @Test fun multipleDependencies() {
         val dependency1 = intPropertyOf(1)
         val dependency2 = intPropertyOf(2)
-        val binding = intBindingOf(
-            dependency1,
-            dependency2
-        ) { dependency1.value + dependency2.value }
-        assertEquals(3, binding.value)
+        val binding1 = intBindingOf(dependency1, dependency2) { dependency1.value + dependency2.value }
+        assertEquals(3, binding1.value)
         dependency1.value++
-        assertEquals(4, binding.value)
+        assertEquals(4, binding1.value)
+
+        val dependency3 = intPropertyOf(1)
+        val dependency4 = intPropertyOf(2)
+        val binding2 = intBindingOf(listOf(dependency3, dependency4)) { dependency3.value + dependency4.value }
+        assertEquals(3, binding2.value)
+        dependency3.value++
+        assertEquals(4, binding2.value)
     }
 
     @Test fun anyDependency() {

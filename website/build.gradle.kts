@@ -8,7 +8,7 @@ gitPublish {
     contents.from(
         "src",
         *ktfxArtifacts
-            .map { "../$it/build/docs" }
+            .map { "../$it/build/dokka/html" }
             .toTypedArray()
     )
 }
@@ -16,7 +16,7 @@ gitPublish {
 tasks["gitPublishCopy"].dependsOn(
     *ktfxArtifacts
         .map { it.replace('/', ':') }
-        .map { ":$it:dokka" }
+        .map { ":$it:dokkaHtml" }
         .toTypedArray()
 )
 

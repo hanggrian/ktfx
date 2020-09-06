@@ -1,6 +1,10 @@
 package ktfx.bindings
 
 import ktfx.booleanPropertyOf
+import ktfx.collections.mutableObservableListOf
+import ktfx.collections.mutableObservableMapOf
+import ktfx.collections.mutableObservableSetOf
+import ktfx.collections.observableListOf
 import ktfx.doublePropertyOf
 import ktfx.floatPropertyOf
 import ktfx.intPropertyOf
@@ -17,9 +21,40 @@ class BindingsBooleanTest {
     @Test fun multipleDependencies() {
         val dependency1 = booleanPropertyOf(true)
         val dependency2 = booleanPropertyOf(true)
-        val binding = booleanBindingOf(dependency1, dependency2) { dependency1.value && dependency2.value }
-        assertTrue(binding.value)
+        val binding1 = booleanBindingOf(dependency1, dependency2) { dependency1.value && dependency2.value }
+        assertTrue(binding1.value)
         dependency1.value = false
+        assertFalse(binding1.value)
+
+        val dependency3 = booleanPropertyOf(true)
+        val dependency4 = booleanPropertyOf(true)
+        val binding2 = booleanBindingOf(listOf(dependency3, dependency4)) { dependency3.value && dependency4.value }
+        assertTrue(binding2.value)
+        dependency3.value = false
+        assertFalse(binding2.value)
+    }
+
+    @Test fun listDependency() {
+        val dependency = mutableObservableListOf(1.m)
+        val binding = dependency.asBoolean { it.isNotEmpty() }
+        assertTrue(binding.value)
+        dependency.clear()
+        assertFalse(binding.value)
+    }
+
+    @Test fun setDependency() {
+        val dependency = mutableObservableSetOf(1.m)
+        val binding = dependency.asBoolean { it.isNotEmpty() }
+        assertTrue(binding.value)
+        dependency.clear()
+        assertFalse(binding.value)
+    }
+
+    @Test fun mapDependency() {
+        val dependency = mutableObservableMapOf(1.m to 2.m)
+        val binding = dependency.asBoolean { it.isNotEmpty() }
+        assertTrue(binding.value)
+        dependency.clear()
         assertFalse(binding.value)
     }
 

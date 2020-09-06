@@ -15,13 +15,17 @@ class BindingsFloatTest {
     @Test fun multipleDependencies() {
         val dependency1 = floatPropertyOf(1f)
         val dependency2 = floatPropertyOf(2f)
-        val binding = floatBindingOf(
-            dependency1,
-            dependency2
-        ) { dependency1.value + dependency2.value }
-        assertEquals(3f, binding.value)
+        val binding1 = floatBindingOf(dependency1, dependency2) { dependency1.value + dependency2.value }
+        assertEquals(3f, binding1.value)
         dependency1.value++
-        assertEquals(4f, binding.value)
+        assertEquals(4f, binding1.value)
+
+        val dependency3 = floatPropertyOf(1f)
+        val dependency4 = floatPropertyOf(2f)
+        val binding2 = floatBindingOf(listOf(dependency3, dependency4)) { dependency3.value + dependency4.value }
+        assertEquals(3f, binding2.value)
+        dependency3.value++
+        assertEquals(4f, binding2.value)
     }
 
     @Test fun anyDependency() {

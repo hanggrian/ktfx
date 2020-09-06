@@ -25,8 +25,17 @@ dependencies {
 }
 
 tasks {
-    withType<org.jetbrains.dokka.gradle.DokkaTask> {
-        outputDirectory = "$buildDir/docs"
+    dokkaHtml.configure {
+        dokkaSourceSets {
+            named("main") {
+                moduleDisplayName.set("$RELEASE_ARTIFACT-controlsfx-listeners")
+                sourceLink {
+                    localDirectory.set(file("src"))
+                    remoteUrl.set(github("thirdparty/controlsfx-listeners"))
+                    remoteLineSuffix.set("#L")
+                }
+            }
+        }
         doFirst { file(outputDirectory).deleteRecursively() }
     }
 }

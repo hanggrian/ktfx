@@ -15,13 +15,17 @@ class BindingsLongTest {
     @Test fun multipleDependencies() {
         val dependency1 = longPropertyOf(1)
         val dependency2 = longPropertyOf(2)
-        val binding = longBindingOf(
-            dependency1,
-            dependency2
-        ) { dependency1.value + dependency2.value }
-        assertEquals(3, binding.value)
+        val binding1 = longBindingOf(dependency1, dependency2) { dependency1.value + dependency2.value }
+        assertEquals(3, binding1.value)
         dependency1.value++
-        assertEquals(4, binding.value)
+        assertEquals(4, binding1.value)
+
+        val dependency3 = longPropertyOf(1)
+        val dependency4 = longPropertyOf(2)
+        val binding2 = longBindingOf(listOf(dependency3, dependency4)) { dependency3.value + dependency4.value }
+        assertEquals(3, binding2.value)
+        dependency3.value++
+        assertEquals(4, binding2.value)
     }
 
     @Test fun anyDependency() {

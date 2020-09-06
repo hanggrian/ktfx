@@ -24,13 +24,17 @@ class BindingsObjectTest {
     @Test fun multipleDependencies() {
         val dependency1 = propertyOf(1.m)
         val dependency2 = propertyOf(30.s)
-        val binding = bindingOf(
-            dependency1,
-            dependency2
-        ) { dependency1.value + dependency2.value }
-        assertEquals(90.s, binding.value)
+        val binding1 = bindingOf(dependency1, dependency2) { dependency1.value + dependency2.value }
+        assertEquals(90.s, binding1.value)
         dependency1.value = 15.s
-        assertEquals(45.s, binding.value)
+        assertEquals(45.s, binding1.value)
+
+        val dependency3 = propertyOf(1.m)
+        val dependency4 = propertyOf(30.s)
+        val binding2 = bindingOf(listOf(dependency3, dependency4)) { dependency3.value + dependency4.value }
+        assertEquals(90.s, binding2.value)
+        dependency3.value = 15.s
+        assertEquals(45.s, binding2.value)
     }
 
     @Test fun anyDependency() {

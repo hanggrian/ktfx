@@ -14,12 +14,55 @@ import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
 import javafx.collections.ObservableList
+import javafx.collections.ObservableMap
+import javafx.collections.ObservableSet
 import ktfx.collections.observableListOf
+import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create a [BooleanBinding] with multiple [Observable] dependencies. */
 inline fun booleanBindingOf(vararg dependencies: Observable, noinline valueProvider: () -> Boolean): BooleanBinding =
     Bindings.createBooleanBinding(Callable(valueProvider), *dependencies)
+
+/** Create a [BooleanBinding] with multiple [Observable] dependencies using collection. */
+fun booleanBindingOf(dependencies: Collection<Observable>, valueProvider: () -> Boolean): BooleanBinding =
+    booleanBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+
+/** Create an [BooleanBinding] with single [ObservableList] dependency. */
+fun <E> ObservableList<E>.asBoolean(valueProvider: (List<E>) -> Boolean): BooleanBinding =
+    object : BooleanBinding() {
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean)
+        override fun getDependencies(): ObservableList<*> = this@asBoolean
+
+        init {
+            bind(this@asBoolean)
+        }
+    }
+
+/** Create an [BooleanBinding] with single [ObservableSet] dependency. */
+fun <E> ObservableSet<E>.asBoolean(valueProvider: (Set<E>) -> Boolean): BooleanBinding =
+    object : BooleanBinding() {
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean)
+        override fun getDependencies(): ObservableList<*> = this@asBoolean.toObservableList()
+
+        init {
+            bind(this@asBoolean)
+        }
+    }
+
+/** Create an [BooleanBinding] with single [ObservableMap] dependency. */
+fun <K, V> ObservableMap<K, V>.asBoolean(valueProvider: (Map<K, V>) -> Boolean): BooleanBinding =
+    object : BooleanBinding() {
+        override fun dispose(): Unit = unbind(this@asBoolean)
+        override fun computeValue(): Boolean = valueProvider(this@asBoolean)
+        override fun getDependencies(): ObservableList<*> = this@asBoolean.keys.toObservableList()
+
+        init {
+            bind(this@asBoolean)
+        }
+    }
 
 /** Create a [BooleanBinding] with single [ObservableObjectValue] dependency. */
 fun <V> ObservableObjectValue<V>.asBoolean(valueProvider: (V?) -> Boolean): BooleanBinding =

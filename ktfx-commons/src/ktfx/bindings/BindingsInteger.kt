@@ -14,12 +14,55 @@ import javafx.beans.value.ObservableIntegerValue
 import javafx.beans.value.ObservableLongValue
 import javafx.beans.value.ObservableObjectValue
 import javafx.collections.ObservableList
+import javafx.collections.ObservableMap
+import javafx.collections.ObservableSet
 import ktfx.collections.observableListOf
+import ktfx.collections.toObservableList
 import java.util.concurrent.Callable
 
 /** Create an [IntegerBinding] with multiple [Observable] dependencies. */
 inline fun intBindingOf(vararg dependencies: Observable, noinline valueProvider: () -> Int): IntegerBinding =
     Bindings.createIntegerBinding(Callable(valueProvider), *dependencies)
+
+/** Create a [IntegerBinding] with multiple [Observable] dependencies using collection. */
+fun intBindingOf(dependencies: Collection<Observable>, valueProvider: () -> Int): IntegerBinding =
+    intBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+
+/** Create an [IntegerBinding] with single [ObservableList] dependency. */
+fun <E> ObservableList<E>.asInt(valueProvider: (List<E>) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@asInt)
+        override fun computeValue(): Int = valueProvider(this@asInt)
+        override fun getDependencies(): ObservableList<*> = this@asInt
+
+        init {
+            bind(this@asInt)
+        }
+    }
+
+/** Create an [IntegerBinding] with single [ObservableSet] dependency. */
+fun <E> ObservableSet<E>.asInt(valueProvider: (Set<E>) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@asInt)
+        override fun computeValue(): Int = valueProvider(this@asInt)
+        override fun getDependencies(): ObservableList<*> = this@asInt.toObservableList()
+
+        init {
+            bind(this@asInt)
+        }
+    }
+
+/** Create an [IntegerBinding] with single [ObservableMap] dependency. */
+fun <K, V> ObservableMap<K, V>.asInt(valueProvider: (Map<K, V>) -> Int): IntegerBinding =
+    object : IntegerBinding() {
+        override fun dispose(): Unit = unbind(this@asInt)
+        override fun computeValue(): Int = valueProvider(this@asInt)
+        override fun getDependencies(): ObservableList<*> = this@asInt.keys.toObservableList()
+
+        init {
+            bind(this@asInt)
+        }
+    }
 
 /** Create an [IntegerBinding] with single [ObservableObjectValue] dependency. */
 fun <V> ObservableObjectValue<V>.asInt(valueProvider: (V?) -> Int): IntegerBinding =

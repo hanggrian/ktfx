@@ -25,11 +25,17 @@ dependencies {
 }
 
 tasks {
-    withType<Javadoc> {
-        isEnabled = false
-    }
-    withType<org.jetbrains.dokka.gradle.DokkaTask> {
-        outputDirectory = "$buildDir/docs"
+    dokkaHtml.configure {
+        dokkaSourceSets {
+            named("main") {
+                moduleDisplayName.set("$RELEASE_ARTIFACT-coroutines")
+                sourceLink {
+                    localDirectory.set(file("src"))
+                    remoteUrl.set(github("ktfx-coroutines"))
+                    remoteLineSuffix.set("#L")
+                }
+            }
+        }
         doFirst { file(outputDirectory).deleteRecursively() }
     }
 }

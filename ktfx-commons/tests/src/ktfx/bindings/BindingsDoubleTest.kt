@@ -1,6 +1,9 @@
 package ktfx.bindings
 
 import ktfx.booleanPropertyOf
+import ktfx.collections.mutableObservableListOf
+import ktfx.collections.mutableObservableMapOf
+import ktfx.collections.mutableObservableSetOf
 import ktfx.doublePropertyOf
 import ktfx.floatPropertyOf
 import ktfx.intPropertyOf
@@ -9,19 +12,25 @@ import ktfx.propertyOf
 import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
 class BindingsDoubleTest {
 
     @Test fun multipleDependencies() {
         val dependency1 = doublePropertyOf(1.0)
         val dependency2 = doublePropertyOf(2.0)
-        val binding = doubleBindingOf(
-            dependency1,
-            dependency2
-        ) { dependency1.value + dependency2.value }
-        assertEquals(3.0, binding.value)
+        val binding1 = doubleBindingOf(dependency1, dependency2) { dependency1.value + dependency2.value }
+        assertEquals(3.0, binding1.value)
         dependency1.value++
-        assertEquals(4.0, binding.value)
+        assertEquals(4.0, binding1.value)
+
+        val dependency3 = doublePropertyOf(1.0)
+        val dependency4 = doublePropertyOf(2.0)
+        val binding2 = doubleBindingOf(listOf(dependency3, dependency4)) { dependency3.value + dependency4.value }
+        assertEquals(3.0, binding2.value)
+        dependency3.value++
+        assertEquals(4.0, binding2.value)
     }
 
     @Test fun anyDependency() {

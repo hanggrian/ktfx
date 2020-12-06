@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.worldMapView(): WorldMapView = worldMapView() { }
+public fun NodeManager.worldMapView(): WorldMapView = worldMapView() { }
 
 /**
  * Create a [WorldMapView] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.worldMapView(): WorldMapView = worldMapView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit):
+public inline fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit):
     WorldMapView {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = WorldMapView()
@@ -42,13 +42,15 @@ inline fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit):
-    WorldMapView {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = WorldMapView()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.worldMapView(
+    configuration: (@KtfxLayoutDslMarker WorldMapView).() ->
+    Unit
+): WorldMapView {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = WorldMapView()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [WorldMapView].
@@ -57,7 +59,7 @@ inline fun NodeManager.worldMapView(configuration: (@KtfxLayoutDslMarker WorldMa
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledWorldMapView(vararg styleClass: String, id: String? = null): WorldMapView =
+public fun styledWorldMapView(vararg styleClass: String, id: String? = null): WorldMapView =
     styledWorldMapView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -67,8 +69,8 @@ fun styledWorldMapView(vararg styleClass: String, id: String? = null): WorldMapV
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledWorldMapView(vararg styleClass: String, id: String? = null): WorldMapView =
-    styledWorldMapView(styleClass = *styleClass, id = id) { }
+public fun NodeManager.styledWorldMapView(vararg styleClass: String, id: String? = null):
+    WorldMapView = styledWorldMapView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [WorldMapView] with configuration block.
@@ -78,7 +80,7 @@ fun NodeManager.styledWorldMapView(vararg styleClass: String, id: String? = null
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledWorldMapView(
+public inline fun styledWorldMapView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit
@@ -99,7 +101,7 @@ inline fun styledWorldMapView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledWorldMapView(
+public inline fun NodeManager.styledWorldMapView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit

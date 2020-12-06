@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.checkListView(items: ObservableList<T> = observableArrayList()):
+public fun <T> NodeManager.checkListView(items: ObservableList<T> = observableArrayList()):
     CheckListView<T> = checkListView(items = items) { }
 
 /**
@@ -31,7 +31,7 @@ fun <T> NodeManager.checkListView(items: ObservableList<T> = observableArrayList
  *
  * @return the control created.
  */
-inline fun <T> checkListView(
+public inline fun <T> checkListView(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker CheckListView<T>).() -> Unit
 ): CheckListView<T> {
@@ -47,7 +47,7 @@ inline fun <T> checkListView(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.checkListView(
+public inline fun <T> NodeManager.checkListView(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker CheckListView<T>).() -> Unit
 ): CheckListView<T> {
@@ -64,7 +64,7 @@ inline fun <T> NodeManager.checkListView(
  *
  * @return the styled control created.
  */
-fun <T> styledCheckListView(
+public fun <T> styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -77,7 +77,7 @@ fun <T> styledCheckListView(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledCheckListView(
+public fun <T> NodeManager.styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -91,7 +91,7 @@ fun <T> NodeManager.styledCheckListView(
  *
  * @return the styled control created.
  */
-inline fun <T> styledCheckListView(
+public inline fun <T> styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -113,7 +113,7 @@ inline fun <T> styledCheckListView(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledCheckListView(
+public inline fun <T> NodeManager.styledCheckListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

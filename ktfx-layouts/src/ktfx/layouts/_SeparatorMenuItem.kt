@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem() { }
+public fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem() { }
 
 /**
  * Create a [SeparatorMenuItem] with configuration block.
@@ -26,13 +26,15 @@ fun MenuItemManager.separatorMenuItem(): SeparatorMenuItem = separatorMenuItem()
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun separatorMenuItem(configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit):
-    SeparatorMenuItem {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = SeparatorMenuItem()
-        child.configuration()
-        return child
-    }
+public inline fun separatorMenuItem(
+    configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() ->
+    Unit
+): SeparatorMenuItem {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = SeparatorMenuItem()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [SeparatorMenuItem] with configuration block to this manager.
@@ -40,7 +42,7 @@ inline fun separatorMenuItem(configuration: (@KtfxLayoutDslMarker SeparatorMenuI
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun MenuItemManager.separatorMenuItem(
+public inline fun MenuItemManager.separatorMenuItem(
     configuration: (
         @KtfxLayoutDslMarker
         SeparatorMenuItem
@@ -59,7 +61,7 @@ inline fun MenuItemManager.separatorMenuItem(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledSeparatorMenuItem(vararg styleClass: String, id: String? = null): SeparatorMenuItem =
+public fun styledSeparatorMenuItem(vararg styleClass: String, id: String? = null): SeparatorMenuItem =
     styledSeparatorMenuItem(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,7 +71,7 @@ fun styledSeparatorMenuItem(vararg styleClass: String, id: String? = null): Sepa
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun MenuItemManager.styledSeparatorMenuItem(vararg styleClass: String, id: String? = null):
+public fun MenuItemManager.styledSeparatorMenuItem(vararg styleClass: String, id: String? = null):
     SeparatorMenuItem = styledSeparatorMenuItem(styleClass = *styleClass, id = id) { }
 
 /**
@@ -80,7 +82,7 @@ fun MenuItemManager.styledSeparatorMenuItem(vararg styleClass: String, id: Strin
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledSeparatorMenuItem(
+public inline fun styledSeparatorMenuItem(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit
@@ -101,7 +103,7 @@ inline fun styledSeparatorMenuItem(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun MenuItemManager.styledSeparatorMenuItem(
+public inline fun MenuItemManager.styledSeparatorMenuItem(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SeparatorMenuItem).() -> Unit

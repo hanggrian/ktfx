@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
 /**
  * @see ChoiceBox.setOnAction
  */
-fun ChoiceBox<*>.onAction(
+public fun ChoiceBox<*>.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit
@@ -30,7 +30,7 @@ fun ChoiceBox<*>.onAction(
 /**
  * @see ChoiceBox.setOnShowing
  */
-fun ChoiceBox<*>.onShowing(
+public fun ChoiceBox<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -41,7 +41,7 @@ fun ChoiceBox<*>.onShowing(
 /**
  * @see ChoiceBox.setOnShown
  */
-fun ChoiceBox<*>.onShown(
+public fun ChoiceBox<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -52,7 +52,7 @@ fun ChoiceBox<*>.onShown(
 /**
  * @see ChoiceBox.setOnHiding
  */
-fun ChoiceBox<*>.onHiding(
+public fun ChoiceBox<*>.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -63,7 +63,7 @@ fun ChoiceBox<*>.onHiding(
 /**
  * @see ChoiceBox.setOnHidden
  */
-fun ChoiceBox<*>.onHidden(
+public fun ChoiceBox<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit

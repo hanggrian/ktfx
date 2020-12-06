@@ -22,10 +22,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <X, Y> NodeManager.bubbleChart(
+public fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): BubbleChart<X, Y> = bubbleChart(x = x, y = y, data = data) { }
 
 /**
@@ -34,10 +34,10 @@ fun <X, Y> NodeManager.bubbleChart(
  *
  * @return the control created.
  */
-inline fun <X, Y> bubbleChart(
+public inline fun <X, Y> bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -52,10 +52,10 @@ inline fun <X, Y> bubbleChart(
  *
  * @return the control added.
  */
-inline fun <X, Y> NodeManager.bubbleChart(
+public inline fun <X, Y> NodeManager.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit
 ): BubbleChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -71,16 +71,16 @@ inline fun <X, Y> NodeManager.bubbleChart(
  *
  * @return the styled control created.
  */
-fun <X, Y> styledBubbleChart(
+public fun <X, Y> styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): BubbleChart<X, Y> = styledBubbleChart(
     x = x, y = y, data = data, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -90,16 +90,16 @@ fun <X, Y> styledBubbleChart(
  *
  * @return the styled control added.
  */
-fun <X, Y> NodeManager.styledBubbleChart(
+public fun <X, Y> NodeManager.styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): BubbleChart<X, Y> = styledBubbleChart(
     x = x, y = y, data = data, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -110,10 +110,10 @@ fun <X, Y> NodeManager.styledBubbleChart(
  *
  * @return the styled control created.
  */
-inline fun <X, Y> styledBubbleChart(
+public inline fun <X, Y> styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit
@@ -134,10 +134,10 @@ inline fun <X, Y> styledBubbleChart(
  *
  * @return the styled control added.
  */
-inline fun <X, Y> NodeManager.styledBubbleChart(
+public inline fun <X, Y> NodeManager.styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker BubbleChart<X, Y>).() -> Unit

@@ -20,8 +20,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(
-    radius = radius,
+public fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(
+    radius =
+    radius,
     division = division
 ) { }
 
@@ -31,7 +32,7 @@ fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = spher
  *
  * @return the control created.
  */
-inline fun sphere(
+public inline fun sphere(
     radius: Double = 1.0,
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit
@@ -48,7 +49,7 @@ inline fun sphere(
  *
  * @return the control added.
  */
-inline fun NodeManager.sphere(
+public inline fun NodeManager.sphere(
     radius: Double = 1.0,
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit
@@ -66,7 +67,7 @@ inline fun NodeManager.sphere(
  *
  * @return the styled control created.
  */
-fun styledSphere(
+public fun styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,
@@ -81,7 +82,7 @@ fun styledSphere(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledSphere(
+public fun NodeManager.styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,
@@ -97,7 +98,7 @@ fun NodeManager.styledSphere(
  *
  * @return the styled control created.
  */
-inline fun styledSphere(
+public inline fun styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,
@@ -120,7 +121,7 @@ inline fun styledSphere(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledSphere(
+public inline fun NodeManager.styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,

@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxRippler(): JFXRippler = jfxRippler() { }
+public fun NodeManager.jfxRippler(): JFXRippler = jfxRippler() { }
 
 /**
  * Create a [JFXRippler] with configuration block.
@@ -28,12 +28,13 @@ fun NodeManager.jfxRippler(): JFXRippler = jfxRippler() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJFXRippler).() -> Unit): JFXRippler {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxJFXRippler()
-    child.configuration()
-    return child
-}
+public inline fun jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJFXRippler).() -> Unit):
+    JFXRippler {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxJFXRippler()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [JFXRippler] with configuration block to this manager.
@@ -41,13 +42,15 @@ inline fun jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJFXRippler).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJFXRippler).() -> Unit):
-    JFXRippler {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXRippler()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.jfxRippler(
+    configuration: (@KtfxLayoutDslMarker KtfxJFXRippler).() ->
+    Unit
+): JFXRippler {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXRippler()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [JFXRippler].
@@ -56,7 +59,7 @@ inline fun NodeManager.jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJFXRi
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
+public fun styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
     styledJFXRippler(styleClass = *styleClass, id = id) { }
 
 /**
@@ -66,7 +69,7 @@ fun styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler 
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
+public fun NodeManager.styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
     styledJFXRippler(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +80,7 @@ fun NodeManager.styledJFXRippler(vararg styleClass: String, id: String? = null):
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXRippler(
+public inline fun styledJFXRippler(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXRippler).() -> Unit
@@ -98,7 +101,7 @@ inline fun styledJFXRippler(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXRippler(
+public inline fun NodeManager.styledJFXRippler(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXRippler).() -> Unit

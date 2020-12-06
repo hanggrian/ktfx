@@ -13,6 +13,6 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXAnimationTimer.setOnFinished
  */
-inline fun JFXAnimationTimer.onFinished(noinline action: () -> Unit) {
+public inline fun JFXAnimationTimer.onFinished(noinline action: () -> Unit) {
     return setOnFinished(action)
 }

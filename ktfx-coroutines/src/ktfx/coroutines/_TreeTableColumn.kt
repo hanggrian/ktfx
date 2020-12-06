@@ -17,7 +17,7 @@ import kotlin.jvm.JvmName
 /**
  * @see TreeTableColumn.setOnEditStart
  */
-fun <S, T> TreeTableColumn<S, T>.onEditStart(
+public fun <S, T> TreeTableColumn<S, T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TreeTableColumn.CellEditEvent<S, T>) -> Unit
 ) {
@@ -27,7 +27,7 @@ fun <S, T> TreeTableColumn<S, T>.onEditStart(
 /**
  * @see TreeTableColumn.setOnEditCommit
  */
-fun <S, T> TreeTableColumn<S, T>.onEditCommit(
+public fun <S, T> TreeTableColumn<S, T>.onEditCommit(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TreeTableColumn.CellEditEvent<S, T>) -> Unit
 ) {
@@ -37,7 +37,7 @@ fun <S, T> TreeTableColumn<S, T>.onEditCommit(
 /**
  * @see TreeTableColumn.setOnEditCancel
  */
-fun <S, T> TreeTableColumn<S, T>.onEditCancel(
+public fun <S, T> TreeTableColumn<S, T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(TreeTableColumn.CellEditEvent<S, T>) -> Unit
 ) {

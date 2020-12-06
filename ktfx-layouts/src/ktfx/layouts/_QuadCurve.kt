@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.quadCurve(
+public fun NodeManager.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -37,7 +37,7 @@ fun NodeManager.quadCurve(
  *
  * @return the control created.
  */
-inline fun quadCurve(
+public inline fun quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -58,7 +58,7 @@ inline fun quadCurve(
  *
  * @return the control added.
  */
-inline fun NodeManager.quadCurve(
+public inline fun NodeManager.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -80,7 +80,7 @@ inline fun NodeManager.quadCurve(
  *
  * @return the styled control created.
  */
-fun styledQuadCurve(
+public fun styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -92,7 +92,7 @@ fun styledQuadCurve(
 ): QuadCurve = styledQuadCurve(
     startX = startX, startY = startY, controlX = controlX,
     controlY =
-        controlY,
+    controlY,
     endX = endX, endY = endY, styleClass = *styleClass, id = id
 ) { }
 
@@ -103,7 +103,7 @@ fun styledQuadCurve(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledQuadCurve(
+public fun NodeManager.styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -115,7 +115,7 @@ fun NodeManager.styledQuadCurve(
 ): QuadCurve = styledQuadCurve(
     startX = startX, startY = startY, controlX = controlX,
     controlY =
-        controlY,
+    controlY,
     endX = endX, endY = endY, styleClass = *styleClass, id = id
 ) { }
 
@@ -127,7 +127,7 @@ fun NodeManager.styledQuadCurve(
  *
  * @return the styled control created.
  */
-inline fun styledQuadCurve(
+public inline fun styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -154,7 +154,7 @@ inline fun styledQuadCurve(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledQuadCurve(
+public inline fun NodeManager.styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,

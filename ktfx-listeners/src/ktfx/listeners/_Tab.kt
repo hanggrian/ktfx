@@ -14,20 +14,20 @@ import kotlin.jvm.JvmName
 /**
  * @see Tab.setOnSelectionChanged
  */
-inline fun Tab.onSelectionChanged(noinline action: (Event) -> Unit) {
+public inline fun Tab.onSelectionChanged(noinline action: (Event) -> Unit) {
     return setOnSelectionChanged(action)
 }
 
 /**
  * @see Tab.setOnClosed
  */
-inline fun Tab.onClosed(noinline action: (Event) -> Unit) {
+public inline fun Tab.onClosed(noinline action: (Event) -> Unit) {
     return setOnClosed(action)
 }
 
 /**
  * @see Tab.setOnCloseRequest
  */
-inline fun Tab.onCloseRequest(noinline action: (Event) -> Unit) {
+public inline fun Tab.onCloseRequest(noinline action: (Event) -> Unit) {
     return setOnCloseRequest(action)
 }

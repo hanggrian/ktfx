@@ -19,8 +19,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(
-    width = width,
+public fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(
+    width =
+    width,
     height = height
 ) { }
 
@@ -30,7 +31,7 @@ fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canv
  *
  * @return the control created.
  */
-inline fun canvas(
+public inline fun canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit
@@ -47,7 +48,7 @@ inline fun canvas(
  *
  * @return the control added.
  */
-inline fun NodeManager.canvas(
+public inline fun NodeManager.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit
@@ -65,7 +66,7 @@ inline fun NodeManager.canvas(
  *
  * @return the styled control created.
  */
-fun styledCanvas(
+public fun styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,
@@ -79,7 +80,7 @@ fun styledCanvas(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledCanvas(
+public fun NodeManager.styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,
@@ -94,7 +95,7 @@ fun NodeManager.styledCanvas(
  *
  * @return the styled control created.
  */
-inline fun styledCanvas(
+public inline fun styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,
@@ -117,7 +118,7 @@ inline fun styledCanvas(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledCanvas(
+public inline fun NodeManager.styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,

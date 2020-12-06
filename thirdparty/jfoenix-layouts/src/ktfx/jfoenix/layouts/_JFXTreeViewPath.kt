@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxTreeViewPath(treeView: TreeView<*>? = null): JFXTreeViewPath =
+public fun NodeManager.jfxTreeViewPath(treeView: TreeView<*>? = null): JFXTreeViewPath =
     jfxTreeViewPath(treeView = treeView) { }
 
 /**
@@ -30,12 +30,9 @@ fun NodeManager.jfxTreeViewPath(treeView: TreeView<*>? = null): JFXTreeViewPath 
  *
  * @return the control created.
  */
-inline fun jfxTreeViewPath(
+public inline fun jfxTreeViewPath(
     treeView: TreeView<*>? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        JFXTreeViewPath
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeViewPath(treeView)
@@ -49,7 +46,7 @@ inline fun jfxTreeViewPath(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxTreeViewPath(
+public inline fun NodeManager.jfxTreeViewPath(
     treeView: TreeView<*>? = null,
     configuration: (@KtfxLayoutDslMarker JFXTreeViewPath).() -> Unit
 ): JFXTreeViewPath {
@@ -66,7 +63,7 @@ inline fun NodeManager.jfxTreeViewPath(
  *
  * @return the styled control created.
  */
-fun styledJFXTreeViewPath(
+public fun styledJFXTreeViewPath(
     treeView: TreeView<*>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -80,7 +77,7 @@ fun styledJFXTreeViewPath(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXTreeViewPath(
+public fun NodeManager.styledJFXTreeViewPath(
     treeView: TreeView<*>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -95,7 +92,7 @@ fun NodeManager.styledJFXTreeViewPath(
  *
  * @return the styled control created.
  */
-inline fun styledJFXTreeViewPath(
+public inline fun styledJFXTreeViewPath(
     treeView: TreeView<*>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -117,7 +114,7 @@ inline fun styledJFXTreeViewPath(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXTreeViewPath(
+public inline fun NodeManager.styledJFXTreeViewPath(
     treeView: TreeView<*>? = null,
     vararg styleClass: String,
     id: String? = null,

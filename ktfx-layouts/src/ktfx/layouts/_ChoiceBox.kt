@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList()): ChoiceBox<T> =
+public fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList()): ChoiceBox<T> =
     choiceBox(items = items) { }
 
 /**
@@ -29,7 +29,7 @@ fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList()):
  *
  * @return the control created.
  */
-inline fun <T> choiceBox(
+public inline fun <T> choiceBox(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
@@ -45,7 +45,7 @@ inline fun <T> choiceBox(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.choiceBox(
+public inline fun <T> NodeManager.choiceBox(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit
 ): ChoiceBox<T> {
@@ -62,7 +62,7 @@ inline fun <T> NodeManager.choiceBox(
  *
  * @return the styled control created.
  */
-fun <T> styledChoiceBox(
+public fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -75,7 +75,7 @@ fun <T> styledChoiceBox(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledChoiceBox(
+public fun <T> NodeManager.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -89,7 +89,7 @@ fun <T> NodeManager.styledChoiceBox(
  *
  * @return the styled control created.
  */
-inline fun <T> styledChoiceBox(
+public inline fun <T> styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ inline fun <T> styledChoiceBox(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledChoiceBox(
+public inline fun <T> NodeManager.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

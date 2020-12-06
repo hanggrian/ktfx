@@ -13,6 +13,6 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXDecorator.setOnCloseButtonAction
  */
-inline fun JFXDecorator.onCloseButtonAction(noinline action: () -> Unit) {
+public inline fun JFXDecorator.onCloseButtonAction(noinline action: () -> Unit) {
     return setOnCloseButtonAction(action)
 }

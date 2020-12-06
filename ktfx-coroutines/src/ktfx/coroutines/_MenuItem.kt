@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
 /**
  * @see MenuItem.setOnAction
  */
-fun MenuItem.onAction(
+public fun MenuItem.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit
@@ -30,7 +30,7 @@ fun MenuItem.onAction(
 /**
  * @see MenuItem.setOnMenuValidation
  */
-fun MenuItem.onMenuValidation(
+public fun MenuItem.onMenuValidation(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit

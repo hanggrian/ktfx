@@ -20,7 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color = color) { }
+public fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color = color) {
+}
 
 /**
  * Create a [ColorPicker] with configuration block.
@@ -28,10 +29,12 @@ fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(col
  *
  * @return the control created.
  */
-inline fun colorPicker(
+public inline fun colorPicker(
     color: Color = WHITE,
-    configuration: (@KtfxLayoutDslMarker ColorPicker).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        ColorPicker
+    ).() -> Unit
 ): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ColorPicker(color)
@@ -45,7 +48,7 @@ inline fun colorPicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.colorPicker(
+public inline fun NodeManager.colorPicker(
     color: Color = WHITE,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -65,7 +68,7 @@ inline fun NodeManager.colorPicker(
  *
  * @return the styled control created.
  */
-fun styledColorPicker(
+public fun styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null
@@ -78,7 +81,7 @@ fun styledColorPicker(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledColorPicker(
+public fun NodeManager.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null
@@ -92,7 +95,7 @@ fun NodeManager.styledColorPicker(
  *
  * @return the styled control created.
  */
-inline fun styledColorPicker(
+public inline fun styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
@@ -114,7 +117,7 @@ inline fun styledColorPicker(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledColorPicker(
+public inline fun NodeManager.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,

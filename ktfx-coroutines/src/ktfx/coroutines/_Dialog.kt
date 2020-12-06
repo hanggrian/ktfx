@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Dialog.setOnShowing
  */
-fun Dialog<*>.onShowing(
+public fun Dialog<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
@@ -29,7 +29,7 @@ fun Dialog<*>.onShowing(
 /**
  * @see Dialog.setOnShown
  */
-fun Dialog<*>.onShown(
+public fun Dialog<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
@@ -40,7 +40,7 @@ fun Dialog<*>.onShown(
 /**
  * @see Dialog.setOnHiding
  */
-fun Dialog<*>.onHiding(
+public fun Dialog<*>.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
@@ -51,7 +51,7 @@ fun Dialog<*>.onHiding(
 /**
  * @see Dialog.setOnHidden
  */
-fun Dialog<*>.onHidden(
+public fun Dialog<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit
@@ -62,7 +62,7 @@ fun Dialog<*>.onHidden(
 /**
  * @see Dialog.setOnCloseRequest
  */
-fun Dialog<*>.onCloseRequest(
+public fun Dialog<*>.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DialogEvent) -> Unit

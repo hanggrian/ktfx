@@ -21,10 +21,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip(
+public fun <T> NodeManager.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip(
     view = view,
-    item =
-        item
+    item = item
 ) { }
 
 /**
@@ -33,7 +32,7 @@ fun <T> NodeManager.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip
  *
  * @return the control created.
  */
-inline fun <T> jfxChip(
+public inline fun <T> jfxChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXChip<T>).() -> Unit
@@ -50,7 +49,7 @@ inline fun <T> jfxChip(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.jfxChip(
+public inline fun <T> NodeManager.jfxChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXChip<T>).() -> Unit
@@ -68,7 +67,7 @@ inline fun <T> NodeManager.jfxChip(
  *
  * @return the styled control created.
  */
-fun <T> styledJFXChip(
+public fun <T> styledJFXChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -82,7 +81,7 @@ fun <T> styledJFXChip(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledJFXChip(
+public fun <T> NodeManager.styledJFXChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -97,7 +96,7 @@ fun <T> NodeManager.styledJFXChip(
  *
  * @return the styled control created.
  */
-inline fun <T> styledJFXChip(
+public inline fun <T> styledJFXChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -120,7 +119,7 @@ inline fun <T> styledJFXChip(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledJFXChip(
+public inline fun <T> NodeManager.styledJFXChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,

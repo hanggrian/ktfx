@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Menu.setOnShowing
  */
-fun Menu.onShowing(
+public fun Menu.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -29,7 +29,7 @@ fun Menu.onShowing(
 /**
  * @see Menu.setOnShown
  */
-fun Menu.onShown(
+public fun Menu.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -40,7 +40,7 @@ fun Menu.onShown(
 /**
  * @see Menu.setOnHiding
  */
-fun Menu.onHiding(
+public fun Menu.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -51,7 +51,7 @@ fun Menu.onHiding(
 /**
  * @see Menu.setOnHidden
  */
-fun Menu.onHidden(
+public fun Menu.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit

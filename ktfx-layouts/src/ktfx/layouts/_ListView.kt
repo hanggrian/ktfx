@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.listView(items: ObservableList<T> = observableArrayList()): ListView<T> =
+public fun <T> NodeManager.listView(items: ObservableList<T> = observableArrayList()): ListView<T> =
     listView(items = items) { }
 
 /**
@@ -29,7 +29,7 @@ fun <T> NodeManager.listView(items: ObservableList<T> = observableArrayList()): 
  *
  * @return the control created.
  */
-inline fun <T> listView(
+public inline fun <T> listView(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
@@ -45,7 +45,7 @@ inline fun <T> listView(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.listView(
+public inline fun <T> NodeManager.listView(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit
 ): ListView<T> {
@@ -62,7 +62,7 @@ inline fun <T> NodeManager.listView(
  *
  * @return the styled control created.
  */
-fun <T> styledListView(
+public fun <T> styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -75,7 +75,7 @@ fun <T> styledListView(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledListView(
+public fun <T> NodeManager.styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -89,7 +89,7 @@ fun <T> NodeManager.styledListView(
  *
  * @return the styled control created.
  */
-inline fun <T> styledListView(
+public inline fun <T> styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ inline fun <T> styledListView(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledListView(
+public inline fun <T> NodeManager.styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

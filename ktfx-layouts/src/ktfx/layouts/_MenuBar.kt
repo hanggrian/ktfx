@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.menuBar(): MenuBar = menuBar() { }
+public fun NodeManager.menuBar(): MenuBar = menuBar() { }
 
 /**
  * Create a [MenuBar] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.menuBar(): MenuBar = menuBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
+public inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuBar()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit):
+public inline fun NodeManager.menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit):
     MenuBar {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxMenuBar()
@@ -54,11 +54,8 @@ inline fun NodeManager.menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar)
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styledMenuBar(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+public fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
+    styledMenuBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [MenuBar] to this manager.
@@ -67,7 +64,7 @@ fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar = styl
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
+public fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
     styledMenuBar(styleClass = *styleClass, id = id) { }
 
 /**
@@ -78,7 +75,7 @@ fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): Me
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledMenuBar(
+public inline fun styledMenuBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit
@@ -99,7 +96,7 @@ inline fun styledMenuBar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledMenuBar(
+public inline fun NodeManager.styledMenuBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit

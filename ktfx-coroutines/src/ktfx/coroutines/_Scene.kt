@@ -28,7 +28,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Scene.setOnMouseClicked
  */
-fun Scene.onMouseClicked(
+public fun Scene.onMouseClicked(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -39,7 +39,7 @@ fun Scene.onMouseClicked(
 /**
  * @see Scene.setOnMouseDragged
  */
-fun Scene.onMouseDragged(
+public fun Scene.onMouseDragged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -50,7 +50,7 @@ fun Scene.onMouseDragged(
 /**
  * @see Scene.setOnMouseEntered
  */
-fun Scene.onMouseEntered(
+public fun Scene.onMouseEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -61,7 +61,7 @@ fun Scene.onMouseEntered(
 /**
  * @see Scene.setOnMouseExited
  */
-fun Scene.onMouseExited(
+public fun Scene.onMouseExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -72,7 +72,7 @@ fun Scene.onMouseExited(
 /**
  * @see Scene.setOnMouseMoved
  */
-fun Scene.onMouseMoved(
+public fun Scene.onMouseMoved(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -83,7 +83,7 @@ fun Scene.onMouseMoved(
 /**
  * @see Scene.setOnMousePressed
  */
-fun Scene.onMousePressed(
+public fun Scene.onMousePressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -94,7 +94,7 @@ fun Scene.onMousePressed(
 /**
  * @see Scene.setOnMouseReleased
  */
-fun Scene.onMouseReleased(
+public fun Scene.onMouseReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -105,7 +105,7 @@ fun Scene.onMouseReleased(
 /**
  * @see Scene.setOnDragDetected
  */
-fun Scene.onDragDetected(
+public fun Scene.onDragDetected(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -116,7 +116,7 @@ fun Scene.onDragDetected(
 /**
  * @see Scene.setOnMouseDragOver
  */
-fun Scene.onMouseDragOver(
+public fun Scene.onMouseDragOver(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
@@ -127,7 +127,7 @@ fun Scene.onMouseDragOver(
 /**
  * @see Scene.setOnMouseDragReleased
  */
-fun Scene.onMouseDragReleased(
+public fun Scene.onMouseDragReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
@@ -138,7 +138,7 @@ fun Scene.onMouseDragReleased(
 /**
  * @see Scene.setOnMouseDragEntered
  */
-fun Scene.onMouseDragEntered(
+public fun Scene.onMouseDragEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
@@ -149,7 +149,7 @@ fun Scene.onMouseDragEntered(
 /**
  * @see Scene.setOnMouseDragExited
  */
-fun Scene.onMouseDragExited(
+public fun Scene.onMouseDragExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
@@ -160,7 +160,7 @@ fun Scene.onMouseDragExited(
 /**
  * @see Scene.setOnScrollStarted
  */
-fun Scene.onScrollStarted(
+public fun Scene.onScrollStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
@@ -171,7 +171,7 @@ fun Scene.onScrollStarted(
 /**
  * @see Scene.setOnScroll
  */
-fun Scene.onScroll(
+public fun Scene.onScroll(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
@@ -182,7 +182,7 @@ fun Scene.onScroll(
 /**
  * @see Scene.setOnScrollFinished
  */
-fun Scene.onScrollFinished(
+public fun Scene.onScrollFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
@@ -193,7 +193,7 @@ fun Scene.onScrollFinished(
 /**
  * @see Scene.setOnRotationStarted
  */
-fun Scene.onRotationStarted(
+public fun Scene.onRotationStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
@@ -204,7 +204,7 @@ fun Scene.onRotationStarted(
 /**
  * @see Scene.setOnRotate
  */
-fun Scene.onRotate(
+public fun Scene.onRotate(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
@@ -215,7 +215,7 @@ fun Scene.onRotate(
 /**
  * @see Scene.setOnRotationFinished
  */
-fun Scene.onRotationFinished(
+public fun Scene.onRotationFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
@@ -226,7 +226,7 @@ fun Scene.onRotationFinished(
 /**
  * @see Scene.setOnZoomStarted
  */
-fun Scene.onZoomStarted(
+public fun Scene.onZoomStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
@@ -237,7 +237,7 @@ fun Scene.onZoomStarted(
 /**
  * @see Scene.setOnZoom
  */
-fun Scene.onZoom(
+public fun Scene.onZoom(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
@@ -248,7 +248,7 @@ fun Scene.onZoom(
 /**
  * @see Scene.setOnZoomFinished
  */
-fun Scene.onZoomFinished(
+public fun Scene.onZoomFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
@@ -259,7 +259,7 @@ fun Scene.onZoomFinished(
 /**
  * @see Scene.setOnSwipeUp
  */
-fun Scene.onSwipeUp(
+public fun Scene.onSwipeUp(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
@@ -270,7 +270,7 @@ fun Scene.onSwipeUp(
 /**
  * @see Scene.setOnSwipeDown
  */
-fun Scene.onSwipeDown(
+public fun Scene.onSwipeDown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
@@ -281,7 +281,7 @@ fun Scene.onSwipeDown(
 /**
  * @see Scene.setOnSwipeLeft
  */
-fun Scene.onSwipeLeft(
+public fun Scene.onSwipeLeft(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
@@ -292,7 +292,7 @@ fun Scene.onSwipeLeft(
 /**
  * @see Scene.setOnSwipeRight
  */
-fun Scene.onSwipeRight(
+public fun Scene.onSwipeRight(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
@@ -303,7 +303,7 @@ fun Scene.onSwipeRight(
 /**
  * @see Scene.setOnTouchPressed
  */
-fun Scene.onTouchPressed(
+public fun Scene.onTouchPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
@@ -314,7 +314,7 @@ fun Scene.onTouchPressed(
 /**
  * @see Scene.setOnTouchMoved
  */
-fun Scene.onTouchMoved(
+public fun Scene.onTouchMoved(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
@@ -325,7 +325,7 @@ fun Scene.onTouchMoved(
 /**
  * @see Scene.setOnTouchReleased
  */
-fun Scene.onTouchReleased(
+public fun Scene.onTouchReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
@@ -336,7 +336,7 @@ fun Scene.onTouchReleased(
 /**
  * @see Scene.setOnTouchStationary
  */
-fun Scene.onTouchStationary(
+public fun Scene.onTouchStationary(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
@@ -347,7 +347,7 @@ fun Scene.onTouchStationary(
 /**
  * @see Scene.setOnDragEntered
  */
-fun Scene.onDragEntered(
+public fun Scene.onDragEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -358,7 +358,7 @@ fun Scene.onDragEntered(
 /**
  * @see Scene.setOnDragExited
  */
-fun Scene.onDragExited(
+public fun Scene.onDragExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -369,7 +369,7 @@ fun Scene.onDragExited(
 /**
  * @see Scene.setOnDragOver
  */
-fun Scene.onDragOver(
+public fun Scene.onDragOver(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -380,7 +380,7 @@ fun Scene.onDragOver(
 /**
  * @see Scene.setOnDragDropped
  */
-fun Scene.onDragDropped(
+public fun Scene.onDragDropped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -391,7 +391,7 @@ fun Scene.onDragDropped(
 /**
  * @see Scene.setOnDragDone
  */
-fun Scene.onDragDone(
+public fun Scene.onDragDone(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -402,7 +402,7 @@ fun Scene.onDragDone(
 /**
  * @see Scene.setOnKeyPressed
  */
-fun Scene.onKeyPressed(
+public fun Scene.onKeyPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
@@ -413,7 +413,7 @@ fun Scene.onKeyPressed(
 /**
  * @see Scene.setOnKeyReleased
  */
-fun Scene.onKeyReleased(
+public fun Scene.onKeyReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
@@ -424,7 +424,7 @@ fun Scene.onKeyReleased(
 /**
  * @see Scene.setOnKeyTyped
  */
-fun Scene.onKeyTyped(
+public fun Scene.onKeyTyped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
@@ -435,10 +435,9 @@ fun Scene.onKeyTyped(
 /**
  * @see Scene.setOnInputMethodTextChanged
  */
-fun Scene.onInputMethodTextChanged(
+public fun Scene.onInputMethodTextChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(InputMethodEvent) -> Unit
+    action: suspend CoroutineScope.(InputMethodEvent) -> Unit
 ) {
     return setOnInputMethodTextChanged { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -446,10 +445,9 @@ fun Scene.onInputMethodTextChanged(
 /**
  * @see Scene.setOnContextMenuRequested
  */
-fun Scene.onContextMenuRequested(
+public fun Scene.onContextMenuRequested(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ContextMenuEvent) -> Unit
+    action: suspend CoroutineScope.(ContextMenuEvent) -> Unit
 ) {
     return setOnContextMenuRequested { event -> GlobalScope.launch(context) { action(event) } }
 }

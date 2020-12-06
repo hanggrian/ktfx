@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
+public fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
     prefixSelectionComboBox() { }
 
 /**
@@ -29,7 +29,7 @@ fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun <T> prefixSelectionComboBox(
+public inline fun <T> prefixSelectionComboBox(
     configuration: (
         @KtfxLayoutDslMarker
         PrefixSelectionComboBox<T>
@@ -47,7 +47,7 @@ inline fun <T> prefixSelectionComboBox(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun <T> NodeManager.prefixSelectionComboBox(
+public inline fun <T> NodeManager.prefixSelectionComboBox(
     configuration: (
         @KtfxLayoutDslMarker
         PrefixSelectionComboBox<T>
@@ -66,11 +66,11 @@ inline fun <T> NodeManager.prefixSelectionComboBox(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = null):
+public fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = null):
     PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(
         styleClass = *styleClass,
         id =
-            id
+        id
     ) { }
 
 /**
@@ -80,12 +80,14 @@ fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = n
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun <T> NodeManager.styledPrefixSelectionComboBox(vararg styleClass: String, id: String? = null):
-    PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(
-        styleClass = *styleClass,
-        id =
-            id
-    ) { }
+public fun <T> NodeManager.styledPrefixSelectionComboBox(
+    vararg styleClass: String,
+    id: String? =    
+        null
+): PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(
+    styleClass = *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [PrefixSelectionComboBox] with configuration block.
@@ -95,7 +97,7 @@ fun <T> NodeManager.styledPrefixSelectionComboBox(vararg styleClass: String, id:
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun <T> styledPrefixSelectionComboBox(
+public inline fun <T> styledPrefixSelectionComboBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit
@@ -116,7 +118,7 @@ inline fun <T> styledPrefixSelectionComboBox(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledPrefixSelectionComboBox(
+public inline fun <T> NodeManager.styledPrefixSelectionComboBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit

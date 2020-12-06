@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableArrayList()):
+public fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableArrayList()):
     CheckComboBox<T> = checkComboBox(items = items) { }
 
 /**
@@ -31,7 +31,7 @@ fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableArrayList
  *
  * @return the control created.
  */
-inline fun <T> checkComboBox(
+public inline fun <T> checkComboBox(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
@@ -47,7 +47,7 @@ inline fun <T> checkComboBox(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.checkComboBox(
+public inline fun <T> NodeManager.checkComboBox(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker CheckComboBox<T>).() -> Unit
 ): CheckComboBox<T> {
@@ -64,7 +64,7 @@ inline fun <T> NodeManager.checkComboBox(
  *
  * @return the styled control created.
  */
-fun <T> styledCheckComboBox(
+public fun <T> styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -77,7 +77,7 @@ fun <T> styledCheckComboBox(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledCheckComboBox(
+public fun <T> NodeManager.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -91,7 +91,7 @@ fun <T> NodeManager.styledCheckComboBox(
  *
  * @return the styled control created.
  */
-inline fun <T> styledCheckComboBox(
+public inline fun <T> styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -113,7 +113,7 @@ inline fun <T> styledCheckComboBox(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledCheckComboBox(
+public inline fun <T> NodeManager.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

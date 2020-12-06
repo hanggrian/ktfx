@@ -1,8 +1,8 @@
 import org.gradle.api.Task
 import java.net.URL
 
-const val VERSION_KOTLIN = "1.4.0"
-const val VERSION_COROUTINES = "1.3.9"
+const val VERSION_KOTLIN = "1.4.20"
+const val VERSION_COROUTINES = "1.4.2"
 
 fun Dependencies.kotlinx(module: String, version: String? = null) =
     "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$it" }.orEmpty()}"

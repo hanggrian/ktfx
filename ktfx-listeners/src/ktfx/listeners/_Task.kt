@@ -14,34 +14,34 @@ import kotlin.jvm.JvmName
 /**
  * @see Task.setOnScheduled
  */
-inline fun Task<*>.onScheduled(noinline action: (WorkerStateEvent) -> Unit) {
+public inline fun Task<*>.onScheduled(noinline action: (WorkerStateEvent) -> Unit) {
     return setOnScheduled(action)
 }
 
 /**
  * @see Task.setOnRunning
  */
-inline fun Task<*>.onRunning(noinline action: (WorkerStateEvent) -> Unit) {
+public inline fun Task<*>.onRunning(noinline action: (WorkerStateEvent) -> Unit) {
     return setOnRunning(action)
 }
 
 /**
  * @see Task.setOnSucceeded
  */
-inline fun Task<*>.onSucceeded(noinline action: (WorkerStateEvent) -> Unit) {
+public inline fun Task<*>.onSucceeded(noinline action: (WorkerStateEvent) -> Unit) {
     return setOnSucceeded(action)
 }
 
 /**
  * @see Task.setOnCancelled
  */
-inline fun Task<*>.onCancelled(noinline action: (WorkerStateEvent) -> Unit) {
+public inline fun Task<*>.onCancelled(noinline action: (WorkerStateEvent) -> Unit) {
     return setOnCancelled(action)
 }
 
 /**
  * @see Task.setOnFailed
  */
-inline fun Task<*>.onFailed(noinline action: (WorkerStateEvent) -> Unit) {
+public inline fun Task<*>.onFailed(noinline action: (WorkerStateEvent) -> Unit) {
     return setOnFailed(action)
 }

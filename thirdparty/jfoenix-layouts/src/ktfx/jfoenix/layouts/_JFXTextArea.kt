@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxTextArea(text: String? = null): JFXTextArea = jfxTextArea(text = text) { }
+public fun NodeManager.jfxTextArea(text: String? = null): JFXTextArea = jfxTextArea(text = text) { }
 
 /**
  * Create a [JFXTextArea] with configuration block.
@@ -28,10 +28,12 @@ fun NodeManager.jfxTextArea(text: String? = null): JFXTextArea = jfxTextArea(tex
  *
  * @return the control created.
  */
-inline fun jfxTextArea(
+public inline fun jfxTextArea(
     text: String? = null,
-    configuration: (@KtfxLayoutDslMarker JFXTextArea).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        JFXTextArea
+    ).() -> Unit
 ): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextArea(text)
@@ -45,7 +47,7 @@ inline fun jfxTextArea(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxTextArea(
+public inline fun NodeManager.jfxTextArea(
     text: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -65,7 +67,7 @@ inline fun NodeManager.jfxTextArea(
  *
  * @return the styled control created.
  */
-fun styledJFXTextArea(
+public fun styledJFXTextArea(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -78,7 +80,7 @@ fun styledJFXTextArea(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXTextArea(
+public fun NodeManager.styledJFXTextArea(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -92,7 +94,7 @@ fun NodeManager.styledJFXTextArea(
  *
  * @return the styled control created.
  */
-inline fun styledJFXTextArea(
+public inline fun styledJFXTextArea(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -114,7 +116,7 @@ inline fun styledJFXTextArea(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXTextArea(
+public inline fun NodeManager.styledJFXTextArea(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

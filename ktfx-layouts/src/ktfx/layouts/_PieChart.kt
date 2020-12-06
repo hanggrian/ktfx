@@ -20,8 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.pieChart(data: ObservableList<PieChart.Data> = observableArrayList()): PieChart =
-    pieChart(data = data) { }
+public fun NodeManager.pieChart(`data`: ObservableList<PieChart.Data> = observableArrayList()):
+    PieChart = pieChart(data = data) { }
 
 /**
  * Create a [PieChart] with configuration block.
@@ -29,8 +29,8 @@ fun NodeManager.pieChart(data: ObservableList<PieChart.Data> = observableArrayLi
  *
  * @return the control created.
  */
-inline fun pieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
+public inline fun pieChart(
+    `data`: ObservableList<PieChart.Data> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit
 ): PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -45,15 +45,17 @@ inline fun pieChart(
  *
  * @return the control added.
  */
-inline fun NodeManager.pieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
+public inline fun NodeManager.pieChart(
+    `data`: ObservableList<PieChart.Data> =
+        observableArrayList(),
     configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit
-): PieChart {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = PieChart(data)
-    child.configuration()
-    return addChild(child)
-}
+):
+    PieChart {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = PieChart(data)
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [PieChart].
@@ -62,8 +64,8 @@ inline fun NodeManager.pieChart(
  *
  * @return the styled control created.
  */
-fun styledPieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
+public fun styledPieChart(
+    `data`: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): PieChart = styledPieChart(data = data, styleClass = *styleClass, id = id) { }
@@ -75,8 +77,8 @@ fun styledPieChart(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledPieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
+public fun NodeManager.styledPieChart(
+    `data`: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): PieChart = styledPieChart(data = data, styleClass = *styleClass, id = id) { }
@@ -89,8 +91,8 @@ fun NodeManager.styledPieChart(
  *
  * @return the styled control created.
  */
-inline fun styledPieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
+public inline fun styledPieChart(
+    `data`: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit
@@ -111,8 +113,8 @@ inline fun styledPieChart(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledPieChart(
-    data: ObservableList<PieChart.Data> = observableArrayList(),
+public inline fun NodeManager.styledPieChart(
+    `data`: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit

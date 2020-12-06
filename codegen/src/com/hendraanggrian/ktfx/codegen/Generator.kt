@@ -19,7 +19,7 @@ import com.hendraanggrian.ktfx.codegen.listeners.ListenersWriter
 object Generator {
 
     @JvmStatic fun main(args: Array<String>) {
-        if (false) {
+        if (true) {
             StringsWriter.write(StringsFactory.Strings)
             StringsWriter.write(StringsFactory.StringsJVM)
         }

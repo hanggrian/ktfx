@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.customTextField(): CustomTextField = customTextField() { }
+public fun NodeManager.customTextField(): CustomTextField = customTextField() { }
 
 /**
  * Create a [CustomTextField] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.customTextField(): CustomTextField = customTextField() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun customTextField(configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit):
+public inline fun customTextField(configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit):
     CustomTextField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = CustomTextField()
@@ -42,9 +42,11 @@ inline fun customTextField(configuration: (@KtfxLayoutDslMarker CustomTextField)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.customTextField(
-    configuration: (@KtfxLayoutDslMarker CustomTextField).() ->
-    Unit
+public inline fun NodeManager.customTextField(
+    configuration: (
+        @KtfxLayoutDslMarker
+        CustomTextField
+    ).() -> Unit
 ): CustomTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomTextField()
@@ -59,7 +61,7 @@ inline fun NodeManager.customTextField(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledCustomTextField(vararg styleClass: String, id: String? = null): CustomTextField =
+public fun styledCustomTextField(vararg styleClass: String, id: String? = null): CustomTextField =
     styledCustomTextField(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,7 +71,7 @@ fun styledCustomTextField(vararg styleClass: String, id: String? = null): Custom
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledCustomTextField(vararg styleClass: String, id: String? = null):
+public fun NodeManager.styledCustomTextField(vararg styleClass: String, id: String? = null):
     CustomTextField = styledCustomTextField(styleClass = *styleClass, id = id) { }
 
 /**
@@ -80,7 +82,7 @@ fun NodeManager.styledCustomTextField(vararg styleClass: String, id: String? = n
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledCustomTextField(
+public inline fun styledCustomTextField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit
@@ -101,7 +103,7 @@ inline fun styledCustomTextField(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledCustomTextField(
+public inline fun NodeManager.styledCustomTextField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit

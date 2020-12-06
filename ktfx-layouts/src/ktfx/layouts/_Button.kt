@@ -19,8 +19,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(
-    text = text,
+public fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(
+    text =
+    text,
     graphic = graphic
 ) { }
 
@@ -30,7 +31,7 @@ fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = bu
  *
  * @return the control created.
  */
-inline fun button(
+public inline fun button(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Button).() -> Unit
@@ -47,7 +48,7 @@ inline fun button(
  *
  * @return the control added.
  */
-inline fun NodeManager.button(
+public inline fun NodeManager.button(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Button).() -> Unit
@@ -65,7 +66,7 @@ inline fun NodeManager.button(
  *
  * @return the styled control created.
  */
-fun styledButton(
+public fun styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -79,7 +80,7 @@ fun styledButton(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledButton(
+public fun NodeManager.styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -94,7 +95,7 @@ fun NodeManager.styledButton(
  *
  * @return the styled control created.
  */
-inline fun styledButton(
+public inline fun styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -117,7 +118,7 @@ inline fun styledButton(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledButton(
+public inline fun NodeManager.styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

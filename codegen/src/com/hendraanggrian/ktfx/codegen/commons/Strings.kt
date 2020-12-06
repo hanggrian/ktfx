@@ -1,8 +1,10 @@
 package com.hendraanggrian.ktfx.codegen.commons
 
+import com.hendraanggrian.kotlinpoet.CROSSINLINE
+import com.hendraanggrian.kotlinpoet.NOINLINE
+import com.hendraanggrian.kotlinpoet.VARARG
 import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
 import com.hendraanggrian.kotlinpoet.lambdaBy
-import com.squareup.kotlinpoet.KModifier
 
 val StringsFactory.Companion.Strings: StringsFactory
     get() = object : StringsFactory("StringBinding") {
@@ -50,7 +52,7 @@ val StringsFactory.Companion.Strings: StringsFactory
             "replace"(STRING) { regex(); replacement() }
             "replace"(STRING) {
                 regex()
-                add("transform", CharSequence::class.lambdaBy(MatchResult::class), KModifier.NOINLINE)
+                add("transform", CharSequence::class.lambdaBy(MatchResult::class), NOINLINE)
             }
             "replaceFirst"(STRING) { regex(); replacement() }
             "matches"(BOOLEAN) { regex() }
@@ -64,9 +66,9 @@ val StringsFactory.Companion.Strings: StringsFactory
         }
 
         fun ParameterSpecListScope.predicate() =
-            add("predicate", Boolean::class.lambdaBy(Char::class), KModifier.CROSSINLINE)
+            add("predicate", Boolean::class.lambdaBy(Char::class), CROSSINLINE)
 
-        fun ParameterSpecListScope.chars() = add<Char>("chars", KModifier.VARARG)
+        fun ParameterSpecListScope.chars() = add<Char>("chars", VARARG)
         fun ParameterSpecListScope.padChar() = "padChar"<Char> { defaultValue("\' \'") }
         fun ParameterSpecListScope.range() = add<IntRange>("range")
         inline fun <reified T> ParameterSpecListScope.delimiter() = add<T>("delimiter")

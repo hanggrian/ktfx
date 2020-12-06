@@ -1,6 +1,8 @@
 package com.hendraanggrian.ktfx.codegen.layouts
 
 import com.hendraanggrian.kotlinpoet.FunSpecBuilder
+import com.hendraanggrian.kotlinpoet.INLINE
+import com.hendraanggrian.kotlinpoet.VARARG
 import com.hendraanggrian.kotlinpoet.annotate
 import com.hendraanggrian.kotlinpoet.asNullable
 import com.hendraanggrian.kotlinpoet.buildFileSpec
@@ -12,7 +14,6 @@ import com.hendraanggrian.ktfx.codegen.EXPERIMENTAL_CONTRACTS
 import com.hendraanggrian.ktfx.codegen.DSL_MARKER
 import com.hendraanggrian.ktfx.codegen.OPT_IN
 import com.hendraanggrian.ktfx.codegen.toString
-import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.asClassName
 import java.io.File
 
@@ -55,7 +56,7 @@ object LayoutsWriter {
                         entry.functionName {
                             entry.typeVarNames.forEach { typeVariables += it }
                             if (managerClassName != null) receiver = managerClassName
-                            addModifiers(KModifier.INLINE)
+                            addModifiers(INLINE)
                             kdoc += entry.getFileComment(
                                 add = managerClassName != null, styled = false, configured = true
                             )
@@ -109,7 +110,7 @@ object LayoutsWriter {
                             entry.styledFunctionName {
                                 entry.typeVarNames.forEach { typeVariables += it }
                                 if (managerClassName != null) receiver = managerClassName
-                                addModifiers(KModifier.INLINE)
+                                addModifiers(INLINE)
                                 kdoc += entry.getFileComment(
                                     add = managerClassName != null, styled = true, configured = true
                                 )
@@ -151,7 +152,7 @@ object LayoutsWriter {
     private fun FunSpecBuilder.contractln() =
         appendLine("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
 
-    private fun ParameterSpecListScope.styleClass() = add("styleClass", String::class, KModifier.VARARG) {
+    private fun ParameterSpecListScope.styleClass() = add("styleClass", String::class, VARARG) {
         kdoc.append("the CSS style class.")
     }
 

@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.tilePane(orientation: Orientation = HORIZONTAL, gap: Double = 0.0): TilePane =
+public fun NodeManager.tilePane(orientation: Orientation = HORIZONTAL, gap: Double = 0.0): TilePane =
     tilePane(orientation = orientation, gap = gap) { }
 
 /**
@@ -30,7 +30,7 @@ fun NodeManager.tilePane(orientation: Orientation = HORIZONTAL, gap: Double = 0.
  *
  * @return the control created.
  */
-inline fun tilePane(
+public inline fun tilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
@@ -47,7 +47,7 @@ inline fun tilePane(
  *
  * @return the control added.
  */
-inline fun NodeManager.tilePane(
+public inline fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxTilePane).() -> Unit
@@ -65,7 +65,7 @@ inline fun NodeManager.tilePane(
  *
  * @return the styled control created.
  */
-fun styledTilePane(
+public fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
@@ -73,7 +73,7 @@ fun styledTilePane(
 ): TilePane = styledTilePane(
     orientation = orientation, gap = gap, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -83,7 +83,7 @@ fun styledTilePane(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledTilePane(
+public fun NodeManager.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
@@ -91,7 +91,7 @@ fun NodeManager.styledTilePane(
 ): TilePane = styledTilePane(
     orientation = orientation, gap = gap, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -102,7 +102,7 @@ fun NodeManager.styledTilePane(
  *
  * @return the styled control created.
  */
-inline fun styledTilePane(
+public inline fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
@@ -125,7 +125,7 @@ inline fun styledTilePane(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledTilePane(
+public inline fun NodeManager.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,

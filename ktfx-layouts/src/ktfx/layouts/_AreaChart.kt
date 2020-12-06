@@ -22,10 +22,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <X, Y> NodeManager.areaChart(
+public fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): AreaChart<X, Y> = areaChart(x = x, y = y, data = data) { }
 
 /**
@@ -34,10 +34,10 @@ fun <X, Y> NodeManager.areaChart(
  *
  * @return the control created.
  */
-inline fun <X, Y> areaChart(
+public inline fun <X, Y> areaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -52,10 +52,10 @@ inline fun <X, Y> areaChart(
  *
  * @return the control added.
  */
-inline fun <X, Y> NodeManager.areaChart(
+public inline fun <X, Y> NodeManager.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker AreaChart<X, Y>).() -> Unit
 ): AreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -71,10 +71,10 @@ inline fun <X, Y> NodeManager.areaChart(
  *
  * @return the styled control created.
  */
-fun <X, Y> styledAreaChart(
+public fun <X, Y> styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {
@@ -87,10 +87,10 @@ fun <X, Y> styledAreaChart(
  *
  * @return the styled control added.
  */
-fun <X, Y> NodeManager.styledAreaChart(
+public fun <X, Y> NodeManager.styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): AreaChart<X, Y> = styledAreaChart(x = x, y = y, data = data, styleClass = *styleClass, id = id) {
@@ -104,10 +104,10 @@ fun <X, Y> NodeManager.styledAreaChart(
  *
  * @return the styled control created.
  */
-inline fun <X, Y> styledAreaChart(
+public inline fun <X, Y> styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker AreaChart<X, Y>).() -> Unit
@@ -128,10 +128,10 @@ inline fun <X, Y> styledAreaChart(
  *
  * @return the styled control added.
  */
-inline fun <X, Y> NodeManager.styledAreaChart(
+public inline fun <X, Y> NodeManager.styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker AreaChart<X, Y>).() -> Unit

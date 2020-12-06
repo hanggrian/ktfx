@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXDialog.setOnDialogClosed
  */
-fun JFXDialog.onDialogClosed(
+public fun JFXDialog.onDialogClosed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(JFXDialogEvent) -> Unit
@@ -29,7 +29,7 @@ fun JFXDialog.onDialogClosed(
 /**
  * @see JFXDialog.setOnDialogOpened
  */
-fun JFXDialog.onDialogOpened(
+public fun JFXDialog.onDialogOpened(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(JFXDialogEvent) -> Unit

@@ -13,7 +13,7 @@ import kotlin.jvm.JvmName
 /**
  * @see BreadCrumbBar.setOnCrumbAction
  */
-inline fun <T> BreadCrumbBar<T>.onCrumbAction(
+public inline fun <T> BreadCrumbBar<T>.onCrumbAction(
     noinline
     action: (BreadCrumbBar.BreadCrumbActionEvent<T>) -> Unit
 ) {

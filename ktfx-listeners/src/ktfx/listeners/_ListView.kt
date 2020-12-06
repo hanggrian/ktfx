@@ -15,27 +15,27 @@ import kotlin.jvm.JvmName
 /**
  * @see ListView.setOnEditStart
  */
-inline fun <T> ListView<T>.onEditStart(noinline action: (ListView.EditEvent<T>) -> Unit) {
+public inline fun <T> ListView<T>.onEditStart(noinline action: (ListView.EditEvent<T>) -> Unit) {
     return setOnEditStart(action)
 }
 
 /**
  * @see ListView.setOnEditCommit
  */
-inline fun <T> ListView<T>.onEditCommit(noinline action: (ListView.EditEvent<T>) -> Unit) {
+public inline fun <T> ListView<T>.onEditCommit(noinline action: (ListView.EditEvent<T>) -> Unit) {
     return setOnEditCommit(action)
 }
 
 /**
  * @see ListView.setOnEditCancel
  */
-inline fun <T> ListView<T>.onEditCancel(noinline action: (ListView.EditEvent<T>) -> Unit) {
+public inline fun <T> ListView<T>.onEditCancel(noinline action: (ListView.EditEvent<T>) -> Unit) {
     return setOnEditCancel(action)
 }
 
 /**
  * @see ListView.setOnScrollTo
  */
-inline fun <T> ListView<T>.onScrollTo(noinline action: (ScrollToEvent<Int>) -> Unit) {
+public inline fun <T> ListView<T>.onScrollTo(noinline action: (ScrollToEvent<Int>) -> Unit) {
     return setOnScrollTo(action)
 }

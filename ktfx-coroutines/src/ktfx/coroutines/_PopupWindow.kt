@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see PopupWindow.setOnAutoHide
  */
-fun PopupWindow.onAutoHide(
+public fun PopupWindow.onAutoHide(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit

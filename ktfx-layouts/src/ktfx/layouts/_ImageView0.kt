@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.imageView(image: Image? = null): ImageView = imageView(image = image) { }
+public fun NodeManager.imageView(image: Image? = null): ImageView = imageView(image = image) { }
 
 /**
  * Create an [ImageView] with configuration block.
@@ -27,10 +27,12 @@ fun NodeManager.imageView(image: Image? = null): ImageView = imageView(image = i
  *
  * @return the control created.
  */
-inline fun imageView(
+public inline fun imageView(
     image: Image? = null,
-    configuration: (@KtfxLayoutDslMarker ImageView).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        ImageView
+    ).() -> Unit
 ): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(image)
@@ -44,7 +46,7 @@ inline fun imageView(
  *
  * @return the control added.
  */
-inline fun NodeManager.imageView(
+public inline fun NodeManager.imageView(
     image: Image? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -64,7 +66,7 @@ inline fun NodeManager.imageView(
  *
  * @return the styled control created.
  */
-fun styledImageView(
+public fun styledImageView(
     image: Image? = null,
     vararg styleClass: String,
     id: String? = null
@@ -77,7 +79,7 @@ fun styledImageView(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledImageView(
+public fun NodeManager.styledImageView(
     image: Image? = null,
     vararg styleClass: String,
     id: String? = null
@@ -91,7 +93,7 @@ fun NodeManager.styledImageView(
  *
  * @return the styled control created.
  */
-inline fun styledImageView(
+public inline fun styledImageView(
     image: Image? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -113,7 +115,7 @@ inline fun styledImageView(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledImageView(
+public inline fun NodeManager.styledImageView(
     image: Image? = null,
     vararg styleClass: String,
     id: String? = null,

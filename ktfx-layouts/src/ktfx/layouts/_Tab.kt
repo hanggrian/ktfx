@@ -19,10 +19,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
+public fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
     text = text,
-    content =
-        content
+    content = content
 ) { }
 
 /**
@@ -31,7 +30,7 @@ fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(
  *
  * @return the control created.
  */
-inline fun tab(
+public inline fun tab(
     text: String? = null,
     content: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit
@@ -48,7 +47,7 @@ inline fun tab(
  *
  * @return the control added.
  */
-inline fun TabManager.tab(
+public inline fun TabManager.tab(
     text: String? = null,
     content: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit
@@ -66,7 +65,7 @@ inline fun TabManager.tab(
  *
  * @return the styled control created.
  */
-fun styledTab(
+public fun styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,
@@ -80,7 +79,7 @@ fun styledTab(
  *
  * @return the styled control added.
  */
-fun TabManager.styledTab(
+public fun TabManager.styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,
@@ -95,7 +94,7 @@ fun TabManager.styledTab(
  *
  * @return the styled control created.
  */
-inline fun styledTab(
+public inline fun styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,
@@ -118,7 +117,7 @@ inline fun styledTab(
  *
  * @return the styled control added.
  */
-inline fun TabManager.styledTab(
+public inline fun TabManager.styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,

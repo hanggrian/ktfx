@@ -19,11 +19,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink = hyperlink(
-    text =
-        text,
-    graphic = graphic
-) { }
+public fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink =
+    hyperlink(text = text, graphic = graphic) { }
 
 /**
  * Create a [Hyperlink] with configuration block.
@@ -31,7 +28,7 @@ fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlin
  *
  * @return the control created.
  */
-inline fun hyperlink(
+public inline fun hyperlink(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit
@@ -48,7 +45,7 @@ inline fun hyperlink(
  *
  * @return the control added.
  */
-inline fun NodeManager.hyperlink(
+public inline fun NodeManager.hyperlink(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit
@@ -66,7 +63,7 @@ inline fun NodeManager.hyperlink(
  *
  * @return the styled control created.
  */
-fun styledHyperlink(
+public fun styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -81,7 +78,7 @@ fun styledHyperlink(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledHyperlink(
+public fun NodeManager.styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -97,7 +94,7 @@ fun NodeManager.styledHyperlink(
  *
  * @return the styled control created.
  */
-inline fun styledHyperlink(
+public inline fun styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -120,7 +117,7 @@ inline fun styledHyperlink(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledHyperlink(
+public inline fun NodeManager.styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

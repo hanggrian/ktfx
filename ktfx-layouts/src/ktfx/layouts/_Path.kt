@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.path(): Path = path() { }
+public fun NodeManager.path(): Path = path() { }
 
 /**
  * Create a [Path] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.path(): Path = path() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit): Path {
+public inline fun path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit): Path {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPath()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit): Path
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit): Path {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxPath()
-    child.configuration()
-    return addChild(child)
-}
+public inline fun NodeManager.path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit):
+    Path {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxPath()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [Path].
@@ -53,9 +54,9 @@ inline fun NodeManager.path(configuration: (@KtfxLayoutDslMarker KtfxPath).() ->
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledPath(vararg styleClass: String, id: String? = null): Path = styledPath(
+public fun styledPath(vararg styleClass: String, id: String? = null): Path = styledPath(
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -66,7 +67,7 @@ fun styledPath(vararg styleClass: String, id: String? = null): Path = styledPath
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledPath(vararg styleClass: String, id: String? = null): Path =
+public fun NodeManager.styledPath(vararg styleClass: String, id: String? = null): Path =
     styledPath(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +78,7 @@ fun NodeManager.styledPath(vararg styleClass: String, id: String? = null): Path 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledPath(
+public inline fun styledPath(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit
@@ -98,7 +99,7 @@ inline fun styledPath(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledPath(
+public inline fun NodeManager.styledPath(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit

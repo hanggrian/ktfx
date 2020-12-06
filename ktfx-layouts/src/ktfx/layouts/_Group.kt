@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.group(): Group = group() { }
+public fun NodeManager.group(): Group = group() { }
 
 /**
  * Create a [Group] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.group(): Group = group() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit): Group {
+public inline fun group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit): Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGroup()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit): Gr
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit): Group {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxGroup()
-    child.configuration()
-    return addChild(child)
-}
+public inline fun NodeManager.group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit):
+    Group {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxGroup()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [Group].
@@ -53,11 +54,8 @@ inline fun NodeManager.group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() 
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledGroup(vararg styleClass: String, id: String? = null): Group = styledGroup(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+public fun styledGroup(vararg styleClass: String, id: String? = null): Group =
+    styledGroup(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Group] to this manager.
@@ -66,7 +64,7 @@ fun styledGroup(vararg styleClass: String, id: String? = null): Group = styledGr
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledGroup(vararg styleClass: String, id: String? = null): Group =
+public fun NodeManager.styledGroup(vararg styleClass: String, id: String? = null): Group =
     styledGroup(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +75,7 @@ fun NodeManager.styledGroup(vararg styleClass: String, id: String? = null): Grou
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledGroup(
+public inline fun styledGroup(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit
@@ -98,7 +96,7 @@ inline fun styledGroup(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledGroup(
+public inline fun NodeManager.styledGroup(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit

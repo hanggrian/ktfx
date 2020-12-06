@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.segmentedButton(): SegmentedButton = segmentedButton() { }
+public fun NodeManager.segmentedButton(): SegmentedButton = segmentedButton() { }
 
 /**
  * Create a [SegmentedButton] with configuration block.
@@ -28,13 +28,15 @@ fun NodeManager.segmentedButton(): SegmentedButton = segmentedButton() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun segmentedButton(configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit):
-    SegmentedButton {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxSegmentedButton()
-        child.configuration()
-        return child
-    }
+public inline fun segmentedButton(
+    configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() ->
+    Unit
+): SegmentedButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxSegmentedButton()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [SegmentedButton] with configuration block to this manager.
@@ -42,7 +44,7 @@ inline fun segmentedButton(configuration: (@KtfxLayoutDslMarker KtfxSegmentedBut
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.segmentedButton(
+public inline fun NodeManager.segmentedButton(
     configuration: (
         @KtfxLayoutDslMarker
         KtfxSegmentedButton
@@ -61,7 +63,7 @@ inline fun NodeManager.segmentedButton(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledSegmentedButton(vararg styleClass: String, id: String? = null): SegmentedButton =
+public fun styledSegmentedButton(vararg styleClass: String, id: String? = null): SegmentedButton =
     styledSegmentedButton(styleClass = *styleClass, id = id) { }
 
 /**
@@ -71,7 +73,7 @@ fun styledSegmentedButton(vararg styleClass: String, id: String? = null): Segmen
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledSegmentedButton(vararg styleClass: String, id: String? = null):
+public fun NodeManager.styledSegmentedButton(vararg styleClass: String, id: String? = null):
     SegmentedButton = styledSegmentedButton(styleClass = *styleClass, id = id) { }
 
 /**
@@ -82,7 +84,7 @@ fun NodeManager.styledSegmentedButton(vararg styleClass: String, id: String? = n
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledSegmentedButton(
+public inline fun styledSegmentedButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit
@@ -103,7 +105,7 @@ inline fun styledSegmentedButton(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledSegmentedButton(
+public inline fun NodeManager.styledSegmentedButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSegmentedButton).() -> Unit

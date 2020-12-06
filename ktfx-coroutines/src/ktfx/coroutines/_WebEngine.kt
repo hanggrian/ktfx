@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
 /**
  * @see WebEngine.setOnAlert
  */
-fun WebEngine.onAlert(
+public fun WebEngine.onAlert(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebEvent<String>) -> Unit
@@ -33,7 +33,7 @@ fun WebEngine.onAlert(
 /**
  * @see WebEngine.setOnStatusChanged
  */
-fun WebEngine.onStatusChanged(
+public fun WebEngine.onStatusChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebEvent<String>) -> Unit
@@ -44,7 +44,7 @@ fun WebEngine.onStatusChanged(
 /**
  * @see WebEngine.setOnResized
  */
-fun WebEngine.onResized(
+public fun WebEngine.onResized(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebEvent<Rectangle2D>) -> Unit
@@ -55,10 +55,9 @@ fun WebEngine.onResized(
 /**
  * @see WebEngine.setOnVisibilityChanged
  */
-fun WebEngine.onVisibilityChanged(
+public fun WebEngine.onVisibilityChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(WebEvent<Boolean>) -> Unit
+    action: suspend CoroutineScope.(WebEvent<Boolean>) -> Unit
 ) {
     return setOnVisibilityChanged { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -66,7 +65,7 @@ fun WebEngine.onVisibilityChanged(
 /**
  * @see WebEngine.setOnError
  */
-fun WebEngine.onError(
+public fun WebEngine.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WebErrorEvent) -> Unit

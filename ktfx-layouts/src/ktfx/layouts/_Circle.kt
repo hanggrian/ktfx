@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.circle(
+public fun NodeManager.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -33,7 +33,7 @@ fun NodeManager.circle(
  *
  * @return the control created.
  */
-inline fun circle(
+public inline fun circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -52,7 +52,7 @@ inline fun circle(
  *
  * @return the control added.
  */
-inline fun NodeManager.circle(
+public inline fun NodeManager.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -72,7 +72,7 @@ inline fun NodeManager.circle(
  *
  * @return the styled control created.
  */
-fun styledCircle(
+public fun styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -91,7 +91,7 @@ fun styledCircle(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledCircle(
+public fun NodeManager.styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -111,7 +111,7 @@ fun NodeManager.styledCircle(
  *
  * @return the styled control created.
  */
-inline fun styledCircle(
+public inline fun styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -136,7 +136,7 @@ inline fun styledCircle(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledCircle(
+public inline fun NodeManager.styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,

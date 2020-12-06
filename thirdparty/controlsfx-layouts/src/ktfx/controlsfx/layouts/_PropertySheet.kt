@@ -21,8 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? = null): PropertySheet =
-    propertySheet(items = items) { }
+public fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? = null):
+    PropertySheet = propertySheet(items = items) { }
 
 /**
  * Create a [PropertySheet] with configuration block.
@@ -30,7 +30,7 @@ fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? = null)
  *
  * @return the control created.
  */
-inline fun propertySheet(
+public inline fun propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     configuration: (@KtfxLayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
@@ -46,7 +46,7 @@ inline fun propertySheet(
  *
  * @return the control added.
  */
-inline fun NodeManager.propertySheet(
+public inline fun NodeManager.propertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     configuration: (@KtfxLayoutDslMarker PropertySheet).() -> Unit
 ): PropertySheet {
@@ -63,7 +63,7 @@ inline fun NodeManager.propertySheet(
  *
  * @return the styled control created.
  */
-fun styledPropertySheet(
+public fun styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -76,7 +76,7 @@ fun styledPropertySheet(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledPropertySheet(
+public fun NodeManager.styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -90,7 +90,7 @@ fun NodeManager.styledPropertySheet(
  *
  * @return the styled control created.
  */
-inline fun styledPropertySheet(
+public inline fun styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -112,7 +112,7 @@ inline fun styledPropertySheet(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledPropertySheet(
+public inline fun NodeManager.styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,

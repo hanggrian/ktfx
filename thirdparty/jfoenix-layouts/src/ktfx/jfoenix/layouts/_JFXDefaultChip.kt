@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXDefaultChip<T> =
+public fun <T> NodeManager.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXDefaultChip<T> =
     jfxDefaultChip(view = view, item = item) { }
 
 /**
@@ -30,7 +30,7 @@ fun <T> NodeManager.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXDefaultChi
  *
  * @return the control created.
  */
-inline fun <T> jfxDefaultChip(
+public inline fun <T> jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXDefaultChip<T>).() -> Unit
@@ -47,7 +47,7 @@ inline fun <T> jfxDefaultChip(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.jfxDefaultChip(
+public inline fun <T> NodeManager.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXDefaultChip<T>).() -> Unit
@@ -65,7 +65,7 @@ inline fun <T> NodeManager.jfxDefaultChip(
  *
  * @return the styled control created.
  */
-fun <T> styledJFXDefaultChip(
+public fun <T> styledJFXDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -73,7 +73,7 @@ fun <T> styledJFXDefaultChip(
 ): JFXDefaultChip<T> = styledJFXDefaultChip(
     view = view, item = item, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -83,7 +83,7 @@ fun <T> styledJFXDefaultChip(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledJFXDefaultChip(
+public fun <T> NodeManager.styledJFXDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -91,7 +91,7 @@ fun <T> NodeManager.styledJFXDefaultChip(
 ): JFXDefaultChip<T> = styledJFXDefaultChip(
     view = view, item = item, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -102,7 +102,7 @@ fun <T> NodeManager.styledJFXDefaultChip(
  *
  * @return the styled control created.
  */
-inline fun <T> styledJFXDefaultChip(
+public inline fun <T> styledJFXDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -125,7 +125,7 @@ inline fun <T> styledJFXDefaultChip(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledJFXDefaultChip(
+public inline fun <T> NodeManager.styledJFXDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,

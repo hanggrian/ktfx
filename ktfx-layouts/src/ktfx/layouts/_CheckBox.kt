@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text) { }
+public fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text) { }
 
 /**
  * Create a [CheckBox] with configuration block.
@@ -26,10 +26,12 @@ fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text)
  *
  * @return the control created.
  */
-inline fun checkBox(
+public inline fun checkBox(
     text: String? = null,
-    configuration: (@KtfxLayoutDslMarker CheckBox).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        CheckBox
+    ).() -> Unit
 ): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckBox(text)
@@ -43,7 +45,7 @@ inline fun checkBox(
  *
  * @return the control added.
  */
-inline fun NodeManager.checkBox(
+public inline fun NodeManager.checkBox(
     text: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -63,7 +65,7 @@ inline fun NodeManager.checkBox(
  *
  * @return the styled control created.
  */
-fun styledCheckBox(
+public fun styledCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -76,7 +78,7 @@ fun styledCheckBox(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledCheckBox(
+public fun NodeManager.styledCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -90,7 +92,7 @@ fun NodeManager.styledCheckBox(
  *
  * @return the styled control created.
  */
-inline fun styledCheckBox(
+public inline fun styledCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -112,7 +114,7 @@ inline fun styledCheckBox(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledCheckBox(
+public inline fun NodeManager.styledCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

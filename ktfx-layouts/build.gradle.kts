@@ -33,7 +33,7 @@ tasks {
     dokkaHtml.configure {
         dokkaSourceSets {
             named("main") {
-                moduleDisplayName.set("$RELEASE_ARTIFACT-layouts")
+                displayName.set("$RELEASE_ARTIFACT-layouts")
                 sourceLink {
                     localDirectory.set(file("src"))
                     remoteUrl.set(github("ktfx-layouts"))

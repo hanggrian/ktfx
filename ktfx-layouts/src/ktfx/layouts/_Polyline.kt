@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.polyline(): Polyline = polyline() { }
+public fun NodeManager.polyline(): Polyline = polyline() { }
 
 /**
  * Create a [Polyline] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.polyline(): Polyline = polyline() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): Polyline {
+public inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit): 
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
+public inline fun NodeManager.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
     Polyline {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = Polyline()
@@ -54,7 +54,7 @@ inline fun NodeManager.polyline(configuration: (@KtfxLayoutDslMarker Polyline).(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
+public fun styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
     styledPolyline(styleClass = *styleClass, id = id) { }
 
 /**
@@ -64,7 +64,7 @@ fun styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
+public fun NodeManager.styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
     styledPolyline(styleClass = *styleClass, id = id) { }
 
 /**
@@ -75,7 +75,7 @@ fun NodeManager.styledPolyline(vararg styleClass: String, id: String? = null): P
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledPolyline(
+public inline fun styledPolyline(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit
@@ -96,7 +96,7 @@ inline fun styledPolyline(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledPolyline(
+public inline fun NodeManager.styledPolyline(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit

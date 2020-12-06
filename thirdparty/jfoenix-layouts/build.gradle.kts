@@ -32,7 +32,7 @@ tasks {
     dokkaHtml.configure {
         dokkaSourceSets {
             named("main") {
-                moduleDisplayName.set("$RELEASE_ARTIFACT-jfoenix-layouts")
+                displayName.set("$RELEASE_ARTIFACT-jfoenix-layouts")
                 sourceLink {
                     localDirectory.set(file("src"))
                     remoteUrl.set(github("thirdparty/jfoenix-layouts"))

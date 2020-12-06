@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.textArea(text: String = ""): TextArea = textArea(text = text) { }
+public fun NodeManager.textArea(text: String = ""): TextArea = textArea(text = text) { }
 
 /**
  * Create a [TextArea] with configuration block.
@@ -26,13 +26,16 @@ fun NodeManager.textArea(text: String = ""): TextArea = textArea(text = text) { 
  *
  * @return the control created.
  */
-inline fun textArea(text: String = "", configuration: (@KtfxLayoutDslMarker TextArea).() -> Unit):
-    TextArea {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = TextArea(text)
-        child.configuration()
-        return child
-    }
+public inline fun textArea(
+    text: String = "",
+    configuration: (@KtfxLayoutDslMarker TextArea).() ->    
+    Unit
+): TextArea {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = TextArea(text)
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [TextArea] with configuration block to this manager.
@@ -40,7 +43,7 @@ inline fun textArea(text: String = "", configuration: (@KtfxLayoutDslMarker Text
  *
  * @return the control added.
  */
-inline fun NodeManager.textArea(
+public inline fun NodeManager.textArea(
     text: String = "",
     configuration: (
         @KtfxLayoutDslMarker    
@@ -60,7 +63,7 @@ inline fun NodeManager.textArea(
  *
  * @return the styled control created.
  */
-fun styledTextArea(
+public fun styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null
@@ -73,7 +76,7 @@ fun styledTextArea(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledTextArea(
+public fun NodeManager.styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null
@@ -87,7 +90,7 @@ fun NodeManager.styledTextArea(
  *
  * @return the styled control created.
  */
-inline fun styledTextArea(
+public inline fun styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ inline fun styledTextArea(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledTextArea(
+public inline fun NodeManager.styledTextArea(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,

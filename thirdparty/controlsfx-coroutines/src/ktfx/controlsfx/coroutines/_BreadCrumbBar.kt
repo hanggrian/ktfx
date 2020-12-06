@@ -17,7 +17,7 @@ import kotlin.jvm.JvmName
 /**
  * @see BreadCrumbBar.setOnCrumbAction
  */
-fun <T> BreadCrumbBar<T>.onCrumbAction(
+public fun <T> BreadCrumbBar<T>.onCrumbAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(BreadCrumbBar.BreadCrumbActionEvent<T>) -> Unit
 ) {

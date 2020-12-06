@@ -23,7 +23,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxDecorator(
+public fun NodeManager.jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -32,7 +32,7 @@ fun NodeManager.jfxDecorator(
 ): JFXDecorator = jfxDecorator(
     stage = stage, node = node, fullScreen = fullScreen, max = max,
     min =
-        min
+    min
 ) { }
 
 /**
@@ -41,7 +41,7 @@ fun NodeManager.jfxDecorator(
  *
  * @return the control created.
  */
-inline fun jfxDecorator(
+public inline fun jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -61,7 +61,7 @@ inline fun jfxDecorator(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxDecorator(
+public inline fun NodeManager.jfxDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -82,7 +82,7 @@ inline fun NodeManager.jfxDecorator(
  *
  * @return the styled control created.
  */
-fun styledJFXDecorator(
+public fun styledJFXDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -102,7 +102,7 @@ fun styledJFXDecorator(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXDecorator(
+public fun NodeManager.styledJFXDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -123,7 +123,7 @@ fun NodeManager.styledJFXDecorator(
  *
  * @return the styled control created.
  */
-inline fun styledJFXDecorator(
+public inline fun styledJFXDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,
@@ -149,7 +149,7 @@ inline fun styledJFXDecorator(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXDecorator(
+public inline fun NodeManager.styledJFXDecorator(
     stage: Stage,
     node: Node,
     fullScreen: Boolean = true,

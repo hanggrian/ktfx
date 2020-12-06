@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.splitPane(): SplitPane = splitPane() { }
+public fun NodeManager.splitPane(): SplitPane = splitPane() { }
 
 /**
  * Create a [SplitPane] with configuration block.
@@ -26,12 +26,13 @@ fun NodeManager.splitPane(): SplitPane = splitPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit): SplitPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxSplitPane()
-    child.configuration()
-    return child
-}
+public inline fun splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit):
+    SplitPane {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxSplitPane()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [SplitPane] with configuration block to this manager.
@@ -39,13 +40,15 @@ inline fun splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> U
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit):
-    SplitPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxSplitPane()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.splitPane(
+    configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() ->
+    Unit
+): SplitPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxSplitPane()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [SplitPane].
@@ -54,7 +57,7 @@ inline fun NodeManager.splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitP
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledSplitPane(vararg styleClass: String, id: String? = null): SplitPane =
+public fun styledSplitPane(vararg styleClass: String, id: String? = null): SplitPane =
     styledSplitPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -64,7 +67,7 @@ fun styledSplitPane(vararg styleClass: String, id: String? = null): SplitPane =
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledSplitPane(vararg styleClass: String, id: String? = null): SplitPane =
+public fun NodeManager.styledSplitPane(vararg styleClass: String, id: String? = null): SplitPane =
     styledSplitPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -75,7 +78,7 @@ fun NodeManager.styledSplitPane(vararg styleClass: String, id: String? = null): 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledSplitPane(
+public inline fun styledSplitPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit
@@ -96,7 +99,7 @@ inline fun styledSplitPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledSplitPane(
+public inline fun NodeManager.styledSplitPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit

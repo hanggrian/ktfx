@@ -18,10 +18,9 @@ import kotlin.jvm.JvmName
 /**
  * @see NotificationPane.setOnShowing
  */
-fun NotificationPane.onShowing(
+public fun NotificationPane.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(Event) -> Unit
+    action: suspend CoroutineScope.(Event) -> Unit
 ) {
     return setOnShowing { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -29,7 +28,7 @@ fun NotificationPane.onShowing(
 /**
  * @see NotificationPane.setOnShown
  */
-fun NotificationPane.onShown(
+public fun NotificationPane.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -40,7 +39,7 @@ fun NotificationPane.onShown(
 /**
  * @see NotificationPane.setOnHiding
  */
-fun NotificationPane.onHiding(
+public fun NotificationPane.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -51,7 +50,7 @@ fun NotificationPane.onHiding(
 /**
  * @see NotificationPane.setOnHidden
  */
-fun NotificationPane.onHidden(
+public fun NotificationPane.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit

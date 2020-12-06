@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.maskerPane(): MaskerPane = maskerPane() { }
+public fun NodeManager.maskerPane(): MaskerPane = maskerPane() { }
 
 /**
  * Create a [MaskerPane] with configuration block.
@@ -28,12 +28,13 @@ fun NodeManager.maskerPane(): MaskerPane = maskerPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit): MaskerPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = MaskerPane()
-    child.configuration()
-    return child
-}
+public inline fun maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit):
+    MaskerPane {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = MaskerPane()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [MaskerPane] with configuration block to this manager.
@@ -41,13 +42,15 @@ inline fun maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Uni
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit):
-    MaskerPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = MaskerPane()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.maskerPane(
+    configuration: (@KtfxLayoutDslMarker MaskerPane).() ->
+    Unit
+): MaskerPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = MaskerPane()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [MaskerPane].
@@ -56,7 +59,7 @@ inline fun NodeManager.maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPan
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane =
+public fun styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane =
     styledMaskerPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -66,7 +69,7 @@ fun styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane 
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane =
+public fun NodeManager.styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane =
     styledMaskerPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +80,7 @@ fun NodeManager.styledMaskerPane(vararg styleClass: String, id: String? = null):
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledMaskerPane(
+public inline fun styledMaskerPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit
@@ -98,7 +101,7 @@ inline fun styledMaskerPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledMaskerPane(
+public inline fun NodeManager.styledMaskerPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit

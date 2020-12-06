@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxCheckBox(text: String? = null): JFXCheckBox = jfxCheckBox(text = text) { }
+public fun NodeManager.jfxCheckBox(text: String? = null): JFXCheckBox = jfxCheckBox(text = text) { }
 
 /**
  * Create a [JFXCheckBox] with configuration block.
@@ -28,10 +28,12 @@ fun NodeManager.jfxCheckBox(text: String? = null): JFXCheckBox = jfxCheckBox(tex
  *
  * @return the control created.
  */
-inline fun jfxCheckBox(
+public inline fun jfxCheckBox(
     text: String? = null,
-    configuration: (@KtfxLayoutDslMarker JFXCheckBox).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        JFXCheckBox
+    ).() -> Unit
 ): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXCheckBox(text)
@@ -45,7 +47,7 @@ inline fun jfxCheckBox(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxCheckBox(
+public inline fun NodeManager.jfxCheckBox(
     text: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -65,7 +67,7 @@ inline fun NodeManager.jfxCheckBox(
  *
  * @return the styled control created.
  */
-fun styledJFXCheckBox(
+public fun styledJFXCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -78,7 +80,7 @@ fun styledJFXCheckBox(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXCheckBox(
+public fun NodeManager.styledJFXCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -92,7 +94,7 @@ fun NodeManager.styledJFXCheckBox(
  *
  * @return the styled control created.
  */
-inline fun styledJFXCheckBox(
+public inline fun styledJFXCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -114,7 +116,7 @@ inline fun styledJFXCheckBox(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXCheckBox(
+public inline fun NodeManager.styledJFXCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

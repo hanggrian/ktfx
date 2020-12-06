@@ -19,10 +19,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
+public fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
     text = text,
-    graphic =
-        graphic
+    graphic = graphic
 ) { }
 
 /**
@@ -30,10 +29,9 @@ fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
  *
  * @return the control added.
  */
-fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
+public fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
     text = text,
-    graphic =
-        graphic
+    graphic = graphic
 ) { }
 
 /**
@@ -42,7 +40,7 @@ fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(
  *
  * @return the control created.
  */
-inline fun menu(
+public inline fun menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
@@ -59,7 +57,7 @@ inline fun menu(
  *
  * @return the control added.
  */
-inline fun MenuItemManager.menu(
+public inline fun MenuItemManager.menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
@@ -76,7 +74,7 @@ inline fun MenuItemManager.menu(
  *
  * @return the control added.
  */
-inline fun MenuManager.menu(
+public inline fun MenuManager.menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
@@ -94,7 +92,7 @@ inline fun MenuManager.menu(
  *
  * @return the styled control created.
  */
-fun styledMenu(
+public fun styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -108,7 +106,7 @@ fun styledMenu(
  *
  * @return the styled control added.
  */
-fun MenuItemManager.styledMenu(
+public fun MenuItemManager.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -122,7 +120,7 @@ fun MenuItemManager.styledMenu(
  *
  * @return the styled control added.
  */
-fun MenuManager.styledMenu(
+public fun MenuManager.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -137,7 +135,7 @@ fun MenuManager.styledMenu(
  *
  * @return the styled control created.
  */
-inline fun styledMenu(
+public inline fun styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -160,7 +158,7 @@ inline fun styledMenu(
  *
  * @return the styled control added.
  */
-inline fun MenuItemManager.styledMenu(
+public inline fun MenuItemManager.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -183,7 +181,7 @@ inline fun MenuItemManager.styledMenu(
  *
  * @return the styled control added.
  */
-inline fun MenuManager.styledMenu(
+public inline fun MenuManager.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,

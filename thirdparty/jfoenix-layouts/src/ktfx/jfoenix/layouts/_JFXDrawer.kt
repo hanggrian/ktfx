@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxDrawer(): JFXDrawer = jfxDrawer() { }
+public fun NodeManager.jfxDrawer(): JFXDrawer = jfxDrawer() { }
 
 /**
  * Create a [JFXDrawer] with configuration block.
@@ -28,12 +28,13 @@ fun NodeManager.jfxDrawer(): JFXDrawer = jfxDrawer() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJFXDrawer).() -> Unit): JFXDrawer {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxJFXDrawer()
-    child.configuration()
-    return child
-}
+public inline fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJFXDrawer).() -> Unit):
+    JFXDrawer {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxJFXDrawer()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [JFXDrawer] with configuration block to this manager.
@@ -41,13 +42,15 @@ inline fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJFXDrawer).() -> U
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJFXDrawer).() -> Unit):
-    JFXDrawer {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXDrawer()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.jfxDrawer(
+    configuration: (@KtfxLayoutDslMarker KtfxJFXDrawer).() ->
+    Unit
+): JFXDrawer {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXDrawer()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [JFXDrawer].
@@ -56,7 +59,7 @@ inline fun NodeManager.jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJFXDra
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXDrawer(vararg styleClass: String, id: String? = null): JFXDrawer =
+public fun styledJFXDrawer(vararg styleClass: String, id: String? = null): JFXDrawer =
     styledJFXDrawer(styleClass = *styleClass, id = id) { }
 
 /**
@@ -66,7 +69,7 @@ fun styledJFXDrawer(vararg styleClass: String, id: String? = null): JFXDrawer =
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXDrawer(vararg styleClass: String, id: String? = null): JFXDrawer =
+public fun NodeManager.styledJFXDrawer(vararg styleClass: String, id: String? = null): JFXDrawer =
     styledJFXDrawer(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +80,7 @@ fun NodeManager.styledJFXDrawer(vararg styleClass: String, id: String? = null): 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXDrawer(
+public inline fun styledJFXDrawer(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXDrawer).() -> Unit
@@ -98,7 +101,7 @@ inline fun styledJFXDrawer(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXDrawer(
+public inline fun NodeManager.styledJFXDrawer(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXDrawer).() -> Unit

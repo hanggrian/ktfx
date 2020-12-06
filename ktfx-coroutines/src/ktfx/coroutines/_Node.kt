@@ -28,7 +28,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Node.setOnDragEntered
  */
-fun Node.onDragEntered(
+public fun Node.onDragEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -39,7 +39,7 @@ fun Node.onDragEntered(
 /**
  * @see Node.setOnDragExited
  */
-fun Node.onDragExited(
+public fun Node.onDragExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -50,7 +50,7 @@ fun Node.onDragExited(
 /**
  * @see Node.setOnDragOver
  */
-fun Node.onDragOver(
+public fun Node.onDragOver(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -61,7 +61,7 @@ fun Node.onDragOver(
 /**
  * @see Node.setOnDragDropped
  */
-fun Node.onDragDropped(
+public fun Node.onDragDropped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -72,7 +72,7 @@ fun Node.onDragDropped(
 /**
  * @see Node.setOnDragDone
  */
-fun Node.onDragDone(
+public fun Node.onDragDone(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(DragEvent) -> Unit
@@ -83,10 +83,9 @@ fun Node.onDragDone(
 /**
  * @see Node.setOnContextMenuRequested
  */
-fun Node.onContextMenuRequested(
+public fun Node.onContextMenuRequested(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ContextMenuEvent) -> Unit
+    action: suspend CoroutineScope.(ContextMenuEvent) -> Unit
 ) {
     return setOnContextMenuRequested { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -94,7 +93,7 @@ fun Node.onContextMenuRequested(
 /**
  * @see Node.setOnMouseClicked
  */
-fun Node.onMouseClicked(
+public fun Node.onMouseClicked(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -105,7 +104,7 @@ fun Node.onMouseClicked(
 /**
  * @see Node.setOnMouseDragged
  */
-fun Node.onMouseDragged(
+public fun Node.onMouseDragged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -116,7 +115,7 @@ fun Node.onMouseDragged(
 /**
  * @see Node.setOnMouseEntered
  */
-fun Node.onMouseEntered(
+public fun Node.onMouseEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -127,7 +126,7 @@ fun Node.onMouseEntered(
 /**
  * @see Node.setOnMouseExited
  */
-fun Node.onMouseExited(
+public fun Node.onMouseExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -138,7 +137,7 @@ fun Node.onMouseExited(
 /**
  * @see Node.setOnMouseMoved
  */
-fun Node.onMouseMoved(
+public fun Node.onMouseMoved(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -149,7 +148,7 @@ fun Node.onMouseMoved(
 /**
  * @see Node.setOnMousePressed
  */
-fun Node.onMousePressed(
+public fun Node.onMousePressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -160,7 +159,7 @@ fun Node.onMousePressed(
 /**
  * @see Node.setOnMouseReleased
  */
-fun Node.onMouseReleased(
+public fun Node.onMouseReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -171,7 +170,7 @@ fun Node.onMouseReleased(
 /**
  * @see Node.setOnDragDetected
  */
-fun Node.onDragDetected(
+public fun Node.onDragDetected(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseEvent) -> Unit
@@ -182,7 +181,7 @@ fun Node.onDragDetected(
 /**
  * @see Node.setOnMouseDragOver
  */
-fun Node.onMouseDragOver(
+public fun Node.onMouseDragOver(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
@@ -193,7 +192,7 @@ fun Node.onMouseDragOver(
 /**
  * @see Node.setOnMouseDragReleased
  */
-fun Node.onMouseDragReleased(
+public fun Node.onMouseDragReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
@@ -204,7 +203,7 @@ fun Node.onMouseDragReleased(
 /**
  * @see Node.setOnMouseDragEntered
  */
-fun Node.onMouseDragEntered(
+public fun Node.onMouseDragEntered(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
@@ -215,7 +214,7 @@ fun Node.onMouseDragEntered(
 /**
  * @see Node.setOnMouseDragExited
  */
-fun Node.onMouseDragExited(
+public fun Node.onMouseDragExited(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MouseDragEvent) -> Unit
@@ -226,7 +225,7 @@ fun Node.onMouseDragExited(
 /**
  * @see Node.setOnScrollStarted
  */
-fun Node.onScrollStarted(
+public fun Node.onScrollStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
@@ -237,7 +236,7 @@ fun Node.onScrollStarted(
 /**
  * @see Node.setOnScroll
  */
-fun Node.onScroll(
+public fun Node.onScroll(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
@@ -248,7 +247,7 @@ fun Node.onScroll(
 /**
  * @see Node.setOnScrollFinished
  */
-fun Node.onScrollFinished(
+public fun Node.onScrollFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ScrollEvent) -> Unit
@@ -259,7 +258,7 @@ fun Node.onScrollFinished(
 /**
  * @see Node.setOnRotationStarted
  */
-fun Node.onRotationStarted(
+public fun Node.onRotationStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
@@ -270,7 +269,7 @@ fun Node.onRotationStarted(
 /**
  * @see Node.setOnRotate
  */
-fun Node.onRotate(
+public fun Node.onRotate(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
@@ -281,7 +280,7 @@ fun Node.onRotate(
 /**
  * @see Node.setOnRotationFinished
  */
-fun Node.onRotationFinished(
+public fun Node.onRotationFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(RotateEvent) -> Unit
@@ -292,7 +291,7 @@ fun Node.onRotationFinished(
 /**
  * @see Node.setOnZoomStarted
  */
-fun Node.onZoomStarted(
+public fun Node.onZoomStarted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
@@ -303,7 +302,7 @@ fun Node.onZoomStarted(
 /**
  * @see Node.setOnZoom
  */
-fun Node.onZoom(
+public fun Node.onZoom(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
@@ -314,7 +313,7 @@ fun Node.onZoom(
 /**
  * @see Node.setOnZoomFinished
  */
-fun Node.onZoomFinished(
+public fun Node.onZoomFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ZoomEvent) -> Unit
@@ -325,7 +324,7 @@ fun Node.onZoomFinished(
 /**
  * @see Node.setOnSwipeUp
  */
-fun Node.onSwipeUp(
+public fun Node.onSwipeUp(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
@@ -336,7 +335,7 @@ fun Node.onSwipeUp(
 /**
  * @see Node.setOnSwipeDown
  */
-fun Node.onSwipeDown(
+public fun Node.onSwipeDown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
@@ -347,7 +346,7 @@ fun Node.onSwipeDown(
 /**
  * @see Node.setOnSwipeLeft
  */
-fun Node.onSwipeLeft(
+public fun Node.onSwipeLeft(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
@@ -358,7 +357,7 @@ fun Node.onSwipeLeft(
 /**
  * @see Node.setOnSwipeRight
  */
-fun Node.onSwipeRight(
+public fun Node.onSwipeRight(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SwipeEvent) -> Unit
@@ -369,7 +368,7 @@ fun Node.onSwipeRight(
 /**
  * @see Node.setOnTouchPressed
  */
-fun Node.onTouchPressed(
+public fun Node.onTouchPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
@@ -380,7 +379,7 @@ fun Node.onTouchPressed(
 /**
  * @see Node.setOnTouchMoved
  */
-fun Node.onTouchMoved(
+public fun Node.onTouchMoved(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
@@ -391,7 +390,7 @@ fun Node.onTouchMoved(
 /**
  * @see Node.setOnTouchReleased
  */
-fun Node.onTouchReleased(
+public fun Node.onTouchReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
@@ -402,7 +401,7 @@ fun Node.onTouchReleased(
 /**
  * @see Node.setOnTouchStationary
  */
-fun Node.onTouchStationary(
+public fun Node.onTouchStationary(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(TouchEvent) -> Unit
@@ -413,7 +412,7 @@ fun Node.onTouchStationary(
 /**
  * @see Node.setOnKeyPressed
  */
-fun Node.onKeyPressed(
+public fun Node.onKeyPressed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
@@ -424,7 +423,7 @@ fun Node.onKeyPressed(
 /**
  * @see Node.setOnKeyReleased
  */
-fun Node.onKeyReleased(
+public fun Node.onKeyReleased(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
@@ -435,7 +434,7 @@ fun Node.onKeyReleased(
 /**
  * @see Node.setOnKeyTyped
  */
-fun Node.onKeyTyped(
+public fun Node.onKeyTyped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(KeyEvent) -> Unit
@@ -446,10 +445,9 @@ fun Node.onKeyTyped(
 /**
  * @see Node.setOnInputMethodTextChanged
  */
-fun Node.onInputMethodTextChanged(
+public fun Node.onInputMethodTextChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(InputMethodEvent) -> Unit
+    action: suspend CoroutineScope.(InputMethodEvent) -> Unit
 ) {
     return setOnInputMethodTextChanged { event -> GlobalScope.launch(context) { action(event) } }
 }

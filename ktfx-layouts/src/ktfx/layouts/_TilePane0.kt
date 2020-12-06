@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.tilePane(
+public fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double
@@ -33,7 +33,7 @@ fun NodeManager.tilePane(
  *
  * @return the control created.
  */
-inline fun tilePane(
+public inline fun tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -51,7 +51,7 @@ inline fun tilePane(
  *
  * @return the control added.
  */
-inline fun NodeManager.tilePane(
+public inline fun NodeManager.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -70,7 +70,7 @@ inline fun NodeManager.tilePane(
  *
  * @return the styled control created.
  */
-fun styledTilePane(
+public fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -79,7 +79,7 @@ fun styledTilePane(
 ): TilePane = styledTilePane(
     orientation = orientation, hgap = hgap, vgap = vgap,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -90,7 +90,7 @@ fun styledTilePane(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledTilePane(
+public fun NodeManager.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -99,7 +99,7 @@ fun NodeManager.styledTilePane(
 ): TilePane = styledTilePane(
     orientation = orientation, hgap = hgap, vgap = vgap,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -111,7 +111,7 @@ fun NodeManager.styledTilePane(
  *
  * @return the styled control created.
  */
-inline fun styledTilePane(
+public inline fun styledTilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -135,7 +135,7 @@ inline fun styledTilePane(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledTilePane(
+public inline fun NodeManager.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,

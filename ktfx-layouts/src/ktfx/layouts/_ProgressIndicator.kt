@@ -20,8 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS): ProgressIndicator =
-    progressIndicator(progress = progress) { }
+public fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS):
+    ProgressIndicator = progressIndicator(progress = progress) { }
 
 /**
  * Create a [ProgressIndicator] with configuration block.
@@ -29,7 +29,7 @@ fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS): Pr
  *
  * @return the control created.
  */
-inline fun progressIndicator(
+public inline fun progressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
@@ -45,7 +45,7 @@ inline fun progressIndicator(
  *
  * @return the control added.
  */
-inline fun NodeManager.progressIndicator(
+public inline fun NodeManager.progressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit
 ): ProgressIndicator {
@@ -62,14 +62,14 @@ inline fun NodeManager.progressIndicator(
  *
  * @return the styled control created.
  */
-fun styledProgressIndicator(
+public fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null
 ): ProgressIndicator = styledProgressIndicator(
     progress = progress, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -79,14 +79,14 @@ fun styledProgressIndicator(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledProgressIndicator(
+public fun NodeManager.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null
 ): ProgressIndicator = styledProgressIndicator(
     progress = progress, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -97,7 +97,7 @@ fun NodeManager.styledProgressIndicator(
  *
  * @return the styled control created.
  */
-inline fun styledProgressIndicator(
+public inline fun styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -119,7 +119,7 @@ inline fun styledProgressIndicator(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledProgressIndicator(
+public inline fun NodeManager.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

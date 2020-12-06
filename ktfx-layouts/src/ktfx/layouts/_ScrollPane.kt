@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(content = content) { }
+public fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(content = content) { }
 
 /**
  * Create a [ScrollPane] with configuration block.
@@ -27,7 +27,7 @@ fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(conte
  *
  * @return the control created.
  */
-inline fun scrollPane(
+public inline fun scrollPane(
     content: Node? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -46,7 +46,7 @@ inline fun scrollPane(
  *
  * @return the control added.
  */
-inline fun NodeManager.scrollPane(
+public inline fun NodeManager.scrollPane(
     content: Node? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -66,7 +66,7 @@ inline fun NodeManager.scrollPane(
  *
  * @return the styled control created.
  */
-fun styledScrollPane(
+public fun styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null
@@ -79,7 +79,7 @@ fun styledScrollPane(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledScrollPane(
+public fun NodeManager.styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null
@@ -93,7 +93,7 @@ fun NodeManager.styledScrollPane(
  *
  * @return the styled control created.
  */
-inline fun styledScrollPane(
+public inline fun styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -115,7 +115,7 @@ inline fun styledScrollPane(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledScrollPane(
+public inline fun NodeManager.styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,

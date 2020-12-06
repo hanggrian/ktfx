@@ -23,11 +23,11 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boolean = true):
+public fun NodeManager.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boolean = true):
     MasterDetailPane = masterDetailPane(
         detailSide = detailSide,
         showDetailNode =
-            showDetailNode
+        showDetailNode
     ) { }
 
 /**
@@ -36,7 +36,7 @@ fun NodeManager.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boole
  *
  * @return the control created.
  */
-inline fun masterDetailPane(
+public inline fun masterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     configuration: (@KtfxLayoutDslMarker KtfxMasterDetailPane).() -> Unit
@@ -53,7 +53,7 @@ inline fun masterDetailPane(
  *
  * @return the control added.
  */
-inline fun NodeManager.masterDetailPane(
+public inline fun NodeManager.masterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     configuration: (@KtfxLayoutDslMarker KtfxMasterDetailPane).() -> Unit
@@ -71,7 +71,7 @@ inline fun NodeManager.masterDetailPane(
  *
  * @return the styled control created.
  */
-fun styledMasterDetailPane(
+public fun styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,
@@ -79,7 +79,7 @@ fun styledMasterDetailPane(
 ): MasterDetailPane = styledMasterDetailPane(
     detailSide = detailSide,
     showDetailNode =
-        showDetailNode,
+    showDetailNode,
     styleClass = *styleClass, id = id
 ) { }
 
@@ -90,7 +90,7 @@ fun styledMasterDetailPane(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledMasterDetailPane(
+public fun NodeManager.styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,
@@ -98,7 +98,7 @@ fun NodeManager.styledMasterDetailPane(
 ): MasterDetailPane = styledMasterDetailPane(
     detailSide = detailSide,
     showDetailNode =
-        showDetailNode,
+    showDetailNode,
     styleClass = *styleClass, id = id
 ) { }
 
@@ -110,7 +110,7 @@ fun NodeManager.styledMasterDetailPane(
  *
  * @return the styled control created.
  */
-inline fun styledMasterDetailPane(
+public inline fun styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,
@@ -133,7 +133,7 @@ inline fun styledMasterDetailPane(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledMasterDetailPane(
+public inline fun NodeManager.styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,

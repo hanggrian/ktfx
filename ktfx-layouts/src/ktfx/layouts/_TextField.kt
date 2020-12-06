@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.textField(text: String = ""): TextField = textField(text = text) { }
+public fun NodeManager.textField(text: String = ""): TextField = textField(text = text) { }
 
 /**
  * Create a [TextField] with configuration block.
@@ -26,13 +26,16 @@ fun NodeManager.textField(text: String = ""): TextField = textField(text = text)
  *
  * @return the control created.
  */
-inline fun textField(text: String = "", configuration: (@KtfxLayoutDslMarker TextField).() -> Unit):
-    TextField {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = TextField(text)
-        child.configuration()
-        return child
-    }
+public inline fun textField(
+    text: String = "",
+    configuration: (@KtfxLayoutDslMarker TextField).() ->    
+    Unit
+): TextField {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = TextField(text)
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [TextField] with configuration block to this manager.
@@ -40,7 +43,7 @@ inline fun textField(text: String = "", configuration: (@KtfxLayoutDslMarker Tex
  *
  * @return the control added.
  */
-inline fun NodeManager.textField(
+public inline fun NodeManager.textField(
     text: String = "",
     configuration: (
         @KtfxLayoutDslMarker    
@@ -60,7 +63,7 @@ inline fun NodeManager.textField(
  *
  * @return the styled control created.
  */
-fun styledTextField(
+public fun styledTextField(
     text: String = "",
     vararg styleClass: String,
     id: String? = null
@@ -73,7 +76,7 @@ fun styledTextField(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledTextField(
+public fun NodeManager.styledTextField(
     text: String = "",
     vararg styleClass: String,
     id: String? = null
@@ -87,7 +90,7 @@ fun NodeManager.styledTextField(
  *
  * @return the styled control created.
  */
-inline fun styledTextField(
+public inline fun styledTextField(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ inline fun styledTextField(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledTextField(
+public inline fun NodeManager.styledTextField(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,

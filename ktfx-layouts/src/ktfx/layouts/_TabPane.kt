@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.tabPane(): TabPane = tabPane() { }
+public fun NodeManager.tabPane(): TabPane = tabPane() { }
 
 /**
  * Create a [TabPane] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.tabPane(): TabPane = tabPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
+public inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTabPane()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit):
+public inline fun NodeManager.tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit):
     TabPane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxTabPane()
@@ -54,11 +54,8 @@ inline fun NodeManager.tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane)
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane = styledTabPane(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+public fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
+    styledTabPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [TabPane] to this manager.
@@ -67,7 +64,7 @@ fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane = styl
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
+public fun NodeManager.styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
     styledTabPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -78,7 +75,7 @@ fun NodeManager.styledTabPane(vararg styleClass: String, id: String? = null): Ta
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledTabPane(
+public inline fun styledTabPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit
@@ -99,7 +96,7 @@ inline fun styledTabPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledTabPane(
+public inline fun NodeManager.styledTabPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit

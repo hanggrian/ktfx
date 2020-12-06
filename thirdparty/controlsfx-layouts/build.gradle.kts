@@ -32,7 +32,7 @@ tasks {
     dokkaHtml.configure {
         dokkaSourceSets {
             named("main") {
-                moduleDisplayName.set("$RELEASE_ARTIFACT-controlsfx-layouts")
+                displayName.set("$RELEASE_ARTIFACT-controlsfx-layouts")
                 sourceLink {
                     localDirectory.set(file("src"))
                     remoteUrl.set(github("thirdparty/controlsfx-layouts"))

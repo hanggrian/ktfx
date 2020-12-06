@@ -1,8 +1,8 @@
 package com.hendraanggrian.ktfx.codegen.commons
 
+import com.hendraanggrian.kotlinpoet.INLINE
 import com.hendraanggrian.kotlinpoet.buildFileSpec
 import com.hendraanggrian.ktfx.codegen.toString
-import com.squareup.kotlinpoet.KModifier
 import javafx.beans.value.ObservableStringValue
 import java.io.File
 
@@ -21,7 +21,7 @@ object StringsWriter {
                 factory.entries.forEach {
                     it.functionName {
                         kdoc += "@see String.${it.functionName}"
-                        addModifiers(KModifier.INLINE)
+                        addModifiers(INLINE)
                         receiver<ObservableStringValue>()
                         returns = it.returnType
                         parameters { it.parameters.forEach(::plusAssign) }

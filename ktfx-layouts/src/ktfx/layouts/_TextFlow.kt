@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.textFlow(): TextFlow = textFlow() { }
+public fun NodeManager.textFlow(): TextFlow = textFlow() { }
 
 /**
  * Create a [TextFlow] with configuration block.
@@ -26,12 +26,13 @@ fun NodeManager.textFlow(): TextFlow = textFlow() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit): TextFlow {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxTextFlow()
-    child.configuration()
-    return child
-}
+public inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit):
+    TextFlow {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxTextFlow()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [TextFlow] with configuration block to this manager.
@@ -39,13 +40,15 @@ inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Uni
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit):
-    TextFlow {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxTextFlow()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.textFlow(
+    configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() ->
+    Unit
+): TextFlow {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxTextFlow()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [TextFlow].
@@ -54,7 +57,7 @@ inline fun NodeManager.textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlo
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
+public fun styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
     styledTextFlow(styleClass = *styleClass, id = id) { }
 
 /**
@@ -64,7 +67,7 @@ fun styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
+public fun NodeManager.styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
     styledTextFlow(styleClass = *styleClass, id = id) { }
 
 /**
@@ -75,7 +78,7 @@ fun NodeManager.styledTextFlow(vararg styleClass: String, id: String? = null): T
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledTextFlow(
+public inline fun styledTextFlow(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit
@@ -96,7 +99,7 @@ inline fun styledTextFlow(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledTextFlow(
+public inline fun NodeManager.styledTextFlow(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit

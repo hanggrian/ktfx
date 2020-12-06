@@ -18,14 +18,17 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
+public fun NodeManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
 
 /**
  * Add a [TitledPane] to this manager.
  *
  * @return the control added.
  */
-fun TitledPaneManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
+public fun TitledPaneManager.titledPane(title: String? = null): TitledPane = titledPane(
+    title =
+    title
+) { }
 
 /**
  * Create a [TitledPane] with configuration block.
@@ -33,7 +36,7 @@ fun TitledPaneManager.titledPane(title: String? = null): TitledPane = titledPane
  *
  * @return the control created.
  */
-inline fun titledPane(
+public inline fun titledPane(
     title: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -52,7 +55,7 @@ inline fun titledPane(
  *
  * @return the control added.
  */
-inline fun NodeManager.titledPane(
+public inline fun NodeManager.titledPane(
     title: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -71,12 +74,9 @@ inline fun NodeManager.titledPane(
  *
  * @return the control added.
  */
-inline fun TitledPaneManager.titledPane(
+public inline fun TitledPaneManager.titledPane(
     title: String? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        KtfxTitledPane
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit
 ): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
@@ -91,7 +91,7 @@ inline fun TitledPaneManager.titledPane(
  *
  * @return the styled control created.
  */
-fun styledTitledPane(
+public fun styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -104,7 +104,7 @@ fun styledTitledPane(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledTitledPane(
+public fun NodeManager.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -117,7 +117,7 @@ fun NodeManager.styledTitledPane(
  *
  * @return the styled control added.
  */
-fun TitledPaneManager.styledTitledPane(
+public fun TitledPaneManager.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -131,7 +131,7 @@ fun TitledPaneManager.styledTitledPane(
  *
  * @return the styled control created.
  */
-inline fun styledTitledPane(
+public inline fun styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -153,7 +153,7 @@ inline fun styledTitledPane(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledTitledPane(
+public inline fun NodeManager.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -175,7 +175,7 @@ inline fun NodeManager.styledTitledPane(
  *
  * @return the styled control added.
  */
-inline fun TitledPaneManager.styledTitledPane(
+public inline fun TitledPaneManager.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,

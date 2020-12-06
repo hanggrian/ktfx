@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.breadCrumbBar(selectedCrumb: TreeItem<T>? = null): BreadCrumbBar<T> =
+public fun <T> NodeManager.breadCrumbBar(selectedCrumb: TreeItem<T>? = null): BreadCrumbBar<T> =
     breadCrumbBar(selectedCrumb = selectedCrumb) { }
 
 /**
@@ -30,7 +30,7 @@ fun <T> NodeManager.breadCrumbBar(selectedCrumb: TreeItem<T>? = null): BreadCrum
  *
  * @return the control created.
  */
-inline fun <T> breadCrumbBar(
+public inline fun <T> breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
@@ -46,7 +46,7 @@ inline fun <T> breadCrumbBar(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.breadCrumbBar(
+public inline fun <T> NodeManager.breadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     configuration: (@KtfxLayoutDslMarker BreadCrumbBar<T>).() -> Unit
 ): BreadCrumbBar<T> {
@@ -63,7 +63,7 @@ inline fun <T> NodeManager.breadCrumbBar(
  *
  * @return the styled control created.
  */
-fun <T> styledBreadCrumbBar(
+public fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -79,7 +79,7 @@ fun <T> styledBreadCrumbBar(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledBreadCrumbBar(
+public fun <T> NodeManager.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -96,7 +96,7 @@ fun <T> NodeManager.styledBreadCrumbBar(
  *
  * @return the styled control created.
  */
-inline fun <T> styledBreadCrumbBar(
+public inline fun <T> styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -118,7 +118,7 @@ inline fun <T> styledBreadCrumbBar(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledBreadCrumbBar(
+public inline fun <T> NodeManager.styledBreadCrumbBar(
     selectedCrumb: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

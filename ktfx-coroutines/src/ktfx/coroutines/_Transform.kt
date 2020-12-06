@@ -18,10 +18,9 @@ import kotlin.jvm.JvmName
 /**
  * @see Transform.setOnTransformChanged
  */
-fun Transform.onTransformChanged(
+public fun Transform.onTransformChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(TransformChangedEvent) -> Unit
+    action: suspend CoroutineScope.(TransformChangedEvent) -> Unit
 ) {
     return setOnTransformChanged { event -> GlobalScope.launch(context) { action(event) } }
 }

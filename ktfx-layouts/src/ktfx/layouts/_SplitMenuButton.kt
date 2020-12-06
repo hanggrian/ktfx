@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.splitMenuButton(): SplitMenuButton = splitMenuButton() { }
+public fun NodeManager.splitMenuButton(): SplitMenuButton = splitMenuButton() { }
 
 /**
  * Create a [SplitMenuButton] with configuration block.
@@ -26,13 +26,15 @@ fun NodeManager.splitMenuButton(): SplitMenuButton = splitMenuButton() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun splitMenuButton(configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit):
-    SplitMenuButton {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxSplitMenuButton()
-        child.configuration()
-        return child
-    }
+public inline fun splitMenuButton(
+    configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() ->
+    Unit
+): SplitMenuButton {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxSplitMenuButton()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [SplitMenuButton] with configuration block to this manager.
@@ -40,7 +42,7 @@ inline fun splitMenuButton(configuration: (@KtfxLayoutDslMarker KtfxSplitMenuBut
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.splitMenuButton(
+public inline fun NodeManager.splitMenuButton(
     configuration: (
         @KtfxLayoutDslMarker
         KtfxSplitMenuButton
@@ -59,7 +61,7 @@ inline fun NodeManager.splitMenuButton(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledSplitMenuButton(vararg styleClass: String, id: String? = null): SplitMenuButton =
+public fun styledSplitMenuButton(vararg styleClass: String, id: String? = null): SplitMenuButton =
     styledSplitMenuButton(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,7 +71,7 @@ fun styledSplitMenuButton(vararg styleClass: String, id: String? = null): SplitM
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledSplitMenuButton(vararg styleClass: String, id: String? = null):
+public fun NodeManager.styledSplitMenuButton(vararg styleClass: String, id: String? = null):
     SplitMenuButton = styledSplitMenuButton(styleClass = *styleClass, id = id) { }
 
 /**
@@ -80,7 +82,7 @@ fun NodeManager.styledSplitMenuButton(vararg styleClass: String, id: String? = n
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledSplitMenuButton(
+public inline fun styledSplitMenuButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit
@@ -101,7 +103,7 @@ inline fun styledSplitMenuButton(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledSplitMenuButton(
+public inline fun NodeManager.styledSplitMenuButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit

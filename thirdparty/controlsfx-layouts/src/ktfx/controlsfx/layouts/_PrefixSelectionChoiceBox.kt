@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.prefixSelectionChoiceBox(): PrefixSelectionChoiceBox<T> =
+public fun <T> NodeManager.prefixSelectionChoiceBox(): PrefixSelectionChoiceBox<T> =
     prefixSelectionChoiceBox() { }
 
 /**
@@ -29,7 +29,7 @@ fun <T> NodeManager.prefixSelectionChoiceBox(): PrefixSelectionChoiceBox<T> =
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun <T> prefixSelectionChoiceBox(
+public inline fun <T> prefixSelectionChoiceBox(
     configuration: (
         @KtfxLayoutDslMarker
         PrefixSelectionChoiceBox<T>
@@ -47,7 +47,7 @@ inline fun <T> prefixSelectionChoiceBox(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun <T> NodeManager.prefixSelectionChoiceBox(
+public inline fun <T> NodeManager.prefixSelectionChoiceBox(
     configuration: (
         @KtfxLayoutDslMarker
         PrefixSelectionChoiceBox<T>
@@ -66,11 +66,11 @@ inline fun <T> NodeManager.prefixSelectionChoiceBox(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun <T> styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = null):
+public fun <T> styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = null):
     PrefixSelectionChoiceBox<T> = styledPrefixSelectionChoiceBox(
         styleClass = *styleClass,
         id =
-            id
+        id
     ) { }
 
 /**
@@ -80,12 +80,15 @@ fun <T> styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = 
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun <T> NodeManager.styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = null):
-    PrefixSelectionChoiceBox<T> = styledPrefixSelectionChoiceBox(
-        styleClass = *styleClass,
-        id =
-            id
-    ) { }
+public fun <T> NodeManager.styledPrefixSelectionChoiceBox(
+    vararg styleClass: String,
+    id: String? =    
+        null
+): PrefixSelectionChoiceBox<T> = styledPrefixSelectionChoiceBox(
+    styleClass =
+    *styleClass,
+    id = id
+) { }
 
 /**
  * Create a styled [PrefixSelectionChoiceBox] with configuration block.
@@ -95,7 +98,7 @@ fun <T> NodeManager.styledPrefixSelectionChoiceBox(vararg styleClass: String, id
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun <T> styledPrefixSelectionChoiceBox(
+public inline fun <T> styledPrefixSelectionChoiceBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit
@@ -116,7 +119,7 @@ inline fun <T> styledPrefixSelectionChoiceBox(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledPrefixSelectionChoiceBox(
+public inline fun <T> NodeManager.styledPrefixSelectionChoiceBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionChoiceBox<T>).() -> Unit

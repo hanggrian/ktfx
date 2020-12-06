@@ -13,7 +13,7 @@ import kotlin.jvm.JvmName
 /**
  * @see TreeTableColumn.setOnEditStart
  */
-inline fun <S, T> TreeTableColumn<S, T>.onEditStart(
+public inline fun <S, T> TreeTableColumn<S, T>.onEditStart(
     noinline
     action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit
 ) {
@@ -23,7 +23,7 @@ inline fun <S, T> TreeTableColumn<S, T>.onEditStart(
 /**
  * @see TreeTableColumn.setOnEditCommit
  */
-inline fun <S, T> TreeTableColumn<S, T>.onEditCommit(
+public inline fun <S, T> TreeTableColumn<S, T>.onEditCommit(
     noinline
     action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit
 ) {
@@ -33,7 +33,7 @@ inline fun <S, T> TreeTableColumn<S, T>.onEditCommit(
 /**
  * @see TreeTableColumn.setOnEditCancel
  */
-inline fun <S, T> TreeTableColumn<S, T>.onEditCancel(
+public inline fun <S, T> TreeTableColumn<S, T>.onEditCancel(
     noinline
     action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit
 ) {

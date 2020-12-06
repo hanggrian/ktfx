@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.rangeSlider(
+public fun NodeManager.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -34,7 +34,7 @@ fun NodeManager.rangeSlider(
  *
  * @return the control created.
  */
-inline fun rangeSlider(
+public inline fun rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -53,7 +53,7 @@ inline fun rangeSlider(
  *
  * @return the control added.
  */
-inline fun NodeManager.rangeSlider(
+public inline fun NodeManager.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -73,7 +73,7 @@ inline fun NodeManager.rangeSlider(
  *
  * @return the styled control created.
  */
-fun styledRangeSlider(
+public fun styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -92,7 +92,7 @@ fun styledRangeSlider(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledRangeSlider(
+public fun NodeManager.styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -112,7 +112,7 @@ fun NodeManager.styledRangeSlider(
  *
  * @return the styled control created.
  */
-inline fun styledRangeSlider(
+public inline fun styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -137,7 +137,7 @@ inline fun styledRangeSlider(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledRangeSlider(
+public inline fun NodeManager.styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,

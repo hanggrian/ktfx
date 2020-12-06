@@ -19,10 +19,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <S> NodeManager.treeTableView(root: TreeItem<S>? = null): TreeTableView<S> = treeTableView(
-    root =
-        root
-) { }
+public fun <S> NodeManager.treeTableView(root: TreeItem<S>? = null): TreeTableView<S> =
+    treeTableView(root = root) { }
 
 /**
  * Create a [TreeTableView] with configuration block.
@@ -30,7 +28,7 @@ fun <S> NodeManager.treeTableView(root: TreeItem<S>? = null): TreeTableView<S> =
  *
  * @return the control created.
  */
-inline fun <S> treeTableView(
+public inline fun <S> treeTableView(
     root: TreeItem<S>? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -49,7 +47,7 @@ inline fun <S> treeTableView(
  *
  * @return the control added.
  */
-inline fun <S> NodeManager.treeTableView(
+public inline fun <S> NodeManager.treeTableView(
     root: TreeItem<S>? = null,
     configuration: (@KtfxLayoutDslMarker TreeTableView<S>).() -> Unit
 ): TreeTableView<S> {
@@ -66,7 +64,7 @@ inline fun <S> NodeManager.treeTableView(
  *
  * @return the styled control created.
  */
-fun <S> styledTreeTableView(
+public fun <S> styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -79,7 +77,7 @@ fun <S> styledTreeTableView(
  *
  * @return the styled control added.
  */
-fun <S> NodeManager.styledTreeTableView(
+public fun <S> NodeManager.styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -93,7 +91,7 @@ fun <S> NodeManager.styledTreeTableView(
  *
  * @return the styled control created.
  */
-inline fun <S> styledTreeTableView(
+public inline fun <S> styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -115,7 +113,7 @@ inline fun <S> styledTreeTableView(
  *
  * @return the styled control added.
  */
-inline fun <S> NodeManager.styledTreeTableView(
+public inline fun <S> NodeManager.styledTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,

@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Task.setOnScheduled
  */
-fun Task<*>.onScheduled(
+public fun Task<*>.onScheduled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -29,7 +29,7 @@ fun Task<*>.onScheduled(
 /**
  * @see Task.setOnRunning
  */
-fun Task<*>.onRunning(
+public fun Task<*>.onRunning(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -40,7 +40,7 @@ fun Task<*>.onRunning(
 /**
  * @see Task.setOnSucceeded
  */
-fun Task<*>.onSucceeded(
+public fun Task<*>.onSucceeded(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -51,7 +51,7 @@ fun Task<*>.onSucceeded(
 /**
  * @see Task.setOnCancelled
  */
-fun Task<*>.onCancelled(
+public fun Task<*>.onCancelled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -62,7 +62,7 @@ fun Task<*>.onCancelled(
 /**
  * @see Task.setOnFailed
  */
-fun Task<*>.onFailed(
+public fun Task<*>.onFailed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit

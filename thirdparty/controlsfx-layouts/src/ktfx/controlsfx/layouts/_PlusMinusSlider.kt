@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { }
+public fun NodeManager.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { }
 
 /**
  * Create a [PlusMinusSlider] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit):
+public inline fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit):
     PlusMinusSlider {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = PlusMinusSlider()
@@ -42,9 +42,11 @@ inline fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.plusMinusSlider(
-    configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() ->
-    Unit
+public inline fun NodeManager.plusMinusSlider(
+    configuration: (
+        @KtfxLayoutDslMarker
+        PlusMinusSlider
+    ).() -> Unit
 ): PlusMinusSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PlusMinusSlider()
@@ -59,7 +61,7 @@ inline fun NodeManager.plusMinusSlider(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledPlusMinusSlider(vararg styleClass: String, id: String? = null): PlusMinusSlider =
+public fun styledPlusMinusSlider(vararg styleClass: String, id: String? = null): PlusMinusSlider =
     styledPlusMinusSlider(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,7 +71,7 @@ fun styledPlusMinusSlider(vararg styleClass: String, id: String? = null): PlusMi
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledPlusMinusSlider(vararg styleClass: String, id: String? = null):
+public fun NodeManager.styledPlusMinusSlider(vararg styleClass: String, id: String? = null):
     PlusMinusSlider = styledPlusMinusSlider(styleClass = *styleClass, id = id) { }
 
 /**
@@ -80,7 +82,7 @@ fun NodeManager.styledPlusMinusSlider(vararg styleClass: String, id: String? = n
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledPlusMinusSlider(
+public inline fun styledPlusMinusSlider(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit
@@ -101,7 +103,7 @@ inline fun styledPlusMinusSlider(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledPlusMinusSlider(
+public inline fun NodeManager.styledPlusMinusSlider(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit

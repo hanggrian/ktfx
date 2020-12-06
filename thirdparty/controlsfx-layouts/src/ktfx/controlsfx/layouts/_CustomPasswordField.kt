@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.customPasswordField(): CustomPasswordField = customPasswordField() { }
+public fun NodeManager.customPasswordField(): CustomPasswordField = customPasswordField() { }
 
 /**
  * Create a [CustomPasswordField] with configuration block.
@@ -28,9 +28,11 @@ fun NodeManager.customPasswordField(): CustomPasswordField = customPasswordField
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun customPasswordField(
-    configuration: (@KtfxLayoutDslMarker CustomPasswordField).() ->
-    Unit
+public inline fun customPasswordField(
+    configuration: (
+        @KtfxLayoutDslMarker
+        CustomPasswordField
+    ).() -> Unit
 ): CustomPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CustomPasswordField()
@@ -44,7 +46,7 @@ inline fun customPasswordField(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.customPasswordField(
+public inline fun NodeManager.customPasswordField(
     configuration: (
         @KtfxLayoutDslMarker
         CustomPasswordField
@@ -63,8 +65,8 @@ inline fun NodeManager.customPasswordField(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledCustomPasswordField(vararg styleClass: String, id: String? = null): CustomPasswordField =
-    styledCustomPasswordField(styleClass = *styleClass, id = id) { }
+public fun styledCustomPasswordField(vararg styleClass: String, id: String? = null):
+    CustomPasswordField = styledCustomPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [CustomPasswordField] to this manager.
@@ -73,7 +75,7 @@ fun styledCustomPasswordField(vararg styleClass: String, id: String? = null): Cu
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledCustomPasswordField(vararg styleClass: String, id: String? = null):
+public fun NodeManager.styledCustomPasswordField(vararg styleClass: String, id: String? = null):
     CustomPasswordField = styledCustomPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
@@ -84,7 +86,7 @@ fun NodeManager.styledCustomPasswordField(vararg styleClass: String, id: String?
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledCustomPasswordField(
+public inline fun styledCustomPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomPasswordField).() -> Unit
@@ -105,7 +107,7 @@ inline fun styledCustomPasswordField(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledCustomPasswordField(
+public inline fun NodeManager.styledCustomPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker CustomPasswordField).() -> Unit

@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
 /**
  * @see ComboBoxBase.setOnAction
  */
-fun ComboBoxBase<*>.onAction(
+public fun ComboBoxBase<*>.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit
@@ -30,7 +30,7 @@ fun ComboBoxBase<*>.onAction(
 /**
  * @see ComboBoxBase.setOnShowing
  */
-fun ComboBoxBase<*>.onShowing(
+public fun ComboBoxBase<*>.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -41,7 +41,7 @@ fun ComboBoxBase<*>.onShowing(
 /**
  * @see ComboBoxBase.setOnShown
  */
-fun ComboBoxBase<*>.onShown(
+public fun ComboBoxBase<*>.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -52,7 +52,7 @@ fun ComboBoxBase<*>.onShown(
 /**
  * @see ComboBoxBase.setOnHiding
  */
-fun ComboBoxBase<*>.onHiding(
+public fun ComboBoxBase<*>.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -63,7 +63,7 @@ fun ComboBoxBase<*>.onHiding(
 /**
  * @see ComboBoxBase.setOnHidden
  */
-fun ComboBoxBase<*>.onHidden(
+public fun ComboBoxBase<*>.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit

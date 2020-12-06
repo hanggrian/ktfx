@@ -28,7 +28,7 @@ tasks {
     dokkaHtml.configure {
         dokkaSourceSets {
             named("main") {
-                moduleDisplayName.set("$RELEASE_ARTIFACT-jfoenix-listeners")
+                displayName.set("$RELEASE_ARTIFACT-jfoenix-listeners")
                 sourceLink {
                     localDirectory.set(file("src"))
                     remoteUrl.set(github("thirdparty/jfoenix-listeners"))

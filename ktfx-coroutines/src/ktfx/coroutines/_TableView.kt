@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
 /**
  * @see TableView.setOnSort
  */
-fun <S> TableView<S>.onSort(
+public fun <S> TableView<S>.onSort(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(SortEvent<TableView<S>>) -> Unit
@@ -32,10 +32,9 @@ fun <S> TableView<S>.onSort(
 /**
  * @see TableView.setOnScrollTo
  */
-fun <S> TableView<S>.onScrollTo(
+public fun <S> TableView<S>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ScrollToEvent<Int>) -> Unit
+    action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
 ) {
     return setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -43,7 +42,7 @@ fun <S> TableView<S>.onScrollTo(
 /**
  * @see TableView.setOnScrollToColumn
  */
-fun <S> TableView<S>.onScrollToColumn(
+public fun <S> TableView<S>.onScrollToColumn(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<TableColumn<S, *>>) -> Unit
 ) {

@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see MediaPlayer.setOnError
  */
-fun MediaPlayer.onError(
+public fun MediaPlayer.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
@@ -29,7 +29,7 @@ fun MediaPlayer.onError(
 /**
  * @see MediaPlayer.setOnMarker
  */
-fun MediaPlayer.onMarker(
+public fun MediaPlayer.onMarker(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(MediaMarkerEvent) -> Unit
@@ -40,7 +40,7 @@ fun MediaPlayer.onMarker(
 /**
  * @see MediaPlayer.setOnEndOfMedia
  */
-fun MediaPlayer.onEndOfMedia(
+public fun MediaPlayer.onEndOfMedia(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
@@ -51,7 +51,7 @@ fun MediaPlayer.onEndOfMedia(
 /**
  * @see MediaPlayer.setOnReady
  */
-fun MediaPlayer.onReady(
+public fun MediaPlayer.onReady(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
@@ -62,7 +62,7 @@ fun MediaPlayer.onReady(
 /**
  * @see MediaPlayer.setOnPlaying
  */
-fun MediaPlayer.onPlaying(
+public fun MediaPlayer.onPlaying(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
@@ -73,7 +73,7 @@ fun MediaPlayer.onPlaying(
 /**
  * @see MediaPlayer.setOnPaused
  */
-fun MediaPlayer.onPaused(
+public fun MediaPlayer.onPaused(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
@@ -84,7 +84,7 @@ fun MediaPlayer.onPaused(
 /**
  * @see MediaPlayer.setOnStopped
  */
-fun MediaPlayer.onStopped(
+public fun MediaPlayer.onStopped(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
@@ -95,7 +95,7 @@ fun MediaPlayer.onStopped(
 /**
  * @see MediaPlayer.setOnHalted
  */
-fun MediaPlayer.onHalted(
+public fun MediaPlayer.onHalted(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
@@ -106,7 +106,7 @@ fun MediaPlayer.onHalted(
 /**
  * @see MediaPlayer.setOnRepeat
  */
-fun MediaPlayer.onRepeat(
+public fun MediaPlayer.onRepeat(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit
@@ -117,7 +117,7 @@ fun MediaPlayer.onRepeat(
 /**
  * @see MediaPlayer.setOnStalled
  */
-fun MediaPlayer.onStalled(
+public fun MediaPlayer.onStalled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit

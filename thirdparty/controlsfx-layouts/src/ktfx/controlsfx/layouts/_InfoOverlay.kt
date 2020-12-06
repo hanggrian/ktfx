@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.infoOverlay(content: Node? = null, text: String? = null): InfoOverlay =
+public fun NodeManager.infoOverlay(content: Node? = null, text: String? = null): InfoOverlay =
     infoOverlay(content = content, text = text) { }
 
 /**
@@ -30,7 +30,7 @@ fun NodeManager.infoOverlay(content: Node? = null, text: String? = null): InfoOv
  *
  * @return the control created.
  */
-inline fun infoOverlay(
+public inline fun infoOverlay(
     content: Node? = null,
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit
@@ -47,7 +47,7 @@ inline fun infoOverlay(
  *
  * @return the control added.
  */
-inline fun NodeManager.infoOverlay(
+public inline fun NodeManager.infoOverlay(
     content: Node? = null,
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit
@@ -65,7 +65,7 @@ inline fun NodeManager.infoOverlay(
  *
  * @return the styled control created.
  */
-fun styledInfoOverlay(
+public fun styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,
@@ -73,7 +73,7 @@ fun styledInfoOverlay(
 ): InfoOverlay = styledInfoOverlay(
     content = content, text = text, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -83,7 +83,7 @@ fun styledInfoOverlay(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledInfoOverlay(
+public fun NodeManager.styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,
@@ -91,7 +91,7 @@ fun NodeManager.styledInfoOverlay(
 ): InfoOverlay = styledInfoOverlay(
     content = content, text = text, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -102,7 +102,7 @@ fun NodeManager.styledInfoOverlay(
  *
  * @return the styled control created.
  */
-inline fun styledInfoOverlay(
+public inline fun styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,
@@ -125,7 +125,7 @@ inline fun styledInfoOverlay(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledInfoOverlay(
+public inline fun NodeManager.styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,

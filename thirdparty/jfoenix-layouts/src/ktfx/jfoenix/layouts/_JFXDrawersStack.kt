@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
+public fun NodeManager.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
 
 /**
  * Create a [JFXDrawersStack] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit):
+public inline fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit):
     JFXDrawersStack {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = JFXDrawersStack()
@@ -42,9 +42,11 @@ inline fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawersStack)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxDrawersStack(
-    configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() ->
-    Unit
+public inline fun NodeManager.jfxDrawersStack(
+    configuration: (
+        @KtfxLayoutDslMarker
+        JFXDrawersStack
+    ).() -> Unit
 ): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDrawersStack()
@@ -59,7 +61,7 @@ inline fun NodeManager.jfxDrawersStack(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXDrawersStack(vararg styleClass: String, id: String? = null): JFXDrawersStack =
+public fun styledJFXDrawersStack(vararg styleClass: String, id: String? = null): JFXDrawersStack =
     styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,7 +71,7 @@ fun styledJFXDrawersStack(vararg styleClass: String, id: String? = null): JFXDra
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
+public fun NodeManager.styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
     JFXDrawersStack = styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
 
 /**
@@ -80,7 +82,7 @@ fun NodeManager.styledJFXDrawersStack(vararg styleClass: String, id: String? = n
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXDrawersStack(
+public inline fun styledJFXDrawersStack(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit
@@ -101,7 +103,7 @@ inline fun styledJFXDrawersStack(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXDrawersStack(
+public inline fun NodeManager.styledJFXDrawersStack(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit

@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see ContextMenu.setOnAction
  */
-fun ContextMenu.onAction(
+public fun ContextMenu.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit

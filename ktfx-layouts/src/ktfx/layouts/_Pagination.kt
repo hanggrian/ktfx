@@ -20,8 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0): Pagination =
-    pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
+public fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0):
+    Pagination = pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
 
 /**
  * Create a [Pagination] with configuration block.
@@ -29,7 +29,7 @@ fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int
  *
  * @return the control created.
  */
-inline fun pagination(
+public inline fun pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit
@@ -46,7 +46,7 @@ inline fun pagination(
  *
  * @return the control added.
  */
-inline fun NodeManager.pagination(
+public inline fun NodeManager.pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit
@@ -64,7 +64,7 @@ inline fun NodeManager.pagination(
  *
  * @return the styled control created.
  */
-fun styledPagination(
+public fun styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
@@ -81,7 +81,7 @@ fun styledPagination(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledPagination(
+public fun NodeManager.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
@@ -99,7 +99,7 @@ fun NodeManager.styledPagination(
  *
  * @return the styled control created.
  */
-inline fun styledPagination(
+public inline fun styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
@@ -122,7 +122,7 @@ inline fun styledPagination(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledPagination(
+public inline fun NodeManager.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,

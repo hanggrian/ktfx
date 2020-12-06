@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.jfxListView(): JFXListView<T> = jfxListView() { }
+public fun <T> NodeManager.jfxListView(): JFXListView<T> = jfxListView() { }
 
 /**
  * Create a [JFXListView] with configuration block.
@@ -28,7 +28,7 @@ fun <T> NodeManager.jfxListView(): JFXListView<T> = jfxListView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun <T> jfxListView(configuration: (@KtfxLayoutDslMarker JFXListView<T>).() -> Unit):
+public inline fun <T> jfxListView(configuration: (@KtfxLayoutDslMarker JFXListView<T>).() -> Unit):
     JFXListView<T> {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = JFXListView<T>()
@@ -42,9 +42,11 @@ inline fun <T> jfxListView(configuration: (@KtfxLayoutDslMarker JFXListView<T>).
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun <T> NodeManager.jfxListView(
-    configuration: (@KtfxLayoutDslMarker JFXListView<T>).() ->
-    Unit
+public inline fun <T> NodeManager.jfxListView(
+    configuration: (
+        @KtfxLayoutDslMarker
+        JFXListView<T>
+    ).() -> Unit
 ): JFXListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXListView<T>()
@@ -59,7 +61,7 @@ inline fun <T> NodeManager.jfxListView(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun <T> styledJFXListView(vararg styleClass: String, id: String? = null): JFXListView<T> =
+public fun <T> styledJFXListView(vararg styleClass: String, id: String? = null): JFXListView<T> =
     styledJFXListView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,8 +71,8 @@ fun <T> styledJFXListView(vararg styleClass: String, id: String? = null): JFXLis
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun <T> NodeManager.styledJFXListView(vararg styleClass: String, id: String? = null): JFXListView<T> =
-    styledJFXListView(styleClass = *styleClass, id = id) { }
+public fun <T> NodeManager.styledJFXListView(vararg styleClass: String, id: String? = null):
+    JFXListView<T> = styledJFXListView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXListView] with configuration block.
@@ -80,7 +82,7 @@ fun <T> NodeManager.styledJFXListView(vararg styleClass: String, id: String? = n
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun <T> styledJFXListView(
+public inline fun <T> styledJFXListView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXListView<T>).() -> Unit
@@ -101,7 +103,7 @@ inline fun <T> styledJFXListView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledJFXListView(
+public inline fun <T> NodeManager.styledJFXListView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXListView<T>).() -> Unit

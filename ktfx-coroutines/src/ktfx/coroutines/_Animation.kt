@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Animation.setOnFinished
  */
-fun Animation.onFinished(
+public fun Animation.onFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit

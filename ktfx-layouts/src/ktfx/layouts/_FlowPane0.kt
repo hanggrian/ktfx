@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.flowPane(
+public fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double
@@ -33,7 +33,7 @@ fun NodeManager.flowPane(
  *
  * @return the control created.
  */
-inline fun flowPane(
+public inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -51,7 +51,7 @@ inline fun flowPane(
  *
  * @return the control added.
  */
-inline fun NodeManager.flowPane(
+public inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -70,7 +70,7 @@ inline fun NodeManager.flowPane(
  *
  * @return the styled control created.
  */
-fun styledFlowPane(
+public fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -79,7 +79,7 @@ fun styledFlowPane(
 ): FlowPane = styledFlowPane(
     orientation = orientation, hgap = hgap, vgap = vgap,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -90,7 +90,7 @@ fun styledFlowPane(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledFlowPane(
+public fun NodeManager.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -99,7 +99,7 @@ fun NodeManager.styledFlowPane(
 ): FlowPane = styledFlowPane(
     orientation = orientation, hgap = hgap, vgap = vgap,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -111,7 +111,7 @@ fun NodeManager.styledFlowPane(
  *
  * @return the styled control created.
  */
-inline fun styledFlowPane(
+public inline fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -135,7 +135,7 @@ inline fun styledFlowPane(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledFlowPane(
+public inline fun NodeManager.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,

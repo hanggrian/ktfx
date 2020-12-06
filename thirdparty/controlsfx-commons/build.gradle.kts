@@ -29,7 +29,7 @@ tasks {
     dokkaHtml.configure {
         dokkaSourceSets {
             named("main") {
-                moduleDisplayName.set("$RELEASE_ARTIFACT-controlsfx-commons")
+                displayName.set("$RELEASE_ARTIFACT-controlsfx-commons")
                 sourceLink {
                     localDirectory.set(file("src"))
                     remoteUrl.set(github("thirdparty/controlsfx-commons"))

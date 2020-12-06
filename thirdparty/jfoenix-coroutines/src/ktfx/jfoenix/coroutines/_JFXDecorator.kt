@@ -17,10 +17,9 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXDecorator.setOnCloseButtonAction
  */
-fun JFXDecorator.onCloseButtonAction(
+public fun JFXDecorator.onCloseButtonAction(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.() -> Unit
+    action: suspend CoroutineScope.() -> Unit
 ) {
     return setOnCloseButtonAction { GlobalScope.launch(context) { action() } }
 }

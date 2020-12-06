@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
+public fun NodeManager.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
 
 /**
  * Create a [HBox] with configuration block.
@@ -27,13 +27,16 @@ fun NodeManager.hbox(spacing: Double = 0.0): HBox = hbox(spacing = spacing) { }
  *
  * @return the control created.
  */
-inline fun hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker KtfxHBox).() -> Unit):
-    HBox {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxHBox(spacing)
-        child.configuration()
-        return child
-    }
+public inline fun hbox(
+    spacing: Double = 0.0,
+    configuration: (@KtfxLayoutDslMarker KtfxHBox).() ->    
+    Unit
+): HBox {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxHBox(spacing)
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [HBox] with configuration block to this manager.
@@ -41,7 +44,7 @@ inline fun hbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker Ktfx
  *
  * @return the control added.
  */
-inline fun NodeManager.hbox(
+public inline fun NodeManager.hbox(
     spacing: Double = 0.0,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -61,7 +64,7 @@ inline fun NodeManager.hbox(
  *
  * @return the styled control created.
  */
-fun styledHBox(
+public fun styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
@@ -74,7 +77,7 @@ fun styledHBox(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledHBox(
+public fun NodeManager.styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
@@ -88,7 +91,7 @@ fun NodeManager.styledHBox(
  *
  * @return the styled control created.
  */
-inline fun styledHBox(
+public inline fun styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +113,7 @@ inline fun styledHBox(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledHBox(
+public inline fun NodeManager.styledHBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,

@@ -14,13 +14,13 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXDialog.setOnDialogClosed
  */
-inline fun JFXDialog.onDialogClosed(noinline action: (JFXDialogEvent) -> Unit) {
+public inline fun JFXDialog.onDialogClosed(noinline action: (JFXDialogEvent) -> Unit) {
     return setOnDialogClosed(action)
 }
 
 /**
  * @see JFXDialog.setOnDialogOpened
  */
-inline fun JFXDialog.onDialogOpened(noinline action: (JFXDialogEvent) -> Unit) {
+public inline fun JFXDialog.onDialogOpened(noinline action: (JFXDialogEvent) -> Unit) {
     return setOnDialogOpened(action)
 }

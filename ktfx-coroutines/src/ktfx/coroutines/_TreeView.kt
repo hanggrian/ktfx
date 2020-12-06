@@ -19,10 +19,9 @@ import kotlin.jvm.JvmName
 /**
  * @see TreeView.setOnEditStart
  */
-fun <T> TreeView<T>.onEditStart(
+public fun <T> TreeView<T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(TreeView.EditEvent<T>) -> Unit
+    action: suspend CoroutineScope.(TreeView.EditEvent<T>) -> Unit
 ) {
     return setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -30,10 +29,9 @@ fun <T> TreeView<T>.onEditStart(
 /**
  * @see TreeView.setOnEditCommit
  */
-fun <T> TreeView<T>.onEditCommit(
+public fun <T> TreeView<T>.onEditCommit(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(TreeView.EditEvent<T>) -> Unit
+    action: suspend CoroutineScope.(TreeView.EditEvent<T>) -> Unit
 ) {
     return setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -41,10 +39,9 @@ fun <T> TreeView<T>.onEditCommit(
 /**
  * @see TreeView.setOnEditCancel
  */
-fun <T> TreeView<T>.onEditCancel(
+public fun <T> TreeView<T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(TreeView.EditEvent<T>) -> Unit
+    action: suspend CoroutineScope.(TreeView.EditEvent<T>) -> Unit
 ) {
     return setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -52,10 +49,9 @@ fun <T> TreeView<T>.onEditCancel(
 /**
  * @see TreeView.setOnScrollTo
  */
-fun <T> TreeView<T>.onScrollTo(
+public fun <T> TreeView<T>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ScrollToEvent<Int>) -> Unit
+    action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
 ) {
     return setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 }

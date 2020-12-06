@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxTabPane(): JFXTabPane = jfxTabPane() { }
+public fun NodeManager.jfxTabPane(): JFXTabPane = jfxTabPane() { }
 
 /**
  * Create a [JFXTabPane] with configuration block.
@@ -28,12 +28,13 @@ fun NodeManager.jfxTabPane(): JFXTabPane = jfxTabPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxTabPane(configuration: (@KtfxLayoutDslMarker KtfxJFXTabPane).() -> Unit): JFXTabPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxJFXTabPane()
-    child.configuration()
-    return child
-}
+public inline fun jfxTabPane(configuration: (@KtfxLayoutDslMarker KtfxJFXTabPane).() -> Unit):
+    JFXTabPane {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxJFXTabPane()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [JFXTabPane] with configuration block to this manager.
@@ -41,13 +42,15 @@ inline fun jfxTabPane(configuration: (@KtfxLayoutDslMarker KtfxJFXTabPane).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxTabPane(configuration: (@KtfxLayoutDslMarker KtfxJFXTabPane).() -> Unit):
-    JFXTabPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXTabPane()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.jfxTabPane(
+    configuration: (@KtfxLayoutDslMarker KtfxJFXTabPane).() ->
+    Unit
+): JFXTabPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXTabPane()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [JFXTabPane].
@@ -56,7 +59,7 @@ inline fun NodeManager.jfxTabPane(configuration: (@KtfxLayoutDslMarker KtfxJFXTa
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXTabPane(vararg styleClass: String, id: String? = null): JFXTabPane =
+public fun styledJFXTabPane(vararg styleClass: String, id: String? = null): JFXTabPane =
     styledJFXTabPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -66,7 +69,7 @@ fun styledJFXTabPane(vararg styleClass: String, id: String? = null): JFXTabPane 
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXTabPane(vararg styleClass: String, id: String? = null): JFXTabPane =
+public fun NodeManager.styledJFXTabPane(vararg styleClass: String, id: String? = null): JFXTabPane =
     styledJFXTabPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +80,7 @@ fun NodeManager.styledJFXTabPane(vararg styleClass: String, id: String? = null):
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXTabPane(
+public inline fun styledJFXTabPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXTabPane).() -> Unit
@@ -98,7 +101,7 @@ inline fun styledJFXTabPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXTabPane(
+public inline fun NodeManager.styledJFXTabPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXTabPane).() -> Unit

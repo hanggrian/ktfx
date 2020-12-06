@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxTextField(text: String? = null): JFXTextField = jfxTextField(text = text) { }
+public fun NodeManager.jfxTextField(text: String? = null): JFXTextField = jfxTextField(text = text) { }
 
 /**
  * Create a [JFXTextField] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.jfxTextField(text: String? = null): JFXTextField = jfxTextField(
  *
  * @return the control created.
  */
-inline fun jfxTextField(
+public inline fun jfxTextField(
     text: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -47,12 +47,9 @@ inline fun jfxTextField(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxTextField(
+public inline fun NodeManager.jfxTextField(
     text: String? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        JFXTextField
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker JFXTextField).() -> Unit
 ): JFXTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextField(text)
@@ -67,7 +64,7 @@ inline fun NodeManager.jfxTextField(
  *
  * @return the styled control created.
  */
-fun styledJFXTextField(
+public fun styledJFXTextField(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -80,7 +77,7 @@ fun styledJFXTextField(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXTextField(
+public fun NodeManager.styledJFXTextField(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -94,7 +91,7 @@ fun NodeManager.styledJFXTextField(
  *
  * @return the styled control created.
  */
-inline fun styledJFXTextField(
+public inline fun styledJFXTextField(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -116,7 +113,7 @@ inline fun styledJFXTextField(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXTextField(
+public inline fun NodeManager.styledJFXTextField(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

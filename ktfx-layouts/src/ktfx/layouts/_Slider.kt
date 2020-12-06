@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.slider(
+public fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0
@@ -31,7 +31,7 @@ fun NodeManager.slider(
  *
  * @return the control created.
  */
-inline fun slider(
+public inline fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
@@ -49,7 +49,7 @@ inline fun slider(
  *
  * @return the control added.
  */
-inline fun NodeManager.slider(
+public inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
@@ -68,7 +68,7 @@ inline fun NodeManager.slider(
  *
  * @return the styled control created.
  */
-fun styledSlider(
+public fun styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
@@ -83,7 +83,7 @@ fun styledSlider(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledSlider(
+public fun NodeManager.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
@@ -99,7 +99,7 @@ fun NodeManager.styledSlider(
  *
  * @return the styled control created.
  */
-inline fun styledSlider(
+public inline fun styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,
@@ -123,7 +123,7 @@ inline fun styledSlider(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledSlider(
+public inline fun NodeManager.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 0.0,

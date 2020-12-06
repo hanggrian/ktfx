@@ -18,15 +18,17 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) { }
+public fun NodeManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) { }
 
 /**
  * Add a [RadioButton] to this manager.
  *
  * @return the control added.
  */
-fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) {
-}
+public fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioButton(
+    text =
+    text
+) { }
 
 /**
  * Create a [RadioButton] with configuration block.
@@ -34,10 +36,12 @@ fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioBu
  *
  * @return the control created.
  */
-inline fun radioButton(
+public inline fun radioButton(
     text: String? = null,
-    configuration: (@KtfxLayoutDslMarker RadioButton).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        RadioButton
+    ).() -> Unit
 ): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
@@ -51,7 +55,7 @@ inline fun radioButton(
  *
  * @return the control added.
  */
-inline fun NodeManager.radioButton(
+public inline fun NodeManager.radioButton(
     text: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -70,7 +74,7 @@ inline fun NodeManager.radioButton(
  *
  * @return the control added.
  */
-inline fun ToggleButtonManager.radioButton(
+public inline fun ToggleButtonManager.radioButton(
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit
 ): RadioButton {
@@ -87,7 +91,7 @@ inline fun ToggleButtonManager.radioButton(
  *
  * @return the styled control created.
  */
-fun styledRadioButton(
+public fun styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -100,7 +104,7 @@ fun styledRadioButton(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledRadioButton(
+public fun NodeManager.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -113,7 +117,7 @@ fun NodeManager.styledRadioButton(
  *
  * @return the styled control added.
  */
-fun ToggleButtonManager.styledRadioButton(
+public fun ToggleButtonManager.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -127,7 +131,7 @@ fun ToggleButtonManager.styledRadioButton(
  *
  * @return the styled control created.
  */
-inline fun styledRadioButton(
+public inline fun styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -149,7 +153,7 @@ inline fun styledRadioButton(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledRadioButton(
+public inline fun NodeManager.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -171,7 +175,7 @@ inline fun NodeManager.styledRadioButton(
  *
  * @return the styled control added.
  */
-inline fun ToggleButtonManager.styledRadioButton(
+public inline fun ToggleButtonManager.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

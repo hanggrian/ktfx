@@ -21,7 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> = taskProgressView() { }
+public fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> = taskProgressView() {
+}
 
 /**
  * Create a [TaskProgressView] with configuration block.
@@ -29,7 +30,7 @@ fun <T : Task<*>> NodeManager.taskProgressView(): TaskProgressView<T> = taskProg
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun <T : Task<*>> taskProgressView(
+public inline fun <T : Task<*>> taskProgressView(
     configuration: (
         @KtfxLayoutDslMarker
         TaskProgressView<T>
@@ -47,7 +48,7 @@ inline fun <T : Task<*>> taskProgressView(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun <T : Task<*>> NodeManager.taskProgressView(
+public inline fun <T : Task<*>> NodeManager.taskProgressView(
     configuration: (
         @KtfxLayoutDslMarker
         TaskProgressView<T>
@@ -66,7 +67,7 @@ inline fun <T : Task<*>> NodeManager.taskProgressView(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun <T : Task<*>> styledTaskProgressView(vararg styleClass: String, id: String? = null):
+public fun <T : Task<*>> styledTaskProgressView(vararg styleClass: String, id: String? = null):
     TaskProgressView<T> = styledTaskProgressView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -76,8 +77,11 @@ fun <T : Task<*>> styledTaskProgressView(vararg styleClass: String, id: String? 
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun <T : Task<*>> NodeManager.styledTaskProgressView(vararg styleClass: String, id: String? = null):
-    TaskProgressView<T> = styledTaskProgressView(styleClass = *styleClass, id = id) { }
+public fun <T : Task<*>> NodeManager.styledTaskProgressView(
+    vararg styleClass: String,
+    id: String? =    
+        null
+): TaskProgressView<T> = styledTaskProgressView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [TaskProgressView] with configuration block.
@@ -87,7 +91,7 @@ fun <T : Task<*>> NodeManager.styledTaskProgressView(vararg styleClass: String, 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun <T : Task<*>> styledTaskProgressView(
+public inline fun <T : Task<*>> styledTaskProgressView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker TaskProgressView<T>).() -> Unit
@@ -108,7 +112,7 @@ inline fun <T : Task<*>> styledTaskProgressView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun <T : Task<*>> NodeManager.styledTaskProgressView(
+public inline fun <T : Task<*>> NodeManager.styledTaskProgressView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker TaskProgressView<T>).() -> Unit

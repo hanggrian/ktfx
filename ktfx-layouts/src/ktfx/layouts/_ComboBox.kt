@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.comboBox(items: ObservableList<T> = observableArrayList()): ComboBox<T> =
+public fun <T> NodeManager.comboBox(items: ObservableList<T> = observableArrayList()): ComboBox<T> =
     comboBox(items = items) { }
 
 /**
@@ -29,7 +29,7 @@ fun <T> NodeManager.comboBox(items: ObservableList<T> = observableArrayList()): 
  *
  * @return the control created.
  */
-inline fun <T> comboBox(
+public inline fun <T> comboBox(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
@@ -45,7 +45,7 @@ inline fun <T> comboBox(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.comboBox(
+public inline fun <T> NodeManager.comboBox(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit
 ): ComboBox<T> {
@@ -62,7 +62,7 @@ inline fun <T> NodeManager.comboBox(
  *
  * @return the styled control created.
  */
-fun <T> styledComboBox(
+public fun <T> styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -75,7 +75,7 @@ fun <T> styledComboBox(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledComboBox(
+public fun <T> NodeManager.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -89,7 +89,7 @@ fun <T> NodeManager.styledComboBox(
  *
  * @return the styled control created.
  */
-inline fun <T> styledComboBox(
+public inline fun <T> styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ inline fun <T> styledComboBox(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledComboBox(
+public inline fun <T> NodeManager.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

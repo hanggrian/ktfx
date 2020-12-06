@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
+public fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
 
 /**
  * Create a [VBox] with configuration block.
@@ -27,13 +27,16 @@ fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
  *
  * @return the control created.
  */
-inline fun vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker KtfxVBox).() -> Unit):
-    VBox {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxVBox(spacing)
-        child.configuration()
-        return child
-    }
+public inline fun vbox(
+    spacing: Double = 0.0,
+    configuration: (@KtfxLayoutDslMarker KtfxVBox).() ->    
+    Unit
+): VBox {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxVBox(spacing)
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [VBox] with configuration block to this manager.
@@ -41,7 +44,7 @@ inline fun vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker Ktfx
  *
  * @return the control added.
  */
-inline fun NodeManager.vbox(
+public inline fun NodeManager.vbox(
     spacing: Double = 0.0,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -61,7 +64,7 @@ inline fun NodeManager.vbox(
  *
  * @return the styled control created.
  */
-fun styledVBox(
+public fun styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
@@ -74,7 +77,7 @@ fun styledVBox(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledVBox(
+public fun NodeManager.styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
@@ -88,7 +91,7 @@ fun NodeManager.styledVBox(
  *
  * @return the styled control created.
  */
-inline fun styledVBox(
+public inline fun styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +113,7 @@ inline fun styledVBox(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledVBox(
+public inline fun NodeManager.styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,

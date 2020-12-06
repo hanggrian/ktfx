@@ -14,7 +14,7 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXAutoCompletePopup.setSelectionHandler
  */
-inline fun <T> JFXAutoCompletePopup<T>.selectionHandler(
+public inline fun <T> JFXAutoCompletePopup<T>.selectionHandler(
     noinline
     action: (JFXAutoCompleteEvent<T>) -> Unit
 ) {

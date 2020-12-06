@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Window.setOnCloseRequest
  */
-fun Window.onCloseRequest(
+public fun Window.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WindowEvent) -> Unit
@@ -29,7 +29,7 @@ fun Window.onCloseRequest(
 /**
  * @see Window.setOnShowing
  */
-fun Window.onShowing(
+public fun Window.onShowing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WindowEvent) -> Unit
@@ -40,7 +40,7 @@ fun Window.onShowing(
 /**
  * @see Window.setOnShown
  */
-fun Window.onShown(
+public fun Window.onShown(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WindowEvent) -> Unit
@@ -51,7 +51,7 @@ fun Window.onShown(
 /**
  * @see Window.setOnHiding
  */
-fun Window.onHiding(
+public fun Window.onHiding(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WindowEvent) -> Unit
@@ -62,7 +62,7 @@ fun Window.onHiding(
 /**
  * @see Window.setOnHidden
  */
-fun Window.onHidden(
+public fun Window.onHidden(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WindowEvent) -> Unit

@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Service.setOnReady
  */
-fun Service<*>.onReady(
+public fun Service<*>.onReady(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -29,7 +29,7 @@ fun Service<*>.onReady(
 /**
  * @see Service.setOnScheduled
  */
-fun Service<*>.onScheduled(
+public fun Service<*>.onScheduled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -40,7 +40,7 @@ fun Service<*>.onScheduled(
 /**
  * @see Service.setOnRunning
  */
-fun Service<*>.onRunning(
+public fun Service<*>.onRunning(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -51,7 +51,7 @@ fun Service<*>.onRunning(
 /**
  * @see Service.setOnSucceeded
  */
-fun Service<*>.onSucceeded(
+public fun Service<*>.onSucceeded(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -62,7 +62,7 @@ fun Service<*>.onSucceeded(
 /**
  * @see Service.setOnCancelled
  */
-fun Service<*>.onCancelled(
+public fun Service<*>.onCancelled(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit
@@ -73,7 +73,7 @@ fun Service<*>.onCancelled(
 /**
  * @see Service.setOnFailed
  */
-fun Service<*>.onFailed(
+public fun Service<*>.onFailed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(WorkerStateEvent) -> Unit

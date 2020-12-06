@@ -21,8 +21,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDatePicker(date = date) {
-}
+public fun NodeManager.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDatePicker(
+    date =
+    date
+) { }
 
 /**
  * Create a [JFXDatePicker] with configuration block.
@@ -30,7 +32,7 @@ fun NodeManager.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDateP
  *
  * @return the control created.
  */
-inline fun jfxDatePicker(
+public inline fun jfxDatePicker(
     date: LocalDate? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -49,12 +51,9 @@ inline fun jfxDatePicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxDatePicker(
+public inline fun NodeManager.jfxDatePicker(
     date: LocalDate? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        JFXDatePicker
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker JFXDatePicker).() -> Unit
 ): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDatePicker(date)
@@ -69,7 +68,7 @@ inline fun NodeManager.jfxDatePicker(
  *
  * @return the styled control created.
  */
-fun styledJFXDatePicker(
+public fun styledJFXDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null
@@ -82,7 +81,7 @@ fun styledJFXDatePicker(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXDatePicker(
+public fun NodeManager.styledJFXDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null
@@ -96,7 +95,7 @@ fun NodeManager.styledJFXDatePicker(
  *
  * @return the styled control created.
  */
-inline fun styledJFXDatePicker(
+public inline fun styledJFXDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -118,7 +117,7 @@ inline fun styledJFXDatePicker(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXDatePicker(
+public inline fun NodeManager.styledJFXDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,

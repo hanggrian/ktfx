@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.treeView(root: TreeItem<T>? = null): TreeView<T> = treeView(root = root) { }
+public fun <T> NodeManager.treeView(root: TreeItem<T>? = null): TreeView<T> = treeView(root = root) { }
 
 /**
  * Create a [TreeView] with configuration block.
@@ -27,7 +27,7 @@ fun <T> NodeManager.treeView(root: TreeItem<T>? = null): TreeView<T> = treeView(
  *
  * @return the control created.
  */
-inline fun <T> treeView(
+public inline fun <T> treeView(
     root: TreeItem<T>? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -46,12 +46,9 @@ inline fun <T> treeView(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.treeView(
+public inline fun <T> NodeManager.treeView(
     root: TreeItem<T>? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        TreeView<T>
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker TreeView<T>).() -> Unit
 ): TreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TreeView<T>(root)
@@ -66,7 +63,7 @@ inline fun <T> NodeManager.treeView(
  *
  * @return the styled control created.
  */
-fun <T> styledTreeView(
+public fun <T> styledTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -79,7 +76,7 @@ fun <T> styledTreeView(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledTreeView(
+public fun <T> NodeManager.styledTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -93,7 +90,7 @@ fun <T> NodeManager.styledTreeView(
  *
  * @return the styled control created.
  */
-inline fun <T> styledTreeView(
+public inline fun <T> styledTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -115,7 +112,7 @@ inline fun <T> styledTreeView(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledTreeView(
+public inline fun <T> NodeManager.styledTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

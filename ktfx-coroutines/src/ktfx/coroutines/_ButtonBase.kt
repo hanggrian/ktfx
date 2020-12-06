@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see ButtonBase.setOnAction
  */
-fun ButtonBase.onAction(
+public fun ButtonBase.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit

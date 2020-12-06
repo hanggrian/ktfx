@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.listSelectionView(): ListSelectionView<T> = listSelectionView() { }
+public fun <T> NodeManager.listSelectionView(): ListSelectionView<T> = listSelectionView() { }
 
 /**
  * Create a [ListSelectionView] with configuration block.
@@ -28,9 +28,11 @@ fun <T> NodeManager.listSelectionView(): ListSelectionView<T> = listSelectionVie
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun <T> listSelectionView(
-    configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() ->
-    Unit
+public inline fun <T> listSelectionView(
+    configuration: (
+        @KtfxLayoutDslMarker
+        ListSelectionView<T>
+    ).() -> Unit
 ): ListSelectionView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListSelectionView<T>()
@@ -44,7 +46,7 @@ inline fun <T> listSelectionView(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun <T> NodeManager.listSelectionView(
+public inline fun <T> NodeManager.listSelectionView(
     configuration: (
         @KtfxLayoutDslMarker
         ListSelectionView<T>
@@ -63,8 +65,8 @@ inline fun <T> NodeManager.listSelectionView(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun <T> styledListSelectionView(vararg styleClass: String, id: String? = null): ListSelectionView<T> =
-    styledListSelectionView(styleClass = *styleClass, id = id) { }
+public fun <T> styledListSelectionView(vararg styleClass: String, id: String? = null):
+    ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ListSelectionView] to this manager.
@@ -73,7 +75,7 @@ fun <T> styledListSelectionView(vararg styleClass: String, id: String? = null): 
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun <T> NodeManager.styledListSelectionView(vararg styleClass: String, id: String? = null):
+public fun <T> NodeManager.styledListSelectionView(vararg styleClass: String, id: String? = null):
     ListSelectionView<T> = styledListSelectionView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -84,7 +86,7 @@ fun <T> NodeManager.styledListSelectionView(vararg styleClass: String, id: Strin
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun <T> styledListSelectionView(
+public inline fun <T> styledListSelectionView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit
@@ -105,7 +107,7 @@ inline fun <T> styledListSelectionView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledListSelectionView(
+public inline fun <T> NodeManager.styledListSelectionView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ListSelectionView<T>).() -> Unit

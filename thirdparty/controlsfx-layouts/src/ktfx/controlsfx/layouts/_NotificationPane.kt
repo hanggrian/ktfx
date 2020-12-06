@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.notificationPane(): NotificationPane = notificationPane() { }
+public fun NodeManager.notificationPane(): NotificationPane = notificationPane() { }
 
 /**
  * Create a [NotificationPane] with configuration block.
@@ -28,13 +28,15 @@ fun NodeManager.notificationPane(): NotificationPane = notificationPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun notificationPane(configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit):
-    NotificationPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxNotificationPane()
-        child.configuration()
-        return child
-    }
+public inline fun notificationPane(
+    configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() ->
+    Unit
+): NotificationPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxNotificationPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [NotificationPane] with configuration block to this manager.
@@ -42,7 +44,7 @@ inline fun notificationPane(configuration: (@KtfxLayoutDslMarker KtfxNotificatio
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.notificationPane(
+public inline fun NodeManager.notificationPane(
     configuration: (
         @KtfxLayoutDslMarker
         KtfxNotificationPane
@@ -61,7 +63,7 @@ inline fun NodeManager.notificationPane(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledNotificationPane(vararg styleClass: String, id: String? = null): NotificationPane =
+public fun styledNotificationPane(vararg styleClass: String, id: String? = null): NotificationPane =
     styledNotificationPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -71,7 +73,7 @@ fun styledNotificationPane(vararg styleClass: String, id: String? = null): Notif
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledNotificationPane(vararg styleClass: String, id: String? = null):
+public fun NodeManager.styledNotificationPane(vararg styleClass: String, id: String? = null):
     NotificationPane = styledNotificationPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -82,7 +84,7 @@ fun NodeManager.styledNotificationPane(vararg styleClass: String, id: String? = 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledNotificationPane(
+public inline fun styledNotificationPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit
@@ -103,7 +105,7 @@ inline fun styledNotificationPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledNotificationPane(
+public inline fun NodeManager.styledNotificationPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit

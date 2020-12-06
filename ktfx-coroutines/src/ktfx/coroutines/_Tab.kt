@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Tab.setOnSelectionChanged
  */
-fun Tab.onSelectionChanged(
+public fun Tab.onSelectionChanged(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -29,7 +29,7 @@ fun Tab.onSelectionChanged(
 /**
  * @see Tab.setOnClosed
  */
-fun Tab.onClosed(
+public fun Tab.onClosed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit
@@ -40,7 +40,7 @@ fun Tab.onClosed(
 /**
  * @see Tab.setOnCloseRequest
  */
-fun Tab.onCloseRequest(
+public fun Tab.onCloseRequest(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(Event) -> Unit

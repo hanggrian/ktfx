@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.box(
+public fun NodeManager.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE
@@ -32,7 +32,7 @@ fun NodeManager.box(
  *
  * @return the control created.
  */
-inline fun box(
+public inline fun box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -50,7 +50,7 @@ inline fun box(
  *
  * @return the control added.
  */
-inline fun NodeManager.box(
+public inline fun NodeManager.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -69,7 +69,7 @@ inline fun NodeManager.box(
  *
  * @return the styled control created.
  */
-fun styledBox(
+public fun styledBox(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -84,7 +84,7 @@ fun styledBox(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledBox(
+public fun NodeManager.styledBox(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -100,7 +100,7 @@ fun NodeManager.styledBox(
  *
  * @return the styled control created.
  */
-inline fun styledBox(
+public inline fun styledBox(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -124,7 +124,7 @@ inline fun styledBox(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledBox(
+public inline fun NodeManager.styledBox(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,

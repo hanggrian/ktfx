@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun PathElementManager.quadCurveTo(
+public fun PathElementManager.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,
@@ -31,7 +31,7 @@ fun PathElementManager.quadCurveTo(
  *
  * @return the control created.
  */
-inline fun quadCurveTo(
+public inline fun quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,
@@ -50,7 +50,7 @@ inline fun quadCurveTo(
  *
  * @return the control added.
  */
-inline fun PathElementManager.quadCurveTo(
+public inline fun PathElementManager.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,

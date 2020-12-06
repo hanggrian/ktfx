@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxSlider(
+public fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0
@@ -33,7 +33,7 @@ fun NodeManager.jfxSlider(
  *
  * @return the control created.
  */
-inline fun jfxSlider(
+public inline fun jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
@@ -51,7 +51,7 @@ inline fun jfxSlider(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxSlider(
+public inline fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
@@ -70,7 +70,7 @@ inline fun NodeManager.jfxSlider(
  *
  * @return the styled control created.
  */
-fun styledJFXSlider(
+public fun styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
@@ -79,7 +79,7 @@ fun styledJFXSlider(
 ): JFXSlider = styledJFXSlider(
     min = min, max = max, value = value, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -89,7 +89,7 @@ fun styledJFXSlider(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXSlider(
+public fun NodeManager.styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
@@ -98,7 +98,7 @@ fun NodeManager.styledJFXSlider(
 ): JFXSlider = styledJFXSlider(
     min = min, max = max, value = value, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -109,7 +109,7 @@ fun NodeManager.styledJFXSlider(
  *
  * @return the styled control created.
  */
-inline fun styledJFXSlider(
+public inline fun styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,
@@ -133,7 +133,7 @@ inline fun styledJFXSlider(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXSlider(
+public inline fun NodeManager.styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     value: Double = 50.0,

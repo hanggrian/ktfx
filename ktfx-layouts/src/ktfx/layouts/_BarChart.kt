@@ -23,10 +23,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <X, Y> NodeManager.barChart(
+public fun <X, Y> NodeManager.barChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0
 ): BarChart<X, Y> = barChart(x = x, y = y, data = data, categoryGap = categoryGap) { }
 
@@ -36,10 +36,10 @@ fun <X, Y> NodeManager.barChart(
  *
  * @return the control created.
  */
-inline fun <X, Y> barChart(
+public inline fun <X, Y> barChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
     configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
@@ -55,10 +55,10 @@ inline fun <X, Y> barChart(
  *
  * @return the control added.
  */
-inline fun <X, Y> NodeManager.barChart(
+public inline fun <X, Y> NodeManager.barChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
     configuration: (@KtfxLayoutDslMarker BarChart<X, Y>).() -> Unit
 ): BarChart<X, Y> {
@@ -75,17 +75,17 @@ inline fun <X, Y> NodeManager.barChart(
  *
  * @return the styled control created.
  */
-fun <X, Y> styledBarChart(
+public fun <X, Y> styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null
 ): BarChart<X, Y> = styledBarChart(
     x = x, y = y, data = data, categoryGap = categoryGap,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -96,17 +96,17 @@ fun <X, Y> styledBarChart(
  *
  * @return the styled control added.
  */
-fun <X, Y> NodeManager.styledBarChart(
+public fun <X, Y> NodeManager.styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null
 ): BarChart<X, Y> = styledBarChart(
     x = x, y = y, data = data, categoryGap = categoryGap,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -118,10 +118,10 @@ fun <X, Y> NodeManager.styledBarChart(
  *
  * @return the styled control created.
  */
-inline fun <X, Y> styledBarChart(
+public inline fun <X, Y> styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null,
@@ -143,10 +143,10 @@ inline fun <X, Y> styledBarChart(
  *
  * @return the styled control added.
  */
-inline fun <X, Y> NodeManager.styledBarChart(
+public inline fun <X, Y> NodeManager.styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     categoryGap: Double = 10.0,
     vararg styleClass: String,
     id: String? = null,

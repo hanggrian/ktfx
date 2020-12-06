@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see TextField.setOnAction
  */
-fun TextField.onAction(
+public fun TextField.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit

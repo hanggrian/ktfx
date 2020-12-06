@@ -28,7 +28,7 @@ tasks {
     dokkaHtml.configure {
         dokkaSourceSets {
             named("main") {
-                moduleDisplayName.set("$RELEASE_ARTIFACT-jfoenix-coroutines")
+                displayName.set("$RELEASE_ARTIFACT-jfoenix-coroutines")
                 sourceLink {
                     localDirectory.set(file("src"))
                     remoteUrl.set(github("thirdparty/jfoenix-coroutines"))

@@ -19,10 +19,9 @@ import kotlin.jvm.JvmName
 /**
  * @see ListView.setOnEditStart
  */
-fun <T> ListView<T>.onEditStart(
+public fun <T> ListView<T>.onEditStart(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ListView.EditEvent<T>) -> Unit
+    action: suspend CoroutineScope.(ListView.EditEvent<T>) -> Unit
 ) {
     return setOnEditStart { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -30,10 +29,9 @@ fun <T> ListView<T>.onEditStart(
 /**
  * @see ListView.setOnEditCommit
  */
-fun <T> ListView<T>.onEditCommit(
+public fun <T> ListView<T>.onEditCommit(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ListView.EditEvent<T>) -> Unit
+    action: suspend CoroutineScope.(ListView.EditEvent<T>) -> Unit
 ) {
     return setOnEditCommit { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -41,10 +39,9 @@ fun <T> ListView<T>.onEditCommit(
 /**
  * @see ListView.setOnEditCancel
  */
-fun <T> ListView<T>.onEditCancel(
+public fun <T> ListView<T>.onEditCancel(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ListView.EditEvent<T>) -> Unit
+    action: suspend CoroutineScope.(ListView.EditEvent<T>) -> Unit
 ) {
     return setOnEditCancel { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -52,10 +49,9 @@ fun <T> ListView<T>.onEditCancel(
 /**
  * @see ListView.setOnScrollTo
  */
-fun <T> ListView<T>.onScrollTo(
+public fun <T> ListView<T>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ScrollToEvent<Int>) -> Unit
+    action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
 ) {
     return setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 }

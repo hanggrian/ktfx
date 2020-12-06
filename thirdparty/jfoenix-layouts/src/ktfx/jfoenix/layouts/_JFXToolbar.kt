@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxToolbar(): JFXToolbar = jfxToolbar() { }
+public fun NodeManager.jfxToolbar(): JFXToolbar = jfxToolbar() { }
 
 /**
  * Create a [JFXToolbar] with configuration block.
@@ -28,12 +28,13 @@ fun NodeManager.jfxToolbar(): JFXToolbar = jfxToolbar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxToolbar(configuration: (@KtfxLayoutDslMarker KtfxJFXToolbar).() -> Unit): JFXToolbar {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxJFXToolbar()
-    child.configuration()
-    return child
-}
+public inline fun jfxToolbar(configuration: (@KtfxLayoutDslMarker KtfxJFXToolbar).() -> Unit):
+    JFXToolbar {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxJFXToolbar()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [JFXToolbar] with configuration block to this manager.
@@ -41,13 +42,15 @@ inline fun jfxToolbar(configuration: (@KtfxLayoutDslMarker KtfxJFXToolbar).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxToolbar(configuration: (@KtfxLayoutDslMarker KtfxJFXToolbar).() -> Unit):
-    JFXToolbar {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXToolbar()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.jfxToolbar(
+    configuration: (@KtfxLayoutDslMarker KtfxJFXToolbar).() ->
+    Unit
+): JFXToolbar {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXToolbar()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [JFXToolbar].
@@ -56,7 +59,7 @@ inline fun NodeManager.jfxToolbar(configuration: (@KtfxLayoutDslMarker KtfxJFXTo
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXToolbar(vararg styleClass: String, id: String? = null): JFXToolbar =
+public fun styledJFXToolbar(vararg styleClass: String, id: String? = null): JFXToolbar =
     styledJFXToolbar(styleClass = *styleClass, id = id) { }
 
 /**
@@ -66,7 +69,7 @@ fun styledJFXToolbar(vararg styleClass: String, id: String? = null): JFXToolbar 
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXToolbar(vararg styleClass: String, id: String? = null): JFXToolbar =
+public fun NodeManager.styledJFXToolbar(vararg styleClass: String, id: String? = null): JFXToolbar =
     styledJFXToolbar(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +80,7 @@ fun NodeManager.styledJFXToolbar(vararg styleClass: String, id: String? = null):
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXToolbar(
+public inline fun styledJFXToolbar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXToolbar).() -> Unit
@@ -98,7 +101,7 @@ inline fun styledJFXToolbar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXToolbar(
+public inline fun NodeManager.styledJFXToolbar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXToolbar).() -> Unit

@@ -17,7 +17,7 @@ import kotlin.jvm.JvmName
 /**
  * @see Media.setOnError
  */
-fun Media.onError(
+public fun Media.onError(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.() -> Unit

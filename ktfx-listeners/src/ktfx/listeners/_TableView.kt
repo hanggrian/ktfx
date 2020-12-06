@@ -17,23 +17,22 @@ import kotlin.jvm.JvmName
 /**
  * @see TableView.setOnSort
  */
-inline fun <S> TableView<S>.onSort(noinline action: (SortEvent<TableView<S>>) -> Unit) {
+public inline fun <S> TableView<S>.onSort(noinline action: (SortEvent<TableView<S>>) -> Unit) {
     return setOnSort(action)
 }
 
 /**
  * @see TableView.setOnScrollTo
  */
-inline fun <S> TableView<S>.onScrollTo(noinline action: (ScrollToEvent<Int>) -> Unit) {
+public inline fun <S> TableView<S>.onScrollTo(noinline action: (ScrollToEvent<Int>) -> Unit) {
     return setOnScrollTo(action)
 }
 
 /**
  * @see TableView.setOnScrollToColumn
  */
-inline fun <S> TableView<S>.onScrollToColumn(
-    noinline action: (ScrollToEvent<TableColumn<S, *>>) ->
-    Unit
+public inline fun <S> TableView<S>.onScrollToColumn(
+    noinline action: (ScrollToEvent<TableColumn<S, *>>) -> Unit
 ) {
     return setOnScrollToColumn(action)
 }

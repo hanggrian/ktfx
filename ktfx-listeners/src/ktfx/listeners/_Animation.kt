@@ -14,6 +14,6 @@ import kotlin.jvm.JvmName
 /**
  * @see Animation.setOnFinished
  */
-inline fun Animation.onFinished(noinline action: (ActionEvent) -> Unit) {
+public inline fun Animation.onFinished(noinline action: (ActionEvent) -> Unit) {
     return setOnFinished(action)
 }

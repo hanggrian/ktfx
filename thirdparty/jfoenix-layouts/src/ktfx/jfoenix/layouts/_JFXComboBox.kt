@@ -22,8 +22,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.jfxComboBox(items: ObservableList<T> = observableArrayList()): JFXComboBox<T> =
-    jfxComboBox(items = items) { }
+public fun <T> NodeManager.jfxComboBox(items: ObservableList<T> = observableArrayList()):
+    JFXComboBox<T> = jfxComboBox(items = items) { }
 
 /**
  * Create a [JFXComboBox] with configuration block.
@@ -31,7 +31,7 @@ fun <T> NodeManager.jfxComboBox(items: ObservableList<T> = observableArrayList()
  *
  * @return the control created.
  */
-inline fun <T> jfxComboBox(
+public inline fun <T> jfxComboBox(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
@@ -47,7 +47,7 @@ inline fun <T> jfxComboBox(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.jfxComboBox(
+public inline fun <T> NodeManager.jfxComboBox(
     items: ObservableList<T> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker JFXComboBox<T>).() -> Unit
 ): JFXComboBox<T> {
@@ -64,7 +64,7 @@ inline fun <T> NodeManager.jfxComboBox(
  *
  * @return the styled control created.
  */
-fun <T> styledJFXComboBox(
+public fun <T> styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -77,7 +77,7 @@ fun <T> styledJFXComboBox(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledJFXComboBox(
+public fun <T> NodeManager.styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -91,7 +91,7 @@ fun <T> NodeManager.styledJFXComboBox(
  *
  * @return the styled control created.
  */
-inline fun <T> styledJFXComboBox(
+public inline fun <T> styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -113,7 +113,7 @@ inline fun <T> styledJFXComboBox(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledJFXComboBox(
+public inline fun <T> NodeManager.styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

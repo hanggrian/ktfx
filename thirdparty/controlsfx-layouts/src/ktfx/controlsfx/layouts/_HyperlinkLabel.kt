@@ -20,8 +20,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.hyperlinkLabel(text: String? = null): HyperlinkLabel = hyperlinkLabel(text = text) {
-}
+public fun NodeManager.hyperlinkLabel(text: String? = null): HyperlinkLabel = hyperlinkLabel(
+    text =
+    text
+) { }
 
 /**
  * Create a [HyperlinkLabel] with configuration block.
@@ -29,7 +31,7 @@ fun NodeManager.hyperlinkLabel(text: String? = null): HyperlinkLabel = hyperlink
  *
  * @return the control created.
  */
-inline fun hyperlinkLabel(
+public inline fun hyperlinkLabel(
     text: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -48,12 +50,9 @@ inline fun hyperlinkLabel(
  *
  * @return the control added.
  */
-inline fun NodeManager.hyperlinkLabel(
+public inline fun NodeManager.hyperlinkLabel(
     text: String? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        HyperlinkLabel
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker HyperlinkLabel).() -> Unit
 ): HyperlinkLabel {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = HyperlinkLabel(text)
@@ -68,7 +67,7 @@ inline fun NodeManager.hyperlinkLabel(
  *
  * @return the styled control created.
  */
-fun styledHyperlinkLabel(
+public fun styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -81,7 +80,7 @@ fun styledHyperlinkLabel(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledHyperlinkLabel(
+public fun NodeManager.styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -95,7 +94,7 @@ fun NodeManager.styledHyperlinkLabel(
  *
  * @return the styled control created.
  */
-inline fun styledHyperlinkLabel(
+public inline fun styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -117,7 +116,7 @@ inline fun styledHyperlinkLabel(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledHyperlinkLabel(
+public inline fun NodeManager.styledHyperlinkLabel(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

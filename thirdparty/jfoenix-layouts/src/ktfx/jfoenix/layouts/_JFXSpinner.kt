@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinner =
+public fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinner =
     jfxSpinner(progress = progress) { }
 
 /**
@@ -31,7 +31,7 @@ fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinne
  *
  * @return the control created.
  */
-inline fun jfxSpinner(
+public inline fun jfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     configuration: (@KtfxLayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
@@ -47,7 +47,7 @@ inline fun jfxSpinner(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxSpinner(
+public inline fun NodeManager.jfxSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     configuration: (@KtfxLayoutDslMarker JFXSpinner).() -> Unit
 ): JFXSpinner {
@@ -64,7 +64,7 @@ inline fun NodeManager.jfxSpinner(
  *
  * @return the styled control created.
  */
-fun styledJFXSpinner(
+public fun styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null
@@ -77,7 +77,7 @@ fun styledJFXSpinner(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXSpinner(
+public fun NodeManager.styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null
@@ -91,7 +91,7 @@ fun NodeManager.styledJFXSpinner(
  *
  * @return the styled control created.
  */
-inline fun styledJFXSpinner(
+public inline fun styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -113,7 +113,7 @@ inline fun styledJFXSpinner(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXSpinner(
+public inline fun NodeManager.styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

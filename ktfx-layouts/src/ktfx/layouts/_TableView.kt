@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList()): TableView<S> =
+public fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList()): TableView<S> =
     tableView(items = items) { }
 
 /**
@@ -29,7 +29,7 @@ fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList()):
  *
  * @return the control created.
  */
-inline fun <S> tableView(
+public inline fun <S> tableView(
     items: ObservableList<S> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
@@ -45,7 +45,7 @@ inline fun <S> tableView(
  *
  * @return the control added.
  */
-inline fun <S> NodeManager.tableView(
+public inline fun <S> NodeManager.tableView(
     items: ObservableList<S> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit
 ): TableView<S> {
@@ -62,7 +62,7 @@ inline fun <S> NodeManager.tableView(
  *
  * @return the styled control created.
  */
-fun <S> styledTableView(
+public fun <S> styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -75,7 +75,7 @@ fun <S> styledTableView(
  *
  * @return the styled control added.
  */
-fun <S> NodeManager.styledTableView(
+public fun <S> NodeManager.styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
@@ -89,7 +89,7 @@ fun <S> NodeManager.styledTableView(
  *
  * @return the styled control created.
  */
-inline fun <S> styledTableView(
+public inline fun <S> styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ inline fun <S> styledTableView(
  *
  * @return the styled control added.
  */
-inline fun <S> NodeManager.styledTableView(
+public inline fun <S> NodeManager.styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

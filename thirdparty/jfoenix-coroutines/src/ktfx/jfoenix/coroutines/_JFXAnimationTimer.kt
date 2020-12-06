@@ -17,10 +17,9 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXAnimationTimer.setOnFinished
  */
-fun JFXAnimationTimer.onFinished(
+public fun JFXAnimationTimer.onFinished(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.() -> Unit
+    action: suspend CoroutineScope.() -> Unit
 ) {
     return setOnFinished { GlobalScope.launch(context) { action() } }
 }

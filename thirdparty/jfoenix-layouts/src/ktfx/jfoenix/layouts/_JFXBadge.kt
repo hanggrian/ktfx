@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxBadge(): JFXBadge = jfxBadge() { }
+public fun NodeManager.jfxBadge(): JFXBadge = jfxBadge() { }
 
 /**
  * Create a [JFXBadge] with configuration block.
@@ -28,12 +28,13 @@ fun NodeManager.jfxBadge(): JFXBadge = jfxBadge() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJFXBadge).() -> Unit): JFXBadge {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxJFXBadge()
-    child.configuration()
-    return child
-}
+public inline fun jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJFXBadge).() -> Unit):
+    JFXBadge {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxJFXBadge()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [JFXBadge] with configuration block to this manager.
@@ -41,13 +42,15 @@ inline fun jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJFXBadge).() -> Uni
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJFXBadge).() -> Unit):
-    JFXBadge {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXBadge()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.jfxBadge(
+    configuration: (@KtfxLayoutDslMarker KtfxJFXBadge).() ->
+    Unit
+): JFXBadge {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXBadge()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [JFXBadge].
@@ -56,7 +59,7 @@ inline fun NodeManager.jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJFXBadg
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXBadge(vararg styleClass: String, id: String? = null): JFXBadge =
+public fun styledJFXBadge(vararg styleClass: String, id: String? = null): JFXBadge =
     styledJFXBadge(styleClass = *styleClass, id = id) { }
 
 /**
@@ -66,7 +69,7 @@ fun styledJFXBadge(vararg styleClass: String, id: String? = null): JFXBadge =
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXBadge(vararg styleClass: String, id: String? = null): JFXBadge =
+public fun NodeManager.styledJFXBadge(vararg styleClass: String, id: String? = null): JFXBadge =
     styledJFXBadge(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +80,7 @@ fun NodeManager.styledJFXBadge(vararg styleClass: String, id: String? = null): J
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXBadge(
+public inline fun styledJFXBadge(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXBadge).() -> Unit
@@ -98,7 +101,7 @@ inline fun styledJFXBadge(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXBadge(
+public inline fun NodeManager.styledJFXBadge(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXBadge).() -> Unit

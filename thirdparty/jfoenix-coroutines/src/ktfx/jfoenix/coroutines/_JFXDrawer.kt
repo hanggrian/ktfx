@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXDrawer.setOnDrawerClosed
  */
-fun JFXDrawer.onDrawerClosed(
+public fun JFXDrawer.onDrawerClosed(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(JFXDrawerEvent) -> Unit
@@ -29,7 +29,7 @@ fun JFXDrawer.onDrawerClosed(
 /**
  * @see JFXDrawer.setOnDrawerClosing
  */
-fun JFXDrawer.onDrawerClosing(
+public fun JFXDrawer.onDrawerClosing(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(JFXDrawerEvent) -> Unit
@@ -40,7 +40,7 @@ fun JFXDrawer.onDrawerClosing(
 /**
  * @see JFXDrawer.setOnDrawerOpened
  */
-fun JFXDrawer.onDrawerOpened(
+public fun JFXDrawer.onDrawerOpened(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(JFXDrawerEvent) -> Unit
@@ -51,7 +51,7 @@ fun JFXDrawer.onDrawerOpened(
 /**
  * @see JFXDrawer.setOnDrawerOpening
  */
-fun JFXDrawer.onDrawerOpening(
+public fun JFXDrawer.onDrawerOpening(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(JFXDrawerEvent) -> Unit

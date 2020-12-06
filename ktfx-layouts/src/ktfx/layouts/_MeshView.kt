@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) { }
+public fun NodeManager.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) { }
 
 /**
  * Create a [MeshView] with configuration block.
@@ -27,13 +27,16 @@ fun NodeManager.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) {
  *
  * @return the control created.
  */
-inline fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker MeshView).() -> Unit):
-    MeshView {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = MeshView(mesh)
-        child.configuration()
-        return child
-    }
+public inline fun meshView(
+    mesh: Mesh? = null,
+    configuration: (@KtfxLayoutDslMarker MeshView).() ->    
+    Unit
+): MeshView {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = MeshView(mesh)
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [MeshView] with configuration block to this manager.
@@ -41,7 +44,7 @@ inline fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker Mes
  *
  * @return the control added.
  */
-inline fun NodeManager.meshView(
+public inline fun NodeManager.meshView(
     mesh: Mesh? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -61,7 +64,7 @@ inline fun NodeManager.meshView(
  *
  * @return the styled control created.
  */
-fun styledMeshView(
+public fun styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null
@@ -74,7 +77,7 @@ fun styledMeshView(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledMeshView(
+public fun NodeManager.styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null
@@ -88,7 +91,7 @@ fun NodeManager.styledMeshView(
  *
  * @return the styled control created.
  */
-inline fun styledMeshView(
+public inline fun styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -110,7 +113,7 @@ inline fun styledMeshView(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledMeshView(
+public inline fun NodeManager.styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,

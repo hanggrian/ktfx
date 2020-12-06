@@ -21,9 +21,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfxTreeView(
+public fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfxTreeView(
     root =
-        root
+    root
 ) { }
 
 /**
@@ -32,7 +32,7 @@ fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfx
  *
  * @return the control created.
  */
-inline fun <T> jfxTreeView(
+public inline fun <T> jfxTreeView(
     root: TreeItem<T>? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -51,7 +51,7 @@ inline fun <T> jfxTreeView(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.jfxTreeView(
+public inline fun <T> NodeManager.jfxTreeView(
     root: TreeItem<T>? = null,
     configuration: (@KtfxLayoutDslMarker JFXTreeView<T>).() -> Unit
 ): JFXTreeView<T> {
@@ -68,7 +68,7 @@ inline fun <T> NodeManager.jfxTreeView(
  *
  * @return the styled control created.
  */
-fun <T> styledJFXTreeView(
+public fun <T> styledJFXTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -81,7 +81,7 @@ fun <T> styledJFXTreeView(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledJFXTreeView(
+public fun <T> NodeManager.styledJFXTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -95,7 +95,7 @@ fun <T> NodeManager.styledJFXTreeView(
  *
  * @return the styled control created.
  */
-inline fun <T> styledJFXTreeView(
+public inline fun <T> styledJFXTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -117,7 +117,7 @@ inline fun <T> styledJFXTreeView(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledJFXTreeView(
+public inline fun <T> NodeManager.styledJFXTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

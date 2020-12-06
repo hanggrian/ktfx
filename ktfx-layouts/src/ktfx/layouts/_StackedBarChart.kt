@@ -22,10 +22,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <X, Y> NodeManager.stackedBarChart(
+public fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): StackedBarChart<X, Y> = stackedBarChart(x = x, y = y, data = data) { }
 
 /**
@@ -34,10 +34,10 @@ fun <X, Y> NodeManager.stackedBarChart(
  *
  * @return the control created.
  */
-inline fun <X, Y> stackedBarChart(
+public inline fun <X, Y> stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -52,10 +52,10 @@ inline fun <X, Y> stackedBarChart(
  *
  * @return the control added.
  */
-inline fun <X, Y> NodeManager.stackedBarChart(
+public inline fun <X, Y> NodeManager.stackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit
 ): StackedBarChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -71,16 +71,16 @@ inline fun <X, Y> NodeManager.stackedBarChart(
  *
  * @return the styled control created.
  */
-fun <X, Y> styledStackedBarChart(
+public fun <X, Y> styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): StackedBarChart<X, Y> = styledStackedBarChart(
     x = x, y = y, data = data,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -91,16 +91,16 @@ fun <X, Y> styledStackedBarChart(
  *
  * @return the styled control added.
  */
-fun <X, Y> NodeManager.styledStackedBarChart(
+public fun <X, Y> NodeManager.styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): StackedBarChart<X, Y> = styledStackedBarChart(
     x = x, y = y, data = data,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -112,10 +112,10 @@ fun <X, Y> NodeManager.styledStackedBarChart(
  *
  * @return the styled control created.
  */
-inline fun <X, Y> styledStackedBarChart(
+public inline fun <X, Y> styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit
@@ -136,10 +136,10 @@ inline fun <X, Y> styledStackedBarChart(
  *
  * @return the styled control added.
  */
-inline fun <X, Y> NodeManager.styledStackedBarChart(
+public inline fun <X, Y> NodeManager.styledStackedBarChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StackedBarChart<X, Y>).() -> Unit

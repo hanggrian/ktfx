@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeView<T> =
+public fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeView<T> =
     checkTreeView(root = root) { }
 
 /**
@@ -30,12 +30,9 @@ fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeV
  *
  * @return the control created.
  */
-inline fun <T> checkTreeView(
+public inline fun <T> checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        CheckTreeView<T>
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckTreeView<T>(root)
@@ -49,7 +46,7 @@ inline fun <T> checkTreeView(
  *
  * @return the control added.
  */
-inline fun <T> NodeManager.checkTreeView(
+public inline fun <T> NodeManager.checkTreeView(
     root: CheckBoxTreeItem<T>? = null,
     configuration: (@KtfxLayoutDslMarker CheckTreeView<T>).() -> Unit
 ): CheckTreeView<T> {
@@ -66,7 +63,7 @@ inline fun <T> NodeManager.checkTreeView(
  *
  * @return the styled control created.
  */
-fun <T> styledCheckTreeView(
+public fun <T> styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -79,7 +76,7 @@ fun <T> styledCheckTreeView(
  *
  * @return the styled control added.
  */
-fun <T> NodeManager.styledCheckTreeView(
+public fun <T> NodeManager.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null
@@ -93,7 +90,7 @@ fun <T> NodeManager.styledCheckTreeView(
  *
  * @return the styled control created.
  */
-inline fun <T> styledCheckTreeView(
+public inline fun <T> styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -115,7 +112,7 @@ inline fun <T> styledCheckTreeView(
  *
  * @return the styled control added.
  */
-inline fun <T> NodeManager.styledCheckTreeView(
+public inline fun <T> NodeManager.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

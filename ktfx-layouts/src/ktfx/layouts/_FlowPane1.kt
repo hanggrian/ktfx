@@ -21,7 +21,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.flowPane(orientation: Orientation = HORIZONTAL, gap: Double = 0.0): FlowPane =
+public fun NodeManager.flowPane(orientation: Orientation = HORIZONTAL, gap: Double = 0.0): FlowPane =
     flowPane(orientation = orientation, gap = gap) { }
 
 /**
@@ -30,7 +30,7 @@ fun NodeManager.flowPane(orientation: Orientation = HORIZONTAL, gap: Double = 0.
  *
  * @return the control created.
  */
-inline fun flowPane(
+public inline fun flowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit
@@ -47,7 +47,7 @@ inline fun flowPane(
  *
  * @return the control added.
  */
-inline fun NodeManager.flowPane(
+public inline fun NodeManager.flowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker KtfxFlowPane).() -> Unit
@@ -65,7 +65,7 @@ inline fun NodeManager.flowPane(
  *
  * @return the styled control created.
  */
-fun styledFlowPane(
+public fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
@@ -73,7 +73,7 @@ fun styledFlowPane(
 ): FlowPane = styledFlowPane(
     orientation = orientation, gap = gap, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -83,7 +83,7 @@ fun styledFlowPane(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledFlowPane(
+public fun NodeManager.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
@@ -91,7 +91,7 @@ fun NodeManager.styledFlowPane(
 ): FlowPane = styledFlowPane(
     orientation = orientation, gap = gap, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -102,7 +102,7 @@ fun NodeManager.styledFlowPane(
  *
  * @return the styled control created.
  */
-inline fun styledFlowPane(
+public inline fun styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,
@@ -125,7 +125,7 @@ inline fun styledFlowPane(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledFlowPane(
+public inline fun NodeManager.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     gap: Double = 0.0,
     vararg styleClass: String,

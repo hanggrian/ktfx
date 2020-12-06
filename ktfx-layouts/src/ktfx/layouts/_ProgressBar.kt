@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
+public fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
     progressBar(progress = progress) { }
 
 /**
@@ -29,7 +29,7 @@ fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): Progress
  *
  * @return the control created.
  */
-inline fun progressBar(
+public inline fun progressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
@@ -45,7 +45,7 @@ inline fun progressBar(
  *
  * @return the control added.
  */
-inline fun NodeManager.progressBar(
+public inline fun NodeManager.progressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit
 ): ProgressBar {
@@ -62,7 +62,7 @@ inline fun NodeManager.progressBar(
  *
  * @return the styled control created.
  */
-fun styledProgressBar(
+public fun styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null
@@ -75,7 +75,7 @@ fun styledProgressBar(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledProgressBar(
+public fun NodeManager.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null
@@ -89,7 +89,7 @@ fun NodeManager.styledProgressBar(
  *
  * @return the styled control created.
  */
-inline fun styledProgressBar(
+public inline fun styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -111,7 +111,7 @@ inline fun styledProgressBar(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledProgressBar(
+public inline fun NodeManager.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

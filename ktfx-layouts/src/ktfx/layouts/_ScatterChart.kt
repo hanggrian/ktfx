@@ -22,10 +22,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <X, Y> NodeManager.scatterChart(
+public fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): ScatterChart<X, Y> = scatterChart(x = x, y = y, data = data) { }
 
 /**
@@ -34,10 +34,10 @@ fun <X, Y> NodeManager.scatterChart(
  *
  * @return the control created.
  */
-inline fun <X, Y> scatterChart(
+public inline fun <X, Y> scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -52,10 +52,10 @@ inline fun <X, Y> scatterChart(
  *
  * @return the control added.
  */
-inline fun <X, Y> NodeManager.scatterChart(
+public inline fun <X, Y> NodeManager.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker ScatterChart<X, Y>).() -> Unit
 ): ScatterChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -71,16 +71,16 @@ inline fun <X, Y> NodeManager.scatterChart(
  *
  * @return the styled control created.
  */
-fun <X, Y> styledScatterChart(
+public fun <X, Y> styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): ScatterChart<X, Y> = styledScatterChart(
     x = x, y = y, data = data, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -90,16 +90,16 @@ fun <X, Y> styledScatterChart(
  *
  * @return the styled control added.
  */
-fun <X, Y> NodeManager.styledScatterChart(
+public fun <X, Y> NodeManager.styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): ScatterChart<X, Y> = styledScatterChart(
     x = x, y = y, data = data, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -110,10 +110,10 @@ fun <X, Y> NodeManager.styledScatterChart(
  *
  * @return the styled control created.
  */
-inline fun <X, Y> styledScatterChart(
+public inline fun <X, Y> styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ScatterChart<X, Y>).() -> Unit
@@ -134,10 +134,10 @@ inline fun <X, Y> styledScatterChart(
  *
  * @return the styled control added.
  */
-inline fun <X, Y> NodeManager.styledScatterChart(
+public inline fun <X, Y> NodeManager.styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ScatterChart<X, Y>).() -> Unit

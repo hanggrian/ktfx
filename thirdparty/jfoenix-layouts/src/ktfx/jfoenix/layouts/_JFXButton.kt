@@ -21,11 +21,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxButton(text: String? = null, graphic: Node? = null): JFXButton = jfxButton(
-    text =
-        text,
-    graphic = graphic
-) { }
+public fun NodeManager.jfxButton(text: String? = null, graphic: Node? = null): JFXButton =
+    jfxButton(text = text, graphic = graphic) { }
 
 /**
  * Create a [JFXButton] with configuration block.
@@ -33,7 +30,7 @@ fun NodeManager.jfxButton(text: String? = null, graphic: Node? = null): JFXButto
  *
  * @return the control created.
  */
-inline fun jfxButton(
+public inline fun jfxButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker JFXButton).() -> Unit
@@ -50,7 +47,7 @@ inline fun jfxButton(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxButton(
+public inline fun NodeManager.jfxButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker JFXButton).() -> Unit
@@ -68,7 +65,7 @@ inline fun NodeManager.jfxButton(
  *
  * @return the styled control created.
  */
-fun styledJFXButton(
+public fun styledJFXButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -83,7 +80,7 @@ fun styledJFXButton(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXButton(
+public fun NodeManager.styledJFXButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -99,7 +96,7 @@ fun NodeManager.styledJFXButton(
  *
  * @return the styled control created.
  */
-inline fun styledJFXButton(
+public inline fun styledJFXButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -122,7 +119,7 @@ inline fun styledJFXButton(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXButton(
+public inline fun NodeManager.styledJFXButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

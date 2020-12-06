@@ -19,11 +19,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem = menuItem(
-    text =
-        text,
-    graphic = graphic
-) { }
+public fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuItem =
+    menuItem(text = text, graphic = graphic) { }
 
 /**
  * Create a [MenuItem] with configuration block.
@@ -31,7 +28,7 @@ fun MenuItemManager.menuItem(text: String? = null, graphic: Node? = null): MenuI
  *
  * @return the control created.
  */
-inline fun menuItem(
+public inline fun menuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit
@@ -48,7 +45,7 @@ inline fun menuItem(
  *
  * @return the control added.
  */
-inline fun MenuItemManager.menuItem(
+public inline fun MenuItemManager.menuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit
@@ -66,7 +63,7 @@ inline fun MenuItemManager.menuItem(
  *
  * @return the styled control created.
  */
-fun styledMenuItem(
+public fun styledMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -80,7 +77,7 @@ fun styledMenuItem(
  *
  * @return the styled control added.
  */
-fun MenuItemManager.styledMenuItem(
+public fun MenuItemManager.styledMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -95,7 +92,7 @@ fun MenuItemManager.styledMenuItem(
  *
  * @return the styled control created.
  */
-inline fun styledMenuItem(
+public inline fun styledMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -118,7 +115,7 @@ inline fun styledMenuItem(
  *
  * @return the styled control added.
  */
-inline fun MenuItemManager.styledMenuItem(
+public inline fun MenuItemManager.styledMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

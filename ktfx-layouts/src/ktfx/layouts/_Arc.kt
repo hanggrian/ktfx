@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.arc(
+public fun NodeManager.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -29,7 +29,7 @@ fun NodeManager.arc(
 ): Arc = arc(
     centerX = centerX, centerY = centerY, radiusX = radiusX, radiusY = radiusY,
     startAngle =
-        startAngle,
+    startAngle,
     length = length
 ) { }
 
@@ -39,7 +39,7 @@ fun NodeManager.arc(
  *
  * @return the control created.
  */
-inline fun arc(
+public inline fun arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -60,7 +60,7 @@ inline fun arc(
  *
  * @return the control added.
  */
-inline fun NodeManager.arc(
+public inline fun NodeManager.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -82,7 +82,7 @@ inline fun NodeManager.arc(
  *
  * @return the styled control created.
  */
-fun styledArc(
+public fun styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -103,7 +103,7 @@ fun styledArc(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledArc(
+public fun NodeManager.styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -125,7 +125,7 @@ fun NodeManager.styledArc(
  *
  * @return the styled control created.
  */
-inline fun styledArc(
+public inline fun styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -152,7 +152,7 @@ inline fun styledArc(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledArc(
+public inline fun NodeManager.styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

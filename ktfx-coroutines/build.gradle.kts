@@ -28,7 +28,7 @@ tasks {
     dokkaHtml.configure {
         dokkaSourceSets {
             named("main") {
-                moduleDisplayName.set("$RELEASE_ARTIFACT-coroutines")
+                displayName.set("$RELEASE_ARTIFACT-coroutines")
                 sourceLink {
                     localDirectory.set(file("src"))
                     remoteUrl.set(github("ktfx-coroutines"))

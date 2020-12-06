@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxNodesList(): JFXNodesList = jfxNodesList() { }
+public fun NodeManager.jfxNodesList(): JFXNodesList = jfxNodesList() { }
 
 /**
  * Create a [JFXNodesList] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.jfxNodesList(): JFXNodesList = jfxNodesList() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxNodesList(configuration: (@KtfxLayoutDslMarker KtfxJFXNodesList).() -> Unit):
+public inline fun jfxNodesList(configuration: (@KtfxLayoutDslMarker KtfxJFXNodesList).() -> Unit):
     JFXNodesList {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxJFXNodesList()
@@ -42,9 +42,11 @@ inline fun jfxNodesList(configuration: (@KtfxLayoutDslMarker KtfxJFXNodesList).(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxNodesList(
-    configuration: (@KtfxLayoutDslMarker KtfxJFXNodesList).() ->
-    Unit
+public inline fun NodeManager.jfxNodesList(
+    configuration: (
+        @KtfxLayoutDslMarker
+        KtfxJFXNodesList
+    ).() -> Unit
 ): JFXNodesList {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJFXNodesList()
@@ -59,7 +61,7 @@ inline fun NodeManager.jfxNodesList(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXNodesList(vararg styleClass: String, id: String? = null): JFXNodesList =
+public fun styledJFXNodesList(vararg styleClass: String, id: String? = null): JFXNodesList =
     styledJFXNodesList(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,8 +71,8 @@ fun styledJFXNodesList(vararg styleClass: String, id: String? = null): JFXNodesL
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXNodesList(vararg styleClass: String, id: String? = null): JFXNodesList =
-    styledJFXNodesList(styleClass = *styleClass, id = id) { }
+public fun NodeManager.styledJFXNodesList(vararg styleClass: String, id: String? = null):
+    JFXNodesList = styledJFXNodesList(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXNodesList] with configuration block.
@@ -80,7 +82,7 @@ fun NodeManager.styledJFXNodesList(vararg styleClass: String, id: String? = null
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXNodesList(
+public inline fun styledJFXNodesList(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXNodesList).() -> Unit
@@ -101,7 +103,7 @@ inline fun styledJFXNodesList(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXNodesList(
+public inline fun NodeManager.styledJFXNodesList(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXNodesList).() -> Unit

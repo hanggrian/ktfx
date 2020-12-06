@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun MenuItemManager.checkMenuItem(text: String? = null, graphic: Node? = null): CheckMenuItem =
+public fun MenuItemManager.checkMenuItem(text: String? = null, graphic: Node? = null): CheckMenuItem =
     checkMenuItem(text = text, graphic = graphic) { }
 
 /**
@@ -28,7 +28,7 @@ fun MenuItemManager.checkMenuItem(text: String? = null, graphic: Node? = null): 
  *
  * @return the control created.
  */
-inline fun checkMenuItem(
+public inline fun checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker CheckMenuItem).() -> Unit
@@ -45,7 +45,7 @@ inline fun checkMenuItem(
  *
  * @return the control added.
  */
-inline fun MenuItemManager.checkMenuItem(
+public inline fun MenuItemManager.checkMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker CheckMenuItem).() -> Unit
@@ -63,7 +63,7 @@ inline fun MenuItemManager.checkMenuItem(
  *
  * @return the styled control created.
  */
-fun styledCheckMenuItem(
+public fun styledCheckMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -71,7 +71,7 @@ fun styledCheckMenuItem(
 ): CheckMenuItem = styledCheckMenuItem(
     text = text, graphic = graphic, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -81,7 +81,7 @@ fun styledCheckMenuItem(
  *
  * @return the styled control added.
  */
-fun MenuItemManager.styledCheckMenuItem(
+public fun MenuItemManager.styledCheckMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -89,7 +89,7 @@ fun MenuItemManager.styledCheckMenuItem(
 ): CheckMenuItem = styledCheckMenuItem(
     text = text, graphic = graphic, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -100,7 +100,7 @@ fun MenuItemManager.styledCheckMenuItem(
  *
  * @return the styled control created.
  */
-inline fun styledCheckMenuItem(
+public inline fun styledCheckMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -123,7 +123,7 @@ inline fun styledCheckMenuItem(
  *
  * @return the styled control added.
  */
-inline fun MenuItemManager.styledCheckMenuItem(
+public inline fun MenuItemManager.styledCheckMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

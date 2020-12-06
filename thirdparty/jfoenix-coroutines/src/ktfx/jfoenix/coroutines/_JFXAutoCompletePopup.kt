@@ -18,8 +18,9 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXAutoCompletePopup.setSelectionHandler
  */
-fun <T> JFXAutoCompletePopup<T>.selectionHandler(
-    context: CoroutineContext = Dispatchers.JavaFx,
+public fun <T> JFXAutoCompletePopup<T>.selectionHandler(
+    context: CoroutineContext =
+        Dispatchers.JavaFx,
     action: suspend CoroutineScope.(JFXAutoCompleteEvent<T>) -> Unit
 ) {
     return setSelectionHandler { event -> GlobalScope.launch(context) { action(event) } }

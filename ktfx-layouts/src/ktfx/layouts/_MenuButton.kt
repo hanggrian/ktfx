@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
+public fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
     menuButton(text = text, graphic = graphic) { }
 
 /**
@@ -28,7 +28,7 @@ fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuBut
  *
  * @return the control created.
  */
-inline fun menuButton(
+public inline fun menuButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit
@@ -45,7 +45,7 @@ inline fun menuButton(
  *
  * @return the control added.
  */
-inline fun NodeManager.menuButton(
+public inline fun NodeManager.menuButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit
@@ -63,7 +63,7 @@ inline fun NodeManager.menuButton(
  *
  * @return the styled control created.
  */
-fun styledMenuButton(
+public fun styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -77,7 +77,7 @@ fun styledMenuButton(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledMenuButton(
+public fun NodeManager.styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -92,7 +92,7 @@ fun NodeManager.styledMenuButton(
  *
  * @return the styled control created.
  */
-inline fun styledMenuButton(
+public inline fun styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -115,7 +115,7 @@ inline fun styledMenuButton(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledMenuButton(
+public inline fun NodeManager.styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

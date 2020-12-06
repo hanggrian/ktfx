@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.pane(): Pane = pane() { }
+public fun NodeManager.pane(): Pane = pane() { }
 
 /**
  * Create a [Pane] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.pane(): Pane = pane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
+public inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit): Pane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxPane()
-    child.configuration()
-    return addChild(child)
-}
+public inline fun NodeManager.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit):
+    Pane {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxPane()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [Pane].
@@ -53,9 +54,9 @@ inline fun NodeManager.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() ->
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledPane(vararg styleClass: String, id: String? = null): Pane = styledPane(
+public fun styledPane(vararg styleClass: String, id: String? = null): Pane = styledPane(
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -66,7 +67,7 @@ fun styledPane(vararg styleClass: String, id: String? = null): Pane = styledPane
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledPane(vararg styleClass: String, id: String? = null): Pane =
+public fun NodeManager.styledPane(vararg styleClass: String, id: String? = null): Pane =
     styledPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +78,7 @@ fun NodeManager.styledPane(vararg styleClass: String, id: String? = null): Pane 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledPane(
+public inline fun styledPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit
@@ -98,7 +99,7 @@ inline fun styledPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledPane(
+public inline fun NodeManager.styledPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit

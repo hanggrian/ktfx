@@ -1,9 +1,9 @@
 package com.hendraanggrian.ktfx.codegen
 
+import com.hendraanggrian.kotlinpoet.VARARG
 import com.hendraanggrian.kotlinpoet.classOf
 import com.hendraanggrian.kotlinpoet.memberOf
 import com.hendraanggrian.kotlinpoet.typeVarOf
-import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 
 const val KTFX_LAYOUTS = "ktfx.layouts"
@@ -28,7 +28,7 @@ fun List<ParameterSpec>.toString(namedArgument: Boolean, commaSuffix: Boolean): 
                 append(it.name)
                 if (namedArgument) append(" = ${it.name}")
             }
-            if (KModifier.VARARG in it.modifiers) {
+            if (VARARG in it.modifiers) {
                 val index = s.lastIndexOf(it.name)
                 s = s.substring(0, index) + '*' + s.substring(index)
             }

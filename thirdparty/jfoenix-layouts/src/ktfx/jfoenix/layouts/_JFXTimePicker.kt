@@ -21,8 +21,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimePicker(time = time) {
-}
+public fun NodeManager.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimePicker(
+    time =
+    time
+) { }
 
 /**
  * Create a [JFXTimePicker] with configuration block.
@@ -30,7 +32,7 @@ fun NodeManager.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimeP
  *
  * @return the control created.
  */
-inline fun jfxTimePicker(
+public inline fun jfxTimePicker(
     time: LocalTime? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -49,12 +51,9 @@ inline fun jfxTimePicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxTimePicker(
+public inline fun NodeManager.jfxTimePicker(
     time: LocalTime? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        JFXTimePicker
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker JFXTimePicker).() -> Unit
 ): JFXTimePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTimePicker(time)
@@ -69,7 +68,7 @@ inline fun NodeManager.jfxTimePicker(
  *
  * @return the styled control created.
  */
-fun styledJFXTimePicker(
+public fun styledJFXTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null
@@ -82,7 +81,7 @@ fun styledJFXTimePicker(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXTimePicker(
+public fun NodeManager.styledJFXTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null
@@ -96,7 +95,7 @@ fun NodeManager.styledJFXTimePicker(
  *
  * @return the styled control created.
  */
-inline fun styledJFXTimePicker(
+public inline fun styledJFXTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -118,7 +117,7 @@ inline fun styledJFXTimePicker(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXTimePicker(
+public inline fun NodeManager.styledJFXTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,

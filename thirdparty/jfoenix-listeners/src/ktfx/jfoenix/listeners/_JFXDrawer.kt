@@ -14,27 +14,27 @@ import kotlin.jvm.JvmName
 /**
  * @see JFXDrawer.setOnDrawerClosed
  */
-inline fun JFXDrawer.onDrawerClosed(noinline action: (JFXDrawerEvent) -> Unit) {
+public inline fun JFXDrawer.onDrawerClosed(noinline action: (JFXDrawerEvent) -> Unit) {
     return setOnDrawerClosed(action)
 }
 
 /**
  * @see JFXDrawer.setOnDrawerClosing
  */
-inline fun JFXDrawer.onDrawerClosing(noinline action: (JFXDrawerEvent) -> Unit) {
+public inline fun JFXDrawer.onDrawerClosing(noinline action: (JFXDrawerEvent) -> Unit) {
     return setOnDrawerClosing(action)
 }
 
 /**
  * @see JFXDrawer.setOnDrawerOpened
  */
-inline fun JFXDrawer.onDrawerOpened(noinline action: (JFXDrawerEvent) -> Unit) {
+public inline fun JFXDrawer.onDrawerOpened(noinline action: (JFXDrawerEvent) -> Unit) {
     return setOnDrawerOpened(action)
 }
 
 /**
  * @see JFXDrawer.setOnDrawerOpening
  */
-inline fun JFXDrawer.onDrawerOpening(noinline action: (JFXDrawerEvent) -> Unit) {
+public inline fun JFXDrawer.onDrawerOpening(noinline action: (JFXDrawerEvent) -> Unit) {
     return setOnDrawerOpening(action)
 }

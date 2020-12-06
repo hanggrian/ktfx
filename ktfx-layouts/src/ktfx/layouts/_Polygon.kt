@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.polygon(): Polygon = polygon() { }
+public fun NodeManager.polygon(): Polygon = polygon() { }
 
 /**
  * Create a [Polygon] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.polygon(): Polygon = polygon() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit): Polygon {
+public inline fun polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit): Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polygon()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit): Po
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit): Polygon {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Polygon()
-    child.configuration()
-    return addChild(child)
-}
+public inline fun NodeManager.polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit):
+    Polygon {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = Polygon()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [Polygon].
@@ -53,11 +54,8 @@ inline fun NodeManager.polygon(configuration: (@KtfxLayoutDslMarker Polygon).() 
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon = styledPolygon(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+public fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
+    styledPolygon(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [Polygon] to this manager.
@@ -66,7 +64,7 @@ fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon = styl
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
+public fun NodeManager.styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
     styledPolygon(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +75,7 @@ fun NodeManager.styledPolygon(vararg styleClass: String, id: String? = null): Po
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledPolygon(
+public inline fun styledPolygon(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit
@@ -98,7 +96,7 @@ inline fun styledPolygon(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledPolygon(
+public inline fun NodeManager.styledPolygon(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit

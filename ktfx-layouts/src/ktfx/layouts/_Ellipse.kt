@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.ellipse(
+public fun NodeManager.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -32,7 +32,7 @@ fun NodeManager.ellipse(
  *
  * @return the control created.
  */
-inline fun ellipse(
+public inline fun ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -51,7 +51,7 @@ inline fun ellipse(
  *
  * @return the control added.
  */
-inline fun NodeManager.ellipse(
+public inline fun NodeManager.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -71,7 +71,7 @@ inline fun NodeManager.ellipse(
  *
  * @return the styled control created.
  */
-fun styledEllipse(
+public fun styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -81,7 +81,7 @@ fun styledEllipse(
 ): Ellipse = styledEllipse(
     centerX = centerX, centerY = centerY, radiusX = radiusX,
     radiusY =
-        radiusY,
+    radiusY,
     styleClass = *styleClass, id = id
 ) { }
 
@@ -92,7 +92,7 @@ fun styledEllipse(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledEllipse(
+public fun NodeManager.styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -102,7 +102,7 @@ fun NodeManager.styledEllipse(
 ): Ellipse = styledEllipse(
     centerX = centerX, centerY = centerY, radiusX = radiusX,
     radiusY =
-        radiusY,
+    radiusY,
     styleClass = *styleClass, id = id
 ) { }
 
@@ -114,7 +114,7 @@ fun NodeManager.styledEllipse(
  *
  * @return the styled control created.
  */
-inline fun styledEllipse(
+public inline fun styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -139,7 +139,7 @@ inline fun styledEllipse(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledEllipse(
+public inline fun NodeManager.styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

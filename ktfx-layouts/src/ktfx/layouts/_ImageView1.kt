@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.imageView(imageUrl: String): ImageView = imageView(imageUrl = imageUrl) { }
+public fun NodeManager.imageView(imageUrl: String): ImageView = imageView(imageUrl = imageUrl) { }
 
 /**
  * Create an [ImageView] with configuration block.
@@ -26,13 +26,16 @@ fun NodeManager.imageView(imageUrl: String): ImageView = imageView(imageUrl = im
  *
  * @return the control created.
  */
-inline fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker ImageView).() -> Unit):
-    ImageView {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = ImageView(imageUrl)
-        child.configuration()
-        return child
-    }
+public inline fun imageView(
+    imageUrl: String,
+    configuration: (@KtfxLayoutDslMarker ImageView).() ->    
+    Unit
+): ImageView {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = ImageView(imageUrl)
+    child.configuration()
+    return child
+}
 
 /**
  * Add an [ImageView] with configuration block to this manager.
@@ -40,7 +43,7 @@ inline fun imageView(imageUrl: String, configuration: (@KtfxLayoutDslMarker Imag
  *
  * @return the control added.
  */
-inline fun NodeManager.imageView(
+public inline fun NodeManager.imageView(
     imageUrl: String,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -60,7 +63,7 @@ inline fun NodeManager.imageView(
  *
  * @return the styled control created.
  */
-fun styledImageView(
+public fun styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null
@@ -73,7 +76,7 @@ fun styledImageView(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledImageView(
+public fun NodeManager.styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null
@@ -87,7 +90,7 @@ fun NodeManager.styledImageView(
  *
  * @return the styled control created.
  */
-inline fun styledImageView(
+public inline fun styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,
@@ -109,7 +112,7 @@ inline fun styledImageView(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledImageView(
+public inline fun NodeManager.styledImageView(
     imageUrl: String,
     vararg styleClass: String,
     id: String? = null,

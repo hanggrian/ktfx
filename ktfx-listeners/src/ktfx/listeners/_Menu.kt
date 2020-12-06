@@ -14,27 +14,27 @@ import kotlin.jvm.JvmName
 /**
  * @see Menu.setOnShowing
  */
-inline fun Menu.onShowing(noinline action: (Event) -> Unit) {
+public inline fun Menu.onShowing(noinline action: (Event) -> Unit) {
     return setOnShowing(action)
 }
 
 /**
  * @see Menu.setOnShown
  */
-inline fun Menu.onShown(noinline action: (Event) -> Unit) {
+public inline fun Menu.onShown(noinline action: (Event) -> Unit) {
     return setOnShown(action)
 }
 
 /**
  * @see Menu.setOnHiding
  */
-inline fun Menu.onHiding(noinline action: (Event) -> Unit) {
+public inline fun Menu.onHiding(noinline action: (Event) -> Unit) {
     return setOnHiding(action)
 }
 
 /**
  * @see Menu.setOnHidden
  */
-inline fun Menu.onHidden(noinline action: (Event) -> Unit) {
+public inline fun Menu.onHidden(noinline action: (Event) -> Unit) {
     return setOnHidden(action)
 }

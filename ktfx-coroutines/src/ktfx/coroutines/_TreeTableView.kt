@@ -21,10 +21,9 @@ import kotlin.jvm.JvmName
 /**
  * @see TreeTableView.setOnSort
  */
-fun <T> TreeTableView<T>.onSort(
+public fun <T> TreeTableView<T>.onSort(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(SortEvent<TreeTableView<T>>) -> Unit
+    action: suspend CoroutineScope.(SortEvent<TreeTableView<T>>) -> Unit
 ) {
     return setOnSort { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -32,10 +31,9 @@ fun <T> TreeTableView<T>.onSort(
 /**
  * @see TreeTableView.setOnScrollTo
  */
-fun <T> TreeTableView<T>.onScrollTo(
+public fun <T> TreeTableView<T>.onScrollTo(
     context: CoroutineContext = Dispatchers.JavaFx,
-    action: suspend    
-    CoroutineScope.(ScrollToEvent<Int>) -> Unit
+    action: suspend CoroutineScope.(ScrollToEvent<Int>) -> Unit
 ) {
     return setOnScrollTo { event -> GlobalScope.launch(context) { action(event) } }
 }
@@ -43,7 +41,7 @@ fun <T> TreeTableView<T>.onScrollTo(
 /**
  * @see TreeTableView.setOnScrollToColumn
  */
-fun <T> TreeTableView<T>.onScrollToColumn(
+public fun <T> TreeTableView<T>.onScrollToColumn(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend CoroutineScope.(ScrollToEvent<TreeTableColumn<T, *>>) -> Unit
 ) {

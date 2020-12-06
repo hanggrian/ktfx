@@ -31,7 +31,7 @@ tasks {
     dokkaHtml.configure {
         dokkaSourceSets {
             named("main") {
-                moduleDisplayName.set("$RELEASE_ARTIFACT-commons")
+                displayName.set("$RELEASE_ARTIFACT-commons")
                 sourceLink {
                     localDirectory.set(file("src"))
                     remoteUrl.set(github("ktfx-commons"))

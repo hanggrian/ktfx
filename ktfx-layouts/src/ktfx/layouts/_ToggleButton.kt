@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
+public fun NodeManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
     toggleButton(text = text, graphic = graphic) { }
 
 /**
@@ -27,8 +27,8 @@ fun NodeManager.toggleButton(text: String? = null, graphic: Node? = null): Toggl
  *
  * @return the control added.
  */
-fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
-    toggleButton(text = text, graphic = graphic) { }
+public fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null):
+    ToggleButton = toggleButton(text = text, graphic = graphic) { }
 
 /**
  * Create a [ToggleButton] with configuration block.
@@ -36,7 +36,7 @@ fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null
  *
  * @return the control created.
  */
-inline fun toggleButton(
+public inline fun toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit
@@ -53,7 +53,7 @@ inline fun toggleButton(
  *
  * @return the control added.
  */
-inline fun NodeManager.toggleButton(
+public inline fun NodeManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit
@@ -70,7 +70,7 @@ inline fun NodeManager.toggleButton(
  *
  * @return the control added.
  */
-inline fun ToggleButtonManager.toggleButton(
+public inline fun ToggleButtonManager.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit
@@ -88,7 +88,7 @@ inline fun ToggleButtonManager.toggleButton(
  *
  * @return the styled control created.
  */
-fun styledToggleButton(
+public fun styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -96,7 +96,7 @@ fun styledToggleButton(
 ): ToggleButton = styledToggleButton(
     text = text, graphic = graphic, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -106,7 +106,7 @@ fun styledToggleButton(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledToggleButton(
+public fun NodeManager.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -114,7 +114,7 @@ fun NodeManager.styledToggleButton(
 ): ToggleButton = styledToggleButton(
     text = text, graphic = graphic, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -124,7 +124,7 @@ fun NodeManager.styledToggleButton(
  *
  * @return the styled control added.
  */
-fun ToggleButtonManager.styledToggleButton(
+public fun ToggleButtonManager.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -132,7 +132,7 @@ fun ToggleButtonManager.styledToggleButton(
 ): ToggleButton = styledToggleButton(
     text = text, graphic = graphic, styleClass = *styleClass,
     id =
-        id
+    id
 ) { }
 
 /**
@@ -143,7 +143,7 @@ fun ToggleButtonManager.styledToggleButton(
  *
  * @return the styled control created.
  */
-inline fun styledToggleButton(
+public inline fun styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -166,7 +166,7 @@ inline fun styledToggleButton(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledToggleButton(
+public inline fun NodeManager.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -189,7 +189,7 @@ inline fun NodeManager.styledToggleButton(
  *
  * @return the styled control added.
  */
-inline fun ToggleButtonManager.styledToggleButton(
+public inline fun ToggleButtonManager.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

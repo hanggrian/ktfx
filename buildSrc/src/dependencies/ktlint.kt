@@ -6,7 +6,7 @@ import org.gradle.kotlin.dsl.invoke
 import org.gradle.kotlin.dsl.register
 import org.gradle.language.base.plugins.LifecycleBasePlugin
 
-private const val VERSION_KTLINT = "0.37.2"
+private const val VERSION_KTLINT = "0.40.0"
 
 fun Dependencies.ktlint(module: String? = null) = when (module) {
     null -> "com.pinterest:ktlint:$VERSION_KTLINT"

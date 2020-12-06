@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.line(
+public fun NodeManager.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -32,7 +32,7 @@ fun NodeManager.line(
  *
  * @return the control created.
  */
-inline fun line(
+public inline fun line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -51,7 +51,7 @@ inline fun line(
  *
  * @return the control added.
  */
-inline fun NodeManager.line(
+public inline fun NodeManager.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -71,7 +71,7 @@ inline fun NodeManager.line(
  *
  * @return the styled control created.
  */
-fun styledLine(
+public fun styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -81,7 +81,7 @@ fun styledLine(
 ): Line = styledLine(
     centerX = centerX, centerY = centerY, endX = endX, endY = endY,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -92,7 +92,7 @@ fun styledLine(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledLine(
+public fun NodeManager.styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -102,7 +102,7 @@ fun NodeManager.styledLine(
 ): Line = styledLine(
     centerX = centerX, centerY = centerY, endX = endX, endY = endY,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -114,7 +114,7 @@ fun NodeManager.styledLine(
  *
  * @return the styled control created.
  */
-inline fun styledLine(
+public inline fun styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -139,7 +139,7 @@ inline fun styledLine(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledLine(
+public inline fun NodeManager.styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,

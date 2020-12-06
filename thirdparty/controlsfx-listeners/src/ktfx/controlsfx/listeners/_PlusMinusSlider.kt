@@ -13,9 +13,9 @@ import kotlin.jvm.JvmName
 /**
  * @see PlusMinusSlider.setOnValueChanged
  */
-inline fun PlusMinusSlider.onValueChanged(
-    noinline action: (PlusMinusSlider.PlusMinusEvent) ->
-    Unit
+public inline fun PlusMinusSlider.onValueChanged(
+    noinline
+    action: (PlusMinusSlider.PlusMinusEvent) -> Unit
 ) {
     return setOnValueChanged(action)
 }

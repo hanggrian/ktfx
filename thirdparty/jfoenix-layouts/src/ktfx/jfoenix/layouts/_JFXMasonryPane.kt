@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
+public fun NodeManager.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
 
 /**
  * Create a [JFXMasonryPane] with configuration block.
@@ -28,13 +28,15 @@ fun NodeManager.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker KtfxJFXMasonryPane).() -> Unit):
-    JFXMasonryPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXMasonryPane()
-        child.configuration()
-        return child
-    }
+public inline fun jfxMasonryPane(
+    configuration: (@KtfxLayoutDslMarker KtfxJFXMasonryPane).() ->
+    Unit
+): JFXMasonryPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXMasonryPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXMasonryPane] with configuration block to this manager.
@@ -42,9 +44,11 @@ inline fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker KtfxJFXMasonryPan
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxMasonryPane(
-    configuration: (@KtfxLayoutDslMarker KtfxJFXMasonryPane).() ->
-    Unit
+public inline fun NodeManager.jfxMasonryPane(
+    configuration: (
+        @KtfxLayoutDslMarker
+        KtfxJFXMasonryPane
+    ).() -> Unit
 ): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJFXMasonryPane()
@@ -59,7 +63,7 @@ inline fun NodeManager.jfxMasonryPane(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMasonryPane =
+public fun styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMasonryPane =
     styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,8 +73,8 @@ fun styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMaso
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXMasonryPane(vararg styleClass: String, id: String? = null): JFXMasonryPane =
-    styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
+public fun NodeManager.styledJFXMasonryPane(vararg styleClass: String, id: String? = null):
+    JFXMasonryPane = styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXMasonryPane] with configuration block.
@@ -80,7 +84,7 @@ fun NodeManager.styledJFXMasonryPane(vararg styleClass: String, id: String? = nu
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXMasonryPane(
+public inline fun styledJFXMasonryPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXMasonryPane).() -> Unit
@@ -101,7 +105,7 @@ inline fun styledJFXMasonryPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXMasonryPane(
+public inline fun NodeManager.styledJFXMasonryPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXMasonryPane).() -> Unit

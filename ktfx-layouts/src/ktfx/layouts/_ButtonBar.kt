@@ -18,9 +18,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(
+public fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(
     buttonOrder =
-        buttonOrder
+    buttonOrder
 ) { }
 
 /**
@@ -29,7 +29,7 @@ fun NodeManager.buttonBar(buttonOrder: String? = null): ButtonBar = buttonBar(
  *
  * @return the control created.
  */
-inline fun buttonBar(
+public inline fun buttonBar(
     buttonOrder: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -48,12 +48,9 @@ inline fun buttonBar(
  *
  * @return the control added.
  */
-inline fun NodeManager.buttonBar(
+public inline fun NodeManager.buttonBar(
     buttonOrder: String? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        KtfxButtonBar
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker KtfxButtonBar).() -> Unit
 ): ButtonBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxButtonBar(buttonOrder)
@@ -68,7 +65,7 @@ inline fun NodeManager.buttonBar(
  *
  * @return the styled control created.
  */
-fun styledButtonBar(
+public fun styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -81,7 +78,7 @@ fun styledButtonBar(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledButtonBar(
+public fun NodeManager.styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -95,7 +92,7 @@ fun NodeManager.styledButtonBar(
  *
  * @return the styled control created.
  */
-inline fun styledButtonBar(
+public inline fun styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -117,7 +114,7 @@ inline fun styledButtonBar(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledButtonBar(
+public inline fun NodeManager.styledButtonBar(
     buttonOrder: String? = null,
     vararg styleClass: String,
     id: String? = null,

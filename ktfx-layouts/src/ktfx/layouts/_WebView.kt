@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.webView(): WebView = webView() { }
+public fun NodeManager.webView(): WebView = webView() { }
 
 /**
  * Create a [WebView] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.webView(): WebView = webView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): WebView {
+public inline fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): WebView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WebView()
     child.configuration()
@@ -39,12 +39,13 @@ inline fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): We
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit): WebView {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = WebView()
-    child.configuration()
-    return addChild(child)
-}
+public inline fun NodeManager.webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit):
+    WebView {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = WebView()
+        child.configuration()
+        return addChild(child)
+    }
 
 /**
  * Create a styled [WebView].
@@ -53,11 +54,8 @@ inline fun NodeManager.webView(configuration: (@KtfxLayoutDslMarker WebView).() 
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledWebView(vararg styleClass: String, id: String? = null): WebView = styledWebView(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+public fun styledWebView(vararg styleClass: String, id: String? = null): WebView =
+    styledWebView(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [WebView] to this manager.
@@ -66,7 +64,7 @@ fun styledWebView(vararg styleClass: String, id: String? = null): WebView = styl
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledWebView(vararg styleClass: String, id: String? = null): WebView =
+public fun NodeManager.styledWebView(vararg styleClass: String, id: String? = null): WebView =
     styledWebView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -77,7 +75,7 @@ fun NodeManager.styledWebView(vararg styleClass: String, id: String? = null): We
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledWebView(
+public inline fun styledWebView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WebView).() -> Unit
@@ -98,7 +96,7 @@ inline fun styledWebView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledWebView(
+public inline fun NodeManager.styledWebView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WebView).() -> Unit

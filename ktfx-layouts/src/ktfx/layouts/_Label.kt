@@ -19,8 +19,9 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(
-    text = text,
+public fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(
+    text =
+    text,
     graphic = graphic
 ) { }
 
@@ -30,7 +31,7 @@ fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = labe
  *
  * @return the control created.
  */
-inline fun label(
+public inline fun label(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Label).() -> Unit
@@ -47,7 +48,7 @@ inline fun label(
  *
  * @return the control added.
  */
-inline fun NodeManager.label(
+public inline fun NodeManager.label(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Label).() -> Unit
@@ -65,7 +66,7 @@ inline fun NodeManager.label(
  *
  * @return the styled control created.
  */
-fun styledLabel(
+public fun styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -79,7 +80,7 @@ fun styledLabel(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledLabel(
+public fun NodeManager.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -94,7 +95,7 @@ fun NodeManager.styledLabel(
  *
  * @return the styled control created.
  */
-inline fun styledLabel(
+public inline fun styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -117,7 +118,7 @@ inline fun styledLabel(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledLabel(
+public inline fun NodeManager.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

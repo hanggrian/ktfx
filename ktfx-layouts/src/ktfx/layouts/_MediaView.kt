@@ -19,10 +19,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView = mediaView(
-    mediaPlayer =
-        mediaPlayer
-) { }
+public fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView =
+    mediaView(mediaPlayer = mediaPlayer) { }
 
 /**
  * Create a [MediaView] with configuration block.
@@ -30,7 +28,7 @@ fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView = mediaVi
  *
  * @return the control created.
  */
-inline fun mediaView(
+public inline fun mediaView(
     mediaPlayer: MediaPlayer? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -49,7 +47,7 @@ inline fun mediaView(
  *
  * @return the control added.
  */
-inline fun NodeManager.mediaView(
+public inline fun NodeManager.mediaView(
     mediaPlayer: MediaPlayer? = null,
     configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit
 ): MediaView {
@@ -66,7 +64,7 @@ inline fun NodeManager.mediaView(
  *
  * @return the styled control created.
  */
-fun styledMediaView(
+public fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null
@@ -79,7 +77,7 @@ fun styledMediaView(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledMediaView(
+public fun NodeManager.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null
@@ -93,7 +91,7 @@ fun NodeManager.styledMediaView(
  *
  * @return the styled control created.
  */
-inline fun styledMediaView(
+public inline fun styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -115,7 +113,7 @@ inline fun styledMediaView(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledMediaView(
+public inline fun NodeManager.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,

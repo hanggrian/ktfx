@@ -14,6 +14,6 @@ import kotlin.jvm.JvmName
 /**
  * @see HyperlinkLabel.setOnAction
  */
-inline fun HyperlinkLabel.onAction(noinline action: (ActionEvent) -> Unit) {
+public inline fun HyperlinkLabel.onAction(noinline action: (ActionEvent) -> Unit) {
     return setOnAction(action)
 }

@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.stackPane(): StackPane = stackPane() { }
+public fun NodeManager.stackPane(): StackPane = stackPane() { }
 
 /**
  * Create a [StackPane] with configuration block.
@@ -26,12 +26,13 @@ fun NodeManager.stackPane(): StackPane = stackPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun stackPane(configuration: (@KtfxLayoutDslMarker KtfxStackPane).() -> Unit): StackPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxStackPane()
-    child.configuration()
-    return child
-}
+public inline fun stackPane(configuration: (@KtfxLayoutDslMarker KtfxStackPane).() -> Unit):
+    StackPane {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxStackPane()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [StackPane] with configuration block to this manager.
@@ -39,13 +40,15 @@ inline fun stackPane(configuration: (@KtfxLayoutDslMarker KtfxStackPane).() -> U
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.stackPane(configuration: (@KtfxLayoutDslMarker KtfxStackPane).() -> Unit):
-    StackPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxStackPane()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.stackPane(
+    configuration: (@KtfxLayoutDslMarker KtfxStackPane).() ->
+    Unit
+): StackPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxStackPane()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [StackPane].
@@ -54,7 +57,7 @@ inline fun NodeManager.stackPane(configuration: (@KtfxLayoutDslMarker KtfxStackP
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
+public fun styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
     styledStackPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -64,7 +67,7 @@ fun styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
+public fun NodeManager.styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
     styledStackPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -75,7 +78,7 @@ fun NodeManager.styledStackPane(vararg styleClass: String, id: String? = null): 
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledStackPane(
+public inline fun styledStackPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxStackPane).() -> Unit
@@ -96,7 +99,7 @@ inline fun styledStackPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledStackPane(
+public inline fun NodeManager.styledStackPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxStackPane).() -> Unit

@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.datePicker(date: LocalDate? = null): DatePicker = datePicker(date = date) { }
+public fun NodeManager.datePicker(date: LocalDate? = null): DatePicker = datePicker(date = date) { }
 
 /**
  * Create a [DatePicker] with configuration block.
@@ -27,7 +27,7 @@ fun NodeManager.datePicker(date: LocalDate? = null): DatePicker = datePicker(dat
  *
  * @return the control created.
  */
-inline fun datePicker(
+public inline fun datePicker(
     date: LocalDate? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -46,12 +46,9 @@ inline fun datePicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.datePicker(
+public inline fun NodeManager.datePicker(
     date: LocalDate? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        DatePicker
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker DatePicker).() -> Unit
 ): DatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = DatePicker(date)
@@ -66,7 +63,7 @@ inline fun NodeManager.datePicker(
  *
  * @return the styled control created.
  */
-fun styledDatePicker(
+public fun styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null
@@ -79,7 +76,7 @@ fun styledDatePicker(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledDatePicker(
+public fun NodeManager.styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null
@@ -93,7 +90,7 @@ fun NodeManager.styledDatePicker(
  *
  * @return the styled control created.
  */
-inline fun styledDatePicker(
+public inline fun styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -115,7 +112,7 @@ inline fun styledDatePicker(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledDatePicker(
+public inline fun NodeManager.styledDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,

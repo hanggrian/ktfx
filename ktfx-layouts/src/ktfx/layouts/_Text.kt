@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.text(text: String? = null): Text = text(text = text) { }
+public fun NodeManager.text(text: String? = null): Text = text(text = text) { }
 
 /**
  * Create a [Text] with configuration block.
@@ -26,12 +26,13 @@ fun NodeManager.text(text: String? = null): Text = text(text = text) { }
  *
  * @return the control created.
  */
-inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit): Text {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = Text(text)
-    child.configuration()
-    return child
-}
+public inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit):
+    Text {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = Text(text)
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [Text] with configuration block to this manager.
@@ -39,10 +40,12 @@ inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text)
  *
  * @return the control added.
  */
-inline fun NodeManager.text(
+public inline fun NodeManager.text(
     text: String? = null,
-    configuration: (@KtfxLayoutDslMarker Text).() ->    
-    Unit
+    configuration: (
+        @KtfxLayoutDslMarker    
+        Text
+    ).() -> Unit
 ): Text {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Text(text)
@@ -57,7 +60,7 @@ inline fun NodeManager.text(
  *
  * @return the styled control created.
  */
-fun styledText(
+public fun styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -70,7 +73,7 @@ fun styledText(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledText(
+public fun NodeManager.styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -84,7 +87,7 @@ fun NodeManager.styledText(
  *
  * @return the styled control created.
  */
-inline fun styledText(
+public inline fun styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -106,7 +109,7 @@ inline fun styledText(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledText(
+public inline fun NodeManager.styledText(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

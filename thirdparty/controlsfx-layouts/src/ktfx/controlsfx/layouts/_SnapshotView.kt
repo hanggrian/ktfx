@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.snapshotView(): SnapshotView = snapshotView() { }
+public fun NodeManager.snapshotView(): SnapshotView = snapshotView() { }
 
 /**
  * Create a [SnapshotView] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.snapshotView(): SnapshotView = snapshotView() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit):
+public inline fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit):
     SnapshotView {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxSnapshotView()
@@ -42,9 +42,11 @@ inline fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).(
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.snapshotView(
-    configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() ->
-    Unit
+public inline fun NodeManager.snapshotView(
+    configuration: (
+        @KtfxLayoutDslMarker
+        KtfxSnapshotView
+    ).() -> Unit
 ): SnapshotView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSnapshotView()
@@ -59,7 +61,7 @@ inline fun NodeManager.snapshotView(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledSnapshotView(vararg styleClass: String, id: String? = null): SnapshotView =
+public fun styledSnapshotView(vararg styleClass: String, id: String? = null): SnapshotView =
     styledSnapshotView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,8 +71,8 @@ fun styledSnapshotView(vararg styleClass: String, id: String? = null): SnapshotV
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledSnapshotView(vararg styleClass: String, id: String? = null): SnapshotView =
-    styledSnapshotView(styleClass = *styleClass, id = id) { }
+public fun NodeManager.styledSnapshotView(vararg styleClass: String, id: String? = null):
+    SnapshotView = styledSnapshotView(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [SnapshotView] with configuration block.
@@ -80,7 +82,7 @@ fun NodeManager.styledSnapshotView(vararg styleClass: String, id: String? = null
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledSnapshotView(
+public inline fun styledSnapshotView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit
@@ -101,7 +103,7 @@ inline fun styledSnapshotView(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledSnapshotView(
+public inline fun NodeManager.styledSnapshotView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit

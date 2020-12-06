@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS): JFXProgressBar =
+public fun NodeManager.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS): JFXProgressBar =
     jfxProgressBar(progress = progress) { }
 
 /**
@@ -31,7 +31,7 @@ fun NodeManager.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS): JFXPr
  *
  * @return the control created.
  */
-inline fun jfxProgressBar(
+public inline fun jfxProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     configuration: (@KtfxLayoutDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
@@ -47,7 +47,7 @@ inline fun jfxProgressBar(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxProgressBar(
+public inline fun NodeManager.jfxProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     configuration: (@KtfxLayoutDslMarker JFXProgressBar).() -> Unit
 ): JFXProgressBar {
@@ -64,7 +64,7 @@ inline fun NodeManager.jfxProgressBar(
  *
  * @return the styled control created.
  */
-fun styledJFXProgressBar(
+public fun styledJFXProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null
@@ -77,7 +77,7 @@ fun styledJFXProgressBar(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXProgressBar(
+public fun NodeManager.styledJFXProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null
@@ -91,7 +91,7 @@ fun NodeManager.styledJFXProgressBar(
  *
  * @return the styled control created.
  */
-inline fun styledJFXProgressBar(
+public inline fun styledJFXProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -113,7 +113,7 @@ inline fun styledJFXProgressBar(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXProgressBar(
+public inline fun NodeManager.styledJFXProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

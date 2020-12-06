@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.cylinder(
+public fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64
@@ -32,7 +32,7 @@ fun NodeManager.cylinder(
  *
  * @return the control created.
  */
-inline fun cylinder(
+public inline fun cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -50,7 +50,7 @@ inline fun cylinder(
  *
  * @return the control added.
  */
-inline fun NodeManager.cylinder(
+public inline fun NodeManager.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -69,7 +69,7 @@ inline fun NodeManager.cylinder(
  *
  * @return the styled control created.
  */
-fun styledCylinder(
+public fun styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -78,7 +78,7 @@ fun styledCylinder(
 ): Cylinder = styledCylinder(
     radius = radius, height = height, division = division,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -89,7 +89,7 @@ fun styledCylinder(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledCylinder(
+public fun NodeManager.styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -98,7 +98,7 @@ fun NodeManager.styledCylinder(
 ): Cylinder = styledCylinder(
     radius = radius, height = height, division = division,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -110,7 +110,7 @@ fun NodeManager.styledCylinder(
  *
  * @return the styled control created.
  */
-inline fun styledCylinder(
+public inline fun styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -134,7 +134,7 @@ inline fun styledCylinder(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledCylinder(
+public inline fun NodeManager.styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,

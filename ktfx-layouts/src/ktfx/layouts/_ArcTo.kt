@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun PathElementManager.arcTo(
+public fun PathElementManager.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,
@@ -38,7 +38,7 @@ fun PathElementManager.arcTo(
  *
  * @return the control created.
  */
-inline fun arcTo(
+public inline fun arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,
@@ -60,7 +60,7 @@ inline fun arcTo(
  *
  * @return the control added.
  */
-inline fun PathElementManager.arcTo(
+public inline fun PathElementManager.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,

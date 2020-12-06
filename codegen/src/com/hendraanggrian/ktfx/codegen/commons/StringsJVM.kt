@@ -1,8 +1,8 @@
 package com.hendraanggrian.ktfx.codegen.commons
 
+import com.hendraanggrian.kotlinpoet.VARARG
 import com.hendraanggrian.kotlinpoet.asNullable
 import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
-import com.squareup.kotlinpoet.KModifier
 import java.util.Locale
 
 val StringsFactory.Companion.StringsJVM: StringsFactory
@@ -48,7 +48,7 @@ val StringsFactory.Companion.StringsJVM: StringsFactory
         fun ParameterSpecListScope.newChar() = add<Char>("newChar")
         fun ParameterSpecListScope.oldValue() = add<String>("oldChar")
         fun ParameterSpecListScope.newValue() = add<String>("newChar")
-        fun ParameterSpecListScope.args() = add("newChar", Any::class.asNullable(), KModifier.VARARG)
+        fun ParameterSpecListScope.args() = add("newChar", Any::class.asNullable(), VARARG)
         fun ParameterSpecListScope.locale() = add<Locale>("locale")
         fun ParameterSpecListScope.index() = add<Int>("index")
     }

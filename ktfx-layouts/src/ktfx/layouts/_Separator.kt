@@ -20,10 +20,8 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = separator(
-    orientation =
-        orientation
-) { }
+public fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator =
+    separator(orientation = orientation) { }
 
 /**
  * Create a [Separator] with configuration block.
@@ -31,12 +29,9 @@ fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator = se
  *
  * @return the control created.
  */
-inline fun separator(
+public inline fun separator(
     orientation: Orientation = HORIZONTAL,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        Separator
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker Separator).() -> Unit
 ): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)
@@ -50,7 +45,7 @@ inline fun separator(
  *
  * @return the control added.
  */
-inline fun NodeManager.separator(
+public inline fun NodeManager.separator(
     orientation: Orientation = HORIZONTAL,
     configuration: (@KtfxLayoutDslMarker Separator).() -> Unit
 ): Separator {
@@ -67,7 +62,7 @@ inline fun NodeManager.separator(
  *
  * @return the styled control created.
  */
-fun styledSeparator(
+public fun styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null
@@ -80,7 +75,7 @@ fun styledSeparator(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledSeparator(
+public fun NodeManager.styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null
@@ -94,7 +89,7 @@ fun NodeManager.styledSeparator(
  *
  * @return the styled control created.
  */
-inline fun styledSeparator(
+public inline fun styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,
@@ -116,7 +111,7 @@ inline fun styledSeparator(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledSeparator(
+public inline fun NodeManager.styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,

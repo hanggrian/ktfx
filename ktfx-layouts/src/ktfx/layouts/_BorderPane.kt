@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.borderPane(): BorderPane = borderPane() { }
+public fun NodeManager.borderPane(): BorderPane = borderPane() { }
 
 /**
  * Create a [BorderPane] with configuration block.
@@ -26,12 +26,13 @@ fun NodeManager.borderPane(): BorderPane = borderPane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit): BorderPane {
-    contract { callsInPlace(configuration, EXACTLY_ONCE) }
-    val child = KtfxBorderPane()
-    child.configuration()
-    return child
-}
+public inline fun borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit):
+    BorderPane {
+        contract { callsInPlace(configuration, EXACTLY_ONCE) }
+        val child = KtfxBorderPane()
+        child.configuration()
+        return child
+    }
 
 /**
  * Add a [BorderPane] with configuration block to this manager.
@@ -39,13 +40,15 @@ inline fun borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() ->
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit):
-    BorderPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxBorderPane()
-        child.configuration()
-        return addChild(child)
-    }
+public inline fun NodeManager.borderPane(
+    configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() ->
+    Unit
+): BorderPane {
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxBorderPane()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [BorderPane].
@@ -54,7 +57,7 @@ inline fun NodeManager.borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorde
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledBorderPane(vararg styleClass: String, id: String? = null): BorderPane =
+public fun styledBorderPane(vararg styleClass: String, id: String? = null): BorderPane =
     styledBorderPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -64,7 +67,7 @@ fun styledBorderPane(vararg styleClass: String, id: String? = null): BorderPane 
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledBorderPane(vararg styleClass: String, id: String? = null): BorderPane =
+public fun NodeManager.styledBorderPane(vararg styleClass: String, id: String? = null): BorderPane =
     styledBorderPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -75,7 +78,7 @@ fun NodeManager.styledBorderPane(vararg styleClass: String, id: String? = null):
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledBorderPane(
+public inline fun styledBorderPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit
@@ -96,7 +99,7 @@ inline fun styledBorderPane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledBorderPane(
+public inline fun NodeManager.styledBorderPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit

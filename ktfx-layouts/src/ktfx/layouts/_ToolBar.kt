@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.toolBar(): ToolBar = toolBar() { }
+public fun NodeManager.toolBar(): ToolBar = toolBar() { }
 
 /**
  * Create a [ToolBar] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.toolBar(): ToolBar = toolBar() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
+public inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxToolBar()
     child.configuration()
@@ -39,7 +39,7 @@ inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit):
+public inline fun NodeManager.toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit):
     ToolBar {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxToolBar()
@@ -54,11 +54,8 @@ inline fun NodeManager.toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar)
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styledToolBar(
-    styleClass =
-        *styleClass,
-    id = id
-) { }
+public fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
+    styledToolBar(styleClass = *styleClass, id = id) { }
 
 /**
  * Add a styled [ToolBar] to this manager.
@@ -67,7 +64,7 @@ fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar = styl
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
+public fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
     styledToolBar(styleClass = *styleClass, id = id) { }
 
 /**
@@ -78,7 +75,7 @@ fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): To
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledToolBar(
+public inline fun styledToolBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit
@@ -99,7 +96,7 @@ inline fun styledToolBar(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledToolBar(
+public inline fun NodeManager.styledToolBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit

@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(text = text) { }
+public fun NodeManager.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(text = text) { }
 
 /**
  * Create a [ToggleSwitch] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(
  *
  * @return the control created.
  */
-inline fun toggleSwitch(
+public inline fun toggleSwitch(
     text: String? = null,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -47,12 +47,9 @@ inline fun toggleSwitch(
  *
  * @return the control added.
  */
-inline fun NodeManager.toggleSwitch(
+public inline fun NodeManager.toggleSwitch(
     text: String? = null,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        ToggleSwitch
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker ToggleSwitch).() -> Unit
 ): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ToggleSwitch(text)
@@ -67,7 +64,7 @@ inline fun NodeManager.toggleSwitch(
  *
  * @return the styled control created.
  */
-fun styledToggleSwitch(
+public fun styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -80,7 +77,7 @@ fun styledToggleSwitch(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledToggleSwitch(
+public fun NodeManager.styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null
@@ -94,7 +91,7 @@ fun NodeManager.styledToggleSwitch(
  *
  * @return the styled control created.
  */
-inline fun styledToggleSwitch(
+public inline fun styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -116,7 +113,7 @@ inline fun styledToggleSwitch(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledToggleSwitch(
+public inline fun NodeManager.styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

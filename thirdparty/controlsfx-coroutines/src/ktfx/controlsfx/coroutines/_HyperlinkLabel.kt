@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
 /**
  * @see HyperlinkLabel.setOnAction
  */
-fun HyperlinkLabel.onAction(
+public fun HyperlinkLabel.onAction(
     context: CoroutineContext = Dispatchers.JavaFx,
     action: suspend    
     CoroutineScope.(ActionEvent) -> Unit

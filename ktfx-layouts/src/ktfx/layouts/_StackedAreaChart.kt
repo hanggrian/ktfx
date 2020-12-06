@@ -22,10 +22,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun <X, Y> NodeManager.stackedAreaChart(
+public fun <X, Y> NodeManager.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList()
 ): StackedAreaChart<X, Y> = stackedAreaChart(x = x, y = y, data = data) { }
 
 /**
@@ -34,10 +34,10 @@ fun <X, Y> NodeManager.stackedAreaChart(
  *
  * @return the control created.
  */
-inline fun <X, Y> stackedAreaChart(
+public inline fun <X, Y> stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -52,10 +52,10 @@ inline fun <X, Y> stackedAreaChart(
  *
  * @return the control added.
  */
-inline fun <X, Y> NodeManager.stackedAreaChart(
+public inline fun <X, Y> NodeManager.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     configuration: (@KtfxLayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
 ): StackedAreaChart<X, Y> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -71,16 +71,16 @@ inline fun <X, Y> NodeManager.stackedAreaChart(
  *
  * @return the styled control created.
  */
-fun <X, Y> styledStackedAreaChart(
+public fun <X, Y> styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): StackedAreaChart<X, Y> = styledStackedAreaChart(
     x = x, y = y, data = data,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -91,16 +91,16 @@ fun <X, Y> styledStackedAreaChart(
  *
  * @return the styled control added.
  */
-fun <X, Y> NodeManager.styledStackedAreaChart(
+public fun <X, Y> NodeManager.styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null
 ): StackedAreaChart<X, Y> = styledStackedAreaChart(
     x = x, y = y, data = data,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -112,10 +112,10 @@ fun <X, Y> NodeManager.styledStackedAreaChart(
  *
  * @return the styled control created.
  */
-inline fun <X, Y> styledStackedAreaChart(
+public inline fun <X, Y> styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StackedAreaChart<X, Y>).() -> Unit
@@ -136,10 +136,10 @@ inline fun <X, Y> styledStackedAreaChart(
  *
  * @return the styled control added.
  */
-inline fun <X, Y> NodeManager.styledStackedAreaChart(
+public inline fun <X, Y> NodeManager.styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
-    data: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
+    `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker StackedAreaChart<X, Y>).() -> Unit

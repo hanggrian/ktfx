@@ -18,7 +18,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.passwordField(): PasswordField = passwordField() { }
+public fun NodeManager.passwordField(): PasswordField = passwordField() { }
 
 /**
  * Create a [PasswordField] with configuration block.
@@ -26,7 +26,7 @@ fun NodeManager.passwordField(): PasswordField = passwordField() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun passwordField(configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit):
+public inline fun passwordField(configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit):
     PasswordField {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = PasswordField()
@@ -40,9 +40,11 @@ inline fun passwordField(configuration: (@KtfxLayoutDslMarker PasswordField).() 
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.passwordField(
-    configuration: (@KtfxLayoutDslMarker PasswordField).() ->
-    Unit
+public inline fun NodeManager.passwordField(
+    configuration: (
+        @KtfxLayoutDslMarker
+        PasswordField
+    ).() -> Unit
 ): PasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PasswordField()
@@ -57,7 +59,7 @@ inline fun NodeManager.passwordField(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledPasswordField(vararg styleClass: String, id: String? = null): PasswordField =
+public fun styledPasswordField(vararg styleClass: String, id: String? = null): PasswordField =
     styledPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
@@ -67,8 +69,8 @@ fun styledPasswordField(vararg styleClass: String, id: String? = null): Password
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledPasswordField(vararg styleClass: String, id: String? = null): PasswordField =
-    styledPasswordField(styleClass = *styleClass, id = id) { }
+public fun NodeManager.styledPasswordField(vararg styleClass: String, id: String? = null):
+    PasswordField = styledPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [PasswordField] with configuration block.
@@ -78,7 +80,7 @@ fun NodeManager.styledPasswordField(vararg styleClass: String, id: String? = nul
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledPasswordField(
+public inline fun styledPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit
@@ -99,7 +101,7 @@ inline fun styledPasswordField(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledPasswordField(
+public inline fun NodeManager.styledPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit

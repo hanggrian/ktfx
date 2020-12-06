@@ -19,7 +19,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.rectangle(
+public fun NodeManager.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -32,7 +32,7 @@ fun NodeManager.rectangle(
  *
  * @return the control created.
  */
-inline fun rectangle(
+public inline fun rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -51,7 +51,7 @@ inline fun rectangle(
  *
  * @return the control added.
  */
-inline fun NodeManager.rectangle(
+public inline fun NodeManager.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -71,7 +71,7 @@ inline fun NodeManager.rectangle(
  *
  * @return the styled control created.
  */
-fun styledRectangle(
+public fun styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -81,7 +81,7 @@ fun styledRectangle(
 ): Rectangle = styledRectangle(
     x = x, y = y, width = width, height = height,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -92,7 +92,7 @@ fun styledRectangle(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledRectangle(
+public fun NodeManager.styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -102,7 +102,7 @@ fun NodeManager.styledRectangle(
 ): Rectangle = styledRectangle(
     x = x, y = y, width = width, height = height,
     styleClass =
-        *styleClass,
+    *styleClass,
     id = id
 ) { }
 
@@ -114,7 +114,7 @@ fun NodeManager.styledRectangle(
  *
  * @return the styled control created.
  */
-inline fun styledRectangle(
+public inline fun styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -139,7 +139,7 @@ inline fun styledRectangle(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledRectangle(
+public inline fun NodeManager.styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,

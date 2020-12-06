@@ -22,7 +22,10 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorPicker(color = color) { }
+public fun NodeManager.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorPicker(
+    color =
+    color
+) { }
 
 /**
  * Create a [JFXColorPicker] with configuration block.
@@ -30,7 +33,7 @@ fun NodeManager.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorP
  *
  * @return the control created.
  */
-inline fun jfxColorPicker(
+public inline fun jfxColorPicker(
     color: Color = WHITE,
     configuration: (
         @KtfxLayoutDslMarker    
@@ -49,12 +52,9 @@ inline fun jfxColorPicker(
  *
  * @return the control added.
  */
-inline fun NodeManager.jfxColorPicker(
+public inline fun NodeManager.jfxColorPicker(
     color: Color = WHITE,
-    configuration: (
-        @KtfxLayoutDslMarker    
-        JFXColorPicker
-    ).() -> Unit
+    configuration: (@KtfxLayoutDslMarker JFXColorPicker).() -> Unit
 ): JFXColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXColorPicker(color)
@@ -69,7 +69,7 @@ inline fun NodeManager.jfxColorPicker(
  *
  * @return the styled control created.
  */
-fun styledJFXColorPicker(
+public fun styledJFXColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null
@@ -82,7 +82,7 @@ fun styledJFXColorPicker(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledJFXColorPicker(
+public fun NodeManager.styledJFXColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null
@@ -96,7 +96,7 @@ fun NodeManager.styledJFXColorPicker(
  *
  * @return the styled control created.
  */
-inline fun styledJFXColorPicker(
+public inline fun styledJFXColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
@@ -118,7 +118,7 @@ inline fun styledJFXColorPicker(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXColorPicker(
+public inline fun NodeManager.styledJFXColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,

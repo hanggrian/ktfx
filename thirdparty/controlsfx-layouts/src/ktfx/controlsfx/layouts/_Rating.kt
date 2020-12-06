@@ -21,7 +21,11 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.rating(max: Int = 5, rating: Int = -1): Rating = rating(max = max, rating = rating) { }
+public fun NodeManager.rating(max: Int = 5, rating: Int = -1): Rating = rating(
+    max = max,
+    rating =
+    rating
+) { }
 
 /**
  * Create a [Rating] with configuration block.
@@ -29,7 +33,7 @@ fun NodeManager.rating(max: Int = 5, rating: Int = -1): Rating = rating(max = ma
  *
  * @return the control created.
  */
-inline fun rating(
+public inline fun rating(
     max: Int = 5,
     rating: Int = -1,
     configuration: (@KtfxLayoutDslMarker Rating).() -> Unit
@@ -46,7 +50,7 @@ inline fun rating(
  *
  * @return the control added.
  */
-inline fun NodeManager.rating(
+public inline fun NodeManager.rating(
     max: Int = 5,
     rating: Int = -1,
     configuration: (@KtfxLayoutDslMarker Rating).() -> Unit
@@ -64,7 +68,7 @@ inline fun NodeManager.rating(
  *
  * @return the styled control created.
  */
-fun styledRating(
+public fun styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,
@@ -78,7 +82,7 @@ fun styledRating(
  *
  * @return the styled control added.
  */
-fun NodeManager.styledRating(
+public fun NodeManager.styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,
@@ -93,7 +97,7 @@ fun NodeManager.styledRating(
  *
  * @return the styled control created.
  */
-inline fun styledRating(
+public inline fun styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,
@@ -116,7 +120,7 @@ inline fun styledRating(
  *
  * @return the styled control added.
  */
-inline fun NodeManager.styledRating(
+public inline fun NodeManager.styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,

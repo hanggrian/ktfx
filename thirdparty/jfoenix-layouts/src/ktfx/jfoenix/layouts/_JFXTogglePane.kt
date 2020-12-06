@@ -20,7 +20,7 @@ import kotlin.jvm.JvmName
  *
  * @return the control added.
  */
-fun NodeManager.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
+public fun NodeManager.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
 
 /**
  * Create a [JFXTogglePane] with configuration block.
@@ -28,7 +28,7 @@ fun NodeManager.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
  * @param configuration the configuration block.
  * @return the control created.
  */
-inline fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJFXTogglePane).() -> Unit):
+public inline fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJFXTogglePane).() -> Unit):
     JFXTogglePane {
         contract { callsInPlace(configuration, EXACTLY_ONCE) }
         val child = KtfxJFXTogglePane()
@@ -42,9 +42,11 @@ inline fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJFXTogglePane)
  * @param configuration the configuration block.
  * @return the control added.
  */
-inline fun NodeManager.jfxTogglePane(
-    configuration: (@KtfxLayoutDslMarker KtfxJFXTogglePane).() ->
-    Unit
+public inline fun NodeManager.jfxTogglePane(
+    configuration: (
+        @KtfxLayoutDslMarker
+        KtfxJFXTogglePane
+    ).() -> Unit
 ): JFXTogglePane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJFXTogglePane()
@@ -59,7 +61,7 @@ inline fun NodeManager.jfxTogglePane(
  * @param id the CSS id.
  * @return the styled control created.
  */
-fun styledJFXTogglePane(vararg styleClass: String, id: String? = null): JFXTogglePane =
+public fun styledJFXTogglePane(vararg styleClass: String, id: String? = null): JFXTogglePane =
     styledJFXTogglePane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -69,8 +71,8 @@ fun styledJFXTogglePane(vararg styleClass: String, id: String? = null): JFXToggl
  * @param id the CSS id.
  * @return the styled control added.
  */
-fun NodeManager.styledJFXTogglePane(vararg styleClass: String, id: String? = null): JFXTogglePane =
-    styledJFXTogglePane(styleClass = *styleClass, id = id) { }
+public fun NodeManager.styledJFXTogglePane(vararg styleClass: String, id: String? = null):
+    JFXTogglePane = styledJFXTogglePane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXTogglePane] with configuration block.
@@ -80,7 +82,7 @@ fun NodeManager.styledJFXTogglePane(vararg styleClass: String, id: String? = nul
  * @param configuration the configuration block.
  * @return the styled control created.
  */
-inline fun styledJFXTogglePane(
+public inline fun styledJFXTogglePane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXTogglePane).() -> Unit
@@ -101,7 +103,7 @@ inline fun styledJFXTogglePane(
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-inline fun NodeManager.styledJFXTogglePane(
+public inline fun NodeManager.styledJFXTogglePane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJFXTogglePane).() -> Unit

@@ -17,25 +17,26 @@ import kotlin.jvm.JvmName
 /**
  * @see TreeTableView.setOnSort
  */
-inline fun <T> TreeTableView<T>.onSort(noinline action: (SortEvent<TreeTableView<T>>) -> Unit) {
+public inline fun <T> TreeTableView<T>.onSort(
+    noinline action: (SortEvent<TreeTableView<T>>) ->
+    Unit
+) {
     return setOnSort(action)
 }
 
 /**
  * @see TreeTableView.setOnScrollTo
  */
-inline fun <T> TreeTableView<T>.onScrollTo(noinline action: (ScrollToEvent<Int>) -> Unit) {
+public inline fun <T> TreeTableView<T>.onScrollTo(noinline action: (ScrollToEvent<Int>) -> Unit) {
     return setOnScrollTo(action)
 }
 
 /**
  * @see TreeTableView.setOnScrollToColumn
  */
-inline fun <T> TreeTableView<T>.onScrollToColumn(
-    noinline action: (
-        ScrollToEvent<TreeTableColumn<T,
-                *>>
-    ) -> Unit
+public inline fun <T> TreeTableView<T>.onScrollToColumn(
+    noinline
+    action: (ScrollToEvent<TreeTableColumn<T, *>>) -> Unit
 ) {
     return setOnScrollToColumn(action)
 }

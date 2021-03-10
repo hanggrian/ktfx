@@ -1,4 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = RELEASE_GROUP
@@ -43,7 +42,6 @@ tasks {
     }
 }
 
-publishKotlinFix()
 publish {
     bintrayUser = BINTRAY_USER
     bintrayKey = BINTRAY_KEY

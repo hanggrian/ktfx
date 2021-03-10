@@ -2,7 +2,7 @@ package ktfx.layouts
 
 import javafx.scene.control.ColorPicker
 import javafx.scene.paint.Color
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class ColorPickerTest : LayoutsTest<KtfxPane, ColorPicker>() {

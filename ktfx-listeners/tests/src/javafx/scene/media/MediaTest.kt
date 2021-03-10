@@ -1,7 +1,7 @@
 package ktfx.listeners
 
 import javafx.scene.media.Media
-import com.hendraanggrian.ktfx.test.BaseMediaTest
+import io.github.hendraanggrian.ktfx.test.BaseMediaTest
 
 class MediaTest : BaseMediaTest() {
 

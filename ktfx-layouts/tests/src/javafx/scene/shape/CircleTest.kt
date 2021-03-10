@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.Circle
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
 

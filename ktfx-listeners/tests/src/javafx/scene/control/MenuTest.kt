@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.event.Event
 import javafx.scene.control.Menu
-import com.hendraanggrian.ktfx.test.BaseMenuTest
+import io.github.hendraanggrian.ktfx.test.BaseMenuTest
 
 class MenuTest : BaseMenuTest() {
 

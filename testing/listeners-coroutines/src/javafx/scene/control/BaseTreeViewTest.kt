@@ -1,4 +1,4 @@
-package com.hendraanggrian.ktfx.test
+package io.github.hendraanggrian.ktfx.test
 
 import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.TreeItem

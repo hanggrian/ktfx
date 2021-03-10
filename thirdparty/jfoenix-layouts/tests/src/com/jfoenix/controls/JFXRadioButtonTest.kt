@@ -2,7 +2,7 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXRadioButton
 import ktfx.layouts.KtfxPane
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class JFXRadioButtonTest : LayoutsTest<KtfxPane, JFXRadioButton>() {

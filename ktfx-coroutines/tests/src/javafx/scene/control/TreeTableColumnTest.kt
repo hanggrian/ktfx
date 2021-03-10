@@ -2,7 +2,7 @@ package ktfx.coroutines
 
 import javafx.scene.control.TreeTableColumn
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseTreeTableColumnTest
+import io.github.hendraanggrian.ktfx.test.BaseTreeTableColumnTest
 
 class TreeTableColumnTest : BaseTreeTableColumnTest() {
 

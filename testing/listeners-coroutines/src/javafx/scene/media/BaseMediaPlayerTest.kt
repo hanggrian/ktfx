@@ -1,4 +1,4 @@
-package com.hendraanggrian.ktfx.test
+package io.github.hendraanggrian.ktfx.test
 
 import javafx.scene.media.Media
 import javafx.scene.media.MediaMarkerEvent

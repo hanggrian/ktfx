@@ -2,7 +2,7 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.shape.Polyline
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 
 class PolylineTest : LayoutsTest<KtfxPane, Polyline>() {
 

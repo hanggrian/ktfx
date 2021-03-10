@@ -1,4 +1,4 @@
-package com.hendraanggrian.ktfx.test
+package io.github.hendraanggrian.ktfx.test
 
 import javafx.collections.FXCollections
 import javafx.collections.MapChangeListener

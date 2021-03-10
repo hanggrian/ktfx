@@ -3,7 +3,7 @@ package ktfx.controlsfx.layouts
 import javafx.geometry.Side
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.pane
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import org.controlsfx.control.MasterDetailPane
 import kotlin.test.Test
 import kotlin.test.assertEquals

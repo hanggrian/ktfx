@@ -4,7 +4,7 @@ import javafx.event.ActionEvent
 import javafx.event.Event
 import javafx.scene.control.MenuItem
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseMenuItemTest
+import io.github.hendraanggrian.ktfx.test.BaseMenuItemTest
 
 class MenuItemTest : BaseMenuItemTest() {
 

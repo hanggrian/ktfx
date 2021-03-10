@@ -1,7 +1,7 @@
 package ktfx.listeners
 
 import javafx.scene.control.TableColumn
-import com.hendraanggrian.ktfx.test.BaseTableColumnTest
+import io.github.hendraanggrian.ktfx.test.BaseTableColumnTest
 
 class TableColumnTest : BaseTableColumnTest() {
 

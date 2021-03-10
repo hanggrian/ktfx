@@ -1,6 +1,6 @@
 package ktfx.dialogs
 
-import com.hendraanggrian.ktfx.test.DialogShowingTest
+import io.github.hendraanggrian.ktfx.test.DialogShowingTest
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals

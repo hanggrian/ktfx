@@ -2,7 +2,7 @@ package javafx.scene.web
 
 import javafx.geometry.Rectangle2D
 import javafx.stage.Stage
-import com.hendraanggrian.ktfx.test.testScene
+import io.github.hendraanggrian.ktfx.test.testScene
 import org.testfx.framework.junit.ApplicationTest
 import java.io.IOException
 import kotlin.test.Test

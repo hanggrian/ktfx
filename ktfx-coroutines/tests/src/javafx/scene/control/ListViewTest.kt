@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.scene.control.ListView
 import javafx.scene.control.ScrollToEvent
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseListViewTest
+import io.github.hendraanggrian.ktfx.test.BaseListViewTest
 
 class ListViewTest : BaseListViewTest() {
 

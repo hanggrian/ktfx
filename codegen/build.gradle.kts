@@ -3,7 +3,7 @@ plugins {
     application
 }
 
-application.mainClassName = "com.hendraanggrian.ktfx.codegen.Generator"
+application.mainClass.set("io.github.hendraanggrian.ktfx.codegen.Generator")
 
 sourceSets {
     get("main").java.srcDir("src")

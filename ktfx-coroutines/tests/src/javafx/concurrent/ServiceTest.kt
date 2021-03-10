@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.concurrent.Service
 import javafx.concurrent.WorkerStateEvent
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseServiceTest
+import io.github.hendraanggrian.ktfx.test.BaseServiceTest
 
 class ServiceTest : BaseServiceTest() {
 

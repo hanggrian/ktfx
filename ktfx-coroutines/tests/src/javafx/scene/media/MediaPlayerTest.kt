@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.scene.media.MediaMarkerEvent
 import javafx.scene.media.MediaPlayer
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseMediaPlayerTest
+import io.github.hendraanggrian.ktfx.test.BaseMediaPlayerTest
 import kotlin.test.Ignore
 
 @Ignore

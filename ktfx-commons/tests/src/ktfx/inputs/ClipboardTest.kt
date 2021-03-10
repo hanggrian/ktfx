@@ -2,7 +2,7 @@ package ktfx.inputs
 
 import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
-import com.hendraanggrian.ktfx.test.FxThreadRule
+import io.github.hendraanggrian.ktfx.test.FxThreadRule
 import org.junit.Rule
 import kotlin.test.BeforeTest
 import kotlin.test.Test

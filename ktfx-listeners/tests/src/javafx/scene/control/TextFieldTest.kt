@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.event.ActionEvent
 import javafx.scene.control.TextField
-import com.hendraanggrian.ktfx.test.BaseTextFieldTest
+import io.github.hendraanggrian.ktfx.test.BaseTextFieldTest
 
 class TextFieldTest : BaseTextFieldTest() {
 

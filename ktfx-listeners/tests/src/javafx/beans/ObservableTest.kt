@@ -1,7 +1,7 @@
 package ktfx.listeners
 
 import javafx.beans.Observable
-import com.hendraanggrian.ktfx.test.BaseObservableTest
+import io.github.hendraanggrian.ktfx.test.BaseObservableTest
 
 class ObservableTest : BaseObservableTest() {
 

@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.collections.MapChangeListener
 import javafx.collections.ObservableMap
-import com.hendraanggrian.ktfx.test.BaseObservableMapTest
+import io.github.hendraanggrian.ktfx.test.BaseObservableMapTest
 
 class ObservableMapTest : BaseObservableMapTest() {
 

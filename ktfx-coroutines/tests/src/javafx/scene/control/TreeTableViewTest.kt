@@ -5,7 +5,7 @@ import javafx.scene.control.SortEvent
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseTreeTableViewTest
+import io.github.hendraanggrian.ktfx.test.BaseTreeTableViewTest
 
 class TreeTableViewTest : BaseTreeTableViewTest() {
 

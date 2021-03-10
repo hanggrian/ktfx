@@ -1,4 +1,4 @@
-package com.hendraanggrian.ktfx.test
+package io.github.hendraanggrian.ktfx.test
 
 import javafx.event.ActionEvent
 import javafx.event.Event

@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.CheckBox
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class CheckBoxTest : LayoutsTest<KtfxPane, CheckBox>() {

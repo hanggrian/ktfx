@@ -1,8 +1,8 @@
 package ktfx.controlsfx.test
 
 import javafx.event.ActionEvent
-import com.hendraanggrian.ktfx.test.FakeEventTarget
-import com.hendraanggrian.ktfx.test.initToolkit
+import io.github.hendraanggrian.ktfx.test.FakeEventTarget
+import io.github.hendraanggrian.ktfx.test.initToolkit
 import org.controlsfx.control.HyperlinkLabel
 import kotlin.test.BeforeTest
 import kotlin.test.Test

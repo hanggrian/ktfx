@@ -1,13 +1,14 @@
 import org.gradle.api.Task
 import java.net.URL
 
-const val VERSION_KOTLIN = "1.4.20"
-const val VERSION_COROUTINES = "1.4.2"
+const val VERSION_KOTLIN = "1.4.30"
+const val VERSION_DOKKA = "1.4.20"
+const val VERSION_COROUTINES = "1.4.3"
 
 fun Dependencies.kotlinx(module: String, version: String? = null) =
     "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$it" }.orEmpty()}"
 
-fun Dependencies.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:$VERSION_KOTLIN"
+fun Dependencies.dokka() = "org.jetbrains.dokka:dokka-gradle-plugin:$VERSION_DOKKA"
 
 val Plugins.dokka get() = id("org.jetbrains.dokka")
 

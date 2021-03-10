@@ -2,7 +2,7 @@ package ktfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.control.ButtonBar
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import org.apache.commons.lang3.SystemUtils
 import kotlin.test.Test
 import kotlin.test.assertEquals

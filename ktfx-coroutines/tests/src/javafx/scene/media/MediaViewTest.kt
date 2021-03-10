@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.scene.media.MediaErrorEvent
 import javafx.scene.media.MediaView
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseMediaViewTest
+import io.github.hendraanggrian.ktfx.test.BaseMediaViewTest
 
 class MediaViewTest : BaseMediaViewTest() {
 

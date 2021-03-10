@@ -1,10 +1,7 @@
 package ktfx.controls
 
-import com.hendraanggrian.ktfx.test.initToolkit
-import javafx.scene.layout.FlowPane
-import javafx.scene.layout.GridPane
+import io.github.hendraanggrian.ktfx.test.initToolkit
 import javafx.scene.layout.Region
-import javafx.scene.layout.TilePane
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

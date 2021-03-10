@@ -3,7 +3,7 @@ package ktfx.layouts
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.BubbleChart
 import javafx.scene.chart.NumberAxis
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class BubbleChartTest : LayoutsTest<KtfxPane, BubbleChart<Number, Number>>() {

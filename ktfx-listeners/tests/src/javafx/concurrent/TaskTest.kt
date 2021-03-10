@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.concurrent.Task
 import javafx.concurrent.WorkerStateEvent
-import com.hendraanggrian.ktfx.test.BaseTaskTest
+import io.github.hendraanggrian.ktfx.test.BaseTaskTest
 
 class TaskTest : BaseTaskTest() {
 

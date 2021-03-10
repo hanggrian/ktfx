@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.SeparatorMenuItem
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 
 class SeparatorMenuItemTest : LayoutsTest<KtfxMenu, SeparatorMenuItem>() {
 

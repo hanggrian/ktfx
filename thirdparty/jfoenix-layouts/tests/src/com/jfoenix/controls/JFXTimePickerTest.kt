@@ -2,7 +2,7 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXTimePicker
 import ktfx.layouts.KtfxPane
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class JFXTimePickerTest : LayoutsTest<KtfxPane, JFXTimePicker>() {

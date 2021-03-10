@@ -13,7 +13,6 @@ dependencies {
     api(project(":$RELEASE_ARTIFACT-coroutines"))
 }
 
-publishKotlinFix()
 publish {
     bintrayUser = BINTRAY_USER
     bintrayKey = BINTRAY_KEY

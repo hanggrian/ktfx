@@ -1,6 +1,6 @@
 package ktfx.controlsfx.dialogs
 
-import com.hendraanggrian.ktfx.test.DialogShowingTest
+import io.github.hendraanggrian.ktfx.test.DialogShowingTest
 import org.controlsfx.dialog.CommandLinksDialog
 import kotlin.test.Ignore
 import kotlin.test.Test

@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.concurrent.Service
 import javafx.concurrent.WorkerStateEvent
-import com.hendraanggrian.ktfx.test.BaseServiceTest
+import io.github.hendraanggrian.ktfx.test.BaseServiceTest
 
 class ServiceTest : BaseServiceTest() {
 

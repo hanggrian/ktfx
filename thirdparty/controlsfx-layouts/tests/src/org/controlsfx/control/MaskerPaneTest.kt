@@ -1,7 +1,7 @@
 package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import org.controlsfx.control.MaskerPane
 
 class MaskerPaneTest : LayoutsTest<KtfxPane, MaskerPane>() {

@@ -1,7 +1,7 @@
 package ktfx.collections
 
 import javafx.collections.ObservableMap
-import com.hendraanggrian.ktfx.test.BaseMapTest
+import io.github.hendraanggrian.ktfx.test.BaseMapTest
 
 class ObservableCollectionsMapTest : BaseMapTest<ObservableMap<String, Any?>>() {
 

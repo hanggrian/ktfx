@@ -5,7 +5,7 @@ import javafx.application.ConditionalFeature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.runBlocking
-import com.hendraanggrian.ktfx.test.initToolkit
+import io.github.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

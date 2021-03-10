@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.event.Event
 import javafx.scene.control.Menu
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseMenuTest
+import io.github.hendraanggrian.ktfx.test.BaseMenuTest
 
 class MenuTest : BaseMenuTest() {
 

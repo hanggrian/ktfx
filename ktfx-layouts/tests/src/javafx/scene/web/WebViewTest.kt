@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.web.WebView
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.Ignore
 
 /** Error on [child1], [child2] and [child3] because creating [WebView] must be in FX thread. */

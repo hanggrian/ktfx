@@ -2,8 +2,8 @@ package javafx.stage
 
 import javafx.event.Event
 import javafx.scene.control.ContextMenu
-import com.hendraanggrian.ktfx.test.FakeEventTarget
-import com.hendraanggrian.ktfx.test.initToolkit
+import io.github.hendraanggrian.ktfx.test.FakeEventTarget
+import io.github.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -2,7 +2,7 @@ package ktfx.jfoenix.test
 
 import com.jfoenix.controls.JFXDrawer
 import com.jfoenix.controls.events.JFXDrawerEvent
-import com.hendraanggrian.ktfx.test.initToolkit
+import io.github.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

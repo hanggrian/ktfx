@@ -2,7 +2,7 @@ package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
 import ktfx.layouts.toggleButton
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import org.controlsfx.control.SegmentedButton
 import kotlin.test.Test
 import kotlin.test.assertEquals

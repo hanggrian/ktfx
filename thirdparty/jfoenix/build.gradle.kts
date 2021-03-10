@@ -13,7 +13,6 @@ dependencies {
     api(project(":thirdparty:jfoenix-coroutines"))
 }
 
-publishKotlinFix()
 publish {
     bintrayUser = BINTRAY_USER
     bintrayKey = BINTRAY_KEY

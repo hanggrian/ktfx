@@ -2,7 +2,7 @@ package ktfx.inputs
 
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
-import com.hendraanggrian.ktfx.test.BaseInputTest
+import io.github.hendraanggrian.ktfx.test.BaseInputTest
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertTrue

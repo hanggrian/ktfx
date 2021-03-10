@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.event.Event
 import javafx.scene.control.Tab
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseTabTest
+import io.github.hendraanggrian.ktfx.test.BaseTabTest
 
 class TabTest : BaseTabTest() {
 

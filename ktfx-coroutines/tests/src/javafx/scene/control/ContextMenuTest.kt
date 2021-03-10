@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.event.ActionEvent
 import javafx.scene.control.ContextMenu
 import kotlinx.coroutines.Dispatchers
-import com.hendraanggrian.ktfx.test.BaseContextMenuTest
+import io.github.hendraanggrian.ktfx.test.BaseContextMenuTest
 
 class ContextMenuTest : BaseContextMenuTest() {
 

@@ -2,7 +2,7 @@ package ktfx.controlsfx.layouts
 
 import com.google.common.truth.Truth.assertThat
 import ktfx.layouts.KtfxPane
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import org.controlsfx.control.PropertySheet
 
 class PropertySheetTest : LayoutsTest<KtfxPane, PropertySheet>() {

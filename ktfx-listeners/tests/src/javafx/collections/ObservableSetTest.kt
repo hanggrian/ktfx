@@ -2,7 +2,7 @@ package ktfx.listeners
 
 import javafx.collections.ObservableSet
 import javafx.collections.SetChangeListener
-import com.hendraanggrian.ktfx.test.BaseObservableSetTest
+import io.github.hendraanggrian.ktfx.test.BaseObservableSetTest
 
 class ObservableSetTest : BaseObservableSetTest() {
 

@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.CheckMenuItem
-import com.hendraanggrian.ktfx.test.LayoutsTest
+import io.github.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class CheckMenuItemTest : LayoutsTest<KtfxMenu, CheckMenuItem>() {

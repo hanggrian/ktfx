@@ -1,57 +1,56 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 group = RELEASE_GROUP
 version = RELEASE_VERSION
 
 plugins {
     kotlin("jvm")
     dokka
-    `bintray-release`
+    `maven-publish`
+    signing
 }
 
 sourceSets {
-    get("main").java.srcDir("src")
-    get("test").java.srcDir("tests/src")
+    getByName("main") {
+        java.srcDir("src")
+    }
+    getByName("test") {
+        java.srcDir("tests/src")
+    }
+}
+
+dependencies {
+    api(kotlin("stdlib"))
+    testImplementation(project(":testing:commons"))
+    testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 }
 
 ktlint { add ->
     add(project(":rulesets:basic"))
 }
 
-dependencies {
-    api(kotlin("stdlib"))
-
-    testImplementation(project(":testing:commons"))
-    testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
-}
-
 tasks {
-    withType<KotlinCompile> { kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn") }
-    dokkaHtml.configure {
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
+    }
+    dokkaJavadoc {
         dokkaSourceSets {
-            named("main") {
-                displayName.set("$RELEASE_ARTIFACT-commons")
+            "main" {
                 sourceLink {
-                    localDirectory.set(file("src"))
-                    remoteUrl.set(github("ktfx-commons"))
+                    localDirectory.set(projectDir.resolve("src"))
+                    remoteUrl.set(getReleaseSourceUrl())
                     remoteLineSuffix.set("#L")
                 }
             }
         }
-        doFirst { file(outputDirectory).deleteRecursively() }
+    }
+    val dokkaJar by registering(Jar::class) {
+        archiveClassifier.set("javadoc")
+        from(dokkaJavadoc)
+        dependsOn(dokkaJavadoc)
+    }
+    val sourcesJar by registering(Jar::class) {
+        archiveClassifier.set("sources")
+        from(sourceSets.main.get().allSource)
     }
 }
 
-publish {
-    bintrayUser = BINTRAY_USER
-    bintrayKey = BINTRAY_KEY
-    dryRun = false
-    repoName = RELEASE_ARTIFACT
-
-    userOrg = RELEASE_USER
-    groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-commons"
-    publishVersion = RELEASE_VERSION
-    desc = RELEASE_DESC
-    website = RELEASE_WEB
-}
+publishJvm("$RELEASE_ARTIFACT-commons")

@@ -6,8 +6,12 @@ plugins {
 application.mainClass.set("io.github.hendraanggrian.ktfx.codegen.Generator")
 
 sourceSets {
-    get("main").java.srcDir("src")
-    get("test").java.srcDir("tests/src")
+    getByName("main") {
+        java.srcDir("src")
+    }
+    getByName("test") {
+        java.srcDir("tests/src")
+    }
 }
 
 dependencies {
@@ -17,6 +21,5 @@ dependencies {
     implementation(kotlinpoetKtx())
     implementation(controlsfx())
     implementation(jfoenix())
-
     testImplementation(kotlin("test-junit", VERSION_KOTLIN))
 }

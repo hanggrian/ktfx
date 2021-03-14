@@ -3,7 +3,9 @@ version = RELEASE_VERSION
 
 plugins {
     kotlin("jvm")
-    `bintray-release`
+    dokka
+    `maven-publish`
+    signing
 }
 
 dependencies {
@@ -13,16 +15,27 @@ dependencies {
     api(project(":thirdparty:controlsfx-coroutines"))
 }
 
-publish {
-    bintrayUser = BINTRAY_USER
-    bintrayKey = BINTRAY_KEY
-    dryRun = false
-    repoName = RELEASE_ARTIFACT
-
-    userOrg = RELEASE_USER
-    groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-controlsfx"
-    publishVersion = RELEASE_VERSION
-    desc = RELEASE_DESC
-    website = RELEASE_WEB
+tasks {
+    dokkaJavadoc {
+        dokkaSourceSets {
+            "main" {
+                sourceLink {
+                    localDirectory.set(projectDir.resolve("src"))
+                    remoteUrl.set(getReleaseSourceUrl())
+                    remoteLineSuffix.set("#L")
+                }
+            }
+        }
+    }
+    val dokkaJar by registering(Jar::class) {
+        archiveClassifier.set("javadoc")
+        from(dokkaJavadoc)
+        dependsOn(dokkaJavadoc)
+    }
+    val sourcesJar by registering(Jar::class) {
+        archiveClassifier.set("sources")
+        from(sourceSets.main.get().allSource)
+    }
 }
+
+publishJvm("$RELEASE_ARTIFACT-controlsfx")

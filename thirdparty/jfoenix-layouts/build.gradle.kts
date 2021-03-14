@@ -1,17 +1,26 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 group = RELEASE_GROUP
 version = RELEASE_VERSION
 
 plugins {
     kotlin("jvm")
     dokka
-    `bintray-release`
+    `maven-publish`
+    signing
 }
 
 sourceSets {
-    get("main").java.srcDir("src")
-    get("test").java.srcDir("tests/src")
+    getByName("main") {
+        java.srcDir("src")
+    }
+    getByName("test") {
+        java.srcDir("tests/src")
+    }
+}
+
+dependencies {
+    api(project(":$RELEASE_ARTIFACT-layouts"))
+    api(jfoenix())
+    testImplementation(project(":testing:layouts"))
 }
 
 ktlint { add ->
@@ -20,40 +29,30 @@ ktlint { add ->
     add(project(":rulesets:layouts"))
 }
 
-dependencies {
-    api(project(":$RELEASE_ARTIFACT-layouts"))
-    api(jfoenix())
-
-    testImplementation(project(":testing:layouts"))
-}
-
 tasks {
-    withType<KotlinCompile> { kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn") }
-    dokkaHtml.configure {
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
+    }
+    dokkaJavadoc {
         dokkaSourceSets {
-            named("main") {
-                displayName.set("$RELEASE_ARTIFACT-jfoenix-layouts")
+            "main" {
                 sourceLink {
-                    localDirectory.set(file("src"))
-                    remoteUrl.set(github("thirdparty/jfoenix-layouts"))
+                    localDirectory.set(projectDir.resolve("src"))
+                    remoteUrl.set(getReleaseSourceUrl())
                     remoteLineSuffix.set("#L")
                 }
             }
         }
-        doFirst { file(outputDirectory).deleteRecursively() }
+    }
+    val dokkaJar by registering(Jar::class) {
+        archiveClassifier.set("javadoc")
+        from(dokkaJavadoc)
+        dependsOn(dokkaJavadoc)
+    }
+    val sourcesJar by registering(Jar::class) {
+        archiveClassifier.set("sources")
+        from(sourceSets.main.get().allSource)
     }
 }
 
-publish {
-    bintrayUser = BINTRAY_USER
-    bintrayKey = BINTRAY_KEY
-    dryRun = false
-    repoName = RELEASE_ARTIFACT
-
-    userOrg = RELEASE_USER
-    groupId = RELEASE_GROUP
-    artifactId = "$RELEASE_ARTIFACT-jfoenix-layouts"
-    publishVersion = RELEASE_VERSION
-    desc = RELEASE_DESC
-    website = RELEASE_WEB
-}
+publishJvm("$RELEASE_ARTIFACT-jfoenix-layouts")

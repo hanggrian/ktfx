@@ -1,34 +1,33 @@
-import org.gradle.api.Project
-import org.gradle.api.artifacts.Configuration
 import org.gradle.api.tasks.JavaExec
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.getValue
 import org.gradle.kotlin.dsl.invoke
-import org.gradle.kotlin.dsl.register
+import org.gradle.kotlin.dsl.provideDelegate
+import org.gradle.kotlin.dsl.registering
 import org.gradle.language.base.plugins.LifecycleBasePlugin
 
-private const val VERSION_KTLINT = "0.40.0"
+const val VERSION_KTLINT = "0.40.0"
 
-fun Dependencies.ktlint(module: String? = null) = when (module) {
-    null -> "com.pinterest:ktlint:$VERSION_KTLINT"
-    else -> "com.pinterest.ktlint:ktlint-$module:$VERSION_KTLINT"
-}
+fun org.gradle.api.artifacts.dsl.DependencyHandler.ktlint(module: String? = null) =
+    when (module) {
+        null -> "com.pinterest:ktlint:$VERSION_KTLINT"
+        else -> "com.pinterest.ktlint:ktlint-$module:$VERSION_KTLINT"
+    }
 
-fun Project.ktlint(
-    extraDependency: (Configuration.(
-        add: (dependencyNotation: Any) -> Unit
-    ) -> Unit)? = null
+fun org.gradle.api.Project.ktlint(
+    extraDependency: (add: (dependencyNotation: Any) -> Unit) -> Unit = { }
 ) {
     val configuration = configurations.register("ktlint")
     dependencies {
         configuration {
             invoke(ktlint())
-            extraDependency?.invoke(this) { dependencyNotation ->
+            extraDependency { dependencyNotation ->
                 invoke(dependencyNotation)
             }
         }
     }
     tasks {
-        val ktlint = register("ktlint", JavaExec::class) {
+        val ktlint by registering(JavaExec::class) {
             group = LifecycleBasePlugin.VERIFICATION_GROUP
             inputs.dir("src")
             outputs.dir("src")
@@ -38,9 +37,9 @@ fun Project.ktlint(
             args("src/**/*.kt")
         }
         "check" {
-            dependsOn(ktlint.get())
+            dependsOn(ktlint)
         }
-        register("ktlintFormat", JavaExec::class) {
+        val ktlintFormat by registering(JavaExec::class) {
             group = "formatting"
             inputs.dir("src")
             outputs.dir("src")

@@ -3,7 +3,7 @@
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 [![license](https://img.shields.io/github/license/hendraanggrian/ktfx)](http://www.apache.org/licenses/LICENSE-2.0)
 
-Ktfx
+KtFX
 ====
 Written in spirit of [anko], it aims to make JavaFX app development less painful with the help of Kotlin technologies.
 * Full of helpers for common JavaFX operations.

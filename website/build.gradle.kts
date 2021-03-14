@@ -3,7 +3,7 @@ plugins {
 }
 
 gitPublish {
-    repoUri.set(RELEASE_WEB)
+    repoUri.set(RELEASE_URL)
     branch.set("gh-pages")
     contents.from(
         "src",
@@ -13,12 +13,14 @@ gitPublish {
     )
 }
 
-tasks["gitPublishCopy"].dependsOn(
-    *ktfxArtifacts
-        .map { it.replace('/', ':') }
-        .map { ":$it:dokkaHtml" }
-        .toTypedArray()
-)
+tasks.gitPublishCopy {
+    dependsOn(
+        *ktfxArtifacts
+            .map { it.replace('/', ':') }
+            .map { ":$it:dokkaHtml" }
+            .toTypedArray()
+    )
+}
 
 val ktfxArtifacts: List<String>
     get() = listOf("commons", "layouts", "listeners", "coroutines").map { "$RELEASE_ARTIFACT-$it" } +

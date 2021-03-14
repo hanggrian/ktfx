@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 buildscript {
     repositories {
         jcenter()
@@ -8,7 +6,6 @@ buildscript {
         classpath(kotlin("gradle-plugin", VERSION_KOTLIN))
         classpath(dokka())
         classpath(gitPublish())
-        classpath(bintrayRelease())
     }
 }
 
@@ -19,7 +16,7 @@ allprojects {
     }
     tasks {
         withType<Delete> { delete(projectDir.resolve("out")) }
-        withType<KotlinCompile> { kotlinOptions { jvmTarget = "1.8" } }
+        withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> { kotlinOptions { jvmTarget = "1.8" } }
     }
 }
 

@@ -2,7 +2,11 @@ plugins {
     kotlin("jvm")
 }
 
-sourceSets["main"].java.srcDir("src")
+sourceSets {
+    getByName("main") {
+        java.srcDir("src")
+    }
+}
 
 dependencies {
     api(kotlin("stdlib", VERSION_KOTLIN))

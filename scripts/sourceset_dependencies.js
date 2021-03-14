@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":thirdparty:jfoenix-coroutines/main": []}'
+sourceset_dependencies = '{":thirdparty:jfoenix-coroutines:dokkaHtml/main": []}'

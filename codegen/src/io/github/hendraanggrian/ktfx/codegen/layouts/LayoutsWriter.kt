@@ -1,20 +1,20 @@
 package io.github.hendraanggrian.ktfx.codegen.layouts
 
+import com.squareup.kotlinpoet.asClassName
 import io.github.hendraanggrian.kotlinpoet.FunSpecBuilder
 import io.github.hendraanggrian.kotlinpoet.INLINE
 import io.github.hendraanggrian.kotlinpoet.VARARG
 import io.github.hendraanggrian.kotlinpoet.annotate
 import io.github.hendraanggrian.kotlinpoet.asNullable
 import io.github.hendraanggrian.kotlinpoet.buildFileSpec
-import io.github.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
+import io.github.hendraanggrian.kotlinpoet.dsl.ParameterSpecHandlerScope
 import io.github.hendraanggrian.kotlinpoet.lambdaBy
 import io.github.hendraanggrian.ktfx.codegen.CONTRACT
+import io.github.hendraanggrian.ktfx.codegen.DSL_MARKER
 import io.github.hendraanggrian.ktfx.codegen.EXACTLY_ONCE
 import io.github.hendraanggrian.ktfx.codegen.EXPERIMENTAL_CONTRACTS
-import io.github.hendraanggrian.ktfx.codegen.DSL_MARKER
 import io.github.hendraanggrian.ktfx.codegen.OPT_IN
 import io.github.hendraanggrian.ktfx.codegen.toString
-import com.squareup.kotlinpoet.asClassName
 import java.io.File
 
 object LayoutsWriter {
@@ -152,16 +152,16 @@ object LayoutsWriter {
     private fun FunSpecBuilder.contractln() =
         appendLine("%M { callsInPlace(configuration, %M) }", CONTRACT, EXACTLY_ONCE)
 
-    private fun ParameterSpecListScope.styleClass() = add("styleClass", String::class, VARARG) {
+    private fun ParameterSpecHandlerScope.styleClass() = add("styleClass", String::class, VARARG) {
         kdoc.append("the CSS style class.")
     }
 
-    private fun ParameterSpecListScope.id() = add("id", String::class.asNullable()) {
+    private fun ParameterSpecHandlerScope.id() = add("id", String::class.asNullable()) {
         kdoc.append("the CSS id.")
         defaultValue("null")
     }
 
-    private fun ParameterSpecListScope.configuration(entry: LayoutsEntry) = add(
+    private fun ParameterSpecHandlerScope.configuration(entry: LayoutsEntry) = add(
         "configuration", Unit::class.asClassName()
             .lambdaBy(receiver = entry.customTypeName.annotate(DSL_MARKER))
     ) {

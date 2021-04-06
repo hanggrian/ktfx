@@ -1,12 +1,5 @@
 package io.github.hendraanggrian.ktfx.codegen.layouts
 
-import io.github.hendraanggrian.kotlinpoet.asNullable
-import io.github.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
-import io.github.hendraanggrian.kotlinpoet.parameterizedBy
-import io.github.hendraanggrian.kotlinpoet.typeVarBy
-import io.github.hendraanggrian.kotlinpoet.typeVarOf
-import io.github.hendraanggrian.ktfx.codegen.S
-import io.github.hendraanggrian.ktfx.codegen.T
 import com.jfoenix.controls.JFXBadge
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXCheckBox
@@ -46,6 +39,13 @@ import com.jfoenix.controls.JFXTreeView
 import com.jfoenix.controls.JFXTreeViewPath
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
 import com.squareup.kotlinpoet.asClassName
+import io.github.hendraanggrian.kotlinpoet.asNullable
+import io.github.hendraanggrian.kotlinpoet.dsl.ParameterSpecHandlerScope
+import io.github.hendraanggrian.kotlinpoet.parameterizedBy
+import io.github.hendraanggrian.kotlinpoet.typeVarBy
+import io.github.hendraanggrian.kotlinpoet.typeVarOf
+import io.github.hendraanggrian.ktfx.codegen.S
+import io.github.hendraanggrian.ktfx.codegen.T
 import javafx.scene.Node
 import javafx.scene.control.TreeView
 import javafx.stage.Stage
@@ -105,6 +105,6 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
             }
         }
 
-        fun ParameterSpecListScope.chipView() = add("view", JFXChipView::class.asClassName().parameterizedBy(T))
-        fun ParameterSpecListScope.item() = add("item", T)
+        fun ParameterSpecHandlerScope.chipView() = add("view", JFXChipView::class.asClassName().parameterizedBy(T))
+        fun ParameterSpecHandlerScope.item() = add("item", T)
     }

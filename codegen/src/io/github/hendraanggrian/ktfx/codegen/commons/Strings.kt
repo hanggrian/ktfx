@@ -3,7 +3,7 @@ package io.github.hendraanggrian.ktfx.codegen.commons
 import io.github.hendraanggrian.kotlinpoet.CROSSINLINE
 import io.github.hendraanggrian.kotlinpoet.NOINLINE
 import io.github.hendraanggrian.kotlinpoet.VARARG
-import io.github.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
+import io.github.hendraanggrian.kotlinpoet.dsl.ParameterSpecHandlerScope
 import io.github.hendraanggrian.kotlinpoet.lambdaBy
 
 val StringsFactory.Companion.Strings: StringsFactory
@@ -65,15 +65,17 @@ val StringsFactory.Companion.Strings: StringsFactory
             "contains"(BOOLEAN) { regex() }
         }
 
-        fun ParameterSpecListScope.predicate() =
-            add("predicate", Boolean::class.lambdaBy(Char::class), CROSSINLINE)
+        fun ParameterSpecHandlerScope.predicate() =
+            "predicate"(Boolean::class.lambdaBy(Char::class), CROSSINLINE)
 
-        fun ParameterSpecListScope.chars() = add<Char>("chars", VARARG)
-        fun ParameterSpecListScope.padChar() = "padChar"<Char> { defaultValue("\' \'") }
-        fun ParameterSpecListScope.range() = add<IntRange>("range")
-        inline fun <reified T> ParameterSpecListScope.delimiter() = add<T>("delimiter")
-        fun ParameterSpecListScope.missingDelimiterValue() = "missingDelimiterValue"<String> { defaultValue("value") }
-        fun ParameterSpecListScope.replacement() = add<String>("replacement")
-        fun ParameterSpecListScope.regex() = add<Regex>("regex")
-        fun ParameterSpecListScope.char() = add<Char>("char")
+        fun ParameterSpecHandlerScope.chars() = "chars"<Char>(VARARG)
+        fun ParameterSpecHandlerScope.padChar() = "padChar"<Char> { defaultValue("\' \'") }
+        fun ParameterSpecHandlerScope.range() = "range"<IntRange>()
+        inline fun <reified T> ParameterSpecHandlerScope.delimiter() = "delimiter"<T>()
+        fun ParameterSpecHandlerScope.missingDelimiterValue() =
+            "missingDelimiterValue"<String> { defaultValue("value") }
+
+        fun ParameterSpecHandlerScope.replacement() = "replacement"<String>()
+        fun ParameterSpecHandlerScope.regex() = "regex"<Regex>()
+        fun ParameterSpecHandlerScope.char() = "char"<Char>()
     }

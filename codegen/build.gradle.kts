@@ -3,13 +3,15 @@ plugins {
     application
 }
 
-application.mainClass.set("io.github.hendraanggrian.ktfx.codegen.Generator")
+application {
+    mainClass.set("$RELEASE_GROUP.$RELEASE_ARTIFACT.codegen.Generator")
+}
 
 sourceSets {
-    getByName("main") {
+    main {
         java.srcDir("src")
     }
-    getByName("test") {
+    test {
         java.srcDir("tests/src")
     }
 }

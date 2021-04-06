@@ -12,14 +12,10 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        maven(REPO_OSSRH_SNAPSHOTS)
     }
     tasks {
         withType<Delete> { delete(projectDir.resolve("out")) }
         withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> { kotlinOptions { jvmTarget = "1.8" } }
     }
-}
-
-tasks.register<Delete>("clean") {
-    delete(buildDir)
 }

@@ -1,13 +1,13 @@
 package io.github.hendraanggrian.ktfx.codegen.listeners
 
-import io.github.hendraanggrian.kotlinpoet.FileSpecBuilder
-import io.github.hendraanggrian.kotlinpoet.buildParameterSpec
-import io.github.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
-import io.github.hendraanggrian.kotlinpoet.lambdaBy
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.asTypeName
+import io.github.hendraanggrian.kotlinpoet.FileSpecBuilder
+import io.github.hendraanggrian.kotlinpoet.buildParameterSpec
+import io.github.hendraanggrian.kotlinpoet.dsl.ParameterSpecHandlerScope
+import io.github.hendraanggrian.kotlinpoet.lambdaBy
 import kotlinx.coroutines.CoroutineScope
 import kotlin.coroutines.CoroutineContext
 import kotlin.reflect.KClass
@@ -27,7 +27,7 @@ open class ListenersFactory(
 ) {
     companion object;
 
-    override fun ParameterSpecListScope.action(vararg params: TypeName): Boolean =
+    override fun ParameterSpecHandlerScope.action(vararg params: TypeName): Boolean =
         add("action", Unit::class.asTypeName().lambdaBy(*params), KModifier.NOINLINE)
 }
 
@@ -50,11 +50,10 @@ open class CoroutinesFactory(
 ) {
     companion object;
 
-    override fun ParameterSpecListScope.action(vararg params: TypeName): Boolean =
-        add(
-            "action", Unit::class.asTypeName().lambdaBy(*params, receiver = CoroutineScope::class.asTypeName())
-                .copy(suspending = true)
-        )
+    override fun ParameterSpecHandlerScope.action(vararg params: TypeName): Boolean = add(
+        "action", Unit::class.asTypeName().lambdaBy(*params, receiver = CoroutineScope::class.asTypeName())
+            .copy(suspending = true)
+    )
 }
 
 abstract class BaseListenersFactory(
@@ -78,16 +77,16 @@ abstract class BaseListenersFactory(
         )
     }
 
-    inline fun <reified Type> ParameterSpecListScope.action(): Boolean = action(Type::class.asTypeName())
+    inline fun <reified Type> ParameterSpecHandlerScope.action(): Boolean = action(Type::class.asTypeName())
 
-    abstract fun ParameterSpecListScope.action(vararg params: TypeName): Boolean
+    abstract fun ParameterSpecHandlerScope.action(vararg params: TypeName): Boolean
 
     class FunctionsFactory(private val extraFunctionParameter: ParameterSpec?) {
         val entries = mutableListOf<ListenersFunctionEntry>()
 
-        operator fun String.invoke(configuration: ParameterSpecListScope.() -> Unit = { }) {
+        operator fun String.invoke(configuration: ParameterSpecHandlerScope.() -> Unit = { }) {
             val parameters = listOfNotNull(extraFunctionParameter).toMutableList()
-            ParameterSpecListScope(parameters).configuration()
+            ParameterSpecHandlerScope(parameters).configuration()
             entries += ListenersFunctionEntry(this, parameters)
         }
     }

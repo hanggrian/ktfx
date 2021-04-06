@@ -1,7 +1,7 @@
 package io.github.hendraanggrian.ktfx.codegen.commons
 
-import io.github.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
 import com.squareup.kotlinpoet.ParameterSpec
+import io.github.hendraanggrian.kotlinpoet.dsl.ParameterSpecHandlerScope
 
 open class StringsFactory(val className: String) {
     companion object {
@@ -13,13 +13,13 @@ open class StringsFactory(val className: String) {
         const val ANY = ""
         const val STRING = "String"
 
-        fun ParameterSpecListScope.ignoreCase() = "ignoreCase"<Boolean> { defaultValue("false") }
-        fun ParameterSpecListScope.startIndex() = add<Int>("startIndex")
-        fun ParameterSpecListScope.endIndex() = add<Int>("endIndex")
-        fun ParameterSpecListScope.length() = add<Int>("length")
-        fun ParameterSpecListScope.prefix() = add<String>("prefix")
-        fun ParameterSpecListScope.suffix() = add<String>("suffix")
-        fun ParameterSpecListScope.other() = add<String>("other")
+        fun ParameterSpecHandlerScope.ignoreCase() = "ignoreCase"<Boolean> { defaultValue("false") }
+        fun ParameterSpecHandlerScope.startIndex() = add<Int>("startIndex")
+        fun ParameterSpecHandlerScope.endIndex() = add<Int>("endIndex")
+        fun ParameterSpecHandlerScope.length() = add<Int>("length")
+        fun ParameterSpecHandlerScope.prefix() = add<String>("prefix")
+        fun ParameterSpecHandlerScope.suffix() = add<String>("suffix")
+        fun ParameterSpecHandlerScope.other() = add<String>("other")
     }
 
     val entries = mutableListOf<StringsEntry>()
@@ -27,10 +27,10 @@ open class StringsFactory(val className: String) {
     operator fun String.invoke(
         type: String,
         notNull: Boolean = true,
-        configuration: ParameterSpecListScope.() -> Unit = { }
+        configuration: ParameterSpecHandlerScope.() -> Unit = { }
     ) {
         val parameters = mutableListOf<ParameterSpec>()
-        ParameterSpecListScope(parameters).configuration()
+        ParameterSpecHandlerScope(parameters).configuration()
         entries += StringsEntry(type, this, notNull, parameters)
     }
 }

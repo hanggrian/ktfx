@@ -3,10 +3,12 @@ plugins {
     application
 }
 
-application.mainClass.set("com.example.CalculatorApp")
+application {
+    mainClass.set("com.example.CalculatorApp")
+}
 
 sourceSets {
-    getByName("main") {
+    main {
         java.srcDir("src")
     }
 }

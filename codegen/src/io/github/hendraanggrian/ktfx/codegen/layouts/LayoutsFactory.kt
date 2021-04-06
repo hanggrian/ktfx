@@ -1,11 +1,11 @@
 package io.github.hendraanggrian.ktfx.codegen.layouts
 
 import io.github.hendraanggrian.kotlinpoet.asNullable
-import io.github.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
 import io.github.hendraanggrian.kotlinpoet.memberOf
 import io.github.hendraanggrian.kotlinpoet.parameterizedBy
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeVariableName
+import io.github.hendraanggrian.kotlinpoet.dsl.ParameterSpecHandlerScope
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.scene.Node
@@ -21,26 +21,26 @@ open class LayoutsFactory(
     val className: String
 ) {
     companion object {
-        fun ParameterSpecListScope.text() = "text"(String::class.asNullable()) { defaultValue("null") }
-        fun ParameterSpecListScope.graphic() = "graphic"(Node::class.asNullable()) { defaultValue("null") }
-        fun ParameterSpecListScope.content() = "content"(Node::class.asNullable()) { defaultValue("null") }
-        fun ParameterSpecListScope.progress() =
+        fun ParameterSpecHandlerScope.text() = "text"(String::class.asNullable()) { defaultValue("null") }
+        fun ParameterSpecHandlerScope.graphic() = "graphic"(Node::class.asNullable()) { defaultValue("null") }
+        fun ParameterSpecHandlerScope.content() = "content"(Node::class.asNullable()) { defaultValue("null") }
+        fun ParameterSpecHandlerScope.progress() =
             "progress"<Double> { defaultValue("%M", ProgressBar::class.memberOf("INDETERMINATE_PROGRESS")) }
 
-        fun ParameterSpecListScope.color() =
+        fun ParameterSpecHandlerScope.color() =
             "color"<Color> { defaultValue("%M", Color::class.memberOf("WHITE")) }
 
-        fun ParameterSpecListScope.date() = "date"(LocalDate::class.asNullable()) { defaultValue("null") }
+        fun ParameterSpecHandlerScope.date() = "date"(LocalDate::class.asNullable()) { defaultValue("null") }
 
-        fun ParameterSpecListScope.items(name: TypeVariableName) =
+        fun ParameterSpecHandlerScope.items(name: TypeVariableName) =
             "items"(ObservableList::class.parameterizedBy(name)) {
                 defaultValue("%M()", FXCollections::class.memberOf("observableArrayList"))
             }
 
-        fun ParameterSpecListScope.treeItem(name: String, variable: TypeVariableName) =
+        fun ParameterSpecHandlerScope.treeItem(name: String, variable: TypeVariableName) =
             name(TreeItem::class.parameterizedBy(variable).asNullable()) { defaultValue("null") }
 
-        fun ParameterSpecListScope.slider(value: String) {
+        fun ParameterSpecHandlerScope.slider(value: String) {
             "min"<Double> { defaultValue("0.0") }
             "max"<Double> { defaultValue("100.0") }
             "value"<Double> { defaultValue(value) }
@@ -52,10 +52,10 @@ open class LayoutsFactory(
     operator fun KClass<*>.invoke(
         vararg typeVariables: TypeVariableName,
         customClass: Boolean = false,
-        configuration: ParameterSpecListScope.() -> Unit = { }
+        configuration: ParameterSpecHandlerScope.() -> Unit = { }
     ) {
         val parameters = mutableListOf<ParameterSpec>()
-        ParameterSpecListScope(parameters).configuration()
+        ParameterSpecHandlerScope(parameters).configuration()
         entries += LayoutsEntry(packageName, this, parameters, typeVariables.asList(), customClass = customClass)
     }
 }

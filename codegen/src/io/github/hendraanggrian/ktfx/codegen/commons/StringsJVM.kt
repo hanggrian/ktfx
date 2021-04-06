@@ -2,7 +2,7 @@ package io.github.hendraanggrian.ktfx.codegen.commons
 
 import io.github.hendraanggrian.kotlinpoet.VARARG
 import io.github.hendraanggrian.kotlinpoet.asNullable
-import io.github.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
+import io.github.hendraanggrian.kotlinpoet.dsl.ParameterSpecHandlerScope
 import java.util.Locale
 
 val StringsFactory.Companion.StringsJVM: StringsFactory
@@ -44,11 +44,11 @@ val StringsFactory.Companion.StringsJVM: StringsFactory
             "repeat"(STRING) { add<Int>("n") }
         }
 
-        fun ParameterSpecListScope.oldChar() = add<Char>("oldChar")
-        fun ParameterSpecListScope.newChar() = add<Char>("newChar")
-        fun ParameterSpecListScope.oldValue() = add<String>("oldChar")
-        fun ParameterSpecListScope.newValue() = add<String>("newChar")
-        fun ParameterSpecListScope.args() = add("newChar", Any::class.asNullable(), VARARG)
-        fun ParameterSpecListScope.locale() = add<Locale>("locale")
-        fun ParameterSpecListScope.index() = add<Int>("index")
+        fun ParameterSpecHandlerScope.oldChar() = add<Char>("oldChar")
+        fun ParameterSpecHandlerScope.newChar() = add<Char>("newChar")
+        fun ParameterSpecHandlerScope.oldValue() = add<String>("oldChar")
+        fun ParameterSpecHandlerScope.newValue() = add<String>("newChar")
+        fun ParameterSpecHandlerScope.args() = add("newChar", Any::class.asNullable(), VARARG)
+        fun ParameterSpecHandlerScope.locale() = add<Locale>("locale")
+        fun ParameterSpecHandlerScope.index() = add<Int>("index")
     }

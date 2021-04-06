@@ -3,7 +3,7 @@ plugins {
 }
 
 sourceSets {
-    getByName("main") {
+    main {
         java.srcDir("src")
         resources.srcDir("res")
     }

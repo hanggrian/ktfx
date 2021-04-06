@@ -27,7 +27,7 @@ tasks {
             }
         }
     }
-    val dokkaJar by registering(Jar::class) {
+    val javadocJar by registering(Jar::class) {
         archiveClassifier.set("javadoc")
         from(dokkaJavadoc)
         dependsOn(dokkaJavadoc)

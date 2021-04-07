@@ -4,7 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.BarChart
 import javafx.scene.chart.CategoryAxis
 import javafx.scene.chart.NumberAxis
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class BarChartTest : LayoutsTest<KtfxPane, BarChart<String, Number>>() {

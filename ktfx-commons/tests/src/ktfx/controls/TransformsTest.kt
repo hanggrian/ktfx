@@ -1,7 +1,7 @@
 package ktfx.controls
 
 import javafx.scene.control.Label
-import io.github.hendraanggrian.ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

@@ -3,7 +3,7 @@ package ktfx.listeners
 import javafx.event.ActionEvent
 import javafx.event.Event
 import javafx.scene.control.ChoiceBox
-import io.github.hendraanggrian.ktfx.test.BaseChoiceBoxTest
+import com.hendraanggrian.ktfx.test.BaseChoiceBoxTest
 
 class ChoiceBoxTest : BaseChoiceBoxTest() {
 

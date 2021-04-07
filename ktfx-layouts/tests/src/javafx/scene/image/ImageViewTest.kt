@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.image.ImageView
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class ImageViewTest : LayoutsTest<KtfxPane, ImageView>() {

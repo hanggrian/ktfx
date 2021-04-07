@@ -3,7 +3,7 @@ package ktfx.controlsfx.dialogs
 import javafx.concurrent.Service
 import javafx.stage.Stage
 import ktfx.buildService
-import io.github.hendraanggrian.ktfx.test.DialogShowingTest
+import com.hendraanggrian.ktfx.test.DialogShowingTest
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals

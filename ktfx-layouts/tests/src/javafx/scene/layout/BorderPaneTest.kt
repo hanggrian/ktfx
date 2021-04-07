@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.BorderPane
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class BorderPaneTest : LayoutsTest<KtfxPane, BorderPane>() {
 

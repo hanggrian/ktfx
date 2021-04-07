@@ -1,4 +1,4 @@
-package io.github.hendraanggrian.ktfx.test
+package com.hendraanggrian.ktfx.test
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableSet

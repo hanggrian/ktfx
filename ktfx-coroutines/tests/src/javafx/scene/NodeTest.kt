@@ -13,7 +13,7 @@ import javafx.scene.input.SwipeEvent
 import javafx.scene.input.TouchEvent
 import javafx.scene.input.ZoomEvent
 import kotlinx.coroutines.Dispatchers
-import io.github.hendraanggrian.ktfx.test.BaseNodeTest
+import com.hendraanggrian.ktfx.test.BaseNodeTest
 
 class NodeTest : BaseNodeTest() {
 

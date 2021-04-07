@@ -2,7 +2,7 @@ package ktfx.coroutines
 
 import javafx.scene.control.TableColumn
 import kotlinx.coroutines.Dispatchers
-import io.github.hendraanggrian.ktfx.test.BaseTableColumnTest
+import com.hendraanggrian.ktfx.test.BaseTableColumnTest
 
 class TableColumnTest : BaseTableColumnTest() {
 

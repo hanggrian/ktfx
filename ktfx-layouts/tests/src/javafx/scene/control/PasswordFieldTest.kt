@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.PasswordField
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class PasswordFieldTest : LayoutsTest<KtfxPane, PasswordField>() {
 

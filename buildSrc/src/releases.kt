@@ -1,5 +1,5 @@
 const val RELEASE_USER = "hendraanggrian"
-const val RELEASE_GROUP = "io.github.$RELEASE_USER.ktfx"
+const val RELEASE_GROUP = "com.$RELEASE_USER.ktfx"
 const val RELEASE_ARTIFACT = "ktfx"
 const val RELEASE_VERSION = "8.0.0-SNAPSHOT"
 const val RELEASE_DESCRIPTION = "Kotlin extensions for JavaFX app development"

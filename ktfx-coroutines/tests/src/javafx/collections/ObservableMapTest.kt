@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.collections.MapChangeListener
 import javafx.collections.ObservableMap
 import kotlinx.coroutines.Dispatchers
-import io.github.hendraanggrian.ktfx.test.BaseObservableMapTest
+import com.hendraanggrian.ktfx.test.BaseObservableMapTest
 
 class ObservableMapTest : BaseObservableMapTest() {
 

@@ -3,7 +3,7 @@ package ktfx.layouts
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.chart.NumberAxis
 import javafx.scene.chart.ScatterChart
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class ScatterChartTest : LayoutsTest<KtfxPane, ScatterChart<Number, Number>>() {

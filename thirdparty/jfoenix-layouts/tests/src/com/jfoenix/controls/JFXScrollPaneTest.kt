@@ -4,7 +4,7 @@ import com.google.common.truth.Truth.assertThat
 import com.jfoenix.controls.JFXButton
 import com.jfoenix.controls.JFXScrollPane
 import ktfx.layouts.KtfxPane
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.Test
 
 class JFXScrollPaneTest : LayoutsTest<KtfxPane, JFXScrollPane>() {

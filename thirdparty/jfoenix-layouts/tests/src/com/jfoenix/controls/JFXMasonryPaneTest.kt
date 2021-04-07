@@ -2,7 +2,7 @@ package ktfx.jfoenix.layouts
 
 import com.jfoenix.controls.JFXMasonryPane
 import ktfx.layouts.KtfxPane
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class JFXMasonryPaneTest : LayoutsTest<KtfxPane, JFXMasonryPane>() {
 

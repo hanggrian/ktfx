@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.layout.Pane
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class PaneTest : LayoutsTest<KtfxPane, Pane>() {
 

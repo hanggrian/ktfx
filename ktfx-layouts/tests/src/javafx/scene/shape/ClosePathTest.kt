@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.shape.ClosePath
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class ClosePathTest : LayoutsTest<KtfxPath, ClosePath>() {
 

@@ -1,7 +1,7 @@
 package ktfx.controlsfx.controls
 
 import javafx.scene.control.TextField
-import io.github.hendraanggrian.ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import ktfx.text.buildStringConverter
 import kotlin.test.BeforeTest
 import kotlin.test.Test

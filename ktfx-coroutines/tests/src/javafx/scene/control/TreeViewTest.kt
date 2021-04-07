@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.TreeView
 import kotlinx.coroutines.Dispatchers
-import io.github.hendraanggrian.ktfx.test.BaseTreeViewTest
+import com.hendraanggrian.ktfx.test.BaseTreeViewTest
 
 class TreeViewTest : BaseTreeViewTest() {
 

@@ -1,7 +1,7 @@
 package ktfx.controlsfx.layouts
 
 import ktfx.layouts.KtfxPane
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import org.controlsfx.control.PrefixSelectionComboBox
 
 class PrefixSelectionComboBoxTest : LayoutsTest<KtfxPane, PrefixSelectionComboBox<String>>() {

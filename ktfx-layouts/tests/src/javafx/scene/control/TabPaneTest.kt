@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.TabPane
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 
 class TabPaneTest : LayoutsTest<KtfxPane, TabPane>() {
 

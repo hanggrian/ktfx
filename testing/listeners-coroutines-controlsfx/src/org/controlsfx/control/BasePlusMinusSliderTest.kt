@@ -1,7 +1,7 @@
 package ktfx.controlsfx.test
 
-import io.github.hendraanggrian.ktfx.test.FakeEventTarget
-import io.github.hendraanggrian.ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.FakeEventTarget
+import com.hendraanggrian.ktfx.test.initToolkit
 import org.controlsfx.control.PlusMinusSlider
 import kotlin.test.BeforeTest
 import kotlin.test.Test

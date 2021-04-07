@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.text.Text
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class TextTest : LayoutsTest<KtfxTextFlow, Text>() {

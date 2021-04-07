@@ -1,4 +1,4 @@
-package io.github.hendraanggrian.ktfx.test
+package com.hendraanggrian.ktfx.test
 
 import com.google.common.truth.Truth.assertThat
 import javafx.scene.Node

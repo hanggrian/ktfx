@@ -6,7 +6,7 @@ import javafx.scene.control.Label
 import javafx.scene.effect.BlurType
 import javafx.scene.effect.DropShadow
 import javafx.scene.paint.Color
-import io.github.hendraanggrian.ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

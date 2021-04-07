@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.ProgressBar
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertEquals
 
 class ProgressBarTest : LayoutsTest<KtfxPane, ProgressBar>() {

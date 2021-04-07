@@ -4,7 +4,7 @@ import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.Hyperlink
 import javafx.scene.control.Label
-import io.github.hendraanggrian.ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import org.controlsfx.control.decoration.Decorator
 import org.controlsfx.control.decoration.GraphicDecoration
 import kotlin.test.BeforeTest

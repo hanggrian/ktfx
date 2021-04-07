@@ -1,7 +1,7 @@
 package ktfx.controlsfx.text
 
 import javafx.scene.paint.Color
-import io.github.hendraanggrian.ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import org.controlsfx.glyphfont.Glyph
 import kotlin.test.BeforeTest
 import kotlin.test.Test

@@ -4,7 +4,7 @@ import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.SortEvent
 import javafx.scene.control.TreeTableColumn
 import javafx.scene.control.TreeTableView
-import io.github.hendraanggrian.ktfx.test.BaseTreeTableViewTest
+import com.hendraanggrian.ktfx.test.BaseTreeTableViewTest
 
 class TreeTableViewTest : BaseTreeTableViewTest() {
 

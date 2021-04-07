@@ -2,7 +2,7 @@ package ktfx.coroutines
 
 import javafx.scene.media.Media
 import kotlinx.coroutines.Dispatchers
-import io.github.hendraanggrian.ktfx.test.BaseMediaTest
+import com.hendraanggrian.ktfx.test.BaseMediaTest
 
 class MediaTest : BaseMediaTest() {
 

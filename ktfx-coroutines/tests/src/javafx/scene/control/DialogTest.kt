@@ -3,7 +3,7 @@ package ktfx.coroutines
 import javafx.scene.control.Dialog
 import javafx.scene.control.DialogEvent
 import kotlinx.coroutines.Dispatchers
-import io.github.hendraanggrian.ktfx.test.BaseDialogTest
+import com.hendraanggrian.ktfx.test.BaseDialogTest
 import kotlin.test.Ignore
 
 @Ignore

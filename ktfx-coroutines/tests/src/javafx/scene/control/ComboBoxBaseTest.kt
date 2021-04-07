@@ -4,7 +4,7 @@ import javafx.event.ActionEvent
 import javafx.event.Event
 import javafx.scene.control.ComboBoxBase
 import kotlinx.coroutines.Dispatchers
-import io.github.hendraanggrian.ktfx.test.BaseComboBoxBaseTest
+import com.hendraanggrian.ktfx.test.BaseComboBoxBaseTest
 
 class ComboBoxBaseTest : BaseComboBoxBaseTest() {
 

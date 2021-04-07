@@ -1,6 +1,6 @@
 package ktfx.controls
 
-import io.github.hendraanggrian.ktfx.test.initToolkit
+import com.hendraanggrian.ktfx.test.initToolkit
 import javafx.animation.FadeTransition
 import javafx.animation.FillTransition
 import javafx.scene.control.Label

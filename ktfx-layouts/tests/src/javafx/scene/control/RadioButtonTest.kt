@@ -1,7 +1,7 @@
 package ktfx.layouts
 
 import javafx.scene.control.RadioButton
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import kotlin.test.assertNull
 
 class RadioButtonTest : LayoutsTest<KtfxPane, RadioButton>() {

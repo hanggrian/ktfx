@@ -1,6 +1,6 @@
 package ktfx.layouts
 
-import io.github.hendraanggrian.ktfx.test.LayoutsTest
+import com.hendraanggrian.ktfx.test.LayoutsTest
 import javafx.scene.layout.GridPane
 import ktfx.controls.H_RIGHT
 import ktfx.controls.V_BOTTOM

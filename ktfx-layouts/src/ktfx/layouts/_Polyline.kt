@@ -41,11 +41,11 @@ public inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> 
  */
 public inline fun NodeManager.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
     Polyline {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = Polyline()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = Polyline()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [Polyline].

@@ -51,11 +51,11 @@ public inline fun NodeManager.pieChart(
     configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit
 ):
     PieChart {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = PieChart(data)
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = PieChart(data)
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [PieChart].

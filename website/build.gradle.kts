@@ -3,7 +3,7 @@ plugins {
 }
 
 gitPublish {
-    repoUri.set(RELEASE_URL)
+    repoUri.set(RELEASE_GITHUB)
     branch.set("gh-pages")
     contents.from(
         "src",

@@ -30,11 +30,11 @@ public fun NodeManager.jfxHamburger(): JFXHamburger = jfxHamburger() { }
  */
 public inline fun jfxHamburger(configuration: (@KtfxLayoutDslMarker JFXHamburger).() -> Unit):
     JFXHamburger {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = JFXHamburger()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = JFXHamburger()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXHamburger] with configuration block to this manager.

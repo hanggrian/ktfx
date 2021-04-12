@@ -43,11 +43,11 @@ public inline fun statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -
  */
 public inline fun NodeManager.statusBar(configuration: (@KtfxLayoutDslMarker StatusBar).() -> Unit):
     StatusBar {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = StatusBar()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = StatusBar()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [StatusBar].

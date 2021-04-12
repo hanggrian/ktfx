@@ -53,11 +53,11 @@ public inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(
     configuration: (@KtfxLayoutDslMarker JFXTreeTableView<S>).() -> Unit
 ):
     JFXTreeTableView<S> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = JFXTreeTableView<S>(root)
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = JFXTreeTableView<S>(root)
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [JFXTreeTableView].

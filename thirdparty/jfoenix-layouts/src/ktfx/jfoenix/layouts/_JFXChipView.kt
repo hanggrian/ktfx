@@ -30,11 +30,11 @@ public fun <T> NodeManager.jfxChipView(): JFXChipView<T> = jfxChipView() { }
  */
 public inline fun <T> jfxChipView(configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit):
     JFXChipView<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = JFXChipView<T>()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = JFXChipView<T>()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXChipView] with configuration block to this manager.

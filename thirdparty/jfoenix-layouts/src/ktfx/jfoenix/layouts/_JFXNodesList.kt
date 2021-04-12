@@ -30,11 +30,11 @@ public fun NodeManager.jfxNodesList(): JFXNodesList = jfxNodesList() { }
  */
 public inline fun jfxNodesList(configuration: (@KtfxLayoutDslMarker KtfxJFXNodesList).() -> Unit):
     JFXNodesList {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXNodesList()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXNodesList()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXNodesList] with configuration block to this manager.

@@ -30,11 +30,11 @@ public fun NodeManager.jfxToolbar(): JFXToolbar = jfxToolbar() { }
  */
 public inline fun jfxToolbar(configuration: (@KtfxLayoutDslMarker KtfxJFXToolbar).() -> Unit):
     JFXToolbar {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXToolbar()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXToolbar()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXToolbar] with configuration block to this manager.

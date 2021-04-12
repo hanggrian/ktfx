@@ -24,24 +24,24 @@ import kotlin.text.Regex
  */
 public inline fun ObservableStringValue.trim(crossinline predicate: (Char) -> Boolean):
     StringBinding {
-        return asString { checkNotNull(it) { "String value is null" }.trim(predicate) }
-    }
+    return asString { checkNotNull(it) { "String value is null" }.trim(predicate) }
+}
 
 /**
  * @see String.trimStart
  */
 public inline fun ObservableStringValue.trimStart(crossinline predicate: (Char) -> Boolean):
     StringBinding {
-        return asString { checkNotNull(it) { "String value is null" }.trimStart(predicate) }
-    }
+    return asString { checkNotNull(it) { "String value is null" }.trimStart(predicate) }
+}
 
 /**
  * @see String.trimEnd
  */
 public inline fun ObservableStringValue.trimEnd(crossinline predicate: (Char) -> Boolean):
     StringBinding {
-        return asString { checkNotNull(it) { "String value is null" }.trimEnd(predicate) }
-    }
+    return asString { checkNotNull(it) { "String value is null" }.trimEnd(predicate) }
+}
 
 /**
  * @see String.trim
@@ -275,8 +275,8 @@ public inline fun ObservableStringValue.replaceRange(
  */
 public inline fun ObservableStringValue.replaceRange(range: IntRange, replacement: String):
     StringBinding {
-        return asString { checkNotNull(it) { "String value is null" }.replaceRange(range, replacement) }
-    }
+    return asString { checkNotNull(it) { "String value is null" }.replaceRange(range, replacement) }
+}
 
 /**
  * @see String.removeRange
@@ -313,10 +313,10 @@ public inline fun ObservableStringValue.removeSuffix(suffix: String): StringBind
  */
 public inline fun ObservableStringValue.removeSurrounding(prefix: String, suffix: String):
     StringBinding {
-        return asString {
-            checkNotNull(it) { "String value is null" }.removeSurrounding(prefix, suffix)
-        }
+    return asString {
+        checkNotNull(it) { "String value is null" }.removeSurrounding(prefix, suffix)
     }
+}
 
 /**
  * @see String.removeSurrounding
@@ -476,8 +476,8 @@ public inline fun ObservableStringValue.replace(
  */
 public inline fun ObservableStringValue.replaceFirst(regex: Regex, replacement: String):
     StringBinding {
-        return asString { checkNotNull(it) { "String value is null" }.replaceFirst(regex, replacement) }
-    }
+    return asString { checkNotNull(it) { "String value is null" }.replaceFirst(regex, replacement) }
+}
 
 /**
  * @see String.matches
@@ -491,16 +491,16 @@ public inline fun ObservableStringValue.matches(regex: Regex): BooleanBinding {
  */
 public inline fun ObservableStringValue.startsWith(char: Char, ignoreCase: Boolean = false):
     BooleanBinding {
-        return asBoolean { checkNotNull(it) { "String value is null" }.startsWith(char, ignoreCase) }
-    }
+    return asBoolean { checkNotNull(it) { "String value is null" }.startsWith(char, ignoreCase) }
+}
 
 /**
  * @see String.endsWith
  */
 public inline fun ObservableStringValue.endsWith(char: Char, ignoreCase: Boolean = false):
     BooleanBinding {
-        return asBoolean { checkNotNull(it) { "String value is null" }.endsWith(char, ignoreCase) }
-    }
+    return asBoolean { checkNotNull(it) { "String value is null" }.endsWith(char, ignoreCase) }
+}
 
 /**
  * @see String.commonPrefixWith
@@ -539,16 +539,16 @@ public inline fun ObservableStringValue.commonSuffixWith(
  */
 public inline fun ObservableStringValue.contains(other: String, ignoreCase: Boolean = false):
     BooleanBinding {
-        return asBoolean { checkNotNull(it) { "String value is null" }.contains(other, ignoreCase) }
-    }
+    return asBoolean { checkNotNull(it) { "String value is null" }.contains(other, ignoreCase) }
+}
 
 /**
  * @see String.contains
  */
 public inline fun ObservableStringValue.contains(char: Char, ignoreCase: Boolean = false):
     BooleanBinding {
-        return asBoolean { checkNotNull(it) { "String value is null" }.contains(char, ignoreCase) }
-    }
+    return asBoolean { checkNotNull(it) { "String value is null" }.contains(char, ignoreCase) }
+}
 
 /**
  * @see String.contains

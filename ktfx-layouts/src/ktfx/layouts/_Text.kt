@@ -28,11 +28,11 @@ public fun NodeManager.text(text: String? = null): Text = text(text = text) { }
  */
 public inline fun text(text: String? = null, configuration: (@KtfxLayoutDslMarker Text).() -> Unit):
     Text {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = Text(text)
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = Text(text)
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [Text] with configuration block to this manager.

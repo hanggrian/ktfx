@@ -41,11 +41,11 @@ public inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -
  */
 public inline fun NodeManager.toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit):
     ToolBar {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxToolBar()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxToolBar()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [ToolBar].

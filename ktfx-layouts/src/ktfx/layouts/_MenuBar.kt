@@ -41,11 +41,11 @@ public inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -
  */
 public inline fun NodeManager.menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit):
     MenuBar {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxMenuBar()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxMenuBar()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [MenuBar].

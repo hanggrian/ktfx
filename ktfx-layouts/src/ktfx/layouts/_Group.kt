@@ -41,11 +41,11 @@ public inline fun group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Un
  */
 public inline fun NodeManager.group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit):
     Group {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxGroup()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxGroup()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [Group].

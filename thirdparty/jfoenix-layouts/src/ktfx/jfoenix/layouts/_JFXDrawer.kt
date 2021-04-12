@@ -30,11 +30,11 @@ public fun NodeManager.jfxDrawer(): JFXDrawer = jfxDrawer() { }
  */
 public inline fun jfxDrawer(configuration: (@KtfxLayoutDslMarker KtfxJFXDrawer).() -> Unit):
     JFXDrawer {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXDrawer()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXDrawer()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXDrawer] with configuration block to this manager.

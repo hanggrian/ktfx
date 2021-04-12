@@ -68,10 +68,10 @@ public inline fun <T> NodeManager.prefixSelectionChoiceBox(
  */
 public fun <T> styledPrefixSelectionChoiceBox(vararg styleClass: String, id: String? = null):
     PrefixSelectionChoiceBox<T> = styledPrefixSelectionChoiceBox(
-        styleClass = *styleClass,
-        id =
-        id
-    ) { }
+    styleClass = *styleClass,
+    id =
+    id
+) { }
 
 /**
  * Add a styled [PrefixSelectionChoiceBox] to this manager.

@@ -38,11 +38,11 @@ public fun ToggleButtonManager.jfxToggleButton(): JFXToggleButton = jfxToggleBut
  */
 public inline fun jfxToggleButton(configuration: (@KtfxLayoutDslMarker JFXToggleButton).() -> Unit):
     JFXToggleButton {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = JFXToggleButton()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = JFXToggleButton()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXToggleButton] with configuration block to this manager.

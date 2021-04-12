@@ -25,10 +25,10 @@ import kotlin.jvm.JvmName
  */
 public fun NodeManager.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boolean = true):
     MasterDetailPane = masterDetailPane(
-        detailSide = detailSide,
-        showDetailNode =
-        showDetailNode
-    ) { }
+    detailSide = detailSide,
+    showDetailNode =
+    showDetailNode
+) { }
 
 /**
  * Create a [MasterDetailPane] with configuration block.

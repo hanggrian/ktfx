@@ -30,11 +30,11 @@ public fun NodeManager.jfxBadge(): JFXBadge = jfxBadge() { }
  */
 public inline fun jfxBadge(configuration: (@KtfxLayoutDslMarker KtfxJFXBadge).() -> Unit):
     JFXBadge {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXBadge()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXBadge()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXBadge] with configuration block to this manager.

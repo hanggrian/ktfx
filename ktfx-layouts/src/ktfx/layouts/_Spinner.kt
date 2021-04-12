@@ -28,11 +28,11 @@ public fun <T> NodeManager.spinner(): Spinner<T> = spinner() { }
  */
 public inline fun <T> spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit):
     Spinner<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = Spinner<T>()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = Spinner<T>()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [Spinner] with configuration block to this manager.

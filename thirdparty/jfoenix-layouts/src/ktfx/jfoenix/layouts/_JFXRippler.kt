@@ -30,11 +30,11 @@ public fun NodeManager.jfxRippler(): JFXRippler = jfxRippler() { }
  */
 public inline fun jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJFXRippler).() -> Unit):
     JFXRippler {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXRippler()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXRippler()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXRippler] with configuration block to this manager.

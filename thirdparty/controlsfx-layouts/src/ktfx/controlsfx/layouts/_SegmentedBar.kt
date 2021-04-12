@@ -50,11 +50,11 @@ public inline fun <T : SegmentedBar.Segment> segmentedBar(
 public inline fun <T : SegmentedBar.Segment>
 NodeManager.segmentedBar(configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit):
     SegmentedBar<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = SegmentedBar<T>()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = SegmentedBar<T>()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [SegmentedBar].

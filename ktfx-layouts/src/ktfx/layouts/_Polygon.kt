@@ -41,11 +41,11 @@ public inline fun polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Un
  */
 public inline fun NodeManager.polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit):
     Polygon {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = Polygon()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = Polygon()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [Polygon].

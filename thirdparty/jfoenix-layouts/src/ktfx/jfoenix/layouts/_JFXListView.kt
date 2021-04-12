@@ -30,11 +30,11 @@ public fun <T> NodeManager.jfxListView(): JFXListView<T> = jfxListView() { }
  */
 public inline fun <T> jfxListView(configuration: (@KtfxLayoutDslMarker JFXListView<T>).() -> Unit):
     JFXListView<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = JFXListView<T>()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = JFXListView<T>()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXListView] with configuration block to this manager.

@@ -30,11 +30,11 @@ public fun NodeManager.jfxTogglePane(): JFXTogglePane = jfxTogglePane() { }
  */
 public inline fun jfxTogglePane(configuration: (@KtfxLayoutDslMarker KtfxJFXTogglePane).() -> Unit):
     JFXTogglePane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXTogglePane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXTogglePane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXTogglePane] with configuration block to this manager.

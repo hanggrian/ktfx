@@ -28,11 +28,11 @@ public fun NodeManager.borderPane(): BorderPane = borderPane() { }
  */
 public inline fun borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit):
     BorderPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxBorderPane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxBorderPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [BorderPane] with configuration block to this manager.

@@ -28,11 +28,11 @@ public fun NodeManager.gridPane(): GridPane = gridPane() { }
  */
 public inline fun gridPane(configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit):
     GridPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxGridPane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxGridPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [GridPane] with configuration block to this manager.

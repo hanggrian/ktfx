@@ -41,11 +41,11 @@ public inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit
  */
 public inline fun NodeManager.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit):
     Pane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxPane()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxPane()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [Pane].

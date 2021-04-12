@@ -38,7 +38,7 @@ tasks {
             "main" {
                 sourceLink {
                     localDirectory.set(projectDir.resolve("src"))
-                    remoteUrl.set(getReleaseSourceUrl())
+                    remoteUrl.set(getGithubRemoteUrl())
                     remoteLineSuffix.set("#L")
                 }
             }
@@ -55,4 +55,4 @@ tasks {
     }
 }
 
-publishJvm("$RELEASE_ARTIFACT-jfoenix-layouts")
+publishJvm("jfoenix-layouts")

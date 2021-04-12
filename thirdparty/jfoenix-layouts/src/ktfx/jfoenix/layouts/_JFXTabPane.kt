@@ -30,11 +30,11 @@ public fun NodeManager.jfxTabPane(): JFXTabPane = jfxTabPane() { }
  */
 public inline fun jfxTabPane(configuration: (@KtfxLayoutDslMarker KtfxJFXTabPane).() -> Unit):
     JFXTabPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXTabPane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXTabPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXTabPane] with configuration block to this manager.

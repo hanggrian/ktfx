@@ -28,11 +28,11 @@ public fun NodeManager.anchorPane(): AnchorPane = anchorPane() { }
  */
 public inline fun anchorPane(configuration: (@KtfxLayoutDslMarker KtfxAnchorPane).() -> Unit):
     AnchorPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxAnchorPane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxAnchorPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add an [AnchorPane] with configuration block to this manager.

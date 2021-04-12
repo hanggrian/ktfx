@@ -28,11 +28,11 @@ public fun NodeManager.splitPane(): SplitPane = splitPane() { }
  */
 public inline fun splitPane(configuration: (@KtfxLayoutDslMarker KtfxSplitPane).() -> Unit):
     SplitPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxSplitPane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxSplitPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [SplitPane] with configuration block to this manager.

@@ -30,11 +30,11 @@ public fun NodeManager.maskerPane(): MaskerPane = maskerPane() { }
  */
 public inline fun maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit):
     MaskerPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = MaskerPane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = MaskerPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [MaskerPane] with configuration block to this manager.

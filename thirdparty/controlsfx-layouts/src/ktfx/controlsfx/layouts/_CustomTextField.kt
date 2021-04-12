@@ -30,11 +30,11 @@ public fun NodeManager.customTextField(): CustomTextField = customTextField() { 
  */
 public inline fun customTextField(configuration: (@KtfxLayoutDslMarker CustomTextField).() -> Unit):
     CustomTextField {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = CustomTextField()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = CustomTextField()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [CustomTextField] with configuration block to this manager.

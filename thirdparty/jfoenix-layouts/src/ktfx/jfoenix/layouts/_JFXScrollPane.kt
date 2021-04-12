@@ -30,11 +30,11 @@ public fun NodeManager.jfxScrollPane(): JFXScrollPane = jfxScrollPane() { }
  */
 public inline fun jfxScrollPane(configuration: (@KtfxLayoutDslMarker KtfxJFXScrollPane).() -> Unit):
     JFXScrollPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxJFXScrollPane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxJFXScrollPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXScrollPane] with configuration block to this manager.

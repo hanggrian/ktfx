@@ -30,11 +30,11 @@ public fun <T> NodeManager.jfxTreeCell(): JFXTreeCell<T> = jfxTreeCell() { }
  */
 public inline fun <T> jfxTreeCell(configuration: (@KtfxLayoutDslMarker JFXTreeCell<T>).() -> Unit):
     JFXTreeCell<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = JFXTreeCell<T>()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = JFXTreeCell<T>()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXTreeCell] with configuration block to this manager.

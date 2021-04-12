@@ -28,11 +28,11 @@ public fun NodeManager.stackPane(): StackPane = stackPane() { }
  */
 public inline fun stackPane(configuration: (@KtfxLayoutDslMarker KtfxStackPane).() -> Unit):
     StackPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxStackPane()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxStackPane()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [StackPane] with configuration block to this manager.

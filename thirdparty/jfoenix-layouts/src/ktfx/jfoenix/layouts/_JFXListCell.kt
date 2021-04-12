@@ -30,11 +30,11 @@ public fun <T> NodeManager.jfxListCell(): JFXListCell<T> = jfxListCell() { }
  */
 public inline fun <T> jfxListCell(configuration: (@KtfxLayoutDslMarker JFXListCell<T>).() -> Unit):
     JFXListCell<T> {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = JFXListCell<T>()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = JFXListCell<T>()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [JFXListCell] with configuration block to this manager.

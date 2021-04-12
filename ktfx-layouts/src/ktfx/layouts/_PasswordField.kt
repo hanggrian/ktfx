@@ -28,11 +28,11 @@ public fun NodeManager.passwordField(): PasswordField = passwordField() { }
  */
 public inline fun passwordField(configuration: (@KtfxLayoutDslMarker PasswordField).() -> Unit):
     PasswordField {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = PasswordField()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = PasswordField()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [PasswordField] with configuration block to this manager.

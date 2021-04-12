@@ -30,11 +30,11 @@ public fun NodeManager.worldMapView(): WorldMapView = worldMapView() { }
  */
 public inline fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit):
     WorldMapView {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = WorldMapView()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = WorldMapView()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [WorldMapView] with configuration block to this manager.

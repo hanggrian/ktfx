@@ -5,13 +5,9 @@
 package ktfx.layouts
 
 import javafx.scene.control.Accordion
-import kotlin.String
-import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
-import kotlin.jvm.JvmMultifileClass
-import kotlin.jvm.JvmName
 
 /**
  * Add an [Accordion] to this manager.
@@ -28,11 +24,11 @@ public fun NodeManager.accordion(): Accordion = accordion() { }
  */
 public inline fun accordion(configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit):
     Accordion {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxAccordion()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxAccordion()
+    child.configuration()
+    return child
+}
 
 /**
  * Add an [Accordion] with configuration block to this manager.

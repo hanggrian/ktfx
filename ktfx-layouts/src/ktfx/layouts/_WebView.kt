@@ -41,11 +41,11 @@ public inline fun webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Un
  */
 public inline fun NodeManager.webView(configuration: (@KtfxLayoutDslMarker WebView).() -> Unit):
     WebView {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = WebView()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = WebView()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [WebView].

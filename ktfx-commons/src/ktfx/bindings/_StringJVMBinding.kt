@@ -24,8 +24,8 @@ import kotlin.jvm.JvmName
  */
 public inline fun ObservableStringValue.equals(other: String?, ignoreCase: Boolean = false):
     BooleanBinding {
-        return asBoolean { it.equals(other, ignoreCase) }
-    }
+    return asBoolean { it.equals(other, ignoreCase) }
+}
 
 /**
  * @see String.replace
@@ -117,8 +117,8 @@ public inline fun ObservableStringValue.format(vararg newChar: Any?): StringBind
  */
 public inline fun ObservableStringValue.format(locale: Locale, vararg newChar: Any?):
     StringBinding {
-        return asString { checkNotNull(it) { "String value is null" }.format(locale, *newChar) }
-    }
+    return asString { checkNotNull(it) { "String value is null" }.format(locale, *newChar) }
+}
 
 /**
  * @see String.substring
@@ -139,8 +139,8 @@ public inline fun ObservableStringValue.substring(startIndex: Int, endIndex: Int
  */
 public inline fun ObservableStringValue.startsWith(prefix: String, ignoreCase: Boolean = false):
     BooleanBinding {
-        return asBoolean { checkNotNull(it) { "String value is null" }.startsWith(prefix, ignoreCase) }
-    }
+    return asBoolean { checkNotNull(it) { "String value is null" }.startsWith(prefix, ignoreCase) }
+}
 
 /**
  * @see String.startsWith
@@ -163,8 +163,8 @@ public inline fun ObservableStringValue.startsWith(
  */
 public inline fun ObservableStringValue.endsWith(suffix: String, ignoreCase: Boolean = false):
     BooleanBinding {
-        return asBoolean { checkNotNull(it) { "String value is null" }.endsWith(suffix, ignoreCase) }
-    }
+    return asBoolean { checkNotNull(it) { "String value is null" }.endsWith(suffix, ignoreCase) }
+}
 
 /**
  * @see String.codePointAt
@@ -185,18 +185,18 @@ public inline fun ObservableStringValue.codePointBefore(index: Int): IntegerBind
  */
 public inline fun ObservableStringValue.codePointCount(startIndex: Int, endIndex: Int):
     IntegerBinding {
-        return asInt {
-            checkNotNull(it) { "String value is null" }.codePointCount(startIndex, endIndex)
-        }
+    return asInt {
+        checkNotNull(it) { "String value is null" }.codePointCount(startIndex, endIndex)
     }
+}
 
 /**
  * @see String.compareTo
  */
 public inline fun ObservableStringValue.compareTo(other: String, ignoreCase: Boolean = false):
     IntegerBinding {
-        return asInt { checkNotNull(it) { "String value is null" }.compareTo(other, ignoreCase) }
-    }
+    return asInt { checkNotNull(it) { "String value is null" }.compareTo(other, ignoreCase) }
+}
 
 /**
  * @see String.contentEquals
@@ -224,13 +224,13 @@ public inline fun ObservableStringValue.isBlank(): BooleanBinding {
  */
 public inline fun ObservableStringValue.offsetByCodePoints(index: Int, codePointOffset: Int):
     IntegerBinding {
-        return asInt {
-            checkNotNull(it) { "String value is null" }.offsetByCodePoints(
-                index,
-                codePointOffset
-            )
-        }
+    return asInt {
+        checkNotNull(it) { "String value is null" }.offsetByCodePoints(
+            index,
+            codePointOffset
+        )
     }
+}
 
 /**
  * @see String.regionMatches

@@ -41,11 +41,11 @@ public inline fun svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Un
  */
 public inline fun NodeManager.svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit):
     SVGPath {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = SVGPath()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = SVGPath()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [SVGPath].

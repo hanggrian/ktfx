@@ -41,11 +41,11 @@ public inline fun scrollBar(configuration: (@KtfxLayoutDslMarker ScrollBar).() -
  */
 public inline fun NodeManager.scrollBar(configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit):
     ScrollBar {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = ScrollBar()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = ScrollBar()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [ScrollBar].

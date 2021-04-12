@@ -41,11 +41,11 @@ public inline fun region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit
  */
 public inline fun NodeManager.region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit):
     Region {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = Region()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = Region()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [Region].

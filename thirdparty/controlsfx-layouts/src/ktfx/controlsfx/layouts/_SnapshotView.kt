@@ -30,11 +30,11 @@ public fun NodeManager.snapshotView(): SnapshotView = snapshotView() { }
  */
 public inline fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit):
     SnapshotView {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxSnapshotView()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxSnapshotView()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [SnapshotView] with configuration block to this manager.

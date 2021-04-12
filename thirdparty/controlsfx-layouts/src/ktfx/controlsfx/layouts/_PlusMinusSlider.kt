@@ -30,11 +30,11 @@ public fun NodeManager.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { 
  */
 public inline fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit):
     PlusMinusSlider {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = PlusMinusSlider()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = PlusMinusSlider()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [PlusMinusSlider] with configuration block to this manager.

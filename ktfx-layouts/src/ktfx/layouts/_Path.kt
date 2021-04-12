@@ -41,11 +41,11 @@ public inline fun path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit
  */
 public inline fun NodeManager.path(configuration: (@KtfxLayoutDslMarker KtfxPath).() -> Unit):
     Path {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxPath()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxPath()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [Path].

@@ -28,11 +28,11 @@ public fun NodeManager.textFlow(): TextFlow = textFlow() { }
  */
 public inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit):
     TextFlow {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxTextFlow()
-        child.configuration()
-        return child
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxTextFlow()
+    child.configuration()
+    return child
+}
 
 /**
  * Add a [TextFlow] with configuration block to this manager.

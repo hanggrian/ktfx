@@ -41,11 +41,11 @@ public inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -
  */
 public inline fun NodeManager.tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit):
     TabPane {
-        contract { callsInPlace(configuration, EXACTLY_ONCE) }
-        val child = KtfxTabPane()
-        child.configuration()
-        return addChild(child)
-    }
+    contract { callsInPlace(configuration, EXACTLY_ONCE) }
+    val child = KtfxTabPane()
+    child.configuration()
+    return addChild(child)
+}
 
 /**
  * Create a styled [TabPane].

@@ -27,15 +27,6 @@ tasks {
             }
         }
     }
-    val javadocJar by registering(Jar::class) {
-        archiveClassifier.set("javadoc")
-        from(dokkaJavadoc)
-        dependsOn(dokkaJavadoc)
-    }
-    val sourcesJar by registering(Jar::class) {
-        archiveClassifier.set("sources")
-        from(sourceSets.main.get().allSource)
-    }
 }
 
-publishJvm("controlsfx")
+mavenPublishJvm("controlsfx")

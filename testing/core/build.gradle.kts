@@ -13,7 +13,7 @@ dependencies {
     api(kotlin("test-junit", VERSION_KOTLIN))
     api(google("truth", "truth", VERSION_TRUTH))
 
-    api(testFx("testfx-junit", VERSION_TESTFX))
+    api(testFx("testfx-junit"))
     api(testFx("openjfx-monocle", VERSION_MONOCLE))
     api(junit())
 }

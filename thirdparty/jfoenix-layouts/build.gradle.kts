@@ -17,16 +17,16 @@ sourceSets {
     }
 }
 
+ktlint(
+    project(":rulesets:basic"),
+    project(":rulesets:non-commons"),
+    project(":rulesets:layouts")
+)
+
 dependencies {
     api(project(":$RELEASE_ARTIFACT-layouts"))
     api(jfoenix())
     testImplementation(project(":testing:layouts"))
-}
-
-ktlint { add ->
-    add(project(":rulesets:basic"))
-    add(project(":rulesets:non-commons"))
-    add(project(":rulesets:layouts"))
 }
 
 tasks {
@@ -44,15 +44,6 @@ tasks {
             }
         }
     }
-    val javadocJar by registering(Jar::class) {
-        archiveClassifier.set("javadoc")
-        from(dokkaJavadoc)
-        dependsOn(dokkaJavadoc)
-    }
-    val sourcesJar by registering(Jar::class) {
-        archiveClassifier.set("sources")
-        from(sourceSets.main.get().allSource)
-    }
 }
 
-publishJvm("jfoenix-layouts")
+mavenPublishJvm("jfoenix-layouts")

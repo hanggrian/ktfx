@@ -17,14 +17,14 @@ sourceSets {
     }
 }
 
+ktlint(
+    project(":rulesets:basic")
+)
+
 dependencies {
     api(kotlin("stdlib"))
     testImplementation(project(":testing:commons"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
-}
-
-ktlint { add ->
-    add(project(":rulesets:basic"))
 }
 
 tasks {
@@ -42,15 +42,6 @@ tasks {
             }
         }
     }
-    val javadocJar by registering(Jar::class) {
-        archiveClassifier.set("javadoc")
-        from(dokkaJavadoc)
-        dependsOn(dokkaJavadoc)
-    }
-    val sourcesJar by registering(Jar::class) {
-        archiveClassifier.set("sources")
-        from(sourceSets.main.get().allSource)
-    }
 }
 
-publishJvm("$RELEASE_ARTIFACT-commons")
+mavenPublishJvm("$RELEASE_ARTIFACT-commons")

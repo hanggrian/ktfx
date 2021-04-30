@@ -17,14 +17,14 @@ sourceSets {
     }
 }
 
+ktlint(
+    project(":rulesets:basic")
+)
+
 dependencies {
     api(project(":$RELEASE_ARTIFACT-commons"))
     api(jfoenix())
     testImplementation(project(":testing:commons"))
-}
-
-ktlint { add ->
-    add(project(":rulesets:basic"))
 }
 
 tasks {
@@ -42,15 +42,6 @@ tasks {
             }
         }
     }
-    val javadocJar by registering(Jar::class) {
-        archiveClassifier.set("javadoc")
-        from(dokkaJavadoc)
-        dependsOn(dokkaJavadoc)
-    }
-    val sourcesJar by registering(Jar::class) {
-        archiveClassifier.set("sources")
-        from(sourceSets.main.get().allSource)
-    }
 }
 
-publishJvm("jfoenix-commons")
+mavenPublishJvm("jfoenix-commons")

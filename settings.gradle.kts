@@ -10,7 +10,7 @@ includeDir("testing")
 
 include("codegen")
 include("website")
-include("example")
+include("sample")
 
 fun includeDir(dir: String) = file(dir)
     .listFiles()!!

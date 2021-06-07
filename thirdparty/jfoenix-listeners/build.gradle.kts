@@ -40,6 +40,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/html/jfoenix-listeners"))
+    }
 }
 
 mavenPublishJvm("jfoenix-listeners")

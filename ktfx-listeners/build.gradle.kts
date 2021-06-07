@@ -39,6 +39,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/html/$RELEASE_ARTIFACT-listeners"))
+    }
 }
 
 mavenPublishJvm("$RELEASE_ARTIFACT-listeners")

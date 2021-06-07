@@ -44,6 +44,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/html/controlsfx-layouts"))
+    }
 }
 
 mavenPublishJvm("controlsfx-layouts")

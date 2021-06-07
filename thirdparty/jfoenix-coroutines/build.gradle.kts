@@ -40,6 +40,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/html/jfoenix-coroutines"))
+    }
 }
 
 mavenPublishJvm("jfoenix-coroutines")

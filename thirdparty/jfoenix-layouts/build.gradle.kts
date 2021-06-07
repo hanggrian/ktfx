@@ -44,6 +44,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/html/jfoenix-layouts"))
+    }
 }
 
 mavenPublishJvm("jfoenix-layouts")

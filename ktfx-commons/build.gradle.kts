@@ -42,6 +42,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/html/$RELEASE_ARTIFACT-commons"))
+    }
 }
 
 mavenPublishJvm("$RELEASE_ARTIFACT-commons")

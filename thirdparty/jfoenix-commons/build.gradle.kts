@@ -42,6 +42,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/html/jfoenix-commons"))
+    }
 }
 
 mavenPublishJvm("jfoenix-commons")

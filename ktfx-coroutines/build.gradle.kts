@@ -40,6 +40,9 @@ tasks {
             }
         }
     }
+    dokkaHtml {
+        outputDirectory.set(buildDir.resolve("dokka/html/$RELEASE_ARTIFACT-coroutines"))
+    }
 }
 
 mavenPublishJvm("$RELEASE_ARTIFACT-coroutines")

@@ -1,10 +1,11 @@
-[![download](https://api.bintray.com/packages/hendraanggrian/ktfx/ktfx/images/download.svg)](https://bintray.com/hendraanggrian/ktfx/ktfx/_latestVersion)
-[![build](https://travis-ci.com/hendraanggrian/ktfx.svg)](https://travis-ci.com/hendraanggrian/ktfx)
-[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
-[![license](https://img.shields.io/github/license/hendraanggrian/ktfx)](http://www.apache.org/licenses/LICENSE-2.0)
+[![version](https://img.shields.io/maven-central/v/com.hendraanggrian/ktfx)](https://search.maven.org/artifact/com.hendraanggrian/ktfx)
+[![build](https://img.shields.io/travis/com/hendraanggrian/ktfx)](https://travis-ci.com/hendraanggrian/ktfx)
+[![analysis](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081)](https://ktlint.github.io)
+[![license](https://img.shields.io/github/license/hendraanggrian/ktfx)](https://github.com/hendraanggrian/ktfx/blob/main/LICENSE)
 
 KtFX
 ====
+
 Written in spirit of [anko], it aims to make JavaFX app development less painful with the help of Kotlin technologies.
 * Full of helpers for common JavaFX operations.
 * Write dynamic layout with Kotlin DSL.
@@ -12,29 +13,33 @@ Written in spirit of [anko], it aims to make JavaFX app development less painful
 
 [Download](https://github.com/hendraanggrian/ktfx/wiki/Download)
 ----------
+
 ```gradle
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     // all the main artifacts combined
-    compile 'com.hendraanggrian.ktfx:ktfx:$version'
+    compile "com.hendraanggrian.ktfx:ktfx:${version}"
 
     // or download separately
-    compile 'com.hendraanggrian.ktfx:ktfx-commons:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-layouts:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-listeners:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-coroutines:$version'
+    compile "com.hendraanggrian.ktfx:ktfx-commons:${version}"
+    compile "com.hendraanggrian.ktfx:ktfx-layouts:${version}"
+    compile "com.hendraanggrian.ktfx:ktfx-listeners:${version}"
+    compile "com.hendraanggrian.ktfx:ktfx-coroutines:${version}"
 
     // third-party artifacts
-    compile 'com.hendraanggrian.ktfx:ktfx-controlsfx:$version'
-    compile 'com.hendraanggrian.ktfx:ktfx-jfoenix:$version'
+    compile "com.hendraanggrian.ktfx:ktfx-controlsfx:${version}"
+    compile "com.hendraanggrian.ktfx:ktfx-jfoenix:${version}"
 }
 ```
 
+Snapshots of the development version are available in [Sonatype's snapshots repository](https://s01.oss.sonatype.org/content/repositories/snapshots/).
+
 [Ktfx Commons](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Commons-–-Threads)
 --------------
+
 Full of extensions for JavaFX, packaged accordingly. The main goal of core library is not to add any new feature to the existing JavaFX APIs. Below are preview of some of the packages.
 
 ### Collections
@@ -101,13 +106,14 @@ dialog<String>("Who's a little piggy?") {
         // explain what a piggy is
     }
     resultConverter {
-        if(it == button1)  "Me" else null  
+        if(it == button1)  "Me" else null
     }
 }.showAndWait()
 ```
 
 [Ktfx Layouts](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Layouts)
 --------------
+
 Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a direct replacement of FXML files.
 
 ```kotlin
@@ -129,6 +135,7 @@ gridPane {
 
 [Ktfx Listeners](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Listeners)
 ----------------
+
 Trade common JavaFX listener with Kotlin DSL. Currently includes string converters and table cells.
 
 ```kotlin
@@ -157,6 +164,7 @@ personList.cellFactory {
 
 [Ktfx Coroutines](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Coroutines)
 -----------------
+
 Based on the [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
 ```kotlin
@@ -175,6 +183,7 @@ button.onAction(CommonPool) {
 
 Third-party
 -----------
+
 At the moment, ControlsFX and JFoenix are supported.
 
 [anko]: https://github.com/Kotlin/anko

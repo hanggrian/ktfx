@@ -6,7 +6,7 @@
 KtFX
 ====
 
-Written in spirit of [anko], it aims to make JavaFX app development less painful with the help of Kotlin technologies.
+Written in spirit of [anko](https://github.com/Kotlin/anko), it aims to make JavaFX app development less painful with the help of Kotlin technologies.
 * Full of helpers for common JavaFX operations.
 * Write dynamic layout with Kotlin DSL.
 * Use coroutines directly from JavaFX API.
@@ -131,7 +131,7 @@ gridPane {
 }
 ```
 
-![Layouts demo][demo_layouts]
+![sample_layouts](art/sample_layouts.png)
 
 [Ktfx Listeners](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Listeners)
 ----------------
@@ -165,7 +165,7 @@ personList.cellFactory {
 [Ktfx Coroutines](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Coroutines)
 -----------------
 
-Based on the [kotlinx.coroutines] library, it allows invoking JavaFX `EventHandler` the coroutine way.
+Based on the [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) library, it allows invoking JavaFX `EventHandler` the coroutine way.
 
 ```kotlin
 button.setOnAction {
@@ -185,17 +185,3 @@ Third-party
 -----------
 
 At the moment, ControlsFX and JFoenix are supported.
-
-[anko]: https://github.com/Kotlin/anko
-[kotlinx.coroutines]: https://github.com/Kotlin/kotlinx.coroutines
-[releases]: https://github.com/hendraanggrian/ktfx/releases
-[TestFX]: https://github.com/TestFX/TestFX
-[demo_layouts]: /art/demo_layouts.png
-Center]: https://bintray.com/bintray/jcenter
-[demo_layouts]: /art/demo_layouts.png
-oroutines]: https://github.com/Kotlin/kotlinx.coroutines
-[releases]: https://github.com/hendraanggrian/ktfx/releases
-[TestFX]: https://github.com/TestFX/TestFX
-[demo_layouts]: /art/demo_layouts.png
-Center]: https://bintray.com/bintray/jcenter
-[demo_layouts]: /art/demo_layouts.png

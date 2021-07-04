@@ -1,7 +1,6 @@
 [![version](https://img.shields.io/maven-central/v/com.hendraanggrian/ktfx)](https://search.maven.org/artifact/com.hendraanggrian/ktfx)
 [![build](https://img.shields.io/travis/com/hendraanggrian/ktfx)](https://travis-ci.com/hendraanggrian/ktfx)
 [![analysis](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081)](https://ktlint.github.io)
-[![license](https://img.shields.io/github/license/hendraanggrian/ktfx)](https://github.com/hendraanggrian/ktfx/blob/main/LICENSE)
 
 KtFX
 ====
@@ -131,7 +130,7 @@ gridPane {
 }
 ```
 
-![sample_layouts](art/sample_layouts.png)
+![](images/sample_layouts.png)
 
 [Ktfx Listeners](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Listeners)
 ----------------

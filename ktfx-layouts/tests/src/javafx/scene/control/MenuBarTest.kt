@@ -14,7 +14,8 @@ class MenuBarTest : LayoutsTest<KtfxPane, MenuBar>() {
     override fun KtfxPane.child2() = menuBar()
     override fun KtfxPane.child3() = menuBar { }
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         menuBar {
             assertThat(menus).isEmpty()
             menu("Hello")

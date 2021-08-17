@@ -11,7 +11,8 @@ abstract class BaseObservableSetTest {
 
     abstract fun <E> ObservableSet<E>.callListener(action: (SetChangeListener.Change<out E>) -> Unit)
 
-    @Test fun listener() {
+    @Test
+    fun listener() {
         val set = FXCollections.observableSet<String>()
         set.callListener {
             assertTrue(it.wasAdded())

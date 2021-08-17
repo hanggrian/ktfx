@@ -18,12 +18,14 @@ abstract class BaseJFXDialogTest {
         dialog = JFXDialog()
     }
 
-    @Test fun onDialogClosed() {
+    @Test
+    fun onDialogClosed() {
         dialog.callOnDialogClosed { assertEquals(JFXDialogEvent.CLOSED, it.eventType) }
         dialog.onDialogClosed.handle(JFXDialogEvent(JFXDialogEvent.CLOSED))
     }
 
-    @Test fun onDialogOpened() {
+    @Test
+    fun onDialogOpened() {
         dialog.callOnDialogOpened { assertEquals(JFXDialogEvent.OPENED, it.eventType) }
         dialog.onDialogOpened.handle(JFXDialogEvent(JFXDialogEvent.OPENED))
     }

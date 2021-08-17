@@ -9,7 +9,8 @@ import kotlin.test.assertEquals
 @Ignore
 class ExceptionDialogsTest : DialogShowingTest() {
 
-    @Test fun exceptionDialog() {
+    @Test
+    fun exceptionDialog() {
         interact {
             assertEquals(
                 ButtonType.OK,

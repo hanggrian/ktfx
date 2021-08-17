@@ -87,192 +87,230 @@ abstract class BaseSceneTest {
         scene = Scene(Pane())
     }
 
-    @Test fun onMouseClicked() {
+    @Test
+    fun onMouseClicked() {
         scene.callOnMouseClicked { assertFakeMouseEvent(it, MouseEvent.MOUSE_CLICKED) }
         scene.onMouseClicked.handle(fakeMouseEventOf(MouseEvent.MOUSE_CLICKED))
     }
 
-    @Test fun onMouseDragged() {
+    @Test
+    fun onMouseDragged() {
         scene.callOnMouseDragged { assertFakeMouseEvent(it, MouseEvent.MOUSE_DRAGGED) }
         scene.onMouseDragged.handle(fakeMouseEventOf(MouseEvent.MOUSE_DRAGGED))
     }
 
-    @Test fun onMouseEntered() {
+    @Test
+    fun onMouseEntered() {
         scene.callOnMouseEntered { assertFakeMouseEvent(it, MouseEvent.MOUSE_ENTERED) }
         scene.onMouseEntered.handle(fakeMouseEventOf(MouseEvent.MOUSE_ENTERED))
     }
 
-    @Test fun onMouseExited() {
+    @Test
+    fun onMouseExited() {
         scene.callOnMouseExited { assertFakeMouseEvent(it, MouseEvent.MOUSE_EXITED) }
         scene.onMouseExited.handle(fakeMouseEventOf(MouseEvent.MOUSE_EXITED))
     }
 
-    @Test fun onMouseMoved() {
+    @Test
+    fun onMouseMoved() {
         scene.callOnMouseMoved { assertFakeMouseEvent(it, MouseEvent.MOUSE_MOVED) }
         scene.onMouseMoved.handle(fakeMouseEventOf(MouseEvent.MOUSE_MOVED))
     }
 
-    @Test fun onMousePressed() {
+    @Test
+    fun onMousePressed() {
         scene.callOnMousePressed { assertFakeMouseEvent(it, MouseEvent.MOUSE_PRESSED) }
         scene.onMousePressed.handle(fakeMouseEventOf(MouseEvent.MOUSE_PRESSED))
     }
 
-    @Test fun onMouseReleased() {
+    @Test
+    fun onMouseReleased() {
         scene.callOnMouseReleased { assertFakeMouseEvent(it, MouseEvent.MOUSE_RELEASED) }
         scene.onMouseReleased.handle(fakeMouseEventOf(MouseEvent.MOUSE_RELEASED))
     }
 
-    @Test fun onDragDetected() {
+    @Test
+    fun onDragDetected() {
         scene.callOnDragDetected { assertFakeMouseEvent(it, MouseEvent.DRAG_DETECTED) }
         scene.onDragDetected.handle(fakeMouseEventOf(MouseEvent.DRAG_DETECTED))
     }
 
-    @Test fun onMouseDragOver() {
+    @Test
+    fun onMouseDragOver() {
         scene.callOnMouseDragOver { assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_OVER) }
         scene.onMouseDragOver.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_OVER))
     }
 
-    @Test fun onMouseDragReleased() {
+    @Test
+    fun onMouseDragReleased() {
         scene.callOnMouseDragReleased { assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_RELEASED) }
         scene.onMouseDragReleased.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_RELEASED))
     }
 
-    @Test fun onMouseDragEntered() {
+    @Test
+    fun onMouseDragEntered() {
         scene.callOnMouseDragEntered { assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_ENTERED) }
         scene.onMouseDragEntered.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_ENTERED))
     }
 
-    @Test fun onMouseDragExited() {
+    @Test
+    fun onMouseDragExited() {
         scene.callOnMouseDragExited { assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_EXITED) }
         scene.onMouseDragExited.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_EXITED))
     }
 
-    @Test fun onScrollStarted() {
+    @Test
+    fun onScrollStarted() {
         scene.callOnScrollStarted { assertFakeScrollEvent(it, ScrollEvent.SCROLL_STARTED) }
         scene.onScrollStarted.handle(fakeScrollEventOf(ScrollEvent.SCROLL_STARTED))
     }
 
-    @Test fun onScroll() {
+    @Test
+    fun onScroll() {
         scene.callOnScroll { assertFakeScrollEvent(it, ScrollEvent.SCROLL) }
         scene.onScroll.handle(fakeScrollEventOf(ScrollEvent.SCROLL))
     }
 
-    @Test fun onScrollFinished() {
+    @Test
+    fun onScrollFinished() {
         scene.callOnScrollFinished { assertFakeScrollEvent(it, ScrollEvent.SCROLL_FINISHED) }
         scene.onScrollFinished.handle(fakeScrollEventOf(ScrollEvent.SCROLL_FINISHED))
     }
 
-    @Test fun onRotateStarted() {
+    @Test
+    fun onRotateStarted() {
         scene.callOnRotationStarted { assertFakeRotateEvent(it, RotateEvent.ROTATION_STARTED) }
         scene.onRotationStarted.handle(fakeRotateEventOf(RotateEvent.ROTATION_STARTED))
     }
 
-    @Test fun onRotate() {
+    @Test
+    fun onRotate() {
         scene.callOnRotate { assertFakeRotateEvent(it, RotateEvent.ROTATE) }
         scene.onRotate.handle(fakeRotateEventOf(RotateEvent.ROTATE))
     }
 
-    @Test fun onRotateFinished() {
+    @Test
+    fun onRotateFinished() {
         scene.callOnRotationFinished { assertFakeRotateEvent(it, RotateEvent.ROTATION_FINISHED) }
         scene.onRotationFinished.handle(fakeRotateEventOf(RotateEvent.ROTATION_FINISHED))
     }
 
-    @Test fun onZoomStarted() {
+    @Test
+    fun onZoomStarted() {
         scene.callOnZoomStarted { assertFakeZoomEvent(it, ZoomEvent.ZOOM_STARTED) }
         scene.onZoomStarted.handle(fakeZoomEventOf(ZoomEvent.ZOOM_STARTED))
     }
 
-    @Test fun onZoom() {
+    @Test
+    fun onZoom() {
         scene.callOnZoom { assertFakeZoomEvent(it, ZoomEvent.ZOOM) }
         scene.onZoom.handle(fakeZoomEventOf(ZoomEvent.ZOOM))
     }
 
-    @Test fun onZoomFinished() {
+    @Test
+    fun onZoomFinished() {
         scene.callOnZoomFinished { assertFakeZoomEvent(it, ZoomEvent.ZOOM_FINISHED) }
         scene.onZoomFinished.handle(fakeZoomEventOf(ZoomEvent.ZOOM_FINISHED))
     }
 
-    @Test fun onSwipeUp() {
+    @Test
+    fun onSwipeUp() {
         scene.callOnSwipeUp { assertFakeSwipeEvent(it, SwipeEvent.SWIPE_UP) }
         scene.onSwipeUp.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_UP))
     }
 
-    @Test fun onSwipeDown() {
+    @Test
+    fun onSwipeDown() {
         scene.callOnSwipeDown { assertFakeSwipeEvent(it, SwipeEvent.SWIPE_DOWN) }
         scene.onSwipeDown.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_DOWN))
     }
 
-    @Test fun onSwipeRight() {
+    @Test
+    fun onSwipeRight() {
         scene.callOnSwipeRight { assertFakeSwipeEvent(it, SwipeEvent.SWIPE_RIGHT) }
         scene.onSwipeRight.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_RIGHT))
     }
 
-    @Test fun onSwipeLeft() {
+    @Test
+    fun onSwipeLeft() {
         scene.callOnSwipeLeft { assertFakeSwipeEvent(it, SwipeEvent.SWIPE_LEFT) }
         scene.onSwipeLeft.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_LEFT))
     }
 
-    @Test fun onTouchPressed() {
+    @Test
+    fun onTouchPressed() {
         scene.callOnTouchPressed { assertFakeTouchEvent(it, TouchEvent.TOUCH_PRESSED) }
         scene.onTouchPressed.handle(fakeTouchEventOf(TouchEvent.TOUCH_PRESSED))
     }
 
-    @Test fun onTouchMoved() {
+    @Test
+    fun onTouchMoved() {
         scene.callOnTouchMoved { assertFakeTouchEvent(it, TouchEvent.TOUCH_MOVED) }
         scene.onTouchMoved.handle(fakeTouchEventOf(TouchEvent.TOUCH_MOVED))
     }
 
-    @Test fun onTouchReleased() {
+    @Test
+    fun onTouchReleased() {
         scene.callOnTouchReleased { assertFakeTouchEvent(it, TouchEvent.TOUCH_RELEASED) }
         scene.onTouchReleased.handle(fakeTouchEventOf(TouchEvent.TOUCH_RELEASED))
     }
 
-    @Test fun onTouchStationary() {
+    @Test
+    fun onTouchStationary() {
         scene.callOnTouchStationary { assertFakeTouchEvent(it, TouchEvent.TOUCH_STATIONARY) }
         scene.onTouchStationary.handle(fakeTouchEventOf(TouchEvent.TOUCH_STATIONARY))
     }
 
-    @Test fun onDragEntered() {
+    @Test
+    fun onDragEntered() {
         scene.callOnDragEntered { assertFakeDragEvent(it, DragEvent.DRAG_ENTERED) }
         scene.onDragEntered.handle(fakeDragEventOf(DragEvent.DRAG_ENTERED))
     }
 
-    @Test fun onDragExited() {
+    @Test
+    fun onDragExited() {
         scene.callOnDragExited { assertFakeDragEvent(it, DragEvent.DRAG_EXITED) }
         scene.onDragExited.handle(fakeDragEventOf(DragEvent.DRAG_EXITED))
     }
 
-    @Test fun onDragOver() {
+    @Test
+    fun onDragOver() {
         scene.callOnDragOver { assertFakeDragEvent(it, DragEvent.DRAG_OVER) }
         scene.onDragOver.handle(fakeDragEventOf(DragEvent.DRAG_OVER))
     }
 
-    @Test fun onDragDropped() {
+    @Test
+    fun onDragDropped() {
         scene.callOnDragDropped { assertFakeDragEvent(it, DragEvent.DRAG_DROPPED) }
         scene.onDragDropped.handle(fakeDragEventOf(DragEvent.DRAG_DROPPED))
     }
 
-    @Test fun onDragDone() {
+    @Test
+    fun onDragDone() {
         scene.callOnDragDone { assertFakeDragEvent(it, DragEvent.DRAG_DONE) }
         scene.onDragDone.handle(fakeDragEventOf(DragEvent.DRAG_DONE))
     }
 
-    @Test fun onKeyPressed() {
+    @Test
+    fun onKeyPressed() {
         scene.callOnKeyPressed { assertFakeKeyEvent(it, KeyEvent.KEY_PRESSED) }
         scene.onKeyPressed.handle(fakeKeyEventOf(KeyEvent.KEY_PRESSED))
     }
 
-    @Test fun onKeyReleased() {
+    @Test
+    fun onKeyReleased() {
         scene.callOnKeyReleased { assertFakeKeyEvent(it, KeyEvent.KEY_RELEASED) }
         scene.onKeyReleased.handle(fakeKeyEventOf(KeyEvent.KEY_RELEASED))
     }
 
-    @Test fun onKeyTyped() {
+    @Test
+    fun onKeyTyped() {
         scene.callOnKeyTyped { assertFakeKeyEvent(it, KeyEvent.KEY_TYPED) }
         scene.onKeyTyped.handle(fakeKeyEventOf(KeyEvent.KEY_TYPED))
     }
 
-    @Test fun onInputMethodTextChanged() {
+    @Test
+    fun onInputMethodTextChanged() {
         scene.callOnInputMethodTextChanged {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -289,7 +327,8 @@ abstract class BaseSceneTest {
         )
     }
 
-    @Test fun onContextMenuRequested() {
+    @Test
+    fun onContextMenuRequested() {
         scene.callOnContextMenuRequested {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

@@ -18,7 +18,8 @@ abstract class BaseTabTest {
         tab = Tab()
     }
 
-    @Test fun onSelectionChanged() {
+    @Test
+    fun onSelectionChanged() {
         tab.callOnSelectionChanged {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -27,7 +28,8 @@ abstract class BaseTabTest {
         tab.onSelectionChanged.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onClosed() {
+    @Test
+    fun onClosed() {
         tab.callOnClosed {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -36,7 +38,8 @@ abstract class BaseTabTest {
         tab.onClosed.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onCloseRequest() {
+    @Test
+    fun onCloseRequest() {
         tab.callOnCloseRequest {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

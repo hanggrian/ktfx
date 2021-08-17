@@ -8,7 +8,8 @@ import kotlin.test.assertEquals
 @Ignore
 class InputDialogsTest : DialogShowingTest() {
 
-    @Test fun inputDialog() {
+    @Test
+    fun inputDialog() {
         interact {
             assertEquals("Awesome input", inputDialog("Input dialog", sampleGraphic, "Awful input") {
                 closeOnShow(this)

@@ -7,13 +7,14 @@ import ktfx.intPropertyOf
 import ktfx.longPropertyOf
 import ktfx.propertyOf
 import ktfx.stringPropertyOf
-import ktfx.time.m
+import ktfx.time.minutes
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class BindingsStringTest {
 
-    @Test fun multipleDependencies() {
+    @Test
+    fun multipleDependencies() {
         val dependency1 = stringPropertyOf("Hello")
         val dependency2 = stringPropertyOf("World")
         val binding1 = stringBindingOf(dependency1, dependency2) { dependency1.value + ' ' + dependency2.value }
@@ -29,15 +30,17 @@ class BindingsStringTest {
         assertEquals("Goodbye World", binding2.value)
     }
 
-    @Test fun anyDependency() {
-        val dependency = propertyOf(1.m)
+    @Test
+    fun anyDependency() {
+        val dependency = propertyOf(1.minutes)
         val binding = dependency.asString { it.toString() }
         assertEquals("60000.0 ms", binding.value)
         dependency.value = null
         assertEquals("null", binding.value)
     }
 
-    @Test fun booleanDependency() {
+    @Test
+    fun booleanDependency() {
         val dependency = booleanPropertyOf()
         val binding = dependency.asString { it.toString() }
         assertEquals("false", binding.value)
@@ -45,7 +48,8 @@ class BindingsStringTest {
         assertEquals("true", binding.value)
     }
 
-    @Test fun doubleDependency() {
+    @Test
+    fun doubleDependency() {
         val dependency = doublePropertyOf()
         val binding = dependency.asString { it.toString() }
         assertEquals("0.0", binding.value)
@@ -53,7 +57,8 @@ class BindingsStringTest {
         assertEquals(Double.MAX_VALUE.toString(), binding.value)
     }
 
-    @Test fun floatDependency() {
+    @Test
+    fun floatDependency() {
         val dependency = floatPropertyOf()
         val binding = dependency.asString { it.toString() }
         assertEquals("0.0", binding.value)
@@ -61,7 +66,8 @@ class BindingsStringTest {
         assertEquals(Float.MAX_VALUE.toString(), binding.value)
     }
 
-    @Test fun intDependency() {
+    @Test
+    fun intDependency() {
         val dependency = intPropertyOf()
         val binding = dependency.asString { it.toString() }
         assertEquals("0", binding.value)
@@ -69,7 +75,8 @@ class BindingsStringTest {
         assertEquals(Int.MAX_VALUE.toString(), binding.value)
     }
 
-    @Test fun longDependency() {
+    @Test
+    fun longDependency() {
         val dependency = longPropertyOf()
         val binding = dependency.asString { it.toString() }
         assertEquals("0", binding.value)

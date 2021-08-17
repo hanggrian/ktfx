@@ -29,4 +29,4 @@ tasks {
     }
 }
 
-mavenPublishJvm("jfoenix")
+mavenPublishJvm("jfoenix", tasks["javadoc"])

@@ -15,7 +15,8 @@ abstract class BaseJFXDecoratorTest : ApplicationTest() {
         decorator = JFXDecorator(stage, Label("Hello world"))
     }
 
-    @Test fun onCloseButtonAction() {
+    @Test
+    fun onCloseButtonAction() {
         decorator.callOnCloseButtonAction { }
     }
 }

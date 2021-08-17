@@ -22,7 +22,7 @@ import kotlin.jvm.JvmName
 public fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 0.0
+    `value`: Double = 0.0
 ): Slider = slider(min = min, max = max, value = value) { }
 
 /**
@@ -34,7 +34,7 @@ public fun NodeManager.slider(
 public inline fun slider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 0.0,
+    `value`: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -52,7 +52,7 @@ public inline fun slider(
 public inline fun NodeManager.slider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 0.0,
+    `value`: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Slider).() -> Unit
 ): Slider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -71,7 +71,7 @@ public inline fun NodeManager.slider(
 public fun styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 0.0,
+    `value`: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
 ): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
@@ -86,7 +86,7 @@ public fun styledSlider(
 public fun NodeManager.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 0.0,
+    `value`: Double = 0.0,
     vararg styleClass: String,
     id: String? = null
 ): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
@@ -102,7 +102,7 @@ public fun NodeManager.styledSlider(
 public inline fun styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 0.0,
+    `value`: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Slider).() -> Unit
@@ -126,7 +126,7 @@ public inline fun styledSlider(
 public inline fun NodeManager.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 0.0,
+    `value`: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Slider).() -> Unit

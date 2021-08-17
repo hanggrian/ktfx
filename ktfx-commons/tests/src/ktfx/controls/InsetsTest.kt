@@ -10,7 +10,8 @@ class InsetsTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun insetsOf() {
+    @Test
+    fun insetsOf() {
         val region = Region()
         region.padding = insetsOf(10)
         assertEquals(10.0, region.padding.top)

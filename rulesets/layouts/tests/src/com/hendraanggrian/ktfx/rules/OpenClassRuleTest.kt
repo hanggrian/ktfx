@@ -6,7 +6,8 @@ import kotlin.test.Test
 class OpenClassRuleTest : RuleTest {
     override val rule = OpenClassRule()
 
-    @Test fun test() = assertRule(
+    @Test
+    fun test() = assertRule(
         lintErrorOf(1, 1, "Empty modifiers, need open."),
         lintErrorOf(5, 8, "Public classes need open modifier.")
     ) {

@@ -11,7 +11,8 @@ class TableColumnsTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun tableView() {
+    @Test
+    fun tableView() {
         val table = TableView<Nothing>()
         table.columns {
             "Full name"<String> {
@@ -28,7 +29,8 @@ class TableColumnsTest {
         assertEquals(table.columns[1].text, "Age")
     }
 
-    @Test fun treeTableView() {
+    @Test
+    fun treeTableView() {
         val treeTable = TreeTableView<Nothing>()
         treeTable.columns {
             "Full name"<String> {

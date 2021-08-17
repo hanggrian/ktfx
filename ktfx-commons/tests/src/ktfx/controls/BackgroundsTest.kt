@@ -21,7 +21,8 @@ class BackgroundsTest {
         region = Region()
     }
 
-    @Test fun multiple() {
+    @Test
+    fun multiple() {
         region.background {
             fill { }
             image(SampleImage()) { }
@@ -30,7 +31,8 @@ class BackgroundsTest {
         assertEquals(1, region.background.images.size)
     }
 
-    @Test fun singleFill() {
+    @Test
+    fun singleFill() {
         region.backgroundFill {
             fill = Color.RED
             radii = CornerRadii(5.0)
@@ -42,7 +44,8 @@ class BackgroundsTest {
         assertEquals(Insets(10.0), fill.insets)
     }
 
-    @Test fun singleImage() {
+    @Test
+    fun singleImage() {
         val sample = SampleImage()
         val backgroundSize = BackgroundSize(1.0, 2.0, true, true, true, true)
         region.backgroundImage(sample) {

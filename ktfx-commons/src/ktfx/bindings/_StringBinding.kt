@@ -6,7 +6,7 @@ package ktfx.bindings
 
 import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.StringBinding
-import javafx.beans.value.ObservableStringValue
+import javafx.beans.`value`.ObservableStringValue
 import kotlin.Boolean
 import kotlin.Char
 import kotlin.CharSequence

@@ -18,7 +18,8 @@ abstract class BaseHyperlinkLabelTest {
         label = HyperlinkLabel()
     }
 
-    @Test fun onAction() {
+    @Test
+    fun onAction() {
         label.callOnAction {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

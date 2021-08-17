@@ -21,7 +21,8 @@ class ValidationSupportTest : ApplicationTest() {
         stage.show()
     }
 
-    @Test fun registerEmptyValidator() {
+    @Test
+    fun registerEmptyValidator() {
         textField.registerEmptyValidator<String>("", support = support)
         assertEquals(1, support.registeredControls.size)
         clickOn(textField)
@@ -30,7 +31,8 @@ class ValidationSupportTest : ApplicationTest() {
         assertFalse(support.isInvalid)
     }
 
-    @Test fun registerEqualsValidator() {
+    @Test
+    fun registerEqualsValidator() {
         textField.registerEqualsValidator("", listOf("Hello", "world"), support = support)
         assertEquals(1, support.registeredControls.size)
         clickOn(textField)
@@ -39,7 +41,8 @@ class ValidationSupportTest : ApplicationTest() {
         assertFalse(support.isInvalid)
     }
 
-    @Test fun registerPredicateValidator() {
+    @Test
+    fun registerPredicateValidator() {
         textField.registerPredicateValidator<String>("", support = support) { it.toIntOrNull() != null }
         assertEquals(1, support.registeredControls.size)
         clickOn(textField)

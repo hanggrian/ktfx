@@ -37,10 +37,8 @@ val StringsFactory.Companion.StringsJVM: StringsFactory
                 length()
                 ignoreCase()
             }
-            "toUpperCase"(STRING) { locale() }
-            "toLowerCase"(STRING) { locale() }
-            "capitalize"(STRING)
-            "decapitalize"(STRING)
+            "uppercase"(STRING) { locale() }
+            "lowercase"(STRING) { locale() }
             "repeat"(STRING) { add<Int>("n") }
         }
 

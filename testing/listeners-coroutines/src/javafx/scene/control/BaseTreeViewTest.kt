@@ -21,7 +21,8 @@ abstract class BaseTreeViewTest {
         tree.root = TreeItem()
     }
 
-    @Test fun onEditStart() {
+    @Test
+    fun onEditStart() {
         tree.callOnEditStart {
             assertEquals(tree, it.source)
             assertEquals(TreeView.editStartEvent<String>(), it.eventType)
@@ -32,7 +33,8 @@ abstract class BaseTreeViewTest {
         tree.onEditStart.handle(TreeView.EditEvent(tree, TreeView.editStartEvent<String>(), tree.root, "", ""))
     }
 
-    @Test fun onEditCommit() {
+    @Test
+    fun onEditCommit() {
         tree.callOnEditCommit {
             assertEquals(tree, it.source)
             assertEquals(TreeView.editCommitEvent<String>(), it.eventType)
@@ -43,7 +45,8 @@ abstract class BaseTreeViewTest {
         tree.onEditCommit.handle(TreeView.EditEvent(tree, TreeView.editCommitEvent<String>(), tree.root, "", ""))
     }
 
-    @Test fun onEditCancel() {
+    @Test
+    fun onEditCancel() {
         tree.callOnEditCancel {
             assertEquals(tree, it.source)
             assertEquals(TreeView.editCancelEvent<String>(), it.eventType)
@@ -54,7 +57,8 @@ abstract class BaseTreeViewTest {
         tree.onEditCancel.handle(TreeView.EditEvent(tree, TreeView.editCancelEvent<String>(), tree.root, "", ""))
     }
 
-    @Test fun onScrollTo() {
+    @Test
+    fun onScrollTo() {
         tree.callOnScrollTo {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

@@ -7,7 +7,8 @@ import kotlin.test.Test
 class NoGetterPropertyStaticImportRuleTest : RuleTest {
     override val rule: Rule = NoGetterPropertyStaticImportRule()
 
-    @Test fun memberAndDeclaration() = assertRule(
+    @Test
+    fun memberAndDeclaration() = assertRule(
         lintErrorOf(2, 17, "Annotation members should static import"),
         lintErrorOf(2, 82, "Declaration should static import")
     ) {
@@ -18,7 +19,8 @@ class NoGetterPropertyStaticImportRuleTest : RuleTest {
         """
     }
 
-    @Test fun member() = assertRule(
+    @Test
+    fun member() = assertRule(
         lintErrorOf(2, 17, "Annotation members should static import")
     ) {
         """
@@ -28,7 +30,8 @@ class NoGetterPropertyStaticImportRuleTest : RuleTest {
         """
     }
 
-    @Test fun declaration() = assertRule(
+    @Test
+    fun declaration() = assertRule(
         lintErrorOf(2, 51, "Declaration should static import")
     ) {
         """

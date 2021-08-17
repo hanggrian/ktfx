@@ -13,7 +13,8 @@ abstract class BaseButtonBaseTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun onAction() {
+    @Test
+    fun onAction() {
         val button = Button()
         button.callOnAction {
             assertEquals(this, it.source)

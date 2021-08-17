@@ -16,14 +16,16 @@ class PlatformTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun isFxThread2() {
+    @Test
+    fun isFxThread2() {
         assertFalse(isFxThread())
         ktfx.runLater { assertTrue(isFxThread()) }
         runBlocking(Dispatchers.JavaFx) { assertTrue(isFxThread()) }
         runBlocking(Dispatchers.IO) { assertFalse(isFxThread()) }
     }
 
-    @Test fun runLater() {
+    @Test
+    fun runLater() {
         // without receiver
         val list = mutableListOf<Int>()
         ktfx.runLater {
@@ -43,7 +45,8 @@ class PlatformTest {
         list2 += 2
     }
 
-    @Test fun withLater() {
+    @Test
+    fun withLater() {
         val list = mutableListOf<Int>()
         withLater(list) {
             assertTrue(isFxThread())
@@ -53,7 +56,8 @@ class PlatformTest {
         list += 2
     }
 
-    @Test fun applyLater() {
+    @Test
+    fun applyLater() {
         val list = mutableListOf<Int>()
         list.applyLater {
             assertTrue(isFxThread())
@@ -63,7 +67,8 @@ class PlatformTest {
         list += 2
     }
 
-    @Test fun alsoLater() {
+    @Test
+    fun alsoLater() {
         val list = mutableListOf<Int>()
         list.alsoLater {
             assertTrue(isFxThread())
@@ -73,7 +78,8 @@ class PlatformTest {
         list += 2
     }
 
-    @Test fun letLater() {
+    @Test
+    fun letLater() {
         val list = mutableListOf<Int>()
         list.letLater {
             assertTrue(isFxThread())
@@ -83,7 +89,8 @@ class PlatformTest {
         list += 2
     }
 
-    @Test fun repeatLater() {
+    @Test
+    fun repeatLater() {
         var i = 0
         repeatLater(10) {
             assertTrue(isFxThread())
@@ -91,5 +98,6 @@ class PlatformTest {
         }
     }
 
-    @Test fun isSupported() = assertTrue(ConditionalFeature.CONTROLS.isSupported())
+    @Test
+    fun isSupported() = assertTrue(ConditionalFeature.CONTROLS.isSupported())
 }

@@ -23,7 +23,8 @@ class MasterDetailPaneTest : LayoutsTest<KtfxPane, MasterDetailPane>() {
         assertTrue(isShowDetailNode)
     }
 
-    @Test fun illegalThirdNode() {
+    @Test
+    fun illegalThirdNode() {
         assertFailsWith<IllegalStateException> {
             masterDetailPane {
                 pane()

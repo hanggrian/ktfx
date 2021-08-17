@@ -14,7 +14,7 @@ import javafx.scene.Node
 import javafx.scene.paint.Color
 import javafx.scene.shape.Shape
 import javafx.util.Duration
-import ktfx.time.ms
+import ktfx.time.milliseconds
 
 /**
  * Plays a [FadeTransition].
@@ -23,7 +23,7 @@ import ktfx.time.ms
  * @return the animation played.
  */
 fun Node.fadeTransition(
-    duration: Duration = 400.0.ms,
+    duration: Duration = 400.0.milliseconds,
     configuration: FadeTransition.() -> Unit
 ): FadeTransition = FadeTransition(duration, this).apply {
     configuration()
@@ -37,7 +37,7 @@ fun Node.fadeTransition(
  * @return the animation played.
  */
 fun Shape.fillTransition(
-    duration: Duration = 400.0.ms,
+    duration: Duration = 400.0.milliseconds,
     fromValue: Color? = null,
     toValue: Color? = null,
     configuration: FillTransition.() -> Unit
@@ -53,7 +53,7 @@ fun Shape.fillTransition(
  * @return the animation played.
  */
 fun Node.pathTransition(
-    duration: Duration = 400.0.ms,
+    duration: Duration = 400.0.milliseconds,
     path: Shape? = null,
     configuration: PathTransition.() -> Unit
 ): PathTransition = PathTransition(duration, path, this).apply {
@@ -68,7 +68,7 @@ fun Node.pathTransition(
  * @return the animation played.
  */
 fun Node.rotateTransition(
-    duration: Duration = 400.0.ms,
+    duration: Duration = 400.0.milliseconds,
     configuration: RotateTransition.() -> Unit
 ): RotateTransition = RotateTransition(duration, this).apply {
     configuration()
@@ -82,7 +82,7 @@ fun Node.rotateTransition(
  * @return the animation played.
  */
 fun Node.scaleTransition(
-    duration: Duration = 400.0.ms,
+    duration: Duration = 400.0.milliseconds,
     configuration: ScaleTransition.() -> Unit
 ): ScaleTransition = ScaleTransition(duration, this).apply {
     configuration()
@@ -96,7 +96,7 @@ fun Node.scaleTransition(
  * @return the animation played.
  */
 fun Shape.strokeTransition(
-    duration: Duration = 400.0.ms,
+    duration: Duration = 400.0.milliseconds,
     fromValue: Color? = null,
     toValue: Color? = null,
     configuration: StrokeTransition.() -> Unit
@@ -112,7 +112,7 @@ fun Shape.strokeTransition(
  * @return the animation played.
  */
 fun Node.translateTransition(
-    duration: Duration = 400.0.ms,
+    duration: Duration = 400.0.milliseconds,
     configuration: TranslateTransition.() -> Unit
 ): TranslateTransition = TranslateTransition(duration, this).apply {
     configuration()
@@ -191,7 +191,7 @@ interface ShapeAnimationScope : AnimationScope {
      * @return the animation added.
      */
     fun fill(
-        duration: Duration = 400.0.ms,
+        duration: Duration = 400.0.milliseconds,
         fromValue: Color? = null,
         toValue: Color? = null,
         configuration: FillTransition.() -> Unit
@@ -207,7 +207,7 @@ interface ShapeAnimationScope : AnimationScope {
      * @return the animation added.
      */
     fun stroke(
-        duration: Duration = 400.0.ms,
+        duration: Duration = 400.0.milliseconds,
         fromValue: Color? = null,
         toValue: Color? = null,
         configuration: StrokeTransition.() -> Unit
@@ -233,7 +233,7 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun fade(
-        duration: Duration = 400.0.ms,
+        duration: Duration = 400.0.milliseconds,
         configuration: FadeTransition.() -> Unit
     ): FadeTransition = FadeTransition(duration, node).also {
         it.configuration()
@@ -247,7 +247,7 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun path(
-        duration: Duration = 400.0.ms,
+        duration: Duration = 400.0.milliseconds,
         path: Shape? = null,
         configuration: PathTransition.() -> Unit
     ): PathTransition = PathTransition(duration, path, node).also {
@@ -262,7 +262,7 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun rotate(
-        duration: Duration = 400.0.ms,
+        duration: Duration = 400.0.milliseconds,
         configuration: RotateTransition.() -> Unit
     ): RotateTransition = RotateTransition(duration, node).also {
         it.configuration()
@@ -276,7 +276,7 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun scale(
-        duration: Duration = 400.0.ms,
+        duration: Duration = 400.0.milliseconds,
         configuration: ScaleTransition.() -> Unit
     ): ScaleTransition = ScaleTransition(duration, node).also {
         it.configuration()
@@ -290,7 +290,7 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun translate(
-        duration: Duration = 400.0.ms,
+        duration: Duration = 400.0.milliseconds,
         configuration: TranslateTransition.() -> Unit
     ): TranslateTransition = TranslateTransition(duration, node).also {
         it.configuration()

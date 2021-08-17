@@ -6,7 +6,8 @@ import kotlin.test.Test
 class ExpressionFunctionReturnTypeRuleTest : RuleTest {
     override val rule = ExpressionFunctionReturnTypeRule()
 
-    @Test fun function() = assertRule(
+    @Test
+    fun function() = assertRule(
         lintErrorOf(2, 1, "Expression function need return type")
     ) {
         """

@@ -24,7 +24,8 @@ abstract class BaseCollectionsTest<T : MutableCollection<String>> {
     abstract fun mutableOf(): T
     abstract fun mutableOf(vararg values: String): T
 
-    @Test fun creating() {
+    @Test
+    fun creating() {
         val empty = empty()
         assertThat(empty).isEmpty()
         assertFails { empty += ADD_VALUE }
@@ -57,7 +58,8 @@ abstract class BaseCollectionsTest<T : MutableCollection<String>> {
     abstract fun List<String>.toMutable(): T
     abstract fun Sequence<String>.toMutable(): T
 
-    @Test fun converting() {
+    @Test
+    fun converting() {
         val fromArray = ARRAY.to()
         assertThat(fromArray).containsExactly(*FILL_VALUES)
         assertFails { fromArray += ADD_VALUE }

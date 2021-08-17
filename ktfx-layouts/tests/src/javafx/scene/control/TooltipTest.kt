@@ -11,7 +11,8 @@ class TooltipTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun node() {
+    @Test
+    fun node() {
         imageView {
             tooltip()
         }
@@ -20,7 +21,8 @@ class TooltipTest {
         }
     }
 
-    @Test fun control() {
+    @Test
+    fun control() {
         button {
             tooltip()
             assertNotNull(tooltip)
@@ -31,7 +33,8 @@ class TooltipTest {
         }
     }
 
-    @Test fun tab() {
+    @Test
+    fun tab() {
         tab {
             tooltip()
             assertNotNull(tooltip)
@@ -42,7 +45,8 @@ class TooltipTest {
         }
     }
 
-    @Test fun tableColumn() {
+    @Test
+    fun tableColumn() {
         val column1 = TableColumn<Duration, String>()
         column1.contextMenu()
         assertNotNull(column1.contextMenu)

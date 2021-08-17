@@ -17,7 +17,8 @@ abstract class BasePlusMinusSliderTest {
         slider = PlusMinusSlider()
     }
 
-    @Test fun onValueChanged() {
+    @Test
+    fun onValueChanged() {
         slider.callOnValueChanged {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

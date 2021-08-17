@@ -14,7 +14,8 @@ abstract class BaseArraysTest<T : ObservableArray<T>, PrimitiveArray, E> {
     abstract fun of(): T
     abstract fun of(values: Array<E>): T
 
-    @Test fun creating() {
+    @Test
+    fun creating() {
         val empty = of()
         assertEquals(0, empty.size())
 
@@ -24,7 +25,8 @@ abstract class BaseArraysTest<T : ObservableArray<T>, PrimitiveArray, E> {
 
     abstract fun PrimitiveArray.to(): T
 
-    @Test fun converting() {
+    @Test
+    fun converting() {
         val typedArray = primitiveArray.to()
         assertNotEquals(0, typedArray.size())
     }

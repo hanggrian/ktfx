@@ -15,7 +15,8 @@ class SegmentedButtonTest : LayoutsTest<KtfxPane, SegmentedButton>() {
     override fun KtfxPane.child2() = segmentedButton()
     override fun KtfxPane.child3() = segmentedButton { }
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         segmentedButton {
             toggleButton("Hello")
             "World" {

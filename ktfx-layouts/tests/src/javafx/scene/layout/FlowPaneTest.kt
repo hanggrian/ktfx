@@ -22,7 +22,8 @@ class FlowPaneTest : LayoutsTest<KtfxPane, FlowPane>() {
         assertEquals(0.0, vgap)
     }
 
-    @Test fun margins() {
+    @Test
+    fun margins() {
         flowPane {
             val region1 = region().margin(insetsOf(5))
             assertEquals(5.0, region1.margin!!.top)

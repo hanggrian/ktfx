@@ -6,7 +6,8 @@ import kotlin.test.assertEquals
 
 class PrinterTest {
 
-    @Test fun createJob() {
+    @Test
+    fun createJob() {
         Printer.getDefaultPrinter()?.run {
             val job = createJob {
                 copies = 2

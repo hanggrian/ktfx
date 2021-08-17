@@ -19,7 +19,8 @@ abstract class BaseTaskTest {
     abstract fun <E> Task<E>.callOnCancelled(action: (WorkerStateEvent) -> Unit)
     abstract fun <E> Task<E>.callOnFailed(action: (WorkerStateEvent) -> Unit)
 
-    @Test fun onScheduled() {
+    @Test
+    fun onScheduled() {
         task.callOnScheduled {
             assertEquals(task, it.source)
             assertEquals(WorkerStateEvent.WORKER_STATE_SCHEDULED, it.eventType)
@@ -27,7 +28,8 @@ abstract class BaseTaskTest {
         task.onScheduled.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_SCHEDULED))
     }
 
-    @Test fun onRunning() {
+    @Test
+    fun onRunning() {
         task.callOnRunning {
             assertEquals(task, it.source)
             assertEquals(WorkerStateEvent.WORKER_STATE_RUNNING, it.eventType)
@@ -35,7 +37,8 @@ abstract class BaseTaskTest {
         task.onRunning.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_RUNNING))
     }
 
-    @Test fun onSucceeded() {
+    @Test
+    fun onSucceeded() {
         task.callOnSucceeded {
             assertEquals(task, it.source)
             assertEquals(WorkerStateEvent.WORKER_STATE_SUCCEEDED, it.eventType)
@@ -43,7 +46,8 @@ abstract class BaseTaskTest {
         task.onSucceeded.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_SUCCEEDED))
     }
 
-    @Test fun onCancelled() {
+    @Test
+    fun onCancelled() {
         task.callOnCancelled {
             assertEquals(task, it.source)
             assertEquals(WorkerStateEvent.WORKER_STATE_CANCELLED, it.eventType)
@@ -51,7 +55,8 @@ abstract class BaseTaskTest {
         task.onCancelled.handle(WorkerStateEvent(task, WorkerStateEvent.WORKER_STATE_CANCELLED))
     }
 
-    @Test fun onFailed() {
+    @Test
+    fun onFailed() {
         task.callOnFailed {
             assertEquals(task, it.source)
             assertEquals(WorkerStateEvent.WORKER_STATE_FAILED, it.eventType)

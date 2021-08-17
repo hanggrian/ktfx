@@ -6,7 +6,8 @@ import kotlin.test.assertEquals
 
 class ComparisonsBindingTest {
 
-    @Test fun maxOf() {
+    @Test
+    fun maxOf() {
         assertEquals(2, maxOf(intPropertyOf(1), intPropertyOf(2)).value)
         assertEquals(2.0, maxOf(intPropertyOf(1), 2.0).value)
         assertEquals(2.0, maxOf(2.0, intPropertyOf(1)).value)
@@ -18,7 +19,8 @@ class ComparisonsBindingTest {
         assertEquals(2, maxOf(2, intPropertyOf(1)).value)
     }
 
-    @Test fun minOf() {
+    @Test
+    fun minOf() {
         assertEquals(1, minOf(intPropertyOf(1), intPropertyOf(2)).value)
         assertEquals(1.0, minOf(intPropertyOf(1), 2.0).value)
         assertEquals(1.0, minOf(2.0, intPropertyOf(1)).value)

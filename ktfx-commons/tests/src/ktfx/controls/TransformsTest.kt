@@ -10,7 +10,8 @@ class TransformsTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun affine() {
+    @Test
+    fun affine() {
         val transformation = Label().affineTransformation {
             mxx = 1.0
             mxy = 2.0
@@ -21,7 +22,8 @@ class TransformsTest {
         assertEquals(3.0, transformation.mxz)
     }
 
-    @Test fun rotate() {
+    @Test
+    fun rotate() {
         val transformation = Label().rotateTransformation {
             pivotX = 1.0
             pivotY = 2.0
@@ -32,7 +34,8 @@ class TransformsTest {
         assertEquals(3.0, transformation.pivotZ)
     }
 
-    @Test fun scale() {
+    @Test
+    fun scale() {
         val transformation = Label().scaleTransformation {
             pivotX = 1.0
             pivotY = 2.0
@@ -43,7 +46,8 @@ class TransformsTest {
         assertEquals(3.0, transformation.pivotZ)
     }
 
-    @Test fun shear() {
+    @Test
+    fun shear() {
         val transformation = Label().shearTransformation {
             pivotX = 1.0
             pivotY = 2.0
@@ -52,7 +56,8 @@ class TransformsTest {
         assertEquals(2.0, transformation.pivotY)
     }
 
-    @Test fun translate() {
+    @Test
+    fun translate() {
         val transformation = Label().translateTransformation {
             x = 1.0
             y = 2.0

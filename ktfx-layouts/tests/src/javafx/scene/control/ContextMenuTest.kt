@@ -12,7 +12,8 @@ class ContextMenuTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         contextMenu {
             menuItem("Hello")
             "World" {
@@ -21,7 +22,8 @@ class ContextMenuTest {
         }
     }
 
-    @Test fun control() {
+    @Test
+    fun control() {
         button {
             contextMenu()
             assertNotNull(contextMenu)
@@ -32,7 +34,8 @@ class ContextMenuTest {
         }
     }
 
-    @Test fun tab() {
+    @Test
+    fun tab() {
         tab {
             contextMenu()
             assertNotNull(contextMenu)
@@ -43,7 +46,8 @@ class ContextMenuTest {
         }
     }
 
-    @Test fun tableColumn() {
+    @Test
+    fun tableColumn() {
         val column1 = TableColumn<Duration, String>()
         column1.contextMenu()
         assertNotNull(column1.contextMenu)

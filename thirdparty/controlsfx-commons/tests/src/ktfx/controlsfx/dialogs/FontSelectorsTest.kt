@@ -11,7 +11,8 @@ class FontSelectorsTest : DialogShowingTest() {
 
     private val arial18 = Font.font("Arial", 18.0)
 
-    @Test fun exceptionDialog() {
+    @Test
+    fun exceptionDialog() {
         interact {
             assertEquals(
                 arial18,

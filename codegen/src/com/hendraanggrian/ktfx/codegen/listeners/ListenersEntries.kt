@@ -35,7 +35,7 @@ data class ListenersFunctionEntry(
         get() = when {
             functionName.startsWith("set") -> {
                 val s = functionName.substringAfter("set")
-                s.first().toLowerCase() + s.drop(1)
+                s.first().lowercaseChar() + s.drop(1)
             }
             else -> functionName
         }

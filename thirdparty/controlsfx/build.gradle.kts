@@ -29,4 +29,4 @@ tasks {
     }
 }
 
-mavenPublishJvm("controlsfx")
+mavenPublishJvm("controlsfx", tasks["javadoc"])

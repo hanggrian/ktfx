@@ -11,8 +11,8 @@ import org.gradle.kotlin.dsl.registering
 import org.gradle.language.base.plugins.LifecycleBasePlugin
 
 fun Dependencies.ktlint(module: String? = null) = when (module) {
-    null -> "com.pinterest:ktlint:0.41.0"
-    else -> "com.pinterest.ktlint:ktlint-$module:0.41.0"
+    null -> "com.pinterest:ktlint:0.42.1"
+    else -> "com.pinterest.ktlint:ktlint-$module:0.42.1"
 }
 
 fun Project.ktlint(vararg rulesets: Any, src: String = "src") {
@@ -30,7 +30,7 @@ fun Project.ktlint(vararg rulesets: Any, src: String = "src") {
             outputs.dir(src)
             description = "Check Kotlin code style."
             classpath(configuration)
-            main = "com.pinterest.ktlint.Main"
+            mainClass.set("com.pinterest.ktlint.Main")
             args("$src/**/*.kt")
         }
         val check by getting {
@@ -42,7 +42,7 @@ fun Project.ktlint(vararg rulesets: Any, src: String = "src") {
             outputs.dir(src)
             description = "Fix Kotlin code style deviations."
             classpath(configuration)
-            main = "com.pinterest.ktlint.Main"
+            mainClass.set("com.pinterest.ktlint.Main")
             args("-F", "$src/**/*.kt")
         }
     }

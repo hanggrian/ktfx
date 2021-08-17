@@ -11,7 +11,8 @@ class GlyphFontTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun glyph() {
+    @Test
+    fun glyph() {
         val glyphFromChar = FontAwesome() glyph 'A'
         assertEquals("A", glyphFromChar.text)
 
@@ -22,7 +23,8 @@ class GlyphFontTest {
         assertEquals("\uF042", glyphFromEnum.text)
     }
 
-    @Test fun register() {
+    @Test
+    fun register() {
         val glyphFont = FontAwesome()
         glyphFont.register()
         assertEquals(glyphFont, GlyphFontRegistry.font(glyphFont.name))

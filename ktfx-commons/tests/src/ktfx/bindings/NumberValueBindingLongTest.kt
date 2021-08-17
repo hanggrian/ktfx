@@ -6,9 +6,11 @@ import kotlin.test.assertEquals
 
 class NumberValueBindingLongTest {
 
-    @Test fun unaryMinus() = assertEquals(-1L, (-longPropertyOf(1L)).value)
+    @Test
+    fun unaryMinus() = assertEquals(-1L, (-longPropertyOf(1L)).value)
 
-    @Test fun plus() {
+    @Test
+    fun plus() {
         // observable long to double
         assertEquals(3.0, (longPropertyOf(1L) + 2.0).value)
         assertEquals(3.0, (2.0 + longPropertyOf(1L)).value)
@@ -23,7 +25,8 @@ class NumberValueBindingLongTest {
         assertEquals(3L, (2 + longPropertyOf(1L)).value)
     }
 
-    @Test fun minus() {
+    @Test
+    fun minus() {
         // observable long to double
         assertEquals(-1.0, (longPropertyOf(1L) - 2.0).value)
         assertEquals(1.0, (2.0 - longPropertyOf(1L)).value)
@@ -38,7 +41,8 @@ class NumberValueBindingLongTest {
         assertEquals(1L, (2 - longPropertyOf(1L)).value)
     }
 
-    @Test fun times() {
+    @Test
+    fun times() {
         // observable long to double
         assertEquals(2.0, (longPropertyOf(1L) * 2.0).value)
         assertEquals(2.0, (2.0 * longPropertyOf(1L)).value)
@@ -53,7 +57,8 @@ class NumberValueBindingLongTest {
         assertEquals(2L, (2 * longPropertyOf(1L)).value)
     }
 
-    @Test fun div() {
+    @Test
+    fun div() {
         // observable long to double
         assertEquals(0.5, (longPropertyOf(1L) / 2.0).value)
         assertEquals(2.0, (2.0 / longPropertyOf(1L)).value)

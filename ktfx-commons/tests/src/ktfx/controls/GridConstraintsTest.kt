@@ -7,7 +7,8 @@ import kotlin.test.assertTrue
 
 class GridConstraintsTest {
 
-    @Test fun rowConstraints() {
+    @Test
+    fun rowConstraints() {
         val gridPane = GridPane()
         gridPane.rowConstraints {
             append()
@@ -17,7 +18,8 @@ class GridConstraintsTest {
         assertTrue(gridPane.rowConstraints.last().isFillHeight)
     }
 
-    @Test fun columnConstraints() {
+    @Test
+    fun columnConstraints() {
         val gridPane = GridPane()
         gridPane.columnConstraints {
             append()

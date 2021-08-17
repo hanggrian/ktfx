@@ -24,7 +24,7 @@ import kotlin.jvm.JvmName
 public fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 50.0
+    `value`: Double = 50.0
 ): JFXSlider = jfxSlider(min = min, max = max, value = value) { }
 
 /**
@@ -36,7 +36,7 @@ public fun NodeManager.jfxSlider(
 public inline fun jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 50.0,
+    `value`: Double = 50.0,
     configuration: (@KtfxLayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -54,7 +54,7 @@ public inline fun jfxSlider(
 public inline fun NodeManager.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 50.0,
+    `value`: Double = 50.0,
     configuration: (@KtfxLayoutDslMarker JFXSlider).() -> Unit
 ): JFXSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -73,7 +73,7 @@ public inline fun NodeManager.jfxSlider(
 public fun styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 50.0,
+    `value`: Double = 50.0,
     vararg styleClass: String,
     id: String? = null
 ): JFXSlider = styledJFXSlider(
@@ -92,7 +92,7 @@ public fun styledJFXSlider(
 public fun NodeManager.styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 50.0,
+    `value`: Double = 50.0,
     vararg styleClass: String,
     id: String? = null
 ): JFXSlider = styledJFXSlider(
@@ -112,7 +112,7 @@ public fun NodeManager.styledJFXSlider(
 public inline fun styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 50.0,
+    `value`: Double = 50.0,
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXSlider).() -> Unit
@@ -136,7 +136,7 @@ public inline fun styledJFXSlider(
 public inline fun NodeManager.styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
-    value: Double = 50.0,
+    `value`: Double = 50.0,
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXSlider).() -> Unit

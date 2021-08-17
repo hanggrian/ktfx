@@ -15,7 +15,8 @@ class JFXToolbarTest : LayoutsTest<KtfxPane, JFXToolbar>() {
     override fun KtfxPane.child2() = jfxToolbar()
     override fun KtfxPane.child3() = jfxToolbar { }
 
-    @Test fun leftAndRightItems() {
+    @Test
+    fun leftAndRightItems() {
         val left1: JFXButton
         val right1: JFXButton
         val right2: JFXButton

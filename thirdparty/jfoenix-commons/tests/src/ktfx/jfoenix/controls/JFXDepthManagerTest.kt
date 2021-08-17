@@ -19,17 +19,20 @@ class JFXDepthManagerTest {
         node = Label("Hello world")
     }
 
-    @Test fun depth() {
+    @Test
+    fun depth() {
         node.depth = 1
         assertDepth(node, 1)
     }
 
-    @Test fun wrapDepth() {
+    @Test
+    fun wrapDepth() {
         node.wrapDepth(2)
         assertDepth(node.parent, 2)
     }
 
-    @Test fun popDepth() {
+    @Test
+    fun popDepth() {
         node.popDepth()
         val shadow = node.effect as DropShadow
         assertEquals(BlurType.GAUSSIAN, shadow.blurType)

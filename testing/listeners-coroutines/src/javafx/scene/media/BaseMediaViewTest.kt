@@ -15,7 +15,8 @@ abstract class BaseMediaViewTest {
         media = MediaView()
     }
 
-    @Test fun onError() {
+    @Test
+    fun onError() {
         // TODO: create fake event
         // media.callOnError { assertFakeMediaErrorEvent(it) }
         // media.onError.handle(fakeMediaErrorEventOf())

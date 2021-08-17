@@ -13,7 +13,8 @@ import kotlin.test.assertTrue
 @Ignore
 class DialogTest : DialogShowingTest() {
 
-    @Test fun graphicIcon() {
+    @Test
+    fun graphicIcon() {
         interact {
             val dialog = Dialog<Nothing>()
             assertThat(dialog.dialogPane.scene.stage.icons).isEmpty()
@@ -24,7 +25,8 @@ class DialogTest : DialogShowingTest() {
         }
     }
 
-    @Test fun headerTitle() {
+    @Test
+    fun headerTitle() {
         interact {
             val dialog = Dialog<Nothing>()
             assertNull(dialog.headerText)
@@ -36,7 +38,8 @@ class DialogTest : DialogShowingTest() {
     }
 
     /** Because some dialog texts have space suffix, use [assertTrue] instead of [assertEquals]. */
-    @Test fun buttons() {
+    @Test
+    fun buttons() {
         interact {
             val dialog = Dialog<Nothing>()
 

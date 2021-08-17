@@ -10,7 +10,8 @@ import kotlin.test.assertSame
 
 class GeometryTest {
 
-    @Test fun pos() {
+    @Test
+    fun pos() {
         assertSame(Pos.TOP_LEFT, TOP_LEFT)
         assertSame(Pos.TOP_CENTER, TOP)
         assertSame(Pos.TOP_RIGHT, TOP_RIGHT)
@@ -25,25 +26,29 @@ class GeometryTest {
         assertSame(Pos.BASELINE_RIGHT, BASELINE_RIGHT)
     }
 
-    @Test fun hpos() {
+    @Test
+    fun hpos() {
         assertSame(HPos.LEFT, H_LEFT)
         assertSame(HPos.CENTER, H_CENTER)
         assertSame(HPos.RIGHT, H_RIGHT)
     }
 
-    @Test fun vpos() {
+    @Test
+    fun vpos() {
         assertSame(VPos.TOP, V_TOP)
         assertSame(VPos.CENTER, V_CENTER)
         assertSame(VPos.BOTTOM, V_BOTTOM)
         assertSame(VPos.BASELINE, V_BASELINE)
     }
 
-    @Test fun orientation() {
+    @Test
+    fun orientation() {
         assertSame(Orientation.HORIZONTAL, HORIZONTAL)
         assertSame(Orientation.VERTICAL, VERTICAL)
     }
 
-    @Test fun side() {
+    @Test
+    fun side() {
         assertSame(Side.TOP, SIDE_TOP)
         assertSame(Side.BOTTOM, SIDE_BOTTOM)
         assertSame(Side.LEFT, SIDE_LEFT)

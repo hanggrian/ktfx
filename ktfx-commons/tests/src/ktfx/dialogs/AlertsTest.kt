@@ -9,7 +9,8 @@ import kotlin.test.assertEquals
 @Ignore
 class AlertsTest : DialogShowingTest() {
 
-    @Test fun alert() {
+    @Test
+    fun alert() {
         interact {
             assertEquals(ButtonType.YES, alert("Alert title", sampleGraphic, "Message", ButtonType.YES) {
                 closeOnShow(this)
@@ -24,7 +25,8 @@ class AlertsTest : DialogShowingTest() {
         }
     }
 
-    @Test fun infoAlert() {
+    @Test
+    fun infoAlert() {
         interact {
             assertEquals(ButtonType.OK, infoAlert("Info title", sampleGraphic, "Message") {
                 closeOnShow(this)
@@ -39,7 +41,8 @@ class AlertsTest : DialogShowingTest() {
         }
     }
 
-    @Test fun warningAlert() {
+    @Test
+    fun warningAlert() {
         interact {
             assertEquals(ButtonType.OK, infoAlert("Warning title", sampleGraphic, "Message") {
                 closeOnShow(this)
@@ -54,7 +57,8 @@ class AlertsTest : DialogShowingTest() {
         }
     }
 
-    @Test fun confirmAlert() {
+    @Test
+    fun confirmAlert() {
         interact {
             assertEquals(ButtonType.OK, confirmAlert("Confirm title", sampleGraphic, "Message") {
                 closeOnShow(this)
@@ -69,7 +73,8 @@ class AlertsTest : DialogShowingTest() {
         }
     }
 
-    @Test fun errorAlert() {
+    @Test
+    fun errorAlert() {
         interact {
             assertEquals(ButtonType.OK, errorAlert("Error title", sampleGraphic, "Message") {
                 closeOnShow(this)

@@ -7,7 +7,8 @@ import kotlin.test.assertEquals
 
 class TextFlowTest {
 
-    @Test fun append() {
+    @Test
+    fun append() {
         assertEquals(
             "I have 3 little piggies",
             TextFlow().append("I have ").append(3).append(" little piggies").text
@@ -26,7 +27,8 @@ class TextFlowTest {
         )
     }
 
-    @Test fun appendLine() {
+    @Test
+    fun appendLine() {
         assertEquals(
             """
                A wolf just ate

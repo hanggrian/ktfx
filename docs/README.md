@@ -13,6 +13,8 @@ Written in spirit of [anko](https://github.com/Kotlin/anko), it aims to make Jav
 [Download](https://github.com/hendraanggrian/ktfx/wiki/Download)
 ----------
 
+This library follows [JDK's revisions](https://www.oracle.com/java/technologies/javase-downloads.html).
+
 ```gradle
 repositories {
     mavenCentral()
@@ -20,17 +22,17 @@ repositories {
 
 dependencies {
     // all the main artifacts combined
-    compile "com.hendraanggrian.ktfx:ktfx:${version}"
+    compile "com.hendraanggrian.ktfx:ktfx:$version"
 
     // or download separately
-    compile "com.hendraanggrian.ktfx:ktfx-commons:${version}"
-    compile "com.hendraanggrian.ktfx:ktfx-layouts:${version}"
-    compile "com.hendraanggrian.ktfx:ktfx-listeners:${version}"
-    compile "com.hendraanggrian.ktfx:ktfx-coroutines:${version}"
+    compile "com.hendraanggrian.ktfx:ktfx-commons:$version"
+    compile "com.hendraanggrian.ktfx:ktfx-layouts:$version"
+    compile "com.hendraanggrian.ktfx:ktfx-listeners:$version"
+    compile "com.hendraanggrian.ktfx:ktfx-coroutines:$version"
 
     // third-party artifacts
-    compile "com.hendraanggrian.ktfx:ktfx-controlsfx:${version}"
-    compile "com.hendraanggrian.ktfx:ktfx-jfoenix:${version}"
+    compile "com.hendraanggrian.ktfx:ktfx-controlsfx:$version"
+    compile "com.hendraanggrian.ktfx:ktfx-jfoenix:$version"
 }
 ```
 

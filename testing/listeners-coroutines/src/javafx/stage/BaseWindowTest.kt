@@ -19,7 +19,8 @@ abstract class BaseWindowTest : ApplicationTest() {
         window = stage
     }
 
-    @Test fun onCloseRequest() {
+    @Test
+    fun onCloseRequest() {
         window.callOnCloseRequest {
             assertEquals(window, it.source)
             assertEquals(WindowEvent.WINDOW_CLOSE_REQUEST, it.eventType)
@@ -27,7 +28,8 @@ abstract class BaseWindowTest : ApplicationTest() {
         window.onCloseRequest.handle(WindowEvent(window, WindowEvent.WINDOW_CLOSE_REQUEST))
     }
 
-    @Test fun onShowing() {
+    @Test
+    fun onShowing() {
         window.callOnShowing {
             assertEquals(window, it.source)
             assertEquals(WindowEvent.WINDOW_SHOWING, it.eventType)
@@ -35,7 +37,8 @@ abstract class BaseWindowTest : ApplicationTest() {
         window.onShowing.handle(WindowEvent(window, WindowEvent.WINDOW_SHOWING))
     }
 
-    @Test fun onShown() {
+    @Test
+    fun onShown() {
         window.callOnShown {
             assertEquals(window, it.source)
             assertEquals(WindowEvent.WINDOW_SHOWN, it.eventType)
@@ -43,7 +46,8 @@ abstract class BaseWindowTest : ApplicationTest() {
         window.onShown.handle(WindowEvent(window, WindowEvent.WINDOW_SHOWN))
     }
 
-    @Test fun onHiding() {
+    @Test
+    fun onHiding() {
         window.callOnHiding {
             assertEquals(window, it.source)
             assertEquals(WindowEvent.WINDOW_HIDING, it.eventType)
@@ -51,7 +55,8 @@ abstract class BaseWindowTest : ApplicationTest() {
         window.onHiding.handle(WindowEvent(window, WindowEvent.WINDOW_HIDING))
     }
 
-    @Test fun onHidden() {
+    @Test
+    fun onHidden() {
         window.callOnHidden {
             assertEquals(window, it.source)
             assertEquals(WindowEvent.WINDOW_HIDDEN, it.eventType)

@@ -26,7 +26,8 @@ class ButtonBarTest : LayoutsTest<KtfxPane, ButtonBar>() {
         )
     }
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         buttonBar {
             assertThat(buttons).isEmpty()
             button("Hello")

@@ -10,7 +10,8 @@ abstract class BaseAnimationTest {
 
     abstract fun Animation.callOnFinished(action: (ActionEvent) -> Unit)
 
-    @Test fun onFinished() {
+    @Test
+    fun onFinished() {
         val scale = ScaleTransition()
         scale.callOnFinished {
             assertEquals(this, it.source)

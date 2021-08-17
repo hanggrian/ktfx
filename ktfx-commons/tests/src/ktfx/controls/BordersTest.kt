@@ -22,7 +22,8 @@ class BordersTest {
         region = Region()
     }
 
-    @Test fun multiple() {
+    @Test
+    fun multiple() {
         region.border {
             stroke { }
             image(SampleImage()) { }
@@ -31,7 +32,8 @@ class BordersTest {
         assertEquals(1, region.border.images.size)
     }
 
-    @Test fun singleStroke() {
+    @Test
+    fun singleStroke() {
         region.borderStroke {
             stroke = Color.RED
             style = BorderStrokeStyle.DOTTED
@@ -54,7 +56,8 @@ class BordersTest {
         }
     }
 
-    @Test fun singleImage() {
+    @Test
+    fun singleImage() {
         val sample = SampleImage()
         region.borderImage(sample) {
             widths = BorderWidths.FULL

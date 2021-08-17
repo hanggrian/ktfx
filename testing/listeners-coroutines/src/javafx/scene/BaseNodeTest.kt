@@ -67,32 +67,38 @@ abstract class BaseNodeTest {
         node = Label()
     }
 
-    @Test fun onDragEntered() {
+    @Test
+    fun onDragEntered() {
         node.callOnDragEntered { assertFakeDragEvent(it, DragEvent.DRAG_ENTERED) }
         node.onDragEntered.handle(fakeDragEventOf(DragEvent.DRAG_ENTERED))
     }
 
-    @Test fun onDragExited() {
+    @Test
+    fun onDragExited() {
         node.callOnDragExited { assertFakeDragEvent(it, DragEvent.DRAG_EXITED) }
         node.onDragExited.handle(fakeDragEventOf(DragEvent.DRAG_EXITED))
     }
 
-    @Test fun onDragOver() {
+    @Test
+    fun onDragOver() {
         node.callOnDragOver { assertFakeDragEvent(it, DragEvent.DRAG_OVER) }
         node.onDragOver.handle(fakeDragEventOf(DragEvent.DRAG_OVER))
     }
 
-    @Test fun onDragDropped() {
+    @Test
+    fun onDragDropped() {
         node.callOnDragDropped { assertFakeDragEvent(it, DragEvent.DRAG_DROPPED) }
         node.onDragDropped.handle(fakeDragEventOf(DragEvent.DRAG_DROPPED))
     }
 
-    @Test fun onDragDone() {
+    @Test
+    fun onDragDone() {
         node.callOnDragDone { assertFakeDragEvent(it, DragEvent.DRAG_DONE) }
         node.onDragDone.handle(fakeDragEventOf(DragEvent.DRAG_DONE))
     }
 
-    @Test fun onContextMenuRequested() {
+    @Test
+    fun onContextMenuRequested() {
         node.callOnContextMenuRequested {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -113,167 +119,200 @@ abstract class BaseNodeTest {
         )
     }
 
-    @Test fun onMouseClicked() {
+    @Test
+    fun onMouseClicked() {
         node.callOnMouseClicked { assertFakeMouseEvent(it, MouseEvent.MOUSE_CLICKED) }
         node.onMouseClicked.handle(fakeMouseEventOf(MouseEvent.MOUSE_CLICKED))
     }
 
-    @Test fun onMouseDragged() {
+    @Test
+    fun onMouseDragged() {
         node.callOnMouseDragged { assertFakeMouseEvent(it, MouseEvent.MOUSE_DRAGGED) }
         node.onMouseDragged.handle(fakeMouseEventOf(MouseEvent.MOUSE_DRAGGED))
     }
 
-    @Test fun onMouseEntered() {
+    @Test
+    fun onMouseEntered() {
         node.callOnMouseEntered { assertFakeMouseEvent(it, MouseEvent.MOUSE_ENTERED) }
         node.onMouseEntered.handle(fakeMouseEventOf(MouseEvent.MOUSE_ENTERED))
     }
 
-    @Test fun onMouseExited() {
+    @Test
+    fun onMouseExited() {
         node.callOnMouseExited { assertFakeMouseEvent(it, MouseEvent.MOUSE_EXITED) }
         node.onMouseExited.handle(fakeMouseEventOf(MouseEvent.MOUSE_EXITED))
     }
 
-    @Test fun onMouseMoved() {
+    @Test
+    fun onMouseMoved() {
         node.callOnMouseMoved { assertFakeMouseEvent(it, MouseEvent.MOUSE_MOVED) }
         node.onMouseMoved.handle(fakeMouseEventOf(MouseEvent.MOUSE_MOVED))
     }
 
-    @Test fun onMousePressed() {
+    @Test
+    fun onMousePressed() {
         node.callOnMousePressed { assertFakeMouseEvent(it, MouseEvent.MOUSE_PRESSED) }
         node.onMousePressed.handle(fakeMouseEventOf(MouseEvent.MOUSE_PRESSED))
     }
 
-    @Test fun onMouseReleased() {
+    @Test
+    fun onMouseReleased() {
         node.callOnMouseReleased { assertFakeMouseEvent(it, MouseEvent.MOUSE_RELEASED) }
         node.onMouseReleased.handle(fakeMouseEventOf(MouseEvent.MOUSE_RELEASED))
     }
 
-    @Test fun onDragDetected() {
+    @Test
+    fun onDragDetected() {
         node.callOnDragDetected { assertFakeMouseEvent(it, MouseEvent.DRAG_DETECTED) }
         node.onDragDetected.handle(fakeMouseEventOf(MouseEvent.DRAG_DETECTED))
     }
 
-    @Test fun onMouseDragOver() {
+    @Test
+    fun onMouseDragOver() {
         node.callOnMouseDragOver { assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_OVER) }
         node.onMouseDragOver.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_OVER))
     }
 
-    @Test fun onMouseDragReleased() {
+    @Test
+    fun onMouseDragReleased() {
         node.callOnMouseDragReleased { assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_RELEASED) }
         node.onMouseDragReleased.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_RELEASED))
     }
 
-    @Test fun onMouseDragEntered() {
+    @Test
+    fun onMouseDragEntered() {
         node.callOnMouseDragEntered { assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_ENTERED) }
         node.onMouseDragEntered.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_ENTERED))
     }
 
-    @Test fun onMouseDragExited() {
+    @Test
+    fun onMouseDragExited() {
         node.callOnMouseDragExited { assertFakeMouseDragEvent(it, MouseDragEvent.MOUSE_DRAG_EXITED) }
         node.onMouseDragExited.handle(fakeMouseDragEventOf(MouseDragEvent.MOUSE_DRAG_EXITED))
     }
 
-    @Test fun onScrollStarted() {
+    @Test
+    fun onScrollStarted() {
         node.callOnScrollStarted { assertFakeScrollEvent(it, ScrollEvent.SCROLL_STARTED) }
         node.onScrollStarted.handle(fakeScrollEventOf(ScrollEvent.SCROLL_STARTED))
     }
 
-    @Test fun onScroll() {
+    @Test
+    fun onScroll() {
         node.callOnScroll { assertFakeScrollEvent(it, ScrollEvent.SCROLL) }
         node.onScroll.handle(fakeScrollEventOf(ScrollEvent.SCROLL))
     }
 
-    @Test fun onScrollFinished() {
+    @Test
+    fun onScrollFinished() {
         node.callOnScrollFinished { assertFakeScrollEvent(it, ScrollEvent.SCROLL_FINISHED) }
         node.onScrollFinished.handle(fakeScrollEventOf(ScrollEvent.SCROLL_FINISHED))
     }
 
-    @Test fun onRotateStarted() {
+    @Test
+    fun onRotateStarted() {
         node.callOnRotationStarted { assertFakeRotateEvent(it, RotateEvent.ROTATION_STARTED) }
         node.onRotationStarted.handle(fakeRotateEventOf(RotateEvent.ROTATION_STARTED))
     }
 
-    @Test fun onRotate() {
+    @Test
+    fun onRotate() {
         node.callOnRotate { assertFakeRotateEvent(it, RotateEvent.ROTATE) }
         node.onRotate.handle(fakeRotateEventOf(RotateEvent.ROTATE))
     }
 
-    @Test fun onRotateFinished() {
+    @Test
+    fun onRotateFinished() {
         node.callOnRotationFinished { assertFakeRotateEvent(it, RotateEvent.ROTATION_FINISHED) }
         node.onRotationFinished.handle(fakeRotateEventOf(RotateEvent.ROTATION_FINISHED))
     }
 
-    @Test fun onZoomStarted() {
+    @Test
+    fun onZoomStarted() {
         node.callOnZoomStarted { assertFakeZoomEvent(it, ZoomEvent.ZOOM_STARTED) }
         node.onZoomStarted.handle(fakeZoomEventOf(ZoomEvent.ZOOM_STARTED))
     }
 
-    @Test fun onZoom() {
+    @Test
+    fun onZoom() {
         node.callOnZoom { assertFakeZoomEvent(it, ZoomEvent.ZOOM) }
         node.onZoom.handle(fakeZoomEventOf(ZoomEvent.ZOOM))
     }
 
-    @Test fun onZoomFinished() {
+    @Test
+    fun onZoomFinished() {
         node.callOnZoomFinished { assertFakeZoomEvent(it, ZoomEvent.ZOOM_FINISHED) }
         node.onZoomFinished.handle(fakeZoomEventOf(ZoomEvent.ZOOM_FINISHED))
     }
 
-    @Test fun onSwipeUp() {
+    @Test
+    fun onSwipeUp() {
         node.callOnSwipeUp { assertFakeSwipeEvent(it, SwipeEvent.SWIPE_UP) }
         node.onSwipeUp.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_UP))
     }
 
-    @Test fun onSwipeDown() {
+    @Test
+    fun onSwipeDown() {
         node.callOnSwipeDown { assertFakeSwipeEvent(it, SwipeEvent.SWIPE_DOWN) }
         node.onSwipeDown.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_DOWN))
     }
 
-    @Test fun onSwipeRight() {
+    @Test
+    fun onSwipeRight() {
         node.callOnSwipeRight { assertFakeSwipeEvent(it, SwipeEvent.SWIPE_RIGHT) }
         node.onSwipeRight.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_RIGHT))
     }
 
-    @Test fun onSwipeLeft() {
+    @Test
+    fun onSwipeLeft() {
         node.callOnSwipeLeft { assertFakeSwipeEvent(it, SwipeEvent.SWIPE_LEFT) }
         node.onSwipeLeft.handle(fakeSwipeEventOf(SwipeEvent.SWIPE_LEFT))
     }
 
-    @Test fun onTouchPressed() {
+    @Test
+    fun onTouchPressed() {
         node.callOnTouchPressed { assertFakeTouchEvent(it, TouchEvent.TOUCH_PRESSED) }
         node.onTouchPressed.handle(fakeTouchEventOf(TouchEvent.TOUCH_PRESSED))
     }
 
-    @Test fun onTouchMoved() {
+    @Test
+    fun onTouchMoved() {
         node.callOnTouchMoved { assertFakeTouchEvent(it, TouchEvent.TOUCH_MOVED) }
         node.onTouchMoved.handle(fakeTouchEventOf(TouchEvent.TOUCH_MOVED))
     }
 
-    @Test fun onTouchReleased() {
+    @Test
+    fun onTouchReleased() {
         node.callOnTouchReleased { assertFakeTouchEvent(it, TouchEvent.TOUCH_RELEASED) }
         node.onTouchReleased.handle(fakeTouchEventOf(TouchEvent.TOUCH_RELEASED))
     }
 
-    @Test fun onTouchStationary() {
+    @Test
+    fun onTouchStationary() {
         node.callOnTouchStationary { assertFakeTouchEvent(it, TouchEvent.TOUCH_STATIONARY) }
         node.onTouchStationary.handle(fakeTouchEventOf(TouchEvent.TOUCH_STATIONARY))
     }
 
-    @Test fun onKeyPressed() {
+    @Test
+    fun onKeyPressed() {
         node.callOnKeyPressed { assertFakeKeyEvent(it, KeyEvent.KEY_PRESSED) }
         node.onKeyPressed.handle(fakeKeyEventOf(KeyEvent.KEY_PRESSED))
     }
 
-    @Test fun onKeyReleased() {
+    @Test
+    fun onKeyReleased() {
         node.callOnKeyReleased { assertFakeKeyEvent(it, KeyEvent.KEY_RELEASED) }
         node.onKeyReleased.handle(fakeKeyEventOf(KeyEvent.KEY_RELEASED))
     }
 
-    @Test fun onKeyTyped() {
+    @Test
+    fun onKeyTyped() {
         node.callOnKeyTyped { assertFakeKeyEvent(it, KeyEvent.KEY_TYPED) }
         node.onKeyTyped.handle(fakeKeyEventOf(KeyEvent.KEY_TYPED))
     }
 
-    @Test fun onInputMethodTextChanged() {
+    @Test
+    fun onInputMethodTextChanged() {
         node.callOnInputMethodTextChanged {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

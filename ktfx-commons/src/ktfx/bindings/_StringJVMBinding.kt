@@ -8,16 +8,7 @@ import javafx.beans.binding.BooleanBinding
 import javafx.beans.binding.IntegerBinding
 import javafx.beans.binding.StringBinding
 import javafx.beans.value.ObservableStringValue
-import java.lang.StringBuffer
 import java.util.Locale
-import kotlin.Any
-import kotlin.Boolean
-import kotlin.Char
-import kotlin.Int
-import kotlin.String
-import kotlin.Suppress
-import kotlin.jvm.JvmMultifileClass
-import kotlin.jvm.JvmName
 
 /**
  * @see String.equals
@@ -251,31 +242,17 @@ public inline fun ObservableStringValue.regionMatches(
 }
 
 /**
- * @see String.toUpperCase
+ * @see String.uppercase
  */
-public inline fun ObservableStringValue.toUpperCase(locale: Locale): StringBinding {
-    return asString { checkNotNull(it) { "String value is null" }.toUpperCase(locale) }
+public inline fun ObservableStringValue.uppercase(locale: Locale): StringBinding {
+    return asString { checkNotNull(it) { "String value is null" }.uppercase(locale) }
 }
 
 /**
- * @see String.toLowerCase
+ * @see String.lowercase
  */
-public inline fun ObservableStringValue.toLowerCase(locale: Locale): StringBinding {
-    return asString { checkNotNull(it) { "String value is null" }.toLowerCase(locale) }
-}
-
-/**
- * @see String.capitalize
- */
-public inline fun ObservableStringValue.capitalize(): StringBinding {
-    return asString { checkNotNull(it) { "String value is null" }.capitalize() }
-}
-
-/**
- * @see String.decapitalize
- */
-public inline fun ObservableStringValue.decapitalize(): StringBinding {
-    return asString { checkNotNull(it) { "String value is null" }.decapitalize() }
+public inline fun ObservableStringValue.lowercase(locale: Locale): StringBinding {
+    return asString { checkNotNull(it) { "String value is null" }.lowercase(locale) }
 }
 
 /**

@@ -12,7 +12,8 @@ abstract class BaseContextMenuTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun onAction() {
+    @Test
+    fun onAction() {
         val menu = ContextMenu()
         menu.callOnAction {
             assertEquals(this, it.source)

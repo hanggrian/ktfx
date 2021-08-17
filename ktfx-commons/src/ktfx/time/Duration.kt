@@ -3,6 +3,7 @@
 package ktfx.time
 
 import javafx.util.Duration
+import java.util.concurrent.TimeUnit
 import kotlin.time.DurationUnit
 import kotlin.time.ExperimentalTime
 import kotlin.time.toDuration
@@ -12,75 +13,75 @@ inline fun String.toDuration(): Duration = Duration.valueOf(this)
 
 /**
  * Returns a duration equal to this [Int] number of milliseconds.
- * @see kotlin.time.milliseconds
+ * @see kotlin.time.Duration.milliseconds
  */
-val Int.ms: Duration get() = toDouble().ms
+val Int.milliseconds: Duration get() = toDouble().milliseconds
 
 /**
  * Returns a duration equal to this [Long] number of milliseconds.
- * @see kotlin.time.milliseconds
+ * @see kotlin.time.Duration.milliseconds
  */
-val Long.ms: Duration get() = toDouble().ms
+val Long.milliseconds: Duration get() = toDouble().milliseconds
 
 /**
  * Returns a duration equal to this [Double] number of milliseconds.
- * @see kotlin.time.milliseconds
+ * @see kotlin.time.Duration.milliseconds
  */
-inline val Double.ms: Duration get() = Duration.millis(this)
+inline val Double.milliseconds: Duration get() = Duration.millis(this)
 
 /**
  * Returns a duration equal to this [Int] number of seconds.
- * @see kotlin.time.seconds
+ * @see kotlin.time.Duration.seconds
  */
-val Int.s: Duration get() = toDouble().s
+val Int.seconds: Duration get() = toDouble().seconds
 
 /**
  * Returns a duration equal to this [Long] number of seconds.
- * @see kotlin.time.seconds
+ * @see kotlin.time.Duration.seconds
  */
-val Long.s: Duration get() = toDouble().s
+val Long.seconds: Duration get() = toDouble().seconds
 
 /**
  * Returns a duration equal to this [Double] number of seconds.
- * @see kotlin.time.seconds
+ * @see kotlin.time.Duration.seconds
  */
-inline val Double.s: Duration get() = Duration.seconds(this)
+inline val Double.seconds: Duration get() = Duration.seconds(this)
 
 /**
  * Returns a duration equal to this [Int] number of minutes.
- * @see kotlin.time.minutes
+ * @see kotlin.time.Duration.minutes
  */
-val Int.m: Duration get() = toDouble().m
+val Int.minutes: Duration get() = toDouble().minutes
 
 /**
  * Returns a duration equal to this [Long] number of minutes.
- * @see kotlin.time.minutes
+ * @see kotlin.time.Duration.minutes
  */
-val Long.m: Duration get() = toDouble().m
+val Long.minutes: Duration get() = toDouble().minutes
 
 /**
  * Returns a duration equal to this [Double] number of minutes.
- * @see kotlin.time.minutes
+ * @see kotlin.time.Duration.minutes
  */
-inline val Double.m: Duration get() = Duration.minutes(this)
+inline val Double.minutes: Duration get() = Duration.minutes(this)
 
 /**
  * Returns a duration equal to this [Int] number of hours.
- * @see kotlin.time.hours
+ * @see kotlin.time.Duration.hours
  */
-val Int.h: Duration get() = toDouble().h
+val Int.hours: Duration get() = toDouble().hours
 
 /**
  * Returns a duration equal to this [Long] number of hours.
- * @see kotlin.time.hours
+ * @see kotlin.time.Duration.hours
  */
-val Long.h: Duration get() = toDouble().h
+val Long.hours: Duration get() = toDouble().hours
 
 /**
  * Returns a duration equal to this [Double] number of hours.
- * @see kotlin.time.hours
+ * @see kotlin.time.Duration.hours
  */
-inline val Double.h: Duration get() = Duration.hours(this)
+inline val Double.hours: Duration get() = Duration.hours(this)
 
 /**
  * Returns a duration whose value is the sum of this and [other] duration values.
@@ -130,4 +131,4 @@ inline fun Duration.toKotlinDuration(): kotlin.time.Duration = toMillis().toDura
 
 /** Returns this [kotlin.time.Duration] as a JavaFX [Duration]. */
 @ExperimentalTime
-inline fun kotlin.time.Duration.toFxDuration(): Duration = Duration(inMilliseconds)
+inline fun kotlin.time.Duration.toFxDuration(): Duration = Duration(toDouble(TimeUnit.MILLISECONDS))

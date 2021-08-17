@@ -23,7 +23,8 @@ abstract class BaseWebEngineTest : ApplicationTest() {
         engine = WebEngine()
     }
 
-    @Test fun onAlert() {
+    @Test
+    fun onAlert() {
         engine.callOnAlert {
             assertEquals(this, it.source)
             assertEquals(WebEvent.ALERT, it.eventType)
@@ -32,7 +33,8 @@ abstract class BaseWebEngineTest : ApplicationTest() {
         engine.onAlert.handle(WebEvent(this, WebEvent.ALERT, "Hello world"))
     }
 
-    @Test fun onStatusChanged() {
+    @Test
+    fun onStatusChanged() {
         engine.callOnStatusChanged {
             assertEquals(this, it.source)
             assertEquals(WebEvent.STATUS_CHANGED, it.eventType)
@@ -41,7 +43,8 @@ abstract class BaseWebEngineTest : ApplicationTest() {
         engine.onStatusChanged.handle(WebEvent(this, WebEvent.STATUS_CHANGED, "Hello world"))
     }
 
-    @Test fun onResized() {
+    @Test
+    fun onResized() {
         engine.callOnResized {
             assertEquals(this, it.source)
             assertEquals(WebEvent.RESIZED, it.eventType)
@@ -50,7 +53,8 @@ abstract class BaseWebEngineTest : ApplicationTest() {
         engine.onResized.handle(WebEvent(this, WebEvent.RESIZED, Rectangle2D.EMPTY))
     }
 
-    @Test fun onVisibilityChanged() {
+    @Test
+    fun onVisibilityChanged() {
         engine.callOnVisibilityChanged {
             assertEquals(this, it.source)
             assertEquals(WebEvent.VISIBILITY_CHANGED, it.eventType)
@@ -59,7 +63,8 @@ abstract class BaseWebEngineTest : ApplicationTest() {
         engine.onVisibilityChanged.handle(WebEvent(this, WebEvent.VISIBILITY_CHANGED, false))
     }
 
-    @Test fun onError() {
+    @Test
+    fun onError() {
         engine.callOnError {
             assertEquals(this, it.source)
             assertEquals(WebErrorEvent.USER_DATA_DIRECTORY_IO_ERROR, it.eventType)

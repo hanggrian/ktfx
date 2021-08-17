@@ -16,7 +16,8 @@ class AccordionTest : LayoutsTest<KtfxPane, Accordion>() {
     override fun KtfxPane.child2() = accordion()
     override fun KtfxPane.child3() = accordion { }
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         accordion {
             assertThat(panes).isEmpty()
             titledPane("Hello")

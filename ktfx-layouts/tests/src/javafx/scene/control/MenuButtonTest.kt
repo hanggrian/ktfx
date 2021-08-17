@@ -20,7 +20,8 @@ class MenuButtonTest : LayoutsTest<KtfxPane, MenuButton>() {
         assertNull(graphic)
     }
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         menuButton {
             assertThat(items).isEmpty()
             menuItem("Hello")

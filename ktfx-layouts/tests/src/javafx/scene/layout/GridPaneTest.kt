@@ -15,7 +15,8 @@ class GridPaneTest : LayoutsTest<KtfxPane, GridPane>() {
     override fun KtfxPane.child2() = gridPane()
     override fun KtfxPane.child3() = gridPane { }
 
-    @Test fun grid() {
+    @Test
+    fun grid() {
         gridPane {
             val label1 = label().grid(1, 2)
             assertEquals(1, label1.rowIndex)
@@ -34,14 +35,16 @@ class GridPaneTest : LayoutsTest<KtfxPane, GridPane>() {
         }
     }
 
-    @Test fun halign() {
+    @Test
+    fun halign() {
         gridPane {
             val label = label().halign(H_RIGHT)
             assertEquals(H_RIGHT, label.halignment)
         }
     }
 
-    @Test fun valign() {
+    @Test
+    fun valign() {
         gridPane {
             val label = label().valign(V_BOTTOM)
             assertEquals(V_BOTTOM, label.valignment)

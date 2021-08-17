@@ -21,7 +21,8 @@ abstract class BaseNotificationPaneTest {
         pane = NotificationPane()
     }
 
-    @Test fun onShowing() {
+    @Test
+    fun onShowing() {
         pane.callOnShowing {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -30,7 +31,8 @@ abstract class BaseNotificationPaneTest {
         pane.onShowing.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onShown() {
+    @Test
+    fun onShown() {
         pane.callOnShown {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -39,7 +41,8 @@ abstract class BaseNotificationPaneTest {
         pane.onShown.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onHiding() {
+    @Test
+    fun onHiding() {
         pane.callOnHiding {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -48,7 +51,8 @@ abstract class BaseNotificationPaneTest {
         pane.onHiding.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onHidden() {
+    @Test
+    fun onHidden() {
         pane.callOnHidden {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

@@ -6,9 +6,11 @@ import kotlin.test.assertEquals
 
 class NumberValueBindingFloatTest {
 
-    @Test fun unaryMinus() = assertEquals(-1f, (-floatPropertyOf(1f)).value)
+    @Test
+    fun unaryMinus() = assertEquals(-1f, (-floatPropertyOf(1f)).value)
 
-    @Test fun plus() {
+    @Test
+    fun plus() {
         // observable float to double
         assertEquals(3.0, (floatPropertyOf(1f) + 2.0).value)
         assertEquals(3.0, (2.0 + floatPropertyOf(1f)).value)
@@ -23,7 +25,8 @@ class NumberValueBindingFloatTest {
         assertEquals(3f, (2 + floatPropertyOf(1f)).value)
     }
 
-    @Test fun minus() {
+    @Test
+    fun minus() {
         // observable float to double
         assertEquals(-1.0, (floatPropertyOf(1f) - 2.0).value)
         assertEquals(1.0, (2.0 - floatPropertyOf(1f)).value)
@@ -38,7 +41,8 @@ class NumberValueBindingFloatTest {
         assertEquals(1f, (2 - floatPropertyOf(1f)).value)
     }
 
-    @Test fun times() {
+    @Test
+    fun times() {
         // observable float to double
         assertEquals(2.0, (floatPropertyOf(1f) * 2.0).value)
         assertEquals(2.0, (2.0 * floatPropertyOf(1f)).value)
@@ -53,7 +57,8 @@ class NumberValueBindingFloatTest {
         assertEquals(2f, (2 * floatPropertyOf(1f)).value)
     }
 
-    @Test fun div() {
+    @Test
+    fun div() {
         // observable float to double
         assertEquals(0.5, (floatPropertyOf(1f) / 2.0).value)
         assertEquals(2.0, (2.0 / floatPropertyOf(1f)).value)

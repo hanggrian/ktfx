@@ -20,22 +20,26 @@ abstract class BaseJFXDrawerTest {
         drawer = JFXDrawer()
     }
 
-    @Test fun onDrawerClosed() {
+    @Test
+    fun onDrawerClosed() {
         drawer.callOnDrawerClosed { assertEquals(JFXDrawerEvent.CLOSED, it.eventType) }
         drawer.onDrawerClosed.handle(JFXDrawerEvent(JFXDrawerEvent.CLOSED))
     }
 
-    @Test fun onDrawerClosing() {
+    @Test
+    fun onDrawerClosing() {
         drawer.callOnDrawerClosing { assertEquals(JFXDrawerEvent.CLOSING, it.eventType) }
         drawer.onDrawerClosing.handle(JFXDrawerEvent(JFXDrawerEvent.CLOSING))
     }
 
-    @Test fun onDrawerOpened() {
+    @Test
+    fun onDrawerOpened() {
         drawer.callOnDrawerOpened { assertEquals(JFXDrawerEvent.OPENED, it.eventType) }
         drawer.onDrawerOpened.handle(JFXDrawerEvent(JFXDrawerEvent.OPENED))
     }
 
-    @Test fun onDrawerOpening() {
+    @Test
+    fun onDrawerOpening() {
         drawer.callOnDrawerOpening { assertEquals(JFXDrawerEvent.OPENING, it.eventType) }
         drawer.onDrawerOpening.handle(JFXDrawerEvent(JFXDrawerEvent.OPENING))
     }

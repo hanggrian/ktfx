@@ -9,7 +9,8 @@ import kotlin.test.assertEquals
 @Ignore
 class CommandLinksDialogsTest : DialogShowingTest() {
 
-    @Test fun commandLinksDialogFromArray() {
+    @Test
+    fun commandLinksDialogFromArray() {
         interact {
             assertEquals(
                 "Yes",
@@ -28,7 +29,8 @@ class CommandLinksDialogsTest : DialogShowingTest() {
         }
     }
 
-    @Test fun commandLinksDialogFromList() {
+    @Test
+    fun commandLinksDialogFromList() {
         interact {
             assertEquals(
                 "Yes",

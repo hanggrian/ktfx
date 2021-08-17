@@ -17,7 +17,8 @@ abstract class BaseJFXAutoCompletePopupTest {
         popup = JFXAutoCompletePopup()
     }
 
-    @Test fun selectionHandler() {
+    @Test
+    fun selectionHandler() {
         popup.callSelectionHandler {
             assertEquals(JFXAutoCompleteEvent.SELECTION, it.eventType)
             assertEquals("Hello world", it.`object`)

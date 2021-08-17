@@ -16,7 +16,8 @@ class JFXNodeUtilsTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun updateBackground() {
+    @Test
+    fun updateBackground() {
         val node = Label("Hello world")
         val placeholderBackground = Background(BackgroundFill(Color.BLUE, CornerRadii.EMPTY, Insets.EMPTY))
 
@@ -27,5 +28,6 @@ class JFXNodeUtilsTest {
         assertEquals(Color.RED, node.background.fills.first().fill)
     }
 
-    @Test fun toHex() = assertEquals(Color.BLUE.toHex(), JFXNodeUtils.colorToHex(Color.BLUE))
+    @Test
+    fun toHex() = assertEquals(Color.BLUE.toHex(), JFXNodeUtils.colorToHex(Color.BLUE))
 }

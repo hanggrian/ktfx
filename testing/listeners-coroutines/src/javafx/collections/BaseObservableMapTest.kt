@@ -11,7 +11,8 @@ abstract class BaseObservableMapTest {
 
     abstract fun <K, V> ObservableMap<K, V>.callListener(action: (MapChangeListener.Change<out K, out V>) -> Unit)
 
-    @Test fun listener() {
+    @Test
+    fun listener() {
         val map = FXCollections.observableHashMap<Int, String>()
         map.callListener<Int, String> {
             assertTrue(it.wasAdded())

@@ -2,12 +2,12 @@ package com.hendraanggrian.ktfx.codegen.layouts
 
 import com.hendraanggrian.kotlinpoet.classOf
 import com.hendraanggrian.kotlinpoet.parameterizedBy
+import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeVariableName
 import com.squareup.kotlinpoet.asClassName
-import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
@@ -60,8 +60,8 @@ data class LayoutsEntry(
     val functionName: String
         get() = simpleName.mapIndexed { index, c ->
             when {
-                index == 0 || index == 1 -> c.toLowerCase()
-                c.isUpperCase() && simpleName.getOrNull(index + 1)?.isUpperCase() ?: false -> c.toLowerCase()
+                index == 0 || index == 1 -> c.lowercaseChar()
+                c.isUpperCase() && simpleName.getOrNull(index + 1)?.isUpperCase() ?: false -> c.lowercaseChar()
                 else -> c
             }
         }.joinToString("")

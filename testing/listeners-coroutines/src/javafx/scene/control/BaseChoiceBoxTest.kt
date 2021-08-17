@@ -21,7 +21,8 @@ abstract class BaseChoiceBoxTest {
         choice = ChoiceBox()
     }
 
-    @Test fun onAction() {
+    @Test
+    fun onAction() {
         choice.callOnAction {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -29,7 +30,8 @@ abstract class BaseChoiceBoxTest {
         choice.onAction.handle(ActionEvent(this, FakeEventTarget))
     }
 
-    @Test fun onShowing() {
+    @Test
+    fun onShowing() {
         choice.callOnShowing {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -38,7 +40,8 @@ abstract class BaseChoiceBoxTest {
         choice.onShowing.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onShown() {
+    @Test
+    fun onShown() {
         choice.callOnShown {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -47,7 +50,8 @@ abstract class BaseChoiceBoxTest {
         choice.onShown.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onHiding() {
+    @Test
+    fun onHiding() {
         choice.callOnHiding {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -56,7 +60,8 @@ abstract class BaseChoiceBoxTest {
         choice.onHiding.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onHidden() {
+    @Test
+    fun onHidden() {
         choice.callOnHidden {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

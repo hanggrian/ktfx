@@ -6,7 +6,8 @@ import kotlin.test.Test
 class NotNullAssertionOperatorRuleTest : RuleTest {
     override val rule = NotNullAssertionOperatorRule()
 
-    @Test fun function() = assertRule(
+    @Test
+    fun function() = assertRule(
         lintErrorOf(2, 35, "Replace `!!` with `checkNotNull` with helpful message")
     ) {
         """
@@ -16,7 +17,8 @@ class NotNullAssertionOperatorRuleTest : RuleTest {
         """
     }
 
-    @Test fun expressionFunction() = assertRule(
+    @Test
+    fun expressionFunction() = assertRule(
         lintErrorOf(1, 37, "Replace `!!` with `checkNotNull` with helpful message")
     ) {
         """

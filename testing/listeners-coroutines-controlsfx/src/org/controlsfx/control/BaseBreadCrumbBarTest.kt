@@ -16,7 +16,8 @@ abstract class BaseBreadCrumbBarTest {
         crumbBar = BreadCrumbBar()
     }
 
-    @Test fun onCrumbAction() {
+    @Test
+    fun onCrumbAction() {
         crumbBar.callOnCrumbAction {
             assertEquals("Hello world", it.selectedCrumb.value)
         }

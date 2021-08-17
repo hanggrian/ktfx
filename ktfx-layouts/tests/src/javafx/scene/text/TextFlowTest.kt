@@ -14,7 +14,8 @@ class TextFlowTest : LayoutsTest<KtfxPane, TextFlow>() {
     override fun KtfxPane.child2() = textFlow()
     override fun KtfxPane.child3() = textFlow { }
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         textFlow {
             "World" {
                 fill = Color.RED

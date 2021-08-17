@@ -18,7 +18,8 @@ abstract class BaseMenuItemTest {
         item = MenuItem()
     }
 
-    @Test fun onAction() {
+    @Test
+    fun onAction() {
         item.callOnAction {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -26,7 +27,8 @@ abstract class BaseMenuItemTest {
         item.onAction.handle(ActionEvent(this, FakeEventTarget))
     }
 
-    @Test fun onMenuValidation() {
+    @Test
+    fun onMenuValidation() {
         item.callOnMenuValidation {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

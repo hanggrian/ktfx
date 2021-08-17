@@ -15,7 +15,8 @@ class JFXTabPaneTest : LayoutsTest<KtfxPane, JFXTabPane>() {
     override fun KtfxPane.child2() = jfxTabPane()
     override fun KtfxPane.child3() = jfxTabPane { }
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         jfxTabPane {
             tab("Tab 1")
             "Tab 2" {

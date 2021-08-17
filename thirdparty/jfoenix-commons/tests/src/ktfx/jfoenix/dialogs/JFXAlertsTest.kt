@@ -10,7 +10,8 @@ import kotlin.test.assertEquals
 @Ignore
 class JFXAlertsTest : DialogShowingTest() {
 
-    @Test fun jfxAlert() {
+    @Test
+    fun jfxAlert() {
         interact {
             assertEquals("Close", stage.jfxAlert<String>("Jfoenix alert", sampleGraphic) {
                 setOnShown { close() }

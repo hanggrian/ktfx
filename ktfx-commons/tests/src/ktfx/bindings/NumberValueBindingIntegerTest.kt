@@ -6,9 +6,11 @@ import kotlin.test.assertEquals
 
 class NumberValueBindingIntegerTest {
 
-    @Test fun unaryMinus() = assertEquals(-1, (-intPropertyOf(1)).value)
+    @Test
+    fun unaryMinus() = assertEquals(-1, (-intPropertyOf(1)).value)
 
-    @Test fun plus() {
+    @Test
+    fun plus() {
         // observable int to double
         assertEquals(3.0, (intPropertyOf(1) + 2.0).value)
         assertEquals(3.0, (2.0 + intPropertyOf(1)).value)
@@ -23,7 +25,8 @@ class NumberValueBindingIntegerTest {
         assertEquals(3, (2 + intPropertyOf(1)).value)
     }
 
-    @Test fun minus() {
+    @Test
+    fun minus() {
         // observable int to double
         assertEquals(-1.0, (intPropertyOf(1) - 2.0).value)
         assertEquals(1.0, (2.0 - intPropertyOf(1)).value)
@@ -38,7 +41,8 @@ class NumberValueBindingIntegerTest {
         assertEquals(1, (2 - intPropertyOf(1)).value)
     }
 
-    @Test fun times() {
+    @Test
+    fun times() {
         // observable int to double
         assertEquals(2.0, (intPropertyOf(1) * 2.0).value)
         assertEquals(2.0, (2.0 * intPropertyOf(1)).value)
@@ -53,7 +57,8 @@ class NumberValueBindingIntegerTest {
         assertEquals(2, (2 * intPropertyOf(1)).value)
     }
 
-    @Test fun div() {
+    @Test
+    fun div() {
         // observable int to double
         assertEquals(0.5, (intPropertyOf(1) / 2.0).value)
         assertEquals(2.0, (2.0 / intPropertyOf(1)).value)

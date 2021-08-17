@@ -14,7 +14,8 @@ class SplitMenuButtonTest : LayoutsTest<KtfxPane, SplitMenuButton>() {
     override fun KtfxPane.child2() = splitMenuButton()
     override fun KtfxPane.child3() = splitMenuButton { }
 
-    @Test fun stringInvocation() {
+    @Test
+    fun stringInvocation() {
         splitMenuButton {
             assertThat(items).isEmpty()
             menuItem("Hello")

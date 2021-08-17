@@ -21,7 +21,8 @@ abstract class BaseDialogTest : ApplicationTest() {
         dialog = Dialog()
     }
 
-    @Test fun onCloseRequest() {
+    @Test
+    fun onCloseRequest() {
         dialog.callOnCloseRequest {
             assertEquals(dialog, it.source)
             assertEquals(DialogEvent.DIALOG_CLOSE_REQUEST, it.eventType)
@@ -29,7 +30,8 @@ abstract class BaseDialogTest : ApplicationTest() {
         dialog.onCloseRequest.handle(DialogEvent(dialog, DialogEvent.DIALOG_CLOSE_REQUEST))
     }
 
-    @Test fun onShowing() {
+    @Test
+    fun onShowing() {
         dialog.callOnShowing {
             assertEquals(dialog, it.source)
             assertEquals(DialogEvent.DIALOG_SHOWING, it.eventType)
@@ -37,7 +39,8 @@ abstract class BaseDialogTest : ApplicationTest() {
         dialog.onShowing.handle(DialogEvent(dialog, DialogEvent.DIALOG_SHOWING))
     }
 
-    @Test fun onShown() {
+    @Test
+    fun onShown() {
         dialog.callOnShown {
             assertEquals(dialog, it.source)
             assertEquals(DialogEvent.DIALOG_SHOWN, it.eventType)
@@ -45,7 +48,8 @@ abstract class BaseDialogTest : ApplicationTest() {
         dialog.onShown.handle(DialogEvent(dialog, DialogEvent.DIALOG_SHOWN))
     }
 
-    @Test fun onHiding() {
+    @Test
+    fun onHiding() {
         dialog.callOnHiding {
             assertEquals(dialog, it.source)
             assertEquals(DialogEvent.DIALOG_HIDING, it.eventType)
@@ -53,7 +57,8 @@ abstract class BaseDialogTest : ApplicationTest() {
         dialog.onHiding.handle(DialogEvent(dialog, DialogEvent.DIALOG_HIDING))
     }
 
-    @Test fun onHidden() {
+    @Test
+    fun onHidden() {
         dialog.callOnHidden {
             assertEquals(dialog, it.source)
             assertEquals(DialogEvent.DIALOG_HIDDEN, it.eventType)

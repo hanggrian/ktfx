@@ -17,7 +17,8 @@ class ClipboardTest {
         clipboard = Clipboard.getSystemClipboard()
     }
 
-    @Test fun test() {
+    @Test
+    fun test() {
         clipboard[DataFormat.PLAIN_TEXT] = "Hello world"
         assertTrue(DataFormat.PLAIN_TEXT in clipboard)
         assertEquals("Hello world", clipboard[DataFormat.PLAIN_TEXT])

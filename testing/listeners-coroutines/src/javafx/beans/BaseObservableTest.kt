@@ -11,7 +11,8 @@ abstract class BaseObservableTest {
 
     abstract fun Observable.callListener(action: (Observable) -> Unit)
 
-    @Test fun listener() {
+    @Test
+    fun listener() {
         val property = SimpleStringProperty()
         property.callListener {
             assertTrue(it is StringProperty)

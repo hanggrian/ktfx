@@ -11,7 +11,8 @@ abstract class BaseObservableListTest {
 
     abstract fun <E> ObservableList<E>.callListener(action: (ListChangeListener.Change<out E>) -> Unit)
 
-    @Test fun listener() {
+    @Test
+    fun listener() {
         val list = FXCollections.observableArrayList<String>()
         list.callListener<String> {
             it.next()

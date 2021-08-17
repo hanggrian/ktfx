@@ -6,12 +6,14 @@ import kotlin.test.assertEquals
 
 class FontTest {
 
-    @Test fun pt() {
+    @Test
+    fun pt() {
         assertEquals(Font.font(12.0), 12.pt)
         assertEquals(Font.font(18.0), 18.0.pt)
     }
 
-    @Test fun fontOf() {
+    @Test
+    fun fontOf() {
         val font1 = fontOf("Arial", size = 12)
         assertEquals("Arial", font1.family)
         assertEquals(12.0, font1.size)

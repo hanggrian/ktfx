@@ -10,13 +10,15 @@ class JFXSnackbarTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun jfxSnackbar() {
+    @Test
+    fun jfxSnackbar() {
         val pane = Pane()
         assertNotNull(pane.jfxSnackbar("Hello world", 500, "Close") { })
         assertNotNull(pane.jfxSnackbar("Hello world", 1000))
     }
 
-    @Test fun jfxIndefiniteSnackbar() {
+    @Test
+    fun jfxIndefiniteSnackbar() {
         val pane = Pane()
         assertNotNull(pane.jfxIndefiniteSnackbar("Hello world", "Close") { })
         assertNotNull(pane.jfxIndefiniteSnackbar("Hello world"))

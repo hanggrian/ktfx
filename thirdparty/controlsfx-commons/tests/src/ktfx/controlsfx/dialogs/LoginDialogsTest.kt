@@ -11,7 +11,8 @@ class LoginDialogsTest : DialogShowingTest() {
 
     private val userInfo = "Hello" to "World"
 
-    @Test fun exceptionDialog() {
+    @Test
+    fun exceptionDialog() {
         interact {
             assertEquals(
                 userInfo.toFxPair(),

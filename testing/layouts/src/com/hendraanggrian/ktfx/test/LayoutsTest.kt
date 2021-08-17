@@ -23,19 +23,22 @@ abstract class LayoutsTest<M : Any, C> {
     open fun C.testDefaultValues() {
     }
 
-    @Test fun createChildWithBuilder() {
+    @Test
+    fun createChildWithBuilder() {
         val child = child1()
         child.testDefaultValues()
         assertEquals(0, manager.childCount())
     }
 
-    @Test fun addChild() {
+    @Test
+    fun addChild() {
         val child = manager.child3()
         child.testDefaultValues()
         assertEquals(1, manager.childCount())
     }
 
-    @Test fun addChildWithBuilder() {
+    @Test
+    fun addChildWithBuilder() {
         val child = manager.child2()
         child.testDefaultValues()
         assertEquals(1, manager.childCount())

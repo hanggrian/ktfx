@@ -12,7 +12,8 @@ abstract class BaseTextFieldTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun onAction() {
+    @Test
+    fun onAction() {
         val field = TextField()
         field.callOnAction {
             assertEquals(this, it.source)

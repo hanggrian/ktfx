@@ -19,7 +19,8 @@ abstract class BaseMenuTest {
         menu = Menu()
     }
 
-    @Test fun onShowing() {
+    @Test
+    fun onShowing() {
         menu.callOnShowing {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -28,7 +29,8 @@ abstract class BaseMenuTest {
         menu.onShowing.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onShown() {
+    @Test
+    fun onShown() {
         menu.callOnShown {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -37,7 +39,8 @@ abstract class BaseMenuTest {
         menu.onShown.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onHiding() {
+    @Test
+    fun onHiding() {
         menu.callOnHiding {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -46,7 +49,8 @@ abstract class BaseMenuTest {
         menu.onHiding.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onHidden() {
+    @Test
+    fun onHidden() {
         menu.callOnHidden {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

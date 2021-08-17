@@ -15,7 +15,8 @@ class JFXScrollPaneTest : LayoutsTest<KtfxPane, JFXScrollPane>() {
     override fun KtfxPane.child2() = jfxScrollPane()
     override fun KtfxPane.child3() = jfxScrollPane { }
 
-    @Test fun barAndHeader() {
+    @Test
+    fun barAndHeader() {
         val top1: JFXButton
         val mid1: JFXButton
         val mid2: JFXButton

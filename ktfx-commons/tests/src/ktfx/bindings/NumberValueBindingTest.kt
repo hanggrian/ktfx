@@ -9,15 +9,20 @@ import kotlin.test.assertTrue
 /** Most of these tests avoid double, since they have their own tests. */
 class NumberValueBindingTest {
 
-    @Test fun plus() = assertEquals(3, (intPropertyOf(1) + intPropertyOf(2)).value)
+    @Test
+    fun plus() = assertEquals(3, (intPropertyOf(1) + intPropertyOf(2)).value)
 
-    @Test fun minus() = assertEquals(-1, (intPropertyOf(1) - intPropertyOf(2)).value)
+    @Test
+    fun minus() = assertEquals(-1, (intPropertyOf(1) - intPropertyOf(2)).value)
 
-    @Test fun times() = assertEquals(2, (intPropertyOf(1) * intPropertyOf(2)).value)
+    @Test
+    fun times() = assertEquals(2, (intPropertyOf(1) * intPropertyOf(2)).value)
 
-    @Test fun div() = assertEquals(0, (intPropertyOf(1) / intPropertyOf(2)).value)
+    @Test
+    fun div() = assertEquals(0, (intPropertyOf(1) / intPropertyOf(2)).value)
 
-    @Test fun eq() {
+    @Test
+    fun eq() {
         // observable number to observable number
         assertTrue((intPropertyOf(0) eq intPropertyOf(0)).value)
         assertTrue((intPropertyOf(0).eq(intPropertyOf(0), 0.0)).value)
@@ -43,7 +48,8 @@ class NumberValueBindingTest {
         assertTrue((intPropertyOf(0).eq(0, 0.0)).value)
     }
 
-    @Test fun neq() {
+    @Test
+    fun neq() {
         // observable number to observable number
         assertFalse((intPropertyOf(0) neq intPropertyOf(0)).value)
         assertFalse((intPropertyOf(0).neq(intPropertyOf(0), 0.0)).value)
@@ -69,7 +75,8 @@ class NumberValueBindingTest {
         assertFalse((intPropertyOf(0).neq(0, 0.0)).value)
     }
 
-    @Test fun greater() {
+    @Test
+    fun greater() {
         // observable number to observable number
         assertFalse((intPropertyOf(0) greater intPropertyOf(1)).value)
         // observable number to double
@@ -86,7 +93,8 @@ class NumberValueBindingTest {
         assertTrue((intPropertyOf(1) greater 0).value)
     }
 
-    @Test fun less() {
+    @Test
+    fun less() {
         // observable number to observable number
         assertTrue((intPropertyOf(0) less intPropertyOf(1)).value)
         // observable number to double
@@ -103,7 +111,8 @@ class NumberValueBindingTest {
         assertFalse((intPropertyOf(1) less 0).value)
     }
 
-    @Test fun greaterEq() {
+    @Test
+    fun greaterEq() {
         // observable number to observable number
         assertTrue((intPropertyOf(0) greaterEq intPropertyOf(0)).value)
         // observable number to double
@@ -120,7 +129,8 @@ class NumberValueBindingTest {
         assertTrue((intPropertyOf(0) greaterEq 0).value)
     }
 
-    @Test fun lessEq() {
+    @Test
+    fun lessEq() {
         // observable number to observable number
         assertTrue((intPropertyOf(0) lessEq intPropertyOf(0)).value)
         // observable number to double

@@ -21,7 +21,8 @@ abstract class BaseMapTest<T : MutableMap<String, Any?>> {
     abstract fun mutableOf(): T
     abstract fun mutableOf(vararg values: String): T
 
-    @Test fun creating() {
+    @Test
+    fun creating() {
         val empty = empty()
         assertThat(empty.keys).isEmpty()
         assertFails { empty[ADD_VALUE] = null }
@@ -50,7 +51,8 @@ abstract class BaseMapTest<T : MutableMap<String, Any?>> {
     abstract fun Map<String, Any?>.to(): T
     abstract fun Map<String, Any?>.toMutable(): T
 
-    @Test fun converting() {
+    @Test
+    fun converting() {
         val fromArray = MAP.to()
         assertThat(fromArray.keys).containsExactly(*FILL_VALUES)
         assertFails { fromArray[ADD_VALUE] = null }

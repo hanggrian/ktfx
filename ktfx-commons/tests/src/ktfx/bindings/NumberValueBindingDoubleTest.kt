@@ -8,9 +8,11 @@ import kotlin.test.assertTrue
 
 class NumberValueBindingDoubleTest {
 
-    @Test fun unaryMinus() = assertEquals(-1.0, (-doublePropertyOf(1.0)).value)
+    @Test
+    fun unaryMinus() = assertEquals(-1.0, (-doublePropertyOf(1.0)).value)
 
-    @Test fun plus() {
+    @Test
+    fun plus() {
         // observable double to observable number
         assertEquals(3.0, (doublePropertyOf(1.0) + doublePropertyOf(2.0)).value)
         // observable double to double
@@ -27,7 +29,8 @@ class NumberValueBindingDoubleTest {
         assertEquals(3.0, (2 + doublePropertyOf(1.0)).value)
     }
 
-    @Test fun minus() {
+    @Test
+    fun minus() {
         // observable double to observable number
         assertEquals(-1.0, (doublePropertyOf(1.0) - doublePropertyOf(2.0)).value)
         // observable double to double
@@ -44,7 +47,8 @@ class NumberValueBindingDoubleTest {
         assertEquals(1.0, (2 - doublePropertyOf(1.0)).value)
     }
 
-    @Test fun times() {
+    @Test
+    fun times() {
         // observable double to observable number
         assertEquals(2.0, (doublePropertyOf(1.0) * doublePropertyOf(2.0)).value)
         // observable double to double
@@ -61,7 +65,8 @@ class NumberValueBindingDoubleTest {
         assertEquals(2.0, (2 * doublePropertyOf(1.0)).value)
     }
 
-    @Test fun div() {
+    @Test
+    fun div() {
         // observable double to observable number
         assertEquals(0.5, (doublePropertyOf(1.0) / doublePropertyOf(2.0)).value)
         // observable double to double

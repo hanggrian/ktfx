@@ -8,7 +8,8 @@ import kotlin.test.assertEquals
 @Ignore
 class SelectorsTest : DialogShowingTest() {
 
-    @Test fun selector() {
+    @Test
+    fun selector() {
         interact {
             assertEquals(
                 "Jump off bridge",

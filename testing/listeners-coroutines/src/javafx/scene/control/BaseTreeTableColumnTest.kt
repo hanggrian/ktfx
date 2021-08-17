@@ -24,7 +24,8 @@ abstract class BaseTreeTableColumnTest {
         position = TreeTablePosition(table, 0, column)
     }
 
-    @Test fun onEditStart() {
+    @Test
+    fun onEditStart() {
         column.callOnEditStart {
             assertEquals(table, it.source)
             assertEquals(position, it.treeTablePosition)
@@ -36,7 +37,8 @@ abstract class BaseTreeTableColumnTest {
         )
     }
 
-    @Test fun onEditCommit() {
+    @Test
+    fun onEditCommit() {
         column.callOnEditCommit {
             assertEquals(table, it.source)
             assertEquals(position, it.treeTablePosition)
@@ -48,7 +50,8 @@ abstract class BaseTreeTableColumnTest {
         )
     }
 
-    @Test fun onEditCancel() {
+    @Test
+    fun onEditCancel() {
         column.callOnEditCancel {
             assertEquals(table, it.source)
             assertEquals(position, it.treeTablePosition)

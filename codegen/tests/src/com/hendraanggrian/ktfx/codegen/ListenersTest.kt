@@ -4,6 +4,7 @@ import kotlin.test.Test
 
 class ListenersTest {
 
-    @Test fun test() {
+    @Test
+    fun test() {
     }
 }

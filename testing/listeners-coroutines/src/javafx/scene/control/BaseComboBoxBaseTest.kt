@@ -22,7 +22,8 @@ abstract class BaseComboBoxBaseTest {
         combo = ComboBox()
     }
 
-    @Test fun onAction() {
+    @Test
+    fun onAction() {
         combo.callOnAction {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -30,7 +31,8 @@ abstract class BaseComboBoxBaseTest {
         combo.onAction.handle(ActionEvent(this, FakeEventTarget))
     }
 
-    @Test fun onShowing() {
+    @Test
+    fun onShowing() {
         combo.callOnShowing {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -39,7 +41,8 @@ abstract class BaseComboBoxBaseTest {
         combo.onShowing.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onShown() {
+    @Test
+    fun onShown() {
         combo.callOnShown {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -48,7 +51,8 @@ abstract class BaseComboBoxBaseTest {
         combo.onShown.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onHiding() {
+    @Test
+    fun onHiding() {
         combo.callOnHiding {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -57,7 +61,8 @@ abstract class BaseComboBoxBaseTest {
         combo.onHiding.handle(Event(this, FakeEventTarget, Event.ANY))
     }
 
-    @Test fun onHidden() {
+    @Test
+    fun onHidden() {
         combo.callOnHidden {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

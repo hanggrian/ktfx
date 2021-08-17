@@ -15,7 +15,8 @@ abstract class BaseMediaTest {
         media = Media(javaClass.classLoader.getResource("sample.flv")!!.toString())
     }
 
-    @Test fun onError() {
+    @Test
+    fun onError() {
         var isCalled = false
         media.callOnError { assertTrue(isCalled) }
         isCalled = true

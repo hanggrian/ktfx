@@ -1,6 +1,6 @@
 package ktfx
 
-import ktfx.time.m
+import ktfx.time.minutes
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -11,16 +11,18 @@ class ObservableValueTest {
     private val objectProperty = propertyOf<javafx.util.Duration>()
     private var `object` by objectProperty
 
-    @Test fun `object`() {
+    @Test
+    fun `object`() {
         assertNull(`object`)
-        `object` = 2.m
-        assertEquals(2.m, objectProperty.value)
+        `object` = 2.minutes
+        assertEquals(2.minutes, objectProperty.value)
     }
 
     private val stringProperty = stringPropertyOf()
     private var string by stringProperty
 
-    @Test fun string() {
+    @Test
+    fun string() {
         assertNull(string)
         string = "Hello World"
         assertEquals("Hello World", stringProperty.value)
@@ -29,7 +31,8 @@ class ObservableValueTest {
     private val booleanProperty = booleanPropertyOf()
     private var boolean by booleanProperty
 
-    @Test fun boolean() {
+    @Test
+    fun boolean() {
         assertFalse(boolean)
         boolean = true
         assertTrue(booleanProperty.value)
@@ -38,7 +41,8 @@ class ObservableValueTest {
     private val doubleProperty = doublePropertyOf()
     private var double by doubleProperty
 
-    @Test fun double() {
+    @Test
+    fun double() {
         assertEquals(0.0, double)
         double = Double.MAX_VALUE
         assertEquals(Double.MAX_VALUE, doubleProperty.value)
@@ -47,7 +51,8 @@ class ObservableValueTest {
     private val floatProperty = floatPropertyOf()
     private var float by floatProperty
 
-    @Test fun float() {
+    @Test
+    fun float() {
         assertEquals(0f, float)
         float = Float.MAX_VALUE
         assertEquals(Float.MAX_VALUE, floatProperty.value)
@@ -56,7 +61,8 @@ class ObservableValueTest {
     private val longProperty = longPropertyOf()
     private var long by longProperty
 
-    @Test fun long() {
+    @Test
+    fun long() {
         assertEquals(0L, long)
         long = Long.MAX_VALUE
         assertEquals(Long.MAX_VALUE, longProperty.value)
@@ -65,7 +71,8 @@ class ObservableValueTest {
     private val intProperty = intPropertyOf()
     private var int by intProperty
 
-    @Test fun int() {
+    @Test
+    fun int() {
         assertEquals(0, int)
         int = Int.MAX_VALUE
         assertEquals(Int.MAX_VALUE, intProperty.value)

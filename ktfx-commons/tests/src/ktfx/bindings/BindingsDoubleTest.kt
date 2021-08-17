@@ -1,23 +1,19 @@
 package ktfx.bindings
 
 import ktfx.booleanPropertyOf
-import ktfx.collections.mutableObservableListOf
-import ktfx.collections.mutableObservableMapOf
-import ktfx.collections.mutableObservableSetOf
 import ktfx.doublePropertyOf
 import ktfx.floatPropertyOf
 import ktfx.intPropertyOf
 import ktfx.longPropertyOf
 import ktfx.propertyOf
-import ktfx.time.m
+import ktfx.time.minutes
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 
 class BindingsDoubleTest {
 
-    @Test fun multipleDependencies() {
+    @Test
+    fun multipleDependencies() {
         val dependency1 = doublePropertyOf(1.0)
         val dependency2 = doublePropertyOf(2.0)
         val binding1 = doubleBindingOf(dependency1, dependency2) { dependency1.value + dependency2.value }
@@ -33,15 +29,17 @@ class BindingsDoubleTest {
         assertEquals(4.0, binding2.value)
     }
 
-    @Test fun anyDependency() {
-        val dependency = propertyOf(1.m)
+    @Test
+    fun anyDependency() {
+        val dependency = propertyOf(1.minutes)
         val binding = dependency.asDouble { it?.toMillis() ?: 0.0 }
         assertEquals(60000.0, binding.value)
         dependency.value = null
         assertEquals(0.0, binding.value)
     }
 
-    @Test fun booleanDependency() {
+    @Test
+    fun booleanDependency() {
         val dependency = booleanPropertyOf()
         val binding = dependency.asDouble { if (it) Double.MAX_VALUE else Double.MIN_VALUE }
         assertEquals(Double.MIN_VALUE, binding.value)
@@ -49,7 +47,8 @@ class BindingsDoubleTest {
         assertEquals(Double.MAX_VALUE, binding.value)
     }
 
-    @Test fun doubleDependency() {
+    @Test
+    fun doubleDependency() {
         val dependency = doublePropertyOf()
         val binding = dependency.asDouble { it }
         assertEquals(0.0, binding.value)
@@ -57,7 +56,8 @@ class BindingsDoubleTest {
         assertEquals(Double.MAX_VALUE, binding.value)
     }
 
-    @Test fun floatDependency() {
+    @Test
+    fun floatDependency() {
         val dependency = floatPropertyOf()
         val binding = dependency.asDouble { it.toDouble() }
         assertEquals(0.0, binding.value)
@@ -65,7 +65,8 @@ class BindingsDoubleTest {
         assertEquals(Float.MAX_VALUE.toDouble(), binding.value)
     }
 
-    @Test fun intDependency() {
+    @Test
+    fun intDependency() {
         val dependency = intPropertyOf()
         val binding = dependency.asDouble { it.toDouble() }
         assertEquals(0.0, binding.value)
@@ -73,7 +74,8 @@ class BindingsDoubleTest {
         assertEquals(Int.MAX_VALUE.toDouble(), binding.value)
     }
 
-    @Test fun longDependency() {
+    @Test
+    fun longDependency() {
         val dependency = longPropertyOf()
         val binding = dependency.asDouble { it.toDouble() }
         assertEquals(0.0, binding.value)

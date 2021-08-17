@@ -15,7 +15,8 @@ abstract class BaseJFXAnimationTimerTest {
         timer = JFXAnimationTimer()
     }
 
-    @Test fun onFinished() {
+    @Test
+    fun onFinished() {
         timer.callOnFinished { }
     }
 }

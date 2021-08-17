@@ -20,7 +20,8 @@ class CalculatorApp : Application() {
     companion object {
         private val OPERATORS = arrayOf("+", "-", "/", "*")
 
-        @JvmStatic fun main(vararg args: String) = launchApplication<CalculatorApp>(*args)
+        @JvmStatic
+        fun main(vararg args: String) = launchApplication<CalculatorApp>(*args)
     }
 
     private lateinit var calculationLabel: Label

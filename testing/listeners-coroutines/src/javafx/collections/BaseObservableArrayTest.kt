@@ -11,7 +11,8 @@ abstract class BaseObservableArrayTest {
 
     abstract fun <T : ObservableArray<T>> ObservableArray<T>.callListener(action: (Observable, Boolean, Int, Int) -> Unit)
 
-    @Test fun listener() {
+    @Test
+    fun listener() {
         val array = FXCollections.observableIntegerArray()
         array.callListener { observable, changed, from, to ->
             assertEquals(observable, array)

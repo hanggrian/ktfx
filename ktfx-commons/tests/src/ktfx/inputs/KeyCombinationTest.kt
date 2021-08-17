@@ -7,7 +7,8 @@ import kotlin.test.assertEquals
 
 class KeyCombinationTest {
 
-    @Test fun plus() {
+    @Test
+    fun plus() {
         val charCombination = KeyCombination.SHIFT_DOWN + "x"
         assertEquals("x", charCombination.character)
         assertEquals(KeyCombination.ModifierValue.DOWN, charCombination.shift)

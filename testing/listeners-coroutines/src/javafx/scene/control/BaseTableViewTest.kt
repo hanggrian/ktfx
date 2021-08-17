@@ -26,7 +26,8 @@ abstract class BaseTableViewTest {
         position = TablePosition(table, 0, column)
     }
 
-    @Test fun onSort() {
+    @Test
+    fun onSort() {
         table.callOnSort {
             assertEquals(table, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -34,7 +35,8 @@ abstract class BaseTableViewTest {
         table.onSort.handle(SortEvent(table, FakeEventTarget))
     }
 
-    @Test fun onScrollTo() {
+    @Test
+    fun onScrollTo() {
         table.callOnScrollTo {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)
@@ -44,7 +46,8 @@ abstract class BaseTableViewTest {
         table.onScrollTo.handle(ScrollToEvent(this, FakeEventTarget, ScrollToEvent.scrollToTopIndex(), 0))
     }
 
-    @Test fun onScrollToColumn() {
+    @Test
+    fun onScrollToColumn() {
         table.callOnScrollToColumn {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

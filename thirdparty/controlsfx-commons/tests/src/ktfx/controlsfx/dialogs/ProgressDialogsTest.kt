@@ -17,7 +17,8 @@ class ProgressDialogsTest : DialogShowingTest() {
         helloWorldService = buildService { call { "Hello world" } }
     }
 
-    @Test fun exceptionDialog() {
+    @Test
+    fun exceptionDialog() {
         interact {
             progressDialog("Progress dialog", sampleGraphic, helloWorldService) {
                 closeOnShow(this)

@@ -18,7 +18,8 @@ abstract class BasePopupWindowTest {
         window = ContextMenu()
     }
 
-    @Test fun onAutoHide() {
+    @Test
+    fun onAutoHide() {
         window.callOnAutoHide {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

@@ -14,7 +14,8 @@ class TextFieldsTest {
         field = TextField()
     }
 
-    @Test fun bindAutoCompletion() {
+    @Test
+    fun bindAutoCompletion() {
         field.bindAutoCompletion("Hello", "World")
         field.bindAutoCompletion(listOf("Hello", "World"))
         field.bindAutoCompletion { listOf("Hello", "World") }

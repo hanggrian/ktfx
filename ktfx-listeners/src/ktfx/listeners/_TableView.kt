@@ -8,11 +8,6 @@ import javafx.scene.control.ScrollToEvent
 import javafx.scene.control.SortEvent
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
-import kotlin.Int
-import kotlin.Suppress
-import kotlin.Unit
-import kotlin.jvm.JvmMultifileClass
-import kotlin.jvm.JvmName
 
 /**
  * @see TableView.setOnSort

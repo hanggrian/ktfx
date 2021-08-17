@@ -29,4 +29,4 @@ tasks {
     }
 }
 
-mavenPublishJvm()
+mavenPublishJvm(javadoc = tasks["javadoc"])

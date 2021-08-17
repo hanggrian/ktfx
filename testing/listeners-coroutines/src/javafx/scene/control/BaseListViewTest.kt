@@ -19,7 +19,8 @@ abstract class BaseListViewTest {
         list = ListView()
     }
 
-    @Test fun onEditStart() {
+    @Test
+    fun onEditStart() {
         list.callOnEditStart {
             assertEquals(list, it.source)
             assertEquals(ListView.editStartEvent<String>(), it.eventType)
@@ -29,7 +30,8 @@ abstract class BaseListViewTest {
         list.onEditStart.handle(ListView.EditEvent(list, ListView.editStartEvent(), "", 0))
     }
 
-    @Test fun onEditCommit() {
+    @Test
+    fun onEditCommit() {
         list.callOnEditCommit {
             assertEquals(list, it.source)
             assertEquals(ListView.editCommitEvent<String>(), it.eventType)
@@ -39,7 +41,8 @@ abstract class BaseListViewTest {
         list.onEditCommit.handle(ListView.EditEvent(list, ListView.editCommitEvent(), "", 0))
     }
 
-    @Test fun onEditCancel() {
+    @Test
+    fun onEditCancel() {
         list.callOnEditCancel {
             assertEquals(list, it.source)
             assertEquals(ListView.editCancelEvent<String>(), it.eventType)
@@ -49,7 +52,8 @@ abstract class BaseListViewTest {
         list.onEditCancel.handle(ListView.EditEvent(list, ListView.editCancelEvent(), "", 0))
     }
 
-    @Test fun onScrollTo() {
+    @Test
+    fun onScrollTo() {
         list.callOnScrollTo {
             assertEquals(this, it.source)
             assertEquals(FakeEventTarget, it.target)

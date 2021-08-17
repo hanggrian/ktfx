@@ -13,7 +13,8 @@ class AnchorPaneTest : LayoutsTest<KtfxPane, AnchorPane>() {
     override fun KtfxPane.child2() = anchorPane()
     override fun KtfxPane.child3() = anchorPane { }
 
-    @Test fun anchors() {
+    @Test
+    fun anchors() {
         anchorPane {
             val region1 = region().anchor(5)
             assertEquals(5.0, region1.topAnchor)

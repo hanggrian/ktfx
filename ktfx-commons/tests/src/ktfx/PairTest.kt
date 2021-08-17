@@ -7,7 +7,8 @@ import kotlin.test.assertNull
 
 class PairTest {
 
-    @Test fun toKotlinPair() {
+    @Test
+    fun toKotlinPair() {
         val (s, i) = Pair("Hello", 123).toKotlinPair()
         assertEquals("Hello", s)
         assertEquals(123, i)
@@ -17,7 +18,8 @@ class PairTest {
         assertNull(n2)
     }
 
-    @Test fun toFxPair() {
+    @Test
+    fun toFxPair() {
         val (s, i) = kotlin.Pair("Hello", 123).toFxPair()
         assertEquals("Hello", s)
         assertEquals(123, i)

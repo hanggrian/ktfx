@@ -12,7 +12,8 @@ class BordersTest {
 
     @BeforeTest fun start() = initToolkit()
 
-    @Test fun emptyBorder() {
+    @Test
+    fun emptyBorder() {
         val label = Label()
         assertNull(label.border)
 
@@ -26,7 +27,8 @@ class BordersTest {
         assertEquals(4.0, stroke.widths.left)
     }
 
-    @Test fun etchedBorder() {
+    @Test
+    fun etchedBorder() {
         val label = Label()
         assertNull(label.border)
 
@@ -34,7 +36,8 @@ class BordersTest {
         assertEquals(1, wrappedLabel.border.strokes.size)
     }
 
-    @Test fun lineBorder() {
+    @Test
+    fun lineBorder() {
         val label = Label()
         assertNull(label.border)
 

@@ -42,7 +42,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/controlsfx-commons"))
+        outputDirectory.set(buildDir.resolve("dokka/controlsfx-commons"))
     }
 }
 

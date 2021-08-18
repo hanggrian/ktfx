@@ -45,7 +45,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/controlsfx-layouts"))
+        outputDirectory.set(buildDir.resolve("dokka/controlsfx-layouts"))
     }
 }
 

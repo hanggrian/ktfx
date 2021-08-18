@@ -41,7 +41,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/controlsfx-listeners"))
+        outputDirectory.set(buildDir.resolve("dokka/controlsfx-listeners"))
     }
 }
 

@@ -41,7 +41,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/jfoenix-listeners"))
+        outputDirectory.set(buildDir.resolve("dokka/jfoenix-listeners"))
     }
 }
 

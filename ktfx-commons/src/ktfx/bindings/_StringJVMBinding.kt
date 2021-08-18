@@ -83,17 +83,17 @@ public inline fun ObservableStringValue.replaceFirst(
 }
 
 /**
- * @see String.toUpperCase
+ * @see String.uppercase
  */
-public inline fun ObservableStringValue.toUpperCase(): StringBinding {
-    return asString { checkNotNull(it) { "String value is null" }.toUpperCase() }
+public inline fun ObservableStringValue.uppercase(): StringBinding {
+    return asString { checkNotNull(it) { "String value is null" }.uppercase() }
 }
 
 /**
- * @see String.toLowerCase
+ * @see String.lowercase
  */
-public inline fun ObservableStringValue.toLowerCase(): StringBinding {
-    return asString { checkNotNull(it) { "String value is null" }.toLowerCase() }
+public inline fun ObservableStringValue.lowercase(): StringBinding {
+    return asString { checkNotNull(it) { "String value is null" }.lowercase() }
 }
 
 /**

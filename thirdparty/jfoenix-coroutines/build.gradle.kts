@@ -41,7 +41,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/jfoenix-coroutines"))
+        outputDirectory.set(buildDir.resolve("dokka/jfoenix-coroutines"))
     }
 }
 

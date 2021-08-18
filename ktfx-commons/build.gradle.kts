@@ -43,7 +43,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/$RELEASE_ARTIFACT-commons"))
+        outputDirectory.set(buildDir.resolve("dokka/$RELEASE_ARTIFACT-commons"))
     }
 }
 

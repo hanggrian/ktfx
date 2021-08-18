@@ -45,7 +45,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/jfoenix-layouts"))
+        outputDirectory.set(buildDir.resolve("dokka/jfoenix-layouts"))
     }
 }
 

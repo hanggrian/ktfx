@@ -43,7 +43,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/jfoenix-commons"))
+        outputDirectory.set(buildDir.resolve("dokka/jfoenix-commons"))
     }
 }
 

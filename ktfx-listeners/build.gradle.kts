@@ -40,7 +40,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/$RELEASE_ARTIFACT-listeners"))
+        outputDirectory.set(buildDir.resolve("dokka/$RELEASE_ARTIFACT-listeners"))
     }
 }
 

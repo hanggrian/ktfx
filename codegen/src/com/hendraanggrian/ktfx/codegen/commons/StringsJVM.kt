@@ -13,8 +13,8 @@ val StringsFactory.Companion.StringsJVM: StringsFactory
             "replace"(STRING) { oldValue(); newValue(); ignoreCase() }
             "replaceFirst"(STRING) { oldChar(); newChar(); ignoreCase() }
             "replaceFirst"(STRING) { oldValue(); newValue(); ignoreCase() }
-            "toUpperCase"(STRING)
-            "toLowerCase"(STRING)
+            "uppercase"(STRING)
+            "lowercase"(STRING)
             "format"(STRING) { args() }
             "format"(STRING) { locale(); args() }
             "substring"(STRING) { startIndex(); }

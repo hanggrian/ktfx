@@ -46,7 +46,7 @@ tasks {
         }
     }
     dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/html/$RELEASE_ARTIFACT-layouts"))
+        outputDirectory.set(buildDir.resolve("dokka/$RELEASE_ARTIFACT-layouts"))
     }
 }
 

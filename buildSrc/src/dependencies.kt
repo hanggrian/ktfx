@@ -8,7 +8,7 @@ val Plugins.dokka get() = id("org.jetbrains.dokka")
 fun Dependencies.kotlinx(module: String, version: String? = null) =
     "org.jetbrains.kotlinx:kotlinx-$module${version?.let { ":$it" }.orEmpty()}"
 
-val Dependencies.`git-publish` get() = "org.ajoberstar:gradle-git-publish:2.1.3"
+val Dependencies.`git-publish` get() = "org.ajoberstar:gradle-git-publish:3.0.0"
 val Plugins.`git-publish` get() = id("org.ajoberstar.git-publish")
 
 const val VERSION_COMMONS_LANG = "3.11"

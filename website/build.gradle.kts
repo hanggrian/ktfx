@@ -3,23 +3,28 @@ plugins {
 }
 
 gitPublish {
-    repoUri.set(RELEASE_GITHUB)
+    repoUri.set("git@github.com:hendraanggrian/$RELEASE_ARTIFACT.git")
     branch.set("gh-pages")
     contents.from(
         "src",
         *ktfxArtifacts
-            .map { "../$it/build/dokka/html" }
+            .map { "../$it/build/dokka" }
             .toTypedArray()
     )
 }
 
-tasks.gitPublishCopy {
-    dependsOn(
-        *ktfxArtifacts
-            .map { it.replace('/', ':') }
-            .map { ":$it:dokkaHtml" }
-            .toTypedArray()
-    )
+tasks {
+    register("clean") {
+        delete(buildDir)
+    }
+    gitPublishCopy {
+        dependsOn(
+            *ktfxArtifacts
+                .map { it.replace('/', ':') }
+                .map { ":$it:dokkaHtml" }
+                .toTypedArray()
+        )
+    }
 }
 
 val ktfxArtifacts: List<String>

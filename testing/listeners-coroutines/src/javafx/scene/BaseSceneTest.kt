@@ -1,18 +1,6 @@
 package javafx.scene
 
 import com.google.common.truth.Truth.assertThat
-import javafx.scene.input.ContextMenuEvent
-import javafx.scene.input.DragEvent
-import javafx.scene.input.InputMethodEvent
-import javafx.scene.input.KeyEvent
-import javafx.scene.input.MouseDragEvent
-import javafx.scene.input.MouseEvent
-import javafx.scene.input.RotateEvent
-import javafx.scene.input.ScrollEvent
-import javafx.scene.input.SwipeEvent
-import javafx.scene.input.TouchEvent
-import javafx.scene.input.ZoomEvent
-import javafx.scene.layout.Pane
 import com.hendraanggrian.ktfx.test.FakeEventTarget
 import com.hendraanggrian.ktfx.test.FakePickResult
 import com.hendraanggrian.ktfx.test.assertFakeDragEvent
@@ -34,6 +22,18 @@ import com.hendraanggrian.ktfx.test.fakeSwipeEventOf
 import com.hendraanggrian.ktfx.test.fakeTouchEventOf
 import com.hendraanggrian.ktfx.test.fakeZoomEventOf
 import com.hendraanggrian.ktfx.test.initToolkit
+import javafx.scene.input.ContextMenuEvent
+import javafx.scene.input.DragEvent
+import javafx.scene.input.InputMethodEvent
+import javafx.scene.input.KeyEvent
+import javafx.scene.input.MouseDragEvent
+import javafx.scene.input.MouseEvent
+import javafx.scene.input.RotateEvent
+import javafx.scene.input.ScrollEvent
+import javafx.scene.input.SwipeEvent
+import javafx.scene.input.TouchEvent
+import javafx.scene.input.ZoomEvent
+import javafx.scene.layout.Pane
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -82,7 +82,8 @@ abstract class BaseSceneTest {
     abstract fun Scene.callOnInputMethodTextChanged(action: (InputMethodEvent) -> Unit)
     abstract fun Scene.callOnContextMenuRequested(action: (ContextMenuEvent) -> Unit)
 
-    @BeforeTest fun onCreate() {
+    @BeforeTest
+    fun onCreate() {
         initToolkit()
         scene = Scene(Pane())
     }

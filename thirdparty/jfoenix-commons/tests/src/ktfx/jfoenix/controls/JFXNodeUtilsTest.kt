@@ -1,5 +1,6 @@
 package ktfx.jfoenix.controls
 
+import com.hendraanggrian.ktfx.test.initToolkit
 import com.jfoenix.utils.JFXNodeUtils
 import javafx.geometry.Insets
 import javafx.scene.control.Label
@@ -7,14 +8,14 @@ import javafx.scene.layout.Background
 import javafx.scene.layout.BackgroundFill
 import javafx.scene.layout.CornerRadii
 import javafx.scene.paint.Color
-import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class JFXNodeUtilsTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun updateBackground() {

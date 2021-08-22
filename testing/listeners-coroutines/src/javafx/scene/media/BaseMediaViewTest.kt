@@ -10,7 +10,8 @@ abstract class BaseMediaViewTest {
 
     abstract fun MediaView.callOnError(action: (MediaErrorEvent) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         media = MediaView()
     }

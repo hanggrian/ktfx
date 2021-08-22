@@ -10,7 +10,8 @@ abstract class BaseContextMenuTest {
 
     abstract fun ContextMenu.callOnAction(action: (ActionEvent) -> Unit)
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun onAction() {

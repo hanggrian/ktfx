@@ -17,7 +17,8 @@ abstract class BaseTreeTableColumnTest {
     abstract fun <S, T> TreeTableColumn<S, T>.callOnEditCommit(action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit)
     abstract fun <S, T> TreeTableColumn<S, T>.callOnEditCancel(action: (TreeTableColumn.CellEditEvent<S, T>) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         table = TreeTableView()
         table.columns += TreeTableColumn<Duration, Long>().also { column = it }

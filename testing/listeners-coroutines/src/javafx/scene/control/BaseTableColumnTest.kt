@@ -17,7 +17,8 @@ abstract class BaseTableColumnTest {
     abstract fun <S, T> TableColumn<S, T>.callOnEditCommit(action: (TableColumn.CellEditEvent<S, T>) -> Unit)
     abstract fun <S, T> TableColumn<S, T>.callOnEditCancel(action: (TableColumn.CellEditEvent<S, T>) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         table = TableView()
         table.columns += TableColumn<Duration, Long>().also { column = it }

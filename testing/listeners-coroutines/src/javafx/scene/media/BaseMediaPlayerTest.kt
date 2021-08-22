@@ -21,7 +21,8 @@ abstract class BaseMediaPlayerTest {
     abstract fun MediaPlayer.callOnRepeat(action: () -> Unit)
     abstract fun MediaPlayer.callOnStalled(action: () -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         player = MediaPlayer(Media(javaClass.classLoader.getResource("sample.flv")!!.toString()))
     }

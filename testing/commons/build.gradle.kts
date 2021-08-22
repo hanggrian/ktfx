@@ -1,5 +1,10 @@
 plugins {
+    javafx
     kotlin("jvm")
+}
+
+javafx {
+    modules("javafx.controls")
 }
 
 sourceSets {

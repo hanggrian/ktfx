@@ -62,7 +62,8 @@ abstract class BaseNodeTest {
     abstract fun Node.callOnKeyTyped(action: (KeyEvent) -> Unit)
     abstract fun Node.callOnInputMethodTextChanged(action: (InputMethodEvent) -> Unit)
 
-    @BeforeTest fun onCreate() {
+    @BeforeTest
+    fun onCreate() {
         initToolkit()
         node = Label()
     }

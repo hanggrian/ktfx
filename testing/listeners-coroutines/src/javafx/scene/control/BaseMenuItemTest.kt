@@ -13,7 +13,8 @@ abstract class BaseMenuItemTest {
     abstract fun MenuItem.callOnAction(action: (ActionEvent) -> Unit)
     abstract fun MenuItem.callOnMenuValidation(action: (Event) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         item = MenuItem()
     }

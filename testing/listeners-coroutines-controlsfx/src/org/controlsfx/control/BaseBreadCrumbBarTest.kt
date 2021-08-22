@@ -11,7 +11,8 @@ abstract class BaseBreadCrumbBarTest {
 
     abstract fun <E> BreadCrumbBar<E>.callOnCrumbAction(action: (BreadCrumbBar.BreadCrumbActionEvent<E>) -> Unit)
 
-    @BeforeTest fun create() {
+    @BeforeTest
+    fun create() {
         initToolkit()
         crumbBar = BreadCrumbBar()
     }

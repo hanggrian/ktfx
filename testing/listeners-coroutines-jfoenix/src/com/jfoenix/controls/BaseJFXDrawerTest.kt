@@ -1,8 +1,8 @@
 package ktfx.jfoenix.test
 
+import com.hendraanggrian.ktfx.test.initToolkit
 import com.jfoenix.controls.JFXDrawer
 import com.jfoenix.controls.events.JFXDrawerEvent
-import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -15,7 +15,8 @@ abstract class BaseJFXDrawerTest {
     abstract fun JFXDrawer.callOnDrawerOpened(action: (JFXDrawerEvent) -> Unit)
     abstract fun JFXDrawer.callOnDrawerOpening(action: (JFXDrawerEvent) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         drawer = JFXDrawer()
     }

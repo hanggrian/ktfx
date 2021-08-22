@@ -1,7 +1,7 @@
 package ktfx.controlsfx.text
 
-import javafx.scene.paint.Color
 import com.hendraanggrian.ktfx.test.initToolkit
+import javafx.scene.paint.Color
 import org.controlsfx.glyphfont.Glyph
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -10,7 +10,8 @@ import kotlin.test.assertTrue
 
 class GlyphTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun glyph() {

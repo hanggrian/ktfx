@@ -1,7 +1,7 @@
 package ktfx.controlsfx.controls
 
-import javafx.scene.control.TextField
 import com.hendraanggrian.ktfx.test.initToolkit
+import javafx.scene.control.TextField
 import ktfx.text.buildStringConverter
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -9,7 +9,8 @@ import kotlin.test.Test
 class TextFieldsTest {
     private lateinit var field: TextField
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         field = TextField()
     }

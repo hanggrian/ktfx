@@ -1,10 +1,10 @@
 package ktfx.controlsfx.controls
 
+import com.hendraanggrian.ktfx.test.initToolkit
 import javafx.scene.Node
 import javafx.scene.control.Button
 import javafx.scene.control.Hyperlink
 import javafx.scene.control.Label
-import com.hendraanggrian.ktfx.test.initToolkit
 import org.controlsfx.control.decoration.Decorator
 import org.controlsfx.control.decoration.GraphicDecoration
 import kotlin.test.BeforeTest
@@ -15,7 +15,8 @@ import kotlin.test.assertNull
 class DecoratorTest {
     private lateinit var node: Node
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         node = Label("Hello world")
     }

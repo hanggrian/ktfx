@@ -19,7 +19,8 @@ abstract class BaseTableViewTest {
     abstract fun <S> TableView<S>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit)
     abstract fun <S> TableView<S>.callOnScrollToColumn(action: (ScrollToEvent<TableColumn<S, *>>) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         table = TableView()
         table.columns += TableColumn<Duration, Long>().also { column = it }

@@ -35,19 +35,19 @@ fun TextFlow.append(value: Any?): TextFlow = append(value?.toString())
 
 /**
  * Appends a line separator to this flow.
- * @see kotlin.text.appendln
+ * @see kotlin.text.appendLine
  */
 fun TextFlow.appendLine(): TextFlow = append(SystemProperties.LINE_SEPARATOR)
 
 /**
  * Appends [value] to this flow, followed by a line separator.
- * @see kotlin.text.appendln
+ * @see kotlin.text.appendLine
  */
 inline fun TextFlow.appendLine(value: String?): TextFlow = append(value).appendLine()
 
 /**
  * Appends [value] to this flow, followed by a line separator.
- * @see kotlin.text.appendln
+ * @see kotlin.text.appendLine
  */
 inline fun TextFlow.appendLine(value: Any?): TextFlow = append(value).appendLine()
 

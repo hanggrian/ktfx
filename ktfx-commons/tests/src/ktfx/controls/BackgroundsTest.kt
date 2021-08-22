@@ -1,5 +1,7 @@
 package ktfx.controls
 
+import com.hendraanggrian.ktfx.test.SampleImage
+import com.hendraanggrian.ktfx.test.initToolkit
 import javafx.geometry.Insets
 import javafx.scene.layout.BackgroundPosition
 import javafx.scene.layout.BackgroundRepeat
@@ -7,8 +9,6 @@ import javafx.scene.layout.BackgroundSize
 import javafx.scene.layout.CornerRadii
 import javafx.scene.layout.Region
 import javafx.scene.paint.Color
-import com.hendraanggrian.ktfx.test.SampleImage
-import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -16,7 +16,8 @@ import kotlin.test.assertEquals
 class BackgroundsTest {
     private lateinit var region: Region
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         region = Region()
     }

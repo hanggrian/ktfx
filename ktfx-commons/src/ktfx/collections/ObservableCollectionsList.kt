@@ -1,5 +1,6 @@
 @file:JvmMultifileClass
 @file:JvmName("ObservableCollectionsKt")
+@file:OptIn(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.collections
@@ -8,33 +9,35 @@ import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import java.util.Comparator
 import java.util.Random
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
- * Returns an empty read-only observable list.
+ * Returns an empty read-only [ObservableList].
  * @see emptyList
  */
 inline fun <T> emptyObservableList(): ObservableList<T> = FXCollections.emptyObservableList()
 
 /**
- * Returns an empty read-only observable list.
+ * Returns a new read-only [ObservableList] of given elements.
  * @see listOf
  */
-inline fun <T> observableListOf(): ObservableList<T> = emptyObservableList()
+fun <T> observableListOf(vararg elements: T): ObservableList<T> =
+    if (elements.isNotEmpty()) FXCollections.unmodifiableObservableList(elements.toMutableObservableList())
+    else emptyObservableList()
 
 /**
- * Returns an immutable [ObservableList] of one [element].
+ * Returns an empty read-only [ObservableList] of one element.
  * @see listOf
  */
 inline fun <T> observableListOf(element: T): ObservableList<T> = FXCollections.singletonObservableList(element)
 
 /**
- * Returns an immutable [ObservableList] containing all [elements].
+ * Returns an empty read-only [ObservableList].
  * @see listOf
  */
-fun <T> observableListOf(vararg elements: T): ObservableList<T> = when {
-    elements.isNotEmpty() -> FXCollections.unmodifiableObservableList(elements.toMutableObservableList())
-    else -> emptyObservableList()
-}
+inline fun <T> observableListOf(): ObservableList<T> = emptyObservableList()
 
 /**
  * Returns an empty [ObservableList].
@@ -43,16 +46,40 @@ fun <T> observableListOf(vararg elements: T): ObservableList<T> = when {
 inline fun <T> mutableObservableListOf(): ObservableList<T> = FXCollections.observableArrayList()
 
 /**
- * Returns an [ObservableList] containing all [elements].
+ * Returns a new [ObservableList] with the given elements.
  * @see mutableListOf
  */
-fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> = when {
-    elements.isEmpty() -> mutableObservableListOf()
-    else -> FXCollections.observableArrayList(*elements)
+fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
+    if (elements.isEmpty()) mutableObservableListOf() else FXCollections.observableArrayList(*elements)
+
+/**
+ * Returns a new read-only [ObservableList] either of single given element, if it is not null,
+ * or empty list if the element is null.
+ * @see listOfNotNull
+ */
+fun <T : Any> observableListOfNotNull(element: T?): ObservableList<T> =
+    if (element != null) observableListOf(element) else emptyObservableList()
+
+/**
+ * Returns a new read-only [ObservableList] only of those given elements, that are not null.
+ * @see listOfNotNull
+ */
+fun <T : Any> observableListOfNotNull(vararg elements: T?): ObservableList<T> =
+    elements.filterNotNullTo(mutableObservableListOf())
+
+/**
+ * Builds a new read-only [ObservableList] by populating a [MutableList]
+ * using the given [builderAction] and returning a read-only list with the same elements.
+ * @see buildList
+ */
+@ExperimentalStdlibApi
+inline fun <T> buildObservableList(builderAction: MutableList<T>.() -> Unit): List<T> {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return buildList(builderAction).toObservableList()
 }
 
 /**
- * Converts this array to immutable [ObservableList].
+ * Returns an [ObservableList] containing all elements.
  * @see Array.toList
  */
 fun <T> Array<out T>.toObservableList(): ObservableList<T> = when (size) {
@@ -62,13 +89,13 @@ fun <T> Array<out T>.toObservableList(): ObservableList<T> = when (size) {
 }
 
 /**
- * Converts this array to [ObservableList].
+ * Returns a new [ObservableList] filled with all elements of this array.
  * @see Array.toMutableList
  */
 inline fun <T> Array<out T>.toMutableObservableList(): ObservableList<T> = FXCollections.observableArrayList(*this)
 
 /**
- * Converts this iterable to immutable [ObservableList].
+ * Returns an [ObservableList] containing all elements.
  * @see Iterable.toList
  */
 fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
@@ -83,7 +110,7 @@ fun <T> Iterable<T>.toObservableList(): ObservableList<T> {
 }
 
 /**
- * Converts this iterable to [ObservableList].
+ * Returns a new [ObservableList] filled with all elements of this collection.
  * @see Iterable.toMutableList
  */
 fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
@@ -93,19 +120,19 @@ fun <T> Iterable<T>.toMutableObservableList(): ObservableList<T> {
 }
 
 /**
- * Converts this collection to [ObservableList].
+ * Returns a new [ObservableList] filled with all elements of this collection.
  * @see Collection.toMutableList
  */
 inline fun <T> Collection<T>.toMutableObservableList(): ObservableList<T> = FXCollections.observableArrayList(this)
 
 /**
- * Converts this sequence to immutable [ObservableList].
+ * Returns a [ObservableList] containing all elements.
  * @see Sequence.toList
  */
 fun <T> Sequence<T>.toObservableList(): ObservableList<T> = toMutableObservableList().optimizeReadOnlyList()
 
 /**
- * Converts this sequence to [ObservableList].
+ * Returns a new [ObservableList] filled with all elements of this sequence.
  * @see Sequence.toMutableList
  */
 fun <T> Sequence<T>.toMutableObservableList(): ObservableList<T> = toCollection(FXCollections.observableArrayList())

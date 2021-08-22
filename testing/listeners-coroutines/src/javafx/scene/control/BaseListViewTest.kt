@@ -14,7 +14,8 @@ abstract class BaseListViewTest {
     abstract fun <E> ListView<E>.callOnEditCancel(action: (ListView.EditEvent<E>) -> Unit)
     abstract fun <E> ListView<E>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         list = ListView()
     }

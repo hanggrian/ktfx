@@ -1,8 +1,8 @@
 package ktfx.controlsfx.controls
 
+import com.hendraanggrian.ktfx.test.initToolkit
 import javafx.scene.control.Label
 import javafx.scene.layout.Region
-import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -10,7 +10,8 @@ import kotlin.test.assertNull
 
 class BordersTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun emptyBorder() {

@@ -9,7 +9,8 @@ import kotlin.test.assertEquals
 
 class GlyphFontTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun glyph() {

@@ -1,32 +1,35 @@
 @file:JvmMultifileClass
 @file:JvmName("ObservableCollectionsKt")
+@file:OptIn(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.collections
 
 import javafx.collections.FXCollections
 import javafx.collections.ObservableMap
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 /**
- * Returns an empty immutable [ObservableMap].
+ * Returns an empty read-only [ObservableMap].
  * @see emptyMap
  */
 inline fun <K, V> emptyObservableMap(): ObservableMap<K, V> = FXCollections.emptyObservableMap()
 
 /**
- * Returns an empty immutable [ObservableMap].
+ * Returns a new read-only [ObservableMap] of given pairs.
+ * @see mapOf
+ */
+fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
+    if (pairs.isNotEmpty()) FXCollections.unmodifiableObservableMap(pairs.toMap(FXCollections.observableHashMap()))
+    else emptyObservableMap()
+
+/**
+ * Returns an empty read-only [ObservableMap].
  * @see mapOf
  */
 inline fun <K, V> observableMapOf(): ObservableMap<K, V> = emptyObservableMap()
-
-/**
- * Returns an empty observable map of containing all [pairs].
- * @see mapOf
- */
-fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = when {
-    pairs.isNotEmpty() -> FXCollections.unmodifiableObservableMap(pairs.toMap(FXCollections.observableHashMap()))
-    else -> emptyObservableMap()
-}
 
 /**
  * Returns an empty [ObservableMap].
@@ -35,20 +38,26 @@ fun <K, V> observableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = when
 inline fun <K, V> mutableObservableMapOf(): ObservableMap<K, V> = FXCollections.observableHashMap()
 
 /**
- * Returns an [ObservableMap] of [pairs].
+ * Returns a new [ObservableMap] with the given elements.
  * @see mutableMapOf
  */
-fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> = when {
-    pairs.isEmpty() -> mutableObservableMapOf()
-    else -> FXCollections.observableMap(
-        HashMap<K, V>().apply {
-            for ((key, value) in pairs) put(key, value)
-        }
-    )
+fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V> =
+    if (pairs.isEmpty()) mutableObservableMapOf()
+    else FXCollections.observableMap(HashMap<K, V>().apply { for ((key, value) in pairs) put(key, value) })
+
+/**
+ * Builds a new read-only [ObservableMap] by populating a [MutableMap]
+ * using the given [builderAction] and returning a read-only map with the same elements.
+ * @see buildMap
+ */
+@ExperimentalStdlibApi
+inline fun <K, V> buildObservableMap(builderAction: MutableMap<K, V>.() -> Unit): Map<K, V> {
+    contract { callsInPlace(builderAction, InvocationKind.EXACTLY_ONCE) }
+    return buildMap(builderAction).toObservableMap()
 }
 
 /**
- * Converts this map to immutable [ObservableMap].
+ * Returns an [ObservableMap] containing all elements.
  * @see Map.toMap
  */
 fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> = when (size) {
@@ -57,7 +66,7 @@ fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> = when (size) {
 }
 
 /**
- * Converts this map to [ObservableMap].
+ * Returns a new [ObservableMap] filled with all elements of this map.
  * @see Map.toMutableMap
  */
 inline fun <K, V> Map<K, V>.toMutableObservableMap(): ObservableMap<K, V> = FXCollections.observableMap(this)

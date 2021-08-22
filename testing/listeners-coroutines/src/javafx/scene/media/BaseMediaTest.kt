@@ -10,7 +10,8 @@ abstract class BaseMediaTest {
 
     abstract fun Media.callOnError(action: () -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         media = Media(javaClass.classLoader.getResource("sample.flv")!!.toString())
     }

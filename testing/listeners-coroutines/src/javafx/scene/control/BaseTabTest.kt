@@ -13,7 +13,8 @@ abstract class BaseTabTest {
     abstract fun Tab.callOnClosed(action: (Event) -> Unit)
     abstract fun Tab.callOnCloseRequest(action: (Event) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         tab = Tab()
     }

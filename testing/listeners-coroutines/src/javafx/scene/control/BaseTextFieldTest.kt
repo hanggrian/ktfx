@@ -10,7 +10,8 @@ abstract class BaseTextFieldTest {
 
     abstract fun TextField.callOnAction(action: (ActionEvent) -> Unit)
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun onAction() {

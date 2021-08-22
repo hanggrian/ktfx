@@ -12,7 +12,8 @@ import kotlin.test.fail
 
 class ServiceTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun nullTest() = testService<Any> {

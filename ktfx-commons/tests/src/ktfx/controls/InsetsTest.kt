@@ -8,7 +8,8 @@ import kotlin.test.assertEquals
 
 class InsetsTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun insetsOf() {

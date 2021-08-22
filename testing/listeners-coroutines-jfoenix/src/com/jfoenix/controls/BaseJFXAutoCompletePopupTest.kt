@@ -1,8 +1,8 @@
 package ktfx.jfoenix.test
 
+import com.hendraanggrian.ktfx.test.initToolkit
 import com.jfoenix.controls.JFXAutoCompletePopup
 import com.jfoenix.controls.events.JFXAutoCompleteEvent
-import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -12,7 +12,8 @@ abstract class BaseJFXAutoCompletePopupTest {
 
     abstract fun <E> JFXAutoCompletePopup<E>.callSelectionHandler(action: (JFXAutoCompleteEvent<E>) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         popup = JFXAutoCompletePopup()
     }

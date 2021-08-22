@@ -1,15 +1,16 @@
 package ktfx.controls
 
+import com.hendraanggrian.ktfx.test.initToolkit
 import javafx.scene.control.TableView
 import javafx.scene.control.TreeTableView
-import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class TableColumnsTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun tableView() {

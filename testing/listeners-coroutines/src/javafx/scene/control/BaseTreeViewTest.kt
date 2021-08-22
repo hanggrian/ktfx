@@ -15,7 +15,8 @@ abstract class BaseTreeViewTest {
     abstract fun <E> TreeView<E>.callOnEditCancel(action: (TreeView.EditEvent<E>) -> Unit)
     abstract fun <E> TreeView<E>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         tree = TreeView()
         tree.root = TreeItem()

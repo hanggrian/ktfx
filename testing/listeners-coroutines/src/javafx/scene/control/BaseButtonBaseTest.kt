@@ -11,7 +11,8 @@ abstract class BaseButtonBaseTest {
 
     abstract fun ButtonBase.callOnAction(action: (ActionEvent) -> Unit)
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun onAction() {

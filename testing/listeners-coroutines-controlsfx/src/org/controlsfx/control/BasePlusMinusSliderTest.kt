@@ -12,7 +12,8 @@ abstract class BasePlusMinusSliderTest {
 
     abstract fun PlusMinusSlider.callOnValueChanged(action: (PlusMinusSlider.PlusMinusEvent) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         slider = PlusMinusSlider()
     }

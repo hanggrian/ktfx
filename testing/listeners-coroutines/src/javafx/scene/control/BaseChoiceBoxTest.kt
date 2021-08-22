@@ -16,7 +16,8 @@ abstract class BaseChoiceBoxTest {
     abstract fun <E> ChoiceBox<E>.callOnHiding(action: (Event) -> Unit)
     abstract fun <E> ChoiceBox<E>.callOnHidden(action: (Event) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         choice = ChoiceBox()
     }

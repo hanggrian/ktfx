@@ -2,10 +2,15 @@ group = RELEASE_GROUP
 version = RELEASE_VERSION
 
 plugins {
+    javafx
     kotlin("jvm")
     dokka
     `maven-publish`
     signing
+}
+
+javafx {
+    modules("javafx.controls", "javafx.swing")
 }
 
 sourceSets {

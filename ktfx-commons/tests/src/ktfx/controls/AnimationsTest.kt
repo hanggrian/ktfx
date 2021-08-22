@@ -13,7 +13,8 @@ import kotlin.test.assertTrue
 
 class AnimationsTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun fadeTransition() {

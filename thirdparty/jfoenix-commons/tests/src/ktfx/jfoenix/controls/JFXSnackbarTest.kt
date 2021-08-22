@@ -1,26 +1,27 @@
 package ktfx.jfoenix.controls
 
-import javafx.scene.layout.Pane
 import com.hendraanggrian.ktfx.test.initToolkit
+import javafx.scene.control.Label
+import javafx.scene.layout.Pane
+import ktfx.time.seconds
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertNotNull
 
 class JFXSnackbarTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun jfxSnackbar() {
         val pane = Pane()
-        assertNotNull(pane.jfxSnackbar("Hello world", 500, "Close") { })
-        assertNotNull(pane.jfxSnackbar("Hello world", 1000))
+        assertNotNull(pane.jfxSnackbar(Label("Hello world"), 500.seconds))
     }
 
     @Test
     fun jfxIndefiniteSnackbar() {
         val pane = Pane()
-        assertNotNull(pane.jfxIndefiniteSnackbar("Hello world", "Close") { })
-        assertNotNull(pane.jfxIndefiniteSnackbar("Hello world"))
+        assertNotNull(pane.jfxIndefiniteSnackbar(Label("Hello world")))
     }
 }

@@ -1,8 +1,8 @@
 package ktfx.controlsfx.test
 
-import javafx.event.Event
 import com.hendraanggrian.ktfx.test.FakeEventTarget
 import com.hendraanggrian.ktfx.test.initToolkit
+import javafx.event.Event
 import org.controlsfx.control.NotificationPane
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -16,7 +16,8 @@ abstract class BaseNotificationPaneTest {
     abstract fun NotificationPane.callOnHiding(action: (Event) -> Unit)
     abstract fun NotificationPane.callOnHidden(action: (Event) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         pane = NotificationPane()
     }

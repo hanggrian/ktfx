@@ -17,7 +17,8 @@ abstract class BaseComboBoxBaseTest {
     abstract fun <E> ComboBoxBase<E>.callOnHiding(action: (Event) -> Unit)
     abstract fun <E> ComboBoxBase<E>.callOnHidden(action: (Event) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         combo = ComboBox()
     }

@@ -1,11 +1,11 @@
 package ktfx
 
 import com.google.common.truth.Truth.assertThat
+import com.hendraanggrian.ktfx.test.initToolkit
 import javafx.application.ConditionalFeature
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.javafx.JavaFx
 import kotlinx.coroutines.runBlocking
-import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -14,7 +14,8 @@ import kotlin.test.assertTrue
 
 class PlatformTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun isFxThread2() {

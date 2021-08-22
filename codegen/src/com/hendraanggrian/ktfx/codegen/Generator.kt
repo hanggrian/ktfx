@@ -1,9 +1,5 @@
 package com.hendraanggrian.ktfx.codegen
 
-import com.hendraanggrian.ktfx.codegen.commons.Strings
-import com.hendraanggrian.ktfx.codegen.commons.StringsFactory
-import com.hendraanggrian.ktfx.codegen.commons.StringsJVM
-import com.hendraanggrian.ktfx.codegen.commons.StringsWriter
 import com.hendraanggrian.ktfx.codegen.layouts.ControlsFx
 import com.hendraanggrian.ktfx.codegen.layouts.JFoenix
 import com.hendraanggrian.ktfx.codegen.layouts.JavaFx
@@ -20,10 +16,6 @@ object Generator {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        if (true) {
-            StringsWriter.write(StringsFactory.Strings)
-            StringsWriter.write(StringsFactory.StringsJVM)
-        }
         if (true) {
             LayoutsWriter.write(LayoutsFactory.JavaFx)
             LayoutsWriter.write(LayoutsFactory.ControlsFx)

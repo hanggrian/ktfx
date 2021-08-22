@@ -1,6 +1,11 @@
 plugins {
+    javafx
     kotlin("jvm")
     application
+}
+
+javafx {
+    modules("javafx.base", "javafx.controls", "javafx.media", "javafx.web")
 }
 
 application {

@@ -1,8 +1,8 @@
 package ktfx.inputs
 
+import com.hendraanggrian.ktfx.test.JavaFXThreadRule
 import javafx.scene.input.Clipboard
 import javafx.scene.input.DataFormat
-import com.hendraanggrian.ktfx.test.FxThreadRule
 import org.junit.Rule
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -10,10 +10,11 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class ClipboardTest {
-    @Rule @JvmField var rule = FxThreadRule()
+    @Rule @JvmField var rule = JavaFXThreadRule()
     private lateinit var clipboard: Clipboard
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         clipboard = Clipboard.getSystemClipboard()
     }
 

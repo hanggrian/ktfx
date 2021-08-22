@@ -1,14 +1,15 @@
 package ktfx.controls
 
-import javafx.scene.control.Label
 import com.hendraanggrian.ktfx.test.initToolkit
+import javafx.scene.control.Label
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class TransformsTest {
 
-    @BeforeTest fun start() = initToolkit()
+    @BeforeTest
+    fun start() = initToolkit()
 
     @Test
     fun affine() {

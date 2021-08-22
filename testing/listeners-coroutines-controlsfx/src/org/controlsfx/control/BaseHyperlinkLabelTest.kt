@@ -1,8 +1,8 @@
 package ktfx.controlsfx.test
 
-import javafx.event.ActionEvent
 import com.hendraanggrian.ktfx.test.FakeEventTarget
 import com.hendraanggrian.ktfx.test.initToolkit
+import javafx.event.ActionEvent
 import org.controlsfx.control.HyperlinkLabel
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -13,7 +13,8 @@ abstract class BaseHyperlinkLabelTest {
 
     abstract fun HyperlinkLabel.callOnAction(action: (ActionEvent) -> Unit)
 
-    @BeforeTest fun create() {
+    @BeforeTest
+    fun create() {
         initToolkit()
         label = HyperlinkLabel()
     }

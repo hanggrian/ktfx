@@ -14,7 +14,8 @@ abstract class BaseMenuTest {
     abstract fun Menu.callOnHiding(action: (Event) -> Unit)
     abstract fun Menu.callOnHidden(action: (Event) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         menu = Menu()
     }

@@ -1,12 +1,12 @@
 package ktfx.jfoenix.controls
 
+import com.hendraanggrian.ktfx.test.initToolkit
 import com.jfoenix.effects.JFXDepthManager
 import javafx.scene.Node
 import javafx.scene.control.Label
 import javafx.scene.effect.BlurType
 import javafx.scene.effect.DropShadow
 import javafx.scene.paint.Color
-import com.hendraanggrian.ktfx.test.initToolkit
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -14,7 +14,8 @@ import kotlin.test.assertEquals
 class JFXDepthManagerTest {
     private lateinit var node: Node
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         node = Label("Hello world")
     }

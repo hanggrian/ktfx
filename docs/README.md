@@ -13,8 +13,6 @@ Written in spirit of [anko](https://github.com/Kotlin/anko), it aims to make Jav
 [Download](https://github.com/hendraanggrian/ktfx/wiki/Download)
 ----------
 
-This library follows [JDK's revisions](https://www.oracle.com/java/technologies/javase-downloads.html).
-
 ```gradle
 repositories {
     mavenCentral()
@@ -36,7 +34,7 @@ dependencies {
 }
 ```
 
-Snapshots of the development version are available in [Sonatype's snapshots repository](https://s01.oss.sonatype.org/content/repositories/snapshots/).
+Snapshots of the development version are available in [Sonatype's snapshots repository](https://s01.oss.sonatype.org/content/repositories/snapshots).
 
 [Ktfx Commons](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Commons-–-Threads)
 --------------

@@ -19,7 +19,8 @@ abstract class BaseTreeTableViewTest {
     abstract fun <S> TreeTableView<S>.callOnScrollTo(action: (ScrollToEvent<Int>) -> Unit)
     abstract fun <S> TreeTableView<S>.callOnScrollToColumn(action: (ScrollToEvent<TreeTableColumn<S, *>>) -> Unit)
 
-    @BeforeTest fun start() {
+    @BeforeTest
+    fun start() {
         initToolkit()
         table = TreeTableView()
         table.columns += TreeTableColumn<Duration, Long>().also { column = it }

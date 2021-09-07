@@ -17,9 +17,4 @@ allprojects {
         mavenCentral()
         maven(REPOSITORIES_OSSRH_SNAPSHOTS)
     }
-    tasks {
-        withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-            kotlinOptions { jvmTarget = "1.8" }
-        }
-    }
 }

@@ -16,7 +16,7 @@ class JFXSnackbarTest {
     @Test
     fun jfxSnackbar() {
         val pane = Pane()
-        assertNotNull(pane.jfxSnackbar(Label("Hello world"), 500.seconds))
+        assertNotNull(pane.jfxSnackbar("Hello world", 5.seconds))
     }
 
     @Test

@@ -6,9 +6,9 @@ KtFX
 ====
 
 Written in spirit of [anko](https://github.com/Kotlin/anko), it aims to make JavaFX app development less painful with the help of Kotlin technologies.
-* Full of helpers for common JavaFX operations.
-* Write dynamic layout with Kotlin DSL.
-* Use coroutines directly from JavaFX API.
+- Full of helpers for common JavaFX operations.
+- Write dynamic layout with Kotlin DSL.
+- Use coroutines directly from JavaFX API.
 
 [Download](https://github.com/hendraanggrian/ktfx/wiki/Download)
 ----------

@@ -8,10 +8,10 @@ plugins {
 }
 
 dependencies {
-    api(project(":thirdparty:controlsfx-commons"))
-    api(project(":thirdparty:controlsfx-layouts"))
-    api(project(":thirdparty:controlsfx-listeners"))
-    api(project(":thirdparty:controlsfx-coroutines"))
+    implementation(project(":thirdparty:controlsfx-commons"))
+    implementation(project(":thirdparty:controlsfx-layouts"))
+    implementation(project(":thirdparty:controlsfx-listeners"))
+    implementation(project(":thirdparty:controlsfx-coroutines"))
 }
 
 mavenPublishJvm("controlsfx")

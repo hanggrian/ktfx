@@ -15,6 +15,6 @@ sourceSets {
 }
 
 dependencies {
-    api(project(":testing:listeners-coroutines"))
-    api(controlsfx())
+    implementation(project(":testing:listeners-coroutines"))
+    implementation(controlsfx())
 }

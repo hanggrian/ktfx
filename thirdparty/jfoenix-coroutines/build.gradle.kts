@@ -28,8 +28,8 @@ ktlint(
 )
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-coroutines"))
-    api(jfoenix())
+    implementation(project(":$RELEASE_ARTIFACT-coroutines"))
+    implementation(jfoenix())
     testImplementation(project(":testing:listeners-coroutines-jfoenix"))
 }
 

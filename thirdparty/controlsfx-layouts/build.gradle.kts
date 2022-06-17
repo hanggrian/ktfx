@@ -29,8 +29,8 @@ ktlint(
 )
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-layouts"))
-    api(controlsfx())
+    implementation(project(":$RELEASE_ARTIFACT-layouts"))
+    implementation(controlsfx())
     testImplementation(project(":testing:layouts"))
 }
 

@@ -11,7 +11,7 @@ import javafx.scene.text.TextFlow
  */
 operator fun TextFlow.set(index: Int, value: String) {
     val child = children[index]
-    require(child is Text) { "TextFlow child is not a Text." }
+    require(child is Text) { "TextFlow child is not a Text" }
     child.text = value
 }
 

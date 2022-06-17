@@ -15,5 +15,5 @@ sourceSets {
 }
 
 dependencies {
-    api(project(":testing:core"))
+    implementation(project(":testing:core"))
 }

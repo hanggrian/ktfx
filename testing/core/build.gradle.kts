@@ -14,11 +14,11 @@ sourceSets {
 }
 
 dependencies {
-    api(kotlin("stdlib", VERSION_KOTLIN))
-    api(kotlin("test-junit", VERSION_KOTLIN))
-    api(google("truth", "truth", VERSION_TRUTH))
+    implementation(kotlin("stdlib", VERSION_KOTLIN))
+    implementation(kotlin("test-junit", VERSION_KOTLIN))
+    implementation(google("truth", "truth", VERSION_TRUTH))
 
-    api(testFx("testfx-junit"))
-    api(testFx("openjfx-monocle", VERSION_MONOCLE))
-    api(junit())
+    implementation(testFx("testfx-junit"))
+    implementation(testFx("openjfx-monocle", VERSION_MONOCLE))
+    implementation(junit())
 }

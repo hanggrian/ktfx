@@ -29,7 +29,7 @@ ktlint(
 )
 
 dependencies {
-    api(kotlin("stdlib"))
+    implementation(kotlin("stdlib"))
     testImplementation(project(":ktfx-commons"))
     testImplementation(project(":testing:layouts"))
     testImplementation(apache("commons-lang3", VERSION_COMMONS_LANG))

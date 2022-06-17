@@ -8,10 +8,10 @@ plugins {
 }
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-commons"))
-    api(project(":$RELEASE_ARTIFACT-layouts"))
-    api(project(":$RELEASE_ARTIFACT-listeners"))
-    api(project(":$RELEASE_ARTIFACT-coroutines"))
+    implementation(project(":$RELEASE_ARTIFACT-commons"))
+    implementation(project(":$RELEASE_ARTIFACT-layouts"))
+    implementation(project(":$RELEASE_ARTIFACT-listeners"))
+    implementation(project(":$RELEASE_ARTIFACT-coroutines"))
 }
 
 mavenPublishJvm()

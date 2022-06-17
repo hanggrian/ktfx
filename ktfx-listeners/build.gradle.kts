@@ -28,7 +28,7 @@ ktlint(
 )
 
 dependencies {
-    api(kotlin("stdlib"))
+    implementation(kotlin("stdlib"))
     testImplementation(project(":testing:listeners-coroutines"))
 }
 

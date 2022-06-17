@@ -1,13 +1,9 @@
 language: java
-install: skip
 dist: trusty
 jdk: oraclejdk11
 
-env:
-  - OSSRH_USERNAME=stub OSSRH_PASSWORD=stub
-
 script:
-  - ./gradlew build
+  - ./gradlew check --info
 
 before_install:
   - "export DISPLAY=:99.0"

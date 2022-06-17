@@ -8,10 +8,10 @@ plugins {
 }
 
 dependencies {
-    api(project(":thirdparty:jfoenix-commons"))
-    api(project(":thirdparty:jfoenix-layouts"))
-    api(project(":thirdparty:jfoenix-listeners"))
-    api(project(":thirdparty:jfoenix-coroutines"))
+    implementation(project(":thirdparty:jfoenix-commons"))
+    implementation(project(":thirdparty:jfoenix-layouts"))
+    implementation(project(":thirdparty:jfoenix-listeners"))
+    implementation(project(":thirdparty:jfoenix-coroutines"))
 }
 
 mavenPublishJvm("jfoenix")

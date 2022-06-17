@@ -15,6 +15,6 @@ sourceSets {
 }
 
 dependencies {
-    api(project(":testing:listeners-coroutines"))
-    api(jfoenix())
+    implementation(project(":testing:listeners-coroutines"))
+    implementation(jfoenix())
 }

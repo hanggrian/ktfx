@@ -27,8 +27,8 @@ ktlint(
 )
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-commons"))
-    api(jfoenix())
+    implementation(project(":$RELEASE_ARTIFACT-commons"))
+    implementation(jfoenix())
     testImplementation(project(":testing:commons"))
 }
 

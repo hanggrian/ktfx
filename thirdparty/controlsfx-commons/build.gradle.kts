@@ -27,8 +27,8 @@ ktlint(
 )
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-commons"))
-    api(controlsfx())
+    implementation(project(":$RELEASE_ARTIFACT-commons"))
+    implementation(controlsfx())
     testImplementation(project(":testing:commons"))
     testImplementation(project(":$RELEASE_ARTIFACT-layouts"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))

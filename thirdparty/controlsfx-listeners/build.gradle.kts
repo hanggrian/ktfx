@@ -28,8 +28,8 @@ ktlint(
 )
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-listeners"))
-    api(controlsfx())
+    implementation(project(":$RELEASE_ARTIFACT-listeners"))
+    implementation(controlsfx())
     testImplementation(project(":testing:listeners-coroutines-controlsfx"))
 }
 

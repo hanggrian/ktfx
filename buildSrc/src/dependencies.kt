@@ -17,7 +17,7 @@ val Plugins.`git-publish` get() = id("org.ajoberstar.git-publish")
 
 const val VERSION_COMMONS_LANG = "3.11"
 fun Dependencies.apache(module: String, version: String): String {
-    require('-' in module) { "Module must contain `-` (e.g.: commons-lang, commons-math)." }
+    require('-' in module) { "Module must contain `-` (e.g.: commons-lang, commons-math)" }
     return "org.apache.${module.split('-').first()}:$module:$version"
 }
 

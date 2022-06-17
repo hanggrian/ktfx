@@ -29,8 +29,8 @@ ktlint(
 )
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-layouts"))
-    api(jfoenix())
+    implementation(project(":$RELEASE_ARTIFACT-layouts"))
+    implementation(jfoenix())
     testImplementation(project(":testing:layouts"))
 }
 

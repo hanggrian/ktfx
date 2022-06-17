@@ -1,7 +1,7 @@
 buildscript {
     repositories {
-        mavenCentral()
         gradlePluginPortal()
+        mavenCentral()
     }
     dependencies {
         classpath(kotlin("gradle-plugin", VERSION_KOTLIN))

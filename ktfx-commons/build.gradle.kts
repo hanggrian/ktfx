@@ -27,7 +27,7 @@ ktlint(
 )
 
 dependencies {
-    api(kotlin("stdlib"))
+    implementation(kotlin("stdlib"))
     testImplementation(project(":testing:commons"))
     testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
 }

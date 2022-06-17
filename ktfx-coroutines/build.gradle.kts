@@ -28,8 +28,8 @@ ktlint(
 )
 
 dependencies {
-    api(kotlin("stdlib"))
-    api(kotlinx("coroutines-javafx", VERSION_COROUTINES))
+    implementation(kotlin("stdlib"))
+    implementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
     testImplementation(project(":testing:listeners-coroutines"))
 }
 

@@ -5,7 +5,7 @@ plugins {
 sourceSets {
     main {
         java.srcDir("src")
-        resources.srcDir("res")   
+        resources.srcDir("res")
     }
     test {
         java.srcDir("tests/src")

@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>KtfxManager</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>ktfx</span>            </a>    </div>
+    <div>8.0-SNAPSHOT
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ktfx-layouts::ktfx.layouts/KtfxManager///PointingToDeclaration//-1410414031">
+  <div class="breadcrumbs"><a href="../../index.html">ktfx-layouts</a><span class="delimiter">/</span><a href="../index.html">ktfx.layouts</a><span class="delimiter">/</span><span class="current">KtfxManager</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Ktfx</span><wbr><span><span>Manager</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">KtfxManager</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html">T</a><span class="token operator">&gt;</span></div><p class="paragraph">A manager contains a set of children.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Parameters">Parameters</button><button class="section-tab" data-togglable="Inheritors">Inheritors</button></div>
+    <div class="tabs-section-body">
+      <h4 class="">Parameters</h4>
+      <div data-togglable="Parameters">
+        <div class="platform-hinted WithExtraAttributes" data-platform-hinted="data-platform-hinted" data-togglable="Parameters"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div data-togglable="Parameters"><div class="table" data-togglable="Parameters"><div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span><span>T</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">type of the child.</p></div></div></div></div></div></div></div></div></div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="1872983246%2FFunctions%2F-1410414031" anchor-label="addChild" id="1872983246%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="add-child.html"><span>add</span><wbr><span><span>Child</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1872983246%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="add-child.html">C</a><span class="token operator"> : </span><a href="index.html">T</a><span class="token operator">&gt; </span><a href="add-child.html"><span class="token function">addChild</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">child<span class="token operator">: </span><a href="add-child.html">C</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="add-child.html">C</a></div><div class="brief "><p class="paragraph">Allows child to be added dynamically with Kotlin DSL in the context of this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Inheritors</h2>
+      <div class="table" data-togglable="Inheritors"><a data-name="-1173069105%2FInheritors%2F-1410414031" anchor-label="MenuItemManager" id="-1173069105%2FInheritors%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-menu-item-manager/index.html">MenuItemManager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1173069105%2FInheritors%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="-58397796%2FInheritors%2F-1410414031" anchor-label="MenuManager" id="-58397796%2FInheritors%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-menu-manager/index.html">MenuManager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-58397796%2FInheritors%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="880949311%2FInheritors%2F-1410414031" anchor-label="NodeManager" id="880949311%2FInheritors%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-node-manager/index.html">NodeManager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="880949311%2FInheritors%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="913519938%2FInheritors%2F-1410414031" anchor-label="PathElementManager" id="913519938%2FInheritors%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-path-element-manager/index.html">PathElementManager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="913519938%2FInheritors%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="515507392%2FInheritors%2F-1410414031" anchor-label="TabManager" id="515507392%2FInheritors%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-tab-manager/index.html">TabManager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="515507392%2FInheritors%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="-2023326191%2FInheritors%2F-1410414031" anchor-label="TitledPaneManager" id="-2023326191%2FInheritors%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-titled-pane-manager/index.html">TitledPaneManager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2023326191%2FInheritors%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+<a data-name="-452071197%2FInheritors%2F-1410414031" anchor-label="ToggleButtonManager" id="-452071197%2FInheritors%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../-toggle-button-manager/index.html">ToggleButtonManager</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-452071197%2FInheritors%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

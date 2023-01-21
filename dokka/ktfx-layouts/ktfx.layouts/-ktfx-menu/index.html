@@ -1,0 +1,1261 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>KtfxMenu</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>ktfx</span>            </a>    </div>
+    <div>8.0-SNAPSHOT
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="ktfx-layouts::ktfx.layouts/KtfxMenu///PointingToDeclaration//-1410414031">
+  <div class="breadcrumbs"><a href="../../index.html">ktfx-layouts</a><span class="delimiter">/</span><a href="../index.html">ktfx.layouts</a><span class="delimiter">/</span><span class="current">KtfxMenu</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Ktfx</span><wbr><span><span>Menu</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">KtfxMenu</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span>, <a href="../-menu-item-manager/index.html">MenuItemManager</a></div><p class="paragraph"><span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span> with dynamic-layout dsl support. Invoking dsl will add its children.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button><button class="section-tab" data-togglable="Extensions">Extensions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="tabbedcontent">Constructors</h2>
+      <div class="table" data-togglable="Constructors"><a data-name="1475425441%2FConstructors%2F-1410414031" anchor-label="KtfxMenu" id="1475425441%2FConstructors%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue TabbedContent">
+            <div class=""><span class="inline-flex">
+                <div><a href="-ktfx-menu.html"><span>Ktfx</span><wbr><span><span>Menu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1475425441%2FConstructors%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-ktfx-menu.html"><span class="token function">KtfxMenu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="865153164%2FFunctions%2F-1410414031" anchor-label="acceleratorProperty" id="865153164%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#865153164%2FFunctions%2F-1410414031"><span>accelerator</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="865153164%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#865153164%2FFunctions%2F-1410414031"><span class="token function">acceleratorProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ObjectProperty///PointingToDeclaration/">ObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.input/KeyCombination///PointingToDeclaration/">KeyCombination</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="563402009%2FFunctions%2F-1410414031" anchor-label="addChild" id="563402009%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="add-child.html"><span>add</span><wbr><span><span>Child</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="563402009%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">override </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="add-child.html">C</a><span class="token operator"> : </span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span><span class="token operator">&gt; </span><a href="add-child.html"><span class="token function">addChild</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">child<span class="token operator">: </span><a href="add-child.html">C</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="add-child.html">C</a></div><div class="brief "><p class="paragraph">Allows child to be added dynamically with Kotlin DSL in the context of this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-899131351%2FFunctions%2F-1410414031" anchor-label="addEventHandler" id="-899131351%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-899131351%2FFunctions%2F-1410414031"><span>add</span><wbr><span>Event</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-899131351%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html#-899131351%2FFunctions%2F-1410414031">E</a><span class="token operator"> : </span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt; </span><a href="index.html#-899131351%2FFunctions%2F-1410414031"><span class="token function">addEventHandler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventType///PointingToDeclaration/">EventType</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html#-899131351%2FFunctions%2F-1410414031">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html#-899131351%2FFunctions%2F-1410414031">E</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1654460707%2FFunctions%2F-1410414031" anchor-label="buildEventDispatchChain" id="1654460707%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1654460707%2FFunctions%2F-1410414031"><span>build</span><wbr><span>Event</span><wbr><span>Dispatch</span><wbr><span><span>Chain</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1654460707%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#1654460707%2FFunctions%2F-1410414031"><span class="token function">buildEventDispatchChain</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventDispatchChain///PointingToDeclaration/">EventDispatchChain</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.event/EventDispatchChain///PointingToDeclaration/">EventDispatchChain</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1649091375%2FFunctions%2F-1410414031" anchor-label="disableProperty" id="1649091375%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1649091375%2FFunctions%2F-1410414031"><span>disable</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1649091375%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1649091375%2FFunctions%2F-1410414031"><span class="token function">disableProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/BooleanProperty///PointingToDeclaration/">BooleanProperty</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1454830584%2FFunctions%2F-1410414031" anchor-label="fire" id="1454830584%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1454830584%2FFunctions%2F-1410414031"><span><span>fire</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1454830584%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1454830584%2FFunctions%2F-1410414031"><span class="token function">fire</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1776493721%2FFunctions%2F-1410414031" anchor-label="getAccelerator" id="1776493721%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1776493721%2FFunctions%2F-1410414031"><span>get</span><wbr><span><span>Accelerator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1776493721%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1776493721%2FFunctions%2F-1410414031"><span class="token function">getAccelerator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.input/KeyCombination///PointingToDeclaration/">KeyCombination</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1407112590%2FFunctions%2F-1410414031" anchor-label="getCssMetaData" id="-1407112590%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1407112590%2FFunctions%2F-1410414031"><span>get</span><wbr><span>Css</span><wbr><span>Meta</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1407112590%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1407112590%2FFunctions%2F-1410414031"><span class="token function">getCssMetaData</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.css/CssMetaData///PointingToDeclaration/">CssMetaData</span><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="javafx.css/Styleable///PointingToDeclaration/">Styleable</span><span class="token punctuation">, </span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1101821500%2FFunctions%2F-1410414031" anchor-label="getGraphic" id="1101821500%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1101821500%2FFunctions%2F-1410414031"><span>get</span><wbr><span><span>Graphic</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1101821500%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1101821500%2FFunctions%2F-1410414031"><span class="token function">getGraphic</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1174919621%2FFunctions%2F-1410414031" anchor-label="getId" id="-1174919621%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1174919621%2FFunctions%2F-1410414031"><span>get</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1174919621%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1174919621%2FFunctions%2F-1410414031"><span class="token function">getId</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="262764769%2FFunctions%2F-1410414031" anchor-label="getOnAction" id="262764769%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#262764769%2FFunctions%2F-1410414031"><span>get</span><wbr><span>On</span><wbr><span><span>Action</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="262764769%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#262764769%2FFunctions%2F-1410414031"><span class="token function">getOnAction</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/ActionEvent///PointingToDeclaration/">ActionEvent</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-876076864%2FFunctions%2F-1410414031" anchor-label="getOnHidden" id="-876076864%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-876076864%2FFunctions%2F-1410414031"><span>get</span><wbr><span>On</span><wbr><span><span>Hidden</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-876076864%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-876076864%2FFunctions%2F-1410414031"><span class="token function">getOnHidden</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1992660619%2FFunctions%2F-1410414031" anchor-label="getOnHiding" id="1992660619%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1992660619%2FFunctions%2F-1410414031"><span>get</span><wbr><span>On</span><wbr><span><span>Hiding</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1992660619%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1992660619%2FFunctions%2F-1410414031"><span class="token function">getOnHiding</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="20263967%2FFunctions%2F-1410414031" anchor-label="getOnMenuValidation" id="20263967%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#20263967%2FFunctions%2F-1410414031"><span>get</span><wbr><span>On</span><wbr><span>Menu</span><wbr><span><span>Validation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="20263967%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#20263967%2FFunctions%2F-1410414031"><span class="token function">getOnMenuValidation</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1792106037%2FFunctions%2F-1410414031" anchor-label="getOnShowing" id="-1792106037%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1792106037%2FFunctions%2F-1410414031"><span>get</span><wbr><span>On</span><wbr><span><span>Showing</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1792106037%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1792106037%2FFunctions%2F-1410414031"><span class="token function">getOnShowing</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-550511937%2FFunctions%2F-1410414031" anchor-label="getOnShown" id="-550511937%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-550511937%2FFunctions%2F-1410414031"><span>get</span><wbr><span>On</span><wbr><span><span>Shown</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-550511937%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-550511937%2FFunctions%2F-1410414031"><span class="token function">getOnShown</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1687767277%2FFunctions%2F-1410414031" anchor-label="getParentMenu" id="1687767277%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1687767277%2FFunctions%2F-1410414031"><span>get</span><wbr><span>Parent</span><wbr><span><span>Menu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1687767277%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1687767277%2FFunctions%2F-1410414031"><span class="token function">getParentMenu</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="119931074%2FFunctions%2F-1410414031" anchor-label="getParentPopup" id="119931074%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#119931074%2FFunctions%2F-1410414031"><span>get</span><wbr><span>Parent</span><wbr><span><span>Popup</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="119931074%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#119931074%2FFunctions%2F-1410414031"><span class="token function">getParentPopup</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/ContextMenu///PointingToDeclaration/">ContextMenu</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="294364648%2FFunctions%2F-1410414031" anchor-label="getPseudoClassStates" id="294364648%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#294364648%2FFunctions%2F-1410414031"><span>get</span><wbr><span>Pseudo</span><wbr><span>Class</span><wbr><span><span>States</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="294364648%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#294364648%2FFunctions%2F-1410414031"><span class="token function">getPseudoClassStates</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.collections/ObservableSet///PointingToDeclaration/">ObservableSet</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.css/PseudoClass///PointingToDeclaration/">PseudoClass</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="679705939%2FFunctions%2F-1410414031" anchor-label="getStyle" id="679705939%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#679705939%2FFunctions%2F-1410414031"><span>get</span><wbr><span><span>Style</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="679705939%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#679705939%2FFunctions%2F-1410414031"><span class="token function">getStyle</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="916492375%2FFunctions%2F-1410414031" anchor-label="getStyleableNode" id="916492375%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#916492375%2FFunctions%2F-1410414031"><span>get</span><wbr><span>Styleable</span><wbr><span><span>Node</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="916492375%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#916492375%2FFunctions%2F-1410414031"><span class="token function">getStyleableNode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="36002735%2FFunctions%2F-1410414031" anchor-label="getStyleableParent" id="36002735%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#36002735%2FFunctions%2F-1410414031"><span>get</span><wbr><span>Styleable</span><wbr><span><span>Parent</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="36002735%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#36002735%2FFunctions%2F-1410414031"><span class="token function">getStyleableParent</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.css/Styleable///PointingToDeclaration/">Styleable</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1617241047%2FFunctions%2F-1410414031" anchor-label="getText" id="-1617241047%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1617241047%2FFunctions%2F-1410414031"><span>get</span><wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1617241047%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1617241047%2FFunctions%2F-1410414031"><span class="token function">getText</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1592324253%2FFunctions%2F-1410414031" anchor-label="getTypeSelector" id="1592324253%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1592324253%2FFunctions%2F-1410414031"><span>get</span><wbr><span>Type</span><wbr><span><span>Selector</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1592324253%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#1592324253%2FFunctions%2F-1410414031"><span class="token function">getTypeSelector</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-765095121%2FFunctions%2F-1410414031" anchor-label="graphicProperty" id="-765095121%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-765095121%2FFunctions%2F-1410414031"><span>graphic</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-765095121%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-765095121%2FFunctions%2F-1410414031"><span class="token function">graphicProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ObjectProperty///PointingToDeclaration/">ObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="461704441%2FFunctions%2F-1410414031" anchor-label="hide" id="461704441%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#461704441%2FFunctions%2F-1410414031"><span><span>hide</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="461704441%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#461704441%2FFunctions%2F-1410414031"><span class="token function">hide</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="206210718%2FFunctions%2F-1410414031" anchor-label="idProperty" id="206210718%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#206210718%2FFunctions%2F-1410414031"><span>id</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="206210718%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#206210718%2FFunctions%2F-1410414031"><span class="token function">idProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/StringProperty///PointingToDeclaration/">StringProperty</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2133916203%2FFunctions%2F-1410414031" anchor-label="invoke" id="2133916203%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="invoke.html"><span><span>invoke</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2133916203%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="invoke.html"><span class="token function">invoke</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span></div><div class="brief "><p class="paragraph">Call <a href="../menu-item.html">MenuItemManager.menuItem</a> by string invocation.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="323545102%2FFunctions%2F-1410414031" anchor-label="isDisable" id="323545102%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#323545102%2FFunctions%2F-1410414031"><span>is</span><wbr><span><span>Disable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="323545102%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#323545102%2FFunctions%2F-1410414031"><span class="token function">isDisable</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1883414232%2FFunctions%2F-1410414031" anchor-label="isMnemonicParsing" id="-1883414232%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1883414232%2FFunctions%2F-1410414031"><span>is</span><wbr><span>Mnemonic</span><wbr><span><span>Parsing</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1883414232%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1883414232%2FFunctions%2F-1410414031"><span class="token function">isMnemonicParsing</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1050485604%2FFunctions%2F-1410414031" anchor-label="isShowing" id="1050485604%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1050485604%2FFunctions%2F-1410414031"><span>is</span><wbr><span><span>Showing</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1050485604%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1050485604%2FFunctions%2F-1410414031"><span class="token function">isShowing</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-248739388%2FFunctions%2F-1410414031" anchor-label="isVisible" id="-248739388%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-248739388%2FFunctions%2F-1410414031"><span>is</span><wbr><span><span>Visible</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-248739388%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-248739388%2FFunctions%2F-1410414031"><span class="token function">isVisible</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="386206793%2FFunctions%2F-1410414031" anchor-label="mnemonicParsingProperty" id="386206793%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#386206793%2FFunctions%2F-1410414031"><span>mnemonic</span><wbr><span>Parsing</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="386206793%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#386206793%2FFunctions%2F-1410414031"><span class="token function">mnemonicParsingProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/BooleanProperty///PointingToDeclaration/">BooleanProperty</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2094983492%2FFunctions%2F-1410414031" anchor-label="onActionProperty" id="2094983492%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#2094983492%2FFunctions%2F-1410414031"><span>on</span><wbr><span>Action</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2094983492%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#2094983492%2FFunctions%2F-1410414031"><span class="token function">onActionProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ObjectProperty///PointingToDeclaration/">ObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/ActionEvent///PointingToDeclaration/">ActionEvent</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1583699805%2FFunctions%2F-1410414031" anchor-label="onHiddenProperty" id="1583699805%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1583699805%2FFunctions%2F-1410414031"><span>on</span><wbr><span>Hidden</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1583699805%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1583699805%2FFunctions%2F-1410414031"><span class="token function">onHiddenProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ObjectProperty///PointingToDeclaration/">ObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1788751320%2FFunctions%2F-1410414031" anchor-label="onHidingProperty" id="-1788751320%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1788751320%2FFunctions%2F-1410414031"><span>on</span><wbr><span>Hiding</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1788751320%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1788751320%2FFunctions%2F-1410414031"><span class="token function">onHidingProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ObjectProperty///PointingToDeclaration/">ObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-61190526%2FFunctions%2F-1410414031" anchor-label="onMenuValidationProperty" id="-61190526%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-61190526%2FFunctions%2F-1410414031"><span>on</span><wbr><span>Menu</span><wbr><span>Validation</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-61190526%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-61190526%2FFunctions%2F-1410414031"><span class="token function">onMenuValidationProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ObjectProperty///PointingToDeclaration/">ObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2046844868%2FFunctions%2F-1410414031" anchor-label="onShowingProperty" id="2046844868%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#2046844868%2FFunctions%2F-1410414031"><span>on</span><wbr><span>Showing</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2046844868%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#2046844868%2FFunctions%2F-1410414031"><span class="token function">onShowingProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ObjectProperty///PointingToDeclaration/">ObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1189928904%2FFunctions%2F-1410414031" anchor-label="onShownProperty" id="-1189928904%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1189928904%2FFunctions%2F-1410414031"><span>on</span><wbr><span>Shown</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1189928904%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1189928904%2FFunctions%2F-1410414031"><span class="token function">onShownProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ObjectProperty///PointingToDeclaration/">ObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-84107440%2FFunctions%2F-1410414031" anchor-label="parentMenuProperty" id="-84107440%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-84107440%2FFunctions%2F-1410414031"><span>parent</span><wbr><span>Menu</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-84107440%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-84107440%2FFunctions%2F-1410414031"><span class="token function">parentMenuProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ReadOnlyObjectProperty///PointingToDeclaration/">ReadOnlyObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-47328331%2FFunctions%2F-1410414031" anchor-label="parentPopupProperty" id="-47328331%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-47328331%2FFunctions%2F-1410414031"><span>parent</span><wbr><span>Popup</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-47328331%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-47328331%2FFunctions%2F-1410414031"><span class="token function">parentPopupProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ReadOnlyObjectProperty///PointingToDeclaration/">ReadOnlyObjectProperty</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/ContextMenu///PointingToDeclaration/">ContextMenu</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1871030498%2FFunctions%2F-1410414031" anchor-label="removeEventHandler" id="1871030498%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1871030498%2FFunctions%2F-1410414031"><span>remove</span><wbr><span>Event</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1871030498%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html#1871030498%2FFunctions%2F-1410414031">E</a><span class="token operator"> : </span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt; </span><a href="index.html#1871030498%2FFunctions%2F-1410414031"><span class="token function">removeEventHandler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventType///PointingToDeclaration/">EventType</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html#1871030498%2FFunctions%2F-1410414031">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="index.html#1871030498%2FFunctions%2F-1410414031">E</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1560124269%2FFunctions%2F-1410414031" anchor-label="setAccelerator" id="1560124269%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1560124269%2FFunctions%2F-1410414031"><span>set</span><wbr><span><span>Accelerator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1560124269%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1560124269%2FFunctions%2F-1410414031"><span class="token function">setAccelerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.scene.input/KeyCombination///PointingToDeclaration/">KeyCombination</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2031383411%2FFunctions%2F-1410414031" anchor-label="setDisable" id="-2031383411%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-2031383411%2FFunctions%2F-1410414031"><span>set</span><wbr><span><span>Disable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2031383411%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-2031383411%2FFunctions%2F-1410414031"><span class="token function">setDisable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2047557124%2FFunctions%2F-1410414031" anchor-label="setGraphic" id="-2047557124%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-2047557124%2FFunctions%2F-1410414031"><span>set</span><wbr><span><span>Graphic</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2047557124%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-2047557124%2FFunctions%2F-1410414031"><span class="token function">setGraphic</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1992272971%2FFunctions%2F-1410414031" anchor-label="setId" id="-1992272971%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1992272971%2FFunctions%2F-1410414031"><span>set</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1992272971%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1992272971%2FFunctions%2F-1410414031"><span class="token function">setId</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-430131673%2FFunctions%2F-1410414031" anchor-label="setMnemonicParsing" id="-430131673%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-430131673%2FFunctions%2F-1410414031"><span>set</span><wbr><span>Mnemonic</span><wbr><span><span>Parsing</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-430131673%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-430131673%2FFunctions%2F-1410414031"><span class="token function">setMnemonicParsing</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2098360067%2FFunctions%2F-1410414031" anchor-label="setOnAction" id="2098360067%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#2098360067%2FFunctions%2F-1410414031"><span>set</span><wbr><span>On</span><wbr><span><span>Action</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2098360067%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#2098360067%2FFunctions%2F-1410414031"><span class="token function">setOnAction</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/ActionEvent///PointingToDeclaration/">ActionEvent</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-921424806%2FFunctions%2F-1410414031" anchor-label="setOnHidden" id="-921424806%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-921424806%2FFunctions%2F-1410414031"><span>set</span><wbr><span>On</span><wbr><span><span>Hidden</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-921424806%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-921424806%2FFunctions%2F-1410414031"><span class="token function">setOnHidden</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="180233327%2FFunctions%2F-1410414031" anchor-label="setOnHiding" id="180233327%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#180233327%2FFunctions%2F-1410414031"><span>set</span><wbr><span>On</span><wbr><span><span>Hiding</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="180233327%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#180233327%2FFunctions%2F-1410414031"><span class="token function">setOnHiding</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="441760603%2FFunctions%2F-1410414031" anchor-label="setOnMenuValidation" id="441760603%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#441760603%2FFunctions%2F-1410414031"><span>set</span><wbr><span>On</span><wbr><span>Menu</span><wbr><span><span>Validation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="441760603%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#441760603%2FFunctions%2F-1410414031"><span class="token function">setOnMenuValidation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-292597097%2FFunctions%2F-1410414031" anchor-label="setOnShowing" id="-292597097%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-292597097%2FFunctions%2F-1410414031"><span>set</span><wbr><span>On</span><wbr><span><span>Showing</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-292597097%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-292597097%2FFunctions%2F-1410414031"><span class="token function">setOnShowing</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1774984413%2FFunctions%2F-1410414031" anchor-label="setOnShown" id="-1774984413%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1774984413%2FFunctions%2F-1410414031"><span>set</span><wbr><span>On</span><wbr><span><span>Shown</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1774984413%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1774984413%2FFunctions%2F-1410414031"><span class="token function">setOnShown</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><span data-unresolved-link="javafx.event/EventHandler///PointingToDeclaration/">EventHandler</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.event/Event///PointingToDeclaration/">Event</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-747719163%2FFunctions%2F-1410414031" anchor-label="setStyle" id="-747719163%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-747719163%2FFunctions%2F-1410414031"><span>set</span><wbr><span><span>Style</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-747719163%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-747719163%2FFunctions%2F-1410414031"><span class="token function">setStyle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1491788409%2FFunctions%2F-1410414031" anchor-label="setText" id="-1491788409%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1491788409%2FFunctions%2F-1410414031"><span>set</span><wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1491788409%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1491788409%2FFunctions%2F-1410414031"><span class="token function">setText</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1151404093%2FFunctions%2F-1410414031" anchor-label="setVisible" id="-1151404093%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1151404093%2FFunctions%2F-1410414031"><span>set</span><wbr><span><span>Visible</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1151404093%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1151404093%2FFunctions%2F-1410414031"><span class="token function">setVisible</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p0<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1998166114%2FFunctions%2F-1410414031" anchor-label="show" id="-1998166114%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1998166114%2FFunctions%2F-1410414031"><span><span>show</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1998166114%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1998166114%2FFunctions%2F-1410414031"><span class="token function">show</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="678113605%2FFunctions%2F-1410414031" anchor-label="showingProperty" id="678113605%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#678113605%2FFunctions%2F-1410414031"><span>showing</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="678113605%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#678113605%2FFunctions%2F-1410414031"><span class="token function">showingProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/ReadOnlyBooleanProperty///PointingToDeclaration/">ReadOnlyBooleanProperty</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1411843398%2FFunctions%2F-1410414031" anchor-label="styleProperty" id="1411843398%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1411843398%2FFunctions%2F-1410414031"><span>style</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1411843398%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#1411843398%2FFunctions%2F-1410414031"><span class="token function">styleProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/StringProperty///PointingToDeclaration/">StringProperty</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1916952436%2FFunctions%2F-1410414031" anchor-label="textProperty" id="-1916952436%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-1916952436%2FFunctions%2F-1410414031"><span>text</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1916952436%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#-1916952436%2FFunctions%2F-1410414031"><span class="token function">textProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/StringProperty///PointingToDeclaration/">StringProperty</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1497325570%2FFunctions%2F-1410414031" anchor-label="toString" id="1497325570%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#1497325570%2FFunctions%2F-1410414031"><span>to</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1497325570%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#1497325570%2FFunctions%2F-1410414031"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="530886373%2FFunctions%2F-1410414031" anchor-label="visibleProperty" id="530886373%2FFunctions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#530886373%2FFunctions%2F-1410414031"><span>visible</span><wbr><span><span>Property</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="530886373%2FFunctions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="index.html#530886373%2FFunctions%2F-1410414031"><span class="token function">visibleProperty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.beans.property/BooleanProperty///PointingToDeclaration/">BooleanProperty</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="">Properties</h2>
+      <div class="table" data-togglable="Properties"><a data-name="887931775%2FProperties%2F-1410414031" anchor-label="items" id="887931775%2FProperties%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#887931775%2FProperties%2F-1410414031"><span><span>items</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="887931775%2FProperties%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><a data-name="887931775%2FProperties%2F-1410414031" anchor-label="items" id="887931775%2FProperties%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html#887931775%2FProperties%2F-1410414031">items</a><span class="token operator">: </span><span data-unresolved-link="javafx.collections/ObservableList///PointingToDeclaration/">ObservableList</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="510819035%2FProperties%2F-1410414031" anchor-label="properties" id="510819035%2FProperties%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#510819035%2FProperties%2F-1410414031"><span><span>properties</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="510819035%2FProperties%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><a data-name="510819035%2FProperties%2F-1410414031" anchor-label="properties" id="510819035%2FProperties%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html#510819035%2FProperties%2F-1410414031">properties</a><span class="token operator">: </span><span data-unresolved-link="javafx.collections/ObservableMap///PointingToDeclaration/">ObservableMap</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-929258425%2FProperties%2F-1410414031" anchor-label="styleClass" id="-929258425%2FProperties%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-929258425%2FProperties%2F-1410414031"><span>style</span><wbr><span><span>Class</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-929258425%2FProperties%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><a data-name="-929258425%2FProperties%2F-1410414031" anchor-label="styleClass" id="-929258425%2FProperties%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="index.html#-929258425%2FProperties%2F-1410414031">styleClass</a><span class="token operator">: </span><span data-unresolved-link="javafx.collections/ObservableList///PointingToDeclaration/">ObservableList</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-926416775%2FProperties%2F-1410414031" anchor-label="userData" id="-926416775%2FProperties%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="index.html#-926416775%2FProperties%2F-1410414031"><span>user</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-926416775%2FProperties%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><a data-name="-926416775%2FProperties%2F-1410414031" anchor-label="userData" id="-926416775%2FProperties%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="index.html#-926416775%2FProperties%2F-1410414031">userData</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h2 class="tabbedcontent">Extensions</h2>
+      <div class="table" data-togglable="Extensions"><a data-name="1200791343%2FExtensions%2F-1410414031" anchor-label="checkMenuItem" id="1200791343%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../check-menu-item.html"><span>check</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1200791343%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../check-menu-item.html"><span class="token function">checkMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../check-menu-item.html"><span class="token function">checkMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1072036100%2FExtensions%2F-1410414031" anchor-label="customMenuItem" id="-1072036100%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../custom-menu-item.html"><span>custom</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1072036100%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../custom-menu-item.html"><span class="token function">customMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">content<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">hideOnClick<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../custom-menu-item.html"><span class="token function">customMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">content<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">hideOnClick<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1652435394%2FExtensions%2F-1410414031" anchor-label="menu" id="-1652435394%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../menu.html"><span><span>menu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1652435394%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../menu.html"><span class="token function">menu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">""</span><span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../menu.html"><span class="token function">menu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">""</span><span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><a href="index.html">KtfxMenu</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1243058941%2FExtensions%2F-1410414031" anchor-label="menuItem" id="1243058941%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../menu-item.html"><span>menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1243058941%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../menu-item.html"><span class="token function">menuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../menu-item.html"><span class="token function">menuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1389673022%2FExtensions%2F-1410414031" anchor-label="radioMenuItem" id="-1389673022%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../radio-menu-item.html"><span>radio</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1389673022%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../radio-menu-item.html"><span class="token function">radioMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../radio-menu-item.html"><span class="token function">radioMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2128567251%2FExtensions%2F-1410414031" anchor-label="separatorMenuItem" id="2128567251%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../separator-menu-item.html"><span>separator</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2128567251%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../separator-menu-item.html"><span class="token function">separatorMenuItem</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../separator-menu-item.html"><span class="token function">separatorMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span></div><div class="brief "><p class="paragraph">Add a <span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="718542935%2FExtensions%2F-1410414031" anchor-label="styledCheckMenuItem" id="718542935%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../styled-check-menu-item.html"><span>styled</span><wbr><span>Check</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="718542935%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-check-menu-item.html"><span class="token function">styledCheckMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-check-menu-item.html"><span class="token function">styledCheckMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/CheckMenuItem///PointingToDeclaration/">CheckMenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1339675328%2FExtensions%2F-1410414031" anchor-label="styledCustomMenuItem" id="-1339675328%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../styled-custom-menu-item.html"><span>styled</span><wbr><span>Custom</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1339675328%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-custom-menu-item.html"><span class="token function">styledCustomMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">content<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">hideOnClick<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-custom-menu-item.html"><span class="token function">styledCustomMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">content<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">hideOnClick<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">true</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/CustomMenuItem///PointingToDeclaration/">CustomMenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-965640112%2FExtensions%2F-1410414031" anchor-label="styledMenu" id="-965640112%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../styled-menu.html"><span>styled</span><wbr><span><span>Menu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-965640112%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-menu.html"><span class="token function">styledMenu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">""</span><span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-menu.html"><span class="token function">styledMenu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span><span class="token string">""</span><span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><a href="index.html">KtfxMenu</a><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/Menu///PointingToDeclaration/">Menu</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="811836177%2FExtensions%2F-1410414031" anchor-label="styledMenuItem" id="811836177%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../styled-menu-item.html"><span>styled</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="811836177%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-menu-item.html"><span class="token function">styledMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-menu-item.html"><span class="token function">styledMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/MenuItem///PointingToDeclaration/">MenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1536728726%2FExtensions%2F-1410414031" anchor-label="styledRadioMenuItem" id="-1536728726%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../styled-radio-menu-item.html"><span>styled</span><wbr><span>Radio</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1536728726%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-radio-menu-item.html"><span class="token function">styledRadioMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-radio-menu-item.html"><span class="token function">styledRadioMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">text<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">graphic<span class="token operator">: </span><span data-unresolved-link="javafx.scene/Node///PointingToDeclaration/">Node</span><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/RadioMenuItem///PointingToDeclaration/">RadioMenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-674975212%2FExtensions%2F-1410414031" anchor-label="styledSeparatorMenuItem" id="-674975212%2FExtensions%2F-1410414031" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main"></a>
+        <div class="table-row" data-filterable-current=":ktfx-layouts:dokkaHtmlPartial/main" data-filterable-set=":ktfx-layouts:dokkaHtmlPartial/main">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="../styled-separator-menu-item.html"><span>styled</span><wbr><span>Separator</span><wbr><span>Menu</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-674975212%2FExtensions%2F-1410414031"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-layouts:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-separator-menu-item.html"><span class="token function">styledSeparatorMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span> to this manager.</p></div><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="../-menu-item-manager/index.html">MenuItemManager</a><span class="token punctuation">.</span><a href="../styled-separator-menu-item.html"><span class="token function">styledSeparatorMenuItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">vararg </span>styleClass<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span class="token keyword"></span><span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span><span class="token punctuation">.</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span></div><div class="brief "><p class="paragraph">Add a styled <span data-unresolved-link="javafx.scene.control/SeparatorMenuItem///PointingToDeclaration/">SeparatorMenuItem</span> with configuration block to this manager.</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

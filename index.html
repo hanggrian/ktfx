@@ -1,49 +1,256 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>KtFX</title>
+<html lang="en-us">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>ktfx</title>
+        <meta content="width=device-width" name="viewport">
+        <meta content="chrome=1" http-equiv="X-UA-Compatible">
+        <link href="styles/main.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,1,0" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+        <script src="scripts/theme.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-groovy.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js"></script>
+        <!--Primary meta tags-->
+        <meta content="ktfx" name="title">
+        <meta content="Kotlin extensions for JavaFX app development" name="description">
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>ktfx</h1>
+                <p>Kotlin extensions for JavaFX app development</p>
+                <p class="view">
+                    <a href="https://github.com/hendraanggrian/ktfx/">View the Project on GitHub <small>hendraanggrian/ktfx</small></a>
+                </p>
+                <ul>
+                    <li>
+                        <a href="dokka">View<strong>Documentation</strong></a>
+                    </li>
+                </ul>
+            </header>
+            <section>
+                <p>
+                    <a href="https://travis-ci.com/github/hendraanggrian/ktfx/"><img alt="Travis CI" src="https://img.shields.io/travis/com/hendraanggrian/ktfx"></a>
+<a href="https://codecov.io/gh/hendraanggrian/ktfx/"><img alt="Codecov" src="https://img.shields.io/codecov/c/github/hendraanggrian/ktfx"></a>
+<a href="https://search.maven.org/artifact/com.hendraanggrian.ktfx/ktfx/"><img alt="Maven Central" src="https://img.shields.io/maven-central/v/com.hendraanggrian.ktfx/ktfx"></a>
+<a href="https://s01.oss.sonatype.org/content/repositories/snapshots/com/hendraanggrian/ktfx/ktfx/"><img alt="Nexus Snapshot" src="https://img.shields.io/nexus/s/com.hendraanggrian.ktfx/ktfx?server=https%3A%2F%2Fs01.oss.sonatype.org"></a>
+<a href="https://openjdk.java.net/projects/jdk8/"><img alt="OpenJDK" src="https://img.shields.io/badge/jdk-1.8%2B-informational"></a>
+                </p>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>KtFX</h1>
-        <p>Kotlin extensions for JavaFX app development</p>
-        <p class="view"><a href="http://github.com/hendraanggrian/ktfx">View the Project on GitHub <small>hendraanggrian/ktfx</small></a></p>
-        <ul>
-          <li><a href="https://github.com/hendraanggrian/ktfx/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/hendraanggrian/ktfx/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="http://github.com/hendraanggrian/ktfx/releases">View <strong>Releases</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>Documentation</h1>
-        <h2><a href="ktfx-commons/index.html">ktfx-commons</a></h2>
-        <h2><a href="ktfx-layouts/index.html">ktfx-layouts</a></h2>
-        <h2><a href="ktfx-listeners/index.html">ktfx-listeners</a></h2>
-        <h2><a href="ktfx-coroutines/index.html">ktfx-coroutines</a></h2>
-        <h2><a href="controlsfx-commons/index.html">controlsfx-commons</a></h2>
-        <h2><a href="controlsfx-layouts/index.html">controlsfx-layouts</a></h2>
-        <h2><a href="controlsfx-listeners/index.html">controlsfx-listeners</a></h2>
-        <h2><a href="controlsfx-coroutines/index.html">controlsfx-coroutines</a></h2>
-        <h2><a href="jfoenix-commons/index.html">jfoenix-commons</a></h2>
-        <h2><a href="jfoenix-layouts/index.html">jfoenix-layouts</a></h2>
-        <h2><a href="jfoenix-listeners/index.html">jfoenix-listeners</a></h2>
-        <h2><a href="jfoenix-coroutines/index.html">jfoenix-coroutines</a></h2>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="http://github.com/hendraanggrian">Hendra Anggrian</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-  </body>
+                <h1>KtFX</h1>
+
+                <p>
+                    Written in spirit of <a href="https://github.com/Kotlin/anko/">anko</a>, it aims to make
+JavaFX app development less painful with the help of Kotlin technologies.
+                </p>
+
+                <ul>
+
+                    <li>Full of helpers for common JavaFX operations.</li>
+
+                    <li>Write dynamic layout with Kotlin DSL.</li>
+
+                    <li>Use coroutines directly from JavaFX API.</li>
+
+                </ul>
+
+                <h2>
+                    <a href="https://github.com/hendraanggrian/ktfx/wiki/Download/">Download</a>
+                </h2>
+
+                <pre><code class="language-groovy">repositories {
+    mavenCentral()
+}
+dependencies {
+    // all the main artifacts combined
+    compile "com.hendraanggrian.ktfx:ktfx:$version"
+
+    // or download separately
+    compile "com.hendraanggrian.ktfx:ktfx-commons:$version"
+    compile "com.hendraanggrian.ktfx:ktfx-layouts:$version"
+    compile "com.hendraanggrian.ktfx:ktfx-listeners:$version"
+    compile "com.hendraanggrian.ktfx:ktfx-coroutines:$version"
+
+    // third-party artifacts
+    compile "com.hendraanggrian.ktfx:ktfx-controlsfx:$version"
+    compile "com.hendraanggrian.ktfx:ktfx-jfoenix:$version"
+}
+</code></pre>
+
+                <p>
+                    Snapshots of the development version are available in <a href="https://s01.oss.sonatype.org/content/repositories/snapshots/">Sonatype's snapshots repository</a>.
+                </p>
+
+                <h2>
+                    <a href="https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Commons-%E2%80%93-Threads/">Ktfx Commons</a>
+                </h2>
+
+                <p>Full of extensions for JavaFX, packaged accordingly. The main goal of core
+library is not to add any new feature to the existing JavaFX APIs. Below are
+preview of some packages.</p>
+
+                <h3>Collections</h3>
+
+                <pre><code class="language-kotlin">// create unmodifiable observable collection
+val emptyUnmodifiableList = emptyObservableList()
+val unmodifiableList = observableListOf(1)
+
+// create modifiable observable collection
+val emptyModifiableList = mutableObservableListOf()
+val modifiableList = mutableObservableListOf(1, 2, 3)
+
+// convert existing
+val list = myList.toObservableList() // or toMutableObservableList() for modifiable version
+</code></pre>
+
+                <h3>Bindings</h3>
+
+                <pre><code class="language-kotlin">// infix conditional binding
+button.disableProperty().bind(firstName.textProperty().isEmpty or lastName.textProperty().isEmpty)
+
+// operator binding for number properties
+totalProperty.bind(qtyProperty * priceProperty)
+
+// infix binding for number properties
+loginButton.disableProperty().bind(passwordField.textProperty.length() less 4)
+
+// custom binding
+label.graphicProperty().bind(stringBindingOf(listView.selectionModel.selectedIndexProperty()) {
+    "${listView.selectionModel.selectedIndex} selected"
+})
+imageView.imageProperty().bind(bindingOf(urlField.textProperty()) {
+    Image(urlField.text)
+})
+</code></pre>
+
+                <h3>Dialogs</h3>
+
+                <pre><code class="language-kotlin">// show an alert
+alert("Here's an alert").show()
+
+// show a confirmation alert and wait for input
+confirmAlert("Are you sure?").showAndWait()
+
+// custom init a text input dialog
+inputDialog("Question #1") {
+    contentText = "Why does the chicken cross the road?"
+    editor.promptText = "Hint"
+}.showAndWait()
+
+// a choice dialog
+choiceDialog("Pick an item", ImageView("/my/image.png"), items)
+    .showAndWait()
+
+// show a custom dialog
+dialog&lt;String&gt;("Who's a little piggy?") {
+    content = ...
+    yesButton()
+    noButton()
+    customButton("What's a piggy?") {
+        // explain what a piggy is
+    }
+    resultConverter {
+        if(it == button1)  "Me" else null
+    }
+}.showAndWait()
+</code></pre>
+
+                <h2>
+                    <a href="https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Layouts/">Ktfx Layouts</a>
+                </h2>
+
+                <p>Generate JavaFX layouts, controls, shapes, and charts with Kotlin DSL. It's a
+direct replacement of FXML files.</p>
+
+                <pre><code class="language-kotlin">gridPane {
+    gaps = 8
+    label("First name") row 0 col 0
+    val firstName = textField() row 0 col 1
+    label("Last name") row 1 col 0
+    val lastName = textField() row 1 col 1
+    button("Say hello") {
+        onAction {
+            infoAlert("Hello, ${firstName.text} ${lastName.text}!")
+        }
+    } row 2 col 1 hpos HPos.RIGHT
+}
+</code></pre>
+
+                <p>
+                    <img alt="Layouts preview." src="https://github.com/hendraanggrian/ktfx/raw/assets/preview_layouts.png">
+                </p>
+
+                <h2>
+                    <a href="https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Listeners/">Ktfx Listeners</a>
+                </h2>
+
+                <p>Trade common JavaFX listener with Kotlin DSL. Currently includes string
+converters and table cells.</p>
+
+                <pre><code class="language-kotlin">// string converter
+val dateBox = ChoiceBox&lt;Date&gt;()
+dateBox.converter {
+    val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+    fromString {
+        dateFormat.parse(it)
+    }
+    toString {
+        dateFormat.format(it)
+    }
+}
+
+// custom list cell
+val personList = ListView&lt;Person&gt;()
+personList.cellFactory {
+    onUpdateItem { person, empty -&gt;
+        if (person != null &amp;&amp; !empty) {
+            graphic = Button("Do something")
+        }
+    }
+}
+</code></pre>
+
+                <h2>
+                    <a href="https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Coroutines/">Ktfx Coroutines</a>
+                </h2>
+
+                <p>
+                    Based on the <a href="https://github.com/Kotlin/kotlinx.coroutines">kotlinx.coroutines</a>
+library, it allows invoking JavaFX <code>EventHandler</code> the coroutine way.
+                </p>
+
+                <pre><code class="language-kotlin">button.setOnAction {
+    doSomethingInBackground()// might freeze UI
+    celebrateCompletion()
+}
+
+button.onAction(CommonPool) {
+    doSomethingInBackground() // non-blocking in common pool
+    launch(FX) {
+        celebrateCompletion()
+    }
+}
+</code></pre>
+
+                <h2>Third-party</h2>
+
+                <blockquote>
+
+                    <p>Work in progress.</p>
+
+                </blockquote>
+
+            </section>
+            <footer>
+                <p>
+                    <button class="material-symbols-sharp" id="theme-toggle" onclick="toggleDarkMode()" title="Toggle dark mode"></button>
+                </p>
+                <p>
+                    This project is maintained by <a href="https://github.com/hendraanggrian/">Hendra Anggrian</a>
+                </p>
+                <small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist/">orderedlist</a></small>
+            </footer>
+        </div>
+        <script src="scripts/scale.fix.js"></script>
+    </body>
 </html>

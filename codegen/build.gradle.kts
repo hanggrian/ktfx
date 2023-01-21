@@ -1,32 +1,17 @@
 plugins {
-    javafx
-    kotlin("jvm")
     application
+    kotlin("jvm")
 }
 
-javafx {
-    modules("javafx.base", "javafx.controls", "javafx.media", "javafx.web")
-}
-
-application {
-    mainClass.set("$RELEASE_GROUP.$RELEASE_ARTIFACT.codegen.Generator")
-}
-
-sourceSets {
-    main {
-        java.srcDir("src")
-    }
-    test {
-        java.srcDir("tests/src")
-    }
-}
+application.mainClass.set("$RELEASE_GROUP.codegen.Generator")
 
 dependencies {
-    implementation(kotlin("stdlib", VERSION_KOTLIN))
-    implementation(kotlin("reflect", VERSION_KOTLIN))
-    implementation(kotlinx("coroutines-core", VERSION_COROUTINES))
-    implementation(kotlinpoetKtx())
-    implementation(controlsfx())
-    implementation(jfoenix())
-    testImplementation(kotlin("test-junit", VERSION_KOTLIN))
+    ktlint(libs.ktlint, ::configureKtlint)
+    ktlint(libs.rulebook.ktlint)
+    implementation(kotlin("reflect", libs.versions.kotlin.get()))
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinpoet.dsl)
+    implementation(libs.controlsfx)
+    implementation(libs.jfoenix)
+    testImplementation(kotlin("test-junit", libs.versions.kotlin.get()))
 }

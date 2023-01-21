@@ -1,55 +1,19 @@
-group = RELEASE_GROUP
-version = RELEASE_VERSION
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinJvm
 
 plugins {
-    javafx
-    kotlin("jvm")
-    dokka
-    `maven-publish`
-    signing
+    kotlin("jvm") version libs.versions.kotlin
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.maven.publish)
 }
 
-javafx {
-    modules("javafx.controls")
-}
-
-sourceSets {
-    main {
-        java.srcDir("src")
-    }
-    test {
-        java.srcDir("tests/src")
-    }
-}
-
-ktlint(
-    project(":rulesets:basic")
-)
+mavenPublishing.configure(KotlinJvm(JavadocJar.Dokka("dokkaJavadoc")))
 
 dependencies {
+    ktlint(libs.ktlint, ::configureKtlint)
+    ktlint(libs.rulebook.ktlint)
     implementation(project(":$RELEASE_ARTIFACT-commons"))
-    implementation(jfoenix())
+    implementation(libs.jfoenix)
     testImplementation(project(":testing:commons"))
 }
-
-tasks {
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
-    }
-    dokkaJavadoc {
-        dokkaSourceSets {
-            "main" {
-                sourceLink {
-                    localDirectory.set(projectDir.resolve("src"))
-                    remoteUrl.set(getGithubRemoteUrl())
-                    remoteLineSuffix.set("#L")
-                }
-            }
-        }
-    }
-    dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/jfoenix-commons"))
-    }
-}
-
-mavenPublishJvm("jfoenix-commons")

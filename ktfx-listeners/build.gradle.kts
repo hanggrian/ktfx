@@ -1,52 +1,17 @@
-group = RELEASE_GROUP
-version = RELEASE_VERSION
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinJvm
 
 plugins {
-    javafx
-    kotlin("jvm")
-    dokka
-    `maven-publish`
-    signing
+    kotlin("jvm") version libs.versions.kotlin
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.maven.publish)
 }
 
-javafx {
-    modules("javafx.controls", "javafx.web")
-}
-
-sourceSets {
-    main {
-        java.srcDir("src")
-    }
-    test {
-        java.srcDir("tests/src")
-    }
-}
-
-ktlint(
-    project(":rulesets:basic"),
-    project(":rulesets:non-commons")
-)
+mavenPublishing.configure(KotlinJvm(JavadocJar.Dokka("dokkaJavadoc")))
 
 dependencies {
-    implementation(kotlin("stdlib"))
-    testImplementation(project(":testing:listeners-coroutines"))
+    ktlint(libs.ktlint, ::configureKtlint)
+    ktlint(libs.rulebook.ktlint)
+    testImplementation(project(":testing:listeners"))
 }
-
-tasks {
-    dokkaJavadoc {
-        dokkaSourceSets {
-            "main" {
-                sourceLink {
-                    localDirectory.set(projectDir.resolve("src"))
-                    remoteUrl.set(getGithubRemoteUrl())
-                    remoteLineSuffix.set("#L")
-                }
-            }
-        }
-    }
-    dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/$RELEASE_ARTIFACT-listeners"))
-    }
-}
-
-mavenPublishJvm("$RELEASE_ARTIFACT-listeners")

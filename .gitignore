@@ -1,12 +1,12 @@
 # macOS
-.DS_Store
-
-# IDEA
-*.iml
-.idea/
-out/
+**/.DS_Store
 
 # Gradle
 .gradle/
 build/
 local.properties
+
+# IDEA
+*.iml
+.idea/
+out/

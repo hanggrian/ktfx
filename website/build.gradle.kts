@@ -1,39 +1,37 @@
 plugins {
-    `git-publish`
+    alias(libs.plugins.pages)
+    alias(libs.plugins.git.publish)
+}
+
+pages {
+    resources.from("$rootDir/build/dokka/")
+    styles.add("https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css")
+    scripts.addAll(
+        "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-groovy.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js"
+    )
+    minimal {
+        authorName = DEVELOPER_NAME
+        authorUrl = DEVELOPER_URL
+        projectName = RELEASE_ARTIFACT
+        projectDescription = RELEASE_DESCRIPTION
+        projectUrl = RELEASE_URL
+        button("View\nDocumentation", "dokka")
+    }
 }
 
 gitPublish {
-    repoUri.set("git@github.com:hendraanggrian/$RELEASE_ARTIFACT.git")
+    repoUri.set("git@github.com:$DEVELOPER_ID/$RELEASE_ARTIFACT.git")
     branch.set("gh-pages")
-    contents.from(
-        "src",
-        *ktfxArtifacts
-            .map { "../$it/build/dokka" }
-            .toTypedArray()
-    )
+    contents.from(pages.outputDirectory)
 }
 
 tasks {
-    register("clean") {
+    register(LifecycleBasePlugin.CLEAN_TASK_NAME) {
         delete(buildDir)
     }
-    gitPublishCopy {
-        dependsOn(
-            *ktfxArtifacts
-                .map { it.replace('/', ':') }
-                .map { ":$it:dokkaHtml" }
-                .toTypedArray()
-        )
+    deployPages {
+        dependsOn(":dokkaHtmlMultiModule")
     }
 }
-
-val ktfxArtifacts: List<String>
-    get() = listOf("commons", "layouts", "listeners", "coroutines").map { "$RELEASE_ARTIFACT-$it" } +
-            listOf("controlsfx", "jfoenix").flatMap {
-                listOf(
-                    "thirdparty/$it-commons",
-                    "thirdparty/$it-layouts",
-                    "thirdparty/$it-listeners",
-                    "thirdparty/$it-coroutines"
-                )
-            }

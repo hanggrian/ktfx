@@ -1,13 +1,19 @@
+os: linux
 language: java
-dist: trusty
-jdk: oraclejdk11
-
-script:
-  - ./gradlew check --info
+jdk: openjdk8
 
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
+
+script:
+  - ./gradlew check --info
+  - ./gradlew koverXmlReport
+
+after_success:
+  - curl -Os "https://uploader.codecov.io/latest/linux/codecov"
+  - chmod +x codecov
+  - ./codecov
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock

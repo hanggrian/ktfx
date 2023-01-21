@@ -1,25 +1,12 @@
 plugins {
-    javafx
-    kotlin("jvm")
     application
+    kotlin("jvm")
 }
 
-javafx {
-    modules("javafx.controls")
-}
-
-application {
-    mainClass.set("com.example.CalculatorApp")
-}
-
-sourceSets {
-    main {
-        java.srcDir("src")
-    }
-}
+application.mainClass.set("com.example.CalculatorApp")
 
 dependencies {
-    implementation(project(":ktfx"))
+    implementation(project(":$RELEASE_ARTIFACT"))
     implementation(project(":thirdparty:controlsfx"))
     implementation(project(":thirdparty:jfoenix"))
 }

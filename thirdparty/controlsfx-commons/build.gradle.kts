@@ -1,54 +1,21 @@
-group = RELEASE_GROUP
-version = RELEASE_VERSION
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinJvm
 
 plugins {
-    javafx
-    kotlin("jvm")
-    dokka
-    `maven-publish`
-    signing
+    kotlin("jvm") version libs.versions.kotlin
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.maven.publish)
 }
 
-javafx {
-    modules("javafx.controls")
-}
-
-sourceSets {
-    main {
-        java.srcDir("src")
-    }
-    test {
-        java.srcDir("tests/src")
-    }
-}
-
-ktlint(
-    project(":rulesets:basic")
-)
+mavenPublishing.configure(KotlinJvm(JavadocJar.Dokka("dokkaJavadoc")))
 
 dependencies {
+    ktlint(libs.ktlint, ::configureKtlint)
+    ktlint(libs.rulebook.ktlint)
     implementation(project(":$RELEASE_ARTIFACT-commons"))
-    implementation(controlsfx())
+    implementation(libs.controlsfx)
     testImplementation(project(":testing:commons"))
     testImplementation(project(":$RELEASE_ARTIFACT-layouts"))
-    testImplementation(kotlinx("coroutines-javafx", VERSION_COROUTINES))
+    testImplementation(libs.kotlinx.coroutines.javafx)
 }
-
-tasks {
-    dokkaJavadoc {
-        dokkaSourceSets {
-            "main" {
-                sourceLink {
-                    localDirectory.set(projectDir.resolve("src"))
-                    remoteUrl.set(getGithubRemoteUrl())
-                    remoteLineSuffix.set("#L")
-                }
-            }
-        }
-    }
-    dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/controlsfx-commons"))
-    }
-}
-
-mavenPublishJvm("controlsfx-commons")

@@ -1,58 +1,19 @@
-group = RELEASE_GROUP
-version = RELEASE_VERSION
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinJvm
 
 plugins {
-    javafx
-    kotlin("jvm")
-    dokka
-    `maven-publish`
-    signing
+    kotlin("jvm") version libs.versions.kotlin
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.maven.publish)
 }
 
-javafx {
-    modules("javafx.controls", "javafx.web")
-}
-
-sourceSets {
-    main {
-        java.srcDir("src")
-    }
-    test {
-        java.srcDir("tests/src")
-    }
-}
-
-ktlint(
-    project(":rulesets:basic"),
-    project(":rulesets:non-commons"),
-    project(":rulesets:layouts")
-)
+mavenPublishing.configure(KotlinJvm(JavadocJar.Dokka("dokkaJavadoc")))
 
 dependencies {
-    implementation(kotlin("stdlib"))
-    testImplementation(project(":ktfx-commons"))
+    ktlint(libs.ktlint, ::configureKtlint)
+    ktlint(libs.rulebook.ktlint)
     testImplementation(project(":testing:layouts"))
-    testImplementation(apache("commons-lang3", VERSION_COMMONS_LANG))
+    testImplementation(project(":ktfx-commons"))
+    testImplementation(libs.commons.lang3)
 }
-
-tasks {
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
-    }
-    dokkaJavadoc {
-        dokkaSourceSets {
-            "main" {
-                sourceLink {
-                    localDirectory.set(projectDir.resolve("src"))
-                    remoteUrl.set(getGithubRemoteUrl())
-                    remoteLineSuffix.set("#L")
-                }
-            }
-        }
-    }
-    dokkaHtml {
-        outputDirectory.set(buildDir.resolve("dokka/$RELEASE_ARTIFACT-layouts"))
-    }
-}
-
-mavenPublishJvm("$RELEASE_ARTIFACT-layouts")

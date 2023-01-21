@@ -1,17 +1,17 @@
-group = RELEASE_GROUP
-version = RELEASE_VERSION
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.KotlinJvm
 
 plugins {
-    kotlin("jvm")
-    `maven-publish`
-    signing
+    kotlin("jvm") version libs.versions.kotlin
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.maven.publish)
 }
+
+mavenPublishing.configure(KotlinJvm(JavadocJar.Dokka("dokkaJavadoc")))
 
 dependencies {
-    implementation(project(":thirdparty:jfoenix-commons"))
-    implementation(project(":thirdparty:jfoenix-layouts"))
-    implementation(project(":thirdparty:jfoenix-listeners"))
-    implementation(project(":thirdparty:jfoenix-coroutines"))
+    api(project(":thirdparty:jfoenix-commons"))
+    api(project(":thirdparty:jfoenix-layouts"))
+    api(project(":thirdparty:jfoenix-listeners"))
+    api(project(":thirdparty:jfoenix-coroutines"))
 }
-
-mavenPublishJvm("jfoenix")

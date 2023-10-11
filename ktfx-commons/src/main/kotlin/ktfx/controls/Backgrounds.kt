@@ -24,7 +24,7 @@ import kotlin.DeprecationLevel.ERROR
  * @return created background.
  */
 inline fun buildBackground(
-    builderAction: BackgroundBuilder.() -> Unit,
+    builderAction: BackgroundBuilder.() -> Unit
 ): Background = BackgroundBuilder().apply(builderAction).build()
 
 /**
@@ -34,7 +34,7 @@ inline fun buildBackground(
  * @return applied background.
  */
 inline fun Region.background(
-    noinline builderAction: BackgroundBuilder.() -> Unit,
+    noinline builderAction: BackgroundBuilder.() -> Unit
 ): Background = buildBackground(builderAction).also { background = it }
 
 /**
@@ -44,7 +44,7 @@ inline fun Region.background(
  * @return applied background.
  */
 inline fun Region.backgroundFill(
-    noinline builderAction: BackgroundBuilder.FillBuilder.() -> Unit,
+    noinline builderAction: BackgroundBuilder.FillBuilder.() -> Unit
 ): Background = background { fill(builderAction) }
 
 /**
@@ -55,7 +55,7 @@ inline fun Region.backgroundFill(
  */
 inline fun Region.backgroundImage(
     image: Image,
-    noinline builderAction: BackgroundBuilder.ImageBuilder.() -> Unit,
+    noinline builderAction: BackgroundBuilder.ImageBuilder.() -> Unit
 ): Background = background { image(image, builderAction) }
 
 /** Background configurator class. */

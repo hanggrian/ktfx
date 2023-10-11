@@ -19,84 +19,84 @@ inline fun String.toDuration(): Duration = Duration.valueOf(this)
  *
  * @see kotlin.time.Duration.milliseconds
  */
-val Int.milliseconds: Duration get() = Duration.millis(toDouble())
+val Int.ms: Duration get() = Duration.millis(toDouble())
 
 /**
  * Returns a duration equal to this [Long] number of milliseconds.
  *
  * @see kotlin.time.Duration.milliseconds
  */
-val Long.milliseconds: Duration get() = Duration.millis(toDouble())
+val Long.ms: Duration get() = Duration.millis(toDouble())
 
 /**
  * Returns a duration equal to this [Double] number of milliseconds.
  *
  * @see kotlin.time.Duration.milliseconds
  */
-inline val Double.milliseconds: Duration get() = Duration.millis(this)
+inline val Double.ms: Duration get() = Duration.millis(this)
 
 /**
  * Returns a duration equal to this [Int] number of seconds.
  *
  * @see kotlin.time.Duration.seconds
  */
-val Int.seconds: Duration get() = Duration.seconds(toDouble())
+val Int.s: Duration get() = Duration.seconds(toDouble())
 
 /**
  * Returns a duration equal to this [Long] number of seconds.
  *
  * @see kotlin.time.Duration.seconds
  */
-val Long.seconds: Duration get() = Duration.seconds(toDouble())
+val Long.s: Duration get() = Duration.seconds(toDouble())
 
 /**
  * Returns a duration equal to this [Double] number of seconds.
  *
  * @see kotlin.time.Duration.seconds
  */
-inline val Double.seconds: Duration get() = Duration.seconds(this)
+inline val Double.s: Duration get() = Duration.seconds(this)
 
 /**
  * Returns a duration equal to this [Int] number of minutes.
  *
  * @see kotlin.time.Duration.minutes
  */
-val Int.minutes: Duration get() = Duration.minutes(toDouble())
+val Int.m: Duration get() = Duration.minutes(toDouble())
 
 /**
  * Returns a duration equal to this [Long] number of minutes.
  *
  * @see kotlin.time.Duration.minutes
  */
-val Long.minutes: Duration get() = Duration.minutes(toDouble())
+val Long.m: Duration get() = Duration.minutes(toDouble())
 
 /**
  * Returns a duration equal to this [Double] number of minutes.
  *
  * @see kotlin.time.Duration.minutes
  */
-inline val Double.minutes: Duration get() = Duration.minutes(this)
+inline val Double.m: Duration get() = Duration.minutes(this)
 
 /**
  * Returns a duration equal to this [Int] number of hours.
  *
  * @see kotlin.time.Duration.hours
  */
-val Int.hours: Duration get() = Duration.hours(toDouble())
+val Int.h: Duration get() = Duration.hours(toDouble())
 
 /**
  * Returns a duration equal to this [Long] number of hours.
  *
  * @see kotlin.time.Duration.hours
  */
-val Long.hours: Duration get() = Duration.hours(toDouble())
+val Long.h: Duration get() = Duration.hours(toDouble())
 
 /**
  * Returns a duration equal to this [Double] number of hours.
  *
  * @see kotlin.time.Duration.hours
  */
-inline val Double.hours: Duration get() = Duration.hours(this)
+inline val Double.h: Duration get() = Duration.hours(this)
 
 /**
  * Returns a duration whose value is the sum of this and [other] duration values.

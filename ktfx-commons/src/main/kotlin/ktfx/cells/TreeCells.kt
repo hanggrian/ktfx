@@ -29,7 +29,7 @@ inline fun <T> TreeView<T>.checkBoxCellFactory(): Unit =
  *   an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
 inline fun <T> TreeView<T>.checkBoxCellFactory(
-    noinline selectedPropertyProvider: (TreeItem<T>) -> ObservableValue<Boolean>,
+    noinline selectedPropertyProvider: (TreeItem<T>) -> ObservableValue<Boolean>
 ): Unit = setCellFactory(CheckBoxTreeCell.forTreeView(selectedPropertyProvider))
 
 /**
@@ -43,7 +43,7 @@ inline fun <T> TreeView<T>.checkBoxCellFactory(
  */
 inline fun <T> TreeView<T>.checkBoxCellFactory(
     converter: StringConverter<TreeItem<T>>,
-    noinline selectedPropertyProvider: (TreeItem<T>) -> ObservableValue<Boolean>,
+    noinline selectedPropertyProvider: (TreeItem<T>) -> ObservableValue<Boolean>
 ): Unit = setCellFactory(CheckBoxTreeCell.forTreeView(selectedPropertyProvider, converter))
 
 /**
@@ -54,7 +54,7 @@ inline fun <T> TreeView<T>.checkBoxCellFactory(
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
-    vararg items: T,
+    vararg items: T
 ): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(*items))
 
 /**
@@ -68,7 +68,7 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(
  */
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
-    vararg items: T,
+    vararg items: T
 ): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter, *items))
 
 /**
@@ -79,7 +79,7 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
-    items: ObservableList<T>,
+    items: ObservableList<T>
 ): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(items))
 
 /**
@@ -93,7 +93,7 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(
  */
 inline fun <T> TreeView<T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
-    items: ObservableList<T>,
+    items: ObservableList<T>
 ): Unit = setCellFactory(ChoiceBoxTreeCell.forTreeView(converter, items))
 
 /**
@@ -104,7 +104,7 @@ inline fun <T> TreeView<T>.choiceBoxCellFactory(
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
 inline fun <T> TreeView<T>.comboBoxCellFactory(
-    vararg items: T,
+    vararg items: T
 ): Unit = setCellFactory(ComboBoxTreeCell.forTreeView(*items))
 
 /**
@@ -118,7 +118,7 @@ inline fun <T> TreeView<T>.comboBoxCellFactory(
  */
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     converter: StringConverter<T>,
-    vararg items: T,
+    vararg items: T
 ): Unit = setCellFactory(ComboBoxTreeCell.forTreeView(converter, *items))
 
 /**
@@ -129,7 +129,7 @@ inline fun <T> TreeView<T>.comboBoxCellFactory(
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
 inline fun <T> TreeView<T>.comboBoxCellFactory(
-    items: ObservableList<T>,
+    items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxTreeCell.forTreeView(items))
 
 /**
@@ -143,7 +143,7 @@ inline fun <T> TreeView<T>.comboBoxCellFactory(
  */
 inline fun <T> TreeView<T>.comboBoxCellFactory(
     converter: StringConverter<T>,
-    items: ObservableList<T>,
+    items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxTreeCell.forTreeView(converter, items))
 
 /** Sets a [TextFieldTreeCell] factory for use in this [TreeView]. */
@@ -157,7 +157,7 @@ inline fun TreeView<String>.textFieldCellFactory(): Unit =
  *   can be used to represent the object visually.
  */
 inline fun <T> TreeView<T>.textFieldCellFactory(
-    converter: StringConverter<T>,
+    converter: StringConverter<T>
 ): Unit = setCellFactory(TextFieldTreeCell.forTreeView(converter))
 
 /**
@@ -167,7 +167,7 @@ inline fun <T> TreeView<T>.textFieldCellFactory(
  * @param configuration custom initialization block that configures [KtfxListCell].
  */
 fun <T> TreeView<T>.cellFactory(
-    configuration: KtfxTreeCell<T>.(TreeView<T>) -> Unit,
+    configuration: KtfxTreeCell<T>.(TreeView<T>) -> Unit
 ): Unit = setCellFactory { KtfxTreeCell<T>().apply { configuration(it) } }
 
 /** Custom [TreeCell] configurator class. */

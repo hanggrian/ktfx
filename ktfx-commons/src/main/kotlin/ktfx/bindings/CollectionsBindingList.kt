@@ -27,11 +27,11 @@ inline fun <E> ObservableList<E>.unbindContentBidirectional(other: ObservableLis
 
 /** Generates a bidirectional binding between an [ObservableList] and a [List]. */
 inline fun <E> List<E>.bindContent(other: ObservableList<E>): Unit =
-    Bindings.bindContent(this, other,)
+    Bindings.bindContent(this, other)
 
 /** Remove a bidirectional binding between an [ObservableList] and a [List]. */
 inline fun <E> List<E>.unbindContent(other: ObservableList<E>): Unit =
-    Bindings.unbindContent(this, other,)
+    Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableList]. */
 inline fun <E> ObservableList<E>.size(): IntegerBinding = Bindings.size(this)

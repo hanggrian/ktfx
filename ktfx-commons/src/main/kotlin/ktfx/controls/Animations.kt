@@ -14,7 +14,7 @@ import javafx.scene.Node
 import javafx.scene.paint.Color
 import javafx.scene.shape.Shape
 import javafx.util.Duration
-import ktfx.time.milliseconds
+import ktfx.time.ms
 
 /**
  * Plays a [FadeTransition].
@@ -24,8 +24,8 @@ import ktfx.time.milliseconds
  * @return the animation played.
  */
 fun Node.fadeTransition(
-    duration: Duration = 400.0.milliseconds,
-    configuration: FadeTransition.() -> Unit,
+    duration: Duration = 400.0.ms,
+    configuration: FadeTransition.() -> Unit
 ): FadeTransition = FadeTransition(duration, this).apply {
     configuration()
     play()
@@ -39,10 +39,10 @@ fun Node.fadeTransition(
  * @return the animation played.
  */
 fun Shape.fillTransition(
-    duration: Duration = 400.0.milliseconds,
+    duration: Duration = 400.0.ms,
     fromValue: Color? = null,
     toValue: Color? = null,
-    configuration: FillTransition.() -> Unit,
+    configuration: FillTransition.() -> Unit
 ): FillTransition = FillTransition(duration, this, fromValue, toValue).apply {
     configuration()
     play()
@@ -56,9 +56,9 @@ fun Shape.fillTransition(
  * @return the animation played.
  */
 fun Node.pathTransition(
-    duration: Duration = 400.0.milliseconds,
+    duration: Duration = 400.0.ms,
     path: Shape? = null,
-    configuration: PathTransition.() -> Unit,
+    configuration: PathTransition.() -> Unit
 ): PathTransition = PathTransition(duration, path, this).apply {
     configuration()
     play()
@@ -72,8 +72,8 @@ fun Node.pathTransition(
  * @return the animation played.
  */
 fun Node.rotateTransition(
-    duration: Duration = 400.0.milliseconds,
-    configuration: RotateTransition.() -> Unit,
+    duration: Duration = 400.0.ms,
+    configuration: RotateTransition.() -> Unit
 ): RotateTransition = RotateTransition(duration, this).apply {
     configuration()
     play()
@@ -87,8 +87,8 @@ fun Node.rotateTransition(
  * @return the animation played.
  */
 fun Node.scaleTransition(
-    duration: Duration = 400.0.milliseconds,
-    configuration: ScaleTransition.() -> Unit,
+    duration: Duration = 400.0.ms,
+    configuration: ScaleTransition.() -> Unit
 ): ScaleTransition = ScaleTransition(duration, this).apply {
     configuration()
     play()
@@ -102,10 +102,10 @@ fun Node.scaleTransition(
  * @return the animation played.
  */
 fun Shape.strokeTransition(
-    duration: Duration = 400.0.milliseconds,
+    duration: Duration = 400.0.ms,
     fromValue: Color? = null,
     toValue: Color? = null,
-    configuration: StrokeTransition.() -> Unit,
+    configuration: StrokeTransition.() -> Unit
 ): StrokeTransition = StrokeTransition(duration, this, fromValue, toValue).apply {
     configuration()
     play()
@@ -119,8 +119,8 @@ fun Shape.strokeTransition(
  * @return the animation played.
  */
 fun Node.translateTransition(
-    duration: Duration = 400.0.milliseconds,
-    configuration: TranslateTransition.() -> Unit,
+    duration: Duration = 400.0.ms,
+    configuration: TranslateTransition.() -> Unit
 ): TranslateTransition = TranslateTransition(duration, this).apply {
     configuration()
     play()
@@ -133,13 +133,13 @@ fun Node.translateTransition(
  * @return the animation played.
  */
 fun Node.parallelTransition(
-    configuration: AnimationScope.() -> Unit,
+    configuration: AnimationScope.() -> Unit
 ): ParallelTransition = ParallelTransition(
     this,
     *object : AnimationScope {
         override val node: Node get() = this@parallelTransition
         override val animations: MutableCollection<Animation> = mutableListOf()
-    }.apply(configuration).build(),
+    }.apply(configuration).build()
 )
 
 /**
@@ -149,13 +149,13 @@ fun Node.parallelTransition(
  * @return the animation played.
  */
 fun Shape.shapeParallelTransition(
-    configuration: ShapeAnimationScope.() -> Unit,
+    configuration: ShapeAnimationScope.() -> Unit
 ): ParallelTransition = ParallelTransition(
     this,
     *object : ShapeAnimationScope {
         override val node: Shape get() = this@shapeParallelTransition
         override val animations: MutableCollection<Animation> = mutableListOf()
-    }.apply(configuration).build(),
+    }.apply(configuration).build()
 )
 
 /**
@@ -165,13 +165,13 @@ fun Shape.shapeParallelTransition(
  * @return the animation played.
  */
 fun Node.sequentialTransition(
-    configuration: AnimationScope.() -> Unit,
+    configuration: AnimationScope.() -> Unit
 ): SequentialTransition = SequentialTransition(
     this,
     *object : AnimationScope {
         override val node: Node get() = this@sequentialTransition
         override val animations: MutableCollection<Animation> = mutableListOf()
-    }.apply(configuration).build(),
+    }.apply(configuration).build()
 )
 
 /**
@@ -181,13 +181,13 @@ fun Node.sequentialTransition(
  * @return the animation played.
  */
 fun Shape.shapeSequentialTransition(
-    configuration: ShapeAnimationScope.() -> Unit,
+    configuration: ShapeAnimationScope.() -> Unit
 ): SequentialTransition = SequentialTransition(
     this,
     *object : ShapeAnimationScope {
         override val node: Shape get() = this@shapeSequentialTransition
         override val animations: MutableCollection<Animation> = mutableListOf()
-    }.apply(configuration).build(),
+    }.apply(configuration).build()
 )
 
 /** Shape animations configurator interface for [ParallelTransition] and [SequentialTransition]. */
@@ -202,10 +202,10 @@ interface ShapeAnimationScope : AnimationScope {
      * @return the animation added.
      */
     fun fill(
-        duration: Duration = 400.0.milliseconds,
+        duration: Duration = 400.0.ms,
         fromValue: Color? = null,
         toValue: Color? = null,
-        configuration: FillTransition.() -> Unit,
+        configuration: FillTransition.() -> Unit
     ): FillTransition = FillTransition(duration, node, fromValue, toValue).also {
         it.configuration()
         animations += it
@@ -219,10 +219,10 @@ interface ShapeAnimationScope : AnimationScope {
      * @return the animation added.
      */
     fun stroke(
-        duration: Duration = 400.0.milliseconds,
+        duration: Duration = 400.0.ms,
         fromValue: Color? = null,
         toValue: Color? = null,
-        configuration: StrokeTransition.() -> Unit,
+        configuration: StrokeTransition.() -> Unit
     ): StrokeTransition = StrokeTransition(duration, node, fromValue, toValue).also {
         it.configuration()
         animations += it
@@ -245,8 +245,8 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun fade(
-        duration: Duration = 400.0.milliseconds,
-        configuration: FadeTransition.() -> Unit,
+        duration: Duration = 400.0.ms,
+        configuration: FadeTransition.() -> Unit
     ): FadeTransition = FadeTransition(duration, node).also {
         it.configuration()
         animations += it
@@ -260,9 +260,9 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun path(
-        duration: Duration = 400.0.milliseconds,
+        duration: Duration = 400.0.ms,
         path: Shape? = null,
-        configuration: PathTransition.() -> Unit,
+        configuration: PathTransition.() -> Unit
     ): PathTransition = PathTransition(duration, path, node).also {
         it.configuration()
         animations += it
@@ -276,8 +276,8 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun rotate(
-        duration: Duration = 400.0.milliseconds,
-        configuration: RotateTransition.() -> Unit,
+        duration: Duration = 400.0.ms,
+        configuration: RotateTransition.() -> Unit
     ): RotateTransition = RotateTransition(duration, node).also {
         it.configuration()
         animations += it
@@ -291,8 +291,8 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun scale(
-        duration: Duration = 400.0.milliseconds,
-        configuration: ScaleTransition.() -> Unit,
+        duration: Duration = 400.0.ms,
+        configuration: ScaleTransition.() -> Unit
     ): ScaleTransition = ScaleTransition(duration, node).also {
         it.configuration()
         animations += it
@@ -306,8 +306,8 @@ interface AnimationScope {
      * @return the animation added.
      */
     fun translate(
-        duration: Duration = 400.0.milliseconds,
-        configuration: TranslateTransition.() -> Unit,
+        duration: Duration = 400.0.ms,
+        configuration: TranslateTransition.() -> Unit
     ): TranslateTransition = TranslateTransition(duration, node).also {
         it.configuration()
         animations += it

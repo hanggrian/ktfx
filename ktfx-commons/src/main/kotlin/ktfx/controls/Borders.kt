@@ -24,7 +24,7 @@ import kotlin.DeprecationLevel.ERROR
  * @return created border.
  */
 inline fun buildBorder(
-    builderAction: BorderBuilder.() -> Unit,
+    builderAction: BorderBuilder.() -> Unit
 ): Border = BorderBuilder().apply(builderAction).build()
 
 /**
@@ -34,7 +34,7 @@ inline fun buildBorder(
  * @return applied border.
  */
 inline fun Region.border(
-    noinline builderAction: BorderBuilder.() -> Unit,
+    noinline builderAction: BorderBuilder.() -> Unit
 ): Border = buildBorder(builderAction).also { border = it }
 
 /**
@@ -44,7 +44,7 @@ inline fun Region.border(
  * @return applied border.
  */
 inline fun Region.borderStroke(
-    noinline builderAction: BorderBuilder.StrokeBuilder.() -> Unit,
+    noinline builderAction: BorderBuilder.StrokeBuilder.() -> Unit
 ): Border = border { stroke(builderAction) }
 
 /**
@@ -55,7 +55,7 @@ inline fun Region.borderStroke(
  */
 inline fun Region.borderImage(
     image: Image,
-    noinline builderAction: BorderBuilder.ImageBuilder.() -> Unit,
+    noinline builderAction: BorderBuilder.ImageBuilder.() -> Unit
 ): Border = border { image(image, builderAction) }
 
 /** Border configurator class. */
@@ -148,7 +148,7 @@ class BorderBuilder {
         fun build(): BorderStroke = BorderStroke(
             topStroke, rightStroke, bottomStroke, leftStroke,
             topStyle, rightStyle, bottomStyle, leftStyle,
-            radii, widths, insets,
+            radii, widths, insets
         )
     }
 
@@ -188,7 +188,7 @@ class BorderBuilder {
             slices,
             isFilled,
             repeatX,
-            repeatY,
+            repeatY
         )
     }
 }

@@ -25,11 +25,11 @@ inline fun <K, V> ObservableMap<K, V>.unbindContentBidirectional(other: Observab
 
 /** Generates a bidirectional binding between an [ObservableMap] and a [Map]. */
 inline fun <K, V> Map<K, V>.bindContent(other: ObservableMap<K, V>): Unit =
-    Bindings.bindContent(this, other,)
+    Bindings.bindContent(this, other)
 
 /** Remove a bidirectional binding between an [ObservableMap] and a [Map]. */
 inline fun <K, V> Map<K, V>.unbindContent(other: ObservableMap<K, V>): Unit =
-    Bindings.unbindContent(this, other,)
+    Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableMap]. */
 inline fun <K, V> ObservableMap<K, V>.size(): IntegerBinding = Bindings.size(this)

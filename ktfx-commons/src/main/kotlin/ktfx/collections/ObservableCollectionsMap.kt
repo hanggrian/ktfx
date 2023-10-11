@@ -56,7 +56,7 @@ fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V>
         FXCollections.observableMap(
             HashMap<K, V>().apply {
                 for ((key, value) in pairs) put(key, value)
-            },
+            }
         )
     }
 

@@ -1,3 +1,10 @@
+val DEVELOPER_ID: String by project
+val DEVELOPER_NAME: String by project
+val DEVELOPER_URL: String by project
+val RELEASE_ARTIFACT: String by project
+val RELEASE_DESCRIPTION: String by project
+val RELEASE_URL: String by project
+
 plugins {
     alias(libs.plugins.pages)
     alias(libs.plugins.git.publish)

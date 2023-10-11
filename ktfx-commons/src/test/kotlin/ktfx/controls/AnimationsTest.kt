@@ -5,7 +5,7 @@ import javafx.animation.FadeTransition
 import javafx.animation.FillTransition
 import javafx.scene.control.Label
 import javafx.scene.shape.Rectangle
-import ktfx.time.milliseconds
+import ktfx.time.ms
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -20,7 +20,7 @@ class AnimationsTest {
         val node = Label()
         val transition = node.fadeTransition { }
         assertEquals(node, transition.node)
-        assertEquals(400.milliseconds, transition.duration)
+        assertEquals(400.ms, transition.duration)
     }
 
     @Test
@@ -28,7 +28,7 @@ class AnimationsTest {
         val shape = Rectangle()
         val transition = shape.fillTransition { }
         assertEquals(shape, transition.shape)
-        assertEquals(400.milliseconds, transition.duration)
+        assertEquals(400.ms, transition.duration)
     }
 
     @Test
@@ -36,7 +36,7 @@ class AnimationsTest {
         val node = Label()
         val transition = node.pathTransition { }
         assertEquals(node, transition.node)
-        assertEquals(400.milliseconds, transition.duration)
+        assertEquals(400.ms, transition.duration)
     }
 
     @Test
@@ -44,7 +44,7 @@ class AnimationsTest {
         val node = Label()
         val transition = node.rotateTransition { }
         assertEquals(node, transition.node)
-        assertEquals(400.milliseconds, transition.duration)
+        assertEquals(400.ms, transition.duration)
     }
 
     @Test
@@ -52,7 +52,7 @@ class AnimationsTest {
         val node = Label()
         val transition = node.scaleTransition { }
         assertEquals(node, transition.node)
-        assertEquals(400.milliseconds, transition.duration)
+        assertEquals(400.ms, transition.duration)
     }
 
     @Test
@@ -60,7 +60,7 @@ class AnimationsTest {
         val shape = Rectangle()
         val transition = shape.strokeTransition { }
         assertEquals(shape, transition.shape)
-        assertEquals(400.milliseconds, transition.duration)
+        assertEquals(400.ms, transition.duration)
     }
 
     @Test
@@ -68,7 +68,7 @@ class AnimationsTest {
         val node = Label()
         val transition = node.translateTransition { }
         assertEquals(node, transition.node)
-        assertEquals(400.milliseconds, transition.duration)
+        assertEquals(400.ms, transition.duration)
     }
 
     @Test

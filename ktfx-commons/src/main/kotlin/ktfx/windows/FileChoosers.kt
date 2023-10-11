@@ -17,7 +17,7 @@ import java.io.File
  */
 fun Window.chooseDirectory(
     title: String? = null,
-    initialDirectory: File? = null,
+    initialDirectory: File? = null
 ): File? = DirectoryChooser().also {
     if (title != null) it.title = title
     if (initialDirectory != null) it.initialDirectory = initialDirectory
@@ -36,7 +36,7 @@ fun Window.chooseFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
-    vararg filters: ExtensionFilter,
+    vararg filters: ExtensionFilter
 ): File? = FileChooser().also {
     if (title != null) it.title = title
     if (initialDirectory != null) it.initialDirectory = initialDirectory
@@ -57,7 +57,7 @@ inline fun Window.chooseFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
-    vararg filters: Pair<String, String>,
+    vararg filters: Pair<String, String>
 ): File? = chooseFile(title, initialDirectory, initialFileName, *filters.asExtensionFilters())
 
 /**
@@ -91,7 +91,7 @@ fun Window.chooseFiles(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
-    vararg filters: ExtensionFilter,
+    vararg filters: ExtensionFilter
 ): List<File> = FileChooser().also {
     if (title != null) it.title = title
     if (initialDirectory != null) it.initialDirectory = initialDirectory
@@ -112,7 +112,7 @@ inline fun Window.chooseFiles(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
-    vararg filters: Pair<String, String>,
+    vararg filters: Pair<String, String>
 ): List<File> = chooseFiles(title, initialDirectory, initialFileName, *filters.asExtensionFilters())
 
 /**
@@ -146,7 +146,7 @@ fun Window.chooseSaveFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
-    vararg filters: ExtensionFilter,
+    vararg filters: ExtensionFilter
 ): File? = FileChooser().also {
     if (title != null) it.title = title
     if (initialDirectory != null) it.initialDirectory = initialDirectory
@@ -167,7 +167,7 @@ inline fun Window.chooseSaveFile(
     title: String? = null,
     initialDirectory: File? = null,
     initialFileName: String? = null,
-    vararg filters: Pair<String, String>,
+    vararg filters: Pair<String, String>
 ): File? = chooseSaveFile(title, initialDirectory, initialFileName, *filters.asExtensionFilters())
 
 /**

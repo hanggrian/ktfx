@@ -22,7 +22,7 @@ inline fun <E> Set<E>.bindContent(other: ObservableSet<E>): Unit = Bindings.bind
 
 /** Remove a bidirectional binding between an [ObservableSet] and a [Set]. */
 inline fun <E> Set<E>.unbindContent(other: ObservableSet<E>): Unit =
-    Bindings.unbindContent(this, other,)
+    Bindings.unbindContent(this, other)
 
 /** Creates a new [IntegerBinding] that contains the size [ObservableSet]. */
 inline fun <E> ObservableSet<E>.size(): IntegerBinding = Bindings.size(this)

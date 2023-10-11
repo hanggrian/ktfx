@@ -1,3 +1,5 @@
+val RELEASE_ARTIFACT: String by project
+
 plugins {
     application
     kotlin("jvm")

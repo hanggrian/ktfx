@@ -68,7 +68,7 @@ val CoroutinesFactory.Companion.JavaFx: CoroutinesFactory
     get() = CoroutinesFactory(
         "ktfx-coroutines/src/main/kotlin",
         "ktfx.coroutines",
-        "KtfxCoroutinesKt",
+        "KtfxCoroutinesKt"
     ).apply { initJavaFx() }
 
 private fun BaseListenersFactory.initJavaFx() {

@@ -9,8 +9,8 @@ import ktfx.floatPropertyOf
 import ktfx.intPropertyOf
 import ktfx.longPropertyOf
 import ktfx.propertyOf
-import ktfx.time.minutes
-import ktfx.time.seconds
+import ktfx.time.m
+import ktfx.time.s
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -39,7 +39,7 @@ class BindingsBooleanTest {
 
     @Test
     fun listDependency() {
-        val dependency = mutableObservableListOf(1.minutes)
+        val dependency = mutableObservableListOf(1.m)
         val binding = dependency.asBoolean { it.isNotEmpty() }
         assertTrue(binding.value)
         dependency.clear()
@@ -48,7 +48,7 @@ class BindingsBooleanTest {
 
     @Test
     fun setDependency() {
-        val dependency = mutableObservableSetOf(1.minutes)
+        val dependency = mutableObservableSetOf(1.m)
         val binding = dependency.asBoolean { it.isNotEmpty() }
         assertTrue(binding.value)
         dependency.clear()
@@ -57,7 +57,7 @@ class BindingsBooleanTest {
 
     @Test
     fun mapDependency() {
-        val dependency = mutableObservableMapOf(1.minutes to 2.minutes)
+        val dependency = mutableObservableMapOf(1.m to 2.m)
         val binding = dependency.asBoolean { it.isNotEmpty() }
         assertTrue(binding.value)
         dependency.clear()
@@ -66,8 +66,8 @@ class BindingsBooleanTest {
 
     @Test
     fun anyDependency() {
-        val dependency = propertyOf(1.minutes)
-        val binding = dependency.asBoolean { it == 60.seconds }
+        val dependency = propertyOf(1.m)
+        val binding = dependency.asBoolean { it == 60.s }
         assertTrue(binding.value)
         dependency.value = null
         assertFalse(binding.value)

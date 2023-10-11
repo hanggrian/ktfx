@@ -21,90 +21,90 @@ import kotlin.reflect.KProperty
 /** Delegated property of this read-only [V] value, use with `by` keyword. */
 inline operator fun <V> ObservableValue<V>.getValue(
     thisRef: Any?,
-    property: KProperty<*>,
+    property: KProperty<*>
 ): V? = value
 
 /** Delegated property of this writable [V] value, use with `by` keyword. */
 inline operator fun <V> WritableValue<in V>.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: V?,
+    value: V?
 ): Unit = setValue(value)
 
 /** Delegated property of this read-only [String] value, use with `by` keyword. */
 inline operator fun ObservableStringValue.getValue(
     thisRef: Any?,
-    property: KProperty<*>,
+    property: KProperty<*>
 ): String? = get()
 
 /** Delegated property of this writable [String] value, use with `by` keyword. */
 inline operator fun WritableStringValue.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: String?,
+    value: String?
 ): Unit = set(value)
 
 /** Delegated property of this read-only [Boolean] value, use with `by` keyword. */
 inline operator fun ObservableBooleanValue.getValue(
     thisRef: Any?,
-    property: KProperty<*>,
+    property: KProperty<*>
 ): Boolean = get()
 
 /** Delegated property of this writable [Boolean] value, use with `by` keyword. */
 inline operator fun WritableBooleanValue.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: Boolean,
+    value: Boolean
 ): Unit = set(value)
 
 /** Delegated property of this read-only [Double] value, use with `by` keyword. */
 inline operator fun ObservableDoubleValue.getValue(
     thisRef: Any?,
-    property: KProperty<*>,
+    property: KProperty<*>
 ): Double = get()
 
 /** Delegated property of this writable [Double] value, use with `by` keyword. */
 inline operator fun WritableDoubleValue.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: Double,
+    value: Double
 ): Unit = set(value)
 
 /** Delegated property of this read-only [Float] value, use with `by` keyword. */
 inline operator fun ObservableFloatValue.getValue(
     thisRef: Any?,
-    property: KProperty<*>,
+    property: KProperty<*>
 ): Float = get()
 
 /** Delegated property of this writable [Float] value, use with `by` keyword. */
 inline operator fun WritableFloatValue.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: Float,
+    value: Float
 ): Unit = set(value)
 
 /** Delegated property of this read-only [Long] value, use with `by` keyword. */
 inline operator fun ObservableLongValue.getValue(
     thisRef: Any?,
-    property: KProperty<*>,
+    property: KProperty<*>
 ): Long = get()
 
 /** Delegated property of this writable [Long] value, use with `by` keyword. */
 inline operator fun WritableLongValue.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: Long,
+    value: Long
 ): Unit = set(value)
 
 /** Delegated property of this read-only [Int] value, use with `by` keyword. */
 inline operator fun ObservableIntegerValue.getValue(
     thisRef: Any?,
-    property: KProperty<*>,
+    property: KProperty<*>
 ): Int = get()
 
 /** Delegated property of this writable [Int] value, use with `by` keyword. */
 inline operator fun WritableIntegerValue.setValue(
     thisRef: Any?,
     property: KProperty<*>,
-    value: Int,
+    value: Int
 ): Unit = set(value)

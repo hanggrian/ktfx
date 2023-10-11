@@ -72,7 +72,7 @@ open class BaseInputTest : ApplicationTest() {
             isShiftDown,
             isControlDown,
             isAltDown,
-            isMetaDown,
+            isMetaDown
         )
     }
 
@@ -82,7 +82,7 @@ open class BaseInputTest : ApplicationTest() {
         x: Double,
         y: Double,
         mouseButton: MouseButton,
-        clickCount: Int,
+        clickCount: Int
     ): MouseEvent {
         screenMouseX = scene.window.x + scene.x + x
         screenMouseY = scene.window.y + scene.y + y
@@ -116,7 +116,7 @@ open class BaseInputTest : ApplicationTest() {
             type, sceneMouseX, sceneMouseY, screenMouseX, screenMouseY,
             button, clickCount, isShiftDown, isControlDown, isAltDown, isMetaDown,
             isButton1Pressed, isButton2Pressed, isButton3Pressed, false, button == SECONDARY, false,
-            null,
+            null
         )
     }
 
@@ -127,7 +127,7 @@ open class BaseInputTest : ApplicationTest() {
             ScrollEvent.SCROLL, sceneMouseX, sceneMouseY, screenMouseX, screenMouseY,
             isShiftDown, isControlDown, isAltDown, isMetaDown, false, false, 0.0,
             wheelAmount * 40.0, 0.0, 0.0, ScrollEvent.HorizontalTextScrollUnits.NONE, 0.0,
-            ScrollEvent.VerticalTextScrollUnits.NONE, 0.0, 0, null,
+            ScrollEvent.VerticalTextScrollUnits.NONE, 0.0, 0, null
         )
     }
 }

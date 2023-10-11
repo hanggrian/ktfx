@@ -14,14 +14,14 @@ val ListenersFactory.Companion.ControlsFx: ListenersFactory
     get() = ListenersFactory(
         "thirdparty/controlsfx-listeners/src/main/kotlin",
         "ktfx.controlsfx.listeners",
-        "ControlsFxListenersKt",
+        "ControlsFxListenersKt"
     ).apply { initControlsFx() }
 
 val CoroutinesFactory.Companion.ControlsFx: CoroutinesFactory
     get() = CoroutinesFactory(
         "thirdparty/controlsfx-coroutines/src/main/kotlin",
         "ktfx.controlsfx.coroutines",
-        "ControlsFxCoroutinesKt",
+        "ControlsFxCoroutinesKt"
     ).apply { initControlsFx() }
 
 fun BaseListenersFactory.initControlsFx() {

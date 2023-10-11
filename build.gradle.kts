@@ -1,15 +1,18 @@
-import com.vanniktech.maven.publish.MavenPublishBaseExtension
-import com.vanniktech.maven.publish.MavenPublishBasePlugin
-import com.vanniktech.maven.publish.SonatypeHost
-import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
-import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+val DEVELOPER_ID: String by project
+val DEVELOPER_NAME: String by project
+val DEVELOPER_URL: String by project
+val RELEASE_GROUP: String by project
+val RELEASE_ARTIFACT: String by project
+val RELEASE_VERSION: String by project
+val RELEASE_DESCRIPTION: String by project
+val RELEASE_URL: String by project
 
 plugins {
     kotlin("jvm") version libs.versions.kotlin apply false
     kotlin("kapt") version libs.versions.kotlin apply false
     alias(libs.plugins.dokka)
     alias(libs.plugins.kotlinx.kover) apply false
+    alias(libs.plugins.ktlint) apply false
     alias(libs.plugins.maven.publish) apply false
 }
 
@@ -19,17 +22,47 @@ allprojects {
 }
 
 subprojects {
-    plugins.withType<KotlinPluginWrapper> {
-        kotlinExtension.jvmToolchain(libs.versions.jdk.get().toInt())
-        // tasks.withType<KotlinCompile> {
-        //     kotlinOptions.freeCompilerArgs = listOf("-Xopt-in=kotlin.RequiresOptIn")
-        // }
+    plugins.withType<org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper>().configureEach {
+        the<org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension>()
+            .jvmToolchain(libs.versions.jdk.get().toInt())
     }
-    plugins.withType<MavenPublishBasePlugin> {
-        configure<MavenPublishBaseExtension> {
-            publishToMavenCentral(SonatypeHost.S01)
+    plugins.withType<org.jlleitschuh.gradle.ktlint.KtlintPlugin>().configureEach {
+        the<org.jlleitschuh.gradle.ktlint.KtlintExtension>()
+            .version.set(libs.versions.ktlint.get())
+    }
+    plugins.withType<com.vanniktech.maven.publish.MavenPublishBasePlugin> {
+        configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
+            configure(
+                com.vanniktech.maven.publish.KotlinJvm(
+                    com.vanniktech.maven.publish.JavadocJar.Dokka("dokkaJavadoc")
+                )
+            )
+            publishToMavenCentral(com.vanniktech.maven.publish.SonatypeHost.S01)
             signAllPublications()
-            pom(::configurePom)
+            pom {
+                name.set(project.name)
+                description.set(RELEASE_DESCRIPTION)
+                url.set(RELEASE_URL)
+                licenses {
+                    license {
+                        name.set("The Apache License, Version 2.0")
+                        url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                        distribution.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set(DEVELOPER_ID)
+                        name.set(DEVELOPER_NAME)
+                        url.set(DEVELOPER_URL)
+                    }
+                }
+                scm {
+                    url.set(RELEASE_URL)
+                    connection.set("scm:git:https://github.com/$DEVELOPER_ID/$RELEASE_ARTIFACT.git")
+                    developerConnection.set("scm:git:ssh://git@github.com/$DEVELOPER_ID/$RELEASE_ARTIFACT.git")
+                }
+            }
         }
     }
 }

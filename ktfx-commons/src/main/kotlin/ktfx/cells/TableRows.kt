@@ -12,7 +12,7 @@ import javafx.scene.control.TableView
  * @param configuration custom initialization block that configures [KtfxTableRow].
  */
 fun <S> TableView<S>.rowFactory(
-    configuration: KtfxTableRow<S>.(TableView<S>) -> Unit,
+    configuration: KtfxTableRow<S>.(TableView<S>) -> Unit
 ): Unit = setRowFactory { KtfxTableRow<S>().apply { configuration(it) } }
 
 /** Custom [TableRow] configurator class. */

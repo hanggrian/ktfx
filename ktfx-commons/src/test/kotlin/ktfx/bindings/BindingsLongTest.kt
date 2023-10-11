@@ -6,7 +6,7 @@ import ktfx.floatPropertyOf
 import ktfx.intPropertyOf
 import ktfx.longPropertyOf
 import ktfx.propertyOf
-import ktfx.time.minutes
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -34,7 +34,7 @@ class BindingsLongTest {
 
     @Test
     fun anyDependency() {
-        val dependency = propertyOf(1.minutes)
+        val dependency = propertyOf(1.m)
         val binding = dependency.asLong { it?.toMillis()?.toLong() ?: 0 }
         assertEquals(60000, binding.value)
         dependency.value = null

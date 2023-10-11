@@ -16,14 +16,14 @@ val ListenersFactory.Companion.JFoenix: ListenersFactory
     get() = ListenersFactory(
         "thirdparty/jfoenix-listeners/src/main/kotlin",
         "ktfx.jfoenix.listeners",
-        "JFoenixListenersKt",
+        "JFoenixListenersKt"
     ).apply { initJFoenix() }
 
 val CoroutinesFactory.Companion.JFoenix: CoroutinesFactory
     get() = CoroutinesFactory(
         "thirdparty/jfoenix-coroutines/src/main/kotlin",
         "ktfx.jfoenix.coroutines",
-        "JFoenixCoroutinesKt",
+        "JFoenixCoroutinesKt"
     ).apply { initJFoenix() }
 
 fun BaseListenersFactory.initJFoenix() {

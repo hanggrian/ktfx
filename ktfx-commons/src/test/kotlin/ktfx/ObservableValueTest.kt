@@ -1,6 +1,6 @@
 package ktfx
 
-import ktfx.time.minutes
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -14,8 +14,8 @@ class ObservableValueTest {
     @Test
     fun `object`() {
         assertNull(`object`)
-        `object` = 2.minutes
-        assertEquals(2.minutes, objectProperty.value)
+        `object` = 2.m
+        assertEquals(2.m, objectProperty.value)
     }
 
     private val stringProperty = stringPropertyOf()

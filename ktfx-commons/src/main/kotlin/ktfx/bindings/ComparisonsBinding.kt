@@ -9,7 +9,7 @@ import javafx.beans.value.ObservableNumberValue
 
 /** @see kotlin.comparisons.maxOf */
 inline fun maxOf(a: ObservableNumberValue, b: ObservableNumberValue): NumberBinding =
-    Bindings.max(a, b,)
+    Bindings.max(a, b)
 
 /** @see kotlin.comparisons.maxOf */
 inline fun maxOf(a: ObservableNumberValue, b: Double): DoubleBinding = Bindings.max(a, b)
@@ -37,7 +37,7 @@ inline fun maxOf(a: Int, b: ObservableNumberValue): NumberBinding = Bindings.max
 
 /** @see kotlin.comparisons.minOf */
 inline fun minOf(a: ObservableNumberValue, b: ObservableNumberValue): NumberBinding =
-    Bindings.min(a, b,)
+    Bindings.min(a, b)
 
 /** @see kotlin.comparisons.minOf */
 inline fun minOf(a: ObservableNumberValue, b: Double): DoubleBinding = Bindings.min(a, b)

@@ -7,7 +7,7 @@ import ktfx.intPropertyOf
 import ktfx.longPropertyOf
 import ktfx.propertyOf
 import ktfx.stringPropertyOf
-import ktfx.time.minutes
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -35,7 +35,7 @@ class BindingsStringTest {
 
     @Test
     fun anyDependency() {
-        val dependency = propertyOf(1.minutes)
+        val dependency = propertyOf(1.m)
         val binding = dependency.asString { it.toString() }
         assertEquals("60000.0 ms", binding.value)
         dependency.value = null

@@ -6,7 +6,7 @@ import ktfx.floatPropertyOf
 import ktfx.intPropertyOf
 import ktfx.longPropertyOf
 import ktfx.propertyOf
-import ktfx.time.minutes
+import ktfx.time.m
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -34,7 +34,7 @@ class BindingsFloatTest {
 
     @Test
     fun anyDependency() {
-        val dependency = propertyOf(1.minutes)
+        val dependency = propertyOf(1.m)
         val binding = dependency.asFloat { it?.toMillis()?.toFloat() ?: 0f }
         assertEquals(60000f, binding.value)
         dependency.value = null

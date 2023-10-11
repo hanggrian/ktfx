@@ -35,7 +35,7 @@ inline infix fun When.then(value: Int): When.NumberConditionBuilder = then(value
 /** @see When.NumberConditionBuilder.otherwise */
 inline infix fun When.NumberConditionBuilder.otherwise(
     value: ObservableNumberValue
-): NumberBinding = otherwise(value,)
+): NumberBinding = otherwise(value)
 
 /** @see When.NumberConditionBuilder.otherwise */
 inline infix fun When.NumberConditionBuilder.otherwise(value: Double): DoubleBinding =

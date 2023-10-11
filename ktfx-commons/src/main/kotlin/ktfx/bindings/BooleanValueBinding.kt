@@ -14,7 +14,7 @@ import javafx.beans.value.ObservableBooleanValue
  * @see BooleanExpression.and
  */
 inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): BooleanBinding =
-    Bindings.and(this, other,)
+    Bindings.and(this, other)
 
 /**
  * Creates a [BooleanBinding] that calculates the conditional-OR
@@ -23,7 +23,7 @@ inline infix fun ObservableBooleanValue.and(other: ObservableBooleanValue): Bool
  * @see BooleanExpression.or
  */
 inline infix fun ObservableBooleanValue.or(other: ObservableBooleanValue): BooleanBinding =
-    Bindings.or(this, other,)
+    Bindings.or(this, other)
 
 /**
  * Creates a [BooleanBinding] that calculates the conditional-OR

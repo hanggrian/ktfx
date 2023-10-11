@@ -21,7 +21,7 @@ import javafx.util.StringConverter
  *   return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
 inline fun <T> ListView<T>.checkBoxCellFactory(
-    noinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>,
+    noinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>
 ): Unit = setCellFactory(CheckBoxListCell.forListView(selectedPropertyProvider))
 
 /**
@@ -35,7 +35,7 @@ inline fun <T> ListView<T>.checkBoxCellFactory(
  */
 inline fun <T> ListView<T>.checkBoxCellFactory(
     converter: StringConverter<T>,
-    noinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>,
+    noinline selectedPropertyProvider: (T) -> ObservableValue<Boolean>
 ): Unit = setCellFactory(CheckBoxListCell.forListView(selectedPropertyProvider, converter))
 
 /**
@@ -46,7 +46,7 @@ inline fun <T> ListView<T>.checkBoxCellFactory(
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
 inline fun <T> ListView<T>.choiceBoxCellFactory(
-    vararg items: T,
+    vararg items: T
 ): Unit = setCellFactory(ChoiceBoxListCell.forListView(*items))
 
 /**
@@ -60,7 +60,7 @@ inline fun <T> ListView<T>.choiceBoxCellFactory(
  */
 inline fun <T> ListView<T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
-    vararg items: T,
+    vararg items: T
 ): Unit = setCellFactory(ChoiceBoxListCell.forListView(converter, *items))
 
 /**
@@ -71,7 +71,7 @@ inline fun <T> ListView<T>.choiceBoxCellFactory(
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
 inline fun <T> ListView<T>.choiceBoxCellFactory(
-    items: ObservableList<T>,
+    items: ObservableList<T>
 ): Unit = setCellFactory(ChoiceBoxListCell.forListView(items))
 
 /**
@@ -85,7 +85,7 @@ inline fun <T> ListView<T>.choiceBoxCellFactory(
  */
 inline fun <T> ListView<T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
-    items: ObservableList<T>,
+    items: ObservableList<T>
 ): Unit = setCellFactory(ChoiceBoxListCell.forListView(converter, items))
 
 /**
@@ -96,7 +96,7 @@ inline fun <T> ListView<T>.choiceBoxCellFactory(
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
 inline fun <T> ListView<T>.comboBoxCellFactory(
-    vararg items: T,
+    vararg items: T
 ): Unit = setCellFactory(ComboBoxListCell.forListView(*items))
 
 /**
@@ -110,7 +110,7 @@ inline fun <T> ListView<T>.comboBoxCellFactory(
  */
 inline fun <T> ListView<T>.comboBoxCellFactory(
     converter: StringConverter<T>,
-    vararg items: T,
+    vararg items: T
 ): Unit = setCellFactory(ComboBoxListCell.forListView(converter, *items))
 
 /**
@@ -121,7 +121,7 @@ inline fun <T> ListView<T>.comboBoxCellFactory(
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
 inline fun <T> ListView<T>.comboBoxCellFactory(
-    items: ObservableList<T>,
+    items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxListCell.forListView(items))
 
 /**
@@ -135,7 +135,7 @@ inline fun <T> ListView<T>.comboBoxCellFactory(
  */
 inline fun <T> ListView<T>.comboBoxCellFactory(
     converter: StringConverter<T>,
-    items: ObservableList<T>,
+    items: ObservableList<T>
 ): Unit = setCellFactory(ComboBoxListCell.forListView(converter, items))
 
 /** Sets a [TextFieldListCell] factory for use in this [ListView]. */
@@ -149,7 +149,7 @@ inline fun ListView<String>.textFieldCellFactory(): Unit =
  *   can be used to represent the object visually.
  */
 inline fun <T> ListView<T>.textFieldCellFactory(
-    converter: StringConverter<T>,
+    converter: StringConverter<T>
 ): Unit = setCellFactory(TextFieldListCell.forListView(converter))
 
 /**
@@ -159,7 +159,7 @@ inline fun <T> ListView<T>.textFieldCellFactory(
  * @param configuration custom initialization block that configures [KtfxListCell].
  */
 fun <T> ListView<T>.cellFactory(
-    configuration: KtfxListCell<T>.(ListView<T>) -> Unit,
+    configuration: KtfxListCell<T>.(ListView<T>) -> Unit
 ): Unit = setCellFactory { KtfxListCell<T>().apply { configuration(it) } }
 
 /**
@@ -169,7 +169,7 @@ fun <T> ListView<T>.cellFactory(
  * @param configuration custom initialization block that configures [KtfxListCell].
  */
 fun <T> ComboBox<T>.cellFactory(
-    configuration: KtfxListCell<T>.(ListView<T>) -> Unit,
+    configuration: KtfxListCell<T>.(ListView<T>) -> Unit
 ): Unit = setCellFactory { KtfxListCell<T>().apply { configuration(it) } }
 
 /** Custom [ListCell] configurator class. */

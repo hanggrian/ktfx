@@ -19,7 +19,7 @@ fun fontOf(
     family: String = "System",
     weight: FontWeight = FontWeight.NORMAL,
     posture: FontPosture = FontPosture.REGULAR,
-    size: Int,
+    size: Int
 ): Font = Font.font(family, weight, posture, size.toDouble())
 
 /** Composes a font from configuration using [Double] size. */
@@ -27,5 +27,5 @@ inline fun fontOf(
     family: String = "System",
     weight: FontWeight = FontWeight.NORMAL,
     posture: FontPosture = FontPosture.REGULAR,
-    size: Double = Font.getDefault().size,
+    size: Double = Font.getDefault().size
 ): Font = Font.font(family, weight, posture, size)

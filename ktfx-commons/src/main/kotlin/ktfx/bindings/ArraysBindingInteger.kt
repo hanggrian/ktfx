@@ -48,7 +48,7 @@ inline fun ObservableIntegerArray.forEachBinding(action: (IntegerBinding) -> Uni
  * @see forEachIndexed
  */
 inline fun ObservableIntegerArray.forEachBindingIndexed(
-    action: (index: Int, IntegerBinding) -> Unit,
+    action: (index: Int, IntegerBinding) -> Unit
 ) {
     for (index in 0 until size()) {
         action(index, Bindings.integerValueAt(this, index))

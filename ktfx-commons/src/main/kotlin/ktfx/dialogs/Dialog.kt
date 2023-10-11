@@ -129,6 +129,6 @@ class DialogButtonContainerScope internal constructor(nativeDialog: Dialog<*>) :
     /** Alias of [add] with operator function. */
     inline operator fun String.invoke(
         data: ButtonBar.ButtonData = OTHER,
-        configuration: Button.() -> Unit,
+        configuration: Button.() -> Unit
     ): Button = add(this, data, configuration)
 }

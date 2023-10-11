@@ -27,7 +27,7 @@ fun alert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null,
+    alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = Alert(AlertType.NONE, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
@@ -48,7 +48,7 @@ fun alert(
 inline fun alert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null,
+    noinline alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = alert(null, null, content, *buttonTypes, alertAction = alertAction)
 
 /**
@@ -66,7 +66,7 @@ fun infoAlert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null,
+    alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = Alert(AlertType.INFORMATION, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
@@ -87,7 +87,7 @@ fun infoAlert(
 inline fun infoAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null,
+    noinline alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = infoAlert(null, null, content, *buttonTypes, alertAction = alertAction)
 
 /**
@@ -105,7 +105,7 @@ fun warningAlert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null,
+    alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = Alert(AlertType.WARNING, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
@@ -126,7 +126,7 @@ fun warningAlert(
 inline fun warningAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null,
+    noinline alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = warningAlert(null, null, content, *buttonTypes, alertAction = alertAction)
 
 /**
@@ -144,7 +144,7 @@ fun confirmAlert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(YES, NO),
-    alertAction: (Alert.() -> Unit)? = null,
+    alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = Alert(AlertType.CONFIRMATION, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
@@ -165,7 +165,7 @@ fun confirmAlert(
 inline fun confirmAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(YES, NO),
-    noinline alertAction: (Alert.() -> Unit)? = null,
+    noinline alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = confirmAlert(null, null, content, *buttonTypes, alertAction = alertAction)
 
 /**
@@ -183,7 +183,7 @@ fun errorAlert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null,
+    alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = Alert(AlertType.ERROR, content, *buttonTypes).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
@@ -204,5 +204,5 @@ fun errorAlert(
 inline fun errorAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null,
+    noinline alertAction: (Alert.() -> Unit)? = null
 ): Optional<ButtonType> = errorAlert(null, null, content, *buttonTypes, alertAction = alertAction)

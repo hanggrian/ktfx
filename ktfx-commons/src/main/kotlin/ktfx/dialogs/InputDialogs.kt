@@ -20,7 +20,7 @@ fun inputDialog(
     title: String? = null,
     graphic: Node? = null,
     prefill: String = "",
-    dialogAction: (TextInputDialog.() -> Unit)? = null,
+    dialogAction: (TextInputDialog.() -> Unit)? = null
 ): Optional<String> = TextInputDialog(prefill).also { dialog ->
     if (title != null) dialog.headerTitle = title
     when {
@@ -39,5 +39,5 @@ fun inputDialog(
  */
 inline fun inputDialog(
     prefill: String = "",
-    noinline dialogAction: (TextInputDialog.() -> Unit)? = null,
+    noinline dialogAction: (TextInputDialog.() -> Unit)? = null
 ): Optional<String> = inputDialog(null, null, prefill, dialogAction)

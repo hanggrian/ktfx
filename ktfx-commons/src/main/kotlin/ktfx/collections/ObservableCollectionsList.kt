@@ -63,7 +63,7 @@ fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
         mutableObservableListOf()
     } else {
         FXCollections.observableArrayList(
-            *elements,
+            *elements
         )
     }
 

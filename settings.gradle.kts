@@ -1,13 +1,13 @@
 pluginManagement.repositories {
-    gradlePluginPortal()
     mavenCentral()
+    gradlePluginPortal()
 }
 dependencyResolutionManagement.repositories {
     mavenCentral()
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
-rootProject.name = "ktfx"
+rootProject.name = "ktfx-root"
 
 include("ktfx", "ktfx-commons", "ktfx-coroutines", "ktfx-layouts", "ktfx-listeners")
 include("codegen")
@@ -17,6 +17,7 @@ include("website")
 includeDir("thirdparty")
 includeDir("testing")
 
-fun includeDir(dir: String) = file(dir).listFiles()
+fun includeDir(dir: String) = include(*file(dir).listFiles()!!
     .filter { it.isDirectory }
-    .forEach { include("$dir:${it.name}") }
+    .map { "$dir:${it.name}" }
+    .toTypedArray())

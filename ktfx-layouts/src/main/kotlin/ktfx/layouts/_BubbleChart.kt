@@ -22,11 +22,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [BubbleChart] to this manager.
+ * Add a [BubbleChart] to this container.
  *
  * @return the control added.
  */
-public fun <X, Y> NodeManager.bubbleChart(
+public fun <X, Y> NodeContainer.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -51,12 +51,12 @@ public inline fun <X, Y> bubbleChart(
 }
 
 /**
- * Add a [BubbleChart] with configuration block to this manager.
+ * Add a [BubbleChart] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeManager.bubbleChart(
+public inline fun <X, Y> NodeContainer.bubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -85,13 +85,13 @@ public fun <X, Y> styledBubbleChart(
         id) { }
 
 /**
- * Add a styled [BubbleChart] to this manager.
+ * Add a styled [BubbleChart] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeManager.styledBubbleChart(
+public fun <X, Y> NodeContainer.styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -125,14 +125,14 @@ public inline fun <X, Y> styledBubbleChart(
 }
 
 /**
- * Add a styled [BubbleChart] with configuration block to this manager.
+ * Add a styled [BubbleChart] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeManager.styledBubbleChart(
+public inline fun <X, Y> NodeContainer.styledBubbleChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

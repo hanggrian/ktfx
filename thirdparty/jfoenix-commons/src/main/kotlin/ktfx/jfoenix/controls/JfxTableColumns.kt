@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalContracts::class)
+@file:Suppress("ktlint:rulebook:rename-uncommon-generics")
 
 package ktfx.jfoenix.controls
 
@@ -17,7 +18,7 @@ import kotlin.contracts.contract
  * @param configuration the configuration block.
  */
 fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
-    configuration: JfxTreeTableColumnScope<S>.() -> Unit
+    configuration: JfxTreeTableColumnScope<S>.() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     val columns2 = columns // explicit ref to avoid ambiguous label
@@ -32,7 +33,7 @@ fun <S : RecursiveTreeObject<S>> JFXTreeTableView<S>.columns(
  * @param configuration the configuration block.
  */
 fun <S : RecursiveTreeObject<S>> JFXTreeTableColumn<S, *>.columns(
-    configuration: JfxTreeTableColumnScope<S>.() -> Unit
+    configuration: JfxTreeTableColumnScope<S>.() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
     val columns2 = columns // explicit ref to avoid ambiguous label
@@ -48,14 +49,13 @@ interface JfxTreeTableColumnScope<S : RecursiveTreeObject<S>> {
     val columns: MutableCollection<TreeTableColumn<S, *>>
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> column(
-        text: String? = null
-    ): JFXTreeTableColumn<S, T> = JFXTreeTableColumn<S, T>(text).also { columns += it }
+    fun <T> column(text: String? = null): JFXTreeTableColumn<S, T> =
+        JFXTreeTableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
     fun <T> column(
         text: String? = null,
-        configuration: JFXTreeTableColumn<S, T>.() -> Unit
+        configuration: JFXTreeTableColumn<S, T>.() -> Unit,
     ): JFXTreeTableColumn<S, T> {
         val column = JFXTreeTableColumn<S, T>(text).apply(configuration)
         columns += column
@@ -64,6 +64,6 @@ interface JfxTreeTableColumnScope<S : RecursiveTreeObject<S>> {
 
     /** Add a column using receiver and [configuration] block, returning the column added. */
     operator fun <T> String.invoke(
-        configuration: JFXTreeTableColumn<S, T>.() -> Unit
+        configuration: JFXTreeTableColumn<S, T>.() -> Unit,
     ): JFXTreeTableColumn<S, T> = column(this, configuration)
 }

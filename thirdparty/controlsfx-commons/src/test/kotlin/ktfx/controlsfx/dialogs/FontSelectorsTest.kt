@@ -19,7 +19,7 @@ class FontSelectorsTest : DialogShowingTest() {
                     closeOnShow(this)
                     assertEquals("Font selector", headerText)
                     assertEquals(sampleGraphic, graphic)
-                }.get()
+                }.get(),
             )
             assertEquals(arial18, fontSelector(arial18) { closeOnShow(this) }.get())
         }

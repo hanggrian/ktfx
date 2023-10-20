@@ -22,11 +22,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [StackedAreaChart] to this manager.
+ * Add a [StackedAreaChart] to this container.
  *
  * @return the control added.
  */
-public fun <X, Y> NodeManager.stackedAreaChart(
+public fun <X, Y> NodeContainer.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -51,12 +51,12 @@ public inline fun <X, Y> stackedAreaChart(
 }
 
 /**
- * Add a [StackedAreaChart] with configuration block to this manager.
+ * Add a [StackedAreaChart] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeManager.stackedAreaChart(
+public inline fun <X, Y> NodeContainer.stackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -85,13 +85,13 @@ public fun <X, Y> styledStackedAreaChart(
         *styleClass, id = id) { }
 
 /**
- * Add a styled [StackedAreaChart] to this manager.
+ * Add a styled [StackedAreaChart] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeManager.styledStackedAreaChart(
+public fun <X, Y> NodeContainer.styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -125,14 +125,14 @@ public inline fun <X, Y> styledStackedAreaChart(
 }
 
 /**
- * Add a styled [StackedAreaChart] with configuration block to this manager.
+ * Add a styled [StackedAreaChart] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeManager.styledStackedAreaChart(
+public inline fun <X, Y> NodeContainer.styledStackedAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

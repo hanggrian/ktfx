@@ -20,11 +20,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [FlowPane] to this manager.
+ * Add a [FlowPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.flowPane(
+public fun NodeContainer.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -49,12 +49,12 @@ public inline fun flowPane(
 }
 
 /**
- * Add a [FlowPane] with configuration block to this manager.
+ * Add a [FlowPane] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.flowPane(
+public inline fun NodeContainer.flowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -83,13 +83,13 @@ public fun styledFlowPane(
         *styleClass, id = id) { }
 
 /**
- * Add a styled [FlowPane] to this manager.
+ * Add a styled [FlowPane] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledFlowPane(
+public fun NodeContainer.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -123,14 +123,14 @@ public inline fun styledFlowPane(
 }
 
 /**
- * Add a styled [FlowPane] with configuration block to this manager.
+ * Add a styled [FlowPane] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledFlowPane(
+public inline fun NodeContainer.styledFlowPane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,

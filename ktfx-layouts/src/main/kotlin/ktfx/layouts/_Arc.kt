@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add an [Arc] to this manager.
+ * Add an [Arc] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.arc(
+public fun NodeContainer.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -54,12 +54,12 @@ public inline fun arc(
 }
 
 /**
- * Add an [Arc] with configuration block to this manager.
+ * Add an [Arc] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.arc(
+public inline fun NodeContainer.arc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -94,13 +94,13 @@ public fun styledArc(
         startAngle = startAngle, length = length, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Arc] to this manager.
+ * Add a styled [Arc] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledArc(
+public fun NodeContainer.styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -140,14 +140,14 @@ public inline fun styledArc(
 }
 
 /**
- * Add a styled [Arc] with configuration block to this manager.
+ * Add a styled [Arc] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledArc(
+public inline fun NodeContainer.styledArc(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

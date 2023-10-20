@@ -19,11 +19,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [CustomMenuItem] to this manager.
+ * Add a [CustomMenuItem] to this container.
  *
  * @return the control added.
  */
-public fun MenuItemManager.customMenuItem(content: Node? = null, hideOnClick: Boolean = true):
+public fun MenuItemContainer.customMenuItem(content: Node? = null, hideOnClick: Boolean = true):
         CustomMenuItem = customMenuItem(content = content, hideOnClick = hideOnClick) { }
 
 /**
@@ -44,12 +44,12 @@ public inline fun customMenuItem(
 }
 
 /**
- * Add a [CustomMenuItem] with configuration block to this manager.
+ * Add a [CustomMenuItem] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun MenuItemManager.customMenuItem(
+public inline fun MenuItemContainer.customMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     configuration: (@KtfxLayoutDslMarker CustomMenuItem).() -> Unit,
@@ -76,13 +76,13 @@ public fun styledCustomMenuItem(
         *styleClass, id = id) { }
 
 /**
- * Add a styled [CustomMenuItem] to this manager.
+ * Add a styled [CustomMenuItem] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun MenuItemManager.styledCustomMenuItem(
+public fun MenuItemContainer.styledCustomMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     vararg styleClass: String,
@@ -114,14 +114,14 @@ public inline fun styledCustomMenuItem(
 }
 
 /**
- * Add a styled [CustomMenuItem] with configuration block to this manager.
+ * Add a styled [CustomMenuItem] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun MenuItemManager.styledCustomMenuItem(
+public inline fun MenuItemContainer.styledCustomMenuItem(
     content: Node? = null,
     hideOnClick: Boolean = true,
     vararg styleClass: String,

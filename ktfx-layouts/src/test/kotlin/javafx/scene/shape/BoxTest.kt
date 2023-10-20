@@ -6,9 +6,13 @@ import kotlin.test.assertEquals
 
 class BoxTest : LayoutsTest<KtfxPane, Box>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): Box = box { }
+
     override fun KtfxPane.child2(): Box = box()
+
     override fun KtfxPane.child3(): Box = box { }
 
     override fun Box.testDefaultValues() {

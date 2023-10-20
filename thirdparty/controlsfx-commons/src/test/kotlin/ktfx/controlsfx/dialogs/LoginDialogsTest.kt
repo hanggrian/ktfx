@@ -19,11 +19,11 @@ class LoginDialogsTest : DialogShowingTest() {
                     closeOnShow(this)
                     assertEquals("Login dialog", headerText)
                     assertEquals(sampleGraphic, graphic)
-                }.get()
+                }.get(),
             )
             assertEquals(
                 userInfo.toFxPair(),
-                loginDialog(userInfo, { }) { closeOnShow(this) }.get()
+                loginDialog(userInfo, { }) { closeOnShow(this) }.get(),
             )
         }
     }

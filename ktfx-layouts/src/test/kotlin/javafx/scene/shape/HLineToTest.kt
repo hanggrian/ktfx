@@ -6,9 +6,13 @@ import kotlin.test.assertEquals
 
 class HLineToTest : LayoutsTest<KtfxPath, HLineTo>() {
     override fun manager(): KtfxPath = KtfxPath()
+
     override fun KtfxPath.childCount(): Int = elements.size
+
     override fun child1(): HLineTo = hlineTo { }
+
     override fun KtfxPath.child2(): HLineTo = hlineTo()
+
     override fun KtfxPath.child3(): HLineTo = hlineTo { }
 
     override fun HLineTo.testDefaultValues() {

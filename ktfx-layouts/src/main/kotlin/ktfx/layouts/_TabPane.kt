@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [TabPane] to this manager.
+ * Add a [TabPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.tabPane(): TabPane = tabPane() { }
+public fun NodeContainer.tabPane(): TabPane = tabPane() { }
 
 /**
  * Create a [TabPane] with configuration block.
@@ -37,13 +37,13 @@ public inline fun tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -
 }
 
 /**
- * Add a [TabPane] with configuration block to this manager.
+ * Add a [TabPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.tabPane(configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit):
-        TabPane {
+public inline fun NodeContainer.tabPane(configuration: (@KtfxLayoutDslMarker
+        KtfxTabPane).() -> Unit): TabPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTabPane()
     child.configuration()
@@ -61,13 +61,13 @@ public fun styledTabPane(vararg styleClass: String, id: String? = null): TabPane
         styledTabPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [TabPane] to this manager.
+ * Add a styled [TabPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
+public fun NodeContainer.styledTabPane(vararg styleClass: String, id: String? = null): TabPane =
         styledTabPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledTabPane(
 }
 
 /**
- * Add a styled [TabPane] with configuration block to this manager.
+ * Add a styled [TabPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledTabPane(
+public inline fun NodeContainer.styledTabPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTabPane).() -> Unit,

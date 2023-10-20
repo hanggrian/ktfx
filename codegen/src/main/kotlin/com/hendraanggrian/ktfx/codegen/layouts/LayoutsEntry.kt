@@ -23,19 +23,19 @@ data class LayoutsEntry(
     val kClass: KClass<*>,
     val parameters: List<ParameterSpec>,
     val typeVarNames: List<TypeVariableName>,
-    private val customClass: Boolean
+    private val customClass: Boolean,
 ) {
-
     private companion object {
-        val VALID_MANAGERS: Set<KClass<*>> = setOf(
-            MenuItem::class,
-            Menu::class,
-            Node::class,
-            PathElement::class,
-            Tab::class,
-            TitledPane::class,
-            ToggleButton::class
-        )
+        val VALID_CONTAINERS: Set<KClass<*>> =
+            setOf(
+                MenuItem::class,
+                Menu::class,
+                Node::class,
+                PathElement::class,
+                Tab::class,
+                TitledPane::class,
+                ToggleButton::class,
+            )
     }
 
     private val simpleName: String get() = kClass.simpleName!!
@@ -49,58 +49,70 @@ data class LayoutsEntry(
         }
 
     val customTypeName: TypeName
-        get() = typeName.takeUnless { customClass } ?: classNameOf(packageName, "Ktfx$simpleName")
+        get() =
+            typeName.takeUnless { customClass } ?: classNameOf(
+                packageName,
+                when {
+                    simpleName.startsWith("JFX") -> "KtfxJfx${simpleName.substringAfter("JFX")}"
+                    else -> "Ktfx$simpleName"
+                },
+            )
 
-    val managerClassNames: List<ClassName>
-        get() = VALID_MANAGERS.filter { it == kClass || it.isSuperclassOf(kClass) }
-            .map { classNameOf(KTFX_LAYOUTS, "${it.simpleName}Manager") }
+    val containerClassNames: List<ClassName>
+        get() =
+            VALID_CONTAINERS.filter { it == kClass || it.isSuperclassOf(kClass) }
+                .map { classNameOf(KTFX_LAYOUTS, "${it.simpleName}Container") }
 
-    val fullManagerClassNames: List<ClassName?>
-        get() = listOf(null, *managerClassNames.toTypedArray())
+    val fullContainerClassNames: List<ClassName?>
+        get() = listOf(null, *containerClassNames.toTypedArray())
 
     val functionName: String
-        get() = simpleName.mapIndexed { index, c ->
-            when {
-                index == 0 || index == 1 -> c.lowercaseChar()
-                c.isUpperCase() && simpleName.getOrNull(index + 1)
-                    ?.isUpperCase() ?: false -> c.lowercaseChar()
-                else -> c
-            }
-        }.joinToString("")
+        get() =
+            simpleName.mapIndexed { index, c ->
+                when {
+                    index == 0 || index == 1 -> c.lowercaseChar()
+                    c.isUpperCase() && simpleName.getOrNull(index + 1)
+                        ?.isUpperCase() ?: false -> c.lowercaseChar()
+                    else -> c
+                }
+            }.joinToString("")
 
     val styledFunctionName: String get() = "styled$simpleName"
 
     val supportStyledFunction: Boolean
         get() =
-            classNameOf("ktfx.layouts", "PathElementManager") !in managerClassNames
+            classNameOf("ktfx.layouts", "PathElementContainer") !in containerClassNames
 
-    fun getFileComment(add: Boolean, styled: Boolean, configured: Boolean): String = buildString {
-        append(if (!add) "Create" else "Add")
-        append(
-            when {
-                !styled && simpleName.first()
-                    .let { it == 'A' || it == 'E' || it == 'I' || it == 'O' || it == 'U' } ->
-                    " an"
-                else -> " a"
-            }
-        )
-        if (styled) append(" styled")
-        append(" [$simpleName]")
-        if (configured) append(" with configuration block")
-        if (add) append(" to this manager")
-        append('.')
-    }
+    fun getFileComment(add: Boolean, styled: Boolean, configured: Boolean): String =
+        buildString {
+            append(if (!add) "Create" else "Add")
+            append(
+                when {
+                    !styled &&
+                        simpleName.first()
+                            .let { it == 'A' || it == 'E' || it == 'I' || it == 'O' || it == 'U' }
+                    -> " an"
+                    else -> " a"
+                },
+            )
+            if (styled) append(" styled")
+            append(" [$simpleName]")
+            if (configured) append(" with configuration block")
+            if (add) append(" to this container")
+            append('.')
+        }
 
-    fun getReturnsComment(add: Boolean, styled: Boolean): String = buildString {
-        append("the")
-        if (styled) append(" styled")
-        append(" control")
-        append(
-            when {
-                add -> " added"
-                else -> " created"
-            }
-        )
-        append('.')
-    }
+    fun getReturnsComment(add: Boolean, styled: Boolean): String =
+        buildString {
+            append("the")
+            if (styled) append(" styled")
+            append(" control")
+            append(
+                when {
+                    add -> " added"
+                    else -> " created"
+                },
+            )
+            append('.')
+        }
 }

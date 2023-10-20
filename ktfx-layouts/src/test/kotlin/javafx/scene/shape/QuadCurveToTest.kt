@@ -6,9 +6,13 @@ import kotlin.test.assertEquals
 
 class QuadCurveToTest : LayoutsTest<KtfxPath, QuadCurveTo>() {
     override fun manager(): KtfxPath = KtfxPath()
+
     override fun KtfxPath.childCount(): Int = elements.size
+
     override fun child1(): QuadCurveTo = quadCurveTo { }
+
     override fun KtfxPath.child2(): QuadCurveTo = quadCurveTo()
+
     override fun KtfxPath.child3(): QuadCurveTo = quadCurveTo { }
 
     override fun QuadCurveTo.testDefaultValues() {

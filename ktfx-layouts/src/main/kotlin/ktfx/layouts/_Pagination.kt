@@ -19,11 +19,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Pagination] to this manager.
+ * Add a [Pagination] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0):
+public fun NodeContainer.pagination(pageCount: Int = INDETERMINATE, currentPageIndex: Int = 0):
         Pagination = pagination(pageCount = pageCount, currentPageIndex = currentPageIndex) { }
 
 /**
@@ -44,12 +44,12 @@ public inline fun pagination(
 }
 
 /**
- * Add a [Pagination] with configuration block to this manager.
+ * Add a [Pagination] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.pagination(
+public inline fun NodeContainer.pagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     configuration: (@KtfxLayoutDslMarker Pagination).() -> Unit,
@@ -76,13 +76,13 @@ public fun styledPagination(
         styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Pagination] to this manager.
+ * Add a styled [Pagination] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledPagination(
+public fun NodeContainer.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,
@@ -114,14 +114,14 @@ public inline fun styledPagination(
 }
 
 /**
- * Add a styled [Pagination] with configuration block to this manager.
+ * Add a styled [Pagination] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledPagination(
+public inline fun NodeContainer.styledPagination(
     pageCount: Int = INDETERMINATE,
     currentPageIndex: Int = 0,
     vararg styleClass: String,

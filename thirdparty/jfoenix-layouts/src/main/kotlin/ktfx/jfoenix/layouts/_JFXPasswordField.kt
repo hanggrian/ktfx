@@ -16,14 +16,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXPasswordField] to this manager.
+ * Add a [JFXPasswordField] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxPasswordField(): JFXPasswordField = jfxPasswordField() { }
+public fun NodeContainer.jfxPasswordField(): JFXPasswordField = jfxPasswordField() { }
 
 /**
  * Create a [JFXPasswordField] with configuration block.
@@ -40,12 +40,12 @@ public inline fun jfxPasswordField(configuration: (@KtfxLayoutDslMarker
 }
 
 /**
- * Add a [JFXPasswordField] with configuration block to this manager.
+ * Add a [JFXPasswordField] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.jfxPasswordField(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxPasswordField(configuration: (@KtfxLayoutDslMarker
         JFXPasswordField).() -> Unit): JFXPasswordField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXPasswordField()
@@ -64,13 +64,13 @@ public fun styledJFXPasswordField(vararg styleClass: String, id: String? = null)
         styledJFXPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXPasswordField] to this manager.
+ * Add a styled [JFXPasswordField] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXPasswordField(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledJFXPasswordField(vararg styleClass: String, id: String? = null):
         JFXPasswordField = styledJFXPasswordField(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun styledJFXPasswordField(
 }
 
 /**
- * Add a styled [JFXPasswordField] with configuration block to this manager.
+ * Add a styled [JFXPasswordField] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXPasswordField(
+public inline fun NodeContainer.styledJFXPasswordField(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXPasswordField).() -> Unit,

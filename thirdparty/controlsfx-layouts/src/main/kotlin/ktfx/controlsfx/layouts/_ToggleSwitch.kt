@@ -15,16 +15,16 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.ToggleSwitch
 
 /**
- * Add a [ToggleSwitch] to this manager.
+ * Add a [ToggleSwitch] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(text = text)
-        { }
+public fun NodeContainer.toggleSwitch(text: String? = null): ToggleSwitch = toggleSwitch(text =
+        text) { }
 
 /**
  * Create a [ToggleSwitch] with configuration block.
@@ -41,12 +41,12 @@ public inline fun toggleSwitch(text: String? = null, configuration: (@KtfxLayout
 }
 
 /**
- * Add a [ToggleSwitch] with configuration block to this manager.
+ * Add a [ToggleSwitch] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.toggleSwitch(text: String? = null,
+public inline fun NodeContainer.toggleSwitch(text: String? = null,
         configuration: (@KtfxLayoutDslMarker ToggleSwitch).() -> Unit): ToggleSwitch {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ToggleSwitch(text)
@@ -68,13 +68,13 @@ public fun styledToggleSwitch(
 ): ToggleSwitch = styledToggleSwitch(text = text, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ToggleSwitch] to this manager.
+ * Add a styled [ToggleSwitch] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledToggleSwitch(
+public fun NodeContainer.styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -103,14 +103,14 @@ public inline fun styledToggleSwitch(
 }
 
 /**
- * Add a styled [ToggleSwitch] with configuration block to this manager.
+ * Add a styled [ToggleSwitch] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledToggleSwitch(
+public inline fun NodeContainer.styledToggleSwitch(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

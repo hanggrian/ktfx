@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [MeshView] to this manager.
+ * Add a [MeshView] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) { }
+public fun NodeContainer.meshView(mesh: Mesh? = null): MeshView = meshView(mesh = mesh) { }
 
 /**
  * Create a [MeshView] with configuration block.
@@ -39,12 +39,12 @@ public inline fun meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMar
 }
 
 /**
- * Add a [MeshView] with configuration block to this manager.
+ * Add a [MeshView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.meshView(mesh: Mesh? = null, configuration: (@KtfxLayoutDslMarker
         MeshView).() -> Unit): MeshView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MeshView(mesh)
@@ -66,13 +66,13 @@ public fun styledMeshView(
 ): MeshView = styledMeshView(mesh = mesh, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [MeshView] to this manager.
+ * Add a styled [MeshView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledMeshView(
+public fun NodeContainer.styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -101,14 +101,14 @@ public inline fun styledMeshView(
 }
 
 /**
- * Add a styled [MeshView] with configuration block to this manager.
+ * Add a styled [MeshView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledMeshView(
+public inline fun NodeContainer.styledMeshView(
     mesh: Mesh? = null,
     vararg styleClass: String,
     id: String? = null,

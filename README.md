@@ -26,10 +26,9 @@ dependencies {
     // or download separately
     compile "com.hendraanggrian.ktfx:ktfx-commons:$version"
     compile "com.hendraanggrian.ktfx:ktfx-layouts:$version"
-    compile "com.hendraanggrian.ktfx:ktfx-listeners:$version"
     compile "com.hendraanggrian.ktfx:ktfx-coroutines:$version"
 
-    // third-party artifacts
+    // third-party artifacts, also available individually
     compile "com.hendraanggrian.ktfx:ktfx-controlsfx:$version"
     compile "com.hendraanggrian.ktfx:ktfx-jfoenix:$version"
 }
@@ -133,35 +132,6 @@ gridPane {
 ```
 
 ![Layouts preview.](https://github.com/hendraanggrian/ktfx/raw/assets/preview_layouts.png)
-
-## [Ktfx Listeners](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Listeners/)
-
-Trade common JavaFX listener with Kotlin DSL. Currently includes string
-converters and table cells.
-
-```kotlin
-// string converter
-val dateBox = ChoiceBox<Date>()
-dateBox.converter {
-    val dateFormat = SimpleDateFormat("dd/MM/yyyy")
-    fromString {
-        dateFormat.parse(it)
-    }
-    toString {
-        dateFormat.format(it)
-    }
-}
-
-// custom list cell
-val personList = ListView<Person>()
-personList.cellFactory {
-    onUpdateItem { person, empty ->
-        if (person != null && !empty) {
-            graphic = Button("Do something")
-        }
-    }
-}
-```
 
 ## [Ktfx Coroutines](https://github.com/hendraanggrian/ktfx/wiki/Ktfx-Coroutines/)
 

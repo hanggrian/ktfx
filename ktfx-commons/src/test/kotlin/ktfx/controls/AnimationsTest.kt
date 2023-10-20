@@ -74,9 +74,10 @@ class AnimationsTest {
     @Test
     fun parallelTransition() {
         val node = Label()
-        val transition = node.parallelTransition {
-            fade { }
-        }
+        val transition =
+            node.parallelTransition {
+                fade { }
+            }
         assertEquals(node, transition.node)
         assertTrue(transition.children.first() is FadeTransition)
     }
@@ -84,9 +85,10 @@ class AnimationsTest {
     @Test
     fun shapeParallelTransition() {
         val shape = Rectangle()
-        val transition = shape.shapeParallelTransition {
-            fill { }
-        }
+        val transition =
+            shape.shapeParallelTransition {
+                fill { }
+            }
         assertEquals(shape, transition.node)
         assertTrue(transition.children.first() is FillTransition)
     }
@@ -94,9 +96,10 @@ class AnimationsTest {
     @Test
     fun sequentialTransition() {
         val node = Label()
-        val transition = node.sequentialTransition {
-            fade { }
-        }
+        val transition =
+            node.sequentialTransition {
+                fade { }
+            }
         assertEquals(node, transition.node)
         assertTrue(transition.children.first() is FadeTransition)
     }
@@ -104,9 +107,10 @@ class AnimationsTest {
     @Test
     fun shapeSequentialTransition() {
         val shape = Rectangle()
-        val transition = shape.shapeSequentialTransition {
-            fill { }
-        }
+        val transition =
+            shape.shapeSequentialTransition {
+                fill { }
+            }
         assertEquals(shape, transition.node)
         assertTrue(transition.children.first() is FillTransition)
     }

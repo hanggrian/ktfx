@@ -19,12 +19,12 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ColorPicker] to this manager.
+ * Add a [ColorPicker] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color = color) {
-        }
+public fun NodeContainer.colorPicker(color: Color = WHITE): ColorPicker = colorPicker(color = color)
+        { }
 
 /**
  * Create a [ColorPicker] with configuration block.
@@ -41,13 +41,13 @@ public inline fun colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutD
 }
 
 /**
- * Add a [ColorPicker] with configuration block to this manager.
+ * Add a [ColorPicker] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.colorPicker(color: Color = WHITE, configuration: (@KtfxLayoutDslMarker
-        ColorPicker).() -> Unit): ColorPicker {
+public inline fun NodeContainer.colorPicker(color: Color = WHITE,
+        configuration: (@KtfxLayoutDslMarker ColorPicker).() -> Unit): ColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ColorPicker(color)
     child.configuration()
@@ -68,13 +68,13 @@ public fun styledColorPicker(
 ): ColorPicker = styledColorPicker(color = color, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ColorPicker] to this manager.
+ * Add a styled [ColorPicker] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledColorPicker(
+public fun NodeContainer.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
@@ -103,14 +103,14 @@ public inline fun styledColorPicker(
 }
 
 /**
- * Add a styled [ColorPicker] with configuration block to this manager.
+ * Add a styled [ColorPicker] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledColorPicker(
+public inline fun NodeContainer.styledColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,

@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("FxCoroutinesKt")
+@file:JvmName("KtfxCoroutinesKt")
 
 package ktfx.coroutines
 
@@ -18,14 +18,16 @@ import kotlin.coroutines.CoroutineContext
 fun <E : Event> Transform.eventFilter(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
-    action: suspend CoroutineScope.(E) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> GlobalScope.launch(context) { action(event) } }
-    .also { addEventFilter(type, it) }
+    action: suspend CoroutineScope.(E) -> Unit,
+): EventHandler<E> =
+    EventHandler<E> { event -> GlobalScope.launch(context) { action(event) } }
+        .also { addEventFilter(type, it) }
 
 /** Registers an event handler to this transform. */
 fun <E : Event> Transform.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
-    action: suspend CoroutineScope.(E) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> GlobalScope.launch(context) { action(event) } }
-    .also { addEventHandler(type, it) }
+    action: suspend CoroutineScope.(E) -> Unit,
+): EventHandler<E> =
+    EventHandler<E> { event -> GlobalScope.launch(context) { action(event) } }
+        .also { addEventHandler(type, it) }

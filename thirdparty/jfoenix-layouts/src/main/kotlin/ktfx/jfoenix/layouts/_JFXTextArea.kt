@@ -16,14 +16,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXTextArea] to this manager.
+ * Add a [JFXTextArea] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxTextArea(text: String? = null): JFXTextArea = jfxTextArea(text = text) { }
+public fun NodeContainer.jfxTextArea(text: String? = null): JFXTextArea = jfxTextArea(text = text) {
+        }
 
 /**
  * Create a [JFXTextArea] with configuration block.
@@ -40,13 +41,13 @@ public inline fun jfxTextArea(text: String? = null, configuration: (@KtfxLayoutD
 }
 
 /**
- * Add a [JFXTextArea] with configuration block to this manager.
+ * Add a [JFXTextArea] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxTextArea(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        JFXTextArea).() -> Unit): JFXTextArea {
+public inline fun NodeContainer.jfxTextArea(text: String? = null,
+        configuration: (@KtfxLayoutDslMarker JFXTextArea).() -> Unit): JFXTextArea {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextArea(text)
     child.configuration()
@@ -67,13 +68,13 @@ public fun styledJFXTextArea(
 ): JFXTextArea = styledJFXTextArea(text = text, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXTextArea] to this manager.
+ * Add a styled [JFXTextArea] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXTextArea(
+public fun NodeContainer.styledJFXTextArea(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -102,14 +103,14 @@ public inline fun styledJFXTextArea(
 }
 
 /**
- * Add a styled [JFXTextArea] with configuration block to this manager.
+ * Add a styled [JFXTextArea] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXTextArea(
+public inline fun NodeContainer.styledJFXTextArea(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

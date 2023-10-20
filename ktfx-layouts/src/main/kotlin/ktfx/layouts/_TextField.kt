@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [TextField] to this manager.
+ * Add a [TextField] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.textField(text: String = ""): TextField = textField(text = text) { }
+public fun NodeContainer.textField(text: String = ""): TextField = textField(text = text) { }
 
 /**
  * Create a [TextField] with configuration block.
@@ -38,12 +38,12 @@ public inline fun textField(text: String = "", configuration: (@KtfxLayoutDslMar
 }
 
 /**
- * Add a [TextField] with configuration block to this manager.
+ * Add a [TextField] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.textField(text: String = "", configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.textField(text: String = "", configuration: (@KtfxLayoutDslMarker
         TextField).() -> Unit): TextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TextField(text)
@@ -65,13 +65,13 @@ public fun styledTextField(
 ): TextField = styledTextField(text = text, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [TextField] to this manager.
+ * Add a styled [TextField] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledTextField(
+public fun NodeContainer.styledTextField(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,
@@ -100,14 +100,14 @@ public inline fun styledTextField(
 }
 
 /**
- * Add a styled [TextField] with configuration block to this manager.
+ * Add a styled [TextField] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledTextField(
+public inline fun NodeContainer.styledTextField(
     text: String = "",
     vararg styleClass: String,
     id: String? = null,

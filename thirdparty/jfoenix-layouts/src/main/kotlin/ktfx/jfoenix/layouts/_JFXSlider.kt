@@ -17,14 +17,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXSlider] to this manager.
+ * Add a [JFXSlider] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxSlider(
+public fun NodeContainer.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -49,12 +49,12 @@ public inline fun jfxSlider(
 }
 
 /**
- * Add a [JFXSlider] with configuration block to this manager.
+ * Add a [JFXSlider] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxSlider(
+public inline fun NodeContainer.jfxSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -83,13 +83,13 @@ public fun styledJFXSlider(
         id) { }
 
 /**
- * Add a styled [JFXSlider] to this manager.
+ * Add a styled [JFXSlider] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXSlider(
+public fun NodeContainer.styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,
@@ -123,14 +123,14 @@ public inline fun styledJFXSlider(
 }
 
 /**
- * Add a styled [JFXSlider] with configuration block to this manager.
+ * Add a styled [JFXSlider] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXSlider(
+public inline fun NodeContainer.styledJFXSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 50.0,

@@ -19,11 +19,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ProgressBar] to this manager.
+ * Add a [ProgressBar] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
+public fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS): ProgressBar =
         progressBar(progress = progress) { }
 
 /**
@@ -41,12 +41,12 @@ public inline fun progressBar(progress: Double = INDETERMINATE_PROGRESS,
 }
 
 /**
- * Add a [ProgressBar] with configuration block to this manager.
+ * Add a [ProgressBar] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.progressBar(progress: Double = INDETERMINATE_PROGRESS,
+public inline fun NodeContainer.progressBar(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker ProgressBar).() -> Unit): ProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressBar(progress)
@@ -68,13 +68,13 @@ public fun styledProgressBar(
 ): ProgressBar = styledProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ProgressBar] to this manager.
+ * Add a styled [ProgressBar] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledProgressBar(
+public fun NodeContainer.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -103,14 +103,14 @@ public inline fun styledProgressBar(
 }
 
 /**
- * Add a styled [ProgressBar] with configuration block to this manager.
+ * Add a styled [ProgressBar] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledProgressBar(
+public inline fun NodeContainer.styledProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

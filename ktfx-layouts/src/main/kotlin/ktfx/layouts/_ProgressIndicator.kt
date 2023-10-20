@@ -20,11 +20,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ProgressIndicator] to this manager.
+ * Add a [ProgressIndicator] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS):
+public fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROGRESS):
         ProgressIndicator = progressIndicator(progress = progress) { }
 
 /**
@@ -42,12 +42,12 @@ public inline fun progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
 }
 
 /**
- * Add a [ProgressIndicator] with configuration block to this manager.
+ * Add a [ProgressIndicator] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
+public inline fun NodeContainer.progressIndicator(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker ProgressIndicator).() -> Unit): ProgressIndicator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ProgressIndicator(progress)
@@ -70,13 +70,13 @@ public fun styledProgressIndicator(
         id) { }
 
 /**
- * Add a styled [ProgressIndicator] to this manager.
+ * Add a styled [ProgressIndicator] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledProgressIndicator(
+public fun NodeContainer.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -106,14 +106,14 @@ public inline fun styledProgressIndicator(
 }
 
 /**
- * Add a styled [ProgressIndicator] with configuration block to this manager.
+ * Add a styled [ProgressIndicator] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledProgressIndicator(
+public inline fun NodeContainer.styledProgressIndicator(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

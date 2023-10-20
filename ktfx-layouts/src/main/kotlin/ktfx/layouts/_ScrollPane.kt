@@ -18,12 +18,12 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ScrollPane] to this manager.
+ * Add a [ScrollPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.scrollPane(content: Node? = null): ScrollPane = scrollPane(content = content)
-        { }
+public fun NodeContainer.scrollPane(content: Node? = null): ScrollPane = scrollPane(content =
+        content) { }
 
 /**
  * Create a [ScrollPane] with configuration block.
@@ -40,13 +40,13 @@ public inline fun scrollPane(content: Node? = null, configuration: (@KtfxLayoutD
 }
 
 /**
- * Add a [ScrollPane] with configuration block to this manager.
+ * Add a [ScrollPane] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.scrollPane(content: Node? = null, configuration: (@KtfxLayoutDslMarker
-        KtfxScrollPane).() -> Unit): ScrollPane {
+public inline fun NodeContainer.scrollPane(content: Node? = null,
+        configuration: (@KtfxLayoutDslMarker KtfxScrollPane).() -> Unit): ScrollPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxScrollPane(content)
     child.configuration()
@@ -67,13 +67,13 @@ public fun styledScrollPane(
 ): ScrollPane = styledScrollPane(content = content, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ScrollPane] to this manager.
+ * Add a styled [ScrollPane] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledScrollPane(
+public fun NodeContainer.styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -102,14 +102,14 @@ public inline fun styledScrollPane(
 }
 
 /**
- * Add a styled [ScrollPane] with configuration block to this manager.
+ * Add a styled [ScrollPane] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledScrollPane(
+public inline fun NodeContainer.styledScrollPane(
     content: Node? = null,
     vararg styleClass: String,
     id: String? = null,

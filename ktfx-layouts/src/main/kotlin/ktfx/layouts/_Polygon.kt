@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Polygon] to this manager.
+ * Add a [Polygon] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.polygon(): Polygon = polygon() { }
+public fun NodeContainer.polygon(): Polygon = polygon() { }
 
 /**
  * Create a [Polygon] with configuration block.
@@ -37,12 +37,12 @@ public inline fun polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Un
 }
 
 /**
- * Add a [Polygon] with configuration block to this manager.
+ * Add a [Polygon] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit):
+public inline fun NodeContainer.polygon(configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit):
         Polygon {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polygon()
@@ -61,13 +61,13 @@ public fun styledPolygon(vararg styleClass: String, id: String? = null): Polygon
         styledPolygon(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Polygon] to this manager.
+ * Add a styled [Polygon] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
+public fun NodeContainer.styledPolygon(vararg styleClass: String, id: String? = null): Polygon =
         styledPolygon(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledPolygon(
 }
 
 /**
- * Add a styled [Polygon] with configuration block to this manager.
+ * Add a styled [Polygon] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledPolygon(
+public inline fun NodeContainer.styledPolygon(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polygon).() -> Unit,

@@ -19,14 +19,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXProgressBar] to this manager.
+ * Add a [JFXProgressBar] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS): JFXProgressBar =
+public fun NodeContainer.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS): JFXProgressBar =
         jfxProgressBar(progress = progress) { }
 
 /**
@@ -44,12 +44,12 @@ public inline fun jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS,
 }
 
 /**
- * Add a [JFXProgressBar] with configuration block to this manager.
+ * Add a [JFXProgressBar] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS,
+public inline fun NodeContainer.jfxProgressBar(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker JFXProgressBar).() -> Unit): JFXProgressBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXProgressBar(progress)
@@ -71,13 +71,13 @@ public fun styledJFXProgressBar(
 ): JFXProgressBar = styledJFXProgressBar(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXProgressBar] to this manager.
+ * Add a styled [JFXProgressBar] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXProgressBar(
+public fun NodeContainer.styledJFXProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -106,14 +106,14 @@ public inline fun styledJFXProgressBar(
 }
 
 /**
- * Add a styled [JFXProgressBar] with configuration block to this manager.
+ * Add a styled [JFXProgressBar] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXProgressBar(
+public inline fun NodeContainer.styledJFXProgressBar(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

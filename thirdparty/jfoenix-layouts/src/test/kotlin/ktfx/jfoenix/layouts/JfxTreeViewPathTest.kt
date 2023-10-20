@@ -14,8 +14,12 @@ class JfxTreeViewPathTest : LayoutsTest<KtfxPane, JFXTreeViewPath>() {
     }
 
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): JFXTreeViewPath = jfxTreeViewPath(jfxTreeView) { }
+
     override fun KtfxPane.child2(): JFXTreeViewPath = jfxTreeViewPath(jfxTreeView)
+
     override fun KtfxPane.child3(): JFXTreeViewPath = jfxTreeViewPath(jfxTreeView) { }
 }

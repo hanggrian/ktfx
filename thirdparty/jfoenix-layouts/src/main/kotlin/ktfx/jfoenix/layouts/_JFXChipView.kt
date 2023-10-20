@@ -16,14 +16,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXChipView] to this manager.
+ * Add a [JFXChipView] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.jfxChipView(): JFXChipView<T> = jfxChipView() { }
+public fun <T> NodeContainer.jfxChipView(): JFXChipView<T> = jfxChipView() { }
 
 /**
  * Create a [JFXChipView] with configuration block.
@@ -40,12 +40,12 @@ public inline fun <T> jfxChipView(configuration: (@KtfxLayoutDslMarker JFXChipVi
 }
 
 /**
- * Add a [JFXChipView] with configuration block to this manager.
+ * Add a [JFXChipView] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeManager.jfxChipView(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.jfxChipView(configuration: (@KtfxLayoutDslMarker
         JFXChipView<T>).() -> Unit): JFXChipView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXChipView<T>()
@@ -64,13 +64,13 @@ public fun <T> styledJFXChipView(vararg styleClass: String, id: String? = null):
         styledJFXChipView(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXChipView] to this manager.
+ * Add a styled [JFXChipView] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledJFXChipView(vararg styleClass: String, id: String? = null):
+public fun <T> NodeContainer.styledJFXChipView(vararg styleClass: String, id: String? = null):
         JFXChipView<T> = styledJFXChipView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun <T> styledJFXChipView(
 }
 
 /**
- * Add a styled [JFXChipView] with configuration block to this manager.
+ * Add a styled [JFXChipView] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledJFXChipView(
+public inline fun <T> NodeContainer.styledJFXChipView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXChipView<T>).() -> Unit,

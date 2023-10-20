@@ -12,12 +12,12 @@ import org.controlsfx.control.textfield.TextFields
  * suggestions.
  */
 inline fun <T> TextField.bindAutoCompletion(
-    vararg possibleSuggestions: T
+    vararg possibleSuggestions: T,
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, *possibleSuggestions)
 
 /** Alias of [bindAutoCompletion] with collection input. */
 inline fun <T> TextField.bindAutoCompletion(
-    possibleSuggestions: Collection<T>
+    possibleSuggestions: Collection<T>,
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, possibleSuggestions)
 
 /**
@@ -25,7 +25,7 @@ inline fun <T> TextField.bindAutoCompletion(
  * provider.
  */
 inline fun <T> TextField.bindAutoCompletion(
-    noinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
+    noinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>,
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider)
 
 /**
@@ -34,5 +34,5 @@ inline fun <T> TextField.bindAutoCompletion(
  */
 inline fun <T> TextField.bindAutoCompletion(
     converter: StringConverter<T>,
-    noinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>
+    noinline suggestionProvider: (AutoCompletionBinding.ISuggestionRequest) -> Collection<T>,
 ): AutoCompletionBinding<T> = TextFields.bindAutoCompletion(this, suggestionProvider, converter)

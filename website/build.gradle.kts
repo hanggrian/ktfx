@@ -1,9 +1,9 @@
-val DEVELOPER_ID: String by project
-val DEVELOPER_NAME: String by project
-val DEVELOPER_URL: String by project
-val RELEASE_ARTIFACT: String by project
-val RELEASE_DESCRIPTION: String by project
-val RELEASE_URL: String by project
+val developerId: String by project
+val developerName: String by project
+val developerUrl: String by project
+val releaseArtifact: String by project
+val releaseDescription: String by project
+val releaseUrl: String by project
 
 plugins {
     alias(libs.plugins.pages)
@@ -19,17 +19,17 @@ pages {
         "https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-kotlin.min.js"
     )
     minimal {
-        authorName = DEVELOPER_NAME
-        authorUrl = DEVELOPER_URL
-        projectName = RELEASE_ARTIFACT
-        projectDescription = RELEASE_DESCRIPTION
-        projectUrl = RELEASE_URL
+        authorName = developerName
+        authorUrl = developerUrl
+        projectName = releaseArtifact
+        projectDescription = releaseDescription
+        projectUrl = releaseUrl
         button("View\nDocumentation", "dokka")
     }
 }
 
 gitPublish {
-    repoUri.set("git@github.com:$DEVELOPER_ID/$RELEASE_ARTIFACT.git")
+    repoUri.set("git@github.com:$developerId/$releaseArtifact.git")
     branch.set("gh-pages")
     contents.from(pages.outputDirectory)
 }

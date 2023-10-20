@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "ktlint:rulebook:rename-uncommon-generics")
 
 package ktfx.cells
 
@@ -12,7 +12,7 @@ import javafx.scene.control.TreeTableView
  * @param configuration custom initialization block that configures [KtfxTreeTableRow].
  */
 fun <S> TreeTableView<S>.rowFactory(
-    configuration: KtfxTreeTableRow<S>.(TreeTableView<S>) -> Unit
+    configuration: KtfxTreeTableRow<S>.(TreeTableView<S>) -> Unit,
 ): Unit = setRowFactory { KtfxTreeTableRow<S>().apply { configuration(it) } }
 
 /** Custom [TreeTableRow] configurator class. */

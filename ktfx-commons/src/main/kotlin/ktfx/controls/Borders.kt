@@ -23,9 +23,8 @@ import kotlin.DeprecationLevel.ERROR
  * @param builderAction populate newly created stroke and/or image.
  * @return created border.
  */
-inline fun buildBorder(
-    builderAction: BorderBuilder.() -> Unit
-): Border = BorderBuilder().apply(builderAction).build()
+inline fun buildBorder(builderAction: BorderBuilder.() -> Unit): Border =
+    BorderBuilder().apply(builderAction).build()
 
 /**
  * Sets new border with multiple [BorderStroke] and/or [BorderImage].
@@ -33,9 +32,8 @@ inline fun buildBorder(
  * @param builderAction populate newly created stroke and/or image.
  * @return applied border.
  */
-inline fun Region.border(
-    noinline builderAction: BorderBuilder.() -> Unit
-): Border = buildBorder(builderAction).also { border = it }
+inline fun Region.border(noinline builderAction: BorderBuilder.() -> Unit): Border =
+    buildBorder(builderAction).also { border = it }
 
 /**
  * Sets new border with single [BorderStroke].
@@ -44,7 +42,7 @@ inline fun Region.border(
  * @return applied border.
  */
 inline fun Region.borderStroke(
-    noinline builderAction: BorderBuilder.StrokeBuilder.() -> Unit
+    noinline builderAction: BorderBuilder.StrokeBuilder.() -> Unit,
 ): Border = border { stroke(builderAction) }
 
 /**
@@ -55,7 +53,7 @@ inline fun Region.borderStroke(
  */
 inline fun Region.borderImage(
     image: Image,
-    noinline builderAction: BorderBuilder.ImageBuilder.() -> Unit
+    noinline builderAction: BorderBuilder.ImageBuilder.() -> Unit,
 ): Border = border { image(image, builderAction) }
 
 /** Border configurator class. */
@@ -145,11 +143,12 @@ class BorderBuilder {
         var insets: Insets? = null
 
         /** Return border stroke based on current configuration. */
-        fun build(): BorderStroke = BorderStroke(
-            topStroke, rightStroke, bottomStroke, leftStroke,
-            topStyle, rightStyle, bottomStyle, leftStyle,
-            radii, widths, insets
-        )
+        fun build(): BorderStroke =
+            BorderStroke(
+                topStroke, rightStroke, bottomStroke, leftStroke,
+                topStyle, rightStyle, bottomStyle, leftStyle,
+                radii, widths, insets,
+            )
     }
 
     /** Border image configurator class. */
@@ -181,14 +180,15 @@ class BorderBuilder {
             }
 
         /** Return border image based on current configuration. */
-        fun build(): BorderImage = BorderImage(
-            image,
-            widths,
-            insets,
-            slices,
-            isFilled,
-            repeatX,
-            repeatY
-        )
+        fun build(): BorderImage =
+            BorderImage(
+                image,
+                widths,
+                insets,
+                slices,
+                isFilled,
+                repeatX,
+                repeatY,
+            )
     }
 }

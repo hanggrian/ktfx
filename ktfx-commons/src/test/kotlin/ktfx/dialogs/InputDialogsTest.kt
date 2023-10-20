@@ -18,7 +18,7 @@ class InputDialogsTest : DialogShowingTest() {
                     assertEquals(sampleGraphic, graphic)
                     assertEquals("Awful input", defaultValue)
                     editor.text = "Awesome input"
-                }.get()
+                }.get(),
             )
             assertEquals(
                 "Awesome input",
@@ -26,7 +26,7 @@ class InputDialogsTest : DialogShowingTest() {
                     closeOnShow(this)
                     assertEquals("Awful input", defaultValue)
                     editor.text = "Awesome input"
-                }.get()
+                }.get(),
             )
         }
     }

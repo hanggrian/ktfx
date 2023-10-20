@@ -17,15 +17,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXChip] to this manager.
+ * Add a [JFXChip] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip(view = view,
-        item = item) { }
+public fun <T> NodeContainer.jfxChip(view: JFXChipView<T>, item: T): JFXChip<T> = jfxChip(view =
+        view, item = item) { }
 
 /**
  * Create a [JFXChip] with configuration block.
@@ -45,12 +45,12 @@ public inline fun <T> jfxChip(
 }
 
 /**
- * Add a [JFXChip] with configuration block to this manager.
+ * Add a [JFXChip] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.jfxChip(
+public inline fun <T> NodeContainer.jfxChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXChip<T>).() -> Unit,
@@ -76,13 +76,13 @@ public fun <T> styledJFXChip(
 ): JFXChip<T> = styledJFXChip(view = view, item = item, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXChip] to this manager.
+ * Add a styled [JFXChip] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledJFXChip(
+public fun <T> NodeContainer.styledJFXChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -113,14 +113,14 @@ public inline fun <T> styledJFXChip(
 }
 
 /**
- * Add a styled [JFXChip] with configuration block to this manager.
+ * Add a styled [JFXChip] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledJFXChip(
+public inline fun <T> NodeContainer.styledJFXChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,

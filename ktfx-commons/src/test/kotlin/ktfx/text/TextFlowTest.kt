@@ -10,7 +10,7 @@ class TextFlowTest {
     fun append() {
         assertEquals(
             "I have 3 little piggies",
-            TextFlow().append("I have ").append(3).append(" little piggies").text
+            TextFlow().append("I have ").append(3).append(" little piggies").text,
         )
         assertEquals(
             StringBuilder().append("Here is ")
@@ -22,7 +22,7 @@ class TextFlowTest {
                 .append(null as String?)
                 .append(" String and ")
                 .append(null as Any?)
-                .append(" Object").text
+                .append(" Object").text,
         )
     }
 
@@ -30,11 +30,11 @@ class TextFlowTest {
     fun appendLine() {
         assertEquals(
             """
-               A wolf just ate
-               2
-               of them
+            A wolf just ate
+            2
+            of them
             """.trimIndent(),
-            TextFlow().appendLine("A wolf just ate").appendLine(2).append("of them").text
+            TextFlow().appendLine("A wolf just ate").appendLine(2).append("of them").text,
         )
         assertEquals(
             StringBuilder().appendLine("Here is ")
@@ -46,7 +46,7 @@ class TextFlowTest {
                 .appendLine(null as String?)
                 .appendLine(" String and ")
                 .appendLine(null as Any?)
-                .appendLine(" Object").text
+                .appendLine(" Object").text,
         )
     }
 

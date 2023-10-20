@@ -18,19 +18,19 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ToggleButton] to this manager.
+ * Add a [ToggleButton] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
+public fun NodeContainer.toggleButton(text: String? = null, graphic: Node? = null): ToggleButton =
         toggleButton(text = text, graphic = graphic) { }
 
 /**
- * Add a [ToggleButton] to this manager.
+ * Add a [ToggleButton] to this container.
  *
  * @return the control added.
  */
-public fun ToggleButtonManager.toggleButton(text: String? = null, graphic: Node? = null):
+public fun ToggleButtonContainer.toggleButton(text: String? = null, graphic: Node? = null):
         ToggleButton = toggleButton(text = text, graphic = graphic) { }
 
 /**
@@ -51,12 +51,12 @@ public inline fun toggleButton(
 }
 
 /**
- * Add a [ToggleButton] with configuration block to this manager.
+ * Add a [ToggleButton] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.toggleButton(
+public inline fun NodeContainer.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
@@ -68,12 +68,12 @@ public inline fun NodeManager.toggleButton(
 }
 
 /**
- * Add a [ToggleButton] with configuration block to this manager.
+ * Add a [ToggleButton] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun ToggleButtonManager.toggleButton(
+public inline fun ToggleButtonContainer.toggleButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker ToggleButton).() -> Unit,
@@ -100,13 +100,13 @@ public fun styledToggleButton(
         id) { }
 
 /**
- * Add a styled [ToggleButton] to this manager.
+ * Add a styled [ToggleButton] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledToggleButton(
+public fun NodeContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -115,13 +115,13 @@ public fun NodeManager.styledToggleButton(
         id) { }
 
 /**
- * Add a styled [ToggleButton] to this manager.
+ * Add a styled [ToggleButton] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun ToggleButtonManager.styledToggleButton(
+public fun ToggleButtonContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -153,14 +153,14 @@ public inline fun styledToggleButton(
 }
 
 /**
- * Add a styled [ToggleButton] with configuration block to this manager.
+ * Add a styled [ToggleButton] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledToggleButton(
+public inline fun NodeContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -176,14 +176,14 @@ public inline fun NodeManager.styledToggleButton(
 }
 
 /**
- * Add a styled [ToggleButton] with configuration block to this manager.
+ * Add a styled [ToggleButton] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun ToggleButtonManager.styledToggleButton(
+public inline fun ToggleButtonContainer.styledToggleButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

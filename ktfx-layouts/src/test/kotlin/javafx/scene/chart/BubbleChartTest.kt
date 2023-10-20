@@ -17,9 +17,13 @@ class BubbleChartTest : LayoutsTest<KtfxPane, BubbleChart<Number, Number>>() {
     }
 
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): BubbleChart<Number, Number> = bubbleChart(axis1, axis2) { }
+
     override fun KtfxPane.child2(): BubbleChart<Number, Number> = bubbleChart(axis1, axis2)
+
     override fun KtfxPane.child3(): BubbleChart<Number, Number> = bubbleChart(axis1, axis2) { }
 
     override fun BubbleChart<Number, Number>.testDefaultValues() {

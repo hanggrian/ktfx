@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add an [Ellipse] to this manager.
+ * Add an [Ellipse] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.ellipse(
+public fun NodeContainer.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -49,12 +49,12 @@ public inline fun ellipse(
 }
 
 /**
- * Add an [Ellipse] with configuration block to this manager.
+ * Add an [Ellipse] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.ellipse(
+public inline fun NodeContainer.ellipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -85,13 +85,13 @@ public fun styledEllipse(
         radiusY, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Ellipse] to this manager.
+ * Add a styled [Ellipse] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledEllipse(
+public fun NodeContainer.styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,
@@ -127,14 +127,14 @@ public inline fun styledEllipse(
 }
 
 /**
- * Add a styled [Ellipse] with configuration block to this manager.
+ * Add a styled [Ellipse] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledEllipse(
+public inline fun NodeContainer.styledEllipse(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radiusX: Double = 0.0,

@@ -16,15 +16,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.InfoOverlay
 
 /**
- * Add an [InfoOverlay] to this manager.
+ * Add an [InfoOverlay] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.infoOverlay(content: Node? = null, text: String? = null): InfoOverlay =
+public fun NodeContainer.infoOverlay(content: Node? = null, text: String? = null): InfoOverlay =
         infoOverlay(content = content, text = text) { }
 
 /**
@@ -45,12 +45,12 @@ public inline fun infoOverlay(
 }
 
 /**
- * Add an [InfoOverlay] with configuration block to this manager.
+ * Add an [InfoOverlay] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.infoOverlay(
+public inline fun NodeContainer.infoOverlay(
     content: Node? = null,
     text: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxInfoOverlay).() -> Unit,
@@ -77,13 +77,13 @@ public fun styledInfoOverlay(
         id) { }
 
 /**
- * Add a styled [InfoOverlay] to this manager.
+ * Add a styled [InfoOverlay] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledInfoOverlay(
+public fun NodeContainer.styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,
@@ -115,14 +115,14 @@ public inline fun styledInfoOverlay(
 }
 
 /**
- * Add a styled [InfoOverlay] with configuration block to this manager.
+ * Add a styled [InfoOverlay] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledInfoOverlay(
+public inline fun NodeContainer.styledInfoOverlay(
     content: Node? = null,
     text: String? = null,
     vararg styleClass: String,

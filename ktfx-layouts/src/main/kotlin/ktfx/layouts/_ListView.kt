@@ -20,12 +20,12 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ListView] to this manager.
+ * Add a [ListView] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.listView(items: ObservableList<T> = observableArrayList()): ListView<T> =
-        listView(items = items) { }
+public fun <T> NodeContainer.listView(items: ObservableList<T> = observableArrayList()): ListView<T>
+        = listView(items = items) { }
 
 /**
  * Create a [ListView] with configuration block.
@@ -42,12 +42,12 @@ public inline fun <T> listView(items: ObservableList<T> = observableArrayList(),
 }
 
 /**
- * Add a [ListView] with configuration block to this manager.
+ * Add a [ListView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.listView(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.listView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ListView<T>).() -> Unit): ListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ListView<T>(items)
@@ -69,13 +69,13 @@ public fun <T> styledListView(
 ): ListView<T> = styledListView(items = items, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ListView] to this manager.
+ * Add a styled [ListView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledListView(
+public fun <T> NodeContainer.styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun <T> styledListView(
 }
 
 /**
- * Add a styled [ListView] with configuration block to this manager.
+ * Add a styled [ListView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledListView(
+public inline fun <T> NodeContainer.styledListView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

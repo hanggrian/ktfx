@@ -18,16 +18,16 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.GridView
 
 /**
- * Add a [GridView] to this manager.
+ * Add a [GridView] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.gridView(items: ObservableList<T> = observableArrayList()): GridView<T> =
-        gridView(items = items) { }
+public fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArrayList()): GridView<T>
+        = gridView(items = items) { }
 
 /**
  * Create a [GridView] with configuration block.
@@ -44,12 +44,12 @@ public inline fun <T> gridView(items: ObservableList<T> = observableArrayList(),
 }
 
 /**
- * Add a [GridView] with configuration block to this manager.
+ * Add a [GridView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.gridView(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.gridView(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker GridView<T>).() -> Unit): GridView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = GridView<T>(items)
@@ -71,13 +71,13 @@ public fun <T> styledGridView(
 ): GridView<T> = styledGridView(items = items, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [GridView] to this manager.
+ * Add a styled [GridView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledGridView(
+public fun <T> NodeContainer.styledGridView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -106,14 +106,14 @@ public inline fun <T> styledGridView(
 }
 
 /**
- * Add a styled [GridView] with configuration block to this manager.
+ * Add a styled [GridView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledGridView(
+public inline fun <T> NodeContainer.styledGridView(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

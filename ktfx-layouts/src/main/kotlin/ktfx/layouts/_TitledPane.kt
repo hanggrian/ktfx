@@ -17,18 +17,19 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [TitledPane] to this manager.
+ * Add a [TitledPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.titledPane(title: String? = null): TitledPane = titledPane(title = title) { }
+public fun NodeContainer.titledPane(title: String? = null): TitledPane = titledPane(title = title) {
+        }
 
 /**
- * Add a [TitledPane] to this manager.
+ * Add a [TitledPane] to this container.
  *
  * @return the control added.
  */
-public fun TitledPaneManager.titledPane(title: String? = null): TitledPane = titledPane(title =
+public fun TitledPaneContainer.titledPane(title: String? = null): TitledPane = titledPane(title =
         title) { }
 
 /**
@@ -46,13 +47,13 @@ public inline fun titledPane(title: String? = null, configuration: (@KtfxLayoutD
 }
 
 /**
- * Add a [TitledPane] with configuration block to this manager.
+ * Add a [TitledPane] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.titledPane(title: String? = null, configuration: (@KtfxLayoutDslMarker
-        KtfxTitledPane).() -> Unit): TitledPane {
+public inline fun NodeContainer.titledPane(title: String? = null,
+        configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
     child.configuration()
@@ -60,12 +61,12 @@ public inline fun NodeManager.titledPane(title: String? = null, configuration: (
 }
 
 /**
- * Add a [TitledPane] with configuration block to this manager.
+ * Add a [TitledPane] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun TitledPaneManager.titledPane(title: String? = null,
+public inline fun TitledPaneContainer.titledPane(title: String? = null,
         configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit): TitledPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTitledPane(title)
@@ -87,26 +88,26 @@ public fun styledTitledPane(
 ): TitledPane = styledTitledPane(title = title, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [TitledPane] to this manager.
+ * Add a styled [TitledPane] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledTitledPane(
+public fun NodeContainer.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
 ): TitledPane = styledTitledPane(title = title, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [TitledPane] to this manager.
+ * Add a styled [TitledPane] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun TitledPaneManager.styledTitledPane(
+public fun TitledPaneContainer.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -135,14 +136,14 @@ public inline fun styledTitledPane(
 }
 
 /**
- * Add a styled [TitledPane] with configuration block to this manager.
+ * Add a styled [TitledPane] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledTitledPane(
+public inline fun NodeContainer.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -157,14 +158,14 @@ public inline fun NodeManager.styledTitledPane(
 }
 
 /**
- * Add a styled [TitledPane] with configuration block to this manager.
+ * Add a styled [TitledPane] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun TitledPaneManager.styledTitledPane(
+public inline fun TitledPaneContainer.styledTitledPane(
     title: String? = null,
     vararg styleClass: String,
     id: String? = null,

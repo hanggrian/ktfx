@@ -27,10 +27,11 @@ inline fun observableIntArrayOf(): ObservableIntegerArray = FXCollections.observ
  *
  * @see intArrayOf
  */
-fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray = when {
-    elements.isNotEmpty() -> FXCollections.observableIntegerArray(*elements)
-    else -> FXCollections.observableIntegerArray()
-}
+fun observableIntArrayOf(vararg elements: Int): ObservableIntegerArray =
+    when {
+        elements.isNotEmpty() -> FXCollections.observableIntegerArray(*elements)
+        else -> FXCollections.observableIntegerArray()
+    }
 
 /**
  * Returns an observable array containing all of the [Int] numbers of this primitive array.
@@ -140,8 +141,11 @@ inline fun ObservableIntegerArray.forEachIndexed(action: (index: Int, Int) -> Un
  *
  * @see IntArray.iterator
  */
-operator fun ObservableIntegerArray.iterator(): IntIterator = object : IntIterator() {
-    var index = 0
-    override fun hasNext(): Boolean = index < size()
-    override fun nextInt(): Int = get(index++)
-}
+operator fun ObservableIntegerArray.iterator(): IntIterator =
+    object : IntIterator() {
+        var index = 0
+
+        override fun hasNext(): Boolean = index < size()
+
+        override fun nextInt(): Int = get(index++)
+    }

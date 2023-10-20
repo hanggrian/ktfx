@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [MenuBar] to this manager.
+ * Add a [MenuBar] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.menuBar(): MenuBar = menuBar() { }
+public fun NodeContainer.menuBar(): MenuBar = menuBar() { }
 
 /**
  * Create a [MenuBar] with configuration block.
@@ -37,13 +37,13 @@ public inline fun menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -
 }
 
 /**
- * Add a [MenuBar] with configuration block to this manager.
+ * Add a [MenuBar] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.menuBar(configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit):
-        MenuBar {
+public inline fun NodeContainer.menuBar(configuration: (@KtfxLayoutDslMarker
+        KtfxMenuBar).() -> Unit): MenuBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxMenuBar()
     child.configuration()
@@ -61,13 +61,13 @@ public fun styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar
         styledMenuBar(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [MenuBar] to this manager.
+ * Add a styled [MenuBar] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
+public fun NodeContainer.styledMenuBar(vararg styleClass: String, id: String? = null): MenuBar =
         styledMenuBar(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledMenuBar(
 }
 
 /**
- * Add a styled [MenuBar] with configuration block to this manager.
+ * Add a styled [MenuBar] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledMenuBar(
+public inline fun NodeContainer.styledMenuBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuBar).() -> Unit,

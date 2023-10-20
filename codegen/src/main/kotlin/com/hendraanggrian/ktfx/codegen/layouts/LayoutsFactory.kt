@@ -19,9 +19,8 @@ import kotlin.reflect.KClass
 open class LayoutsFactory(
     val path: String,
     val packageName: String,
-    val className: String
+    val className: String,
 ) {
-
     companion object {
         fun ParameterSpecListScope.text() =
             "text"(String::class.asTypeName().copy(true)) { defaultValue("null") }
@@ -36,7 +35,7 @@ open class LayoutsFactory(
             add<Double>("progress") {
                 defaultValue(
                     "%M",
-                    ProgressBar::class.asClassName().member("INDETERMINATE_PROGRESS")
+                    ProgressBar::class.asClassName().member("INDETERMINATE_PROGRESS"),
                 )
             }
 
@@ -50,7 +49,7 @@ open class LayoutsFactory(
             "items"(ObservableList::class.asClassName().parameterizedBy(name)) {
                 defaultValue(
                     "%M()",
-                    FXCollections::class.asClassName().member("observableArrayList")
+                    FXCollections::class.asClassName().member("observableArrayList"),
                 )
             }
 
@@ -71,16 +70,17 @@ open class LayoutsFactory(
     operator fun KClass<*>.invoke(
         vararg typeVariables: TypeVariableName,
         customClass: Boolean = false,
-        configuration: ParameterSpecListScope.() -> Unit = { }
+        configuration: ParameterSpecListScope.() -> Unit = { },
     ) {
         val parameters = mutableListOf<ParameterSpec>()
         ParameterSpecListScope(parameters).configuration()
-        entries += LayoutsEntry(
-            packageName,
-            this,
-            parameters,
-            typeVariables.asList(),
-            customClass = customClass
-        )
+        entries +=
+            LayoutsEntry(
+                packageName,
+                this,
+                parameters,
+                typeVariables.asList(),
+                customClass = customClass,
+            )
     }
 }

@@ -17,15 +17,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXTreeView] to this manager.
+ * Add a [JFXTreeView] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> = jfxTreeView(root
-        = root) { }
+public fun <T> NodeContainer.jfxTreeView(root: TreeItem<T>? = null): JFXTreeView<T> =
+        jfxTreeView(root = root) { }
 
 /**
  * Create a [JFXTreeView] with configuration block.
@@ -42,12 +42,12 @@ public inline fun <T> jfxTreeView(root: TreeItem<T>? = null, configuration: (@Kt
 }
 
 /**
- * Add a [JFXTreeView] with configuration block to this manager.
+ * Add a [JFXTreeView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.jfxTreeView(root: TreeItem<T>? = null,
+public inline fun <T> NodeContainer.jfxTreeView(root: TreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker JFXTreeView<T>).() -> Unit): JFXTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTreeView<T>(root)
@@ -69,13 +69,13 @@ public fun <T> styledJFXTreeView(
 ): JFXTreeView<T> = styledJFXTreeView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXTreeView] to this manager.
+ * Add a styled [JFXTreeView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledJFXTreeView(
+public fun <T> NodeContainer.styledJFXTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun <T> styledJFXTreeView(
 }
 
 /**
- * Add a styled [JFXTreeView] with configuration block to this manager.
+ * Add a styled [JFXTreeView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledJFXTreeView(
+public inline fun <T> NodeContainer.styledJFXTreeView(
     root: TreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

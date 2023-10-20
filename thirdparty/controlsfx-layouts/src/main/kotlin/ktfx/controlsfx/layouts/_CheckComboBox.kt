@@ -5,21 +5,28 @@
 
 package ktfx.controlsfx.layouts
 
+import javafx.collections.FXCollections
 import javafx.collections.FXCollections.observableArrayList
 import javafx.collections.ObservableList
-import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
-import org.controlsfx.control.CheckComboBox
+import kotlin.String
+import kotlin.Suppress
+import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
+import kotlin.jvm.JvmMultifileClass
+import kotlin.jvm.JvmName
+import ktfx.layouts.KtfxLayoutDslMarker
+import ktfx.layouts.NodeContainer
+import org.controlsfx.control.CheckComboBox
 
 /**
- * Add a [CheckComboBox] to this manager.
+ * Add a [CheckComboBox] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableArrayList()):
+public fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observableArrayList()):
         CheckComboBox<T> = checkComboBox(items = items) { }
 
 /**
@@ -37,12 +44,12 @@ public inline fun <T> checkComboBox(items: ObservableList<T> = observableArrayLi
 }
 
 /**
- * Add a [CheckComboBox] with configuration block to this manager.
+ * Add a [CheckComboBox] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.checkComboBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.checkComboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker CheckComboBox<T>).() -> Unit): CheckComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckComboBox<T>(items)
@@ -64,13 +71,13 @@ public fun <T> styledCheckComboBox(
 ): CheckComboBox<T> = styledCheckComboBox(items = items, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [CheckComboBox] to this manager.
+ * Add a styled [CheckComboBox] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledCheckComboBox(
+public fun <T> NodeContainer.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -99,14 +106,14 @@ public inline fun <T> styledCheckComboBox(
 }
 
 /**
- * Add a styled [CheckComboBox] with configuration block to this manager.
+ * Add a styled [CheckComboBox] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledCheckComboBox(
+public inline fun <T> NodeContainer.styledCheckComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

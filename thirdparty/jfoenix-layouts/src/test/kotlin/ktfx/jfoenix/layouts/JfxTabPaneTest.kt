@@ -9,9 +9,13 @@ import kotlin.test.assertEquals
 
 class JfxTabPaneTest : LayoutsTest<KtfxPane, JFXTabPane>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): JFXTabPane = jfxTabPane { }
+
     override fun KtfxPane.child2(): JFXTabPane = jfxTabPane()
+
     override fun KtfxPane.child3(): JFXTabPane = jfxTabPane { }
 
     @Test

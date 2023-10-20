@@ -64,7 +64,8 @@ inline fun TextFlow.appendLine(value: Any?): TextFlow = append(value).appendLine
 private object SystemProperties {
     /** Line separator for current system. */
     @JvmField
-    val LINE_SEPARATOR = checkNotNull(System.getProperty("line.separator")) {
-        "Unable to obtain separator character."
-    }
+    val LINE_SEPARATOR =
+        checkNotNull(System.getProperty("line.separator")) {
+            "Unable to obtain separator character."
+        }
 }

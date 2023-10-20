@@ -17,8 +17,11 @@ class StackedAreaChartTest : LayoutsTest<KtfxPane, StackedAreaChart<Number, Numb
     }
 
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): StackedAreaChart<Number, Number> = stackedAreaChart(axis1, axis2) { }
+
     override fun KtfxPane.child2(): StackedAreaChart<Number, Number> =
         stackedAreaChart(axis1, axis2)
 

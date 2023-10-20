@@ -6,9 +6,13 @@ import kotlin.test.assertEquals
 
 class CubicCurveToTest : LayoutsTest<KtfxPath, CubicCurveTo>() {
     override fun manager(): KtfxPath = KtfxPath()
+
     override fun KtfxPath.childCount(): Int = elements.size
+
     override fun child1(): CubicCurveTo = cubicCurveTo { }
+
     override fun KtfxPath.child2(): CubicCurveTo = cubicCurveTo()
+
     override fun KtfxPath.child3(): CubicCurveTo = cubicCurveTo { }
 
     override fun CubicCurveTo.testDefaultValues() {

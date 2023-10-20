@@ -9,9 +9,13 @@ import kotlin.test.Test
 
 class JfxScrollPaneTest : LayoutsTest<KtfxPane, JFXScrollPane>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): JFXScrollPane = jfxScrollPane { }
+
     override fun KtfxPane.child2(): JFXScrollPane = jfxScrollPane()
+
     override fun KtfxPane.child3(): JFXScrollPane = jfxScrollPane { }
 
     @Test

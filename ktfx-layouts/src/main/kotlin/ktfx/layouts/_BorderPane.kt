@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [BorderPane] to this manager.
+ * Add a [BorderPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.borderPane(): BorderPane = borderPane() { }
+public fun NodeContainer.borderPane(): BorderPane = borderPane() { }
 
 /**
  * Create a [BorderPane] with configuration block.
@@ -38,12 +38,12 @@ public inline fun borderPane(configuration: (@KtfxLayoutDslMarker KtfxBorderPane
 }
 
 /**
- * Add a [BorderPane] with configuration block to this manager.
+ * Add a [BorderPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.borderPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.borderPane(configuration: (@KtfxLayoutDslMarker
         KtfxBorderPane).() -> Unit): BorderPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxBorderPane()
@@ -62,14 +62,14 @@ public fun styledBorderPane(vararg styleClass: String, id: String? = null): Bord
         styledBorderPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [BorderPane] to this manager.
+ * Add a styled [BorderPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledBorderPane(vararg styleClass: String, id: String? = null): BorderPane =
-        styledBorderPane(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledBorderPane(vararg styleClass: String, id: String? = null): BorderPane
+        = styledBorderPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [BorderPane] with configuration block.
@@ -93,14 +93,14 @@ public inline fun styledBorderPane(
 }
 
 /**
- * Add a styled [BorderPane] with configuration block to this manager.
+ * Add a styled [BorderPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledBorderPane(
+public inline fun NodeContainer.styledBorderPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxBorderPane).() -> Unit,

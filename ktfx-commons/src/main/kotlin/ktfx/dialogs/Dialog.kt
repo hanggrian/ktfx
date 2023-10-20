@@ -96,14 +96,13 @@ open class DialogButtonContainer internal constructor(private val nativeDialog: 
         add(PREVIOUS).apply(configuration)
 
     /** Add custom button specifying [text] and [data]. */
-    fun add(text: String, data: ButtonBar.ButtonData = OTHER): Button =
-        add(ButtonType(text, data))
+    fun add(text: String, data: ButtonBar.ButtonData = OTHER): Button = add(ButtonType(text, data))
 
     /** Add custom button specifying [text] and [data] using [configuration] block. */
     inline fun add(
         text: String,
         data: ButtonBar.ButtonData = OTHER,
-        configuration: Button.() -> Unit
+        configuration: Button.() -> Unit,
     ): Button = add(text, data).apply(configuration)
 
     /** Add raw [ButtonType]. */
@@ -125,10 +124,9 @@ open class DialogButtonContainer internal constructor(private val nativeDialog: 
 /** Receiver for `buttons` block. */
 class DialogButtonContainerScope internal constructor(nativeDialog: Dialog<*>) :
     DialogButtonContainer(nativeDialog) {
-
-    /** Alias of [add] with operator function. */
-    inline operator fun String.invoke(
-        data: ButtonBar.ButtonData = OTHER,
-        configuration: Button.() -> Unit
-    ): Button = add(this, data, configuration)
-}
+        /** Alias of [add] with operator function. */
+        inline operator fun String.invoke(
+            data: ButtonBar.ButtonData = OTHER,
+            configuration: Button.() -> Unit,
+        ): Button = add(this, data, configuration)
+    }

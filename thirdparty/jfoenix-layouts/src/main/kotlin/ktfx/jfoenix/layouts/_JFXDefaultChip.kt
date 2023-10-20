@@ -17,14 +17,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXDefaultChip] to this manager.
+ * Add a [JFXDefaultChip] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXDefaultChip<T> =
+public fun <T> NodeContainer.jfxDefaultChip(view: JFXChipView<T>, item: T): JFXDefaultChip<T> =
         jfxDefaultChip(view = view, item = item) { }
 
 /**
@@ -45,12 +45,12 @@ public inline fun <T> jfxDefaultChip(
 }
 
 /**
- * Add a [JFXDefaultChip] with configuration block to this manager.
+ * Add a [JFXDefaultChip] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.jfxDefaultChip(
+public inline fun <T> NodeContainer.jfxDefaultChip(
     view: JFXChipView<T>,
     item: T,
     configuration: (@KtfxLayoutDslMarker JFXDefaultChip<T>).() -> Unit,
@@ -77,13 +77,13 @@ public fun <T> styledJFXDefaultChip(
         id) { }
 
 /**
- * Add a styled [JFXDefaultChip] to this manager.
+ * Add a styled [JFXDefaultChip] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledJFXDefaultChip(
+public fun <T> NodeContainer.styledJFXDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,
@@ -115,14 +115,14 @@ public inline fun <T> styledJFXDefaultChip(
 }
 
 /**
- * Add a styled [JFXDefaultChip] with configuration block to this manager.
+ * Add a styled [JFXDefaultChip] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledJFXDefaultChip(
+public inline fun <T> NodeContainer.styledJFXDefaultChip(
     view: JFXChipView<T>,
     item: T,
     vararg styleClass: String,

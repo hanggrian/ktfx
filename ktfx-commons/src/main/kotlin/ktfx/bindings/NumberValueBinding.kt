@@ -101,7 +101,7 @@ inline infix fun ObservableNumberValue.neq(other: ObservableNumberValue): Boolea
 /** @see NumberExpressionBase.isNotEqualTo */
 inline fun ObservableNumberValue.neq(
     other: ObservableNumberValue,
-    epsilon: Double
+    epsilon: Double,
 ): BooleanBinding = Bindings.notEqual(this, other, epsilon)
 
 /** This function is weirdly not inherited by [NumberExpressionBase]. */

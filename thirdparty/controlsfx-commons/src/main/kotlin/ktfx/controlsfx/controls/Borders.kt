@@ -17,17 +17,17 @@ fun Node.wrapBorders(builderAction: BordersBuilder.() -> Unit): Node =
 
 /** Add a new [Borders.EmptyBorders] to node using DSL. */
 inline fun Node.wrapEmptyBorder(
-    noinline builderAction: BordersBuilder.EmptyBuilder.() -> Unit
+    noinline builderAction: BordersBuilder.EmptyBuilder.() -> Unit,
 ): Node = wrapBorders { empty(builderAction) }
 
 /** Add a new [Borders.EtchedBorders] to node using DSL. */
 inline fun Node.wrapEtchedBorder(
-    noinline builderAction: BordersBuilder.EtchedBuilder.() -> Unit
+    noinline builderAction: BordersBuilder.EtchedBuilder.() -> Unit,
 ): Node = wrapBorders { etched(builderAction) }
 
 /** Add a new [Borders.LineBorders] to node using DSL. */
 inline fun Node.wrapLineBorder(
-    noinline builderAction: BordersBuilder.LineBuilder.() -> Unit
+    noinline builderAction: BordersBuilder.LineBuilder.() -> Unit,
 ): Node = wrapBorders { line(builderAction) }
 
 /**
@@ -163,153 +163,151 @@ class BordersBuilder internal constructor(node: Node) {
     /** Supporting class to add etched border with DSL. */
     class EtchedBuilder internal constructor(private val nativeBorders: Borders.EtchedBorders) :
         NonEmptyBordersBuilder() {
+            /** Specifies the highlight colour to use in the etched border. */
+            var highlight: Color
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.highlight(value)
+                }
 
-        /** Specifies the highlight colour to use in the etched border. */
-        var highlight: Color
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.highlight(value)
+            /** Specifies the shadow colour to use in the etched border. */
+            var shadow: Color
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.shadow(value)
+                }
+
+            /** Specifies the order in which the highlight and shadow colours are placed. */
+            fun raised() {
+                nativeBorders.raised()
             }
 
-        /** Specifies the shadow colour to use in the etched border. */
-        var shadow: Color
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.shadow(value)
+            override var title: String
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.title(value)
+                }
+
+            override var outerPadding: Double
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.outerPadding(value)
+                }
+
+            override fun outerPadding(top: Double, right: Double, bottom: Double, left: Double) {
+                nativeBorders.outerPadding(top, right, bottom, left)
             }
 
-        /** Specifies the order in which the highlight and shadow colours are placed. */
-        fun raised() {
-            nativeBorders.raised()
+            override var innerPadding: Double
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.innerPadding(value)
+                }
+
+            override fun innerPadding(top: Double, right: Double, bottom: Double, left: Double) {
+                nativeBorders.innerPadding(top, right, bottom, left)
+            }
+
+            override var radius: Double
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.radius(value)
+                }
+
+            override fun radius(top: Double, right: Double, bottom: Double, left: Double) {
+                nativeBorders.radius(top, right, bottom, left)
+            }
+
+            internal fun build() {
+                nativeBorders.build()
+            }
         }
-
-        override var title: String
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.title(value)
-            }
-
-        override var outerPadding: Double
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.outerPadding(value)
-            }
-
-        override fun outerPadding(top: Double, right: Double, bottom: Double, left: Double) {
-            nativeBorders.outerPadding(top, right, bottom, left)
-        }
-
-        override var innerPadding: Double
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.innerPadding(value)
-            }
-
-        override fun innerPadding(top: Double, right: Double, bottom: Double, left: Double) {
-            nativeBorders.innerPadding(top, right, bottom, left)
-        }
-
-        override var radius: Double
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.radius(value)
-            }
-
-        override fun radius(top: Double, right: Double, bottom: Double, left: Double) {
-            nativeBorders.radius(top, right, bottom, left)
-        }
-
-        internal fun build() {
-            nativeBorders.build()
-        }
-    }
 
     /** Supporting class to add line border with DSL. */
     class LineBuilder internal constructor(private val nativeBorders: Borders.LineBorders) :
         NonEmptyBordersBuilder() {
+            /** Specifies the colour to use for all four sides of this border. */
+            var color: Color
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.color(value)
+                }
 
-        /** Specifies the colour to use for all four sides of this border. */
-        var color: Color
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.color(value)
+            /** Specifies that the wrapped Node should be wrapped with the given colours for each of its four sides. */
+            fun color(top: Color, right: Color, bottom: Color, left: Color) {
+                nativeBorders.color(top, right, bottom, left)
             }
 
-        /** Specifies that the wrapped Node should be wrapped with the given colours for each of its four sides. */
-        fun color(top: Color, right: Color, bottom: Color, left: Color) {
-            nativeBorders.color(top, right, bottom, left)
+            /** Specifies which {@link BorderStrokeStyle} to use for this line border. */
+            var strokeStyle: BorderStrokeStyle
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.strokeStyle(value)
+                }
+
+            override var outerPadding: Double
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.outerPadding(value)
+                }
+
+            override fun outerPadding(top: Double, right: Double, bottom: Double, left: Double) {
+                nativeBorders.outerPadding(top, right, bottom, left)
+            }
+
+            override var innerPadding: Double
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.innerPadding(value)
+                }
+
+            override fun innerPadding(top: Double, right: Double, bottom: Double, left: Double) {
+                nativeBorders.innerPadding(top, right, bottom, left)
+            }
+
+            /** Specifies the thickness of the line to use on all four sides of this border. */
+            var thickness: Double
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.thickness(value)
+                }
+
+            /** Specifies that the wrapped Node should be wrapped with the given line thickness for each of its four sides. */
+            fun thickness(top: Double, right: Double, bottom: Double, left: Double) {
+                nativeBorders.thickness(top, right, bottom, left)
+            }
+
+            override var radius: Double
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.radius(value)
+                }
+
+            override fun radius(top: Double, right: Double, bottom: Double, left: Double) {
+                nativeBorders.radius(top, right, bottom, left)
+            }
+
+            override var title: String
+                @Deprecated(NO_GETTER, level = ERROR)
+                get() = noGetter()
+                set(value) {
+                    nativeBorders.title(value)
+                }
+
+            internal fun build() {
+                nativeBorders.build()
+            }
         }
-
-        /** Specifies which {@link BorderStrokeStyle} to use for this line border. */
-        var strokeStyle: BorderStrokeStyle
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.strokeStyle(value)
-            }
-
-        override var outerPadding: Double
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.outerPadding(value)
-            }
-
-        override fun outerPadding(top: Double, right: Double, bottom: Double, left: Double) {
-            nativeBorders.outerPadding(top, right, bottom, left)
-        }
-
-        override var innerPadding: Double
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.innerPadding(value)
-            }
-
-        override fun innerPadding(top: Double, right: Double, bottom: Double, left: Double) {
-            nativeBorders.innerPadding(top, right, bottom, left)
-        }
-
-        /** Specifies the thickness of the line to use on all four sides of this border. */
-        var thickness: Double
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.thickness(value)
-            }
-
-        /** Specifies that the wrapped Node should be wrapped with the given line thickness for each of its four sides. */
-        fun thickness(top: Double, right: Double, bottom: Double, left: Double) {
-            nativeBorders.thickness(top, right, bottom, left)
-        }
-
-        override var radius: Double
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.radius(value)
-            }
-
-        override fun radius(top: Double, right: Double, bottom: Double, left: Double) {
-            nativeBorders.radius(top, right, bottom, left)
-        }
-
-        override var title: String
-            @Deprecated(NO_GETTER, level = ERROR)
-            get() = noGetter()
-            set(value) {
-                nativeBorders.title(value)
-            }
-
-        internal fun build() {
-            nativeBorders.build()
-        }
-    }
 }

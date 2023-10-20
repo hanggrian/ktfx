@@ -19,11 +19,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Box] to this manager.
+ * Add a [Box] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.box(
+public fun NodeContainer.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -48,12 +48,12 @@ public inline fun box(
 }
 
 /**
- * Add a [Box] with configuration block to this manager.
+ * Add a [Box] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.box(
+public inline fun NodeContainer.box(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -82,13 +82,13 @@ public fun styledBox(
         { }
 
 /**
- * Add a styled [Box] to this manager.
+ * Add a styled [Box] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledBox(
+public fun NodeContainer.styledBox(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,
@@ -122,14 +122,14 @@ public inline fun styledBox(
 }
 
 /**
- * Add a styled [Box] with configuration block to this manager.
+ * Add a styled [Box] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledBox(
+public inline fun NodeContainer.styledBox(
     width: Double = DEFAULT_SIZE,
     height: Double = DEFAULT_SIZE,
     depth: Double = DEFAULT_SIZE,

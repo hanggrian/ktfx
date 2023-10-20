@@ -7,9 +7,9 @@ dependencyResolutionManagement.repositories {
     maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
 }
 
-rootProject.name = "ktfx-root"
+rootProject.name = "ktfx"
 
-include("ktfx", "ktfx-commons", "ktfx-coroutines", "ktfx-layouts", "ktfx-listeners")
+include("ktfx", "ktfx-commons", "ktfx-coroutines", "ktfx-layouts")
 include("codegen")
 include("sample")
 include("website")

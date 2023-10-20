@@ -29,13 +29,15 @@ inline infix fun Glyph.size(size: Double): Glyph = size(size)
 inline infix fun Glyph.sizeFactor(factor: Int): Glyph = sizeFactor(factor)
 
 /** Enables/disables the hover effect style. */
-infix fun Glyph.useHoverEffect(useHoverEffect: Boolean): Glyph = when {
-    useHoverEffect -> useHoverEffect()
-    else -> apply { styleClass -= Glyph.STYLE_HOVER_EFFECT }
-}
+infix fun Glyph.useHoverEffect(useHoverEffect: Boolean): Glyph =
+    when {
+        useHoverEffect -> useHoverEffect()
+        else -> apply { styleClass -= Glyph.STYLE_HOVER_EFFECT }
+    }
 
 /** Enables/disables the gradient effect style. */
-infix fun Glyph.useGradientEffect(useGradientEffect: Boolean): Glyph = when {
-    useGradientEffect -> useGradientEffect()
-    else -> apply { styleClass -= Glyph.STYLE_GRADIENT }
-}
+infix fun Glyph.useGradientEffect(useGradientEffect: Boolean): Glyph =
+    when {
+        useGradientEffect -> useGradientEffect()
+        else -> apply { styleClass -= Glyph.STYLE_GRADIENT }
+    }

@@ -15,31 +15,34 @@ class ServiceTest {
     fun start() = initToolkit()
 
     @Test
-    fun nullTest() = testService<Any> {
-        setOnSucceeded {
-            assertNull(value)
+    fun nullTest() =
+        testService<Any> {
+            setOnSucceeded {
+                assertNull(value)
+            }
         }
-    }
 
     @Test
-    fun simple() = testService<Int> {
-        call { 17 }
-        setOnSucceeded {
-            assertEquals(17, value)
-            assertNotEquals(71, value)
+    fun simple() =
+        testService<Int> {
+            call { 17 }
+            setOnSucceeded {
+                assertEquals(17, value)
+                assertNotEquals(71, value)
+            }
         }
-    }
 
     @Test
-    fun expectFailure() = testService<String> {
-        call { error("Sad face") }
-        setOnFailed {
-            assertTrue(it.source.exception is IllegalStateException)
+    fun expectFailure() =
+        testService<String> {
+            call { error("Sad face") }
+            setOnFailed {
+                assertTrue(it.source.exception is IllegalStateException)
+            }
+            setOnSucceeded {
+                fail("Should not succeed.")
+            }
         }
-        setOnSucceeded {
-            fail("Should not succeed.")
-        }
-    }
 
     private fun <V> testService(listener: (TaskBuilder<V>).() -> Unit) {
         buildService(listener).start()

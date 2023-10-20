@@ -18,12 +18,12 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [RadioMenuItem] to this manager.
+ * Add a [RadioMenuItem] to this container.
  *
  * @return the control added.
  */
-public fun MenuItemManager.radioMenuItem(text: String? = null, graphic: Node? = null): RadioMenuItem
-        = radioMenuItem(text = text, graphic = graphic) { }
+public fun MenuItemContainer.radioMenuItem(text: String? = null, graphic: Node? = null):
+        RadioMenuItem = radioMenuItem(text = text, graphic = graphic) { }
 
 /**
  * Create a [RadioMenuItem] with configuration block.
@@ -43,12 +43,12 @@ public inline fun radioMenuItem(
 }
 
 /**
- * Add a [RadioMenuItem] with configuration block to this manager.
+ * Add a [RadioMenuItem] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun MenuItemManager.radioMenuItem(
+public inline fun MenuItemContainer.radioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker RadioMenuItem).() -> Unit,
@@ -75,13 +75,13 @@ public fun styledRadioMenuItem(
         = id) { }
 
 /**
- * Add a styled [RadioMenuItem] to this manager.
+ * Add a styled [RadioMenuItem] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun MenuItemManager.styledRadioMenuItem(
+public fun MenuItemContainer.styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -113,14 +113,14 @@ public inline fun styledRadioMenuItem(
 }
 
 /**
- * Add a styled [RadioMenuItem] with configuration block to this manager.
+ * Add a styled [RadioMenuItem] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun MenuItemManager.styledRadioMenuItem(
+public inline fun MenuItemContainer.styledRadioMenuItem(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

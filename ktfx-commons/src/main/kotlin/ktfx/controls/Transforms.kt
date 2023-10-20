@@ -13,10 +13,11 @@ import javafx.scene.transform.Translate
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-fun Node.affineTransformation(configuration: Affine.() -> Unit): Affine = Affine().also {
-    it.configuration()
-    transforms += it
-}
+fun Node.affineTransformation(configuration: Affine.() -> Unit): Affine =
+    Affine().also {
+        it.configuration()
+        transforms += it
+    }
 
 /**
  * Adds [Rotate] transformation.
@@ -24,10 +25,11 @@ fun Node.affineTransformation(configuration: Affine.() -> Unit): Affine = Affine
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-fun Node.rotateTransformation(configuration: Rotate.() -> Unit): Rotate = Rotate().also {
-    it.configuration()
-    transforms += it
-}
+fun Node.rotateTransformation(configuration: Rotate.() -> Unit): Rotate =
+    Rotate().also {
+        it.configuration()
+        transforms += it
+    }
 
 /**
  * Adds [Scale] transformation.
@@ -35,10 +37,11 @@ fun Node.rotateTransformation(configuration: Rotate.() -> Unit): Rotate = Rotate
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-fun Node.scaleTransformation(configuration: Scale.() -> Unit): Scale = Scale().also {
-    it.configuration()
-    transforms += it
-}
+fun Node.scaleTransformation(configuration: Scale.() -> Unit): Scale =
+    Scale().also {
+        it.configuration()
+        transforms += it
+    }
 
 /**
  * Adds [Shear] transformation.
@@ -46,10 +49,11 @@ fun Node.scaleTransformation(configuration: Scale.() -> Unit): Scale = Scale().a
  * @param configuration the configuration block that customizes transformation.
  * @return the transformation added.
  */
-fun Node.shearTransformation(configuration: Shear.() -> Unit): Shear = Shear().also {
-    it.configuration()
-    transforms += it
-}
+fun Node.shearTransformation(configuration: Shear.() -> Unit): Shear =
+    Shear().also {
+        it.configuration()
+        transforms += it
+    }
 
 /**
  * Adds [Translate] transformation.

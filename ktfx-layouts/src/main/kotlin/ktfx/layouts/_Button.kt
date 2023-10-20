@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Button] to this manager.
+ * Add a [Button] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.button(text: String? = null, graphic: Node? = null): Button = button(text =
+public fun NodeContainer.button(text: String? = null, graphic: Node? = null): Button = button(text =
         text, graphic = graphic) { }
 
 /**
@@ -43,12 +43,12 @@ public inline fun button(
 }
 
 /**
- * Add a [Button] with configuration block to this manager.
+ * Add a [Button] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.button(
+public inline fun NodeContainer.button(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Button).() -> Unit,
@@ -74,13 +74,13 @@ public fun styledButton(
 ): Button = styledButton(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Button] to this manager.
+ * Add a styled [Button] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledButton(
+public fun NodeContainer.styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -111,14 +111,14 @@ public inline fun styledButton(
 }
 
 /**
- * Add a styled [Button] with configuration block to this manager.
+ * Add a styled [Button] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledButton(
+public inline fun NodeContainer.styledButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

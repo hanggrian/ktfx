@@ -8,9 +8,13 @@ import kotlin.test.assertEquals
 
 class SplitMenuButtonTest : LayoutsTest<KtfxPane, SplitMenuButton>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): SplitMenuButton = splitMenuButton { }
+
     override fun KtfxPane.child2(): SplitMenuButton = splitMenuButton()
+
     override fun KtfxPane.child3(): SplitMenuButton = splitMenuButton { }
 
     @Test

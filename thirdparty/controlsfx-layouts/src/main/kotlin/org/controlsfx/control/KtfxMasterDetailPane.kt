@@ -5,7 +5,7 @@ package ktfx.controlsfx.layouts
 
 import javafx.geometry.Side
 import javafx.scene.Node
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.MasterDetailPane
 
 /**
@@ -13,11 +13,10 @@ import org.controlsfx.control.MasterDetailPane
  * detail, in order.
  */
 open class KtfxMasterDetailPane(detailSide: Side, showDetail: Boolean) :
-    MasterDetailPane(detailSide, showDetail), NodeManager {
-
+    MasterDetailPane(detailSide, showDetail), NodeContainer {
     private var size = 0
 
-    final override fun <C : Node> addChild(child: C): C =
+    final override fun <T : Node> addChild(child: T): T =
         child.also {
             when (size++) {
                 0 -> masterNode = it

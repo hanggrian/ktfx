@@ -12,6 +12,6 @@ import kotlin.contracts.ExperimentalContracts
  * [Pane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxPane : Pane(), NodeManager {
-    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+open class KtfxPane : Pane(), NodeContainer {
+    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 }

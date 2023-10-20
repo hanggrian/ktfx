@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add an [AnchorPane] to this manager.
+ * Add an [AnchorPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.anchorPane(): AnchorPane = anchorPane() { }
+public fun NodeContainer.anchorPane(): AnchorPane = anchorPane() { }
 
 /**
  * Create an [AnchorPane] with configuration block.
@@ -38,12 +38,12 @@ public inline fun anchorPane(configuration: (@KtfxLayoutDslMarker KtfxAnchorPane
 }
 
 /**
- * Add an [AnchorPane] with configuration block to this manager.
+ * Add an [AnchorPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.anchorPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.anchorPane(configuration: (@KtfxLayoutDslMarker
         KtfxAnchorPane).() -> Unit): AnchorPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxAnchorPane()
@@ -62,14 +62,14 @@ public fun styledAnchorPane(vararg styleClass: String, id: String? = null): Anch
         styledAnchorPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [AnchorPane] to this manager.
+ * Add a styled [AnchorPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledAnchorPane(vararg styleClass: String, id: String? = null): AnchorPane =
-        styledAnchorPane(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledAnchorPane(vararg styleClass: String, id: String? = null): AnchorPane
+        = styledAnchorPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [AnchorPane] with configuration block.
@@ -93,14 +93,14 @@ public inline fun styledAnchorPane(
 }
 
 /**
- * Add a styled [AnchorPane] with configuration block to this manager.
+ * Add a styled [AnchorPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledAnchorPane(
+public inline fun NodeContainer.styledAnchorPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxAnchorPane).() -> Unit,

@@ -19,11 +19,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Separator] to this manager.
+ * Add a [Separator] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.separator(orientation: Orientation = HORIZONTAL): Separator =
+public fun NodeContainer.separator(orientation: Orientation = HORIZONTAL): Separator =
         separator(orientation = orientation) { }
 
 /**
@@ -41,12 +41,12 @@ public inline fun separator(orientation: Orientation = HORIZONTAL,
 }
 
 /**
- * Add a [Separator] with configuration block to this manager.
+ * Add a [Separator] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.separator(orientation: Orientation = HORIZONTAL,
+public inline fun NodeContainer.separator(orientation: Orientation = HORIZONTAL,
         configuration: (@KtfxLayoutDslMarker Separator).() -> Unit): Separator {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Separator(orientation)
@@ -68,13 +68,13 @@ public fun styledSeparator(
 ): Separator = styledSeparator(orientation = orientation, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Separator] to this manager.
+ * Add a styled [Separator] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledSeparator(
+public fun NodeContainer.styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,
@@ -103,14 +103,14 @@ public inline fun styledSeparator(
 }
 
 /**
- * Add a styled [Separator] with configuration block to this manager.
+ * Add a styled [Separator] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledSeparator(
+public inline fun NodeContainer.styledSeparator(
     orientation: Orientation = HORIZONTAL,
     vararg styleClass: String,
     id: String? = null,

@@ -15,15 +15,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.SnapshotView
 
 /**
- * Add a [SnapshotView] to this manager.
+ * Add a [SnapshotView] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.snapshotView(): SnapshotView = snapshotView() { }
+public fun NodeContainer.snapshotView(): SnapshotView = snapshotView() { }
 
 /**
  * Create a [SnapshotView] with configuration block.
@@ -40,12 +40,12 @@ public inline fun snapshotView(configuration: (@KtfxLayoutDslMarker KtfxSnapshot
 }
 
 /**
- * Add a [SnapshotView] with configuration block to this manager.
+ * Add a [SnapshotView] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.snapshotView(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.snapshotView(configuration: (@KtfxLayoutDslMarker
         KtfxSnapshotView).() -> Unit): SnapshotView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSnapshotView()
@@ -64,13 +64,13 @@ public fun styledSnapshotView(vararg styleClass: String, id: String? = null): Sn
         styledSnapshotView(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [SnapshotView] to this manager.
+ * Add a styled [SnapshotView] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledSnapshotView(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledSnapshotView(vararg styleClass: String, id: String? = null):
         SnapshotView = styledSnapshotView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun styledSnapshotView(
 }
 
 /**
- * Add a styled [SnapshotView] with configuration block to this manager.
+ * Add a styled [SnapshotView] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledSnapshotView(
+public inline fun NodeContainer.styledSnapshotView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSnapshotView).() -> Unit,

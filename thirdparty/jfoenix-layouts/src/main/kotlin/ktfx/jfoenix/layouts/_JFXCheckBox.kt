@@ -16,14 +16,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXCheckBox] to this manager.
+ * Add a [JFXCheckBox] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxCheckBox(text: String? = null): JFXCheckBox = jfxCheckBox(text = text) { }
+public fun NodeContainer.jfxCheckBox(text: String? = null): JFXCheckBox = jfxCheckBox(text = text) {
+        }
 
 /**
  * Create a [JFXCheckBox] with configuration block.
@@ -40,13 +41,13 @@ public inline fun jfxCheckBox(text: String? = null, configuration: (@KtfxLayoutD
 }
 
 /**
- * Add a [JFXCheckBox] with configuration block to this manager.
+ * Add a [JFXCheckBox] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxCheckBox(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        JFXCheckBox).() -> Unit): JFXCheckBox {
+public inline fun NodeContainer.jfxCheckBox(text: String? = null,
+        configuration: (@KtfxLayoutDslMarker JFXCheckBox).() -> Unit): JFXCheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXCheckBox(text)
     child.configuration()
@@ -67,13 +68,13 @@ public fun styledJFXCheckBox(
 ): JFXCheckBox = styledJFXCheckBox(text = text, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXCheckBox] to this manager.
+ * Add a styled [JFXCheckBox] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXCheckBox(
+public fun NodeContainer.styledJFXCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -102,14 +103,14 @@ public inline fun styledJFXCheckBox(
 }
 
 /**
- * Add a styled [JFXCheckBox] with configuration block to this manager.
+ * Add a styled [JFXCheckBox] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXCheckBox(
+public inline fun NodeContainer.styledJFXCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

@@ -18,14 +18,15 @@ fun JFXSnackbar.show(
     message: String,
     duration: Duration,
     actionText: String? = null,
-    action: ((ActionEvent) -> Unit)? = null
-): Unit = show(
-    JFXSnackbarLayout(message, actionText) {
-        close()
-        action?.invoke(it)
-    },
-    duration
-)
+    action: ((ActionEvent) -> Unit)? = null,
+): Unit =
+    show(
+        JFXSnackbarLayout(message, actionText) {
+            close()
+            action?.invoke(it)
+        },
+        duration,
+    )
 
 /** Show this snackbar indefinitely with custom layout. */
 inline fun JFXSnackbar.showIndefinite(content: Node): Unit =
@@ -35,13 +36,14 @@ inline fun JFXSnackbar.showIndefinite(content: Node): Unit =
 fun JFXSnackbar.showIndefinite(
     message: String,
     actionText: String? = null,
-    action: ((ActionEvent) -> Unit)? = null
-): Unit = showIndefinite(
-    JFXSnackbarLayout(message, actionText) {
-        close()
-        action?.invoke(it)
-    }
-)
+    action: ((ActionEvent) -> Unit)? = null,
+): Unit =
+    showIndefinite(
+        JFXSnackbarLayout(message, actionText) {
+            close()
+            action?.invoke(it)
+        },
+    )
 
 /** Create and show a snackbar with custom layout. */
 fun Pane.jfxSnackbar(content: Node, duration: Duration): JFXSnackbar =
@@ -52,7 +54,7 @@ fun Pane.jfxSnackbar(
     message: String,
     duration: Duration,
     actionText: String? = null,
-    action: ((ActionEvent) -> Unit)? = null
+    action: ((ActionEvent) -> Unit)? = null,
 ): JFXSnackbar = JFXSnackbar(this).apply { show(message, duration, actionText, action) }
 
 /** Create and show an indefinite snackbar with custom layout. */
@@ -63,5 +65,5 @@ fun Pane.jfxIndefiniteSnackbar(content: Node): JFXSnackbar =
 fun Pane.jfxIndefiniteSnackbar(
     message: String,
     actionText: String? = null,
-    action: ((ActionEvent) -> Unit)? = null
+    action: ((ActionEvent) -> Unit)? = null,
 ): JFXSnackbar = JFXSnackbar(this).apply { showIndefinite(message, actionText, action) }

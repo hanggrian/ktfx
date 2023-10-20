@@ -17,9 +17,13 @@ class AreaChartTest : LayoutsTest<KtfxPane, AreaChart<Number, Number>>() {
     }
 
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): AreaChart<Number, Number> = areaChart(axis1, axis2) { }
+
     override fun KtfxPane.child2(): AreaChart<Number, Number> = areaChart(axis1, axis2)
+
     override fun KtfxPane.child3(): AreaChart<Number, Number> = areaChart(axis1, axis2) { }
 
     override fun AreaChart<Number, Number>.testDefaultValues() {

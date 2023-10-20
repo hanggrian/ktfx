@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add an [Accordion] to this manager.
+ * Add an [Accordion] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.accordion(): Accordion = accordion() { }
+public fun NodeContainer.accordion(): Accordion = accordion() { }
 
 /**
  * Create an [Accordion] with configuration block.
@@ -38,12 +38,12 @@ public inline fun accordion(configuration: (@KtfxLayoutDslMarker KtfxAccordion).
 }
 
 /**
- * Add an [Accordion] with configuration block to this manager.
+ * Add an [Accordion] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.accordion(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.accordion(configuration: (@KtfxLayoutDslMarker
         KtfxAccordion).() -> Unit): Accordion {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxAccordion()
@@ -62,13 +62,13 @@ public fun styledAccordion(vararg styleClass: String, id: String? = null): Accor
         styledAccordion(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Accordion] to this manager.
+ * Add a styled [Accordion] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledAccordion(vararg styleClass: String, id: String? = null): Accordion =
+public fun NodeContainer.styledAccordion(vararg styleClass: String, id: String? = null): Accordion =
         styledAccordion(styleClass = *styleClass, id = id) { }
 
 /**
@@ -93,14 +93,14 @@ public inline fun styledAccordion(
 }
 
 /**
- * Add a styled [Accordion] with configuration block to this manager.
+ * Add a styled [Accordion] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledAccordion(
+public inline fun NodeContainer.styledAccordion(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxAccordion).() -> Unit,

@@ -32,9 +32,10 @@ class BindingsObjectTest {
 
         val dependency3 = propertyOf(1.m)
         val dependency4 = propertyOf(30.s)
-        val binding2 = bindingOf(listOf(dependency3, dependency4)) {
-            dependency3.value + dependency4.value
-        }
+        val binding2 =
+            bindingOf(listOf(dependency3, dependency4)) {
+                dependency3.value + dependency4.value
+            }
         assertEquals(90.s, binding2.value)
         dependency3.value = 15.s
         assertEquals(45.s, binding2.value)

@@ -15,15 +15,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.MaskerPane
 
 /**
- * Add a [MaskerPane] to this manager.
+ * Add a [MaskerPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.maskerPane(): MaskerPane = maskerPane() { }
+public fun NodeContainer.maskerPane(): MaskerPane = maskerPane() { }
 
 /**
  * Create a [MaskerPane] with configuration block.
@@ -40,12 +40,12 @@ public inline fun maskerPane(configuration: (@KtfxLayoutDslMarker MaskerPane).()
 }
 
 /**
- * Add a [MaskerPane] with configuration block to this manager.
+ * Add a [MaskerPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.maskerPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.maskerPane(configuration: (@KtfxLayoutDslMarker
         MaskerPane).() -> Unit): MaskerPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MaskerPane()
@@ -64,14 +64,14 @@ public fun styledMaskerPane(vararg styleClass: String, id: String? = null): Mask
         styledMaskerPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [MaskerPane] to this manager.
+ * Add a styled [MaskerPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane =
-        styledMaskerPane(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledMaskerPane(vararg styleClass: String, id: String? = null): MaskerPane
+        = styledMaskerPane(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [MaskerPane] with configuration block.
@@ -95,14 +95,14 @@ public inline fun styledMaskerPane(
 }
 
 /**
- * Add a styled [MaskerPane] with configuration block to this manager.
+ * Add a styled [MaskerPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledMaskerPane(
+public inline fun NodeContainer.styledMaskerPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker MaskerPane).() -> Unit,

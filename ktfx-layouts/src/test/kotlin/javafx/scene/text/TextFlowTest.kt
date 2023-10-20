@@ -8,9 +8,13 @@ import kotlin.test.assertEquals
 
 class TextFlowTest : LayoutsTest<KtfxPane, TextFlow>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): TextFlow = textFlow { }
+
     override fun KtfxPane.child2(): TextFlow = textFlow()
+
     override fun KtfxPane.child3(): TextFlow = textFlow { }
 
     @Test

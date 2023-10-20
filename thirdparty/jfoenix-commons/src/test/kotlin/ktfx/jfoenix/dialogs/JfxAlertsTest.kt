@@ -21,7 +21,7 @@ class JfxAlertsTest : DialogShowingTest() {
                     assertEquals(sampleGraphic, graphic)
                     buttons.add(CLOSE)
                     resultConverter = callbackOf { it.text }
-                }.get()
+                }.get(),
             )
         }
     }

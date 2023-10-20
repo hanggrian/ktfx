@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("FxCoroutinesKt")
+@file:JvmName("KtfxCoroutinesKt")
 
 package ktfx.coroutines
 
@@ -15,7 +15,8 @@ import kotlin.coroutines.CoroutineContext
 /** Adds an [InvalidationListener] which will be notified whenever the [Observable] becomes invalid. */
 fun Observable.listener(
     context: CoroutineContext = Dispatchers.JavaFx,
-    listener: suspend CoroutineScope.(Observable) -> Unit
-): InvalidationListener = InvalidationListener { observable ->
-    GlobalScope.launch(context) { listener(observable) }
-}.also { addListener(it) }
+    listener: suspend CoroutineScope.(Observable) -> Unit,
+): InvalidationListener =
+    InvalidationListener { observable ->
+        GlobalScope.launch(context) { listener(observable) }
+    }.also { addListener(it) }

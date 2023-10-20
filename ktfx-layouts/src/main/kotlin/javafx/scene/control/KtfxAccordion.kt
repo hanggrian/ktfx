@@ -12,11 +12,11 @@ import kotlin.contracts.ExperimentalContracts
  * [Accordion] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxAccordion : Accordion(), TitledPaneManager {
-    final override fun <C : TitledPane> addChild(child: C): C = child.also { panes += it }
+open class KtfxAccordion : Accordion(), TitledPaneContainer {
+    final override fun <T : TitledPane> addChild(child: T): T = child.also { panes += it }
 
-    /** Call [NodeManager.titledPane] by string invocation. */
+    /** Call [NodeContainer.titledPane] by string invocation. */
     inline operator fun String.invoke(
-        configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit
+        configuration: (@KtfxLayoutDslMarker KtfxTitledPane).() -> Unit,
     ): TitledPane = titledPane(this, configuration)
 }

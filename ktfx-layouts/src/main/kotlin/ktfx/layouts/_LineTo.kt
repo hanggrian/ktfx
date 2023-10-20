@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [LineTo] to this manager.
+ * Add a [LineTo] to this container.
  *
  * @return the control added.
  */
-public fun PathElementManager.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo = lineTo(x = x, y =
+public fun PathElementContainer.lineTo(x: Double = 0.0, y: Double = 0.0): LineTo = lineTo(x = x, y =
         y) { }
 
 /**
@@ -42,12 +42,12 @@ public inline fun lineTo(
 }
 
 /**
- * Add a [LineTo] with configuration block to this manager.
+ * Add a [LineTo] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun PathElementManager.lineTo(
+public inline fun PathElementContainer.lineTo(
     x: Double = 0.0,
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker LineTo).() -> Unit,

@@ -23,20 +23,22 @@ import java.util.concurrent.Callable
 /** Create a [DoubleBinding] with multiple [Observable] dependencies. */
 inline fun doubleBindingOf(
     vararg dependencies: Observable,
-    noinline valueProvider: () -> Double
+    noinline valueProvider: () -> Double,
 ): DoubleBinding = Bindings.createDoubleBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [DoubleBinding] with multiple [Observable] dependencies using collection. */
 fun doubleBindingOf(
     dependencies: Collection<Observable>,
-    valueProvider: () -> Double
+    valueProvider: () -> Double,
 ): DoubleBinding = doubleBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [DoubleBinding] with single [ObservableList] dependency. */
 fun <E> ObservableList<E>.asDouble(valueProvider: (List<E>) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble)
+
         override fun getDependencies(): ObservableList<*> = this@asDouble
 
         init {
@@ -48,7 +50,9 @@ fun <E> ObservableList<E>.asDouble(valueProvider: (List<E>) -> Double): DoubleBi
 fun <E> ObservableSet<E>.asDouble(valueProvider: (Set<E>) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble)
+
         override fun getDependencies(): ObservableList<*> = this@asDouble.toObservableList()
 
         init {
@@ -60,7 +64,9 @@ fun <E> ObservableSet<E>.asDouble(valueProvider: (Set<E>) -> Double): DoubleBind
 fun <K, V> ObservableMap<K, V>.asDouble(valueProvider: (Map<K, V>) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble)
+
         override fun getDependencies(): ObservableList<*> = this@asDouble.keys.toObservableList()
 
         init {
@@ -72,7 +78,9 @@ fun <K, V> ObservableMap<K, V>.asDouble(valueProvider: (Map<K, V>) -> Double): D
 fun <V> ObservableObjectValue<V>.asDouble(valueProvider: (V?) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
@@ -84,7 +92,9 @@ fun <V> ObservableObjectValue<V>.asDouble(valueProvider: (V?) -> Double): Double
 fun ObservableBooleanValue.asDouble(valueProvider: (Boolean) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
@@ -96,7 +106,9 @@ fun ObservableBooleanValue.asDouble(valueProvider: (Boolean) -> Double): DoubleB
 fun ObservableDoubleValue.asDouble(valueProvider: (Double) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble.value as Double)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
@@ -108,7 +120,9 @@ fun ObservableDoubleValue.asDouble(valueProvider: (Double) -> Double): DoubleBin
 fun ObservableFloatValue.asDouble(valueProvider: (Float) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble.value as Float)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
@@ -120,7 +134,9 @@ fun ObservableFloatValue.asDouble(valueProvider: (Float) -> Double): DoubleBindi
 fun ObservableIntegerValue.asDouble(valueProvider: (Int) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble.value as Int)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {
@@ -132,7 +148,9 @@ fun ObservableIntegerValue.asDouble(valueProvider: (Int) -> Double): DoubleBindi
 fun ObservableLongValue.asDouble(valueProvider: (Long) -> Double): DoubleBinding =
     object : DoubleBinding() {
         override fun dispose(): Unit = unbind(this@asDouble)
+
         override fun computeValue(): Double = valueProvider(this@asDouble.value as Long)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asDouble)
 
         init {

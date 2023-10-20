@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Hyperlink] to this manager.
+ * Add a [Hyperlink] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink =
+public fun NodeContainer.hyperlink(text: String? = null, graphic: Node? = null): Hyperlink =
         hyperlink(text = text, graphic = graphic) { }
 
 /**
@@ -43,12 +43,12 @@ public inline fun hyperlink(
 }
 
 /**
- * Add a [Hyperlink] with configuration block to this manager.
+ * Add a [Hyperlink] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.hyperlink(
+public inline fun NodeContainer.hyperlink(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Hyperlink).() -> Unit,
@@ -75,13 +75,13 @@ public fun styledHyperlink(
         }
 
 /**
- * Add a styled [Hyperlink] to this manager.
+ * Add a styled [Hyperlink] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledHyperlink(
+public fun NodeContainer.styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -113,14 +113,14 @@ public inline fun styledHyperlink(
 }
 
 /**
- * Add a styled [Hyperlink] with configuration block to this manager.
+ * Add a styled [Hyperlink] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledHyperlink(
+public inline fun NodeContainer.styledHyperlink(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

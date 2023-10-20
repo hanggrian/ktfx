@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Spinner] to this manager.
+ * Add a [Spinner] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.spinner(): Spinner<T> = spinner() { }
+public fun <T> NodeContainer.spinner(): Spinner<T> = spinner() { }
 
 /**
  * Create a [Spinner] with configuration block.
@@ -38,12 +38,12 @@ public inline fun <T> spinner(configuration: (@KtfxLayoutDslMarker Spinner<T>).(
 }
 
 /**
- * Add a [Spinner] with configuration block to this manager.
+ * Add a [Spinner] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeManager.spinner(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.spinner(configuration: (@KtfxLayoutDslMarker
         Spinner<T>).() -> Unit): Spinner<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Spinner<T>()
@@ -62,14 +62,14 @@ public fun <T> styledSpinner(vararg styleClass: String, id: String? = null): Spi
         styledSpinner(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Spinner] to this manager.
+ * Add a styled [Spinner] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledSpinner(vararg styleClass: String, id: String? = null): Spinner<T>
-        = styledSpinner(styleClass = *styleClass, id = id) { }
+public fun <T> NodeContainer.styledSpinner(vararg styleClass: String, id: String? = null):
+        Spinner<T> = styledSpinner(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [Spinner] with configuration block.
@@ -93,14 +93,14 @@ public inline fun <T> styledSpinner(
 }
 
 /**
- * Add a styled [Spinner] with configuration block to this manager.
+ * Add a styled [Spinner] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledSpinner(
+public inline fun <T> NodeContainer.styledSpinner(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Spinner<T>).() -> Unit,

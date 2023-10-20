@@ -7,6 +7,5 @@ plugins {
 dependencies {
     api(project(":thirdparty:jfoenix-commons"))
     api(project(":thirdparty:jfoenix-layouts"))
-    api(project(":thirdparty:jfoenix-listeners"))
     api(project(":thirdparty:jfoenix-coroutines"))
 }

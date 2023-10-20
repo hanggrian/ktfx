@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "ktlint:rulebook:rename-uncommon-generics")
 
 package ktfx.cells
 
@@ -25,7 +25,7 @@ inline fun <S> TableColumn<S, Boolean>.checkBoxCellFactory(): Unit =
  *   return an `ObservableValue<Boolean>` that represents whether the given item is selected or not.
  */
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
-    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider))
 
 /**
@@ -39,7 +39,7 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
  */
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     converter: StringConverter<T>,
-    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider, converter))
 
 /**
@@ -53,7 +53,7 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
  */
 inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
     showLabel: Boolean,
-    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>
+    noinline selectedPropertyProvider: (Int) -> ObservableValue<Boolean>,
 ): Unit = setCellFactory(CheckBoxTableCell.forTableColumn(selectedPropertyProvider, showLabel))
 
 /**
@@ -63,9 +63,8 @@ inline fun <S, T> TableColumn<S, T>.checkBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
-    vararg items: T
-): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(*items))
+inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(vararg items: T): Unit =
+    setCellFactory(ChoiceBoxTableCell.forTableColumn(*items))
 
 /**
  * Sets a [ChoiceBoxTableCell] factory for use in this [TableColumn].
@@ -78,7 +77,7 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
  */
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
-    vararg items: T
+    vararg items: T,
 ): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, *items))
 
 /**
@@ -88,9 +87,8 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ChoiceBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
-    items: ObservableList<T>
-): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(items))
+inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(items: ObservableList<T>): Unit =
+    setCellFactory(ChoiceBoxTableCell.forTableColumn(items))
 
 /**
  * Sets a [ChoiceBoxTableCell] factory for use in this [TableColumn].
@@ -103,7 +101,7 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
  */
 inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
     converter: StringConverter<T>,
-    items: ObservableList<T>
+    items: ObservableList<T>,
 ): Unit = setCellFactory(ChoiceBoxTableCell.forTableColumn(converter, items))
 
 /**
@@ -113,9 +111,8 @@ inline fun <S, T> TableColumn<S, T>.choiceBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
-    vararg items: T
-): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(*items))
+inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(vararg items: T): Unit =
+    setCellFactory(ComboBoxTableCell.forTableColumn(*items))
 
 /**
  * Sets a [ComboBoxTableCell] factory for use in this [TableColumn].
@@ -128,7 +125,7 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
  */
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     converter: StringConverter<T>,
-    vararg items: T
+    vararg items: T,
 ): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(converter, *items))
 
 /**
@@ -138,9 +135,8 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
  * @param items Zero or more items that will be shown to the user when
  *   the [javafx.scene.control.ComboBox] menu is showing.
  */
-inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
-    items: ObservableList<T>
-): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(items))
+inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(items: ObservableList<T>): Unit =
+    setCellFactory(ComboBoxTableCell.forTableColumn(items))
 
 /**
  * Sets a [ComboBoxTableCell] factory for use in this [TableColumn].
@@ -153,7 +149,7 @@ inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
  */
 inline fun <S, T> TableColumn<S, T>.comboBoxCellFactory(
     converter: StringConverter<T>,
-    items: ObservableList<T>
+    items: ObservableList<T>,
 ): Unit = setCellFactory(ComboBoxTableCell.forTableColumn(converter, items))
 
 /** Sets a [ProgressBarTableCell] factory for use in this [TableColumn]. */
@@ -170,9 +166,8 @@ inline fun <S> TableColumn<S, String>.textFieldCellFactory(): Unit =
  * @param converter A string converter that, given an object of type T, will return a String that
  *   can be used to represent the object visually.
  */
-inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
-    converter: StringConverter<T>
-): Unit = setCellFactory(TextFieldTableCell.forTableColumn(converter))
+inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(converter: StringConverter<T>): Unit =
+    setCellFactory(TextFieldTableCell.forTableColumn(converter))
 
 /**
  * Sets a custom cell factory to use in this [TableColumn].
@@ -181,7 +176,7 @@ inline fun <S, T> TableColumn<S, T>.textFieldCellFactory(
  * @param configuration custom initialization block that configures [KtfxTableCell].
  */
 fun <S, T> TableColumn<S, T>.cellFactory(
-    configuration: KtfxTableCell<S, T>.(TableColumn<S, T>) -> Unit
+    configuration: KtfxTableCell<S, T>.(TableColumn<S, T>) -> Unit,
 ): Unit = setCellFactory { KtfxTableCell<S, T>().apply { configuration(it) } }
 
 /** Custom [TableCell] configurator class. */

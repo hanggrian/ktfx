@@ -26,10 +26,11 @@ inline fun observableFloatArrayOf(): ObservableFloatArray = FXCollections.observ
  *
  * @see floatArrayOf
  */
-fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray = when {
-    elements.isNotEmpty() -> FXCollections.observableFloatArray(*elements)
-    else -> FXCollections.observableFloatArray()
-}
+fun observableFloatArrayOf(vararg elements: Float): ObservableFloatArray =
+    when {
+        elements.isNotEmpty() -> FXCollections.observableFloatArray(*elements)
+        else -> FXCollections.observableFloatArray()
+    }
 
 /**
  * Returns an observable array containing all of the [Float] numbers of this primitive array.
@@ -139,8 +140,11 @@ inline fun ObservableFloatArray.forEachIndexed(action: (index: Int, Float) -> Un
  *
  * @see FloatArray.iterator
  */
-operator fun ObservableFloatArray.iterator(): FloatIterator = object : FloatIterator() {
-    var index = 0
-    override fun hasNext(): Boolean = index < size()
-    override fun nextFloat(): Float = get(index++)
-}
+operator fun ObservableFloatArray.iterator(): FloatIterator =
+    object : FloatIterator() {
+        var index = 0
+
+        override fun hasNext(): Boolean = index < size()
+
+        override fun nextFloat(): Float = get(index++)
+    }

@@ -15,15 +15,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.PrefixSelectionComboBox
 
 /**
- * Add a [PrefixSelectionComboBox] to this manager.
+ * Add a [PrefixSelectionComboBox] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
+public fun <T> NodeContainer.prefixSelectionComboBox(): PrefixSelectionComboBox<T> =
         prefixSelectionComboBox() { }
 
 /**
@@ -41,12 +41,12 @@ public inline fun <T> prefixSelectionComboBox(configuration: (@KtfxLayoutDslMark
 }
 
 /**
- * Add a [PrefixSelectionComboBox] with configuration block to this manager.
+ * Add a [PrefixSelectionComboBox] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeManager.prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.prefixSelectionComboBox(configuration: (@KtfxLayoutDslMarker
         PrefixSelectionComboBox<T>).() -> Unit): PrefixSelectionComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PrefixSelectionComboBox<T>()
@@ -66,13 +66,13 @@ public fun <T> styledPrefixSelectionComboBox(vararg styleClass: String, id: Stri
         id) { }
 
 /**
- * Add a styled [PrefixSelectionComboBox] to this manager.
+ * Add a styled [PrefixSelectionComboBox] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledPrefixSelectionComboBox(vararg styleClass: String, id: String? =
+public fun <T> NodeContainer.styledPrefixSelectionComboBox(vararg styleClass: String, id: String? =
         null): PrefixSelectionComboBox<T> = styledPrefixSelectionComboBox(styleClass = *styleClass,
         id = id) { }
 
@@ -98,14 +98,14 @@ public inline fun <T> styledPrefixSelectionComboBox(
 }
 
 /**
- * Add a styled [PrefixSelectionComboBox] with configuration block to this manager.
+ * Add a styled [PrefixSelectionComboBox] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledPrefixSelectionComboBox(
+public inline fun <T> NodeContainer.styledPrefixSelectionComboBox(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PrefixSelectionComboBox<T>).() -> Unit,

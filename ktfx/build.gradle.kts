@@ -1,4 +1,4 @@
-val RELEASE_ARTIFACT: String by project
+val releaseArtifact: String by project
 
 plugins {
     kotlin("jvm") version libs.versions.kotlin
@@ -7,8 +7,7 @@ plugins {
 }
 
 dependencies {
-    api(project(":$RELEASE_ARTIFACT-commons"))
-    api(project(":$RELEASE_ARTIFACT-layouts"))
-    api(project(":$RELEASE_ARTIFACT-listeners"))
-    api(project(":$RELEASE_ARTIFACT-coroutines"))
+    api(project(":$releaseArtifact-commons"))
+    api(project(":$releaseArtifact-layouts"))
+    api(project(":$releaseArtifact-coroutines"))
 }

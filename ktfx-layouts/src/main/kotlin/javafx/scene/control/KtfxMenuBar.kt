@@ -13,12 +13,12 @@ import kotlin.contracts.ExperimentalContracts
  * [MenuBar] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxMenuBar : MenuBar(), MenuManager {
-    final override fun <C : Menu> addChild(child: C): C = child.also { menus += it }
+open class KtfxMenuBar : MenuBar(), MenuContainer {
+    final override fun <T : Menu> addChild(child: T): T = child.also { menus += it }
 
-    /** Call [MenuManager.menu] by string invocation. */
+    /** Call [MenuContainer.menu] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit
+        configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
     ): Menu = menu(this, graphic, configuration)
 }

@@ -16,16 +16,16 @@ class ExceptionDialogsTest : DialogShowingTest() {
                 exceptionDialog(
                     "Exception dialog",
                     sampleGraphic,
-                    UnsupportedOperationException()
+                    UnsupportedOperationException(),
                 ) {
                     closeOnShow(this)
                     assertEquals("Exception dialog", headerText)
                     assertEquals(sampleGraphic, graphic)
-                }.get()
+                }.get(),
             )
             assertEquals(
                 OK,
-                exceptionDialog(UnsupportedOperationException()) { closeOnShow(this) }.get()
+                exceptionDialog(UnsupportedOperationException()) { closeOnShow(this) }.get(),
             )
         }
     }

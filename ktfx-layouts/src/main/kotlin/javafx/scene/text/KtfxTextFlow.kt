@@ -13,11 +13,10 @@ import kotlin.contracts.ExperimentalContracts
  * [TextFlow] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxTextFlow : TextFlow(), NodeManager {
-    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+open class KtfxTextFlow : TextFlow(), NodeContainer {
+    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
-    /** Call [NodeManager.text] by string invocation. */
-    inline operator fun String.invoke(
-        configuration: (@KtfxLayoutDslMarker Text).() -> Unit
-    ): Text = text(this, configuration)
+    /** Call [NodeContainer.text] by string invocation. */
+    inline operator fun String.invoke(configuration: (@KtfxLayoutDslMarker Text).() -> Unit): Text =
+        text(this, configuration)
 }

@@ -16,14 +16,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXDrawersStack] to this manager.
+ * Add a [JFXDrawersStack] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
+public fun NodeContainer.jfxDrawersStack(): JFXDrawersStack = jfxDrawersStack() { }
 
 /**
  * Create a [JFXDrawersStack] with configuration block.
@@ -40,12 +40,12 @@ public inline fun jfxDrawersStack(configuration: (@KtfxLayoutDslMarker JFXDrawer
 }
 
 /**
- * Add a [JFXDrawersStack] with configuration block to this manager.
+ * Add a [JFXDrawersStack] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.jfxDrawersStack(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxDrawersStack(configuration: (@KtfxLayoutDslMarker
         JFXDrawersStack).() -> Unit): JFXDrawersStack {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDrawersStack()
@@ -64,13 +64,13 @@ public fun styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
         styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXDrawersStack] to this manager.
+ * Add a styled [JFXDrawersStack] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledJFXDrawersStack(vararg styleClass: String, id: String? = null):
         JFXDrawersStack = styledJFXDrawersStack(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun styledJFXDrawersStack(
 }
 
 /**
- * Add a styled [JFXDrawersStack] with configuration block to this manager.
+ * Add a styled [JFXDrawersStack] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXDrawersStack(
+public inline fun NodeContainer.styledJFXDrawersStack(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXDrawersStack).() -> Unit,

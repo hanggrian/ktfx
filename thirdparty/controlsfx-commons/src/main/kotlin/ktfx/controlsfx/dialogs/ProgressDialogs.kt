@@ -23,15 +23,16 @@ fun progressDialog(
     title: String? = null,
     graphic: Node? = null,
     worker: Worker<*>?,
-    dialogAction: (ProgressDialog.() -> Unit)? = null
-): Optional<Void> = ProgressDialog(worker).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    dialogAction?.invoke(dialog)
-}.showAndWait()
+    dialogAction: (ProgressDialog.() -> Unit)? = null,
+): Optional<Void> =
+    ProgressDialog(worker).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        dialogAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Build a progress dialog with Kotlin DSL.
@@ -42,5 +43,5 @@ fun progressDialog(
  */
 inline fun progressDialog(
     worker: Worker<*>?,
-    noinline dialogAction: (ProgressDialog.() -> Unit)? = null
+    noinline dialogAction: (ProgressDialog.() -> Unit)? = null,
 ): Optional<Void> = progressDialog(null, null, worker, dialogAction)

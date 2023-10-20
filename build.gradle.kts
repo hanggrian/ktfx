@@ -1,11 +1,11 @@
-val DEVELOPER_ID: String by project
-val DEVELOPER_NAME: String by project
-val DEVELOPER_URL: String by project
-val RELEASE_GROUP: String by project
-val RELEASE_ARTIFACT: String by project
-val RELEASE_VERSION: String by project
-val RELEASE_DESCRIPTION: String by project
-val RELEASE_URL: String by project
+val developerId: String by project
+val developerName: String by project
+val developerUrl: String by project
+val releaseGroup: String by project
+val releaseArtifact: String by project
+val releaseVersion: String by project
+val releaseDescription: String by project
+val releaseUrl: String by project
 
 plugins {
     kotlin("jvm") version libs.versions.kotlin apply false
@@ -17,8 +17,8 @@ plugins {
 }
 
 allprojects {
-    group = RELEASE_GROUP
-    version = RELEASE_VERSION
+    group = releaseGroup
+    version = releaseVersion
 }
 
 subprojects {
@@ -41,8 +41,8 @@ subprojects {
             signAllPublications()
             pom {
                 name.set(project.name)
-                description.set(RELEASE_DESCRIPTION)
-                url.set(RELEASE_URL)
+                description.set(releaseDescription)
+                url.set(releaseUrl)
                 licenses {
                     license {
                         name.set("The Apache License, Version 2.0")
@@ -52,15 +52,15 @@ subprojects {
                 }
                 developers {
                     developer {
-                        id.set(DEVELOPER_ID)
-                        name.set(DEVELOPER_NAME)
-                        url.set(DEVELOPER_URL)
+                        id.set(developerId)
+                        name.set(developerName)
+                        url.set(developerUrl)
                     }
                 }
                 scm {
-                    url.set(RELEASE_URL)
-                    connection.set("scm:git:https://github.com/$DEVELOPER_ID/$RELEASE_ARTIFACT.git")
-                    developerConnection.set("scm:git:ssh://git@github.com/$DEVELOPER_ID/$RELEASE_ARTIFACT.git")
+                    url.set(releaseUrl)
+                    connection.set("scm:git:https://github.com/$developerId/$releaseArtifact.git")
+                    developerConnection.set("scm:git:ssh://git@github.com/$developerId/$releaseArtifact.git")
                 }
             }
         }

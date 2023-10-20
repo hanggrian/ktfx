@@ -7,9 +7,13 @@ import kotlin.test.assertNull
 
 class JfxTimePickerTest : LayoutsTest<KtfxPane, JFXTimePicker>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): JFXTimePicker = jfxTimePicker { }
+
     override fun KtfxPane.child2(): JFXTimePicker = jfxTimePicker()
+
     override fun KtfxPane.child3(): JFXTimePicker = jfxTimePicker { }
 
     override fun JFXTimePicker.testDefaultValues() {

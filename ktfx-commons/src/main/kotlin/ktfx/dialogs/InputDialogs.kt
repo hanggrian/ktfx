@@ -20,15 +20,16 @@ fun inputDialog(
     title: String? = null,
     graphic: Node? = null,
     prefill: String = "",
-    dialogAction: (TextInputDialog.() -> Unit)? = null
-): Optional<String> = TextInputDialog(prefill).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    dialogAction?.invoke(dialog)
-}.showAndWait()
+    dialogAction: (TextInputDialog.() -> Unit)? = null,
+): Optional<String> =
+    TextInputDialog(prefill).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        dialogAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Show a text input dialog.
@@ -39,5 +40,5 @@ fun inputDialog(
  */
 inline fun inputDialog(
     prefill: String = "",
-    noinline dialogAction: (TextInputDialog.() -> Unit)? = null
+    noinline dialogAction: (TextInputDialog.() -> Unit)? = null,
 ): Optional<String> = inputDialog(null, null, prefill, dialogAction)

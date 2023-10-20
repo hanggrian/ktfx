@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [GridPane] to this manager.
+ * Add a [GridPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.gridPane(): GridPane = gridPane() { }
+public fun NodeContainer.gridPane(): GridPane = gridPane() { }
 
 /**
  * Create a [GridPane] with configuration block.
@@ -38,12 +38,12 @@ public inline fun gridPane(configuration: (@KtfxLayoutDslMarker KtfxGridPane).()
 }
 
 /**
- * Add a [GridPane] with configuration block to this manager.
+ * Add a [GridPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.gridPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.gridPane(configuration: (@KtfxLayoutDslMarker
         KtfxGridPane).() -> Unit): GridPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGridPane()
@@ -62,13 +62,13 @@ public fun styledGridPane(vararg styleClass: String, id: String? = null): GridPa
         styledGridPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [GridPane] to this manager.
+ * Add a styled [GridPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledGridPane(vararg styleClass: String, id: String? = null): GridPane =
+public fun NodeContainer.styledGridPane(vararg styleClass: String, id: String? = null): GridPane =
         styledGridPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -93,14 +93,14 @@ public inline fun styledGridPane(
 }
 
 /**
- * Add a styled [GridPane] with configuration block to this manager.
+ * Add a styled [GridPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledGridPane(
+public inline fun NodeContainer.styledGridPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxGridPane).() -> Unit,

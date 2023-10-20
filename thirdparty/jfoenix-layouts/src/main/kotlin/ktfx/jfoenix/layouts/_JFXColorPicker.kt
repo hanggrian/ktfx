@@ -18,15 +18,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXColorPicker] to this manager.
+ * Add a [JFXColorPicker] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorPicker(color =
-        color) { }
+public fun NodeContainer.jfxColorPicker(color: Color = WHITE): JFXColorPicker = jfxColorPicker(color
+        = color) { }
 
 /**
  * Create a [JFXColorPicker] with configuration block.
@@ -43,12 +43,12 @@ public inline fun jfxColorPicker(color: Color = WHITE, configuration: (@KtfxLayo
 }
 
 /**
- * Add a [JFXColorPicker] with configuration block to this manager.
+ * Add a [JFXColorPicker] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxColorPicker(color: Color = WHITE,
+public inline fun NodeContainer.jfxColorPicker(color: Color = WHITE,
         configuration: (@KtfxLayoutDslMarker JFXColorPicker).() -> Unit): JFXColorPicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXColorPicker(color)
@@ -70,13 +70,13 @@ public fun styledJFXColorPicker(
 ): JFXColorPicker = styledJFXColorPicker(color = color, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXColorPicker] to this manager.
+ * Add a styled [JFXColorPicker] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXColorPicker(
+public fun NodeContainer.styledJFXColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,
@@ -105,14 +105,14 @@ public inline fun styledJFXColorPicker(
 }
 
 /**
- * Add a styled [JFXColorPicker] with configuration block to this manager.
+ * Add a styled [JFXColorPicker] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXColorPicker(
+public inline fun NodeContainer.styledJFXColorPicker(
     color: Color = WHITE,
     vararg styleClass: String,
     id: String? = null,

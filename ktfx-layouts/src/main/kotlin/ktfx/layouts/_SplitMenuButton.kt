@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [SplitMenuButton] to this manager.
+ * Add a [SplitMenuButton] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.splitMenuButton(): SplitMenuButton = splitMenuButton() { }
+public fun NodeContainer.splitMenuButton(): SplitMenuButton = splitMenuButton() { }
 
 /**
  * Create a [SplitMenuButton] with configuration block.
@@ -38,12 +38,12 @@ public inline fun splitMenuButton(configuration: (@KtfxLayoutDslMarker
 }
 
 /**
- * Add a [SplitMenuButton] with configuration block to this manager.
+ * Add a [SplitMenuButton] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.splitMenuButton(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.splitMenuButton(configuration: (@KtfxLayoutDslMarker
         KtfxSplitMenuButton).() -> Unit): SplitMenuButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxSplitMenuButton()
@@ -62,13 +62,13 @@ public fun styledSplitMenuButton(vararg styleClass: String, id: String? = null):
         styledSplitMenuButton(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [SplitMenuButton] to this manager.
+ * Add a styled [SplitMenuButton] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledSplitMenuButton(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledSplitMenuButton(vararg styleClass: String, id: String? = null):
         SplitMenuButton = styledSplitMenuButton(styleClass = *styleClass, id = id) { }
 
 /**
@@ -93,14 +93,14 @@ public inline fun styledSplitMenuButton(
 }
 
 /**
- * Add a styled [SplitMenuButton] with configuration block to this manager.
+ * Add a styled [SplitMenuButton] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledSplitMenuButton(
+public inline fun NodeContainer.styledSplitMenuButton(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxSplitMenuButton).() -> Unit,

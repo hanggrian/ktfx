@@ -17,15 +17,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXTimePicker] to this manager.
+ * Add a [JFXTimePicker] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimePicker(time =
-        time) { }
+public fun NodeContainer.jfxTimePicker(time: LocalTime? = null): JFXTimePicker = jfxTimePicker(time
+        = time) { }
 
 /**
  * Create a [JFXTimePicker] with configuration block.
@@ -42,12 +42,12 @@ public inline fun jfxTimePicker(time: LocalTime? = null, configuration: (@KtfxLa
 }
 
 /**
- * Add a [JFXTimePicker] with configuration block to this manager.
+ * Add a [JFXTimePicker] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxTimePicker(time: LocalTime? = null,
+public inline fun NodeContainer.jfxTimePicker(time: LocalTime? = null,
         configuration: (@KtfxLayoutDslMarker JFXTimePicker).() -> Unit): JFXTimePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTimePicker(time)
@@ -69,13 +69,13 @@ public fun styledJFXTimePicker(
 ): JFXTimePicker = styledJFXTimePicker(time = time, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXTimePicker] to this manager.
+ * Add a styled [JFXTimePicker] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXTimePicker(
+public fun NodeContainer.styledJFXTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun styledJFXTimePicker(
 }
 
 /**
- * Add a styled [JFXTimePicker] with configuration block to this manager.
+ * Add a styled [JFXTimePicker] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXTimePicker(
+public inline fun NodeContainer.styledJFXTimePicker(
     time: LocalTime? = null,
     vararg styleClass: String,
     id: String? = null,

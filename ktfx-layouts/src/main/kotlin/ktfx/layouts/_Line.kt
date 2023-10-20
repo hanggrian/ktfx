@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Line] to this manager.
+ * Add a [Line] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.line(
+public fun NodeContainer.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -49,12 +49,12 @@ public inline fun line(
 }
 
 /**
- * Add a [Line] with configuration block to this manager.
+ * Add a [Line] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.line(
+public inline fun NodeContainer.line(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -85,13 +85,13 @@ public fun styledLine(
         *styleClass, id = id) { }
 
 /**
- * Add a styled [Line] to this manager.
+ * Add a styled [Line] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledLine(
+public fun NodeContainer.styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,
@@ -127,14 +127,14 @@ public inline fun styledLine(
 }
 
 /**
- * Add a styled [Line] with configuration block to this manager.
+ * Add a styled [Line] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledLine(
+public inline fun NodeContainer.styledLine(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     endX: Double = 0.0,

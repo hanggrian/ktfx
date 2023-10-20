@@ -22,11 +22,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add an [AreaChart] to this manager.
+ * Add an [AreaChart] to this container.
  *
  * @return the control added.
  */
-public fun <X, Y> NodeManager.areaChart(
+public fun <X, Y> NodeContainer.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -51,12 +51,12 @@ public inline fun <X, Y> areaChart(
 }
 
 /**
- * Add an [AreaChart] with configuration block to this manager.
+ * Add an [AreaChart] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeManager.areaChart(
+public inline fun <X, Y> NodeContainer.areaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -85,13 +85,13 @@ public fun <X, Y> styledAreaChart(
         }
 
 /**
- * Add a styled [AreaChart] to this manager.
+ * Add a styled [AreaChart] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeManager.styledAreaChart(
+public fun <X, Y> NodeContainer.styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -125,14 +125,14 @@ public inline fun <X, Y> styledAreaChart(
 }
 
 /**
- * Add a styled [AreaChart] with configuration block to this manager.
+ * Add a styled [AreaChart] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeManager.styledAreaChart(
+public inline fun <X, Y> NodeContainer.styledAreaChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

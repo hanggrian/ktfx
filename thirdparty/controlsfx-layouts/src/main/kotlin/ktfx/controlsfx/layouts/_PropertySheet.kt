@@ -16,15 +16,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.PropertySheet
 
 /**
- * Add a [PropertySheet] to this manager.
+ * Add a [PropertySheet] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? = null):
+public fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>? = null):
         PropertySheet = propertySheet(items = items) { }
 
 /**
@@ -42,12 +42,12 @@ public inline fun propertySheet(items: ObservableList<PropertySheet.Item>? = nul
 }
 
 /**
- * Add a [PropertySheet] with configuration block to this manager.
+ * Add a [PropertySheet] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.propertySheet(items: ObservableList<PropertySheet.Item>? = null,
+public inline fun NodeContainer.propertySheet(items: ObservableList<PropertySheet.Item>? = null,
         configuration: (@KtfxLayoutDslMarker PropertySheet).() -> Unit): PropertySheet {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PropertySheet(items)
@@ -69,13 +69,13 @@ public fun styledPropertySheet(
 ): PropertySheet = styledPropertySheet(items = items, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [PropertySheet] to this manager.
+ * Add a styled [PropertySheet] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledPropertySheet(
+public fun NodeContainer.styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun styledPropertySheet(
 }
 
 /**
- * Add a styled [PropertySheet] with configuration block to this manager.
+ * Add a styled [PropertySheet] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledPropertySheet(
+public inline fun NodeContainer.styledPropertySheet(
     items: ObservableList<PropertySheet.Item>? = null,
     vararg styleClass: String,
     id: String? = null,

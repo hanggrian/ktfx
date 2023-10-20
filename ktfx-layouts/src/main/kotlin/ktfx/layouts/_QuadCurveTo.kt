@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [QuadCurveTo] to this manager.
+ * Add a [QuadCurveTo] to this container.
  *
  * @return the control added.
  */
-public fun PathElementManager.quadCurveTo(
+public fun PathElementContainer.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,
@@ -48,12 +48,12 @@ public inline fun quadCurveTo(
 }
 
 /**
- * Add a [QuadCurveTo] with configuration block to this manager.
+ * Add a [QuadCurveTo] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun PathElementManager.quadCurveTo(
+public inline fun PathElementContainer.quadCurveTo(
     controlX: Double = 0.0,
     controlY: Double = 0.0,
     x: Double = 0.0,

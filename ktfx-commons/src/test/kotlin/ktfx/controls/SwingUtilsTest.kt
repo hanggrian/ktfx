@@ -13,21 +13,23 @@ class SwingUtilsTest {
 
     @Test
     fun toFxImage() {
-        val image = BufferedImage(
-            WIDTH,
-            HEIGHT,
-            BufferedImage.TYPE_INT_ARGB
-        ).toFxImage()
+        val image =
+            BufferedImage(
+                WIDTH,
+                HEIGHT,
+                BufferedImage.TYPE_INT_ARGB,
+            ).toFxImage()
         assertEquals(WIDTH, image.width.toInt())
         assertEquals(HEIGHT, image.height.toInt())
     }
 
     @Test
     fun toSwingImage() {
-        val image = WritableImage(
-            WIDTH,
-            HEIGHT
-        ).toSwingImage()
+        val image =
+            WritableImage(
+                WIDTH,
+                HEIGHT,
+            ).toSwingImage()
         assertEquals(WIDTH, image.width)
         assertEquals(HEIGHT, image.height)
     }

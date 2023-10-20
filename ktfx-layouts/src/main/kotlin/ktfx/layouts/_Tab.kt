@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Tab] to this manager.
+ * Add a [Tab] to this container.
  *
  * @return the control added.
  */
-public fun TabManager.tab(text: String? = null, content: Node? = null): Tab = tab(text = text,
+public fun TabContainer.tab(text: String? = null, content: Node? = null): Tab = tab(text = text,
         content = content) { }
 
 /**
@@ -43,12 +43,12 @@ public inline fun tab(
 }
 
 /**
- * Add a [Tab] with configuration block to this manager.
+ * Add a [Tab] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun TabManager.tab(
+public inline fun TabContainer.tab(
     text: String? = null,
     content: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTab).() -> Unit,
@@ -74,13 +74,13 @@ public fun styledTab(
 ): Tab = styledTab(text = text, content = content, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Tab] to this manager.
+ * Add a styled [Tab] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun TabManager.styledTab(
+public fun TabContainer.styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,
@@ -111,14 +111,14 @@ public inline fun styledTab(
 }
 
 /**
- * Add a styled [Tab] with configuration block to this manager.
+ * Add a styled [Tab] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun TabManager.styledTab(
+public inline fun TabContainer.styledTab(
     text: String? = null,
     content: Node? = null,
     vararg styleClass: String,

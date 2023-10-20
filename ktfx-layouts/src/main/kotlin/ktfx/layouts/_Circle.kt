@@ -19,11 +19,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Circle] to this manager.
+ * Add a [Circle] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.circle(
+public fun NodeContainer.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -50,12 +50,12 @@ public inline fun circle(
 }
 
 /**
- * Add a [Circle] with configuration block to this manager.
+ * Add a [Circle] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.circle(
+public inline fun NodeContainer.circle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -86,13 +86,13 @@ public fun styledCircle(
         styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Circle] to this manager.
+ * Add a styled [Circle] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledCircle(
+public fun NodeContainer.styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,
@@ -128,14 +128,14 @@ public inline fun styledCircle(
 }
 
 /**
- * Add a styled [Circle] with configuration block to this manager.
+ * Add a styled [Circle] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledCircle(
+public inline fun NodeContainer.styledCircle(
     centerX: Double = 0.0,
     centerY: Double = 0.0,
     radius: Double = 0.0,

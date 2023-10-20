@@ -12,6 +12,6 @@ import kotlin.contracts.ExperimentalContracts
  * [ScrollPane] with dynamic-layout dsl support.
  * Invoking dsl will only set its content.
  */
-open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeManager {
-    final override fun <C : Node> addChild(child: C): C = child.also { content = it }
+open class KtfxScrollPane(content: Node?) : ScrollPane(content), NodeContainer {
+    final override fun <T : Node> addChild(child: T): T = child.also { content = it }
 }

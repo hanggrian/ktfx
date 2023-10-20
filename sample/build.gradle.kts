@@ -1,4 +1,4 @@
-val RELEASE_ARTIFACT: String by project
+val releaseArtifact: String by project
 
 plugins {
     application
@@ -8,7 +8,7 @@ plugins {
 application.mainClass.set("com.example.CalculatorApp")
 
 dependencies {
-    implementation(project(":$RELEASE_ARTIFACT"))
+    implementation(project(":$releaseArtifact"))
     implementation(project(":thirdparty:controlsfx"))
     implementation(project(":thirdparty:jfoenix"))
 }

@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Canvas] to this manager.
+ * Add a [Canvas] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(width =
+public fun NodeContainer.canvas(width: Double = 0.0, height: Double = 0.0): Canvas = canvas(width =
         width, height = height) { }
 
 /**
@@ -43,12 +43,12 @@ public inline fun canvas(
 }
 
 /**
- * Add a [Canvas] with configuration block to this manager.
+ * Add a [Canvas] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.canvas(
+public inline fun NodeContainer.canvas(
     width: Double = 0.0,
     height: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker Canvas).() -> Unit,
@@ -74,13 +74,13 @@ public fun styledCanvas(
 ): Canvas = styledCanvas(width = width, height = height, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Canvas] to this manager.
+ * Add a styled [Canvas] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledCanvas(
+public fun NodeContainer.styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,
@@ -111,14 +111,14 @@ public inline fun styledCanvas(
 }
 
 /**
- * Add a styled [Canvas] with configuration block to this manager.
+ * Add a styled [Canvas] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledCanvas(
+public inline fun NodeContainer.styledCanvas(
     width: Double = 0.0,
     height: Double = 0.0,
     vararg styleClass: String,

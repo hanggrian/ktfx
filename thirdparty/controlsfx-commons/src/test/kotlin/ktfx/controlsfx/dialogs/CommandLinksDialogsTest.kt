@@ -16,18 +16,18 @@ class CommandLinksDialogsTest : DialogShowingTest() {
                 commandLinksDialog(
                     "Command links dialog",
                     sampleGraphic,
-                    CommandLinksDialog.CommandLinksButtonType("Yes", true)
+                    CommandLinksDialog.CommandLinksButtonType("Yes", true),
                 ) {
                     closeOnShow(this)
                     assertEquals("Command links dialog", headerText)
                     assertEquals(sampleGraphic, graphic)
-                }.get().text
+                }.get().text,
             )
             assertEquals(
                 "Yes",
                 commandLinksDialog(CommandLinksDialog.CommandLinksButtonType("Yes", true)) {
                     closeOnShow(this)
-                }.get().text
+                }.get().text,
             )
         }
     }
@@ -40,18 +40,18 @@ class CommandLinksDialogsTest : DialogShowingTest() {
                 commandLinksDialog(
                     "Command links dialog",
                     sampleGraphic,
-                    listOf(CommandLinksDialog.CommandLinksButtonType("Yes", true))
+                    listOf(CommandLinksDialog.CommandLinksButtonType("Yes", true)),
                 ) {
                     closeOnShow(this)
                     assertEquals("Command links dialog", headerText)
                     assertEquals(sampleGraphic, graphic)
-                }.get().text
+                }.get().text,
             )
             assertEquals(
                 "Yes",
                 commandLinksDialog(listOf(CommandLinksDialog.CommandLinksButtonType("Yes", true))) {
                     closeOnShow(this)
-                }.get().text
+                }.get().text,
             )
         }
     }

@@ -15,15 +15,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.WorldMapView
 
 /**
- * Add a [WorldMapView] to this manager.
+ * Add a [WorldMapView] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.worldMapView(): WorldMapView = worldMapView() { }
+public fun NodeContainer.worldMapView(): WorldMapView = worldMapView() { }
 
 /**
  * Create a [WorldMapView] with configuration block.
@@ -40,12 +40,12 @@ public inline fun worldMapView(configuration: (@KtfxLayoutDslMarker WorldMapView
 }
 
 /**
- * Add a [WorldMapView] with configuration block to this manager.
+ * Add a [WorldMapView] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.worldMapView(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.worldMapView(configuration: (@KtfxLayoutDslMarker
         WorldMapView).() -> Unit): WorldMapView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = WorldMapView()
@@ -64,13 +64,13 @@ public fun styledWorldMapView(vararg styleClass: String, id: String? = null): Wo
         styledWorldMapView(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [WorldMapView] to this manager.
+ * Add a styled [WorldMapView] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledWorldMapView(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledWorldMapView(vararg styleClass: String, id: String? = null):
         WorldMapView = styledWorldMapView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun styledWorldMapView(
 }
 
 /**
- * Add a styled [WorldMapView] with configuration block to this manager.
+ * Add a styled [WorldMapView] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledWorldMapView(
+public inline fun NodeContainer.styledWorldMapView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker WorldMapView).() -> Unit,

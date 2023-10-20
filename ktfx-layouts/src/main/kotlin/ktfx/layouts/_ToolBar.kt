@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ToolBar] to this manager.
+ * Add a [ToolBar] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.toolBar(): ToolBar = toolBar() { }
+public fun NodeContainer.toolBar(): ToolBar = toolBar() { }
 
 /**
  * Create a [ToolBar] with configuration block.
@@ -37,13 +37,13 @@ public inline fun toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -
 }
 
 /**
- * Add a [ToolBar] with configuration block to this manager.
+ * Add a [ToolBar] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.toolBar(configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit):
-        ToolBar {
+public inline fun NodeContainer.toolBar(configuration: (@KtfxLayoutDslMarker
+        KtfxToolBar).() -> Unit): ToolBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxToolBar()
     child.configuration()
@@ -61,13 +61,13 @@ public fun styledToolBar(vararg styleClass: String, id: String? = null): ToolBar
         styledToolBar(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ToolBar] to this manager.
+ * Add a styled [ToolBar] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
+public fun NodeContainer.styledToolBar(vararg styleClass: String, id: String? = null): ToolBar =
         styledToolBar(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledToolBar(
 }
 
 /**
- * Add a styled [ToolBar] with configuration block to this manager.
+ * Add a styled [ToolBar] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledToolBar(
+public inline fun NodeContainer.styledToolBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxToolBar).() -> Unit,

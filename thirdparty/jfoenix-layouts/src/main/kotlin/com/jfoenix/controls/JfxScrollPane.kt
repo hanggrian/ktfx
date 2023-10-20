@@ -7,16 +7,16 @@ package ktfx.jfoenix.layouts
 import com.jfoenix.controls.JFXScrollPane
 import javafx.scene.Node
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
 @PublishedApi
-internal class NodeManagerImpl : NodeManager {
+internal class NodeContainerImpl : NodeContainer {
     val children: MutableList<Node> = mutableListOf()
 
-    override fun <C : Node> addChild(child: C): C = child.also { children += it }
+    override fun <T : Node> addChild(child: T): T = child.also { children += it }
 }
 
 /**
@@ -24,9 +24,9 @@ internal class NodeManagerImpl : NodeManager {
  *
  * @param configuration the configuration block.
  */
-inline fun JFXScrollPane.topBar(configuration: (@KtfxLayoutDslMarker NodeManager).() -> Unit) {
+inline fun JFXScrollPane.topBar(configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    topBar.children.addAll(NodeManagerImpl().apply(configuration).children)
+    topBar.children.addAll(NodeContainerImpl().apply(configuration).children)
 }
 
 /**
@@ -34,9 +34,9 @@ inline fun JFXScrollPane.topBar(configuration: (@KtfxLayoutDslMarker NodeManager
  *
  * @param configuration the configuration block.
  */
-inline fun JFXScrollPane.midBar(configuration: (@KtfxLayoutDslMarker NodeManager).() -> Unit) {
+inline fun JFXScrollPane.midBar(configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    midBar.children.addAll(NodeManagerImpl().apply(configuration).children)
+    midBar.children.addAll(NodeContainerImpl().apply(configuration).children)
 }
 
 /**
@@ -44,9 +44,9 @@ inline fun JFXScrollPane.midBar(configuration: (@KtfxLayoutDslMarker NodeManager
  *
  * @param configuration the configuration block.
  */
-inline fun JFXScrollPane.bottomBar(configuration: (@KtfxLayoutDslMarker NodeManager).() -> Unit) {
+inline fun JFXScrollPane.bottomBar(configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    bottomBar.children.addAll(NodeManagerImpl().apply(configuration).children)
+    bottomBar.children.addAll(NodeContainerImpl().apply(configuration).children)
 }
 
 /**
@@ -54,9 +54,11 @@ inline fun JFXScrollPane.bottomBar(configuration: (@KtfxLayoutDslMarker NodeMana
  *
  * @param configuration the configuration block.
  */
-inline fun JFXScrollPane.mainHeader(configuration: (@KtfxLayoutDslMarker NodeManager).() -> Unit) {
+inline fun JFXScrollPane.mainHeader(
+    configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit,
+) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    mainHeader.children.addAll(NodeManagerImpl().apply(configuration).children)
+    mainHeader.children.addAll(NodeContainerImpl().apply(configuration).children)
 }
 
 /**
@@ -65,8 +67,8 @@ inline fun JFXScrollPane.mainHeader(configuration: (@KtfxLayoutDslMarker NodeMan
  *  @param configuration the configuration block.
  */
 inline fun JFXScrollPane.condensedHeader(
-    configuration: (@KtfxLayoutDslMarker NodeManager).() -> Unit
+    configuration: (@KtfxLayoutDslMarker NodeContainer).() -> Unit,
 ) {
     contract { callsInPlace(configuration, InvocationKind.EXACTLY_ONCE) }
-    condensedHeader.children.addAll(NodeManagerImpl().apply(configuration).children)
+    condensedHeader.children.addAll(NodeContainerImpl().apply(configuration).children)
 }

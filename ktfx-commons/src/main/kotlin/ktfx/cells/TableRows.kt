@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "ktlint:rulebook:rename-uncommon-generics")
 
 package ktfx.cells
 
@@ -11,9 +11,8 @@ import javafx.scene.control.TableView
  * @param S The type of the elements contained within the [TableView].
  * @param configuration custom initialization block that configures [KtfxTableRow].
  */
-fun <S> TableView<S>.rowFactory(
-    configuration: KtfxTableRow<S>.(TableView<S>) -> Unit
-): Unit = setRowFactory { KtfxTableRow<S>().apply { configuration(it) } }
+fun <S> TableView<S>.rowFactory(configuration: KtfxTableRow<S>.(TableView<S>) -> Unit): Unit =
+    setRowFactory { KtfxTableRow<S>().apply { configuration(it) } }
 
 /** Custom [TableRow] configurator class. */
 class KtfxTableRow<T> : TableRow<T>(), KtfxCell<T> {

@@ -51,72 +51,81 @@ import javafx.stage.Stage
 import java.time.LocalTime
 
 val LayoutsFactory.Companion.JFoenix: LayoutsFactory
-    get() = object : LayoutsFactory(
-        "thirdparty/jfoenix-layouts/src/main/kotlin",
-        "ktfx.jfoenix.layouts",
-        "JFoenixLayoutsKt"
-    ) {
-
-        init {
-            JFXBadge::class(customClass = true)
-            JFXButton::class { text(); graphic() }
-            JFXCheckBox::class { text() }
-            JFXChip::class(T) { chipView(); item() }
-            JFXChipView::class(T)
-            JFXClippedPane::class(customClass = true)
-            JFXColorPicker::class { color() }
-            JFXComboBox::class(T) { items(T) }
-            JFXDatePicker::class { date() }
-            JFXDecorator::class {
-                add<Stage>("stage")
-                add<Node>("node")
-                add<Boolean>("fullScreen") { defaultValue("true") }
-                add<Boolean>("max") { defaultValue("true") }
-                add<Boolean>("min") { defaultValue("true") }
-            }
-            JFXDefaultChip::class(T) { chipView(); item() }
-            JFXDrawer::class(customClass = true)
-            JFXDrawersStack::class()
-            JFXHamburger::class()
-            JFXListCell::class(T)
-            JFXListView::class(T)
-            JFXMasonryPane::class(customClass = true)
-            JFXNodesList::class(customClass = true)
-            JFXPasswordField::class()
-            JFXProgressBar::class { progress() }
-            JFXRadioButton::class { text() }
-            JFXRippler::class(customClass = true)
-            JFXScrollPane::class(customClass = true)
-            JFXSlider::class { slider("50.0") }
-            JFXSpinner::class { progress() }
-            JFXTabPane::class(customClass = true)
-            JFXTextArea::class { text() }
-            JFXTextField::class { text() }
-            JFXTimePicker::class {
-                "time"(LocalTime::class.asTypeName().copy(true)) { defaultValue("null") }
-            }
-            JFXToggleButton::class()
-            JFXToggleNode::class { graphic() }
-            JFXTogglePane::class(customClass = true)
-            JFXToolbar::class(customClass = true)
-            JFXTreeCell::class(T)
-            JFXTreeTableView::class(
-                "S".genericsBy(RecursiveTreeObject::class.asClassName().parameterizedBy(S))
-            ) {
-                treeItem("root", S)
-            }
-            JFXTreeView::class(T) { treeItem("root", T) }
-            JFXTreeViewPath::class {
-                "treeView"(
-                    TreeView::class.asClassName().parameterizedBy("*".genericsBy()).copy(true)
+    get() =
+        object : LayoutsFactory(
+            "thirdparty/jfoenix-layouts/src/main/kotlin",
+            "ktfx.jfoenix.layouts",
+            "JfoenixLayoutsKt",
+        ) {
+            init {
+                JFXBadge::class(customClass = true)
+                JFXButton::class {
+                    text()
+                    graphic()
+                }
+                JFXCheckBox::class { text() }
+                JFXChip::class(T) {
+                    chipView()
+                    item()
+                }
+                JFXChipView::class(T)
+                JFXClippedPane::class(customClass = true)
+                JFXColorPicker::class { color() }
+                JFXComboBox::class(T) { items(T) }
+                JFXDatePicker::class { date() }
+                JFXDecorator::class {
+                    add<Stage>("stage")
+                    add<Node>("node")
+                    add<Boolean>("fullScreen") { defaultValue("true") }
+                    add<Boolean>("max") { defaultValue("true") }
+                    add<Boolean>("min") { defaultValue("true") }
+                }
+                JFXDefaultChip::class(T) {
+                    chipView()
+                    item()
+                }
+                JFXDrawer::class(customClass = true)
+                JFXDrawersStack::class()
+                JFXHamburger::class()
+                JFXListCell::class(T)
+                JFXListView::class(T)
+                JFXMasonryPane::class(customClass = true)
+                JFXNodesList::class(customClass = true)
+                JFXPasswordField::class()
+                JFXProgressBar::class { progress() }
+                JFXRadioButton::class { text() }
+                JFXRippler::class(customClass = true)
+                JFXScrollPane::class(customClass = true)
+                JFXSlider::class { slider("50.0") }
+                JFXSpinner::class { progress() }
+                JFXTabPane::class(customClass = true)
+                JFXTextArea::class { text() }
+                JFXTextField::class { text() }
+                JFXTimePicker::class {
+                    "time"(LocalTime::class.asTypeName().copy(true)) { defaultValue("null") }
+                }
+                JFXToggleButton::class()
+                JFXToggleNode::class { graphic() }
+                JFXTogglePane::class(customClass = true)
+                JFXToolbar::class(customClass = true)
+                JFXTreeCell::class(T)
+                JFXTreeTableView::class(
+                    "S".genericsBy(RecursiveTreeObject::class.asClassName().parameterizedBy(S)),
                 ) {
-                    defaultValue("null")
+                    treeItem("root", S)
+                }
+                JFXTreeView::class(T) { treeItem("root", T) }
+                JFXTreeViewPath::class {
+                    "treeView"(
+                        TreeView::class.asClassName().parameterizedBy("*".genericsBy()).copy(true),
+                    ) {
+                        defaultValue("null")
+                    }
                 }
             }
+
+            fun ParameterSpecListScope.chipView() =
+                add("view", JFXChipView::class.asClassName().parameterizedBy(T))
+
+            fun ParameterSpecListScope.item() = add("item", T)
         }
-
-        fun ParameterSpecListScope.chipView() =
-            add("view", JFXChipView::class.asClassName().parameterizedBy(T))
-
-        fun ParameterSpecListScope.item() = add("item", T)
-    }

@@ -11,16 +11,17 @@ import javafx.scene.shape.PathElement
 /**
  * A manager contains a set of children.
  *
- * @param T type of the child.
+ * @param C type of the child.
  */
-interface KtfxManager<T> {
+@Suppress("ktlint:rulebook:rename-uncommon-generics")
+interface Container<C> {
     /**
      * Allows child to be added dynamically with Kotlin DSL in the context of this manager.
      *
      * @param child child to add.
      * @return the child added.
      */
-    fun <C : T> addChild(child: C): C
+    fun <T : C> addChild(child: T): T
 }
 
 /**
@@ -31,38 +32,38 @@ interface KtfxManager<T> {
  * @see javafx.scene.control.MenuButton
  * @see javafx.scene.control.SplitMenuButton
  */
-interface MenuItemManager : KtfxManager<MenuItem>
+interface MenuItemContainer : Container<MenuItem>
 
 /**
  * Container of [Menu].
  *
  * @see javafx.scene.control.MenuBar
  */
-interface MenuManager : KtfxManager<Menu>
+interface MenuContainer : Container<Menu>
 
 /** Container of [Node], being used in most subclasses of [javafx.scene.Parent]. */
-interface NodeManager : KtfxManager<Node>
+interface NodeContainer : Container<Node>
 
 /**
  * Container of [PathElement].
  *
  * @see javafx.scene.shape.Path
  */
-interface PathElementManager : KtfxManager<PathElement>
+interface PathElementContainer : Container<PathElement>
 
 /**
  * Container of [Tab], also being used in `JFXTabPane.kt`.
  *
  * @see javafx.scene.control.TabPane
  */
-interface TabManager : KtfxManager<Tab>
+interface TabContainer : Container<Tab>
 
 /**
  * Container of [TitledPane].
  *
  * @see javafx.scene.control.Accordion
  */
-interface TitledPaneManager : KtfxManager<TitledPane>
+interface TitledPaneContainer : Container<TitledPane>
 
 /** Container of [ToggleButton], used for `SegmentedButton.kt`. */
-interface ToggleButtonManager : KtfxManager<ToggleButton>
+interface ToggleButtonContainer : Container<ToggleButton>

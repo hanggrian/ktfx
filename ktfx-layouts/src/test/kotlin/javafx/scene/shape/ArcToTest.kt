@@ -7,9 +7,13 @@ import kotlin.test.assertFalse
 
 class ArcToTest : LayoutsTest<KtfxPath, ArcTo>() {
     override fun manager(): KtfxPath = KtfxPath()
+
     override fun KtfxPath.childCount(): Int = elements.size
+
     override fun child1(): ArcTo = arcTo { }
+
     override fun KtfxPath.child2(): ArcTo = arcTo()
+
     override fun KtfxPath.child3(): ArcTo = arcTo { }
 
     override fun ArcTo.testDefaultValues() {

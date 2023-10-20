@@ -7,9 +7,13 @@ import kotlin.test.assertEquals
 
 class AnchorPaneTest : LayoutsTest<KtfxPane, AnchorPane>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): AnchorPane = anchorPane { }
+
     override fun KtfxPane.child2(): AnchorPane = anchorPane()
+
     override fun KtfxPane.child3(): AnchorPane = anchorPane { }
 
     @Test

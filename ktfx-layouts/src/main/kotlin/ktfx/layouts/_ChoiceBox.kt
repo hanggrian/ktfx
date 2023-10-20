@@ -20,12 +20,12 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ChoiceBox] to this manager.
+ * Add a [ChoiceBox] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList()): ChoiceBox<T>
-        = choiceBox(items = items) { }
+public fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArrayList()):
+        ChoiceBox<T> = choiceBox(items = items) { }
 
 /**
  * Create a [ChoiceBox] with configuration block.
@@ -42,12 +42,12 @@ public inline fun <T> choiceBox(items: ObservableList<T> = observableArrayList()
 }
 
 /**
- * Add a [ChoiceBox] with configuration block to this manager.
+ * Add a [ChoiceBox] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.choiceBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.choiceBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ChoiceBox<T>).() -> Unit): ChoiceBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ChoiceBox<T>(items)
@@ -69,13 +69,13 @@ public fun <T> styledChoiceBox(
 ): ChoiceBox<T> = styledChoiceBox(items = items, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ChoiceBox] to this manager.
+ * Add a styled [ChoiceBox] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledChoiceBox(
+public fun <T> NodeContainer.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun <T> styledChoiceBox(
 }
 
 /**
- * Add a styled [ChoiceBox] with configuration block to this manager.
+ * Add a styled [ChoiceBox] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledChoiceBox(
+public inline fun <T> NodeContainer.styledChoiceBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

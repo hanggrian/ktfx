@@ -20,12 +20,12 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ComboBox] to this manager.
+ * Add a [ComboBox] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.comboBox(items: ObservableList<T> = observableArrayList()): ComboBox<T> =
-        comboBox(items = items) { }
+public fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArrayList()): ComboBox<T>
+        = comboBox(items = items) { }
 
 /**
  * Create a [ComboBox] with configuration block.
@@ -42,12 +42,12 @@ public inline fun <T> comboBox(items: ObservableList<T> = observableArrayList(),
 }
 
 /**
- * Add a [ComboBox] with configuration block to this manager.
+ * Add a [ComboBox] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.comboBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.comboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker ComboBox<T>).() -> Unit): ComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ComboBox<T>(items)
@@ -69,13 +69,13 @@ public fun <T> styledComboBox(
 ): ComboBox<T> = styledComboBox(items = items, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ComboBox] to this manager.
+ * Add a styled [ComboBox] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledComboBox(
+public fun <T> NodeContainer.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun <T> styledComboBox(
 }
 
 /**
- * Add a styled [ComboBox] with configuration block to this manager.
+ * Add a styled [ComboBox] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledComboBox(
+public inline fun <T> NodeContainer.styledComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

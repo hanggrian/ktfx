@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Region] to this manager.
+ * Add a [Region] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.region(): Region = region() { }
+public fun NodeContainer.region(): Region = region() { }
 
 /**
  * Create a [Region] with configuration block.
@@ -37,12 +37,12 @@ public inline fun region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit
 }
 
 /**
- * Add a [Region] with configuration block to this manager.
+ * Add a [Region] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit):
+public inline fun NodeContainer.region(configuration: (@KtfxLayoutDslMarker Region).() -> Unit):
         Region {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Region()
@@ -61,13 +61,13 @@ public fun styledRegion(vararg styleClass: String, id: String? = null): Region =
         styledRegion(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Region] to this manager.
+ * Add a styled [Region] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledRegion(vararg styleClass: String, id: String? = null): Region =
+public fun NodeContainer.styledRegion(vararg styleClass: String, id: String? = null): Region =
         styledRegion(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledRegion(
 }
 
 /**
- * Add a styled [Region] with configuration block to this manager.
+ * Add a styled [Region] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledRegion(
+public inline fun NodeContainer.styledRegion(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Region).() -> Unit,

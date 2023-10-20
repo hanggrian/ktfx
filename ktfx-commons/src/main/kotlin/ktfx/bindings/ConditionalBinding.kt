@@ -34,7 +34,7 @@ inline infix fun When.then(value: Int): When.NumberConditionBuilder = then(value
 
 /** @see When.NumberConditionBuilder.otherwise */
 inline infix fun When.NumberConditionBuilder.otherwise(
-    value: ObservableNumberValue
+    value: ObservableNumberValue,
 ): NumberBinding = otherwise(value)
 
 /** @see When.NumberConditionBuilder.otherwise */
@@ -61,7 +61,7 @@ inline infix fun When.then(value: Boolean): When.BooleanConditionBuilder = then(
 
 /** @see When.BooleanConditionBuilder.otherwise */
 inline infix fun When.BooleanConditionBuilder.otherwise(
-    value: ObservableBooleanValue
+    value: ObservableBooleanValue,
 ): BooleanBinding = otherwise(value)
 
 /** @see When.BooleanConditionBuilder.otherwise */
@@ -76,7 +76,7 @@ inline infix fun When.then(value: String): When.StringConditionBuilder = then(va
 
 /** @see When.StringConditionBuilder.otherwise */
 inline infix fun When.StringConditionBuilder.otherwise(
-    value: ObservableStringValue
+    value: ObservableStringValue,
 ): StringBinding = otherwise(value)
 
 /** @see [When.StringConditionBuilder.otherwise */
@@ -92,7 +92,7 @@ inline infix fun <T> When.then(value: T?): When.ObjectConditionBuilder<T> = then
 
 /** @see When.ObjectConditionBuilder.otherwise */
 inline infix fun <T> When.ObjectConditionBuilder<T>.otherwise(
-    value: ObservableObjectValue<T>
+    value: ObservableObjectValue<T>,
 ): ObjectBinding<T> = otherwise(value)
 
 /** @see When.ObjectConditionBuilder.otherwise */

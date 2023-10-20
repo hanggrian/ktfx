@@ -20,12 +20,12 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [TableView] to this manager.
+ * Add a [TableView] to this container.
  *
  * @return the control added.
  */
-public fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList()): TableView<S>
-        = tableView(items = items) { }
+public fun <S> NodeContainer.tableView(items: ObservableList<S> = observableArrayList()):
+        TableView<S> = tableView(items = items) { }
 
 /**
  * Create a [TableView] with configuration block.
@@ -42,12 +42,12 @@ public inline fun <S> tableView(items: ObservableList<S> = observableArrayList()
 }
 
 /**
- * Add a [TableView] with configuration block to this manager.
+ * Add a [TableView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <S> NodeManager.tableView(items: ObservableList<S> = observableArrayList(),
+public inline fun <S> NodeContainer.tableView(items: ObservableList<S> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker TableView<S>).() -> Unit): TableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = TableView<S>(items)
@@ -69,13 +69,13 @@ public fun <S> styledTableView(
 ): TableView<S> = styledTableView(items = items, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [TableView] to this manager.
+ * Add a styled [TableView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <S> NodeManager.styledTableView(
+public fun <S> NodeContainer.styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun <S> styledTableView(
 }
 
 /**
- * Add a styled [TableView] with configuration block to this manager.
+ * Add a styled [TableView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <S> NodeManager.styledTableView(
+public inline fun <S> NodeContainer.styledTableView(
     items: ObservableList<S> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

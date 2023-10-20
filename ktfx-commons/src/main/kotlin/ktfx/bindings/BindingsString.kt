@@ -23,20 +23,22 @@ import java.util.concurrent.Callable
 /** Create a [StringBinding] with multiple [Observable] dependencies. */
 inline fun stringBindingOf(
     vararg dependencies: Observable,
-    noinline valueProvider: () -> String?
+    noinline valueProvider: () -> String?,
 ): StringBinding = Bindings.createStringBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [StringBinding] with multiple [Observable] dependencies using collection. */
 fun stringBindingOf(
     dependencies: Collection<Observable>,
-    valueProvider: () -> String?
+    valueProvider: () -> String?,
 ): StringBinding = stringBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [StringBinding] with single [ObservableList] dependency. */
 fun <E> ObservableList<E>.asString(valueProvider: (List<E>) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString)
+
         override fun getDependencies(): ObservableList<*> = this@asString
 
         init {
@@ -48,7 +50,9 @@ fun <E> ObservableList<E>.asString(valueProvider: (List<E>) -> String?): StringB
 fun <E> ObservableSet<E>.asString(valueProvider: (Set<E>) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString)
+
         override fun getDependencies(): ObservableList<*> = this@asString.toObservableList()
 
         init {
@@ -60,7 +64,9 @@ fun <E> ObservableSet<E>.asString(valueProvider: (Set<E>) -> String?): StringBin
 fun <K, V> ObservableMap<K, V>.asString(valueProvider: (Map<K, V>) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString)
+
         override fun getDependencies(): ObservableList<*> = this@asString.keys.toObservableList()
 
         init {
@@ -72,7 +78,9 @@ fun <K, V> ObservableMap<K, V>.asString(valueProvider: (Map<K, V>) -> String?): 
 fun <V> ObservableObjectValue<V>.asString(valueProvider: (V?) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
 
         init {
@@ -84,7 +92,9 @@ fun <V> ObservableObjectValue<V>.asString(valueProvider: (V?) -> String?): Strin
 fun ObservableBooleanValue.asString(valueProvider: (Boolean) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
 
         init {
@@ -96,7 +106,9 @@ fun ObservableBooleanValue.asString(valueProvider: (Boolean) -> String?): String
 fun ObservableDoubleValue.asString(valueProvider: (Double) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString.value as Double)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
 
         init {
@@ -108,7 +120,9 @@ fun ObservableDoubleValue.asString(valueProvider: (Double) -> String?): StringBi
 fun ObservableFloatValue.asString(valueProvider: (Float) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString.value as Float)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
 
         init {
@@ -120,7 +134,9 @@ fun ObservableFloatValue.asString(valueProvider: (Float) -> String?): StringBind
 fun ObservableIntegerValue.asString(valueProvider: (Int) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString.value as Int)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
 
         init {
@@ -132,7 +148,9 @@ fun ObservableIntegerValue.asString(valueProvider: (Int) -> String?): StringBind
 fun ObservableLongValue.asString(valueProvider: (Long) -> String?): StringBinding =
     object : StringBinding() {
         override fun dispose(): Unit = unbind(this@asString)
+
         override fun computeValue(): String? = valueProvider(this@asString.value as Long)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asString)
 
         init {

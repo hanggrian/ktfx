@@ -15,13 +15,12 @@ import kotlin.contracts.ExperimentalContracts
  */
 open class KtfxMenuButton(text: String?, graphic: Node?) :
     MenuButton(text, graphic),
-    MenuItemManager {
+    MenuItemContainer {
+    final override fun <T : MenuItem> addChild(child: T): T = child.also { items + it }
 
-    final override fun <C : MenuItem> addChild(child: C): C = child.also { items + it }
-
-    /** Call [MenuItemManager.menuItem] by string invocation. */
+    /** Call [MenuItemContainer.menuItem] by string invocation. */
     inline operator fun String.invoke(
         graphic: Node? = null,
-        configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit
+        configuration: (@KtfxLayoutDslMarker MenuItem).() -> Unit,
     ): MenuItem = menuItem(this, graphic, configuration)
 }

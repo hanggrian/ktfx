@@ -17,23 +17,23 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
-import ktfx.layouts.ToggleButtonManager
+import ktfx.layouts.NodeContainer
+import ktfx.layouts.ToggleButtonContainer
 
 /**
- * Add a [JFXToggleNode] to this manager.
+ * Add a [JFXToggleNode] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxToggleNode(graphic: Node? = null): JFXToggleNode = jfxToggleNode(graphic =
-        graphic) { }
+public fun NodeContainer.jfxToggleNode(graphic: Node? = null): JFXToggleNode = jfxToggleNode(graphic
+        = graphic) { }
 
 /**
- * Add a [JFXToggleNode] to this manager.
+ * Add a [JFXToggleNode] to this container.
  *
  * @return the control added.
  */
-public fun ToggleButtonManager.jfxToggleNode(graphic: Node? = null): JFXToggleNode =
+public fun ToggleButtonContainer.jfxToggleNode(graphic: Node? = null): JFXToggleNode =
         jfxToggleNode(graphic = graphic) { }
 
 /**
@@ -51,12 +51,12 @@ public inline fun jfxToggleNode(graphic: Node? = null, configuration: (@KtfxLayo
 }
 
 /**
- * Add a [JFXToggleNode] with configuration block to this manager.
+ * Add a [JFXToggleNode] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxToggleNode(graphic: Node? = null,
+public inline fun NodeContainer.jfxToggleNode(graphic: Node? = null,
         configuration: (@KtfxLayoutDslMarker JFXToggleNode).() -> Unit): JFXToggleNode {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXToggleNode(graphic)
@@ -65,12 +65,12 @@ public inline fun NodeManager.jfxToggleNode(graphic: Node? = null,
 }
 
 /**
- * Add a [JFXToggleNode] with configuration block to this manager.
+ * Add a [JFXToggleNode] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun ToggleButtonManager.jfxToggleNode(graphic: Node? = null,
+public inline fun ToggleButtonContainer.jfxToggleNode(graphic: Node? = null,
         configuration: (@KtfxLayoutDslMarker JFXToggleNode).() -> Unit): JFXToggleNode {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXToggleNode(graphic)
@@ -92,26 +92,26 @@ public fun styledJFXToggleNode(
 ): JFXToggleNode = styledJFXToggleNode(graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXToggleNode] to this manager.
+ * Add a styled [JFXToggleNode] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXToggleNode(
+public fun NodeContainer.styledJFXToggleNode(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
 ): JFXToggleNode = styledJFXToggleNode(graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXToggleNode] to this manager.
+ * Add a styled [JFXToggleNode] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun ToggleButtonManager.styledJFXToggleNode(
+public fun ToggleButtonContainer.styledJFXToggleNode(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -140,14 +140,14 @@ public inline fun styledJFXToggleNode(
 }
 
 /**
- * Add a styled [JFXToggleNode] with configuration block to this manager.
+ * Add a styled [JFXToggleNode] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXToggleNode(
+public inline fun NodeContainer.styledJFXToggleNode(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -162,14 +162,14 @@ public inline fun NodeManager.styledJFXToggleNode(
 }
 
 /**
- * Add a styled [JFXToggleNode] with configuration block to this manager.
+ * Add a styled [JFXToggleNode] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun ToggleButtonManager.styledJFXToggleNode(
+public inline fun ToggleButtonContainer.styledJFXToggleNode(
     graphic: Node? = null,
     vararg styleClass: String,
     id: String? = null,

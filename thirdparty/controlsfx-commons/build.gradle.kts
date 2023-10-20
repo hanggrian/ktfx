@@ -1,4 +1,4 @@
-val RELEASE_ARTIFACT: String by project
+val releaseArtifact: String by project
 
 plugins {
     kotlin("jvm") version libs.versions.kotlin
@@ -9,13 +9,12 @@ plugins {
 }
 
 dependencies {
-    ktlintRuleset(libs.ktlint)
     ktlintRuleset(libs.rulebook.ktlint)
 
-    implementation(project(":$RELEASE_ARTIFACT-commons"))
+    implementation(project(":$releaseArtifact-commons"))
     implementation(libs.controlsfx)
 
     testImplementation(project(":testing:commons"))
-    testImplementation(project(":$RELEASE_ARTIFACT-layouts"))
+    testImplementation(project(":$releaseArtifact-layouts"))
     testImplementation(libs.kotlinx.coroutines.javafx)
 }

@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add an [ArcTo] to this manager.
+ * Add an [ArcTo] to this container.
  *
  * @return the control added.
  */
-public fun PathElementManager.arcTo(
+public fun PathElementContainer.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,
@@ -56,12 +56,12 @@ public inline fun arcTo(
 }
 
 /**
- * Add an [ArcTo] with configuration block to this manager.
+ * Add an [ArcTo] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun PathElementManager.arcTo(
+public inline fun PathElementContainer.arcTo(
     radiusX: Double = 0.0,
     radiusY: Double = 0.0,
     xAxisRotation: Double = 0.0,

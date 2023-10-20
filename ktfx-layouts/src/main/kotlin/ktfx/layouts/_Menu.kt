@@ -18,19 +18,19 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Menu] to this manager.
+ * Add a [Menu] to this container.
  *
  * @return the control added.
  */
-public fun MenuItemManager.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text,
-        graphic = graphic) { }
+public fun MenuItemContainer.menu(text: String = "", graphic: Node? = null): Menu = menu(text =
+        text, graphic = graphic) { }
 
 /**
- * Add a [Menu] to this manager.
+ * Add a [Menu] to this container.
  *
  * @return the control added.
  */
-public fun MenuManager.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text,
+public fun MenuContainer.menu(text: String = "", graphic: Node? = null): Menu = menu(text = text,
         graphic = graphic) { }
 
 /**
@@ -51,12 +51,12 @@ public inline fun menu(
 }
 
 /**
- * Add a [Menu] with configuration block to this manager.
+ * Add a [Menu] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun MenuItemManager.menu(
+public inline fun MenuItemContainer.menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
@@ -68,12 +68,12 @@ public inline fun MenuItemManager.menu(
 }
 
 /**
- * Add a [Menu] with configuration block to this manager.
+ * Add a [Menu] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun MenuManager.menu(
+public inline fun MenuContainer.menu(
     text: String = "",
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenu).() -> Unit,
@@ -99,13 +99,13 @@ public fun styledMenu(
 ): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Menu] to this manager.
+ * Add a styled [Menu] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun MenuItemManager.styledMenu(
+public fun MenuItemContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -113,13 +113,13 @@ public fun MenuItemManager.styledMenu(
 ): Menu = styledMenu(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Menu] to this manager.
+ * Add a styled [Menu] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun MenuManager.styledMenu(
+public fun MenuContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -150,14 +150,14 @@ public inline fun styledMenu(
 }
 
 /**
- * Add a styled [Menu] with configuration block to this manager.
+ * Add a styled [Menu] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun MenuItemManager.styledMenu(
+public inline fun MenuItemContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,
@@ -173,14 +173,14 @@ public inline fun MenuItemManager.styledMenu(
 }
 
 /**
- * Add a styled [Menu] with configuration block to this manager.
+ * Add a styled [Menu] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun MenuManager.styledMenu(
+public inline fun MenuContainer.styledMenu(
     text: String = "",
     graphic: Node? = null,
     vararg styleClass: String,

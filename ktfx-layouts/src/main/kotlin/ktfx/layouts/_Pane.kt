@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Pane] to this manager.
+ * Add a [Pane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.pane(): Pane = pane() { }
+public fun NodeContainer.pane(): Pane = pane() { }
 
 /**
  * Create a [Pane] with configuration block.
@@ -37,12 +37,12 @@ public inline fun pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit
 }
 
 /**
- * Add a [Pane] with configuration block to this manager.
+ * Add a [Pane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit):
+public inline fun NodeContainer.pane(configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit):
         Pane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxPane()
@@ -61,13 +61,13 @@ public fun styledPane(vararg styleClass: String, id: String? = null): Pane = sty
         *styleClass, id = id) { }
 
 /**
- * Add a styled [Pane] to this manager.
+ * Add a styled [Pane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledPane(vararg styleClass: String, id: String? = null): Pane =
+public fun NodeContainer.styledPane(vararg styleClass: String, id: String? = null): Pane =
         styledPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledPane(
 }
 
 /**
- * Add a styled [Pane] with configuration block to this manager.
+ * Add a styled [Pane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledPane(
+public inline fun NodeContainer.styledPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxPane).() -> Unit,

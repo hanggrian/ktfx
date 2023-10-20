@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ScrollBar] to this manager.
+ * Add a [ScrollBar] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.scrollBar(): ScrollBar = scrollBar() { }
+public fun NodeContainer.scrollBar(): ScrollBar = scrollBar() { }
 
 /**
  * Create a [ScrollBar] with configuration block.
@@ -37,13 +37,13 @@ public inline fun scrollBar(configuration: (@KtfxLayoutDslMarker ScrollBar).() -
 }
 
 /**
- * Add a [ScrollBar] with configuration block to this manager.
+ * Add a [ScrollBar] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.scrollBar(configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit):
-        ScrollBar {
+public inline fun NodeContainer.scrollBar(configuration: (@KtfxLayoutDslMarker
+        ScrollBar).() -> Unit): ScrollBar {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ScrollBar()
     child.configuration()
@@ -61,13 +61,13 @@ public fun styledScrollBar(vararg styleClass: String, id: String? = null): Scrol
         styledScrollBar(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ScrollBar] to this manager.
+ * Add a styled [ScrollBar] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledScrollBar(vararg styleClass: String, id: String? = null): ScrollBar =
+public fun NodeContainer.styledScrollBar(vararg styleClass: String, id: String? = null): ScrollBar =
         styledScrollBar(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledScrollBar(
 }
 
 /**
- * Add a styled [ScrollBar] with configuration block to this manager.
+ * Add a styled [ScrollBar] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledScrollBar(
+public inline fun NodeContainer.styledScrollBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker ScrollBar).() -> Unit,

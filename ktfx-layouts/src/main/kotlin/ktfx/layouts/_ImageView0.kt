@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add an [ImageView] to this manager.
+ * Add an [ImageView] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.imageView(image: Image? = null): ImageView = imageView(image = image) { }
+public fun NodeContainer.imageView(image: Image? = null): ImageView = imageView(image = image) { }
 
 /**
  * Create an [ImageView] with configuration block.
@@ -39,12 +39,12 @@ public inline fun imageView(image: Image? = null, configuration: (@KtfxLayoutDsl
 }
 
 /**
- * Add an [ImageView] with configuration block to this manager.
+ * Add an [ImageView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.imageView(image: Image? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.imageView(image: Image? = null, configuration: (@KtfxLayoutDslMarker
         ImageView).() -> Unit): ImageView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ImageView(image)
@@ -66,13 +66,13 @@ public fun styledImageView(
 ): ImageView = styledImageView(image = image, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [ImageView] to this manager.
+ * Add a styled [ImageView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledImageView(
+public fun NodeContainer.styledImageView(
     image: Image? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -101,14 +101,14 @@ public inline fun styledImageView(
 }
 
 /**
- * Add a styled [ImageView] with configuration block to this manager.
+ * Add a styled [ImageView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledImageView(
+public inline fun NodeContainer.styledImageView(
     image: Image? = null,
     vararg styleClass: String,
     id: String? = null,

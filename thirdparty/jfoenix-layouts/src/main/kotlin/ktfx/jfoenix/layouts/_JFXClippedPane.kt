@@ -10,19 +10,20 @@ import kotlin.String
 import kotlin.Suppress
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXClippedPane] to this manager.
+ * Add a [JFXClippedPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxClippedPane(): JFXClippedPane = jfxClippedPane() { }
+public fun NodeContainer.jfxClippedPane(): JFXClippedPane = jfxClippedPane() { }
 
 /**
  * Create a [JFXClippedPane] with configuration block.
@@ -39,12 +40,12 @@ public inline fun jfxClippedPane(configuration: (@KtfxLayoutDslMarker
 }
 
 /**
- * Add a [JFXClippedPane] with configuration block to this manager.
+ * Add a [JFXClippedPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.jfxClippedPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxClippedPane(configuration: (@KtfxLayoutDslMarker
         KtfxJfxClippedPane).() -> Unit): JFXClippedPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxClippedPane()
@@ -63,13 +64,13 @@ public fun styledJFXClippedPane(vararg styleClass: String, id: String? = null): 
         styledJFXClippedPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXClippedPane] to this manager.
+ * Add a styled [JFXClippedPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXClippedPane(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledJFXClippedPane(vararg styleClass: String, id: String? = null):
         JFXClippedPane = styledJFXClippedPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -94,14 +95,14 @@ public inline fun styledJFXClippedPane(
 }
 
 /**
- * Add a styled [JFXClippedPane] with configuration block to this manager.
+ * Add a styled [JFXClippedPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXClippedPane(
+public inline fun NodeContainer.styledJFXClippedPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxClippedPane).() -> Unit,

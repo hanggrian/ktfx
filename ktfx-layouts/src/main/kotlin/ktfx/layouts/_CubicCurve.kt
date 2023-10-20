@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [CubicCurve] to this manager.
+ * Add a [CubicCurve] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.cubicCurve(
+public fun NodeContainer.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -58,12 +58,12 @@ public inline fun cubicCurve(
 }
 
 /**
- * Add a [CubicCurve] with configuration block to this manager.
+ * Add a [CubicCurve] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.cubicCurve(
+public inline fun NodeContainer.cubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -103,13 +103,13 @@ public fun styledCubicCurve(
         styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [CubicCurve] to this manager.
+ * Add a styled [CubicCurve] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledCubicCurve(
+public fun NodeContainer.styledCubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,
@@ -154,14 +154,14 @@ public inline fun styledCubicCurve(
 }
 
 /**
- * Add a styled [CubicCurve] with configuration block to this manager.
+ * Add a styled [CubicCurve] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledCubicCurve(
+public inline fun NodeContainer.styledCubicCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX1: Double = 0.0,

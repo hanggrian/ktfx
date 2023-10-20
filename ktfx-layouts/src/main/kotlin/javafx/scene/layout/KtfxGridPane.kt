@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
-@file:OptIn(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
@@ -11,14 +10,13 @@ import javafx.geometry.VPos
 import javafx.scene.Node
 import javafx.scene.layout.GridPane
 import javafx.scene.layout.Priority
-import kotlin.contracts.ExperimentalContracts
 
 /**
  * [GridPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxGridPane : GridPane(), NodeManager {
-    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+open class KtfxGridPane : GridPane(), NodeContainer {
+    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Children row index in this layout. */
     inline var Node.rowIndex: Int?
@@ -53,17 +51,14 @@ open class KtfxGridPane : GridPane(), NodeManager {
         set(value) = setColumnSpan(this, value)
 
     /** Configure [rowIndex] and [columnIndex] fluidly. */
-    fun <C : Node> C.grid(row: Int = 0, col: Int = 0): C {
+    fun <T : Node> T.grid(row: Int = 0, col: Int = 0): T {
         rowIndex = row
         columnIndex = col
         return this
     }
 
     /** Configure [rowIndex], [rowSpan] and [columnIndex] fluidly. */
-    fun <C : Node> C.grid(
-        row: Pair<Int, Int>,
-        col: Int = 0
-    ): C {
+    fun <T : Node> T.grid(row: Pair<Int, Int>, col: Int = 0): T {
         rowIndex = row.first
         rowSpan = row.second
         columnIndex = col
@@ -71,10 +66,7 @@ open class KtfxGridPane : GridPane(), NodeManager {
     }
 
     /** Configure [rowIndex], [columnIndex] and [columnSpan] fluidly. */
-    fun <C : Node> C.grid(
-        row: Int = 0,
-        col: Pair<Int, Int>
-    ): C {
+    fun <T : Node> T.grid(row: Int = 0, col: Pair<Int, Int>): T {
         rowIndex = row
         columnIndex = col.first
         columnSpan = col.second
@@ -82,10 +74,7 @@ open class KtfxGridPane : GridPane(), NodeManager {
     }
 
     /** Configure [rowIndex], [rowSpan], [columnIndex] and [columnSpan] fluidly. */
-    fun <C : Node> C.grid(
-        row: Pair<Int, Int>,
-        col: Pair<Int, Int>
-    ): C {
+    fun <T : Node> T.grid(row: Pair<Int, Int>, col: Pair<Int, Int>): T {
         rowIndex = row.first
         rowSpan = row.second
         columnIndex = col.first
@@ -110,13 +99,13 @@ open class KtfxGridPane : GridPane(), NodeManager {
         set(value) = setValignment(this, value)
 
     /** Configure [halignment] fluidly. */
-    fun <C : Node> C.halign(hpos: HPos): C {
+    fun <T : Node> T.halign(hpos: HPos): T {
         halignment = hpos
         return this
     }
 
     /** Configure [valignment] fluidly. */
-    fun <C : Node> C.valign(vpos: VPos): C {
+    fun <T : Node> T.valign(vpos: VPos): T {
         valignment = vpos
         return this
     }
@@ -138,13 +127,13 @@ open class KtfxGridPane : GridPane(), NodeManager {
         set(value) = setFillHeight(this, value)
 
     /** Configure [isFillWidth] fluidly. */
-    fun <C : Node> C.fillWidth(fill: Boolean = true): C {
+    fun <T : Node> T.fillWidth(fill: Boolean = true): T {
         isFillWidth = fill
         return this
     }
 
     /** Configure [isFillHeight] fluidly. */
-    fun <C : Node> C.fillHeight(fill: Boolean = true): C {
+    fun <T : Node> T.fillHeight(fill: Boolean = true): T {
         isFillHeight = fill
         return this
     }
@@ -166,13 +155,13 @@ open class KtfxGridPane : GridPane(), NodeManager {
         set(value) = setVgrow(this, value)
 
     /** Configure [hgrow] fluidly. */
-    fun <C : Node> C.hgrow(always: Boolean = true): C {
+    fun <T : Node> T.hgrow(always: Boolean = true): T {
         hgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
 
     /** Configure [vgrow] fluidly. */
-    fun <C : Node> C.vgrow(always: Boolean = true): C {
+    fun <T : Node> T.vgrow(always: Boolean = true): T {
         vgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
@@ -186,7 +175,7 @@ open class KtfxGridPane : GridPane(), NodeManager {
         set(value) = setMargin(this, value)
 
     /** Configure [margin] fluidly. */
-    fun <C : Node> C.margin(insets: Insets): C {
+    fun <T : Node> T.margin(insets: Insets): T {
         margin = insets
         return this
     }

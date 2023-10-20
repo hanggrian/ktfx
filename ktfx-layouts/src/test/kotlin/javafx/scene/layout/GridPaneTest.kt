@@ -9,9 +9,13 @@ import kotlin.test.assertEquals
 
 class GridPaneTest : LayoutsTest<KtfxPane, GridPane>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): GridPane = gridPane { }
+
     override fun KtfxPane.child2(): GridPane = gridPane()
+
     override fun KtfxPane.child3(): GridPane = gridPane { }
 
     @Test

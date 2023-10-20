@@ -17,18 +17,19 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [RadioButton] to this manager.
+ * Add a [RadioButton] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.radioButton(text: String? = null): RadioButton = radioButton(text = text) { }
+public fun NodeContainer.radioButton(text: String? = null): RadioButton = radioButton(text = text) {
+        }
 
 /**
- * Add a [RadioButton] to this manager.
+ * Add a [RadioButton] to this container.
  *
  * @return the control added.
  */
-public fun ToggleButtonManager.radioButton(text: String? = null): RadioButton = radioButton(text =
+public fun ToggleButtonContainer.radioButton(text: String? = null): RadioButton = radioButton(text =
         text) { }
 
 /**
@@ -46,13 +47,13 @@ public inline fun radioButton(text: String? = null, configuration: (@KtfxLayoutD
 }
 
 /**
- * Add a [RadioButton] with configuration block to this manager.
+ * Add a [RadioButton] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.radioButton(text: String? = null, configuration: (@KtfxLayoutDslMarker
-        RadioButton).() -> Unit): RadioButton {
+public inline fun NodeContainer.radioButton(text: String? = null,
+        configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
     child.configuration()
@@ -60,12 +61,12 @@ public inline fun NodeManager.radioButton(text: String? = null, configuration: (
 }
 
 /**
- * Add a [RadioButton] with configuration block to this manager.
+ * Add a [RadioButton] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun ToggleButtonManager.radioButton(text: String? = null,
+public inline fun ToggleButtonContainer.radioButton(text: String? = null,
         configuration: (@KtfxLayoutDslMarker RadioButton).() -> Unit): RadioButton {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = RadioButton(text)
@@ -87,26 +88,26 @@ public fun styledRadioButton(
 ): RadioButton = styledRadioButton(text = text, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [RadioButton] to this manager.
+ * Add a styled [RadioButton] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledRadioButton(
+public fun NodeContainer.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
 ): RadioButton = styledRadioButton(text = text, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [RadioButton] to this manager.
+ * Add a styled [RadioButton] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun ToggleButtonManager.styledRadioButton(
+public fun ToggleButtonContainer.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -135,14 +136,14 @@ public inline fun styledRadioButton(
 }
 
 /**
- * Add a styled [RadioButton] with configuration block to this manager.
+ * Add a styled [RadioButton] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledRadioButton(
+public inline fun NodeContainer.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -157,14 +158,14 @@ public inline fun NodeManager.styledRadioButton(
 }
 
 /**
- * Add a styled [RadioButton] with configuration block to this manager.
+ * Add a styled [RadioButton] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun ToggleButtonManager.styledRadioButton(
+public inline fun ToggleButtonContainer.styledRadioButton(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

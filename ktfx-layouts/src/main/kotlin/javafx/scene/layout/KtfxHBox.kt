@@ -15,8 +15,8 @@ import kotlin.contracts.ExperimentalContracts
  * [HBox] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
-    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+open class KtfxHBox(spacing: Double) : HBox(spacing), NodeContainer {
+    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Children horizontal grow priority in this layout. */
     inline var Node.hgrow: Priority?
@@ -27,7 +27,7 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
         set(value) = setHgrow(this, value)
 
     /** Configure [hgrow] fluidly. */
-    fun <C : Node> C.hgrow(always: Boolean = true): C {
+    fun <T : Node> T.hgrow(always: Boolean = true): T {
         hgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
@@ -41,7 +41,7 @@ open class KtfxHBox(spacing: Double) : HBox(spacing), NodeManager {
         set(value) = setMargin(this, value)
 
     /** Configure [margin] fluidly. */
-    fun <C : Node> C.margin(insets: Insets): C {
+    fun <T : Node> T.margin(insets: Insets): T {
         margin = insets
         return this
     }

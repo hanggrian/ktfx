@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("FxCoroutinesKt")
+@file:JvmName("KtfxCoroutinesKt")
 
 package ktfx.coroutines
 
@@ -15,7 +15,8 @@ import kotlin.coroutines.CoroutineContext
 /** Add a listener to this observable map. */
 fun <E> ObservableSet<E>.listener(
     context: CoroutineContext = Dispatchers.JavaFx,
-    listener: suspend CoroutineScope.(SetChangeListener.Change<out E>) -> Unit
-): SetChangeListener<E> = SetChangeListener<E> { change ->
-    GlobalScope.launch(context) { listener(change) }
-}.also { addListener(it) }
+    listener: suspend CoroutineScope.(SetChangeListener.Change<out E>) -> Unit,
+): SetChangeListener<E> =
+    SetChangeListener<E> { change ->
+        GlobalScope.launch(context) { listener(change) }
+    }.also { addListener(it) }

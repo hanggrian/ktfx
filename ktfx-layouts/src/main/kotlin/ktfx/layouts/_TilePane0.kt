@@ -20,11 +20,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [TilePane] to this manager.
+ * Add a [TilePane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.tilePane(
+public fun NodeContainer.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -49,12 +49,12 @@ public inline fun tilePane(
 }
 
 /**
- * Add a [TilePane] with configuration block to this manager.
+ * Add a [TilePane] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.tilePane(
+public inline fun NodeContainer.tilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -83,13 +83,13 @@ public fun styledTilePane(
         *styleClass, id = id) { }
 
 /**
- * Add a styled [TilePane] to this manager.
+ * Add a styled [TilePane] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledTilePane(
+public fun NodeContainer.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,
@@ -123,14 +123,14 @@ public inline fun styledTilePane(
 }
 
 /**
- * Add a styled [TilePane] with configuration block to this manager.
+ * Add a styled [TilePane] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledTilePane(
+public inline fun NodeContainer.styledTilePane(
     orientation: Orientation = HORIZONTAL,
     hgap: Double,
     vgap: Double,

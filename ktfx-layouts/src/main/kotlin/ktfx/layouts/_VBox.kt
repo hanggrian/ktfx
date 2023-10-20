@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [VBox] to this manager.
+ * Add a [VBox] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
+public fun NodeContainer.vbox(spacing: Double = 0.0): VBox = vbox(spacing = spacing) { }
 
 /**
  * Create a [VBox] with configuration block.
@@ -39,12 +39,12 @@ public inline fun vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMark
 }
 
 /**
- * Add a [VBox] with configuration block to this manager.
+ * Add a [VBox] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.vbox(spacing: Double = 0.0, configuration: (@KtfxLayoutDslMarker
         KtfxVBox).() -> Unit): VBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxVBox(spacing)
@@ -66,13 +66,13 @@ public fun styledVBox(
 ): VBox = styledVBox(spacing = spacing, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [VBox] to this manager.
+ * Add a styled [VBox] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledVBox(
+public fun NodeContainer.styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,
@@ -101,14 +101,14 @@ public inline fun styledVBox(
 }
 
 /**
- * Add a styled [VBox] with configuration block to this manager.
+ * Add a styled [VBox] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledVBox(
+public inline fun NodeContainer.styledVBox(
     spacing: Double = 0.0,
     vararg styleClass: String,
     id: String? = null,

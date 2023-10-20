@@ -10,19 +10,20 @@ import kotlin.String
 import kotlin.Suppress
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXMasonryPane] to this manager.
+ * Add a [JFXMasonryPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
+public fun NodeContainer.jfxMasonryPane(): JFXMasonryPane = jfxMasonryPane() { }
 
 /**
  * Create a [JFXMasonryPane] with configuration block.
@@ -39,12 +40,12 @@ public inline fun jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
 }
 
 /**
- * Add a [JFXMasonryPane] with configuration block to this manager.
+ * Add a [JFXMasonryPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxMasonryPane(configuration: (@KtfxLayoutDslMarker
         KtfxJfxMasonryPane).() -> Unit): JFXMasonryPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxMasonryPane()
@@ -63,13 +64,13 @@ public fun styledJFXMasonryPane(vararg styleClass: String, id: String? = null): 
         styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXMasonryPane] to this manager.
+ * Add a styled [JFXMasonryPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXMasonryPane(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledJFXMasonryPane(vararg styleClass: String, id: String? = null):
         JFXMasonryPane = styledJFXMasonryPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -94,14 +95,14 @@ public inline fun styledJFXMasonryPane(
 }
 
 /**
- * Add a styled [JFXMasonryPane] with configuration block to this manager.
+ * Add a styled [JFXMasonryPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXMasonryPane(
+public inline fun NodeContainer.styledJFXMasonryPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxMasonryPane).() -> Unit,

@@ -16,15 +16,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.Rating
 
 /**
- * Add a [Rating] to this manager.
+ * Add a [Rating] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.rating(max: Int = 5, rating: Int = -1): Rating = rating(max = max, rating =
+public fun NodeContainer.rating(max: Int = 5, rating: Int = -1): Rating = rating(max = max, rating =
         rating) { }
 
 /**
@@ -45,12 +45,12 @@ public inline fun rating(
 }
 
 /**
- * Add a [Rating] with configuration block to this manager.
+ * Add a [Rating] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.rating(
+public inline fun NodeContainer.rating(
     max: Int = 5,
     rating: Int = -1,
     configuration: (@KtfxLayoutDslMarker Rating).() -> Unit,
@@ -76,13 +76,13 @@ public fun styledRating(
 ): Rating = styledRating(max = max, rating = rating, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Rating] to this manager.
+ * Add a styled [Rating] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledRating(
+public fun NodeContainer.styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,
@@ -113,14 +113,14 @@ public inline fun styledRating(
 }
 
 /**
- * Add a styled [Rating] with configuration block to this manager.
+ * Add a styled [Rating] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledRating(
+public inline fun NodeContainer.styledRating(
     max: Int = 5,
     rating: Int = -1,
     vararg styleClass: String,

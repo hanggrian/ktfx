@@ -7,7 +7,6 @@ plugins {
 }
 
 dependencies {
-    ktlintRuleset(libs.ktlint)
     ktlintRuleset(libs.rulebook.ktlint)
 
     implementation(libs.kotlinx.coroutines.javafx)

@@ -10,9 +10,13 @@ import kotlin.test.assertNull
 
 class FlowPaneTest : LayoutsTest<KtfxPane, FlowPane>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): FlowPane = flowPane { }
+
     override fun KtfxPane.child2(): FlowPane = flowPane()
+
     override fun KtfxPane.child3(): FlowPane = flowPane { }
 
     override fun FlowPane.testDefaultValues() {

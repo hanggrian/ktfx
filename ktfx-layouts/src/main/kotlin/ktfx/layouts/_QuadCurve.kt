@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [QuadCurve] to this manager.
+ * Add a [QuadCurve] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.quadCurve(
+public fun NodeContainer.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -54,12 +54,12 @@ public inline fun quadCurve(
 }
 
 /**
- * Add a [QuadCurve] with configuration block to this manager.
+ * Add a [QuadCurve] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.quadCurve(
+public inline fun NodeContainer.quadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -94,13 +94,13 @@ public fun styledQuadCurve(
         controlY, endX = endX, endY = endY, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [QuadCurve] to this manager.
+ * Add a styled [QuadCurve] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledQuadCurve(
+public fun NodeContainer.styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,
@@ -140,14 +140,14 @@ public inline fun styledQuadCurve(
 }
 
 /**
- * Add a styled [QuadCurve] with configuration block to this manager.
+ * Add a styled [QuadCurve] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledQuadCurve(
+public inline fun NodeContainer.styledQuadCurve(
     startX: Double = 0.0,
     startY: Double = 0.0,
     controlX: Double = 0.0,

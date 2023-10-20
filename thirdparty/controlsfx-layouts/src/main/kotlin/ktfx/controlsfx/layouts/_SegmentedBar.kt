@@ -15,16 +15,16 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.SegmentedBar
 
 /**
- * Add a [SegmentedBar] to this manager.
+ * Add a [SegmentedBar] to this container.
  *
  * @return the control added.
  */
-public fun <T : SegmentedBar.Segment> NodeManager.segmentedBar(): SegmentedBar<T> = segmentedBar() {
-        }
+public fun <T : SegmentedBar.Segment> NodeContainer.segmentedBar(): SegmentedBar<T> = segmentedBar()
+        { }
 
 /**
  * Create a [SegmentedBar] with configuration block.
@@ -41,14 +41,14 @@ public inline fun <T : SegmentedBar.Segment> segmentedBar(configuration: (@KtfxL
 }
 
 /**
- * Add a [SegmentedBar] with configuration block to this manager.
+ * Add a [SegmentedBar] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
 public inline fun <T : SegmentedBar.Segment>
-        NodeManager.segmentedBar(configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit):
-        SegmentedBar<T> {
+        NodeContainer.segmentedBar(configuration: (@KtfxLayoutDslMarker
+        SegmentedBar<T>).() -> Unit): SegmentedBar<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SegmentedBar<T>()
     child.configuration()
@@ -66,13 +66,13 @@ public fun <T : SegmentedBar.Segment> styledSegmentedBar(vararg styleClass: Stri
         null): SegmentedBar<T> = styledSegmentedBar(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [SegmentedBar] to this manager.
+ * Add a styled [SegmentedBar] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T : SegmentedBar.Segment> NodeManager.styledSegmentedBar(vararg styleClass: String,
+public fun <T : SegmentedBar.Segment> NodeContainer.styledSegmentedBar(vararg styleClass: String,
         id: String? = null): SegmentedBar<T> = styledSegmentedBar(styleClass = *styleClass, id = id)
         { }
 
@@ -98,14 +98,14 @@ public inline fun <T : SegmentedBar.Segment> styledSegmentedBar(
 }
 
 /**
- * Add a styled [SegmentedBar] with configuration block to this manager.
+ * Add a styled [SegmentedBar] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T : SegmentedBar.Segment> NodeManager.styledSegmentedBar(
+public inline fun <T : SegmentedBar.Segment> NodeContainer.styledSegmentedBar(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SegmentedBar<T>).() -> Unit,

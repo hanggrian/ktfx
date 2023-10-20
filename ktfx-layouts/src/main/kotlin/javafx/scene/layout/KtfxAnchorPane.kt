@@ -13,8 +13,8 @@ import kotlin.contracts.ExperimentalContracts
  * [AnchorPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxAnchorPane : AnchorPane(), NodeManager {
-    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+open class KtfxAnchorPane : AnchorPane(), NodeContainer {
+    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Top anchor of this children. */
     inline var Node.topAnchor: Double?
@@ -49,60 +49,62 @@ open class KtfxAnchorPane : AnchorPane(), NodeManager {
         set(value) = setLeftAnchor(this, value)
 
     /** Set children anchor on all side in this layout. */
-    fun <C : Node> C.anchor(all: Int): C = anchor(all, all, all, all)
+    fun <T : Node> T.anchor(all: Int): T = anchor(all, all, all, all)
 
     /** Set children anchor on each side in this layout. */
-    fun <C : Node> C.anchor(horizontal: Int = Int.MAX_VALUE, vertical: Int = Int.MAX_VALUE): C =
+    fun <T : Node> T.anchor(horizontal: Int = Int.MAX_VALUE, vertical: Int = Int.MAX_VALUE): T =
         anchor(vertical, horizontal, vertical, horizontal)
 
     /** Set children anchor on each side in this layout. */
-    fun <C : Node> C.anchor(
+    fun <T : Node> T.anchor(
         top: Int = Int.MAX_VALUE,
         right: Int = Int.MAX_VALUE,
         bottom: Int = Int.MAX_VALUE,
-        left: Int = Int.MAX_VALUE
-    ): C = anchor(
-        if (top != Int.MAX_VALUE) top.toDouble() else Double.NaN,
-        if (right != Int.MAX_VALUE) right.toDouble() else Double.NaN,
-        if (bottom != Int.MAX_VALUE) bottom.toDouble() else Double.NaN,
-        if (left != Int.MAX_VALUE) left.toDouble() else Double.NaN
-    )
+        left: Int = Int.MAX_VALUE,
+    ): T =
+        anchor(
+            if (top != Int.MAX_VALUE) top.toDouble() else Double.NaN,
+            if (right != Int.MAX_VALUE) right.toDouble() else Double.NaN,
+            if (bottom != Int.MAX_VALUE) bottom.toDouble() else Double.NaN,
+            if (left != Int.MAX_VALUE) left.toDouble() else Double.NaN,
+        )
 
     /** Set children anchor on all side in this layout. */
-    fun <C : Node> C.anchor(all: Long): C = anchor(all, all, all, all)
+    fun <T : Node> T.anchor(all: Long): T = anchor(all, all, all, all)
 
     /** Set children anchor on each side in this layout. */
-    fun <C : Node> C.anchor(horizontal: Long = Long.MAX_VALUE, vertical: Long = Long.MAX_VALUE): C =
+    fun <T : Node> T.anchor(horizontal: Long = Long.MAX_VALUE, vertical: Long = Long.MAX_VALUE): T =
         anchor(vertical, horizontal, vertical, horizontal)
 
     /** Set children anchor on each side in this layout. */
-    fun <C : Node> C.anchor(
+    fun <T : Node> T.anchor(
         top: Long = Long.MAX_VALUE,
         right: Long = Long.MAX_VALUE,
         bottom: Long = Long.MAX_VALUE,
-        left: Long = Long.MAX_VALUE
-    ): C = anchor(
-        if (top != Long.MAX_VALUE) top.toDouble() else Double.NaN,
-        if (right != Long.MAX_VALUE) right.toDouble() else Double.NaN,
-        if (bottom != Long.MAX_VALUE) bottom.toDouble() else Double.NaN,
-        if (left != Long.MAX_VALUE) left.toDouble() else Double.NaN
-    )
+        left: Long = Long.MAX_VALUE,
+    ): T =
+        anchor(
+            if (top != Long.MAX_VALUE) top.toDouble() else Double.NaN,
+            if (right != Long.MAX_VALUE) right.toDouble() else Double.NaN,
+            if (bottom != Long.MAX_VALUE) bottom.toDouble() else Double.NaN,
+            if (left != Long.MAX_VALUE) left.toDouble() else Double.NaN,
+        )
 
     /** Set children anchor on all side in this layout. */
-    fun <C : Node> C.anchor(all: Double): C = anchor(all, all, all, all)
+    fun <T : Node> T.anchor(all: Double): T = anchor(all, all, all, all)
 
     /** Set children anchor on each side in this layout. */
-    fun <C : Node> C.anchor(horizontal: Double = Double.NaN, vertical: Double = Double.NaN): C =
+    fun <T : Node> T.anchor(horizontal: Double = Double.NaN, vertical: Double = Double.NaN): T =
         anchor(vertical, horizontal, vertical, horizontal)
 
     /** Set children anchor on each side in this layout. */
     @Suppress("ConvertNaNEquality")
-    fun <C : Node> C.anchor(
+    fun <T : Node> T.anchor(
         top: Double = Double.NaN,
         right: Double = Double.NaN,
         bottom: Double = Double.NaN,
-        left: Double = Double.NaN
-    ): C {
+        left: Double = Double.NaN,
+    ): T {
         if (topAnchor != Double.NaN) topAnchor = top
         if (rightAnchor != Double.NaN) rightAnchor = right
         if (bottomAnchor != Double.NaN) bottomAnchor = bottom

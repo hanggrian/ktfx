@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Slider] to this manager.
+ * Add a [Slider] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.slider(
+public fun NodeContainer.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
@@ -47,12 +47,12 @@ public inline fun slider(
 }
 
 /**
- * Add a [Slider] with configuration block to this manager.
+ * Add a [Slider] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.slider(
+public inline fun NodeContainer.slider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
@@ -80,13 +80,13 @@ public fun styledSlider(
 ): Slider = styledSlider(min = min, max = max, value = value, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Slider] to this manager.
+ * Add a styled [Slider] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledSlider(
+public fun NodeContainer.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,
@@ -119,14 +119,14 @@ public inline fun styledSlider(
 }
 
 /**
- * Add a styled [Slider] with configuration block to this manager.
+ * Add a styled [Slider] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledSlider(
+public inline fun NodeContainer.styledSlider(
     min: Double = 0.0,
     max: Double = 100.0,
     `value`: Double = 0.0,

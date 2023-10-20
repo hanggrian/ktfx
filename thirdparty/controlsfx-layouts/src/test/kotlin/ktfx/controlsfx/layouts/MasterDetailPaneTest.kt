@@ -12,9 +12,13 @@ import kotlin.test.assertTrue
 
 class MasterDetailPaneTest : LayoutsTest<KtfxPane, MasterDetailPane>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): MasterDetailPane = masterDetailPane { }
+
     override fun KtfxPane.child2(): MasterDetailPane = masterDetailPane()
+
     override fun KtfxPane.child3(): MasterDetailPane = masterDetailPane { }
 
     override fun MasterDetailPane.testDefaultValues() {

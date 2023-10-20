@@ -15,15 +15,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.HiddenSidesPane
 
 /**
- * Add a [HiddenSidesPane] to this manager.
+ * Add a [HiddenSidesPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() { }
+public fun NodeContainer.hiddenSidesPane(): HiddenSidesPane = hiddenSidesPane() { }
 
 /**
  * Create a [HiddenSidesPane] with configuration block.
@@ -40,12 +40,12 @@ public inline fun hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
 }
 
 /**
- * Add a [HiddenSidesPane] with configuration block to this manager.
+ * Add a [HiddenSidesPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.hiddenSidesPane(configuration: (@KtfxLayoutDslMarker
         KtfxHiddenSidesPane).() -> Unit): HiddenSidesPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxHiddenSidesPane()
@@ -64,13 +64,13 @@ public fun styledHiddenSidesPane(vararg styleClass: String, id: String? = null):
         styledHiddenSidesPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [HiddenSidesPane] to this manager.
+ * Add a styled [HiddenSidesPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledHiddenSidesPane(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledHiddenSidesPane(vararg styleClass: String, id: String? = null):
         HiddenSidesPane = styledHiddenSidesPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun styledHiddenSidesPane(
 }
 
 /**
- * Add a styled [HiddenSidesPane] with configuration block to this manager.
+ * Add a styled [HiddenSidesPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledHiddenSidesPane(
+public inline fun NodeContainer.styledHiddenSidesPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxHiddenSidesPane).() -> Unit,

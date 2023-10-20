@@ -8,9 +8,13 @@ import kotlin.test.assertEquals
 
 class JfxProgressBarTest : LayoutsTest<KtfxPane, JFXProgressBar>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): JFXProgressBar = jfxProgressBar { }
+
     override fun KtfxPane.child2(): JFXProgressBar = jfxProgressBar()
+
     override fun KtfxPane.child3(): JFXProgressBar = jfxProgressBar { }
 
     override fun JFXProgressBar.testDefaultValues() {

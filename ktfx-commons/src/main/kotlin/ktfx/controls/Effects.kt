@@ -25,10 +25,11 @@ import javafx.scene.effect.Shadow
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.blendEffect(configuration: Blend.() -> Unit): Blend = Blend().also {
-    it.configuration()
-    effect = it
-}
+fun Node.blendEffect(configuration: Blend.() -> Unit): Blend =
+    Blend().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [Bloom] effect.
@@ -36,10 +37,11 @@ fun Node.blendEffect(configuration: Blend.() -> Unit): Blend = Blend().also {
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom = Bloom().also {
-    it.configuration()
-    effect = it
-}
+fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom =
+    Bloom().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [BoxBlur] effect.
@@ -47,10 +49,11 @@ fun Node.bloomEffect(configuration: Bloom.() -> Unit): Bloom = Bloom().also {
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur = BoxBlur().also {
-    it.configuration()
-    effect = it
-}
+fun Node.boxBlurEffect(configuration: BoxBlur.() -> Unit): BoxBlur =
+    BoxBlur().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [ColorAdjust] effect.
@@ -70,10 +73,11 @@ fun Node.colorAdjustEffect(configuration: ColorAdjust.() -> Unit): ColorAdjust =
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInput = ColorInput().also {
-    it.configuration()
-    effect = it
-}
+fun Node.colorInputEffect(configuration: ColorInput.() -> Unit): ColorInput =
+    ColorInput().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [DisplacementMap] effect.
@@ -93,10 +97,11 @@ fun Node.displacementMapEffect(configuration: DisplacementMap.() -> Unit): Displ
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShadow = DropShadow().also {
-    it.configuration()
-    effect = it
-}
+fun Node.dropShadowEffect(configuration: DropShadow.() -> Unit): DropShadow =
+    DropShadow().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [GaussianBlur] effect.
@@ -116,10 +121,11 @@ fun Node.gaussianBlurEffect(configuration: GaussianBlur.() -> Unit): GaussianBlu
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.glowEffect(configuration: Glow.() -> Unit): Glow = Glow().also {
-    it.configuration()
-    effect = it
-}
+fun Node.glowEffect(configuration: Glow.() -> Unit): Glow =
+    Glow().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [ImageInput] effect.
@@ -127,10 +133,11 @@ fun Node.glowEffect(configuration: Glow.() -> Unit): Glow = Glow().also {
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInput = ImageInput().also {
-    it.configuration()
-    effect = it
-}
+fun Node.imageInputEffect(configuration: ImageInput.() -> Unit): ImageInput =
+    ImageInput().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [InnerShadow] effect.
@@ -150,10 +157,11 @@ fun Node.innerShadowEffect(configuration: InnerShadow.() -> Unit): InnerShadow =
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting = Lighting().also {
-    it.configuration()
-    effect = it
-}
+fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting =
+    Lighting().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [MotionBlur] effect.
@@ -161,10 +169,11 @@ fun Node.lightingEffect(configuration: Lighting.() -> Unit): Lighting = Lighting
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBlur = MotionBlur().also {
-    it.configuration()
-    effect = it
-}
+fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBlur =
+    MotionBlur().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [PerspectiveTransform] effect.
@@ -173,11 +182,12 @@ fun Node.motionBlurEffect(configuration: MotionBlur.() -> Unit): MotionBlur = Mo
  * @return the effect applied.
  */
 fun Node.perspectiveTransformEffect(
-    configuration: PerspectiveTransform.() -> Unit
-): PerspectiveTransform = PerspectiveTransform().also {
-    it.configuration()
-    effect = it
-}
+    configuration: PerspectiveTransform.() -> Unit,
+): PerspectiveTransform =
+    PerspectiveTransform().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [Reflection] effect.
@@ -185,10 +195,11 @@ fun Node.perspectiveTransformEffect(
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection = Reflection().also {
-    it.configuration()
-    effect = it
-}
+fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection =
+    Reflection().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [SepiaTone] effect.
@@ -196,10 +207,11 @@ fun Node.reflectionEffect(configuration: Reflection.() -> Unit): Reflection = Re
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone = SepiaTone().also {
-    it.configuration()
-    effect = it
-}
+fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone =
+    SepiaTone().also {
+        it.configuration()
+        effect = it
+    }
 
 /**
  * Sets [Shadow] effect.
@@ -207,7 +219,8 @@ fun Node.sepiaToneEffect(configuration: SepiaTone.() -> Unit): SepiaTone = Sepia
  * @param configuration the configuration block that customizes effect.
  * @return the effect applied.
  */
-fun Node.shadowEffect(configuration: Shadow.() -> Unit): Shadow = Shadow().also {
-    it.configuration()
-    effect = it
-}
+fun Node.shadowEffect(configuration: Shadow.() -> Unit): Shadow =
+    Shadow().also {
+        it.configuration()
+        effect = it
+    }

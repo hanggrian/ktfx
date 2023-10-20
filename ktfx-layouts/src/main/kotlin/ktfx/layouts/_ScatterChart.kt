@@ -22,11 +22,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ScatterChart] to this manager.
+ * Add a [ScatterChart] to this container.
  *
  * @return the control added.
  */
-public fun <X, Y> NodeManager.scatterChart(
+public fun <X, Y> NodeContainer.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -51,12 +51,12 @@ public inline fun <X, Y> scatterChart(
 }
 
 /**
- * Add a [ScatterChart] with configuration block to this manager.
+ * Add a [ScatterChart] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeManager.scatterChart(
+public inline fun <X, Y> NodeContainer.scatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -85,13 +85,13 @@ public fun <X, Y> styledScatterChart(
         id) { }
 
 /**
- * Add a styled [ScatterChart] to this manager.
+ * Add a styled [ScatterChart] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeManager.styledScatterChart(
+public fun <X, Y> NodeContainer.styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -125,14 +125,14 @@ public inline fun <X, Y> styledScatterChart(
 }
 
 /**
- * Add a styled [ScatterChart] with configuration block to this manager.
+ * Add a styled [ScatterChart] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeManager.styledScatterChart(
+public inline fun <X, Y> NodeContainer.styledScatterChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

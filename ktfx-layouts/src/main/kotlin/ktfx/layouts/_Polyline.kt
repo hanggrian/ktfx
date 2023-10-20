@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Polyline] to this manager.
+ * Add a [Polyline] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.polyline(): Polyline = polyline() { }
+public fun NodeContainer.polyline(): Polyline = polyline() { }
 
 /**
  * Create a [Polyline] with configuration block.
@@ -37,12 +37,12 @@ public inline fun polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> 
 }
 
 /**
- * Add a [Polyline] with configuration block to this manager.
+ * Add a [Polyline] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
+public inline fun NodeContainer.polyline(configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit):
         Polyline {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = Polyline()
@@ -61,13 +61,13 @@ public fun styledPolyline(vararg styleClass: String, id: String? = null): Polyli
         styledPolyline(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Polyline] to this manager.
+ * Add a styled [Polyline] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
+public fun NodeContainer.styledPolyline(vararg styleClass: String, id: String? = null): Polyline =
         styledPolyline(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledPolyline(
 }
 
 /**
- * Add a styled [Polyline] with configuration block to this manager.
+ * Add a styled [Polyline] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledPolyline(
+public inline fun NodeContainer.styledPolyline(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker Polyline).() -> Unit,

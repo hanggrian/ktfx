@@ -23,20 +23,20 @@ import java.util.concurrent.Callable
 /** Create a [LongBinding] with multiple [Observable] dependencies. */
 inline fun longBindingOf(
     vararg dependencies: Observable,
-    noinline valueProvider: () -> Long
+    noinline valueProvider: () -> Long,
 ): LongBinding = Bindings.createLongBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [LongBinding] with multiple [Observable] dependencies using collection. */
-fun longBindingOf(
-    dependencies: Collection<Observable>,
-    valueProvider: () -> Long
-): LongBinding = longBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+fun longBindingOf(dependencies: Collection<Observable>, valueProvider: () -> Long): LongBinding =
+    longBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [LongBinding] with single [ObservableList] dependency. */
 fun <E> ObservableList<E>.asLong(valueProvider: (List<E>) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong)
+
         override fun getDependencies(): ObservableList<*> = this@asLong
 
         init {
@@ -48,7 +48,9 @@ fun <E> ObservableList<E>.asLong(valueProvider: (List<E>) -> Long): LongBinding 
 fun <E> ObservableSet<E>.asLong(valueProvider: (Set<E>) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong)
+
         override fun getDependencies(): ObservableList<*> = this@asLong.toObservableList()
 
         init {
@@ -60,7 +62,9 @@ fun <E> ObservableSet<E>.asLong(valueProvider: (Set<E>) -> Long): LongBinding =
 fun <K, V> ObservableMap<K, V>.asLong(valueProvider: (Map<K, V>) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong)
+
         override fun getDependencies(): ObservableList<*> = this@asLong.keys.toObservableList()
 
         init {
@@ -72,7 +76,9 @@ fun <K, V> ObservableMap<K, V>.asLong(valueProvider: (Map<K, V>) -> Long): LongB
 fun <V> ObservableObjectValue<V>.asLong(valueProvider: (V?) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asLong)
 
         init {
@@ -84,7 +90,9 @@ fun <V> ObservableObjectValue<V>.asLong(valueProvider: (V?) -> Long): LongBindin
 fun ObservableBooleanValue.asLong(valueProvider: (Boolean) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asLong)
 
         init {
@@ -96,7 +104,9 @@ fun ObservableBooleanValue.asLong(valueProvider: (Boolean) -> Long): LongBinding
 fun ObservableDoubleValue.asLong(valueProvider: (Double) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong.value as Double)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asLong)
 
         init {
@@ -108,7 +118,9 @@ fun ObservableDoubleValue.asLong(valueProvider: (Double) -> Long): LongBinding =
 fun ObservableFloatValue.asLong(valueProvider: (Float) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong.value as Float)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asLong)
 
         init {
@@ -120,7 +132,9 @@ fun ObservableFloatValue.asLong(valueProvider: (Float) -> Long): LongBinding =
 fun ObservableIntegerValue.asLong(valueProvider: (Int) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong.value as Int)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asLong)
 
         init {
@@ -132,7 +146,9 @@ fun ObservableIntegerValue.asLong(valueProvider: (Int) -> Long): LongBinding =
 fun ObservableLongValue.asLong(valueProvider: (Long) -> Long): LongBinding =
     object : LongBinding() {
         override fun dispose(): Unit = unbind(this@asLong)
+
         override fun computeValue(): Long = valueProvider(this@asLong.value as Long)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asLong)
 
         init {

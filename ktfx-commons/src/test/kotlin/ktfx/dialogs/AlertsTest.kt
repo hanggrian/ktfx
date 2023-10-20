@@ -18,14 +18,14 @@ class AlertsTest : DialogShowingTest() {
                     assertEquals("Alert title", headerText)
                     assertEquals(sampleGraphic, graphic)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
             assertEquals(
                 ButtonType.FINISH,
                 alert("Message", ButtonType.FINISH) {
                     closeOnShow(this)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
         }
     }
@@ -40,14 +40,14 @@ class AlertsTest : DialogShowingTest() {
                     assertEquals("Info title", headerText)
                     assertEquals(sampleGraphic, graphic)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
             assertEquals(
                 ButtonType.OK,
                 infoAlert("Message") {
                     closeOnShow(this)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
         }
     }
@@ -62,14 +62,14 @@ class AlertsTest : DialogShowingTest() {
                     assertEquals("Warning title", headerText)
                     assertEquals(sampleGraphic, graphic)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
             assertEquals(
                 ButtonType.OK,
                 infoAlert("Message") {
                     closeOnShow(this)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
         }
     }
@@ -84,14 +84,14 @@ class AlertsTest : DialogShowingTest() {
                     assertEquals("Confirm title", headerText)
                     assertEquals(sampleGraphic, graphic)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
             assertEquals(
                 ButtonType.OK,
                 confirmAlert("Message") {
                     closeOnShow(this)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
         }
     }
@@ -106,14 +106,14 @@ class AlertsTest : DialogShowingTest() {
                     assertEquals("Error title", headerText)
                     assertEquals(sampleGraphic, graphic)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
             assertEquals(
                 ButtonType.OK,
                 errorAlert("Message") {
                     closeOnShow(this)
                     assertEquals("Message", contentText)
-                }.get()
+                }.get(),
             )
         }
     }

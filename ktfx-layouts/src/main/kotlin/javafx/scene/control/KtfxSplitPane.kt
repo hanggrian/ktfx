@@ -12,6 +12,6 @@ import kotlin.contracts.ExperimentalContracts
  * [SplitPane] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxSplitPane : SplitPane(), NodeManager {
-    final override fun <C : Node> addChild(child: C): C = child.also { items += it }
+open class KtfxSplitPane : SplitPane(), NodeContainer {
+    final override fun <T : Node> addChild(child: T): T = child.also { items += it }
 }

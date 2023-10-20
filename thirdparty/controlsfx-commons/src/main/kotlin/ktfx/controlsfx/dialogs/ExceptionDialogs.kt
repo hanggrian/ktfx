@@ -23,15 +23,16 @@ fun exceptionDialog(
     title: String? = null,
     graphic: Node? = null,
     exception: Throwable,
-    dialogAction: (ExceptionDialog.() -> Unit)? = null
-): Optional<ButtonType> = ExceptionDialog(exception).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    dialogAction?.invoke(dialog)
-}.showAndWait()
+    dialogAction: (ExceptionDialog.() -> Unit)? = null,
+): Optional<ButtonType> =
+    ExceptionDialog(exception).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        dialogAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Build an exception dialog with Kotlin DSL.
@@ -42,5 +43,5 @@ fun exceptionDialog(
  */
 inline fun exceptionDialog(
     exception: Throwable,
-    noinline dialogAction: (ExceptionDialog.() -> Unit)? = null
+    noinline dialogAction: (ExceptionDialog.() -> Unit)? = null,
 ): Optional<ButtonType> = exceptionDialog(null, null, exception, dialogAction)

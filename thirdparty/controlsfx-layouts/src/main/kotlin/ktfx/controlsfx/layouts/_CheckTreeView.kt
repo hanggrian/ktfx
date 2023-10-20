@@ -16,15 +16,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.CheckTreeView
 
 /**
- * Add a [CheckTreeView] to this manager.
+ * Add a [CheckTreeView] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeView<T> =
+public fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null): CheckTreeView<T> =
         checkTreeView(root = root) { }
 
 /**
@@ -42,12 +42,12 @@ public inline fun <T> checkTreeView(root: CheckBoxTreeItem<T>? = null,
 }
 
 /**
- * Add a [CheckTreeView] with configuration block to this manager.
+ * Add a [CheckTreeView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.checkTreeView(root: CheckBoxTreeItem<T>? = null,
+public inline fun <T> NodeContainer.checkTreeView(root: CheckBoxTreeItem<T>? = null,
         configuration: (@KtfxLayoutDslMarker CheckTreeView<T>).() -> Unit): CheckTreeView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckTreeView<T>(root)
@@ -69,13 +69,13 @@ public fun <T> styledCheckTreeView(
 ): CheckTreeView<T> = styledCheckTreeView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [CheckTreeView] to this manager.
+ * Add a styled [CheckTreeView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledCheckTreeView(
+public fun <T> NodeContainer.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun <T> styledCheckTreeView(
 }
 
 /**
- * Add a styled [CheckTreeView] with configuration block to this manager.
+ * Add a styled [CheckTreeView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledCheckTreeView(
+public inline fun <T> NodeContainer.styledCheckTreeView(
     root: CheckBoxTreeItem<T>? = null,
     vararg styleClass: String,
     id: String? = null,

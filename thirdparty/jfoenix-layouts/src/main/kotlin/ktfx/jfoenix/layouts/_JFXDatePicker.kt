@@ -17,15 +17,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXDatePicker] to this manager.
+ * Add a [JFXDatePicker] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDatePicker(date =
-        date) { }
+public fun NodeContainer.jfxDatePicker(date: LocalDate? = null): JFXDatePicker = jfxDatePicker(date
+        = date) { }
 
 /**
  * Create a [JFXDatePicker] with configuration block.
@@ -42,12 +42,12 @@ public inline fun jfxDatePicker(date: LocalDate? = null, configuration: (@KtfxLa
 }
 
 /**
- * Add a [JFXDatePicker] with configuration block to this manager.
+ * Add a [JFXDatePicker] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxDatePicker(date: LocalDate? = null,
+public inline fun NodeContainer.jfxDatePicker(date: LocalDate? = null,
         configuration: (@KtfxLayoutDslMarker JFXDatePicker).() -> Unit): JFXDatePicker {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXDatePicker(date)
@@ -69,13 +69,13 @@ public fun styledJFXDatePicker(
 ): JFXDatePicker = styledJFXDatePicker(date = date, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXDatePicker] to this manager.
+ * Add a styled [JFXDatePicker] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXDatePicker(
+public fun NodeContainer.styledJFXDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -104,14 +104,14 @@ public inline fun styledJFXDatePicker(
 }
 
 /**
- * Add a styled [JFXDatePicker] with configuration block to this manager.
+ * Add a styled [JFXDatePicker] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXDatePicker(
+public inline fun NodeContainer.styledJFXDatePicker(
     date: LocalDate? = null,
     vararg styleClass: String,
     id: String? = null,

@@ -20,11 +20,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [PieChart] to this manager.
+ * Add a [PieChart] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.pieChart(`data`: ObservableList<PieChart.Data> = observableArrayList()):
+public fun NodeContainer.pieChart(`data`: ObservableList<PieChart.Data> = observableArrayList()):
         PieChart = pieChart(data = data) { }
 
 /**
@@ -42,12 +42,12 @@ public inline fun pieChart(`data`: ObservableList<PieChart.Data> = observableArr
 }
 
 /**
- * Add a [PieChart] with configuration block to this manager.
+ * Add a [PieChart] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.pieChart(`data`: ObservableList<PieChart.Data> =
+public inline fun NodeContainer.pieChart(`data`: ObservableList<PieChart.Data> =
         observableArrayList(), configuration: (@KtfxLayoutDslMarker PieChart).() -> Unit):
         PieChart {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -70,13 +70,13 @@ public fun styledPieChart(
 ): PieChart = styledPieChart(data = data, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [PieChart] to this manager.
+ * Add a styled [PieChart] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledPieChart(
+public fun NodeContainer.styledPieChart(
     `data`: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -105,14 +105,14 @@ public inline fun styledPieChart(
 }
 
 /**
- * Add a styled [PieChart] with configuration block to this manager.
+ * Add a styled [PieChart] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledPieChart(
+public inline fun NodeContainer.styledPieChart(
     `data`: ObservableList<PieChart.Data> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

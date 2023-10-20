@@ -1,22 +1,21 @@
 [versions]
 jdk = "8"
 kotlin = "1.8.20"
-ktlint = "0.49.1"
+ktlint = "1.0.0"
 controlsfx = "8.40.18"
 jfoenix = "8.0.10"
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin" }
-kotlinx-kover = "org.jetbrains.kotlinx.kover:0.7.3"
-ktlint = "org.jlleitschuh.gradle.ktlint:11.5.1"
+kotlinx-kover = "org.jetbrains.kotlinx.kover:0.7.4"
+ktlint = "org.jlleitschuh.gradle.ktlint:11.6.1"
 maven-publish = "com.vanniktech.maven.publish.base:0.22.0" # max for jdk8
 git-publish = "org.ajoberstar.git-publish:3.0.1" # max for jdk8
 pages = "com.hendraanggrian.pages:0.1"
 
 [libraries]
 # lint
-ktlint = { module = "com.pinterest:ktlint", version.ref = "ktlint" }
-rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.3"
+rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.4-SNAPSHOT"
 # main
 kotlinx-coroutines-core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
 kotlinx-coroutines-javafx = "org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.7.3"

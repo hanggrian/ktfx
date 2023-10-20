@@ -7,9 +7,13 @@ import kotlin.test.assertNull
 
 class CheckTreeViewTest : LayoutsTest<KtfxPane, CheckTreeView<String>>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): CheckTreeView<String> = checkTreeView { }
+
     override fun KtfxPane.child2(): CheckTreeView<String> = checkTreeView()
+
     override fun KtfxPane.child3(): CheckTreeView<String> = checkTreeView { }
 
     override fun CheckTreeView<String>.testDefaultValues() {

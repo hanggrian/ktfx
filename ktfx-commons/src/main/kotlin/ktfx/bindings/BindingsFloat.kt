@@ -23,20 +23,20 @@ import java.util.concurrent.Callable
 /** Create a [FloatBinding] with multiple [Observable] dependencies. */
 inline fun floatBindingOf(
     vararg dependencies: Observable,
-    noinline valueProvider: () -> Float
+    noinline valueProvider: () -> Float,
 ): FloatBinding = Bindings.createFloatBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [FloatBinding] with multiple [Observable] dependencies using collection. */
-fun floatBindingOf(
-    dependencies: Collection<Observable>,
-    valueProvider: () -> Float
-): FloatBinding = floatBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
+fun floatBindingOf(dependencies: Collection<Observable>, valueProvider: () -> Float): FloatBinding =
+    floatBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [FloatBinding] with single [ObservableList] dependency. */
 fun <E> ObservableList<E>.asFloat(valueProvider: (List<E>) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat)
+
         override fun getDependencies(): ObservableList<*> = this@asFloat
 
         init {
@@ -48,7 +48,9 @@ fun <E> ObservableList<E>.asFloat(valueProvider: (List<E>) -> Float): FloatBindi
 fun <E> ObservableSet<E>.asFloat(valueProvider: (Set<E>) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat)
+
         override fun getDependencies(): ObservableList<*> = this@asFloat.toObservableList()
 
         init {
@@ -60,7 +62,9 @@ fun <E> ObservableSet<E>.asFloat(valueProvider: (Set<E>) -> Float): FloatBinding
 fun <K, V> ObservableMap<K, V>.asFloat(valueProvider: (Map<K, V>) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat)
+
         override fun getDependencies(): ObservableList<*> = this@asFloat.keys.toObservableList()
 
         init {
@@ -72,7 +76,9 @@ fun <K, V> ObservableMap<K, V>.asFloat(valueProvider: (Map<K, V>) -> Float): Flo
 fun <V> ObservableObjectValue<V>.asFloat(valueProvider: (V?) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asFloat)
 
         init {
@@ -84,7 +90,9 @@ fun <V> ObservableObjectValue<V>.asFloat(valueProvider: (V?) -> Float): FloatBin
 fun ObservableBooleanValue.asFloat(valueProvider: (Boolean) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asFloat)
 
         init {
@@ -96,7 +104,9 @@ fun ObservableBooleanValue.asFloat(valueProvider: (Boolean) -> Float): FloatBind
 fun ObservableDoubleValue.asFloat(valueProvider: (Double) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat.value as Double)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asFloat)
 
         init {
@@ -108,7 +118,9 @@ fun ObservableDoubleValue.asFloat(valueProvider: (Double) -> Float): FloatBindin
 fun ObservableFloatValue.asFloat(valueProvider: (Float) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat.value as Float)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asFloat)
 
         init {
@@ -120,7 +132,9 @@ fun ObservableFloatValue.asFloat(valueProvider: (Float) -> Float): FloatBinding 
 fun ObservableIntegerValue.asFloat(valueProvider: (Int) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat.value as Int)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asFloat)
 
         init {
@@ -132,7 +146,9 @@ fun ObservableIntegerValue.asFloat(valueProvider: (Int) -> Float): FloatBinding 
 fun ObservableLongValue.asFloat(valueProvider: (Long) -> Float): FloatBinding =
     object : FloatBinding() {
         override fun dispose(): Unit = unbind(this@asFloat)
+
         override fun computeValue(): Float = valueProvider(this@asFloat.value as Long)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asFloat)
 
         init {

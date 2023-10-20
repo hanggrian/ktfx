@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("FxCoroutinesKt")
+@file:JvmName("KtfxCoroutinesKt")
 
 package ktfx.coroutines
 
@@ -18,6 +18,7 @@ import kotlin.coroutines.CoroutineContext
 fun <E : Event> TableColumnBase<*, *>.eventHandler(
     context: CoroutineContext = Dispatchers.JavaFx,
     type: EventType<E>,
-    action: suspend CoroutineScope.(Event) -> Unit
-): EventHandler<E> = EventHandler<E> { event -> GlobalScope.launch(context) { action(event) } }
-    .also { addEventHandler(type, it) }
+    action: suspend CoroutineScope.(Event) -> Unit,
+): EventHandler<E> =
+    EventHandler<E> { event -> GlobalScope.launch(context) { action(event) } }
+        .also { addEventHandler(type, it) }

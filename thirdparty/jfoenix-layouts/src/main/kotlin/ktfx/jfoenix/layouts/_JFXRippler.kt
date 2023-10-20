@@ -10,19 +10,20 @@ import kotlin.String
 import kotlin.Suppress
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXRippler] to this manager.
+ * Add a [JFXRippler] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxRippler(): JFXRippler = jfxRippler() { }
+public fun NodeContainer.jfxRippler(): JFXRippler = jfxRippler() { }
 
 /**
  * Create a [JFXRippler] with configuration block.
@@ -39,12 +40,12 @@ public inline fun jfxRippler(configuration: (@KtfxLayoutDslMarker KtfxJfxRippler
 }
 
 /**
- * Add a [JFXRippler] with configuration block to this manager.
+ * Add a [JFXRippler] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.jfxRippler(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.jfxRippler(configuration: (@KtfxLayoutDslMarker
         KtfxJfxRippler).() -> Unit): JFXRippler {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxJfxRippler()
@@ -63,14 +64,14 @@ public fun styledJFXRippler(vararg styleClass: String, id: String? = null): JFXR
         styledJFXRippler(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXRippler] to this manager.
+ * Add a styled [JFXRippler] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler =
-        styledJFXRippler(styleClass = *styleClass, id = id) { }
+public fun NodeContainer.styledJFXRippler(vararg styleClass: String, id: String? = null): JFXRippler
+        = styledJFXRippler(styleClass = *styleClass, id = id) { }
 
 /**
  * Create a styled [JFXRippler] with configuration block.
@@ -94,14 +95,14 @@ public inline fun styledJFXRippler(
 }
 
 /**
- * Add a styled [JFXRippler] with configuration block to this manager.
+ * Add a styled [JFXRippler] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXRippler(
+public inline fun NodeContainer.styledJFXRippler(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxJfxRippler).() -> Unit,

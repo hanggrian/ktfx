@@ -23,15 +23,16 @@ fun commandLinksDialog(
     title: String? = null,
     graphic: Node? = null,
     vararg links: CommandLinksDialog.CommandLinksButtonType,
-    dialogAction: (CommandLinksDialog.() -> Unit)? = null
-): Optional<ButtonType> = CommandLinksDialog(*links).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    dialogAction?.invoke(dialog)
-}.showAndWait()
+    dialogAction: (CommandLinksDialog.() -> Unit)? = null,
+): Optional<ButtonType> =
+    CommandLinksDialog(*links).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        dialogAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Build a command links dialog with Kotlin DSL.
@@ -42,7 +43,7 @@ fun commandLinksDialog(
  */
 inline fun commandLinksDialog(
     vararg links: CommandLinksDialog.CommandLinksButtonType,
-    noinline dialogAction: (CommandLinksDialog.() -> Unit)? = null
+    noinline dialogAction: (CommandLinksDialog.() -> Unit)? = null,
 ): Optional<ButtonType> = commandLinksDialog(null, null, *links, dialogAction = dialogAction)
 
 /**
@@ -58,15 +59,16 @@ fun commandLinksDialog(
     title: String? = null,
     graphic: Node? = null,
     links: List<CommandLinksDialog.CommandLinksButtonType>,
-    dialogAction: (CommandLinksDialog.() -> Unit)? = null
-): Optional<ButtonType> = CommandLinksDialog(links).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    dialogAction?.invoke(dialog)
-}.showAndWait()
+    dialogAction: (CommandLinksDialog.() -> Unit)? = null,
+): Optional<ButtonType> =
+    CommandLinksDialog(links).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        dialogAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Build a command links dialog with Kotlin DSL.
@@ -77,5 +79,5 @@ fun commandLinksDialog(
  */
 inline fun commandLinksDialog(
     links: List<CommandLinksDialog.CommandLinksButtonType>,
-    noinline dialogAction: (CommandLinksDialog.() -> Unit)? = null
+    noinline dialogAction: (CommandLinksDialog.() -> Unit)? = null,
 ): Optional<ButtonType> = commandLinksDialog(null, null, links, dialogAction = dialogAction)

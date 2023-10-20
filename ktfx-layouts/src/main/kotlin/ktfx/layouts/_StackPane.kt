@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [StackPane] to this manager.
+ * Add a [StackPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.stackPane(): StackPane = stackPane() { }
+public fun NodeContainer.stackPane(): StackPane = stackPane() { }
 
 /**
  * Create a [StackPane] with configuration block.
@@ -38,12 +38,12 @@ public inline fun stackPane(configuration: (@KtfxLayoutDslMarker KtfxStackPane).
 }
 
 /**
- * Add a [StackPane] with configuration block to this manager.
+ * Add a [StackPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.stackPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.stackPane(configuration: (@KtfxLayoutDslMarker
         KtfxStackPane).() -> Unit): StackPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxStackPane()
@@ -62,13 +62,13 @@ public fun styledStackPane(vararg styleClass: String, id: String? = null): Stack
         styledStackPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [StackPane] to this manager.
+ * Add a styled [StackPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
+public fun NodeContainer.styledStackPane(vararg styleClass: String, id: String? = null): StackPane =
         styledStackPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -93,14 +93,14 @@ public inline fun styledStackPane(
 }
 
 /**
- * Add a styled [StackPane] with configuration block to this manager.
+ * Add a styled [StackPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledStackPane(
+public inline fun NodeContainer.styledStackPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxStackPane).() -> Unit,

@@ -16,15 +16,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXTextField] to this manager.
+ * Add a [JFXTextField] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxTextField(text: String? = null): JFXTextField = jfxTextField(text = text)
-        { }
+public fun NodeContainer.jfxTextField(text: String? = null): JFXTextField = jfxTextField(text =
+        text) { }
 
 /**
  * Create a [JFXTextField] with configuration block.
@@ -41,12 +41,12 @@ public inline fun jfxTextField(text: String? = null, configuration: (@KtfxLayout
 }
 
 /**
- * Add a [JFXTextField] with configuration block to this manager.
+ * Add a [JFXTextField] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxTextField(text: String? = null,
+public inline fun NodeContainer.jfxTextField(text: String? = null,
         configuration: (@KtfxLayoutDslMarker JFXTextField).() -> Unit): JFXTextField {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXTextField(text)
@@ -68,13 +68,13 @@ public fun styledJFXTextField(
 ): JFXTextField = styledJFXTextField(text = text, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXTextField] to this manager.
+ * Add a styled [JFXTextField] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXTextField(
+public fun NodeContainer.styledJFXTextField(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -103,14 +103,14 @@ public inline fun styledJFXTextField(
 }
 
 /**
- * Add a styled [JFXTextField] with configuration block to this manager.
+ * Add a styled [JFXTextField] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXTextField(
+public inline fun NodeContainer.styledJFXTextField(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

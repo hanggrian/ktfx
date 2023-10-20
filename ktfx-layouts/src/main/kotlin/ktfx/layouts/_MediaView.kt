@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [MediaView] to this manager.
+ * Add a [MediaView] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null): MediaView =
+public fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null): MediaView =
         mediaView(mediaPlayer = mediaPlayer) { }
 
 /**
@@ -40,12 +40,12 @@ public inline fun mediaView(mediaPlayer: MediaPlayer? = null, configuration: (@K
 }
 
 /**
- * Add a [MediaView] with configuration block to this manager.
+ * Add a [MediaView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.mediaView(mediaPlayer: MediaPlayer? = null,
+public inline fun NodeContainer.mediaView(mediaPlayer: MediaPlayer? = null,
         configuration: (@KtfxLayoutDslMarker MediaView).() -> Unit): MediaView {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = MediaView(mediaPlayer)
@@ -67,13 +67,13 @@ public fun styledMediaView(
 ): MediaView = styledMediaView(mediaPlayer = mediaPlayer, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [MediaView] to this manager.
+ * Add a styled [MediaView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledMediaView(
+public fun NodeContainer.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -102,14 +102,14 @@ public inline fun styledMediaView(
 }
 
 /**
- * Add a styled [MediaView] with configuration block to this manager.
+ * Add a styled [MediaView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledMediaView(
+public inline fun NodeContainer.styledMediaView(
     mediaPlayer: MediaPlayer? = null,
     vararg styleClass: String,
     id: String? = null,

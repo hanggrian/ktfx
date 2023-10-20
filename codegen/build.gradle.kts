@@ -1,4 +1,4 @@
-val RELEASE_GROUP: String by project
+val releaseGroup: String by project
 
 plugins {
     application
@@ -6,10 +6,9 @@ plugins {
     alias(libs.plugins.ktlint)
 }
 
-application.mainClass.set("$RELEASE_GROUP.codegen.Generator")
+application.mainClass.set("$releaseGroup.codegen.Generator")
 
 dependencies {
-    ktlintRuleset(libs.ktlint)
     ktlintRuleset(libs.rulebook.ktlint)
 
     implementation(kotlin("reflect", libs.versions.kotlin.get()))

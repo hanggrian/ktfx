@@ -15,9 +15,13 @@ class JfxChipTest : LayoutsTest<KtfxPane, JFXChip<String>>() {
     }
 
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): JFXChip<String> = jfxChip(jfxChipView, "Yo") { }
+
     override fun KtfxPane.child2(): JFXChip<String> = jfxChip(jfxChipView, "Yo")
+
     override fun KtfxPane.child3(): JFXChip<String> = jfxChip(jfxChipView, "Yo") { }
 
     override fun JFXChip<String>.testDefaultValues() {

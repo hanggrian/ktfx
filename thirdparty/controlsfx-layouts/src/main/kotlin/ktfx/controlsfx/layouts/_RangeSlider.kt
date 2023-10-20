@@ -16,15 +16,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.RangeSlider
 
 /**
- * Add a [RangeSlider] to this manager.
+ * Add a [RangeSlider] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.rangeSlider(
+public fun NodeContainer.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -51,12 +51,12 @@ public inline fun rangeSlider(
 }
 
 /**
- * Add a [RangeSlider] with configuration block to this manager.
+ * Add a [RangeSlider] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.rangeSlider(
+public inline fun NodeContainer.rangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -87,13 +87,13 @@ public fun styledRangeSlider(
         styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [RangeSlider] to this manager.
+ * Add a styled [RangeSlider] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledRangeSlider(
+public fun NodeContainer.styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,
@@ -129,14 +129,14 @@ public inline fun styledRangeSlider(
 }
 
 /**
- * Add a styled [RangeSlider] with configuration block to this manager.
+ * Add a styled [RangeSlider] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledRangeSlider(
+public inline fun NodeContainer.styledRangeSlider(
     min: Double = 0.0,
     max: Double = 1.0,
     lowValue: Double = 0.25,

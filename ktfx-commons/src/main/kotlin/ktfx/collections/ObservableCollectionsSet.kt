@@ -77,10 +77,11 @@ inline fun <T> buildObservableSet(builderAction: MutableSet<T>.() -> Unit): Set<
  *
  * @see Array.toSet
  */
-fun <T> Array<out T>.toObservableSet(): ObservableSet<T> = when (size) {
-    0 -> emptyObservableSet()
-    else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
-}
+fun <T> Array<out T>.toObservableSet(): ObservableSet<T> =
+    when (size) {
+        0 -> emptyObservableSet()
+        else -> FXCollections.unmodifiableObservableSet(this.toMutableObservableSet())
+    }
 
 /**
  * Returns a new [ObservableSet] filled with all elements of this array.
@@ -110,10 +111,11 @@ fun <T> Iterable<T>.toObservableSet(): ObservableSet<T> {
  *
  * @see Iterable.toMutableSet
  */
-fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> = when (this) {
-    is Set<T> -> FXCollections.observableSet(this)
-    else -> toCollection(FXCollections.observableSet())
-}
+fun <T> Iterable<T>.toMutableObservableSet(): ObservableSet<T> =
+    when (this) {
+        is Set<T> -> FXCollections.observableSet(this)
+        else -> toCollection(FXCollections.observableSet())
+    }
 
 /**
  * Returns a [ObservableSet] containing all elements.

@@ -43,10 +43,11 @@ interface RowConstraintsScope {
     fun append(): RowConstraints = RowConstraints().also { constraints += it }
 
     /** Add a [RowConstraints] using [configuration] block, returning the constraints added. */
-    fun append(configuration: RowConstraints.() -> Unit): RowConstraints = RowConstraints().also {
-        it.configuration()
-        constraints += it
-    }
+    fun append(configuration: RowConstraints.() -> Unit): RowConstraints =
+        RowConstraints().also {
+            it.configuration()
+            constraints += it
+        }
 }
 
 /** [ColumnConstraints] configurator interface. */

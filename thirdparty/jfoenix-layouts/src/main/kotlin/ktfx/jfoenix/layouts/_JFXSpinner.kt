@@ -19,14 +19,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXSpinner] to this manager.
+ * Add a [JFXSpinner] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinner =
+public fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS): JFXSpinner =
         jfxSpinner(progress = progress) { }
 
 /**
@@ -44,12 +44,12 @@ public inline fun jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
 }
 
 /**
- * Add a [JFXSpinner] with configuration block to this manager.
+ * Add a [JFXSpinner] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
+public inline fun NodeContainer.jfxSpinner(progress: Double = INDETERMINATE_PROGRESS,
         configuration: (@KtfxLayoutDslMarker JFXSpinner).() -> Unit): JFXSpinner {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXSpinner(progress)
@@ -71,13 +71,13 @@ public fun styledJFXSpinner(
 ): JFXSpinner = styledJFXSpinner(progress = progress, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXSpinner] to this manager.
+ * Add a styled [JFXSpinner] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXSpinner(
+public fun NodeContainer.styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,
@@ -106,14 +106,14 @@ public inline fun styledJFXSpinner(
 }
 
 /**
- * Add a styled [JFXSpinner] with configuration block to this manager.
+ * Add a styled [JFXSpinner] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXSpinner(
+public inline fun NodeContainer.styledJFXSpinner(
     progress: Double = INDETERMINATE_PROGRESS,
     vararg styleClass: String,
     id: String? = null,

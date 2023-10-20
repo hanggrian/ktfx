@@ -17,14 +17,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXButton] to this manager.
+ * Add a [JFXButton] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.jfxButton(text: String? = null, graphic: Node? = null): JFXButton =
+public fun NodeContainer.jfxButton(text: String? = null, graphic: Node? = null): JFXButton =
         jfxButton(text = text, graphic = graphic) { }
 
 /**
@@ -45,12 +45,12 @@ public inline fun jfxButton(
 }
 
 /**
- * Add a [JFXButton] with configuration block to this manager.
+ * Add a [JFXButton] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.jfxButton(
+public inline fun NodeContainer.jfxButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker JFXButton).() -> Unit,
@@ -77,13 +77,13 @@ public fun styledJFXButton(
         }
 
 /**
- * Add a styled [JFXButton] to this manager.
+ * Add a styled [JFXButton] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledJFXButton(
+public fun NodeContainer.styledJFXButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -115,14 +115,14 @@ public inline fun styledJFXButton(
 }
 
 /**
- * Add a styled [JFXButton] with configuration block to this manager.
+ * Add a styled [JFXButton] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledJFXButton(
+public inline fun NodeContainer.styledJFXButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

@@ -8,8 +8,12 @@ import kotlin.test.Ignore
 @Ignore
 class WebViewTest : LayoutsTest<KtfxPane, WebView>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): WebView = webView { }
+
     override fun KtfxPane.child2(): WebView = webView()
+
     override fun KtfxPane.child3(): WebView = webView { }
 }

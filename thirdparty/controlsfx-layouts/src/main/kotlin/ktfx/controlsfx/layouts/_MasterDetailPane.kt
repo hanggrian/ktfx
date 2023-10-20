@@ -18,15 +18,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.MasterDetailPane
 
 /**
- * Add a [MasterDetailPane] to this manager.
+ * Add a [MasterDetailPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boolean = true):
+public fun NodeContainer.masterDetailPane(detailSide: Side = RIGHT, showDetailNode: Boolean = true):
         MasterDetailPane = masterDetailPane(detailSide = detailSide, showDetailNode =
         showDetailNode) { }
 
@@ -48,12 +48,12 @@ public inline fun masterDetailPane(
 }
 
 /**
- * Add a [MasterDetailPane] with configuration block to this manager.
+ * Add a [MasterDetailPane] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.masterDetailPane(
+public inline fun NodeContainer.masterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     configuration: (@KtfxLayoutDslMarker KtfxMasterDetailPane).() -> Unit,
@@ -80,13 +80,13 @@ public fun styledMasterDetailPane(
         showDetailNode, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [MasterDetailPane] to this manager.
+ * Add a styled [MasterDetailPane] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledMasterDetailPane(
+public fun NodeContainer.styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,
@@ -118,14 +118,14 @@ public inline fun styledMasterDetailPane(
 }
 
 /**
- * Add a styled [MasterDetailPane] with configuration block to this manager.
+ * Add a styled [MasterDetailPane] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledMasterDetailPane(
+public inline fun NodeContainer.styledMasterDetailPane(
     detailSide: Side = RIGHT,
     showDetailNode: Boolean = true,
     vararg styleClass: String,

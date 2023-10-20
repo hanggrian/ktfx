@@ -23,20 +23,22 @@ import java.util.concurrent.Callable
 /** Create a [BooleanBinding] with multiple [Observable] dependencies. */
 inline fun booleanBindingOf(
     vararg dependencies: Observable,
-    noinline valueProvider: () -> Boolean
+    noinline valueProvider: () -> Boolean,
 ): BooleanBinding = Bindings.createBooleanBinding(Callable(valueProvider), *dependencies)
 
 /** Create a [BooleanBinding] with multiple [Observable] dependencies using collection. */
 fun booleanBindingOf(
     dependencies: Collection<Observable>,
-    valueProvider: () -> Boolean
+    valueProvider: () -> Boolean,
 ): BooleanBinding = booleanBindingOf(*dependencies.toTypedArray(), valueProvider = valueProvider)
 
 /** Create an [BooleanBinding] with single [ObservableList] dependency. */
 fun <E> ObservableList<E>.asBoolean(valueProvider: (List<E>) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean)
+
         override fun getDependencies(): ObservableList<*> = this@asBoolean
 
         init {
@@ -48,7 +50,9 @@ fun <E> ObservableList<E>.asBoolean(valueProvider: (List<E>) -> Boolean): Boolea
 fun <E> ObservableSet<E>.asBoolean(valueProvider: (Set<E>) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean)
+
         override fun getDependencies(): ObservableList<*> = this@asBoolean.toObservableList()
 
         init {
@@ -60,7 +64,9 @@ fun <E> ObservableSet<E>.asBoolean(valueProvider: (Set<E>) -> Boolean): BooleanB
 fun <K, V> ObservableMap<K, V>.asBoolean(valueProvider: (Map<K, V>) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean)
+
         override fun getDependencies(): ObservableList<*> = this@asBoolean.keys.toObservableList()
 
         init {
@@ -72,7 +78,9 @@ fun <K, V> ObservableMap<K, V>.asBoolean(valueProvider: (Map<K, V>) -> Boolean):
 fun <V> ObservableObjectValue<V>.asBoolean(valueProvider: (V?) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
@@ -84,7 +92,9 @@ fun <V> ObservableObjectValue<V>.asBoolean(valueProvider: (V?) -> Boolean): Bool
 fun ObservableBooleanValue.asBoolean(valueProvider: (Boolean) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean.value)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
@@ -96,7 +106,9 @@ fun ObservableBooleanValue.asBoolean(valueProvider: (Boolean) -> Boolean): Boole
 fun ObservableDoubleValue.asBoolean(valueProvider: (Double) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean.value as Double)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
@@ -108,7 +120,9 @@ fun ObservableDoubleValue.asBoolean(valueProvider: (Double) -> Boolean): Boolean
 fun ObservableFloatValue.asBoolean(valueProvider: (Float) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean.value as Float)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
@@ -120,7 +134,9 @@ fun ObservableFloatValue.asBoolean(valueProvider: (Float) -> Boolean): BooleanBi
 fun ObservableIntegerValue.asBoolean(valueProvider: (Int) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean.value as Int)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {
@@ -132,7 +148,9 @@ fun ObservableIntegerValue.asBoolean(valueProvider: (Int) -> Boolean): BooleanBi
 fun ObservableLongValue.asBoolean(valueProvider: (Long) -> Boolean): BooleanBinding =
     object : BooleanBinding() {
         override fun dispose(): Unit = unbind(this@asBoolean)
+
         override fun computeValue(): Boolean = valueProvider(this@asBoolean.value as Long)
+
         override fun getDependencies(): ObservableList<*> = observableListOf(this@asBoolean)
 
         init {

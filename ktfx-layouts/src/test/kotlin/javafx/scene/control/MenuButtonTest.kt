@@ -9,9 +9,13 @@ import kotlin.test.assertNull
 
 class MenuButtonTest : LayoutsTest<KtfxPane, MenuButton>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): MenuButton = menuButton { }
+
     override fun KtfxPane.child2(): MenuButton = menuButton()
+
     override fun KtfxPane.child3(): MenuButton = menuButton { }
 
     override fun MenuButton.testDefaultValues() {

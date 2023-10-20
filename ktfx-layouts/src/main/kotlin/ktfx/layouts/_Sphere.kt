@@ -19,11 +19,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Sphere] to this manager.
+ * Add a [Sphere] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(radius =
+public fun NodeContainer.sphere(radius: Double = 1.0, division: Int = 64): Sphere = sphere(radius =
         radius, division = division) { }
 
 /**
@@ -44,12 +44,12 @@ public inline fun sphere(
 }
 
 /**
- * Add a [Sphere] with configuration block to this manager.
+ * Add a [Sphere] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.sphere(
+public inline fun NodeContainer.sphere(
     radius: Double = 1.0,
     division: Int = 64,
     configuration: (@KtfxLayoutDslMarker Sphere).() -> Unit,
@@ -76,13 +76,13 @@ public fun styledSphere(
         }
 
 /**
- * Add a styled [Sphere] to this manager.
+ * Add a styled [Sphere] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledSphere(
+public fun NodeContainer.styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,
@@ -114,14 +114,14 @@ public inline fun styledSphere(
 }
 
 /**
- * Add a styled [Sphere] with configuration block to this manager.
+ * Add a styled [Sphere] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledSphere(
+public inline fun NodeContainer.styledSphere(
     radius: Double = 1.0,
     division: Int = 64,
     vararg styleClass: String,

@@ -9,12 +9,12 @@ import kotlin.test.assertTrue
 
 class ObservableValueTest {
     private val objectProperty = propertyOf<javafx.util.Duration>()
-    private var `object` by objectProperty
+    private var object2 by objectProperty
 
     @Test
     fun `object`() {
-        assertNull(`object`)
-        `object` = 2.m
+        assertNull(object2)
+        object2 = 2.m
         assertEquals(2.m, objectProperty.value)
     }
 

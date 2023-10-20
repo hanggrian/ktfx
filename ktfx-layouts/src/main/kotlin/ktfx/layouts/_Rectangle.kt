@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Rectangle] to this manager.
+ * Add a [Rectangle] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.rectangle(
+public fun NodeContainer.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -49,12 +49,12 @@ public inline fun rectangle(
 }
 
 /**
- * Add a [Rectangle] with configuration block to this manager.
+ * Add a [Rectangle] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.rectangle(
+public inline fun NodeContainer.rectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -85,13 +85,13 @@ public fun styledRectangle(
         *styleClass, id = id) { }
 
 /**
- * Add a styled [Rectangle] to this manager.
+ * Add a styled [Rectangle] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledRectangle(
+public fun NodeContainer.styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,
@@ -127,14 +127,14 @@ public inline fun styledRectangle(
 }
 
 /**
- * Add a styled [Rectangle] with configuration block to this manager.
+ * Add a styled [Rectangle] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledRectangle(
+public inline fun NodeContainer.styledRectangle(
     x: Double = 0.0,
     y: Double = 0.0,
     width: Double = 0.0,

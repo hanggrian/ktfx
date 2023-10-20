@@ -16,11 +16,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [ClosePath] to this manager.
+ * Add a [ClosePath] to this container.
  *
  * @return the control added.
  */
-public fun PathElementManager.closePath(): ClosePath = closePath() { }
+public fun PathElementContainer.closePath(): ClosePath = closePath() { }
 
 /**
  * Create a [ClosePath] with configuration block.
@@ -36,12 +36,12 @@ public inline fun closePath(configuration: (@KtfxLayoutDslMarker ClosePath).() -
 }
 
 /**
- * Add a [ClosePath] with configuration block to this manager.
+ * Add a [ClosePath] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun PathElementManager.closePath(configuration: (@KtfxLayoutDslMarker
+public inline fun PathElementContainer.closePath(configuration: (@KtfxLayoutDslMarker
         ClosePath).() -> Unit): ClosePath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = ClosePath()

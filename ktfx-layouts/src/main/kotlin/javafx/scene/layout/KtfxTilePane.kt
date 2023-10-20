@@ -17,11 +17,10 @@ import kotlin.contracts.ExperimentalContracts
  * Invoking dsl will add its children.
  */
 open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) :
-    TilePane(orientation, hgap, vgap), NodeManager {
-
+    TilePane(orientation, hgap, vgap), NodeContainer {
     constructor(orientation: Orientation, gap: Double) : this(orientation, gap, gap)
 
-    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Children alignment in this layout. */
     inline var Node.alignment: Pos?
@@ -32,7 +31,7 @@ open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) :
         set(value) = setAlignment(this, value)
 
     /** Configure [alignment] fluidly. */
-    fun <C : Node> C.align(pos: Pos): C {
+    fun <T : Node> T.align(pos: Pos): T {
         alignment = pos
         return this
     }
@@ -46,7 +45,7 @@ open class KtfxTilePane(orientation: Orientation, hgap: Double, vgap: Double) :
         set(value) = setMargin(this, value)
 
     /** Configure [margin] fluidly. */
-    fun <C : Node> C.margin(insets: Insets): C {
+    fun <T : Node> T.margin(insets: Insets): T {
         margin = insets
         return this
     }

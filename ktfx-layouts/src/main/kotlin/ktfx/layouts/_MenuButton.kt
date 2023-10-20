@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [MenuButton] to this manager.
+ * Add a [MenuButton] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
+public fun NodeContainer.menuButton(text: String? = null, graphic: Node? = null): MenuButton =
         menuButton(text = text, graphic = graphic) { }
 
 /**
@@ -43,12 +43,12 @@ public inline fun menuButton(
 }
 
 /**
- * Add a [MenuButton] with configuration block to this manager.
+ * Add a [MenuButton] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.menuButton(
+public inline fun NodeContainer.menuButton(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker KtfxMenuButton).() -> Unit,
@@ -75,13 +75,13 @@ public fun styledMenuButton(
         { }
 
 /**
- * Add a styled [MenuButton] to this manager.
+ * Add a styled [MenuButton] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledMenuButton(
+public fun NodeContainer.styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -113,14 +113,14 @@ public inline fun styledMenuButton(
 }
 
 /**
- * Add a styled [MenuButton] with configuration block to this manager.
+ * Add a styled [MenuButton] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledMenuButton(
+public inline fun NodeContainer.styledMenuButton(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

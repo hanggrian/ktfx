@@ -50,8 +50,7 @@ inline fun floatPropertyOf(initialValue: Float = 0f): FloatProperty =
     SimpleFloatProperty(initialValue)
 
 /** Create a [LongProperty] with [initialValue]. */
-inline fun longPropertyOf(initialValue: Long = 0L): LongProperty =
-    SimpleLongProperty(initialValue)
+inline fun longPropertyOf(initialValue: Long = 0L): LongProperty = SimpleLongProperty(initialValue)
 
 /** Create a [IntegerProperty] with [initialValue]. */
 inline fun intPropertyOf(initialValue: Int = 0): IntegerProperty =

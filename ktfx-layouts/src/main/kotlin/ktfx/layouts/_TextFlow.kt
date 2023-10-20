@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [TextFlow] to this manager.
+ * Add a [TextFlow] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.textFlow(): TextFlow = textFlow() { }
+public fun NodeContainer.textFlow(): TextFlow = textFlow() { }
 
 /**
  * Create a [TextFlow] with configuration block.
@@ -38,12 +38,12 @@ public inline fun textFlow(configuration: (@KtfxLayoutDslMarker KtfxTextFlow).()
 }
 
 /**
- * Add a [TextFlow] with configuration block to this manager.
+ * Add a [TextFlow] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.textFlow(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.textFlow(configuration: (@KtfxLayoutDslMarker
         KtfxTextFlow).() -> Unit): TextFlow {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxTextFlow()
@@ -62,13 +62,13 @@ public fun styledTextFlow(vararg styleClass: String, id: String? = null): TextFl
         styledTextFlow(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [TextFlow] to this manager.
+ * Add a styled [TextFlow] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
+public fun NodeContainer.styledTextFlow(vararg styleClass: String, id: String? = null): TextFlow =
         styledTextFlow(styleClass = *styleClass, id = id) { }
 
 /**
@@ -93,14 +93,14 @@ public inline fun styledTextFlow(
 }
 
 /**
- * Add a styled [TextFlow] with configuration block to this manager.
+ * Add a styled [TextFlow] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledTextFlow(
+public inline fun NodeContainer.styledTextFlow(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxTextFlow).() -> Unit,

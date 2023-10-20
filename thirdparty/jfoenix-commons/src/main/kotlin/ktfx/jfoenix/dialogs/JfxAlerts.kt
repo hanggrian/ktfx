@@ -18,18 +18,19 @@ import java.util.Optional
  * @param dialogAction custom dialog action.
  * @return dialog result.
  */
-fun <R> Stage.jfxAlert(
+fun <T> Stage.jfxAlert(
     title: String? = null,
     graphic: Node? = null,
-    dialogAction: (JFXAlert<R>.() -> Unit)? = null
-): Optional<R> = JFXAlert<R>(this).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    dialogAction?.invoke(dialog)
-}.showAndWait()
+    dialogAction: (JFXAlert<T>.() -> Unit)? = null,
+): Optional<T> =
+    JFXAlert<T>(this).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        dialogAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Show an JFoenix alert.
@@ -37,6 +38,6 @@ fun <R> Stage.jfxAlert(
  * @param dialogAction custom dialog action.
  * @return dialog result.
  */
-inline fun <R> Stage.jfxAlert(
-    noinline dialogAction: (JFXAlert<R>.() -> Unit)? = null
-): Optional<R> = jfxAlert(null, null, dialogAction)
+inline fun <T> Stage.jfxAlert(
+    noinline dialogAction: (JFXAlert<T>.() -> Unit)? = null,
+): Optional<T> = jfxAlert(null, null, dialogAction)

@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [CheckBox] to this manager.
+ * Add a [CheckBox] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.checkBox(text: String? = null): CheckBox = checkBox(text = text) { }
+public fun NodeContainer.checkBox(text: String? = null): CheckBox = checkBox(text = text) { }
 
 /**
  * Create a [CheckBox] with configuration block.
@@ -38,12 +38,12 @@ public inline fun checkBox(text: String? = null, configuration: (@KtfxLayoutDslM
 }
 
 /**
- * Add a [CheckBox] with configuration block to this manager.
+ * Add a [CheckBox] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.checkBox(text: String? = null, configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.checkBox(text: String? = null, configuration: (@KtfxLayoutDslMarker
         CheckBox).() -> Unit): CheckBox {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = CheckBox(text)
@@ -65,13 +65,13 @@ public fun styledCheckBox(
 ): CheckBox = styledCheckBox(text = text, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [CheckBox] to this manager.
+ * Add a styled [CheckBox] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledCheckBox(
+public fun NodeContainer.styledCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -100,14 +100,14 @@ public inline fun styledCheckBox(
 }
 
 /**
- * Add a styled [CheckBox] with configuration block to this manager.
+ * Add a styled [CheckBox] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledCheckBox(
+public inline fun NodeContainer.styledCheckBox(
     text: String? = null,
     vararg styleClass: String,
     id: String? = null,

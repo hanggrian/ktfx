@@ -23,11 +23,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [BarChart] to this manager.
+ * Add a [BarChart] to this container.
  *
  * @return the control added.
  */
-public fun <X, Y> NodeManager.barChart(
+public fun <X, Y> NodeContainer.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -54,12 +54,12 @@ public inline fun <X, Y> barChart(
 }
 
 /**
- * Add a [BarChart] with configuration block to this manager.
+ * Add a [BarChart] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <X, Y> NodeManager.barChart(
+public inline fun <X, Y> NodeContainer.barChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -90,13 +90,13 @@ public fun <X, Y> styledBarChart(
         = *styleClass, id = id) { }
 
 /**
- * Add a styled [BarChart] to this manager.
+ * Add a styled [BarChart] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <X, Y> NodeManager.styledBarChart(
+public fun <X, Y> NodeContainer.styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),
@@ -132,14 +132,14 @@ public inline fun <X, Y> styledBarChart(
 }
 
 /**
- * Add a styled [BarChart] with configuration block to this manager.
+ * Add a styled [BarChart] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <X, Y> NodeManager.styledBarChart(
+public inline fun <X, Y> NodeContainer.styledBarChart(
     x: Axis<X>,
     y: Axis<Y>,
     `data`: ObservableList<XYChart.Series<X, Y>> = observableArrayList(),

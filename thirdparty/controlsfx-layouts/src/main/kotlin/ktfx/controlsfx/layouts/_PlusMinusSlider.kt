@@ -15,15 +15,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.PlusMinusSlider
 
 /**
- * Add a [PlusMinusSlider] to this manager.
+ * Add a [PlusMinusSlider] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { }
+public fun NodeContainer.plusMinusSlider(): PlusMinusSlider = plusMinusSlider() { }
 
 /**
  * Create a [PlusMinusSlider] with configuration block.
@@ -40,12 +40,12 @@ public inline fun plusMinusSlider(configuration: (@KtfxLayoutDslMarker PlusMinus
 }
 
 /**
- * Add a [PlusMinusSlider] with configuration block to this manager.
+ * Add a [PlusMinusSlider] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.plusMinusSlider(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.plusMinusSlider(configuration: (@KtfxLayoutDslMarker
         PlusMinusSlider).() -> Unit): PlusMinusSlider {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = PlusMinusSlider()
@@ -64,13 +64,13 @@ public fun styledPlusMinusSlider(vararg styleClass: String, id: String? = null):
         styledPlusMinusSlider(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [PlusMinusSlider] to this manager.
+ * Add a styled [PlusMinusSlider] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledPlusMinusSlider(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledPlusMinusSlider(vararg styleClass: String, id: String? = null):
         PlusMinusSlider = styledPlusMinusSlider(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun styledPlusMinusSlider(
 }
 
 /**
- * Add a styled [PlusMinusSlider] with configuration block to this manager.
+ * Add a styled [PlusMinusSlider] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledPlusMinusSlider(
+public inline fun NodeContainer.styledPlusMinusSlider(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker PlusMinusSlider).() -> Unit,

@@ -19,11 +19,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Cylinder] to this manager.
+ * Add a [Cylinder] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.cylinder(
+public fun NodeContainer.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -48,12 +48,12 @@ public inline fun cylinder(
 }
 
 /**
- * Add a [Cylinder] with configuration block to this manager.
+ * Add a [Cylinder] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.cylinder(
+public inline fun NodeContainer.cylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -82,13 +82,13 @@ public fun styledCylinder(
         *styleClass, id = id) { }
 
 /**
- * Add a styled [Cylinder] to this manager.
+ * Add a styled [Cylinder] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledCylinder(
+public fun NodeContainer.styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,
@@ -122,14 +122,14 @@ public inline fun styledCylinder(
 }
 
 /**
- * Add a styled [Cylinder] with configuration block to this manager.
+ * Add a styled [Cylinder] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledCylinder(
+public inline fun NodeContainer.styledCylinder(
     radius: Double = 1.0,
     height: Double = 2.0,
     division: Int = 64,

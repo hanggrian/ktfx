@@ -38,67 +38,70 @@ import org.controlsfx.control.textfield.CustomPasswordField
 import org.controlsfx.control.textfield.CustomTextField
 
 val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
-    get() = object : LayoutsFactory(
-        "thirdparty/controlsfx-layouts/src/main/kotlin",
-        "ktfx.controlsfx.layouts",
-        "ControlsFxLayoutsKt"
-    ) {
+    get() =
+        object : LayoutsFactory(
+            "thirdparty/controlsfx-layouts/src/main/kotlin",
+            "ktfx.controlsfx.layouts",
+            "ControlsfxLayoutsKt",
+        ) {
+            init {
+                // org.controlsfx.control.textfield
+                CustomPasswordField::class()
+                CustomTextField::class()
 
-        init {
-            // org.controlsfx.control.textfield
-            CustomPasswordField::class()
-            CustomTextField::class()
-
-            // org.controlsfx.control
-            BreadCrumbBar::class(T) { treeItem("selectedCrumb", T) }
-            CheckComboBox::class(T) { items(T) }
-            CheckListView::class(T) { items(T) }
-            CheckTreeView::class(T) {
-                "root"(CheckBoxTreeItem::class.asClassName().parameterizedBy(T).copy(true)) {
-                    defaultValue("null")
+                // org.controlsfx.control
+                BreadCrumbBar::class(T) { treeItem("selectedCrumb", T) }
+                CheckComboBox::class(T) { items(T) }
+                CheckListView::class(T) { items(T) }
+                CheckTreeView::class(T) {
+                    "root"(CheckBoxTreeItem::class.asClassName().parameterizedBy(T).copy(true)) {
+                        defaultValue("null")
+                    }
                 }
-            }
-            GridView::class(T) { items(T) }
-            HiddenSidesPane::class(customClass = true)
-            HyperlinkLabel::class { text() }
-            InfoOverlay::class(customClass = true) { content(); text(); }
-            ListSelectionView::class(T)
-            MaskerPane::class()
-            MasterDetailPane::class(customClass = true) {
-                add<Side>("detailSide") {
-                    defaultValue("%M", Side::class.asClassName().member("RIGHT"))
+                GridView::class(T) { items(T) }
+                HiddenSidesPane::class(customClass = true)
+                HyperlinkLabel::class { text() }
+                InfoOverlay::class(customClass = true) {
+                    content()
+                    text()
                 }
-                add<Boolean>("showDetailNode") { defaultValue("true") }
-            }
-            NotificationPane::class(customClass = true)
-            PlusMinusSlider::class()
-            PrefixSelectionChoiceBox::class(T)
-            PrefixSelectionComboBox::class(T)
-            PropertySheet::class {
-                "items"(
-                    ObservableList::class.parameterizedBy(PropertySheet.Item::class).copy(true)
-                ) {
-                    defaultValue("null")
+                ListSelectionView::class(T)
+                MaskerPane::class()
+                MasterDetailPane::class(customClass = true) {
+                    add<Side>("detailSide") {
+                        defaultValue("%M", Side::class.asClassName().member("RIGHT"))
+                    }
+                    add<Boolean>("showDetailNode") { defaultValue("true") }
                 }
+                NotificationPane::class(customClass = true)
+                PlusMinusSlider::class()
+                PrefixSelectionChoiceBox::class(T)
+                PrefixSelectionComboBox::class(T)
+                PropertySheet::class {
+                    "items"(
+                        ObservableList::class.parameterizedBy(PropertySheet.Item::class).copy(true),
+                    ) {
+                        defaultValue("null")
+                    }
+                }
+                RangeSlider::class {
+                    add<Double>("min") { defaultValue("0.0") }
+                    add<Double>("max") { defaultValue("1.0") }
+                    add<Double>("lowValue") { defaultValue("0.25") }
+                    add<Double>("highValue") { defaultValue("0.75") }
+                }
+                Rating::class {
+                    add<Int>("max") { defaultValue("5") }
+                    add<Int>("rating") { defaultValue("-1") }
+                }
+                SegmentedBar::class("T".genericsBy(SegmentedBar.Segment::class))
+                SegmentedButton::class(customClass = true)
+                SnapshotView::class(customClass = true)
+                StatusBar::class()
+                TaskProgressView::class(
+                    "T".genericsBy(Task::class.asClassName().parameterizedBy("*".genericsBy())),
+                )
+                ToggleSwitch::class { text() }
+                WorldMapView::class()
             }
-            RangeSlider::class {
-                add<Double>("min") { defaultValue("0.0") }
-                add<Double>("max") { defaultValue("1.0") }
-                add<Double>("lowValue") { defaultValue("0.25") }
-                add<Double>("highValue") { defaultValue("0.75") }
-            }
-            Rating::class {
-                add<Int>("max") { defaultValue("5") }
-                add<Int>("rating") { defaultValue("-1") }
-            }
-            SegmentedBar::class("T".genericsBy(SegmentedBar.Segment::class))
-            SegmentedButton::class(customClass = true)
-            SnapshotView::class(customClass = true)
-            StatusBar::class()
-            TaskProgressView::class(
-                "T".genericsBy(Task::class.asClassName().parameterizedBy("*".genericsBy()))
-            )
-            ToggleSwitch::class { text() }
-            WorldMapView::class()
         }
-    }

@@ -56,7 +56,7 @@ fun <K, V> mutableObservableMapOf(vararg pairs: Pair<K, V>): ObservableMap<K, V>
         FXCollections.observableMap(
             HashMap<K, V>().apply {
                 for ((key, value) in pairs) put(key, value)
-            }
+            },
         )
     }
 
@@ -77,10 +77,11 @@ inline fun <K, V> buildObservableMap(builderAction: MutableMap<K, V>.() -> Unit)
  *
  * @see Map.toMap
  */
-fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> = when (size) {
-    0 -> emptyObservableMap()
-    else -> FXCollections.unmodifiableObservableMap(this.toMutableObservableMap())
-}
+fun <K, V> Map<K, V>.toObservableMap(): ObservableMap<K, V> =
+    when (size) {
+        0 -> emptyObservableMap()
+        else -> FXCollections.unmodifiableObservableMap(this.toMutableObservableMap())
+    }
 
 /**
  * Returns a new [ObservableMap] filled with all elements of this map.

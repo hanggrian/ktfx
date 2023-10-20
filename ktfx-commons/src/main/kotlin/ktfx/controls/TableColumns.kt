@@ -1,4 +1,5 @@
 @file:OptIn(ExperimentalContracts::class)
+@file:Suppress("ktlint:rulebook:rename-uncommon-generics")
 
 package ktfx.controls
 
@@ -74,14 +75,13 @@ interface TableColumnScope<S> {
     val columns: MutableCollection<TableColumn<S, *>>
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> append(
-        text: String? = null
-    ): TableColumn<S, T> = TableColumn<S, T>(text).also { columns += it }
+    fun <T> append(text: String? = null): TableColumn<S, T> =
+        TableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
     fun <T> append(
         text: String? = null,
-        configuration: TableColumn<S, T>.() -> Unit
+        configuration: TableColumn<S, T>.() -> Unit,
     ): TableColumn<S, T> {
         val column = TableColumn<S, T>(text).apply(configuration)
         columns += column
@@ -89,9 +89,8 @@ interface TableColumnScope<S> {
     }
 
     /** Add a column using receiver and [configuration] block, returning the column added. */
-    operator fun <T> String.invoke(
-        configuration: TableColumn<S, T>.() -> Unit
-    ): TableColumn<S, T> = append(this, configuration)
+    operator fun <T> String.invoke(configuration: TableColumn<S, T>.() -> Unit): TableColumn<S, T> =
+        append(this, configuration)
 }
 
 /** [TreeTableColumn] configurator interface. */
@@ -101,21 +100,21 @@ interface TreeTableColumnScope<S> {
     val columns: MutableCollection<TreeTableColumn<S, *>>
 
     /** Add a default column using [text], returning the column added. */
-    fun <T> append(
-        text: String? = null
-    ): TreeTableColumn<S, T> = TreeTableColumn<S, T>(text).also { columns += it }
+    fun <T> append(text: String? = null): TreeTableColumn<S, T> =
+        TreeTableColumn<S, T>(text).also { columns += it }
 
     /** Add a column using [text] and [configuration] block, returning the column added. */
     fun <T> append(
         text: String? = null,
-        configuration: TreeTableColumn<S, T>.() -> Unit
-    ): TreeTableColumn<S, T> = TreeTableColumn<S, T>(text).also {
-        it.configuration()
-        columns += it
-    }
+        configuration: TreeTableColumn<S, T>.() -> Unit,
+    ): TreeTableColumn<S, T> =
+        TreeTableColumn<S, T>(text).also {
+            it.configuration()
+            columns += it
+        }
 
     /** Add a column using receiver and [configuration] block, returning the column added. */
     operator fun <T> String.invoke(
-        configuration: TreeTableColumn<S, T>.() -> Unit
+        configuration: TreeTableColumn<S, T>.() -> Unit,
     ): TreeTableColumn<S, T> = append(this, configuration)
 }

@@ -15,9 +15,13 @@ import kotlin.test.assertEquals
 
 class ButtonBarTest : LayoutsTest<KtfxPane, ButtonBar>() {
     override fun manager(): KtfxPane = KtfxPane()
+
     override fun KtfxPane.childCount(): Int = children.size
+
     override fun child1(): ButtonBar = buttonBar { }
+
     override fun KtfxPane.child2(): ButtonBar = buttonBar()
+
     override fun KtfxPane.child3(): ButtonBar = buttonBar { }
 
     override fun ButtonBar.testDefaultValues() {
@@ -28,7 +32,7 @@ class ButtonBarTest : LayoutsTest<KtfxPane, ButtonBar>() {
                 IS_OS_LINUX -> BUTTON_ORDER_LINUX
                 else -> BUTTON_ORDER_NONE
             },
-            buttonOrder
+            buttonOrder,
         )
     }
 

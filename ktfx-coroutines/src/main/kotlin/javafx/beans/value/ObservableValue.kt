@@ -1,5 +1,5 @@
 @file:JvmMultifileClass
-@file:JvmName("FxCoroutinesKt")
+@file:JvmName("KtfxCoroutinesKt")
 
 package ktfx.coroutines
 
@@ -16,7 +16,8 @@ import kotlin.coroutines.CoroutineContext
 /** Adds a [ChangeListener] which will be notified whenever the value of the [ObservableValue] changes. */
 fun <T> ObservableValue<T>.listener(
     context: CoroutineContext = Dispatchers.JavaFx,
-    listener: suspend CoroutineScope.(Observable, oldValue: T, value: T) -> Unit
-): ChangeListener<T> = ChangeListener<T> { observable, oldValue, newValue ->
-    GlobalScope.launch(context) { listener(observable, oldValue, newValue) }
-}.also { addListener(it) }
+    listener: suspend CoroutineScope.(Observable, oldValue: T, value: T) -> Unit,
+): ChangeListener<T> =
+    ChangeListener<T> { observable, oldValue, newValue ->
+        GlobalScope.launch(context) { listener(observable, oldValue, newValue) }
+    }.also { addListener(it) }

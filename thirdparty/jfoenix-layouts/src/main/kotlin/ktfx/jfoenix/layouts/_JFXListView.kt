@@ -16,14 +16,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXListView] to this manager.
+ * Add a [JFXListView] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.jfxListView(): JFXListView<T> = jfxListView() { }
+public fun <T> NodeContainer.jfxListView(): JFXListView<T> = jfxListView() { }
 
 /**
  * Create a [JFXListView] with configuration block.
@@ -40,12 +40,12 @@ public inline fun <T> jfxListView(configuration: (@KtfxLayoutDslMarker JFXListVi
 }
 
 /**
- * Add a [JFXListView] with configuration block to this manager.
+ * Add a [JFXListView] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun <T> NodeManager.jfxListView(configuration: (@KtfxLayoutDslMarker
+public inline fun <T> NodeContainer.jfxListView(configuration: (@KtfxLayoutDslMarker
         JFXListView<T>).() -> Unit): JFXListView<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXListView<T>()
@@ -64,13 +64,13 @@ public fun <T> styledJFXListView(vararg styleClass: String, id: String? = null):
         styledJFXListView(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXListView] to this manager.
+ * Add a styled [JFXListView] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledJFXListView(vararg styleClass: String, id: String? = null):
+public fun <T> NodeContainer.styledJFXListView(vararg styleClass: String, id: String? = null):
         JFXListView<T> = styledJFXListView(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun <T> styledJFXListView(
 }
 
 /**
- * Add a styled [JFXListView] with configuration block to this manager.
+ * Add a styled [JFXListView] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledJFXListView(
+public inline fun <T> NodeContainer.styledJFXListView(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker JFXListView<T>).() -> Unit,

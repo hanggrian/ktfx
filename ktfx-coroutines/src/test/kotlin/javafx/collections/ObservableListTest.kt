@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 
 class ObservableListTest : BaseObservableListTest() {
     override fun <E> ObservableList<E>.callListener(
-        action: (ListChangeListener.Change<out E>) -> Unit
+        action: (ListChangeListener.Change<out E>) -> Unit,
     ) {
         listener<E>(Dispatchers.Unconfined) { action(it) }
     }

@@ -18,14 +18,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXTreeTableView] to this manager.
+ * Add a [JFXTreeTableView] to this container.
  *
  * @return the control added.
  */
-public fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(root: TreeItem<S>? = null):
+public fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: TreeItem<S>? = null):
         JFXTreeTableView<S> = jfxTreeTableView(root = root) { }
 
 /**
@@ -43,12 +43,12 @@ public inline fun <S : RecursiveTreeObject<S>> jfxTreeTableView(root: TreeItem<S
 }
 
 /**
- * Add a [JFXTreeTableView] with configuration block to this manager.
+ * Add a [JFXTreeTableView] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <S : RecursiveTreeObject<S>> NodeManager.jfxTreeTableView(root: TreeItem<S>? =
+public inline fun <S : RecursiveTreeObject<S>> NodeContainer.jfxTreeTableView(root: TreeItem<S>? =
         null, configuration: (@KtfxLayoutDslMarker JFXTreeTableView<S>).() -> Unit):
         JFXTreeTableView<S> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
@@ -71,13 +71,13 @@ public fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
 ): JFXTreeTableView<S> = styledJFXTreeTableView(root = root, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXTreeTableView] to this manager.
+ * Add a styled [JFXTreeTableView] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <S : RecursiveTreeObject<S>> NodeManager.styledJFXTreeTableView(
+public fun <S : RecursiveTreeObject<S>> NodeContainer.styledJFXTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,
@@ -106,14 +106,14 @@ public inline fun <S : RecursiveTreeObject<S>> styledJFXTreeTableView(
 }
 
 /**
- * Add a styled [JFXTreeTableView] with configuration block to this manager.
+ * Add a styled [JFXTreeTableView] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <S : RecursiveTreeObject<S>> NodeManager.styledJFXTreeTableView(
+public inline fun <S : RecursiveTreeObject<S>> NodeContainer.styledJFXTreeTableView(
     root: TreeItem<S>? = null,
     vararg styleClass: String,
     id: String? = null,

@@ -63,7 +63,7 @@ fun <T> mutableObservableListOf(vararg elements: T): ObservableList<T> =
         mutableObservableListOf()
     } else {
         FXCollections.observableArrayList(
-            *elements
+            *elements,
         )
     }
 
@@ -101,11 +101,12 @@ inline fun <T> buildObservableList(builderAction: MutableList<T>.() -> Unit): Li
  *
  * @see Array.toList
  */
-fun <T> Array<out T>.toObservableList(): ObservableList<T> = when (size) {
-    0 -> emptyObservableList()
-    1 -> observableListOf(this[0])
-    else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
-}
+fun <T> Array<out T>.toObservableList(): ObservableList<T> =
+    when (size) {
+        0 -> emptyObservableList()
+        1 -> observableListOf(this[0])
+        else -> FXCollections.unmodifiableObservableList(this.toMutableObservableList())
+    }
 
 /**
  * Returns a new [ObservableList] filled with all elements of this array.

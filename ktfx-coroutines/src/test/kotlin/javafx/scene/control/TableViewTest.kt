@@ -1,3 +1,5 @@
+@file:Suppress("ktlint:rulebook:rename-uncommon-generics")
+
 package ktfx.coroutines
 
 import com.hendraanggrian.ktfx.test.BaseTableViewTest
@@ -15,7 +17,6 @@ class TableViewTest : BaseTableViewTest() {
         onScrollTo(Dispatchers.Unconfined) { action(it) }
 
     override fun <S> TableView<S>.callOnScrollToColumn(
-        action: (ScrollToEvent<TableColumn<S, *>>) -> Unit
-    ) =
-        onScrollToColumn(Dispatchers.Unconfined) { action(it) }
+        action: (ScrollToEvent<TableColumn<S, *>>) -> Unit,
+    ) = onScrollToColumn(Dispatchers.Unconfined) { action(it) }
 }

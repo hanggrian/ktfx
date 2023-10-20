@@ -1,6 +1,5 @@
 @file:JvmMultifileClass
 @file:JvmName("KtfxLayoutsKt")
-@file:OptIn(ExperimentalContracts::class)
 @file:Suppress("NOTHING_TO_INLINE")
 
 package ktfx.layouts
@@ -9,14 +8,13 @@ import javafx.geometry.Insets
 import javafx.scene.Node
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
-import kotlin.contracts.ExperimentalContracts
 
 /**
  * [VBox] with dynamic-layout dsl support.
  * Invoking dsl will add its children.
  */
-open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
-    final override fun <C : Node> addChild(child: C): C = child.also { children += it }
+open class KtfxVBox(spacing: Double) : VBox(spacing), NodeContainer {
+    final override fun <T : Node> addChild(child: T): T = child.also { children += it }
 
     /** Children vertical grow priority in this layout. */
     inline var Node.vgrow: Priority?
@@ -27,7 +25,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
         set(value) = setVgrow(this, value)
 
     /** Configure [vgrow] fluidly. */
-    fun <C : Node> C.vgrow(always: Boolean = true): C {
+    fun <T : Node> T.vgrow(always: Boolean = true): T {
         vgrow = if (always) Priority.ALWAYS else Priority.NEVER
         return this
     }
@@ -41,7 +39,7 @@ open class KtfxVBox(spacing: Double) : VBox(spacing), NodeManager {
         set(value) = setMargin(this, value)
 
     /** Configure [margin] fluidly. */
-    fun <C : Node> C.margin(insets: Insets): C {
+    fun <T : Node> T.margin(insets: Insets): T {
         margin = insets
         return this
     }

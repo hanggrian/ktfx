@@ -52,15 +52,14 @@ inline fun stage(
     title: String? = null,
     icon: Image? = null,
     style: StageStyle = StageStyle.DECORATED,
-    configuration: Stage.() -> Unit
-): Stage = Stage(style).also {
-    if (title != null) it.title = title
-    if (icon != null) it.icon = icon
-    it.configuration()
-}
+    configuration: Stage.() -> Unit,
+): Stage =
+    Stage(style).also {
+        if (title != null) it.title = title
+        if (icon != null) it.icon = icon
+        it.configuration()
+    }
 
 /** Creates a stage with options. */
-inline fun stage(
-    style: StageStyle = StageStyle.DECORATED,
-    configuration: Stage.() -> Unit
-): Stage = stage(null, null, style, configuration)
+inline fun stage(style: StageStyle = StageStyle.DECORATED, configuration: Stage.() -> Unit): Stage =
+    stage(null, null, style, configuration)

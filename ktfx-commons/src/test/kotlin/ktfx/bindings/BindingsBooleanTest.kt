@@ -20,18 +20,20 @@ class BindingsBooleanTest {
     fun multipleDependencies() {
         val dependency1 = booleanPropertyOf(true)
         val dependency2 = booleanPropertyOf(true)
-        val binding1 = booleanBindingOf(dependency1, dependency2) {
-            dependency1.value && dependency2.value
-        }
+        val binding1 =
+            booleanBindingOf(dependency1, dependency2) {
+                dependency1.value && dependency2.value
+            }
         assertTrue(binding1.value)
         dependency1.value = false
         assertFalse(binding1.value)
 
         val dependency3 = booleanPropertyOf(true)
         val dependency4 = booleanPropertyOf(true)
-        val binding2 = booleanBindingOf(listOf(dependency3, dependency4)) {
-            dependency3.value && dependency4.value
-        }
+        val binding2 =
+            booleanBindingOf(listOf(dependency3, dependency4)) {
+                dependency3.value && dependency4.value
+            }
         assertTrue(binding2.value)
         dependency3.value = false
         assertFalse(binding2.value)

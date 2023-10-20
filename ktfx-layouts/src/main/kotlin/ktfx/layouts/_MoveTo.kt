@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [MoveTo] to this manager.
+ * Add a [MoveTo] to this container.
  *
  * @return the control added.
  */
-public fun PathElementManager.moveTo(x: Double = 0.0, y: Double = 0.0): MoveTo = moveTo(x = x, y =
+public fun PathElementContainer.moveTo(x: Double = 0.0, y: Double = 0.0): MoveTo = moveTo(x = x, y =
         y) { }
 
 /**
@@ -42,12 +42,12 @@ public inline fun moveTo(
 }
 
 /**
- * Add a [MoveTo] with configuration block to this manager.
+ * Add a [MoveTo] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun PathElementManager.moveTo(
+public inline fun PathElementContainer.moveTo(
     x: Double = 0.0,
     y: Double = 0.0,
     configuration: (@KtfxLayoutDslMarker MoveTo).() -> Unit,

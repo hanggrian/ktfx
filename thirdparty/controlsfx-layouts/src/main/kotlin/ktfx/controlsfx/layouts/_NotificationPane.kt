@@ -15,15 +15,15 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 import org.controlsfx.control.NotificationPane
 
 /**
- * Add a [NotificationPane] to this manager.
+ * Add a [NotificationPane] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.notificationPane(): NotificationPane = notificationPane() { }
+public fun NodeContainer.notificationPane(): NotificationPane = notificationPane() { }
 
 /**
  * Create a [NotificationPane] with configuration block.
@@ -40,12 +40,12 @@ public inline fun notificationPane(configuration: (@KtfxLayoutDslMarker
 }
 
 /**
- * Add a [NotificationPane] with configuration block to this manager.
+ * Add a [NotificationPane] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.notificationPane(configuration: (@KtfxLayoutDslMarker
+public inline fun NodeContainer.notificationPane(configuration: (@KtfxLayoutDslMarker
         KtfxNotificationPane).() -> Unit): NotificationPane {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxNotificationPane()
@@ -64,13 +64,13 @@ public fun styledNotificationPane(vararg styleClass: String, id: String? = null)
         styledNotificationPane(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [NotificationPane] to this manager.
+ * Add a styled [NotificationPane] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledNotificationPane(vararg styleClass: String, id: String? = null):
+public fun NodeContainer.styledNotificationPane(vararg styleClass: String, id: String? = null):
         NotificationPane = styledNotificationPane(styleClass = *styleClass, id = id) { }
 
 /**
@@ -95,14 +95,14 @@ public inline fun styledNotificationPane(
 }
 
 /**
- * Add a styled [NotificationPane] with configuration block to this manager.
+ * Add a styled [NotificationPane] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledNotificationPane(
+public inline fun NodeContainer.styledNotificationPane(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxNotificationPane).() -> Unit,

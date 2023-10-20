@@ -36,7 +36,7 @@ class NotificationsTest : ApplicationTest() {
                 hideCloseButton()
                 actions()
                 threshold(0) { }
-            }
+            },
         )
     }
 }

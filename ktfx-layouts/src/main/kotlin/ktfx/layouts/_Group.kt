@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Group] to this manager.
+ * Add a [Group] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.group(): Group = group() { }
+public fun NodeContainer.group(): Group = group() { }
 
 /**
  * Create a [Group] with configuration block.
@@ -37,12 +37,12 @@ public inline fun group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Un
 }
 
 /**
- * Add a [Group] with configuration block to this manager.
+ * Add a [Group] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit):
+public inline fun NodeContainer.group(configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit):
         Group {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = KtfxGroup()
@@ -61,13 +61,13 @@ public fun styledGroup(vararg styleClass: String, id: String? = null): Group =
         styledGroup(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Group] to this manager.
+ * Add a styled [Group] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledGroup(vararg styleClass: String, id: String? = null): Group =
+public fun NodeContainer.styledGroup(vararg styleClass: String, id: String? = null): Group =
         styledGroup(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledGroup(
 }
 
 /**
- * Add a styled [Group] with configuration block to this manager.
+ * Add a styled [Group] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledGroup(
+public inline fun NodeContainer.styledGroup(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker KtfxGroup).() -> Unit,

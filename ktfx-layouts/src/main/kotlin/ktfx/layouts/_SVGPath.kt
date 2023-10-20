@@ -17,11 +17,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [SVGPath] to this manager.
+ * Add a [SVGPath] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.svgPath(): SVGPath = svgPath() { }
+public fun NodeContainer.svgPath(): SVGPath = svgPath() { }
 
 /**
  * Create a [SVGPath] with configuration block.
@@ -37,12 +37,12 @@ public inline fun svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Un
 }
 
 /**
- * Add a [SVGPath] with configuration block to this manager.
+ * Add a [SVGPath] with configuration block to this container.
  *
  * @param configuration the configuration block.
  * @return the control added.
  */
-public inline fun NodeManager.svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit):
+public inline fun NodeContainer.svgPath(configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit):
         SVGPath {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = SVGPath()
@@ -61,13 +61,13 @@ public fun styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath
         styledSVGPath(styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [SVGPath] to this manager.
+ * Add a styled [SVGPath] to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @return the styled control added.
  */
-public fun NodeManager.styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath =
+public fun NodeContainer.styledSVGPath(vararg styleClass: String, id: String? = null): SVGPath =
         styledSVGPath(styleClass = *styleClass, id = id) { }
 
 /**
@@ -92,14 +92,14 @@ public inline fun styledSVGPath(
 }
 
 /**
- * Add a styled [SVGPath] with configuration block to this manager.
+ * Add a styled [SVGPath] with configuration block to this container.
  *
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  * @return the styled control added.
  */
-public inline fun NodeManager.styledSVGPath(
+public inline fun NodeContainer.styledSVGPath(
     vararg styleClass: String,
     id: String? = null,
     configuration: (@KtfxLayoutDslMarker SVGPath).() -> Unit,

@@ -19,14 +19,14 @@ import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 import ktfx.layouts.KtfxLayoutDslMarker
-import ktfx.layouts.NodeManager
+import ktfx.layouts.NodeContainer
 
 /**
- * Add a [JFXComboBox] to this manager.
+ * Add a [JFXComboBox] to this container.
  *
  * @return the control added.
  */
-public fun <T> NodeManager.jfxComboBox(items: ObservableList<T> = observableArrayList()):
+public fun <T> NodeContainer.jfxComboBox(items: ObservableList<T> = observableArrayList()):
         JFXComboBox<T> = jfxComboBox(items = items) { }
 
 /**
@@ -44,12 +44,12 @@ public inline fun <T> jfxComboBox(items: ObservableList<T> = observableArrayList
 }
 
 /**
- * Add a [JFXComboBox] with configuration block to this manager.
+ * Add a [JFXComboBox] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun <T> NodeManager.jfxComboBox(items: ObservableList<T> = observableArrayList(),
+public inline fun <T> NodeContainer.jfxComboBox(items: ObservableList<T> = observableArrayList(),
         configuration: (@KtfxLayoutDslMarker JFXComboBox<T>).() -> Unit): JFXComboBox<T> {
     contract { callsInPlace(configuration, EXACTLY_ONCE) }
     val child = JFXComboBox<T>(items)
@@ -71,13 +71,13 @@ public fun <T> styledJFXComboBox(
 ): JFXComboBox<T> = styledJFXComboBox(items = items, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [JFXComboBox] to this manager.
+ * Add a styled [JFXComboBox] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun <T> NodeManager.styledJFXComboBox(
+public fun <T> NodeContainer.styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,
@@ -106,14 +106,14 @@ public inline fun <T> styledJFXComboBox(
 }
 
 /**
- * Add a styled [JFXComboBox] with configuration block to this manager.
+ * Add a styled [JFXComboBox] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun <T> NodeManager.styledJFXComboBox(
+public inline fun <T> NodeContainer.styledJFXComboBox(
     items: ObservableList<T> = observableArrayList(),
     vararg styleClass: String,
     id: String? = null,

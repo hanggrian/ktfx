@@ -6,6 +6,6 @@ import org.controlsfx.control.PlusMinusSlider
 
 class PlusMinusSliderTest : BasePlusMinusSliderTest() {
     override fun PlusMinusSlider.callOnValueChanged(
-        action: (PlusMinusSlider.PlusMinusEvent) -> Unit
+        action: (PlusMinusSlider.PlusMinusEvent) -> Unit,
     ): Unit = onValueChanged(Dispatchers.Unconfined) { action(it) }
 }

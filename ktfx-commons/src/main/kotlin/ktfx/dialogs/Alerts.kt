@@ -27,15 +27,16 @@ fun alert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null
-): Optional<ButtonType> = Alert(AlertType.NONE, content, *buttonTypes).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    alertAction?.invoke(dialog)
-}.showAndWait()
+    alertAction: (Alert.() -> Unit)? = null,
+): Optional<ButtonType> =
+    Alert(AlertType.NONE, content, *buttonTypes).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        alertAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Show an alert.
@@ -48,7 +49,7 @@ fun alert(
 inline fun alert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null
+    noinline alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> = alert(null, null, content, *buttonTypes, alertAction = alertAction)
 
 /**
@@ -66,15 +67,16 @@ fun infoAlert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null
-): Optional<ButtonType> = Alert(AlertType.INFORMATION, content, *buttonTypes).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    alertAction?.invoke(dialog)
-}.showAndWait()
+    alertAction: (Alert.() -> Unit)? = null,
+): Optional<ButtonType> =
+    Alert(AlertType.INFORMATION, content, *buttonTypes).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        alertAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Show an information alert.
@@ -87,7 +89,7 @@ fun infoAlert(
 inline fun infoAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null
+    noinline alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> = infoAlert(null, null, content, *buttonTypes, alertAction = alertAction)
 
 /**
@@ -105,15 +107,16 @@ fun warningAlert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null
-): Optional<ButtonType> = Alert(AlertType.WARNING, content, *buttonTypes).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    alertAction?.invoke(dialog)
-}.showAndWait()
+    alertAction: (Alert.() -> Unit)? = null,
+): Optional<ButtonType> =
+    Alert(AlertType.WARNING, content, *buttonTypes).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        alertAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Show a warning alert.
@@ -126,7 +129,7 @@ fun warningAlert(
 inline fun warningAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null
+    noinline alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> = warningAlert(null, null, content, *buttonTypes, alertAction = alertAction)
 
 /**
@@ -144,15 +147,16 @@ fun confirmAlert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(YES, NO),
-    alertAction: (Alert.() -> Unit)? = null
-): Optional<ButtonType> = Alert(AlertType.CONFIRMATION, content, *buttonTypes).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    alertAction?.invoke(dialog)
-}.showAndWait()
+    alertAction: (Alert.() -> Unit)? = null,
+): Optional<ButtonType> =
+    Alert(AlertType.CONFIRMATION, content, *buttonTypes).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        alertAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Show a confirmation alert.
@@ -165,7 +169,7 @@ fun confirmAlert(
 inline fun confirmAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(YES, NO),
-    noinline alertAction: (Alert.() -> Unit)? = null
+    noinline alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> = confirmAlert(null, null, content, *buttonTypes, alertAction = alertAction)
 
 /**
@@ -183,15 +187,16 @@ fun errorAlert(
     graphic: Node? = null,
     content: String = "",
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    alertAction: (Alert.() -> Unit)? = null
-): Optional<ButtonType> = Alert(AlertType.ERROR, content, *buttonTypes).also { dialog ->
-    if (title != null) dialog.headerTitle = title
-    when {
-        graphic is ImageView -> dialog.graphicIcon = graphic
-        graphic != null -> dialog.graphic = graphic
-    }
-    alertAction?.invoke(dialog)
-}.showAndWait()
+    alertAction: (Alert.() -> Unit)? = null,
+): Optional<ButtonType> =
+    Alert(AlertType.ERROR, content, *buttonTypes).also { dialog ->
+        if (title != null) dialog.headerTitle = title
+        when {
+            graphic is ImageView -> dialog.graphicIcon = graphic
+            graphic != null -> dialog.graphic = graphic
+        }
+        alertAction?.invoke(dialog)
+    }.showAndWait()
 
 /**
  * Show an error alert.
@@ -204,5 +209,5 @@ fun errorAlert(
 inline fun errorAlert(
     content: String,
     vararg buttonTypes: ButtonType = arrayOf(CLOSE),
-    noinline alertAction: (Alert.() -> Unit)? = null
+    noinline alertAction: (Alert.() -> Unit)? = null,
 ): Optional<ButtonType> = errorAlert(null, null, content, *buttonTypes, alertAction = alertAction)

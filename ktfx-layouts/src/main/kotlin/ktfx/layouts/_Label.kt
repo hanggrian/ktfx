@@ -18,11 +18,11 @@ import kotlin.jvm.JvmMultifileClass
 import kotlin.jvm.JvmName
 
 /**
- * Add a [Label] to this manager.
+ * Add a [Label] to this container.
  *
  * @return the control added.
  */
-public fun NodeManager.label(text: String? = null, graphic: Node? = null): Label = label(text =
+public fun NodeContainer.label(text: String? = null, graphic: Node? = null): Label = label(text =
         text, graphic = graphic) { }
 
 /**
@@ -43,12 +43,12 @@ public inline fun label(
 }
 
 /**
- * Add a [Label] with configuration block to this manager.
+ * Add a [Label] with configuration block to this container.
  * @param configuration the configuration block.
  *
  * @return the control added.
  */
-public inline fun NodeManager.label(
+public inline fun NodeContainer.label(
     text: String? = null,
     graphic: Node? = null,
     configuration: (@KtfxLayoutDslMarker Label).() -> Unit,
@@ -74,13 +74,13 @@ public fun styledLabel(
 ): Label = styledLabel(text = text, graphic = graphic, styleClass = *styleClass, id = id) { }
 
 /**
- * Add a styled [Label] to this manager.
+ * Add a styled [Label] to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  *
  * @return the styled control added.
  */
-public fun NodeManager.styledLabel(
+public fun NodeContainer.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,
@@ -111,14 +111,14 @@ public inline fun styledLabel(
 }
 
 /**
- * Add a styled [Label] with configuration block to this manager.
+ * Add a styled [Label] with configuration block to this container.
  * @param styleClass the CSS style class.
  * @param id the CSS id.
  * @param configuration the configuration block.
  *
  * @return the styled control added.
  */
-public inline fun NodeManager.styledLabel(
+public inline fun NodeContainer.styledLabel(
     text: String? = null,
     graphic: Node? = null,
     vararg styleClass: String,

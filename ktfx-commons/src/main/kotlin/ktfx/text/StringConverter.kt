@@ -13,29 +13,31 @@ import javafx.util.StringConverter
  * @see kotlin.text.buildString
  */
 inline fun <T> buildStringConverter(
-    builderAction: StringConverterBuilder<T>.() -> Unit
+    builderAction: StringConverterBuilder<T>.() -> Unit,
 ): StringConverter<T> = StringConverterBuilder<T>().apply(builderAction).build()
 
 /** Receiver for `buildStringConverter` block. */
 class StringConverterBuilder<T> {
-    private var _toString: (T?) -> String = { it?.toString() ?: "" }
-    private var _fromString: (String) -> T? = { null }
+    private var toString: (T?) -> String = { it?.toString() ?: "" }
+    private var fromString: (String) -> T? = { null }
 
     /** Convert the object to String. */
     fun toString(listener: (T?) -> String) {
-        _toString = listener
+        toString = listener
     }
 
     /** Convert String back to object. */
     fun fromString(listener: (String) -> T?) {
-        _fromString = listener
+        fromString = listener
     }
 
     /** Create to native builder. */
-    fun build(): StringConverter<T> = object : StringConverter<T>() {
-        override fun toString(any: T?): String = _toString(any)
-        override fun fromString(string: String): T? = _fromString(string)
-    }
+    fun build(): StringConverter<T> =
+        object : StringConverter<T>() {
+            override fun toString(any: T?): String = toString(any)
+
+            override fun fromString(string: String): T? = fromString(string)
+        }
 }
 
 /** Converts the object provided into its string form. */

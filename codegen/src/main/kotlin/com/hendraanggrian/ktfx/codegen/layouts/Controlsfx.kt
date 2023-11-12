@@ -1,10 +1,15 @@
 package com.hendraanggrian.ktfx.codegen.layouts
 
+import com.hendraanggrian.kotlinpoet.generics
 import com.hendraanggrian.kotlinpoet.genericsBy
+import com.hendraanggrian.kotlinpoet.name
+import com.hendraanggrian.kotlinpoet.nullable
 import com.hendraanggrian.ktfx.codegen.T
+import com.squareup.kotlinpoet.BOOLEAN
+import com.squareup.kotlinpoet.DOUBLE
+import com.squareup.kotlinpoet.INT
 import com.squareup.kotlinpoet.MemberName.Companion.member
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-import com.squareup.kotlinpoet.asClassName
 import javafx.collections.ObservableList
 import javafx.concurrent.Task
 import javafx.geometry.Side
@@ -54,7 +59,7 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                 CheckComboBox::class(T) { items(T) }
                 CheckListView::class(T) { items(T) }
                 CheckTreeView::class(T) {
-                    "root"(CheckBoxTreeItem::class.asClassName().parameterizedBy(T).copy(true)) {
+                    "root"(CheckBoxTreeItem::class.name.parameterizedBy(T).nullable()) {
                         defaultValue("null")
                     }
                 }
@@ -68,10 +73,10 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                 ListSelectionView::class(T)
                 MaskerPane::class()
                 MasterDetailPane::class(customClass = true) {
-                    add<Side>("detailSide") {
-                        defaultValue("%M", Side::class.asClassName().member("RIGHT"))
+                    "detailSide"(Side::class.name) {
+                        defaultValue("%M", Side::class.name.member("RIGHT"))
                     }
-                    add<Boolean>("showDetailNode") { defaultValue("true") }
+                    "showDetailNode"(BOOLEAN) { defaultValue("true") }
                 }
                 NotificationPane::class(customClass = true)
                 PlusMinusSlider::class()
@@ -79,27 +84,27 @@ val LayoutsFactory.Companion.ControlsFx: LayoutsFactory
                 PrefixSelectionComboBox::class(T)
                 PropertySheet::class {
                     "items"(
-                        ObservableList::class.parameterizedBy(PropertySheet.Item::class).copy(true),
+                        ObservableList::class.parameterizedBy(PropertySheet.Item::class).nullable(),
                     ) {
                         defaultValue("null")
                     }
                 }
                 RangeSlider::class {
-                    add<Double>("min") { defaultValue("0.0") }
-                    add<Double>("max") { defaultValue("1.0") }
-                    add<Double>("lowValue") { defaultValue("0.25") }
-                    add<Double>("highValue") { defaultValue("0.75") }
+                    "min"(DOUBLE) { defaultValue("0.0") }
+                    "max"(DOUBLE) { defaultValue("1.0") }
+                    "lowValue"(DOUBLE) { defaultValue("0.25") }
+                    "highValue"(DOUBLE) { defaultValue("0.75") }
                 }
                 Rating::class {
-                    add<Int>("max") { defaultValue("5") }
-                    add<Int>("rating") { defaultValue("-1") }
+                    "max"(INT) { defaultValue("5") }
+                    "rating"(INT) { defaultValue("-1") }
                 }
                 SegmentedBar::class("T".genericsBy(SegmentedBar.Segment::class))
                 SegmentedButton::class(customClass = true)
                 SnapshotView::class(customClass = true)
                 StatusBar::class()
                 TaskProgressView::class(
-                    "T".genericsBy(Task::class.asClassName().parameterizedBy("*".genericsBy())),
+                    "T".genericsBy(Task::class.name.parameterizedBy("*".generics)),
                 )
                 ToggleSwitch::class { text() }
                 WorldMapView::class()

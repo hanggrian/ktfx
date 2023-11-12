@@ -5,7 +5,6 @@
 
 package ktfx.layouts
 
-import javafx.scene.control.ProgressBar
 import javafx.scene.control.ProgressBar.INDETERMINATE_PROGRESS
 import javafx.scene.control.ProgressIndicator
 import kotlin.Double
@@ -13,7 +12,6 @@ import kotlin.String
 import kotlin.Suppress
 import kotlin.Unit
 import kotlin.contracts.ExperimentalContracts
-import kotlin.contracts.InvocationKind
 import kotlin.contracts.InvocationKind.EXACTLY_ONCE
 import kotlin.contracts.contract
 import kotlin.jvm.JvmMultifileClass

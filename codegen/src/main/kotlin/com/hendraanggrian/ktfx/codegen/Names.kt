@@ -1,8 +1,8 @@
 package com.hendraanggrian.ktfx.codegen
 
 import com.hendraanggrian.kotlinpoet.VARARG
-import com.hendraanggrian.kotlinpoet.classNameOf
-import com.hendraanggrian.kotlinpoet.genericsBy
+import com.hendraanggrian.kotlinpoet.classNamed
+import com.hendraanggrian.kotlinpoet.generics
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.MemberName
 import com.squareup.kotlinpoet.MemberName.Companion.member
@@ -11,17 +11,17 @@ import com.squareup.kotlinpoet.ParameterSpec
 val KTFX_LAYOUTS = "ktfx.layouts"
 val KOTLIN_CONTRACTS = "kotlin.contracts"
 
-val OPT_IN = classNameOf("", "OptIn")
-val EXPERIMENTAL_CONTRACTS: ClassName = classNameOf(KOTLIN_CONTRACTS, "ExperimentalContracts")
+val OPT_IN = classNamed("", "OptIn")
+val EXPERIMENTAL_CONTRACTS: ClassName = classNamed(KOTLIN_CONTRACTS, "ExperimentalContracts")
 val CONTRACT = MemberName(KOTLIN_CONTRACTS, "contract")
-val EXACTLY_ONCE = classNameOf(KOTLIN_CONTRACTS, "InvocationKind").member("EXACTLY_ONCE")
+val EXACTLY_ONCE = classNamed(KOTLIN_CONTRACTS, "InvocationKind").member("EXACTLY_ONCE")
 
-val DSL_MARKER = classNameOf(KTFX_LAYOUTS, "KtfxLayoutDslMarker")
+val DSL_MARKER = classNamed(KTFX_LAYOUTS, "KtfxLayoutDslMarker")
 
-val T = "T".genericsBy()
-val S = "S".genericsBy()
-val X = "X".genericsBy()
-val Y = "Y".genericsBy()
+val T = "T".generics
+val S = "S".generics
+val X = "X".generics
+val Y = "Y".generics
 
 fun List<ParameterSpec>.toString(namedArgument: Boolean, commaSuffix: Boolean): String =
     buildString {

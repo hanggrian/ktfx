@@ -1,10 +1,10 @@
 package com.hendraanggrian.ktfx.codegen.coroutines
 
+import com.hendraanggrian.kotlinpoet.name
 import com.hendraanggrian.ktfx.codegen.S
 import com.hendraanggrian.ktfx.codegen.T
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.STAR
-import com.squareup.kotlinpoet.asClassName
 import javafx.animation.Animation
 import javafx.concurrent.Service
 import javafx.concurrent.Task
@@ -69,7 +69,7 @@ private fun ListenerFactory.initJavaFx() {
     // javafx.animation
     Animation::class { "setOnFinished" { action<ActionEvent>() } }
     // javafx.concurrent
-    (Service::class.asClassName().parameterizedBy(STAR)) {
+    (Service::class.name.parameterizedBy(STAR)) {
         "setOnReady" { action<WorkerStateEvent>() }
         "setOnScheduled" { action<WorkerStateEvent>() }
         "setOnRunning" { action<WorkerStateEvent>() }
@@ -77,7 +77,7 @@ private fun ListenerFactory.initJavaFx() {
         "setOnCancelled" { action<WorkerStateEvent>() }
         "setOnFailed" { action<WorkerStateEvent>() }
     }
-    (Task::class.asClassName().parameterizedBy(STAR)) {
+    (Task::class.name.parameterizedBy(STAR)) {
         "setOnScheduled" { action<WorkerStateEvent>() }
         "setOnRunning" { action<WorkerStateEvent>() }
         "setOnSucceeded" { action<WorkerStateEvent>() }
@@ -169,14 +169,14 @@ private fun ListenerFactory.initJavaFx() {
     }
     // javafx.scene.control
     ButtonBase::class { "setOnAction" { action<ActionEvent>() } }
-    (ChoiceBox::class.asClassName().parameterizedBy(STAR)) {
+    (ChoiceBox::class.name.parameterizedBy(STAR)) {
         "setOnAction" { action<ActionEvent>() }
         "setOnShowing" { action<Event>() }
         "setOnShown" { action<Event>() }
         "setOnHiding" { action<Event>() }
         "setOnHidden" { action<Event>() }
     }
-    (ComboBoxBase::class.asClassName().parameterizedBy(STAR)) {
+    (ComboBoxBase::class.name.parameterizedBy(STAR)) {
         "setOnAction" { action<ActionEvent>() }
         "setOnShowing" { action<Event>() }
         "setOnShown" { action<Event>() }
@@ -184,15 +184,15 @@ private fun ListenerFactory.initJavaFx() {
         "setOnHidden" { action<Event>() }
     }
     ContextMenu::class { "setOnAction" { action<ActionEvent>() } }
-    (Dialog::class.asClassName().parameterizedBy(STAR)) {
+    (Dialog::class.name.parameterizedBy(STAR)) {
         "setOnShowing" { action<DialogEvent>() }
         "setOnShown" { action<DialogEvent>() }
         "setOnHiding" { action<DialogEvent>() }
         "setOnHidden" { action<DialogEvent>() }
         "setOnCloseRequest" { action<DialogEvent>() }
     }
-    (ListView::class.asClassName().parameterizedBy(T)) {
-        val event = ListView.EditEvent::class.asClassName().parameterizedBy(T)
+    (ListView::class.name.parameterizedBy(T)) {
+        val event = ListView.EditEvent::class.name.parameterizedBy(T)
         "setOnEditStart" { action(event) }
         "setOnEditCommit" { action(event) }
         "setOnEditCancel" { action(event) }
@@ -213,51 +213,51 @@ private fun ListenerFactory.initJavaFx() {
         "setOnClosed" { action<Event>() }
         "setOnCloseRequest" { action<Event>() }
     }
-    (TableColumn::class.asClassName().parameterizedBy(S, T)) {
-        val event = TableColumn.CellEditEvent::class.asClassName().parameterizedBy(S, T)
+    (TableColumn::class.name.parameterizedBy(S, T)) {
+        val event = TableColumn.CellEditEvent::class.name.parameterizedBy(S, T)
         "setOnEditStart" { action(event) }
         "setOnEditCommit" { action(event) }
         "setOnEditCancel" { action(event) }
     }
-    (TableView::class.asClassName().parameterizedBy(S)) {
+    (TableView::class.name.parameterizedBy(S)) {
         "setOnSort" {
             action(
-                SortEvent::class.asClassName()
-                    .parameterizedBy(TableView::class.asClassName().parameterizedBy(S)),
+                SortEvent::class.name
+                    .parameterizedBy(TableView::class.name.parameterizedBy(S)),
             )
         }
         "setOnScrollTo" { action(ScrollToEvent::class.parameterizedBy(Int::class)) }
         "setOnScrollToColumn" {
             action(
-                ScrollToEvent::class.asClassName()
-                    .parameterizedBy(TableColumn::class.asClassName().parameterizedBy(S, STAR)),
+                ScrollToEvent::class.name
+                    .parameterizedBy(TableColumn::class.name.parameterizedBy(S, STAR)),
             )
         }
     }
     TextField::class { "setOnAction" { action<ActionEvent>() } }
-    (TreeTableColumn::class.asClassName().parameterizedBy(S, T)) {
-        val event = TreeTableColumn.CellEditEvent::class.asClassName().parameterizedBy(S, T)
+    (TreeTableColumn::class.name.parameterizedBy(S, T)) {
+        val event = TreeTableColumn.CellEditEvent::class.name.parameterizedBy(S, T)
         "setOnEditStart" { action(event) }
         "setOnEditCommit" { action(event) }
         "setOnEditCancel" { action(event) }
     }
-    (TreeTableView::class.asClassName().parameterizedBy(T)) {
+    (TreeTableView::class.name.parameterizedBy(T)) {
         "setOnSort" {
             action(
-                SortEvent::class.asClassName()
-                    .parameterizedBy(TreeTableView::class.asClassName().parameterizedBy(T)),
+                SortEvent::class.name
+                    .parameterizedBy(TreeTableView::class.name.parameterizedBy(T)),
             )
         }
         "setOnScrollTo" { action(ScrollToEvent::class.parameterizedBy(Int::class)) }
         "setOnScrollToColumn" {
             action(
-                ScrollToEvent::class.asClassName()
-                    .parameterizedBy(TreeTableColumn::class.asClassName().parameterizedBy(T, STAR)),
+                ScrollToEvent::class.name
+                    .parameterizedBy(TreeTableColumn::class.name.parameterizedBy(T, STAR)),
             )
         }
     }
-    (TreeView::class.asClassName().parameterizedBy(T)) {
-        val event = TreeView.EditEvent::class.asClassName().parameterizedBy(T)
+    (TreeView::class.name.parameterizedBy(T)) {
+        val event = TreeView.EditEvent::class.name.parameterizedBy(T)
         "setOnEditStart" { action(event) }
         "setOnEditCommit" { action(event) }
         "setOnEditCancel" { action(event) }

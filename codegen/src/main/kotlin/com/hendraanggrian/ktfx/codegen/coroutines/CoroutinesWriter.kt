@@ -1,6 +1,12 @@
 package com.hendraanggrian.ktfx.codegen.coroutines
 
+import com.hendraanggrian.kotlinpoet.annotation
+import com.hendraanggrian.kotlinpoet.annotations
 import com.hendraanggrian.kotlinpoet.buildFileSpec
+import com.hendraanggrian.kotlinpoet.functions
+import com.hendraanggrian.kotlinpoet.generics
+import com.hendraanggrian.kotlinpoet.name
+import com.hendraanggrian.kotlinpoet.parameters
 import com.hendraanggrian.ktfx.codegen.toString
 import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.ParameterizedTypeName
@@ -16,13 +22,13 @@ object CoroutinesWriter {
             buildFileSpec(factory.packageName, fileName) {
                 indentSize = 4
                 annotations {
-                    add<JvmMultifileClass>()
-                    add<JvmName> { addMember("%S", factory.className) }
+                    annotation<JvmMultifileClass>()
+                    JvmName::class.name { member("%S", factory.className) }
                 }
                 classEntry.functions.forEach { functionEntry ->
                     functions {
                         functionEntry.simpleFunctionName {
-                            kdoc.append(
+                            kdoc(
                                 "@see %T.${functionEntry.functionName}",
                                 classEntry.kdocType,
                             )
@@ -30,16 +36,16 @@ object CoroutinesWriter {
 
                             if (classEntry.receiver is ParameterizedTypeName) {
                                 classEntry.receiver.typeArguments.filter { it != STAR }.forEach {
-                                    typeVariables += it.toString()
+                                    typeVariable(it.toString().generics)
                                 }
                             }
 
                             returns<Unit>()
                             if (factory.extraFunctionModifier != null) {
-                                addModifiers(factory.extraFunctionModifier)
+                                modifiers(factory.extraFunctionModifier)
                             }
                             parameters {
-                                functionEntry.parameters.forEach(::plusAssign)
+                                functionEntry.parameters.forEach(::parameter)
                             }
 
                             appendLine(

@@ -1,13 +1,13 @@
 package com.hendraanggrian.ktfx.codegen.layouts
 
-import com.hendraanggrian.kotlinpoet.classNameOf
+import com.hendraanggrian.kotlinpoet.classNamed
+import com.hendraanggrian.kotlinpoet.name
 import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeVariableName
-import com.squareup.kotlinpoet.asClassName
 import javafx.scene.Node
 import javafx.scene.control.Menu
 import javafx.scene.control.MenuItem
@@ -44,13 +44,13 @@ data class LayoutsEntry(
 
     val typeName: TypeName
         get() {
-            val name = kClass.asClassName()
+            val name = kClass.name
             return name.takeIf { typeVarNames.isEmpty() } ?: name.parameterizedBy(typeVarNames)
         }
 
     val customTypeName: TypeName
         get() =
-            typeName.takeUnless { customClass } ?: classNameOf(
+            typeName.takeUnless { customClass } ?: classNamed(
                 packageName,
                 when {
                     simpleName.startsWith("JFX") -> "KtfxJfx${simpleName.substringAfter("JFX")}"
@@ -61,7 +61,7 @@ data class LayoutsEntry(
     val containerClassNames: List<ClassName>
         get() =
             VALID_CONTAINERS.filter { it == kClass || it.isSuperclassOf(kClass) }
-                .map { classNameOf(KTFX_LAYOUTS, "${it.simpleName}Container") }
+                .map { classNamed(KTFX_LAYOUTS, "${it.simpleName}Container") }
 
     val fullContainerClassNames: List<ClassName?>
         get() = listOf(null, *containerClassNames.toTypedArray())
@@ -81,7 +81,7 @@ data class LayoutsEntry(
 
     val supportStyledFunction: Boolean
         get() =
-            classNameOf("ktfx.layouts", "PathElementContainer") !in containerClassNames
+            classNamed("ktfx.layouts", "PathElementContainer") !in containerClassNames
 
     fun getFileComment(add: Boolean, styled: Boolean, configured: Boolean): String =
         buildString {

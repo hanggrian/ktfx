@@ -1,7 +1,10 @@
 package com.hendraanggrian.ktfx.codegen.layouts
 
-import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
+import com.hendraanggrian.kotlinpoet.ParameterSpecHandlerScope
+import com.hendraanggrian.kotlinpoet.generics
 import com.hendraanggrian.kotlinpoet.genericsBy
+import com.hendraanggrian.kotlinpoet.name
+import com.hendraanggrian.kotlinpoet.nullable
 import com.hendraanggrian.ktfx.codegen.S
 import com.hendraanggrian.ktfx.codegen.T
 import com.jfoenix.controls.JFXBadge
@@ -42,9 +45,8 @@ import com.jfoenix.controls.JFXTreeTableView
 import com.jfoenix.controls.JFXTreeView
 import com.jfoenix.controls.JFXTreeViewPath
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject
+import com.squareup.kotlinpoet.BOOLEAN
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-import com.squareup.kotlinpoet.asClassName
-import com.squareup.kotlinpoet.asTypeName
 import javafx.scene.Node
 import javafx.scene.control.TreeView
 import javafx.stage.Stage
@@ -74,11 +76,11 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
                 JFXComboBox::class(T) { items(T) }
                 JFXDatePicker::class { date() }
                 JFXDecorator::class {
-                    add<Stage>("stage")
-                    add<Node>("node")
-                    add<Boolean>("fullScreen") { defaultValue("true") }
-                    add<Boolean>("max") { defaultValue("true") }
-                    add<Boolean>("min") { defaultValue("true") }
+                    parameter("stage", Stage::class.name)
+                    parameter("node", Node::class.name)
+                    "fullScreen"(BOOLEAN) { defaultValue("true") }
+                    "max"(BOOLEAN) { defaultValue("true") }
+                    "min"(BOOLEAN) { defaultValue("true") }
                 }
                 JFXDefaultChip::class(T) {
                     chipView()
@@ -102,7 +104,7 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
                 JFXTextArea::class { text() }
                 JFXTextField::class { text() }
                 JFXTimePicker::class {
-                    "time"(LocalTime::class.asTypeName().copy(true)) { defaultValue("null") }
+                    "time"(LocalTime::class.name.nullable()) { defaultValue("null") }
                 }
                 JFXToggleButton::class()
                 JFXToggleNode::class { graphic() }
@@ -110,22 +112,20 @@ val LayoutsFactory.Companion.JFoenix: LayoutsFactory
                 JFXToolbar::class(customClass = true)
                 JFXTreeCell::class(T)
                 JFXTreeTableView::class(
-                    "S".genericsBy(RecursiveTreeObject::class.asClassName().parameterizedBy(S)),
+                    "S".genericsBy(RecursiveTreeObject::class.name.parameterizedBy(S)),
                 ) {
                     treeItem("root", S)
                 }
                 JFXTreeView::class(T) { treeItem("root", T) }
                 JFXTreeViewPath::class {
-                    "treeView"(
-                        TreeView::class.asClassName().parameterizedBy("*".genericsBy()).copy(true),
-                    ) {
+                    "treeView"(TreeView::class.name.parameterizedBy("*".generics).nullable()) {
                         defaultValue("null")
                     }
                 }
             }
 
-            fun ParameterSpecListScope.chipView() =
-                add("view", JFXChipView::class.asClassName().parameterizedBy(T))
+            fun ParameterSpecHandlerScope.chipView() =
+                parameter("view", JFXChipView::class.name.parameterizedBy(T))
 
-            fun ParameterSpecListScope.item() = add("item", T)
+            fun ParameterSpecHandlerScope.item() = parameter("item", T)
         }

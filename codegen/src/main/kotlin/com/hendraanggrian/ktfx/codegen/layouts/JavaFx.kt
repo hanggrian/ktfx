@@ -1,15 +1,20 @@
 package com.hendraanggrian.ktfx.codegen.layouts
 
-import com.hendraanggrian.kotlinpoet.collections.ParameterSpecListScope
+import com.hendraanggrian.kotlinpoet.ParameterSpecHandlerScope
+import com.hendraanggrian.kotlinpoet.name
+import com.hendraanggrian.kotlinpoet.nullable
 import com.hendraanggrian.ktfx.codegen.KTFX_LAYOUTS
 import com.hendraanggrian.ktfx.codegen.S
 import com.hendraanggrian.ktfx.codegen.T
 import com.hendraanggrian.ktfx.codegen.X
 import com.hendraanggrian.ktfx.codegen.Y
+import com.squareup.kotlinpoet.BOOLEAN
+import com.squareup.kotlinpoet.DOUBLE
+import com.squareup.kotlinpoet.INT
 import com.squareup.kotlinpoet.MemberName.Companion.member
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
+import com.squareup.kotlinpoet.STRING
 import com.squareup.kotlinpoet.asClassName
-import com.squareup.kotlinpoet.asTypeName
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import javafx.geometry.Orientation
@@ -125,14 +130,14 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 AreaChart::class(X, Y) { xyChartParameters() }
                 BarChart::class(X, Y) {
                     xyChartParameters()
-                    add<Double>("categoryGap") { defaultValue("10.0") }
+                    "categoryGap"(DOUBLE) { defaultValue("10.0") }
                 }
                 BubbleChart::class(X, Y) { xyChartParameters() }
                 PieChart::class {
                     "data"(ObservableList::class.parameterizedBy(PieChart.Data::class)) {
                         defaultValue(
                             "%M()",
-                            FXCollections::class.asClassName().member("observableArrayList"),
+                            FXCollections::class.name.member("observableArrayList"),
                         )
                     }
                 }
@@ -147,7 +152,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                     graphic()
                 }
                 ButtonBar::class(customClass = true) {
-                    "buttonOrder"(String::class.asTypeName().copy(true)) { defaultValue("null") }
+                    "buttonOrder"(STRING.nullable()) { defaultValue("null") }
                 }
                 CheckBox::class { text() }
                 CheckMenuItem::class {
@@ -159,7 +164,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 ComboBox::class(T) { items(T) }
                 CustomMenuItem::class {
                     content()
-                    add<Boolean>("hideOnClick") { defaultValue("true") }
+                    "hideOnClick"(BOOLEAN) { defaultValue("true") }
                 }
                 DatePicker::class { date() }
                 Hyperlink::class {
@@ -185,10 +190,10 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                     graphic()
                 }
                 Pagination::class {
-                    add<Int>("pageCount") {
-                        defaultValue("%M", Pagination::class.asClassName().member("INDETERMINATE"))
+                    "pageCount"(INT) {
+                        defaultValue("%M", Pagination::class.name.member("INDETERMINATE"))
                     }
-                    add<Int>("currentPageIndex") { defaultValue("0") }
+                    "currentPageIndex"(INT) { defaultValue("0") }
                 }
                 PasswordField::class()
                 ProgressBar::class { progress() }
@@ -215,7 +220,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 TextArea::class { emptyText() }
                 TextField::class { emptyText() }
                 TitledPane::class(customClass = true) {
-                    "title"(String::class.asTypeName().copy(true)) { defaultValue("null") }
+                    "title"(STRING.nullable()) { defaultValue("null") }
                 }
                 ToggleButton::class {
                     text()
@@ -227,13 +232,13 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
 
                 // javafx.scene.image
                 ImageView::class {
-                    add("image", Image::class.asTypeName().copy(true)) { defaultValue("null") }
+                    "image"(Image::class.name.nullable()) { defaultValue("null") }
                 }
-                ImageView::class { add<String>("imageUrl") }
+                ImageView::class { parameter("imageUrl", STRING) }
 
                 // javafx.scene.media
                 MediaView::class {
-                    add("mediaPlayer", MediaPlayer::class.asTypeName().copy(true)) {
+                    "mediaPlayer"(MediaPlayer::class.name.nullable()) {
                         defaultValue("null")
                     }
                 }
@@ -243,12 +248,12 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 BorderPane::class(customClass = true)
                 FlowPane::class(customClass = true) {
                     orientation()
-                    add<Double>("hgap")
-                    add<Double>("vgap")
+                    parameter("hgap", DOUBLE)
+                    parameter("vgap", DOUBLE)
                 }
                 FlowPane::class(customClass = true) {
                     orientation()
-                    add<Double>("gap") { defaultValue("0.0") }
+                    "gap"(DOUBLE) { defaultValue("0.0") }
                 }
                 GridPane::class(customClass = true)
                 HBox::class(customClass = true) { spacing() }
@@ -257,12 +262,12 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 StackPane::class(customClass = true)
                 TilePane::class(customClass = true) {
                     orientation()
-                    add<Double>("hgap")
-                    add<Double>("vgap")
+                    parameter("hgap", DOUBLE)
+                    parameter("vgap", DOUBLE)
                 }
                 TilePane::class(customClass = true) {
                     orientation()
-                    add<Double>("gap") { defaultValue("0.0") }
+                    "gap"(DOUBLE) { defaultValue("0.0") }
                 }
                 VBox::class(customClass = true) { spacing() }
 
@@ -270,26 +275,26 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 Arc::class {
                     centerXY()
                     radiusXY()
-                    add<Double>("startAngle") { defaultValue("0.0") }
-                    add<Double>("length") { defaultValue("0.0") }
+                    "startAngle"(DOUBLE) { defaultValue("0.0") }
+                    "length"(DOUBLE) { defaultValue("0.0") }
                 }
                 ArcTo::class {
                     radiusXY()
-                    add<Double>("xAxisRotation") { defaultValue("0.0") }
+                    "xAxisRotation"(DOUBLE) { defaultValue("0.0") }
                     x()
                     y()
-                    add<Boolean>("largeArcFlag") { defaultValue("false") }
-                    add<Boolean>("sweepFlag") { defaultValue("false") }
+                    "largeArcFlag"(BOOLEAN) { defaultValue("false") }
+                    "sweepFlag"(BOOLEAN) { defaultValue("false") }
                 }
                 Box::class {
-                    add<Double>("width") {
-                        defaultValue("%M", Box::class.asClassName().member("DEFAULT_SIZE"))
+                    "width"(DOUBLE) {
+                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
                     }
-                    add<Double>("height") {
-                        defaultValue("%M", Box::class.asClassName().member("DEFAULT_SIZE"))
+                    "height"(DOUBLE) {
+                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
                     }
-                    add<Double>("depth") {
-                        defaultValue("%M", Box::class.asClassName().member("DEFAULT_SIZE"))
+                    "depth"(DOUBLE) {
+                        defaultValue("%M", Box::class.name.member("DEFAULT_SIZE"))
                     }
                 }
                 Circle::class {
@@ -312,7 +317,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 }
                 Cylinder::class {
                     radius(1.0)
-                    add<Double>("height") { defaultValue("2.0") }
+                    "height"(DOUBLE) { defaultValue("2.0") }
                     division()
                 }
                 Ellipse::class {
@@ -329,9 +334,7 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                     y()
                 }
                 MeshView::class {
-                    "mesh"(
-                        Mesh::class.asTypeName().copy(true),
-                    ) { defaultValue("null") }
+                    "mesh"(Mesh::class.name.nullable()) { defaultValue("null") }
                 }
                 MoveTo::class {
                     x()
@@ -371,25 +374,25 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 WebView::class()
             }
 
-            fun ParameterSpecListScope.emptyText() = add<String>("text") { defaultValue("\"\"") }
+            fun ParameterSpecHandlerScope.emptyText() = "text"(STRING) { defaultValue("\"\"") }
 
-            fun ParameterSpecListScope.orientation() =
-                add<Orientation>("orientation") {
+            fun ParameterSpecHandlerScope.orientation() =
+                "orientation"(Orientation::class.name) {
                     defaultValue(
                         "%M",
-                        Orientation::class.asClassName().member("HORIZONTAL"),
+                        Orientation::class.name.member("HORIZONTAL"),
                     )
                 }
 
-            fun ParameterSpecListScope.spacing() = add<Double>("spacing") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.spacing() = "spacing"(DOUBLE) { defaultValue("0.0") }
 
-            fun ParameterSpecListScope.width() = add<Double>("width") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.width() = "width"(DOUBLE) { defaultValue("0.0") }
 
-            fun ParameterSpecListScope.height() = add<Double>("height") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.height() = "height"(DOUBLE) { defaultValue("0.0") }
 
-            fun ParameterSpecListScope.xyChartParameters() {
-                add("x", Axis::class.asClassName().parameterizedBy(X))
-                add("y", Axis::class.asClassName().parameterizedBy(Y))
+            fun ParameterSpecHandlerScope.xyChartParameters() {
+                parameter("x", Axis::class.name.parameterizedBy(X))
+                parameter("y", Axis::class.name.parameterizedBy(Y))
                 "data"(
                     ObservableList::class.asClassName()
                         .parameterizedBy(XYChart.Series::class.asClassName().parameterizedBy(X, Y)),
@@ -401,50 +404,50 @@ val LayoutsFactory.Companion.JavaFx: LayoutsFactory
                 }
             }
 
-            fun ParameterSpecListScope.x() = add<Double>("x") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.x() = "x"(DOUBLE) { defaultValue("0.0") }
 
-            fun ParameterSpecListScope.y() = add<Double>("y") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.y() = "y"(DOUBLE) { defaultValue("0.0") }
 
-            fun ParameterSpecListScope.startXY() {
-                add<Double>("startX") { defaultValue("0.0") }
-                add<Double>("startY") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.startXY() {
+                "startX"(DOUBLE) { defaultValue("0.0") }
+                "startY"(DOUBLE) { defaultValue("0.0") }
             }
 
-            fun ParameterSpecListScope.endXY() {
-                add<Double>("endX") { defaultValue("0.0") }
-                add<Double>("endY") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.endXY() {
+                "endX"(DOUBLE) { defaultValue("0.0") }
+                "endY"(DOUBLE) { defaultValue("0.0") }
             }
 
-            fun ParameterSpecListScope.centerXY() {
-                add<Double>("centerX") { defaultValue("0.0") }
-                add<Double>("centerY") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.centerXY() {
+                "centerX"(DOUBLE) { defaultValue("0.0") }
+                "centerY"(DOUBLE) { defaultValue("0.0") }
             }
 
-            fun ParameterSpecListScope.radiusXY() {
-                add<Double>("radiusX") { defaultValue("0.0") }
-                add<Double>("radiusY") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.radiusXY() {
+                "radiusX"(DOUBLE) { defaultValue("0.0") }
+                "radiusY"(DOUBLE) { defaultValue("0.0") }
             }
 
-            fun ParameterSpecListScope.radius(radius: Double) =
-                add<Double>("radius") { defaultValue("$radius") }
+            fun ParameterSpecHandlerScope.radius(radius: Double) =
+                "radius"(DOUBLE) { defaultValue("$radius") }
 
-            fun ParameterSpecListScope.fill() =
-                "fill"(Paint::class.asTypeName().copy(true)) { defaultValue("null") }
+            fun ParameterSpecHandlerScope.fill() =
+                "fill"(Paint::class.name.nullable()) { defaultValue("null") }
 
-            fun ParameterSpecListScope.controlXY() {
-                add<Double>("controlX") { defaultValue("0.0") }
-                add<Double>("controlY") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.controlXY() {
+                "controlX"(DOUBLE) { defaultValue("0.0") }
+                "controlY"(DOUBLE) { defaultValue("0.0") }
             }
 
-            fun ParameterSpecListScope.controlXY1() {
-                add<Double>("controlX1") { defaultValue("0.0") }
-                add<Double>("controlY1") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.controlXY1() {
+                "controlX1"(DOUBLE) { defaultValue("0.0") }
+                "controlY1"(DOUBLE) { defaultValue("0.0") }
             }
 
-            fun ParameterSpecListScope.controlXY2() {
-                add<Double>("controlX2") { defaultValue("0.0") }
-                add<Double>("controlY2") { defaultValue("0.0") }
+            fun ParameterSpecHandlerScope.controlXY2() {
+                "controlX2"(DOUBLE) { defaultValue("0.0") }
+                "controlY2"(DOUBLE) { defaultValue("0.0") }
             }
 
-            fun ParameterSpecListScope.division() = add<Int>("division") { defaultValue("64") }
+            fun ParameterSpecHandlerScope.division() = "division"(INT) { defaultValue("64") }
         }

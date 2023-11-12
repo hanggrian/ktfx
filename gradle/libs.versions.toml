@@ -15,7 +15,7 @@ pages = "com.hendraanggrian.pages:0.1"
 
 [libraries]
 # lint
-rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.4-SNAPSHOT"
+rulebook-ktlint = "com.hendraanggrian.rulebook:rulebook-ktlint:0.4"
 # main
 kotlinx-coroutines-core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
 kotlinx-coroutines-javafx = "org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.7.3"

@@ -1,8 +1,8 @@
 package com.hendraanggrian.ktfx.codegen.coroutines
 
+import com.hendraanggrian.kotlinpoet.name
 import com.hendraanggrian.ktfx.codegen.T
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-import com.squareup.kotlinpoet.asClassName
 import javafx.event.ActionEvent
 import javafx.event.Event
 import org.controlsfx.control.BreadCrumbBar
@@ -20,9 +20,9 @@ val CoroutinesFactory.Companion.ControlsFx: CoroutinesFactory
 
 fun ListenerFactory.initControlsFx() {
     // org.controlsfx.control
-    (BreadCrumbBar::class.asClassName().parameterizedBy(T)) {
+    (BreadCrumbBar::class.name.parameterizedBy(T)) {
         "setOnCrumbAction" {
-            action(BreadCrumbBar.BreadCrumbActionEvent::class.asClassName().parameterizedBy(T))
+            action(BreadCrumbBar.BreadCrumbActionEvent::class.name.parameterizedBy(T))
         }
     }
     HyperlinkLabel::class { "setOnAction" { action<ActionEvent>() } }

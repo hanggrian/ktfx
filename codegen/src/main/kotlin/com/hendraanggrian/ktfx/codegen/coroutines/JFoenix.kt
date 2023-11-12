@@ -1,5 +1,6 @@
 package com.hendraanggrian.ktfx.codegen.coroutines
 
+import com.hendraanggrian.kotlinpoet.name
 import com.hendraanggrian.ktfx.codegen.T
 import com.jfoenix.controls.JFXAutoCompletePopup
 import com.jfoenix.controls.JFXDecorator
@@ -10,7 +11,6 @@ import com.jfoenix.controls.events.JFXDialogEvent
 import com.jfoenix.controls.events.JFXDrawerEvent
 import com.jfoenix.transitions.JFXAnimationTimer
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
-import com.squareup.kotlinpoet.asClassName
 
 val CoroutinesFactory.Companion.JFoenix: CoroutinesFactory
     get() =
@@ -22,9 +22,9 @@ val CoroutinesFactory.Companion.JFoenix: CoroutinesFactory
 
 fun ListenerFactory.initJFoenix() {
     // com.jfoenix.controls
-    (JFXAutoCompletePopup::class.asClassName().parameterizedBy(T)) {
+    (JFXAutoCompletePopup::class.name.parameterizedBy(T)) {
         "setSelectionHandler" {
-            action(JFXAutoCompleteEvent::class.asClassName().parameterizedBy(T))
+            action(JFXAutoCompleteEvent::class.name.parameterizedBy(T))
         }
     }
     JFXDecorator::class { "setOnCloseButtonAction" { action(*emptyArray()) } }

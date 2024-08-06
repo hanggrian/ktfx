@@ -1,4 +1,4 @@
-const LOCAL_STORAGE_KEY = 'minimal-dark-mode'
+const LOCAL_STORAGE_KEY = 'minimal-dark-theme'
 
 if (isDarkMode()) {
   document.getElementsByTagName('html')[0].classList.add('theme-dark')

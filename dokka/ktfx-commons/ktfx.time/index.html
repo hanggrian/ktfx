@@ -1,9 +1,11 @@
 <!doctype html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>ktfx.time</title>
-<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
@@ -16,12 +18,13 @@
         }
     }
     </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
 <script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../styles/style.css" rel="Stylesheet">
-<link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="../../styles/main.css" rel="Stylesheet">
 <link href="../../styles/prism.css" rel="Stylesheet">
 <link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="../../scripts/clipboard.js" async></script>
 <script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
@@ -29,210 +32,223 @@
 <script type="text/javascript" src="../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-<a href="../../index.html">
-<span>ktfx</span>            </a>    </div>
-    <div>8.0-SNAPSHOT
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../index.html">
+                            ktfx
+                    </a>            </div>
+            <div class="library-version">0.1
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":ktfx-commons:dokkaHtmlPartial/main">jvm</button>
+        </div>
     </div>
-    <div class="pull-right d-flex">
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
-    </div>
-    <div id="main">
-<div class="main-content" id="content" pageids="ktfx-commons::ktfx.time////PointingToDeclaration//-410196302">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageids="ktfx-commons::ktfx.time////PointingToDeclaration//-410196302">
   <div class="breadcrumbs"><a href="../index.html">ktfx-commons</a><span class="delimiter">/</span><span class="current">ktfx.time</span></div>
   <div class="cover ">
     <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
     <div class="tabs-section-body">
-      <h2 class="">Functions</h2>
-      <div class="table" data-togglable="Functions"><a data-name="2073416650%2FFunctions%2F-410196302" anchor-label="div" id="2073416650%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="div.html"><span><span>div</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2073416650%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="div.html"><span class="token function">div</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scale<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="div.html"><span class="token function">div</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scale<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration whose value is this duration value divided by the given <a href="div.html">scale</a> number.</p></div></div></div>
+      <div data-togglable="EXTENSION_PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-736752254%2FProperties%2F-410196302" anchor-label="h" id="-736752254%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="h.html"><span><span>h</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-736752254%2FProperties%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">.</span><a href="h.html">h</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a> number of hours.</p></div><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">.</span><a href="h.html">h</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> number of hours.</p></div><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">.</span><a href="h.html">h</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> number of hours.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-<a data-name="-1152004915%2FFunctions%2F-410196302" anchor-label="minus" id="-1152004915%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="minus.html"><span><span>minus</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1152004915%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="minus.html"><span class="token function">minus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration whose value is the difference between this and <a href="minus.html">other</a> duration values.</p></div></div></div>
+<a data-name="-734133827%2FProperties%2F-410196302" anchor-label="m" id="-734133827%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="m.html"><span><span>m</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-734133827%2FProperties%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">.</span><a href="m.html">m</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a> number of minutes.</p></div><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">.</span><a href="m.html">m</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> number of minutes.</p></div><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">.</span><a href="m.html">m</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> number of minutes.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-<a data-name="57667427%2FFunctions%2F-410196302" anchor-label="plus" id="57667427%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="plus.html"><span><span>plus</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="57667427%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="plus.html"><span class="token function">plus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration whose value is the sum of this and <a href="plus.html">other</a> duration values.</p></div></div></div>
+<a data-name="-806077238%2FProperties%2F-410196302" anchor-label="ms" id="-806077238%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ms.html"><span><span>ms</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-806077238%2FProperties%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">.</span><a href="ms.html">ms</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a> number of milliseconds.</p></div><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">.</span><a href="ms.html">ms</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> number of milliseconds.</p></div><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">.</span><a href="ms.html">ms</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> number of milliseconds.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-<a data-name="-812488672%2FFunctions%2F-410196302" anchor-label="times" id="-812488672%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="times.html"><span><span>times</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-812488672%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="times.html"><span class="token function">times</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scale<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="times.html"><span class="token function">times</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scale<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration whose value is this duration value multiplied by the given <a href="times.html">scale</a> number.</p></div></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-<a data-name="1976255020%2FFunctions%2F-410196302" anchor-label="toDuration" id="1976255020%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="to-duration.html"><span>to</span><wbr><span><span>Duration</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1976255020%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="to-duration.html"><span class="token function">toDuration</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Converts this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> to a duration with the syntax <code class="lang-kotlin">[number][ms|s|m|h]</code>.</p></div></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-<a data-name="1218138436%2FFunctions%2F-410196302" anchor-label="toFxDuration" id="1218138436%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="to-fx-duration.html"><span>to</span><wbr><span>Fx</span><wbr><span><span>Duration</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1218138436%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html"><span class="token annotation builtin">ExperimentalTime</span></a></div></div><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">Duration</a><span class="token punctuation">.</span><a href="to-fx-duration.html"><span class="token function">toFxDuration</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">kotlin.time.Duration</a> as a JavaFX <span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span>.</p></div></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-<a data-name="-1297029485%2FFunctions%2F-410196302" anchor-label="toKotlinDuration" id="-1297029485%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="to-kotlin-duration.html"><span>to</span><wbr><span>Kotlin</span><wbr><span><span>Duration</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1297029485%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html"><span class="token annotation builtin">ExperimentalTime</span></a></div></div><span class="token keyword">inline </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="to-kotlin-duration.html"><span class="token function">toKotlinDuration</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">Duration</a></div><div class="brief "><p class="paragraph">Returns this <span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span> as a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">kotlin.time.Duration</a>.</p></div></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-<a data-name="890386114%2FFunctions%2F-410196302" anchor-label="unaryMinus" id="890386114%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="unary-minus.html"><span>unary</span><wbr><span><span>Minus</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="890386114%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="unary-minus.html"><span class="token function">unaryMinus</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns the negative of this value.</p></div></div></div>
+<a data-name="1845988663%2FProperties%2F-410196302" anchor-label="s" id="1845988663%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="s.html"><span><span>s</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1845988663%2FProperties%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">.</span><a href="s.html">s</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a> number of seconds.</p></div><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">.</span><a href="s.html">s</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> number of seconds.</p></div><div class="symbol monospace"><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">.</span><a href="s.html">s</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> number of seconds.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Properties</h2>
-      <div class="table" data-togglable="Properties"><a data-name="-578510949%2FProperties%2F-410196302" anchor-label="hours" id="-578510949%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="hours.html"><span><span>hours</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-578510949%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-578510949%2FProperties%2F-410196302" anchor-label="hours" id="-578510949%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">.</span><a href="hours.html">hours</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="-578510949%2FProperties%2F-410196302" anchor-label="hours" id="-578510949%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> number of hours.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">.</span><a href="hours.html">hours</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="-578510949%2FProperties%2F-410196302" anchor-label="hours" id="-578510949%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> number of hours.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">.</span><a href="hours.html">hours</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="-578510949%2FProperties%2F-410196302" anchor-label="hours" id="-578510949%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a> number of hours.</p></div></div></div>
+      <div data-togglable="EXTENSION_FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="2073416650%2FFunctions%2F-410196302" anchor-label="div" id="2073416650%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="div.html"><span><span>div</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2073416650%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="div.html"><span class="token function">div</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scale<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="div.html"><span class="token function">div</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scale<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration whose value is this duration value divided by the given <a href="div.html">scale</a> number.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-<a data-name="1004270454%2FProperties%2F-410196302" anchor-label="milliseconds" id="1004270454%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="milliseconds.html"><span><span>milliseconds</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1004270454%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="1004270454%2FProperties%2F-410196302" anchor-label="milliseconds" id="1004270454%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">.</span><a href="milliseconds.html">milliseconds</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="1004270454%2FProperties%2F-410196302" anchor-label="milliseconds" id="1004270454%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> number of milliseconds.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">.</span><a href="milliseconds.html">milliseconds</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="1004270454%2FProperties%2F-410196302" anchor-label="milliseconds" id="1004270454%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> number of milliseconds.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">.</span><a href="milliseconds.html">milliseconds</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="1004270454%2FProperties%2F-410196302" anchor-label="milliseconds" id="1004270454%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a> number of milliseconds.</p></div></div></div>
+<a data-name="-1152004915%2FFunctions%2F-410196302" anchor-label="minus" id="-1152004915%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="minus.html"><span><span>minus</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1152004915%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="minus.html"><span class="token function">minus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration whose value is the difference between this and <a href="minus.html">other</a> duration values.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-<a data-name="1698347211%2FProperties%2F-410196302" anchor-label="minutes" id="1698347211%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="minutes.html"><span><span>minutes</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1698347211%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="1698347211%2FProperties%2F-410196302" anchor-label="minutes" id="1698347211%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">.</span><a href="minutes.html">minutes</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="1698347211%2FProperties%2F-410196302" anchor-label="minutes" id="1698347211%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> number of minutes.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">.</span><a href="minutes.html">minutes</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="1698347211%2FProperties%2F-410196302" anchor-label="minutes" id="1698347211%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> number of minutes.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">.</span><a href="minutes.html">minutes</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="1698347211%2FProperties%2F-410196302" anchor-label="minutes" id="1698347211%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a> number of minutes.</p></div></div></div>
+<a data-name="57667427%2FFunctions%2F-410196302" anchor-label="plus" id="57667427%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="plus.html"><span><span>plus</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="57667427%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="plus.html"><span class="token function">plus</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">other<span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration whose value is the sum of this and <a href="plus.html">other</a> duration values.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-<a data-name="-750617813%2FProperties%2F-410196302" anchor-label="seconds" id="-750617813%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="seconds.html"><span><span>seconds</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-750617813%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-750617813%2FProperties%2F-410196302" anchor-label="seconds" id="-750617813%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">.</span><a href="seconds.html">seconds</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="-750617813%2FProperties%2F-410196302" anchor-label="seconds" id="-750617813%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a> number of seconds.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token punctuation">.</span><a href="seconds.html">seconds</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="-750617813%2FProperties%2F-410196302" anchor-label="seconds" id="-750617813%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a> number of seconds.</p></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">.</span><a href="seconds.html">seconds</a><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><a data-name="-750617813%2FProperties%2F-410196302" anchor-label="seconds" id="-750617813%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">Returns a duration equal to this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a> number of seconds.</p></div></div></div>
+<a data-name="-812488672%2FFunctions%2F-410196302" anchor-label="times" id="-812488672%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="times.html"><span><span>times</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-812488672%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="times.html"><span class="token function">times</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scale<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="symbol monospace"><span class="token keyword">operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="times.html"><span class="token function">times</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">scale<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns a duration whose value is this duration value multiplied by the given <a href="times.html">scale</a> number.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1976255020%2FFunctions%2F-410196302" anchor-label="toDuration" id="1976255020%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-duration.html"><span>to</span><wbr><span><span>Duration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1976255020%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">.</span><a href="to-duration.html"><span class="token function">toDuration</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Converts this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a> to a duration with the syntax <code class="lang-kotlin">[number][ms|s|m|h]</code>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1218138436%2FFunctions%2F-410196302" anchor-label="toFxDuration" id="1218138436%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-fx-duration.html"><span>to</span><wbr><span>Fx</span><wbr><span><span>Duration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1218138436%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html"><span class="token annotation builtin">ExperimentalTime</span></a></div></div><span class="token keyword">inline </span><span class="token keyword">fun </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">Duration</a><span class="token punctuation">.</span><a href="to-fx-duration.html"><span class="token function">toFxDuration</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns this <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">kotlin.time.Duration</a> as a JavaFX <span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1297029485%2FFunctions%2F-410196302" anchor-label="toKotlinDuration" id="-1297029485%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-kotlin-duration.html"><span>to</span><wbr><span>Kotlin</span><wbr><span><span>Duration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1297029485%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-experimental-time/index.html"><span class="token annotation builtin">ExperimentalTime</span></a></div></div><span class="token keyword">inline </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="to-kotlin-duration.html"><span class="token function">toKotlinDuration</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">Duration</a></div><div class="brief "><p class="paragraph">Returns this <span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span> as a <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/index.html">kotlin.time.Duration</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="890386114%2FFunctions%2F-410196302" anchor-label="unaryMinus" id="890386114%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unary-minus.html"><span>unary</span><wbr><span><span>Minus</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="890386114%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span><span class="token punctuation">.</span><a href="unary-minus.html"><span class="token function">unaryMinus</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.util/Duration///PointingToDeclaration/">Duration</span></div><div class="brief "><p class="paragraph">Returns the negative of this value.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -242,10 +258,11 @@
   </div>
 </div>
       <div class="footer">
-        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
-
-</body></html>
+</body>
+</html>
 

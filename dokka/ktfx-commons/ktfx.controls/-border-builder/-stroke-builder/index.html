@@ -1,9 +1,11 @@
 <!doctype html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>StrokeBuilder</title>
-<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
@@ -16,12 +18,13 @@
         }
     }
     </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
 <script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../../../styles/style.css" rel="Stylesheet">
-<link href="../../../../styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="../../../../styles/main.css" rel="Stylesheet">
 <link href="../../../../styles/prism.css" rel="Stylesheet">
 <link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
 <script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
@@ -29,258 +32,273 @@
 <script type="text/javascript" src="../../../../scripts/prism.js" async></script>
 <script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-<a href="../../../../index.html">
-<span>ktfx</span>            </a>    </div>
-    <div>8.0-SNAPSHOT
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            ktfx
+                    </a>            </div>
+            <div class="library-version">0.1
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":ktfx-commons:dokkaHtmlPartial/main">jvm</button>
+        </div>
     </div>
-    <div class="pull-right d-flex">
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
-    </div>
-    <div id="main">
-<div class="main-content" id="content" pageids="ktfx-commons::ktfx.controls/BorderBuilder.StrokeBuilder///PointingToDeclaration//-410196302">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="ktfx-commons::ktfx.controls/BorderBuilder.StrokeBuilder///PointingToDeclaration//-410196302">
   <div class="breadcrumbs"><a href="../../../index.html">ktfx-commons</a><span class="delimiter">/</span><a href="../../index.html">ktfx.controls</a><span class="delimiter">/</span><a href="../index.html">BorderBuilder</a><span class="delimiter">/</span><span class="current">StrokeBuilder</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Stroke</span><wbr><span><span>Builder</span></span></h1>
     <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">StrokeBuilder</a></div><p class="paragraph">Border stroke configurator class.</p></div></div>
   </div>
   <div class="tabbedcontent">
-    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
     <div class="tabs-section-body">
-      <h2 class="tabbedcontent">Constructors</h2>
-      <div class="table" data-togglable="Constructors"><a data-name="120028107%2FConstructors%2F-410196302" anchor-label="StrokeBuilder" id="120028107%2FConstructors%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue TabbedContent">
-            <div class=""><span class="inline-flex">
-                <div><a href="-stroke-builder.html"><span>Stroke</span><wbr><span><span>Builder</span></span></a></div>
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="120028107%2FConstructors%2F-410196302" anchor-label="StrokeBuilder" id="120028107%2FConstructors%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-stroke-builder.html"><span>Stroke</span><wbr><span><span>Builder</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="120028107%2FConstructors%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-stroke-builder.html"><span class="token function">StrokeBuilder</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <h2 class="">Functions</h2>
-      <div class="table" data-togglable="Functions"><a data-name="-103333152%2FFunctions%2F-410196302" anchor-label="build" id="-103333152%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="build.html"><span><span>build</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-103333152%2FFunctions%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="build.html"><span class="token function">build</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStroke///PointingToDeclaration/">BorderStroke</span></div><div class="brief "><p class="paragraph">Return border stroke based on current configuration.</p></div></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <h2 class="">Properties</h2>
-      <div class="table" data-togglable="Properties"><a data-name="1087375849%2FProperties%2F-410196302" anchor-label="bottomStroke" id="1087375849%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="bottom-stroke.html"><span>bottom</span><wbr><span><span>Stroke</span></span></a></div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1087375849%2FProperties%2F-410196302" anchor-label="bottomStroke" id="1087375849%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="bottom-stroke.html"><span>bottom</span><wbr><span><span>Stroke</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1087375849%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="1087375849%2FProperties%2F-410196302" anchor-label="bottomStroke" id="1087375849%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="bottom-stroke.html">bottomStroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="1087375849%2FProperties%2F-410196302" anchor-label="bottomStroke" id="1087375849%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The fill to use on the bottom. If null, defaults to the same value as <a href="bottom-stroke.html">bottomStroke</a>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="bottom-stroke.html">bottomStroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The fill to use on the bottom. If null, defaults to the same value as <a href="bottom-stroke.html">bottomStroke</a>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1946061496%2FProperties%2F-410196302" anchor-label="bottomStyle" id="-1946061496%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="bottom-style.html"><span>bottom</span><wbr><span><span>Style</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="bottom-style.html"><span>bottom</span><wbr><span><span>Style</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1946061496%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-1946061496%2FProperties%2F-410196302" anchor-label="bottomStyle" id="-1946061496%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="bottom-style.html">bottomStyle</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="-1946061496%2FProperties%2F-410196302" anchor-label="bottomStyle" id="-1946061496%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The style to use on the bottom. If null, defaults to the same value as <a href="top-style.html">topStyle</a>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="bottom-style.html">bottomStyle</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The style to use on the bottom. If null, defaults to the same value as <a href="top-style.html">topStyle</a>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-930492970%2FProperties%2F-410196302" anchor-label="insets" id="-930492970%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="insets.html"><span><span>insets</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="insets.html"><span><span>insets</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-930492970%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-930492970%2FProperties%2F-410196302" anchor-label="insets" id="-930492970%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="insets.html">insets</a><span class="token operator">: </span><span data-unresolved-link="javafx.geometry/Insets///PointingToDeclaration/">Insets</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="-930492970%2FProperties%2F-410196302" anchor-label="insets" id="-930492970%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The insets indicating where to draw the border relative to the region edges.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="insets.html">insets</a><span class="token operator">: </span><span data-unresolved-link="javafx.geometry/Insets///PointingToDeclaration/">Insets</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The insets indicating where to draw the border relative to the region edges.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-460242867%2FProperties%2F-410196302" anchor-label="leftStroke" id="-460242867%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="left-stroke.html"><span>left</span><wbr><span><span>Stroke</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="left-stroke.html"><span>left</span><wbr><span><span>Stroke</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-460242867%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-460242867%2FProperties%2F-410196302" anchor-label="leftStroke" id="-460242867%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="left-stroke.html">leftStroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="-460242867%2FProperties%2F-410196302" anchor-label="leftStroke" id="-460242867%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The fill to use on the left. If null, defaults to the same value as <a href="right-stroke.html">rightStroke</a>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="left-stroke.html">leftStroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The fill to use on the left. If null, defaults to the same value as <a href="right-stroke.html">rightStroke</a>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1580342684%2FProperties%2F-410196302" anchor-label="leftStyle" id="-1580342684%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="left-style.html"><span>left</span><wbr><span><span>Style</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="left-style.html"><span>left</span><wbr><span><span>Style</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1580342684%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-1580342684%2FProperties%2F-410196302" anchor-label="leftStyle" id="-1580342684%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="left-style.html">leftStyle</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="-1580342684%2FProperties%2F-410196302" anchor-label="leftStyle" id="-1580342684%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The style to use on the left. If null, defaults to the same value as <a href="right-style.html">rightStyle</a>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="left-style.html">leftStyle</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The style to use on the left. If null, defaults to the same value as <a href="right-style.html">rightStyle</a>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="1939499833%2FProperties%2F-410196302" anchor-label="radii" id="1939499833%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="radii.html"><span><span>radii</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="radii.html"><span><span>radii</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1939499833%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="1939499833%2FProperties%2F-410196302" anchor-label="radii" id="1939499833%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="radii.html">radii</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/CornerRadii///PointingToDeclaration/">CornerRadii</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="1939499833%2FProperties%2F-410196302" anchor-label="radii" id="1939499833%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The radii. If null, we default to square corners by using <span data-unresolved-link="javafx.scene.layout/CornerRadii/EMPTY/#/PointingToDeclaration/">CornerRadii.EMPTY</span>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="radii.html">radii</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/CornerRadii///PointingToDeclaration/">CornerRadii</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The radii. If null, we default to square corners by using <span data-unresolved-link="javafx.scene.layout/CornerRadii/EMPTY/#/PointingToDeclaration/">CornerRadii.EMPTY</span>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="295345114%2FProperties%2F-410196302" anchor-label="rightStroke" id="295345114%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="right-stroke.html"><span>right</span><wbr><span><span>Stroke</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="right-stroke.html"><span>right</span><wbr><span><span>Stroke</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="295345114%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="295345114%2FProperties%2F-410196302" anchor-label="rightStroke" id="295345114%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="right-stroke.html">rightStroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="295345114%2FProperties%2F-410196302" anchor-label="rightStroke" id="295345114%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The fill to use on the right. If null, defaults to the same value as <a href="top-stroke.html">topStroke</a>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="right-stroke.html">rightStroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The fill to use on the right. If null, defaults to the same value as <a href="top-stroke.html">topStroke</a>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-309042889%2FProperties%2F-410196302" anchor-label="rightStyle" id="-309042889%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="right-style.html"><span>right</span><wbr><span><span>Style</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="right-style.html"><span>right</span><wbr><span><span>Style</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-309042889%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-309042889%2FProperties%2F-410196302" anchor-label="rightStyle" id="-309042889%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="right-style.html">rightStyle</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="-309042889%2FProperties%2F-410196302" anchor-label="rightStyle" id="-309042889%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The style to use on the right. If null, defaults to the same value as <a href="top-style.html">topStyle</a>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="right-style.html">rightStyle</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The style to use on the right. If null, defaults to the same value as <a href="top-style.html">topStyle</a>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-1093932844%2FProperties%2F-410196302" anchor-label="stroke" id="-1093932844%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="stroke.html"><span><span>stroke</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="stroke.html"><span><span>stroke</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1093932844%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-1093932844%2FProperties%2F-410196302" anchor-label="stroke" id="-1093932844%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="stroke.html">stroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span></div><div class="brief "><a data-name="-1093932844%2FProperties%2F-410196302" anchor-label="stroke" id="-1093932844%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The stroke to use for all sides. If null, we default to <span data-unresolved-link="javafx.scene.paint/Color/BLACK/#/PointingToDeclaration/">javafx.scene.paint.Color.BLACK</span>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="stroke.html">stroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The stroke to use for all sides. If null, we default to <span data-unresolved-link="javafx.scene.paint/Color/BLACK/#/PointingToDeclaration/">javafx.scene.paint.Color.BLACK</span>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="-353858307%2FProperties%2F-410196302" anchor-label="style" id="-353858307%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="style.html"><span><span>style</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="style.html"><span><span>style</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-353858307%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-353858307%2FProperties%2F-410196302" anchor-label="style" id="-353858307%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="style.html">style</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span></div><div class="brief "><a data-name="-353858307%2FProperties%2F-410196302" anchor-label="style" id="-353858307%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The style to use for all sides. If null, we default to <span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle/NONE/#/PointingToDeclaration/">BorderStrokeStyle.NONE</span>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="style.html">style</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The style to use for all sides. If null, we default to <span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle/NONE/#/PointingToDeclaration/">BorderStrokeStyle.NONE</span>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="927008193%2FProperties%2F-410196302" anchor-label="topStroke" id="927008193%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="top-stroke.html"><span>top</span><wbr><span><span>Stroke</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="top-stroke.html"><span>top</span><wbr><span><span>Stroke</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="927008193%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="927008193%2FProperties%2F-410196302" anchor-label="topStroke" id="927008193%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="top-stroke.html">topStroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="927008193%2FProperties%2F-410196302" anchor-label="topStroke" id="927008193%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The fill to use on the top. If null, defaults to <span data-unresolved-link="javafx.scene.paint/Color/BLACK/#/PointingToDeclaration/">javafx.scene.paint.Color.BLACK</span>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="top-stroke.html">topStroke</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.paint/Paint///PointingToDeclaration/">Paint</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The fill to use on the top. If null, defaults to <span data-unresolved-link="javafx.scene.paint/Color/BLACK/#/PointingToDeclaration/">javafx.scene.paint.Color.BLACK</span>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 <a data-name="404070000%2FProperties%2F-410196302" anchor-label="topStyle" id="404070000%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="top-style.html"><span>top</span><wbr><span><span>Style</span></span></a></div>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="top-style.html"><span>top</span><wbr><span><span>Style</span></span></a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="404070000%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="404070000%2FProperties%2F-410196302" anchor-label="topStyle" id="404070000%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="top-style.html">topStyle</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="404070000%2FProperties%2F-410196302" anchor-label="topStyle" id="404070000%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The style to use on the top. If null, defaults to <span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle/NONE/#/PointingToDeclaration/">BorderStrokeStyle.NONE</span>.</p></div></div></div>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="top-style.html">topStyle</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle///PointingToDeclaration/">BorderStrokeStyle</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The style to use on the top. If null, defaults to <span data-unresolved-link="javafx.scene.layout/BorderStrokeStyle/NONE/#/PointingToDeclaration/">BorderStrokeStyle.NONE</span>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-357979841%2FProperties%2F-410196302" anchor-label="widths" id="-357979841%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="widths.html"><span><span>widths</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-357979841%2FProperties%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="widths.html">widths</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderWidths///PointingToDeclaration/">BorderWidths</span><span class="token operator">?</span></div><div class="brief "><p class="paragraph">The thickness of each side. If null, we default to <span data-unresolved-link="javafx.scene.layout/BorderWidths/DEFAULT/#/PointingToDeclaration/">BorderWidths.DEFAULT</span>.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-<a data-name="-357979841%2FProperties%2F-410196302" anchor-label="widths" id="-357979841%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
-        <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
-          <div class="main-subrow keyValue ">
-            <div class=""><span class="inline-flex">
-                <div><a href="widths.html"><span><span>widths</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-357979841%2FProperties%2F-410196302"></span>
-                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-                </span></span></div>
-            <div>
-              <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><a data-name="-357979841%2FProperties%2F-410196302" anchor-label="widths" id="-357979841%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="widths.html">widths</a><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderWidths///PointingToDeclaration/">BorderWidths</span><span class="token operator">?</span><span class="token operator"> = </span>null</div><div class="brief "><a data-name="-357979841%2FProperties%2F-410196302" anchor-label="widths" id="-357979841%2FProperties%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a><p class="paragraph">The thickness of each side. If null, we default to <span data-unresolved-link="javafx.scene.layout/BorderWidths/DEFAULT/#/PointingToDeclaration/">BorderWidths.DEFAULT</span>.</p></div></div></div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-103333152%2FFunctions%2F-410196302" anchor-label="build" id="-103333152%2FFunctions%2F-410196302" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":ktfx-commons:dokkaHtmlPartial/main" data-filterable-set=":ktfx-commons:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="build.html"><span><span>build</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-103333152%2FFunctions%2F-410196302"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":ktfx-commons:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="build.html"><span class="token function">build</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="javafx.scene.layout/BorderStroke///PointingToDeclaration/">BorderStroke</span></div><div class="brief "><p class="paragraph">Return border stroke based on current configuration.</p></div></div></div>
+                </div>
               </div>
             </div>
           </div>
@@ -290,10 +308,11 @@
   </div>
 </div>
       <div class="footer">
-        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
-
-</body></html>
+</body>
+</html>
 

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>All modules</title>
     <link href="images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
     <script>const storage = localStorage.getItem("dokka-dark-mode")
     if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -20,10 +21,10 @@
     </script>
 <script type="text/javascript" src="scripts/sourceset_dependencies.js" async="async"></script>
 <link href="styles/style.css" rel="Stylesheet">
-<link href="styles/jetbrains-mono.css" rel="Stylesheet">
 <link href="styles/main.css" rel="Stylesheet">
 <link href="styles/prism.css" rel="Stylesheet">
 <link href="styles/logo-styles.css" rel="Stylesheet">
+<link href="styles/font-jb-sans-auto.css" rel="Stylesheet">
 <script type="text/javascript" src="scripts/clipboard.js" async="async"></script>
 <script type="text/javascript" src="scripts/navigation-loader.js" async="async"></script>
 <script type="text/javascript" src="scripts/platform-content-handler.js" async="async"></script>
@@ -32,123 +33,73 @@
 <script type="text/javascript" src="scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
 </head>
 <body>
-<div class="navigation-wrapper" id="navigation-wrapper">
-    <div id="leftToggler"><span class="icon-toggler"></span></div>
-    <div class="library-name">
-            <a href="index.html">
-                    <span>ktfx</span>
-            </a>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="index.html">
+                            ktfx
+                    </a>
+            </div>
+            <div class="library-version">
+0.1            </div>
+        </div>
     </div>
-    <div>
-8.0-SNAPSHOT    </div>
-    <div class="pull-right d-flex">
-        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
     </div>
-</div>
-<div id="container">
-    <div id="leftColumn">
-        <div id="sideMenu"></div>
-    </div>
-    <div id="main">
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
 <div class="main-content" id="content" pageIds="ktfx::.ext/allModules///PointingToDeclaration//0">
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h2 class="">All modules:</h2>
-    <div class="table"><a data-name="-264605294%2FMain%2F0" anchor-label="controlsfx-commons" id="-264605294%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="thirdparty/controlsfx-commons/index.html">controlsfx-commons</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-264605294%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="1936885517%2FMain%2F0" anchor-label="controlsfx-coroutines" id="1936885517%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="thirdparty/controlsfx-coroutines/index.html">controlsfx-coroutines</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1936885517%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="-323608047%2FMain%2F0" anchor-label="controlsfx-layouts" id="-323608047%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="thirdparty/controlsfx-layouts/index.html">controlsfx-layouts</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-323608047%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="-1145289509%2FMain%2F0" anchor-label="controlsfx-listeners" id="-1145289509%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="thirdparty/controlsfx-listeners/index.html">controlsfx-listeners</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1145289509%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="82629479%2FMain%2F0" anchor-label="jfoenix-commons" id="82629479%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="thirdparty/jfoenix-commons/index.html">jfoenix-commons</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="82629479%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="-168208104%2FMain%2F0" anchor-label="jfoenix-coroutines" id="-168208104%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="thirdparty/jfoenix-coroutines/index.html">jfoenix-coroutines</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-168208104%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="23626726%2FMain%2F0" anchor-label="jfoenix-layouts" id="23626726%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="thirdparty/jfoenix-layouts/index.html">jfoenix-layouts</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="23626726%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="1834845552%2FMain%2F0" anchor-label="jfoenix-listeners" id="1834845552%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="thirdparty/jfoenix-listeners/index.html">jfoenix-listeners</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1834845552%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
-<a data-name="-367099649%2FMain%2F0" anchor-label="ktfx-commons" id="-367099649%2FMain%2F0" data-filterable-set=""></a>
+    <div class="table"><a data-name="-367099649%2FMain%2F0" anchor-label="ktfx-commons" id="-367099649%2FMain%2F0" data-filterable-set=""></a>
       <div class="table-row">
         <div class="main-subrow ">
           <div class="w-100"><span class="inline-flex">
               <div><a href="ktfx-commons/index.html">ktfx-commons</a></div>
 <span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-367099649%2FMain%2F0"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div><span class="brief-comment"></span></div>
+        </div>
+      </div>
+<a data-name="-45691144%2FMain%2F0" anchor-label="ktfx-controlsfx-commons" id="-45691144%2FMain%2F0" data-filterable-set=""></a>
+      <div class="table-row">
+        <div class="main-subrow ">
+          <div class="w-100"><span class="inline-flex">
+              <div><a href="thirdparty/ktfx-controlsfx-commons/index.html">ktfx-controlsfx-commons</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-45691144%2FMain%2F0"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div><span class="brief-comment"></span></div>
+        </div>
+      </div>
+<a data-name="-446994457%2FMain%2F0" anchor-label="ktfx-controlsfx-coroutines" id="-446994457%2FMain%2F0" data-filterable-set=""></a>
+      <div class="table-row">
+        <div class="main-subrow ">
+          <div class="w-100"><span class="inline-flex">
+              <div><a href="thirdparty/ktfx-controlsfx-coroutines/index.html">ktfx-controlsfx-coroutines</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-446994457%2FMain%2F0"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div><span class="brief-comment"></span></div>
+        </div>
+      </div>
+<a data-name="-104693897%2FMain%2F0" anchor-label="ktfx-controlsfx-layouts" id="-104693897%2FMain%2F0" data-filterable-set=""></a>
+      <div class="table-row">
+        <div class="main-subrow ">
+          <div class="w-100"><span class="inline-flex">
+              <div><a href="thirdparty/ktfx-controlsfx-layouts/index.html">ktfx-controlsfx-layouts</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-104693897%2FMain%2F0"></span>
                 <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
               </span></span></div>
           <div><span class="brief-comment"></span></div>
@@ -165,6 +116,39 @@
           <div><span class="brief-comment"></span></div>
         </div>
       </div>
+<a data-name="-874651711%2FMain%2F0" anchor-label="ktfx-jfoenix-commons" id="-874651711%2FMain%2F0" data-filterable-set=""></a>
+      <div class="table-row">
+        <div class="main-subrow ">
+          <div class="w-100"><span class="inline-flex">
+              <div><a href="thirdparty/ktfx-jfoenix-commons/index.html">ktfx-jfoenix-commons</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-874651711%2FMain%2F0"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div><span class="brief-comment"></span></div>
+        </div>
+      </div>
+<a data-name="50706046%2FMain%2F0" anchor-label="ktfx-jfoenix-coroutines" id="50706046%2FMain%2F0" data-filterable-set=""></a>
+      <div class="table-row">
+        <div class="main-subrow ">
+          <div class="w-100"><span class="inline-flex">
+              <div><a href="thirdparty/ktfx-jfoenix-coroutines/index.html">ktfx-jfoenix-coroutines</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="50706046%2FMain%2F0"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div><span class="brief-comment"></span></div>
+        </div>
+      </div>
+<a data-name="-933654464%2FMain%2F0" anchor-label="ktfx-jfoenix-layouts" id="-933654464%2FMain%2F0" data-filterable-set=""></a>
+      <div class="table-row">
+        <div class="main-subrow ">
+          <div class="w-100"><span class="inline-flex">
+              <div><a href="thirdparty/ktfx-jfoenix-layouts/index.html">ktfx-jfoenix-layouts</a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-933654464%2FMain%2F0"></span>
+                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+              </span></span></div>
+          <div><span class="brief-comment"></span></div>
+        </div>
+      </div>
 <a data-name="-426102402%2FMain%2F0" anchor-label="ktfx-layouts" id="-426102402%2FMain%2F0" data-filterable-set=""></a>
       <div class="table-row">
         <div class="main-subrow ">
@@ -176,26 +160,16 @@
           <div><span class="brief-comment"></span></div>
         </div>
       </div>
-<a data-name="-858116856%2FMain%2F0" anchor-label="ktfx-listeners" id="-858116856%2FMain%2F0" data-filterable-set=""></a>
-      <div class="table-row">
-        <div class="main-subrow ">
-          <div class="w-100"><span class="inline-flex">
-              <div><a href="ktfx-listeners/index.html">ktfx-listeners</a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-858116856%2FMain%2F0"></span>
-                <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
-              </span></span></div>
-          <div><span class="brief-comment"></span></div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
       <div class="footer">
-        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
                 class="pull-right"><span>Generated by </span><a
                 href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
       </div>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 </html>
